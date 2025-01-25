@@ -27,12 +27,6 @@ jobs:
       - name: Check the APK version
         id: get-version
         run: |
-          # Get the latest version from the output.json file
-          if [ ! -f output.json ]; then
-            echo "APK version not found. Skipping..."
-            echo "skip=true" >> $GITHUB_OUTPUT
-            exit 0
-          fi
           # If current version is the same as the latest version, exit
           latest_version=$(curl -s https://ba.pokeguy.dev/com.nexon.bluearchive/version.txt)
           echo "::notice title=Latest APK Version::$latest_version"
@@ -40,7 +34,7 @@ jobs:
           if [ ! -f version.txt ]; then
             echo "Version file not found."
             # Update the version.txt file with the latest version
-            echo "version=$(cat version.txt)" >> $GITHUB_OUTPUT
+            echo "version=$latest_version" >> $GITHUB_OUTPUT
             echo "skip=false" >> $GITHUB_OUTPUT
             exit 0
           fi
@@ -67,6 +61,12 @@ jobs:
     needs: determine-version
     if: needs.determine-version.outputs.skip == 'false'
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          sparse-checkout-cone-mode: false
+          fetch-depth: 0
       - name: Download decompiled zip file
         run: curl -s https://ba.pokeguy.dev/com.nexon.bluearchive/decompiled/${{ needs.determine-version.outputs.version }}/decompiled.zip -o output.zip
       - name: Unzip the file
@@ -77,6 +77,8 @@ jobs:
           go-version: '^1.22.5'
       - name: Generate the schema
         run: go run github.com/arisu-archive/arona-unflatd@latest d -i ./output/tmp/decompiled/DiffableCs/BlueArchive/FlatData -o ./.schema
+      - name: Update version file
+        run: echo "version=${{ needs.determine-version.outputs.version }}" > version.txt
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v9
         with:
