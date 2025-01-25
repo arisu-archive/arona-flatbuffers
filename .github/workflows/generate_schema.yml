@@ -67,6 +67,9 @@ jobs:
           ref: dev
           sparse-checkout-cone-mode: false
           fetch-depth: 0
+      - name: Setup access for private go modules
+        run: |
+          git config --global --add url."git@github.com:".insteadOf "https://github.com/"
       - name: Download decompiled zip file
         run: curl -s https://ba.pokeguy.dev/com.nexon.bluearchive/decompiled/${{ needs.determine-version.outputs.version }}/decompiled.zip -o output.zip
       - name: Unzip the file
