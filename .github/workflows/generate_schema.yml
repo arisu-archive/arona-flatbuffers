@@ -69,6 +69,8 @@ jobs:
           fetch-depth: 0
       - name: Setup access for private go modules
         run: |
+          eval "$(ssh-agent -s)"
+          echo "${ARONA_UNFLATD_PRIVATE_KEY}" | tr -d '\r' | ssh-add -
           git config --global --add url."git@github.com:".insteadOf "https://github.com/"
       - name: Download decompiled zip file
         run: curl -s https://ba.pokeguy.dev/com.nexon.bluearchive/decompiled/${{ needs.determine-version.outputs.version }}/decompiled.zip -o output.zip
