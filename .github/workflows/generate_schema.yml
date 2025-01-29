@@ -9,6 +9,10 @@ on:
         required: false
         description: 'Force update the library'
 
+env:
+  # Use the same ssh-agent socket value across all jobs
+  SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+
 jobs:
   determine-version:
     runs-on: ubuntu-latest
@@ -68,9 +72,11 @@ jobs:
           sparse-checkout-cone-mode: false
           fetch-depth: 0
       - name: Setup access for private go modules
+        env:
+          ARONA_UNFLATD_PRIVATE_KEY: ${{secrets.ARONA_UNFLATD_PRIVATE_KEY}}
         run: |
-          eval "$(ssh-agent -s)"
-          echo "${ARONA_UNFLATD_PRIVATE_KEY}" | tr -d '\r' | ssh-add -
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          echo "$ARONA_UNFLATD_PRIVATE_KEY" | tr -d '\r' | ssh-add -
           git config --global --add url."git@github.com:".insteadOf "https://github.com/"
       - name: Download decompiled zip file
         run: curl -s https://ba.pokeguy.dev/com.nexon.bluearchive/decompiled/${{ needs.determine-version.outputs.version }}/decompiled.zip -o output.zip
