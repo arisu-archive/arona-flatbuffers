@@ -34,6 +34,7 @@ const (
 	MailTypeCouponCompleteReward  MailType = 24
 	MailTypeBirthdayMail          MailType = 25
 	MailTypeFromCS                MailType = 26
+	MailTypeExpiryChangeCurrency  MailType = 27
 )
 
 var EnumNamesMailType = map[MailType]string{
@@ -64,6 +65,7 @@ var EnumNamesMailType = map[MailType]string{
 	MailTypeCouponCompleteReward:  "CouponCompleteReward",
 	MailTypeBirthdayMail:          "BirthdayMail",
 	MailTypeFromCS:                "FromCS",
+	MailTypeExpiryChangeCurrency:  "ExpiryChangeCurrency",
 }
 
 var EnumValuesMailType = map[string]MailType{
@@ -94,6 +96,7 @@ var EnumValuesMailType = map[string]MailType{
 	"CouponCompleteReward":  MailTypeCouponCompleteReward,
 	"BirthdayMail":          MailTypeBirthdayMail,
 	"FromCS":                MailTypeFromCS,
+	"ExpiryChangeCurrency":  MailTypeExpiryChangeCurrency,
 }
 
 func (v MailType) String() string {

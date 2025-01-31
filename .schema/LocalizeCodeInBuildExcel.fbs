@@ -1,0 +1,12 @@
+namespace FlatData;
+
+table LocalizeCodeInBuildExcel {
+    en: string;
+    jp: string;
+    key: uint;
+    kr: string;
+    th: string;
+    tw: string;
+}
+
+root_type LocalizeCodeInBuildExcel;

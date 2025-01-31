@@ -1,0 +1,9 @@
+include "AttendanceRewardExcel.fbs";
+
+namespace FlatData;
+
+table AttendanceRewardExcelTable {
+    data_list: [AttendanceRewardExcel];
+}
+
+root_type AttendanceRewardExcelTable;

@@ -1,0 +1,39 @@
+include "DialogConditionDetail.fbs";
+include "DialogType.fbs";
+include "ProductionStep.fbs";
+include "CVCollectionType.fbs";
+include "DialogCategory.fbs";
+include "DialogCondition.fbs";
+
+namespace FlatData;
+
+table CharacterDialogEventExcel {
+    action_name: string;
+    animation_name: string;
+    collection_visible: bool;
+    costume_unique_id: long;
+    cv_collection_type: CVCollectionType;
+    dialog_category: DialogCategory;
+    dialog_condition: DialogCondition;
+    dialog_condition_detail: DialogConditionDetail;
+    dialog_condition_detail_value: long;
+    dialog_type: DialogType;
+    display_order: long;
+    duration: long;
+    duration_kr: long;
+    event_id: long;
+    group_id: long;
+    localize_cv_group: string;
+    localize_en: string;
+    localize_jp: string;
+    localize_kr: string;
+    localize_th: string;
+    localize_tw: string;
+    original_character_id: long;
+    production_step: ProductionStep;
+    scenario_group_id: long;
+    unlock_event_season: long;
+    voice_id: [uint];
+}
+
+root_type CharacterDialogEventExcel;

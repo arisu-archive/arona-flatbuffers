@@ -1,0 +1,25 @@
+include "StatLevelUpType.fbs";
+include "EquipmentOptionType.fbs";
+include "Tag.fbs";
+
+namespace FlatData;
+
+table CharacterWeaponExcel {
+    attack_power: long;
+    attack_power100: long;
+    heal_power: long;
+    heal_power100: long;
+    id: long;
+    image_path: string;
+    learn_skill_slot: [string];
+    max_hp: long;
+    max_hp100: long;
+    max_level: [int];
+    recipe_id: [long];
+    set_recipe: long;
+    stat_level_up_type: StatLevelUpType;
+    stat_type: [EquipmentOptionType];
+    stat_value: [long];
+    tags: [Tag];
+    unlock: [bool];
+}

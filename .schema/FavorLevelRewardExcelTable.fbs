@@ -1,0 +1,9 @@
+include "FavorLevelRewardExcel.fbs";
+
+namespace FlatData;
+
+table FavorLevelRewardExcelTable {
+    data_list: [FavorLevelRewardExcel];
+}
+
+root_type FavorLevelRewardExcelTable;

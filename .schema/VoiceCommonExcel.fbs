@@ -1,0 +1,11 @@
+include "VoiceEvent.fbs";
+
+namespace FlatData;
+
+table VoiceCommonExcel {
+    rate: long;
+    voice_event: VoiceEvent;
+    voice_hash: [uint];
+}
+
+root_type VoiceCommonExcel;

@@ -73,3 +73,4 @@ class DialogCategory(object):
     UIEventTreasure = 67
     UIMultiFloorRaid = 68
     UIEventMiniGameDreamMaker = 69
+    UIAttendanceEvent17 = 70

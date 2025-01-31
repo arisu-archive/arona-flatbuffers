@@ -1,0 +1,19 @@
+include "ShopCategoryType.fbs";
+include "ProductDisplayTag.fbs";
+
+namespace FlatData;
+
+table ShopRefreshExcel {
+    buy_report_event_name: string;
+    category_type: ShopCategoryType;
+    display_order: long;
+    display_tag: ProductDisplayTag;
+    goods_id: long;
+    id: long;
+    is_bundle: bool;
+    is_legacy: bool;
+    localize_etc_id: uint;
+    prob: int;
+    refresh_group: int;
+    visible_amount: long;
+}

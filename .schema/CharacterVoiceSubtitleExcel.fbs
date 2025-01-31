@@ -1,0 +1,17 @@
+namespace FlatData;
+
+table CharacterVoiceSubtitleExcel {
+    character_voice_group_id: long;
+    duration: long;
+    duration_kr: long;
+    localize_cv_group: string;
+    localize_en: string;
+    localize_jp: string;
+    localize_kr: string;
+    localize_th: string;
+    localize_tw: string;
+    separate: bool;
+    tlmid: string;
+}
+
+root_type CharacterVoiceSubtitleExcel;

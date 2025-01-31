@@ -1,0 +1,15 @@
+namespace FlatData;
+
+table MiniGameDreamTimelineExcel {
+    art_level_path: string;
+    bgm: long;
+    design_level_path: string;
+    dream_maker_action_point: long;
+    dream_maker_days: long;
+    enter_scenario_group_id: long;
+    event_content_id: long;
+    group_id: long;
+    id: long;
+}
+
+root_type MiniGameDreamTimelineExcel;

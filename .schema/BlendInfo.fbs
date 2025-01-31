@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table BlendInfo {
+    blend: float;
+    from: int;
+    to: int;
+}

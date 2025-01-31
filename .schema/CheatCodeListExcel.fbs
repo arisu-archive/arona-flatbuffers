@@ -1,0 +1,8 @@
+namespace FlatData;
+
+table CheatCodeListExcel {
+    cheat_code: [string];
+    desc: string;
+    id: long;
+    input_title: [string];
+}

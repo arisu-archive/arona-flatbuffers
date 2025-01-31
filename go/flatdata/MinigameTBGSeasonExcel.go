@@ -17,19 +17,11 @@ func GetRootAsMinigameTBGSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *M
 	return x
 }
 
-func FinishMinigameTBGSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsMinigameTBGSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *MinigameTBGSeasonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MinigameTBGSeasonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedMinigameTBGSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MinigameTBGSeasonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -289,15 +281,19 @@ func (rcv *MinigameTBGSeasonExcel) MutateItemSlot(n int32) bool {
 	return rcv._tab.MutateInt32Slot(46, n)
 }
 
-func (rcv *MinigameTBGSeasonExcel) MapImagePath() []byte {
+func (rcv *MinigameTBGSeasonExcel) LoopThemaIndex() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *MinigameTBGSeasonExcel) MapNameLocalize() []byte {
+func (rcv *MinigameTBGSeasonExcel) MutateLoopThemaIndex(n int32) bool {
+	return rcv._tab.MutateInt32Slot(48, n)
+}
+
+func (rcv *MinigameTBGSeasonExcel) MapImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -305,19 +301,15 @@ func (rcv *MinigameTBGSeasonExcel) MapNameLocalize() []byte {
 	return nil
 }
 
-func (rcv *MinigameTBGSeasonExcel) MaxHp() int32 {
+func (rcv *MinigameTBGSeasonExcel) MapNameLocalize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *MinigameTBGSeasonExcel) MutateMaxHp(n int32) bool {
-	return rcv._tab.MutateInt32Slot(52, n)
-}
-
-func (rcv *MinigameTBGSeasonExcel) RoundItemSelectLimit() int32 {
+func (rcv *MinigameTBGSeasonExcel) MaxDicePlus() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -325,12 +317,48 @@ func (rcv *MinigameTBGSeasonExcel) RoundItemSelectLimit() int32 {
 	return 0
 }
 
-func (rcv *MinigameTBGSeasonExcel) MutateRoundItemSelectLimit(n int32) bool {
+func (rcv *MinigameTBGSeasonExcel) MutateMaxDicePlus(n int32) bool {
 	return rcv._tab.MutateInt32Slot(54, n)
 }
 
+func (rcv *MinigameTBGSeasonExcel) MaxHp() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGSeasonExcel) MutateMaxHp(n int32) bool {
+	return rcv._tab.MutateInt32Slot(56, n)
+}
+
+func (rcv *MinigameTBGSeasonExcel) RoundItemSelectLimit() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGSeasonExcel) MutateRoundItemSelectLimit(n int32) bool {
+	return rcv._tab.MutateInt32Slot(58, n)
+}
+
+func (rcv *MinigameTBGSeasonExcel) StartThemaIndex() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGSeasonExcel) MutateStartThemaIndex(n int32) bool {
+	return rcv._tab.MutateInt32Slot(60, n)
+}
+
 func MinigameTBGSeasonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(26)
+	builder.StartObject(29)
 }
 func MinigameTBGSeasonExcelAddAttackDamage(builder *flatbuffers.Builder, attackDamage int32) {
 	builder.PrependInt32Slot(0, attackDamage, 0)
@@ -398,17 +426,26 @@ func MinigameTBGSeasonExcelAddInstantClearRound(builder *flatbuffers.Builder, in
 func MinigameTBGSeasonExcelAddItemSlot(builder *flatbuffers.Builder, itemSlot int32) {
 	builder.PrependInt32Slot(21, itemSlot, 0)
 }
+func MinigameTBGSeasonExcelAddLoopThemaIndex(builder *flatbuffers.Builder, loopThemaIndex int32) {
+	builder.PrependInt32Slot(22, loopThemaIndex, 0)
+}
 func MinigameTBGSeasonExcelAddMapImagePath(builder *flatbuffers.Builder, mapImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(mapImagePath), 0)
+	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(mapImagePath), 0)
 }
 func MinigameTBGSeasonExcelAddMapNameLocalize(builder *flatbuffers.Builder, mapNameLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(mapNameLocalize), 0)
+	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(mapNameLocalize), 0)
+}
+func MinigameTBGSeasonExcelAddMaxDicePlus(builder *flatbuffers.Builder, maxDicePlus int32) {
+	builder.PrependInt32Slot(25, maxDicePlus, 0)
 }
 func MinigameTBGSeasonExcelAddMaxHp(builder *flatbuffers.Builder, maxHp int32) {
-	builder.PrependInt32Slot(24, maxHp, 0)
+	builder.PrependInt32Slot(26, maxHp, 0)
 }
 func MinigameTBGSeasonExcelAddRoundItemSelectLimit(builder *flatbuffers.Builder, roundItemSelectLimit int32) {
-	builder.PrependInt32Slot(25, roundItemSelectLimit, 0)
+	builder.PrependInt32Slot(27, roundItemSelectLimit, 0)
+}
+func MinigameTBGSeasonExcelAddStartThemaIndex(builder *flatbuffers.Builder, startThemaIndex int32) {
+	builder.PrependInt32Slot(28, startThemaIndex, 0)
 }
 func MinigameTBGSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

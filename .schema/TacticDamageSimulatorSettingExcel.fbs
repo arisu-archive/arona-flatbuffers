@@ -1,0 +1,23 @@
+include "TerrainAdaptationStat.fbs";
+
+namespace FlatData;
+
+table TacticDamageSimulatorSettingExcel {
+    apply_override_adaptation: bool;
+    apply_override_favor_level: bool;
+    fixed_character: [long];
+    ground_id: long;
+    order: int;
+    override_favor_level: int;
+    override_indoor_adaptation: TerrainAdaptationStat;
+    override_outdoor_adaptation: TerrainAdaptationStat;
+    override_street_adaptation: TerrainAdaptationStat;
+    repeat: int;
+    replace_character_cost_regen: bool;
+    replace_cost_regen_value: int;
+    special_squard: long;
+    striker_squard: long;
+    test_battle_time: long;
+    test_preset: long;
+    use_auto_skill: bool;
+}

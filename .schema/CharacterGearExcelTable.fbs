@@ -1,0 +1,9 @@
+include "CharacterGearExcel.fbs";
+
+namespace FlatData;
+
+table CharacterGearExcelTable {
+    data_list: [CharacterGearExcel];
+}
+
+root_type CharacterGearExcelTable;

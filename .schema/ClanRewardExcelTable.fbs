@@ -1,0 +1,9 @@
+include "ClanRewardExcel.fbs";
+
+namespace FlatData;
+
+table ClanRewardExcelTable {
+    data_list: [ClanRewardExcel];
+}
+
+root_type ClanRewardExcelTable;

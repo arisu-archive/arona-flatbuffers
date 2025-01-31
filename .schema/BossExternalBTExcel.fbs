@@ -1,0 +1,16 @@
+include "ExternalBehavior.fbs";
+include "ExternalBTNodeType.fbs";
+include "ExternalBTTrigger.fbs";
+
+namespace FlatData;
+
+table BossExternalBTExcel {
+    ai_phase: long;
+    behavior_argument: string;
+    behavior_rate: long;
+    external_behavior: ExternalBehavior;
+    external_bt_id: long;
+    external_bt_node_type: ExternalBTNodeType;
+    external_bt_trigger: ExternalBTTrigger;
+    trigger_argument: string;
+}

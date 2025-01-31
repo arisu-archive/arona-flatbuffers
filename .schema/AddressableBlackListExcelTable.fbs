@@ -1,0 +1,9 @@
+include "AddressableBlackListExcel.fbs";
+
+namespace FlatData;
+
+table AddressableBlackListExcelTable {
+    data_list: [AddressableBlackListExcel];
+}
+
+root_type AddressableBlackListExcelTable;

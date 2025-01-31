@@ -1,0 +1,13 @@
+namespace FlatData;
+
+table LoadingImageExcel {
+    display_weight: int;
+    id: long;
+    image_path_en: string;
+    image_path_jp: string;
+    image_path_kr: string;
+    image_path_th: string;
+    image_path_tw: string;
+}
+
+root_type LoadingImageExcel;

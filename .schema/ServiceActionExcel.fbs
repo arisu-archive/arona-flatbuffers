@@ -1,0 +1,11 @@
+include "ServiceActionType.fbs";
+
+namespace FlatData;
+
+table ServiceActionExcel {
+    goods_id: long;
+    is_legacy: bool;
+    service_action_type: ServiceActionType;
+}
+
+root_type ServiceActionExcel;

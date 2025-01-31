@@ -1,0 +1,9 @@
+include "VoiceSkillUseExcel.fbs";
+
+namespace FlatData;
+
+table VoiceSkillUseExcelTable {
+    data_list: [VoiceSkillUseExcel];
+}
+
+root_type VoiceSkillUseExcelTable;

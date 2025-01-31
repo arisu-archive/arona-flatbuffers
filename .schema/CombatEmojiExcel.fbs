@@ -1,0 +1,16 @@
+include "EmojiEvent.fbs";
+
+namespace FlatData;
+
+table CombatEmojiExcel {
+    emoji_duration: bool;
+    emoji_event: EmojiEvent;
+    emoji_reversal: bool;
+    emoji_turn_on: bool;
+    order_of_priority: int;
+    show_default_bg: bool;
+    show_emoji_delay: int;
+    unique_id: long;
+}
+
+root_type CombatEmojiExcel;

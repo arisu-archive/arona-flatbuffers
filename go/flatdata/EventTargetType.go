@@ -17,6 +17,7 @@ const (
 	EventTargetTypeAccountLevelExpIncrease EventTargetType = 7
 	EventTargetTypeRaid                    EventTargetType = 8
 	EventTargetTypeEliminateRaid           EventTargetType = 9
+	EventTargetTypeMultiFloorRaid          EventTargetType = 10
 )
 
 var EnumNamesEventTargetType = map[EventTargetType]string{
@@ -30,6 +31,7 @@ var EnumNamesEventTargetType = map[EventTargetType]string{
 	EventTargetTypeAccountLevelExpIncrease: "AccountLevelExpIncrease",
 	EventTargetTypeRaid:                    "Raid",
 	EventTargetTypeEliminateRaid:           "EliminateRaid",
+	EventTargetTypeMultiFloorRaid:          "MultiFloorRaid",
 }
 
 var EnumValuesEventTargetType = map[string]EventTargetType{
@@ -43,6 +45,7 @@ var EnumValuesEventTargetType = map[string]EventTargetType{
 	"AccountLevelExpIncrease": EventTargetTypeAccountLevelExpIncrease,
 	"Raid":                    EventTargetTypeRaid,
 	"EliminateRaid":           EventTargetTypeEliminateRaid,
+	"MultiFloorRaid":          EventTargetTypeMultiFloorRaid,
 }
 
 func (v EventTargetType) String() string {

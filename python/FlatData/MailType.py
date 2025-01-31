@@ -30,3 +30,4 @@ class MailType(object):
     CouponCompleteReward = 24
     BirthdayMail = 25
     FromCS = 26
+    ExpiryChangeCurrency = 27

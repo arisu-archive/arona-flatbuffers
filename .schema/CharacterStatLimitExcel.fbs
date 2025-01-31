@@ -1,0 +1,14 @@
+include "TacticEntityType.fbs";
+include "StatType.fbs";
+
+namespace FlatData;
+
+table CharacterStatLimitExcel {
+    id: long;
+    stat_max_value: long;
+    stat_min_value: long;
+    stat_ratio_max_value: long;
+    stat_ratio_min_value: long;
+    stat_type: StatType;
+    tactic_entity_type: TacticEntityType;
+}

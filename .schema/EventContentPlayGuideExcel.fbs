@@ -1,0 +1,10 @@
+namespace FlatData;
+
+table EventContentPlayGuideExcel {
+    display_order: int;
+    event_content_id: long;
+    guide_image_path: string;
+    guide_text: string;
+    guide_title: string;
+    id: long;
+}

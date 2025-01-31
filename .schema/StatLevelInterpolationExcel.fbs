@@ -1,0 +1,6 @@
+namespace FlatData;
+
+table StatLevelInterpolationExcel {
+    level: long;
+    stat_type_index: [long];
+}

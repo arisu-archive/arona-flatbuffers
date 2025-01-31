@@ -1,0 +1,22 @@
+namespace FlatData;
+
+table LocalizeSkillExcel {
+    description_en: string;
+    description_jp: string;
+    description_kr: string;
+    description_th: string;
+    description_tw: string;
+    key: uint;
+    name_en: string;
+    name_jp: string;
+    name_kr: string;
+    name_th: string;
+    name_tw: string;
+    skill_invoke_localize_en: string;
+    skill_invoke_localize_jp: string;
+    skill_invoke_localize_kr: string;
+    skill_invoke_localize_th: string;
+    skill_invoke_localize_tw: string;
+}
+
+root_type LocalizeSkillExcel;

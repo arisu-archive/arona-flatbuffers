@@ -1,0 +1,17 @@
+include "DreamMakerParameterType.fbs";
+
+namespace FlatData;
+
+table MiniGameDreamParameterExcel {
+    event_content_id: long;
+    icon_path: string;
+    id: long;
+    localize_etc_id: uint;
+    parameter_base: long;
+    parameter_base_max: long;
+    parameter_max: long;
+    parameter_min: long;
+    parameter_type: DreamMakerParameterType;
+}
+
+root_type MiniGameDreamParameterExcel;

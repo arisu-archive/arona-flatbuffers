@@ -1,0 +1,13 @@
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table MiniGameDefenseInfoExcel {
+    defense_battle_multiplier_max: long;
+    defense_battle_parcel_id: long;
+    defense_battle_parcel_type: ParcelType;
+    disable_root_motion: bool;
+    event_content_id: long;
+}
+
+root_type MiniGameDefenseInfoExcel;

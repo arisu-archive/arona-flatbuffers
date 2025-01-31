@@ -1,0 +1,9 @@
+namespace FlatData;
+
+table SpineLipsyncExcel {
+    anim_json: string;
+    anim_json_kr: string;
+    voice_id: uint;
+}
+
+root_type SpineLipsyncExcel;

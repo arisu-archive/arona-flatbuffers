@@ -1,0 +1,14 @@
+namespace FlatData;
+
+table MiniGameDreamScheduleExcel {
+    animation_name: string;
+    display_order: long;
+    dream_maker_schedule_group_id: long;
+    event_content_id: long;
+    icon_path: string;
+    loading_resource01: string;
+    loading_resource02: string;
+    localize_etc_id: uint;
+}
+
+root_type MiniGameDreamScheduleExcel;

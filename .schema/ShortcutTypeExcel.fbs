@@ -1,0 +1,11 @@
+include "ShortcutContentType.fbs";
+
+namespace FlatData;
+
+table ShortcutTypeExcel {
+    content_type: [ShortcutContentType];
+    id: long;
+    is_ascending: bool;
+}
+
+root_type ShortcutTypeExcel;

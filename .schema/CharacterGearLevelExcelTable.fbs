@@ -1,0 +1,9 @@
+include "CharacterGearLevelExcel.fbs";
+
+namespace FlatData;
+
+table CharacterGearLevelExcelTable {
+    data_list: [CharacterGearLevelExcel];
+}
+
+root_type CharacterGearLevelExcelTable;

@@ -1,0 +1,11 @@
+namespace FlatData;
+
+table EventContentSpoilerPopupExcel {
+    condition_scenario_mode_id: long;
+    event_content_id: long;
+    is_warning_pop_up: bool;
+    spoiler_popup_description: string;
+    spoiler_popup_title: string;
+}
+
+root_type EventContentSpoilerPopupExcel;
