@@ -1,0 +1,15 @@
+include "WeekDungeonType.fbs";
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table WeekDungeonRewardExcel {
+    drop_item_model_prefab_path: string;
+    dungeon_type: WeekDungeonType;
+    group_id: long;
+    is_displayed: bool;
+    reward_parcel_amount: long;
+    reward_parcel_id: long;
+    reward_parcel_probability: long;
+    reward_parcel_type: ParcelType;
+}

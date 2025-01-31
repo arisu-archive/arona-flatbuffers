@@ -77,6 +77,7 @@ const (
 	DialogCategoryUIEventTreasure              DialogCategory = 67
 	DialogCategoryUIMultiFloorRaid             DialogCategory = 68
 	DialogCategoryUIEventMiniGameDreamMaker    DialogCategory = 69
+	DialogCategoryUIAttendanceEvent17          DialogCategory = 70
 )
 
 var EnumNamesDialogCategory = map[DialogCategory]string{
@@ -150,6 +151,7 @@ var EnumNamesDialogCategory = map[DialogCategory]string{
 	DialogCategoryUIEventTreasure:              "UIEventTreasure",
 	DialogCategoryUIMultiFloorRaid:             "UIMultiFloorRaid",
 	DialogCategoryUIEventMiniGameDreamMaker:    "UIEventMiniGameDreamMaker",
+	DialogCategoryUIAttendanceEvent17:          "UIAttendanceEvent17",
 }
 
 var EnumValuesDialogCategory = map[string]DialogCategory{
@@ -223,6 +225,7 @@ var EnumValuesDialogCategory = map[string]DialogCategory{
 	"UIEventTreasure":              DialogCategoryUIEventTreasure,
 	"UIMultiFloorRaid":             DialogCategoryUIMultiFloorRaid,
 	"UIEventMiniGameDreamMaker":    DialogCategoryUIEventMiniGameDreamMaker,
+	"UIAttendanceEvent17":          DialogCategoryUIAttendanceEvent17,
 }
 
 func (v DialogCategory) String() string {

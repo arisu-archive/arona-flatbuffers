@@ -1,0 +1,9 @@
+include "AssistEchelonTypeConvertExcel.fbs";
+
+namespace FlatData;
+
+table AssistEchelonTypeConvertExcelTable {
+    data_list: [AssistEchelonTypeConvertExcel];
+}
+
+root_type AssistEchelonTypeConvertExcelTable;

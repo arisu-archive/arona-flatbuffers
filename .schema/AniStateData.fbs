@@ -1,0 +1,18 @@
+include "AniEventData.fbs";
+
+namespace FlatData;
+
+table AniStateData {
+    clip_name: string;
+    events: [AniEventData];
+    frame_rate: float;
+    is_looping: bool;
+    length: float;
+    speed_parameter_name: string;
+    speed_paramter: float;
+    state_name: string;
+    state_name_with_prefix: string;
+    state_prefix: string;
+    state_speed: float;
+    tag: string;
+}

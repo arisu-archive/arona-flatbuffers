@@ -1,0 +1,22 @@
+include "FieldInteractionType.fbs";
+include "FieldConditionClass.fbs";
+include "FieldConditionType.fbs";
+
+namespace FlatData;
+
+table FieldInteractionExcel {
+    condition_class: FieldConditionClass;
+    condition_class_parameters: [long];
+    condition_id: [long];
+    condition_index: [long];
+    condition_type: [FieldConditionType];
+    field_date_id: long;
+    field_season_id: long;
+    interaction_id: [long];
+    interaction_type: [FieldInteractionType];
+    keyword_localize: string;
+    negate_condition: [bool];
+    once_only: bool;
+    show_emoji: bool;
+    unique_id: long;
+}

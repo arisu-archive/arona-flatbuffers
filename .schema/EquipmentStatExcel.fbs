@@ -1,0 +1,23 @@
+include "EquipmentCategory.fbs";
+include "CurrencyTypes.fbs";
+include "StatLevelUpType.fbs";
+include "EquipmentOptionType.fbs";
+
+namespace FlatData;
+
+table EquipmentStatExcel {
+    damage_factor_group_id: string;
+    default_max_level: int;
+    equipment_category: EquipmentCategory;
+    equipment_id: long;
+    level_up_feed_add_exp: long;
+    level_up_feed_cost_amount: long;
+    level_up_feed_cost_currency: CurrencyTypes;
+    level_up_feed_exp: long;
+    level_up_insert_limit: int;
+    max_stat: [long];
+    min_stat: [long];
+    stat_level_up_type: StatLevelUpType;
+    stat_type: [EquipmentOptionType];
+    transcendence_max: int;
+}

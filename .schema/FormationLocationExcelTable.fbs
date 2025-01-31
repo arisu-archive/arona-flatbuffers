@@ -1,0 +1,9 @@
+include "FormationLocationExcel.fbs";
+
+namespace FlatData;
+
+table FormationLocationExcelTable {
+    data_list: [FormationLocationExcel];
+}
+
+root_type FormationLocationExcelTable;

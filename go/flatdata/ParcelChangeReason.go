@@ -188,9 +188,12 @@ const (
 	ParcelChangeReasonMiniGame_DreamDailyClosing           ParcelChangeReason = 178
 	ParcelChangeReasonMiniGame_DreamEnding                 ParcelChangeReason = 179
 	ParcelChangeReasonItem_ExpireChange                    ParcelChangeReason = 180
-	ParcelChangeReasonTemp                                 ParcelChangeReason = 181
+	ParcelChangeReasonMiniGame_DefenseBattleResult         ParcelChangeReason = 181
 	ParcelChangeReasonRaid_FailCompensateReward            ParcelChangeReason = 182
 	ParcelChangeReasonEliminateRaid_FailCompensateReward   ParcelChangeReason = 183
+	ParcelChangeReasonCurrency_ExpireChange                ParcelChangeReason = 184
+	ParcelChangeReasonConquest_ErosionBattleResult         ParcelChangeReason = 185
+	ParcelChangeReasonConquest_EnterErosionBattle          ParcelChangeReason = 186
 )
 
 var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
@@ -375,9 +378,12 @@ var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
 	ParcelChangeReasonMiniGame_DreamDailyClosing:           "MiniGame_DreamDailyClosing",
 	ParcelChangeReasonMiniGame_DreamEnding:                 "MiniGame_DreamEnding",
 	ParcelChangeReasonItem_ExpireChange:                    "Item_ExpireChange",
-	ParcelChangeReasonTemp:                                 "Temp",
+	ParcelChangeReasonMiniGame_DefenseBattleResult:         "MiniGame_DefenseBattleResult",
 	ParcelChangeReasonRaid_FailCompensateReward:            "Raid_FailCompensateReward",
 	ParcelChangeReasonEliminateRaid_FailCompensateReward:   "EliminateRaid_FailCompensateReward",
+	ParcelChangeReasonCurrency_ExpireChange:                "Currency_ExpireChange",
+	ParcelChangeReasonConquest_ErosionBattleResult:         "Conquest_ErosionBattleResult",
+	ParcelChangeReasonConquest_EnterErosionBattle:          "Conquest_EnterErosionBattle",
 }
 
 var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
@@ -562,9 +568,12 @@ var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
 	"MiniGame_DreamDailyClosing":           ParcelChangeReasonMiniGame_DreamDailyClosing,
 	"MiniGame_DreamEnding":                 ParcelChangeReasonMiniGame_DreamEnding,
 	"Item_ExpireChange":                    ParcelChangeReasonItem_ExpireChange,
-	"Temp":                                 ParcelChangeReasonTemp,
+	"MiniGame_DefenseBattleResult":         ParcelChangeReasonMiniGame_DefenseBattleResult,
 	"Raid_FailCompensateReward":            ParcelChangeReasonRaid_FailCompensateReward,
 	"EliminateRaid_FailCompensateReward":   ParcelChangeReasonEliminateRaid_FailCompensateReward,
+	"Currency_ExpireChange":                ParcelChangeReasonCurrency_ExpireChange,
+	"Conquest_ErosionBattleResult":         ParcelChangeReasonConquest_ErosionBattleResult,
+	"Conquest_EnterErosionBattle":          ParcelChangeReasonConquest_EnterErosionBattle,
 }
 
 func (v ParcelChangeReason) String() string {

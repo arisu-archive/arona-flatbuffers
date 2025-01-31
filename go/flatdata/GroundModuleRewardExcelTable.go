@@ -17,19 +17,11 @@ func GetRootAsGroundModuleRewardExcelTable(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
-func FinishGroundModuleRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsGroundModuleRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *GroundModuleRewardExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GroundModuleRewardExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedGroundModuleRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GroundModuleRewardExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

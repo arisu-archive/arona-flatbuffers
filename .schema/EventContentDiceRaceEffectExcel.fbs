@@ -1,0 +1,11 @@
+include "EventContentDiceRaceResultType.fbs";
+
+namespace FlatData;
+
+table EventContentDiceRaceEffectExcel {
+    ani_clip: string;
+    event_content_dice_race_result_type: EventContentDiceRaceResultType;
+    event_content_id: long;
+    is_dice_result: bool;
+    voice_id: [uint];
+}

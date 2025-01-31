@@ -1,0 +1,9 @@
+include "KatakanaConvertExcel.fbs";
+
+namespace FlatData;
+
+table KatakanaConvertExcelTable {
+    data_list: [KatakanaConvertExcel];
+}
+
+root_type KatakanaConvertExcelTable;

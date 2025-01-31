@@ -1,0 +1,24 @@
+include "ParcelType.fbs";
+include "ProductTagType.fbs";
+include "StoreType.fbs";
+
+namespace FlatData;
+
+table ProductMonthlyExcel {
+    daily_parcel_amount: [long];
+    daily_parcel_id: [long];
+    daily_parcel_type: [ParcelType];
+    enter_cost_reduce_group_id: long;
+    id: long;
+    monthly_days: long;
+    parcel_amount: [long];
+    parcel_id: [long];
+    parcel_type: [ParcelType];
+    price: long;
+    price_reference: string;
+    product_id: string;
+    product_tag_type: ProductTagType;
+    store_type: StoreType;
+    teen_product_id: string;
+    use_monthly_product_check: bool;
+}

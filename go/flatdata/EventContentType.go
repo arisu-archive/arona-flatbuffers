@@ -41,6 +41,9 @@ const (
 	EventContentTypeMinigameDreamMaker      EventContentType = 31
 	EventContentTypeMiniGameDefense         EventContentType = 32
 	EventContentTypeOpenWebView             EventContentType = 33
+	EventContentTypeSpecialMiniEvent        EventContentType = 34
+	EventContentTypeScenarioCollection      EventContentType = 35
+	EventContentTypeScenarioShortcut        EventContentType = 36
 )
 
 var EnumNamesEventContentType = map[EventContentType]string{
@@ -78,6 +81,9 @@ var EnumNamesEventContentType = map[EventContentType]string{
 	EventContentTypeMinigameDreamMaker:      "MinigameDreamMaker",
 	EventContentTypeMiniGameDefense:         "MiniGameDefense",
 	EventContentTypeOpenWebView:             "OpenWebView",
+	EventContentTypeSpecialMiniEvent:        "SpecialMiniEvent",
+	EventContentTypeScenarioCollection:      "ScenarioCollection",
+	EventContentTypeScenarioShortcut:        "ScenarioShortcut",
 }
 
 var EnumValuesEventContentType = map[string]EventContentType{
@@ -115,6 +121,9 @@ var EnumValuesEventContentType = map[string]EventContentType{
 	"MinigameDreamMaker":      EventContentTypeMinigameDreamMaker,
 	"MiniGameDefense":         EventContentTypeMiniGameDefense,
 	"OpenWebView":             EventContentTypeOpenWebView,
+	"SpecialMiniEvent":        EventContentTypeSpecialMiniEvent,
+	"ScenarioCollection":      EventContentTypeScenarioCollection,
+	"ScenarioShortcut":        EventContentTypeScenarioShortcut,
 }
 
 func (v EventContentType) String() string {

@@ -1,0 +1,10 @@
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table PresetParcelsExcel {
+    parcel_amount: long;
+    parcel_id: long;
+    parcel_type: ParcelType;
+    preset_group_id: long;
+}

@@ -1,0 +1,9 @@
+include "CurrencyExcel.fbs";
+
+namespace FlatData;
+
+table CurrencyExcelTable {
+    data_list: [CurrencyExcel];
+}
+
+root_type CurrencyExcelTable;

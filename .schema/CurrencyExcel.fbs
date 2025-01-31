@@ -1,0 +1,32 @@
+include "Rarity.fbs";
+include "CurrencyAdditionalChargeType.fbs";
+include "CurrencyOverChargeType.fbs";
+include "CurrencyTypes.fbs";
+include "DailyRefillType.fbs";
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table CurrencyExcel {
+    auto_charge_amount: int;
+    auto_charge_msc: int;
+    charge_limit: long;
+    currency_additional_charge_type: CurrencyAdditionalChargeType;
+    currency_name: string;
+    currency_over_charge_type: CurrencyOverChargeType;
+    currency_type: CurrencyTypes;
+    daily_refill_amount: long;
+    daily_refill_time: [long];
+    daily_refill_type: DailyRefillType;
+    expiration_date_time: string;
+    expiration_notify_date_in: int;
+    expiry_change_amount: long;
+    expiry_change_id: long;
+    expiry_change_parcel_type: ParcelType;
+    icon: string;
+    id: long;
+    localize_etc_id: uint;
+    over_charge_limit: long;
+    rarity: Rarity;
+    sprite_name: string;
+}

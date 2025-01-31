@@ -1,0 +1,11 @@
+include "FieldTutorialType.fbs";
+include "FieldConditionType.fbs";
+
+namespace FlatData;
+
+table FieldTutorialExcel {
+    condition_id: [long];
+    condition_type: [FieldConditionType];
+    season_id: long;
+    tutorial_type: [FieldTutorialType];
+}

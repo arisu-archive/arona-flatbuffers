@@ -1,0 +1,16 @@
+include "ParcelType.fbs";
+include "TBGObjectType.fbs";
+
+namespace FlatData;
+
+table MinigameTBGObjectExcel {
+    disposable: bool;
+    key: string;
+    object_cost_amount: int;
+    object_cost_id: long;
+    object_cost_type: ParcelType;
+    object_type: TBGObjectType;
+    prefab_name: string;
+    re_encounter_cost: bool;
+    unique_id: long;
+}

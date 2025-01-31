@@ -1,0 +1,14 @@
+include "ParcelType.fbs";
+include "RewardTag.fbs";
+
+namespace FlatData;
+
+table ConquestRewardExcel {
+    group_id: long;
+    is_displayed: bool;
+    reward_amount: int;
+    reward_id: long;
+    reward_parcel_type: ParcelType;
+    reward_prob: int;
+    reward_tag: RewardTag;
+}

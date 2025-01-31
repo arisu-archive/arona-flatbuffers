@@ -1,0 +1,19 @@
+include "ConquestObjectType.fbs";
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table ConquestObjectExcel {
+    conquest_object_type: ConquestObjectType;
+    conquest_reward_amount: int;
+    conquest_reward_id: long;
+    conquest_reward_parcel_type: ParcelType;
+    disposable: bool;
+    event_content_id: long;
+    id: long;
+    key: uint;
+    name: string;
+    prefab_name: string;
+    step_index: int;
+    step_object_count: int;
+}
