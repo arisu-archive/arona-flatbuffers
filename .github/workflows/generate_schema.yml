@@ -90,6 +90,8 @@ jobs:
         run: go run github.com/arisu-archive/arona-unflatd@latest d -i ./output/tmp/decompiled/DiffableCs/BlueArchive/FlatData -o ./.schema
       - name: Update version file
         run: echo "version=${{ needs.determine-version.outputs.version }}" > version.txt
+      - name: Reset the git config
+        run: git config --global --unset url."git@github.com:".insteadOf "https://github.com/"
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v9
         with:
