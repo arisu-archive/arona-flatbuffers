@@ -1,0 +1,16 @@
+include "StageTopography.fbs";
+
+namespace FlatData;
+
+table FieldStoryStageExcel {
+    battle_duration: long;
+    bgm_id: long;
+    fixed_echelon_id: long;
+    ground_id: long;
+    id: long;
+    name: string;
+    recommand_level: int;
+    season_id: long;
+    skip_formation_settings: bool;
+    stage_topography: StageTopography;
+}

@@ -8,3 +8,4 @@ class EventNotifyType(object):
     RaidSeasonManager = 2
     TimeAttackDungeonSeasonManage = 3
     EliminateRaidSeasonManage = 4
+    MultiFloorRaidSeasonManage = 5

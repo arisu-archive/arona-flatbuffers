@@ -1,0 +1,43 @@
+include "EchelonExtensionType.fbs";
+include "ConquestEnemyType.fbs";
+include "ParcelType.fbs";
+include "StageTopography.fbs";
+include "StarGoalType.fbs";
+include "ConquestTeamType.fbs";
+
+namespace FlatData;
+
+table ConquestUnitExcel {
+    battle_duration: long;
+    clear_scenario_group_id: long;
+    conquest_reward_id: long;
+    echelon_extension_type: EchelonExtensionType;
+    enemy_type: ConquestEnemyType;
+    enter_scenario_group_id: long;
+    fixed_echelon_id: long;
+    ground_id: long;
+    group_buff_id: long;
+    id: long;
+    key: uint;
+    manage_echelon_stage_enter_cost_amount: int;
+    manage_echelon_stage_enter_cost_id: long;
+    manage_echelon_stage_enter_cost_type: ParcelType;
+    name: string;
+    point_animation: string;
+    prefab_name: string;
+    prev_unit_group: long;
+    recommand_level: int;
+    scale: float;
+    shield_effect_scale: float;
+    stage_enter_cost_amount: int;
+    stage_enter_cost_id: long;
+    stage_enter_cost_type: ParcelType;
+    stage_topography: StageTopography;
+    star_goal_amount: [int];
+    star_goal: [StarGoalType];
+    strategy_prefab_name: string;
+    tactic_reward_exp: long;
+    team: ConquestTeamType;
+    unit_fx_prefab_name: string;
+    unit_group: long;
+}

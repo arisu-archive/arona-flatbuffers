@@ -1,0 +1,20 @@
+include "StageDifficulty.fbs";
+include "ConquestConditionType.fbs";
+
+namespace FlatData;
+
+table ConquestMapExcel {
+    camera_setting_id: long;
+    conquest_map: string;
+    conquest_map_bg: string;
+    dev_name: string;
+    event_content_id: long;
+    map_difficulty: StageDifficulty;
+    map_goal_localize: string;
+    step_enter_scenario_group_id: long;
+    step_goal_localize: string;
+    step_index: int;
+    step_name_localize: string;
+    step_open_condition_parameter: [string];
+    step_open_condition_type: [ConquestConditionType];
+}

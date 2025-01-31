@@ -1,0 +1,8 @@
+namespace FlatData;
+
+table FieldMasteryManageExcel {
+    field_season: long;
+    image_path: string;
+    level_id: long;
+    localize_etc: uint;
+}

@@ -1,0 +1,9 @@
+include "ObstacleStatExcel.fbs";
+
+namespace FlatData;
+
+table ObstacleStatExcelTable {
+    data_list: [ObstacleStatExcel];
+}
+
+root_type ObstacleStatExcelTable;

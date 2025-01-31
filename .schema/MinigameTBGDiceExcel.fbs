@@ -1,0 +1,14 @@
+include "TBGProbModifyCondition.fbs";
+
+namespace FlatData;
+
+table MinigameTBGDiceExcel {
+    dice_group: int;
+    dice_result: int;
+    event_content_id: long;
+    prob: int;
+    prob_modify_condition: [TBGProbModifyCondition];
+    prob_modify_limit: [int];
+    prob_modify_value: [int];
+    unique_id: long;
+}

@@ -13,3 +13,4 @@ class EventTargetType(object):
     AccountLevelExpIncrease = 7
     Raid = 8
     EliminateRaid = 9
+    MultiFloorRaid = 10

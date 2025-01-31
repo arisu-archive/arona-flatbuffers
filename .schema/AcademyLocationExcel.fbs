@@ -1,0 +1,16 @@
+include "School.fbs";
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table AcademyLocationExcel {
+    icon_image_path: string;
+    id: long;
+    localize_etc_id: uint;
+    open_condition_count: [long];
+    open_condition: [School];
+    open_teacher_rank: long;
+    prefab_path: string;
+    reward_parcel_id: long;
+    reward_parcel_type: ParcelType;
+}

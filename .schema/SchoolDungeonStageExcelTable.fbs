@@ -1,0 +1,9 @@
+include "SchoolDungeonStageExcel.fbs";
+
+namespace FlatData;
+
+table SchoolDungeonStageExcelTable {
+    data_list: [SchoolDungeonStageExcel];
+}
+
+root_type SchoolDungeonStageExcelTable;

@@ -1,0 +1,14 @@
+include "EventContentType.fbs";
+
+namespace FlatData;
+
+table EventContentLobbyMenuExcel {
+    button_text: string;
+    display_order: int;
+    event_content_id: long;
+    event_content_type: EventContentType;
+    icon_offset_x: float;
+    icon_offset_y: float;
+    icon_sprite_name: string;
+    reddot_sprite_name: string;
+}

@@ -1,0 +1,43 @@
+include "Difficulty.fbs";
+include "EchelonExtensionType.fbs";
+include "TacticEnvironment.fbs";
+
+namespace FlatData;
+
+table RaidStageExcel {
+    battle_duration: long;
+    battle_ready_timeline_path: [string];
+    battle_ready_timeline_phase_end: [int];
+    battle_ready_timeline_phase_start: [int];
+    bg_path: string;
+    boss_bg_info_key: uint;
+    boss_character_id: [long];
+    clear_scenario_key: uint;
+    default_clear_score: long;
+    difficulty: Difficulty;
+    difficulty_open_condition: bool;
+    echelon_extension_type: EchelonExtensionType;
+    enter_scenario_key: uint;
+    enter_time_line: string;
+    ground_dev_name: string;
+    ground_id: long;
+    hp_percent_score: long;
+    id: long;
+    maximum_acquisition_score: long;
+    maximum_score: long;
+    max_player_count: long;
+    minimum_acquisition_score: long;
+    per_second_minus_score: long;
+    phase_change_timeline_path: string;
+    portrait_path: string;
+    raid_boss_group: string;
+    raid_character_id: long;
+    raid_reward_group_id: long;
+    raid_room_life_time: int;
+    show_skill_card: bool;
+    tactic_environment: TacticEnvironment;
+    time_line_phase: long;
+    use_boss_ai_phase_sync: bool;
+    use_boss_index: bool;
+    victory_timeline_path: string;
+}

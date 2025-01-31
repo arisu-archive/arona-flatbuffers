@@ -1,0 +1,9 @@
+include "AccountLevelExcel.fbs";
+
+namespace FlatData;
+
+table AccountLevelExcelTable {
+    data_list: [AccountLevelExcel];
+}
+
+root_type AccountLevelExcelTable;

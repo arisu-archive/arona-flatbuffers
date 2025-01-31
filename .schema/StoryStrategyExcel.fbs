@@ -1,0 +1,24 @@
+include "StageTopography.fbs";
+include "StrategyEnvironment.fbs";
+include "ContentType.fbs";
+
+namespace FlatData;
+
+table StoryStrategyExcel {
+    battle_duration: long;
+    bgm_id: long;
+    content_type: ContentType;
+    first_clear_report_event_name: string;
+    id: long;
+    localize: string;
+    max_turn: int;
+    name: string;
+    stage_enter_echelon_count: int;
+    stage_topography: StageTopography;
+    strategy_environment: StrategyEnvironment;
+    strategy_map: string;
+    strategy_map_bg: string;
+    white_list_id: long;
+}
+
+root_type StoryStrategyExcel;

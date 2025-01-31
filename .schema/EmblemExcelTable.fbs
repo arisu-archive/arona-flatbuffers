@@ -1,0 +1,9 @@
+include "EmblemExcel.fbs";
+
+namespace FlatData;
+
+table EmblemExcelTable {
+    data_list: [EmblemExcel];
+}
+
+root_type EmblemExcelTable;

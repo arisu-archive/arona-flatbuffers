@@ -1,0 +1,10 @@
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table ConquestCalculateExcel {
+    calculate_condition_parcel_amount: long;
+    calculate_condition_parcel_type: ParcelType;
+    calculate_condition_parcel_unique_id: long;
+    event_content_id: long;
+}

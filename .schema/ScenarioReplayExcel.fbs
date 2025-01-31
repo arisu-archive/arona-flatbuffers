@@ -1,0 +1,15 @@
+include "ScenarioModeReplayTypes.fbs";
+
+namespace FlatData;
+
+table ScenarioReplayExcel {
+    back_scenario_group_id: [long];
+    battle_duration: long;
+    chapter_id: long;
+    episode_id: long;
+    front_scenario_group_id: [long];
+    ground_id: long;
+    mode_id: long;
+    replay_type: ScenarioModeReplayTypes;
+    volume_id: long;
+}

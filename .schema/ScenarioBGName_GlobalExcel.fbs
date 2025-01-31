@@ -1,0 +1,13 @@
+namespace FlatData;
+
+table ScenarioBGName_GlobalExcel {
+    group_name: uint;
+    name_asia: uint;
+    name_global: uint;
+    name_kr: uint;
+    name_na: uint;
+    name_teen: uint;
+    name_tw: uint;
+}
+
+root_type ScenarioBGName_GlobalExcel;

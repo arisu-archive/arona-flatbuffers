@@ -17,19 +17,11 @@ func GetRootAsCharacterDialogSubtitleExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
-func FinishCharacterDialogSubtitleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterDialogSubtitleExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterDialogSubtitleExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterDialogSubtitleExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterDialogSubtitleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterDialogSubtitleExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -137,8 +129,16 @@ func (rcv *CharacterDialogSubtitleExcel) MutateSeparate(n bool) bool {
 	return rcv._tab.MutateBoolSlot(22, n)
 }
 
+func (rcv *CharacterDialogSubtitleExcel) Tlmid() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func CharacterDialogSubtitleExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(10)
+	builder.StartObject(11)
 }
 func CharacterDialogSubtitleExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
 	builder.PrependInt64Slot(0, characterId, 0)
@@ -169,6 +169,9 @@ func CharacterDialogSubtitleExcelAddLocalizeTw(builder *flatbuffers.Builder, loc
 }
 func CharacterDialogSubtitleExcelAddSeparate(builder *flatbuffers.Builder, separate bool) {
 	builder.PrependBoolSlot(9, separate, false)
+}
+func CharacterDialogSubtitleExcelAddTlmid(builder *flatbuffers.Builder, tlmid flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(tlmid), 0)
 }
 func CharacterDialogSubtitleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

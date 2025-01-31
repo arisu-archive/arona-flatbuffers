@@ -1,0 +1,9 @@
+include "CumulativeTimeRewardExcel.fbs";
+
+namespace FlatData;
+
+table CumulativeTimeRewardExcelTable {
+    data_list: [CumulativeTimeRewardExcel];
+}
+
+root_type CumulativeTimeRewardExcelTable;

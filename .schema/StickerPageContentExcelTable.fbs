@@ -1,0 +1,9 @@
+include "StickerPageContentExcel.fbs";
+
+namespace FlatData;
+
+table StickerPageContentExcelTable {
+    data_list: [StickerPageContentExcel];
+}
+
+root_type StickerPageContentExcelTable;

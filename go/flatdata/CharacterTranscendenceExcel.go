@@ -17,19 +17,11 @@ func GetRootAsCharacterTranscendenceExcel(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
-func FinishCharacterTranscendenceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterTranscendenceExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterTranscendenceExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterTranscendenceExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterTranscendenceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterTranscendenceExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -165,8 +157,25 @@ func (rcv *CharacterTranscendenceExcel) SkillSlotBLength() int {
 	return 0
 }
 
-func (rcv *CharacterTranscendenceExcel) StatBonusRateAttack(j int) int64 {
+func (rcv *CharacterTranscendenceExcel) SkillSlotC(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
+	}
+	return nil
+}
+
+func (rcv *CharacterTranscendenceExcel) SkillSlotCLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CharacterTranscendenceExcel) StatBonusRateAttack(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -175,7 +184,7 @@ func (rcv *CharacterTranscendenceExcel) StatBonusRateAttack(j int) int64 {
 }
 
 func (rcv *CharacterTranscendenceExcel) StatBonusRateAttackLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -183,7 +192,7 @@ func (rcv *CharacterTranscendenceExcel) StatBonusRateAttackLength() int {
 }
 
 func (rcv *CharacterTranscendenceExcel) MutateStatBonusRateAttack(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -192,7 +201,7 @@ func (rcv *CharacterTranscendenceExcel) MutateStatBonusRateAttack(j int, n int64
 }
 
 func (rcv *CharacterTranscendenceExcel) StatBonusRateHeal(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -201,7 +210,7 @@ func (rcv *CharacterTranscendenceExcel) StatBonusRateHeal(j int) int64 {
 }
 
 func (rcv *CharacterTranscendenceExcel) StatBonusRateHealLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -209,7 +218,7 @@ func (rcv *CharacterTranscendenceExcel) StatBonusRateHealLength() int {
 }
 
 func (rcv *CharacterTranscendenceExcel) MutateStatBonusRateHeal(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -218,7 +227,7 @@ func (rcv *CharacterTranscendenceExcel) MutateStatBonusRateHeal(j int, n int64) 
 }
 
 func (rcv *CharacterTranscendenceExcel) StatBonusRateHp(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -227,7 +236,7 @@ func (rcv *CharacterTranscendenceExcel) StatBonusRateHp(j int) int64 {
 }
 
 func (rcv *CharacterTranscendenceExcel) StatBonusRateHpLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -235,7 +244,7 @@ func (rcv *CharacterTranscendenceExcel) StatBonusRateHpLength() int {
 }
 
 func (rcv *CharacterTranscendenceExcel) MutateStatBonusRateHp(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -244,7 +253,7 @@ func (rcv *CharacterTranscendenceExcel) MutateStatBonusRateHp(j int, n int64) bo
 }
 
 func CharacterTranscendenceExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(9)
+	builder.StartObject(10)
 }
 func CharacterTranscendenceExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
 	builder.PrependInt64Slot(0, characterId, 0)
@@ -279,20 +288,26 @@ func CharacterTranscendenceExcelAddSkillSlotB(builder *flatbuffers.Builder, skil
 func CharacterTranscendenceExcelStartSkillSlotBVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
+func CharacterTranscendenceExcelAddSkillSlotC(builder *flatbuffers.Builder, skillSlotC flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(skillSlotC), 0)
+}
+func CharacterTranscendenceExcelStartSkillSlotCVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
 func CharacterTranscendenceExcelAddStatBonusRateAttack(builder *flatbuffers.Builder, statBonusRateAttack flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(statBonusRateAttack), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(statBonusRateAttack), 0)
 }
 func CharacterTranscendenceExcelStartStatBonusRateAttackVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func CharacterTranscendenceExcelAddStatBonusRateHeal(builder *flatbuffers.Builder, statBonusRateHeal flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(statBonusRateHeal), 0)
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(statBonusRateHeal), 0)
 }
 func CharacterTranscendenceExcelStartStatBonusRateHealVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func CharacterTranscendenceExcelAddStatBonusRateHp(builder *flatbuffers.Builder, statBonusRateHp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(statBonusRateHp), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(statBonusRateHp), 0)
 }
 func CharacterTranscendenceExcelStartStatBonusRateHpVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)

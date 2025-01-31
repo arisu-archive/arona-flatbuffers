@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table ShopCashScenarioResourceInfoExcel {
+    icon_path: string;
+    scenario_resrouce_info_id: long;
+    shop_cash_id: long;
+}

@@ -1,0 +1,13 @@
+include "ToastType.fbs";
+
+namespace FlatData;
+
+table ToastExcel {
+    id: uint;
+    life_time: long;
+    mission_id: uint;
+    text_id: uint;
+    toast_type: ToastType;
+}
+
+root_type ToastExcel;

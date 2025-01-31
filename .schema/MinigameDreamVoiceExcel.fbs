@@ -1,0 +1,12 @@
+include "DreamMakerVoiceCondition.fbs";
+
+namespace FlatData;
+
+table MinigameDreamVoiceExcel {
+    event_content_id: long;
+    unique_id: long;
+    voice_clip: uint;
+    voice_condition: DreamMakerVoiceCondition;
+}
+
+root_type MinigameDreamVoiceExcel;

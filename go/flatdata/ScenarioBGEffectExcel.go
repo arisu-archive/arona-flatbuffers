@@ -17,19 +17,11 @@ func GetRootAsScenarioBGEffectExcel(buf []byte, offset flatbuffers.UOffsetT) *Sc
 	return x
 }
 
-func FinishScenarioBGEffectExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsScenarioBGEffectExcel(buf []byte, offset flatbuffers.UOffsetT) *ScenarioBGEffectExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ScenarioBGEffectExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedScenarioBGEffectExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ScenarioBGEffectExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -49,8 +41,16 @@ func (rcv *ScenarioBGEffectExcel) Effect() []byte {
 	return nil
 }
 
-func (rcv *ScenarioBGEffectExcel) Name() uint32 {
+func (rcv *ScenarioBGEffectExcel) Effect2() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ScenarioBGEffectExcel) Name() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -58,11 +58,11 @@ func (rcv *ScenarioBGEffectExcel) Name() uint32 {
 }
 
 func (rcv *ScenarioBGEffectExcel) MutateName(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(6, n)
+	return rcv._tab.MutateUint32Slot(8, n)
 }
 
 func (rcv *ScenarioBGEffectExcel) Scroll() ScenarioBGScroll {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return ScenarioBGScroll(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -70,22 +70,10 @@ func (rcv *ScenarioBGEffectExcel) Scroll() ScenarioBGScroll {
 }
 
 func (rcv *ScenarioBGEffectExcel) MutateScroll(n ScenarioBGScroll) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
+	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
 func (rcv *ScenarioBGEffectExcel) ScrollFrom() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ScenarioBGEffectExcel) MutateScrollFrom(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *ScenarioBGEffectExcel) ScrollTime() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -93,11 +81,11 @@ func (rcv *ScenarioBGEffectExcel) ScrollTime() int64 {
 	return 0
 }
 
-func (rcv *ScenarioBGEffectExcel) MutateScrollTime(n int64) bool {
+func (rcv *ScenarioBGEffectExcel) MutateScrollFrom(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *ScenarioBGEffectExcel) ScrollTo() int64 {
+func (rcv *ScenarioBGEffectExcel) ScrollTime() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -105,30 +93,45 @@ func (rcv *ScenarioBGEffectExcel) ScrollTo() int64 {
 	return 0
 }
 
-func (rcv *ScenarioBGEffectExcel) MutateScrollTo(n int64) bool {
+func (rcv *ScenarioBGEffectExcel) MutateScrollTime(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
+func (rcv *ScenarioBGEffectExcel) ScrollTo() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ScenarioBGEffectExcel) MutateScrollTo(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
 func ScenarioBGEffectExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(6)
+	builder.StartObject(7)
 }
 func ScenarioBGEffectExcelAddEffect(builder *flatbuffers.Builder, effect flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(effect), 0)
 }
+func ScenarioBGEffectExcelAddEffect2(builder *flatbuffers.Builder, effect2 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(effect2), 0)
+}
 func ScenarioBGEffectExcelAddName(builder *flatbuffers.Builder, name uint32) {
-	builder.PrependUint32Slot(1, name, 0)
+	builder.PrependUint32Slot(2, name, 0)
 }
 func ScenarioBGEffectExcelAddScroll(builder *flatbuffers.Builder, scroll ScenarioBGScroll) {
-	builder.PrependInt32Slot(2, int32(scroll), 0)
+	builder.PrependInt32Slot(3, int32(scroll), 0)
 }
 func ScenarioBGEffectExcelAddScrollFrom(builder *flatbuffers.Builder, scrollFrom int64) {
-	builder.PrependInt64Slot(3, scrollFrom, 0)
+	builder.PrependInt64Slot(4, scrollFrom, 0)
 }
 func ScenarioBGEffectExcelAddScrollTime(builder *flatbuffers.Builder, scrollTime int64) {
-	builder.PrependInt64Slot(4, scrollTime, 0)
+	builder.PrependInt64Slot(5, scrollTime, 0)
 }
 func ScenarioBGEffectExcelAddScrollTo(builder *flatbuffers.Builder, scrollTo int64) {
-	builder.PrependInt64Slot(5, scrollTo, 0)
+	builder.PrependInt64Slot(6, scrollTo, 0)
 }
 func ScenarioBGEffectExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -1,0 +1,14 @@
+include "ParcelType.fbs";
+include "EquipmentOptionType.fbs";
+
+namespace FlatData;
+
+table FavorLevelRewardExcel {
+    character_id: long;
+    favor_level: long;
+    reward_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+    stat_type: [EquipmentOptionType];
+    stat_value: [long];
+}

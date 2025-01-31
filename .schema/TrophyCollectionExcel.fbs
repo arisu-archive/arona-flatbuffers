@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table TrophyCollectionExcel {
+    furniture_id: [long];
+    group_id: long;
+    localize_code_id: uint;
+}

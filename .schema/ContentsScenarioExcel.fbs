@@ -1,0 +1,13 @@
+include "ScenarioContentType.fbs";
+
+namespace FlatData;
+
+table ContentsScenarioExcel {
+    display_order: int;
+    id: uint;
+    localize_id: uint;
+    scenario_content_type: ScenarioContentType;
+    scenario_group_id: [long];
+}
+
+root_type ContentsScenarioExcel;

@@ -1,0 +1,13 @@
+include "ContentType.fbs";
+
+namespace FlatData;
+
+table ContentSpoilerPopupExcel {
+    condition_scenario_mode_id: long;
+    content_type: ContentType;
+    is_warning_pop_up: bool;
+    spoiler_popup_description: string;
+    spoiler_popup_title: string;
+}
+
+root_type ContentSpoilerPopupExcel;

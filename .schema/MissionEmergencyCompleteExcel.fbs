@@ -1,0 +1,8 @@
+namespace FlatData;
+
+table MissionEmergencyCompleteExcel {
+    emergency_complete: bool;
+    mission_id: long;
+}
+
+root_type MissionEmergencyCompleteExcel;

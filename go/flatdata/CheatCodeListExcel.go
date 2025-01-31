@@ -17,19 +17,11 @@ func GetRootAsCheatCodeListExcel(buf []byte, offset flatbuffers.UOffsetT) *Cheat
 	return x
 }
 
-func FinishCheatCodeListExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCheatCodeListExcel(buf []byte, offset flatbuffers.UOffsetT) *CheatCodeListExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CheatCodeListExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCheatCodeListExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CheatCodeListExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -66,8 +58,20 @@ func (rcv *CheatCodeListExcel) Desc() []byte {
 	return nil
 }
 
-func (rcv *CheatCodeListExcel) InputTitle(j int) []byte {
+func (rcv *CheatCodeListExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CheatCodeListExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *CheatCodeListExcel) InputTitle(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -76,7 +80,7 @@ func (rcv *CheatCodeListExcel) InputTitle(j int) []byte {
 }
 
 func (rcv *CheatCodeListExcel) InputTitleLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -84,7 +88,7 @@ func (rcv *CheatCodeListExcel) InputTitleLength() int {
 }
 
 func CheatCodeListExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(3)
+	builder.StartObject(4)
 }
 func CheatCodeListExcelAddCheatCode(builder *flatbuffers.Builder, cheatCode flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(cheatCode), 0)
@@ -95,8 +99,11 @@ func CheatCodeListExcelStartCheatCodeVector(builder *flatbuffers.Builder, numEle
 func CheatCodeListExcelAddDesc(builder *flatbuffers.Builder, desc flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(desc), 0)
 }
+func CheatCodeListExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(2, id, 0)
+}
 func CheatCodeListExcelAddInputTitle(builder *flatbuffers.Builder, inputTitle flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(inputTitle), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(inputTitle), 0)
 }
 func CheatCodeListExcelStartInputTitleVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)

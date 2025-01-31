@@ -17,19 +17,11 @@ func GetRootAsCharacterVoiceSubtitleExcel(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
-func FinishCharacterVoiceSubtitleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterVoiceSubtitleExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterVoiceSubtitleExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterVoiceSubtitleExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterVoiceSubtitleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterVoiceSubtitleExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -137,8 +129,16 @@ func (rcv *CharacterVoiceSubtitleExcel) MutateSeparate(n bool) bool {
 	return rcv._tab.MutateBoolSlot(22, n)
 }
 
+func (rcv *CharacterVoiceSubtitleExcel) Tlmid() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func CharacterVoiceSubtitleExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(10)
+	builder.StartObject(11)
 }
 func CharacterVoiceSubtitleExcelAddCharacterVoiceGroupId(builder *flatbuffers.Builder, characterVoiceGroupId int64) {
 	builder.PrependInt64Slot(0, characterVoiceGroupId, 0)
@@ -169,6 +169,9 @@ func CharacterVoiceSubtitleExcelAddLocalizeTw(builder *flatbuffers.Builder, loca
 }
 func CharacterVoiceSubtitleExcelAddSeparate(builder *flatbuffers.Builder, separate bool) {
 	builder.PrependBoolSlot(9, separate, false)
+}
+func CharacterVoiceSubtitleExcelAddTlmid(builder *flatbuffers.Builder, tlmid flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(tlmid), 0)
 }
 func CharacterVoiceSubtitleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

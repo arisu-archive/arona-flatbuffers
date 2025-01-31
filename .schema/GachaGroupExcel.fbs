@@ -1,0 +1,10 @@
+include "GachaGroupType.fbs";
+
+namespace FlatData;
+
+table GachaGroupExcel {
+    group_type: GachaGroupType;
+    id: long;
+    is_recursive: bool;
+    name_kr: string;
+}

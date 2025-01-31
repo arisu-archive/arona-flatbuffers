@@ -1,0 +1,9 @@
+namespace FlatData;
+
+table BGMRaidExcel {
+    bgm_id: long;
+    phase_index: long;
+    stage_id: long;
+}
+
+root_type BGMRaidExcel;

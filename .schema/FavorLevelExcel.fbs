@@ -1,0 +1,6 @@
+namespace FlatData;
+
+table FavorLevelExcel {
+    exp_type: [long];
+    level: long;
+}

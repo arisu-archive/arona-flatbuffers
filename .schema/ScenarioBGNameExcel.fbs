@@ -1,0 +1,18 @@
+include "ProductionStep.fbs";
+include "ScenarioBGType.fbs";
+
+namespace FlatData;
+
+table ScenarioBGNameExcel {
+    animation_name: string;
+    animation_root: string;
+    bg_file_name: string;
+    bg_type: ScenarioBGType;
+    name: uint;
+    production_step: ProductionStep;
+    spine_local_pos_x: int;
+    spine_local_pos_y: int;
+    spine_scale: float;
+}
+
+root_type ScenarioBGNameExcel;
