@@ -87,6 +87,8 @@ jobs:
         with:
           go-version: '^1.22.5'
       - name: Generate the schema
+        env:
+          GOPRIVATE: github.com/arisu-archive
         run: go run github.com/arisu-archive/arona-unflatd@latest d -i ./output/tmp/decompiled/DiffableCs/BlueArchive/FlatData -o ./.schema
       - name: Update version file
         run: echo "version=${{ needs.determine-version.outputs.version }}" > version.txt
