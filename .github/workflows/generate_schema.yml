@@ -88,6 +88,9 @@ jobs:
           GOPRIVATE: github.com/arisu-archive
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: go run github.com/arisu-archive/arona-unflatd@latest d -i ./output/tmp/decompiled/DiffableCs/BlueArchive/FlatData -o ./.schema
+      - name: Compile the schema into code
+        run: |
+          ./.scripts/compile.sh
       - name: Update version file
         run: echo "version=${{ needs.determine-version.outputs.version }}" > version.txt
       - name: Reset the git config
@@ -95,7 +98,7 @@ jobs:
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v9
         with:
-          add: "['./.schema', 'version.txt']"
+          add: "['./.schema', 'version.txt', 'go/', 'python/']"
           message: 'chore(apk): generate schema for ${{ needs.determine-version.outputs.version }}'
           default_author: github_actions
           push: true
