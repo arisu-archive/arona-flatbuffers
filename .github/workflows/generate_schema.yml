@@ -9,10 +9,6 @@ on:
         required: false
         description: 'Force update the library'
 
-env:
-  # Use the same ssh-agent socket value across all jobs
-  SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-
 jobs:
   determine-version:
     runs-on: ubuntu-latest
@@ -74,6 +70,7 @@ jobs:
       - name: Setup access for private go modules
         env:
           ARONA_UNFLATD_PRIVATE_KEY: ${{secrets.ARONA_UNFLATD_PRIVATE_KEY}}
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null
           echo "$ARONA_UNFLATD_PRIVATE_KEY" | tr -d '\r' | ssh-add -
@@ -89,6 +86,7 @@ jobs:
       - name: Generate the schema
         env:
           GOPRIVATE: github.com/arisu-archive
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: go run github.com/arisu-archive/arona-unflatd@latest d -i ./output/tmp/decompiled/DiffableCs/BlueArchive/FlatData -o ./.schema
       - name: Update version file
         run: echo "version=${{ needs.determine-version.outputs.version }}" > version.txt
@@ -100,6 +98,8 @@ jobs:
           default_author: github_actions
           push: true
           new_branch: chore/generate-schema-${{ needs.determine-version.outputs.version }}
+        env:
+            GITHUB_TOKEN: ${{ github.token }}
       - name: Create pull request
         run: |
           version=${{ needs.determine-version.outputs.version }}
