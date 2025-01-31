@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table EventContentFortuneGachaExcel {
+    fortune_gacha_group_id: int;
+    icon_path: string;
+    localize_etc_id: uint;
+}

@@ -17,19 +17,11 @@ func GetRootAsCharacterStatExcel(buf []byte, offset flatbuffers.UOffsetT) *Chara
 	return x
 }
 
-func FinishCharacterStatExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterStatExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterStatExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterStatExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterStatExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterStatExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -365,7 +357,7 @@ func (rcv *CharacterStatExcel) MutateEnhanceElasticArmorRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(56, n)
 }
 
-func (rcv *CharacterStatExcel) EnhanceExplosionRate() int64 {
+func (rcv *CharacterStatExcel) EnhanceExDamageRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -373,11 +365,11 @@ func (rcv *CharacterStatExcel) EnhanceExplosionRate() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateEnhanceExplosionRate(n int64) bool {
+func (rcv *CharacterStatExcel) MutateEnhanceExDamageRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(58, n)
 }
 
-func (rcv *CharacterStatExcel) EnhanceHeavyArmorRate() int64 {
+func (rcv *CharacterStatExcel) EnhanceExplosionRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -385,11 +377,11 @@ func (rcv *CharacterStatExcel) EnhanceHeavyArmorRate() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateEnhanceHeavyArmorRate(n int64) bool {
+func (rcv *CharacterStatExcel) MutateEnhanceExplosionRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(60, n)
 }
 
-func (rcv *CharacterStatExcel) EnhanceLightArmorRate() int64 {
+func (rcv *CharacterStatExcel) EnhanceHeavyArmorRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -397,11 +389,11 @@ func (rcv *CharacterStatExcel) EnhanceLightArmorRate() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateEnhanceLightArmorRate(n int64) bool {
+func (rcv *CharacterStatExcel) MutateEnhanceHeavyArmorRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(62, n)
 }
 
-func (rcv *CharacterStatExcel) EnhanceMysticRate() int64 {
+func (rcv *CharacterStatExcel) EnhanceLightArmorRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -409,11 +401,11 @@ func (rcv *CharacterStatExcel) EnhanceMysticRate() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateEnhanceMysticRate(n int64) bool {
+func (rcv *CharacterStatExcel) MutateEnhanceLightArmorRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(64, n)
 }
 
-func (rcv *CharacterStatExcel) EnhanceNormalArmorRate() int64 {
+func (rcv *CharacterStatExcel) EnhanceMysticRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -421,11 +413,11 @@ func (rcv *CharacterStatExcel) EnhanceNormalArmorRate() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateEnhanceNormalArmorRate(n int64) bool {
+func (rcv *CharacterStatExcel) MutateEnhanceMysticRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(66, n)
 }
 
-func (rcv *CharacterStatExcel) EnhanceNormalRate() int64 {
+func (rcv *CharacterStatExcel) EnhanceNormalArmorRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -433,11 +425,11 @@ func (rcv *CharacterStatExcel) EnhanceNormalRate() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateEnhanceNormalRate(n int64) bool {
+func (rcv *CharacterStatExcel) MutateEnhanceNormalArmorRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(68, n)
 }
 
-func (rcv *CharacterStatExcel) EnhancePierceRate() int64 {
+func (rcv *CharacterStatExcel) EnhanceNormalRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -445,11 +437,11 @@ func (rcv *CharacterStatExcel) EnhancePierceRate() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateEnhancePierceRate(n int64) bool {
+func (rcv *CharacterStatExcel) MutateEnhanceNormalRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(70, n)
 }
 
-func (rcv *CharacterStatExcel) EnhanceSiegeRate() int64 {
+func (rcv *CharacterStatExcel) EnhancePierceRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -457,11 +449,11 @@ func (rcv *CharacterStatExcel) EnhanceSiegeRate() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateEnhanceSiegeRate(n int64) bool {
+func (rcv *CharacterStatExcel) MutateEnhancePierceRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(72, n)
 }
 
-func (rcv *CharacterStatExcel) EnhanceSonicRate() int64 {
+func (rcv *CharacterStatExcel) EnhanceSiegeRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(74))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -469,11 +461,11 @@ func (rcv *CharacterStatExcel) EnhanceSonicRate() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateEnhanceSonicRate(n int64) bool {
+func (rcv *CharacterStatExcel) MutateEnhanceSiegeRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(74, n)
 }
 
-func (rcv *CharacterStatExcel) EnhanceStructureRate() int64 {
+func (rcv *CharacterStatExcel) EnhanceSonicRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(76))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -481,11 +473,11 @@ func (rcv *CharacterStatExcel) EnhanceStructureRate() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateEnhanceStructureRate(n int64) bool {
+func (rcv *CharacterStatExcel) MutateEnhanceSonicRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(76, n)
 }
 
-func (rcv *CharacterStatExcel) EnhanceUnarmedRate() int64 {
+func (rcv *CharacterStatExcel) EnhanceStructureRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(78))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -493,11 +485,11 @@ func (rcv *CharacterStatExcel) EnhanceUnarmedRate() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateEnhanceUnarmedRate(n int64) bool {
+func (rcv *CharacterStatExcel) MutateEnhanceStructureRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(78, n)
 }
 
-func (rcv *CharacterStatExcel) ExDamagedRatioDecrease() int64 {
+func (rcv *CharacterStatExcel) EnhanceUnarmedRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(80))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -505,11 +497,11 @@ func (rcv *CharacterStatExcel) ExDamagedRatioDecrease() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateExDamagedRatioDecrease(n int64) bool {
+func (rcv *CharacterStatExcel) MutateEnhanceUnarmedRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(80, n)
 }
 
-func (rcv *CharacterStatExcel) ExDamagedRatioIncrease() int64 {
+func (rcv *CharacterStatExcel) ExDamagedRatioDecrease() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(82))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -517,11 +509,11 @@ func (rcv *CharacterStatExcel) ExDamagedRatioIncrease() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateExDamagedRatioIncrease(n int64) bool {
+func (rcv *CharacterStatExcel) MutateExDamagedRatioDecrease(n int64) bool {
 	return rcv._tab.MutateInt64Slot(82, n)
 }
 
-func (rcv *CharacterStatExcel) ExtendBuffDuration() int64 {
+func (rcv *CharacterStatExcel) ExDamagedRatioIncrease() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(84))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -529,11 +521,11 @@ func (rcv *CharacterStatExcel) ExtendBuffDuration() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateExtendBuffDuration(n int64) bool {
+func (rcv *CharacterStatExcel) MutateExDamagedRatioIncrease(n int64) bool {
 	return rcv._tab.MutateInt64Slot(84, n)
 }
 
-func (rcv *CharacterStatExcel) ExtendCrowdControlDuration() int64 {
+func (rcv *CharacterStatExcel) ExtendBuffDuration() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(86))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -541,11 +533,11 @@ func (rcv *CharacterStatExcel) ExtendCrowdControlDuration() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateExtendCrowdControlDuration(n int64) bool {
+func (rcv *CharacterStatExcel) MutateExtendBuffDuration(n int64) bool {
 	return rcv._tab.MutateInt64Slot(86, n)
 }
 
-func (rcv *CharacterStatExcel) ExtendDebuffDuration() int64 {
+func (rcv *CharacterStatExcel) ExtendCrowdControlDuration() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(88))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -553,23 +545,23 @@ func (rcv *CharacterStatExcel) ExtendDebuffDuration() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateExtendDebuffDuration(n int64) bool {
+func (rcv *CharacterStatExcel) MutateExtendCrowdControlDuration(n int64) bool {
 	return rcv._tab.MutateInt64Slot(88, n)
 }
 
-func (rcv *CharacterStatExcel) GroggyGauge() int32 {
+func (rcv *CharacterStatExcel) ExtendDebuffDuration() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(90))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateGroggyGauge(n int32) bool {
-	return rcv._tab.MutateInt32Slot(90, n)
+func (rcv *CharacterStatExcel) MutateExtendDebuffDuration(n int64) bool {
+	return rcv._tab.MutateInt64Slot(90, n)
 }
 
-func (rcv *CharacterStatExcel) GroggyTime() int32 {
+func (rcv *CharacterStatExcel) GroggyGauge() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(92))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -577,23 +569,23 @@ func (rcv *CharacterStatExcel) GroggyTime() int32 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateGroggyTime(n int32) bool {
+func (rcv *CharacterStatExcel) MutateGroggyGauge(n int32) bool {
 	return rcv._tab.MutateInt32Slot(92, n)
 }
 
-func (rcv *CharacterStatExcel) HealEffectivenessRate() int64 {
+func (rcv *CharacterStatExcel) GroggyTime() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(94))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateHealEffectivenessRate(n int64) bool {
-	return rcv._tab.MutateInt64Slot(94, n)
+func (rcv *CharacterStatExcel) MutateGroggyTime(n int32) bool {
+	return rcv._tab.MutateInt32Slot(94, n)
 }
 
-func (rcv *CharacterStatExcel) HealPower1() int64 {
+func (rcv *CharacterStatExcel) HealedExplosionRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(96))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -601,11 +593,11 @@ func (rcv *CharacterStatExcel) HealPower1() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateHealPower1(n int64) bool {
+func (rcv *CharacterStatExcel) MutateHealedExplosionRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(96, n)
 }
 
-func (rcv *CharacterStatExcel) HealPower100() int64 {
+func (rcv *CharacterStatExcel) HealedMysticRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(98))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -613,11 +605,11 @@ func (rcv *CharacterStatExcel) HealPower100() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateHealPower100(n int64) bool {
+func (rcv *CharacterStatExcel) MutateHealedMysticRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(98, n)
 }
 
-func (rcv *CharacterStatExcel) IgnoreDelayCount() int64 {
+func (rcv *CharacterStatExcel) HealedNormalRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(100))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -625,23 +617,23 @@ func (rcv *CharacterStatExcel) IgnoreDelayCount() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateIgnoreDelayCount(n int64) bool {
+func (rcv *CharacterStatExcel) MutateHealedNormalRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(100, n)
 }
 
-func (rcv *CharacterStatExcel) IndoorBattleAdaptation() TerrainAdaptationStat {
+func (rcv *CharacterStatExcel) HealedPierceRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(102))
 	if o != 0 {
-		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateIndoorBattleAdaptation(n TerrainAdaptationStat) bool {
-	return rcv._tab.MutateInt32Slot(102, int32(n))
+func (rcv *CharacterStatExcel) MutateHealedPierceRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(102, n)
 }
 
-func (rcv *CharacterStatExcel) InitialRangeRate() int64 {
+func (rcv *CharacterStatExcel) HealedSonicRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(104))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -649,11 +641,11 @@ func (rcv *CharacterStatExcel) InitialRangeRate() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateInitialRangeRate(n int64) bool {
+func (rcv *CharacterStatExcel) MutateHealedSonicRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(104, n)
 }
 
-func (rcv *CharacterStatExcel) MaxHp1() int64 {
+func (rcv *CharacterStatExcel) HealEffectivenessRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(106))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -661,11 +653,11 @@ func (rcv *CharacterStatExcel) MaxHp1() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateMaxHp1(n int64) bool {
+func (rcv *CharacterStatExcel) MutateHealEffectivenessRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(106, n)
 }
 
-func (rcv *CharacterStatExcel) MaxHp100() int64 {
+func (rcv *CharacterStatExcel) HealElasticArmorRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(108))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -673,11 +665,11 @@ func (rcv *CharacterStatExcel) MaxHp100() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateMaxHp100(n int64) bool {
+func (rcv *CharacterStatExcel) MutateHealElasticArmorRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(108, n)
 }
 
-func (rcv *CharacterStatExcel) MoveSpeed() int64 {
+func (rcv *CharacterStatExcel) HealHeavyArmorRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(110))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -685,11 +677,11 @@ func (rcv *CharacterStatExcel) MoveSpeed() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateMoveSpeed(n int64) bool {
+func (rcv *CharacterStatExcel) MutateHealHeavyArmorRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(110, n)
 }
 
-func (rcv *CharacterStatExcel) NormalAttackSpeed() int64 {
+func (rcv *CharacterStatExcel) HealLightArmorRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(112))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -697,11 +689,11 @@ func (rcv *CharacterStatExcel) NormalAttackSpeed() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateNormalAttackSpeed(n int64) bool {
+func (rcv *CharacterStatExcel) MutateHealLightArmorRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(112, n)
 }
 
-func (rcv *CharacterStatExcel) OppressionPower() int64 {
+func (rcv *CharacterStatExcel) HealNormalArmorRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(114))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -709,11 +701,11 @@ func (rcv *CharacterStatExcel) OppressionPower() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateOppressionPower(n int64) bool {
+func (rcv *CharacterStatExcel) MutateHealNormalArmorRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(114, n)
 }
 
-func (rcv *CharacterStatExcel) OppressionResist() int64 {
+func (rcv *CharacterStatExcel) HealPower1() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -721,23 +713,23 @@ func (rcv *CharacterStatExcel) OppressionResist() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateOppressionResist(n int64) bool {
+func (rcv *CharacterStatExcel) MutateHealPower1(n int64) bool {
 	return rcv._tab.MutateInt64Slot(116, n)
 }
 
-func (rcv *CharacterStatExcel) OutdoorBattleAdaptation() TerrainAdaptationStat {
+func (rcv *CharacterStatExcel) HealPower100() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
 	if o != 0 {
-		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateOutdoorBattleAdaptation(n TerrainAdaptationStat) bool {
-	return rcv._tab.MutateInt32Slot(118, int32(n))
+func (rcv *CharacterStatExcel) MutateHealPower100(n int64) bool {
+	return rcv._tab.MutateInt64Slot(118, n)
 }
 
-func (rcv *CharacterStatExcel) Range() int64 {
+func (rcv *CharacterStatExcel) HealRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -745,11 +737,11 @@ func (rcv *CharacterStatExcel) Range() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateRange(n int64) bool {
+func (rcv *CharacterStatExcel) MutateHealRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(120, n)
 }
 
-func (rcv *CharacterStatExcel) RegenCost() int64 {
+func (rcv *CharacterStatExcel) HealUnarmedRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(122))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -757,11 +749,11 @@ func (rcv *CharacterStatExcel) RegenCost() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateRegenCost(n int64) bool {
+func (rcv *CharacterStatExcel) MutateHealUnarmedRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(122, n)
 }
 
-func (rcv *CharacterStatExcel) SightPoint() int64 {
+func (rcv *CharacterStatExcel) IgnoreDelayCount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(124))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -769,23 +761,23 @@ func (rcv *CharacterStatExcel) SightPoint() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateSightPoint(n int64) bool {
+func (rcv *CharacterStatExcel) MutateIgnoreDelayCount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(124, n)
 }
 
-func (rcv *CharacterStatExcel) StabilityPoint() int64 {
+func (rcv *CharacterStatExcel) IndoorBattleAdaptation() TerrainAdaptationStat {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(126))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateStabilityPoint(n int64) bool {
-	return rcv._tab.MutateInt64Slot(126, n)
+func (rcv *CharacterStatExcel) MutateIndoorBattleAdaptation(n TerrainAdaptationStat) bool {
+	return rcv._tab.MutateInt32Slot(126, int32(n))
 }
 
-func (rcv *CharacterStatExcel) StabilityRate() int64 {
+func (rcv *CharacterStatExcel) InitialRangeRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(128))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -793,11 +785,11 @@ func (rcv *CharacterStatExcel) StabilityRate() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateStabilityRate(n int64) bool {
+func (rcv *CharacterStatExcel) MutateInitialRangeRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(128, n)
 }
 
-func (rcv *CharacterStatExcel) StrategyMobility() int64 {
+func (rcv *CharacterStatExcel) MaxHp1() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(130))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -805,11 +797,11 @@ func (rcv *CharacterStatExcel) StrategyMobility() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateStrategyMobility(n int64) bool {
+func (rcv *CharacterStatExcel) MutateMaxHp1(n int64) bool {
 	return rcv._tab.MutateInt64Slot(130, n)
 }
 
-func (rcv *CharacterStatExcel) StrategySightRange() int64 {
+func (rcv *CharacterStatExcel) MaxHp100() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(132))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -817,12 +809,168 @@ func (rcv *CharacterStatExcel) StrategySightRange() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatExcel) MutateStrategySightRange(n int64) bool {
+func (rcv *CharacterStatExcel) MutateMaxHp100(n int64) bool {
 	return rcv._tab.MutateInt64Slot(132, n)
 }
 
-func (rcv *CharacterStatExcel) StreetBattleAdaptation() TerrainAdaptationStat {
+func (rcv *CharacterStatExcel) MoveSpeed() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(134))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterStatExcel) MutateMoveSpeed(n int64) bool {
+	return rcv._tab.MutateInt64Slot(134, n)
+}
+
+func (rcv *CharacterStatExcel) NormalAttackSpeed() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(136))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterStatExcel) MutateNormalAttackSpeed(n int64) bool {
+	return rcv._tab.MutateInt64Slot(136, n)
+}
+
+func (rcv *CharacterStatExcel) OppressionPower() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(138))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterStatExcel) MutateOppressionPower(n int64) bool {
+	return rcv._tab.MutateInt64Slot(138, n)
+}
+
+func (rcv *CharacterStatExcel) OppressionResist() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(140))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterStatExcel) MutateOppressionResist(n int64) bool {
+	return rcv._tab.MutateInt64Slot(140, n)
+}
+
+func (rcv *CharacterStatExcel) OutdoorBattleAdaptation() TerrainAdaptationStat {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(142))
+	if o != 0 {
+		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterStatExcel) MutateOutdoorBattleAdaptation(n TerrainAdaptationStat) bool {
+	return rcv._tab.MutateInt32Slot(142, int32(n))
+}
+
+func (rcv *CharacterStatExcel) Range() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(144))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterStatExcel) MutateRange(n int64) bool {
+	return rcv._tab.MutateInt64Slot(144, n)
+}
+
+func (rcv *CharacterStatExcel) ReduceExDamagedRate() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(146))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterStatExcel) MutateReduceExDamagedRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(146, n)
+}
+
+func (rcv *CharacterStatExcel) RegenCost() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(148))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterStatExcel) MutateRegenCost(n int64) bool {
+	return rcv._tab.MutateInt64Slot(148, n)
+}
+
+func (rcv *CharacterStatExcel) SightPoint() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(150))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterStatExcel) MutateSightPoint(n int64) bool {
+	return rcv._tab.MutateInt64Slot(150, n)
+}
+
+func (rcv *CharacterStatExcel) StabilityPoint() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(152))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterStatExcel) MutateStabilityPoint(n int64) bool {
+	return rcv._tab.MutateInt64Slot(152, n)
+}
+
+func (rcv *CharacterStatExcel) StabilityRate() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(154))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterStatExcel) MutateStabilityRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(154, n)
+}
+
+func (rcv *CharacterStatExcel) StrategyMobility() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(156))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterStatExcel) MutateStrategyMobility(n int64) bool {
+	return rcv._tab.MutateInt64Slot(156, n)
+}
+
+func (rcv *CharacterStatExcel) StrategySightRange() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(158))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterStatExcel) MutateStrategySightRange(n int64) bool {
+	return rcv._tab.MutateInt64Slot(158, n)
+}
+
+func (rcv *CharacterStatExcel) StreetBattleAdaptation() TerrainAdaptationStat {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(160))
 	if o != 0 {
 		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -830,11 +978,11 @@ func (rcv *CharacterStatExcel) StreetBattleAdaptation() TerrainAdaptationStat {
 }
 
 func (rcv *CharacterStatExcel) MutateStreetBattleAdaptation(n TerrainAdaptationStat) bool {
-	return rcv._tab.MutateInt32Slot(134, int32(n))
+	return rcv._tab.MutateInt32Slot(160, int32(n))
 }
 
 func CharacterStatExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(66)
+	builder.StartObject(79)
 }
 func CharacterStatExcelAddAccuracyPoint(builder *flatbuffers.Builder, accuracyPoint int64) {
 	builder.PrependInt64Slot(0, accuracyPoint, 0)
@@ -917,122 +1065,161 @@ func CharacterStatExcelAddDodgePoint(builder *flatbuffers.Builder, dodgePoint in
 func CharacterStatExcelAddEnhanceElasticArmorRate(builder *flatbuffers.Builder, enhanceElasticArmorRate int64) {
 	builder.PrependInt64Slot(26, enhanceElasticArmorRate, 0)
 }
+func CharacterStatExcelAddEnhanceExDamageRate(builder *flatbuffers.Builder, enhanceExDamageRate int64) {
+	builder.PrependInt64Slot(27, enhanceExDamageRate, 0)
+}
 func CharacterStatExcelAddEnhanceExplosionRate(builder *flatbuffers.Builder, enhanceExplosionRate int64) {
-	builder.PrependInt64Slot(27, enhanceExplosionRate, 0)
+	builder.PrependInt64Slot(28, enhanceExplosionRate, 0)
 }
 func CharacterStatExcelAddEnhanceHeavyArmorRate(builder *flatbuffers.Builder, enhanceHeavyArmorRate int64) {
-	builder.PrependInt64Slot(28, enhanceHeavyArmorRate, 0)
+	builder.PrependInt64Slot(29, enhanceHeavyArmorRate, 0)
 }
 func CharacterStatExcelAddEnhanceLightArmorRate(builder *flatbuffers.Builder, enhanceLightArmorRate int64) {
-	builder.PrependInt64Slot(29, enhanceLightArmorRate, 0)
+	builder.PrependInt64Slot(30, enhanceLightArmorRate, 0)
 }
 func CharacterStatExcelAddEnhanceMysticRate(builder *flatbuffers.Builder, enhanceMysticRate int64) {
-	builder.PrependInt64Slot(30, enhanceMysticRate, 0)
+	builder.PrependInt64Slot(31, enhanceMysticRate, 0)
 }
 func CharacterStatExcelAddEnhanceNormalArmorRate(builder *flatbuffers.Builder, enhanceNormalArmorRate int64) {
-	builder.PrependInt64Slot(31, enhanceNormalArmorRate, 0)
+	builder.PrependInt64Slot(32, enhanceNormalArmorRate, 0)
 }
 func CharacterStatExcelAddEnhanceNormalRate(builder *flatbuffers.Builder, enhanceNormalRate int64) {
-	builder.PrependInt64Slot(32, enhanceNormalRate, 0)
+	builder.PrependInt64Slot(33, enhanceNormalRate, 0)
 }
 func CharacterStatExcelAddEnhancePierceRate(builder *flatbuffers.Builder, enhancePierceRate int64) {
-	builder.PrependInt64Slot(33, enhancePierceRate, 0)
+	builder.PrependInt64Slot(34, enhancePierceRate, 0)
 }
 func CharacterStatExcelAddEnhanceSiegeRate(builder *flatbuffers.Builder, enhanceSiegeRate int64) {
-	builder.PrependInt64Slot(34, enhanceSiegeRate, 0)
+	builder.PrependInt64Slot(35, enhanceSiegeRate, 0)
 }
 func CharacterStatExcelAddEnhanceSonicRate(builder *flatbuffers.Builder, enhanceSonicRate int64) {
-	builder.PrependInt64Slot(35, enhanceSonicRate, 0)
+	builder.PrependInt64Slot(36, enhanceSonicRate, 0)
 }
 func CharacterStatExcelAddEnhanceStructureRate(builder *flatbuffers.Builder, enhanceStructureRate int64) {
-	builder.PrependInt64Slot(36, enhanceStructureRate, 0)
+	builder.PrependInt64Slot(37, enhanceStructureRate, 0)
 }
 func CharacterStatExcelAddEnhanceUnarmedRate(builder *flatbuffers.Builder, enhanceUnarmedRate int64) {
-	builder.PrependInt64Slot(37, enhanceUnarmedRate, 0)
+	builder.PrependInt64Slot(38, enhanceUnarmedRate, 0)
 }
 func CharacterStatExcelAddExDamagedRatioDecrease(builder *flatbuffers.Builder, exDamagedRatioDecrease int64) {
-	builder.PrependInt64Slot(38, exDamagedRatioDecrease, 0)
+	builder.PrependInt64Slot(39, exDamagedRatioDecrease, 0)
 }
 func CharacterStatExcelAddExDamagedRatioIncrease(builder *flatbuffers.Builder, exDamagedRatioIncrease int64) {
-	builder.PrependInt64Slot(39, exDamagedRatioIncrease, 0)
+	builder.PrependInt64Slot(40, exDamagedRatioIncrease, 0)
 }
 func CharacterStatExcelAddExtendBuffDuration(builder *flatbuffers.Builder, extendBuffDuration int64) {
-	builder.PrependInt64Slot(40, extendBuffDuration, 0)
+	builder.PrependInt64Slot(41, extendBuffDuration, 0)
 }
 func CharacterStatExcelAddExtendCrowdControlDuration(builder *flatbuffers.Builder, extendCrowdControlDuration int64) {
-	builder.PrependInt64Slot(41, extendCrowdControlDuration, 0)
+	builder.PrependInt64Slot(42, extendCrowdControlDuration, 0)
 }
 func CharacterStatExcelAddExtendDebuffDuration(builder *flatbuffers.Builder, extendDebuffDuration int64) {
-	builder.PrependInt64Slot(42, extendDebuffDuration, 0)
+	builder.PrependInt64Slot(43, extendDebuffDuration, 0)
 }
 func CharacterStatExcelAddGroggyGauge(builder *flatbuffers.Builder, groggyGauge int32) {
-	builder.PrependInt32Slot(43, groggyGauge, 0)
+	builder.PrependInt32Slot(44, groggyGauge, 0)
 }
 func CharacterStatExcelAddGroggyTime(builder *flatbuffers.Builder, groggyTime int32) {
-	builder.PrependInt32Slot(44, groggyTime, 0)
+	builder.PrependInt32Slot(45, groggyTime, 0)
+}
+func CharacterStatExcelAddHealedExplosionRate(builder *flatbuffers.Builder, healedExplosionRate int64) {
+	builder.PrependInt64Slot(46, healedExplosionRate, 0)
+}
+func CharacterStatExcelAddHealedMysticRate(builder *flatbuffers.Builder, healedMysticRate int64) {
+	builder.PrependInt64Slot(47, healedMysticRate, 0)
+}
+func CharacterStatExcelAddHealedNormalRate(builder *flatbuffers.Builder, healedNormalRate int64) {
+	builder.PrependInt64Slot(48, healedNormalRate, 0)
+}
+func CharacterStatExcelAddHealedPierceRate(builder *flatbuffers.Builder, healedPierceRate int64) {
+	builder.PrependInt64Slot(49, healedPierceRate, 0)
+}
+func CharacterStatExcelAddHealedSonicRate(builder *flatbuffers.Builder, healedSonicRate int64) {
+	builder.PrependInt64Slot(50, healedSonicRate, 0)
 }
 func CharacterStatExcelAddHealEffectivenessRate(builder *flatbuffers.Builder, healEffectivenessRate int64) {
-	builder.PrependInt64Slot(45, healEffectivenessRate, 0)
+	builder.PrependInt64Slot(51, healEffectivenessRate, 0)
+}
+func CharacterStatExcelAddHealElasticArmorRate(builder *flatbuffers.Builder, healElasticArmorRate int64) {
+	builder.PrependInt64Slot(52, healElasticArmorRate, 0)
+}
+func CharacterStatExcelAddHealHeavyArmorRate(builder *flatbuffers.Builder, healHeavyArmorRate int64) {
+	builder.PrependInt64Slot(53, healHeavyArmorRate, 0)
+}
+func CharacterStatExcelAddHealLightArmorRate(builder *flatbuffers.Builder, healLightArmorRate int64) {
+	builder.PrependInt64Slot(54, healLightArmorRate, 0)
+}
+func CharacterStatExcelAddHealNormalArmorRate(builder *flatbuffers.Builder, healNormalArmorRate int64) {
+	builder.PrependInt64Slot(55, healNormalArmorRate, 0)
 }
 func CharacterStatExcelAddHealPower1(builder *flatbuffers.Builder, healPower1 int64) {
-	builder.PrependInt64Slot(46, healPower1, 0)
+	builder.PrependInt64Slot(56, healPower1, 0)
 }
 func CharacterStatExcelAddHealPower100(builder *flatbuffers.Builder, healPower100 int64) {
-	builder.PrependInt64Slot(47, healPower100, 0)
+	builder.PrependInt64Slot(57, healPower100, 0)
+}
+func CharacterStatExcelAddHealRate(builder *flatbuffers.Builder, healRate int64) {
+	builder.PrependInt64Slot(58, healRate, 0)
+}
+func CharacterStatExcelAddHealUnarmedRate(builder *flatbuffers.Builder, healUnarmedRate int64) {
+	builder.PrependInt64Slot(59, healUnarmedRate, 0)
 }
 func CharacterStatExcelAddIgnoreDelayCount(builder *flatbuffers.Builder, ignoreDelayCount int64) {
-	builder.PrependInt64Slot(48, ignoreDelayCount, 0)
+	builder.PrependInt64Slot(60, ignoreDelayCount, 0)
 }
 func CharacterStatExcelAddIndoorBattleAdaptation(builder *flatbuffers.Builder, indoorBattleAdaptation TerrainAdaptationStat) {
-	builder.PrependInt32Slot(49, int32(indoorBattleAdaptation), 0)
+	builder.PrependInt32Slot(61, int32(indoorBattleAdaptation), 0)
 }
 func CharacterStatExcelAddInitialRangeRate(builder *flatbuffers.Builder, initialRangeRate int64) {
-	builder.PrependInt64Slot(50, initialRangeRate, 0)
+	builder.PrependInt64Slot(62, initialRangeRate, 0)
 }
 func CharacterStatExcelAddMaxHp1(builder *flatbuffers.Builder, maxHp1 int64) {
-	builder.PrependInt64Slot(51, maxHp1, 0)
+	builder.PrependInt64Slot(63, maxHp1, 0)
 }
 func CharacterStatExcelAddMaxHp100(builder *flatbuffers.Builder, maxHp100 int64) {
-	builder.PrependInt64Slot(52, maxHp100, 0)
+	builder.PrependInt64Slot(64, maxHp100, 0)
 }
 func CharacterStatExcelAddMoveSpeed(builder *flatbuffers.Builder, moveSpeed int64) {
-	builder.PrependInt64Slot(53, moveSpeed, 0)
+	builder.PrependInt64Slot(65, moveSpeed, 0)
 }
 func CharacterStatExcelAddNormalAttackSpeed(builder *flatbuffers.Builder, normalAttackSpeed int64) {
-	builder.PrependInt64Slot(54, normalAttackSpeed, 0)
+	builder.PrependInt64Slot(66, normalAttackSpeed, 0)
 }
 func CharacterStatExcelAddOppressionPower(builder *flatbuffers.Builder, oppressionPower int64) {
-	builder.PrependInt64Slot(55, oppressionPower, 0)
+	builder.PrependInt64Slot(67, oppressionPower, 0)
 }
 func CharacterStatExcelAddOppressionResist(builder *flatbuffers.Builder, oppressionResist int64) {
-	builder.PrependInt64Slot(56, oppressionResist, 0)
+	builder.PrependInt64Slot(68, oppressionResist, 0)
 }
 func CharacterStatExcelAddOutdoorBattleAdaptation(builder *flatbuffers.Builder, outdoorBattleAdaptation TerrainAdaptationStat) {
-	builder.PrependInt32Slot(57, int32(outdoorBattleAdaptation), 0)
+	builder.PrependInt32Slot(69, int32(outdoorBattleAdaptation), 0)
 }
 func CharacterStatExcelAddRange(builder *flatbuffers.Builder, range_ int64) {
-	builder.PrependInt64Slot(58, range_, 0)
+	builder.PrependInt64Slot(70, range_, 0)
+}
+func CharacterStatExcelAddReduceExDamagedRate(builder *flatbuffers.Builder, reduceExDamagedRate int64) {
+	builder.PrependInt64Slot(71, reduceExDamagedRate, 0)
 }
 func CharacterStatExcelAddRegenCost(builder *flatbuffers.Builder, regenCost int64) {
-	builder.PrependInt64Slot(59, regenCost, 0)
+	builder.PrependInt64Slot(72, regenCost, 0)
 }
 func CharacterStatExcelAddSightPoint(builder *flatbuffers.Builder, sightPoint int64) {
-	builder.PrependInt64Slot(60, sightPoint, 0)
+	builder.PrependInt64Slot(73, sightPoint, 0)
 }
 func CharacterStatExcelAddStabilityPoint(builder *flatbuffers.Builder, stabilityPoint int64) {
-	builder.PrependInt64Slot(61, stabilityPoint, 0)
+	builder.PrependInt64Slot(74, stabilityPoint, 0)
 }
 func CharacterStatExcelAddStabilityRate(builder *flatbuffers.Builder, stabilityRate int64) {
-	builder.PrependInt64Slot(62, stabilityRate, 0)
+	builder.PrependInt64Slot(75, stabilityRate, 0)
 }
 func CharacterStatExcelAddStrategyMobility(builder *flatbuffers.Builder, strategyMobility int64) {
-	builder.PrependInt64Slot(63, strategyMobility, 0)
+	builder.PrependInt64Slot(76, strategyMobility, 0)
 }
 func CharacterStatExcelAddStrategySightRange(builder *flatbuffers.Builder, strategySightRange int64) {
-	builder.PrependInt64Slot(64, strategySightRange, 0)
+	builder.PrependInt64Slot(77, strategySightRange, 0)
 }
 func CharacterStatExcelAddStreetBattleAdaptation(builder *flatbuffers.Builder, streetBattleAdaptation TerrainAdaptationStat) {
-	builder.PrependInt32Slot(65, int32(streetBattleAdaptation), 0)
+	builder.PrependInt32Slot(78, int32(streetBattleAdaptation), 0)
 }
 func CharacterStatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

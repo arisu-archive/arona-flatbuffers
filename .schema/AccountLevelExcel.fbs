@@ -1,0 +1,9 @@
+namespace FlatData;
+
+table AccountLevelExcel {
+    ap_auto_charge_max: long;
+    exp: long;
+    id: long;
+    level: long;
+    need_report_event: bool;
+}

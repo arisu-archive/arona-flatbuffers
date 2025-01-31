@@ -1,0 +1,9 @@
+namespace FlatData;
+
+table LocalizeCharProfileChangeExcel {
+    change_character_id: long;
+    character_id: long;
+    scenario_mode_id: long;
+}
+
+root_type LocalizeCharProfileChangeExcel;

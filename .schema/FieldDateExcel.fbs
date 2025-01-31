@@ -1,0 +1,18 @@
+include "FieldConditionType.fbs";
+
+namespace FlatData;
+
+table FieldDateExcel {
+    date_localize_key: string;
+    date_result_spine_offset_x: float;
+    date_result_spine_path: string;
+    end_condition_id: long;
+    end_condition_type: FieldConditionType;
+    entry_scene_id: long;
+    open_condition_stage: long;
+    open_date: long;
+    season_id: long;
+    start_condition_id: long;
+    start_condition_type: FieldConditionType;
+    unique_id: long;
+}

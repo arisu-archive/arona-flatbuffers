@@ -1,0 +1,13 @@
+include "Nation.fbs";
+
+namespace FlatData;
+
+table VoiceExcel {
+    id: uint;
+    nation: [Nation];
+    path: [string];
+    unique_id: long;
+    volume: [float];
+}
+
+root_type VoiceExcel;

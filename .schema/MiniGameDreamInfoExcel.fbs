@@ -1,0 +1,22 @@
+include "ParcelType.fbs";
+include "DreamMakerMultiplierCondition.fbs";
+
+namespace FlatData;
+
+table MiniGameDreamInfoExcel {
+    dream_maker_action_point: long;
+    dream_maker_daily_point_id: long;
+    dream_maker_daily_point_parcel_type: ParcelType;
+    dream_maker_days: long;
+    dream_maker_multiplier_condition: DreamMakerMultiplierCondition;
+    dream_maker_multiplier_condition_value: long;
+    dream_maker_multiplier_max: long;
+    dream_maker_parameter_transfer: long;
+    dream_maker_parcel_id: long;
+    dream_maker_parcel_type: ParcelType;
+    event_content_id: long;
+    lobby_bgm_change_scenario_id: long;
+    schedule_cost_goods_id: long;
+}
+
+root_type MiniGameDreamInfoExcel;

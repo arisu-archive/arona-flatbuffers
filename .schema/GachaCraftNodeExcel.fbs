@@ -1,0 +1,11 @@
+namespace FlatData;
+
+table GachaCraftNodeExcel {
+    icon: string;
+    id: long;
+    localize_key: uint;
+    node_quality: long;
+    property: long;
+    quick_craft_node_display_order: int;
+    tier: long;
+}

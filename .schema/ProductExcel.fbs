@@ -1,0 +1,19 @@
+include "ParcelType.fbs";
+include "PurchasePeriodType.fbs";
+include "StoreType.fbs";
+
+namespace FlatData;
+
+table ProductExcel {
+    id: long;
+    parcel_amount: [long];
+    parcel_id: [long];
+    parcel_type: [ParcelType];
+    price: long;
+    price_reference: string;
+    product_id: string;
+    purchase_period_limit: long;
+    purchase_period_type: PurchasePeriodType;
+    store_type: StoreType;
+    teen_product_id: string;
+}

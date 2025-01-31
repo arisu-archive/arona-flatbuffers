@@ -1,0 +1,30 @@
+include "AttendanceCountRule.fbs";
+include "DialogCategory.fbs";
+include "MailType.fbs";
+include "AttendanceType.fbs";
+include "AccountState.fbs";
+include "AttendanceResetType.fbs";
+
+namespace FlatData;
+
+table AttendanceExcel {
+    account_level_limit: long;
+    account_type: AccountState;
+    book_size: long;
+    countdown_prefab: string;
+    count_reset: AttendanceResetType;
+    count_rule: AttendanceCountRule;
+    decoration_image_path: string;
+    dialog_category: DialogCategory;
+    display_order: long;
+    end_date: string;
+    expiry_date: long;
+    id: long;
+    infomation_localize_code: string;
+    mail_type: MailType;
+    startable_end_date: string;
+    start_date: string;
+    title: string;
+    title_image_path: string;
+    type: AttendanceType;
+}

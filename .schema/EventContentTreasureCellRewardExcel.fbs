@@ -1,0 +1,13 @@
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table EventContentTreasureCellRewardExcel {
+    id: long;
+    localize_code_id: string;
+    reward_parcel_amount: [long];
+    reward_parcel_id: [long];
+    reward_parcel_type: [ParcelType];
+}
+
+root_type EventContentTreasureCellRewardExcel;

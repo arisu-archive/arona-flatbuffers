@@ -1,0 +1,9 @@
+include "SchoolDungeonRewardExcel.fbs";
+
+namespace FlatData;
+
+table SchoolDungeonRewardExcelTable {
+    data_list: [SchoolDungeonRewardExcel];
+}
+
+root_type SchoolDungeonRewardExcelTable;

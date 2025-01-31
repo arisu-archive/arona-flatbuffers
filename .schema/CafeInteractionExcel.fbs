@@ -1,0 +1,17 @@
+include "BubbleType.fbs";
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table CafeInteractionExcel {
+    bubble_duration: [long];
+    bubble_type: [BubbleType];
+    cafe_character_state: [string];
+    character_id: long;
+    favor_emoticon_reward_amount: long;
+    favor_emoticon_reward_id: long;
+    favor_emoticon_reward_parcel_type: ParcelType;
+    ignore_if_unobtained: bool;
+    ignore_if_unobtained_end_date: string;
+    ignore_if_unobtained_start_date: string;
+}

@@ -1,0 +1,11 @@
+include "OpenConditionContent.fbs";
+
+namespace FlatData;
+
+table ProtocolSettingExcel {
+    currency: bool;
+    inventory: bool;
+    mail: bool;
+    open_condition_content: OpenConditionContent;
+    protocol: string;
+}

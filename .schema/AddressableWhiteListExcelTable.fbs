@@ -1,0 +1,9 @@
+include "AddressableWhiteListExcel.fbs";
+
+namespace FlatData;
+
+table AddressableWhiteListExcelTable {
+    data_list: [AddressableWhiteListExcel];
+}
+
+root_type AddressableWhiteListExcelTable;

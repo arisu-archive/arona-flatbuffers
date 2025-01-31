@@ -1,0 +1,12 @@
+include "PotentialStatBonusRateType.fbs";
+
+namespace FlatData;
+
+table CharacterPotentialExcel {
+    id: long;
+    is_unnecessary_stat: bool;
+    potential_stat_bonus_rate_type: PotentialStatBonusRateType;
+    potential_stat_group_id: long;
+}
+
+root_type CharacterPotentialExcel;

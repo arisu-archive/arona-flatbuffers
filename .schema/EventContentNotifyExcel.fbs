@@ -1,0 +1,16 @@
+include "EventNotifyType.fbs";
+include "EventTargetType.fbs";
+
+namespace FlatData;
+
+table EventContentNotifyExcel {
+    event_notify_type: EventNotifyType;
+    event_target_type: EventTargetType;
+    icon_path: string;
+    id: int;
+    is_shortcut_enable: bool;
+    localize_etc_id: uint;
+    shortcut_event_target_type: EventTargetType;
+}
+
+root_type EventContentNotifyExcel;

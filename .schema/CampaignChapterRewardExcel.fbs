@@ -1,0 +1,11 @@
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table CampaignChapterRewardExcel {
+    campaign_chapter_star: long;
+    chapter_reward_amount: [int];
+    chapter_reward_id: [long];
+    chapter_reward_parcel_type: [ParcelType];
+    id: long;
+}

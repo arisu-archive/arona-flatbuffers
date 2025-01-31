@@ -1,0 +1,13 @@
+namespace FlatData;
+
+table FieldSeasonExcel {
+    character_icon_path: string;
+    end_date: string;
+    entry_date_id: long;
+    event_content_id: long;
+    instant_entry_date_id: long;
+    lobby_bgm_change_stage_id: long;
+    mastery_image_path: string;
+    start_date: string;
+    unique_id: long;
+}

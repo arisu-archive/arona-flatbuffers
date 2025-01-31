@@ -1,0 +1,8 @@
+namespace FlatData;
+
+table TacticSimulatorSettingExcel {
+    equipment: long;
+    get_exp: long;
+    get_star_grade: long;
+    ground_id: long;
+}

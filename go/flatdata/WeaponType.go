@@ -27,6 +27,7 @@ const (
 	WeaponTypeMT      WeaponType = 17
 	WeaponTypeRelic   WeaponType = 18
 	WeaponTypeFT      WeaponType = 19
+	WeaponTypeAkemi   WeaponType = 20
 )
 
 var EnumNamesWeaponType = map[WeaponType]string{
@@ -50,6 +51,7 @@ var EnumNamesWeaponType = map[WeaponType]string{
 	WeaponTypeMT:      "MT",
 	WeaponTypeRelic:   "Relic",
 	WeaponTypeFT:      "FT",
+	WeaponTypeAkemi:   "Akemi",
 }
 
 var EnumValuesWeaponType = map[string]WeaponType{
@@ -73,6 +75,7 @@ var EnumValuesWeaponType = map[string]WeaponType{
 	"MT":      WeaponTypeMT,
 	"Relic":   WeaponTypeRelic,
 	"FT":      WeaponTypeFT,
+	"Akemi":   WeaponTypeAkemi,
 }
 
 func (v WeaponType) String() string {

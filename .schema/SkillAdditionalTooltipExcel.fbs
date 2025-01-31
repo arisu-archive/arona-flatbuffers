@@ -1,0 +1,9 @@
+namespace FlatData;
+
+table SkillAdditionalTooltipExcel {
+    additional_skill_group_id: string;
+    group_id: long;
+    show_skill_slot: string;
+}
+
+root_type SkillAdditionalTooltipExcel;

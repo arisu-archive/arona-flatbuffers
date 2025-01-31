@@ -1,0 +1,9 @@
+namespace FlatData;
+
+table FieldMasteryLevelExcel {
+    exp: [long];
+    id: [long];
+    level: int;
+    reward_id: [long];
+    total_exp: [long];
+}

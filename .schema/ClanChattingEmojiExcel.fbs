@@ -1,0 +1,14 @@
+namespace FlatData;
+
+table ClanChattingEmojiExcel {
+    display_order: int;
+    id: long;
+    image_path_en: string;
+    image_path_jp: string;
+    image_path_kr: string;
+    image_path_th: string;
+    image_path_tw: string;
+    tab_group_id: int;
+}
+
+root_type ClanChattingEmojiExcel;

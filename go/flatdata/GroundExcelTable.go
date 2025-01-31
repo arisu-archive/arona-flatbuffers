@@ -17,19 +17,11 @@ func GetRootAsGroundExcelTable(buf []byte, offset flatbuffers.UOffsetT) *GroundE
 	return x
 }
 
-func FinishGroundExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsGroundExcelTable(buf []byte, offset flatbuffers.UOffsetT) *GroundExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GroundExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedGroundExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GroundExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

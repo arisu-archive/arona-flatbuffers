@@ -1,0 +1,13 @@
+include "EventContentType.fbs";
+
+namespace FlatData;
+
+table EventContentSpineDialogOffsetExcel {
+    costume_unique_id: long;
+    dialog_offset_x: float;
+    dialog_offset_y: float;
+    event_content_id: long;
+    event_content_type: EventContentType;
+    spine_offset_x: float;
+    spine_offset_y: float;
+}

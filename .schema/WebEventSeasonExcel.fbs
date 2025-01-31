@@ -1,0 +1,11 @@
+namespace FlatData;
+
+table WebEventSeasonExcel {
+    enabled: bool;
+    end_date: string;
+    event_url: string;
+    id: long;
+    lobby_banner_image: string;
+    popup_title_localize_key: string;
+    start_date: string;
+}

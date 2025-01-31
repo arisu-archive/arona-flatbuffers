@@ -1,0 +1,14 @@
+namespace FlatData;
+
+table TutorialCharacterDialogExcel {
+    animation_name: string;
+    localize_en: string;
+    localize_jp: string;
+    localize_kr: string;
+    localize_th: string;
+    localize_tw: string;
+    talk_id: long;
+    voice_id: uint;
+}
+
+root_type TutorialCharacterDialogExcel;

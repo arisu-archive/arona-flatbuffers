@@ -32,7 +32,7 @@ const (
 	EchelonTypeEliminateRaid03     EchelonType = 22
 	EchelonTypeField               EchelonType = 23
 	EchelonTypeMultiFloorRaid      EchelonType = 24
-	EchelonTypeTemp                EchelonType = 25
+	EchelonTypeMinigameDefense     EchelonType = 25
 )
 
 var EnumNamesEchelonType = map[EchelonType]string{
@@ -61,7 +61,7 @@ var EnumNamesEchelonType = map[EchelonType]string{
 	EchelonTypeEliminateRaid03:     "EliminateRaid03",
 	EchelonTypeField:               "Field",
 	EchelonTypeMultiFloorRaid:      "MultiFloorRaid",
-	EchelonTypeTemp:                "Temp",
+	EchelonTypeMinigameDefense:     "MinigameDefense",
 }
 
 var EnumValuesEchelonType = map[string]EchelonType{
@@ -90,7 +90,7 @@ var EnumValuesEchelonType = map[string]EchelonType{
 	"EliminateRaid03":     EchelonTypeEliminateRaid03,
 	"Field":               EchelonTypeField,
 	"MultiFloorRaid":      EchelonTypeMultiFloorRaid,
-	"Temp":                EchelonTypeTemp,
+	"MinigameDefense":     EchelonTypeMinigameDefense,
 }
 
 func (v EchelonType) String() string {

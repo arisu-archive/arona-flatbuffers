@@ -1,0 +1,13 @@
+include "ContentType.fbs";
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table ContentEnterCostReduceExcel {
+    content_type: ContentType;
+    enter_cost_reduce_group_id: long;
+    reduce_amount: long;
+    reduce_enter_cost_id: long;
+    reduce_enter_cost_type: ParcelType;
+    stage_id: long;
+}

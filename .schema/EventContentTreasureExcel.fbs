@@ -1,0 +1,11 @@
+namespace FlatData;
+
+table EventContentTreasureExcel {
+    event_content_id: long;
+    loop_round: int;
+    title_localize: string;
+    treasure_bg_image_path: string;
+    use_prefab_name: string;
+}
+
+root_type EventContentTreasureExcel;

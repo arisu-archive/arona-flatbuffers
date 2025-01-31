@@ -1,0 +1,21 @@
+include "ArenaSimulatorServer.fbs";
+
+namespace FlatData;
+
+table TacticArenaSimulatorSettingExcel {
+    attacker_from: ArenaSimulatorServer;
+    attacker_preset_group_id: long;
+    attacker_special_num: long;
+    attacker_striker_num: long;
+    attacker_user_arena_group: long;
+    attacker_user_arena_rank: long;
+    defender_from: ArenaSimulatorServer;
+    defender_preset_group_id: long;
+    defender_special_num: long;
+    defender_striker_num: long;
+    defender_user_arena_group: long;
+    defender_user_arena_rank: long;
+    ground_id: long;
+    order: long;
+    repeat: long;
+}

@@ -74,7 +74,20 @@ const (
 	StatTypeEnhanceElasticArmorRate    StatType = 64
 	StatTypeExDamagedRatioIncrease     StatType = 65
 	StatTypeExDamagedRatioDecrease     StatType = 66
-	StatTypeMax                        StatType = 67
+	StatTypeEnhanceExDamageRate        StatType = 67
+	StatTypeReduceExDamagedRate        StatType = 68
+	StatTypeHealRate                   StatType = 69
+	StatTypeHealLightArmorRate         StatType = 70
+	StatTypeHealHeavyArmorRate         StatType = 71
+	StatTypeHealUnarmedRate            StatType = 72
+	StatTypeHealElasticArmorRate       StatType = 73
+	StatTypeHealNormalArmorRate        StatType = 74
+	StatTypeHealedExplosionRate        StatType = 75
+	StatTypeHealedPierceRate           StatType = 76
+	StatTypeHealedMysticRate           StatType = 77
+	StatTypeHealedSonicRate            StatType = 78
+	StatTypeHealedNormalRate           StatType = 79
+	StatTypeMax                        StatType = 80
 )
 
 var EnumNamesStatType = map[StatType]string{
@@ -145,6 +158,19 @@ var EnumNamesStatType = map[StatType]string{
 	StatTypeEnhanceElasticArmorRate:    "EnhanceElasticArmorRate",
 	StatTypeExDamagedRatioIncrease:     "ExDamagedRatioIncrease",
 	StatTypeExDamagedRatioDecrease:     "ExDamagedRatioDecrease",
+	StatTypeEnhanceExDamageRate:        "EnhanceExDamageRate",
+	StatTypeReduceExDamagedRate:        "ReduceExDamagedRate",
+	StatTypeHealRate:                   "HealRate",
+	StatTypeHealLightArmorRate:         "HealLightArmorRate",
+	StatTypeHealHeavyArmorRate:         "HealHeavyArmorRate",
+	StatTypeHealUnarmedRate:            "HealUnarmedRate",
+	StatTypeHealElasticArmorRate:       "HealElasticArmorRate",
+	StatTypeHealNormalArmorRate:        "HealNormalArmorRate",
+	StatTypeHealedExplosionRate:        "HealedExplosionRate",
+	StatTypeHealedPierceRate:           "HealedPierceRate",
+	StatTypeHealedMysticRate:           "HealedMysticRate",
+	StatTypeHealedSonicRate:            "HealedSonicRate",
+	StatTypeHealedNormalRate:           "HealedNormalRate",
 	StatTypeMax:                        "Max",
 }
 
@@ -216,6 +242,19 @@ var EnumValuesStatType = map[string]StatType{
 	"EnhanceElasticArmorRate":    StatTypeEnhanceElasticArmorRate,
 	"ExDamagedRatioIncrease":     StatTypeExDamagedRatioIncrease,
 	"ExDamagedRatioDecrease":     StatTypeExDamagedRatioDecrease,
+	"EnhanceExDamageRate":        StatTypeEnhanceExDamageRate,
+	"ReduceExDamagedRate":        StatTypeReduceExDamagedRate,
+	"HealRate":                   StatTypeHealRate,
+	"HealLightArmorRate":         StatTypeHealLightArmorRate,
+	"HealHeavyArmorRate":         StatTypeHealHeavyArmorRate,
+	"HealUnarmedRate":            StatTypeHealUnarmedRate,
+	"HealElasticArmorRate":       StatTypeHealElasticArmorRate,
+	"HealNormalArmorRate":        StatTypeHealNormalArmorRate,
+	"HealedExplosionRate":        StatTypeHealedExplosionRate,
+	"HealedPierceRate":           StatTypeHealedPierceRate,
+	"HealedMysticRate":           StatTypeHealedMysticRate,
+	"HealedSonicRate":            StatTypeHealedSonicRate,
+	"HealedNormalRate":           StatTypeHealedNormalRate,
 	"Max":                        StatTypeMax,
 }
 

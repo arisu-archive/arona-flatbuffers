@@ -23,3 +23,4 @@ class WeaponType(object):
     MT = 17
     Relic = 18
     FT = 19
+    Akemi = 20

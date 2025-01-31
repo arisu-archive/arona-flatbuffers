@@ -17,19 +17,11 @@ func GetRootAsClanRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Cla
 	return x
 }
 
-func FinishClanRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsClanRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ClanRewardExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ClanRewardExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedClanRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ClanRewardExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

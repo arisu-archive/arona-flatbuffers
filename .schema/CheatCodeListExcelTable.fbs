@@ -1,0 +1,9 @@
+include "CheatCodeListExcel.fbs";
+
+namespace FlatData;
+
+table CheatCodeListExcelTable {
+    data_list: [CheatCodeListExcel];
+}
+
+root_type CheatCodeListExcelTable;

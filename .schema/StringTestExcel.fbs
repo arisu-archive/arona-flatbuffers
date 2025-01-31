@@ -1,0 +1,7 @@
+namespace FlatData;
+
+table StringTestExcel {
+    script: string;
+    sentence1: string;
+    string: [string];
+}

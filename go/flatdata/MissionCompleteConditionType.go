@@ -172,10 +172,11 @@ const (
 	MissionCompleteConditionTypeReset_DreamGetEndingCount                             MissionCompleteConditionType = 162
 	MissionCompleteConditionTypeReset_DreamGetSpecificEndingCount                     MissionCompleteConditionType = 163
 	MissionCompleteConditionTypeReset_DreamGetCollectionScenarioCount                 MissionCompleteConditionType = 164
-	MissionCompleteConditionTypeTemp_1                                                MissionCompleteConditionType = 165
-	MissionCompleteConditionTypeTemp_2                                                MissionCompleteConditionType = 166
-	MissionCompleteConditionTypeTemp_3                                                MissionCompleteConditionType = 167
-	MissionCompleteConditionTypeTemp_4                                                MissionCompleteConditionType = 168
+	MissionCompleteConditionTypeReset_ClearCountDefense                               MissionCompleteConditionType = 165
+	MissionCompleteConditionTypeReset_ClearSpecificDefenseStage                       MissionCompleteConditionType = 166
+	MissionCompleteConditionTypeReset_ClearCharacterLimitDefense                      MissionCompleteConditionType = 167
+	MissionCompleteConditionTypeReset_ClearTimeLimitDefenseFromSecond                 MissionCompleteConditionType = 168
+	MissionCompleteConditionTypeReset_JoinMultiFloorRaidCount                         MissionCompleteConditionType = 169
 )
 
 var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]string{
@@ -344,10 +345,11 @@ var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]str
 	MissionCompleteConditionTypeReset_DreamGetEndingCount:                             "Reset_DreamGetEndingCount",
 	MissionCompleteConditionTypeReset_DreamGetSpecificEndingCount:                     "Reset_DreamGetSpecificEndingCount",
 	MissionCompleteConditionTypeReset_DreamGetCollectionScenarioCount:                 "Reset_DreamGetCollectionScenarioCount",
-	MissionCompleteConditionTypeTemp_1:                                                "Temp_1",
-	MissionCompleteConditionTypeTemp_2:                                                "Temp_2",
-	MissionCompleteConditionTypeTemp_3:                                                "Temp_3",
-	MissionCompleteConditionTypeTemp_4:                                                "Temp_4",
+	MissionCompleteConditionTypeReset_ClearCountDefense:                               "Reset_ClearCountDefense",
+	MissionCompleteConditionTypeReset_ClearSpecificDefenseStage:                       "Reset_ClearSpecificDefenseStage",
+	MissionCompleteConditionTypeReset_ClearCharacterLimitDefense:                      "Reset_ClearCharacterLimitDefense",
+	MissionCompleteConditionTypeReset_ClearTimeLimitDefenseFromSecond:                 "Reset_ClearTimeLimitDefenseFromSecond",
+	MissionCompleteConditionTypeReset_JoinMultiFloorRaidCount:                         "Reset_JoinMultiFloorRaidCount",
 }
 
 var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteConditionType{
@@ -516,10 +518,11 @@ var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteCondition
 	"Reset_DreamGetEndingCount":                             MissionCompleteConditionTypeReset_DreamGetEndingCount,
 	"Reset_DreamGetSpecificEndingCount":                     MissionCompleteConditionTypeReset_DreamGetSpecificEndingCount,
 	"Reset_DreamGetCollectionScenarioCount":                 MissionCompleteConditionTypeReset_DreamGetCollectionScenarioCount,
-	"Temp_1":                                                MissionCompleteConditionTypeTemp_1,
-	"Temp_2":                                                MissionCompleteConditionTypeTemp_2,
-	"Temp_3":                                                MissionCompleteConditionTypeTemp_3,
-	"Temp_4":                                                MissionCompleteConditionTypeTemp_4,
+	"Reset_ClearCountDefense":                               MissionCompleteConditionTypeReset_ClearCountDefense,
+	"Reset_ClearSpecificDefenseStage":                       MissionCompleteConditionTypeReset_ClearSpecificDefenseStage,
+	"Reset_ClearCharacterLimitDefense":                      MissionCompleteConditionTypeReset_ClearCharacterLimitDefense,
+	"Reset_ClearTimeLimitDefenseFromSecond":                 MissionCompleteConditionTypeReset_ClearTimeLimitDefenseFromSecond,
+	"Reset_JoinMultiFloorRaidCount":                         MissionCompleteConditionTypeReset_JoinMultiFloorRaidCount,
 }
 
 func (v MissionCompleteConditionType) String() string {

@@ -12,6 +12,7 @@ const (
 	EventNotifyTypeRaidSeasonManager             EventNotifyType = 2
 	EventNotifyTypeTimeAttackDungeonSeasonManage EventNotifyType = 3
 	EventNotifyTypeEliminateRaidSeasonManage     EventNotifyType = 4
+	EventNotifyTypeMultiFloorRaidSeasonManage    EventNotifyType = 5
 )
 
 var EnumNamesEventNotifyType = map[EventNotifyType]string{
@@ -20,6 +21,7 @@ var EnumNamesEventNotifyType = map[EventNotifyType]string{
 	EventNotifyTypeRaidSeasonManager:             "RaidSeasonManager",
 	EventNotifyTypeTimeAttackDungeonSeasonManage: "TimeAttackDungeonSeasonManage",
 	EventNotifyTypeEliminateRaidSeasonManage:     "EliminateRaidSeasonManage",
+	EventNotifyTypeMultiFloorRaidSeasonManage:    "MultiFloorRaidSeasonManage",
 }
 
 var EnumValuesEventNotifyType = map[string]EventNotifyType{
@@ -28,6 +30,7 @@ var EnumValuesEventNotifyType = map[string]EventNotifyType{
 	"RaidSeasonManager":             EventNotifyTypeRaidSeasonManager,
 	"TimeAttackDungeonSeasonManage": EventNotifyTypeTimeAttackDungeonSeasonManage,
 	"EliminateRaidSeasonManage":     EventNotifyTypeEliminateRaidSeasonManage,
+	"MultiFloorRaidSeasonManage":    EventNotifyTypeMultiFloorRaidSeasonManage,
 }
 
 func (v EventNotifyType) String() string {

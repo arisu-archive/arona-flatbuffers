@@ -1,0 +1,20 @@
+include "ShopCategoryType.fbs";
+include "ParcelType.fbs";
+
+namespace FlatData;
+
+table EventContentShopInfoExcel {
+    auto_refresh_cool_time: long;
+    category_type: ShopCategoryType;
+    cost_parcel_id: [long];
+    cost_parcel_type: [ParcelType];
+    event_content_id: long;
+    goods_id: [long];
+    is_refresh: bool;
+    is_sold_out_dimmed: bool;
+    localize_code: uint;
+    open_period_from: string;
+    open_period_to: string;
+    refresh_able_count: long;
+    shop_product_update_date: string;
+}
