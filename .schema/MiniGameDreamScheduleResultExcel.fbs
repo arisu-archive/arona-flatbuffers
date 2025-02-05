@@ -1,7 +1,7 @@
-include "DreamMakerResult.fbs";
-include "DreamMakerParameterType.fbs";
 include "DreamMakerParamOperationType.fbs";
 include "ParcelType.fbs";
+include "DreamMakerResult.fbs";
+include "DreamMakerParameterType.fbs";
 
 namespace FlatData;
 

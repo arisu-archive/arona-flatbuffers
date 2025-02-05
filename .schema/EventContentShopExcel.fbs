@@ -1,5 +1,5 @@
-include "PurchaseCountResetType.fbs";
 include "ShopCategoryType.fbs";
+include "PurchaseCountResetType.fbs";
 
 namespace FlatData;
 

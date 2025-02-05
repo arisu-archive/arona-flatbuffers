@@ -1,7 +1,7 @@
+include "WeaponType.fbs";
 include "Club.fbs";
 include "TacticRole.fbs";
 include "School.fbs";
-include "WeaponType.fbs";
 
 namespace FlatData;
 

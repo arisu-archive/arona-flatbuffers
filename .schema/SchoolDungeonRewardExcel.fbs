@@ -1,6 +1,6 @@
+include "ParcelType.fbs";
 include "RewardTag.fbs";
 include "SchoolDungeonType.fbs";
-include "ParcelType.fbs";
 
 namespace FlatData;
 

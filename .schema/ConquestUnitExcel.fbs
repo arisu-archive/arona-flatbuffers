@@ -1,9 +1,9 @@
-include "EchelonExtensionType.fbs";
-include "ConquestEnemyType.fbs";
 include "ParcelType.fbs";
 include "StageTopography.fbs";
 include "StarGoalType.fbs";
 include "ConquestTeamType.fbs";
+include "EchelonExtensionType.fbs";
+include "ConquestEnemyType.fbs";
 
 namespace FlatData;
 

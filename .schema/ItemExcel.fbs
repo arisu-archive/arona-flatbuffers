@@ -1,11 +1,11 @@
-include "MailType.fbs";
-include "ProductionStep.fbs";
-include "Rarity.fbs";
-include "ShopCategoryType.fbs";
 include "Tag.fbs";
 include "ParcelType.fbs";
 include "GachaTicketType.fbs";
 include "ItemCategory.fbs";
+include "MailType.fbs";
+include "ProductionStep.fbs";
+include "Rarity.fbs";
+include "ShopCategoryType.fbs";
 
 namespace FlatData;
 

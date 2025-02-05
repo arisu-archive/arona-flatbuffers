@@ -1,5 +1,5 @@
-include "ParcelType.fbs";
 include "Rarity.fbs";
+include "ParcelType.fbs";
 
 namespace FlatData;
 

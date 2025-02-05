@@ -1,6 +1,6 @@
-include "ClanRewardType.fbs";
 include "EchelonType.fbs";
 include "ParcelType.fbs";
+include "ClanRewardType.fbs";
 
 namespace FlatData;
 

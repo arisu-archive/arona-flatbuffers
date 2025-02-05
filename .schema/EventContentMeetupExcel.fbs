@@ -1,5 +1,5 @@
-include "MeetupConditionPrintType.fbs";
 include "MeetupConditionType.fbs";
+include "MeetupConditionPrintType.fbs";
 
 namespace FlatData;
 

@@ -1,10 +1,10 @@
-include "MissionCompleteConditionType.fbs";
-include "ParcelType.fbs";
-include "MissionResetType.fbs";
 include "MissionToastDisplayConditionType.fbs";
 include "AccountState.fbs";
 include "MissionCategory.fbs";
 include "Tag.fbs";
+include "MissionCompleteConditionType.fbs";
+include "ParcelType.fbs";
+include "MissionResetType.fbs";
 
 namespace FlatData;
 

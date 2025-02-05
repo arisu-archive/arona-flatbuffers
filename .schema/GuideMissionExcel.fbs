@@ -1,8 +1,8 @@
-include "ParcelType.fbs";
-include "MissionToastDisplayConditionType.fbs";
 include "MissionCategory.fbs";
 include "Tag.fbs";
 include "MissionCompleteConditionType.fbs";
+include "ParcelType.fbs";
+include "MissionToastDisplayConditionType.fbs";
 
 namespace FlatData;
 

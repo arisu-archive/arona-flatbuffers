@@ -1,6 +1,6 @@
+include "ContentType.fbs";
 include "StageTopography.fbs";
 include "StrategyEnvironment.fbs";
-include "ContentType.fbs";
 
 namespace FlatData;
 

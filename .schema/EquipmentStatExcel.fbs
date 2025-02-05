@@ -1,7 +1,7 @@
-include "StatLevelUpType.fbs";
-include "EquipmentOptionType.fbs";
 include "EquipmentCategory.fbs";
 include "CurrencyTypes.fbs";
+include "StatLevelUpType.fbs";
+include "EquipmentOptionType.fbs";
 
 namespace FlatData;
 

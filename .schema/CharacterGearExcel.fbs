@@ -1,6 +1,6 @@
+include "Tag.fbs";
 include "StatLevelUpType.fbs";
 include "EquipmentOptionType.fbs";
-include "Tag.fbs";
 
 namespace FlatData;
 

@@ -1,7 +1,7 @@
-include "ParcelType.fbs";
-include "Rarity.fbs";
 include "ConsumeCondition.fbs";
 include "GachaTicketType.fbs";
+include "ParcelType.fbs";
+include "Rarity.fbs";
 
 namespace FlatData;
 

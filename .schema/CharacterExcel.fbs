@@ -1,17 +1,17 @@
-include "SquadType.fbs";
-include "School.fbs";
-include "ArmorType.fbs";
 include "EquipmentCategory.fbs";
-include "ProductionStep.fbs";
+include "School.fbs";
 include "TacticRole.fbs";
-include "Tag.fbs";
 include "WeaponType.fbs";
-include "AimIKType.fbs";
-include "Club.fbs";
-include "TacticRange.fbs";
 include "BulletType.fbs";
+include "TacticRange.fbs";
+include "Tag.fbs";
+include "AimIKType.fbs";
+include "ProductionStep.fbs";
+include "SquadType.fbs";
 include "StatLevelUpType.fbs";
 include "TacticEntityType.fbs";
+include "ArmorType.fbs";
+include "Club.fbs";
 include "Rarity.fbs";
 
 namespace FlatData;

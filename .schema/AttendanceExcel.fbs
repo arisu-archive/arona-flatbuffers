@@ -1,9 +1,9 @@
-include "AttendanceCountRule.fbs";
 include "DialogCategory.fbs";
 include "MailType.fbs";
 include "AttendanceType.fbs";
 include "AccountState.fbs";
 include "AttendanceResetType.fbs";
+include "AttendanceCountRule.fbs";
 
 namespace FlatData;
 

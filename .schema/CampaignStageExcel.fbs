@@ -1,8 +1,8 @@
+include "ContentType.fbs";
+include "EchelonExtensionType.fbs";
 include "ParcelType.fbs";
 include "StageTopography.fbs";
 include "StrategyEnvironment.fbs";
-include "ContentType.fbs";
-include "EchelonExtensionType.fbs";
 
 namespace FlatData;
 

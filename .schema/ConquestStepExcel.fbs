@@ -1,5 +1,5 @@
-include "StageDifficulty.fbs";
 include "ParcelType.fbs";
+include "StageDifficulty.fbs";
 
 namespace FlatData;
 

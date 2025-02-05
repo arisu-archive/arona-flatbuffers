@@ -1,5 +1,5 @@
-include "MultipleConditionCheckType.fbs";
 include "CollectionUnlockType.fbs";
+include "MultipleConditionCheckType.fbs";
 
 namespace FlatData;
 

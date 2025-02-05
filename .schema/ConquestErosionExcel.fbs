@@ -1,6 +1,6 @@
+include "ConquestConditionType.fbs";
 include "ParcelType.fbs";
 include "ConquestErosionType.fbs";
-include "ConquestConditionType.fbs";
 
 namespace FlatData;
 

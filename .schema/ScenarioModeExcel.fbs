@@ -1,10 +1,10 @@
-include "StageTopography.fbs";
 include "ScenarioModeSubTypes.fbs";
 include "EchelonExtensionType.fbs";
 include "EventContentType.fbs";
 include "StageDifficulty.fbs";
 include "ScenarioModeTypes.fbs";
 include "Club.fbs";
+include "StageTopography.fbs";
 
 namespace FlatData;
 

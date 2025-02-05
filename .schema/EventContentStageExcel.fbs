@@ -1,4 +1,3 @@
-include "StarGoalType.fbs";
 include "StrategyEnvironment.fbs";
 include "ContentType.fbs";
 include "EchelonExtensionType.fbs";
@@ -6,6 +5,7 @@ include "EventContentType.fbs";
 include "StageDifficulty.fbs";
 include "ParcelType.fbs";
 include "StageTopography.fbs";
+include "StarGoalType.fbs";
 
 namespace FlatData;
 

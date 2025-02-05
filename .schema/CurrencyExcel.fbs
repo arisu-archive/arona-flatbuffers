@@ -1,9 +1,9 @@
-include "CurrencyAdditionalChargeType.fbs";
-include "CurrencyOverChargeType.fbs";
-include "CurrencyTypes.fbs";
 include "DailyRefillType.fbs";
 include "ParcelType.fbs";
 include "Rarity.fbs";
+include "CurrencyAdditionalChargeType.fbs";
+include "CurrencyOverChargeType.fbs";
+include "CurrencyTypes.fbs";
 
 namespace FlatData;
 

@@ -1,5 +1,5 @@
-include "ParcelType.fbs";
 include "ShopCategoryType.fbs";
+include "ParcelType.fbs";
 
 namespace FlatData;
 

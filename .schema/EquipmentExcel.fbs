@@ -1,7 +1,7 @@
-include "Tag.fbs";
 include "EquipmentCategory.fbs";
 include "Rarity.fbs";
 include "ShopCategoryType.fbs";
+include "Tag.fbs";
 
 namespace FlatData;
 

@@ -1,12 +1,12 @@
+include "StoryCondition.fbs";
+include "ScenarioContentType.fbs";
+include "DialogType.fbs";
 include "DialogCategory.fbs";
 include "ScenarioZoomAnchors.fbs";
-include "ScenarioZoomType.fbs";
-include "ScenarioBGType.fbs";
-include "ScenarioContentType.fbs";
 include "EmojiEvent.fbs";
 include "ScenarioCharacterAction.fbs";
-include "StoryCondition.fbs";
-include "DialogType.fbs";
+include "ScenarioZoomType.fbs";
+include "ScenarioBGType.fbs";
 
 namespace FlatData;
 

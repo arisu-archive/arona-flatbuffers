@@ -1,8 +1,8 @@
+include "EventContentReleaseType.fbs";
+include "EventContentType.fbs";
 include "OpenConditionContent.fbs";
 include "RewardTag.fbs";
 include "SubEventType.fbs";
-include "EventContentReleaseType.fbs";
-include "EventContentType.fbs";
 
 namespace FlatData;
 

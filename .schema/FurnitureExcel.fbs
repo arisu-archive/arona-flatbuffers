@@ -1,9 +1,9 @@
+include "FurnitureSubCategory.fbs";
+include "Tag.fbs";
 include "FurnitureCategory.fbs";
 include "FurnitureFunctionType.fbs";
 include "ProductionStep.fbs";
 include "Rarity.fbs";
-include "FurnitureSubCategory.fbs";
-include "Tag.fbs";
 
 namespace FlatData;
 

@@ -1,6 +1,6 @@
+include "TacticEnvironment.fbs";
 include "Difficulty.fbs";
 include "EchelonExtensionType.fbs";
-include "TacticEnvironment.fbs";
 
 namespace FlatData;
 

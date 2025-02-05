@@ -1,6 +1,6 @@
-include "ProductCategory.fbs";
 include "ProductDisplayTag.fbs";
 include "PurchaseSourceType.fbs";
+include "ProductCategory.fbs";
 
 namespace FlatData;
 

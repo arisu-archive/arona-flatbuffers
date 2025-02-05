@@ -1,9 +1,9 @@
-include "BulletType.fbs";
-include "TacticSkillUse.fbs";
 include "TacticSpeed.fbs";
 include "ShowSkillCutIn.fbs";
 include "StageTopography.fbs";
 include "ArmorType.fbs";
+include "BulletType.fbs";
+include "TacticSkillUse.fbs";
 
 namespace FlatData;
 

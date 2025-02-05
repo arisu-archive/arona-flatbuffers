@@ -1,9 +1,9 @@
-include "DialogType.fbs";
 include "ProductionStep.fbs";
 include "Anniversary.fbs";
 include "CVCollectionType.fbs";
 include "DialogCategory.fbs";
 include "DialogCondition.fbs";
+include "DialogType.fbs";
 
 namespace FlatData;
 

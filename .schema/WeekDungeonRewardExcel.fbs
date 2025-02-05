@@ -1,5 +1,5 @@
-include "ParcelType.fbs";
 include "WeekDungeonType.fbs";
+include "ParcelType.fbs";
 
 namespace FlatData;
 

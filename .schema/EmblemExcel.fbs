@@ -1,7 +1,7 @@
+include "Rarity.fbs";
 include "EmblemCategory.fbs";
 include "EmblemCheckPassType.fbs";
 include "EmblemDisplayType.fbs";
-include "Rarity.fbs";
 
 namespace FlatData;
 

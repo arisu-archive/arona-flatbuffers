@@ -1,5 +1,5 @@
-include "ScenarioCharacterShapes.fbs";
 include "ProductionStep.fbs";
+include "ScenarioCharacterShapes.fbs";
 
 namespace FlatData;
 

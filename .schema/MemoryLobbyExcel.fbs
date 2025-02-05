@@ -1,5 +1,5 @@
-include "ProductionStep.fbs";
 include "MemoryLobbyCategory.fbs";
+include "ProductionStep.fbs";
 
 namespace FlatData;
 

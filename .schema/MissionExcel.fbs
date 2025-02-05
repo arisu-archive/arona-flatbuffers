@@ -1,12 +1,12 @@
+include "Tag.fbs";
+include "SuddenMissionContentType.fbs";
 include "ContentType.fbs";
-include "MissionResetType.fbs";
 include "MissionToastDisplayConditionType.fbs";
+include "AccountState.fbs";
 include "MissionCategory.fbs";
 include "MissionCompleteConditionType.fbs";
-include "SuddenMissionContentType.fbs";
 include "ParcelType.fbs";
-include "AccountState.fbs";
-include "Tag.fbs";
+include "MissionResetType.fbs";
 
 namespace FlatData;
 

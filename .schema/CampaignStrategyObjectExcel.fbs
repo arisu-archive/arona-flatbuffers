@@ -1,5 +1,5 @@
-include "StrategyObjectType.fbs";
 include "ParcelType.fbs";
+include "StrategyObjectType.fbs";
 
 namespace FlatData;
 
