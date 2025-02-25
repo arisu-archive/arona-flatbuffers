@@ -96,7 +96,7 @@ jobs:
         run: |
           ./.scripts/compile.sh
       - name: Update version file
-        run: echo "version=${{ needs.determine-version.outputs.version }}" > version.txt
+        run: echo -n "${{ needs.determine-version.outputs.version }}" > version.txt
       - name: Reset the git config
         run: git config --global --unset url."git@github.com:".insteadOf "https://github.com/"
       - name: Commit and push changes
