@@ -84,7 +84,10 @@ func (p *GoProcessor) PostProcess(_ context.Context, outputDir string) error {
 	defer f.Close()
 
 	// Write the file
-	tmpl, err := template.New("flatbufferCode").Parse(flatbufferCode)
+	funcMap := template.FuncMap{
+		"ToLower": strings.ToLower,
+	}
+	tmpl, err := template.New("flatbufferCode").Funcs(funcMap).Parse(flatbufferCode)
 	if err != nil {
 		return fmt.Errorf("failed to parse template: %w", err)
 	}
@@ -227,7 +230,7 @@ import (
 
 var fbs = map[string]reflect.Type{
 {{- range . }}
-	"{{ . }}": reflect.TypeOf((*{{ . }})(nil)).Elem(),
+	"{{ . | ToLower }}": reflect.TypeOf((*{{ . }})(nil)).Elem(),
 {{- end }}
 }
 
