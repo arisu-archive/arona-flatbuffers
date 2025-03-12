@@ -95,6 +95,7 @@ jobs:
       - name: Compile the schema into code
         run: |
           ./.scripts/compile.sh
+          ./.scripts/process_flatbuffers.sh
       - name: Update version file
         run: echo -n "${{ needs.determine-version.outputs.version }}" > version.txt
       - name: Reset the git config
