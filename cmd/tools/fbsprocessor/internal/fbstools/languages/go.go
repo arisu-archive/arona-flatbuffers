@@ -8,6 +8,7 @@ import (
 	"go/token"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 	"text/template"
 )
@@ -71,6 +72,7 @@ func (p *GoProcessor) PostProcess(_ context.Context, outputDir string) error {
 		return fmt.Errorf("failed to parse template: %w", err)
 	}
 	// Execute the template. Output the result to the file
+	sort.Strings(p.flatbuffers)
 	if executeErr := tmpl.Execute(f, p.flatbuffers); executeErr != nil {
 		return fmt.Errorf("failed to execute template: %w", executeErr)
 	}
