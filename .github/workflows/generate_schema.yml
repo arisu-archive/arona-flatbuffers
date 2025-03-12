@@ -19,7 +19,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: dev
+          ref: develop
           sparse-checkout: |
             version.txt
           sparse-checkout-cone-mode: false
@@ -64,7 +64,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: dev
+          ref: develop
           sparse-checkout-cone-mode: false
           fetch-depth: 0
       - name: Setup access for private go modules
@@ -95,8 +95,9 @@ jobs:
       - name: Compile the schema into code
         run: |
           ./.scripts/compile.sh
+          ./.scripts/process_flatbuffers.sh
       - name: Update version file
-        run: echo "version=${{ needs.determine-version.outputs.version }}" > version.txt
+        run: echo -n "${{ needs.determine-version.outputs.version }}" > version.txt
       - name: Reset the git config
         run: git config --global --unset url."git@github.com:".insteadOf "https://github.com/"
       - name: Commit and push changes
@@ -113,7 +114,7 @@ jobs:
         run: |
           version=${{ needs.determine-version.outputs.version }}
           branch_name="chore/generate-schema-${version}"
-          gh pr create -B dev -H $branch_name \
+          gh pr create -B develop -H $branch_name \
                         --title 'chore(apk): generate schema for ${{ needs.determine-version.outputs.version }}' \
                         --body '* Version: ${{ needs.determine-version.outputs.version }}' \
                         --label needs-review
