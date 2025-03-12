@@ -95,3 +95,6 @@ func FieldMasteryManageExcelAddLocalizeEtc(builder *flatbuffers.Builder, localiz
 func FieldMasteryManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldMasteryManageExcel) Name() string {
+	return "FieldMasteryManageExcel"
+}

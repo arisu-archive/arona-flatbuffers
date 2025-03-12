@@ -463,3 +463,6 @@ func CostumeExcelAddUseObjectHpbar(builder *flatbuffers.Builder, useObjectHpbar 
 func CostumeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CostumeExcel) Name() string {
+	return "CostumeExcel"
+}

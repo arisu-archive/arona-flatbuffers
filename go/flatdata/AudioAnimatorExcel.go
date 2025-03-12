@@ -251,3 +251,6 @@ func AudioAnimatorExcelAddVolume(builder *flatbuffers.Builder, volume float32) {
 func AudioAnimatorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AudioAnimatorExcel) Name() string {
+	return "AudioAnimatorExcel"
+}

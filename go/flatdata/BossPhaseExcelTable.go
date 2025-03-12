@@ -65,3 +65,6 @@ func BossPhaseExcelTableStartDataListVector(builder *flatbuffers.Builder, numEle
 func BossPhaseExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BossPhaseExcelTable) Name() string {
+	return "BossPhaseExcelTable"
+}

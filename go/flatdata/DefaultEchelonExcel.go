@@ -148,3 +148,6 @@ func DefaultEchelonExcelAddTssId(builder *flatbuffers.Builder, tssId int64) {
 func DefaultEchelonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*DefaultEchelonExcel) Name() string {
+	return "DefaultEchelonExcel"
+}

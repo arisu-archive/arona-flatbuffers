@@ -69,3 +69,6 @@ func ClearDeckRuleExcelAddSizeLimit(builder *flatbuffers.Builder, sizeLimit int6
 func ClearDeckRuleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ClearDeckRuleExcel) Name() string {
+	return "ClearDeckRuleExcel"
+}

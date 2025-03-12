@@ -174,3 +174,6 @@ func FieldMasteryExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) 
 func FieldMasteryExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldMasteryExcel) Name() string {
+	return "FieldMasteryExcel"
+}

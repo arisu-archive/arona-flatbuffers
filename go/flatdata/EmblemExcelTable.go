@@ -65,3 +65,6 @@ func EmblemExcelTableStartDataListVector(builder *flatbuffers.Builder, numElems 
 func EmblemExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EmblemExcelTable) Name() string {
+	return "EmblemExcelTable"
+}

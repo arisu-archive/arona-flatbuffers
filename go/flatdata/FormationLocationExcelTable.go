@@ -65,3 +65,6 @@ func FormationLocationExcelTableStartDataListVector(builder *flatbuffers.Builder
 func FormationLocationExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FormationLocationExcelTable) Name() string {
+	return "FormationLocationExcelTable"
+}

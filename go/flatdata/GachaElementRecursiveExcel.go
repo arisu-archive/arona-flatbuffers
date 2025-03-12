@@ -159,3 +159,6 @@ func GachaElementRecursiveExcelAddState(builder *flatbuffers.Builder, state int3
 func GachaElementRecursiveExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GachaElementRecursiveExcel) Name() string {
+	return "GachaElementRecursiveExcel"
+}

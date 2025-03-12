@@ -65,3 +65,6 @@ func EventContentSpecialOperationsExcelTableStartDataListVector(builder *flatbuf
 func EventContentSpecialOperationsExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentSpecialOperationsExcelTable) Name() string {
+	return "EventContentSpecialOperationsExcelTable"
+}

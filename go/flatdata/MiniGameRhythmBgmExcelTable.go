@@ -65,3 +65,6 @@ func MiniGameRhythmBgmExcelTableStartDataListVector(builder *flatbuffers.Builder
 func MiniGameRhythmBgmExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameRhythmBgmExcelTable) Name() string {
+	return "MiniGameRhythmBgmExcelTable"
+}

@@ -144,3 +144,6 @@ func LimitedStageRewardExcelAddRewardTag(builder *flatbuffers.Builder, rewardTag
 func LimitedStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LimitedStageRewardExcel) Name() string {
+	return "LimitedStageRewardExcel"
+}

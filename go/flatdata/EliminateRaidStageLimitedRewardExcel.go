@@ -150,3 +150,6 @@ func EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelUniqueIdVector(
 func EliminateRaidStageLimitedRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EliminateRaidStageLimitedRewardExcel) Name() string {
+	return "EliminateRaidStageLimitedRewardExcel"
+}

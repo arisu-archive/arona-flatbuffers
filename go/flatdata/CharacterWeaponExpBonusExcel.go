@@ -114,3 +114,6 @@ func CharacterWeaponExpBonusExcelAddWeaponType(builder *flatbuffers.Builder, wea
 func CharacterWeaponExpBonusExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterWeaponExpBonusExcel) Name() string {
+	return "CharacterWeaponExpBonusExcel"
+}

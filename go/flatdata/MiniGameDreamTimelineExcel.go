@@ -166,3 +166,6 @@ func MiniGameDreamTimelineExcelAddId(builder *flatbuffers.Builder, id int64) {
 func MiniGameDreamTimelineExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameDreamTimelineExcel) Name() string {
+	return "MiniGameDreamTimelineExcel"
+}

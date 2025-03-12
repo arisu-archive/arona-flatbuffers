@@ -498,3 +498,6 @@ func ShopInfoExcelAddShopUpdateGroupId9(builder *flatbuffers.Builder, shopUpdate
 func ShopInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShopInfoExcel) Name() string {
+	return "ShopInfoExcel"
+}

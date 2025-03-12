@@ -113,3 +113,6 @@ func SpecialLobbyIllustExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId i
 func SpecialLobbyIllustExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*SpecialLobbyIllustExcel) Name() string {
+	return "SpecialLobbyIllustExcel"
+}

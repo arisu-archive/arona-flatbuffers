@@ -232,3 +232,6 @@ func ConstMiniGameShootingExcelAddWaitTimeAfterSpawn(builder *flatbuffers.Builde
 func ConstMiniGameShootingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstMiniGameShootingExcel) Name() string {
+	return "ConstMiniGameShootingExcel"
+}

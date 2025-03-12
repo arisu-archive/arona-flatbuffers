@@ -144,3 +144,6 @@ func EventContentSpineDialogOffsetExcelAddSpineOffsetY(builder *flatbuffers.Buil
 func EventContentSpineDialogOffsetExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentSpineDialogOffsetExcel) Name() string {
+	return "EventContentSpineDialogOffsetExcel"
+}

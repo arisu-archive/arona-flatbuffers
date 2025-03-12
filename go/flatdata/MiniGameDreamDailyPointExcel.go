@@ -129,3 +129,6 @@ func MiniGameDreamDailyPointExcelAddUniqueId(builder *flatbuffers.Builder, uniqu
 func MiniGameDreamDailyPointExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameDreamDailyPointExcel) Name() string {
+	return "MiniGameDreamDailyPointExcel"
+}

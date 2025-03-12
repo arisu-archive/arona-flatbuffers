@@ -369,3 +369,6 @@ func ProductMonthlyExcelAddUseMonthlyProductCheck(builder *flatbuffers.Builder, 
 func ProductMonthlyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ProductMonthlyExcel) Name() string {
+	return "ProductMonthlyExcel"
+}

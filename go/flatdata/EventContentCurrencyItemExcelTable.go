@@ -65,3 +65,6 @@ func EventContentCurrencyItemExcelTableStartDataListVector(builder *flatbuffers.
 func EventContentCurrencyItemExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentCurrencyItemExcelTable) Name() string {
+	return "EventContentCurrencyItemExcelTable"
+}

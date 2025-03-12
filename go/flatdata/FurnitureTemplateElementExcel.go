@@ -144,3 +144,6 @@ func FurnitureTemplateElementExcelAddRotation(builder *flatbuffers.Builder, rota
 func FurnitureTemplateElementExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FurnitureTemplateElementExcel) Name() string {
+	return "FurnitureTemplateElementExcel"
+}

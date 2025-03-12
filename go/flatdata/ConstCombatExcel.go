@@ -1428,3 +1428,6 @@ func ConstCombatExcelAddWorldRaidBossParcelReactionDelay(builder *flatbuffers.Bu
 func ConstCombatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstCombatExcel) Name() string {
+	return "ConstCombatExcel"
+}

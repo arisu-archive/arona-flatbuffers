@@ -140,3 +140,6 @@ func GroundModuleRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, re
 func GroundModuleRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GroundModuleRewardExcel) Name() string {
+	return "GroundModuleRewardExcel"
+}

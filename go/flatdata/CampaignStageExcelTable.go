@@ -65,3 +65,6 @@ func CampaignStageExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 func CampaignStageExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CampaignStageExcelTable) Name() string {
+	return "CampaignStageExcelTable"
+}

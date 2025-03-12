@@ -76,3 +76,6 @@ func SoundUIExcelAddSoundUniqueId(builder *flatbuffers.Builder, soundUniqueId fl
 func SoundUIExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*SoundUIExcel) Name() string {
+	return "SoundUIExcel"
+}

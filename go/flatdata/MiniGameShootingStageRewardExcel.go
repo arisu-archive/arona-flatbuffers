@@ -180,3 +180,6 @@ func MiniGameShootingStageRewardExcelStartRewardParcelTypeVector(builder *flatbu
 func MiniGameShootingStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameShootingStageRewardExcel) Name() string {
+	return "MiniGameShootingStageRewardExcel"
+}

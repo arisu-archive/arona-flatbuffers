@@ -118,3 +118,6 @@ func CharacterStatsDetailExcelStartIsStatsPercentVector(builder *flatbuffers.Bui
 func CharacterStatsDetailExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterStatsDetailExcel) Name() string {
+	return "CharacterStatsDetailExcel"
+}

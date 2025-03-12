@@ -65,3 +65,6 @@ func EventContentCharacterBonusExcelTableStartDataListVector(builder *flatbuffer
 func EventContentCharacterBonusExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentCharacterBonusExcelTable) Name() string {
+	return "EventContentCharacterBonusExcelTable"
+}

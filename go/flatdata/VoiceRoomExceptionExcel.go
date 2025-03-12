@@ -84,3 +84,6 @@ func VoiceRoomExceptionExcelAddLinkedCostumeUniqueId(builder *flatbuffers.Builde
 func VoiceRoomExceptionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*VoiceRoomExceptionExcel) Name() string {
+	return "VoiceRoomExceptionExcel"
+}

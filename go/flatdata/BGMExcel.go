@@ -269,3 +269,6 @@ func BGMExcelStartVolumeVector(builder *flatbuffers.Builder, numElems int) flatb
 func BGMExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BGMExcel) Name() string {
+	return "BGMExcel"
+}

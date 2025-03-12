@@ -133,3 +133,6 @@ func EventContentCharacterBonusExcelStartEventContentItemTypeVector(builder *fla
 func EventContentCharacterBonusExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentCharacterBonusExcel) Name() string {
+	return "EventContentCharacterBonusExcel"
+}

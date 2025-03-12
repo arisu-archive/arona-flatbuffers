@@ -144,3 +144,6 @@ func PickupDuplicateBonusExcelAddShopId(builder *flatbuffers.Builder, shopId int
 func PickupDuplicateBonusExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*PickupDuplicateBonusExcel) Name() string {
+	return "PickupDuplicateBonusExcel"
+}

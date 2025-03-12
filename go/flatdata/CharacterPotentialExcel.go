@@ -99,3 +99,6 @@ func CharacterPotentialExcelAddPotentialStatGroupId(builder *flatbuffers.Builder
 func CharacterPotentialExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterPotentialExcel) Name() string {
+	return "CharacterPotentialExcel"
+}

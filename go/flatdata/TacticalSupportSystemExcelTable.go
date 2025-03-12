@@ -65,3 +65,6 @@ func TacticalSupportSystemExcelTableStartDataListVector(builder *flatbuffers.Bui
 func TacticalSupportSystemExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TacticalSupportSystemExcelTable) Name() string {
+	return "TacticalSupportSystemExcelTable"
+}

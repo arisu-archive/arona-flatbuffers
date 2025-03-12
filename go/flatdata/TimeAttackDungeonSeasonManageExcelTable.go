@@ -65,3 +65,6 @@ func TimeAttackDungeonSeasonManageExcelTableStartDataListVector(builder *flatbuf
 func TimeAttackDungeonSeasonManageExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TimeAttackDungeonSeasonManageExcelTable) Name() string {
+	return "TimeAttackDungeonSeasonManageExcelTable"
+}

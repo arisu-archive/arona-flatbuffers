@@ -189,3 +189,6 @@ func FieldWorldMapZoneExcelAddResultFieldScene(builder *flatbuffers.Builder, res
 func FieldWorldMapZoneExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldWorldMapZoneExcel) Name() string {
+	return "FieldWorldMapZoneExcel"
+}

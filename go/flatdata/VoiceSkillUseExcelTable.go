@@ -65,3 +65,6 @@ func VoiceSkillUseExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 func VoiceSkillUseExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*VoiceSkillUseExcelTable) Name() string {
+	return "VoiceSkillUseExcelTable"
+}

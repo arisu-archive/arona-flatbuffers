@@ -65,3 +65,6 @@ func MinigameTBGEncounterOptionExcelTableStartDataListVector(builder *flatbuffer
 func MinigameTBGEncounterOptionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MinigameTBGEncounterOptionExcelTable) Name() string {
+	return "MinigameTBGEncounterOptionExcelTable"
+}

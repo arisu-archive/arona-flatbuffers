@@ -84,3 +84,6 @@ func LocalizeCharProfileChangeExcelAddScenarioModeId(builder *flatbuffers.Builde
 func LocalizeCharProfileChangeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LocalizeCharProfileChangeExcel) Name() string {
+	return "LocalizeCharProfileChangeExcel"
+}

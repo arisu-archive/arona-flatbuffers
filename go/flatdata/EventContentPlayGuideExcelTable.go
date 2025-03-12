@@ -65,3 +65,6 @@ func EventContentPlayGuideExcelTableStartDataListVector(builder *flatbuffers.Bui
 func EventContentPlayGuideExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentPlayGuideExcelTable) Name() string {
+	return "EventContentPlayGuideExcelTable"
+}

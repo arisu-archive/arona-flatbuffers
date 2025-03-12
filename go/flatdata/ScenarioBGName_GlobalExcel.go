@@ -144,3 +144,6 @@ func ScenarioBGName_GlobalExcelAddNameTw(builder *flatbuffers.Builder, nameTw ui
 func ScenarioBGName_GlobalExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ScenarioBGName_GlobalExcel) Name() string {
+	return "ScenarioBGName_GlobalExcel"
+}

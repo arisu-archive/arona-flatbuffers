@@ -65,3 +65,6 @@ func ConquestErosionUnitExcelTableStartDataListVector(builder *flatbuffers.Build
 func ConquestErosionUnitExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestErosionUnitExcelTable) Name() string {
+	return "ConquestErosionUnitExcelTable"
+}

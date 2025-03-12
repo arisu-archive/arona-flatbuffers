@@ -65,3 +65,6 @@ func ConstFieldExcelTableStartDataListVector(builder *flatbuffers.Builder, numEl
 func ConstFieldExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstFieldExcelTable) Name() string {
+	return "ConstFieldExcelTable"
+}

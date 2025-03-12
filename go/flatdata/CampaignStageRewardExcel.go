@@ -144,3 +144,6 @@ func CampaignStageRewardExcelAddStageRewardProb(builder *flatbuffers.Builder, st
 func CampaignStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CampaignStageRewardExcel) Name() string {
+	return "CampaignStageRewardExcel"
+}

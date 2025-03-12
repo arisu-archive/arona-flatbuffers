@@ -65,3 +65,6 @@ func LimitedStageExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 func LimitedStageExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LimitedStageExcelTable) Name() string {
+	return "LimitedStageExcelTable"
+}

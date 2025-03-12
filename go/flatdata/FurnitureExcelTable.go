@@ -65,3 +65,6 @@ func FurnitureExcelTableStartDataListVector(builder *flatbuffers.Builder, numEle
 func FurnitureExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FurnitureExcelTable) Name() string {
+	return "FurnitureExcelTable"
+}

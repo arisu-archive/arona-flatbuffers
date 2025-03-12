@@ -925,3 +925,6 @@ func GroundExcelAddWarningUi(builder *flatbuffers.Builder, warningUi bool) {
 func GroundExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GroundExcel) Name() string {
+	return "GroundExcel"
+}

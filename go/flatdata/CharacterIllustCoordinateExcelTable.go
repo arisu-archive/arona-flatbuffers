@@ -65,3 +65,6 @@ func CharacterIllustCoordinateExcelTableStartDataListVector(builder *flatbuffers
 func CharacterIllustCoordinateExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterIllustCoordinateExcelTable) Name() string {
+	return "CharacterIllustCoordinateExcelTable"
+}

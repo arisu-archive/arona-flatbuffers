@@ -65,3 +65,6 @@ func GroundModuleRewardExcelTableStartDataListVector(builder *flatbuffers.Builde
 func GroundModuleRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GroundModuleRewardExcelTable) Name() string {
+	return "GroundModuleRewardExcelTable"
+}

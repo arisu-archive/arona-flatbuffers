@@ -84,3 +84,6 @@ func GachaCraftNodeGroupExcelAddProbWeight(builder *flatbuffers.Builder, probWei
 func GachaCraftNodeGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GachaCraftNodeGroupExcel) Name() string {
+	return "GachaCraftNodeGroupExcel"
+}

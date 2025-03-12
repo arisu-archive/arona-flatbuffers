@@ -541,3 +541,6 @@ func ItemExcelAddUsingResultParcelType(builder *flatbuffers.Builder, usingResult
 func ItemExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ItemExcel) Name() string {
+	return "ItemExcel"
+}

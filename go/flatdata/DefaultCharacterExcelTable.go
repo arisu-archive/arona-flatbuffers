@@ -65,3 +65,6 @@ func DefaultCharacterExcelTableStartDataListVector(builder *flatbuffers.Builder,
 func DefaultCharacterExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*DefaultCharacterExcelTable) Name() string {
+	return "DefaultCharacterExcelTable"
+}

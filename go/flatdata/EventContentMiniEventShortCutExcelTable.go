@@ -65,3 +65,6 @@ func EventContentMiniEventShortCutExcelTableStartDataListVector(builder *flatbuf
 func EventContentMiniEventShortCutExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentMiniEventShortCutExcelTable) Name() string {
+	return "EventContentMiniEventShortCutExcelTable"
+}

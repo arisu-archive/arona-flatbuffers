@@ -131,3 +131,6 @@ func ContentsScenarioExcelStartScenarioGroupIdVector(builder *flatbuffers.Builde
 func ContentsScenarioExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ContentsScenarioExcel) Name() string {
+	return "ContentsScenarioExcel"
+}

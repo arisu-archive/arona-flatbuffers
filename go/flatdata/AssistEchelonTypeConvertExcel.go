@@ -69,3 +69,6 @@ func AssistEchelonTypeConvertExcelAddConvertTo(builder *flatbuffers.Builder, con
 func AssistEchelonTypeConvertExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AssistEchelonTypeConvertExcel) Name() string {
+	return "AssistEchelonTypeConvertExcel"
+}

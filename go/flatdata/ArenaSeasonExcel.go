@@ -106,3 +106,6 @@ func ArenaSeasonExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 func ArenaSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ArenaSeasonExcel) Name() string {
+	return "ArenaSeasonExcel"
+}

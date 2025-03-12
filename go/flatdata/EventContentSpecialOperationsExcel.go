@@ -69,3 +69,6 @@ func EventContentSpecialOperationsExcelAddPointItemId(builder *flatbuffers.Build
 func EventContentSpecialOperationsExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentSpecialOperationsExcel) Name() string {
+	return "EventContentSpecialOperationsExcel"
+}

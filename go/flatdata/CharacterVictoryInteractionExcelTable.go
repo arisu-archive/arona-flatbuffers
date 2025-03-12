@@ -65,3 +65,6 @@ func CharacterVictoryInteractionExcelTableStartDataListVector(builder *flatbuffe
 func CharacterVictoryInteractionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterVictoryInteractionExcelTable) Name() string {
+	return "CharacterVictoryInteractionExcelTable"
+}

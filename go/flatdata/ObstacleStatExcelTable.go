@@ -65,3 +65,6 @@ func ObstacleStatExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 func ObstacleStatExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ObstacleStatExcelTable) Name() string {
+	return "ObstacleStatExcelTable"
+}

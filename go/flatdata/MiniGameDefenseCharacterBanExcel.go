@@ -69,3 +69,6 @@ func MiniGameDefenseCharacterBanExcelAddEventContentId(builder *flatbuffers.Buil
 func MiniGameDefenseCharacterBanExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameDefenseCharacterBanExcel) Name() string {
+	return "MiniGameDefenseCharacterBanExcel"
+}

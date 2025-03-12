@@ -255,3 +255,6 @@ func MiniGameDreamScheduleResultExcelAddRewardParcelType(builder *flatbuffers.Bu
 func MiniGameDreamScheduleResultExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameDreamScheduleResultExcel) Name() string {
+	return "MiniGameDreamScheduleResultExcel"
+}

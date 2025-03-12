@@ -65,3 +65,6 @@ func EliminateRaidStageRewardExcelTableStartDataListVector(builder *flatbuffers.
 func EliminateRaidStageRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EliminateRaidStageRewardExcelTable) Name() string {
+	return "EliminateRaidStageRewardExcelTable"
+}

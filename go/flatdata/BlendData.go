@@ -80,3 +80,6 @@ func BlendDataAddType(builder *flatbuffers.Builder, type_ int32) {
 func BlendDataEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BlendData) Name() string {
+	return "BlendData"
+}

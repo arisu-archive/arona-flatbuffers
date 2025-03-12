@@ -208,3 +208,6 @@ func ScenarioReplayExcelAddVolumeId(builder *flatbuffers.Builder, volumeId int64
 func ScenarioReplayExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ScenarioReplayExcel) Name() string {
+	return "ScenarioReplayExcel"
+}

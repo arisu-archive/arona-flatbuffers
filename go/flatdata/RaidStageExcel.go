@@ -595,3 +595,6 @@ func RaidStageExcelAddVictoryTimelinePath(builder *flatbuffers.Builder, victoryT
 func RaidStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*RaidStageExcel) Name() string {
+	return "RaidStageExcel"
+}

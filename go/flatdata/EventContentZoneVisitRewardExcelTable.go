@@ -65,3 +65,6 @@ func EventContentZoneVisitRewardExcelTableStartDataListVector(builder *flatbuffe
 func EventContentZoneVisitRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentZoneVisitRewardExcelTable) Name() string {
+	return "EventContentZoneVisitRewardExcelTable"
+}

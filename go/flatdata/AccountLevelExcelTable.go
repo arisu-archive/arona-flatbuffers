@@ -65,3 +65,6 @@ func AccountLevelExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 func AccountLevelExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AccountLevelExcelTable) Name() string {
+	return "AccountLevelExcelTable"
+}

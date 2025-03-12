@@ -182,3 +182,6 @@ func MultiFloorRaidStatChangeExcelStartStatTypeVector(builder *flatbuffers.Build
 func MultiFloorRaidStatChangeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MultiFloorRaidStatChangeExcel) Name() string {
+	return "MultiFloorRaidStatChangeExcel"
+}

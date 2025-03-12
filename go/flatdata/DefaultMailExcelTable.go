@@ -65,3 +65,6 @@ func DefaultMailExcelTableStartDataListVector(builder *flatbuffers.Builder, numE
 func DefaultMailExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*DefaultMailExcelTable) Name() string {
+	return "DefaultMailExcelTable"
+}

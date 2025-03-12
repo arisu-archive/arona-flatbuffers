@@ -176,3 +176,6 @@ func AttendanceRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Build
 func AttendanceRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AttendanceRewardExcel) Name() string {
+	return "AttendanceRewardExcel"
+}

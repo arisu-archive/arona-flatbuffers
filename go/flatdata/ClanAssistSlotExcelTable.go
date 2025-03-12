@@ -65,3 +65,6 @@ func ClanAssistSlotExcelTableStartDataListVector(builder *flatbuffers.Builder, n
 func ClanAssistSlotExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ClanAssistSlotExcelTable) Name() string {
+	return "ClanAssistSlotExcelTable"
+}

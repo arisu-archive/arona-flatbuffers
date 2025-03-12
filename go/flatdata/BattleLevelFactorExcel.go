@@ -69,3 +69,6 @@ func BattleLevelFactorExcelAddLevelDiff(builder *flatbuffers.Builder, levelDiff 
 func BattleLevelFactorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BattleLevelFactorExcel) Name() string {
+	return "BattleLevelFactorExcel"
+}

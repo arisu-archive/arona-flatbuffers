@@ -203,3 +203,6 @@ func ArenaSeasonCloseRewardExcelAddSeasonId(builder *flatbuffers.Builder, season
 func ArenaSeasonCloseRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ArenaSeasonCloseRewardExcel) Name() string {
+	return "ArenaSeasonCloseRewardExcel"
+}

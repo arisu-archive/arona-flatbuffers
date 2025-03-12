@@ -69,3 +69,6 @@ func StageFileRefreshSettingExcelAddGroundId(builder *flatbuffers.Builder, groun
 func StageFileRefreshSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*StageFileRefreshSettingExcel) Name() string {
+	return "StageFileRefreshSettingExcel"
+}

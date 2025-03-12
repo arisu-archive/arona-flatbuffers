@@ -273,3 +273,6 @@ func EventContentShopInfoExcelAddShopProductUpdateDate(builder *flatbuffers.Buil
 func EventContentShopInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentShopInfoExcel) Name() string {
+	return "EventContentShopInfoExcel"
+}

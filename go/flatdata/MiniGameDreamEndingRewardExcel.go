@@ -210,3 +210,6 @@ func MiniGameDreamEndingRewardExcelStartRewardParcelTypeVector(builder *flatbuff
 func MiniGameDreamEndingRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameDreamEndingRewardExcel) Name() string {
+	return "MiniGameDreamEndingRewardExcel"
+}

@@ -219,3 +219,6 @@ func DefaultCharacterExcelAddStarGrade(builder *flatbuffers.Builder, starGrade i
 func DefaultCharacterExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*DefaultCharacterExcel) Name() string {
+	return "DefaultCharacterExcel"
+}

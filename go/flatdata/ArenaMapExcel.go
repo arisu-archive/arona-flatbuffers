@@ -162,3 +162,6 @@ func ArenaMapExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 func ArenaMapExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ArenaMapExcel) Name() string {
+	return "ArenaMapExcel"
+}

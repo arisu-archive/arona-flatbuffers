@@ -65,3 +65,6 @@ func BattleLevelFactorExcelTableStartDataListVector(builder *flatbuffers.Builder
 func BattleLevelFactorExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BattleLevelFactorExcelTable) Name() string {
+	return "BattleLevelFactorExcelTable"
+}

@@ -474,3 +474,6 @@ func MultiFloorRaidStageExcelAddVictoryTimelinePath(builder *flatbuffers.Builder
 func MultiFloorRaidStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MultiFloorRaidStageExcel) Name() string {
+	return "MultiFloorRaidStageExcel"
+}

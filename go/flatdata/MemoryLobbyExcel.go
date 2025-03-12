@@ -217,3 +217,6 @@ func MemoryLobbyExcelAddSlotTextureName(builder *flatbuffers.Builder, slotTextur
 func MemoryLobbyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MemoryLobbyExcel) Name() string {
+	return "MemoryLobbyExcel"
+}

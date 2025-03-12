@@ -65,3 +65,6 @@ func FavorLevelRewardExcelTableStartDataListVector(builder *flatbuffers.Builder,
 func FavorLevelRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FavorLevelRewardExcelTable) Name() string {
+	return "FavorLevelRewardExcelTable"
+}

@@ -184,3 +184,6 @@ func ConquestUnexpectedEventExcelAddUnitCountPerStep(builder *flatbuffers.Builde
 func ConquestUnexpectedEventExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestUnexpectedEventExcel) Name() string {
+	return "ConquestUnexpectedEventExcel"
+}

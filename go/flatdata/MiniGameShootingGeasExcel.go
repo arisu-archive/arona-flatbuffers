@@ -151,3 +151,6 @@ func MiniGameShootingGeasExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId
 func MiniGameShootingGeasExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameShootingGeasExcel) Name() string {
+	return "MiniGameShootingGeasExcel"
+}

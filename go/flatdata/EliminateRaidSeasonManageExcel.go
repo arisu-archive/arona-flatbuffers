@@ -356,3 +356,6 @@ func EliminateRaidSeasonManageExcelStartStackedSeasonRewardGaugeVector(builder *
 func EliminateRaidSeasonManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EliminateRaidSeasonManageExcel) Name() string {
+	return "EliminateRaidSeasonManageExcel"
+}

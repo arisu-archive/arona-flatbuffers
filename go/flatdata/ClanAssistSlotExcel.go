@@ -159,3 +159,6 @@ func ClanAssistSlotExcelAddSlotNumber(builder *flatbuffers.Builder, slotNumber i
 func ClanAssistSlotExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ClanAssistSlotExcel) Name() string {
+	return "ClanAssistSlotExcel"
+}

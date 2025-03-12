@@ -109,3 +109,6 @@ func LocalizeCodeInBuildExcelAddTw(builder *flatbuffers.Builder, tw flatbuffers.
 func LocalizeCodeInBuildExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LocalizeCodeInBuildExcel) Name() string {
+	return "LocalizeCodeInBuildExcel"
+}

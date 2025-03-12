@@ -315,3 +315,6 @@ func CharacterTranscendenceExcelStartStatBonusRateHpVector(builder *flatbuffers.
 func CharacterTranscendenceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterTranscendenceExcel) Name() string {
+	return "CharacterTranscendenceExcel"
+}

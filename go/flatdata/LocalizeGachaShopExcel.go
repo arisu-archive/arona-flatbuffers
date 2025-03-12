@@ -274,3 +274,6 @@ func LocalizeGachaShopExcelAddTitleNameTw(builder *flatbuffers.Builder, titleNam
 func LocalizeGachaShopExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LocalizeGachaShopExcel) Name() string {
+	return "LocalizeGachaShopExcel"
+}

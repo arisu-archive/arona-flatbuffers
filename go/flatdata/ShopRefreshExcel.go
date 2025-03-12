@@ -215,3 +215,6 @@ func ShopRefreshExcelAddVisibleAmount(builder *flatbuffers.Builder, visibleAmoun
 func ShopRefreshExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShopRefreshExcel) Name() string {
+	return "ShopRefreshExcel"
+}

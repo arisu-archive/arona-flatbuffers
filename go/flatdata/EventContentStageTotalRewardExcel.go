@@ -180,3 +180,6 @@ func EventContentStageTotalRewardExcelStartRewardParcelTypeVector(builder *flatb
 func EventContentStageTotalRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentStageTotalRewardExcel) Name() string {
+	return "EventContentStageTotalRewardExcel"
+}

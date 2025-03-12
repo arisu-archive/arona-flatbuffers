@@ -65,3 +65,6 @@ func LogicEffectCommonVisualExcelTableStartDataListVector(builder *flatbuffers.B
 func LogicEffectCommonVisualExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LogicEffectCommonVisualExcelTable) Name() string {
+	return "LogicEffectCommonVisualExcelTable"
+}

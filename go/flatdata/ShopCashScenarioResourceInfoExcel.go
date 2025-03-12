@@ -80,3 +80,6 @@ func ShopCashScenarioResourceInfoExcelAddShopCashId(builder *flatbuffers.Builder
 func ShopCashScenarioResourceInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShopCashScenarioResourceInfoExcel) Name() string {
+	return "ShopCashScenarioResourceInfoExcel"
+}

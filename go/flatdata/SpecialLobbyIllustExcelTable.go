@@ -65,3 +65,6 @@ func SpecialLobbyIllustExcelTableStartDataListVector(builder *flatbuffers.Builde
 func SpecialLobbyIllustExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*SpecialLobbyIllustExcelTable) Name() string {
+	return "SpecialLobbyIllustExcelTable"
+}

@@ -76,3 +76,6 @@ func SkillAdditionalTooltipExcelAddShowSkillSlot(builder *flatbuffers.Builder, s
 func SkillAdditionalTooltipExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*SkillAdditionalTooltipExcel) Name() string {
+	return "SkillAdditionalTooltipExcel"
+}

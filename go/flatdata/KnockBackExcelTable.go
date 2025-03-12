@@ -65,3 +65,6 @@ func KnockBackExcelTableStartDataListVector(builder *flatbuffers.Builder, numEle
 func KnockBackExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*KnockBackExcelTable) Name() string {
+	return "KnockBackExcelTable"
+}

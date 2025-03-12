@@ -270,3 +270,6 @@ func AcademyMessanger3ExcelAddPreConditionGroupId(builder *flatbuffers.Builder, 
 func AcademyMessanger3ExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AcademyMessanger3Excel) Name() string {
+	return "AcademyMessanger3Excel"
+}

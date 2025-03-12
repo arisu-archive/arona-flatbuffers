@@ -65,3 +65,6 @@ func ConquestCameraSettingExcelTableStartDataListVector(builder *flatbuffers.Bui
 func ConquestCameraSettingExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestCameraSettingExcelTable) Name() string {
+	return "ConquestCameraSettingExcelTable"
+}

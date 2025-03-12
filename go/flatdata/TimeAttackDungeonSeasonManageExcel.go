@@ -168,3 +168,6 @@ func TimeAttackDungeonSeasonManageExcelAddUiSlot(builder *flatbuffers.Builder, u
 func TimeAttackDungeonSeasonManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TimeAttackDungeonSeasonManageExcel) Name() string {
+	return "TimeAttackDungeonSeasonManageExcel"
+}

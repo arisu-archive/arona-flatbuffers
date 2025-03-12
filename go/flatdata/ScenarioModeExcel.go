@@ -685,3 +685,6 @@ func ScenarioModeExcelAddVolumeId(builder *flatbuffers.Builder, volumeId int64) 
 func ScenarioModeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ScenarioModeExcel) Name() string {
+	return "ScenarioModeExcel"
+}

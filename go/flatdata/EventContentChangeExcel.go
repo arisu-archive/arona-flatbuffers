@@ -174,3 +174,6 @@ func EventContentChangeExcelAddRewardParcelType(builder *flatbuffers.Builder, re
 func EventContentChangeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentChangeExcel) Name() string {
+	return "EventContentChangeExcel"
+}

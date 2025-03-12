@@ -65,3 +65,6 @@ func ConstArenaExcelTableStartDataListVector(builder *flatbuffers.Builder, numEl
 func ConstArenaExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstArenaExcelTable) Name() string {
+	return "ConstArenaExcelTable"
+}

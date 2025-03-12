@@ -311,3 +311,6 @@ func TacticDamageSimulatorSettingExcelAddUseAutoSkill(builder *flatbuffers.Build
 func TacticDamageSimulatorSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TacticDamageSimulatorSettingExcel) Name() string {
+	return "TacticDamageSimulatorSettingExcel"
+}

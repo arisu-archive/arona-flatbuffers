@@ -65,3 +65,6 @@ func FieldCurtainCallFreeModeExcelTableStartDataListVector(builder *flatbuffers.
 func FieldCurtainCallFreeModeExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldCurtainCallFreeModeExcelTable) Name() string {
+	return "FieldCurtainCallFreeModeExcelTable"
+}

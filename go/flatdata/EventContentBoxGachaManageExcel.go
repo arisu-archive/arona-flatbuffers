@@ -99,3 +99,6 @@ func EventContentBoxGachaManageExcelAddRound(builder *flatbuffers.Builder, round
 func EventContentBoxGachaManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentBoxGachaManageExcel) Name() string {
+	return "EventContentBoxGachaManageExcel"
+}

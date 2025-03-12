@@ -106,3 +106,6 @@ func StrategyObjectBuffDefineExcelAddStrategyObjectTurn(builder *flatbuffers.Bui
 func StrategyObjectBuffDefineExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*StrategyObjectBuffDefineExcel) Name() string {
+	return "StrategyObjectBuffDefineExcel"
+}

@@ -65,3 +65,6 @@ func FieldQuestExcelTableStartDataListVector(builder *flatbuffers.Builder, numEl
 func FieldQuestExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldQuestExcelTable) Name() string {
+	return "FieldQuestExcelTable"
+}

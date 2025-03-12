@@ -69,3 +69,6 @@ func TacticSkipExcelAddLevelDiff(builder *flatbuffers.Builder, levelDiff int32) 
 func TacticSkipExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TacticSkipExcel) Name() string {
+	return "TacticSkipExcel"
+}

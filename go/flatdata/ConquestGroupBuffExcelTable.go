@@ -65,3 +65,6 @@ func ConquestGroupBuffExcelTableStartDataListVector(builder *flatbuffers.Builder
 func ConquestGroupBuffExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestGroupBuffExcelTable) Name() string {
+	return "ConquestGroupBuffExcelTable"
+}

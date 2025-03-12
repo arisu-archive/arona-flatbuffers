@@ -65,3 +65,6 @@ func EventContentBoxGachaManageExcelTableStartDataListVector(builder *flatbuffer
 func EventContentBoxGachaManageExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentBoxGachaManageExcelTable) Name() string {
+	return "EventContentBoxGachaManageExcelTable"
+}

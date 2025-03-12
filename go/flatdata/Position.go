@@ -69,3 +69,6 @@ func PositionAddZ(builder *flatbuffers.Builder, z float32) {
 func PositionEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*Position) Name() string {
+	return "Position"
+}

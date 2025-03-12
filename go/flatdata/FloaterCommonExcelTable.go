@@ -65,3 +65,6 @@ func FloaterCommonExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 func FloaterCommonExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FloaterCommonExcelTable) Name() string {
+	return "FloaterCommonExcelTable"
+}

@@ -65,3 +65,6 @@ func ConquestUnexpectedEventExcelTableStartDataListVector(builder *flatbuffers.B
 func ConquestUnexpectedEventExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestUnexpectedEventExcelTable) Name() string {
+	return "ConquestUnexpectedEventExcelTable"
+}

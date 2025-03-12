@@ -84,3 +84,6 @@ func HpBarAbbreviationExcelAddStandardHpBar(builder *flatbuffers.Builder, standa
 func HpBarAbbreviationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*HpBarAbbreviationExcel) Name() string {
+	return "HpBarAbbreviationExcel"
+}

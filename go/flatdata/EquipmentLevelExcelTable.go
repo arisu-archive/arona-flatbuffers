@@ -65,3 +65,6 @@ func EquipmentLevelExcelTableStartDataListVector(builder *flatbuffers.Builder, n
 func EquipmentLevelExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EquipmentLevelExcelTable) Name() string {
+	return "EquipmentLevelExcelTable"
+}

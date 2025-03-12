@@ -355,3 +355,6 @@ func CurrencyExcelAddSpriteName(builder *flatbuffers.Builder, spriteName flatbuf
 func CurrencyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CurrencyExcel) Name() string {
+	return "CurrencyExcel"
+}

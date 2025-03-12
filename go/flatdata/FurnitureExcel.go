@@ -679,3 +679,6 @@ func FurnitureExcelAddVisitOperationType(builder *flatbuffers.Builder, visitOper
 func FurnitureExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FurnitureExcel) Name() string {
+	return "FurnitureExcel"
+}

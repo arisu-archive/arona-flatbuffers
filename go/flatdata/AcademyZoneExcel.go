@@ -178,3 +178,6 @@ func AcademyZoneExcelStartTagsVector(builder *flatbuffers.Builder, numElems int)
 func AcademyZoneExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AcademyZoneExcel) Name() string {
+	return "AcademyZoneExcel"
+}

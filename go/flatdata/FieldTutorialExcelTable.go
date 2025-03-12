@@ -65,3 +65,6 @@ func FieldTutorialExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 func FieldTutorialExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldTutorialExcelTable) Name() string {
+	return "FieldTutorialExcelTable"
+}

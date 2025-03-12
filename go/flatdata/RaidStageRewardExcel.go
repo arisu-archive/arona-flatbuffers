@@ -140,3 +140,6 @@ func RaidStageRewardExcelAddIsClearStageRewardHideInfo(builder *flatbuffers.Buil
 func RaidStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*RaidStageRewardExcel) Name() string {
+	return "RaidStageRewardExcel"
+}

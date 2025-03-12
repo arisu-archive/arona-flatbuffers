@@ -84,3 +84,6 @@ func EventContentMiniEventShortCutExcelAddShorcutContentType(builder *flatbuffer
 func EventContentMiniEventShortCutExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentMiniEventShortCutExcel) Name() string {
+	return "EventContentMiniEventShortCutExcel"
+}

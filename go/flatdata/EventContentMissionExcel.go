@@ -655,3 +655,6 @@ func EventContentMissionExcelAddViewFlag(builder *flatbuffers.Builder, viewFlag 
 func EventContentMissionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentMissionExcel) Name() string {
+	return "EventContentMissionExcel"
+}

@@ -121,3 +121,6 @@ func LimitedStageSeasonExcelAddTypeCCount(builder *flatbuffers.Builder, typeCCou
 func LimitedStageSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LimitedStageSeasonExcel) Name() string {
+	return "LimitedStageSeasonExcel"
+}

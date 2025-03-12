@@ -243,3 +243,6 @@ func ProductExcelAddTeenProductId(builder *flatbuffers.Builder, teenProductId fl
 func ProductExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ProductExcel) Name() string {
+	return "ProductExcel"
+}

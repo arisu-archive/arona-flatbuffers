@@ -156,3 +156,6 @@ func TutorialExcelStartUiNameVector(builder *flatbuffers.Builder, numElems int) 
 func TutorialExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TutorialExcel) Name() string {
+	return "TutorialExcel"
+}

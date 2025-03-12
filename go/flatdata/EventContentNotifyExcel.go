@@ -140,3 +140,6 @@ func EventContentNotifyExcelAddShortcutEventTargetType(builder *flatbuffers.Buil
 func EventContentNotifyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentNotifyExcel) Name() string {
+	return "EventContentNotifyExcel"
+}

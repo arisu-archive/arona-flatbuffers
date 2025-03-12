@@ -299,3 +299,6 @@ func ConquestErosionExcelAddStepIndex(builder *flatbuffers.Builder, stepIndex in
 func ConquestErosionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestErosionExcel) Name() string {
+	return "ConquestErosionExcel"
+}

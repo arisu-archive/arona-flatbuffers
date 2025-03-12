@@ -84,3 +84,6 @@ func CharacterWeaponLevelExcelAddTotalExp(builder *flatbuffers.Builder, totalExp
 func CharacterWeaponLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterWeaponLevelExcel) Name() string {
+	return "CharacterWeaponLevelExcel"
+}

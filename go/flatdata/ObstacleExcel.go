@@ -377,3 +377,6 @@ func ObstacleExcelAddZ(builder *flatbuffers.Builder, z float32) {
 func ObstacleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ObstacleExcel) Name() string {
+	return "ObstacleExcel"
+}

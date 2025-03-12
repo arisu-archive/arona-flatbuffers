@@ -65,3 +65,6 @@ func ConquestPlayGuideExcelTableStartDataListVector(builder *flatbuffers.Builder
 func ConquestPlayGuideExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestPlayGuideExcelTable) Name() string {
+	return "ConquestPlayGuideExcelTable"
+}

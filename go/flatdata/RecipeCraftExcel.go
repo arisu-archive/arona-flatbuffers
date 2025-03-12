@@ -257,3 +257,6 @@ func RecipeCraftExcelStartResultAmountMinVector(builder *flatbuffers.Builder, nu
 func RecipeCraftExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*RecipeCraftExcel) Name() string {
+	return "RecipeCraftExcel"
+}

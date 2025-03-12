@@ -84,3 +84,6 @@ func ServiceActionExcelAddServiceActionType(builder *flatbuffers.Builder, servic
 func ServiceActionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ServiceActionExcel) Name() string {
+	return "ServiceActionExcel"
+}

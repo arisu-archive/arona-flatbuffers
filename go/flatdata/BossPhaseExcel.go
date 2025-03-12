@@ -112,3 +112,6 @@ func BossPhaseExcelStartUseExSkillVector(builder *flatbuffers.Builder, numElems 
 func BossPhaseExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BossPhaseExcel) Name() string {
+	return "BossPhaseExcel"
+}

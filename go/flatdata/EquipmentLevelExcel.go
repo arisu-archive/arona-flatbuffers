@@ -118,3 +118,6 @@ func EquipmentLevelExcelStartTotalExpVector(builder *flatbuffers.Builder, numEle
 func EquipmentLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EquipmentLevelExcel) Name() string {
+	return "EquipmentLevelExcel"
+}

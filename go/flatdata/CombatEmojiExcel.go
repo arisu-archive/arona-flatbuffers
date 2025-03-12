@@ -159,3 +159,6 @@ func CombatEmojiExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 func CombatEmojiExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CombatEmojiExcel) Name() string {
+	return "CombatEmojiExcel"
+}

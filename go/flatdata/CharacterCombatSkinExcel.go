@@ -76,3 +76,6 @@ func CharacterCombatSkinExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId 
 func CharacterCombatSkinExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterCombatSkinExcel) Name() string {
+	return "CharacterCombatSkinExcel"
+}

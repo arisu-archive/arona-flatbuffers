@@ -84,3 +84,6 @@ func BlendInfoAddTo(builder *flatbuffers.Builder, to int32) {
 func BlendInfoEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BlendInfo) Name() string {
+	return "BlendInfo"
+}

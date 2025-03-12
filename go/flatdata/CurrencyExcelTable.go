@@ -65,3 +65,6 @@ func CurrencyExcelTableStartDataListVector(builder *flatbuffers.Builder, numElem
 func CurrencyExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CurrencyExcelTable) Name() string {
+	return "CurrencyExcelTable"
+}

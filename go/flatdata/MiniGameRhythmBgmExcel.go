@@ -173,3 +173,6 @@ func MiniGameRhythmBgmExcelAddStageSelectImagePath(builder *flatbuffers.Builder,
 func MiniGameRhythmBgmExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameRhythmBgmExcel) Name() string {
+	return "MiniGameRhythmBgmExcel"
+}

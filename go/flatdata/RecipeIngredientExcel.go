@@ -276,3 +276,6 @@ func RecipeIngredientExcelAddRecipeType(builder *flatbuffers.Builder, recipeType
 func RecipeIngredientExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*RecipeIngredientExcel) Name() string {
+	return "RecipeIngredientExcel"
+}

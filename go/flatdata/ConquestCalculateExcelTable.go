@@ -65,3 +65,6 @@ func ConquestCalculateExcelTableStartDataListVector(builder *flatbuffers.Builder
 func ConquestCalculateExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestCalculateExcelTable) Name() string {
+	return "ConquestCalculateExcelTable"
+}

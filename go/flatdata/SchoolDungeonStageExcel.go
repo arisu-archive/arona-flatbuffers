@@ -396,3 +396,6 @@ func SchoolDungeonStageExcelStartStarGoalVector(builder *flatbuffers.Builder, nu
 func SchoolDungeonStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*SchoolDungeonStageExcel) Name() string {
+	return "SchoolDungeonStageExcel"
+}

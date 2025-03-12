@@ -200,3 +200,6 @@ func AcademyLocationExcelAddRewardParcelType(builder *flatbuffers.Builder, rewar
 func AcademyLocationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AcademyLocationExcel) Name() string {
+	return "AcademyLocationExcel"
+}

@@ -65,3 +65,6 @@ func ScenarioReplayExcelTableStartDataListVector(builder *flatbuffers.Builder, n
 func ScenarioReplayExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ScenarioReplayExcelTable) Name() string {
+	return "ScenarioReplayExcelTable"
+}

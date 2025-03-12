@@ -65,3 +65,6 @@ func EventContentStageRewardExcelTableStartDataListVector(builder *flatbuffers.B
 func EventContentStageRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentStageRewardExcelTable) Name() string {
+	return "EventContentStageRewardExcelTable"
+}

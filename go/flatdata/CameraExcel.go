@@ -204,3 +204,6 @@ func CameraExcelAddUseRailPointCompensation(builder *flatbuffers.Builder, useRai
 func CameraExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CameraExcel) Name() string {
+	return "CameraExcel"
+}

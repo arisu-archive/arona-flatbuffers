@@ -99,3 +99,6 @@ func EventContentDebuffRewardExcelAddRewardPercentage(builder *flatbuffers.Build
 func EventContentDebuffRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentDebuffRewardExcel) Name() string {
+	return "EventContentDebuffRewardExcel"
+}

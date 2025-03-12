@@ -83,3 +83,6 @@ func ConstAudioExcelAddRaidSnapShotName(builder *flatbuffers.Builder, raidSnapSh
 func ConstAudioExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstAudioExcel) Name() string {
+	return "ConstAudioExcel"
+}

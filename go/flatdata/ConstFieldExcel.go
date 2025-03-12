@@ -324,3 +324,6 @@ func ConstFieldExcelAddUpsetDurationDefault(builder *flatbuffers.Builder, upsetD
 func ConstFieldExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstFieldExcel) Name() string {
+	return "ConstFieldExcel"
+}

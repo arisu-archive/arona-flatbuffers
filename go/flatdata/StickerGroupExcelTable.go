@@ -65,3 +65,6 @@ func StickerGroupExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 func StickerGroupExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*StickerGroupExcelTable) Name() string {
+	return "StickerGroupExcelTable"
+}

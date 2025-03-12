@@ -80,3 +80,6 @@ func TacticEntityEffectFilterExcelAddTargetEffectName(builder *flatbuffers.Build
 func TacticEntityEffectFilterExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TacticEntityEffectFilterExcel) Name() string {
+	return "TacticEntityEffectFilterExcel"
+}

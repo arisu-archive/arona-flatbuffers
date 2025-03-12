@@ -69,3 +69,6 @@ func AcademyTicketExcelAddScheduleTicktetMax(builder *flatbuffers.Builder, sched
 func AcademyTicketExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AcademyTicketExcel) Name() string {
+	return "AcademyTicketExcel"
+}

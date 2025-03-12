@@ -65,3 +65,6 @@ func GachaCraftNodeGroupExcelTableStartDataListVector(builder *flatbuffers.Build
 func GachaCraftNodeGroupExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GachaCraftNodeGroupExcelTable) Name() string {
+	return "GachaCraftNodeGroupExcelTable"
+}

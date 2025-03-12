@@ -221,3 +221,6 @@ func EventContentTreasureRoundExcelStartTreasureRoundSizeVector(builder *flatbuf
 func EventContentTreasureRoundExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentTreasureRoundExcel) Name() string {
+	return "EventContentTreasureRoundExcel"
+}

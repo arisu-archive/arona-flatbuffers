@@ -114,3 +114,6 @@ func MiniGameDefenseInfoExcelAddEventContentId(builder *flatbuffers.Builder, eve
 func MiniGameDefenseInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameDefenseInfoExcel) Name() string {
+	return "MiniGameDefenseInfoExcel"
+}

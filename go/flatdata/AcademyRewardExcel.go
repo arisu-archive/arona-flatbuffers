@@ -467,3 +467,6 @@ func AcademyRewardExcelAddSecretStoneProb(builder *flatbuffers.Builder, secretSt
 func AcademyRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AcademyRewardExcel) Name() string {
+	return "AcademyRewardExcel"
+}

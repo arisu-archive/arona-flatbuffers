@@ -65,3 +65,6 @@ func ConstAudioExcelTableStartDataListVector(builder *flatbuffers.Builder, numEl
 func ConstAudioExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstAudioExcelTable) Name() string {
+	return "ConstAudioExcelTable"
+}

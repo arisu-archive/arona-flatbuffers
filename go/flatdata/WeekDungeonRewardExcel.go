@@ -155,3 +155,6 @@ func WeekDungeonRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rew
 func WeekDungeonRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WeekDungeonRewardExcel) Name() string {
+	return "WeekDungeonRewardExcel"
+}

@@ -71,3 +71,6 @@ func GroundNodeLayerFlatStartLayersVector(builder *flatbuffers.Builder, numElems
 func GroundNodeLayerFlatEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GroundNodeLayerFlat) Name() string {
+	return "GroundNodeLayerFlat"
+}

@@ -65,3 +65,6 @@ func GachaElementRecursiveExcelTableStartDataListVector(builder *flatbuffers.Bui
 func GachaElementRecursiveExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GachaElementRecursiveExcelTable) Name() string {
+	return "GachaElementRecursiveExcelTable"
+}

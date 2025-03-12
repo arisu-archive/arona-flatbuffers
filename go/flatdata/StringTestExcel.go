@@ -84,3 +84,6 @@ func StringTestExcelStartStringVector(builder *flatbuffers.Builder, numElems int
 func StringTestExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*StringTestExcel) Name() string {
+	return "StringTestExcel"
+}

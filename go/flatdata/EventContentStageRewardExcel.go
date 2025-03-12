@@ -144,3 +144,6 @@ func EventContentStageRewardExcelAddRewardTag(builder *flatbuffers.Builder, rewa
 func EventContentStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentStageRewardExcel) Name() string {
+	return "EventContentStageRewardExcel"
+}

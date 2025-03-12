@@ -330,3 +330,6 @@ func ConstMinigameTBGExcelAddThemaLoadingProgressTime(builder *flatbuffers.Build
 func ConstMinigameTBGExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstMinigameTBGExcel) Name() string {
+	return "ConstMinigameTBGExcel"
+}

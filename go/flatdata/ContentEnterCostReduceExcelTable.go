@@ -65,3 +65,6 @@ func ContentEnterCostReduceExcelTableStartDataListVector(builder *flatbuffers.Bu
 func ContentEnterCostReduceExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ContentEnterCostReduceExcelTable) Name() string {
+	return "ContentEnterCostReduceExcelTable"
+}

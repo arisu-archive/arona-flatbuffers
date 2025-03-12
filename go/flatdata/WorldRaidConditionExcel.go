@@ -229,3 +229,6 @@ func WorldRaidConditionExcelStartWorldRaidBossKillVector(builder *flatbuffers.Bu
 func WorldRaidConditionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WorldRaidConditionExcel) Name() string {
+	return "WorldRaidConditionExcel"
+}

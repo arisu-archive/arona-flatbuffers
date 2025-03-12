@@ -144,3 +144,6 @@ func ConquestRewardExcelAddRewardTag(builder *flatbuffers.Builder, rewardTag Rew
 func ConquestRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestRewardExcel) Name() string {
+	return "ConquestRewardExcel"
+}

@@ -65,3 +65,6 @@ func WorldRaidFavorBuffExcelTableStartDataListVector(builder *flatbuffers.Builde
 func WorldRaidFavorBuffExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WorldRaidFavorBuffExcelTable) Name() string {
+	return "WorldRaidFavorBuffExcelTable"
+}

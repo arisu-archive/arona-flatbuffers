@@ -122,3 +122,6 @@ func InformationExcelStartUiNameVector(builder *flatbuffers.Builder, numElems in
 func InformationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*InformationExcel) Name() string {
+	return "InformationExcel"
+}

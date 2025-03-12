@@ -92,3 +92,6 @@ func PresetCharacterGroupSettingExcelStartPresetTypeVector(builder *flatbuffers.
 func PresetCharacterGroupSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*PresetCharacterGroupSettingExcel) Name() string {
+	return "PresetCharacterGroupSettingExcel"
+}

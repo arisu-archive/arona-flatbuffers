@@ -99,3 +99,6 @@ func CharacterPotentialStatExcelAddStatBonusRate(builder *flatbuffers.Builder, s
 func CharacterPotentialStatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterPotentialStatExcel) Name() string {
+	return "CharacterPotentialStatExcel"
+}

@@ -430,3 +430,6 @@ func CharacterSkillListExcelAddUseRandomExSkillTimeline(builder *flatbuffers.Bui
 func CharacterSkillListExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterSkillListExcel) Name() string {
+	return "CharacterSkillListExcel"
+}

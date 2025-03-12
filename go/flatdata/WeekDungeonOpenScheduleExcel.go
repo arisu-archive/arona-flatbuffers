@@ -86,3 +86,6 @@ func WeekDungeonOpenScheduleExcelAddWeekDay(builder *flatbuffers.Builder, weekDa
 func WeekDungeonOpenScheduleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WeekDungeonOpenScheduleExcel) Name() string {
+	return "WeekDungeonOpenScheduleExcel"
+}

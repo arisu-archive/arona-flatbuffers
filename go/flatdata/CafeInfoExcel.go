@@ -99,3 +99,6 @@ func CafeInfoExcelAddOpenConditionCafeInvite(builder *flatbuffers.Builder, openC
 func CafeInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CafeInfoExcel) Name() string {
+	return "CafeInfoExcel"
+}

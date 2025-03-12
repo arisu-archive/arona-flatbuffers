@@ -65,3 +65,6 @@ func TranscendenceRecipeExcelTableStartDataListVector(builder *flatbuffers.Build
 func TranscendenceRecipeExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TranscendenceRecipeExcelTable) Name() string {
+	return "TranscendenceRecipeExcelTable"
+}

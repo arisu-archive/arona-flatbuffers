@@ -163,3 +163,6 @@ func CharacterPotentialRewardExcelAddRewardParcelType(builder *flatbuffers.Build
 func CharacterPotentialRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterPotentialRewardExcel) Name() string {
+	return "CharacterPotentialRewardExcel"
+}

@@ -499,3 +499,6 @@ func EventContentLocationRewardExcelStartVoiceIdVector(builder *flatbuffers.Buil
 func EventContentLocationRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentLocationRewardExcel) Name() string {
+	return "EventContentLocationRewardExcel"
+}

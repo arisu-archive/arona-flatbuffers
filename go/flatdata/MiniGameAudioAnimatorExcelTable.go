@@ -65,3 +65,6 @@ func MiniGameAudioAnimatorExcelTableStartDataListVector(builder *flatbuffers.Bui
 func MiniGameAudioAnimatorExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameAudioAnimatorExcelTable) Name() string {
+	return "MiniGameAudioAnimatorExcelTable"
+}

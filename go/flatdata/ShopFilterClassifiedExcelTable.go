@@ -65,3 +65,6 @@ func ShopFilterClassifiedExcelTableStartDataListVector(builder *flatbuffers.Buil
 func ShopFilterClassifiedExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShopFilterClassifiedExcelTable) Name() string {
+	return "ShopFilterClassifiedExcelTable"
+}

@@ -156,3 +156,6 @@ func VoiceTimelineExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64)
 func VoiceTimelineExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*VoiceTimelineExcel) Name() string {
+	return "VoiceTimelineExcel"
+}

@@ -117,3 +117,6 @@ func MiniGamePlayGuideExcelAddId(builder *flatbuffers.Builder, id int64) {
 func MiniGamePlayGuideExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGamePlayGuideExcel) Name() string {
+	return "MiniGamePlayGuideExcel"
+}

@@ -173,3 +173,6 @@ func ScenarioResourceInfoExcelAddVideoId(builder *flatbuffers.Builder, videoId i
 func ScenarioResourceInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ScenarioResourceInfoExcel) Name() string {
+	return "ScenarioResourceInfoExcel"
+}

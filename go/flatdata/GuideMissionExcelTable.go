@@ -65,3 +65,6 @@ func GuideMissionExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 func GuideMissionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GuideMissionExcelTable) Name() string {
+	return "GuideMissionExcelTable"
+}

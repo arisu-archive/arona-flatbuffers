@@ -65,3 +65,6 @@ func TerrainAdaptationFactorExcelTableStartDataListVector(builder *flatbuffers.B
 func TerrainAdaptationFactorExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TerrainAdaptationFactorExcelTable) Name() string {
+	return "TerrainAdaptationFactorExcelTable"
+}

@@ -65,3 +65,6 @@ func AssistEchelonTypeConvertExcelTableStartDataListVector(builder *flatbuffers.
 func AssistEchelonTypeConvertExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AssistEchelonTypeConvertExcelTable) Name() string {
+	return "AssistEchelonTypeConvertExcelTable"
+}

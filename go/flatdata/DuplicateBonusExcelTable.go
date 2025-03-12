@@ -65,3 +65,6 @@ func DuplicateBonusExcelTableStartDataListVector(builder *flatbuffers.Builder, n
 func DuplicateBonusExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*DuplicateBonusExcelTable) Name() string {
+	return "DuplicateBonusExcelTable"
+}

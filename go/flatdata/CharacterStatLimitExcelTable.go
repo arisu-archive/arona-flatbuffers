@@ -65,3 +65,6 @@ func CharacterStatLimitExcelTableStartDataListVector(builder *flatbuffers.Builde
 func CharacterStatLimitExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterStatLimitExcelTable) Name() string {
+	return "CharacterStatLimitExcelTable"
+}

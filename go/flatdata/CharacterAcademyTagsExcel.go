@@ -214,3 +214,6 @@ func CharacterAcademyTagsExcelStartZoneWhiteListTagsVector(builder *flatbuffers.
 func CharacterAcademyTagsExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterAcademyTagsExcel) Name() string {
+	return "CharacterAcademyTagsExcel"
+}

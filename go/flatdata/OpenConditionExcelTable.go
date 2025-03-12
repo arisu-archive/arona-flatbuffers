@@ -65,3 +65,6 @@ func OpenConditionExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 func OpenConditionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*OpenConditionExcelTable) Name() string {
+	return "OpenConditionExcelTable"
+}

@@ -65,3 +65,6 @@ func WorldRaidConditionExcelTableStartDataListVector(builder *flatbuffers.Builde
 func WorldRaidConditionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WorldRaidConditionExcelTable) Name() string {
+	return "WorldRaidConditionExcelTable"
+}

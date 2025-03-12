@@ -226,3 +226,6 @@ func ConstEventCommonExcelAddTreasureNormalVariationAmount(builder *flatbuffers.
 func ConstEventCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstEventCommonExcel) Name() string {
+	return "ConstEventCommonExcel"
+}

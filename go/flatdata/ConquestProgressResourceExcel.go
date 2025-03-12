@@ -138,3 +138,6 @@ func ConquestProgressResourceExcelStartVoiceIdVector(builder *flatbuffers.Builde
 func ConquestProgressResourceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestProgressResourceExcel) Name() string {
+	return "ConquestProgressResourceExcel"
+}

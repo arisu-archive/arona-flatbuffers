@@ -65,3 +65,6 @@ func ClanRewardExcelTableStartDataListVector(builder *flatbuffers.Builder, numEl
 func ClanRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ClanRewardExcelTable) Name() string {
+	return "ClanRewardExcelTable"
+}

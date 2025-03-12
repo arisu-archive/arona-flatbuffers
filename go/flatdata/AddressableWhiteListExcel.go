@@ -100,3 +100,6 @@ func AddressableWhiteListExcelStartResourcePathVector(builder *flatbuffers.Build
 func AddressableWhiteListExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AddressableWhiteListExcel) Name() string {
+	return "AddressableWhiteListExcel"
+}

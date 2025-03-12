@@ -65,3 +65,6 @@ func EventContentArchiveBannerOffsetExcelTableStartDataListVector(builder *flatb
 func EventContentArchiveBannerOffsetExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentArchiveBannerOffsetExcelTable) Name() string {
+	return "EventContentArchiveBannerOffsetExcelTable"
+}

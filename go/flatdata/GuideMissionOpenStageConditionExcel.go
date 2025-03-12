@@ -154,3 +154,6 @@ func GuideMissionOpenStageConditionExcelAddTabLocalizeCode(builder *flatbuffers.
 func GuideMissionOpenStageConditionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GuideMissionOpenStageConditionExcel) Name() string {
+	return "GuideMissionOpenStageConditionExcel"
+}

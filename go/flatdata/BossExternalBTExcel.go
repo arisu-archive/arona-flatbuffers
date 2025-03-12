@@ -151,3 +151,6 @@ func BossExternalBTExcelAddTriggerArgument(builder *flatbuffers.Builder, trigger
 func BossExternalBTExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BossExternalBTExcel) Name() string {
+	return "BossExternalBTExcel"
+}

@@ -174,3 +174,6 @@ func GachaElementExcelAddState(builder *flatbuffers.Builder, state int32) {
 func GachaElementExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GachaElementExcel) Name() string {
+	return "GachaElementExcel"
+}

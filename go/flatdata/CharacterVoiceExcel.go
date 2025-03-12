@@ -304,3 +304,6 @@ func CharacterVoiceExcelStartVolumeVector(builder *flatbuffers.Builder, numElems
 func CharacterVoiceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterVoiceExcel) Name() string {
+	return "CharacterVoiceExcel"
+}

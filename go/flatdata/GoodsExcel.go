@@ -488,3 +488,6 @@ func GoodsExcelAddType(builder *flatbuffers.Builder, type_ int32) {
 func GoodsExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GoodsExcel) Name() string {
+	return "GoodsExcel"
+}

@@ -165,3 +165,6 @@ func CampaignChapterRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
 func CampaignChapterRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CampaignChapterRewardExcel) Name() string {
+	return "CampaignChapterRewardExcel"
+}

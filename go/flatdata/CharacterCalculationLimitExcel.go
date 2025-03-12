@@ -114,3 +114,6 @@ func CharacterCalculationLimitExcelAddTacticEntityType(builder *flatbuffers.Buil
 func CharacterCalculationLimitExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterCalculationLimitExcel) Name() string {
+	return "CharacterCalculationLimitExcel"
+}

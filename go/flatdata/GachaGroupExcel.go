@@ -95,3 +95,6 @@ func GachaGroupExcelAddNameKr(builder *flatbuffers.Builder, nameKr flatbuffers.U
 func GachaGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GachaGroupExcel) Name() string {
+	return "GachaGroupExcel"
+}

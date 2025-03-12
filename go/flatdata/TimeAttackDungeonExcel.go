@@ -110,3 +110,6 @@ func TimeAttackDungeonExcelAddTimeAttackDungeonType(builder *flatbuffers.Builder
 func TimeAttackDungeonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TimeAttackDungeonExcel) Name() string {
+	return "TimeAttackDungeonExcel"
+}

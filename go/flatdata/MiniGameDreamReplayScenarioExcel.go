@@ -140,3 +140,6 @@ func MiniGameDreamReplayScenarioExcelAddScenarioGroupId(builder *flatbuffers.Bui
 func MiniGameDreamReplayScenarioExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameDreamReplayScenarioExcel) Name() string {
+	return "MiniGameDreamReplayScenarioExcel"
+}

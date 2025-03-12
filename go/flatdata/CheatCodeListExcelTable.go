@@ -65,3 +65,6 @@ func CheatCodeListExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 func CheatCodeListExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CheatCodeListExcelTable) Name() string {
+	return "CheatCodeListExcelTable"
+}

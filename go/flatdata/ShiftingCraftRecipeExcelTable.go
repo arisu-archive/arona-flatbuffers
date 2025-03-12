@@ -65,3 +65,6 @@ func ShiftingCraftRecipeExcelTableStartDataListVector(builder *flatbuffers.Build
 func ShiftingCraftRecipeExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShiftingCraftRecipeExcelTable) Name() string {
+	return "ShiftingCraftRecipeExcelTable"
+}

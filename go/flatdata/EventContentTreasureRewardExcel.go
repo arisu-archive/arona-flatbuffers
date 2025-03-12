@@ -228,3 +228,6 @@ func EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder *flatbuffe
 func EventContentTreasureRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentTreasureRewardExcel) Name() string {
+	return "EventContentTreasureRewardExcel"
+}

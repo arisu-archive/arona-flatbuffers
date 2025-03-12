@@ -176,3 +176,6 @@ func EventContentBoxGachaShopExcelAddRound(builder *flatbuffers.Builder, round i
 func EventContentBoxGachaShopExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentBoxGachaShopExcel) Name() string {
+	return "EventContentBoxGachaShopExcel"
+}

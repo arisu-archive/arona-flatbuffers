@@ -65,3 +65,6 @@ func ConstMiniGameShootingExcelTableStartDataListVector(builder *flatbuffers.Bui
 func ConstMiniGameShootingExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstMiniGameShootingExcelTable) Name() string {
+	return "ConstMiniGameShootingExcelTable"
+}

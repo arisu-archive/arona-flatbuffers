@@ -100,3 +100,6 @@ func AddressableBlackListExcelStartResourcePathVector(builder *flatbuffers.Build
 func AddressableBlackListExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AddressableBlackListExcel) Name() string {
+	return "AddressableBlackListExcel"
+}

@@ -187,3 +187,6 @@ func VideoExcelStartVideoTeenPathVector(builder *flatbuffers.Builder, numElems i
 func VideoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*VideoExcel) Name() string {
+	return "VideoExcel"
+}

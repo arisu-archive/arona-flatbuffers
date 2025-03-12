@@ -65,3 +65,6 @@ func ConquestProgressResourceExcelTableStartDataListVector(builder *flatbuffers.
 func ConquestProgressResourceExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestProgressResourceExcelTable) Name() string {
+	return "ConquestProgressResourceExcelTable"
+}

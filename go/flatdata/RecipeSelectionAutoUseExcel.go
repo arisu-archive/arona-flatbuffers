@@ -116,3 +116,6 @@ func RecipeSelectionAutoUseExcelAddTargetItemId(builder *flatbuffers.Builder, ta
 func RecipeSelectionAutoUseExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*RecipeSelectionAutoUseExcel) Name() string {
+	return "RecipeSelectionAutoUseExcel"
+}

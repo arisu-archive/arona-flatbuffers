@@ -129,3 +129,6 @@ func ConstConquestExcelAddPlayTimeLimitInSeconds(builder *flatbuffers.Builder, p
 func ConstConquestExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstConquestExcel) Name() string {
+	return "ConstConquestExcel"
+}

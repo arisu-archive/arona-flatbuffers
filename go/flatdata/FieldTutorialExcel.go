@@ -150,3 +150,6 @@ func FieldTutorialExcelStartTutorialTypeVector(builder *flatbuffers.Builder, num
 func FieldTutorialExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldTutorialExcel) Name() string {
+	return "FieldTutorialExcel"
+}

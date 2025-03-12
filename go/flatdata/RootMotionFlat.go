@@ -123,3 +123,6 @@ func RootMotionFlatAddMoveRight(builder *flatbuffers.Builder, moveRight flatbuff
 func RootMotionFlatEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*RootMotionFlat) Name() string {
+	return "RootMotionFlat"
+}

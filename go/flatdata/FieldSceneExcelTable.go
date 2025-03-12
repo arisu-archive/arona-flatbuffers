@@ -65,3 +65,6 @@ func FieldSceneExcelTableStartDataListVector(builder *flatbuffers.Builder, numEl
 func FieldSceneExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldSceneExcelTable) Name() string {
+	return "FieldSceneExcelTable"
+}

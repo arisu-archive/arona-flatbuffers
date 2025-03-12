@@ -215,3 +215,6 @@ func CumulativeTimeRewardExcelStartTimeConditionVector(builder *flatbuffers.Buil
 func CumulativeTimeRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CumulativeTimeRewardExcel) Name() string {
+	return "CumulativeTimeRewardExcel"
+}

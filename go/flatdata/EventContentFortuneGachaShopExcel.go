@@ -270,3 +270,6 @@ func EventContentFortuneGachaShopExcelStartRewardParcelTypeVector(builder *flatb
 func EventContentFortuneGachaShopExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentFortuneGachaShopExcel) Name() string {
+	return "EventContentFortuneGachaShopExcel"
+}

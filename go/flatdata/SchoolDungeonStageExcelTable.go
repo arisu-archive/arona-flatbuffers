@@ -65,3 +65,6 @@ func SchoolDungeonStageExcelTableStartDataListVector(builder *flatbuffers.Builde
 func SchoolDungeonStageExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*SchoolDungeonStageExcelTable) Name() string {
+	return "SchoolDungeonStageExcelTable"
+}

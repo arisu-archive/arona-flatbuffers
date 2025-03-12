@@ -65,3 +65,6 @@ func WeekDungeonFindGiftRewardExcelTableStartDataListVector(builder *flatbuffers
 func WeekDungeonFindGiftRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WeekDungeonFindGiftRewardExcelTable) Name() string {
+	return "WeekDungeonFindGiftRewardExcelTable"
+}

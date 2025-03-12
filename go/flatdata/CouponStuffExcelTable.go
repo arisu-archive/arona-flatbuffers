@@ -65,3 +65,6 @@ func CouponStuffExcelTableStartDataListVector(builder *flatbuffers.Builder, numE
 func CouponStuffExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CouponStuffExcelTable) Name() string {
+	return "CouponStuffExcelTable"
+}

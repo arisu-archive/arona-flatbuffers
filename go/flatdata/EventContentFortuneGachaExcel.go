@@ -80,3 +80,6 @@ func EventContentFortuneGachaExcelAddLocalizeEtcId(builder *flatbuffers.Builder,
 func EventContentFortuneGachaExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentFortuneGachaExcel) Name() string {
+	return "EventContentFortuneGachaExcel"
+}

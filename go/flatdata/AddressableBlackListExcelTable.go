@@ -65,3 +65,6 @@ func AddressableBlackListExcelTableStartDataListVector(builder *flatbuffers.Buil
 func AddressableBlackListExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AddressableBlackListExcelTable) Name() string {
+	return "AddressableBlackListExcelTable"
+}

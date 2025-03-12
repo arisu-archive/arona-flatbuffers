@@ -65,3 +65,6 @@ func ArenaSeasonCloseRewardExcelTableStartDataListVector(builder *flatbuffers.Bu
 func ArenaSeasonCloseRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ArenaSeasonCloseRewardExcelTable) Name() string {
+	return "ArenaSeasonCloseRewardExcelTable"
+}

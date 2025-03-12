@@ -101,3 +101,6 @@ func ShortcutTypeExcelAddIsAscending(builder *flatbuffers.Builder, isAscending b
 func ShortcutTypeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShortcutTypeExcel) Name() string {
+	return "ShortcutTypeExcel"
+}

@@ -65,3 +65,6 @@ func RaidSeasonManageExcelTableStartDataListVector(builder *flatbuffers.Builder,
 func RaidSeasonManageExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*RaidSeasonManageExcelTable) Name() string {
+	return "RaidSeasonManageExcelTable"
+}

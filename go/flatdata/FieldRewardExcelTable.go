@@ -65,3 +65,6 @@ func FieldRewardExcelTableStartDataListVector(builder *flatbuffers.Builder, numE
 func FieldRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldRewardExcelTable) Name() string {
+	return "FieldRewardExcelTable"
+}

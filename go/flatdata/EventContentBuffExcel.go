@@ -166,3 +166,6 @@ func EventContentBuffExcelAddSpriteName(builder *flatbuffers.Builder, spriteName
 func EventContentBuffExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentBuffExcel) Name() string {
+	return "EventContentBuffExcel"
+}

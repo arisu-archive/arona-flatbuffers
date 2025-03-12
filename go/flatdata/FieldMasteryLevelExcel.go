@@ -182,3 +182,6 @@ func FieldMasteryLevelExcelStartTotalExpVector(builder *flatbuffers.Builder, num
 func FieldMasteryLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldMasteryLevelExcel) Name() string {
+	return "FieldMasteryLevelExcel"
+}

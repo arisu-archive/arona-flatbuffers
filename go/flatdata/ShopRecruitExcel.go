@@ -454,3 +454,6 @@ func ShopRecruitExcelStartVideoIdVector(builder *flatbuffers.Builder, numElems i
 func ShopRecruitExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShopRecruitExcel) Name() string {
+	return "ShopRecruitExcel"
+}

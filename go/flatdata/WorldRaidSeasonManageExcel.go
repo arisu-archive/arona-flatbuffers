@@ -431,3 +431,6 @@ func WorldRaidSeasonManageExcelAddWorldRaidUniqueThemeName(builder *flatbuffers.
 func WorldRaidSeasonManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WorldRaidSeasonManageExcel) Name() string {
+	return "WorldRaidSeasonManageExcel"
+}

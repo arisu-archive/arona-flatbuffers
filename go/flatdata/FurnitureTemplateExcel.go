@@ -91,3 +91,6 @@ func FurnitureTemplateExcelAddThumbnailImagePath(builder *flatbuffers.Builder, t
 func FurnitureTemplateExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FurnitureTemplateExcel) Name() string {
+	return "FurnitureTemplateExcel"
+}

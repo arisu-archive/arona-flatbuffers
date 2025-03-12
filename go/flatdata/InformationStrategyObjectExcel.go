@@ -91,3 +91,6 @@ func InformationStrategyObjectExcelAddStageId(builder *flatbuffers.Builder, stag
 func InformationStrategyObjectExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*InformationStrategyObjectExcel) Name() string {
+	return "InformationStrategyObjectExcel"
+}

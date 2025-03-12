@@ -210,3 +210,6 @@ func CharacterDialogFieldExcelAddTargetIndex(builder *flatbuffers.Builder, targe
 func CharacterDialogFieldExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterDialogFieldExcel) Name() string {
+	return "CharacterDialogFieldExcel"
+}

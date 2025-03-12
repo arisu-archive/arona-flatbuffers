@@ -87,3 +87,6 @@ func FieldKeywordExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) 
 func FieldKeywordExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldKeywordExcel) Name() string {
+	return "FieldKeywordExcel"
+}

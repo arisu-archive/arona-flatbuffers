@@ -193,3 +193,6 @@ func EchelonConstraintExcelAddWeaponType(builder *flatbuffers.Builder, weaponTyp
 func EchelonConstraintExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EchelonConstraintExcel) Name() string {
+	return "EchelonConstraintExcel"
+}

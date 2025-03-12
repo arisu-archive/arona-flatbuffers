@@ -497,3 +497,6 @@ func MiniGameMissionExcelAddViewFlag(builder *flatbuffers.Builder, viewFlag bool
 func MiniGameMissionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameMissionExcel) Name() string {
+	return "MiniGameMissionExcel"
+}

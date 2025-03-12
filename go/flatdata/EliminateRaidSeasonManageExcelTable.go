@@ -65,3 +65,6 @@ func EliminateRaidSeasonManageExcelTableStartDataListVector(builder *flatbuffers
 func EliminateRaidSeasonManageExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EliminateRaidSeasonManageExcelTable) Name() string {
+	return "EliminateRaidSeasonManageExcelTable"
+}

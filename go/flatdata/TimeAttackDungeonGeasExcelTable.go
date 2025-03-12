@@ -65,3 +65,6 @@ func TimeAttackDungeonGeasExcelTableStartDataListVector(builder *flatbuffers.Bui
 func TimeAttackDungeonGeasExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TimeAttackDungeonGeasExcelTable) Name() string {
+	return "TimeAttackDungeonGeasExcelTable"
+}

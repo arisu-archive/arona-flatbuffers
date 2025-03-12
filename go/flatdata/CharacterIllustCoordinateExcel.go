@@ -129,3 +129,6 @@ func CharacterIllustCoordinateExcelAddMinScale(builder *flatbuffers.Builder, min
 func CharacterIllustCoordinateExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterIllustCoordinateExcel) Name() string {
+	return "CharacterIllustCoordinateExcel"
+}

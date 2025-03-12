@@ -185,3 +185,6 @@ func FieldQuestExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 func FieldQuestExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldQuestExcel) Name() string {
+	return "FieldQuestExcel"
+}

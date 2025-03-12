@@ -65,3 +65,6 @@ func LocalizeCharProfileExcelTableStartDataListVector(builder *flatbuffers.Build
 func LocalizeCharProfileExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LocalizeCharProfileExcelTable) Name() string {
+	return "LocalizeCharProfileExcelTable"
+}

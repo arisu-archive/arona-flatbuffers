@@ -359,3 +359,6 @@ func EmblemExcelAddUseAtLocalizeId(builder *flatbuffers.Builder, useAtLocalizeId
 func EmblemExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EmblemExcel) Name() string {
+	return "EmblemExcel"
+}

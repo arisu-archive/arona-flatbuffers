@@ -102,3 +102,6 @@ func EventContentTreasureExcelAddUsePrefabName(builder *flatbuffers.Builder, use
 func EventContentTreasureExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentTreasureExcel) Name() string {
+	return "EventContentTreasureExcel"
+}

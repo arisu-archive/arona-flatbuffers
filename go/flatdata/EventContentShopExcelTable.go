@@ -65,3 +65,6 @@ func EventContentShopExcelTableStartDataListVector(builder *flatbuffers.Builder,
 func EventContentShopExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentShopExcelTable) Name() string {
+	return "EventContentShopExcelTable"
+}

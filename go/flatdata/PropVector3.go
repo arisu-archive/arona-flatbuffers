@@ -84,3 +84,6 @@ func PropVector3AddZ(builder *flatbuffers.Builder, z float32) {
 func PropVector3End(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*PropVector3) Name() string {
+	return "PropVector3"
+}

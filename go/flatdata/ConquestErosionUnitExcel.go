@@ -114,3 +114,6 @@ func ConquestErosionUnitExcelAddTilePrefabId(builder *flatbuffers.Builder, tileP
 func ConquestErosionUnitExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestErosionUnitExcel) Name() string {
+	return "ConquestErosionUnitExcel"
+}

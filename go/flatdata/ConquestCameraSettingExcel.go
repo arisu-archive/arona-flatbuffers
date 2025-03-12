@@ -204,3 +204,6 @@ func ConquestCameraSettingExcelAddId(builder *flatbuffers.Builder, id int64) {
 func ConquestCameraSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestCameraSettingExcel) Name() string {
+	return "ConquestCameraSettingExcel"
+}

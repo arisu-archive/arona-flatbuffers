@@ -155,3 +155,6 @@ func BulletArmorDamageFactorExcelAddShowHighlightFloater(builder *flatbuffers.Bu
 func BulletArmorDamageFactorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BulletArmorDamageFactorExcel) Name() string {
+	return "BulletArmorDamageFactorExcel"
+}

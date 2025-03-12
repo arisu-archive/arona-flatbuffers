@@ -114,3 +114,6 @@ func ToastExcelAddToastType(builder *flatbuffers.Builder, toastType ToastType) {
 func ToastExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ToastExcel) Name() string {
+	return "ToastExcel"
+}

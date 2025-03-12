@@ -65,3 +65,6 @@ func FieldMasteryLevelExcelTableStartDataListVector(builder *flatbuffers.Builder
 func FieldMasteryLevelExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldMasteryLevelExcelTable) Name() string {
+	return "FieldMasteryLevelExcelTable"
+}

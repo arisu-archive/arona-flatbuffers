@@ -65,3 +65,6 @@ func AnimatorDataTableStartDataListVector(builder *flatbuffers.Builder, numElems
 func AnimatorDataTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AnimatorDataTable) Name() string {
+	return "AnimatorDataTable"
+}

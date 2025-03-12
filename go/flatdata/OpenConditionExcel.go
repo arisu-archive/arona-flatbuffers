@@ -347,3 +347,6 @@ func OpenConditionExcelStartShortcutUiNameVector(builder *flatbuffers.Builder, n
 func OpenConditionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*OpenConditionExcel) Name() string {
+	return "OpenConditionExcel"
+}

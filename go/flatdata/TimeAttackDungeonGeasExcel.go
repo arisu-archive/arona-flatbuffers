@@ -354,3 +354,6 @@ func TimeAttackDungeonGeasExcelAddTimeWeightConst(builder *flatbuffers.Builder, 
 func TimeAttackDungeonGeasExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TimeAttackDungeonGeasExcel) Name() string {
+	return "TimeAttackDungeonGeasExcel"
+}

@@ -133,3 +133,6 @@ func EventContentDiceRaceExcelAddSkipableLap(builder *flatbuffers.Builder, skipa
 func EventContentDiceRaceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentDiceRaceExcel) Name() string {
+	return "EventContentDiceRaceExcel"
+}

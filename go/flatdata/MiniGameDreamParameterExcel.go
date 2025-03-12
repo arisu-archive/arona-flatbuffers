@@ -170,3 +170,6 @@ func MiniGameDreamParameterExcelAddParameterType(builder *flatbuffers.Builder, p
 func MiniGameDreamParameterExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameDreamParameterExcel) Name() string {
+	return "MiniGameDreamParameterExcel"
+}

@@ -99,3 +99,6 @@ func NormalSkillTemplateExcelAddMultiAni(builder *flatbuffers.Builder, multiAni 
 func NormalSkillTemplateExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*NormalSkillTemplateExcel) Name() string {
+	return "NormalSkillTemplateExcel"
+}

@@ -98,3 +98,6 @@ func FieldEvidenceExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64)
 func FieldEvidenceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldEvidenceExcel) Name() string {
+	return "FieldEvidenceExcel"
+}

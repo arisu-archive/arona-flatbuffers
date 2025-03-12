@@ -65,3 +65,6 @@ func BulletArmorDamageFactorExcelTableStartDataListVector(builder *flatbuffers.B
 func BulletArmorDamageFactorExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BulletArmorDamageFactorExcelTable) Name() string {
+	return "BulletArmorDamageFactorExcelTable"
+}

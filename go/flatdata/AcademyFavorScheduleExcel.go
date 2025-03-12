@@ -266,3 +266,6 @@ func AcademyFavorScheduleExcelAddSecretStoneAmount(builder *flatbuffers.Builder,
 func AcademyFavorScheduleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AcademyFavorScheduleExcel) Name() string {
+	return "AcademyFavorScheduleExcel"
+}

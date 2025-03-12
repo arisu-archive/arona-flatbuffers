@@ -128,3 +128,6 @@ func EventContentFortuneGachaModifyExcelAddUsePrefabName(builder *flatbuffers.Bu
 func EventContentFortuneGachaModifyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentFortuneGachaModifyExcel) Name() string {
+	return "EventContentFortuneGachaModifyExcel"
+}

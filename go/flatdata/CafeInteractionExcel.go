@@ -223,3 +223,6 @@ func CafeInteractionExcelAddIgnoreIfUnobtainedStartDate(builder *flatbuffers.Bui
 func CafeInteractionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CafeInteractionExcel) Name() string {
+	return "CafeInteractionExcel"
+}

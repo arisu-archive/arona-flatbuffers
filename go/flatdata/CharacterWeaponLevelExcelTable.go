@@ -65,3 +65,6 @@ func CharacterWeaponLevelExcelTableStartDataListVector(builder *flatbuffers.Buil
 func CharacterWeaponLevelExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterWeaponLevelExcelTable) Name() string {
+	return "CharacterWeaponLevelExcelTable"
+}

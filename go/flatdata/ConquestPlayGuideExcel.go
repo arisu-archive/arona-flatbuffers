@@ -117,3 +117,6 @@ func ConquestPlayGuideExcelAddId(builder *flatbuffers.Builder, id int64) {
 func ConquestPlayGuideExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestPlayGuideExcel) Name() string {
+	return "ConquestPlayGuideExcel"
+}

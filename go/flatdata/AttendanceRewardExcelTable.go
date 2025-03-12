@@ -65,3 +65,6 @@ func AttendanceRewardExcelTableStartDataListVector(builder *flatbuffers.Builder,
 func AttendanceRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AttendanceRewardExcelTable) Name() string {
+	return "AttendanceRewardExcelTable"
+}

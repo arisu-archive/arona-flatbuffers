@@ -65,3 +65,6 @@ func ShopFreeRecruitExcelTableStartDataListVector(builder *flatbuffers.Builder, 
 func ShopFreeRecruitExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShopFreeRecruitExcelTable) Name() string {
+	return "ShopFreeRecruitExcelTable"
+}

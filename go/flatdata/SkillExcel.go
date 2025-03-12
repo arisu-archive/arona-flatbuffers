@@ -450,3 +450,6 @@ func SkillExcelAddVisualDataKey(builder *flatbuffers.Builder, visualDataKey flat
 func SkillExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*SkillExcel) Name() string {
+	return "SkillExcel"
+}

@@ -65,3 +65,6 @@ func WorldRaidSeasonManageExcelTableStartDataListVector(builder *flatbuffers.Bui
 func WorldRaidSeasonManageExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WorldRaidSeasonManageExcelTable) Name() string {
+	return "WorldRaidSeasonManageExcelTable"
+}

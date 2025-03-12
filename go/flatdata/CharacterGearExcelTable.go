@@ -65,3 +65,6 @@ func CharacterGearExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 func CharacterGearExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterGearExcelTable) Name() string {
+	return "CharacterGearExcelTable"
+}

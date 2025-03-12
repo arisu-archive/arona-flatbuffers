@@ -65,3 +65,6 @@ func PresetParcelsExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 func PresetParcelsExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*PresetParcelsExcelTable) Name() string {
+	return "PresetParcelsExcelTable"
+}

@@ -65,3 +65,6 @@ func AcademyLocationRankExcelTableStartDataListVector(builder *flatbuffers.Build
 func AcademyLocationRankExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AcademyLocationRankExcelTable) Name() string {
+	return "AcademyLocationRankExcelTable"
+}

@@ -164,3 +164,6 @@ func LocalizeEtcExcelAddNameTw(builder *flatbuffers.Builder, nameTw flatbuffers.
 func LocalizeEtcExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LocalizeEtcExcel) Name() string {
+	return "LocalizeEtcExcel"
+}

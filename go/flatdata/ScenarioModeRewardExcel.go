@@ -144,3 +144,6 @@ func ScenarioModeRewardExcelAddScenarioModeRewardId(builder *flatbuffers.Builder
 func ScenarioModeRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ScenarioModeRewardExcel) Name() string {
+	return "ScenarioModeRewardExcel"
+}

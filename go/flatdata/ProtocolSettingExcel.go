@@ -110,3 +110,6 @@ func ProtocolSettingExcelAddProtocol(builder *flatbuffers.Builder, protocol flat
 func ProtocolSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ProtocolSettingExcel) Name() string {
+	return "ProtocolSettingExcel"
+}

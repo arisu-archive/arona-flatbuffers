@@ -173,3 +173,6 @@ func RaidStageSeasonRewardExcelStartSeasonRewardParcelUniqueNameVector(builder *
 func RaidStageSeasonRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*RaidStageSeasonRewardExcel) Name() string {
+	return "RaidStageSeasonRewardExcel"
+}

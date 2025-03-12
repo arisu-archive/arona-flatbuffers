@@ -65,3 +65,6 @@ func CharacterTranscendenceExcelTableStartDataListVector(builder *flatbuffers.Bu
 func CharacterTranscendenceExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterTranscendenceExcelTable) Name() string {
+	return "CharacterTranscendenceExcelTable"
+}

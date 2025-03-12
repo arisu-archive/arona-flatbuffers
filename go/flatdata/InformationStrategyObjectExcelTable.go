@@ -65,3 +65,6 @@ func InformationStrategyObjectExcelTableStartDataListVector(builder *flatbuffers
 func InformationStrategyObjectExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*InformationStrategyObjectExcelTable) Name() string {
+	return "InformationStrategyObjectExcelTable"
+}

@@ -456,3 +456,6 @@ func CharacterVictoryInteractionExcelAddVoiceEvent06(builder *flatbuffers.Builde
 func CharacterVictoryInteractionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterVictoryInteractionExcel) Name() string {
+	return "CharacterVictoryInteractionExcel"
+}

@@ -130,3 +130,6 @@ func GroundNodeFlatAddY(builder *flatbuffers.Builder, y int32) {
 func GroundNodeFlatEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GroundNodeFlat) Name() string {
+	return "GroundNodeFlat"
+}

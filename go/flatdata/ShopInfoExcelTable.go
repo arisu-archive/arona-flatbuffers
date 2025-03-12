@@ -65,3 +65,6 @@ func ShopInfoExcelTableStartDataListVector(builder *flatbuffers.Builder, numElem
 func ShopInfoExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShopInfoExcelTable) Name() string {
+	return "ShopInfoExcelTable"
+}

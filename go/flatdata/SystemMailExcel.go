@@ -91,3 +91,6 @@ func SystemMailExcelAddSender(builder *flatbuffers.Builder, sender flatbuffers.U
 func SystemMailExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*SystemMailExcel) Name() string {
+	return "SystemMailExcel"
+}

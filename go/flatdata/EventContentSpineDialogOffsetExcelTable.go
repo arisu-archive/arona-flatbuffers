@@ -65,3 +65,6 @@ func EventContentSpineDialogOffsetExcelTableStartDataListVector(builder *flatbuf
 func EventContentSpineDialogOffsetExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentSpineDialogOffsetExcelTable) Name() string {
+	return "EventContentSpineDialogOffsetExcelTable"
+}

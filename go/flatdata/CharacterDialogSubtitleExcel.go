@@ -176,3 +176,6 @@ func CharacterDialogSubtitleExcelAddTlmid(builder *flatbuffers.Builder, tlmid fl
 func CharacterDialogSubtitleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterDialogSubtitleExcel) Name() string {
+	return "CharacterDialogSubtitleExcel"
+}

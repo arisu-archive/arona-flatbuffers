@@ -114,3 +114,6 @@ func ContentsFeverExcelAddSkillFeverCheckCondition(builder *flatbuffers.Builder,
 func ContentsFeverExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ContentsFeverExcel) Name() string {
+	return "ContentsFeverExcel"
+}

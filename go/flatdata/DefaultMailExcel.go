@@ -202,3 +202,6 @@ func DefaultMailExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, n
 func DefaultMailExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*DefaultMailExcel) Name() string {
+	return "DefaultMailExcel"
+}

@@ -65,3 +65,6 @@ func KatakanaConvertExcelTableStartDataListVector(builder *flatbuffers.Builder, 
 func KatakanaConvertExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*KatakanaConvertExcelTable) Name() string {
+	return "KatakanaConvertExcelTable"
+}

@@ -99,3 +99,6 @@ func PresetParcelsExcelAddPresetGroupId(builder *flatbuffers.Builder, presetGrou
 func PresetParcelsExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*PresetParcelsExcel) Name() string {
+	return "PresetParcelsExcel"
+}

@@ -65,3 +65,6 @@ func DefaultEchelonExcelTableStartDataListVector(builder *flatbuffers.Builder, n
 func DefaultEchelonExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*DefaultEchelonExcelTable) Name() string {
+	return "DefaultEchelonExcelTable"
+}

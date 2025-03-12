@@ -216,3 +216,6 @@ func ScenarioCharacterNameExcelAddSpinePrefabName(builder *flatbuffers.Builder, 
 func ScenarioCharacterNameExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ScenarioCharacterNameExcel) Name() string {
+	return "ScenarioCharacterNameExcel"
+}

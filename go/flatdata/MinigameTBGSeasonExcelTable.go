@@ -65,3 +65,6 @@ func MinigameTBGSeasonExcelTableStartDataListVector(builder *flatbuffers.Builder
 func MinigameTBGSeasonExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MinigameTBGSeasonExcelTable) Name() string {
+	return "MinigameTBGSeasonExcelTable"
+}

@@ -65,3 +65,6 @@ func CumulativeTimeRewardExcelTableStartDataListVector(builder *flatbuffers.Buil
 func CumulativeTimeRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CumulativeTimeRewardExcelTable) Name() string {
+	return "CumulativeTimeRewardExcelTable"
+}

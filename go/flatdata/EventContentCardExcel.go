@@ -170,3 +170,6 @@ func EventContentCardExcelStartRewardParcelTypeVector(builder *flatbuffers.Build
 func EventContentCardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentCardExcel) Name() string {
+	return "EventContentCardExcel"
+}

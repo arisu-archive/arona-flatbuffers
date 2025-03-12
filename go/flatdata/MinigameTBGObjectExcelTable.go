@@ -65,3 +65,6 @@ func MinigameTBGObjectExcelTableStartDataListVector(builder *flatbuffers.Builder
 func MinigameTBGObjectExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MinigameTBGObjectExcelTable) Name() string {
+	return "MinigameTBGObjectExcelTable"
+}

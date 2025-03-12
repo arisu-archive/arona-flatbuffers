@@ -65,3 +65,6 @@ func AttendanceExcelTableStartDataListVector(builder *flatbuffers.Builder, numEl
 func AttendanceExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AttendanceExcelTable) Name() string {
+	return "AttendanceExcelTable"
+}

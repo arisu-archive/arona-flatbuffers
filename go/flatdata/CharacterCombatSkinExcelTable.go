@@ -65,3 +65,6 @@ func CharacterCombatSkinExcelTableStartDataListVector(builder *flatbuffers.Build
 func CharacterCombatSkinExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterCombatSkinExcelTable) Name() string {
+	return "CharacterCombatSkinExcelTable"
+}

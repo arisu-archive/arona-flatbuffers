@@ -65,3 +65,6 @@ func ConquestStepExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 func ConquestStepExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestStepExcelTable) Name() string {
+	return "ConquestStepExcelTable"
+}

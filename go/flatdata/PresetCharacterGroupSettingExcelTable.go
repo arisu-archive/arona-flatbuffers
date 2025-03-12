@@ -65,3 +65,6 @@ func PresetCharacterGroupSettingExcelTableStartDataListVector(builder *flatbuffe
 func PresetCharacterGroupSettingExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*PresetCharacterGroupSettingExcelTable) Name() string {
+	return "PresetCharacterGroupSettingExcelTable"
+}

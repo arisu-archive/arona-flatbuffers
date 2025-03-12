@@ -135,3 +135,6 @@ func TutorialCharacterDialogExcelAddVoiceId(builder *flatbuffers.Builder, voiceI
 func TutorialCharacterDialogExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TutorialCharacterDialogExcel) Name() string {
+	return "TutorialCharacterDialogExcel"
+}

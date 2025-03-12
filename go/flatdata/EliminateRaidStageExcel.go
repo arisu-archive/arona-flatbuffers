@@ -651,3 +651,6 @@ func EliminateRaidStageExcelAddVictoryTimelinePath(builder *flatbuffers.Builder,
 func EliminateRaidStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EliminateRaidStageExcel) Name() string {
+	return "EliminateRaidStageExcel"
+}

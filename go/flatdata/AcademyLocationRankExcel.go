@@ -84,3 +84,6 @@ func AcademyLocationRankExcelAddTotalExp(builder *flatbuffers.Builder, totalExp 
 func AcademyLocationRankExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AcademyLocationRankExcel) Name() string {
+	return "AcademyLocationRankExcel"
+}

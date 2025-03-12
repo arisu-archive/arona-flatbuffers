@@ -69,3 +69,6 @@ func MissionEmergencyCompleteExcelAddMissionId(builder *flatbuffers.Builder, mis
 func MissionEmergencyCompleteExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MissionEmergencyCompleteExcel) Name() string {
+	return "MissionEmergencyCompleteExcel"
+}

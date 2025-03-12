@@ -566,3 +566,6 @@ func MissionExcelAddViewFlag(builder *flatbuffers.Builder, viewFlag bool) {
 func MissionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MissionExcel) Name() string {
+	return "MissionExcel"
+}

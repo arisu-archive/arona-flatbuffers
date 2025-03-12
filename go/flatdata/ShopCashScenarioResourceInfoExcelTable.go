@@ -65,3 +65,6 @@ func ShopCashScenarioResourceInfoExcelTableStartDataListVector(builder *flatbuff
 func ShopCashScenarioResourceInfoExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShopCashScenarioResourceInfoExcelTable) Name() string {
+	return "ShopCashScenarioResourceInfoExcelTable"
+}

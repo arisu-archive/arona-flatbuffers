@@ -65,3 +65,6 @@ func TacticArenaSimulatorSettingExcelTableStartDataListVector(builder *flatbuffe
 func TacticArenaSimulatorSettingExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TacticArenaSimulatorSettingExcelTable) Name() string {
+	return "TacticArenaSimulatorSettingExcelTable"
+}

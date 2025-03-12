@@ -216,3 +216,6 @@ func WeekDungeonFindGiftRewardExcelAddStageRewardId(builder *flatbuffers.Builder
 func WeekDungeonFindGiftRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WeekDungeonFindGiftRewardExcel) Name() string {
+	return "WeekDungeonFindGiftRewardExcel"
+}

@@ -65,3 +65,6 @@ func TacticEntityEffectFilterExcelTableStartDataListVector(builder *flatbuffers.
 func TacticEntityEffectFilterExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TacticEntityEffectFilterExcelTable) Name() string {
+	return "TacticEntityEffectFilterExcelTable"
+}

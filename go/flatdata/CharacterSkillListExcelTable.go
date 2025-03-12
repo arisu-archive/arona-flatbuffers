@@ -65,3 +65,6 @@ func CharacterSkillListExcelTableStartDataListVector(builder *flatbuffers.Builde
 func CharacterSkillListExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterSkillListExcelTable) Name() string {
+	return "CharacterSkillListExcelTable"
+}

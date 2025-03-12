@@ -118,3 +118,6 @@ func CharacterGearLevelExcelStartTotalExpVector(builder *flatbuffers.Builder, nu
 func CharacterGearLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterGearLevelExcel) Name() string {
+	return "CharacterGearLevelExcel"
+}

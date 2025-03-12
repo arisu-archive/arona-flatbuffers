@@ -65,3 +65,6 @@ func CafeRankExcelTableStartDataListVector(builder *flatbuffers.Builder, numElem
 func CafeRankExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CafeRankExcelTable) Name() string {
+	return "CafeRankExcelTable"
+}

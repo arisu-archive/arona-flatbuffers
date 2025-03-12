@@ -221,3 +221,6 @@ func ShiftingCraftRecipeExcelAddResultParcel(builder *flatbuffers.Builder, resul
 func ShiftingCraftRecipeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShiftingCraftRecipeExcel) Name() string {
+	return "ShiftingCraftRecipeExcel"
+}

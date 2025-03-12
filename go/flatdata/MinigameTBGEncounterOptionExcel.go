@@ -207,3 +207,6 @@ func MinigameTBGEncounterOptionExcelAddUniqueId(builder *flatbuffers.Builder, un
 func MinigameTBGEncounterOptionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MinigameTBGEncounterOptionExcel) Name() string {
+	return "MinigameTBGEncounterOptionExcel"
+}

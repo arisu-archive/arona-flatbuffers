@@ -84,3 +84,6 @@ func KnockBackExcelAddSpeed(builder *flatbuffers.Builder, speed float32) {
 func KnockBackExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*KnockBackExcel) Name() string {
+	return "KnockBackExcel"
+}

@@ -65,3 +65,6 @@ func GuideMissionSeasonExcelTableStartDataListVector(builder *flatbuffers.Builde
 func GuideMissionSeasonExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GuideMissionSeasonExcelTable) Name() string {
+	return "GuideMissionSeasonExcelTable"
+}

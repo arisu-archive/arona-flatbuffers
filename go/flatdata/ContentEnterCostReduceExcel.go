@@ -129,3 +129,6 @@ func ContentEnterCostReduceExcelAddStageId(builder *flatbuffers.Builder, stageId
 func ContentEnterCostReduceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ContentEnterCostReduceExcel) Name() string {
+	return "ContentEnterCostReduceExcel"
+}

@@ -135,3 +135,6 @@ func MemoryLobby_GlobalExcelAddPrefabNameTw(builder *flatbuffers.Builder, prefab
 func MemoryLobby_GlobalExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MemoryLobby_GlobalExcel) Name() string {
+	return "MemoryLobby_GlobalExcel"
+}

@@ -114,3 +114,6 @@ func CharacterLevelStatFactorExcelAddStabilityFactor(builder *flatbuffers.Builde
 func CharacterLevelStatFactorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterLevelStatFactorExcel) Name() string {
+	return "CharacterLevelStatFactorExcel"
+}

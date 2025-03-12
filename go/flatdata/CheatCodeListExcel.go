@@ -111,3 +111,6 @@ func CheatCodeListExcelStartInputTitleVector(builder *flatbuffers.Builder, numEl
 func CheatCodeListExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CheatCodeListExcel) Name() string {
+	return "CheatCodeListExcel"
+}

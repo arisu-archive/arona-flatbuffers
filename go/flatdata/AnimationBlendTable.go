@@ -65,3 +65,6 @@ func AnimationBlendTableStartDataListVector(builder *flatbuffers.Builder, numEle
 func AnimationBlendTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AnimationBlendTable) Name() string {
+	return "AnimationBlendTable"
+}

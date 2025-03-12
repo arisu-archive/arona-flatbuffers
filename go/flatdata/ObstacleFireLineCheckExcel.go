@@ -99,3 +99,6 @@ func ObstacleFireLineCheckExcelAddMyObstacleFireLineCheck(builder *flatbuffers.B
 func ObstacleFireLineCheckExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ObstacleFireLineCheckExcel) Name() string {
+	return "ObstacleFireLineCheckExcel"
+}

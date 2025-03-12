@@ -84,3 +84,6 @@ func CharacterLevelExcelAddTotalExp(builder *flatbuffers.Builder, totalExp int64
 func CharacterLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterLevelExcel) Name() string {
+	return "CharacterLevelExcel"
+}

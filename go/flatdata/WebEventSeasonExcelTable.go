@@ -65,3 +65,6 @@ func WebEventSeasonExcelTableStartDataListVector(builder *flatbuffers.Builder, n
 func WebEventSeasonExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WebEventSeasonExcelTable) Name() string {
+	return "WebEventSeasonExcelTable"
+}

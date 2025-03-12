@@ -254,3 +254,6 @@ func EventContentShopExcelAddSalePeriodTo(builder *flatbuffers.Builder, salePeri
 func EventContentShopExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentShopExcel) Name() string {
+	return "EventContentShopExcel"
+}

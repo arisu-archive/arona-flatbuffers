@@ -121,3 +121,6 @@ func ConstNewbieContentExcelAddNewbieGachaTokenGraceTime(builder *flatbuffers.Bu
 func ConstNewbieContentExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstNewbieContentExcel) Name() string {
+	return "ConstNewbieContentExcel"
+}

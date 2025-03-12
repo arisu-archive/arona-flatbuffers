@@ -127,3 +127,6 @@ func EventContentDiceRaceEffectExcelStartVoiceIdVector(builder *flatbuffers.Buil
 func EventContentDiceRaceEffectExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentDiceRaceEffectExcel) Name() string {
+	return "EventContentDiceRaceEffectExcel"
+}

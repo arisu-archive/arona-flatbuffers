@@ -65,3 +65,6 @@ func ProtocolSettingExcelTableStartDataListVector(builder *flatbuffers.Builder, 
 func ProtocolSettingExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ProtocolSettingExcelTable) Name() string {
+	return "ProtocolSettingExcelTable"
+}

@@ -144,3 +144,6 @@ func TerrainAdaptationFactorExcelAddTerrainAdaptationStat(builder *flatbuffers.B
 func TerrainAdaptationFactorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TerrainAdaptationFactorExcel) Name() string {
+	return "TerrainAdaptationFactorExcel"
+}

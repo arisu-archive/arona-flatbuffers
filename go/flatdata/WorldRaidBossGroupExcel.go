@@ -350,3 +350,6 @@ func WorldRaidBossGroupExcelAddWorldRaidBossGroupId(builder *flatbuffers.Builder
 func WorldRaidBossGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WorldRaidBossGroupExcel) Name() string {
+	return "WorldRaidBossGroupExcel"
+}

@@ -65,3 +65,6 @@ func LocalizeGachaShopExcelTableStartDataListVector(builder *flatbuffers.Builder
 func LocalizeGachaShopExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LocalizeGachaShopExcelTable) Name() string {
+	return "LocalizeGachaShopExcelTable"
+}

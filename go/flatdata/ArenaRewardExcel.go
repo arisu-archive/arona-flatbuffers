@@ -229,3 +229,6 @@ func ArenaRewardExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 func ArenaRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ArenaRewardExcel) Name() string {
+	return "ArenaRewardExcel"
+}

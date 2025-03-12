@@ -148,3 +148,6 @@ func FurnitureGroupExcelStartRequiredFurnitureCountVector(builder *flatbuffers.B
 func FurnitureGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FurnitureGroupExcel) Name() string {
+	return "FurnitureGroupExcel"
+}

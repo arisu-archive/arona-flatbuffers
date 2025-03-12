@@ -65,3 +65,6 @@ func WeekDungeonGroupBuffExcelTableStartDataListVector(builder *flatbuffers.Buil
 func WeekDungeonGroupBuffExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WeekDungeonGroupBuffExcelTable) Name() string {
+	return "WeekDungeonGroupBuffExcelTable"
+}

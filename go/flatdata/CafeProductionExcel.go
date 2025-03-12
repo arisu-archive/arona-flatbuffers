@@ -144,3 +144,6 @@ func CafeProductionExcelAddRank(builder *flatbuffers.Builder, rank int64) {
 func CafeProductionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CafeProductionExcel) Name() string {
+	return "CafeProductionExcel"
+}

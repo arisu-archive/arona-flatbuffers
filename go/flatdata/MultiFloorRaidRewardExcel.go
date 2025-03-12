@@ -114,3 +114,6 @@ func MultiFloorRaidRewardExcelAddRewardGroupId(builder *flatbuffers.Builder, rew
 func MultiFloorRaidRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MultiFloorRaidRewardExcel) Name() string {
+	return "MultiFloorRaidRewardExcel"
+}

@@ -249,3 +249,6 @@ func FieldSceneExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 func FieldSceneExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldSceneExcel) Name() string {
+	return "FieldSceneExcel"
+}

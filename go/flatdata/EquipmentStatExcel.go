@@ -296,3 +296,6 @@ func EquipmentStatExcelAddTranscendenceMax(builder *flatbuffers.Builder, transce
 func EquipmentStatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EquipmentStatExcel) Name() string {
+	return "EquipmentStatExcel"
+}

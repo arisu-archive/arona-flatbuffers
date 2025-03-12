@@ -65,3 +65,6 @@ func GachaGroupExcelTableStartDataListVector(builder *flatbuffers.Builder, numEl
 func GachaGroupExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GachaGroupExcelTable) Name() string {
+	return "GachaGroupExcelTable"
+}

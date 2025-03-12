@@ -129,3 +129,6 @@ func BGM_GlobalExcelAddGroupBgmId(builder *flatbuffers.Builder, groupBgmId int64
 func BGM_GlobalExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BGM_GlobalExcel) Name() string {
+	return "BGM_GlobalExcel"
+}

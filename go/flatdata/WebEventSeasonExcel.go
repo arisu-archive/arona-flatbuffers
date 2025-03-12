@@ -124,3 +124,6 @@ func WebEventSeasonExcelAddStartDate(builder *flatbuffers.Builder, startDate fla
 func WebEventSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WebEventSeasonExcel) Name() string {
+	return "WebEventSeasonExcel"
+}

@@ -65,3 +65,6 @@ func EventContentFortuneGachaShopExcelTableStartDataListVector(builder *flatbuff
 func EventContentFortuneGachaShopExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentFortuneGachaShopExcelTable) Name() string {
+	return "EventContentFortuneGachaShopExcelTable"
+}

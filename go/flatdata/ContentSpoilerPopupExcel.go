@@ -106,3 +106,6 @@ func ContentSpoilerPopupExcelAddSpoilerPopupTitle(builder *flatbuffers.Builder, 
 func ContentSpoilerPopupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ContentSpoilerPopupExcel) Name() string {
+	return "ContentSpoilerPopupExcel"
+}

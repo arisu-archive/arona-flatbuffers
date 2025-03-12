@@ -65,3 +65,6 @@ func RecipeSelectionGroupExcelTableStartDataListVector(builder *flatbuffers.Buil
 func RecipeSelectionGroupExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*RecipeSelectionGroupExcelTable) Name() string {
+	return "RecipeSelectionGroupExcelTable"
+}

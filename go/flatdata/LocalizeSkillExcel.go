@@ -219,3 +219,6 @@ func LocalizeSkillExcelAddSkillInvokeLocalizeTw(builder *flatbuffers.Builder, sk
 func LocalizeSkillExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LocalizeSkillExcel) Name() string {
+	return "LocalizeSkillExcel"
+}

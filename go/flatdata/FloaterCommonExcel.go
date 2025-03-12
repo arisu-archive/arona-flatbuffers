@@ -129,3 +129,6 @@ func FloaterCommonExcelAddTacticEntityType(builder *flatbuffers.Builder, tacticE
 func FloaterCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FloaterCommonExcel) Name() string {
+	return "FloaterCommonExcel"
+}

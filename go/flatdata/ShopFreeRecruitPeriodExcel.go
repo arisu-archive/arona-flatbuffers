@@ -95,3 +95,6 @@ func ShopFreeRecruitPeriodExcelAddShopFreeRecruitIntervalId(builder *flatbuffers
 func ShopFreeRecruitPeriodExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShopFreeRecruitPeriodExcel) Name() string {
+	return "ShopFreeRecruitPeriodExcel"
+}

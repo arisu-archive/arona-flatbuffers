@@ -124,3 +124,6 @@ func LocalizeErrorExcelAddTw(builder *flatbuffers.Builder, tw flatbuffers.UOffse
 func LocalizeErrorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LocalizeErrorExcel) Name() string {
+	return "LocalizeErrorExcel"
+}

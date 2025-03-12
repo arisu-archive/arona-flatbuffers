@@ -84,3 +84,6 @@ func EventContentCurrencyItemExcelAddItemUniqueId(builder *flatbuffers.Builder, 
 func EventContentCurrencyItemExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentCurrencyItemExcel) Name() string {
+	return "EventContentCurrencyItemExcel"
+}

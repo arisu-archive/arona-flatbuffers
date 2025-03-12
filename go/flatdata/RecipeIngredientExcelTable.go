@@ -65,3 +65,6 @@ func RecipeIngredientExcelTableStartDataListVector(builder *flatbuffers.Builder,
 func RecipeIngredientExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*RecipeIngredientExcelTable) Name() string {
+	return "RecipeIngredientExcelTable"
+}

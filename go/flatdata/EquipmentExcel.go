@@ -350,3 +350,6 @@ func EquipmentExcelAddWear(builder *flatbuffers.Builder, wear bool) {
 func EquipmentExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EquipmentExcel) Name() string {
+	return "EquipmentExcel"
+}

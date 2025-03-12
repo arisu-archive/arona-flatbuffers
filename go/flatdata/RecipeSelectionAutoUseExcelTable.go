@@ -65,3 +65,6 @@ func RecipeSelectionAutoUseExcelTableStartDataListVector(builder *flatbuffers.Bu
 func RecipeSelectionAutoUseExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*RecipeSelectionAutoUseExcelTable) Name() string {
+	return "RecipeSelectionAutoUseExcelTable"
+}

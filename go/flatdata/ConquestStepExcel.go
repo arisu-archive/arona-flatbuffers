@@ -228,3 +228,6 @@ func ConquestStepExcelStartUnexpectedEventUnitIdVector(builder *flatbuffers.Buil
 func ConquestStepExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestStepExcel) Name() string {
+	return "ConquestStepExcel"
+}

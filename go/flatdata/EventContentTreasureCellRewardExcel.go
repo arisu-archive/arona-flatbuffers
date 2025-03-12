@@ -161,3 +161,6 @@ func EventContentTreasureCellRewardExcelStartRewardParcelTypeVector(builder *fla
 func EventContentTreasureCellRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentTreasureCellRewardExcel) Name() string {
+	return "EventContentTreasureCellRewardExcel"
+}

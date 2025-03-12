@@ -270,3 +270,6 @@ func EventContentCardShopExcelStartRewardParcelTypeVector(builder *flatbuffers.B
 func EventContentCardShopExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentCardShopExcel) Name() string {
+	return "EventContentCardShopExcel"
+}

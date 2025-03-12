@@ -114,3 +114,6 @@ func AccountLevelExcelAddNeedReportEvent(builder *flatbuffers.Builder, needRepor
 func AccountLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AccountLevelExcel) Name() string {
+	return "AccountLevelExcel"
+}

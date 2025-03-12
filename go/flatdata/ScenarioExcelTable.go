@@ -65,3 +65,6 @@ func ScenarioExcelTableStartDataListVector(builder *flatbuffers.Builder, numElem
 func ScenarioExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ScenarioExcelTable) Name() string {
+	return "ScenarioExcelTable"
+}

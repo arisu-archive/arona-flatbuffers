@@ -174,3 +174,6 @@ func ParcelAutoSynthExcelAddSynthStartAmount(builder *flatbuffers.Builder, synth
 func ParcelAutoSynthExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ParcelAutoSynthExcel) Name() string {
+	return "ParcelAutoSynthExcel"
+}

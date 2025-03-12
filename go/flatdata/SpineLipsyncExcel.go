@@ -76,3 +76,6 @@ func SpineLipsyncExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint32) {
 func SpineLipsyncExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*SpineLipsyncExcel) Name() string {
+	return "SpineLipsyncExcel"
+}

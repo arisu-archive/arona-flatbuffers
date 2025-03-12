@@ -117,3 +117,6 @@ func EventContentPlayGuideExcelAddId(builder *flatbuffers.Builder, id int64) {
 func EventContentPlayGuideExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentPlayGuideExcel) Name() string {
+	return "EventContentPlayGuideExcel"
+}

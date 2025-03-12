@@ -65,3 +65,6 @@ func ParcelAutoSynthExcelTableStartDataListVector(builder *flatbuffers.Builder, 
 func ParcelAutoSynthExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ParcelAutoSynthExcelTable) Name() string {
+	return "ParcelAutoSynthExcelTable"
+}

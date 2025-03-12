@@ -177,3 +177,6 @@ func FarmingDungeonLocationManageExcelAddWeekDungeonType(builder *flatbuffers.Bu
 func FarmingDungeonLocationManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FarmingDungeonLocationManageExcel) Name() string {
+	return "FarmingDungeonLocationManageExcel"
+}

@@ -265,3 +265,6 @@ func EventContentCollectionExcelAddUnlockConditionType(builder *flatbuffers.Buil
 func EventContentCollectionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentCollectionExcel) Name() string {
+	return "EventContentCollectionExcel"
+}

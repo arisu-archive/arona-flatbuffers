@@ -133,3 +133,6 @@ func FormationLocationExcelStartSlotZVector(builder *flatbuffers.Builder, numEle
 func FormationLocationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FormationLocationExcel) Name() string {
+	return "FormationLocationExcel"
+}

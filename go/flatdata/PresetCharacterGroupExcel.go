@@ -530,3 +530,6 @@ func PresetCharacterGroupExcelAddStarGrade(builder *flatbuffers.Builder, starGra
 func PresetCharacterGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*PresetCharacterGroupExcel) Name() string {
+	return "PresetCharacterGroupExcel"
+}

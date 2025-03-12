@@ -65,3 +65,6 @@ func PersonalityExcelTableStartDataListVector(builder *flatbuffers.Builder, numE
 func PersonalityExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*PersonalityExcelTable) Name() string {
+	return "PersonalityExcelTable"
+}

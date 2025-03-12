@@ -99,3 +99,6 @@ func ConquestCalculateExcelAddEventContentId(builder *flatbuffers.Builder, event
 func ConquestCalculateExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestCalculateExcel) Name() string {
+	return "ConquestCalculateExcel"
+}

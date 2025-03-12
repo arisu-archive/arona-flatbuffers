@@ -124,3 +124,6 @@ func LoadingImageExcelAddImagePathTw(builder *flatbuffers.Builder, imagePathTw f
 func LoadingImageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LoadingImageExcel) Name() string {
+	return "LoadingImageExcel"
+}

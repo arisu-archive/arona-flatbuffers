@@ -147,3 +147,6 @@ func EventContentLobbyMenuExcelAddReddotSpriteName(builder *flatbuffers.Builder,
 func EventContentLobbyMenuExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentLobbyMenuExcel) Name() string {
+	return "EventContentLobbyMenuExcel"
+}

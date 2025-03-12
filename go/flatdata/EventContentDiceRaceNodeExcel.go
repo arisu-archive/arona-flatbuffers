@@ -195,3 +195,6 @@ func EventContentDiceRaceNodeExcelStartRewardParcelTypeVector(builder *flatbuffe
 func EventContentDiceRaceNodeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentDiceRaceNodeExcel) Name() string {
+	return "EventContentDiceRaceNodeExcel"
+}

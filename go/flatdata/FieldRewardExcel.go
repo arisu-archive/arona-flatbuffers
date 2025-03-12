@@ -114,3 +114,6 @@ func FieldRewardExcelAddRewardProb(builder *flatbuffers.Builder, rewardProb int3
 func FieldRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldRewardExcel) Name() string {
+	return "FieldRewardExcel"
+}

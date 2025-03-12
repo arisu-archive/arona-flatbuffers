@@ -61,3 +61,6 @@ func KatakanaConvertExcelAddKr(builder *flatbuffers.Builder, kr flatbuffers.UOff
 func KatakanaConvertExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*KatakanaConvertExcel) Name() string {
+	return "KatakanaConvertExcel"
+}

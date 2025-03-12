@@ -65,3 +65,6 @@ func AcademyMessanger3ExcelTableStartDataListVector(builder *flatbuffers.Builder
 func AcademyMessanger3ExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AcademyMessanger3ExcelTable) Name() string {
+	return "AcademyMessanger3ExcelTable"
+}

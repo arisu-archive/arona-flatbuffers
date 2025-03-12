@@ -257,3 +257,6 @@ func ArenaNPCExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 func ArenaNPCExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ArenaNPCExcel) Name() string {
+	return "ArenaNPCExcel"
+}

@@ -65,3 +65,6 @@ func RaidStageRewardExcelTableStartDataListVector(builder *flatbuffers.Builder, 
 func RaidStageRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*RaidStageRewardExcelTable) Name() string {
+	return "RaidStageRewardExcelTable"
+}

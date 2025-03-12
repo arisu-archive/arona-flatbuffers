@@ -415,3 +415,6 @@ func GuideMissionExcelAddToastImagePath(builder *flatbuffers.Builder, toastImage
 func GuideMissionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GuideMissionExcel) Name() string {
+	return "GuideMissionExcel"
+}

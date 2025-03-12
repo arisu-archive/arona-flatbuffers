@@ -206,3 +206,6 @@ func AniStateDataAddTag(builder *flatbuffers.Builder, tag flatbuffers.UOffsetT) 
 func AniStateDataEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AniStateData) Name() string {
+	return "AniStateData"
+}

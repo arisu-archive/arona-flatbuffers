@@ -65,3 +65,6 @@ func LimitedStageSeasonExcelTableStartDataListVector(builder *flatbuffers.Builde
 func LimitedStageSeasonExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LimitedStageSeasonExcelTable) Name() string {
+	return "LimitedStageSeasonExcelTable"
+}

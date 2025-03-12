@@ -227,3 +227,6 @@ func LogicEffectCommonVisualExcelAddStringId(builder *flatbuffers.Builder, strin
 func LogicEffectCommonVisualExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LogicEffectCommonVisualExcel) Name() string {
+	return "LogicEffectCommonVisualExcel"
+}

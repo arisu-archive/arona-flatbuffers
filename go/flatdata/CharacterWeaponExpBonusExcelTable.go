@@ -65,3 +65,6 @@ func CharacterWeaponExpBonusExcelTableStartDataListVector(builder *flatbuffers.B
 func CharacterWeaponExpBonusExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterWeaponExpBonusExcelTable) Name() string {
+	return "CharacterWeaponExpBonusExcelTable"
+}

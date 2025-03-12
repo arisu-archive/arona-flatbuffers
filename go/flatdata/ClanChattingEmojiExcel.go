@@ -139,3 +139,6 @@ func ClanChattingEmojiExcelAddTabGroupId(builder *flatbuffers.Builder, tabGroupI
 func ClanChattingEmojiExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ClanChattingEmojiExcel) Name() string {
+	return "ClanChattingEmojiExcel"
+}

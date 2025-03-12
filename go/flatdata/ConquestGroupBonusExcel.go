@@ -357,3 +357,6 @@ func ConquestGroupBonusExcelStartSchoolVector(builder *flatbuffers.Builder, numE
 func ConquestGroupBonusExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestGroupBonusExcel) Name() string {
+	return "ConquestGroupBonusExcel"
+}

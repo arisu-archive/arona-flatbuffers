@@ -114,3 +114,6 @@ func EventContentArchiveBannerOffsetExcelAddScaleY(builder *flatbuffers.Builder,
 func EventContentArchiveBannerOffsetExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentArchiveBannerOffsetExcel) Name() string {
+	return "EventContentArchiveBannerOffsetExcel"
+}

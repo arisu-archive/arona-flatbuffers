@@ -209,3 +209,6 @@ func MiniGameShootingStageExcelAddUniqueId(builder *flatbuffers.Builder, uniqueI
 func MiniGameShootingStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameShootingStageExcel) Name() string {
+	return "MiniGameShootingStageExcel"
+}

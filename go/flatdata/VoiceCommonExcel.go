@@ -101,3 +101,6 @@ func VoiceCommonExcelStartVoiceHashVector(builder *flatbuffers.Builder, numElems
 func VoiceCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*VoiceCommonExcel) Name() string {
+	return "VoiceCommonExcel"
+}

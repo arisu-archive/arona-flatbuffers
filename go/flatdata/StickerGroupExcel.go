@@ -188,3 +188,6 @@ func StickerGroupExcelAddUniqueLayoutPath(builder *flatbuffers.Builder, uniqueLa
 func StickerGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*StickerGroupExcel) Name() string {
+	return "StickerGroupExcel"
+}

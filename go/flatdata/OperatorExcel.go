@@ -224,3 +224,6 @@ func OperatorExcelStartVoiceIdVector(builder *flatbuffers.Builder, numElems int)
 func OperatorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*OperatorExcel) Name() string {
+	return "OperatorExcel"
+}

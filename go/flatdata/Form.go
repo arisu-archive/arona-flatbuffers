@@ -71,3 +71,6 @@ func FormAddPublicSkill(builder *flatbuffers.Builder, publicSkill flatbuffers.UO
 func FormEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*Form) Name() string {
+	return "Form"
+}

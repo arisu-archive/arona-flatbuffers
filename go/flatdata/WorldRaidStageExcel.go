@@ -632,3 +632,6 @@ func WorldRaidStageExcelAddWorldRaidDifficulty(builder *flatbuffers.Builder, wor
 func WorldRaidStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WorldRaidStageExcel) Name() string {
+	return "WorldRaidStageExcel"
+}

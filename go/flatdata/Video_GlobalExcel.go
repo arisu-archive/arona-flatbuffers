@@ -142,3 +142,6 @@ func Video_GlobalExcelAddVideoTeenPathTw(builder *flatbuffers.Builder, videoTeen
 func Video_GlobalExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*Video_GlobalExcel) Name() string {
+	return "Video_GlobalExcel"
+}

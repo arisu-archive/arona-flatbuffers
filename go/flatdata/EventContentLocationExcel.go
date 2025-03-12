@@ -200,3 +200,6 @@ func EventContentLocationExcelAddScheduleEventPointCostParcelType(builder *flatb
 func EventContentLocationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentLocationExcel) Name() string {
+	return "EventContentLocationExcel"
+}

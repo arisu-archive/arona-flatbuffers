@@ -143,3 +143,6 @@ func MiniGameDreamScheduleExcelAddLocalizeEtcId(builder *flatbuffers.Builder, lo
 func MiniGameDreamScheduleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameDreamScheduleExcel) Name() string {
+	return "MiniGameDreamScheduleExcel"
+}

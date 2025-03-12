@@ -1059,3 +1059,6 @@ func FixedEchelonSettingExcelStartSupportNoneExSkillLevelVector(builder *flatbuf
 func FixedEchelonSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FixedEchelonSettingExcel) Name() string {
+	return "FixedEchelonSettingExcel"
+}

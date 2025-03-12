@@ -208,3 +208,6 @@ func ScenarioExcelAddTalk(builder *flatbuffers.Builder, talk DialogType) {
 func ScenarioExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ScenarioExcel) Name() string {
+	return "ScenarioExcel"
+}

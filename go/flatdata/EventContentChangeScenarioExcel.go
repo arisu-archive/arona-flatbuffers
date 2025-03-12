@@ -99,3 +99,6 @@ func EventContentChangeScenarioExcelAddScenarioGroupId(builder *flatbuffers.Buil
 func EventContentChangeScenarioExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentChangeScenarioExcel) Name() string {
+	return "EventContentChangeScenarioExcel"
+}

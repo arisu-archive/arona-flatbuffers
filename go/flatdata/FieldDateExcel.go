@@ -211,3 +211,6 @@ func FieldDateExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 func FieldDateExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldDateExcel) Name() string {
+	return "FieldDateExcel"
+}

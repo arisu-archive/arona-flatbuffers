@@ -86,3 +86,6 @@ func GachaCraftOpenTagExcelStartTagVector(builder *flatbuffers.Builder, numElems
 func GachaCraftOpenTagExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GachaCraftOpenTagExcel) Name() string {
+	return "GachaCraftOpenTagExcel"
+}

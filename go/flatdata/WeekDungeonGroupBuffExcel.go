@@ -110,3 +110,6 @@ func WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(builder *flatbuffers.Builder,
 func WeekDungeonGroupBuffExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WeekDungeonGroupBuffExcel) Name() string {
+	return "WeekDungeonGroupBuffExcel"
+}

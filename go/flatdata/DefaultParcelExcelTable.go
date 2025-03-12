@@ -65,3 +65,6 @@ func DefaultParcelExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 func DefaultParcelExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*DefaultParcelExcelTable) Name() string {
+	return "DefaultParcelExcelTable"
+}

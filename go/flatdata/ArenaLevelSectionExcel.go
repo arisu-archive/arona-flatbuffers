@@ -99,3 +99,6 @@ func ArenaLevelSectionExcelAddUserCount(builder *flatbuffers.Builder, userCount 
 func ArenaLevelSectionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ArenaLevelSectionExcel) Name() string {
+	return "ArenaLevelSectionExcel"
+}

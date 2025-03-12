@@ -65,3 +65,6 @@ func ConstNewbieContentExcelTableStartDataListVector(builder *flatbuffers.Builde
 func ConstNewbieContentExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstNewbieContentExcelTable) Name() string {
+	return "ConstNewbieContentExcelTable"
+}

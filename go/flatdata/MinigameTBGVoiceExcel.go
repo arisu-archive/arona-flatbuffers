@@ -99,3 +99,6 @@ func MinigameTBGVoiceExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint3
 func MinigameTBGVoiceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MinigameTBGVoiceExcel) Name() string {
+	return "MinigameTBGVoiceExcel"
+}

@@ -91,3 +91,6 @@ func EventContentExcelAddId(builder *flatbuffers.Builder, id int64) {
 func EventContentExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentExcel) Name() string {
+	return "EventContentExcel"
+}

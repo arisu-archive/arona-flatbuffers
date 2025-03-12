@@ -159,3 +159,6 @@ func SchoolDungeonRewardExcelAddRewardTag(builder *flatbuffers.Builder, rewardTa
 func SchoolDungeonRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*SchoolDungeonRewardExcel) Name() string {
+	return "SchoolDungeonRewardExcel"
+}

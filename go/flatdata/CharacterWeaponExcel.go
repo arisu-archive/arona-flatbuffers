@@ -400,3 +400,6 @@ func CharacterWeaponExcelStartUnlockVector(builder *flatbuffers.Builder, numElem
 func CharacterWeaponExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterWeaponExcel) Name() string {
+	return "CharacterWeaponExcel"
+}

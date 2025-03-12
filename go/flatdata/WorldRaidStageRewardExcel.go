@@ -140,3 +140,6 @@ func WorldRaidStageRewardExcelAddIsClearStageRewardHideInfo(builder *flatbuffers
 func WorldRaidStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WorldRaidStageRewardExcel) Name() string {
+	return "WorldRaidStageRewardExcel"
+}

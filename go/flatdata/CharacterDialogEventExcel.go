@@ -414,3 +414,6 @@ func CharacterDialogEventExcelStartVoiceIdVector(builder *flatbuffers.Builder, n
 func CharacterDialogEventExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterDialogEventExcel) Name() string {
+	return "CharacterDialogEventExcel"
+}

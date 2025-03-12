@@ -129,3 +129,6 @@ func ShopFilterClassifiedExcelAddShopFilterType(builder *flatbuffers.Builder, sh
 func ShopFilterClassifiedExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShopFilterClassifiedExcel) Name() string {
+	return "ShopFilterClassifiedExcel"
+}

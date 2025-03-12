@@ -234,3 +234,6 @@ func MiniGameDreamInfoExcelAddScheduleCostGoodsId(builder *flatbuffers.Builder, 
 func MiniGameDreamInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameDreamInfoExcel) Name() string {
+	return "MiniGameDreamInfoExcel"
+}

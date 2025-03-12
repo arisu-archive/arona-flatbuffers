@@ -65,3 +65,6 @@ func SkillExcelTableStartDataListVector(builder *flatbuffers.Builder, numElems i
 func SkillExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*SkillExcelTable) Name() string {
+	return "SkillExcelTable"
+}

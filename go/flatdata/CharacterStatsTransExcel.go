@@ -99,3 +99,6 @@ func CharacterStatsTransExcelAddTransSupportStatsFactor(builder *flatbuffers.Bui
 func CharacterStatsTransExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterStatsTransExcel) Name() string {
+	return "CharacterStatsTransExcel"
+}

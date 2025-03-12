@@ -134,3 +134,6 @@ func ShopFreeRecruitExcelStartShopRecruitIdVector(builder *flatbuffers.Builder, 
 func ShopFreeRecruitExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShopFreeRecruitExcel) Name() string {
+	return "ShopFreeRecruitExcel"
+}

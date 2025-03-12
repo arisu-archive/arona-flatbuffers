@@ -324,3 +324,6 @@ func CharacterGearExcelAddTier(builder *flatbuffers.Builder, tier int64) {
 func CharacterGearExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterGearExcel) Name() string {
+	return "CharacterGearExcel"
+}

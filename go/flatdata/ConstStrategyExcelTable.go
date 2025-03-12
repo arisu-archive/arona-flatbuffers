@@ -65,3 +65,6 @@ func ConstStrategyExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 func ConstStrategyExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstStrategyExcelTable) Name() string {
+	return "ConstStrategyExcelTable"
+}

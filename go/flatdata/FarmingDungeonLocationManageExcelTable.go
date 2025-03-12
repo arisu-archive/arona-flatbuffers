@@ -65,3 +65,6 @@ func FarmingDungeonLocationManageExcelTableStartDataListVector(builder *flatbuff
 func FarmingDungeonLocationManageExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FarmingDungeonLocationManageExcelTable) Name() string {
+	return "FarmingDungeonLocationManageExcelTable"
+}

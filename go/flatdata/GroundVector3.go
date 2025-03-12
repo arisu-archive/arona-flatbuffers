@@ -84,3 +84,6 @@ func GroundVector3AddZ(builder *flatbuffers.Builder, z float32) {
 func GroundVector3End(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GroundVector3) Name() string {
+	return "GroundVector3"
+}

@@ -65,3 +65,6 @@ func CostumeExcelTableStartDataListVector(builder *flatbuffers.Builder, numElems
 func CostumeExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CostumeExcelTable) Name() string {
+	return "CostumeExcelTable"
+}

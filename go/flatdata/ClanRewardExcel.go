@@ -114,3 +114,6 @@ func ClanRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParc
 func ClanRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ClanRewardExcel) Name() string {
+	return "ClanRewardExcel"
+}

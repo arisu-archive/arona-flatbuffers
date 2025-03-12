@@ -159,3 +159,6 @@ func MinigameTBGEncounterRewardExcelAddUniqueId(builder *flatbuffers.Builder, un
 func MinigameTBGEncounterRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MinigameTBGEncounterRewardExcel) Name() string {
+	return "MinigameTBGEncounterRewardExcel"
+}

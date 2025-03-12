@@ -240,3 +240,6 @@ func EventContentZoneExcelStartWhiteListTagsVector(builder *flatbuffers.Builder,
 func EventContentZoneExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentZoneExcel) Name() string {
+	return "EventContentZoneExcel"
+}

@@ -135,3 +135,6 @@ func TutorialFailureImageExcelAddType(builder *flatbuffers.Builder, type_ flatbu
 func TutorialFailureImageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TutorialFailureImageExcel) Name() string {
+	return "TutorialFailureImageExcel"
+}

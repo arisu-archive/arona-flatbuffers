@@ -156,3 +156,6 @@ func VoiceSpineExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 func VoiceSpineExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*VoiceSpineExcel) Name() string {
+	return "VoiceSpineExcel"
+}

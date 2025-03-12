@@ -65,3 +65,6 @@ func ArenaNPCExcelTableStartDataListVector(builder *flatbuffers.Builder, numElem
 func ArenaNPCExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ArenaNPCExcelTable) Name() string {
+	return "ArenaNPCExcelTable"
+}

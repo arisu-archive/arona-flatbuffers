@@ -112,3 +112,6 @@ func ConquestGroupBuffExcelAddSkillGroupId(builder *flatbuffers.Builder, skillGr
 func ConquestGroupBuffExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestGroupBuffExcel) Name() string {
+	return "ConquestGroupBuffExcel"
+}

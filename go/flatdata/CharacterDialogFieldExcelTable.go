@@ -65,3 +65,6 @@ func CharacterDialogFieldExcelTableStartDataListVector(builder *flatbuffers.Buil
 func CharacterDialogFieldExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterDialogFieldExcelTable) Name() string {
+	return "CharacterDialogFieldExcelTable"
+}

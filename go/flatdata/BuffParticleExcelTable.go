@@ -65,3 +65,6 @@ func BuffParticleExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 func BuffParticleExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BuffParticleExcelTable) Name() string {
+	return "BuffParticleExcelTable"
+}

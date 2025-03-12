@@ -236,3 +236,6 @@ func ScenarioScriptExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint32)
 func ScenarioScriptExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ScenarioScriptExcel) Name() string {
+	return "ScenarioScriptExcel"
+}

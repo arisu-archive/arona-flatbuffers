@@ -65,3 +65,6 @@ func CafeInteractionExcelTableStartDataListVector(builder *flatbuffers.Builder, 
 func CafeInteractionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CafeInteractionExcelTable) Name() string {
+	return "CafeInteractionExcelTable"
+}

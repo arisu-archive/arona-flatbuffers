@@ -271,3 +271,6 @@ func StickerPageContentExcelAddStickerSlot(builder *flatbuffers.Builder, sticker
 func StickerPageContentExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*StickerPageContentExcel) Name() string {
+	return "StickerPageContentExcel"
+}

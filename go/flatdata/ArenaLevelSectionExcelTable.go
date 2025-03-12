@@ -65,3 +65,6 @@ func ArenaLevelSectionExcelTableStartDataListVector(builder *flatbuffers.Builder
 func ArenaLevelSectionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ArenaLevelSectionExcelTable) Name() string {
+	return "ArenaLevelSectionExcelTable"
+}

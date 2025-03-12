@@ -65,3 +65,6 @@ func HpBarAbbreviationExcelTableStartDataListVector(builder *flatbuffers.Builder
 func HpBarAbbreviationExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*HpBarAbbreviationExcelTable) Name() string {
+	return "HpBarAbbreviationExcelTable"
+}

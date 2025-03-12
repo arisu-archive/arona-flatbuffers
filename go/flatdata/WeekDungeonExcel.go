@@ -426,3 +426,6 @@ func WeekDungeonExcelAddWeekDungeonType(builder *flatbuffers.Builder, weekDungeo
 func WeekDungeonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WeekDungeonExcel) Name() string {
+	return "WeekDungeonExcel"
+}

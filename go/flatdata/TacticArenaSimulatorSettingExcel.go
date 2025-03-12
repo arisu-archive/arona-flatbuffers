@@ -264,3 +264,6 @@ func TacticArenaSimulatorSettingExcelAddRepeat(builder *flatbuffers.Builder, rep
 func TacticArenaSimulatorSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TacticArenaSimulatorSettingExcel) Name() string {
+	return "TacticArenaSimulatorSettingExcel"
+}

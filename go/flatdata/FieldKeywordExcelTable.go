@@ -65,3 +65,6 @@ func FieldKeywordExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 func FieldKeywordExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldKeywordExcelTable) Name() string {
+	return "FieldKeywordExcelTable"
+}

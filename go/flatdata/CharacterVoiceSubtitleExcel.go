@@ -176,3 +176,6 @@ func CharacterVoiceSubtitleExcelAddTlmid(builder *flatbuffers.Builder, tlmid fla
 func CharacterVoiceSubtitleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterVoiceSubtitleExcel) Name() string {
+	return "CharacterVoiceSubtitleExcel"
+}

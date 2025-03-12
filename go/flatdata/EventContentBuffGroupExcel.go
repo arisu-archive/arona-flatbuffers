@@ -221,3 +221,6 @@ func EventContentBuffGroupExcelAddEventContentId(builder *flatbuffers.Builder, e
 func EventContentBuffGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentBuffGroupExcel) Name() string {
+	return "EventContentBuffGroupExcel"
+}

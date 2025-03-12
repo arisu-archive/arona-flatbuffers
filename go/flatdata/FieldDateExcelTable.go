@@ -65,3 +65,6 @@ func FieldDateExcelTableStartDataListVector(builder *flatbuffers.Builder, numEle
 func FieldDateExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldDateExcelTable) Name() string {
+	return "FieldDateExcelTable"
+}

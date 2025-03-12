@@ -65,3 +65,6 @@ func FieldWorldMapZoneExcelTableStartDataListVector(builder *flatbuffers.Builder
 func FieldWorldMapZoneExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldWorldMapZoneExcelTable) Name() string {
+	return "FieldWorldMapZoneExcelTable"
+}

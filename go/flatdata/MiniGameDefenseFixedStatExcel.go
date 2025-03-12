@@ -264,3 +264,6 @@ func MiniGameDefenseFixedStatExcelAddNoneExSkillLevel(builder *flatbuffers.Build
 func MiniGameDefenseFixedStatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameDefenseFixedStatExcel) Name() string {
+	return "MiniGameDefenseFixedStatExcel"
+}

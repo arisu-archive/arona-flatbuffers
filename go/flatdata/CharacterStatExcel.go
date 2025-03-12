@@ -1224,3 +1224,6 @@ func CharacterStatExcelAddStreetBattleAdaptation(builder *flatbuffers.Builder, s
 func CharacterStatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterStatExcel) Name() string {
+	return "CharacterStatExcel"
+}

@@ -261,3 +261,6 @@ func TimeAttackDungeonRewardExcelStartRewardTypeVector(builder *flatbuffers.Buil
 func TimeAttackDungeonRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TimeAttackDungeonRewardExcel) Name() string {
+	return "TimeAttackDungeonRewardExcel"
+}

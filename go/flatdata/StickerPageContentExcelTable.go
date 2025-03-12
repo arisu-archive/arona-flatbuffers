@@ -65,3 +65,6 @@ func StickerPageContentExcelTableStartDataListVector(builder *flatbuffers.Builde
 func StickerPageContentExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*StickerPageContentExcelTable) Name() string {
+	return "StickerPageContentExcelTable"
+}

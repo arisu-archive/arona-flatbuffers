@@ -219,3 +219,6 @@ func CharacterAIExcelAddPositioning(builder *flatbuffers.Builder, positioning Po
 func CharacterAIExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterAIExcel) Name() string {
+	return "CharacterAIExcel"
+}

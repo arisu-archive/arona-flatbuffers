@@ -65,3 +65,6 @@ func EmoticonSpecialExcelTableStartDataListVector(builder *flatbuffers.Builder, 
 func EmoticonSpecialExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EmoticonSpecialExcelTable) Name() string {
+	return "EmoticonSpecialExcelTable"
+}

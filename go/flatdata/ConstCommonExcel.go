@@ -2632,3 +2632,6 @@ func ConstCommonExcelAddWorldRaidGemEnterCost(builder *flatbuffers.Builder, worl
 func ConstCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstCommonExcel) Name() string {
+	return "ConstCommonExcel"
+}

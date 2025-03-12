@@ -65,3 +65,6 @@ func TrophyCollectionExcelTableStartDataListVector(builder *flatbuffers.Builder,
 func TrophyCollectionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TrophyCollectionExcelTable) Name() string {
+	return "TrophyCollectionExcelTable"
+}

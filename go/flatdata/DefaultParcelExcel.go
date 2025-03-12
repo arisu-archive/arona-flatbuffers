@@ -84,3 +84,6 @@ func DefaultParcelExcelAddParcelType(builder *flatbuffers.Builder, parcelType Pa
 func DefaultParcelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*DefaultParcelExcel) Name() string {
+	return "DefaultParcelExcel"
+}

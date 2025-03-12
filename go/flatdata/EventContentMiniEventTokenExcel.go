@@ -84,3 +84,6 @@ func EventContentMiniEventTokenExcelAddMaximumAmount(builder *flatbuffers.Builde
 func EventContentMiniEventTokenExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentMiniEventTokenExcel) Name() string {
+	return "EventContentMiniEventTokenExcel"
+}

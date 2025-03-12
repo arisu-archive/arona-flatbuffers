@@ -65,3 +65,6 @@ func PropRootMotionFlatStartRootMotionsVector(builder *flatbuffers.Builder, numE
 func PropRootMotionFlatEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*PropRootMotionFlat) Name() string {
+	return "PropRootMotionFlat"
+}

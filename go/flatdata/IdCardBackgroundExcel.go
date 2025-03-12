@@ -151,3 +151,6 @@ func IdCardBackgroundExcelAddRarity(builder *flatbuffers.Builder, rarity Rarity)
 func IdCardBackgroundExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*IdCardBackgroundExcel) Name() string {
+	return "IdCardBackgroundExcel"
+}

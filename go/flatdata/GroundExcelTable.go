@@ -65,3 +65,6 @@ func GroundExcelTableStartDataListVector(builder *flatbuffers.Builder, numElems 
 func GroundExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GroundExcelTable) Name() string {
+	return "GroundExcelTable"
+}

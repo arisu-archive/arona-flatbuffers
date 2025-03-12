@@ -110,3 +110,6 @@ func CouponStuffExcelAddStuffId(builder *flatbuffers.Builder, stuffId int64) {
 func CouponStuffExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CouponStuffExcel) Name() string {
+	return "CouponStuffExcel"
+}

@@ -92,3 +92,6 @@ func EquipmentOptionAddValue(builder *flatbuffers.Builder, value int64) {
 func EquipmentOptionEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EquipmentOption) Name() string {
+	return "EquipmentOption"
+}

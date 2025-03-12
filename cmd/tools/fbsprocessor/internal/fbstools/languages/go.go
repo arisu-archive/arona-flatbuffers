@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"go/ast"
 	"go/parser"
+	"go/printer"
 	"go/token"
 	"os"
 	"path/filepath"
@@ -30,7 +31,8 @@ func NewGoProcessor() *GoProcessor {
 // ProcessFile adds encryption to a Go FlatBuffer file.
 func (p *GoProcessor) ProcessFile(filePath string) error {
 	// Parse the Go file using go parser, go/parser is used to parse the file and return the AST.
-	tree, err := parser.ParseFile(token.NewFileSet(), filePath, nil, parser.ParseComments)
+	fset := token.NewFileSet()
+	tree, err := parser.ParseFile(fset, filePath, nil, parser.ParseComments)
 	if err != nil {
 		return fmt.Errorf("failed to parse file %s: %w", filePath, err)
 	}
@@ -39,6 +41,21 @@ func (p *GoProcessor) ProcessFile(filePath string) error {
 		return ErrFlatBuffersNotImported
 	}
 	p.flatbuffers = append(p.flatbuffers, strings.TrimSuffix(filepath.Base(filePath), p.Extension()))
+
+	// Modify the AST to add a func (*{{.}}) Name() function
+	if patchErr := patchAST(fset, tree); patchErr != nil {
+		return fmt.Errorf("failed to patch AST: %w", patchErr)
+	}
+
+	f, err := os.Create(filePath)
+	if err != nil {
+		return fmt.Errorf("failed to create file: %w", err)
+	}
+	defer f.Close()
+	// Print the AST
+	if writeErr := printer.Fprint(f, fset, tree); writeErr != nil {
+		return fmt.Errorf("failed to print AST: %w", writeErr)
+	}
 
 	return nil
 }
@@ -125,6 +142,81 @@ func usesFlatBuffersTable(file *ast.File) bool {
 		return true
 	})
 	return result
+}
+
+func hasNameMethod(tree *ast.File) bool {
+	methodFound := false
+	ast.Inspect(tree, func(n ast.Node) bool {
+		if n == nil {
+			return false
+		}
+
+		funcDecl, ok := n.(*ast.FuncDecl)
+		if !ok {
+			return true
+		}
+
+		if funcDecl.Name.Name == "Name" {
+			methodFound = true
+			return false
+		}
+
+		return false
+	})
+	return methodFound
+}
+
+func patchAST(fset *token.FileSet, tree *ast.File) error {
+	if hasNameMethod(tree) {
+		return nil
+	}
+
+	ast.Inspect(tree, func(n ast.Node) bool {
+		genDecl, ok := n.(*ast.GenDecl)
+		if !ok || genDecl.Tok != token.TYPE {
+			return true
+		}
+
+		for _, spec := range genDecl.Specs {
+			typeSpec, ok := spec.(*ast.TypeSpec)
+			if !ok {
+				continue
+			}
+
+			// Check if the type is a struct
+			if _, ok := typeSpec.Type.(*ast.StructType); !ok {
+				continue
+			}
+
+			// Create the new method
+			funcDecl := &ast.FuncDecl{
+				Recv: &ast.FieldList{
+					List: []*ast.Field{
+						{
+							Type: &ast.StarExpr{X: ast.NewIdent(typeSpec.Name.Name)},
+						},
+					},
+				},
+				Name: ast.NewIdent("Name"),
+				Type: &ast.FuncType{
+					Params:  &ast.FieldList{},
+					Results: &ast.FieldList{List: []*ast.Field{{Type: ast.NewIdent("string")}}},
+				},
+				Body: &ast.BlockStmt{
+					List: []ast.Stmt{
+						&ast.ReturnStmt{
+							Results: []ast.Expr{ast.NewIdent(fmt.Sprintf("\"%s\"", typeSpec.Name.Name))},
+						},
+					},
+				},
+			}
+
+			// Add the new method to the file
+			tree.Decls = append(tree.Decls, funcDecl)
+		}
+		return true
+	})
+	return nil
 }
 
 const flatbufferCode = `package flatdata

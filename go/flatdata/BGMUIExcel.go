@@ -114,3 +114,6 @@ func BGMUIExcelAddUiPrefab(builder *flatbuffers.Builder, uiPrefab uint32) {
 func BGMUIExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BGMUIExcel) Name() string {
+	return "BGMUIExcel"
+}

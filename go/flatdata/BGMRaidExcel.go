@@ -84,3 +84,6 @@ func BGMRaidExcelAddStageId(builder *flatbuffers.Builder, stageId int64) {
 func BGMRaidExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BGMRaidExcel) Name() string {
+	return "BGMRaidExcel"
+}

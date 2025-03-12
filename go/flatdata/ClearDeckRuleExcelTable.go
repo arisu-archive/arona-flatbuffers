@@ -65,3 +65,6 @@ func ClearDeckRuleExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 func ClearDeckRuleExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ClearDeckRuleExcelTable) Name() string {
+	return "ClearDeckRuleExcelTable"
+}

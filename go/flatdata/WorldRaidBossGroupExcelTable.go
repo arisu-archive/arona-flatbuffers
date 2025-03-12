@@ -65,3 +65,6 @@ func WorldRaidBossGroupExcelTableStartDataListVector(builder *flatbuffers.Builde
 func WorldRaidBossGroupExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WorldRaidBossGroupExcelTable) Name() string {
+	return "WorldRaidBossGroupExcelTable"
+}

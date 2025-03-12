@@ -65,3 +65,6 @@ func ConquestUnitExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 func ConquestUnitExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestUnitExcelTable) Name() string {
+	return "ConquestUnitExcelTable"
+}

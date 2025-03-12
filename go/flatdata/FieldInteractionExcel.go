@@ -364,3 +364,6 @@ func FieldInteractionExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int
 func FieldInteractionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldInteractionExcel) Name() string {
+	return "FieldInteractionExcel"
+}

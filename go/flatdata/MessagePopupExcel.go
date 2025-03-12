@@ -297,3 +297,6 @@ func MessagePopupExcelAddTitleText(builder *flatbuffers.Builder, titleText uint3
 func MessagePopupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MessagePopupExcel) Name() string {
+	return "MessagePopupExcel"
+}

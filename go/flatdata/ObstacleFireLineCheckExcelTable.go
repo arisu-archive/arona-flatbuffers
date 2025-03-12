@@ -65,3 +65,6 @@ func ObstacleFireLineCheckExcelTableStartDataListVector(builder *flatbuffers.Bui
 func ObstacleFireLineCheckExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ObstacleFireLineCheckExcelTable) Name() string {
+	return "ObstacleFireLineCheckExcelTable"
+}

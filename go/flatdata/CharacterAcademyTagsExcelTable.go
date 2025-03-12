@@ -65,3 +65,6 @@ func CharacterAcademyTagsExcelTableStartDataListVector(builder *flatbuffers.Buil
 func CharacterAcademyTagsExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterAcademyTagsExcelTable) Name() string {
+	return "CharacterAcademyTagsExcelTable"
+}

@@ -65,3 +65,6 @@ func FieldEvidenceExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 func FieldEvidenceExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldEvidenceExcelTable) Name() string {
+	return "FieldEvidenceExcelTable"
+}

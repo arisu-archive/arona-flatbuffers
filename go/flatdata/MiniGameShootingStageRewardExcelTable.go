@@ -65,3 +65,6 @@ func MiniGameShootingStageRewardExcelTableStartDataListVector(builder *flatbuffe
 func MiniGameShootingStageRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameShootingStageRewardExcelTable) Name() string {
+	return "MiniGameShootingStageRewardExcelTable"
+}

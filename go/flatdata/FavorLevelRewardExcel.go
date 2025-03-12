@@ -229,3 +229,6 @@ func FavorLevelRewardExcelStartStatValueVector(builder *flatbuffers.Builder, num
 func FavorLevelRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FavorLevelRewardExcel) Name() string {
+	return "FavorLevelRewardExcel"
+}

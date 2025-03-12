@@ -210,3 +210,6 @@ func MinigameTBGDiceExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int6
 func MinigameTBGDiceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MinigameTBGDiceExcel) Name() string {
+	return "MinigameTBGDiceExcel"
+}

@@ -131,3 +131,6 @@ func VoiceLogicEffectExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint3
 func VoiceLogicEffectExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*VoiceLogicEffectExcel) Name() string {
+	return "VoiceLogicEffectExcel"
+}

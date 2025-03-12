@@ -65,3 +65,6 @@ func WeekDungeonOpenScheduleExcelTableStartDataListVector(builder *flatbuffers.B
 func WeekDungeonOpenScheduleExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WeekDungeonOpenScheduleExcelTable) Name() string {
+	return "WeekDungeonOpenScheduleExcelTable"
+}

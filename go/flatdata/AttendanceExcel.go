@@ -292,3 +292,6 @@ func AttendanceExcelAddType(builder *flatbuffers.Builder, type_ AttendanceType) 
 func AttendanceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*AttendanceExcel) Name() string {
+	return "AttendanceExcel"
+}

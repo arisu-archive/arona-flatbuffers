@@ -185,3 +185,6 @@ func EventContentShopRefreshExcelAddRefreshGroup(builder *flatbuffers.Builder, r
 func EventContentShopRefreshExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentShopRefreshExcel) Name() string {
+	return "EventContentShopRefreshExcel"
+}

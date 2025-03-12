@@ -144,3 +144,6 @@ func DuplicateBonusExcelAddRewardParcelType(builder *flatbuffers.Builder, reward
 func DuplicateBonusExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*DuplicateBonusExcel) Name() string {
+	return "DuplicateBonusExcel"
+}

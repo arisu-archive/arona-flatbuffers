@@ -308,3 +308,6 @@ func ShopCashExcelAddViewFlag(builder *flatbuffers.Builder, viewFlag bool) {
 func ShopCashExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ShopCashExcel) Name() string {
+	return "ShopCashExcel"
+}

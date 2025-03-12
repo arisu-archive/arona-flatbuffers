@@ -323,3 +323,6 @@ func MiniGameRhythmExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64
 func MiniGameRhythmExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameRhythmExcel) Name() string {
+	return "MiniGameRhythmExcel"
+}

@@ -235,3 +235,6 @@ func ConquestMapExcelStartStepOpenConditionTypeVector(builder *flatbuffers.Build
 func ConquestMapExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestMapExcel) Name() string {
+	return "ConquestMapExcel"
+}

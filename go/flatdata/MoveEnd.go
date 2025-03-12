@@ -87,3 +87,6 @@ func MoveEndAddStand(builder *flatbuffers.Builder, stand flatbuffers.UOffsetT) {
 func MoveEndEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MoveEnd) Name() string {
+	return "MoveEnd"
+}

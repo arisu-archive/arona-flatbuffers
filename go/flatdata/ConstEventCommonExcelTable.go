@@ -65,3 +65,6 @@ func ConstEventCommonExcelTableStartDataListVector(builder *flatbuffers.Builder,
 func ConstEventCommonExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstEventCommonExcelTable) Name() string {
+	return "ConstEventCommonExcelTable"
+}

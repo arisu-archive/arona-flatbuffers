@@ -98,3 +98,6 @@ func BuffParticleExcelAddUniqueName(builder *flatbuffers.Builder, uniqueName fla
 func BuffParticleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BuffParticleExcel) Name() string {
+	return "BuffParticleExcel"
+}

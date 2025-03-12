@@ -416,3 +416,6 @@ func TacticalSupportSystemExcelAddTsaInteractionAddDuration(builder *flatbuffers
 func TacticalSupportSystemExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TacticalSupportSystemExcel) Name() string {
+	return "TacticalSupportSystemExcel"
+}

@@ -101,3 +101,6 @@ func TrophyCollectionExcelAddLocalizeCodeId(builder *flatbuffers.Builder, locali
 func TrophyCollectionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TrophyCollectionExcel) Name() string {
+	return "TrophyCollectionExcel"
+}

@@ -129,3 +129,6 @@ func TacticTimeAttackSimulatorConfigExcelAddRepeat(builder *flatbuffers.Builder,
 func TacticTimeAttackSimulatorConfigExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TacticTimeAttackSimulatorConfigExcel) Name() string {
+	return "TacticTimeAttackSimulatorConfigExcel"
+}

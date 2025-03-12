@@ -65,3 +65,6 @@ func EventContentDiceRaceNodeExcelTableStartDataListVector(builder *flatbuffers.
 func EventContentDiceRaceNodeExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentDiceRaceNodeExcelTable) Name() string {
+	return "EventContentDiceRaceNodeExcelTable"
+}

@@ -99,3 +99,6 @@ func TacticSimulatorSettingExcelAddGroundId(builder *flatbuffers.Builder, ground
 func TacticSimulatorSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TacticSimulatorSettingExcel) Name() string {
+	return "TacticSimulatorSettingExcel"
+}

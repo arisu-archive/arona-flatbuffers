@@ -65,3 +65,6 @@ func GuideMissionOpenStageConditionExcelTableStartDataListVector(builder *flatbu
 func GuideMissionOpenStageConditionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GuideMissionOpenStageConditionExcelTable) Name() string {
+	return "GuideMissionOpenStageConditionExcelTable"
+}

@@ -129,3 +129,6 @@ func RecipeSelectionGroupExcelAddResultAmountMin(builder *flatbuffers.Builder, r
 func RecipeSelectionGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*RecipeSelectionGroupExcel) Name() string {
+	return "RecipeSelectionGroupExcel"
+}

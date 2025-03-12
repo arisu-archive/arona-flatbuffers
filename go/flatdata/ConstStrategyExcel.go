@@ -431,3 +431,6 @@ func ConstStrategyExcelAddWorldRaidEchelonCount(builder *flatbuffers.Builder, wo
 func ConstStrategyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstStrategyExcel) Name() string {
+	return "ConstStrategyExcel"
+}

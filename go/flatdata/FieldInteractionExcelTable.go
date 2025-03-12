@@ -65,3 +65,6 @@ func FieldInteractionExcelTableStartDataListVector(builder *flatbuffers.Builder,
 func FieldInteractionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldInteractionExcelTable) Name() string {
+	return "FieldInteractionExcelTable"
+}

@@ -609,3 +609,6 @@ func ConstArenaExcelAddTssStartCoolTime(builder *flatbuffers.Builder, tssStartCo
 func ConstArenaExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConstArenaExcel) Name() string {
+	return "ConstArenaExcel"
+}

@@ -235,3 +235,6 @@ func ScenarioContentCollectionExcelAddUnlockConditionType(builder *flatbuffers.B
 func ScenarioContentCollectionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ScenarioContentCollectionExcel) Name() string {
+	return "ScenarioContentCollectionExcel"
+}

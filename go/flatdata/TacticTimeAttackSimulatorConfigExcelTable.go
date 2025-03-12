@@ -65,3 +65,6 @@ func TacticTimeAttackSimulatorConfigExcelTableStartDataListVector(builder *flatb
 func TacticTimeAttackSimulatorConfigExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TacticTimeAttackSimulatorConfigExcelTable) Name() string {
+	return "TacticTimeAttackSimulatorConfigExcelTable"
+}

@@ -151,3 +151,6 @@ func GroundGridFlatAddY(builder *flatbuffers.Builder, y int32) {
 func GroundGridFlatEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GroundGridFlat) Name() string {
+	return "GroundGridFlat"
+}

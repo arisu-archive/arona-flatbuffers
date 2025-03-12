@@ -385,3 +385,6 @@ func ConquestEventExcelAddUseUnexpectedEvent(builder *flatbuffers.Builder, useUn
 func ConquestEventExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ConquestEventExcel) Name() string {
+	return "ConquestEventExcel"
+}

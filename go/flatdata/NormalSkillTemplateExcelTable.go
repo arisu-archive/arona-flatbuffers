@@ -65,3 +65,6 @@ func NormalSkillTemplateExcelTableStartDataListVector(builder *flatbuffers.Build
 func NormalSkillTemplateExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*NormalSkillTemplateExcelTable) Name() string {
+	return "NormalSkillTemplateExcelTable"
+}

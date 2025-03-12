@@ -86,3 +86,6 @@ func StatLevelInterpolationExcelStartStatTypeIndexVector(builder *flatbuffers.Bu
 func StatLevelInterpolationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*StatLevelInterpolationExcel) Name() string {
+	return "StatLevelInterpolationExcel"
+}

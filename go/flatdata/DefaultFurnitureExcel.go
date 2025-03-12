@@ -114,3 +114,6 @@ func DefaultFurnitureExcelAddRotation(builder *flatbuffers.Builder, rotation flo
 func DefaultFurnitureExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*DefaultFurnitureExcel) Name() string {
+	return "DefaultFurnitureExcel"
+}

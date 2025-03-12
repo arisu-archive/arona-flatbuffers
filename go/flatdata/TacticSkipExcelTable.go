@@ -65,3 +65,6 @@ func TacticSkipExcelTableStartDataListVector(builder *flatbuffers.Builder, numEl
 func TacticSkipExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TacticSkipExcelTable) Name() string {
+	return "TacticSkipExcelTable"
+}

@@ -99,3 +99,6 @@ func FieldCurtainCallFreeModeExcelAddUniqueId(builder *flatbuffers.Builder, uniq
 func FieldCurtainCallFreeModeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldCurtainCallFreeModeExcel) Name() string {
+	return "FieldCurtainCallFreeModeExcel"
+}

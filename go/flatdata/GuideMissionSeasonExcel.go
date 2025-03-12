@@ -366,3 +366,6 @@ func GuideMissionSeasonExcelAddTitleLocalizeCode(builder *flatbuffers.Builder, t
 func GuideMissionSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GuideMissionSeasonExcel) Name() string {
+	return "GuideMissionSeasonExcel"
+}

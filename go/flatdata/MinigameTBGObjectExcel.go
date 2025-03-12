@@ -166,3 +166,6 @@ func MinigameTBGObjectExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId in
 func MinigameTBGObjectExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MinigameTBGObjectExcel) Name() string {
+	return "MinigameTBGObjectExcel"
+}

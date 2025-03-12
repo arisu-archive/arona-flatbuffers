@@ -99,3 +99,6 @@ func MinigameDreamVoiceExcelAddVoiceCondition(builder *flatbuffers.Builder, voic
 func MinigameDreamVoiceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MinigameDreamVoiceExcel) Name() string {
+	return "MinigameDreamVoiceExcel"
+}

@@ -223,3 +223,6 @@ func CafeRankExcelAddTagCountMax(builder *flatbuffers.Builder, tagCountMax int64
 func CafeRankExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CafeRankExcel) Name() string {
+	return "CafeRankExcel"
+}

@@ -69,3 +69,6 @@ func WorldRaidFavorBuffExcelAddWorldRaidFavorRankBonus(builder *flatbuffers.Buil
 func WorldRaidFavorBuffExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*WorldRaidFavorBuffExcel) Name() string {
+	return "WorldRaidFavorBuffExcel"
+}

@@ -140,3 +140,6 @@ func GachaCraftNodeExcelAddTier(builder *flatbuffers.Builder, tier int64) {
 func GachaCraftNodeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*GachaCraftNodeExcel) Name() string {
+	return "GachaCraftNodeExcel"
+}

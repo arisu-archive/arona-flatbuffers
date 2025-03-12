@@ -221,3 +221,6 @@ func MiniGameAudioAnimatorExcelAddVolume(builder *flatbuffers.Builder, volume fl
 func MiniGameAudioAnimatorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MiniGameAudioAnimatorExcel) Name() string {
+	return "MiniGameAudioAnimatorExcel"
+}

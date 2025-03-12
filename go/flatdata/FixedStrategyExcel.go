@@ -174,3 +174,6 @@ func FixedStrategyExcelAddStageEnterEchelon04Starttile(builder *flatbuffers.Buil
 func FixedStrategyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FixedStrategyExcel) Name() string {
+	return "FixedStrategyExcel"
+}

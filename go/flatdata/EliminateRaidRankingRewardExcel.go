@@ -383,3 +383,6 @@ func EliminateRaidRankingRewardExcelAddTier(builder *flatbuffers.Builder, tier i
 func EliminateRaidRankingRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EliminateRaidRankingRewardExcel) Name() string {
+	return "EliminateRaidRankingRewardExcel"
+}

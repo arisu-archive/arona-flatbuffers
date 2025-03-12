@@ -86,3 +86,6 @@ func FavorLevelExcelAddLevel(builder *flatbuffers.Builder, level int64) {
 func FavorLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FavorLevelExcel) Name() string {
+	return "FavorLevelExcel"
+}

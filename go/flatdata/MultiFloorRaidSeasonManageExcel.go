@@ -176,3 +176,6 @@ func MultiFloorRaidSeasonManageExcelAddShowLobbyBanner(builder *flatbuffers.Buil
 func MultiFloorRaidSeasonManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MultiFloorRaidSeasonManageExcel) Name() string {
+	return "MultiFloorRaidSeasonManageExcel"
+}

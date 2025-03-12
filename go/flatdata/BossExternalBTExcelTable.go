@@ -65,3 +65,6 @@ func BossExternalBTExcelTableStartDataListVector(builder *flatbuffers.Builder, n
 func BossExternalBTExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*BossExternalBTExcelTable) Name() string {
+	return "BossExternalBTExcelTable"
+}

@@ -65,3 +65,6 @@ func ContentsFeverExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 func ContentsFeverExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ContentsFeverExcelTable) Name() string {
+	return "ContentsFeverExcelTable"
+}

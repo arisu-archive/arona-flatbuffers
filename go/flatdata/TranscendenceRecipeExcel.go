@@ -191,3 +191,6 @@ func TranscendenceRecipeExcelStartParcelTypeVector(builder *flatbuffers.Builder,
 func TranscendenceRecipeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*TranscendenceRecipeExcel) Name() string {
+	return "TranscendenceRecipeExcel"
+}

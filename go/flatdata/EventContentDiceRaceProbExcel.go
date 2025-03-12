@@ -129,3 +129,6 @@ func EventContentDiceRaceProbExcelAddProb(builder *flatbuffers.Builder, prob int
 func EventContentDiceRaceProbExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EventContentDiceRaceProbExcel) Name() string {
+	return "EventContentDiceRaceProbExcel"
+}

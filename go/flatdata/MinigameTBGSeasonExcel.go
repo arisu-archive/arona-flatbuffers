@@ -450,3 +450,6 @@ func MinigameTBGSeasonExcelAddStartThemaIndex(builder *flatbuffers.Builder, star
 func MinigameTBGSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*MinigameTBGSeasonExcel) Name() string {
+	return "MinigameTBGSeasonExcel"
+}

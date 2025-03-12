@@ -65,3 +65,6 @@ func CampaignChapterRewardExcelTableStartDataListVector(builder *flatbuffers.Bui
 func CampaignChapterRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CampaignChapterRewardExcelTable) Name() string {
+	return "CampaignChapterRewardExcelTable"
+}

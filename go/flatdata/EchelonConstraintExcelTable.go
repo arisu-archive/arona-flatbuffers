@@ -65,3 +65,6 @@ func EchelonConstraintExcelTableStartDataListVector(builder *flatbuffers.Builder
 func EchelonConstraintExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EchelonConstraintExcelTable) Name() string {
+	return "EchelonConstraintExcelTable"
+}

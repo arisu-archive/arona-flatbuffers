@@ -1099,3 +1099,6 @@ func LocalizeCharProfileExcelAddWeaponNameTw(builder *flatbuffers.Builder, weapo
 func LocalizeCharProfileExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*LocalizeCharProfileExcel) Name() string {
+	return "LocalizeCharProfileExcel"
+}

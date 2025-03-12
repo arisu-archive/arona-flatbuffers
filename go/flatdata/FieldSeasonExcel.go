@@ -158,3 +158,6 @@ func FieldSeasonExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 func FieldSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*FieldSeasonExcel) Name() string {
+	return "FieldSeasonExcel"
+}

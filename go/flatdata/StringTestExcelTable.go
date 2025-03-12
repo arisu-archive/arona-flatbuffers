@@ -65,3 +65,6 @@ func StringTestExcelTableStartDataListVector(builder *flatbuffers.Builder, numEl
 func StringTestExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*StringTestExcelTable) Name() string {
+	return "StringTestExcelTable"
+}

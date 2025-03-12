@@ -80,3 +80,6 @@ func EmoticonSpecialExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int6
 func EmoticonSpecialExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*EmoticonSpecialExcel) Name() string {
+	return "EmoticonSpecialExcel"
+}

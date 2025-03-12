@@ -1013,3 +1013,6 @@ func CharacterExcelAddWeaponType(builder *flatbuffers.Builder, weaponType Weapon
 func CharacterExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*CharacterExcel) Name() string {
+	return "CharacterExcel"
+}

@@ -230,3 +230,6 @@ func ContentsShortcutExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int
 func ContentsShortcutExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
 }
+func (*ContentsShortcutExcel) Name() string {
+	return "ContentsShortcutExcel"
+}
