@@ -2,7 +2,14 @@ package flatdata
 
 import (
 	"reflect"
+
+	flatbuffers "github.com/google/flatbuffers/go"
 )
+
+type FlatData interface {
+	flatbuffers.FlatBuffer
+	Name() string
+}
 
 var fbs = map[string]reflect.Type{
 	"academyfavorscheduleexcel": reflect.TypeOf((*AcademyFavorScheduleExcel)(nil)).Elem(),
@@ -717,9 +724,9 @@ var fbs = map[string]reflect.Type{
 	"worldraidstagerewardexceltable": reflect.TypeOf((*WorldRaidStageRewardExcelTable)(nil)).Elem(),
 }
 
-func GetFlatDataByName(name string) any {
+func GetFlatDataByName(name string) FlatData {
 	if data, ok := fbs[name]; ok {
-		return reflect.New(data).Interface()
+		return reflect.New(data).Interface().(FlatData)
 	}
 	return nil
 }

@@ -226,7 +226,14 @@ const flatbufferCode = `package flatdata
 
 import (
 	"reflect"
+
+	flatbuffers "github.com/google/flatbuffers/go"
 )
+
+type FlatData interface {
+	flatbuffers.FlatBuffer
+	Name() string
+}
 
 var fbs = map[string]reflect.Type{
 {{- range . }}
@@ -234,9 +241,9 @@ var fbs = map[string]reflect.Type{
 {{- end }}
 }
 
-func GetFlatDataByName(name string) any {
+func GetFlatDataByName(name string) FlatData {
 	if data, ok := fbs[name]; ok {
-		return reflect.New(data).Interface()
+		return reflect.New(data).Interface().(FlatData)
 	}
 	return nil
 }
