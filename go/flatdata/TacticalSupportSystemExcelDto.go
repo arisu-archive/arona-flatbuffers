@@ -42,7 +42,7 @@ type TacticalSupportSystemExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TacticalSupportSystemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticalSupportSystemExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticalSupportSystem"))
 	}
 	TacticalSupportSystemExcelStart(b)
 	TacticalSupportSystemExcelAddCanCover(b, fbsutils.Convert(t.CanCover, t.FlatBuffer.TableKey))
@@ -85,7 +85,7 @@ func (t *TacticalSupportSystemExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TacticalSupportSystemExcelDto) UnmarshalMessage(e *TacticalSupportSystemExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticalSupportSystemExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticalSupportSystem"))
 	}
 	t.CanCover = fbsutils.Convert(e.CanCover(), t.FlatBuffer.TableKey)
 	t.CanTargeting = fbsutils.Convert(e.CanTargeting(), t.FlatBuffer.TableKey)

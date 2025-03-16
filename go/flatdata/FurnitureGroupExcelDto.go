@@ -20,7 +20,7 @@ type FurnitureGroupExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FurnitureGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FurnitureGroupExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FurnitureGroup"))
 	}
 	FurnitureGroupExcelStart(b)
 	FurnitureGroupExcelStartComfortBonusVector(b, len(t.ComfortBonus))
@@ -49,7 +49,7 @@ func (t *FurnitureGroupExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FurnitureGroupExcelDto) UnmarshalMessage(e *FurnitureGroupExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FurnitureGroupExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FurnitureGroup"))
 	}
 	t.ComfortBonus = make([]int64, e.ComfortBonusLength())
 	for i := range e.ComfortBonusLength() {

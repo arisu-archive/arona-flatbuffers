@@ -24,7 +24,7 @@ type ArenaMapExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaMapExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaMapExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaMap"))
 	}
 	ArenaMapExcelStart(b)
 	ArenaMapExcelAddEndRank(b, fbsutils.Convert(t.EndRank, t.FlatBuffer.TableKey))
@@ -49,7 +49,7 @@ func (t *ArenaMapExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaMapExcelDto) UnmarshalMessage(e *ArenaMapExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaMapExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaMap"))
 	}
 	t.EndRank = fbsutils.Convert(e.EndRank(), t.FlatBuffer.TableKey)
 	t.GroundGroupId = fbsutils.Convert(e.GroundGroupId(), t.FlatBuffer.TableKey)

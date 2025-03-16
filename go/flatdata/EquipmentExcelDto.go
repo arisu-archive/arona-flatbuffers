@@ -34,7 +34,7 @@ type EquipmentExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EquipmentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EquipmentExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Equipment"))
 	}
 	EquipmentExcelStart(b)
 	EquipmentExcelAddCraftQualityTier0(b, fbsutils.Convert(t.CraftQualityTier0, t.FlatBuffer.TableKey))
@@ -77,7 +77,7 @@ func (t *EquipmentExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EquipmentExcelDto) UnmarshalMessage(e *EquipmentExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EquipmentExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Equipment"))
 	}
 	t.CraftQualityTier0 = fbsutils.Convert(e.CraftQualityTier0(), t.FlatBuffer.TableKey)
 	t.CraftQualityTier1 = fbsutils.Convert(e.CraftQualityTier1(), t.FlatBuffer.TableKey)

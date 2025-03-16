@@ -23,7 +23,7 @@ type TimeAttackDungeonSeasonManageExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TimeAttackDungeonSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonSeasonManageExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonSeasonManage"))
 	}
 	TimeAttackDungeonSeasonManageExcelStart(b)
 	TimeAttackDungeonSeasonManageExcelStartDifficultyGeasVector(b, len(t.DifficultyGeas))
@@ -51,7 +51,7 @@ func (t *TimeAttackDungeonSeasonManageExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TimeAttackDungeonSeasonManageExcelDto) UnmarshalMessage(e *TimeAttackDungeonSeasonManageExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonSeasonManageExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonSeasonManage"))
 	}
 	t.DifficultyGeas = make([]int64, e.DifficultyGeasLength())
 	for i := range e.DifficultyGeasLength() {

@@ -22,7 +22,7 @@ type TerrainAdaptationFactorExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TerrainAdaptationFactorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TerrainAdaptationFactorExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TerrainAdaptationFactor"))
 	}
 	TerrainAdaptationFactorExcelStart(b)
 	TerrainAdaptationFactorExcelAddAccuracyFactor(b, fbsutils.Convert(t.AccuracyFactor, t.FlatBuffer.TableKey))
@@ -45,7 +45,7 @@ func (t *TerrainAdaptationFactorExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TerrainAdaptationFactorExcelDto) UnmarshalMessage(e *TerrainAdaptationFactorExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TerrainAdaptationFactorExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TerrainAdaptationFactor"))
 	}
 	t.AccuracyFactor = fbsutils.Convert(e.AccuracyFactor(), t.FlatBuffer.TableKey)
 	t.AttackPowerFactor = fbsutils.Convert(e.AttackPowerFactor(), t.FlatBuffer.TableKey)

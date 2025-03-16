@@ -28,7 +28,7 @@ type LogicEffectCommonVisualExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LogicEffectCommonVisualExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LogicEffectCommonVisualExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LogicEffectCommonVisual"))
 	}
 	LogicEffectCommonVisualExcelStart(b)
 	LogicEffectCommonVisualExcelStartIconDispelColorVector(b, len(t.IconDispelColor))
@@ -61,7 +61,7 @@ func (t *LogicEffectCommonVisualExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LogicEffectCommonVisualExcelDto) UnmarshalMessage(e *LogicEffectCommonVisualExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LogicEffectCommonVisualExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LogicEffectCommonVisual"))
 	}
 	t.IconDispelColor = make([]float32, e.IconDispelColorLength())
 	for i := range e.IconDispelColorLength() {

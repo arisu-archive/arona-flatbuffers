@@ -21,7 +21,7 @@ type MiniGameDreamDailyPointExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamDailyPointExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamDailyPointExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamDailyPoint"))
 	}
 	MiniGameDreamDailyPointExcelStart(b)
 	MiniGameDreamDailyPointExcelAddDailyPointCoefficient(b, fbsutils.Convert(t.DailyPointCoefficient, t.FlatBuffer.TableKey))
@@ -43,7 +43,7 @@ func (t *MiniGameDreamDailyPointExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamDailyPointExcelDto) UnmarshalMessage(e *MiniGameDreamDailyPointExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamDailyPointExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamDailyPoint"))
 	}
 	t.DailyPointCoefficient = fbsutils.Convert(e.DailyPointCoefficient(), t.FlatBuffer.TableKey)
 	t.DailyPointCorrectionValue = fbsutils.Convert(e.DailyPointCorrectionValue(), t.FlatBuffer.TableKey)

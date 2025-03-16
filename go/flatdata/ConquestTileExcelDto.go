@@ -40,7 +40,7 @@ type ConquestTileExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestTileExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestTileExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestTile"))
 	}
 	ConquestTileExcelStart(b)
 	ConquestTileExcelAddConquestCostAmount(b, fbsutils.Convert(t.ConquestCostAmount, t.FlatBuffer.TableKey))
@@ -81,7 +81,7 @@ func (t *ConquestTileExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestTileExcelDto) UnmarshalMessage(e *ConquestTileExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestTileExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestTile"))
 	}
 	t.ConquestCostAmount = fbsutils.Convert(e.ConquestCostAmount(), t.FlatBuffer.TableKey)
 	t.ConquestCostId = fbsutils.Convert(e.ConquestCostId(), t.FlatBuffer.TableKey)

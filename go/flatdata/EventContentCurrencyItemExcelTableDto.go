@@ -17,7 +17,7 @@ type EventContentCurrencyItemExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentCurrencyItemExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCurrencyItemExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCurrencyItemTable"))
 	}
 	EventContentCurrencyItemExcelTableStart(b)
 	EventContentCurrencyItemExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *EventContentCurrencyItemExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentCurrencyItemExcelTableDto) UnmarshalMessage(e *EventContentCurrencyItemExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCurrencyItemExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCurrencyItemTable"))
 	}
 	t.DataList = make([]EventContentCurrencyItemExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

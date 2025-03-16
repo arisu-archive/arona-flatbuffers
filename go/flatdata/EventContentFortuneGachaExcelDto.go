@@ -18,7 +18,7 @@ type EventContentFortuneGachaExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentFortuneGachaExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentFortuneGachaExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentFortuneGacha"))
 	}
 	EventContentFortuneGachaExcelStart(b)
 	EventContentFortuneGachaExcelAddFortuneGachaGroupId(b, fbsutils.Convert(t.FortuneGachaGroupId, t.FlatBuffer.TableKey))
@@ -37,7 +37,7 @@ func (t *EventContentFortuneGachaExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentFortuneGachaExcelDto) UnmarshalMessage(e *EventContentFortuneGachaExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentFortuneGachaExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentFortuneGacha"))
 	}
 	t.FortuneGachaGroupId = fbsutils.Convert(e.FortuneGachaGroupId(), t.FlatBuffer.TableKey)
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)

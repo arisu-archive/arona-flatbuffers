@@ -20,7 +20,7 @@ type ToastExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ToastExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ToastExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Toast"))
 	}
 	ToastExcelStart(b)
 	ToastExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -41,7 +41,7 @@ func (t *ToastExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ToastExcelDto) UnmarshalMessage(e *ToastExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ToastExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Toast"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LifeTime = fbsutils.Convert(e.LifeTime(), t.FlatBuffer.TableKey)

@@ -17,7 +17,7 @@ type AccountLevelExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AccountLevelExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AccountLevelExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AccountLevelTable"))
 	}
 	AccountLevelExcelTableStart(b)
 	AccountLevelExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *AccountLevelExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AccountLevelExcelTableDto) UnmarshalMessage(e *AccountLevelExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AccountLevelExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AccountLevelTable"))
 	}
 	t.DataList = make([]AccountLevelExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

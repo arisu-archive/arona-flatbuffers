@@ -17,7 +17,7 @@ type StatLevelInterpolationExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StatLevelInterpolationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StatLevelInterpolationExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StatLevelInterpolation"))
 	}
 	StatLevelInterpolationExcelStart(b)
 	StatLevelInterpolationExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
@@ -39,7 +39,7 @@ func (t *StatLevelInterpolationExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StatLevelInterpolationExcelDto) UnmarshalMessage(e *StatLevelInterpolationExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StatLevelInterpolationExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StatLevelInterpolation"))
 	}
 	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.StatTypeIndex = make([]int64, e.StatTypeIndexLength())

@@ -20,7 +20,7 @@ type MiniGameDefenseInfoExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDefenseInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseInfoExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseInfo"))
 	}
 	MiniGameDefenseInfoExcelStart(b)
 	MiniGameDefenseInfoExcelAddDefenseBattleMultiplierMax(b, fbsutils.Convert(t.DefenseBattleMultiplierMax, t.FlatBuffer.TableKey))
@@ -41,7 +41,7 @@ func (t *MiniGameDefenseInfoExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDefenseInfoExcelDto) UnmarshalMessage(e *MiniGameDefenseInfoExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseInfoExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseInfo"))
 	}
 	t.DefenseBattleMultiplierMax = fbsutils.Convert(e.DefenseBattleMultiplierMax(), t.FlatBuffer.TableKey)
 	t.DefenseBattleParcelId = fbsutils.Convert(e.DefenseBattleParcelId(), t.FlatBuffer.TableKey)

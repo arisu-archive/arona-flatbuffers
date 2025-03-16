@@ -34,7 +34,7 @@ type MiniGameShootingCharacterExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameShootingCharacterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingCharacterExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingCharacter"))
 	}
 	MiniGameShootingCharacterExcelStart(b)
 	MiniGameShootingCharacterExcelAddAttackPower(b, fbsutils.Convert(t.AttackPower, t.FlatBuffer.TableKey))
@@ -73,7 +73,7 @@ func (t *MiniGameShootingCharacterExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameShootingCharacterExcelDto) UnmarshalMessage(e *MiniGameShootingCharacterExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingCharacterExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingCharacter"))
 	}
 	t.AttackPower = fbsutils.Convert(e.AttackPower(), t.FlatBuffer.TableKey)
 	t.AttackRange = fbsutils.Convert(e.AttackRange(), t.FlatBuffer.TableKey)

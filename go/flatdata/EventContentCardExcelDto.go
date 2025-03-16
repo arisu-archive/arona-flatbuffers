@@ -22,7 +22,7 @@ type EventContentCardExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentCardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCard"))
 	}
 	EventContentCardExcelStart(b)
 	EventContentCardExcelAddBackIconPath(b, fbsutils.Convert(b.CreateString(t.BackIconPath), t.FlatBuffer.TableKey))
@@ -53,7 +53,7 @@ func (t *EventContentCardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentCardExcelDto) UnmarshalMessage(e *EventContentCardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCard"))
 	}
 	t.BackIconPath = fbsutils.Convert(string(e.BackIconPath()), t.FlatBuffer.TableKey)
 	t.CardGroupId = fbsutils.Convert(e.CardGroupId(), t.FlatBuffer.TableKey)

@@ -17,7 +17,7 @@ type TacticSkipExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TacticSkipExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticSkipExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticSkip"))
 	}
 	TacticSkipExcelStart(b)
 	TacticSkipExcelAddHpResult(b, fbsutils.Convert(t.HpResult, t.FlatBuffer.TableKey))
@@ -35,7 +35,7 @@ func (t *TacticSkipExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TacticSkipExcelDto) UnmarshalMessage(e *TacticSkipExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticSkipExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticSkip"))
 	}
 	t.HpResult = fbsutils.Convert(e.HpResult(), t.FlatBuffer.TableKey)
 	t.LevelDiff = fbsutils.Convert(e.LevelDiff(), t.FlatBuffer.TableKey)

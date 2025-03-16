@@ -17,7 +17,7 @@ type TacticArenaSimulatorSettingExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TacticArenaSimulatorSettingExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticArenaSimulatorSettingExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticArenaSimulatorSettingTable"))
 	}
 	TacticArenaSimulatorSettingExcelTableStart(b)
 	TacticArenaSimulatorSettingExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *TacticArenaSimulatorSettingExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TacticArenaSimulatorSettingExcelTableDto) UnmarshalMessage(e *TacticArenaSimulatorSettingExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticArenaSimulatorSettingExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticArenaSimulatorSettingTable"))
 	}
 	t.DataList = make([]TacticArenaSimulatorSettingExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

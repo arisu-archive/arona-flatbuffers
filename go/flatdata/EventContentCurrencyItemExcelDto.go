@@ -18,7 +18,7 @@ type EventContentCurrencyItemExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentCurrencyItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCurrencyItemExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCurrencyItem"))
 	}
 	EventContentCurrencyItemExcelStart(b)
 	EventContentCurrencyItemExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
@@ -37,7 +37,7 @@ func (t *EventContentCurrencyItemExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentCurrencyItemExcelDto) UnmarshalMessage(e *EventContentCurrencyItemExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCurrencyItemExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCurrencyItem"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.EventContentItemType = EventContentItemType(int32(fbsutils.Convert(e.EventContentItemType(), t.FlatBuffer.TableKey)))

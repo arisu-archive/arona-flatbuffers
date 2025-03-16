@@ -21,7 +21,7 @@ type LocalizeCodeInBuildExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeCodeInBuildExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCodeInBuildExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCodeInBuild"))
 	}
 	LocalizeCodeInBuildExcelStart(b)
 	LocalizeCodeInBuildExcelAddEn(b, fbsutils.Convert(b.CreateString(t.En), t.FlatBuffer.TableKey))
@@ -43,7 +43,7 @@ func (t *LocalizeCodeInBuildExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LocalizeCodeInBuildExcelDto) UnmarshalMessage(e *LocalizeCodeInBuildExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCodeInBuildExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCodeInBuild"))
 	}
 	t.En = fbsutils.Convert(string(e.En()), t.FlatBuffer.TableKey)
 	t.Jp = fbsutils.Convert(string(e.Jp()), t.FlatBuffer.TableKey)

@@ -34,7 +34,7 @@ type ShopCashExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopCashExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopCashExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopCash"))
 	}
 	ShopCashExcelStart(b)
 	ShopCashExcelAddAccountLevelHide(b, fbsutils.Convert(t.AccountLevelHide, t.FlatBuffer.TableKey))
@@ -69,7 +69,7 @@ func (t *ShopCashExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShopCashExcelDto) UnmarshalMessage(e *ShopCashExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopCashExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopCash"))
 	}
 	t.AccountLevelHide = fbsutils.Convert(e.AccountLevelHide(), t.FlatBuffer.TableKey)
 	t.AccountLevelLimit = fbsutils.Convert(e.AccountLevelLimit(), t.FlatBuffer.TableKey)

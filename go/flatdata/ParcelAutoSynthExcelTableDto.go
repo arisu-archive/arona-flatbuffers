@@ -17,7 +17,7 @@ type ParcelAutoSynthExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ParcelAutoSynthExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ParcelAutoSynthExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ParcelAutoSynthTable"))
 	}
 	ParcelAutoSynthExcelTableStart(b)
 	ParcelAutoSynthExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *ParcelAutoSynthExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ParcelAutoSynthExcelTableDto) UnmarshalMessage(e *ParcelAutoSynthExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ParcelAutoSynthExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ParcelAutoSynthTable"))
 	}
 	t.DataList = make([]ParcelAutoSynthExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

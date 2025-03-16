@@ -20,7 +20,7 @@ type CouponStuffExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CouponStuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CouponStuffExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CouponStuff"))
 	}
 	CouponStuffExcelStart(b)
 	CouponStuffExcelAddCouponStuffNameLocalizeKey(b, fbsutils.Convert(b.CreateString(t.CouponStuffNameLocalizeKey), t.FlatBuffer.TableKey))
@@ -41,7 +41,7 @@ func (t *CouponStuffExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CouponStuffExcelDto) UnmarshalMessage(e *CouponStuffExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CouponStuffExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CouponStuff"))
 	}
 	t.CouponStuffNameLocalizeKey = fbsutils.Convert(string(e.CouponStuffNameLocalizeKey()), t.FlatBuffer.TableKey)
 	t.LimitAmount = fbsutils.Convert(e.LimitAmount(), t.FlatBuffer.TableKey)

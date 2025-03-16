@@ -23,7 +23,7 @@ type BossExternalBTExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BossExternalBTExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossExternalBTExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossExternalBT"))
 	}
 	BossExternalBTExcelStart(b)
 	BossExternalBTExcelAddAiPhase(b, fbsutils.Convert(t.AiPhase, t.FlatBuffer.TableKey))
@@ -47,7 +47,7 @@ func (t *BossExternalBTExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BossExternalBTExcelDto) UnmarshalMessage(e *BossExternalBTExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossExternalBTExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossExternalBT"))
 	}
 	t.AiPhase = fbsutils.Convert(e.AiPhase(), t.FlatBuffer.TableKey)
 	t.BehaviorArgument = fbsutils.Convert(string(e.BehaviorArgument()), t.FlatBuffer.TableKey)

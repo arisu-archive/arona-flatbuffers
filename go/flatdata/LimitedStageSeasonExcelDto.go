@@ -21,7 +21,7 @@ type LimitedStageSeasonExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LimitedStageSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStageSeasonExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStageSeason"))
 	}
 	LimitedStageSeasonExcelStart(b)
 	LimitedStageSeasonExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
@@ -43,7 +43,7 @@ func (t *LimitedStageSeasonExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LimitedStageSeasonExcelDto) UnmarshalMessage(e *LimitedStageSeasonExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStageSeasonExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStageSeason"))
 	}
 	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

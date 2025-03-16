@@ -19,7 +19,7 @@ type ArenaLevelSectionExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaLevelSectionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaLevelSectionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaLevelSection"))
 	}
 	ArenaLevelSectionExcelStart(b)
 	ArenaLevelSectionExcelAddArenaSeasonId(b, fbsutils.Convert(t.ArenaSeasonId, t.FlatBuffer.TableKey))
@@ -39,7 +39,7 @@ func (t *ArenaLevelSectionExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaLevelSectionExcelDto) UnmarshalMessage(e *ArenaLevelSectionExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaLevelSectionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaLevelSection"))
 	}
 	t.ArenaSeasonId = fbsutils.Convert(e.ArenaSeasonId(), t.FlatBuffer.TableKey)
 	t.LastLevel = fbsutils.Convert(e.LastLevel(), t.FlatBuffer.TableKey)

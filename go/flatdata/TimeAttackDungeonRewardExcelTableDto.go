@@ -17,7 +17,7 @@ type TimeAttackDungeonRewardExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TimeAttackDungeonRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonRewardExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonRewardTable"))
 	}
 	TimeAttackDungeonRewardExcelTableStart(b)
 	TimeAttackDungeonRewardExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *TimeAttackDungeonRewardExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TimeAttackDungeonRewardExcelTableDto) UnmarshalMessage(e *TimeAttackDungeonRewardExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonRewardExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonRewardTable"))
 	}
 	t.DataList = make([]TimeAttackDungeonRewardExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

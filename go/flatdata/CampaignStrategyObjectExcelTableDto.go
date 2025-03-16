@@ -17,7 +17,7 @@ type CampaignStrategyObjectExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CampaignStrategyObjectExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignStrategyObjectExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignStrategyObjectTable"))
 	}
 	CampaignStrategyObjectExcelTableStart(b)
 	CampaignStrategyObjectExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *CampaignStrategyObjectExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CampaignStrategyObjectExcelTableDto) UnmarshalMessage(e *CampaignStrategyObjectExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignStrategyObjectExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignStrategyObjectTable"))
 	}
 	t.DataList = make([]CampaignStrategyObjectExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

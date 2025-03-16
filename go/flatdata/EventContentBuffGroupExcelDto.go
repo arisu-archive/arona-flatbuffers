@@ -29,7 +29,7 @@ type EventContentBuffGroupExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentBuffGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuffGroupExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuffGroup"))
 	}
 	EventContentBuffGroupExcelStart(b)
 	EventContentBuffGroupExcelAddBuffContentId(b, fbsutils.Convert(t.BuffContentId, t.FlatBuffer.TableKey))
@@ -59,7 +59,7 @@ func (t *EventContentBuffGroupExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentBuffGroupExcelDto) UnmarshalMessage(e *EventContentBuffGroupExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuffGroupExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuffGroup"))
 	}
 	t.BuffContentId = fbsutils.Convert(e.BuffContentId(), t.FlatBuffer.TableKey)
 	t.BuffDescriptionIconPath1 = fbsutils.Convert(string(e.BuffDescriptionIconPath1()), t.FlatBuffer.TableKey)

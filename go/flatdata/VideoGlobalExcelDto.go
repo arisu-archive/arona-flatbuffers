@@ -24,7 +24,7 @@ type VideoGlobalExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VideoGlobalExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Video_GlobalExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Video_Global"))
 	}
 	Video_GlobalExcelStart(b)
 	Video_GlobalExcelAddVideoId(b, fbsutils.Convert(t.VideoId, t.FlatBuffer.TableKey))
@@ -49,7 +49,7 @@ func (t *VideoGlobalExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VideoGlobalExcelDto) UnmarshalMessage(e *Video_GlobalExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Video_GlobalExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Video_Global"))
 	}
 	t.VideoId = fbsutils.Convert(e.VideoId(), t.FlatBuffer.TableKey)
 	t.VideoPathEn = fbsutils.Convert(string(e.VideoPathEn()), t.FlatBuffer.TableKey)

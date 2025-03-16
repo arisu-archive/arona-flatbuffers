@@ -25,7 +25,7 @@ type CharacterTranscendenceExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterTranscendenceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterTranscendenceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterTranscendence"))
 	}
 	CharacterTranscendenceExcelStart(b)
 	CharacterTranscendenceExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
@@ -87,7 +87,7 @@ func (t *CharacterTranscendenceExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterTranscendenceExcelDto) UnmarshalMessage(e *CharacterTranscendenceExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterTranscendenceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterTranscendence"))
 	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.MaxFavorLevel = make([]int32, e.MaxFavorLevelLength())

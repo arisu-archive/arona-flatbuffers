@@ -56,7 +56,7 @@ type FurnitureExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FurnitureExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FurnitureExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Furniture"))
 	}
 	FurnitureExcelStart(b)
 	FurnitureExcelStartCafeCharacterStateAddVector(b, len(t.CafeCharacterStateAdd))
@@ -133,7 +133,7 @@ func (t *FurnitureExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FurnitureExcelDto) UnmarshalMessage(e *FurnitureExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FurnitureExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Furniture"))
 	}
 	t.CafeCharacterStateAdd = make([]string, e.CafeCharacterStateAddLength())
 	for i := range e.CafeCharacterStateAddLength() {

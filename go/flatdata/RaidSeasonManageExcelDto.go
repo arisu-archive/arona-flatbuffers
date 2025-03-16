@@ -25,7 +25,7 @@ type RaidSeasonManageExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RaidSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidSeasonManageExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidSeasonManage"))
 	}
 	RaidSeasonManageExcelStart(b)
 	RaidSeasonManageExcelAddMaxSeasonRewardGauage(b, fbsutils.Convert(t.MaxSeasonRewardGauage, t.FlatBuffer.TableKey))
@@ -63,7 +63,7 @@ func (t *RaidSeasonManageExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RaidSeasonManageExcelDto) UnmarshalMessage(e *RaidSeasonManageExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidSeasonManageExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidSeasonManage"))
 	}
 	t.MaxSeasonRewardGauage = fbsutils.Convert(e.MaxSeasonRewardGauage(), t.FlatBuffer.TableKey)
 	t.OpenRaidBossGroup = make([]string, e.OpenRaidBossGroupLength())

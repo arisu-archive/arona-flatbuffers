@@ -35,7 +35,7 @@ type OpenConditionExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *OpenConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("OpenConditionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("OpenCondition"))
 	}
 	OpenConditionExcelStart(b)
 	OpenConditionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
@@ -79,7 +79,7 @@ func (t *OpenConditionExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *OpenConditionExcelDto) UnmarshalMessage(e *OpenConditionExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("OpenConditionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("OpenCondition"))
 	}
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
 	t.CafeIdforCafeRank = fbsutils.Convert(e.CafeIdforCafeRank(), t.FlatBuffer.TableKey)

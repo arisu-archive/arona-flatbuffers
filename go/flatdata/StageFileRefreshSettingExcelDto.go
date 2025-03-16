@@ -17,7 +17,7 @@ type StageFileRefreshSettingExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StageFileRefreshSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StageFileRefreshSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StageFileRefreshSetting"))
 	}
 	StageFileRefreshSettingExcelStart(b)
 	StageFileRefreshSettingExcelAddForceSave(b, fbsutils.Convert(t.ForceSave, t.FlatBuffer.TableKey))
@@ -35,7 +35,7 @@ func (t *StageFileRefreshSettingExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StageFileRefreshSettingExcelDto) UnmarshalMessage(e *StageFileRefreshSettingExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StageFileRefreshSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StageFileRefreshSetting"))
 	}
 	t.ForceSave = fbsutils.Convert(e.ForceSave(), t.FlatBuffer.TableKey)
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)

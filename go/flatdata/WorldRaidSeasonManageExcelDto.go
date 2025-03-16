@@ -38,7 +38,7 @@ type WorldRaidSeasonManageExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WorldRaidSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidSeasonManageExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidSeasonManage"))
 	}
 	WorldRaidSeasonManageExcelStart(b)
 	WorldRaidSeasonManageExcelStartBossSpawnTimeVector(b, len(t.BossSpawnTime))
@@ -97,7 +97,7 @@ func (t *WorldRaidSeasonManageExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WorldRaidSeasonManageExcelDto) UnmarshalMessage(e *WorldRaidSeasonManageExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidSeasonManageExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidSeasonManage"))
 	}
 	t.BossSpawnTime = make([]string, e.BossSpawnTimeLength())
 	for i := range e.BossSpawnTimeLength() {

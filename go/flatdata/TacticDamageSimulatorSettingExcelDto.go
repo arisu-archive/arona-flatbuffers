@@ -32,7 +32,7 @@ type TacticDamageSimulatorSettingExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TacticDamageSimulatorSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticDamageSimulatorSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticDamageSimulatorSetting"))
 	}
 	TacticDamageSimulatorSettingExcelStart(b)
 	TacticDamageSimulatorSettingExcelAddApplyOverrideAdaptation(b, fbsutils.Convert(t.ApplyOverrideAdaptation, t.FlatBuffer.TableKey))
@@ -69,7 +69,7 @@ func (t *TacticDamageSimulatorSettingExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TacticDamageSimulatorSettingExcelDto) UnmarshalMessage(e *TacticDamageSimulatorSettingExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticDamageSimulatorSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticDamageSimulatorSetting"))
 	}
 	t.ApplyOverrideAdaptation = fbsutils.Convert(e.ApplyOverrideAdaptation(), t.FlatBuffer.TableKey)
 	t.ApplyOverrideFavorLevel = fbsutils.Convert(e.ApplyOverrideFavorLevel(), t.FlatBuffer.TableKey)

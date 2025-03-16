@@ -31,7 +31,7 @@ type TimeAttackDungeonGeasExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TimeAttackDungeonGeasExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonGeasExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonGeas"))
 	}
 	TimeAttackDungeonGeasExcelStart(b)
 	TimeAttackDungeonGeasExcelStartAllyPassiveSkillIdVector(b, len(t.AllyPassiveSkillId))
@@ -87,7 +87,7 @@ func (t *TimeAttackDungeonGeasExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TimeAttackDungeonGeasExcelDto) UnmarshalMessage(e *TimeAttackDungeonGeasExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonGeasExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonGeas"))
 	}
 	t.AllyPassiveSkillId = make([]string, e.AllyPassiveSkillIdLength())
 	for i := range e.AllyPassiveSkillIdLength() {

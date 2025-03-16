@@ -36,7 +36,7 @@ type CurrencyExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CurrencyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CurrencyExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Currency"))
 	}
 	CurrencyExcelStart(b)
 	CurrencyExcelAddAutoChargeAmount(b, fbsutils.Convert(t.AutoChargeAmount, t.FlatBuffer.TableKey))
@@ -77,7 +77,7 @@ func (t *CurrencyExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CurrencyExcelDto) UnmarshalMessage(e *CurrencyExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CurrencyExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Currency"))
 	}
 	t.AutoChargeAmount = fbsutils.Convert(e.AutoChargeAmount(), t.FlatBuffer.TableKey)
 	t.AutoChargeMsc = fbsutils.Convert(e.AutoChargeMsc(), t.FlatBuffer.TableKey)

@@ -19,7 +19,7 @@ type FieldKeywordExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldKeywordExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeywordExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeyword"))
 	}
 	FieldKeywordExcelStart(b)
 	FieldKeywordExcelAddDescriptionLocalizeKey(b, fbsutils.Convert(b.CreateString(t.DescriptionLocalizeKey), t.FlatBuffer.TableKey))
@@ -39,7 +39,7 @@ func (t *FieldKeywordExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldKeywordExcelDto) UnmarshalMessage(e *FieldKeywordExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeywordExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeyword"))
 	}
 	t.DescriptionLocalizeKey = fbsutils.Convert(string(e.DescriptionLocalizeKey()), t.FlatBuffer.TableKey)
 	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)

@@ -94,7 +94,7 @@ type CharacterStatExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStat"))
 	}
 	CharacterStatExcelStart(b)
 	CharacterStatExcelAddAccuracyPoint(b, fbsutils.Convert(t.AccuracyPoint, t.FlatBuffer.TableKey))
@@ -189,7 +189,7 @@ func (t *CharacterStatExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterStatExcelDto) UnmarshalMessage(e *CharacterStatExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStat"))
 	}
 	t.AccuracyPoint = fbsutils.Convert(e.AccuracyPoint(), t.FlatBuffer.TableKey)
 	t.ActionCount = fbsutils.Convert(e.ActionCount(), t.FlatBuffer.TableKey)

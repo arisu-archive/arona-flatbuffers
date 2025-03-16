@@ -17,7 +17,7 @@ type LocalizeCharProfileExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeCharProfileExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCharProfileExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCharProfileTable"))
 	}
 	LocalizeCharProfileExcelTableStart(b)
 	LocalizeCharProfileExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *LocalizeCharProfileExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LocalizeCharProfileExcelTableDto) UnmarshalMessage(e *LocalizeCharProfileExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCharProfileExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCharProfileTable"))
 	}
 	t.DataList = make([]LocalizeCharProfileExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

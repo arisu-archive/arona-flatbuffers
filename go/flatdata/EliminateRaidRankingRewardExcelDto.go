@@ -34,7 +34,7 @@ type EliminateRaidRankingRewardExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EliminateRaidRankingRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidRankingRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidRankingReward"))
 	}
 	EliminateRaidRankingRewardExcelStart(b)
 	EliminateRaidRankingRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -85,7 +85,7 @@ func (t *EliminateRaidRankingRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EliminateRaidRankingRewardExcelDto) UnmarshalMessage(e *EliminateRaidRankingRewardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidRankingRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidRankingReward"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.PercentRankEnd = fbsutils.Convert(e.PercentRankEnd(), t.FlatBuffer.TableKey)

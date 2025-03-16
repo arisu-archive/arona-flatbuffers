@@ -28,7 +28,7 @@ type CharacterDialogFieldExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogFieldExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogFieldExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogField"))
 	}
 	CharacterDialogFieldExcelStart(b)
 	CharacterDialogFieldExcelAddDialogType(b, fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey))
@@ -57,7 +57,7 @@ func (t *CharacterDialogFieldExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterDialogFieldExcelDto) UnmarshalMessage(e *CharacterDialogFieldExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogFieldExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogField"))
 	}
 	t.DialogType = FieldDialogType(int32(fbsutils.Convert(e.DialogType(), t.FlatBuffer.TableKey)))
 	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)

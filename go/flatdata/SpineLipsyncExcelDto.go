@@ -18,7 +18,7 @@ type SpineLipsyncExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SpineLipsyncExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpineLipsyncExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpineLipsync"))
 	}
 	SpineLipsyncExcelStart(b)
 	SpineLipsyncExcelAddAnimJson(b, fbsutils.Convert(b.CreateString(t.AnimJson), t.FlatBuffer.TableKey))
@@ -37,7 +37,7 @@ func (t *SpineLipsyncExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *SpineLipsyncExcelDto) UnmarshalMessage(e *SpineLipsyncExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpineLipsyncExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpineLipsync"))
 	}
 	t.AnimJson = fbsutils.Convert(string(e.AnimJson()), t.FlatBuffer.TableKey)
 	t.AnimJsonKr = fbsutils.Convert(string(e.AnimJsonKr()), t.FlatBuffer.TableKey)

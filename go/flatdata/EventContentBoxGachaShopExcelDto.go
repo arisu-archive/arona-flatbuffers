@@ -23,7 +23,7 @@ type EventContentBoxGachaShopExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentBoxGachaShopExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBoxGachaShopExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBoxGachaShop"))
 	}
 	EventContentBoxGachaShopExcelStart(b)
 	EventContentBoxGachaShopExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
@@ -51,7 +51,7 @@ func (t *EventContentBoxGachaShopExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentBoxGachaShopExcelDto) UnmarshalMessage(e *EventContentBoxGachaShopExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBoxGachaShopExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBoxGachaShop"))
 	}
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)

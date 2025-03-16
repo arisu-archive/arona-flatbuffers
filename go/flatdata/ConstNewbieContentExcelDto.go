@@ -21,7 +21,7 @@ type ConstNewbieContentExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstNewbieContentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstNewbieContentExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstNewbieContent"))
 	}
 	ConstNewbieContentExcelStart(b)
 	ConstNewbieContentExcelAddNewbieAttendanceEndDay(b, fbsutils.Convert(t.NewbieAttendanceEndDay, t.FlatBuffer.TableKey))
@@ -43,7 +43,7 @@ func (t *ConstNewbieContentExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstNewbieContentExcelDto) UnmarshalMessage(e *ConstNewbieContentExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstNewbieContentExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstNewbieContent"))
 	}
 	t.NewbieAttendanceEndDay = fbsutils.Convert(e.NewbieAttendanceEndDay(), t.FlatBuffer.TableKey)
 	t.NewbieAttendanceReleaseDate = fbsutils.Convert(string(e.NewbieAttendanceReleaseDate()), t.FlatBuffer.TableKey)

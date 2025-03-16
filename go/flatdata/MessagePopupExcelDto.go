@@ -28,7 +28,7 @@ type MessagePopupExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MessagePopupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MessagePopupExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MessagePopup"))
 	}
 	MessagePopupExcelStart(b)
 	MessagePopupExcelStartButtonCommandVector(b, len(t.ButtonCommand))
@@ -77,7 +77,7 @@ func (t *MessagePopupExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MessagePopupExcelDto) UnmarshalMessage(e *MessagePopupExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MessagePopupExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MessagePopup"))
 	}
 	t.ButtonCommand = make([]string, e.ButtonCommandLength())
 	for i := range e.ButtonCommandLength() {

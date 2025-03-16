@@ -17,7 +17,7 @@ type EventContentChangeExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentChangeExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChangeExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChangeTable"))
 	}
 	EventContentChangeExcelTableStart(b)
 	EventContentChangeExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *EventContentChangeExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentChangeExcelTableDto) UnmarshalMessage(e *EventContentChangeExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChangeExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChangeTable"))
 	}
 	t.DataList = make([]EventContentChangeExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

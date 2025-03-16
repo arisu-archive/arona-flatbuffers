@@ -17,7 +17,7 @@ type WeekDungeonOpenScheduleExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WeekDungeonOpenScheduleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonOpenScheduleExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonOpenSchedule"))
 	}
 	WeekDungeonOpenScheduleExcelStart(b)
 	WeekDungeonOpenScheduleExcelStartOpenVector(b, len(t.Open))
@@ -39,7 +39,7 @@ func (t *WeekDungeonOpenScheduleExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WeekDungeonOpenScheduleExcelDto) UnmarshalMessage(e *WeekDungeonOpenScheduleExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonOpenScheduleExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonOpenSchedule"))
 	}
 	t.Open = make([]WeekDungeonType, e.OpenLength())
 	for i := range e.OpenLength() {

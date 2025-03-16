@@ -17,7 +17,7 @@ type MiniGameTBGThemaRewardExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameTBGThemaRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameTBGThemaRewardExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameTBGThemaRewardTable"))
 	}
 	MiniGameTBGThemaRewardExcelTableStart(b)
 	MiniGameTBGThemaRewardExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *MiniGameTBGThemaRewardExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameTBGThemaRewardExcelTableDto) UnmarshalMessage(e *MiniGameTBGThemaRewardExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameTBGThemaRewardExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameTBGThemaRewardTable"))
 	}
 	t.DataList = make([]MiniGameTBGThemaRewardExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

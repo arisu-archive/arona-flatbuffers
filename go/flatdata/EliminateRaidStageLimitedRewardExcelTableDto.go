@@ -17,7 +17,7 @@ type EliminateRaidStageLimitedRewardExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EliminateRaidStageLimitedRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidStageLimitedRewardExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidStageLimitedRewardTable"))
 	}
 	EliminateRaidStageLimitedRewardExcelTableStart(b)
 	EliminateRaidStageLimitedRewardExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *EliminateRaidStageLimitedRewardExcelTableDto) Marshal() ([]byte, error)
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EliminateRaidStageLimitedRewardExcelTableDto) UnmarshalMessage(e *EliminateRaidStageLimitedRewardExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidStageLimitedRewardExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidStageLimitedRewardTable"))
 	}
 	t.DataList = make([]EliminateRaidStageLimitedRewardExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

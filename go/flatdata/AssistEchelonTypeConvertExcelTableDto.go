@@ -17,7 +17,7 @@ type AssistEchelonTypeConvertExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AssistEchelonTypeConvertExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AssistEchelonTypeConvertExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AssistEchelonTypeConvertTable"))
 	}
 	AssistEchelonTypeConvertExcelTableStart(b)
 	AssistEchelonTypeConvertExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *AssistEchelonTypeConvertExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AssistEchelonTypeConvertExcelTableDto) UnmarshalMessage(e *AssistEchelonTypeConvertExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AssistEchelonTypeConvertExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AssistEchelonTypeConvertTable"))
 	}
 	t.DataList = make([]AssistEchelonTypeConvertExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

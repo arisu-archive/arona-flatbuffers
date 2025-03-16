@@ -18,7 +18,7 @@ type VoiceRoomExceptionExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceRoomExceptionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceRoomExceptionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceRoomException"))
 	}
 	VoiceRoomExceptionExcelStart(b)
 	VoiceRoomExceptionExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
@@ -37,7 +37,7 @@ func (t *VoiceRoomExceptionExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VoiceRoomExceptionExcelDto) UnmarshalMessage(e *VoiceRoomExceptionExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceRoomExceptionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceRoomException"))
 	}
 	t.CostumeUniqueId = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
 	t.LinkedCharacterVoicePrintType = CVPrintType(int32(fbsutils.Convert(e.LinkedCharacterVoicePrintType(), t.FlatBuffer.TableKey)))

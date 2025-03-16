@@ -20,7 +20,7 @@ type VoiceSpineExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceSpineExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceSpineExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceSpine"))
 	}
 	VoiceSpineExcelStart(b)
 	VoiceSpineExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -53,7 +53,7 @@ func (t *VoiceSpineExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VoiceSpineExcelDto) UnmarshalMessage(e *VoiceSpineExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceSpineExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceSpine"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Nation = make([]Nation, e.NationLength())

@@ -17,7 +17,7 @@ type TimeAttackDungeonExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TimeAttackDungeonExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonTable"))
 	}
 	TimeAttackDungeonExcelTableStart(b)
 	TimeAttackDungeonExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *TimeAttackDungeonExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TimeAttackDungeonExcelTableDto) UnmarshalMessage(e *TimeAttackDungeonExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonTable"))
 	}
 	t.DataList = make([]TimeAttackDungeonExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

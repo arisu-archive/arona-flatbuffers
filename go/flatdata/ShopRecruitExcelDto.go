@@ -42,7 +42,7 @@ type ShopRecruitExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopRecruitExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopRecruit"))
 	}
 	ShopRecruitExcelStart(b)
 	ShopRecruitExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
@@ -93,7 +93,7 @@ func (t *ShopRecruitExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShopRecruitExcelDto) UnmarshalMessage(e *ShopRecruitExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopRecruitExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopRecruit"))
 	}
 	t.CategoryType = ShopCategoryType(int32(fbsutils.Convert(e.CategoryType(), t.FlatBuffer.TableKey)))
 	t.DirectPayAndroidShopCashId = fbsutils.Convert(e.DirectPayAndroidShopCashId(), t.FlatBuffer.TableKey)

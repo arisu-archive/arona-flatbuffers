@@ -21,7 +21,7 @@ type ConquestProgressResourceExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestProgressResourceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestProgressResourceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestProgressResource"))
 	}
 	ConquestProgressResourceExcelStart(b)
 	ConquestProgressResourceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
@@ -47,7 +47,7 @@ func (t *ConquestProgressResourceExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestProgressResourceExcelDto) UnmarshalMessage(e *ConquestProgressResourceExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestProgressResourceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestProgressResource"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.Group = ConquestProgressType(int32(fbsutils.Convert(e.Group(), t.FlatBuffer.TableKey)))

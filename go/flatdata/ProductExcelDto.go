@@ -26,7 +26,7 @@ type ProductExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ProductExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProductExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Product"))
 	}
 	ProductExcelStart(b)
 	ProductExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -65,7 +65,7 @@ func (t *ProductExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ProductExcelDto) UnmarshalMessage(e *ProductExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProductExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Product"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ParcelAmount = make([]int64, e.ParcelAmountLength())

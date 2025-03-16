@@ -22,7 +22,7 @@ type GachaCraftNodeExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GachaCraftNodeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaCraftNodeExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaCraftNode"))
 	}
 	GachaCraftNodeExcelStart(b)
 	GachaCraftNodeExcelAddIcon(b, fbsutils.Convert(b.CreateString(t.Icon), t.FlatBuffer.TableKey))
@@ -45,7 +45,7 @@ func (t *GachaCraftNodeExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GachaCraftNodeExcelDto) UnmarshalMessage(e *GachaCraftNodeExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaCraftNodeExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaCraftNode"))
 	}
 	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

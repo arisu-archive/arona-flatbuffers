@@ -23,7 +23,7 @@ type EventContentLobbyMenuExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentLobbyMenuExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLobbyMenuExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLobbyMenu"))
 	}
 	EventContentLobbyMenuExcelStart(b)
 	EventContentLobbyMenuExcelAddButtonText(b, fbsutils.Convert(b.CreateString(t.ButtonText), t.FlatBuffer.TableKey))
@@ -47,7 +47,7 @@ func (t *EventContentLobbyMenuExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentLobbyMenuExcelDto) UnmarshalMessage(e *EventContentLobbyMenuExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLobbyMenuExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLobbyMenu"))
 	}
 	t.ButtonText = fbsutils.Convert(string(e.ButtonText()), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)

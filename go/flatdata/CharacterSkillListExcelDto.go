@@ -34,7 +34,7 @@ type CharacterSkillListExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterSkillListExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterSkillListExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterSkillList"))
 	}
 	CharacterSkillListExcelStart(b)
 	CharacterSkillListExcelAddCharacterSkillListGroupId(b, fbsutils.Convert(t.CharacterSkillListGroupId, t.FlatBuffer.TableKey))
@@ -113,7 +113,7 @@ func (t *CharacterSkillListExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterSkillListExcelDto) UnmarshalMessage(e *CharacterSkillListExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterSkillListExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterSkillList"))
 	}
 	t.CharacterSkillListGroupId = fbsutils.Convert(e.CharacterSkillListGroupId(), t.FlatBuffer.TableKey)
 	t.ExSkillCutInTimeLineIndex = make([]string, e.ExSkillCutInTimeLineIndexLength())

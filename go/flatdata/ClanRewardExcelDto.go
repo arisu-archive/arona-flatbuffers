@@ -20,7 +20,7 @@ type ClanRewardExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ClanRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanReward"))
 	}
 	ClanRewardExcelStart(b)
 	ClanRewardExcelAddClanRewardType(b, fbsutils.Convert(t.ClanRewardType, t.FlatBuffer.TableKey))
@@ -41,7 +41,7 @@ func (t *ClanRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ClanRewardExcelDto) UnmarshalMessage(e *ClanRewardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanReward"))
 	}
 	t.ClanRewardType = ClanRewardType(int32(fbsutils.Convert(e.ClanRewardType(), t.FlatBuffer.TableKey)))
 	t.EchelonType = EchelonType(int32(fbsutils.Convert(e.EchelonType(), t.FlatBuffer.TableKey)))

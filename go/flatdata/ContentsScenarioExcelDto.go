@@ -20,7 +20,7 @@ type ContentsScenarioExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ContentsScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentsScenarioExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentsScenario"))
 	}
 	ContentsScenarioExcelStart(b)
 	ContentsScenarioExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
@@ -45,7 +45,7 @@ func (t *ContentsScenarioExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ContentsScenarioExcelDto) UnmarshalMessage(e *ContentsScenarioExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentsScenarioExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentsScenario"))
 	}
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

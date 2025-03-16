@@ -19,7 +19,7 @@ type GachaGroupExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GachaGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaGroupExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaGroup"))
 	}
 	GachaGroupExcelStart(b)
 	GachaGroupExcelAddGroupType(b, fbsutils.Convert(t.GroupType, t.FlatBuffer.TableKey))
@@ -39,7 +39,7 @@ func (t *GachaGroupExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GachaGroupExcelDto) UnmarshalMessage(e *GachaGroupExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaGroupExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaGroup"))
 	}
 	t.GroupType = GachaGroupType(int32(fbsutils.Convert(e.GroupType(), t.FlatBuffer.TableKey)))
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

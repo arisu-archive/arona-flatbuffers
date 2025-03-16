@@ -17,7 +17,7 @@ type MiniGameDefenseCharacterBanExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDefenseCharacterBanExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseCharacterBanExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseCharacterBan"))
 	}
 	MiniGameDefenseCharacterBanExcelStart(b)
 	MiniGameDefenseCharacterBanExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
@@ -35,7 +35,7 @@ func (t *MiniGameDefenseCharacterBanExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDefenseCharacterBanExcelDto) UnmarshalMessage(e *MiniGameDefenseCharacterBanExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseCharacterBanExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseCharacterBan"))
 	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)

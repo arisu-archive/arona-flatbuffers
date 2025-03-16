@@ -17,7 +17,7 @@ type MinigameTBGSeasonExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGSeasonExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGSeasonExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGSeasonTable"))
 	}
 	MinigameTBGSeasonExcelTableStart(b)
 	MinigameTBGSeasonExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *MinigameTBGSeasonExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGSeasonExcelTableDto) UnmarshalMessage(e *MinigameTBGSeasonExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGSeasonExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGSeasonTable"))
 	}
 	t.DataList = make([]MinigameTBGSeasonExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

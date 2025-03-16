@@ -20,7 +20,7 @@ type VoiceExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Voice"))
 	}
 	VoiceExcelStart(b)
 	VoiceExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -53,7 +53,7 @@ func (t *VoiceExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VoiceExcelDto) UnmarshalMessage(e *VoiceExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Voice"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Nation = make([]Nation, e.NationLength())

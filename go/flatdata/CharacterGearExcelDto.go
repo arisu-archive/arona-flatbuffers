@@ -30,7 +30,7 @@ type CharacterGearExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterGearExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterGearExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterGear"))
 	}
 	CharacterGearExcelStart(b)
 	CharacterGearExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
@@ -77,7 +77,7 @@ func (t *CharacterGearExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterGearExcelDto) UnmarshalMessage(e *CharacterGearExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterGearExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterGear"))
 	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)

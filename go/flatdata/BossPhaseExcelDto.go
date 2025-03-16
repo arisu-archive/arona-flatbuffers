@@ -19,7 +19,7 @@ type BossPhaseExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BossPhaseExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossPhaseExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossPhase"))
 	}
 	BossPhaseExcelStart(b)
 	BossPhaseExcelAddAiPhase(b, fbsutils.Convert(t.AiPhase, t.FlatBuffer.TableKey))
@@ -43,7 +43,7 @@ func (t *BossPhaseExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BossPhaseExcelDto) UnmarshalMessage(e *BossPhaseExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossPhaseExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossPhase"))
 	}
 	t.AiPhase = fbsutils.Convert(e.AiPhase(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

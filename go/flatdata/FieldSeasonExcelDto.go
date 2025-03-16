@@ -24,7 +24,7 @@ type FieldSeasonExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeasonExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeason"))
 	}
 	FieldSeasonExcelStart(b)
 	FieldSeasonExcelAddCharacterIconPath(b, fbsutils.Convert(b.CreateString(t.CharacterIconPath), t.FlatBuffer.TableKey))
@@ -49,7 +49,7 @@ func (t *FieldSeasonExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldSeasonExcelDto) UnmarshalMessage(e *FieldSeasonExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeasonExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeason"))
 	}
 	t.CharacterIconPath = fbsutils.Convert(string(e.CharacterIconPath()), t.FlatBuffer.TableKey)
 	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)

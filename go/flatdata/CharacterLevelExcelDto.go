@@ -18,7 +18,7 @@ type CharacterLevelExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterLevelExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterLevel"))
 	}
 	CharacterLevelExcelStart(b)
 	CharacterLevelExcelAddExp(b, fbsutils.Convert(t.Exp, t.FlatBuffer.TableKey))
@@ -37,7 +37,7 @@ func (t *CharacterLevelExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterLevelExcelDto) UnmarshalMessage(e *CharacterLevelExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterLevelExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterLevel"))
 	}
 	t.Exp = fbsutils.Convert(e.Exp(), t.FlatBuffer.TableKey)
 	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)

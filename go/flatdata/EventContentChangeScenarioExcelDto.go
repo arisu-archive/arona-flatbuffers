@@ -19,7 +19,7 @@ type EventContentChangeScenarioExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentChangeScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChangeScenarioExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChangeScenario"))
 	}
 	EventContentChangeScenarioExcelStart(b)
 	EventContentChangeScenarioExcelAddChangeCount(b, fbsutils.Convert(t.ChangeCount, t.FlatBuffer.TableKey))
@@ -39,7 +39,7 @@ func (t *EventContentChangeScenarioExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentChangeScenarioExcelDto) UnmarshalMessage(e *EventContentChangeScenarioExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChangeScenarioExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChangeScenario"))
 	}
 	t.ChangeCount = fbsutils.Convert(e.ChangeCount(), t.FlatBuffer.TableKey)
 	t.ChangeType = EventChangeType(int32(fbsutils.Convert(e.ChangeType(), t.FlatBuffer.TableKey)))

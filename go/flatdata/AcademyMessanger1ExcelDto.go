@@ -32,7 +32,7 @@ type AcademyMessanger1ExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AcademyMessanger1ExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyMessanger1Excel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyMessanger1"))
 	}
 	AcademyMessanger1ExcelStart(b)
 	AcademyMessanger1ExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
@@ -65,7 +65,7 @@ func (t *AcademyMessanger1ExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AcademyMessanger1ExcelDto) UnmarshalMessage(e *AcademyMessanger1Excel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyMessanger1Excel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyMessanger1"))
 	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.ConditionValue = fbsutils.Convert(e.ConditionValue(), t.FlatBuffer.TableKey)

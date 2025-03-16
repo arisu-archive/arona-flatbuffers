@@ -23,7 +23,7 @@ type BulletArmorDamageFactorExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BulletArmorDamageFactorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BulletArmorDamageFactorExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BulletArmorDamageFactor"))
 	}
 	BulletArmorDamageFactorExcelStart(b)
 	BulletArmorDamageFactorExcelAddArmorType(b, fbsutils.Convert(t.ArmorType, t.FlatBuffer.TableKey))
@@ -47,7 +47,7 @@ func (t *BulletArmorDamageFactorExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BulletArmorDamageFactorExcelDto) UnmarshalMessage(e *BulletArmorDamageFactorExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BulletArmorDamageFactorExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BulletArmorDamageFactor"))
 	}
 	t.ArmorType = ArmorType(int32(fbsutils.Convert(e.ArmorType(), t.FlatBuffer.TableKey)))
 	t.BulletType = BulletType(int32(fbsutils.Convert(e.BulletType(), t.FlatBuffer.TableKey)))

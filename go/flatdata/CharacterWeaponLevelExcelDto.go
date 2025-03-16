@@ -18,7 +18,7 @@ type CharacterWeaponLevelExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterWeaponLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeaponLevelExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeaponLevel"))
 	}
 	CharacterWeaponLevelExcelStart(b)
 	CharacterWeaponLevelExcelAddExp(b, fbsutils.Convert(t.Exp, t.FlatBuffer.TableKey))
@@ -37,7 +37,7 @@ func (t *CharacterWeaponLevelExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterWeaponLevelExcelDto) UnmarshalMessage(e *CharacterWeaponLevelExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeaponLevelExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeaponLevel"))
 	}
 	t.Exp = fbsutils.Convert(e.Exp(), t.FlatBuffer.TableKey)
 	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)

@@ -24,7 +24,7 @@ type FixedStrategyExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FixedStrategyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedStrategyExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedStrategy"))
 	}
 	FixedStrategyExcelStart(b)
 	FixedStrategyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -49,7 +49,7 @@ func (t *FixedStrategyExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FixedStrategyExcelDto) UnmarshalMessage(e *FixedStrategyExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedStrategyExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedStrategy"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.StageEnterEchelon01FixedEchelonId = fbsutils.Convert(e.StageEnterEchelon01FixedEchelonId(), t.FlatBuffer.TableKey)

@@ -23,7 +23,7 @@ type ConquestUnexpectedEventExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestUnexpectedEventExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestUnexpectedEventExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestUnexpectedEvent"))
 	}
 	ConquestUnexpectedEventExcelStart(b)
 	ConquestUnexpectedEventExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
@@ -55,7 +55,7 @@ func (t *ConquestUnexpectedEventExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestUnexpectedEventExcelDto) UnmarshalMessage(e *ConquestUnexpectedEventExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestUnexpectedEventExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestUnexpectedEvent"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.UnexpectedEventConditionAmount = fbsutils.Convert(e.UnexpectedEventConditionAmount(), t.FlatBuffer.TableKey)

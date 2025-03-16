@@ -17,7 +17,7 @@ type KatakanaConvertExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *KatakanaConvertExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KatakanaConvertExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KatakanaConvert"))
 	}
 	KatakanaConvertExcelStart(b)
 	KatakanaConvertExcelAddJp(b, fbsutils.Convert(b.CreateString(t.Jp), t.FlatBuffer.TableKey))
@@ -35,7 +35,7 @@ func (t *KatakanaConvertExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *KatakanaConvertExcelDto) UnmarshalMessage(e *KatakanaConvertExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KatakanaConvertExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KatakanaConvert"))
 	}
 	t.Jp = fbsutils.Convert(string(e.Jp()), t.FlatBuffer.TableKey)
 	t.Kr = fbsutils.Convert(string(e.Kr()), t.FlatBuffer.TableKey)

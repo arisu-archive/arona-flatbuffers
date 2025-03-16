@@ -79,7 +79,7 @@ type CharacterExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Character"))
 	}
 	CharacterExcelStart(b)
 	CharacterExcelAddAimIkType(b, fbsutils.Convert(t.AimIkType, t.FlatBuffer.TableKey))
@@ -167,7 +167,7 @@ func (t *CharacterExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterExcelDto) UnmarshalMessage(e *CharacterExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Character"))
 	}
 	t.AimIkType = AimIKType(int32(fbsutils.Convert(e.AimIkType(), t.FlatBuffer.TableKey)))
 	t.AirUnitHeight = fbsutils.Convert(e.AirUnitHeight(), t.FlatBuffer.TableKey)

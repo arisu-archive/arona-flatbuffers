@@ -23,7 +23,7 @@ type DefaultMailExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *DefaultMailExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultMailExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultMail"))
 	}
 	DefaultMailExcelStart(b)
 	DefaultMailExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -59,7 +59,7 @@ func (t *DefaultMailExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *DefaultMailExcelDto) UnmarshalMessage(e *DefaultMailExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultMailExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultMail"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LocalizeCodeId = fbsutils.Convert(e.LocalizeCodeId(), t.FlatBuffer.TableKey)

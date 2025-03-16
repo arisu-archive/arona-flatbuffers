@@ -23,7 +23,7 @@ type CombatEmojiExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CombatEmojiExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CombatEmojiExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CombatEmoji"))
 	}
 	CombatEmojiExcelStart(b)
 	CombatEmojiExcelAddEmojiDuration(b, fbsutils.Convert(t.EmojiDuration, t.FlatBuffer.TableKey))
@@ -47,7 +47,7 @@ func (t *CombatEmojiExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CombatEmojiExcelDto) UnmarshalMessage(e *CombatEmojiExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CombatEmojiExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CombatEmoji"))
 	}
 	t.EmojiDuration = fbsutils.Convert(e.EmojiDuration(), t.FlatBuffer.TableKey)
 	t.EmojiEvent = EmojiEvent(int32(fbsutils.Convert(e.EmojiEvent(), t.FlatBuffer.TableKey)))

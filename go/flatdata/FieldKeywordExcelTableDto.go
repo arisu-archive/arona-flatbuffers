@@ -17,7 +17,7 @@ type FieldKeywordExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldKeywordExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeywordExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeywordTable"))
 	}
 	FieldKeywordExcelTableStart(b)
 	FieldKeywordExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *FieldKeywordExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldKeywordExcelTableDto) UnmarshalMessage(e *FieldKeywordExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeywordExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeywordTable"))
 	}
 	t.DataList = make([]FieldKeywordExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

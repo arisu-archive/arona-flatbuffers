@@ -25,7 +25,7 @@ type EventContentZoneExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentZoneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentZoneExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentZone"))
 	}
 	EventContentZoneExcelStart(b)
 	EventContentZoneExcelAddEventPointForLocationRank(b, fbsutils.Convert(t.EventPointForLocationRank, t.FlatBuffer.TableKey))
@@ -63,7 +63,7 @@ func (t *EventContentZoneExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentZoneExcelDto) UnmarshalMessage(e *EventContentZoneExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentZoneExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentZone"))
 	}
 	t.EventPointForLocationRank = fbsutils.Convert(e.EventPointForLocationRank(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

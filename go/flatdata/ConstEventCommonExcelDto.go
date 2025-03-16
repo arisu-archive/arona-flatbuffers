@@ -28,7 +28,7 @@ type ConstEventCommonExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstEventCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstEventCommonExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstEventCommon"))
 	}
 	ConstEventCommonExcelStart(b)
 	ConstEventCommonExcelAddCardShopProbWeightCount(b, fbsutils.Convert(t.CardShopProbWeightCount, t.FlatBuffer.TableKey))
@@ -57,7 +57,7 @@ func (t *ConstEventCommonExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstEventCommonExcelDto) UnmarshalMessage(e *ConstEventCommonExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstEventCommonExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstEventCommon"))
 	}
 	t.CardShopProbWeightCount = fbsutils.Convert(e.CardShopProbWeightCount(), t.FlatBuffer.TableKey)
 	t.CardShopProbWeightRarity = Rarity(int32(fbsutils.Convert(e.CardShopProbWeightRarity(), t.FlatBuffer.TableKey)))

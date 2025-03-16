@@ -17,7 +17,7 @@ type OpenConditionExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *OpenConditionExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("OpenConditionExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("OpenConditionTable"))
 	}
 	OpenConditionExcelTableStart(b)
 	OpenConditionExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *OpenConditionExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *OpenConditionExcelTableDto) UnmarshalMessage(e *OpenConditionExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("OpenConditionExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("OpenConditionTable"))
 	}
 	t.DataList = make([]OpenConditionExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

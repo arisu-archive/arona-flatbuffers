@@ -17,7 +17,7 @@ type CharacterTranscendenceExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterTranscendenceExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterTranscendenceExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterTranscendenceTable"))
 	}
 	CharacterTranscendenceExcelTableStart(b)
 	CharacterTranscendenceExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *CharacterTranscendenceExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterTranscendenceExcelTableDto) UnmarshalMessage(e *CharacterTranscendenceExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterTranscendenceExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterTranscendenceTable"))
 	}
 	t.DataList = make([]CharacterTranscendenceExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

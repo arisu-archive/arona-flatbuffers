@@ -52,7 +52,7 @@ type EventContentSeasonExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSeasonExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSeason"))
 	}
 	EventContentSeasonExcelStart(b)
 	EventContentSeasonExcelAddBeforehandBgImagePath(b, fbsutils.Convert(b.CreateString(t.BeforehandBgImagePath), t.FlatBuffer.TableKey))
@@ -109,7 +109,7 @@ func (t *EventContentSeasonExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentSeasonExcelDto) UnmarshalMessage(e *EventContentSeasonExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSeasonExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSeason"))
 	}
 	t.BeforehandBgImagePath = fbsutils.Convert(string(e.BeforehandBgImagePath()), t.FlatBuffer.TableKey)
 	t.BeforehandExposedTime = fbsutils.Convert(string(e.BeforehandExposedTime()), t.FlatBuffer.TableKey)

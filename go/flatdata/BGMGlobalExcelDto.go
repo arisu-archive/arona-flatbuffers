@@ -21,7 +21,7 @@ type BGMGlobalExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BGMGlobalExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BGM_GlobalExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BGM_Global"))
 	}
 	BGM_GlobalExcelStart(b)
 	BGM_GlobalExcelAddBgmIdEn(b, fbsutils.Convert(t.BgmIdEn, t.FlatBuffer.TableKey))
@@ -43,7 +43,7 @@ func (t *BGMGlobalExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BGMGlobalExcelDto) UnmarshalMessage(e *BGM_GlobalExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BGM_GlobalExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BGM_Global"))
 	}
 	t.BgmIdEn = fbsutils.Convert(e.BgmIdEn(), t.FlatBuffer.TableKey)
 	t.BgmIdJp = fbsutils.Convert(e.BgmIdJp(), t.FlatBuffer.TableKey)

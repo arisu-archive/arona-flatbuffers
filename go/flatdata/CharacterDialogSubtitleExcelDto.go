@@ -26,7 +26,7 @@ type CharacterDialogSubtitleExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogSubtitleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogSubtitleExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogSubtitle"))
 	}
 	CharacterDialogSubtitleExcelStart(b)
 	CharacterDialogSubtitleExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
@@ -53,7 +53,7 @@ func (t *CharacterDialogSubtitleExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterDialogSubtitleExcelDto) UnmarshalMessage(e *CharacterDialogSubtitleExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogSubtitleExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogSubtitle"))
 	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)

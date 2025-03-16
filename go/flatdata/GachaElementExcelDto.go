@@ -24,7 +24,7 @@ type GachaElementExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GachaElementExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaElementExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaElement"))
 	}
 	GachaElementExcelStart(b)
 	GachaElementExcelAddGachaGroupId(b, fbsutils.Convert(t.GachaGroupId, t.FlatBuffer.TableKey))
@@ -49,7 +49,7 @@ func (t *GachaElementExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GachaElementExcelDto) UnmarshalMessage(e *GachaElementExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaElementExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaElement"))
 	}
 	t.GachaGroupId = fbsutils.Convert(e.GachaGroupId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

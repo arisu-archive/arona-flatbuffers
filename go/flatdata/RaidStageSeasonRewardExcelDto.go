@@ -20,7 +20,7 @@ type RaidStageSeasonRewardExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RaidStageSeasonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidStageSeasonRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidStageSeasonReward"))
 	}
 	RaidStageSeasonRewardExcelStart(b)
 	RaidStageSeasonRewardExcelStartSeasonRewardAmountVector(b, len(t.SeasonRewardAmount))
@@ -57,7 +57,7 @@ func (t *RaidStageSeasonRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RaidStageSeasonRewardExcelDto) UnmarshalMessage(e *RaidStageSeasonRewardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidStageSeasonRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidStageSeasonReward"))
 	}
 	t.SeasonRewardAmount = make([]int64, e.SeasonRewardAmountLength())
 	for i := range e.SeasonRewardAmountLength() {

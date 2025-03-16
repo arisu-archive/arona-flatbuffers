@@ -17,7 +17,7 @@ type CharacterCombatSkinExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterCombatSkinExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCombatSkinExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCombatSkinTable"))
 	}
 	CharacterCombatSkinExcelTableStart(b)
 	CharacterCombatSkinExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *CharacterCombatSkinExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterCombatSkinExcelTableDto) UnmarshalMessage(e *CharacterCombatSkinExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCombatSkinExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCombatSkinTable"))
 	}
 	t.DataList = make([]CharacterCombatSkinExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
