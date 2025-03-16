@@ -20,6 +20,9 @@ type AttendanceRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AttendanceRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AttendanceRewardExcel"))
+	}
 	AttendanceRewardExcelStart(b)
 	AttendanceRewardExcelAddAttendanceId(b, fbsutils.Convert(t.AttendanceId, t.FlatBuffer.TableKey))
 	AttendanceRewardExcelAddDay(b, fbsutils.Convert(t.Day, t.FlatBuffer.TableKey))
@@ -51,6 +54,9 @@ func (t *AttendanceRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AttendanceRewardExcelDto) UnmarshalMessage(e *AttendanceRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AttendanceRewardExcel"))
+	}
 	t.AttendanceId = fbsutils.Convert(e.AttendanceId(), t.FlatBuffer.TableKey)
 	t.Day = fbsutils.Convert(e.Day(), t.FlatBuffer.TableKey)
 	t.RewardAmount = make([]int64, e.RewardAmountLength())

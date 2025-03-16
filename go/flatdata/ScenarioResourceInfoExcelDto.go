@@ -24,6 +24,9 @@ type ScenarioResourceInfoExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioResourceInfoExcel"))
+	}
 	ScenarioResourceInfoExcelStart(b)
 	ScenarioResourceInfoExcelAddAudioName(b, fbsutils.Convert(b.CreateString(t.AudioName), t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
@@ -47,6 +50,9 @@ func (t *ScenarioResourceInfoExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioResourceInfoExcelDto) UnmarshalMessage(e *ScenarioResourceInfoExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioResourceInfoExcel"))
+	}
 	t.AudioName = fbsutils.Convert(string(e.AudioName()), t.FlatBuffer.TableKey)
 	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

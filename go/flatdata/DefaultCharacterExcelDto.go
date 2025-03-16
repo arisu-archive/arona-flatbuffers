@@ -26,6 +26,9 @@ type DefaultCharacterExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *DefaultCharacterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultCharacterExcel"))
+	}
 	DefaultCharacterExcelStart(b)
 	DefaultCharacterExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	DefaultCharacterExcelAddCommonSkillLevel(b, fbsutils.Convert(t.CommonSkillLevel, t.FlatBuffer.TableKey))
@@ -51,6 +54,9 @@ func (t *DefaultCharacterExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *DefaultCharacterExcelDto) UnmarshalMessage(e *DefaultCharacterExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultCharacterExcel"))
+	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.CommonSkillLevel = fbsutils.Convert(e.CommonSkillLevel(), t.FlatBuffer.TableKey)
 	t.Exp = fbsutils.Convert(e.Exp(), t.FlatBuffer.TableKey)

@@ -16,6 +16,9 @@ type ArenaLevelSectionExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaLevelSectionExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaLevelSectionExcelTable"))
+	}
 	ArenaLevelSectionExcelTableStart(b)
 	ArenaLevelSectionExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *ArenaLevelSectionExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaLevelSectionExcelTableDto) UnmarshalMessage(e *ArenaLevelSectionExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaLevelSectionExcelTable"))
+	}
 	t.DataList = make([]ArenaLevelSectionExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(ArenaLevelSectionExcel)

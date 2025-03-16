@@ -19,6 +19,9 @@ type WeekDungeonGroupBuffExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WeekDungeonGroupBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonGroupBuffExcel"))
+	}
 	WeekDungeonGroupBuffExcelStart(b)
 	WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(b, fbsutils.Convert(t.FormationLocalizeEtcId, t.FlatBuffer.TableKey))
 	WeekDungeonGroupBuffExcelAddRecommandLocalizeEtcId(b, fbsutils.Convert(t.RecommandLocalizeEtcId, t.FlatBuffer.TableKey))
@@ -37,6 +40,9 @@ func (t *WeekDungeonGroupBuffExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WeekDungeonGroupBuffExcelDto) UnmarshalMessage(e *WeekDungeonGroupBuffExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonGroupBuffExcel"))
+	}
 	t.FormationLocalizeEtcId = fbsutils.Convert(e.FormationLocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.RecommandLocalizeEtcId = fbsutils.Convert(e.RecommandLocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.School = School(int32(fbsutils.Convert(e.School(), t.FlatBuffer.TableKey)))

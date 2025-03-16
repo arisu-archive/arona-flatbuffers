@@ -16,6 +16,9 @@ type StrategyObjectBuffDefineExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StrategyObjectBuffDefineExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StrategyObjectBuffDefineExcelTable"))
+	}
 	StrategyObjectBuffDefineExcelTableStart(b)
 	StrategyObjectBuffDefineExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *StrategyObjectBuffDefineExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StrategyObjectBuffDefineExcelTableDto) UnmarshalMessage(e *StrategyObjectBuffDefineExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StrategyObjectBuffDefineExcelTable"))
+	}
 	t.DataList = make([]StrategyObjectBuffDefineExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(StrategyObjectBuffDefineExcel)

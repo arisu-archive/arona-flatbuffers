@@ -16,6 +16,9 @@ type AnimationBlendTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AnimationBlendTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AnimationBlendTable"))
+	}
 	AnimationBlendTableStart(b)
 	AnimationBlendTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *AnimationBlendTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AnimationBlendTableDto) UnmarshalMessage(e *AnimationBlendTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AnimationBlendTable"))
+	}
 	t.DataList = make([]BlendDataDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(BlendData)

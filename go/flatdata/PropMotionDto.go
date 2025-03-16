@@ -18,6 +18,9 @@ type PropMotionDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *PropMotionDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropMotion"))
+	}
 	PropMotionStart(b)
 	PropMotionAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
 	PropMotionStartPositionsVector(b, len(t.Positions))
@@ -44,6 +47,9 @@ func (t *PropMotionDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *PropMotionDto) UnmarshalMessage(e *PropMotion) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropMotion"))
+	}
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.Positions = make([]PropVector3Dto, e.PositionsLength())
 	for i := range e.PositionsLength() {

@@ -19,6 +19,9 @@ type InformationExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *InformationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("InformationExcel"))
+	}
 	InformationExcelStart(b)
 	InformationExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	InformationExcelAddLocalizeCodeId(b, fbsutils.Convert(b.CreateString(t.LocalizeCodeId), t.FlatBuffer.TableKey))
@@ -45,6 +48,9 @@ func (t *InformationExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *InformationExcelDto) UnmarshalMessage(e *InformationExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("InformationExcel"))
+	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.LocalizeCodeId = fbsutils.Convert(string(e.LocalizeCodeId()), t.FlatBuffer.TableKey)
 	t.PageName = fbsutils.Convert(string(e.PageName()), t.FlatBuffer.TableKey)

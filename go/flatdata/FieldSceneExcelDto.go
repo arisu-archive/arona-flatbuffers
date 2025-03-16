@@ -24,6 +24,9 @@ type FieldSceneExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldSceneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSceneExcel"))
+	}
 	FieldSceneExcelStart(b)
 	FieldSceneExcelAddArtLevelPath(b, fbsutils.Convert(b.CreateString(t.ArtLevelPath), t.FlatBuffer.TableKey))
 	FieldSceneExcelStartBeginConditionalBgmScenarioGroupIdVector(b, len(t.BeginConditionalBgmScenarioGroupId))
@@ -63,6 +66,9 @@ func (t *FieldSceneExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldSceneExcelDto) UnmarshalMessage(e *FieldSceneExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSceneExcel"))
+	}
 	t.ArtLevelPath = fbsutils.Convert(string(e.ArtLevelPath()), t.FlatBuffer.TableKey)
 	t.BeginConditionalBgmScenarioGroupId = make([]int64, e.BeginConditionalBgmScenarioGroupIdLength())
 	for i := range e.BeginConditionalBgmScenarioGroupIdLength() {

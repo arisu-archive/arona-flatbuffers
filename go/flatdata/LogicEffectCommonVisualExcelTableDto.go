@@ -16,6 +16,9 @@ type LogicEffectCommonVisualExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LogicEffectCommonVisualExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LogicEffectCommonVisualExcelTable"))
+	}
 	LogicEffectCommonVisualExcelTableStart(b)
 	LogicEffectCommonVisualExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *LogicEffectCommonVisualExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LogicEffectCommonVisualExcelTableDto) UnmarshalMessage(e *LogicEffectCommonVisualExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LogicEffectCommonVisualExcelTable"))
+	}
 	t.DataList = make([]LogicEffectCommonVisualExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(LogicEffectCommonVisualExcel)

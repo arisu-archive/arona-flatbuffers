@@ -15,6 +15,9 @@ type GroundNodeLayerFlatDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GroundNodeLayerFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundNodeLayerFlat"))
+	}
 	GroundNodeLayerFlatStart(b)
 	GroundNodeLayerFlatStartLayersVector(b, len(t.Layers))
 	for i := range len(t.Layers) {
@@ -33,6 +36,9 @@ func (t *GroundNodeLayerFlatDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GroundNodeLayerFlatDto) UnmarshalMessage(e *GroundNodeLayerFlat) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundNodeLayerFlat"))
+	}
 	t.Layers = make([]int8, e.LayersLength())
 	for i := range e.LayersLength() {
 		t.Layers[i] = e.Layers(i)

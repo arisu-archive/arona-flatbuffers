@@ -22,6 +22,9 @@ type SchoolDungeonRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SchoolDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SchoolDungeonRewardExcel"))
+	}
 	SchoolDungeonRewardExcelStart(b)
 	SchoolDungeonRewardExcelAddDungeonType(b, fbsutils.Convert(t.DungeonType, t.FlatBuffer.TableKey))
 	SchoolDungeonRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
@@ -43,6 +46,9 @@ func (t *SchoolDungeonRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *SchoolDungeonRewardExcelDto) UnmarshalMessage(e *SchoolDungeonRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SchoolDungeonRewardExcel"))
+	}
 	t.DungeonType = SchoolDungeonType(int32(fbsutils.Convert(e.DungeonType(), t.FlatBuffer.TableKey)))
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)

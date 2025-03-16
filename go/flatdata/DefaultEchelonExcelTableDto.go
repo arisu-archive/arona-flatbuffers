@@ -16,6 +16,9 @@ type DefaultEchelonExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *DefaultEchelonExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultEchelonExcelTable"))
+	}
 	DefaultEchelonExcelTableStart(b)
 	DefaultEchelonExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *DefaultEchelonExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *DefaultEchelonExcelTableDto) UnmarshalMessage(e *DefaultEchelonExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultEchelonExcelTable"))
+	}
 	t.DataList = make([]DefaultEchelonExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(DefaultEchelonExcel)

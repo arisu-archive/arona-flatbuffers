@@ -16,6 +16,9 @@ type BulletArmorDamageFactorExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BulletArmorDamageFactorExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BulletArmorDamageFactorExcelTable"))
+	}
 	BulletArmorDamageFactorExcelTableStart(b)
 	BulletArmorDamageFactorExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *BulletArmorDamageFactorExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BulletArmorDamageFactorExcelTableDto) UnmarshalMessage(e *BulletArmorDamageFactorExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BulletArmorDamageFactorExcelTable"))
+	}
 	t.DataList = make([]BulletArmorDamageFactorExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(BulletArmorDamageFactorExcel)

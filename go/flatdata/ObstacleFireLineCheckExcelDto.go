@@ -18,6 +18,9 @@ type ObstacleFireLineCheckExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ObstacleFireLineCheckExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ObstacleFireLineCheckExcel"))
+	}
 	ObstacleFireLineCheckExcelStart(b)
 	ObstacleFireLineCheckExcelAddAllyObstacleFireLineCheck(b, fbsutils.Convert(t.AllyObstacleFireLineCheck, t.FlatBuffer.TableKey))
 	ObstacleFireLineCheckExcelAddEmptyObstacleFireLineCheck(b, fbsutils.Convert(t.EmptyObstacleFireLineCheck, t.FlatBuffer.TableKey))
@@ -35,6 +38,9 @@ func (t *ObstacleFireLineCheckExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ObstacleFireLineCheckExcelDto) UnmarshalMessage(e *ObstacleFireLineCheckExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ObstacleFireLineCheckExcel"))
+	}
 	t.AllyObstacleFireLineCheck = fbsutils.Convert(e.AllyObstacleFireLineCheck(), t.FlatBuffer.TableKey)
 	t.EmptyObstacleFireLineCheck = fbsutils.Convert(e.EmptyObstacleFireLineCheck(), t.FlatBuffer.TableKey)
 	t.EnemyObstacleFireLineCheck = fbsutils.Convert(e.EnemyObstacleFireLineCheck(), t.FlatBuffer.TableKey)

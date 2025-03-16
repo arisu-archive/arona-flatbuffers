@@ -22,6 +22,9 @@ type TimeAttackDungeonRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TimeAttackDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonRewardExcel"))
+	}
 	TimeAttackDungeonRewardExcelStart(b)
 	TimeAttackDungeonRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	TimeAttackDungeonRewardExcelAddRewardMaxPoint(b, fbsutils.Convert(t.RewardMaxPoint, t.FlatBuffer.TableKey))
@@ -67,6 +70,9 @@ func (t *TimeAttackDungeonRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TimeAttackDungeonRewardExcelDto) UnmarshalMessage(e *TimeAttackDungeonRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonRewardExcel"))
+	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.RewardMaxPoint = fbsutils.Convert(e.RewardMaxPoint(), t.FlatBuffer.TableKey)
 	t.RewardMinPoint = make([]int64, e.RewardMinPointLength())

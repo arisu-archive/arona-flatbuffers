@@ -16,6 +16,9 @@ type PresetCharacterGroupSettingExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *PresetCharacterGroupSettingExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PresetCharacterGroupSettingExcelTable"))
+	}
 	PresetCharacterGroupSettingExcelTableStart(b)
 	PresetCharacterGroupSettingExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *PresetCharacterGroupSettingExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *PresetCharacterGroupSettingExcelTableDto) UnmarshalMessage(e *PresetCharacterGroupSettingExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PresetCharacterGroupSettingExcelTable"))
+	}
 	t.DataList = make([]PresetCharacterGroupSettingExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(PresetCharacterGroupSettingExcel)

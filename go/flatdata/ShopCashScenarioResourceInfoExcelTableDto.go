@@ -16,6 +16,9 @@ type ShopCashScenarioResourceInfoExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopCashScenarioResourceInfoExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopCashScenarioResourceInfoExcelTable"))
+	}
 	ShopCashScenarioResourceInfoExcelTableStart(b)
 	ShopCashScenarioResourceInfoExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *ShopCashScenarioResourceInfoExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShopCashScenarioResourceInfoExcelTableDto) UnmarshalMessage(e *ShopCashScenarioResourceInfoExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopCashScenarioResourceInfoExcelTable"))
+	}
 	t.DataList = make([]ShopCashScenarioResourceInfoExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(ShopCashScenarioResourceInfoExcel)

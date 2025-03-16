@@ -35,6 +35,9 @@ type ConstMinigameTBGExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstMinigameTBGExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMinigameTBGExcel"))
+	}
 	ConstMinigameTBGExcelStart(b)
 	ConstMinigameTBGExcelAddAniAllyBattleAttack(b, fbsutils.Convert(b.CreateString(t.AniAllyBattleAttack), t.FlatBuffer.TableKey))
 	ConstMinigameTBGExcelAddAniEnemyBattleAttack(b, fbsutils.Convert(b.CreateString(t.AniEnemyBattleAttack), t.FlatBuffer.TableKey))
@@ -69,6 +72,9 @@ func (t *ConstMinigameTBGExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstMinigameTBGExcelDto) UnmarshalMessage(e *ConstMinigameTBGExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMinigameTBGExcel"))
+	}
 	t.AniAllyBattleAttack = fbsutils.Convert(string(e.AniAllyBattleAttack()), t.FlatBuffer.TableKey)
 	t.AniEnemyBattleAttack = fbsutils.Convert(string(e.AniEnemyBattleAttack()), t.FlatBuffer.TableKey)
 	t.CameraAngle = fbsutils.Convert(e.CameraAngle(), t.FlatBuffer.TableKey)

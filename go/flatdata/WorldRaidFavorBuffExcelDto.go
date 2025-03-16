@@ -16,6 +16,9 @@ type WorldRaidFavorBuffExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WorldRaidFavorBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidFavorBuffExcel"))
+	}
 	WorldRaidFavorBuffExcelStart(b)
 	WorldRaidFavorBuffExcelAddWorldRaidFavorRank(b, fbsutils.Convert(t.WorldRaidFavorRank, t.FlatBuffer.TableKey))
 	WorldRaidFavorBuffExcelAddWorldRaidFavorRankBonus(b, fbsutils.Convert(t.WorldRaidFavorRankBonus, t.FlatBuffer.TableKey))
@@ -31,6 +34,9 @@ func (t *WorldRaidFavorBuffExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WorldRaidFavorBuffExcelDto) UnmarshalMessage(e *WorldRaidFavorBuffExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidFavorBuffExcel"))
+	}
 	t.WorldRaidFavorRank = fbsutils.Convert(e.WorldRaidFavorRank(), t.FlatBuffer.TableKey)
 	t.WorldRaidFavorRankBonus = fbsutils.Convert(e.WorldRaidFavorRankBonus(), t.FlatBuffer.TableKey)
 	return nil

@@ -21,6 +21,9 @@ type EventContentSpineDialogOffsetExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentSpineDialogOffsetExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpineDialogOffsetExcel"))
+	}
 	EventContentSpineDialogOffsetExcelStart(b)
 	EventContentSpineDialogOffsetExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
 	EventContentSpineDialogOffsetExcelAddDialogOffsetX(b, fbsutils.Convert(t.DialogOffsetX, t.FlatBuffer.TableKey))
@@ -41,6 +44,9 @@ func (t *EventContentSpineDialogOffsetExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentSpineDialogOffsetExcelDto) UnmarshalMessage(e *EventContentSpineDialogOffsetExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpineDialogOffsetExcel"))
+	}
 	t.CostumeUniqueId = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
 	t.DialogOffsetX = fbsutils.Convert(e.DialogOffsetX(), t.FlatBuffer.TableKey)
 	t.DialogOffsetY = fbsutils.Convert(e.DialogOffsetY(), t.FlatBuffer.TableKey)

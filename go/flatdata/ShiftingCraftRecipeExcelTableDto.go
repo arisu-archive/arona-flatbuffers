@@ -16,6 +16,9 @@ type ShiftingCraftRecipeExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShiftingCraftRecipeExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShiftingCraftRecipeExcelTable"))
+	}
 	ShiftingCraftRecipeExcelTableStart(b)
 	ShiftingCraftRecipeExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *ShiftingCraftRecipeExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShiftingCraftRecipeExcelTableDto) UnmarshalMessage(e *ShiftingCraftRecipeExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShiftingCraftRecipeExcelTable"))
+	}
 	t.DataList = make([]ShiftingCraftRecipeExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(ShiftingCraftRecipeExcel)

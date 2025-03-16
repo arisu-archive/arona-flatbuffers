@@ -16,6 +16,9 @@ type EventContentLocationRewardExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentLocationRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLocationRewardExcelTable"))
+	}
 	EventContentLocationRewardExcelTableStart(b)
 	EventContentLocationRewardExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *EventContentLocationRewardExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentLocationRewardExcelTableDto) UnmarshalMessage(e *EventContentLocationRewardExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLocationRewardExcelTable"))
+	}
 	t.DataList = make([]EventContentLocationRewardExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(EventContentLocationRewardExcel)

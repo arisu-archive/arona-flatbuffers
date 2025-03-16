@@ -25,6 +25,9 @@ type StickerGroupExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StickerGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StickerGroupExcel"))
+	}
 	StickerGroupExcelStart(b)
 	StickerGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	StickerGroupExcelAddLayout(b, fbsutils.Convert(b.CreateString(t.Layout), t.FlatBuffer.TableKey))
@@ -49,6 +52,9 @@ func (t *StickerGroupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StickerGroupExcelDto) UnmarshalMessage(e *StickerGroupExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StickerGroupExcel"))
+	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Layout = fbsutils.Convert(string(e.Layout()), t.FlatBuffer.TableKey)
 	t.LocalizeDescription = fbsutils.Convert(e.LocalizeDescription(), t.FlatBuffer.TableKey)

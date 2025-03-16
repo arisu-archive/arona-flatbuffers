@@ -21,6 +21,9 @@ type WebEventSeasonExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WebEventSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WebEventSeasonExcel"))
+	}
 	WebEventSeasonExcelStart(b)
 	WebEventSeasonExcelAddEnabled(b, fbsutils.Convert(t.Enabled, t.FlatBuffer.TableKey))
 	WebEventSeasonExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
@@ -41,6 +44,9 @@ func (t *WebEventSeasonExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WebEventSeasonExcelDto) UnmarshalMessage(e *WebEventSeasonExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WebEventSeasonExcel"))
+	}
 	t.Enabled = fbsutils.Convert(e.Enabled(), t.FlatBuffer.TableKey)
 	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
 	t.EventUrl = fbsutils.Convert(string(e.EventUrl()), t.FlatBuffer.TableKey)

@@ -22,6 +22,9 @@ type MinigameTBGDiceExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGDiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGDiceExcel"))
+	}
 	MinigameTBGDiceExcelStart(b)
 	MinigameTBGDiceExcelAddDiceGroup(b, fbsutils.Convert(t.DiceGroup, t.FlatBuffer.TableKey))
 	MinigameTBGDiceExcelAddDiceResult(b, fbsutils.Convert(t.DiceResult, t.FlatBuffer.TableKey))
@@ -55,6 +58,9 @@ func (t *MinigameTBGDiceExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGDiceExcelDto) UnmarshalMessage(e *MinigameTBGDiceExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGDiceExcel"))
+	}
 	t.DiceGroup = fbsutils.Convert(e.DiceGroup(), t.FlatBuffer.TableKey)
 	t.DiceResult = fbsutils.Convert(e.DiceResult(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)

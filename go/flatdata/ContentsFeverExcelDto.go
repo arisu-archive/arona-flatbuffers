@@ -19,6 +19,9 @@ type ContentsFeverExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ContentsFeverExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentsFeverExcel"))
+	}
 	ContentsFeverExcelStart(b)
 	ContentsFeverExcelAddConditionContent(b, fbsutils.Convert(t.ConditionContent, t.FlatBuffer.TableKey))
 	ContentsFeverExcelAddFeverDurationTime(b, fbsutils.Convert(t.FeverDurationTime, t.FlatBuffer.TableKey))
@@ -37,6 +40,9 @@ func (t *ContentsFeverExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ContentsFeverExcelDto) UnmarshalMessage(e *ContentsFeverExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentsFeverExcel"))
+	}
 	t.ConditionContent = FeverBattleType(int32(fbsutils.Convert(e.ConditionContent(), t.FlatBuffer.TableKey)))
 	t.FeverDurationTime = fbsutils.Convert(e.FeverDurationTime(), t.FlatBuffer.TableKey)
 	t.FeverStartTime = fbsutils.Convert(e.FeverStartTime(), t.FlatBuffer.TableKey)

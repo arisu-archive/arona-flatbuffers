@@ -17,6 +17,9 @@ type EmoticonSpecialExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EmoticonSpecialExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmoticonSpecialExcel"))
+	}
 	EmoticonSpecialExcelStart(b)
 	EmoticonSpecialExcelAddCharacterUniqueId(b, fbsutils.Convert(t.CharacterUniqueId, t.FlatBuffer.TableKey))
 	EmoticonSpecialExcelAddRandom(b, fbsutils.Convert(b.CreateString(t.Random), t.FlatBuffer.TableKey))
@@ -33,6 +36,9 @@ func (t *EmoticonSpecialExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EmoticonSpecialExcelDto) UnmarshalMessage(e *EmoticonSpecialExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmoticonSpecialExcel"))
+	}
 	t.CharacterUniqueId = fbsutils.Convert(e.CharacterUniqueId(), t.FlatBuffer.TableKey)
 	t.Random = fbsutils.Convert(string(e.Random()), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)

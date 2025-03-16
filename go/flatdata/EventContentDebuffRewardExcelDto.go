@@ -18,6 +18,9 @@ type EventContentDebuffRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentDebuffRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDebuffRewardExcel"))
+	}
 	EventContentDebuffRewardExcelStart(b)
 	EventContentDebuffRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentDebuffRewardExcelAddEventContentItemType(b, fbsutils.Convert(t.EventContentItemType, t.FlatBuffer.TableKey))
@@ -35,6 +38,9 @@ func (t *EventContentDebuffRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentDebuffRewardExcelDto) UnmarshalMessage(e *EventContentDebuffRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDebuffRewardExcel"))
+	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.EventContentItemType = EventContentItemType(int32(fbsutils.Convert(e.EventContentItemType(), t.FlatBuffer.TableKey)))
 	t.EventStageId = fbsutils.Convert(e.EventStageId(), t.FlatBuffer.TableKey)

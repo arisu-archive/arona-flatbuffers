@@ -16,6 +16,9 @@ type LocalizeGachaShopExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeGachaShopExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeGachaShopExcelTable"))
+	}
 	LocalizeGachaShopExcelTableStart(b)
 	LocalizeGachaShopExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *LocalizeGachaShopExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LocalizeGachaShopExcelTableDto) UnmarshalMessage(e *LocalizeGachaShopExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeGachaShopExcelTable"))
+	}
 	t.DataList = make([]LocalizeGachaShopExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(LocalizeGachaShopExcel)

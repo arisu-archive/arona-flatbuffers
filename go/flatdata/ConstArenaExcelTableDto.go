@@ -16,6 +16,9 @@ type ConstArenaExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstArenaExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstArenaExcelTable"))
+	}
 	ConstArenaExcelTableStart(b)
 	ConstArenaExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *ConstArenaExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstArenaExcelTableDto) UnmarshalMessage(e *ConstArenaExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstArenaExcelTable"))
+	}
 	t.DataList = make([]ConstArenaExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(ConstArenaExcel)

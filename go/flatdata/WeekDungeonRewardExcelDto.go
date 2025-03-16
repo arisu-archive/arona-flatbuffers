@@ -22,6 +22,9 @@ type WeekDungeonRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WeekDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonRewardExcel"))
+	}
 	WeekDungeonRewardExcelStart(b)
 	WeekDungeonRewardExcelAddDropItemModelPrefabPath(b, fbsutils.Convert(b.CreateString(t.DropItemModelPrefabPath), t.FlatBuffer.TableKey))
 	WeekDungeonRewardExcelAddDungeonType(b, fbsutils.Convert(t.DungeonType, t.FlatBuffer.TableKey))
@@ -43,6 +46,9 @@ func (t *WeekDungeonRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WeekDungeonRewardExcelDto) UnmarshalMessage(e *WeekDungeonRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonRewardExcel"))
+	}
 	t.DropItemModelPrefabPath = fbsutils.Convert(string(e.DropItemModelPrefabPath()), t.FlatBuffer.TableKey)
 	t.DungeonType = WeekDungeonType(int32(fbsutils.Convert(e.DungeonType(), t.FlatBuffer.TableKey)))
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)

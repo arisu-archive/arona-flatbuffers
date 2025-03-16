@@ -16,6 +16,9 @@ type RecipeSelectionAutoUseExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RecipeSelectionAutoUseExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeSelectionAutoUseExcelTable"))
+	}
 	RecipeSelectionAutoUseExcelTableStart(b)
 	RecipeSelectionAutoUseExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *RecipeSelectionAutoUseExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RecipeSelectionAutoUseExcelTableDto) UnmarshalMessage(e *RecipeSelectionAutoUseExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeSelectionAutoUseExcelTable"))
+	}
 	t.DataList = make([]RecipeSelectionAutoUseExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(RecipeSelectionAutoUseExcel)

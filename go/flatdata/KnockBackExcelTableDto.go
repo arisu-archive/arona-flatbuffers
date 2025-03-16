@@ -16,6 +16,9 @@ type KnockBackExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *KnockBackExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KnockBackExcelTable"))
+	}
 	KnockBackExcelTableStart(b)
 	KnockBackExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *KnockBackExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *KnockBackExcelTableDto) UnmarshalMessage(e *KnockBackExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KnockBackExcelTable"))
+	}
 	t.DataList = make([]KnockBackExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(KnockBackExcel)

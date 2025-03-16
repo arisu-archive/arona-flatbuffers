@@ -16,6 +16,9 @@ type FieldEvidenceExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldEvidenceExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldEvidenceExcelTable"))
+	}
 	FieldEvidenceExcelTableStart(b)
 	FieldEvidenceExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *FieldEvidenceExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldEvidenceExcelTableDto) UnmarshalMessage(e *FieldEvidenceExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldEvidenceExcelTable"))
+	}
 	t.DataList = make([]FieldEvidenceExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(FieldEvidenceExcel)

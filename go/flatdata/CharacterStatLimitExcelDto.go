@@ -21,6 +21,9 @@ type CharacterStatLimitExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterStatLimitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatLimitExcel"))
+	}
 	CharacterStatLimitExcelStart(b)
 	CharacterStatLimitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CharacterStatLimitExcelAddStatMaxValue(b, fbsutils.Convert(t.StatMaxValue, t.FlatBuffer.TableKey))
@@ -41,6 +44,9 @@ func (t *CharacterStatLimitExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterStatLimitExcelDto) UnmarshalMessage(e *CharacterStatLimitExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatLimitExcel"))
+	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.StatMaxValue = fbsutils.Convert(e.StatMaxValue(), t.FlatBuffer.TableKey)
 	t.StatMinValue = fbsutils.Convert(e.StatMinValue(), t.FlatBuffer.TableKey)

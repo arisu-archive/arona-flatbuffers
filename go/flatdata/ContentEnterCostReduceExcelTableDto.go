@@ -16,6 +16,9 @@ type ContentEnterCostReduceExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ContentEnterCostReduceExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentEnterCostReduceExcelTable"))
+	}
 	ContentEnterCostReduceExcelTableStart(b)
 	ContentEnterCostReduceExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *ContentEnterCostReduceExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ContentEnterCostReduceExcelTableDto) UnmarshalMessage(e *ContentEnterCostReduceExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentEnterCostReduceExcelTable"))
+	}
 	t.DataList = make([]ContentEnterCostReduceExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(ContentEnterCostReduceExcel)

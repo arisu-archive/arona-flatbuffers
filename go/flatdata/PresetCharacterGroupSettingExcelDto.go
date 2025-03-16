@@ -17,6 +17,9 @@ type PresetCharacterGroupSettingExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *PresetCharacterGroupSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PresetCharacterGroupSettingExcel"))
+	}
 	PresetCharacterGroupSettingExcelStart(b)
 	PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(b, fbsutils.Convert(t.ArenaSimulatorFixed, t.FlatBuffer.TableKey))
 	PresetCharacterGroupSettingExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
@@ -37,6 +40,9 @@ func (t *PresetCharacterGroupSettingExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *PresetCharacterGroupSettingExcelDto) UnmarshalMessage(e *PresetCharacterGroupSettingExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PresetCharacterGroupSettingExcel"))
+	}
 	t.ArenaSimulatorFixed = fbsutils.Convert(e.ArenaSimulatorFixed(), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.PresetType = make([]string, e.PresetTypeLength())

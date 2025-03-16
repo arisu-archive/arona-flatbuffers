@@ -16,6 +16,9 @@ type ConstMinigameTBGExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstMinigameTBGExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMinigameTBGExcelTable"))
+	}
 	ConstMinigameTBGExcelTableStart(b)
 	ConstMinigameTBGExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *ConstMinigameTBGExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstMinigameTBGExcelTableDto) UnmarshalMessage(e *ConstMinigameTBGExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMinigameTBGExcelTable"))
+	}
 	t.DataList = make([]ConstMinigameTBGExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(ConstMinigameTBGExcel)

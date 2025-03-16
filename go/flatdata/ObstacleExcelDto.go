@@ -30,6 +30,9 @@ type ObstacleExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ObstacleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ObstacleExcel"))
+	}
 	ObstacleExcelStart(b)
 	ObstacleExcelAddBlockRate(b, fbsutils.Convert(t.BlockRate, t.FlatBuffer.TableKey))
 	ObstacleExcelAddDestroyType(b, fbsutils.Convert(t.DestroyType, t.FlatBuffer.TableKey))
@@ -83,6 +86,9 @@ func (t *ObstacleExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ObstacleExcelDto) UnmarshalMessage(e *ObstacleExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ObstacleExcel"))
+	}
 	t.BlockRate = fbsutils.Convert(e.BlockRate(), t.FlatBuffer.TableKey)
 	t.DestroyType = ObstacleDestroyType(int32(fbsutils.Convert(e.DestroyType(), t.FlatBuffer.TableKey)))
 	t.EnemyPoint1Osset = make([]float32, e.EnemyPoint1OssetLength())

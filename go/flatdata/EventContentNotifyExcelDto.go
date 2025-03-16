@@ -21,6 +21,9 @@ type EventContentNotifyExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentNotifyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentNotifyExcel"))
+	}
 	EventContentNotifyExcelStart(b)
 	EventContentNotifyExcelAddEventNotifyType(b, fbsutils.Convert(t.EventNotifyType, t.FlatBuffer.TableKey))
 	EventContentNotifyExcelAddEventTargetType(b, fbsutils.Convert(t.EventTargetType, t.FlatBuffer.TableKey))
@@ -41,6 +44,9 @@ func (t *EventContentNotifyExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentNotifyExcelDto) UnmarshalMessage(e *EventContentNotifyExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentNotifyExcel"))
+	}
 	t.EventNotifyType = EventNotifyType(int32(fbsutils.Convert(e.EventNotifyType(), t.FlatBuffer.TableKey)))
 	t.EventTargetType = EventTargetType(int32(fbsutils.Convert(e.EventTargetType(), t.FlatBuffer.TableKey)))
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)

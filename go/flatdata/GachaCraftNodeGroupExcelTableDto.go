@@ -16,6 +16,9 @@ type GachaCraftNodeGroupExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GachaCraftNodeGroupExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaCraftNodeGroupExcelTable"))
+	}
 	GachaCraftNodeGroupExcelTableStart(b)
 	GachaCraftNodeGroupExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *GachaCraftNodeGroupExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GachaCraftNodeGroupExcelTableDto) UnmarshalMessage(e *GachaCraftNodeGroupExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaCraftNodeGroupExcelTable"))
+	}
 	t.DataList = make([]GachaCraftNodeGroupExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(GachaCraftNodeGroupExcel)

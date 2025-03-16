@@ -25,6 +25,9 @@ type MiniGameAudioAnimatorExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameAudioAnimatorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameAudioAnimatorExcel"))
+	}
 	MiniGameAudioAnimatorExcelStart(b)
 	MiniGameAudioAnimatorExcelStartAudioClipPathVector(b, len(t.AudioClipPath))
 	for i := range len(t.AudioClipPath) {
@@ -57,6 +60,9 @@ func (t *MiniGameAudioAnimatorExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameAudioAnimatorExcelDto) UnmarshalMessage(e *MiniGameAudioAnimatorExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameAudioAnimatorExcel"))
+	}
 	t.AudioClipPath = make([]string, e.AudioClipPathLength())
 	for i := range e.AudioClipPathLength() {
 		t.AudioClipPath[i] = string(e.AudioClipPath(i))

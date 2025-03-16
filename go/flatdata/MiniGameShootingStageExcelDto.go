@@ -25,6 +25,9 @@ type MiniGameShootingStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameShootingStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingStageExcel"))
+	}
 	MiniGameShootingStageExcelStart(b)
 	MiniGameShootingStageExcelAddArtLevel(b, fbsutils.Convert(b.CreateString(t.ArtLevel), t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelStartBgmIdVector(b, len(t.BgmId))
@@ -53,6 +56,9 @@ func (t *MiniGameShootingStageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameShootingStageExcelDto) UnmarshalMessage(e *MiniGameShootingStageExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingStageExcel"))
+	}
 	t.ArtLevel = fbsutils.Convert(string(e.ArtLevel()), t.FlatBuffer.TableKey)
 	t.BgmId = make([]int64, e.BgmIdLength())
 	for i := range e.BgmIdLength() {

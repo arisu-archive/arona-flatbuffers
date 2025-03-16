@@ -22,6 +22,9 @@ type MiniGameShootingGeasExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameShootingGeasExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingGeasExcel"))
+	}
 	MiniGameShootingGeasExcelStart(b)
 	MiniGameShootingGeasExcelAddGeasData(b, fbsutils.Convert(b.CreateString(t.GeasData), t.FlatBuffer.TableKey))
 	MiniGameShootingGeasExcelAddGeasType(b, fbsutils.Convert(t.GeasType, t.FlatBuffer.TableKey))
@@ -43,6 +46,9 @@ func (t *MiniGameShootingGeasExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameShootingGeasExcelDto) UnmarshalMessage(e *MiniGameShootingGeasExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingGeasExcel"))
+	}
 	t.GeasData = fbsutils.Convert(string(e.GeasData()), t.FlatBuffer.TableKey)
 	t.GeasType = Geas(int32(fbsutils.Convert(e.GeasType(), t.FlatBuffer.TableKey)))
 	t.HideInPausePopup = fbsutils.Convert(e.HideInPausePopup(), t.FlatBuffer.TableKey)

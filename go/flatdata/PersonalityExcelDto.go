@@ -16,6 +16,9 @@ type PersonalityExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *PersonalityExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PersonalityExcel"))
+	}
 	PersonalityExcelStart(b)
 	PersonalityExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	PersonalityExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
@@ -31,6 +34,9 @@ func (t *PersonalityExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *PersonalityExcelDto) UnmarshalMessage(e *PersonalityExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PersonalityExcel"))
+	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	return nil

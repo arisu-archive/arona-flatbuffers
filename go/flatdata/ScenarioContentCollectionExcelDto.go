@@ -27,6 +27,9 @@ type ScenarioContentCollectionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioContentCollectionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioContentCollectionExcel"))
+	}
 	ScenarioContentCollectionExcelStart(b)
 	ScenarioContentCollectionExcelAddEmblemResource(b, fbsutils.Convert(b.CreateString(t.EmblemResource), t.FlatBuffer.TableKey))
 	ScenarioContentCollectionExcelAddFullResource(b, fbsutils.Convert(b.CreateString(t.FullResource), t.FlatBuffer.TableKey))
@@ -57,6 +60,9 @@ func (t *ScenarioContentCollectionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioContentCollectionExcelDto) UnmarshalMessage(e *ScenarioContentCollectionExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioContentCollectionExcel"))
+	}
 	t.EmblemResource = fbsutils.Convert(string(e.EmblemResource()), t.FlatBuffer.TableKey)
 	t.FullResource = fbsutils.Convert(string(e.FullResource()), t.FlatBuffer.TableKey)
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)

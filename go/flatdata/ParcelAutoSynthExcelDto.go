@@ -23,6 +23,9 @@ type ParcelAutoSynthExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ParcelAutoSynthExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ParcelAutoSynthExcel"))
+	}
 	ParcelAutoSynthExcelStart(b)
 	ParcelAutoSynthExcelAddRequireParcelAmount(b, fbsutils.Convert(t.RequireParcelAmount, t.FlatBuffer.TableKey))
 	ParcelAutoSynthExcelAddRequireParcelId(b, fbsutils.Convert(t.RequireParcelId, t.FlatBuffer.TableKey))
@@ -45,6 +48,9 @@ func (t *ParcelAutoSynthExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ParcelAutoSynthExcelDto) UnmarshalMessage(e *ParcelAutoSynthExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ParcelAutoSynthExcel"))
+	}
 	t.RequireParcelAmount = fbsutils.Convert(e.RequireParcelAmount(), t.FlatBuffer.TableKey)
 	t.RequireParcelId = fbsutils.Convert(e.RequireParcelId(), t.FlatBuffer.TableKey)
 	t.RequireParcelType = ParcelType(int32(fbsutils.Convert(e.RequireParcelType(), t.FlatBuffer.TableKey)))

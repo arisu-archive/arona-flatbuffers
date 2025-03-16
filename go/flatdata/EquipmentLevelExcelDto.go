@@ -17,6 +17,9 @@ type EquipmentLevelExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EquipmentLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EquipmentLevelExcel"))
+	}
 	EquipmentLevelExcelStart(b)
 	EquipmentLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	EquipmentLevelExcelStartTierLevelExpVector(b, len(t.TierLevelExp))
@@ -41,6 +44,9 @@ func (t *EquipmentLevelExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EquipmentLevelExcelDto) UnmarshalMessage(e *EquipmentLevelExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EquipmentLevelExcel"))
+	}
 	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.TierLevelExp = make([]int64, e.TierLevelExpLength())
 	for i := range e.TierLevelExpLength() {

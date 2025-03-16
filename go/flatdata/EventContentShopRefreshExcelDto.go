@@ -24,6 +24,9 @@ type EventContentShopRefreshExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentShopRefreshExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShopRefreshExcel"))
+	}
 	EventContentShopRefreshExcelStart(b)
 	EventContentShopRefreshExcelAddBuyReportEventName(b, fbsutils.Convert(b.CreateString(t.BuyReportEventName), t.FlatBuffer.TableKey))
 	EventContentShopRefreshExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
@@ -47,6 +50,9 @@ func (t *EventContentShopRefreshExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentShopRefreshExcelDto) UnmarshalMessage(e *EventContentShopRefreshExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShopRefreshExcel"))
+	}
 	t.BuyReportEventName = fbsutils.Convert(string(e.BuyReportEventName()), t.FlatBuffer.TableKey)
 	t.CategoryType = ShopCategoryType(int32(fbsutils.Convert(e.CategoryType(), t.FlatBuffer.TableKey)))
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)

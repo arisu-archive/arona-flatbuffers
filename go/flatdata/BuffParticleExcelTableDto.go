@@ -16,6 +16,9 @@ type BuffParticleExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BuffParticleExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BuffParticleExcelTable"))
+	}
 	BuffParticleExcelTableStart(b)
 	BuffParticleExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *BuffParticleExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BuffParticleExcelTableDto) UnmarshalMessage(e *BuffParticleExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BuffParticleExcelTable"))
+	}
 	t.DataList = make([]BuffParticleExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(BuffParticleExcel)

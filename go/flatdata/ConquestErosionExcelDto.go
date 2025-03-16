@@ -28,6 +28,9 @@ type ConquestErosionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestErosionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestErosionExcel"))
+	}
 	ConquestErosionExcelStart(b)
 	ConquestErosionExcelAddConquestRewardId(b, fbsutils.Convert(t.ConquestRewardId, t.FlatBuffer.TableKey))
 	ConquestErosionExcelAddErosionBattleConditionParcelAmount(b, fbsutils.Convert(t.ErosionBattleConditionParcelAmount, t.FlatBuffer.TableKey))
@@ -71,6 +74,9 @@ func (t *ConquestErosionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestErosionExcelDto) UnmarshalMessage(e *ConquestErosionExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestErosionExcel"))
+	}
 	t.ConquestRewardId = fbsutils.Convert(e.ConquestRewardId(), t.FlatBuffer.TableKey)
 	t.ErosionBattleConditionParcelAmount = fbsutils.Convert(e.ErosionBattleConditionParcelAmount(), t.FlatBuffer.TableKey)
 	t.ErosionBattleConditionParcelType = ParcelType(int32(fbsutils.Convert(e.ErosionBattleConditionParcelType(), t.FlatBuffer.TableKey)))

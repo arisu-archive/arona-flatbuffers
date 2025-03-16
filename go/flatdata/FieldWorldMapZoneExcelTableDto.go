@@ -16,6 +16,9 @@ type FieldWorldMapZoneExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldWorldMapZoneExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldWorldMapZoneExcelTable"))
+	}
 	FieldWorldMapZoneExcelTableStart(b)
 	FieldWorldMapZoneExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *FieldWorldMapZoneExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldWorldMapZoneExcelTableDto) UnmarshalMessage(e *FieldWorldMapZoneExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldWorldMapZoneExcelTable"))
+	}
 	t.DataList = make([]FieldWorldMapZoneExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(FieldWorldMapZoneExcel)

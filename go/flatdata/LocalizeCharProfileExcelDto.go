@@ -110,6 +110,9 @@ type LocalizeCharProfileExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeCharProfileExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCharProfileExcel"))
+	}
 	LocalizeCharProfileExcelStart(b)
 	LocalizeCharProfileExcelAddBirthDay(b, fbsutils.Convert(b.CreateString(t.BirthDay), t.FlatBuffer.TableKey))
 	LocalizeCharProfileExcelAddBirthdayEn(b, fbsutils.Convert(b.CreateString(t.BirthdayEn), t.FlatBuffer.TableKey))
@@ -219,6 +222,9 @@ func (t *LocalizeCharProfileExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LocalizeCharProfileExcelDto) UnmarshalMessage(e *LocalizeCharProfileExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCharProfileExcel"))
+	}
 	t.BirthDay = fbsutils.Convert(string(e.BirthDay()), t.FlatBuffer.TableKey)
 	t.BirthdayEn = fbsutils.Convert(string(e.BirthdayEn()), t.FlatBuffer.TableKey)
 	t.BirthdayJp = fbsutils.Convert(string(e.BirthdayJp()), t.FlatBuffer.TableKey)

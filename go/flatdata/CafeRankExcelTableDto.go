@@ -16,6 +16,9 @@ type CafeRankExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CafeRankExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeRankExcelTable"))
+	}
 	CafeRankExcelTableStart(b)
 	CafeRankExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *CafeRankExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CafeRankExcelTableDto) UnmarshalMessage(e *CafeRankExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeRankExcelTable"))
+	}
 	t.DataList = make([]CafeRankExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(CafeRankExcel)

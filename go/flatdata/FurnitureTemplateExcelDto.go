@@ -18,6 +18,9 @@ type FurnitureTemplateExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FurnitureTemplateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FurnitureTemplateExcel"))
+	}
 	FurnitureTemplateExcelStart(b)
 	FurnitureTemplateExcelAddFunitureTemplateTitle(b, fbsutils.Convert(t.FunitureTemplateTitle, t.FlatBuffer.TableKey))
 	FurnitureTemplateExcelAddFurnitureTemplateId(b, fbsutils.Convert(t.FurnitureTemplateId, t.FlatBuffer.TableKey))
@@ -35,6 +38,9 @@ func (t *FurnitureTemplateExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FurnitureTemplateExcelDto) UnmarshalMessage(e *FurnitureTemplateExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FurnitureTemplateExcel"))
+	}
 	t.FunitureTemplateTitle = fbsutils.Convert(e.FunitureTemplateTitle(), t.FlatBuffer.TableKey)
 	t.FurnitureTemplateId = fbsutils.Convert(e.FurnitureTemplateId(), t.FlatBuffer.TableKey)
 	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)

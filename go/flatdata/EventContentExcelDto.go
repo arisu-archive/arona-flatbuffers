@@ -18,6 +18,9 @@ type EventContentExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentExcel"))
+	}
 	EventContentExcelStart(b)
 	EventContentExcelAddBgImagePath(b, fbsutils.Convert(b.CreateString(t.BgImagePath), t.FlatBuffer.TableKey))
 	EventContentExcelAddDevName(b, fbsutils.Convert(b.CreateString(t.DevName), t.FlatBuffer.TableKey))
@@ -35,6 +38,9 @@ func (t *EventContentExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentExcelDto) UnmarshalMessage(e *EventContentExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentExcel"))
+	}
 	t.BgImagePath = fbsutils.Convert(string(e.BgImagePath()), t.FlatBuffer.TableKey)
 	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)

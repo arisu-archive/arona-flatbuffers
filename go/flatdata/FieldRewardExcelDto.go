@@ -19,6 +19,9 @@ type FieldRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldRewardExcel"))
+	}
 	FieldRewardExcelStart(b)
 	FieldRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	FieldRewardExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
@@ -37,6 +40,9 @@ func (t *FieldRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldRewardExcelDto) UnmarshalMessage(e *FieldRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldRewardExcel"))
+	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
 	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)

@@ -16,6 +16,9 @@ type StringTestExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StringTestExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StringTestExcelTable"))
+	}
 	StringTestExcelTableStart(b)
 	StringTestExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *StringTestExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StringTestExcelTableDto) UnmarshalMessage(e *StringTestExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StringTestExcelTable"))
+	}
 	t.DataList = make([]StringTestExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(StringTestExcel)

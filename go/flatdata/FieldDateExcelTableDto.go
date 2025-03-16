@@ -16,6 +16,9 @@ type FieldDateExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldDateExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldDateExcelTable"))
+	}
 	FieldDateExcelTableStart(b)
 	FieldDateExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *FieldDateExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldDateExcelTableDto) UnmarshalMessage(e *FieldDateExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldDateExcelTable"))
+	}
 	t.DataList = make([]FieldDateExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(FieldDateExcel)

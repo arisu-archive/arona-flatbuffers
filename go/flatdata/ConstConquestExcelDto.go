@@ -20,6 +20,9 @@ type ConstConquestExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstConquestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstConquestExcel"))
+	}
 	ConstConquestExcelStart(b)
 	ConstConquestExcelAddAnimationUnitAmountMax(b, fbsutils.Convert(t.AnimationUnitAmountMax, t.FlatBuffer.TableKey))
 	ConstConquestExcelAddAnimationUnitAmountMin(b, fbsutils.Convert(t.AnimationUnitAmountMin, t.FlatBuffer.TableKey))
@@ -39,6 +42,9 @@ func (t *ConstConquestExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstConquestExcelDto) UnmarshalMessage(e *ConstConquestExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstConquestExcel"))
+	}
 	t.AnimationUnitAmountMax = fbsutils.Convert(e.AnimationUnitAmountMax(), t.FlatBuffer.TableKey)
 	t.AnimationUnitAmountMin = fbsutils.Convert(e.AnimationUnitAmountMin(), t.FlatBuffer.TableKey)
 	t.AnimationUnitDelay = fbsutils.Convert(e.AnimationUnitDelay(), t.FlatBuffer.TableKey)

@@ -16,6 +16,9 @@ type WeekDungeonGroupBuffExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WeekDungeonGroupBuffExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonGroupBuffExcelTable"))
+	}
 	WeekDungeonGroupBuffExcelTableStart(b)
 	WeekDungeonGroupBuffExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *WeekDungeonGroupBuffExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WeekDungeonGroupBuffExcelTableDto) UnmarshalMessage(e *WeekDungeonGroupBuffExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonGroupBuffExcelTable"))
+	}
 	t.DataList = make([]WeekDungeonGroupBuffExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(WeekDungeonGroupBuffExcel)

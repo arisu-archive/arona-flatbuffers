@@ -21,6 +21,9 @@ type FavorLevelRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FavorLevelRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FavorLevelRewardExcel"))
+	}
 	FavorLevelRewardExcelStart(b)
 	FavorLevelRewardExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	FavorLevelRewardExcelAddFavorLevel(b, fbsutils.Convert(t.FavorLevel, t.FlatBuffer.TableKey))
@@ -61,6 +64,9 @@ func (t *FavorLevelRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FavorLevelRewardExcelDto) UnmarshalMessage(e *FavorLevelRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FavorLevelRewardExcel"))
+	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.FavorLevel = fbsutils.Convert(e.FavorLevel(), t.FlatBuffer.TableKey)
 	t.RewardAmount = make([]int64, e.RewardAmountLength())

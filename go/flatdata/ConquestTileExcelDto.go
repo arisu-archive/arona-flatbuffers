@@ -39,6 +39,9 @@ type ConquestTileExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestTileExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestTileExcel"))
+	}
 	ConquestTileExcelStart(b)
 	ConquestTileExcelAddConquestCostAmount(b, fbsutils.Convert(t.ConquestCostAmount, t.FlatBuffer.TableKey))
 	ConquestTileExcelAddConquestCostId(b, fbsutils.Convert(t.ConquestCostId, t.FlatBuffer.TableKey))
@@ -77,6 +80,9 @@ func (t *ConquestTileExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestTileExcelDto) UnmarshalMessage(e *ConquestTileExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestTileExcel"))
+	}
 	t.ConquestCostAmount = fbsutils.Convert(e.ConquestCostAmount(), t.FlatBuffer.TableKey)
 	t.ConquestCostId = fbsutils.Convert(e.ConquestCostId(), t.FlatBuffer.TableKey)
 	t.ConquestCostType = ParcelType(int32(fbsutils.Convert(e.ConquestCostType(), t.FlatBuffer.TableKey)))

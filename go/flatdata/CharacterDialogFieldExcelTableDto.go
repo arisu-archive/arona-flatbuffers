@@ -16,6 +16,9 @@ type CharacterDialogFieldExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogFieldExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogFieldExcelTable"))
+	}
 	CharacterDialogFieldExcelTableStart(b)
 	CharacterDialogFieldExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *CharacterDialogFieldExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterDialogFieldExcelTableDto) UnmarshalMessage(e *CharacterDialogFieldExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogFieldExcelTable"))
+	}
 	t.DataList = make([]CharacterDialogFieldExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(CharacterDialogFieldExcel)

@@ -16,6 +16,9 @@ type TacticalSupportSystemExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TacticalSupportSystemExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticalSupportSystemExcelTable"))
+	}
 	TacticalSupportSystemExcelTableStart(b)
 	TacticalSupportSystemExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *TacticalSupportSystemExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TacticalSupportSystemExcelTableDto) UnmarshalMessage(e *TacticalSupportSystemExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticalSupportSystemExcelTable"))
+	}
 	t.DataList = make([]TacticalSupportSystemExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(TacticalSupportSystemExcel)

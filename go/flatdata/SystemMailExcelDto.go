@@ -18,6 +18,9 @@ type SystemMailExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SystemMailExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SystemMailExcel"))
+	}
 	SystemMailExcelStart(b)
 	SystemMailExcelAddComment(b, fbsutils.Convert(b.CreateString(t.Comment), t.FlatBuffer.TableKey))
 	SystemMailExcelAddExpiredDay(b, fbsutils.Convert(t.ExpiredDay, t.FlatBuffer.TableKey))
@@ -35,6 +38,9 @@ func (t *SystemMailExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *SystemMailExcelDto) UnmarshalMessage(e *SystemMailExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SystemMailExcel"))
+	}
 	t.Comment = fbsutils.Convert(string(e.Comment()), t.FlatBuffer.TableKey)
 	t.ExpiredDay = fbsutils.Convert(e.ExpiredDay(), t.FlatBuffer.TableKey)
 	t.MailType = MailType(int32(fbsutils.Convert(e.MailType(), t.FlatBuffer.TableKey)))

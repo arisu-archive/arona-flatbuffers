@@ -27,6 +27,9 @@ type MiniGameDreamInfoExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamInfoExcel"))
+	}
 	MiniGameDreamInfoExcelStart(b)
 	MiniGameDreamInfoExcelAddDreamMakerActionPoint(b, fbsutils.Convert(t.DreamMakerActionPoint, t.FlatBuffer.TableKey))
 	MiniGameDreamInfoExcelAddDreamMakerDailyPointId(b, fbsutils.Convert(t.DreamMakerDailyPointId, t.FlatBuffer.TableKey))
@@ -53,6 +56,9 @@ func (t *MiniGameDreamInfoExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamInfoExcelDto) UnmarshalMessage(e *MiniGameDreamInfoExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamInfoExcel"))
+	}
 	t.DreamMakerActionPoint = fbsutils.Convert(e.DreamMakerActionPoint(), t.FlatBuffer.TableKey)
 	t.DreamMakerDailyPointId = fbsutils.Convert(e.DreamMakerDailyPointId(), t.FlatBuffer.TableKey)
 	t.DreamMakerDailyPointParcelType = ParcelType(int32(fbsutils.Convert(e.DreamMakerDailyPointParcelType(), t.FlatBuffer.TableKey)))

@@ -18,6 +18,9 @@ type CharacterPotentialStatExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterPotentialStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterPotentialStatExcel"))
+	}
 	CharacterPotentialStatExcelStart(b)
 	CharacterPotentialStatExcelAddPotentialLevel(b, fbsutils.Convert(t.PotentialLevel, t.FlatBuffer.TableKey))
 	CharacterPotentialStatExcelAddPotentialStatGroupId(b, fbsutils.Convert(t.PotentialStatGroupId, t.FlatBuffer.TableKey))
@@ -35,6 +38,9 @@ func (t *CharacterPotentialStatExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterPotentialStatExcelDto) UnmarshalMessage(e *CharacterPotentialStatExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterPotentialStatExcel"))
+	}
 	t.PotentialLevel = fbsutils.Convert(e.PotentialLevel(), t.FlatBuffer.TableKey)
 	t.PotentialStatGroupId = fbsutils.Convert(e.PotentialStatGroupId(), t.FlatBuffer.TableKey)
 	t.RecipeId = fbsutils.Convert(e.RecipeId(), t.FlatBuffer.TableKey)

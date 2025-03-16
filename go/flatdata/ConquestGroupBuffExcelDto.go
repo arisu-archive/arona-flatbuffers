@@ -18,6 +18,9 @@ type ConquestGroupBuffExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestGroupBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestGroupBuffExcel"))
+	}
 	ConquestGroupBuffExcelStart(b)
 	ConquestGroupBuffExcelAddConquestBuffId(b, fbsutils.Convert(t.ConquestBuffId, t.FlatBuffer.TableKey))
 	ConquestGroupBuffExcelAddRecommandLocalizeEtcId(b, fbsutils.Convert(t.RecommandLocalizeEtcId, t.FlatBuffer.TableKey))
@@ -39,6 +42,9 @@ func (t *ConquestGroupBuffExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestGroupBuffExcelDto) UnmarshalMessage(e *ConquestGroupBuffExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestGroupBuffExcel"))
+	}
 	t.ConquestBuffId = fbsutils.Convert(e.ConquestBuffId(), t.FlatBuffer.TableKey)
 	t.RecommandLocalizeEtcId = fbsutils.Convert(e.RecommandLocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.School = make([]School, e.SchoolLength())

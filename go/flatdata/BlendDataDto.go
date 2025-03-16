@@ -17,6 +17,9 @@ type BlendDataDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BlendDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BlendData"))
+	}
 	BlendDataStart(b)
 	BlendDataStartInfoListVector(b, len(t.InfoList))
 	for i := range len(t.InfoList) {
@@ -37,6 +40,9 @@ func (t *BlendDataDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BlendDataDto) UnmarshalMessage(e *BlendData) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BlendData"))
+	}
 	t.InfoList = make([]BlendInfoDto, e.InfoListLength())
 	for i := range e.InfoListLength() {
 		d := new(BlendInfo)

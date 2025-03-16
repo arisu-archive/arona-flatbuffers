@@ -18,6 +18,9 @@ type RecipeSelectionAutoUseExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RecipeSelectionAutoUseExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeSelectionAutoUseExcel"))
+	}
 	RecipeSelectionAutoUseExcelStart(b)
 	RecipeSelectionAutoUseExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	RecipeSelectionAutoUseExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
@@ -39,6 +42,9 @@ func (t *RecipeSelectionAutoUseExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RecipeSelectionAutoUseExcelDto) UnmarshalMessage(e *RecipeSelectionAutoUseExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeSelectionAutoUseExcel"))
+	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ParcelType = ParcelType(int32(fbsutils.Convert(e.ParcelType(), t.FlatBuffer.TableKey)))
 	t.Priority = make([]int64, e.PriorityLength())

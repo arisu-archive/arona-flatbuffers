@@ -27,6 +27,9 @@ type AniStateDataDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AniStateDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniStateData"))
+	}
 	AniStateDataStart(b)
 	AniStateDataAddClipName(b, fbsutils.Convert(b.CreateString(t.ClipName), t.FlatBuffer.TableKey))
 	AniStateDataStartEventsVector(b, len(t.Events))
@@ -57,6 +60,9 @@ func (t *AniStateDataDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AniStateDataDto) UnmarshalMessage(e *AniStateData) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniStateData"))
+	}
 	t.ClipName = fbsutils.Convert(string(e.ClipName()), t.FlatBuffer.TableKey)
 	t.Events = make([]AniEventDataDto, e.EventsLength())
 	for i := range e.EventsLength() {

@@ -19,6 +19,9 @@ type DefaultEchelonExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *DefaultEchelonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultEchelonExcel"))
+	}
 	DefaultEchelonExcelStart(b)
 	DefaultEchelonExcelAddEchlonId(b, fbsutils.Convert(t.EchlonId, t.FlatBuffer.TableKey))
 	DefaultEchelonExcelAddLeaderId(b, fbsutils.Convert(t.LeaderId, t.FlatBuffer.TableKey))
@@ -45,6 +48,9 @@ func (t *DefaultEchelonExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *DefaultEchelonExcelDto) UnmarshalMessage(e *DefaultEchelonExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultEchelonExcel"))
+	}
 	t.EchlonId = fbsutils.Convert(e.EchlonId(), t.FlatBuffer.TableKey)
 	t.LeaderId = fbsutils.Convert(e.LeaderId(), t.FlatBuffer.TableKey)
 	t.MainId = make([]int64, e.MainIdLength())

@@ -20,6 +20,9 @@ type ConquestPlayGuideExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestPlayGuideExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestPlayGuideExcel"))
+	}
 	ConquestPlayGuideExcelStart(b)
 	ConquestPlayGuideExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	ConquestPlayGuideExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
@@ -39,6 +42,9 @@ func (t *ConquestPlayGuideExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestPlayGuideExcelDto) UnmarshalMessage(e *ConquestPlayGuideExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestPlayGuideExcel"))
+	}
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.GuideImagePath = fbsutils.Convert(string(e.GuideImagePath()), t.FlatBuffer.TableKey)

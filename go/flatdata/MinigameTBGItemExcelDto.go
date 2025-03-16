@@ -24,6 +24,9 @@ type MinigameTBGItemExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGItemExcel"))
+	}
 	MinigameTBGItemExcelStart(b)
 	MinigameTBGItemExcelAddBuffIcon(b, fbsutils.Convert(b.CreateString(t.BuffIcon), t.FlatBuffer.TableKey))
 	MinigameTBGItemExcelAddBuffIconHudVisible(b, fbsutils.Convert(t.BuffIconHudVisible, t.FlatBuffer.TableKey))
@@ -47,6 +50,9 @@ func (t *MinigameTBGItemExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGItemExcelDto) UnmarshalMessage(e *MinigameTBGItemExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGItemExcel"))
+	}
 	t.BuffIcon = fbsutils.Convert(string(e.BuffIcon()), t.FlatBuffer.TableKey)
 	t.BuffIconHudVisible = fbsutils.Convert(e.BuffIconHudVisible(), t.FlatBuffer.TableKey)
 	t.DiceEffectAniClip = fbsutils.Convert(string(e.DiceEffectAniClip()), t.FlatBuffer.TableKey)

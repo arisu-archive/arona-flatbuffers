@@ -16,6 +16,9 @@ type EquipmentExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EquipmentExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EquipmentExcelTable"))
+	}
 	EquipmentExcelTableStart(b)
 	EquipmentExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *EquipmentExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EquipmentExcelTableDto) UnmarshalMessage(e *EquipmentExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EquipmentExcelTable"))
+	}
 	t.DataList = make([]EquipmentExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(EquipmentExcel)

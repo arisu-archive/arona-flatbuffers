@@ -16,6 +16,9 @@ type PropRootMotionFlatDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *PropRootMotionFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropRootMotionFlat"))
+	}
 	PropRootMotionFlatStart(b)
 	PropRootMotionFlatStartRootMotionsVector(b, len(t.RootMotions))
 	for i := range len(t.RootMotions) {
@@ -35,6 +38,9 @@ func (t *PropRootMotionFlatDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *PropRootMotionFlatDto) UnmarshalMessage(e *PropRootMotionFlat) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropRootMotionFlat"))
+	}
 	t.RootMotions = make([]PropMotionDto, e.RootMotionsLength())
 	for i := range e.RootMotionsLength() {
 		d := new(PropMotion)

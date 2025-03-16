@@ -17,6 +17,9 @@ type ShortcutTypeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShortcutTypeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShortcutTypeExcel"))
+	}
 	ShortcutTypeExcelStart(b)
 	ShortcutTypeExcelStartContentTypeVector(b, len(t.ContentType))
 	for i := range len(t.ContentType) {
@@ -37,6 +40,9 @@ func (t *ShortcutTypeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShortcutTypeExcelDto) UnmarshalMessage(e *ShortcutTypeExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShortcutTypeExcel"))
+	}
 	t.ContentType = make([]ShortcutContentType, e.ContentTypeLength())
 	for i := range e.ContentTypeLength() {
 		t.ContentType[i] = e.ContentType(i)

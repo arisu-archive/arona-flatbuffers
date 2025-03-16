@@ -16,6 +16,9 @@ type EventContentSpecialOperationsExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentSpecialOperationsExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpecialOperationsExcelTable"))
+	}
 	EventContentSpecialOperationsExcelTableStart(b)
 	EventContentSpecialOperationsExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *EventContentSpecialOperationsExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentSpecialOperationsExcelTableDto) UnmarshalMessage(e *EventContentSpecialOperationsExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpecialOperationsExcelTable"))
+	}
 	t.DataList = make([]EventContentSpecialOperationsExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(EventContentSpecialOperationsExcel)

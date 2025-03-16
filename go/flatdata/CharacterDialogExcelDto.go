@@ -44,6 +44,9 @@ type CharacterDialogExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogExcel"))
+	}
 	CharacterDialogExcelStart(b)
 	CharacterDialogExcelAddActionName(b, fbsutils.Convert(b.CreateString(t.ActionName), t.FlatBuffer.TableKey))
 	CharacterDialogExcelAddAnimationName(b, fbsutils.Convert(b.CreateString(t.AnimationName), t.FlatBuffer.TableKey))
@@ -91,6 +94,9 @@ func (t *CharacterDialogExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterDialogExcelDto) UnmarshalMessage(e *CharacterDialogExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogExcel"))
+	}
 	t.ActionName = fbsutils.Convert(string(e.ActionName()), t.FlatBuffer.TableKey)
 	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
 	t.Anniversary = Anniversary(int32(fbsutils.Convert(e.Anniversary(), t.FlatBuffer.TableKey)))

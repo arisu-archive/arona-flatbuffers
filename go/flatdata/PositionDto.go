@@ -16,6 +16,9 @@ type PositionDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *PositionDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Position"))
+	}
 	PositionStart(b)
 	PositionAddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
 	PositionAddZ(b, fbsutils.Convert(t.Z, t.FlatBuffer.TableKey))
@@ -31,6 +34,9 @@ func (t *PositionDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *PositionDto) UnmarshalMessage(e *Position) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Position"))
+	}
 	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
 	t.Z = fbsutils.Convert(e.Z(), t.FlatBuffer.TableKey)
 	return nil

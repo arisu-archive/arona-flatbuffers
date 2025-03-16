@@ -28,6 +28,9 @@ type EquipmentStatExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EquipmentStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EquipmentStatExcel"))
+	}
 	EquipmentStatExcelStart(b)
 	EquipmentStatExcelAddDamageFactorGroupId(b, fbsutils.Convert(b.CreateString(t.DamageFactorGroupId), t.FlatBuffer.TableKey))
 	EquipmentStatExcelAddDefaultMaxLevel(b, fbsutils.Convert(t.DefaultMaxLevel, t.FlatBuffer.TableKey))
@@ -67,6 +70,9 @@ func (t *EquipmentStatExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EquipmentStatExcelDto) UnmarshalMessage(e *EquipmentStatExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EquipmentStatExcel"))
+	}
 	t.DamageFactorGroupId = fbsutils.Convert(string(e.DamageFactorGroupId()), t.FlatBuffer.TableKey)
 	t.DefaultMaxLevel = fbsutils.Convert(e.DefaultMaxLevel(), t.FlatBuffer.TableKey)
 	t.EquipmentCategory = EquipmentCategory(int32(fbsutils.Convert(e.EquipmentCategory(), t.FlatBuffer.TableKey)))

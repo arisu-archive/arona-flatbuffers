@@ -49,6 +49,9 @@ type WorldRaidStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WorldRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidStageExcel"))
+	}
 	WorldRaidStageExcelStart(b)
 	WorldRaidStageExcelStartAllyPassiveSkillVector(b, len(t.AllyPassiveSkill))
 	for i := range len(t.AllyPassiveSkill) {
@@ -121,6 +124,9 @@ func (t *WorldRaidStageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WorldRaidStageExcelDto) UnmarshalMessage(e *WorldRaidStageExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidStageExcel"))
+	}
 	t.AllyPassiveSkill = make([]string, e.AllyPassiveSkillLength())
 	for i := range e.AllyPassiveSkillLength() {
 		t.AllyPassiveSkill[i] = string(e.AllyPassiveSkill(i))

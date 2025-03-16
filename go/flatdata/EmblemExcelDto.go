@@ -38,6 +38,9 @@ type EmblemExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EmblemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmblemExcel"))
+	}
 	EmblemExcelStart(b)
 	EmblemExcelAddCategory(b, fbsutils.Convert(t.Category, t.FlatBuffer.TableKey))
 	EmblemExcelAddCheckPassCount(b, fbsutils.Convert(t.CheckPassCount, t.FlatBuffer.TableKey))
@@ -75,6 +78,9 @@ func (t *EmblemExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EmblemExcelDto) UnmarshalMessage(e *EmblemExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmblemExcel"))
+	}
 	t.Category = EmblemCategory(int32(fbsutils.Convert(e.Category(), t.FlatBuffer.TableKey)))
 	t.CheckPassCount = fbsutils.Convert(e.CheckPassCount(), t.FlatBuffer.TableKey)
 	t.CheckPassType = EmblemCheckPassType(int32(fbsutils.Convert(e.CheckPassType(), t.FlatBuffer.TableKey)))

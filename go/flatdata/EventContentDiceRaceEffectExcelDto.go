@@ -19,6 +19,9 @@ type EventContentDiceRaceEffectExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentDiceRaceEffectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceEffectExcel"))
+	}
 	EventContentDiceRaceEffectExcelStart(b)
 	EventContentDiceRaceEffectExcelAddAniClip(b, fbsutils.Convert(b.CreateString(t.AniClip), t.FlatBuffer.TableKey))
 	EventContentDiceRaceEffectExcelAddEventContentDiceRaceResultType(b, fbsutils.Convert(t.EventContentDiceRaceResultType, t.FlatBuffer.TableKey))
@@ -41,6 +44,9 @@ func (t *EventContentDiceRaceEffectExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentDiceRaceEffectExcelDto) UnmarshalMessage(e *EventContentDiceRaceEffectExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceEffectExcel"))
+	}
 	t.AniClip = fbsutils.Convert(string(e.AniClip()), t.FlatBuffer.TableKey)
 	t.EventContentDiceRaceResultType = EventContentDiceRaceResultType(int32(fbsutils.Convert(e.EventContentDiceRaceResultType(), t.FlatBuffer.TableKey)))
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)

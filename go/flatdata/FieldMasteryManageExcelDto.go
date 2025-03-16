@@ -18,6 +18,9 @@ type FieldMasteryManageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldMasteryManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryManageExcel"))
+	}
 	FieldMasteryManageExcelStart(b)
 	FieldMasteryManageExcelAddFieldSeason(b, fbsutils.Convert(t.FieldSeason, t.FlatBuffer.TableKey))
 	FieldMasteryManageExcelAddImagePath(b, fbsutils.Convert(b.CreateString(t.ImagePath), t.FlatBuffer.TableKey))
@@ -35,6 +38,9 @@ func (t *FieldMasteryManageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldMasteryManageExcelDto) UnmarshalMessage(e *FieldMasteryManageExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryManageExcel"))
+	}
 	t.FieldSeason = fbsutils.Convert(e.FieldSeason(), t.FlatBuffer.TableKey)
 	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
 	t.LevelId = fbsutils.Convert(e.LevelId(), t.FlatBuffer.TableKey)

@@ -23,6 +23,9 @@ type ArenaRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaRewardExcel"))
+	}
 	ArenaRewardExcelStart(b)
 	ArenaRewardExcelAddArenaRewardType(b, fbsutils.Convert(t.ArenaRewardType, t.FlatBuffer.TableKey))
 	ArenaRewardExcelAddRankEnd(b, fbsutils.Convert(t.RankEnd, t.FlatBuffer.TableKey))
@@ -61,6 +64,9 @@ func (t *ArenaRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaRewardExcelDto) UnmarshalMessage(e *ArenaRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaRewardExcel"))
+	}
 	t.ArenaRewardType = ArenaRewardType(int32(fbsutils.Convert(e.ArenaRewardType(), t.FlatBuffer.TableKey)))
 	t.RankEnd = fbsutils.Convert(e.RankEnd(), t.FlatBuffer.TableKey)
 	t.RankIconPath = fbsutils.Convert(string(e.RankIconPath()), t.FlatBuffer.TableKey)

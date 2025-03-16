@@ -17,6 +17,9 @@ type DefaultParcelExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *DefaultParcelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultParcelExcel"))
+	}
 	DefaultParcelExcelStart(b)
 	DefaultParcelExcelAddParcelAmount(b, fbsutils.Convert(t.ParcelAmount, t.FlatBuffer.TableKey))
 	DefaultParcelExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
@@ -33,6 +36,9 @@ func (t *DefaultParcelExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *DefaultParcelExcelDto) UnmarshalMessage(e *DefaultParcelExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultParcelExcel"))
+	}
 	t.ParcelAmount = fbsutils.Convert(e.ParcelAmount(), t.FlatBuffer.TableKey)
 	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
 	t.ParcelType = ParcelType(int32(fbsutils.Convert(e.ParcelType(), t.FlatBuffer.TableKey)))

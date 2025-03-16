@@ -47,6 +47,9 @@ type PresetCharacterGroupExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *PresetCharacterGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PresetCharacterGroupExcel"))
+	}
 	PresetCharacterGroupExcelStart(b)
 	PresetCharacterGroupExcelAddCommonSkillLevel(b, fbsutils.Convert(t.CommonSkillLevel, t.FlatBuffer.TableKey))
 	PresetCharacterGroupExcelAddEquipCharacterGear(b, fbsutils.Convert(t.EquipCharacterGear, t.FlatBuffer.TableKey))
@@ -93,6 +96,9 @@ func (t *PresetCharacterGroupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *PresetCharacterGroupExcelDto) UnmarshalMessage(e *PresetCharacterGroupExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PresetCharacterGroupExcel"))
+	}
 	t.CommonSkillLevel = fbsutils.Convert(e.CommonSkillLevel(), t.FlatBuffer.TableKey)
 	t.EquipCharacterGear = fbsutils.Convert(e.EquipCharacterGear(), t.FlatBuffer.TableKey)
 	t.EquipCharacterGearLevel = fbsutils.Convert(e.EquipCharacterGearLevel(), t.FlatBuffer.TableKey)

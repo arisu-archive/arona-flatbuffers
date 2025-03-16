@@ -56,6 +56,9 @@ type EventContentStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentStageExcel"))
+	}
 	EventContentStageExcelStart(b)
 	EventContentStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddBgmId(b, fbsutils.Convert(b.CreateString(t.BgmId), t.FlatBuffer.TableKey))
@@ -127,6 +130,9 @@ func (t *EventContentStageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentStageExcelDto) UnmarshalMessage(e *EventContentStageExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentStageExcel"))
+	}
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.BgmId = fbsutils.Convert(string(e.BgmId()), t.FlatBuffer.TableKey)
 	t.BgmIdC9738509 = fbsutils.Convert(e.BgmIdC9738509(), t.FlatBuffer.TableKey)

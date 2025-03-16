@@ -38,6 +38,9 @@ type MiniGameMissionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameMissionExcel"))
+	}
 	MiniGameMissionExcelStart(b)
 	MiniGameMissionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
 	MiniGameMissionExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
@@ -103,6 +106,9 @@ func (t *MiniGameMissionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameMissionExcelDto) UnmarshalMessage(e *MiniGameMissionExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameMissionExcel"))
+	}
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
 	t.AccountType = AccountState(int32(fbsutils.Convert(e.AccountType(), t.FlatBuffer.TableKey)))
 	t.Category = MissionCategory(int32(fbsutils.Convert(e.Category(), t.FlatBuffer.TableKey)))

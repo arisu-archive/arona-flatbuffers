@@ -16,6 +16,9 @@ type TacticSkipExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TacticSkipExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticSkipExcelTable"))
+	}
 	TacticSkipExcelTableStart(b)
 	TacticSkipExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *TacticSkipExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TacticSkipExcelTableDto) UnmarshalMessage(e *TacticSkipExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticSkipExcelTable"))
+	}
 	t.DataList = make([]TacticSkipExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(TacticSkipExcel)
