@@ -17,11 +17,19 @@ func GetRootAsFarmingDungeonLocationManageExcel(buf []byte, offset flatbuffers.U
 	return x
 }
 
+func FinishFarmingDungeonLocationManageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFarmingDungeonLocationManageExcel(buf []byte, offset flatbuffers.UOffsetT) *FarmingDungeonLocationManageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FarmingDungeonLocationManageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFarmingDungeonLocationManageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FarmingDungeonLocationManageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -176,7 +184,4 @@ func FarmingDungeonLocationManageExcelAddWeekDungeonType(builder *flatbuffers.Bu
 }
 func FarmingDungeonLocationManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*FarmingDungeonLocationManageExcel) Name() string {
-	return "FarmingDungeonLocationManageExcel"
 }

@@ -49,15 +49,26 @@ class ConquestErosionExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConquestErosionExcelTableStart(builder): builder.StartObject(1)
+def ConquestErosionExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ConquestErosionExcelTableStart(builder)
-def ConquestErosionExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ConquestErosionExcelTableStart(builder)
+
+def ConquestErosionExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ConquestErosionExcelTableAddDataList(builder, dataList)
-def ConquestErosionExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ConquestErosionExcelTableAddDataList(builder, dataList)
+
+def ConquestErosionExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ConquestErosionExcelTableStartDataListVector(builder, numElems)
-def ConquestErosionExcelTableEnd(builder): return builder.EndObject()
+
+def ConquestErosionExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConquestErosionExcelTableEnd(builder)

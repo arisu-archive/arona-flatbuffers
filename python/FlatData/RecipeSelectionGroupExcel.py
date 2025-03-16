@@ -66,27 +66,50 @@ class RecipeSelectionGroupExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def RecipeSelectionGroupExcelStart(builder): builder.StartObject(6)
+def RecipeSelectionGroupExcelStart(builder):
+    builder.StartObject(6)
+
 def Start(builder):
-    return RecipeSelectionGroupExcelStart(builder)
-def RecipeSelectionGroupExcelAddParcelId(builder, parcelId): builder.PrependInt64Slot(0, parcelId, 0)
+    RecipeSelectionGroupExcelStart(builder)
+
+def RecipeSelectionGroupExcelAddParcelId(builder, parcelId):
+    builder.PrependInt64Slot(0, parcelId, 0)
+
 def AddParcelId(builder, parcelId):
-    return RecipeSelectionGroupExcelAddParcelId(builder, parcelId)
-def RecipeSelectionGroupExcelAddParcelType(builder, parcelType): builder.PrependInt32Slot(1, parcelType, 0)
+    RecipeSelectionGroupExcelAddParcelId(builder, parcelId)
+
+def RecipeSelectionGroupExcelAddParcelType(builder, parcelType):
+    builder.PrependInt32Slot(1, parcelType, 0)
+
 def AddParcelType(builder, parcelType):
-    return RecipeSelectionGroupExcelAddParcelType(builder, parcelType)
-def RecipeSelectionGroupExcelAddRecipeSelectionGroupComponentId(builder, recipeSelectionGroupComponentId): builder.PrependInt64Slot(2, recipeSelectionGroupComponentId, 0)
+    RecipeSelectionGroupExcelAddParcelType(builder, parcelType)
+
+def RecipeSelectionGroupExcelAddRecipeSelectionGroupComponentId(builder, recipeSelectionGroupComponentId):
+    builder.PrependInt64Slot(2, recipeSelectionGroupComponentId, 0)
+
 def AddRecipeSelectionGroupComponentId(builder, recipeSelectionGroupComponentId):
-    return RecipeSelectionGroupExcelAddRecipeSelectionGroupComponentId(builder, recipeSelectionGroupComponentId)
-def RecipeSelectionGroupExcelAddRecipeSelectionGroupId(builder, recipeSelectionGroupId): builder.PrependInt64Slot(3, recipeSelectionGroupId, 0)
+    RecipeSelectionGroupExcelAddRecipeSelectionGroupComponentId(builder, recipeSelectionGroupComponentId)
+
+def RecipeSelectionGroupExcelAddRecipeSelectionGroupId(builder, recipeSelectionGroupId):
+    builder.PrependInt64Slot(3, recipeSelectionGroupId, 0)
+
 def AddRecipeSelectionGroupId(builder, recipeSelectionGroupId):
-    return RecipeSelectionGroupExcelAddRecipeSelectionGroupId(builder, recipeSelectionGroupId)
-def RecipeSelectionGroupExcelAddResultAmountMax(builder, resultAmountMax): builder.PrependInt64Slot(4, resultAmountMax, 0)
+    RecipeSelectionGroupExcelAddRecipeSelectionGroupId(builder, recipeSelectionGroupId)
+
+def RecipeSelectionGroupExcelAddResultAmountMax(builder, resultAmountMax):
+    builder.PrependInt64Slot(4, resultAmountMax, 0)
+
 def AddResultAmountMax(builder, resultAmountMax):
-    return RecipeSelectionGroupExcelAddResultAmountMax(builder, resultAmountMax)
-def RecipeSelectionGroupExcelAddResultAmountMin(builder, resultAmountMin): builder.PrependInt64Slot(5, resultAmountMin, 0)
+    RecipeSelectionGroupExcelAddResultAmountMax(builder, resultAmountMax)
+
+def RecipeSelectionGroupExcelAddResultAmountMin(builder, resultAmountMin):
+    builder.PrependInt64Slot(5, resultAmountMin, 0)
+
 def AddResultAmountMin(builder, resultAmountMin):
-    return RecipeSelectionGroupExcelAddResultAmountMin(builder, resultAmountMin)
-def RecipeSelectionGroupExcelEnd(builder): return builder.EndObject()
+    RecipeSelectionGroupExcelAddResultAmountMin(builder, resultAmountMin)
+
+def RecipeSelectionGroupExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return RecipeSelectionGroupExcelEnd(builder)

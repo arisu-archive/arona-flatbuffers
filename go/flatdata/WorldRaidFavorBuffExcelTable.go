@@ -17,11 +17,19 @@ func GetRootAsWorldRaidFavorBuffExcelTable(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishWorldRaidFavorBuffExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsWorldRaidFavorBuffExcelTable(buf []byte, offset flatbuffers.UOffsetT) *WorldRaidFavorBuffExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &WorldRaidFavorBuffExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedWorldRaidFavorBuffExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *WorldRaidFavorBuffExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func WorldRaidFavorBuffExcelTableStartDataListVector(builder *flatbuffers.Builde
 }
 func WorldRaidFavorBuffExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*WorldRaidFavorBuffExcelTable) Name() string {
-	return "WorldRaidFavorBuffExcelTable"
 }

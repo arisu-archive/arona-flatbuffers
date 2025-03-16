@@ -108,45 +108,86 @@ class FieldDateExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def FieldDateExcelStart(builder): builder.StartObject(12)
+def FieldDateExcelStart(builder):
+    builder.StartObject(12)
+
 def Start(builder):
-    return FieldDateExcelStart(builder)
-def FieldDateExcelAddDateLocalizeKey(builder, dateLocalizeKey): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dateLocalizeKey), 0)
+    FieldDateExcelStart(builder)
+
+def FieldDateExcelAddDateLocalizeKey(builder, dateLocalizeKey):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dateLocalizeKey), 0)
+
 def AddDateLocalizeKey(builder, dateLocalizeKey):
-    return FieldDateExcelAddDateLocalizeKey(builder, dateLocalizeKey)
-def FieldDateExcelAddDateResultSpineOffsetX(builder, dateResultSpineOffsetX): builder.PrependFloat32Slot(1, dateResultSpineOffsetX, 0.0)
+    FieldDateExcelAddDateLocalizeKey(builder, dateLocalizeKey)
+
+def FieldDateExcelAddDateResultSpineOffsetX(builder, dateResultSpineOffsetX):
+    builder.PrependFloat32Slot(1, dateResultSpineOffsetX, 0.0)
+
 def AddDateResultSpineOffsetX(builder, dateResultSpineOffsetX):
-    return FieldDateExcelAddDateResultSpineOffsetX(builder, dateResultSpineOffsetX)
-def FieldDateExcelAddDateResultSpinePath(builder, dateResultSpinePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(dateResultSpinePath), 0)
+    FieldDateExcelAddDateResultSpineOffsetX(builder, dateResultSpineOffsetX)
+
+def FieldDateExcelAddDateResultSpinePath(builder, dateResultSpinePath):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(dateResultSpinePath), 0)
+
 def AddDateResultSpinePath(builder, dateResultSpinePath):
-    return FieldDateExcelAddDateResultSpinePath(builder, dateResultSpinePath)
-def FieldDateExcelAddEndConditionId(builder, endConditionId): builder.PrependInt64Slot(3, endConditionId, 0)
+    FieldDateExcelAddDateResultSpinePath(builder, dateResultSpinePath)
+
+def FieldDateExcelAddEndConditionId(builder, endConditionId):
+    builder.PrependInt64Slot(3, endConditionId, 0)
+
 def AddEndConditionId(builder, endConditionId):
-    return FieldDateExcelAddEndConditionId(builder, endConditionId)
-def FieldDateExcelAddEndConditionType(builder, endConditionType): builder.PrependInt32Slot(4, endConditionType, 0)
+    FieldDateExcelAddEndConditionId(builder, endConditionId)
+
+def FieldDateExcelAddEndConditionType(builder, endConditionType):
+    builder.PrependInt32Slot(4, endConditionType, 0)
+
 def AddEndConditionType(builder, endConditionType):
-    return FieldDateExcelAddEndConditionType(builder, endConditionType)
-def FieldDateExcelAddEntrySceneId(builder, entrySceneId): builder.PrependInt64Slot(5, entrySceneId, 0)
+    FieldDateExcelAddEndConditionType(builder, endConditionType)
+
+def FieldDateExcelAddEntrySceneId(builder, entrySceneId):
+    builder.PrependInt64Slot(5, entrySceneId, 0)
+
 def AddEntrySceneId(builder, entrySceneId):
-    return FieldDateExcelAddEntrySceneId(builder, entrySceneId)
-def FieldDateExcelAddOpenConditionStage(builder, openConditionStage): builder.PrependInt64Slot(6, openConditionStage, 0)
+    FieldDateExcelAddEntrySceneId(builder, entrySceneId)
+
+def FieldDateExcelAddOpenConditionStage(builder, openConditionStage):
+    builder.PrependInt64Slot(6, openConditionStage, 0)
+
 def AddOpenConditionStage(builder, openConditionStage):
-    return FieldDateExcelAddOpenConditionStage(builder, openConditionStage)
-def FieldDateExcelAddOpenDate(builder, openDate): builder.PrependInt64Slot(7, openDate, 0)
+    FieldDateExcelAddOpenConditionStage(builder, openConditionStage)
+
+def FieldDateExcelAddOpenDate(builder, openDate):
+    builder.PrependInt64Slot(7, openDate, 0)
+
 def AddOpenDate(builder, openDate):
-    return FieldDateExcelAddOpenDate(builder, openDate)
-def FieldDateExcelAddSeasonId(builder, seasonId): builder.PrependInt64Slot(8, seasonId, 0)
+    FieldDateExcelAddOpenDate(builder, openDate)
+
+def FieldDateExcelAddSeasonId(builder, seasonId):
+    builder.PrependInt64Slot(8, seasonId, 0)
+
 def AddSeasonId(builder, seasonId):
-    return FieldDateExcelAddSeasonId(builder, seasonId)
-def FieldDateExcelAddStartConditionId(builder, startConditionId): builder.PrependInt64Slot(9, startConditionId, 0)
+    FieldDateExcelAddSeasonId(builder, seasonId)
+
+def FieldDateExcelAddStartConditionId(builder, startConditionId):
+    builder.PrependInt64Slot(9, startConditionId, 0)
+
 def AddStartConditionId(builder, startConditionId):
-    return FieldDateExcelAddStartConditionId(builder, startConditionId)
-def FieldDateExcelAddStartConditionType(builder, startConditionType): builder.PrependInt32Slot(10, startConditionType, 0)
+    FieldDateExcelAddStartConditionId(builder, startConditionId)
+
+def FieldDateExcelAddStartConditionType(builder, startConditionType):
+    builder.PrependInt32Slot(10, startConditionType, 0)
+
 def AddStartConditionType(builder, startConditionType):
-    return FieldDateExcelAddStartConditionType(builder, startConditionType)
-def FieldDateExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(11, uniqueId, 0)
+    FieldDateExcelAddStartConditionType(builder, startConditionType)
+
+def FieldDateExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(11, uniqueId, 0)
+
 def AddUniqueId(builder, uniqueId):
-    return FieldDateExcelAddUniqueId(builder, uniqueId)
-def FieldDateExcelEnd(builder): return builder.EndObject()
+    FieldDateExcelAddUniqueId(builder, uniqueId)
+
+def FieldDateExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FieldDateExcelEnd(builder)

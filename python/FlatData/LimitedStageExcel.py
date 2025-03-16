@@ -288,111 +288,218 @@ class LimitedStageExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def LimitedStageExcelStart(builder): builder.StartObject(32)
+def LimitedStageExcelStart(builder):
+    builder.StartObject(32)
+
 def Start(builder):
-    return LimitedStageExcelStart(builder)
-def LimitedStageExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(0, battleDuration, 0)
+    LimitedStageExcelStart(builder)
+
+def LimitedStageExcelAddBattleDuration(builder, battleDuration):
+    builder.PrependInt64Slot(0, battleDuration, 0)
+
 def AddBattleDuration(builder, battleDuration):
-    return LimitedStageExcelAddBattleDuration(builder, battleDuration)
-def LimitedStageExcelAddBgmId(builder, bgmId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(bgmId), 0)
+    LimitedStageExcelAddBattleDuration(builder, battleDuration)
+
+def LimitedStageExcelAddBgmId(builder, bgmId):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(bgmId), 0)
+
 def AddBgmId(builder, bgmId):
-    return LimitedStageExcelAddBgmId(builder, bgmId)
-def LimitedStageExcelAddBgmIdC9738509(builder, bgmIdC9738509): builder.PrependInt64Slot(2, bgmIdC9738509, 0)
+    LimitedStageExcelAddBgmId(builder, bgmId)
+
+def LimitedStageExcelAddBgmIdC9738509(builder, bgmIdC9738509):
+    builder.PrependInt64Slot(2, bgmIdC9738509, 0)
+
 def AddBgmIdC9738509(builder, bgmIdC9738509):
-    return LimitedStageExcelAddBgmIdC9738509(builder, bgmIdC9738509)
-def LimitedStageExcelAddBuffContentId(builder, buffContentId): builder.PrependInt64Slot(3, buffContentId, 0)
+    LimitedStageExcelAddBgmIdC9738509(builder, bgmIdC9738509)
+
+def LimitedStageExcelAddBuffContentId(builder, buffContentId):
+    builder.PrependInt64Slot(3, buffContentId, 0)
+
 def AddBuffContentId(builder, buffContentId):
-    return LimitedStageExcelAddBuffContentId(builder, buffContentId)
-def LimitedStageExcelAddChallengeDisplay(builder, challengeDisplay): builder.PrependBoolSlot(4, challengeDisplay, 0)
+    LimitedStageExcelAddBuffContentId(builder, buffContentId)
+
+def LimitedStageExcelAddChallengeDisplay(builder, challengeDisplay):
+    builder.PrependBoolSlot(4, challengeDisplay, 0)
+
 def AddChallengeDisplay(builder, challengeDisplay):
-    return LimitedStageExcelAddChallengeDisplay(builder, challengeDisplay)
-def LimitedStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(clearScenarioGroupId), 0)
+    LimitedStageExcelAddChallengeDisplay(builder, challengeDisplay)
+
+def LimitedStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(clearScenarioGroupId), 0)
+
 def AddClearScenarioGroupId(builder, clearScenarioGroupId):
-    return LimitedStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId)
-def LimitedStageExcelStartClearScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    LimitedStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId)
+
+def LimitedStageExcelStartClearScenarioGroupIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartClearScenarioGroupIdVector(builder, numElems):
     return LimitedStageExcelStartClearScenarioGroupIdVector(builder, numElems)
-def LimitedStageExcelAddContentType(builder, contentType): builder.PrependInt32Slot(6, contentType, 0)
+
+def LimitedStageExcelAddContentType(builder, contentType):
+    builder.PrependInt32Slot(6, contentType, 0)
+
 def AddContentType(builder, contentType):
-    return LimitedStageExcelAddContentType(builder, contentType)
-def LimitedStageExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(enterScenarioGroupId), 0)
+    LimitedStageExcelAddContentType(builder, contentType)
+
+def LimitedStageExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(enterScenarioGroupId), 0)
+
 def AddEnterScenarioGroupId(builder, enterScenarioGroupId):
-    return LimitedStageExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId)
-def LimitedStageExcelStartEnterScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    LimitedStageExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId)
+
+def LimitedStageExcelStartEnterScenarioGroupIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartEnterScenarioGroupIdVector(builder, numElems):
     return LimitedStageExcelStartEnterScenarioGroupIdVector(builder, numElems)
-def LimitedStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(8, groundId, 0)
+
+def LimitedStageExcelAddGroundId(builder, groundId):
+    builder.PrependInt64Slot(8, groundId, 0)
+
 def AddGroundId(builder, groundId):
-    return LimitedStageExcelAddGroundId(builder, groundId)
-def LimitedStageExcelAddId(builder, id): builder.PrependInt64Slot(9, id, 0)
+    LimitedStageExcelAddGroundId(builder, groundId)
+
+def LimitedStageExcelAddId(builder, id):
+    builder.PrependInt64Slot(9, id, 0)
+
 def AddId(builder, id):
-    return LimitedStageExcelAddId(builder, id)
-def LimitedStageExcelAddInstantClear(builder, instantClear): builder.PrependBoolSlot(10, instantClear, 0)
+    LimitedStageExcelAddId(builder, id)
+
+def LimitedStageExcelAddInstantClear(builder, instantClear):
+    builder.PrependBoolSlot(10, instantClear, 0)
+
 def AddInstantClear(builder, instantClear):
-    return LimitedStageExcelAddInstantClear(builder, instantClear)
-def LimitedStageExcelAddMaxTurn(builder, maxTurn): builder.PrependInt32Slot(11, maxTurn, 0)
+    LimitedStageExcelAddInstantClear(builder, instantClear)
+
+def LimitedStageExcelAddMaxTurn(builder, maxTurn):
+    builder.PrependInt32Slot(11, maxTurn, 0)
+
 def AddMaxTurn(builder, maxTurn):
-    return LimitedStageExcelAddMaxTurn(builder, maxTurn)
-def LimitedStageExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+    LimitedStageExcelAddMaxTurn(builder, maxTurn)
+
+def LimitedStageExcelAddName(builder, name):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+
 def AddName(builder, name):
-    return LimitedStageExcelAddName(builder, name)
-def LimitedStageExcelAddOpenDate(builder, openDate): builder.PrependInt64Slot(13, openDate, 0)
+    LimitedStageExcelAddName(builder, name)
+
+def LimitedStageExcelAddOpenDate(builder, openDate):
+    builder.PrependInt64Slot(13, openDate, 0)
+
 def AddOpenDate(builder, openDate):
-    return LimitedStageExcelAddOpenDate(builder, openDate)
-def LimitedStageExcelAddOpenEventPoint(builder, openEventPoint): builder.PrependInt64Slot(14, openEventPoint, 0)
+    LimitedStageExcelAddOpenDate(builder, openDate)
+
+def LimitedStageExcelAddOpenEventPoint(builder, openEventPoint):
+    builder.PrependInt64Slot(14, openEventPoint, 0)
+
 def AddOpenEventPoint(builder, openEventPoint):
-    return LimitedStageExcelAddOpenEventPoint(builder, openEventPoint)
-def LimitedStageExcelAddPrevStageId(builder, prevStageId): builder.PrependInt64Slot(15, prevStageId, 0)
+    LimitedStageExcelAddOpenEventPoint(builder, openEventPoint)
+
+def LimitedStageExcelAddPrevStageId(builder, prevStageId):
+    builder.PrependInt64Slot(15, prevStageId, 0)
+
 def AddPrevStageId(builder, prevStageId):
-    return LimitedStageExcelAddPrevStageId(builder, prevStageId)
-def LimitedStageExcelAddRecommandLevel(builder, recommandLevel): builder.PrependInt32Slot(16, recommandLevel, 0)
+    LimitedStageExcelAddPrevStageId(builder, prevStageId)
+
+def LimitedStageExcelAddRecommandLevel(builder, recommandLevel):
+    builder.PrependInt32Slot(16, recommandLevel, 0)
+
 def AddRecommandLevel(builder, recommandLevel):
-    return LimitedStageExcelAddRecommandLevel(builder, recommandLevel)
-def LimitedStageExcelAddSeasonId(builder, seasonId): builder.PrependInt64Slot(17, seasonId, 0)
+    LimitedStageExcelAddRecommandLevel(builder, recommandLevel)
+
+def LimitedStageExcelAddSeasonId(builder, seasonId):
+    builder.PrependInt64Slot(17, seasonId, 0)
+
 def AddSeasonId(builder, seasonId):
-    return LimitedStageExcelAddSeasonId(builder, seasonId)
-def LimitedStageExcelAddStageDifficulty(builder, stageDifficulty): builder.PrependInt32Slot(18, stageDifficulty, 0)
+    LimitedStageExcelAddSeasonId(builder, seasonId)
+
+def LimitedStageExcelAddStageDifficulty(builder, stageDifficulty):
+    builder.PrependInt32Slot(18, stageDifficulty, 0)
+
 def AddStageDifficulty(builder, stageDifficulty):
-    return LimitedStageExcelAddStageDifficulty(builder, stageDifficulty)
-def LimitedStageExcelAddStageDisplay(builder, stageDisplay): builder.PrependInt32Slot(19, stageDisplay, 0)
+    LimitedStageExcelAddStageDifficulty(builder, stageDifficulty)
+
+def LimitedStageExcelAddStageDisplay(builder, stageDisplay):
+    builder.PrependInt32Slot(19, stageDisplay, 0)
+
 def AddStageDisplay(builder, stageDisplay):
-    return LimitedStageExcelAddStageDisplay(builder, stageDisplay)
-def LimitedStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount): builder.PrependInt32Slot(20, stageEnterCostAmount, 0)
+    LimitedStageExcelAddStageDisplay(builder, stageDisplay)
+
+def LimitedStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount):
+    builder.PrependInt32Slot(20, stageEnterCostAmount, 0)
+
 def AddStageEnterCostAmount(builder, stageEnterCostAmount):
-    return LimitedStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
-def LimitedStageExcelAddStageEnterCostId(builder, stageEnterCostId): builder.PrependInt64Slot(21, stageEnterCostId, 0)
+    LimitedStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
+
+def LimitedStageExcelAddStageEnterCostId(builder, stageEnterCostId):
+    builder.PrependInt64Slot(21, stageEnterCostId, 0)
+
 def AddStageEnterCostId(builder, stageEnterCostId):
-    return LimitedStageExcelAddStageEnterCostId(builder, stageEnterCostId)
-def LimitedStageExcelAddStageEnterCostType(builder, stageEnterCostType): builder.PrependInt32Slot(22, stageEnterCostType, 0)
+    LimitedStageExcelAddStageEnterCostId(builder, stageEnterCostId)
+
+def LimitedStageExcelAddStageEnterCostType(builder, stageEnterCostType):
+    builder.PrependInt32Slot(22, stageEnterCostType, 0)
+
 def AddStageEnterCostType(builder, stageEnterCostType):
-    return LimitedStageExcelAddStageEnterCostType(builder, stageEnterCostType)
-def LimitedStageExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount): builder.PrependInt32Slot(23, stageEnterEchelonCount, 0)
+    LimitedStageExcelAddStageEnterCostType(builder, stageEnterCostType)
+
+def LimitedStageExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount):
+    builder.PrependInt32Slot(23, stageEnterEchelonCount, 0)
+
 def AddStageEnterEchelonCount(builder, stageEnterEchelonCount):
-    return LimitedStageExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount)
-def LimitedStageExcelAddStageNumber(builder, stageNumber): builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(stageNumber), 0)
+    LimitedStageExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount)
+
+def LimitedStageExcelAddStageNumber(builder, stageNumber):
+    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(stageNumber), 0)
+
 def AddStageNumber(builder, stageNumber):
-    return LimitedStageExcelAddStageNumber(builder, stageNumber)
-def LimitedStageExcelAddStageRewardId(builder, stageRewardId): builder.PrependInt64Slot(25, stageRewardId, 0)
+    LimitedStageExcelAddStageNumber(builder, stageNumber)
+
+def LimitedStageExcelAddStageRewardId(builder, stageRewardId):
+    builder.PrependInt64Slot(25, stageRewardId, 0)
+
 def AddStageRewardId(builder, stageRewardId):
-    return LimitedStageExcelAddStageRewardId(builder, stageRewardId)
-def LimitedStageExcelAddStageTopography(builder, stageTopography): builder.PrependInt32Slot(26, stageTopography, 0)
+    LimitedStageExcelAddStageRewardId(builder, stageRewardId)
+
+def LimitedStageExcelAddStageTopography(builder, stageTopography):
+    builder.PrependInt32Slot(26, stageTopography, 0)
+
 def AddStageTopography(builder, stageTopography):
-    return LimitedStageExcelAddStageTopography(builder, stageTopography)
-def LimitedStageExcelAddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount): builder.PrependInt64Slot(27, starConditionTacticRankSCount, 0)
+    LimitedStageExcelAddStageTopography(builder, stageTopography)
+
+def LimitedStageExcelAddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount):
+    builder.PrependInt64Slot(27, starConditionTacticRankSCount, 0)
+
 def AddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount):
-    return LimitedStageExcelAddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount)
-def LimitedStageExcelAddStarConditionTurnCount(builder, starConditionTurnCount): builder.PrependInt64Slot(28, starConditionTurnCount, 0)
+    LimitedStageExcelAddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount)
+
+def LimitedStageExcelAddStarConditionTurnCount(builder, starConditionTurnCount):
+    builder.PrependInt64Slot(28, starConditionTurnCount, 0)
+
 def AddStarConditionTurnCount(builder, starConditionTurnCount):
-    return LimitedStageExcelAddStarConditionTurnCount(builder, starConditionTurnCount)
-def LimitedStageExcelAddStrategyEnvironment(builder, strategyEnvironment): builder.PrependInt32Slot(29, strategyEnvironment, 0)
+    LimitedStageExcelAddStarConditionTurnCount(builder, starConditionTurnCount)
+
+def LimitedStageExcelAddStrategyEnvironment(builder, strategyEnvironment):
+    builder.PrependInt32Slot(29, strategyEnvironment, 0)
+
 def AddStrategyEnvironment(builder, strategyEnvironment):
-    return LimitedStageExcelAddStrategyEnvironment(builder, strategyEnvironment)
-def LimitedStageExcelAddStrategyMap(builder, strategyMap): builder.PrependUOffsetTRelativeSlot(30, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMap), 0)
+    LimitedStageExcelAddStrategyEnvironment(builder, strategyEnvironment)
+
+def LimitedStageExcelAddStrategyMap(builder, strategyMap):
+    builder.PrependUOffsetTRelativeSlot(30, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMap), 0)
+
 def AddStrategyMap(builder, strategyMap):
-    return LimitedStageExcelAddStrategyMap(builder, strategyMap)
-def LimitedStageExcelAddStrategyMapBg(builder, strategyMapBg): builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMapBg), 0)
+    LimitedStageExcelAddStrategyMap(builder, strategyMap)
+
+def LimitedStageExcelAddStrategyMapBg(builder, strategyMapBg):
+    builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMapBg), 0)
+
 def AddStrategyMapBg(builder, strategyMapBg):
-    return LimitedStageExcelAddStrategyMapBg(builder, strategyMapBg)
-def LimitedStageExcelEnd(builder): return builder.EndObject()
+    LimitedStageExcelAddStrategyMapBg(builder, strategyMapBg)
+
+def LimitedStageExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return LimitedStageExcelEnd(builder)

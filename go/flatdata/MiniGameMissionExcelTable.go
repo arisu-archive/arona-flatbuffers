@@ -17,11 +17,19 @@ func GetRootAsMiniGameMissionExcelTable(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishMiniGameMissionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMiniGameMissionExcelTable(buf []byte, offset flatbuffers.UOffsetT) *MiniGameMissionExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MiniGameMissionExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMiniGameMissionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MiniGameMissionExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func MiniGameMissionExcelTableStartDataListVector(builder *flatbuffers.Builder, 
 }
 func MiniGameMissionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*MiniGameMissionExcelTable) Name() string {
-	return "MiniGameMissionExcelTable"
 }

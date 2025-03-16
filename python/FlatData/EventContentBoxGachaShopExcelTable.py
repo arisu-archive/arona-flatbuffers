@@ -49,15 +49,26 @@ class EventContentBoxGachaShopExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentBoxGachaShopExcelTableStart(builder): builder.StartObject(1)
+def EventContentBoxGachaShopExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return EventContentBoxGachaShopExcelTableStart(builder)
-def EventContentBoxGachaShopExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    EventContentBoxGachaShopExcelTableStart(builder)
+
+def EventContentBoxGachaShopExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return EventContentBoxGachaShopExcelTableAddDataList(builder, dataList)
-def EventContentBoxGachaShopExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentBoxGachaShopExcelTableAddDataList(builder, dataList)
+
+def EventContentBoxGachaShopExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return EventContentBoxGachaShopExcelTableStartDataListVector(builder, numElems)
-def EventContentBoxGachaShopExcelTableEnd(builder): return builder.EndObject()
+
+def EventContentBoxGachaShopExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentBoxGachaShopExcelTableEnd(builder)

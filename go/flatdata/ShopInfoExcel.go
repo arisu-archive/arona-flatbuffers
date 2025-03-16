@@ -17,11 +17,19 @@ func GetRootAsShopInfoExcel(buf []byte, offset flatbuffers.UOffsetT) *ShopInfoEx
 	return x
 }
 
+func FinishShopInfoExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsShopInfoExcel(buf []byte, offset flatbuffers.UOffsetT) *ShopInfoExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ShopInfoExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedShopInfoExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ShopInfoExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -497,7 +505,4 @@ func ShopInfoExcelAddShopUpdateGroupId9(builder *flatbuffers.Builder, shopUpdate
 }
 func ShopInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ShopInfoExcel) Name() string {
-	return "ShopInfoExcel"
 }

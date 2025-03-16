@@ -49,15 +49,26 @@ class MiniGameShootingStageRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def MiniGameShootingStageRewardExcelTableStart(builder): builder.StartObject(1)
+def MiniGameShootingStageRewardExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return MiniGameShootingStageRewardExcelTableStart(builder)
-def MiniGameShootingStageRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    MiniGameShootingStageRewardExcelTableStart(builder)
+
+def MiniGameShootingStageRewardExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return MiniGameShootingStageRewardExcelTableAddDataList(builder, dataList)
-def MiniGameShootingStageRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    MiniGameShootingStageRewardExcelTableAddDataList(builder, dataList)
+
+def MiniGameShootingStageRewardExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return MiniGameShootingStageRewardExcelTableStartDataListVector(builder, numElems)
-def MiniGameShootingStageRewardExcelTableEnd(builder): return builder.EndObject()
+
+def MiniGameShootingStageRewardExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MiniGameShootingStageRewardExcelTableEnd(builder)

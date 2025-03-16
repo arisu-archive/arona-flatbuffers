@@ -17,11 +17,19 @@ func GetRootAsScenarioResourceInfoExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishScenarioResourceInfoExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsScenarioResourceInfoExcel(buf []byte, offset flatbuffers.UOffsetT) *ScenarioResourceInfoExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ScenarioResourceInfoExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedScenarioResourceInfoExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ScenarioResourceInfoExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -172,7 +180,4 @@ func ScenarioResourceInfoExcelAddVideoId(builder *flatbuffers.Builder, videoId i
 }
 func ScenarioResourceInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ScenarioResourceInfoExcel) Name() string {
-	return "ScenarioResourceInfoExcel"
 }

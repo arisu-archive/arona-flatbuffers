@@ -17,11 +17,19 @@ func GetRootAsCafeProductionExcelTable(buf []byte, offset flatbuffers.UOffsetT) 
 	return x
 }
 
+func FinishCafeProductionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCafeProductionExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CafeProductionExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CafeProductionExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCafeProductionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CafeProductionExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func CafeProductionExcelTableStartDataListVector(builder *flatbuffers.Builder, n
 }
 func CafeProductionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CafeProductionExcelTable) Name() string {
-	return "CafeProductionExcelTable"
 }

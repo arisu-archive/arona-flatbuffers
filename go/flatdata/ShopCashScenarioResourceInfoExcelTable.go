@@ -17,11 +17,19 @@ func GetRootAsShopCashScenarioResourceInfoExcelTable(buf []byte, offset flatbuff
 	return x
 }
 
+func FinishShopCashScenarioResourceInfoExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsShopCashScenarioResourceInfoExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ShopCashScenarioResourceInfoExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ShopCashScenarioResourceInfoExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedShopCashScenarioResourceInfoExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ShopCashScenarioResourceInfoExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ShopCashScenarioResourceInfoExcelTableStartDataListVector(builder *flatbuff
 }
 func ShopCashScenarioResourceInfoExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ShopCashScenarioResourceInfoExcelTable) Name() string {
-	return "ShopCashScenarioResourceInfoExcelTable"
 }

@@ -93,33 +93,62 @@ class EventContentMeetupExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EventContentMeetupExcelStart(builder): builder.StartObject(7)
+def EventContentMeetupExcelStart(builder):
+    builder.StartObject(7)
+
 def Start(builder):
-    return EventContentMeetupExcelStart(builder)
-def EventContentMeetupExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(0, characterId, 0)
+    EventContentMeetupExcelStart(builder)
+
+def EventContentMeetupExcelAddCharacterId(builder, characterId):
+    builder.PrependInt64Slot(0, characterId, 0)
+
 def AddCharacterId(builder, characterId):
-    return EventContentMeetupExcelAddCharacterId(builder, characterId)
-def EventContentMeetupExcelAddConditionParameter(builder, conditionParameter): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(conditionParameter), 0)
+    EventContentMeetupExcelAddCharacterId(builder, characterId)
+
+def EventContentMeetupExcelAddConditionParameter(builder, conditionParameter):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(conditionParameter), 0)
+
 def AddConditionParameter(builder, conditionParameter):
-    return EventContentMeetupExcelAddConditionParameter(builder, conditionParameter)
-def EventContentMeetupExcelStartConditionParameterVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EventContentMeetupExcelAddConditionParameter(builder, conditionParameter)
+
+def EventContentMeetupExcelStartConditionParameterVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartConditionParameterVector(builder, numElems):
     return EventContentMeetupExcelStartConditionParameterVector(builder, numElems)
-def EventContentMeetupExcelAddConditionPrintType(builder, conditionPrintType): builder.PrependInt32Slot(2, conditionPrintType, 0)
+
+def EventContentMeetupExcelAddConditionPrintType(builder, conditionPrintType):
+    builder.PrependInt32Slot(2, conditionPrintType, 0)
+
 def AddConditionPrintType(builder, conditionPrintType):
-    return EventContentMeetupExcelAddConditionPrintType(builder, conditionPrintType)
-def EventContentMeetupExcelAddConditionScenarioGroupId(builder, conditionScenarioGroupId): builder.PrependInt64Slot(3, conditionScenarioGroupId, 0)
+    EventContentMeetupExcelAddConditionPrintType(builder, conditionPrintType)
+
+def EventContentMeetupExcelAddConditionScenarioGroupId(builder, conditionScenarioGroupId):
+    builder.PrependInt64Slot(3, conditionScenarioGroupId, 0)
+
 def AddConditionScenarioGroupId(builder, conditionScenarioGroupId):
-    return EventContentMeetupExcelAddConditionScenarioGroupId(builder, conditionScenarioGroupId)
-def EventContentMeetupExcelAddConditionType(builder, conditionType): builder.PrependInt32Slot(4, conditionType, 0)
+    EventContentMeetupExcelAddConditionScenarioGroupId(builder, conditionScenarioGroupId)
+
+def EventContentMeetupExcelAddConditionType(builder, conditionType):
+    builder.PrependInt32Slot(4, conditionType, 0)
+
 def AddConditionType(builder, conditionType):
-    return EventContentMeetupExcelAddConditionType(builder, conditionType)
-def EventContentMeetupExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(5, eventContentId, 0)
+    EventContentMeetupExcelAddConditionType(builder, conditionType)
+
+def EventContentMeetupExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(5, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentMeetupExcelAddEventContentId(builder, eventContentId)
-def EventContentMeetupExcelAddId(builder, id): builder.PrependInt64Slot(6, id, 0)
+    EventContentMeetupExcelAddEventContentId(builder, eventContentId)
+
+def EventContentMeetupExcelAddId(builder, id):
+    builder.PrependInt64Slot(6, id, 0)
+
 def AddId(builder, id):
-    return EventContentMeetupExcelAddId(builder, id)
-def EventContentMeetupExcelEnd(builder): return builder.EndObject()
+    EventContentMeetupExcelAddId(builder, id)
+
+def EventContentMeetupExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentMeetupExcelEnd(builder)

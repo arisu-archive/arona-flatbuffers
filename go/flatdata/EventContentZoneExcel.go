@@ -17,11 +17,19 @@ func GetRootAsEventContentZoneExcel(buf []byte, offset flatbuffers.UOffsetT) *Ev
 	return x
 }
 
+func FinishEventContentZoneExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentZoneExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentZoneExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentZoneExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentZoneExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentZoneExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -239,7 +247,4 @@ func EventContentZoneExcelStartWhiteListTagsVector(builder *flatbuffers.Builder,
 }
 func EventContentZoneExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentZoneExcel) Name() string {
-	return "EventContentZoneExcel"
 }

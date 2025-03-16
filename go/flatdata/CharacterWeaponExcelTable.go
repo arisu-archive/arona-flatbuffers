@@ -17,11 +17,19 @@ func GetRootAsCharacterWeaponExcelTable(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishCharacterWeaponExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCharacterWeaponExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CharacterWeaponExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterWeaponExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCharacterWeaponExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterWeaponExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func CharacterWeaponExcelTableStartDataListVector(builder *flatbuffers.Builder, 
 }
 func CharacterWeaponExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CharacterWeaponExcelTable) Name() string {
-	return "CharacterWeaponExcelTable"
 }

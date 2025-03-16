@@ -49,15 +49,26 @@ class EchelonConstraintExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EchelonConstraintExcelTableStart(builder): builder.StartObject(1)
+def EchelonConstraintExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return EchelonConstraintExcelTableStart(builder)
-def EchelonConstraintExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    EchelonConstraintExcelTableStart(builder)
+
+def EchelonConstraintExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return EchelonConstraintExcelTableAddDataList(builder, dataList)
-def EchelonConstraintExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EchelonConstraintExcelTableAddDataList(builder, dataList)
+
+def EchelonConstraintExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return EchelonConstraintExcelTableStartDataListVector(builder, numElems)
-def EchelonConstraintExcelTableEnd(builder): return builder.EndObject()
+
+def EchelonConstraintExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EchelonConstraintExcelTableEnd(builder)

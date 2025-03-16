@@ -112,30 +112,56 @@ class FieldTutorialExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         return o == 0
 
-def FieldTutorialExcelStart(builder): builder.StartObject(4)
+def FieldTutorialExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return FieldTutorialExcelStart(builder)
-def FieldTutorialExcelAddConditionId(builder, conditionId): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(conditionId), 0)
+    FieldTutorialExcelStart(builder)
+
+def FieldTutorialExcelAddConditionId(builder, conditionId):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(conditionId), 0)
+
 def AddConditionId(builder, conditionId):
-    return FieldTutorialExcelAddConditionId(builder, conditionId)
-def FieldTutorialExcelStartConditionIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    FieldTutorialExcelAddConditionId(builder, conditionId)
+
+def FieldTutorialExcelStartConditionIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartConditionIdVector(builder, numElems):
     return FieldTutorialExcelStartConditionIdVector(builder, numElems)
-def FieldTutorialExcelAddConditionType(builder, conditionType): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(conditionType), 0)
+
+def FieldTutorialExcelAddConditionType(builder, conditionType):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(conditionType), 0)
+
 def AddConditionType(builder, conditionType):
-    return FieldTutorialExcelAddConditionType(builder, conditionType)
-def FieldTutorialExcelStartConditionTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    FieldTutorialExcelAddConditionType(builder, conditionType)
+
+def FieldTutorialExcelStartConditionTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartConditionTypeVector(builder, numElems):
     return FieldTutorialExcelStartConditionTypeVector(builder, numElems)
-def FieldTutorialExcelAddSeasonId(builder, seasonId): builder.PrependInt64Slot(2, seasonId, 0)
+
+def FieldTutorialExcelAddSeasonId(builder, seasonId):
+    builder.PrependInt64Slot(2, seasonId, 0)
+
 def AddSeasonId(builder, seasonId):
-    return FieldTutorialExcelAddSeasonId(builder, seasonId)
-def FieldTutorialExcelAddTutorialType(builder, tutorialType): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(tutorialType), 0)
+    FieldTutorialExcelAddSeasonId(builder, seasonId)
+
+def FieldTutorialExcelAddTutorialType(builder, tutorialType):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(tutorialType), 0)
+
 def AddTutorialType(builder, tutorialType):
-    return FieldTutorialExcelAddTutorialType(builder, tutorialType)
-def FieldTutorialExcelStartTutorialTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    FieldTutorialExcelAddTutorialType(builder, tutorialType)
+
+def FieldTutorialExcelStartTutorialTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartTutorialTypeVector(builder, numElems):
     return FieldTutorialExcelStartTutorialTypeVector(builder, numElems)
-def FieldTutorialExcelEnd(builder): return builder.EndObject()
+
+def FieldTutorialExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FieldTutorialExcelEnd(builder)

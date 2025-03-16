@@ -80,33 +80,62 @@ class ClanAssistSlotExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ClanAssistSlotExcelStart(builder): builder.StartObject(8)
+def ClanAssistSlotExcelStart(builder):
+    builder.StartObject(8)
+
 def Start(builder):
-    return ClanAssistSlotExcelStart(builder)
-def ClanAssistSlotExcelAddAssistRentalFeeAmount(builder, assistRentalFeeAmount): builder.PrependInt64Slot(0, assistRentalFeeAmount, 0)
+    ClanAssistSlotExcelStart(builder)
+
+def ClanAssistSlotExcelAddAssistRentalFeeAmount(builder, assistRentalFeeAmount):
+    builder.PrependInt64Slot(0, assistRentalFeeAmount, 0)
+
 def AddAssistRentalFeeAmount(builder, assistRentalFeeAmount):
-    return ClanAssistSlotExcelAddAssistRentalFeeAmount(builder, assistRentalFeeAmount)
-def ClanAssistSlotExcelAddAssistRentalFeeAmountStranger(builder, assistRentalFeeAmountStranger): builder.PrependInt64Slot(1, assistRentalFeeAmountStranger, 0)
+    ClanAssistSlotExcelAddAssistRentalFeeAmount(builder, assistRentalFeeAmount)
+
+def ClanAssistSlotExcelAddAssistRentalFeeAmountStranger(builder, assistRentalFeeAmountStranger):
+    builder.PrependInt64Slot(1, assistRentalFeeAmountStranger, 0)
+
 def AddAssistRentalFeeAmountStranger(builder, assistRentalFeeAmountStranger):
-    return ClanAssistSlotExcelAddAssistRentalFeeAmountStranger(builder, assistRentalFeeAmountStranger)
-def ClanAssistSlotExcelAddAssistRentRewardDailyMaxCount(builder, assistRentRewardDailyMaxCount): builder.PrependInt64Slot(2, assistRentRewardDailyMaxCount, 0)
+    ClanAssistSlotExcelAddAssistRentalFeeAmountStranger(builder, assistRentalFeeAmountStranger)
+
+def ClanAssistSlotExcelAddAssistRentRewardDailyMaxCount(builder, assistRentRewardDailyMaxCount):
+    builder.PrependInt64Slot(2, assistRentRewardDailyMaxCount, 0)
+
 def AddAssistRentRewardDailyMaxCount(builder, assistRentRewardDailyMaxCount):
-    return ClanAssistSlotExcelAddAssistRentRewardDailyMaxCount(builder, assistRentRewardDailyMaxCount)
-def ClanAssistSlotExcelAddAssistRewardLimit(builder, assistRewardLimit): builder.PrependInt64Slot(3, assistRewardLimit, 0)
+    ClanAssistSlotExcelAddAssistRentRewardDailyMaxCount(builder, assistRentRewardDailyMaxCount)
+
+def ClanAssistSlotExcelAddAssistRewardLimit(builder, assistRewardLimit):
+    builder.PrependInt64Slot(3, assistRewardLimit, 0)
+
 def AddAssistRewardLimit(builder, assistRewardLimit):
-    return ClanAssistSlotExcelAddAssistRewardLimit(builder, assistRewardLimit)
-def ClanAssistSlotExcelAddAssistTermRewardPeriodFromSec(builder, assistTermRewardPeriodFromSec): builder.PrependInt64Slot(4, assistTermRewardPeriodFromSec, 0)
+    ClanAssistSlotExcelAddAssistRewardLimit(builder, assistRewardLimit)
+
+def ClanAssistSlotExcelAddAssistTermRewardPeriodFromSec(builder, assistTermRewardPeriodFromSec):
+    builder.PrependInt64Slot(4, assistTermRewardPeriodFromSec, 0)
+
 def AddAssistTermRewardPeriodFromSec(builder, assistTermRewardPeriodFromSec):
-    return ClanAssistSlotExcelAddAssistTermRewardPeriodFromSec(builder, assistTermRewardPeriodFromSec)
-def ClanAssistSlotExcelAddEchelonType(builder, echelonType): builder.PrependInt32Slot(5, echelonType, 0)
+    ClanAssistSlotExcelAddAssistTermRewardPeriodFromSec(builder, assistTermRewardPeriodFromSec)
+
+def ClanAssistSlotExcelAddEchelonType(builder, echelonType):
+    builder.PrependInt32Slot(5, echelonType, 0)
+
 def AddEchelonType(builder, echelonType):
-    return ClanAssistSlotExcelAddEchelonType(builder, echelonType)
-def ClanAssistSlotExcelAddSlotId(builder, slotId): builder.PrependInt64Slot(6, slotId, 0)
+    ClanAssistSlotExcelAddEchelonType(builder, echelonType)
+
+def ClanAssistSlotExcelAddSlotId(builder, slotId):
+    builder.PrependInt64Slot(6, slotId, 0)
+
 def AddSlotId(builder, slotId):
-    return ClanAssistSlotExcelAddSlotId(builder, slotId)
-def ClanAssistSlotExcelAddSlotNumber(builder, slotNumber): builder.PrependInt64Slot(7, slotNumber, 0)
+    ClanAssistSlotExcelAddSlotId(builder, slotId)
+
+def ClanAssistSlotExcelAddSlotNumber(builder, slotNumber):
+    builder.PrependInt64Slot(7, slotNumber, 0)
+
 def AddSlotNumber(builder, slotNumber):
-    return ClanAssistSlotExcelAddSlotNumber(builder, slotNumber)
-def ClanAssistSlotExcelEnd(builder): return builder.EndObject()
+    ClanAssistSlotExcelAddSlotNumber(builder, slotNumber)
+
+def ClanAssistSlotExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ClanAssistSlotExcelEnd(builder)

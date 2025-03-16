@@ -49,15 +49,26 @@ class WorldRaidFavorBuffExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def WorldRaidFavorBuffExcelTableStart(builder): builder.StartObject(1)
+def WorldRaidFavorBuffExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return WorldRaidFavorBuffExcelTableStart(builder)
-def WorldRaidFavorBuffExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    WorldRaidFavorBuffExcelTableStart(builder)
+
+def WorldRaidFavorBuffExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return WorldRaidFavorBuffExcelTableAddDataList(builder, dataList)
-def WorldRaidFavorBuffExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    WorldRaidFavorBuffExcelTableAddDataList(builder, dataList)
+
+def WorldRaidFavorBuffExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return WorldRaidFavorBuffExcelTableStartDataListVector(builder, numElems)
-def WorldRaidFavorBuffExcelTableEnd(builder): return builder.EndObject()
+
+def WorldRaidFavorBuffExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return WorldRaidFavorBuffExcelTableEnd(builder)

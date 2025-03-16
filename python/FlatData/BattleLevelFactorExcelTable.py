@@ -49,15 +49,26 @@ class BattleLevelFactorExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def BattleLevelFactorExcelTableStart(builder): builder.StartObject(1)
+def BattleLevelFactorExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return BattleLevelFactorExcelTableStart(builder)
-def BattleLevelFactorExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    BattleLevelFactorExcelTableStart(builder)
+
+def BattleLevelFactorExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return BattleLevelFactorExcelTableAddDataList(builder, dataList)
-def BattleLevelFactorExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BattleLevelFactorExcelTableAddDataList(builder, dataList)
+
+def BattleLevelFactorExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return BattleLevelFactorExcelTableStartDataListVector(builder, numElems)
-def BattleLevelFactorExcelTableEnd(builder): return builder.EndObject()
+
+def BattleLevelFactorExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return BattleLevelFactorExcelTableEnd(builder)

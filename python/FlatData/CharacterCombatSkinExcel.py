@@ -45,18 +45,32 @@ class CharacterCombatSkinExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def CharacterCombatSkinExcelStart(builder): builder.StartObject(3)
+def CharacterCombatSkinExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return CharacterCombatSkinExcelStart(builder)
-def CharacterCombatSkinExcelAddGroupId(builder, groupId): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(groupId), 0)
+    CharacterCombatSkinExcelStart(builder)
+
+def CharacterCombatSkinExcelAddGroupId(builder, groupId):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(groupId), 0)
+
 def AddGroupId(builder, groupId):
-    return CharacterCombatSkinExcelAddGroupId(builder, groupId)
-def CharacterCombatSkinExcelAddResourcePath(builder, resourcePath): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(resourcePath), 0)
+    CharacterCombatSkinExcelAddGroupId(builder, groupId)
+
+def CharacterCombatSkinExcelAddResourcePath(builder, resourcePath):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(resourcePath), 0)
+
 def AddResourcePath(builder, resourcePath):
-    return CharacterCombatSkinExcelAddResourcePath(builder, resourcePath)
-def CharacterCombatSkinExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(2, uniqueId, 0)
+    CharacterCombatSkinExcelAddResourcePath(builder, resourcePath)
+
+def CharacterCombatSkinExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(2, uniqueId, 0)
+
 def AddUniqueId(builder, uniqueId):
-    return CharacterCombatSkinExcelAddUniqueId(builder, uniqueId)
-def CharacterCombatSkinExcelEnd(builder): return builder.EndObject()
+    CharacterCombatSkinExcelAddUniqueId(builder, uniqueId)
+
+def CharacterCombatSkinExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CharacterCombatSkinExcelEnd(builder)

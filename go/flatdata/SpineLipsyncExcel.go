@@ -17,11 +17,19 @@ func GetRootAsSpineLipsyncExcel(buf []byte, offset flatbuffers.UOffsetT) *SpineL
 	return x
 }
 
+func FinishSpineLipsyncExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsSpineLipsyncExcel(buf []byte, offset flatbuffers.UOffsetT) *SpineLipsyncExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &SpineLipsyncExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedSpineLipsyncExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *SpineLipsyncExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -75,7 +83,4 @@ func SpineLipsyncExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint32) {
 }
 func SpineLipsyncExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*SpineLipsyncExcel) Name() string {
-	return "SpineLipsyncExcel"
 }

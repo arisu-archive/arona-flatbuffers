@@ -17,11 +17,19 @@ func GetRootAsCharacterLevelExcel(buf []byte, offset flatbuffers.UOffsetT) *Char
 	return x
 }
 
+func FinishCharacterLevelExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCharacterLevelExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterLevelExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterLevelExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCharacterLevelExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterLevelExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -83,7 +91,4 @@ func CharacterLevelExcelAddTotalExp(builder *flatbuffers.Builder, totalExp int64
 }
 func CharacterLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CharacterLevelExcel) Name() string {
-	return "CharacterLevelExcel"
 }

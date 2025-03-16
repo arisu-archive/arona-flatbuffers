@@ -17,11 +17,19 @@ func GetRootAsBGMRaidExcel(buf []byte, offset flatbuffers.UOffsetT) *BGMRaidExce
 	return x
 }
 
+func FinishBGMRaidExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsBGMRaidExcel(buf []byte, offset flatbuffers.UOffsetT) *BGMRaidExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &BGMRaidExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedBGMRaidExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *BGMRaidExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -83,7 +91,4 @@ func BGMRaidExcelAddStageId(builder *flatbuffers.Builder, stageId int64) {
 }
 func BGMRaidExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*BGMRaidExcel) Name() string {
-	return "BGMRaidExcel"
 }

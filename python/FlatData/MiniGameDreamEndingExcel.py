@@ -113,36 +113,68 @@ class MiniGameDreamEndingExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def MiniGameDreamEndingExcelStart(builder): builder.StartObject(7)
+def MiniGameDreamEndingExcelStart(builder):
+    builder.StartObject(7)
+
 def Start(builder):
-    return MiniGameDreamEndingExcelStart(builder)
-def MiniGameDreamEndingExcelAddDreamMakerEndingType(builder, dreamMakerEndingType): builder.PrependInt32Slot(0, dreamMakerEndingType, 0)
+    MiniGameDreamEndingExcelStart(builder)
+
+def MiniGameDreamEndingExcelAddDreamMakerEndingType(builder, dreamMakerEndingType):
+    builder.PrependInt32Slot(0, dreamMakerEndingType, 0)
+
 def AddDreamMakerEndingType(builder, dreamMakerEndingType):
-    return MiniGameDreamEndingExcelAddDreamMakerEndingType(builder, dreamMakerEndingType)
-def MiniGameDreamEndingExcelAddEndingCondition(builder, endingCondition): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(endingCondition), 0)
+    MiniGameDreamEndingExcelAddDreamMakerEndingType(builder, dreamMakerEndingType)
+
+def MiniGameDreamEndingExcelAddEndingCondition(builder, endingCondition):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(endingCondition), 0)
+
 def AddEndingCondition(builder, endingCondition):
-    return MiniGameDreamEndingExcelAddEndingCondition(builder, endingCondition)
-def MiniGameDreamEndingExcelStartEndingConditionVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    MiniGameDreamEndingExcelAddEndingCondition(builder, endingCondition)
+
+def MiniGameDreamEndingExcelStartEndingConditionVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartEndingConditionVector(builder, numElems):
     return MiniGameDreamEndingExcelStartEndingConditionVector(builder, numElems)
-def MiniGameDreamEndingExcelAddEndingConditionValue(builder, endingConditionValue): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(endingConditionValue), 0)
+
+def MiniGameDreamEndingExcelAddEndingConditionValue(builder, endingConditionValue):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(endingConditionValue), 0)
+
 def AddEndingConditionValue(builder, endingConditionValue):
-    return MiniGameDreamEndingExcelAddEndingConditionValue(builder, endingConditionValue)
-def MiniGameDreamEndingExcelStartEndingConditionValueVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    MiniGameDreamEndingExcelAddEndingConditionValue(builder, endingConditionValue)
+
+def MiniGameDreamEndingExcelStartEndingConditionValueVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartEndingConditionValueVector(builder, numElems):
     return MiniGameDreamEndingExcelStartEndingConditionValueVector(builder, numElems)
-def MiniGameDreamEndingExcelAddEndingId(builder, endingId): builder.PrependInt64Slot(3, endingId, 0)
+
+def MiniGameDreamEndingExcelAddEndingId(builder, endingId):
+    builder.PrependInt64Slot(3, endingId, 0)
+
 def AddEndingId(builder, endingId):
-    return MiniGameDreamEndingExcelAddEndingId(builder, endingId)
-def MiniGameDreamEndingExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(4, eventContentId, 0)
+    MiniGameDreamEndingExcelAddEndingId(builder, endingId)
+
+def MiniGameDreamEndingExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(4, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return MiniGameDreamEndingExcelAddEventContentId(builder, eventContentId)
-def MiniGameDreamEndingExcelAddOrder(builder, order): builder.PrependInt32Slot(5, order, 0)
+    MiniGameDreamEndingExcelAddEventContentId(builder, eventContentId)
+
+def MiniGameDreamEndingExcelAddOrder(builder, order):
+    builder.PrependInt32Slot(5, order, 0)
+
 def AddOrder(builder, order):
-    return MiniGameDreamEndingExcelAddOrder(builder, order)
-def MiniGameDreamEndingExcelAddScenarioGroupId(builder, scenarioGroupId): builder.PrependInt64Slot(6, scenarioGroupId, 0)
+    MiniGameDreamEndingExcelAddOrder(builder, order)
+
+def MiniGameDreamEndingExcelAddScenarioGroupId(builder, scenarioGroupId):
+    builder.PrependInt64Slot(6, scenarioGroupId, 0)
+
 def AddScenarioGroupId(builder, scenarioGroupId):
-    return MiniGameDreamEndingExcelAddScenarioGroupId(builder, scenarioGroupId)
-def MiniGameDreamEndingExcelEnd(builder): return builder.EndObject()
+    MiniGameDreamEndingExcelAddScenarioGroupId(builder, scenarioGroupId)
+
+def MiniGameDreamEndingExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MiniGameDreamEndingExcelEnd(builder)

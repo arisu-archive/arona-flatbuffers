@@ -17,11 +17,19 @@ func GetRootAsAcademyMessanger3Excel(buf []byte, offset flatbuffers.UOffsetT) *A
 	return x
 }
 
+func FinishAcademyMessanger3ExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsAcademyMessanger3Excel(buf []byte, offset flatbuffers.UOffsetT) *AcademyMessanger3Excel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AcademyMessanger3Excel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedAcademyMessanger3ExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AcademyMessanger3Excel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -269,7 +277,4 @@ func AcademyMessanger3ExcelAddPreConditionGroupId(builder *flatbuffers.Builder, 
 }
 func AcademyMessanger3ExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*AcademyMessanger3Excel) Name() string {
-	return "AcademyMessanger3Excel"
 }

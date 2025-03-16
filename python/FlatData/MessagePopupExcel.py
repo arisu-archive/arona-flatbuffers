@@ -201,63 +201,122 @@ class MessagePopupExcel(object):
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
-def MessagePopupExcelStart(builder): builder.StartObject(13)
+def MessagePopupExcelStart(builder):
+    builder.StartObject(13)
+
 def Start(builder):
-    return MessagePopupExcelStart(builder)
-def MessagePopupExcelAddButtonCommand(builder, buttonCommand): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(buttonCommand), 0)
+    MessagePopupExcelStart(builder)
+
+def MessagePopupExcelAddButtonCommand(builder, buttonCommand):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(buttonCommand), 0)
+
 def AddButtonCommand(builder, buttonCommand):
-    return MessagePopupExcelAddButtonCommand(builder, buttonCommand)
-def MessagePopupExcelStartButtonCommandVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    MessagePopupExcelAddButtonCommand(builder, buttonCommand)
+
+def MessagePopupExcelStartButtonCommandVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartButtonCommandVector(builder, numElems):
     return MessagePopupExcelStartButtonCommandVector(builder, numElems)
-def MessagePopupExcelAddButton(builder, button): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(button), 0)
+
+def MessagePopupExcelAddButton(builder, button):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(button), 0)
+
 def AddButton(builder, button):
-    return MessagePopupExcelAddButton(builder, button)
-def MessagePopupExcelStartButtonVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    MessagePopupExcelAddButton(builder, button)
+
+def MessagePopupExcelStartButtonVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartButtonVector(builder, numElems):
     return MessagePopupExcelStartButtonVector(builder, numElems)
-def MessagePopupExcelAddButtonParameter(builder, buttonParameter): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(buttonParameter), 0)
+
+def MessagePopupExcelAddButtonParameter(builder, buttonParameter):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(buttonParameter), 0)
+
 def AddButtonParameter(builder, buttonParameter):
-    return MessagePopupExcelAddButtonParameter(builder, buttonParameter)
-def MessagePopupExcelStartButtonParameterVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    MessagePopupExcelAddButtonParameter(builder, buttonParameter)
+
+def MessagePopupExcelStartButtonParameterVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartButtonParameterVector(builder, numElems):
     return MessagePopupExcelStartButtonParameterVector(builder, numElems)
-def MessagePopupExcelAddButtonText(builder, buttonText): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(buttonText), 0)
+
+def MessagePopupExcelAddButtonText(builder, buttonText):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(buttonText), 0)
+
 def AddButtonText(builder, buttonText):
-    return MessagePopupExcelAddButtonText(builder, buttonText)
-def MessagePopupExcelStartButtonTextVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    MessagePopupExcelAddButtonText(builder, buttonText)
+
+def MessagePopupExcelStartButtonTextVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartButtonTextVector(builder, numElems):
     return MessagePopupExcelStartButtonTextVector(builder, numElems)
-def MessagePopupExcelAddConditionText(builder, conditionText): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(conditionText), 0)
+
+def MessagePopupExcelAddConditionText(builder, conditionText):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(conditionText), 0)
+
 def AddConditionText(builder, conditionText):
-    return MessagePopupExcelAddConditionText(builder, conditionText)
-def MessagePopupExcelStartConditionTextVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    MessagePopupExcelAddConditionText(builder, conditionText)
+
+def MessagePopupExcelStartConditionTextVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartConditionTextVector(builder, numElems):
     return MessagePopupExcelStartConditionTextVector(builder, numElems)
-def MessagePopupExcelAddDisplayXButton(builder, displayXButton): builder.PrependBoolSlot(5, displayXButton, 0)
+
+def MessagePopupExcelAddDisplayXButton(builder, displayXButton):
+    builder.PrependBoolSlot(5, displayXButton, 0)
+
 def AddDisplayXButton(builder, displayXButton):
-    return MessagePopupExcelAddDisplayXButton(builder, displayXButton)
-def MessagePopupExcelAddImage(builder, image): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(image), 0)
+    MessagePopupExcelAddDisplayXButton(builder, displayXButton)
+
+def MessagePopupExcelAddImage(builder, image):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(image), 0)
+
 def AddImage(builder, image):
-    return MessagePopupExcelAddImage(builder, image)
-def MessagePopupExcelAddMessagePopupLayout(builder, messagePopupLayout): builder.PrependInt32Slot(7, messagePopupLayout, 0)
+    MessagePopupExcelAddImage(builder, image)
+
+def MessagePopupExcelAddMessagePopupLayout(builder, messagePopupLayout):
+    builder.PrependInt32Slot(7, messagePopupLayout, 0)
+
 def AddMessagePopupLayout(builder, messagePopupLayout):
-    return MessagePopupExcelAddMessagePopupLayout(builder, messagePopupLayout)
-def MessagePopupExcelAddMessageText(builder, messageText): builder.PrependUint32Slot(8, messageText, 0)
+    MessagePopupExcelAddMessagePopupLayout(builder, messagePopupLayout)
+
+def MessagePopupExcelAddMessageText(builder, messageText):
+    builder.PrependUint32Slot(8, messageText, 0)
+
 def AddMessageText(builder, messageText):
-    return MessagePopupExcelAddMessageText(builder, messageText)
-def MessagePopupExcelAddOrderType(builder, orderType): builder.PrependInt32Slot(9, orderType, 0)
+    MessagePopupExcelAddMessageText(builder, messageText)
+
+def MessagePopupExcelAddOrderType(builder, orderType):
+    builder.PrependInt32Slot(9, orderType, 0)
+
 def AddOrderType(builder, orderType):
-    return MessagePopupExcelAddOrderType(builder, orderType)
-def MessagePopupExcelAddStringId(builder, stringId): builder.PrependUint32Slot(10, stringId, 0)
+    MessagePopupExcelAddOrderType(builder, orderType)
+
+def MessagePopupExcelAddStringId(builder, stringId):
+    builder.PrependUint32Slot(10, stringId, 0)
+
 def AddStringId(builder, stringId):
-    return MessagePopupExcelAddStringId(builder, stringId)
-def MessagePopupExcelAddSubTitleText(builder, subTitleText): builder.PrependUint32Slot(11, subTitleText, 0)
+    MessagePopupExcelAddStringId(builder, stringId)
+
+def MessagePopupExcelAddSubTitleText(builder, subTitleText):
+    builder.PrependUint32Slot(11, subTitleText, 0)
+
 def AddSubTitleText(builder, subTitleText):
-    return MessagePopupExcelAddSubTitleText(builder, subTitleText)
-def MessagePopupExcelAddTitleText(builder, titleText): builder.PrependUint32Slot(12, titleText, 0)
+    MessagePopupExcelAddSubTitleText(builder, subTitleText)
+
+def MessagePopupExcelAddTitleText(builder, titleText):
+    builder.PrependUint32Slot(12, titleText, 0)
+
 def AddTitleText(builder, titleText):
-    return MessagePopupExcelAddTitleText(builder, titleText)
-def MessagePopupExcelEnd(builder): return builder.EndObject()
+    MessagePopupExcelAddTitleText(builder, titleText)
+
+def MessagePopupExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MessagePopupExcelEnd(builder)

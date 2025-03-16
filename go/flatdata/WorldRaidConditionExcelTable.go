@@ -17,11 +17,19 @@ func GetRootAsWorldRaidConditionExcelTable(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishWorldRaidConditionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsWorldRaidConditionExcelTable(buf []byte, offset flatbuffers.UOffsetT) *WorldRaidConditionExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &WorldRaidConditionExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedWorldRaidConditionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *WorldRaidConditionExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func WorldRaidConditionExcelTableStartDataListVector(builder *flatbuffers.Builde
 }
 func WorldRaidConditionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*WorldRaidConditionExcelTable) Name() string {
-	return "WorldRaidConditionExcelTable"
 }

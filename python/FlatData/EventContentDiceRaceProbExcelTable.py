@@ -49,15 +49,26 @@ class EventContentDiceRaceProbExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentDiceRaceProbExcelTableStart(builder): builder.StartObject(1)
+def EventContentDiceRaceProbExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return EventContentDiceRaceProbExcelTableStart(builder)
-def EventContentDiceRaceProbExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    EventContentDiceRaceProbExcelTableStart(builder)
+
+def EventContentDiceRaceProbExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return EventContentDiceRaceProbExcelTableAddDataList(builder, dataList)
-def EventContentDiceRaceProbExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentDiceRaceProbExcelTableAddDataList(builder, dataList)
+
+def EventContentDiceRaceProbExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return EventContentDiceRaceProbExcelTableStartDataListVector(builder, numElems)
-def EventContentDiceRaceProbExcelTableEnd(builder): return builder.EndObject()
+
+def EventContentDiceRaceProbExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentDiceRaceProbExcelTableEnd(builder)

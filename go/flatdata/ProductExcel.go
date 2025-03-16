@@ -17,11 +17,19 @@ func GetRootAsProductExcel(buf []byte, offset flatbuffers.UOffsetT) *ProductExce
 	return x
 }
 
+func FinishProductExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsProductExcel(buf []byte, offset flatbuffers.UOffsetT) *ProductExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ProductExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedProductExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ProductExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -242,7 +250,4 @@ func ProductExcelAddTeenProductId(builder *flatbuffers.Builder, teenProductId fl
 }
 func ProductExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ProductExcel) Name() string {
-	return "ProductExcel"
 }

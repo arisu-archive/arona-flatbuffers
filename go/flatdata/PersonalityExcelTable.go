@@ -17,11 +17,19 @@ func GetRootAsPersonalityExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Pe
 	return x
 }
 
+func FinishPersonalityExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsPersonalityExcelTable(buf []byte, offset flatbuffers.UOffsetT) *PersonalityExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &PersonalityExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedPersonalityExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *PersonalityExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func PersonalityExcelTableStartDataListVector(builder *flatbuffers.Builder, numE
 }
 func PersonalityExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*PersonalityExcelTable) Name() string {
-	return "PersonalityExcelTable"
 }

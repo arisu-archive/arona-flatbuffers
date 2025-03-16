@@ -17,11 +17,19 @@ func GetRootAsEventContentMiniEventShortCutExcel(buf []byte, offset flatbuffers.
 	return x
 }
 
+func FinishEventContentMiniEventShortCutExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentMiniEventShortCutExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentMiniEventShortCutExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentMiniEventShortCutExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentMiniEventShortCutExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentMiniEventShortCutExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -83,7 +91,4 @@ func EventContentMiniEventShortCutExcelAddShorcutContentType(builder *flatbuffer
 }
 func EventContentMiniEventShortCutExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentMiniEventShortCutExcel) Name() string {
-	return "EventContentMiniEventShortCutExcel"
 }

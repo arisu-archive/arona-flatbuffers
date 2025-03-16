@@ -17,11 +17,19 @@ func GetRootAsCostumeExcel(buf []byte, offset flatbuffers.UOffsetT) *CostumeExce
 	return x
 }
 
+func FinishCostumeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCostumeExcel(buf []byte, offset flatbuffers.UOffsetT) *CostumeExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CostumeExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCostumeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CostumeExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -462,7 +470,4 @@ func CostumeExcelAddUseObjectHpbar(builder *flatbuffers.Builder, useObjectHpbar 
 }
 func CostumeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CostumeExcel) Name() string {
-	return "CostumeExcel"
 }

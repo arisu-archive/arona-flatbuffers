@@ -17,11 +17,19 @@ func GetRootAsMiniGameDreamEndingRewardExcel(buf []byte, offset flatbuffers.UOff
 	return x
 }
 
+func FinishMiniGameDreamEndingRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMiniGameDreamEndingRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *MiniGameDreamEndingRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MiniGameDreamEndingRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMiniGameDreamEndingRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MiniGameDreamEndingRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -209,7 +217,4 @@ func MiniGameDreamEndingRewardExcelStartRewardParcelTypeVector(builder *flatbuff
 }
 func MiniGameDreamEndingRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*MiniGameDreamEndingRewardExcel) Name() string {
-	return "MiniGameDreamEndingRewardExcel"
 }

@@ -17,11 +17,19 @@ func GetRootAsWeekDungeonExcelTable(buf []byte, offset flatbuffers.UOffsetT) *We
 	return x
 }
 
+func FinishWeekDungeonExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsWeekDungeonExcelTable(buf []byte, offset flatbuffers.UOffsetT) *WeekDungeonExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &WeekDungeonExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedWeekDungeonExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *WeekDungeonExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func WeekDungeonExcelTableStartDataListVector(builder *flatbuffers.Builder, numE
 }
 func WeekDungeonExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*WeekDungeonExcelTable) Name() string {
-	return "WeekDungeonExcelTable"
 }

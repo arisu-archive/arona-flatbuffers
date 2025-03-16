@@ -17,11 +17,19 @@ func GetRootAsLimitedStageSeasonExcelTable(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishLimitedStageSeasonExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsLimitedStageSeasonExcelTable(buf []byte, offset flatbuffers.UOffsetT) *LimitedStageSeasonExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LimitedStageSeasonExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedLimitedStageSeasonExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LimitedStageSeasonExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func LimitedStageSeasonExcelTableStartDataListVector(builder *flatbuffers.Builde
 }
 func LimitedStageSeasonExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*LimitedStageSeasonExcelTable) Name() string {
-	return "LimitedStageSeasonExcelTable"
 }

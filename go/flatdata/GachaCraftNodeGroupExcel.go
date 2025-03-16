@@ -17,11 +17,19 @@ func GetRootAsGachaCraftNodeGroupExcel(buf []byte, offset flatbuffers.UOffsetT) 
 	return x
 }
 
+func FinishGachaCraftNodeGroupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsGachaCraftNodeGroupExcel(buf []byte, offset flatbuffers.UOffsetT) *GachaCraftNodeGroupExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GachaCraftNodeGroupExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedGachaCraftNodeGroupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GachaCraftNodeGroupExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -83,7 +91,4 @@ func GachaCraftNodeGroupExcelAddProbWeight(builder *flatbuffers.Builder, probWei
 }
 func GachaCraftNodeGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*GachaCraftNodeGroupExcel) Name() string {
-	return "GachaCraftNodeGroupExcel"
 }

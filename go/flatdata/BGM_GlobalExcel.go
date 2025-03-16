@@ -17,11 +17,19 @@ func GetRootAsBGM_GlobalExcel(buf []byte, offset flatbuffers.UOffsetT) *BGM_Glob
 	return x
 }
 
+func FinishBGM_GlobalExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsBGM_GlobalExcel(buf []byte, offset flatbuffers.UOffsetT) *BGM_GlobalExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &BGM_GlobalExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedBGM_GlobalExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *BGM_GlobalExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -128,7 +136,4 @@ func BGM_GlobalExcelAddGroupBgmId(builder *flatbuffers.Builder, groupBgmId int64
 }
 func BGM_GlobalExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*BGM_GlobalExcel) Name() string {
-	return "BGM_GlobalExcel"
 }

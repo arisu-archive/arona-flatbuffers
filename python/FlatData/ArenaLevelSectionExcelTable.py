@@ -49,15 +49,26 @@ class ArenaLevelSectionExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ArenaLevelSectionExcelTableStart(builder): builder.StartObject(1)
+def ArenaLevelSectionExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ArenaLevelSectionExcelTableStart(builder)
-def ArenaLevelSectionExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ArenaLevelSectionExcelTableStart(builder)
+
+def ArenaLevelSectionExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ArenaLevelSectionExcelTableAddDataList(builder, dataList)
-def ArenaLevelSectionExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ArenaLevelSectionExcelTableAddDataList(builder, dataList)
+
+def ArenaLevelSectionExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ArenaLevelSectionExcelTableStartDataListVector(builder, numElems)
-def ArenaLevelSectionExcelTableEnd(builder): return builder.EndObject()
+
+def ArenaLevelSectionExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ArenaLevelSectionExcelTableEnd(builder)

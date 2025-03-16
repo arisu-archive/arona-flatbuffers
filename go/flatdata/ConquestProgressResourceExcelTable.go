@@ -17,11 +17,19 @@ func GetRootAsConquestProgressResourceExcelTable(buf []byte, offset flatbuffers.
 	return x
 }
 
+func FinishConquestProgressResourceExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConquestProgressResourceExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ConquestProgressResourceExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestProgressResourceExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConquestProgressResourceExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestProgressResourceExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ConquestProgressResourceExcelTableStartDataListVector(builder *flatbuffers.
 }
 func ConquestProgressResourceExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConquestProgressResourceExcelTable) Name() string {
-	return "ConquestProgressResourceExcelTable"
 }

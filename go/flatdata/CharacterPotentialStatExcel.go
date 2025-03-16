@@ -17,11 +17,19 @@ func GetRootAsCharacterPotentialStatExcel(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
+func FinishCharacterPotentialStatExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCharacterPotentialStatExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterPotentialStatExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterPotentialStatExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCharacterPotentialStatExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterPotentialStatExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -98,7 +106,4 @@ func CharacterPotentialStatExcelAddStatBonusRate(builder *flatbuffers.Builder, s
 }
 func CharacterPotentialStatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CharacterPotentialStatExcel) Name() string {
-	return "CharacterPotentialStatExcel"
 }

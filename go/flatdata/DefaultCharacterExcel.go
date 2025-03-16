@@ -17,11 +17,19 @@ func GetRootAsDefaultCharacterExcel(buf []byte, offset flatbuffers.UOffsetT) *De
 	return x
 }
 
+func FinishDefaultCharacterExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsDefaultCharacterExcel(buf []byte, offset flatbuffers.UOffsetT) *DefaultCharacterExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &DefaultCharacterExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedDefaultCharacterExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *DefaultCharacterExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -218,7 +226,4 @@ func DefaultCharacterExcelAddStarGrade(builder *flatbuffers.Builder, starGrade i
 }
 func DefaultCharacterExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*DefaultCharacterExcel) Name() string {
-	return "DefaultCharacterExcel"
 }

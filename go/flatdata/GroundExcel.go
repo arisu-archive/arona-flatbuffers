@@ -17,11 +17,19 @@ func GetRootAsGroundExcel(buf []byte, offset flatbuffers.UOffsetT) *GroundExcel 
 	return x
 }
 
+func FinishGroundExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsGroundExcel(buf []byte, offset flatbuffers.UOffsetT) *GroundExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GroundExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedGroundExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GroundExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -924,7 +932,4 @@ func GroundExcelAddWarningUi(builder *flatbuffers.Builder, warningUi bool) {
 }
 func GroundExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*GroundExcel) Name() string {
-	return "GroundExcel"
 }

@@ -127,42 +127,80 @@ class ScenarioReplayExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ScenarioReplayExcelStart(builder): builder.StartObject(9)
+def ScenarioReplayExcelStart(builder):
+    builder.StartObject(9)
+
 def Start(builder):
-    return ScenarioReplayExcelStart(builder)
-def ScenarioReplayExcelAddBackScenarioGroupId(builder, backScenarioGroupId): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(backScenarioGroupId), 0)
+    ScenarioReplayExcelStart(builder)
+
+def ScenarioReplayExcelAddBackScenarioGroupId(builder, backScenarioGroupId):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(backScenarioGroupId), 0)
+
 def AddBackScenarioGroupId(builder, backScenarioGroupId):
-    return ScenarioReplayExcelAddBackScenarioGroupId(builder, backScenarioGroupId)
-def ScenarioReplayExcelStartBackScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    ScenarioReplayExcelAddBackScenarioGroupId(builder, backScenarioGroupId)
+
+def ScenarioReplayExcelStartBackScenarioGroupIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartBackScenarioGroupIdVector(builder, numElems):
     return ScenarioReplayExcelStartBackScenarioGroupIdVector(builder, numElems)
-def ScenarioReplayExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(1, battleDuration, 0)
+
+def ScenarioReplayExcelAddBattleDuration(builder, battleDuration):
+    builder.PrependInt64Slot(1, battleDuration, 0)
+
 def AddBattleDuration(builder, battleDuration):
-    return ScenarioReplayExcelAddBattleDuration(builder, battleDuration)
-def ScenarioReplayExcelAddChapterId(builder, chapterId): builder.PrependInt64Slot(2, chapterId, 0)
+    ScenarioReplayExcelAddBattleDuration(builder, battleDuration)
+
+def ScenarioReplayExcelAddChapterId(builder, chapterId):
+    builder.PrependInt64Slot(2, chapterId, 0)
+
 def AddChapterId(builder, chapterId):
-    return ScenarioReplayExcelAddChapterId(builder, chapterId)
-def ScenarioReplayExcelAddEpisodeId(builder, episodeId): builder.PrependInt64Slot(3, episodeId, 0)
+    ScenarioReplayExcelAddChapterId(builder, chapterId)
+
+def ScenarioReplayExcelAddEpisodeId(builder, episodeId):
+    builder.PrependInt64Slot(3, episodeId, 0)
+
 def AddEpisodeId(builder, episodeId):
-    return ScenarioReplayExcelAddEpisodeId(builder, episodeId)
-def ScenarioReplayExcelAddFrontScenarioGroupId(builder, frontScenarioGroupId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(frontScenarioGroupId), 0)
+    ScenarioReplayExcelAddEpisodeId(builder, episodeId)
+
+def ScenarioReplayExcelAddFrontScenarioGroupId(builder, frontScenarioGroupId):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(frontScenarioGroupId), 0)
+
 def AddFrontScenarioGroupId(builder, frontScenarioGroupId):
-    return ScenarioReplayExcelAddFrontScenarioGroupId(builder, frontScenarioGroupId)
-def ScenarioReplayExcelStartFrontScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    ScenarioReplayExcelAddFrontScenarioGroupId(builder, frontScenarioGroupId)
+
+def ScenarioReplayExcelStartFrontScenarioGroupIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartFrontScenarioGroupIdVector(builder, numElems):
     return ScenarioReplayExcelStartFrontScenarioGroupIdVector(builder, numElems)
-def ScenarioReplayExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(5, groundId, 0)
+
+def ScenarioReplayExcelAddGroundId(builder, groundId):
+    builder.PrependInt64Slot(5, groundId, 0)
+
 def AddGroundId(builder, groundId):
-    return ScenarioReplayExcelAddGroundId(builder, groundId)
-def ScenarioReplayExcelAddModeId(builder, modeId): builder.PrependInt64Slot(6, modeId, 0)
+    ScenarioReplayExcelAddGroundId(builder, groundId)
+
+def ScenarioReplayExcelAddModeId(builder, modeId):
+    builder.PrependInt64Slot(6, modeId, 0)
+
 def AddModeId(builder, modeId):
-    return ScenarioReplayExcelAddModeId(builder, modeId)
-def ScenarioReplayExcelAddReplayType(builder, replayType): builder.PrependInt32Slot(7, replayType, 0)
+    ScenarioReplayExcelAddModeId(builder, modeId)
+
+def ScenarioReplayExcelAddReplayType(builder, replayType):
+    builder.PrependInt32Slot(7, replayType, 0)
+
 def AddReplayType(builder, replayType):
-    return ScenarioReplayExcelAddReplayType(builder, replayType)
-def ScenarioReplayExcelAddVolumeId(builder, volumeId): builder.PrependInt64Slot(8, volumeId, 0)
+    ScenarioReplayExcelAddReplayType(builder, replayType)
+
+def ScenarioReplayExcelAddVolumeId(builder, volumeId):
+    builder.PrependInt64Slot(8, volumeId, 0)
+
 def AddVolumeId(builder, volumeId):
-    return ScenarioReplayExcelAddVolumeId(builder, volumeId)
-def ScenarioReplayExcelEnd(builder): return builder.EndObject()
+    ScenarioReplayExcelAddVolumeId(builder, volumeId)
+
+def ScenarioReplayExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ScenarioReplayExcelEnd(builder)

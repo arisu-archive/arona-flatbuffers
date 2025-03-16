@@ -143,60 +143,116 @@ class FieldContentStageExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def FieldContentStageExcelStart(builder): builder.StartObject(17)
+def FieldContentStageExcelStart(builder):
+    builder.StartObject(17)
+
 def Start(builder):
-    return FieldContentStageExcelStart(builder)
-def FieldContentStageExcelAddAreaId(builder, areaId): builder.PrependInt64Slot(0, areaId, 0)
+    FieldContentStageExcelStart(builder)
+
+def FieldContentStageExcelAddAreaId(builder, areaId):
+    builder.PrependInt64Slot(0, areaId, 0)
+
 def AddAreaId(builder, areaId):
-    return FieldContentStageExcelAddAreaId(builder, areaId)
-def FieldContentStageExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(1, battleDuration, 0)
+    FieldContentStageExcelAddAreaId(builder, areaId)
+
+def FieldContentStageExcelAddBattleDuration(builder, battleDuration):
+    builder.PrependInt64Slot(1, battleDuration, 0)
+
 def AddBattleDuration(builder, battleDuration):
-    return FieldContentStageExcelAddBattleDuration(builder, battleDuration)
-def FieldContentStageExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(2, bgmId, 0)
+    FieldContentStageExcelAddBattleDuration(builder, battleDuration)
+
+def FieldContentStageExcelAddBgmId(builder, bgmId):
+    builder.PrependInt64Slot(2, bgmId, 0)
+
 def AddBgmId(builder, bgmId):
-    return FieldContentStageExcelAddBgmId(builder, bgmId)
-def FieldContentStageExcelAddFixedEchelonId(builder, fixedEchelonId): builder.PrependInt64Slot(3, fixedEchelonId, 0)
+    FieldContentStageExcelAddBgmId(builder, bgmId)
+
+def FieldContentStageExcelAddFixedEchelonId(builder, fixedEchelonId):
+    builder.PrependInt64Slot(3, fixedEchelonId, 0)
+
 def AddFixedEchelonId(builder, fixedEchelonId):
-    return FieldContentStageExcelAddFixedEchelonId(builder, fixedEchelonId)
-def FieldContentStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(4, groundId, 0)
+    FieldContentStageExcelAddFixedEchelonId(builder, fixedEchelonId)
+
+def FieldContentStageExcelAddGroundId(builder, groundId):
+    builder.PrependInt64Slot(4, groundId, 0)
+
 def AddGroundId(builder, groundId):
-    return FieldContentStageExcelAddGroundId(builder, groundId)
-def FieldContentStageExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(5, groupId, 0)
+    FieldContentStageExcelAddGroundId(builder, groundId)
+
+def FieldContentStageExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(5, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return FieldContentStageExcelAddGroupId(builder, groupId)
-def FieldContentStageExcelAddId(builder, id): builder.PrependInt64Slot(6, id, 0)
+    FieldContentStageExcelAddGroupId(builder, groupId)
+
+def FieldContentStageExcelAddId(builder, id):
+    builder.PrependInt64Slot(6, id, 0)
+
 def AddId(builder, id):
-    return FieldContentStageExcelAddId(builder, id)
-def FieldContentStageExcelAddInstantClear(builder, instantClear): builder.PrependBoolSlot(7, instantClear, 0)
+    FieldContentStageExcelAddId(builder, id)
+
+def FieldContentStageExcelAddInstantClear(builder, instantClear):
+    builder.PrependBoolSlot(7, instantClear, 0)
+
 def AddInstantClear(builder, instantClear):
-    return FieldContentStageExcelAddInstantClear(builder, instantClear)
-def FieldContentStageExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+    FieldContentStageExcelAddInstantClear(builder, instantClear)
+
+def FieldContentStageExcelAddName(builder, name):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+
 def AddName(builder, name):
-    return FieldContentStageExcelAddName(builder, name)
-def FieldContentStageExcelAddRecommandLevel(builder, recommandLevel): builder.PrependInt32Slot(9, recommandLevel, 0)
+    FieldContentStageExcelAddName(builder, name)
+
+def FieldContentStageExcelAddRecommandLevel(builder, recommandLevel):
+    builder.PrependInt32Slot(9, recommandLevel, 0)
+
 def AddRecommandLevel(builder, recommandLevel):
-    return FieldContentStageExcelAddRecommandLevel(builder, recommandLevel)
-def FieldContentStageExcelAddSeasonId(builder, seasonId): builder.PrependInt64Slot(10, seasonId, 0)
+    FieldContentStageExcelAddRecommandLevel(builder, recommandLevel)
+
+def FieldContentStageExcelAddSeasonId(builder, seasonId):
+    builder.PrependInt64Slot(10, seasonId, 0)
+
 def AddSeasonId(builder, seasonId):
-    return FieldContentStageExcelAddSeasonId(builder, seasonId)
-def FieldContentStageExcelAddSkipFormationSettings(builder, skipFormationSettings): builder.PrependBoolSlot(11, skipFormationSettings, 0)
+    FieldContentStageExcelAddSeasonId(builder, seasonId)
+
+def FieldContentStageExcelAddSkipFormationSettings(builder, skipFormationSettings):
+    builder.PrependBoolSlot(11, skipFormationSettings, 0)
+
 def AddSkipFormationSettings(builder, skipFormationSettings):
-    return FieldContentStageExcelAddSkipFormationSettings(builder, skipFormationSettings)
-def FieldContentStageExcelAddStageDifficulty(builder, stageDifficulty): builder.PrependInt32Slot(12, stageDifficulty, 0)
+    FieldContentStageExcelAddSkipFormationSettings(builder, skipFormationSettings)
+
+def FieldContentStageExcelAddStageDifficulty(builder, stageDifficulty):
+    builder.PrependInt32Slot(12, stageDifficulty, 0)
+
 def AddStageDifficulty(builder, stageDifficulty):
-    return FieldContentStageExcelAddStageDifficulty(builder, stageDifficulty)
-def FieldContentStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount): builder.PrependInt32Slot(13, stageEnterCostAmount, 0)
+    FieldContentStageExcelAddStageDifficulty(builder, stageDifficulty)
+
+def FieldContentStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount):
+    builder.PrependInt32Slot(13, stageEnterCostAmount, 0)
+
 def AddStageEnterCostAmount(builder, stageEnterCostAmount):
-    return FieldContentStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
-def FieldContentStageExcelAddStageEnterCostId(builder, stageEnterCostId): builder.PrependInt64Slot(14, stageEnterCostId, 0)
+    FieldContentStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
+
+def FieldContentStageExcelAddStageEnterCostId(builder, stageEnterCostId):
+    builder.PrependInt64Slot(14, stageEnterCostId, 0)
+
 def AddStageEnterCostId(builder, stageEnterCostId):
-    return FieldContentStageExcelAddStageEnterCostId(builder, stageEnterCostId)
-def FieldContentStageExcelAddStageEnterCostType(builder, stageEnterCostType): builder.PrependInt32Slot(15, stageEnterCostType, 0)
+    FieldContentStageExcelAddStageEnterCostId(builder, stageEnterCostId)
+
+def FieldContentStageExcelAddStageEnterCostType(builder, stageEnterCostType):
+    builder.PrependInt32Slot(15, stageEnterCostType, 0)
+
 def AddStageEnterCostType(builder, stageEnterCostType):
-    return FieldContentStageExcelAddStageEnterCostType(builder, stageEnterCostType)
-def FieldContentStageExcelAddStageTopography(builder, stageTopography): builder.PrependInt32Slot(16, stageTopography, 0)
+    FieldContentStageExcelAddStageEnterCostType(builder, stageEnterCostType)
+
+def FieldContentStageExcelAddStageTopography(builder, stageTopography):
+    builder.PrependInt32Slot(16, stageTopography, 0)
+
 def AddStageTopography(builder, stageTopography):
-    return FieldContentStageExcelAddStageTopography(builder, stageTopography)
-def FieldContentStageExcelEnd(builder): return builder.EndObject()
+    FieldContentStageExcelAddStageTopography(builder, stageTopography)
+
+def FieldContentStageExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FieldContentStageExcelEnd(builder)

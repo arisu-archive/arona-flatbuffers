@@ -17,11 +17,19 @@ func GetRootAsConstNewbieContentExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishConstNewbieContentExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConstNewbieContentExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstNewbieContentExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstNewbieContentExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConstNewbieContentExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstNewbieContentExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -120,7 +128,4 @@ func ConstNewbieContentExcelAddNewbieGachaTokenGraceTime(builder *flatbuffers.Bu
 }
 func ConstNewbieContentExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConstNewbieContentExcel) Name() string {
-	return "ConstNewbieContentExcel"
 }

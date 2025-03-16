@@ -17,11 +17,19 @@ func GetRootAsEventContentChangeExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishEventContentChangeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentChangeExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentChangeExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentChangeExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentChangeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentChangeExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -173,7 +181,4 @@ func EventContentChangeExcelAddRewardParcelType(builder *flatbuffers.Builder, re
 }
 func EventContentChangeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentChangeExcel) Name() string {
-	return "EventContentChangeExcel"
 }

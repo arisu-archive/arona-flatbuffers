@@ -73,30 +73,56 @@ class EventContentStageRewardExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def EventContentStageRewardExcelStart(builder): builder.StartObject(7)
+def EventContentStageRewardExcelStart(builder):
+    builder.StartObject(7)
+
 def Start(builder):
-    return EventContentStageRewardExcelStart(builder)
-def EventContentStageRewardExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
+    EventContentStageRewardExcelStart(builder)
+
+def EventContentStageRewardExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(0, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return EventContentStageRewardExcelAddGroupId(builder, groupId)
-def EventContentStageRewardExcelAddIsDisplayed(builder, isDisplayed): builder.PrependBoolSlot(1, isDisplayed, 0)
+    EventContentStageRewardExcelAddGroupId(builder, groupId)
+
+def EventContentStageRewardExcelAddIsDisplayed(builder, isDisplayed):
+    builder.PrependBoolSlot(1, isDisplayed, 0)
+
 def AddIsDisplayed(builder, isDisplayed):
-    return EventContentStageRewardExcelAddIsDisplayed(builder, isDisplayed)
-def EventContentStageRewardExcelAddRewardAmount(builder, rewardAmount): builder.PrependInt32Slot(2, rewardAmount, 0)
+    EventContentStageRewardExcelAddIsDisplayed(builder, isDisplayed)
+
+def EventContentStageRewardExcelAddRewardAmount(builder, rewardAmount):
+    builder.PrependInt32Slot(2, rewardAmount, 0)
+
 def AddRewardAmount(builder, rewardAmount):
-    return EventContentStageRewardExcelAddRewardAmount(builder, rewardAmount)
-def EventContentStageRewardExcelAddRewardId(builder, rewardId): builder.PrependInt64Slot(3, rewardId, 0)
+    EventContentStageRewardExcelAddRewardAmount(builder, rewardAmount)
+
+def EventContentStageRewardExcelAddRewardId(builder, rewardId):
+    builder.PrependInt64Slot(3, rewardId, 0)
+
 def AddRewardId(builder, rewardId):
-    return EventContentStageRewardExcelAddRewardId(builder, rewardId)
-def EventContentStageRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(4, rewardParcelType, 0)
+    EventContentStageRewardExcelAddRewardId(builder, rewardId)
+
+def EventContentStageRewardExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependInt32Slot(4, rewardParcelType, 0)
+
 def AddRewardParcelType(builder, rewardParcelType):
-    return EventContentStageRewardExcelAddRewardParcelType(builder, rewardParcelType)
-def EventContentStageRewardExcelAddRewardProb(builder, rewardProb): builder.PrependInt32Slot(5, rewardProb, 0)
+    EventContentStageRewardExcelAddRewardParcelType(builder, rewardParcelType)
+
+def EventContentStageRewardExcelAddRewardProb(builder, rewardProb):
+    builder.PrependInt32Slot(5, rewardProb, 0)
+
 def AddRewardProb(builder, rewardProb):
-    return EventContentStageRewardExcelAddRewardProb(builder, rewardProb)
-def EventContentStageRewardExcelAddRewardTag(builder, rewardTag): builder.PrependInt32Slot(6, rewardTag, 0)
+    EventContentStageRewardExcelAddRewardProb(builder, rewardProb)
+
+def EventContentStageRewardExcelAddRewardTag(builder, rewardTag):
+    builder.PrependInt32Slot(6, rewardTag, 0)
+
 def AddRewardTag(builder, rewardTag):
-    return EventContentStageRewardExcelAddRewardTag(builder, rewardTag)
-def EventContentStageRewardExcelEnd(builder): return builder.EndObject()
+    EventContentStageRewardExcelAddRewardTag(builder, rewardTag)
+
+def EventContentStageRewardExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentStageRewardExcelEnd(builder)

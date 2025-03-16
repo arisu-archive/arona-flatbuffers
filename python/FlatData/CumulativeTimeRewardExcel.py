@@ -160,45 +160,86 @@ class CumulativeTimeRewardExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         return o == 0
 
-def CumulativeTimeRewardExcelStart(builder): builder.StartObject(8)
+def CumulativeTimeRewardExcelStart(builder):
+    builder.StartObject(8)
+
 def Start(builder):
-    return CumulativeTimeRewardExcelStart(builder)
-def CumulativeTimeRewardExcelAddDescription(builder, description): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(description), 0)
+    CumulativeTimeRewardExcelStart(builder)
+
+def CumulativeTimeRewardExcelAddDescription(builder, description):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(description), 0)
+
 def AddDescription(builder, description):
-    return CumulativeTimeRewardExcelAddDescription(builder, description)
-def CumulativeTimeRewardExcelAddEndDate(builder, endDate): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
+    CumulativeTimeRewardExcelAddDescription(builder, description)
+
+def CumulativeTimeRewardExcelAddEndDate(builder, endDate):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
+
 def AddEndDate(builder, endDate):
-    return CumulativeTimeRewardExcelAddEndDate(builder, endDate)
-def CumulativeTimeRewardExcelAddId(builder, id): builder.PrependInt64Slot(2, id, 0)
+    CumulativeTimeRewardExcelAddEndDate(builder, endDate)
+
+def CumulativeTimeRewardExcelAddId(builder, id):
+    builder.PrependInt64Slot(2, id, 0)
+
 def AddId(builder, id):
-    return CumulativeTimeRewardExcelAddId(builder, id)
-def CumulativeTimeRewardExcelAddRewardAmount(builder, rewardAmount): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
+    CumulativeTimeRewardExcelAddId(builder, id)
+
+def CumulativeTimeRewardExcelAddRewardAmount(builder, rewardAmount):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
+
 def AddRewardAmount(builder, rewardAmount):
-    return CumulativeTimeRewardExcelAddRewardAmount(builder, rewardAmount)
-def CumulativeTimeRewardExcelStartRewardAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    CumulativeTimeRewardExcelAddRewardAmount(builder, rewardAmount)
+
+def CumulativeTimeRewardExcelStartRewardAmountVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartRewardAmountVector(builder, numElems):
     return CumulativeTimeRewardExcelStartRewardAmountVector(builder, numElems)
-def CumulativeTimeRewardExcelAddRewardId(builder, rewardId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardId), 0)
+
+def CumulativeTimeRewardExcelAddRewardId(builder, rewardId):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardId), 0)
+
 def AddRewardId(builder, rewardId):
-    return CumulativeTimeRewardExcelAddRewardId(builder, rewardId)
-def CumulativeTimeRewardExcelStartRewardIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    CumulativeTimeRewardExcelAddRewardId(builder, rewardId)
+
+def CumulativeTimeRewardExcelStartRewardIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartRewardIdVector(builder, numElems):
     return CumulativeTimeRewardExcelStartRewardIdVector(builder, numElems)
-def CumulativeTimeRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+
+def CumulativeTimeRewardExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+
 def AddRewardParcelType(builder, rewardParcelType):
-    return CumulativeTimeRewardExcelAddRewardParcelType(builder, rewardParcelType)
-def CumulativeTimeRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    CumulativeTimeRewardExcelAddRewardParcelType(builder, rewardParcelType)
+
+def CumulativeTimeRewardExcelStartRewardParcelTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartRewardParcelTypeVector(builder, numElems):
     return CumulativeTimeRewardExcelStartRewardParcelTypeVector(builder, numElems)
-def CumulativeTimeRewardExcelAddStartDate(builder, startDate): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
+
+def CumulativeTimeRewardExcelAddStartDate(builder, startDate):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
+
 def AddStartDate(builder, startDate):
-    return CumulativeTimeRewardExcelAddStartDate(builder, startDate)
-def CumulativeTimeRewardExcelAddTimeCondition(builder, timeCondition): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(timeCondition), 0)
+    CumulativeTimeRewardExcelAddStartDate(builder, startDate)
+
+def CumulativeTimeRewardExcelAddTimeCondition(builder, timeCondition):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(timeCondition), 0)
+
 def AddTimeCondition(builder, timeCondition):
-    return CumulativeTimeRewardExcelAddTimeCondition(builder, timeCondition)
-def CumulativeTimeRewardExcelStartTimeConditionVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    CumulativeTimeRewardExcelAddTimeCondition(builder, timeCondition)
+
+def CumulativeTimeRewardExcelStartTimeConditionVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartTimeConditionVector(builder, numElems):
     return CumulativeTimeRewardExcelStartTimeConditionVector(builder, numElems)
-def CumulativeTimeRewardExcelEnd(builder): return builder.EndObject()
+
+def CumulativeTimeRewardExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CumulativeTimeRewardExcelEnd(builder)

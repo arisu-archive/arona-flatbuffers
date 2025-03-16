@@ -17,11 +17,19 @@ func GetRootAsGuideMissionExcelTable(buf []byte, offset flatbuffers.UOffsetT) *G
 	return x
 }
 
+func FinishGuideMissionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsGuideMissionExcelTable(buf []byte, offset flatbuffers.UOffsetT) *GuideMissionExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GuideMissionExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedGuideMissionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GuideMissionExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func GuideMissionExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 }
 func GuideMissionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*GuideMissionExcelTable) Name() string {
-	return "GuideMissionExcelTable"
 }

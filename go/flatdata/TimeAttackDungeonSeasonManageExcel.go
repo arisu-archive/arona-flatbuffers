@@ -17,11 +17,19 @@ func GetRootAsTimeAttackDungeonSeasonManageExcel(buf []byte, offset flatbuffers.
 	return x
 }
 
+func FinishTimeAttackDungeonSeasonManageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsTimeAttackDungeonSeasonManageExcel(buf []byte, offset flatbuffers.UOffsetT) *TimeAttackDungeonSeasonManageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TimeAttackDungeonSeasonManageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedTimeAttackDungeonSeasonManageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TimeAttackDungeonSeasonManageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -167,7 +175,4 @@ func TimeAttackDungeonSeasonManageExcelAddUiSlot(builder *flatbuffers.Builder, u
 }
 func TimeAttackDungeonSeasonManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*TimeAttackDungeonSeasonManageExcel) Name() string {
-	return "TimeAttackDungeonSeasonManageExcel"
 }

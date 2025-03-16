@@ -17,11 +17,19 @@ func GetRootAsProductExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Produc
 	return x
 }
 
+func FinishProductExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsProductExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ProductExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ProductExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedProductExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ProductExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ProductExcelTableStartDataListVector(builder *flatbuffers.Builder, numElems
 }
 func ProductExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ProductExcelTable) Name() string {
-	return "ProductExcelTable"
 }

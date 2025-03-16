@@ -49,15 +49,26 @@ class SchoolDungeonRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def SchoolDungeonRewardExcelTableStart(builder): builder.StartObject(1)
+def SchoolDungeonRewardExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return SchoolDungeonRewardExcelTableStart(builder)
-def SchoolDungeonRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    SchoolDungeonRewardExcelTableStart(builder)
+
+def SchoolDungeonRewardExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return SchoolDungeonRewardExcelTableAddDataList(builder, dataList)
-def SchoolDungeonRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    SchoolDungeonRewardExcelTableAddDataList(builder, dataList)
+
+def SchoolDungeonRewardExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return SchoolDungeonRewardExcelTableStartDataListVector(builder, numElems)
-def SchoolDungeonRewardExcelTableEnd(builder): return builder.EndObject()
+
+def SchoolDungeonRewardExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return SchoolDungeonRewardExcelTableEnd(builder)

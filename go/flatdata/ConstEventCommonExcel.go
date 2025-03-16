@@ -17,11 +17,19 @@ func GetRootAsConstEventCommonExcel(buf []byte, offset flatbuffers.UOffsetT) *Co
 	return x
 }
 
+func FinishConstEventCommonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConstEventCommonExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstEventCommonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstEventCommonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConstEventCommonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstEventCommonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -225,7 +233,4 @@ func ConstEventCommonExcelAddTreasureNormalVariationAmount(builder *flatbuffers.
 }
 func ConstEventCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConstEventCommonExcel) Name() string {
-	return "ConstEventCommonExcel"
 }

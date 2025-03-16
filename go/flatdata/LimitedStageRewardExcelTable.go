@@ -17,11 +17,19 @@ func GetRootAsLimitedStageRewardExcelTable(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishLimitedStageRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsLimitedStageRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *LimitedStageRewardExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LimitedStageRewardExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedLimitedStageRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LimitedStageRewardExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func LimitedStageRewardExcelTableStartDataListVector(builder *flatbuffers.Builde
 }
 func LimitedStageRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*LimitedStageRewardExcelTable) Name() string {
-	return "LimitedStageRewardExcelTable"
 }

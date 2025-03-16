@@ -577,246 +577,488 @@ class CharacterStatExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def CharacterStatExcelStart(builder): builder.StartObject(79)
+def CharacterStatExcelStart(builder):
+    builder.StartObject(79)
+
 def Start(builder):
-    return CharacterStatExcelStart(builder)
-def CharacterStatExcelAddAccuracyPoint(builder, accuracyPoint): builder.PrependInt64Slot(0, accuracyPoint, 0)
+    CharacterStatExcelStart(builder)
+
+def CharacterStatExcelAddAccuracyPoint(builder, accuracyPoint):
+    builder.PrependInt64Slot(0, accuracyPoint, 0)
+
 def AddAccuracyPoint(builder, accuracyPoint):
-    return CharacterStatExcelAddAccuracyPoint(builder, accuracyPoint)
-def CharacterStatExcelAddActionCount(builder, actionCount): builder.PrependInt64Slot(1, actionCount, 0)
+    CharacterStatExcelAddAccuracyPoint(builder, accuracyPoint)
+
+def CharacterStatExcelAddActionCount(builder, actionCount):
+    builder.PrependInt64Slot(1, actionCount, 0)
+
 def AddActionCount(builder, actionCount):
-    return CharacterStatExcelAddActionCount(builder, actionCount)
-def CharacterStatExcelAddActiveGauge(builder, activeGauge): builder.PrependInt64Slot(2, activeGauge, 0)
+    CharacterStatExcelAddActionCount(builder, actionCount)
+
+def CharacterStatExcelAddActiveGauge(builder, activeGauge):
+    builder.PrependInt64Slot(2, activeGauge, 0)
+
 def AddActiveGauge(builder, activeGauge):
-    return CharacterStatExcelAddActiveGauge(builder, activeGauge)
-def CharacterStatExcelAddAmmoCost(builder, ammoCost): builder.PrependInt64Slot(3, ammoCost, 0)
+    CharacterStatExcelAddActiveGauge(builder, activeGauge)
+
+def CharacterStatExcelAddAmmoCost(builder, ammoCost):
+    builder.PrependInt64Slot(3, ammoCost, 0)
+
 def AddAmmoCost(builder, ammoCost):
-    return CharacterStatExcelAddAmmoCost(builder, ammoCost)
-def CharacterStatExcelAddAmmoCount(builder, ammoCount): builder.PrependInt64Slot(4, ammoCount, 0)
+    CharacterStatExcelAddAmmoCost(builder, ammoCost)
+
+def CharacterStatExcelAddAmmoCount(builder, ammoCount):
+    builder.PrependInt64Slot(4, ammoCount, 0)
+
 def AddAmmoCount(builder, ammoCount):
-    return CharacterStatExcelAddAmmoCount(builder, ammoCount)
-def CharacterStatExcelAddAttackPower1(builder, attackPower1): builder.PrependInt64Slot(5, attackPower1, 0)
+    CharacterStatExcelAddAmmoCount(builder, ammoCount)
+
+def CharacterStatExcelAddAttackPower1(builder, attackPower1):
+    builder.PrependInt64Slot(5, attackPower1, 0)
+
 def AddAttackPower1(builder, attackPower1):
-    return CharacterStatExcelAddAttackPower1(builder, attackPower1)
-def CharacterStatExcelAddAttackPower100(builder, attackPower100): builder.PrependInt64Slot(6, attackPower100, 0)
+    CharacterStatExcelAddAttackPower1(builder, attackPower1)
+
+def CharacterStatExcelAddAttackPower100(builder, attackPower100):
+    builder.PrependInt64Slot(6, attackPower100, 0)
+
 def AddAttackPower100(builder, attackPower100):
-    return CharacterStatExcelAddAttackPower100(builder, attackPower100)
-def CharacterStatExcelAddBlockRate(builder, blockRate): builder.PrependInt64Slot(7, blockRate, 0)
+    CharacterStatExcelAddAttackPower100(builder, attackPower100)
+
+def CharacterStatExcelAddBlockRate(builder, blockRate):
+    builder.PrependInt64Slot(7, blockRate, 0)
+
 def AddBlockRate(builder, blockRate):
-    return CharacterStatExcelAddBlockRate(builder, blockRate)
-def CharacterStatExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(8, characterId, 0)
+    CharacterStatExcelAddBlockRate(builder, blockRate)
+
+def CharacterStatExcelAddCharacterId(builder, characterId):
+    builder.PrependInt64Slot(8, characterId, 0)
+
 def AddCharacterId(builder, characterId):
-    return CharacterStatExcelAddCharacterId(builder, characterId)
-def CharacterStatExcelAddCriticalDamageRate(builder, criticalDamageRate): builder.PrependInt64Slot(9, criticalDamageRate, 0)
+    CharacterStatExcelAddCharacterId(builder, characterId)
+
+def CharacterStatExcelAddCriticalDamageRate(builder, criticalDamageRate):
+    builder.PrependInt64Slot(9, criticalDamageRate, 0)
+
 def AddCriticalDamageRate(builder, criticalDamageRate):
-    return CharacterStatExcelAddCriticalDamageRate(builder, criticalDamageRate)
-def CharacterStatExcelAddCriticalDamageResistRate(builder, criticalDamageResistRate): builder.PrependInt64Slot(10, criticalDamageResistRate, 0)
+    CharacterStatExcelAddCriticalDamageRate(builder, criticalDamageRate)
+
+def CharacterStatExcelAddCriticalDamageResistRate(builder, criticalDamageResistRate):
+    builder.PrependInt64Slot(10, criticalDamageResistRate, 0)
+
 def AddCriticalDamageResistRate(builder, criticalDamageResistRate):
-    return CharacterStatExcelAddCriticalDamageResistRate(builder, criticalDamageResistRate)
-def CharacterStatExcelAddCriticalPoint(builder, criticalPoint): builder.PrependInt64Slot(11, criticalPoint, 0)
+    CharacterStatExcelAddCriticalDamageResistRate(builder, criticalDamageResistRate)
+
+def CharacterStatExcelAddCriticalPoint(builder, criticalPoint):
+    builder.PrependInt64Slot(11, criticalPoint, 0)
+
 def AddCriticalPoint(builder, criticalPoint):
-    return CharacterStatExcelAddCriticalPoint(builder, criticalPoint)
-def CharacterStatExcelAddCriticalResistPoint(builder, criticalResistPoint): builder.PrependInt64Slot(12, criticalResistPoint, 0)
+    CharacterStatExcelAddCriticalPoint(builder, criticalPoint)
+
+def CharacterStatExcelAddCriticalResistPoint(builder, criticalResistPoint):
+    builder.PrependInt64Slot(12, criticalResistPoint, 0)
+
 def AddCriticalResistPoint(builder, criticalResistPoint):
-    return CharacterStatExcelAddCriticalResistPoint(builder, criticalResistPoint)
-def CharacterStatExcelAddDamagedRatio(builder, damagedRatio): builder.PrependInt64Slot(13, damagedRatio, 0)
+    CharacterStatExcelAddCriticalResistPoint(builder, criticalResistPoint)
+
+def CharacterStatExcelAddDamagedRatio(builder, damagedRatio):
+    builder.PrependInt64Slot(13, damagedRatio, 0)
+
 def AddDamagedRatio(builder, damagedRatio):
-    return CharacterStatExcelAddDamagedRatio(builder, damagedRatio)
-def CharacterStatExcelAddDamagedRatio2Decrease(builder, damagedRatio2Decrease): builder.PrependInt64Slot(14, damagedRatio2Decrease, 0)
+    CharacterStatExcelAddDamagedRatio(builder, damagedRatio)
+
+def CharacterStatExcelAddDamagedRatio2Decrease(builder, damagedRatio2Decrease):
+    builder.PrependInt64Slot(14, damagedRatio2Decrease, 0)
+
 def AddDamagedRatio2Decrease(builder, damagedRatio2Decrease):
-    return CharacterStatExcelAddDamagedRatio2Decrease(builder, damagedRatio2Decrease)
-def CharacterStatExcelAddDamagedRatio2Increase(builder, damagedRatio2Increase): builder.PrependInt64Slot(15, damagedRatio2Increase, 0)
+    CharacterStatExcelAddDamagedRatio2Decrease(builder, damagedRatio2Decrease)
+
+def CharacterStatExcelAddDamagedRatio2Increase(builder, damagedRatio2Increase):
+    builder.PrependInt64Slot(15, damagedRatio2Increase, 0)
+
 def AddDamagedRatio2Increase(builder, damagedRatio2Increase):
-    return CharacterStatExcelAddDamagedRatio2Increase(builder, damagedRatio2Increase)
-def CharacterStatExcelAddDamageRatio(builder, damageRatio): builder.PrependInt64Slot(16, damageRatio, 0)
+    CharacterStatExcelAddDamagedRatio2Increase(builder, damagedRatio2Increase)
+
+def CharacterStatExcelAddDamageRatio(builder, damageRatio):
+    builder.PrependInt64Slot(16, damageRatio, 0)
+
 def AddDamageRatio(builder, damageRatio):
-    return CharacterStatExcelAddDamageRatio(builder, damageRatio)
-def CharacterStatExcelAddDamageRatio2Decrease(builder, damageRatio2Decrease): builder.PrependInt64Slot(17, damageRatio2Decrease, 0)
+    CharacterStatExcelAddDamageRatio(builder, damageRatio)
+
+def CharacterStatExcelAddDamageRatio2Decrease(builder, damageRatio2Decrease):
+    builder.PrependInt64Slot(17, damageRatio2Decrease, 0)
+
 def AddDamageRatio2Decrease(builder, damageRatio2Decrease):
-    return CharacterStatExcelAddDamageRatio2Decrease(builder, damageRatio2Decrease)
-def CharacterStatExcelAddDamageRatio2Increase(builder, damageRatio2Increase): builder.PrependInt64Slot(18, damageRatio2Increase, 0)
+    CharacterStatExcelAddDamageRatio2Decrease(builder, damageRatio2Decrease)
+
+def CharacterStatExcelAddDamageRatio2Increase(builder, damageRatio2Increase):
+    builder.PrependInt64Slot(18, damageRatio2Increase, 0)
+
 def AddDamageRatio2Increase(builder, damageRatio2Increase):
-    return CharacterStatExcelAddDamageRatio2Increase(builder, damageRatio2Increase)
-def CharacterStatExcelAddDefensePenetration1(builder, defensePenetration1): builder.PrependInt64Slot(19, defensePenetration1, 0)
+    CharacterStatExcelAddDamageRatio2Increase(builder, damageRatio2Increase)
+
+def CharacterStatExcelAddDefensePenetration1(builder, defensePenetration1):
+    builder.PrependInt64Slot(19, defensePenetration1, 0)
+
 def AddDefensePenetration1(builder, defensePenetration1):
-    return CharacterStatExcelAddDefensePenetration1(builder, defensePenetration1)
-def CharacterStatExcelAddDefensePenetration100(builder, defensePenetration100): builder.PrependInt64Slot(20, defensePenetration100, 0)
+    CharacterStatExcelAddDefensePenetration1(builder, defensePenetration1)
+
+def CharacterStatExcelAddDefensePenetration100(builder, defensePenetration100):
+    builder.PrependInt64Slot(20, defensePenetration100, 0)
+
 def AddDefensePenetration100(builder, defensePenetration100):
-    return CharacterStatExcelAddDefensePenetration100(builder, defensePenetration100)
-def CharacterStatExcelAddDefensePenetrationResist1(builder, defensePenetrationResist1): builder.PrependInt64Slot(21, defensePenetrationResist1, 0)
+    CharacterStatExcelAddDefensePenetration100(builder, defensePenetration100)
+
+def CharacterStatExcelAddDefensePenetrationResist1(builder, defensePenetrationResist1):
+    builder.PrependInt64Slot(21, defensePenetrationResist1, 0)
+
 def AddDefensePenetrationResist1(builder, defensePenetrationResist1):
-    return CharacterStatExcelAddDefensePenetrationResist1(builder, defensePenetrationResist1)
-def CharacterStatExcelAddDefensePenetrationResist100(builder, defensePenetrationResist100): builder.PrependInt64Slot(22, defensePenetrationResist100, 0)
+    CharacterStatExcelAddDefensePenetrationResist1(builder, defensePenetrationResist1)
+
+def CharacterStatExcelAddDefensePenetrationResist100(builder, defensePenetrationResist100):
+    builder.PrependInt64Slot(22, defensePenetrationResist100, 0)
+
 def AddDefensePenetrationResist100(builder, defensePenetrationResist100):
-    return CharacterStatExcelAddDefensePenetrationResist100(builder, defensePenetrationResist100)
-def CharacterStatExcelAddDefensePower1(builder, defensePower1): builder.PrependInt64Slot(23, defensePower1, 0)
+    CharacterStatExcelAddDefensePenetrationResist100(builder, defensePenetrationResist100)
+
+def CharacterStatExcelAddDefensePower1(builder, defensePower1):
+    builder.PrependInt64Slot(23, defensePower1, 0)
+
 def AddDefensePower1(builder, defensePower1):
-    return CharacterStatExcelAddDefensePower1(builder, defensePower1)
-def CharacterStatExcelAddDefensePower100(builder, defensePower100): builder.PrependInt64Slot(24, defensePower100, 0)
+    CharacterStatExcelAddDefensePower1(builder, defensePower1)
+
+def CharacterStatExcelAddDefensePower100(builder, defensePower100):
+    builder.PrependInt64Slot(24, defensePower100, 0)
+
 def AddDefensePower100(builder, defensePower100):
-    return CharacterStatExcelAddDefensePower100(builder, defensePower100)
-def CharacterStatExcelAddDodgePoint(builder, dodgePoint): builder.PrependInt64Slot(25, dodgePoint, 0)
+    CharacterStatExcelAddDefensePower100(builder, defensePower100)
+
+def CharacterStatExcelAddDodgePoint(builder, dodgePoint):
+    builder.PrependInt64Slot(25, dodgePoint, 0)
+
 def AddDodgePoint(builder, dodgePoint):
-    return CharacterStatExcelAddDodgePoint(builder, dodgePoint)
-def CharacterStatExcelAddEnhanceElasticArmorRate(builder, enhanceElasticArmorRate): builder.PrependInt64Slot(26, enhanceElasticArmorRate, 0)
+    CharacterStatExcelAddDodgePoint(builder, dodgePoint)
+
+def CharacterStatExcelAddEnhanceElasticArmorRate(builder, enhanceElasticArmorRate):
+    builder.PrependInt64Slot(26, enhanceElasticArmorRate, 0)
+
 def AddEnhanceElasticArmorRate(builder, enhanceElasticArmorRate):
-    return CharacterStatExcelAddEnhanceElasticArmorRate(builder, enhanceElasticArmorRate)
-def CharacterStatExcelAddEnhanceExDamageRate(builder, enhanceExDamageRate): builder.PrependInt64Slot(27, enhanceExDamageRate, 0)
+    CharacterStatExcelAddEnhanceElasticArmorRate(builder, enhanceElasticArmorRate)
+
+def CharacterStatExcelAddEnhanceExDamageRate(builder, enhanceExDamageRate):
+    builder.PrependInt64Slot(27, enhanceExDamageRate, 0)
+
 def AddEnhanceExDamageRate(builder, enhanceExDamageRate):
-    return CharacterStatExcelAddEnhanceExDamageRate(builder, enhanceExDamageRate)
-def CharacterStatExcelAddEnhanceExplosionRate(builder, enhanceExplosionRate): builder.PrependInt64Slot(28, enhanceExplosionRate, 0)
+    CharacterStatExcelAddEnhanceExDamageRate(builder, enhanceExDamageRate)
+
+def CharacterStatExcelAddEnhanceExplosionRate(builder, enhanceExplosionRate):
+    builder.PrependInt64Slot(28, enhanceExplosionRate, 0)
+
 def AddEnhanceExplosionRate(builder, enhanceExplosionRate):
-    return CharacterStatExcelAddEnhanceExplosionRate(builder, enhanceExplosionRate)
-def CharacterStatExcelAddEnhanceHeavyArmorRate(builder, enhanceHeavyArmorRate): builder.PrependInt64Slot(29, enhanceHeavyArmorRate, 0)
+    CharacterStatExcelAddEnhanceExplosionRate(builder, enhanceExplosionRate)
+
+def CharacterStatExcelAddEnhanceHeavyArmorRate(builder, enhanceHeavyArmorRate):
+    builder.PrependInt64Slot(29, enhanceHeavyArmorRate, 0)
+
 def AddEnhanceHeavyArmorRate(builder, enhanceHeavyArmorRate):
-    return CharacterStatExcelAddEnhanceHeavyArmorRate(builder, enhanceHeavyArmorRate)
-def CharacterStatExcelAddEnhanceLightArmorRate(builder, enhanceLightArmorRate): builder.PrependInt64Slot(30, enhanceLightArmorRate, 0)
+    CharacterStatExcelAddEnhanceHeavyArmorRate(builder, enhanceHeavyArmorRate)
+
+def CharacterStatExcelAddEnhanceLightArmorRate(builder, enhanceLightArmorRate):
+    builder.PrependInt64Slot(30, enhanceLightArmorRate, 0)
+
 def AddEnhanceLightArmorRate(builder, enhanceLightArmorRate):
-    return CharacterStatExcelAddEnhanceLightArmorRate(builder, enhanceLightArmorRate)
-def CharacterStatExcelAddEnhanceMysticRate(builder, enhanceMysticRate): builder.PrependInt64Slot(31, enhanceMysticRate, 0)
+    CharacterStatExcelAddEnhanceLightArmorRate(builder, enhanceLightArmorRate)
+
+def CharacterStatExcelAddEnhanceMysticRate(builder, enhanceMysticRate):
+    builder.PrependInt64Slot(31, enhanceMysticRate, 0)
+
 def AddEnhanceMysticRate(builder, enhanceMysticRate):
-    return CharacterStatExcelAddEnhanceMysticRate(builder, enhanceMysticRate)
-def CharacterStatExcelAddEnhanceNormalArmorRate(builder, enhanceNormalArmorRate): builder.PrependInt64Slot(32, enhanceNormalArmorRate, 0)
+    CharacterStatExcelAddEnhanceMysticRate(builder, enhanceMysticRate)
+
+def CharacterStatExcelAddEnhanceNormalArmorRate(builder, enhanceNormalArmorRate):
+    builder.PrependInt64Slot(32, enhanceNormalArmorRate, 0)
+
 def AddEnhanceNormalArmorRate(builder, enhanceNormalArmorRate):
-    return CharacterStatExcelAddEnhanceNormalArmorRate(builder, enhanceNormalArmorRate)
-def CharacterStatExcelAddEnhanceNormalRate(builder, enhanceNormalRate): builder.PrependInt64Slot(33, enhanceNormalRate, 0)
+    CharacterStatExcelAddEnhanceNormalArmorRate(builder, enhanceNormalArmorRate)
+
+def CharacterStatExcelAddEnhanceNormalRate(builder, enhanceNormalRate):
+    builder.PrependInt64Slot(33, enhanceNormalRate, 0)
+
 def AddEnhanceNormalRate(builder, enhanceNormalRate):
-    return CharacterStatExcelAddEnhanceNormalRate(builder, enhanceNormalRate)
-def CharacterStatExcelAddEnhancePierceRate(builder, enhancePierceRate): builder.PrependInt64Slot(34, enhancePierceRate, 0)
+    CharacterStatExcelAddEnhanceNormalRate(builder, enhanceNormalRate)
+
+def CharacterStatExcelAddEnhancePierceRate(builder, enhancePierceRate):
+    builder.PrependInt64Slot(34, enhancePierceRate, 0)
+
 def AddEnhancePierceRate(builder, enhancePierceRate):
-    return CharacterStatExcelAddEnhancePierceRate(builder, enhancePierceRate)
-def CharacterStatExcelAddEnhanceSiegeRate(builder, enhanceSiegeRate): builder.PrependInt64Slot(35, enhanceSiegeRate, 0)
+    CharacterStatExcelAddEnhancePierceRate(builder, enhancePierceRate)
+
+def CharacterStatExcelAddEnhanceSiegeRate(builder, enhanceSiegeRate):
+    builder.PrependInt64Slot(35, enhanceSiegeRate, 0)
+
 def AddEnhanceSiegeRate(builder, enhanceSiegeRate):
-    return CharacterStatExcelAddEnhanceSiegeRate(builder, enhanceSiegeRate)
-def CharacterStatExcelAddEnhanceSonicRate(builder, enhanceSonicRate): builder.PrependInt64Slot(36, enhanceSonicRate, 0)
+    CharacterStatExcelAddEnhanceSiegeRate(builder, enhanceSiegeRate)
+
+def CharacterStatExcelAddEnhanceSonicRate(builder, enhanceSonicRate):
+    builder.PrependInt64Slot(36, enhanceSonicRate, 0)
+
 def AddEnhanceSonicRate(builder, enhanceSonicRate):
-    return CharacterStatExcelAddEnhanceSonicRate(builder, enhanceSonicRate)
-def CharacterStatExcelAddEnhanceStructureRate(builder, enhanceStructureRate): builder.PrependInt64Slot(37, enhanceStructureRate, 0)
+    CharacterStatExcelAddEnhanceSonicRate(builder, enhanceSonicRate)
+
+def CharacterStatExcelAddEnhanceStructureRate(builder, enhanceStructureRate):
+    builder.PrependInt64Slot(37, enhanceStructureRate, 0)
+
 def AddEnhanceStructureRate(builder, enhanceStructureRate):
-    return CharacterStatExcelAddEnhanceStructureRate(builder, enhanceStructureRate)
-def CharacterStatExcelAddEnhanceUnarmedRate(builder, enhanceUnarmedRate): builder.PrependInt64Slot(38, enhanceUnarmedRate, 0)
+    CharacterStatExcelAddEnhanceStructureRate(builder, enhanceStructureRate)
+
+def CharacterStatExcelAddEnhanceUnarmedRate(builder, enhanceUnarmedRate):
+    builder.PrependInt64Slot(38, enhanceUnarmedRate, 0)
+
 def AddEnhanceUnarmedRate(builder, enhanceUnarmedRate):
-    return CharacterStatExcelAddEnhanceUnarmedRate(builder, enhanceUnarmedRate)
-def CharacterStatExcelAddExDamagedRatioDecrease(builder, exDamagedRatioDecrease): builder.PrependInt64Slot(39, exDamagedRatioDecrease, 0)
+    CharacterStatExcelAddEnhanceUnarmedRate(builder, enhanceUnarmedRate)
+
+def CharacterStatExcelAddExDamagedRatioDecrease(builder, exDamagedRatioDecrease):
+    builder.PrependInt64Slot(39, exDamagedRatioDecrease, 0)
+
 def AddExDamagedRatioDecrease(builder, exDamagedRatioDecrease):
-    return CharacterStatExcelAddExDamagedRatioDecrease(builder, exDamagedRatioDecrease)
-def CharacterStatExcelAddExDamagedRatioIncrease(builder, exDamagedRatioIncrease): builder.PrependInt64Slot(40, exDamagedRatioIncrease, 0)
+    CharacterStatExcelAddExDamagedRatioDecrease(builder, exDamagedRatioDecrease)
+
+def CharacterStatExcelAddExDamagedRatioIncrease(builder, exDamagedRatioIncrease):
+    builder.PrependInt64Slot(40, exDamagedRatioIncrease, 0)
+
 def AddExDamagedRatioIncrease(builder, exDamagedRatioIncrease):
-    return CharacterStatExcelAddExDamagedRatioIncrease(builder, exDamagedRatioIncrease)
-def CharacterStatExcelAddExtendBuffDuration(builder, extendBuffDuration): builder.PrependInt64Slot(41, extendBuffDuration, 0)
+    CharacterStatExcelAddExDamagedRatioIncrease(builder, exDamagedRatioIncrease)
+
+def CharacterStatExcelAddExtendBuffDuration(builder, extendBuffDuration):
+    builder.PrependInt64Slot(41, extendBuffDuration, 0)
+
 def AddExtendBuffDuration(builder, extendBuffDuration):
-    return CharacterStatExcelAddExtendBuffDuration(builder, extendBuffDuration)
-def CharacterStatExcelAddExtendCrowdControlDuration(builder, extendCrowdControlDuration): builder.PrependInt64Slot(42, extendCrowdControlDuration, 0)
+    CharacterStatExcelAddExtendBuffDuration(builder, extendBuffDuration)
+
+def CharacterStatExcelAddExtendCrowdControlDuration(builder, extendCrowdControlDuration):
+    builder.PrependInt64Slot(42, extendCrowdControlDuration, 0)
+
 def AddExtendCrowdControlDuration(builder, extendCrowdControlDuration):
-    return CharacterStatExcelAddExtendCrowdControlDuration(builder, extendCrowdControlDuration)
-def CharacterStatExcelAddExtendDebuffDuration(builder, extendDebuffDuration): builder.PrependInt64Slot(43, extendDebuffDuration, 0)
+    CharacterStatExcelAddExtendCrowdControlDuration(builder, extendCrowdControlDuration)
+
+def CharacterStatExcelAddExtendDebuffDuration(builder, extendDebuffDuration):
+    builder.PrependInt64Slot(43, extendDebuffDuration, 0)
+
 def AddExtendDebuffDuration(builder, extendDebuffDuration):
-    return CharacterStatExcelAddExtendDebuffDuration(builder, extendDebuffDuration)
-def CharacterStatExcelAddGroggyGauge(builder, groggyGauge): builder.PrependInt32Slot(44, groggyGauge, 0)
+    CharacterStatExcelAddExtendDebuffDuration(builder, extendDebuffDuration)
+
+def CharacterStatExcelAddGroggyGauge(builder, groggyGauge):
+    builder.PrependInt32Slot(44, groggyGauge, 0)
+
 def AddGroggyGauge(builder, groggyGauge):
-    return CharacterStatExcelAddGroggyGauge(builder, groggyGauge)
-def CharacterStatExcelAddGroggyTime(builder, groggyTime): builder.PrependInt32Slot(45, groggyTime, 0)
+    CharacterStatExcelAddGroggyGauge(builder, groggyGauge)
+
+def CharacterStatExcelAddGroggyTime(builder, groggyTime):
+    builder.PrependInt32Slot(45, groggyTime, 0)
+
 def AddGroggyTime(builder, groggyTime):
-    return CharacterStatExcelAddGroggyTime(builder, groggyTime)
-def CharacterStatExcelAddHealedExplosionRate(builder, healedExplosionRate): builder.PrependInt64Slot(46, healedExplosionRate, 0)
+    CharacterStatExcelAddGroggyTime(builder, groggyTime)
+
+def CharacterStatExcelAddHealedExplosionRate(builder, healedExplosionRate):
+    builder.PrependInt64Slot(46, healedExplosionRate, 0)
+
 def AddHealedExplosionRate(builder, healedExplosionRate):
-    return CharacterStatExcelAddHealedExplosionRate(builder, healedExplosionRate)
-def CharacterStatExcelAddHealedMysticRate(builder, healedMysticRate): builder.PrependInt64Slot(47, healedMysticRate, 0)
+    CharacterStatExcelAddHealedExplosionRate(builder, healedExplosionRate)
+
+def CharacterStatExcelAddHealedMysticRate(builder, healedMysticRate):
+    builder.PrependInt64Slot(47, healedMysticRate, 0)
+
 def AddHealedMysticRate(builder, healedMysticRate):
-    return CharacterStatExcelAddHealedMysticRate(builder, healedMysticRate)
-def CharacterStatExcelAddHealedNormalRate(builder, healedNormalRate): builder.PrependInt64Slot(48, healedNormalRate, 0)
+    CharacterStatExcelAddHealedMysticRate(builder, healedMysticRate)
+
+def CharacterStatExcelAddHealedNormalRate(builder, healedNormalRate):
+    builder.PrependInt64Slot(48, healedNormalRate, 0)
+
 def AddHealedNormalRate(builder, healedNormalRate):
-    return CharacterStatExcelAddHealedNormalRate(builder, healedNormalRate)
-def CharacterStatExcelAddHealedPierceRate(builder, healedPierceRate): builder.PrependInt64Slot(49, healedPierceRate, 0)
+    CharacterStatExcelAddHealedNormalRate(builder, healedNormalRate)
+
+def CharacterStatExcelAddHealedPierceRate(builder, healedPierceRate):
+    builder.PrependInt64Slot(49, healedPierceRate, 0)
+
 def AddHealedPierceRate(builder, healedPierceRate):
-    return CharacterStatExcelAddHealedPierceRate(builder, healedPierceRate)
-def CharacterStatExcelAddHealedSonicRate(builder, healedSonicRate): builder.PrependInt64Slot(50, healedSonicRate, 0)
+    CharacterStatExcelAddHealedPierceRate(builder, healedPierceRate)
+
+def CharacterStatExcelAddHealedSonicRate(builder, healedSonicRate):
+    builder.PrependInt64Slot(50, healedSonicRate, 0)
+
 def AddHealedSonicRate(builder, healedSonicRate):
-    return CharacterStatExcelAddHealedSonicRate(builder, healedSonicRate)
-def CharacterStatExcelAddHealEffectivenessRate(builder, healEffectivenessRate): builder.PrependInt64Slot(51, healEffectivenessRate, 0)
+    CharacterStatExcelAddHealedSonicRate(builder, healedSonicRate)
+
+def CharacterStatExcelAddHealEffectivenessRate(builder, healEffectivenessRate):
+    builder.PrependInt64Slot(51, healEffectivenessRate, 0)
+
 def AddHealEffectivenessRate(builder, healEffectivenessRate):
-    return CharacterStatExcelAddHealEffectivenessRate(builder, healEffectivenessRate)
-def CharacterStatExcelAddHealElasticArmorRate(builder, healElasticArmorRate): builder.PrependInt64Slot(52, healElasticArmorRate, 0)
+    CharacterStatExcelAddHealEffectivenessRate(builder, healEffectivenessRate)
+
+def CharacterStatExcelAddHealElasticArmorRate(builder, healElasticArmorRate):
+    builder.PrependInt64Slot(52, healElasticArmorRate, 0)
+
 def AddHealElasticArmorRate(builder, healElasticArmorRate):
-    return CharacterStatExcelAddHealElasticArmorRate(builder, healElasticArmorRate)
-def CharacterStatExcelAddHealHeavyArmorRate(builder, healHeavyArmorRate): builder.PrependInt64Slot(53, healHeavyArmorRate, 0)
+    CharacterStatExcelAddHealElasticArmorRate(builder, healElasticArmorRate)
+
+def CharacterStatExcelAddHealHeavyArmorRate(builder, healHeavyArmorRate):
+    builder.PrependInt64Slot(53, healHeavyArmorRate, 0)
+
 def AddHealHeavyArmorRate(builder, healHeavyArmorRate):
-    return CharacterStatExcelAddHealHeavyArmorRate(builder, healHeavyArmorRate)
-def CharacterStatExcelAddHealLightArmorRate(builder, healLightArmorRate): builder.PrependInt64Slot(54, healLightArmorRate, 0)
+    CharacterStatExcelAddHealHeavyArmorRate(builder, healHeavyArmorRate)
+
+def CharacterStatExcelAddHealLightArmorRate(builder, healLightArmorRate):
+    builder.PrependInt64Slot(54, healLightArmorRate, 0)
+
 def AddHealLightArmorRate(builder, healLightArmorRate):
-    return CharacterStatExcelAddHealLightArmorRate(builder, healLightArmorRate)
-def CharacterStatExcelAddHealNormalArmorRate(builder, healNormalArmorRate): builder.PrependInt64Slot(55, healNormalArmorRate, 0)
+    CharacterStatExcelAddHealLightArmorRate(builder, healLightArmorRate)
+
+def CharacterStatExcelAddHealNormalArmorRate(builder, healNormalArmorRate):
+    builder.PrependInt64Slot(55, healNormalArmorRate, 0)
+
 def AddHealNormalArmorRate(builder, healNormalArmorRate):
-    return CharacterStatExcelAddHealNormalArmorRate(builder, healNormalArmorRate)
-def CharacterStatExcelAddHealPower1(builder, healPower1): builder.PrependInt64Slot(56, healPower1, 0)
+    CharacterStatExcelAddHealNormalArmorRate(builder, healNormalArmorRate)
+
+def CharacterStatExcelAddHealPower1(builder, healPower1):
+    builder.PrependInt64Slot(56, healPower1, 0)
+
 def AddHealPower1(builder, healPower1):
-    return CharacterStatExcelAddHealPower1(builder, healPower1)
-def CharacterStatExcelAddHealPower100(builder, healPower100): builder.PrependInt64Slot(57, healPower100, 0)
+    CharacterStatExcelAddHealPower1(builder, healPower1)
+
+def CharacterStatExcelAddHealPower100(builder, healPower100):
+    builder.PrependInt64Slot(57, healPower100, 0)
+
 def AddHealPower100(builder, healPower100):
-    return CharacterStatExcelAddHealPower100(builder, healPower100)
-def CharacterStatExcelAddHealRate(builder, healRate): builder.PrependInt64Slot(58, healRate, 0)
+    CharacterStatExcelAddHealPower100(builder, healPower100)
+
+def CharacterStatExcelAddHealRate(builder, healRate):
+    builder.PrependInt64Slot(58, healRate, 0)
+
 def AddHealRate(builder, healRate):
-    return CharacterStatExcelAddHealRate(builder, healRate)
-def CharacterStatExcelAddHealUnarmedRate(builder, healUnarmedRate): builder.PrependInt64Slot(59, healUnarmedRate, 0)
+    CharacterStatExcelAddHealRate(builder, healRate)
+
+def CharacterStatExcelAddHealUnarmedRate(builder, healUnarmedRate):
+    builder.PrependInt64Slot(59, healUnarmedRate, 0)
+
 def AddHealUnarmedRate(builder, healUnarmedRate):
-    return CharacterStatExcelAddHealUnarmedRate(builder, healUnarmedRate)
-def CharacterStatExcelAddIgnoreDelayCount(builder, ignoreDelayCount): builder.PrependInt64Slot(60, ignoreDelayCount, 0)
+    CharacterStatExcelAddHealUnarmedRate(builder, healUnarmedRate)
+
+def CharacterStatExcelAddIgnoreDelayCount(builder, ignoreDelayCount):
+    builder.PrependInt64Slot(60, ignoreDelayCount, 0)
+
 def AddIgnoreDelayCount(builder, ignoreDelayCount):
-    return CharacterStatExcelAddIgnoreDelayCount(builder, ignoreDelayCount)
-def CharacterStatExcelAddIndoorBattleAdaptation(builder, indoorBattleAdaptation): builder.PrependInt32Slot(61, indoorBattleAdaptation, 0)
+    CharacterStatExcelAddIgnoreDelayCount(builder, ignoreDelayCount)
+
+def CharacterStatExcelAddIndoorBattleAdaptation(builder, indoorBattleAdaptation):
+    builder.PrependInt32Slot(61, indoorBattleAdaptation, 0)
+
 def AddIndoorBattleAdaptation(builder, indoorBattleAdaptation):
-    return CharacterStatExcelAddIndoorBattleAdaptation(builder, indoorBattleAdaptation)
-def CharacterStatExcelAddInitialRangeRate(builder, initialRangeRate): builder.PrependInt64Slot(62, initialRangeRate, 0)
+    CharacterStatExcelAddIndoorBattleAdaptation(builder, indoorBattleAdaptation)
+
+def CharacterStatExcelAddInitialRangeRate(builder, initialRangeRate):
+    builder.PrependInt64Slot(62, initialRangeRate, 0)
+
 def AddInitialRangeRate(builder, initialRangeRate):
-    return CharacterStatExcelAddInitialRangeRate(builder, initialRangeRate)
-def CharacterStatExcelAddMaxHp1(builder, maxHp1): builder.PrependInt64Slot(63, maxHp1, 0)
+    CharacterStatExcelAddInitialRangeRate(builder, initialRangeRate)
+
+def CharacterStatExcelAddMaxHp1(builder, maxHp1):
+    builder.PrependInt64Slot(63, maxHp1, 0)
+
 def AddMaxHp1(builder, maxHp1):
-    return CharacterStatExcelAddMaxHp1(builder, maxHp1)
-def CharacterStatExcelAddMaxHp100(builder, maxHp100): builder.PrependInt64Slot(64, maxHp100, 0)
+    CharacterStatExcelAddMaxHp1(builder, maxHp1)
+
+def CharacterStatExcelAddMaxHp100(builder, maxHp100):
+    builder.PrependInt64Slot(64, maxHp100, 0)
+
 def AddMaxHp100(builder, maxHp100):
-    return CharacterStatExcelAddMaxHp100(builder, maxHp100)
-def CharacterStatExcelAddMoveSpeed(builder, moveSpeed): builder.PrependInt64Slot(65, moveSpeed, 0)
+    CharacterStatExcelAddMaxHp100(builder, maxHp100)
+
+def CharacterStatExcelAddMoveSpeed(builder, moveSpeed):
+    builder.PrependInt64Slot(65, moveSpeed, 0)
+
 def AddMoveSpeed(builder, moveSpeed):
-    return CharacterStatExcelAddMoveSpeed(builder, moveSpeed)
-def CharacterStatExcelAddNormalAttackSpeed(builder, normalAttackSpeed): builder.PrependInt64Slot(66, normalAttackSpeed, 0)
+    CharacterStatExcelAddMoveSpeed(builder, moveSpeed)
+
+def CharacterStatExcelAddNormalAttackSpeed(builder, normalAttackSpeed):
+    builder.PrependInt64Slot(66, normalAttackSpeed, 0)
+
 def AddNormalAttackSpeed(builder, normalAttackSpeed):
-    return CharacterStatExcelAddNormalAttackSpeed(builder, normalAttackSpeed)
-def CharacterStatExcelAddOppressionPower(builder, oppressionPower): builder.PrependInt64Slot(67, oppressionPower, 0)
+    CharacterStatExcelAddNormalAttackSpeed(builder, normalAttackSpeed)
+
+def CharacterStatExcelAddOppressionPower(builder, oppressionPower):
+    builder.PrependInt64Slot(67, oppressionPower, 0)
+
 def AddOppressionPower(builder, oppressionPower):
-    return CharacterStatExcelAddOppressionPower(builder, oppressionPower)
-def CharacterStatExcelAddOppressionResist(builder, oppressionResist): builder.PrependInt64Slot(68, oppressionResist, 0)
+    CharacterStatExcelAddOppressionPower(builder, oppressionPower)
+
+def CharacterStatExcelAddOppressionResist(builder, oppressionResist):
+    builder.PrependInt64Slot(68, oppressionResist, 0)
+
 def AddOppressionResist(builder, oppressionResist):
-    return CharacterStatExcelAddOppressionResist(builder, oppressionResist)
-def CharacterStatExcelAddOutdoorBattleAdaptation(builder, outdoorBattleAdaptation): builder.PrependInt32Slot(69, outdoorBattleAdaptation, 0)
+    CharacterStatExcelAddOppressionResist(builder, oppressionResist)
+
+def CharacterStatExcelAddOutdoorBattleAdaptation(builder, outdoorBattleAdaptation):
+    builder.PrependInt32Slot(69, outdoorBattleAdaptation, 0)
+
 def AddOutdoorBattleAdaptation(builder, outdoorBattleAdaptation):
-    return CharacterStatExcelAddOutdoorBattleAdaptation(builder, outdoorBattleAdaptation)
-def CharacterStatExcelAddRange(builder, range): builder.PrependInt64Slot(70, range, 0)
+    CharacterStatExcelAddOutdoorBattleAdaptation(builder, outdoorBattleAdaptation)
+
+def CharacterStatExcelAddRange(builder, range):
+    builder.PrependInt64Slot(70, range, 0)
+
 def AddRange(builder, range):
-    return CharacterStatExcelAddRange(builder, range)
-def CharacterStatExcelAddReduceExDamagedRate(builder, reduceExDamagedRate): builder.PrependInt64Slot(71, reduceExDamagedRate, 0)
+    CharacterStatExcelAddRange(builder, range)
+
+def CharacterStatExcelAddReduceExDamagedRate(builder, reduceExDamagedRate):
+    builder.PrependInt64Slot(71, reduceExDamagedRate, 0)
+
 def AddReduceExDamagedRate(builder, reduceExDamagedRate):
-    return CharacterStatExcelAddReduceExDamagedRate(builder, reduceExDamagedRate)
-def CharacterStatExcelAddRegenCost(builder, regenCost): builder.PrependInt64Slot(72, regenCost, 0)
+    CharacterStatExcelAddReduceExDamagedRate(builder, reduceExDamagedRate)
+
+def CharacterStatExcelAddRegenCost(builder, regenCost):
+    builder.PrependInt64Slot(72, regenCost, 0)
+
 def AddRegenCost(builder, regenCost):
-    return CharacterStatExcelAddRegenCost(builder, regenCost)
-def CharacterStatExcelAddSightPoint(builder, sightPoint): builder.PrependInt64Slot(73, sightPoint, 0)
+    CharacterStatExcelAddRegenCost(builder, regenCost)
+
+def CharacterStatExcelAddSightPoint(builder, sightPoint):
+    builder.PrependInt64Slot(73, sightPoint, 0)
+
 def AddSightPoint(builder, sightPoint):
-    return CharacterStatExcelAddSightPoint(builder, sightPoint)
-def CharacterStatExcelAddStabilityPoint(builder, stabilityPoint): builder.PrependInt64Slot(74, stabilityPoint, 0)
+    CharacterStatExcelAddSightPoint(builder, sightPoint)
+
+def CharacterStatExcelAddStabilityPoint(builder, stabilityPoint):
+    builder.PrependInt64Slot(74, stabilityPoint, 0)
+
 def AddStabilityPoint(builder, stabilityPoint):
-    return CharacterStatExcelAddStabilityPoint(builder, stabilityPoint)
-def CharacterStatExcelAddStabilityRate(builder, stabilityRate): builder.PrependInt64Slot(75, stabilityRate, 0)
+    CharacterStatExcelAddStabilityPoint(builder, stabilityPoint)
+
+def CharacterStatExcelAddStabilityRate(builder, stabilityRate):
+    builder.PrependInt64Slot(75, stabilityRate, 0)
+
 def AddStabilityRate(builder, stabilityRate):
-    return CharacterStatExcelAddStabilityRate(builder, stabilityRate)
-def CharacterStatExcelAddStrategyMobility(builder, strategyMobility): builder.PrependInt64Slot(76, strategyMobility, 0)
+    CharacterStatExcelAddStabilityRate(builder, stabilityRate)
+
+def CharacterStatExcelAddStrategyMobility(builder, strategyMobility):
+    builder.PrependInt64Slot(76, strategyMobility, 0)
+
 def AddStrategyMobility(builder, strategyMobility):
-    return CharacterStatExcelAddStrategyMobility(builder, strategyMobility)
-def CharacterStatExcelAddStrategySightRange(builder, strategySightRange): builder.PrependInt64Slot(77, strategySightRange, 0)
+    CharacterStatExcelAddStrategyMobility(builder, strategyMobility)
+
+def CharacterStatExcelAddStrategySightRange(builder, strategySightRange):
+    builder.PrependInt64Slot(77, strategySightRange, 0)
+
 def AddStrategySightRange(builder, strategySightRange):
-    return CharacterStatExcelAddStrategySightRange(builder, strategySightRange)
-def CharacterStatExcelAddStreetBattleAdaptation(builder, streetBattleAdaptation): builder.PrependInt32Slot(78, streetBattleAdaptation, 0)
+    CharacterStatExcelAddStrategySightRange(builder, strategySightRange)
+
+def CharacterStatExcelAddStreetBattleAdaptation(builder, streetBattleAdaptation):
+    builder.PrependInt32Slot(78, streetBattleAdaptation, 0)
+
 def AddStreetBattleAdaptation(builder, streetBattleAdaptation):
-    return CharacterStatExcelAddStreetBattleAdaptation(builder, streetBattleAdaptation)
-def CharacterStatExcelEnd(builder): return builder.EndObject()
+    CharacterStatExcelAddStreetBattleAdaptation(builder, streetBattleAdaptation)
+
+def CharacterStatExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CharacterStatExcelEnd(builder)

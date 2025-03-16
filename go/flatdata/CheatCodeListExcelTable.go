@@ -17,11 +17,19 @@ func GetRootAsCheatCodeListExcelTable(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishCheatCodeListExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCheatCodeListExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CheatCodeListExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CheatCodeListExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCheatCodeListExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CheatCodeListExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func CheatCodeListExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 }
 func CheatCodeListExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CheatCodeListExcelTable) Name() string {
-	return "CheatCodeListExcelTable"
 }

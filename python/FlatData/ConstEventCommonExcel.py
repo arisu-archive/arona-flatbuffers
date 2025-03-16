@@ -115,48 +115,92 @@ class ConstEventCommonExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ConstEventCommonExcelStart(builder): builder.StartObject(13)
+def ConstEventCommonExcelStart(builder):
+    builder.StartObject(13)
+
 def Start(builder):
-    return ConstEventCommonExcelStart(builder)
-def ConstEventCommonExcelAddCardShopProbWeightCount(builder, cardShopProbWeightCount): builder.PrependInt64Slot(0, cardShopProbWeightCount, 0)
+    ConstEventCommonExcelStart(builder)
+
+def ConstEventCommonExcelAddCardShopProbWeightCount(builder, cardShopProbWeightCount):
+    builder.PrependInt64Slot(0, cardShopProbWeightCount, 0)
+
 def AddCardShopProbWeightCount(builder, cardShopProbWeightCount):
-    return ConstEventCommonExcelAddCardShopProbWeightCount(builder, cardShopProbWeightCount)
-def ConstEventCommonExcelAddCardShopProbWeightRarity(builder, cardShopProbWeightRarity): builder.PrependInt32Slot(1, cardShopProbWeightRarity, 0)
+    ConstEventCommonExcelAddCardShopProbWeightCount(builder, cardShopProbWeightCount)
+
+def ConstEventCommonExcelAddCardShopProbWeightRarity(builder, cardShopProbWeightRarity):
+    builder.PrependInt32Slot(1, cardShopProbWeightRarity, 0)
+
 def AddCardShopProbWeightRarity(builder, cardShopProbWeightRarity):
-    return ConstEventCommonExcelAddCardShopProbWeightRarity(builder, cardShopProbWeightRarity)
-def ConstEventCommonExcelAddEventContentHardStageCount(builder, eventContentHardStageCount): builder.PrependInt32Slot(2, eventContentHardStageCount, 0)
+    ConstEventCommonExcelAddCardShopProbWeightRarity(builder, cardShopProbWeightRarity)
+
+def ConstEventCommonExcelAddEventContentHardStageCount(builder, eventContentHardStageCount):
+    builder.PrependInt32Slot(2, eventContentHardStageCount, 0)
+
 def AddEventContentHardStageCount(builder, eventContentHardStageCount):
-    return ConstEventCommonExcelAddEventContentHardStageCount(builder, eventContentHardStageCount)
-def ConstEventCommonExcelAddEventStrategyPlayTimeLimitInSeconds(builder, eventStrategyPlayTimeLimitInSeconds): builder.PrependInt64Slot(3, eventStrategyPlayTimeLimitInSeconds, 0)
+    ConstEventCommonExcelAddEventContentHardStageCount(builder, eventContentHardStageCount)
+
+def ConstEventCommonExcelAddEventStrategyPlayTimeLimitInSeconds(builder, eventStrategyPlayTimeLimitInSeconds):
+    builder.PrependInt64Slot(3, eventStrategyPlayTimeLimitInSeconds, 0)
+
 def AddEventStrategyPlayTimeLimitInSeconds(builder, eventStrategyPlayTimeLimitInSeconds):
-    return ConstEventCommonExcelAddEventStrategyPlayTimeLimitInSeconds(builder, eventStrategyPlayTimeLimitInSeconds)
-def ConstEventCommonExcelAddMeetupScenarioReplayResource(builder, meetupScenarioReplayResource): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(meetupScenarioReplayResource), 0)
+    ConstEventCommonExcelAddEventStrategyPlayTimeLimitInSeconds(builder, eventStrategyPlayTimeLimitInSeconds)
+
+def ConstEventCommonExcelAddMeetupScenarioReplayResource(builder, meetupScenarioReplayResource):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(meetupScenarioReplayResource), 0)
+
 def AddMeetupScenarioReplayResource(builder, meetupScenarioReplayResource):
-    return ConstEventCommonExcelAddMeetupScenarioReplayResource(builder, meetupScenarioReplayResource)
-def ConstEventCommonExcelAddMeetupScenarioReplayTitleLocalize(builder, meetupScenarioReplayTitleLocalize): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(meetupScenarioReplayTitleLocalize), 0)
+    ConstEventCommonExcelAddMeetupScenarioReplayResource(builder, meetupScenarioReplayResource)
+
+def ConstEventCommonExcelAddMeetupScenarioReplayTitleLocalize(builder, meetupScenarioReplayTitleLocalize):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(meetupScenarioReplayTitleLocalize), 0)
+
 def AddMeetupScenarioReplayTitleLocalize(builder, meetupScenarioReplayTitleLocalize):
-    return ConstEventCommonExcelAddMeetupScenarioReplayTitleLocalize(builder, meetupScenarioReplayTitleLocalize)
-def ConstEventCommonExcelAddSpecialOperactionCollectionGroupId(builder, specialOperactionCollectionGroupId): builder.PrependInt64Slot(6, specialOperactionCollectionGroupId, 0)
+    ConstEventCommonExcelAddMeetupScenarioReplayTitleLocalize(builder, meetupScenarioReplayTitleLocalize)
+
+def ConstEventCommonExcelAddSpecialOperactionCollectionGroupId(builder, specialOperactionCollectionGroupId):
+    builder.PrependInt64Slot(6, specialOperactionCollectionGroupId, 0)
+
 def AddSpecialOperactionCollectionGroupId(builder, specialOperactionCollectionGroupId):
-    return ConstEventCommonExcelAddSpecialOperactionCollectionGroupId(builder, specialOperactionCollectionGroupId)
-def ConstEventCommonExcelAddSubEventChangeLimitSeconds(builder, subEventChangeLimitSeconds): builder.PrependInt64Slot(7, subEventChangeLimitSeconds, 0)
+    ConstEventCommonExcelAddSpecialOperactionCollectionGroupId(builder, specialOperactionCollectionGroupId)
+
+def ConstEventCommonExcelAddSubEventChangeLimitSeconds(builder, subEventChangeLimitSeconds):
+    builder.PrependInt64Slot(7, subEventChangeLimitSeconds, 0)
+
 def AddSubEventChangeLimitSeconds(builder, subEventChangeLimitSeconds):
-    return ConstEventCommonExcelAddSubEventChangeLimitSeconds(builder, subEventChangeLimitSeconds)
-def ConstEventCommonExcelAddSubEventInstantClear(builder, subEventInstantClear): builder.PrependBoolSlot(8, subEventInstantClear, 0)
+    ConstEventCommonExcelAddSubEventChangeLimitSeconds(builder, subEventChangeLimitSeconds)
+
+def ConstEventCommonExcelAddSubEventInstantClear(builder, subEventInstantClear):
+    builder.PrependBoolSlot(8, subEventInstantClear, 0)
+
 def AddSubEventInstantClear(builder, subEventInstantClear):
-    return ConstEventCommonExcelAddSubEventInstantClear(builder, subEventInstantClear)
-def ConstEventCommonExcelAddTreasureLimitVariationClearLoopCount(builder, treasureLimitVariationClearLoopCount): builder.PrependInt32Slot(9, treasureLimitVariationClearLoopCount, 0)
+    ConstEventCommonExcelAddSubEventInstantClear(builder, subEventInstantClear)
+
+def ConstEventCommonExcelAddTreasureLimitVariationClearLoopCount(builder, treasureLimitVariationClearLoopCount):
+    builder.PrependInt32Slot(9, treasureLimitVariationClearLoopCount, 0)
+
 def AddTreasureLimitVariationClearLoopCount(builder, treasureLimitVariationClearLoopCount):
-    return ConstEventCommonExcelAddTreasureLimitVariationClearLoopCount(builder, treasureLimitVariationClearLoopCount)
-def ConstEventCommonExcelAddTreasureLimitVariationLoopCount(builder, treasureLimitVariationLoopCount): builder.PrependInt32Slot(10, treasureLimitVariationLoopCount, 0)
+    ConstEventCommonExcelAddTreasureLimitVariationClearLoopCount(builder, treasureLimitVariationClearLoopCount)
+
+def ConstEventCommonExcelAddTreasureLimitVariationLoopCount(builder, treasureLimitVariationLoopCount):
+    builder.PrependInt32Slot(10, treasureLimitVariationLoopCount, 0)
+
 def AddTreasureLimitVariationLoopCount(builder, treasureLimitVariationLoopCount):
-    return ConstEventCommonExcelAddTreasureLimitVariationLoopCount(builder, treasureLimitVariationLoopCount)
-def ConstEventCommonExcelAddTreasureLoopVariationAmount(builder, treasureLoopVariationAmount): builder.PrependInt32Slot(11, treasureLoopVariationAmount, 0)
+    ConstEventCommonExcelAddTreasureLimitVariationLoopCount(builder, treasureLimitVariationLoopCount)
+
+def ConstEventCommonExcelAddTreasureLoopVariationAmount(builder, treasureLoopVariationAmount):
+    builder.PrependInt32Slot(11, treasureLoopVariationAmount, 0)
+
 def AddTreasureLoopVariationAmount(builder, treasureLoopVariationAmount):
-    return ConstEventCommonExcelAddTreasureLoopVariationAmount(builder, treasureLoopVariationAmount)
-def ConstEventCommonExcelAddTreasureNormalVariationAmount(builder, treasureNormalVariationAmount): builder.PrependInt32Slot(12, treasureNormalVariationAmount, 0)
+    ConstEventCommonExcelAddTreasureLoopVariationAmount(builder, treasureLoopVariationAmount)
+
+def ConstEventCommonExcelAddTreasureNormalVariationAmount(builder, treasureNormalVariationAmount):
+    builder.PrependInt32Slot(12, treasureNormalVariationAmount, 0)
+
 def AddTreasureNormalVariationAmount(builder, treasureNormalVariationAmount):
-    return ConstEventCommonExcelAddTreasureNormalVariationAmount(builder, treasureNormalVariationAmount)
-def ConstEventCommonExcelEnd(builder): return builder.EndObject()
+    ConstEventCommonExcelAddTreasureNormalVariationAmount(builder, treasureNormalVariationAmount)
+
+def ConstEventCommonExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConstEventCommonExcelEnd(builder)

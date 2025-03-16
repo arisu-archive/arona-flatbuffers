@@ -17,11 +17,19 @@ func GetRootAsCharacterIllustCoordinateExcel(buf []byte, offset flatbuffers.UOff
 	return x
 }
 
+func FinishCharacterIllustCoordinateExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCharacterIllustCoordinateExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterIllustCoordinateExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterIllustCoordinateExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCharacterIllustCoordinateExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterIllustCoordinateExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -128,7 +136,4 @@ func CharacterIllustCoordinateExcelAddMinScale(builder *flatbuffers.Builder, min
 }
 func CharacterIllustCoordinateExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CharacterIllustCoordinateExcel) Name() string {
-	return "CharacterIllustCoordinateExcel"
 }

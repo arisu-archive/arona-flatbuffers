@@ -17,11 +17,19 @@ func GetRootAsServiceActionExcel(buf []byte, offset flatbuffers.UOffsetT) *Servi
 	return x
 }
 
+func FinishServiceActionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsServiceActionExcel(buf []byte, offset flatbuffers.UOffsetT) *ServiceActionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ServiceActionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedServiceActionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ServiceActionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -83,7 +91,4 @@ func ServiceActionExcelAddServiceActionType(builder *flatbuffers.Builder, servic
 }
 func ServiceActionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ServiceActionExcel) Name() string {
-	return "ServiceActionExcel"
 }

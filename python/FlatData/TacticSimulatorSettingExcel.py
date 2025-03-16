@@ -52,21 +52,38 @@ class TacticSimulatorSettingExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def TacticSimulatorSettingExcelStart(builder): builder.StartObject(4)
+def TacticSimulatorSettingExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return TacticSimulatorSettingExcelStart(builder)
-def TacticSimulatorSettingExcelAddEquipment(builder, equipment): builder.PrependInt64Slot(0, equipment, 0)
+    TacticSimulatorSettingExcelStart(builder)
+
+def TacticSimulatorSettingExcelAddEquipment(builder, equipment):
+    builder.PrependInt64Slot(0, equipment, 0)
+
 def AddEquipment(builder, equipment):
-    return TacticSimulatorSettingExcelAddEquipment(builder, equipment)
-def TacticSimulatorSettingExcelAddGetExp(builder, getExp): builder.PrependInt64Slot(1, getExp, 0)
+    TacticSimulatorSettingExcelAddEquipment(builder, equipment)
+
+def TacticSimulatorSettingExcelAddGetExp(builder, getExp):
+    builder.PrependInt64Slot(1, getExp, 0)
+
 def AddGetExp(builder, getExp):
-    return TacticSimulatorSettingExcelAddGetExp(builder, getExp)
-def TacticSimulatorSettingExcelAddGetStarGrade(builder, getStarGrade): builder.PrependInt64Slot(2, getStarGrade, 0)
+    TacticSimulatorSettingExcelAddGetExp(builder, getExp)
+
+def TacticSimulatorSettingExcelAddGetStarGrade(builder, getStarGrade):
+    builder.PrependInt64Slot(2, getStarGrade, 0)
+
 def AddGetStarGrade(builder, getStarGrade):
-    return TacticSimulatorSettingExcelAddGetStarGrade(builder, getStarGrade)
-def TacticSimulatorSettingExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(3, groundId, 0)
+    TacticSimulatorSettingExcelAddGetStarGrade(builder, getStarGrade)
+
+def TacticSimulatorSettingExcelAddGroundId(builder, groundId):
+    builder.PrependInt64Slot(3, groundId, 0)
+
 def AddGroundId(builder, groundId):
-    return TacticSimulatorSettingExcelAddGroundId(builder, groundId)
-def TacticSimulatorSettingExcelEnd(builder): return builder.EndObject()
+    TacticSimulatorSettingExcelAddGroundId(builder, groundId)
+
+def TacticSimulatorSettingExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return TacticSimulatorSettingExcelEnd(builder)

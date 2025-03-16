@@ -49,15 +49,26 @@ class AcademyFavorScheduleExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def AcademyFavorScheduleExcelTableStart(builder): builder.StartObject(1)
+def AcademyFavorScheduleExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return AcademyFavorScheduleExcelTableStart(builder)
-def AcademyFavorScheduleExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    AcademyFavorScheduleExcelTableStart(builder)
+
+def AcademyFavorScheduleExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return AcademyFavorScheduleExcelTableAddDataList(builder, dataList)
-def AcademyFavorScheduleExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    AcademyFavorScheduleExcelTableAddDataList(builder, dataList)
+
+def AcademyFavorScheduleExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return AcademyFavorScheduleExcelTableStartDataListVector(builder, numElems)
-def AcademyFavorScheduleExcelTableEnd(builder): return builder.EndObject()
+
+def AcademyFavorScheduleExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return AcademyFavorScheduleExcelTableEnd(builder)

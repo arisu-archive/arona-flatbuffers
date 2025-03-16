@@ -17,11 +17,19 @@ func GetRootAsEliminateRaidStageSeasonRewardExcel(buf []byte, offset flatbuffers
 	return x
 }
 
+func FinishEliminateRaidStageSeasonRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEliminateRaidStageSeasonRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *EliminateRaidStageSeasonRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EliminateRaidStageSeasonRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEliminateRaidStageSeasonRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EliminateRaidStageSeasonRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -172,7 +180,4 @@ func EliminateRaidStageSeasonRewardExcelStartSeasonRewardParcelUniqueNameVector(
 }
 func EliminateRaidStageSeasonRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EliminateRaidStageSeasonRewardExcel) Name() string {
-	return "EliminateRaidStageSeasonRewardExcel"
 }

@@ -45,18 +45,32 @@ class HpBarAbbreviationExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def HpBarAbbreviationExcelStart(builder): builder.StartObject(3)
+def HpBarAbbreviationExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return HpBarAbbreviationExcelStart(builder)
-def HpBarAbbreviationExcelAddMonsterLv(builder, monsterLv): builder.PrependInt32Slot(0, monsterLv, 0)
+    HpBarAbbreviationExcelStart(builder)
+
+def HpBarAbbreviationExcelAddMonsterLv(builder, monsterLv):
+    builder.PrependInt32Slot(0, monsterLv, 0)
+
 def AddMonsterLv(builder, monsterLv):
-    return HpBarAbbreviationExcelAddMonsterLv(builder, monsterLv)
-def HpBarAbbreviationExcelAddRaidBossHpBar(builder, raidBossHpBar): builder.PrependInt32Slot(1, raidBossHpBar, 0)
+    HpBarAbbreviationExcelAddMonsterLv(builder, monsterLv)
+
+def HpBarAbbreviationExcelAddRaidBossHpBar(builder, raidBossHpBar):
+    builder.PrependInt32Slot(1, raidBossHpBar, 0)
+
 def AddRaidBossHpBar(builder, raidBossHpBar):
-    return HpBarAbbreviationExcelAddRaidBossHpBar(builder, raidBossHpBar)
-def HpBarAbbreviationExcelAddStandardHpBar(builder, standardHpBar): builder.PrependInt32Slot(2, standardHpBar, 0)
+    HpBarAbbreviationExcelAddRaidBossHpBar(builder, raidBossHpBar)
+
+def HpBarAbbreviationExcelAddStandardHpBar(builder, standardHpBar):
+    builder.PrependInt32Slot(2, standardHpBar, 0)
+
 def AddStandardHpBar(builder, standardHpBar):
-    return HpBarAbbreviationExcelAddStandardHpBar(builder, standardHpBar)
-def HpBarAbbreviationExcelEnd(builder): return builder.EndObject()
+    HpBarAbbreviationExcelAddStandardHpBar(builder, standardHpBar)
+
+def HpBarAbbreviationExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return HpBarAbbreviationExcelEnd(builder)

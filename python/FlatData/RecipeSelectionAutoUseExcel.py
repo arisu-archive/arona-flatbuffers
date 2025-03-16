@@ -72,24 +72,44 @@ class RecipeSelectionAutoUseExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def RecipeSelectionAutoUseExcelStart(builder): builder.StartObject(4)
+def RecipeSelectionAutoUseExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return RecipeSelectionAutoUseExcelStart(builder)
-def RecipeSelectionAutoUseExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    RecipeSelectionAutoUseExcelStart(builder)
+
+def RecipeSelectionAutoUseExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return RecipeSelectionAutoUseExcelAddId(builder, id)
-def RecipeSelectionAutoUseExcelAddParcelType(builder, parcelType): builder.PrependInt32Slot(1, parcelType, 0)
+    RecipeSelectionAutoUseExcelAddId(builder, id)
+
+def RecipeSelectionAutoUseExcelAddParcelType(builder, parcelType):
+    builder.PrependInt32Slot(1, parcelType, 0)
+
 def AddParcelType(builder, parcelType):
-    return RecipeSelectionAutoUseExcelAddParcelType(builder, parcelType)
-def RecipeSelectionAutoUseExcelAddPriority(builder, priority): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(priority), 0)
+    RecipeSelectionAutoUseExcelAddParcelType(builder, parcelType)
+
+def RecipeSelectionAutoUseExcelAddPriority(builder, priority):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(priority), 0)
+
 def AddPriority(builder, priority):
-    return RecipeSelectionAutoUseExcelAddPriority(builder, priority)
-def RecipeSelectionAutoUseExcelStartPriorityVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    RecipeSelectionAutoUseExcelAddPriority(builder, priority)
+
+def RecipeSelectionAutoUseExcelStartPriorityVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartPriorityVector(builder, numElems):
     return RecipeSelectionAutoUseExcelStartPriorityVector(builder, numElems)
-def RecipeSelectionAutoUseExcelAddTargetItemId(builder, targetItemId): builder.PrependInt64Slot(3, targetItemId, 0)
+
+def RecipeSelectionAutoUseExcelAddTargetItemId(builder, targetItemId):
+    builder.PrependInt64Slot(3, targetItemId, 0)
+
 def AddTargetItemId(builder, targetItemId):
-    return RecipeSelectionAutoUseExcelAddTargetItemId(builder, targetItemId)
-def RecipeSelectionAutoUseExcelEnd(builder): return builder.EndObject()
+    RecipeSelectionAutoUseExcelAddTargetItemId(builder, targetItemId)
+
+def RecipeSelectionAutoUseExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return RecipeSelectionAutoUseExcelEnd(builder)

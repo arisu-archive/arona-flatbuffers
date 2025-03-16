@@ -71,24 +71,44 @@ class AddressableWhiteListExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
-def AddressableWhiteListExcelStart(builder): builder.StartObject(3)
+def AddressableWhiteListExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return AddressableWhiteListExcelStart(builder)
-def AddressableWhiteListExcelAddFolderPath(builder, folderPath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(folderPath), 0)
+    AddressableWhiteListExcelStart(builder)
+
+def AddressableWhiteListExcelAddFolderPath(builder, folderPath):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(folderPath), 0)
+
 def AddFolderPath(builder, folderPath):
-    return AddressableWhiteListExcelAddFolderPath(builder, folderPath)
-def AddressableWhiteListExcelStartFolderPathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    AddressableWhiteListExcelAddFolderPath(builder, folderPath)
+
+def AddressableWhiteListExcelStartFolderPathVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartFolderPathVector(builder, numElems):
     return AddressableWhiteListExcelStartFolderPathVector(builder, numElems)
-def AddressableWhiteListExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+
+def AddressableWhiteListExcelAddId(builder, id):
+    builder.PrependInt64Slot(1, id, 0)
+
 def AddId(builder, id):
-    return AddressableWhiteListExcelAddId(builder, id)
-def AddressableWhiteListExcelAddResourcePath(builder, resourcePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(resourcePath), 0)
+    AddressableWhiteListExcelAddId(builder, id)
+
+def AddressableWhiteListExcelAddResourcePath(builder, resourcePath):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(resourcePath), 0)
+
 def AddResourcePath(builder, resourcePath):
-    return AddressableWhiteListExcelAddResourcePath(builder, resourcePath)
-def AddressableWhiteListExcelStartResourcePathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    AddressableWhiteListExcelAddResourcePath(builder, resourcePath)
+
+def AddressableWhiteListExcelStartResourcePathVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartResourcePathVector(builder, numElems):
     return AddressableWhiteListExcelStartResourcePathVector(builder, numElems)
-def AddressableWhiteListExcelEnd(builder): return builder.EndObject()
+
+def AddressableWhiteListExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return AddressableWhiteListExcelEnd(builder)

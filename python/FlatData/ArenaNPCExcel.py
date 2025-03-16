@@ -174,51 +174,98 @@ class ArenaNPCExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ArenaNPCExcelStart(builder): builder.StartObject(10)
+def ArenaNPCExcelStart(builder):
+    builder.StartObject(10)
+
 def Start(builder):
-    return ArenaNPCExcelStart(builder)
-def ArenaNPCExcelAddExceptionCharacterRarities(builder, exceptionCharacterRarities): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionCharacterRarities), 0)
+    ArenaNPCExcelStart(builder)
+
+def ArenaNPCExcelAddExceptionCharacterRarities(builder, exceptionCharacterRarities):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionCharacterRarities), 0)
+
 def AddExceptionCharacterRarities(builder, exceptionCharacterRarities):
-    return ArenaNPCExcelAddExceptionCharacterRarities(builder, exceptionCharacterRarities)
-def ArenaNPCExcelStartExceptionCharacterRaritiesVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ArenaNPCExcelAddExceptionCharacterRarities(builder, exceptionCharacterRarities)
+
+def ArenaNPCExcelStartExceptionCharacterRaritiesVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartExceptionCharacterRaritiesVector(builder, numElems):
     return ArenaNPCExcelStartExceptionCharacterRaritiesVector(builder, numElems)
-def ArenaNPCExcelAddExceptionMainCharacterIds(builder, exceptionMainCharacterIds): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionMainCharacterIds), 0)
+
+def ArenaNPCExcelAddExceptionMainCharacterIds(builder, exceptionMainCharacterIds):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionMainCharacterIds), 0)
+
 def AddExceptionMainCharacterIds(builder, exceptionMainCharacterIds):
-    return ArenaNPCExcelAddExceptionMainCharacterIds(builder, exceptionMainCharacterIds)
-def ArenaNPCExcelStartExceptionMainCharacterIdsVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    ArenaNPCExcelAddExceptionMainCharacterIds(builder, exceptionMainCharacterIds)
+
+def ArenaNPCExcelStartExceptionMainCharacterIdsVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartExceptionMainCharacterIdsVector(builder, numElems):
     return ArenaNPCExcelStartExceptionMainCharacterIdsVector(builder, numElems)
-def ArenaNPCExcelAddExceptionSupportCharacterIds(builder, exceptionSupportCharacterIds): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionSupportCharacterIds), 0)
+
+def ArenaNPCExcelAddExceptionSupportCharacterIds(builder, exceptionSupportCharacterIds):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionSupportCharacterIds), 0)
+
 def AddExceptionSupportCharacterIds(builder, exceptionSupportCharacterIds):
-    return ArenaNPCExcelAddExceptionSupportCharacterIds(builder, exceptionSupportCharacterIds)
-def ArenaNPCExcelStartExceptionSupportCharacterIdsVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    ArenaNPCExcelAddExceptionSupportCharacterIds(builder, exceptionSupportCharacterIds)
+
+def ArenaNPCExcelStartExceptionSupportCharacterIdsVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartExceptionSupportCharacterIdsVector(builder, numElems):
     return ArenaNPCExcelStartExceptionSupportCharacterIdsVector(builder, numElems)
-def ArenaNPCExcelAddExceptionTssIds(builder, exceptionTssIds): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionTssIds), 0)
+
+def ArenaNPCExcelAddExceptionTssIds(builder, exceptionTssIds):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(exceptionTssIds), 0)
+
 def AddExceptionTssIds(builder, exceptionTssIds):
-    return ArenaNPCExcelAddExceptionTssIds(builder, exceptionTssIds)
-def ArenaNPCExcelStartExceptionTssIdsVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    ArenaNPCExcelAddExceptionTssIds(builder, exceptionTssIds)
+
+def ArenaNPCExcelStartExceptionTssIdsVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartExceptionTssIdsVector(builder, numElems):
     return ArenaNPCExcelStartExceptionTssIdsVector(builder, numElems)
-def ArenaNPCExcelAddNpcAccountLevel(builder, npcAccountLevel): builder.PrependInt64Slot(4, npcAccountLevel, 0)
+
+def ArenaNPCExcelAddNpcAccountLevel(builder, npcAccountLevel):
+    builder.PrependInt64Slot(4, npcAccountLevel, 0)
+
 def AddNpcAccountLevel(builder, npcAccountLevel):
-    return ArenaNPCExcelAddNpcAccountLevel(builder, npcAccountLevel)
-def ArenaNPCExcelAddNpcLevel(builder, npcLevel): builder.PrependInt64Slot(5, npcLevel, 0)
+    ArenaNPCExcelAddNpcAccountLevel(builder, npcAccountLevel)
+
+def ArenaNPCExcelAddNpcLevel(builder, npcLevel):
+    builder.PrependInt64Slot(5, npcLevel, 0)
+
 def AddNpcLevel(builder, npcLevel):
-    return ArenaNPCExcelAddNpcLevel(builder, npcLevel)
-def ArenaNPCExcelAddNpcLevelDeviation(builder, npcLevelDeviation): builder.PrependInt64Slot(6, npcLevelDeviation, 0)
+    ArenaNPCExcelAddNpcLevel(builder, npcLevel)
+
+def ArenaNPCExcelAddNpcLevelDeviation(builder, npcLevelDeviation):
+    builder.PrependInt64Slot(6, npcLevelDeviation, 0)
+
 def AddNpcLevelDeviation(builder, npcLevelDeviation):
-    return ArenaNPCExcelAddNpcLevelDeviation(builder, npcLevelDeviation)
-def ArenaNPCExcelAddNpcStarGrade(builder, npcStarGrade): builder.PrependInt64Slot(7, npcStarGrade, 0)
+    ArenaNPCExcelAddNpcLevelDeviation(builder, npcLevelDeviation)
+
+def ArenaNPCExcelAddNpcStarGrade(builder, npcStarGrade):
+    builder.PrependInt64Slot(7, npcStarGrade, 0)
+
 def AddNpcStarGrade(builder, npcStarGrade):
-    return ArenaNPCExcelAddNpcStarGrade(builder, npcStarGrade)
-def ArenaNPCExcelAddRank(builder, rank): builder.PrependInt64Slot(8, rank, 0)
+    ArenaNPCExcelAddNpcStarGrade(builder, npcStarGrade)
+
+def ArenaNPCExcelAddRank(builder, rank):
+    builder.PrependInt64Slot(8, rank, 0)
+
 def AddRank(builder, rank):
-    return ArenaNPCExcelAddRank(builder, rank)
-def ArenaNPCExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(9, uniqueId, 0)
+    ArenaNPCExcelAddRank(builder, rank)
+
+def ArenaNPCExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(9, uniqueId, 0)
+
 def AddUniqueId(builder, uniqueId):
-    return ArenaNPCExcelAddUniqueId(builder, uniqueId)
-def ArenaNPCExcelEnd(builder): return builder.EndObject()
+    ArenaNPCExcelAddUniqueId(builder, uniqueId)
+
+def ArenaNPCExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ArenaNPCExcelEnd(builder)

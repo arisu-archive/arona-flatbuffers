@@ -100,36 +100,68 @@ class EventContentBoxGachaShopExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EventContentBoxGachaShopExcelStart(builder): builder.StartObject(8)
+def EventContentBoxGachaShopExcelStart(builder):
+    builder.StartObject(8)
+
 def Start(builder):
-    return EventContentBoxGachaShopExcelStart(builder)
-def EventContentBoxGachaShopExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(0, displayOrder, 0)
+    EventContentBoxGachaShopExcelStart(builder)
+
+def EventContentBoxGachaShopExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt64Slot(0, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return EventContentBoxGachaShopExcelAddDisplayOrder(builder, displayOrder)
-def EventContentBoxGachaShopExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
+    EventContentBoxGachaShopExcelAddDisplayOrder(builder, displayOrder)
+
+def EventContentBoxGachaShopExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(1, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentBoxGachaShopExcelAddEventContentId(builder, eventContentId)
-def EventContentBoxGachaShopExcelAddGoodsId(builder, goodsId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(goodsId), 0)
+    EventContentBoxGachaShopExcelAddEventContentId(builder, eventContentId)
+
+def EventContentBoxGachaShopExcelAddGoodsId(builder, goodsId):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(goodsId), 0)
+
 def AddGoodsId(builder, goodsId):
-    return EventContentBoxGachaShopExcelAddGoodsId(builder, goodsId)
-def EventContentBoxGachaShopExcelStartGoodsIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EventContentBoxGachaShopExcelAddGoodsId(builder, goodsId)
+
+def EventContentBoxGachaShopExcelStartGoodsIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartGoodsIdVector(builder, numElems):
     return EventContentBoxGachaShopExcelStartGoodsIdVector(builder, numElems)
-def EventContentBoxGachaShopExcelAddGroupElementAmount(builder, groupElementAmount): builder.PrependInt64Slot(3, groupElementAmount, 0)
+
+def EventContentBoxGachaShopExcelAddGroupElementAmount(builder, groupElementAmount):
+    builder.PrependInt64Slot(3, groupElementAmount, 0)
+
 def AddGroupElementAmount(builder, groupElementAmount):
-    return EventContentBoxGachaShopExcelAddGroupElementAmount(builder, groupElementAmount)
-def EventContentBoxGachaShopExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(4, groupId, 0)
+    EventContentBoxGachaShopExcelAddGroupElementAmount(builder, groupElementAmount)
+
+def EventContentBoxGachaShopExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(4, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return EventContentBoxGachaShopExcelAddGroupId(builder, groupId)
-def EventContentBoxGachaShopExcelAddIsLegacy(builder, isLegacy): builder.PrependBoolSlot(5, isLegacy, 0)
+    EventContentBoxGachaShopExcelAddGroupId(builder, groupId)
+
+def EventContentBoxGachaShopExcelAddIsLegacy(builder, isLegacy):
+    builder.PrependBoolSlot(5, isLegacy, 0)
+
 def AddIsLegacy(builder, isLegacy):
-    return EventContentBoxGachaShopExcelAddIsLegacy(builder, isLegacy)
-def EventContentBoxGachaShopExcelAddIsPrize(builder, isPrize): builder.PrependBoolSlot(6, isPrize, 0)
+    EventContentBoxGachaShopExcelAddIsLegacy(builder, isLegacy)
+
+def EventContentBoxGachaShopExcelAddIsPrize(builder, isPrize):
+    builder.PrependBoolSlot(6, isPrize, 0)
+
 def AddIsPrize(builder, isPrize):
-    return EventContentBoxGachaShopExcelAddIsPrize(builder, isPrize)
-def EventContentBoxGachaShopExcelAddRound(builder, round): builder.PrependInt64Slot(7, round, 0)
+    EventContentBoxGachaShopExcelAddIsPrize(builder, isPrize)
+
+def EventContentBoxGachaShopExcelAddRound(builder, round):
+    builder.PrependInt64Slot(7, round, 0)
+
 def AddRound(builder, round):
-    return EventContentBoxGachaShopExcelAddRound(builder, round)
-def EventContentBoxGachaShopExcelEnd(builder): return builder.EndObject()
+    EventContentBoxGachaShopExcelAddRound(builder, round)
+
+def EventContentBoxGachaShopExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentBoxGachaShopExcelEnd(builder)

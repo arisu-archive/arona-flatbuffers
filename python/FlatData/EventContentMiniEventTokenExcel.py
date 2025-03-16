@@ -45,18 +45,32 @@ class EventContentMiniEventTokenExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EventContentMiniEventTokenExcelStart(builder): builder.StartObject(3)
+def EventContentMiniEventTokenExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return EventContentMiniEventTokenExcelStart(builder)
-def EventContentMiniEventTokenExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
+    EventContentMiniEventTokenExcelStart(builder)
+
+def EventContentMiniEventTokenExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentMiniEventTokenExcelAddEventContentId(builder, eventContentId)
-def EventContentMiniEventTokenExcelAddItemUniqueId(builder, itemUniqueId): builder.PrependInt64Slot(1, itemUniqueId, 0)
+    EventContentMiniEventTokenExcelAddEventContentId(builder, eventContentId)
+
+def EventContentMiniEventTokenExcelAddItemUniqueId(builder, itemUniqueId):
+    builder.PrependInt64Slot(1, itemUniqueId, 0)
+
 def AddItemUniqueId(builder, itemUniqueId):
-    return EventContentMiniEventTokenExcelAddItemUniqueId(builder, itemUniqueId)
-def EventContentMiniEventTokenExcelAddMaximumAmount(builder, maximumAmount): builder.PrependInt64Slot(2, maximumAmount, 0)
+    EventContentMiniEventTokenExcelAddItemUniqueId(builder, itemUniqueId)
+
+def EventContentMiniEventTokenExcelAddMaximumAmount(builder, maximumAmount):
+    builder.PrependInt64Slot(2, maximumAmount, 0)
+
 def AddMaximumAmount(builder, maximumAmount):
-    return EventContentMiniEventTokenExcelAddMaximumAmount(builder, maximumAmount)
-def EventContentMiniEventTokenExcelEnd(builder): return builder.EndObject()
+    EventContentMiniEventTokenExcelAddMaximumAmount(builder, maximumAmount)
+
+def EventContentMiniEventTokenExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentMiniEventTokenExcelEnd(builder)

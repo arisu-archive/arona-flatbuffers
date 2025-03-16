@@ -49,15 +49,26 @@ class StickerGroupExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def StickerGroupExcelTableStart(builder): builder.StartObject(1)
+def StickerGroupExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return StickerGroupExcelTableStart(builder)
-def StickerGroupExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    StickerGroupExcelTableStart(builder)
+
+def StickerGroupExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return StickerGroupExcelTableAddDataList(builder, dataList)
-def StickerGroupExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    StickerGroupExcelTableAddDataList(builder, dataList)
+
+def StickerGroupExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return StickerGroupExcelTableStartDataListVector(builder, numElems)
-def StickerGroupExcelTableEnd(builder): return builder.EndObject()
+
+def StickerGroupExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return StickerGroupExcelTableEnd(builder)

@@ -17,11 +17,19 @@ func GetRootAsNormalSkillTemplateExcel(buf []byte, offset flatbuffers.UOffsetT) 
 	return x
 }
 
+func FinishNormalSkillTemplateExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsNormalSkillTemplateExcel(buf []byte, offset flatbuffers.UOffsetT) *NormalSkillTemplateExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &NormalSkillTemplateExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedNormalSkillTemplateExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *NormalSkillTemplateExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -98,7 +106,4 @@ func NormalSkillTemplateExcelAddMultiAni(builder *flatbuffers.Builder, multiAni 
 }
 func NormalSkillTemplateExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*NormalSkillTemplateExcel) Name() string {
-	return "NormalSkillTemplateExcel"
 }

@@ -192,81 +192,158 @@ class EmblemExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EmblemExcelStart(builder): builder.StartObject(24)
+def EmblemExcelStart(builder):
+    builder.StartObject(24)
+
 def Start(builder):
-    return EmblemExcelStart(builder)
-def EmblemExcelAddCategory(builder, category): builder.PrependInt32Slot(0, category, 0)
+    EmblemExcelStart(builder)
+
+def EmblemExcelAddCategory(builder, category):
+    builder.PrependInt32Slot(0, category, 0)
+
 def AddCategory(builder, category):
-    return EmblemExcelAddCategory(builder, category)
-def EmblemExcelAddCheckPassCount(builder, checkPassCount): builder.PrependInt64Slot(1, checkPassCount, 0)
+    EmblemExcelAddCategory(builder, category)
+
+def EmblemExcelAddCheckPassCount(builder, checkPassCount):
+    builder.PrependInt64Slot(1, checkPassCount, 0)
+
 def AddCheckPassCount(builder, checkPassCount):
-    return EmblemExcelAddCheckPassCount(builder, checkPassCount)
-def EmblemExcelAddCheckPassType(builder, checkPassType): builder.PrependInt32Slot(2, checkPassType, 0)
+    EmblemExcelAddCheckPassCount(builder, checkPassCount)
+
+def EmblemExcelAddCheckPassType(builder, checkPassType):
+    builder.PrependInt32Slot(2, checkPassType, 0)
+
 def AddCheckPassType(builder, checkPassType):
-    return EmblemExcelAddCheckPassType(builder, checkPassType)
-def EmblemExcelAddDislpayFavorLevel(builder, dislpayFavorLevel): builder.PrependInt32Slot(3, dislpayFavorLevel, 0)
+    EmblemExcelAddCheckPassType(builder, checkPassType)
+
+def EmblemExcelAddDislpayFavorLevel(builder, dislpayFavorLevel):
+    builder.PrependInt32Slot(3, dislpayFavorLevel, 0)
+
 def AddDislpayFavorLevel(builder, dislpayFavorLevel):
-    return EmblemExcelAddDislpayFavorLevel(builder, dislpayFavorLevel)
-def EmblemExcelAddDisplayEndDate(builder, displayEndDate): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(displayEndDate), 0)
+    EmblemExcelAddDislpayFavorLevel(builder, dislpayFavorLevel)
+
+def EmblemExcelAddDisplayEndDate(builder, displayEndDate):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(displayEndDate), 0)
+
 def AddDisplayEndDate(builder, displayEndDate):
-    return EmblemExcelAddDisplayEndDate(builder, displayEndDate)
-def EmblemExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(5, displayOrder, 0)
+    EmblemExcelAddDisplayEndDate(builder, displayEndDate)
+
+def EmblemExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt64Slot(5, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return EmblemExcelAddDisplayOrder(builder, displayOrder)
-def EmblemExcelAddDisplayStartDate(builder, displayStartDate): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(displayStartDate), 0)
+    EmblemExcelAddDisplayOrder(builder, displayOrder)
+
+def EmblemExcelAddDisplayStartDate(builder, displayStartDate):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(displayStartDate), 0)
+
 def AddDisplayStartDate(builder, displayStartDate):
-    return EmblemExcelAddDisplayStartDate(builder, displayStartDate)
-def EmblemExcelAddDisplayType(builder, displayType): builder.PrependInt32Slot(7, displayType, 0)
+    EmblemExcelAddDisplayStartDate(builder, displayStartDate)
+
+def EmblemExcelAddDisplayType(builder, displayType):
+    builder.PrependInt32Slot(7, displayType, 0)
+
 def AddDisplayType(builder, displayType):
-    return EmblemExcelAddDisplayType(builder, displayType)
-def EmblemExcelAddEmblemBgPathEn(builder, emblemBgPathEn): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(emblemBgPathEn), 0)
+    EmblemExcelAddDisplayType(builder, displayType)
+
+def EmblemExcelAddEmblemBgPathEn(builder, emblemBgPathEn):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(emblemBgPathEn), 0)
+
 def AddEmblemBgPathEn(builder, emblemBgPathEn):
-    return EmblemExcelAddEmblemBgPathEn(builder, emblemBgPathEn)
-def EmblemExcelAddEmblemBgPathJp(builder, emblemBgPathJp): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(emblemBgPathJp), 0)
+    EmblemExcelAddEmblemBgPathEn(builder, emblemBgPathEn)
+
+def EmblemExcelAddEmblemBgPathJp(builder, emblemBgPathJp):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(emblemBgPathJp), 0)
+
 def AddEmblemBgPathJp(builder, emblemBgPathJp):
-    return EmblemExcelAddEmblemBgPathJp(builder, emblemBgPathJp)
-def EmblemExcelAddEmblemBgPathKr(builder, emblemBgPathKr): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(emblemBgPathKr), 0)
+    EmblemExcelAddEmblemBgPathJp(builder, emblemBgPathJp)
+
+def EmblemExcelAddEmblemBgPathKr(builder, emblemBgPathKr):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(emblemBgPathKr), 0)
+
 def AddEmblemBgPathKr(builder, emblemBgPathKr):
-    return EmblemExcelAddEmblemBgPathKr(builder, emblemBgPathKr)
-def EmblemExcelAddEmblemBgPathTh(builder, emblemBgPathTh): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(emblemBgPathTh), 0)
+    EmblemExcelAddEmblemBgPathKr(builder, emblemBgPathKr)
+
+def EmblemExcelAddEmblemBgPathTh(builder, emblemBgPathTh):
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(emblemBgPathTh), 0)
+
 def AddEmblemBgPathTh(builder, emblemBgPathTh):
-    return EmblemExcelAddEmblemBgPathTh(builder, emblemBgPathTh)
-def EmblemExcelAddEmblemBgPathTw(builder, emblemBgPathTw): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(emblemBgPathTw), 0)
+    EmblemExcelAddEmblemBgPathTh(builder, emblemBgPathTh)
+
+def EmblemExcelAddEmblemBgPathTw(builder, emblemBgPathTw):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(emblemBgPathTw), 0)
+
 def AddEmblemBgPathTw(builder, emblemBgPathTw):
-    return EmblemExcelAddEmblemBgPathTw(builder, emblemBgPathTw)
-def EmblemExcelAddEmblemIconBgPath(builder, emblemIconBgPath): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(emblemIconBgPath), 0)
+    EmblemExcelAddEmblemBgPathTw(builder, emblemBgPathTw)
+
+def EmblemExcelAddEmblemIconBgPath(builder, emblemIconBgPath):
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(emblemIconBgPath), 0)
+
 def AddEmblemIconBgPath(builder, emblemIconBgPath):
-    return EmblemExcelAddEmblemIconBgPath(builder, emblemIconBgPath)
-def EmblemExcelAddEmblemIconNumControl(builder, emblemIconNumControl): builder.PrependInt32Slot(14, emblemIconNumControl, 0)
+    EmblemExcelAddEmblemIconBgPath(builder, emblemIconBgPath)
+
+def EmblemExcelAddEmblemIconNumControl(builder, emblemIconNumControl):
+    builder.PrependInt32Slot(14, emblemIconNumControl, 0)
+
 def AddEmblemIconNumControl(builder, emblemIconNumControl):
-    return EmblemExcelAddEmblemIconNumControl(builder, emblemIconNumControl)
-def EmblemExcelAddEmblemIconPath(builder, emblemIconPath): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(emblemIconPath), 0)
+    EmblemExcelAddEmblemIconNumControl(builder, emblemIconNumControl)
+
+def EmblemExcelAddEmblemIconPath(builder, emblemIconPath):
+    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(emblemIconPath), 0)
+
 def AddEmblemIconPath(builder, emblemIconPath):
-    return EmblemExcelAddEmblemIconPath(builder, emblemIconPath)
-def EmblemExcelAddEmblemParameter(builder, emblemParameter): builder.PrependInt64Slot(16, emblemParameter, 0)
+    EmblemExcelAddEmblemIconPath(builder, emblemIconPath)
+
+def EmblemExcelAddEmblemParameter(builder, emblemParameter):
+    builder.PrependInt64Slot(16, emblemParameter, 0)
+
 def AddEmblemParameter(builder, emblemParameter):
-    return EmblemExcelAddEmblemParameter(builder, emblemParameter)
-def EmblemExcelAddEmblemTextVisible(builder, emblemTextVisible): builder.PrependBoolSlot(17, emblemTextVisible, 0)
+    EmblemExcelAddEmblemParameter(builder, emblemParameter)
+
+def EmblemExcelAddEmblemTextVisible(builder, emblemTextVisible):
+    builder.PrependBoolSlot(17, emblemTextVisible, 0)
+
 def AddEmblemTextVisible(builder, emblemTextVisible):
-    return EmblemExcelAddEmblemTextVisible(builder, emblemTextVisible)
-def EmblemExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+    EmblemExcelAddEmblemTextVisible(builder, emblemTextVisible)
+
+def EmblemExcelAddIconPath(builder, iconPath):
+    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+
 def AddIconPath(builder, iconPath):
-    return EmblemExcelAddIconPath(builder, iconPath)
-def EmblemExcelAddId(builder, id): builder.PrependInt64Slot(19, id, 0)
+    EmblemExcelAddIconPath(builder, iconPath)
+
+def EmblemExcelAddId(builder, id):
+    builder.PrependInt64Slot(19, id, 0)
+
 def AddId(builder, id):
-    return EmblemExcelAddId(builder, id)
-def EmblemExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUint32Slot(20, localizeCodeId, 0)
+    EmblemExcelAddId(builder, id)
+
+def EmblemExcelAddLocalizeCodeId(builder, localizeCodeId):
+    builder.PrependUint32Slot(20, localizeCodeId, 0)
+
 def AddLocalizeCodeId(builder, localizeCodeId):
-    return EmblemExcelAddLocalizeCodeId(builder, localizeCodeId)
-def EmblemExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(21, localizeEtcId, 0)
+    EmblemExcelAddLocalizeCodeId(builder, localizeCodeId)
+
+def EmblemExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUint32Slot(21, localizeEtcId, 0)
+
 def AddLocalizeEtcId(builder, localizeEtcId):
-    return EmblemExcelAddLocalizeEtcId(builder, localizeEtcId)
-def EmblemExcelAddRarity(builder, rarity): builder.PrependInt32Slot(22, rarity, 0)
+    EmblemExcelAddLocalizeEtcId(builder, localizeEtcId)
+
+def EmblemExcelAddRarity(builder, rarity):
+    builder.PrependInt32Slot(22, rarity, 0)
+
 def AddRarity(builder, rarity):
-    return EmblemExcelAddRarity(builder, rarity)
-def EmblemExcelAddUseAtLocalizeId(builder, useAtLocalizeId): builder.PrependInt64Slot(23, useAtLocalizeId, 0)
+    EmblemExcelAddRarity(builder, rarity)
+
+def EmblemExcelAddUseAtLocalizeId(builder, useAtLocalizeId):
+    builder.PrependInt64Slot(23, useAtLocalizeId, 0)
+
 def AddUseAtLocalizeId(builder, useAtLocalizeId):
-    return EmblemExcelAddUseAtLocalizeId(builder, useAtLocalizeId)
-def EmblemExcelEnd(builder): return builder.EndObject()
+    EmblemExcelAddUseAtLocalizeId(builder, useAtLocalizeId)
+
+def EmblemExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EmblemExcelEnd(builder)

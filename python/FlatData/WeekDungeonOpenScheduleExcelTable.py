@@ -49,15 +49,26 @@ class WeekDungeonOpenScheduleExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def WeekDungeonOpenScheduleExcelTableStart(builder): builder.StartObject(1)
+def WeekDungeonOpenScheduleExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return WeekDungeonOpenScheduleExcelTableStart(builder)
-def WeekDungeonOpenScheduleExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    WeekDungeonOpenScheduleExcelTableStart(builder)
+
+def WeekDungeonOpenScheduleExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return WeekDungeonOpenScheduleExcelTableAddDataList(builder, dataList)
-def WeekDungeonOpenScheduleExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    WeekDungeonOpenScheduleExcelTableAddDataList(builder, dataList)
+
+def WeekDungeonOpenScheduleExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return WeekDungeonOpenScheduleExcelTableStartDataListVector(builder, numElems)
-def WeekDungeonOpenScheduleExcelTableEnd(builder): return builder.EndObject()
+
+def WeekDungeonOpenScheduleExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return WeekDungeonOpenScheduleExcelTableEnd(builder)

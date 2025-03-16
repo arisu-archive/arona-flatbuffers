@@ -49,15 +49,26 @@ class CharacterWeaponExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CharacterWeaponExcelTableStart(builder): builder.StartObject(1)
+def CharacterWeaponExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return CharacterWeaponExcelTableStart(builder)
-def CharacterWeaponExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    CharacterWeaponExcelTableStart(builder)
+
+def CharacterWeaponExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return CharacterWeaponExcelTableAddDataList(builder, dataList)
-def CharacterWeaponExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    CharacterWeaponExcelTableAddDataList(builder, dataList)
+
+def CharacterWeaponExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return CharacterWeaponExcelTableStartDataListVector(builder, numElems)
-def CharacterWeaponExcelTableEnd(builder): return builder.EndObject()
+
+def CharacterWeaponExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CharacterWeaponExcelTableEnd(builder)

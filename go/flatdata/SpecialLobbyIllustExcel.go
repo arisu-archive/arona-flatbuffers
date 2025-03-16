@@ -17,11 +17,19 @@ func GetRootAsSpecialLobbyIllustExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishSpecialLobbyIllustExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsSpecialLobbyIllustExcel(buf []byte, offset flatbuffers.UOffsetT) *SpecialLobbyIllustExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &SpecialLobbyIllustExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedSpecialLobbyIllustExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *SpecialLobbyIllustExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -112,7 +120,4 @@ func SpecialLobbyIllustExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId i
 }
 func SpecialLobbyIllustExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*SpecialLobbyIllustExcel) Name() string {
-	return "SpecialLobbyIllustExcel"
 }

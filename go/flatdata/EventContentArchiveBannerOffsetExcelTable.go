@@ -17,11 +17,19 @@ func GetRootAsEventContentArchiveBannerOffsetExcelTable(buf []byte, offset flatb
 	return x
 }
 
+func FinishEventContentArchiveBannerOffsetExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentArchiveBannerOffsetExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentArchiveBannerOffsetExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentArchiveBannerOffsetExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentArchiveBannerOffsetExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentArchiveBannerOffsetExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func EventContentArchiveBannerOffsetExcelTableStartDataListVector(builder *flatb
 }
 func EventContentArchiveBannerOffsetExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentArchiveBannerOffsetExcelTable) Name() string {
-	return "EventContentArchiveBannerOffsetExcelTable"
 }

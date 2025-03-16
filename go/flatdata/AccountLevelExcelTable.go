@@ -17,11 +17,19 @@ func GetRootAsAccountLevelExcelTable(buf []byte, offset flatbuffers.UOffsetT) *A
 	return x
 }
 
+func FinishAccountLevelExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsAccountLevelExcelTable(buf []byte, offset flatbuffers.UOffsetT) *AccountLevelExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AccountLevelExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedAccountLevelExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AccountLevelExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func AccountLevelExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 }
 func AccountLevelExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*AccountLevelExcelTable) Name() string {
-	return "AccountLevelExcelTable"
 }

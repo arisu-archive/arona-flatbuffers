@@ -65,21 +65,38 @@ class ShortcutTypeExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def ShortcutTypeExcelStart(builder): builder.StartObject(3)
+def ShortcutTypeExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return ShortcutTypeExcelStart(builder)
-def ShortcutTypeExcelAddContentType(builder, contentType): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(contentType), 0)
+    ShortcutTypeExcelStart(builder)
+
+def ShortcutTypeExcelAddContentType(builder, contentType):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(contentType), 0)
+
 def AddContentType(builder, contentType):
-    return ShortcutTypeExcelAddContentType(builder, contentType)
-def ShortcutTypeExcelStartContentTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ShortcutTypeExcelAddContentType(builder, contentType)
+
+def ShortcutTypeExcelStartContentTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartContentTypeVector(builder, numElems):
     return ShortcutTypeExcelStartContentTypeVector(builder, numElems)
-def ShortcutTypeExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+
+def ShortcutTypeExcelAddId(builder, id):
+    builder.PrependInt64Slot(1, id, 0)
+
 def AddId(builder, id):
-    return ShortcutTypeExcelAddId(builder, id)
-def ShortcutTypeExcelAddIsAscending(builder, isAscending): builder.PrependBoolSlot(2, isAscending, 0)
+    ShortcutTypeExcelAddId(builder, id)
+
+def ShortcutTypeExcelAddIsAscending(builder, isAscending):
+    builder.PrependBoolSlot(2, isAscending, 0)
+
 def AddIsAscending(builder, isAscending):
-    return ShortcutTypeExcelAddIsAscending(builder, isAscending)
-def ShortcutTypeExcelEnd(builder): return builder.EndObject()
+    ShortcutTypeExcelAddIsAscending(builder, isAscending)
+
+def ShortcutTypeExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ShortcutTypeExcelEnd(builder)

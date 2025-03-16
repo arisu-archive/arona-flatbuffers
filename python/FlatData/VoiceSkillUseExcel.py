@@ -58,18 +58,32 @@ class VoiceSkillUseExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         return o == 0
 
-def VoiceSkillUseExcelStart(builder): builder.StartObject(2)
+def VoiceSkillUseExcelStart(builder):
+    builder.StartObject(2)
+
 def Start(builder):
-    return VoiceSkillUseExcelStart(builder)
-def VoiceSkillUseExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+    VoiceSkillUseExcelStart(builder)
+
+def VoiceSkillUseExcelAddName(builder, name):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+
 def AddName(builder, name):
-    return VoiceSkillUseExcelAddName(builder, name)
-def VoiceSkillUseExcelAddVoiceHash(builder, voiceHash): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(voiceHash), 0)
+    VoiceSkillUseExcelAddName(builder, name)
+
+def VoiceSkillUseExcelAddVoiceHash(builder, voiceHash):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(voiceHash), 0)
+
 def AddVoiceHash(builder, voiceHash):
-    return VoiceSkillUseExcelAddVoiceHash(builder, voiceHash)
-def VoiceSkillUseExcelStartVoiceHashVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    VoiceSkillUseExcelAddVoiceHash(builder, voiceHash)
+
+def VoiceSkillUseExcelStartVoiceHashVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartVoiceHashVector(builder, numElems):
     return VoiceSkillUseExcelStartVoiceHashVector(builder, numElems)
-def VoiceSkillUseExcelEnd(builder): return builder.EndObject()
+
+def VoiceSkillUseExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return VoiceSkillUseExcelEnd(builder)

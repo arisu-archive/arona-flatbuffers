@@ -17,11 +17,19 @@ func GetRootAsGachaElementExcel(buf []byte, offset flatbuffers.UOffsetT) *GachaE
 	return x
 }
 
+func FinishGachaElementExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsGachaElementExcel(buf []byte, offset flatbuffers.UOffsetT) *GachaElementExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GachaElementExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedGachaElementExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GachaElementExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -173,7 +181,4 @@ func GachaElementExcelAddState(builder *flatbuffers.Builder, state int32) {
 }
 func GachaElementExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*GachaElementExcel) Name() string {
-	return "GachaElementExcel"
 }

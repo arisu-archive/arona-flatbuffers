@@ -17,11 +17,19 @@ func GetRootAsFavorLevelExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Fav
 	return x
 }
 
+func FinishFavorLevelExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFavorLevelExcelTable(buf []byte, offset flatbuffers.UOffsetT) *FavorLevelExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FavorLevelExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFavorLevelExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FavorLevelExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func FavorLevelExcelTableStartDataListVector(builder *flatbuffers.Builder, numEl
 }
 func FavorLevelExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*FavorLevelExcelTable) Name() string {
-	return "FavorLevelExcelTable"
 }

@@ -49,15 +49,26 @@ class ConquestCalculateExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConquestCalculateExcelTableStart(builder): builder.StartObject(1)
+def ConquestCalculateExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ConquestCalculateExcelTableStart(builder)
-def ConquestCalculateExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ConquestCalculateExcelTableStart(builder)
+
+def ConquestCalculateExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ConquestCalculateExcelTableAddDataList(builder, dataList)
-def ConquestCalculateExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ConquestCalculateExcelTableAddDataList(builder, dataList)
+
+def ConquestCalculateExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ConquestCalculateExcelTableStartDataListVector(builder, numElems)
-def ConquestCalculateExcelTableEnd(builder): return builder.EndObject()
+
+def ConquestCalculateExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConquestCalculateExcelTableEnd(builder)

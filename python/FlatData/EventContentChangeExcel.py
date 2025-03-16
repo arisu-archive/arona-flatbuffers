@@ -87,36 +87,68 @@ class EventContentChangeExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def EventContentChangeExcelStart(builder): builder.StartObject(9)
+def EventContentChangeExcelStart(builder):
+    builder.StartObject(9)
+
 def Start(builder):
-    return EventContentChangeExcelStart(builder)
-def EventContentChangeExcelAddChangeCostAmount(builder, changeCostAmount): builder.PrependInt32Slot(0, changeCostAmount, 0)
+    EventContentChangeExcelStart(builder)
+
+def EventContentChangeExcelAddChangeCostAmount(builder, changeCostAmount):
+    builder.PrependInt32Slot(0, changeCostAmount, 0)
+
 def AddChangeCostAmount(builder, changeCostAmount):
-    return EventContentChangeExcelAddChangeCostAmount(builder, changeCostAmount)
-def EventContentChangeExcelAddChangeCostId(builder, changeCostId): builder.PrependInt64Slot(1, changeCostId, 0)
+    EventContentChangeExcelAddChangeCostAmount(builder, changeCostAmount)
+
+def EventContentChangeExcelAddChangeCostId(builder, changeCostId):
+    builder.PrependInt64Slot(1, changeCostId, 0)
+
 def AddChangeCostId(builder, changeCostId):
-    return EventContentChangeExcelAddChangeCostId(builder, changeCostId)
-def EventContentChangeExcelAddChangeCostType(builder, changeCostType): builder.PrependInt32Slot(2, changeCostType, 0)
+    EventContentChangeExcelAddChangeCostId(builder, changeCostId)
+
+def EventContentChangeExcelAddChangeCostType(builder, changeCostType):
+    builder.PrependInt32Slot(2, changeCostType, 0)
+
 def AddChangeCostType(builder, changeCostType):
-    return EventContentChangeExcelAddChangeCostType(builder, changeCostType)
-def EventContentChangeExcelAddChangeCount(builder, changeCount): builder.PrependInt64Slot(3, changeCount, 0)
+    EventContentChangeExcelAddChangeCostType(builder, changeCostType)
+
+def EventContentChangeExcelAddChangeCount(builder, changeCount):
+    builder.PrependInt64Slot(3, changeCount, 0)
+
 def AddChangeCount(builder, changeCount):
-    return EventContentChangeExcelAddChangeCount(builder, changeCount)
-def EventContentChangeExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(4, eventContentId, 0)
+    EventContentChangeExcelAddChangeCount(builder, changeCount)
+
+def EventContentChangeExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(4, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentChangeExcelAddEventContentId(builder, eventContentId)
-def EventContentChangeExcelAddIsLast(builder, isLast): builder.PrependBoolSlot(5, isLast, 0)
+    EventContentChangeExcelAddEventContentId(builder, eventContentId)
+
+def EventContentChangeExcelAddIsLast(builder, isLast):
+    builder.PrependBoolSlot(5, isLast, 0)
+
 def AddIsLast(builder, isLast):
-    return EventContentChangeExcelAddIsLast(builder, isLast)
-def EventContentChangeExcelAddRewardAmount(builder, rewardAmount): builder.PrependInt32Slot(6, rewardAmount, 0)
+    EventContentChangeExcelAddIsLast(builder, isLast)
+
+def EventContentChangeExcelAddRewardAmount(builder, rewardAmount):
+    builder.PrependInt32Slot(6, rewardAmount, 0)
+
 def AddRewardAmount(builder, rewardAmount):
-    return EventContentChangeExcelAddRewardAmount(builder, rewardAmount)
-def EventContentChangeExcelAddRewardId(builder, rewardId): builder.PrependInt64Slot(7, rewardId, 0)
+    EventContentChangeExcelAddRewardAmount(builder, rewardAmount)
+
+def EventContentChangeExcelAddRewardId(builder, rewardId):
+    builder.PrependInt64Slot(7, rewardId, 0)
+
 def AddRewardId(builder, rewardId):
-    return EventContentChangeExcelAddRewardId(builder, rewardId)
-def EventContentChangeExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(8, rewardParcelType, 0)
+    EventContentChangeExcelAddRewardId(builder, rewardId)
+
+def EventContentChangeExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependInt32Slot(8, rewardParcelType, 0)
+
 def AddRewardParcelType(builder, rewardParcelType):
-    return EventContentChangeExcelAddRewardParcelType(builder, rewardParcelType)
-def EventContentChangeExcelEnd(builder): return builder.EndObject()
+    EventContentChangeExcelAddRewardParcelType(builder, rewardParcelType)
+
+def EventContentChangeExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentChangeExcelEnd(builder)

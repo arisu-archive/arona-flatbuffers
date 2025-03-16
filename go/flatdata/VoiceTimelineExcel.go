@@ -17,11 +17,19 @@ func GetRootAsVoiceTimelineExcel(buf []byte, offset flatbuffers.UOffsetT) *Voice
 	return x
 }
 
+func FinishVoiceTimelineExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsVoiceTimelineExcel(buf []byte, offset flatbuffers.UOffsetT) *VoiceTimelineExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &VoiceTimelineExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedVoiceTimelineExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *VoiceTimelineExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -155,7 +163,4 @@ func VoiceTimelineExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64)
 }
 func VoiceTimelineExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*VoiceTimelineExcel) Name() string {
-	return "VoiceTimelineExcel"
 }

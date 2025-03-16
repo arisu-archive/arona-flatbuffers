@@ -49,15 +49,26 @@ class MissionExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def MissionExcelTableStart(builder): builder.StartObject(1)
+def MissionExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return MissionExcelTableStart(builder)
-def MissionExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    MissionExcelTableStart(builder)
+
+def MissionExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return MissionExcelTableAddDataList(builder, dataList)
-def MissionExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    MissionExcelTableAddDataList(builder, dataList)
+
+def MissionExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return MissionExcelTableStartDataListVector(builder, numElems)
-def MissionExcelTableEnd(builder): return builder.EndObject()
+
+def MissionExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MissionExcelTableEnd(builder)

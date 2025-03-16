@@ -17,11 +17,19 @@ func GetRootAsEventContentTreasureRewardExcel(buf []byte, offset flatbuffers.UOf
 	return x
 }
 
+func FinishEventContentTreasureRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentTreasureRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentTreasureRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentTreasureRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentTreasureRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentTreasureRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -227,7 +235,4 @@ func EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder *flatbuffe
 }
 func EventContentTreasureRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentTreasureRewardExcel) Name() string {
-	return "EventContentTreasureRewardExcel"
 }

@@ -59,24 +59,44 @@ class AccountLevelExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def AccountLevelExcelStart(builder): builder.StartObject(5)
+def AccountLevelExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return AccountLevelExcelStart(builder)
-def AccountLevelExcelAddApAutoChargeMax(builder, apAutoChargeMax): builder.PrependInt64Slot(0, apAutoChargeMax, 0)
+    AccountLevelExcelStart(builder)
+
+def AccountLevelExcelAddApAutoChargeMax(builder, apAutoChargeMax):
+    builder.PrependInt64Slot(0, apAutoChargeMax, 0)
+
 def AddApAutoChargeMax(builder, apAutoChargeMax):
-    return AccountLevelExcelAddApAutoChargeMax(builder, apAutoChargeMax)
-def AccountLevelExcelAddExp(builder, exp): builder.PrependInt64Slot(1, exp, 0)
+    AccountLevelExcelAddApAutoChargeMax(builder, apAutoChargeMax)
+
+def AccountLevelExcelAddExp(builder, exp):
+    builder.PrependInt64Slot(1, exp, 0)
+
 def AddExp(builder, exp):
-    return AccountLevelExcelAddExp(builder, exp)
-def AccountLevelExcelAddId(builder, id): builder.PrependInt64Slot(2, id, 0)
+    AccountLevelExcelAddExp(builder, exp)
+
+def AccountLevelExcelAddId(builder, id):
+    builder.PrependInt64Slot(2, id, 0)
+
 def AddId(builder, id):
-    return AccountLevelExcelAddId(builder, id)
-def AccountLevelExcelAddLevel(builder, level): builder.PrependInt64Slot(3, level, 0)
+    AccountLevelExcelAddId(builder, id)
+
+def AccountLevelExcelAddLevel(builder, level):
+    builder.PrependInt64Slot(3, level, 0)
+
 def AddLevel(builder, level):
-    return AccountLevelExcelAddLevel(builder, level)
-def AccountLevelExcelAddNeedReportEvent(builder, needReportEvent): builder.PrependBoolSlot(4, needReportEvent, 0)
+    AccountLevelExcelAddLevel(builder, level)
+
+def AccountLevelExcelAddNeedReportEvent(builder, needReportEvent):
+    builder.PrependBoolSlot(4, needReportEvent, 0)
+
 def AddNeedReportEvent(builder, needReportEvent):
-    return AccountLevelExcelAddNeedReportEvent(builder, needReportEvent)
-def AccountLevelExcelEnd(builder): return builder.EndObject()
+    AccountLevelExcelAddNeedReportEvent(builder, needReportEvent)
+
+def AccountLevelExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return AccountLevelExcelEnd(builder)

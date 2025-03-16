@@ -65,21 +65,38 @@ class TrophyCollectionExcel(object):
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
-def TrophyCollectionExcelStart(builder): builder.StartObject(3)
+def TrophyCollectionExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return TrophyCollectionExcelStart(builder)
-def TrophyCollectionExcelAddFurnitureId(builder, furnitureId): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(furnitureId), 0)
+    TrophyCollectionExcelStart(builder)
+
+def TrophyCollectionExcelAddFurnitureId(builder, furnitureId):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(furnitureId), 0)
+
 def AddFurnitureId(builder, furnitureId):
-    return TrophyCollectionExcelAddFurnitureId(builder, furnitureId)
-def TrophyCollectionExcelStartFurnitureIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    TrophyCollectionExcelAddFurnitureId(builder, furnitureId)
+
+def TrophyCollectionExcelStartFurnitureIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartFurnitureIdVector(builder, numElems):
     return TrophyCollectionExcelStartFurnitureIdVector(builder, numElems)
-def TrophyCollectionExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(1, groupId, 0)
+
+def TrophyCollectionExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(1, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return TrophyCollectionExcelAddGroupId(builder, groupId)
-def TrophyCollectionExcelAddLocalizeCodeId(builder, localizeCodeId): builder.PrependUint32Slot(2, localizeCodeId, 0)
+    TrophyCollectionExcelAddGroupId(builder, groupId)
+
+def TrophyCollectionExcelAddLocalizeCodeId(builder, localizeCodeId):
+    builder.PrependUint32Slot(2, localizeCodeId, 0)
+
 def AddLocalizeCodeId(builder, localizeCodeId):
-    return TrophyCollectionExcelAddLocalizeCodeId(builder, localizeCodeId)
-def TrophyCollectionExcelEnd(builder): return builder.EndObject()
+    TrophyCollectionExcelAddLocalizeCodeId(builder, localizeCodeId)
+
+def TrophyCollectionExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return TrophyCollectionExcelEnd(builder)

@@ -56,18 +56,32 @@ class BlendData(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def BlendDataStart(builder): builder.StartObject(2)
+def BlendDataStart(builder):
+    builder.StartObject(2)
+
 def Start(builder):
-    return BlendDataStart(builder)
-def BlendDataAddInfoList(builder, infoList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(infoList), 0)
+    BlendDataStart(builder)
+
+def BlendDataAddInfoList(builder, infoList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(infoList), 0)
+
 def AddInfoList(builder, infoList):
-    return BlendDataAddInfoList(builder, infoList)
-def BlendDataStartInfoListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BlendDataAddInfoList(builder, infoList)
+
+def BlendDataStartInfoListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartInfoListVector(builder, numElems):
     return BlendDataStartInfoListVector(builder, numElems)
-def BlendDataAddType(builder, type): builder.PrependInt32Slot(1, type, 0)
+
+def BlendDataAddType(builder, type):
+    builder.PrependInt32Slot(1, type, 0)
+
 def AddType(builder, type):
-    return BlendDataAddType(builder, type)
-def BlendDataEnd(builder): return builder.EndObject()
+    BlendDataAddType(builder, type)
+
+def BlendDataEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return BlendDataEnd(builder)

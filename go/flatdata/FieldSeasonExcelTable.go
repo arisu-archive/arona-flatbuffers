@@ -17,11 +17,19 @@ func GetRootAsFieldSeasonExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Fi
 	return x
 }
 
+func FinishFieldSeasonExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFieldSeasonExcelTable(buf []byte, offset flatbuffers.UOffsetT) *FieldSeasonExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldSeasonExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFieldSeasonExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldSeasonExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func FieldSeasonExcelTableStartDataListVector(builder *flatbuffers.Builder, numE
 }
 func FieldSeasonExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*FieldSeasonExcelTable) Name() string {
-	return "FieldSeasonExcelTable"
 }

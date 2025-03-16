@@ -17,11 +17,19 @@ func GetRootAsConstNewbieContentExcelTable(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishConstNewbieContentExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConstNewbieContentExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ConstNewbieContentExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstNewbieContentExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConstNewbieContentExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstNewbieContentExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ConstNewbieContentExcelTableStartDataListVector(builder *flatbuffers.Builde
 }
 func ConstNewbieContentExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConstNewbieContentExcelTable) Name() string {
-	return "ConstNewbieContentExcelTable"
 }

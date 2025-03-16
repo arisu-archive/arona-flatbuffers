@@ -17,11 +17,19 @@ func GetRootAsCharacterGearLevelExcelTable(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishCharacterGearLevelExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCharacterGearLevelExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CharacterGearLevelExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterGearLevelExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCharacterGearLevelExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterGearLevelExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func CharacterGearLevelExcelTableStartDataListVector(builder *flatbuffers.Builde
 }
 func CharacterGearLevelExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CharacterGearLevelExcelTable) Name() string {
-	return "CharacterGearLevelExcelTable"
 }

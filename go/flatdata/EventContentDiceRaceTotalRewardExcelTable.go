@@ -17,11 +17,19 @@ func GetRootAsEventContentDiceRaceTotalRewardExcelTable(buf []byte, offset flatb
 	return x
 }
 
+func FinishEventContentDiceRaceTotalRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentDiceRaceTotalRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentDiceRaceTotalRewardExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentDiceRaceTotalRewardExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentDiceRaceTotalRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentDiceRaceTotalRewardExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func EventContentDiceRaceTotalRewardExcelTableStartDataListVector(builder *flatb
 }
 func EventContentDiceRaceTotalRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentDiceRaceTotalRewardExcelTable) Name() string {
-	return "EventContentDiceRaceTotalRewardExcelTable"
 }

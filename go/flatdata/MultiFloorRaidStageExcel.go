@@ -17,11 +17,19 @@ func GetRootAsMultiFloorRaidStageExcel(buf []byte, offset flatbuffers.UOffsetT) 
 	return x
 }
 
+func FinishMultiFloorRaidStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMultiFloorRaidStageExcel(buf []byte, offset flatbuffers.UOffsetT) *MultiFloorRaidStageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MultiFloorRaidStageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMultiFloorRaidStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MultiFloorRaidStageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -473,7 +481,4 @@ func MultiFloorRaidStageExcelAddVictoryTimelinePath(builder *flatbuffers.Builder
 }
 func MultiFloorRaidStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*MultiFloorRaidStageExcel) Name() string {
-	return "MultiFloorRaidStageExcel"
 }

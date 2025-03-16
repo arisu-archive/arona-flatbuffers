@@ -17,11 +17,19 @@ func GetRootAsTrophyCollectionExcelTable(buf []byte, offset flatbuffers.UOffsetT
 	return x
 }
 
+func FinishTrophyCollectionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsTrophyCollectionExcelTable(buf []byte, offset flatbuffers.UOffsetT) *TrophyCollectionExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TrophyCollectionExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedTrophyCollectionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TrophyCollectionExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func TrophyCollectionExcelTableStartDataListVector(builder *flatbuffers.Builder,
 }
 func TrophyCollectionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*TrophyCollectionExcelTable) Name() string {
-	return "TrophyCollectionExcelTable"
 }

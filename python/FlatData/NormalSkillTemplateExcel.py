@@ -52,21 +52,38 @@ class NormalSkillTemplateExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def NormalSkillTemplateExcelStart(builder): builder.StartObject(4)
+def NormalSkillTemplateExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return NormalSkillTemplateExcelStart(builder)
-def NormalSkillTemplateExcelAddCoolTime(builder, coolTime): builder.PrependFloat32Slot(0, coolTime, 0.0)
+    NormalSkillTemplateExcelStart(builder)
+
+def NormalSkillTemplateExcelAddCoolTime(builder, coolTime):
+    builder.PrependFloat32Slot(0, coolTime, 0.0)
+
 def AddCoolTime(builder, coolTime):
-    return NormalSkillTemplateExcelAddCoolTime(builder, coolTime)
-def NormalSkillTemplateExcelAddFirstCoolTime(builder, firstCoolTime): builder.PrependFloat32Slot(1, firstCoolTime, 0.0)
+    NormalSkillTemplateExcelAddCoolTime(builder, coolTime)
+
+def NormalSkillTemplateExcelAddFirstCoolTime(builder, firstCoolTime):
+    builder.PrependFloat32Slot(1, firstCoolTime, 0.0)
+
 def AddFirstCoolTime(builder, firstCoolTime):
-    return NormalSkillTemplateExcelAddFirstCoolTime(builder, firstCoolTime)
-def NormalSkillTemplateExcelAddIndex(builder, index): builder.PrependInt64Slot(2, index, 0)
+    NormalSkillTemplateExcelAddFirstCoolTime(builder, firstCoolTime)
+
+def NormalSkillTemplateExcelAddIndex(builder, index):
+    builder.PrependInt64Slot(2, index, 0)
+
 def AddIndex(builder, index):
-    return NormalSkillTemplateExcelAddIndex(builder, index)
-def NormalSkillTemplateExcelAddMultiAni(builder, multiAni): builder.PrependBoolSlot(3, multiAni, 0)
+    NormalSkillTemplateExcelAddIndex(builder, index)
+
+def NormalSkillTemplateExcelAddMultiAni(builder, multiAni):
+    builder.PrependBoolSlot(3, multiAni, 0)
+
 def AddMultiAni(builder, multiAni):
-    return NormalSkillTemplateExcelAddMultiAni(builder, multiAni)
-def NormalSkillTemplateExcelEnd(builder): return builder.EndObject()
+    NormalSkillTemplateExcelAddMultiAni(builder, multiAni)
+
+def NormalSkillTemplateExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return NormalSkillTemplateExcelEnd(builder)

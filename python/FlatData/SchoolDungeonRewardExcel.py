@@ -80,33 +80,62 @@ class SchoolDungeonRewardExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def SchoolDungeonRewardExcelStart(builder): builder.StartObject(8)
+def SchoolDungeonRewardExcelStart(builder):
+    builder.StartObject(8)
+
 def Start(builder):
-    return SchoolDungeonRewardExcelStart(builder)
-def SchoolDungeonRewardExcelAddDungeonType(builder, dungeonType): builder.PrependInt32Slot(0, dungeonType, 0)
+    SchoolDungeonRewardExcelStart(builder)
+
+def SchoolDungeonRewardExcelAddDungeonType(builder, dungeonType):
+    builder.PrependInt32Slot(0, dungeonType, 0)
+
 def AddDungeonType(builder, dungeonType):
-    return SchoolDungeonRewardExcelAddDungeonType(builder, dungeonType)
-def SchoolDungeonRewardExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(1, groupId, 0)
+    SchoolDungeonRewardExcelAddDungeonType(builder, dungeonType)
+
+def SchoolDungeonRewardExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(1, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return SchoolDungeonRewardExcelAddGroupId(builder, groupId)
-def SchoolDungeonRewardExcelAddIsDisplayed(builder, isDisplayed): builder.PrependBoolSlot(2, isDisplayed, 0)
+    SchoolDungeonRewardExcelAddGroupId(builder, groupId)
+
+def SchoolDungeonRewardExcelAddIsDisplayed(builder, isDisplayed):
+    builder.PrependBoolSlot(2, isDisplayed, 0)
+
 def AddIsDisplayed(builder, isDisplayed):
-    return SchoolDungeonRewardExcelAddIsDisplayed(builder, isDisplayed)
-def SchoolDungeonRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt64Slot(3, rewardParcelAmount, 0)
+    SchoolDungeonRewardExcelAddIsDisplayed(builder, isDisplayed)
+
+def SchoolDungeonRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
+    builder.PrependInt64Slot(3, rewardParcelAmount, 0)
+
 def AddRewardParcelAmount(builder, rewardParcelAmount):
-    return SchoolDungeonRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-def SchoolDungeonRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependInt64Slot(4, rewardParcelId, 0)
+    SchoolDungeonRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+
+def SchoolDungeonRewardExcelAddRewardParcelId(builder, rewardParcelId):
+    builder.PrependInt64Slot(4, rewardParcelId, 0)
+
 def AddRewardParcelId(builder, rewardParcelId):
-    return SchoolDungeonRewardExcelAddRewardParcelId(builder, rewardParcelId)
-def SchoolDungeonRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability): builder.PrependInt64Slot(5, rewardParcelProbability, 0)
+    SchoolDungeonRewardExcelAddRewardParcelId(builder, rewardParcelId)
+
+def SchoolDungeonRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability):
+    builder.PrependInt64Slot(5, rewardParcelProbability, 0)
+
 def AddRewardParcelProbability(builder, rewardParcelProbability):
-    return SchoolDungeonRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability)
-def SchoolDungeonRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(6, rewardParcelType, 0)
+    SchoolDungeonRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability)
+
+def SchoolDungeonRewardExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependInt32Slot(6, rewardParcelType, 0)
+
 def AddRewardParcelType(builder, rewardParcelType):
-    return SchoolDungeonRewardExcelAddRewardParcelType(builder, rewardParcelType)
-def SchoolDungeonRewardExcelAddRewardTag(builder, rewardTag): builder.PrependInt32Slot(7, rewardTag, 0)
+    SchoolDungeonRewardExcelAddRewardParcelType(builder, rewardParcelType)
+
+def SchoolDungeonRewardExcelAddRewardTag(builder, rewardTag):
+    builder.PrependInt32Slot(7, rewardTag, 0)
+
 def AddRewardTag(builder, rewardTag):
-    return SchoolDungeonRewardExcelAddRewardTag(builder, rewardTag)
-def SchoolDungeonRewardExcelEnd(builder): return builder.EndObject()
+    SchoolDungeonRewardExcelAddRewardTag(builder, rewardTag)
+
+def SchoolDungeonRewardExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return SchoolDungeonRewardExcelEnd(builder)

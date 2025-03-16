@@ -17,11 +17,19 @@ func GetRootAsMiniGameShootingStageExcel(buf []byte, offset flatbuffers.UOffsetT
 	return x
 }
 
+func FinishMiniGameShootingStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMiniGameShootingStageExcel(buf []byte, offset flatbuffers.UOffsetT) *MiniGameShootingStageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MiniGameShootingStageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMiniGameShootingStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MiniGameShootingStageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -208,7 +216,4 @@ func MiniGameShootingStageExcelAddUniqueId(builder *flatbuffers.Builder, uniqueI
 }
 func MiniGameShootingStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*MiniGameShootingStageExcel) Name() string {
-	return "MiniGameShootingStageExcel"
 }

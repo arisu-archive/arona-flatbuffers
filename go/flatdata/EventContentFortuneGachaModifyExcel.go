@@ -17,11 +17,19 @@ func GetRootAsEventContentFortuneGachaModifyExcel(buf []byte, offset flatbuffers
 	return x
 }
 
+func FinishEventContentFortuneGachaModifyExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentFortuneGachaModifyExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentFortuneGachaModifyExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentFortuneGachaModifyExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentFortuneGachaModifyExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentFortuneGachaModifyExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -127,7 +135,4 @@ func EventContentFortuneGachaModifyExcelAddUsePrefabName(builder *flatbuffers.Bu
 }
 func EventContentFortuneGachaModifyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentFortuneGachaModifyExcel) Name() string {
-	return "EventContentFortuneGachaModifyExcel"
 }

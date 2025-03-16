@@ -59,24 +59,44 @@ class TimeAttackDungeonExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def TimeAttackDungeonExcelStart(builder): builder.StartObject(5)
+def TimeAttackDungeonExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return TimeAttackDungeonExcelStart(builder)
-def TimeAttackDungeonExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+    TimeAttackDungeonExcelStart(builder)
+
+def TimeAttackDungeonExcelAddIconPath(builder, iconPath):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+
 def AddIconPath(builder, iconPath):
-    return TimeAttackDungeonExcelAddIconPath(builder, iconPath)
-def TimeAttackDungeonExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+    TimeAttackDungeonExcelAddIconPath(builder, iconPath)
+
+def TimeAttackDungeonExcelAddId(builder, id):
+    builder.PrependInt64Slot(1, id, 0)
+
 def AddId(builder, id):
-    return TimeAttackDungeonExcelAddId(builder, id)
-def TimeAttackDungeonExcelAddInformationGroupId(builder, informationGroupId): builder.PrependInt64Slot(2, informationGroupId, 0)
+    TimeAttackDungeonExcelAddId(builder, id)
+
+def TimeAttackDungeonExcelAddInformationGroupId(builder, informationGroupId):
+    builder.PrependInt64Slot(2, informationGroupId, 0)
+
 def AddInformationGroupId(builder, informationGroupId):
-    return TimeAttackDungeonExcelAddInformationGroupId(builder, informationGroupId)
-def TimeAttackDungeonExcelAddLocalizeEtcKey(builder, localizeEtcKey): builder.PrependUint32Slot(3, localizeEtcKey, 0)
+    TimeAttackDungeonExcelAddInformationGroupId(builder, informationGroupId)
+
+def TimeAttackDungeonExcelAddLocalizeEtcKey(builder, localizeEtcKey):
+    builder.PrependUint32Slot(3, localizeEtcKey, 0)
+
 def AddLocalizeEtcKey(builder, localizeEtcKey):
-    return TimeAttackDungeonExcelAddLocalizeEtcKey(builder, localizeEtcKey)
-def TimeAttackDungeonExcelAddTimeAttackDungeonType(builder, timeAttackDungeonType): builder.PrependInt32Slot(4, timeAttackDungeonType, 0)
+    TimeAttackDungeonExcelAddLocalizeEtcKey(builder, localizeEtcKey)
+
+def TimeAttackDungeonExcelAddTimeAttackDungeonType(builder, timeAttackDungeonType):
+    builder.PrependInt32Slot(4, timeAttackDungeonType, 0)
+
 def AddTimeAttackDungeonType(builder, timeAttackDungeonType):
-    return TimeAttackDungeonExcelAddTimeAttackDungeonType(builder, timeAttackDungeonType)
-def TimeAttackDungeonExcelEnd(builder): return builder.EndObject()
+    TimeAttackDungeonExcelAddTimeAttackDungeonType(builder, timeAttackDungeonType)
+
+def TimeAttackDungeonExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return TimeAttackDungeonExcelEnd(builder)

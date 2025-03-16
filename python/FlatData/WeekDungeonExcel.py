@@ -277,84 +277,164 @@ class WeekDungeonExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def WeekDungeonExcelStart(builder): builder.StartObject(19)
+def WeekDungeonExcelStart(builder):
+    builder.StartObject(19)
+
 def Start(builder):
-    return WeekDungeonExcelStart(builder)
-def WeekDungeonExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(0, battleDuration, 0)
+    WeekDungeonExcelStart(builder)
+
+def WeekDungeonExcelAddBattleDuration(builder, battleDuration):
+    builder.PrependInt64Slot(0, battleDuration, 0)
+
 def AddBattleDuration(builder, battleDuration):
-    return WeekDungeonExcelAddBattleDuration(builder, battleDuration)
-def WeekDungeonExcelAddBattleRewardExp(builder, battleRewardExp): builder.PrependInt64Slot(1, battleRewardExp, 0)
+    WeekDungeonExcelAddBattleDuration(builder, battleDuration)
+
+def WeekDungeonExcelAddBattleRewardExp(builder, battleRewardExp):
+    builder.PrependInt64Slot(1, battleRewardExp, 0)
+
 def AddBattleRewardExp(builder, battleRewardExp):
-    return WeekDungeonExcelAddBattleRewardExp(builder, battleRewardExp)
-def WeekDungeonExcelAddBattleRewardPlayerExp(builder, battleRewardPlayerExp): builder.PrependInt64Slot(2, battleRewardPlayerExp, 0)
+    WeekDungeonExcelAddBattleRewardExp(builder, battleRewardExp)
+
+def WeekDungeonExcelAddBattleRewardPlayerExp(builder, battleRewardPlayerExp):
+    builder.PrependInt64Slot(2, battleRewardPlayerExp, 0)
+
 def AddBattleRewardPlayerExp(builder, battleRewardPlayerExp):
-    return WeekDungeonExcelAddBattleRewardPlayerExp(builder, battleRewardPlayerExp)
-def WeekDungeonExcelAddDifficulty(builder, difficulty): builder.PrependInt32Slot(3, difficulty, 0)
+    WeekDungeonExcelAddBattleRewardPlayerExp(builder, battleRewardPlayerExp)
+
+def WeekDungeonExcelAddDifficulty(builder, difficulty):
+    builder.PrependInt32Slot(3, difficulty, 0)
+
 def AddDifficulty(builder, difficulty):
-    return WeekDungeonExcelAddDifficulty(builder, difficulty)
-def WeekDungeonExcelAddEchelonExtensionType(builder, echelonExtensionType): builder.PrependInt32Slot(4, echelonExtensionType, 0)
+    WeekDungeonExcelAddDifficulty(builder, difficulty)
+
+def WeekDungeonExcelAddEchelonExtensionType(builder, echelonExtensionType):
+    builder.PrependInt32Slot(4, echelonExtensionType, 0)
+
 def AddEchelonExtensionType(builder, echelonExtensionType):
-    return WeekDungeonExcelAddEchelonExtensionType(builder, echelonExtensionType)
-def WeekDungeonExcelAddGroundId(builder, groundId): builder.PrependInt32Slot(5, groundId, 0)
+    WeekDungeonExcelAddEchelonExtensionType(builder, echelonExtensionType)
+
+def WeekDungeonExcelAddGroundId(builder, groundId):
+    builder.PrependInt32Slot(5, groundId, 0)
+
 def AddGroundId(builder, groundId):
-    return WeekDungeonExcelAddGroundId(builder, groundId)
-def WeekDungeonExcelAddGroupBuffId(builder, groupBuffId): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(groupBuffId), 0)
+    WeekDungeonExcelAddGroundId(builder, groundId)
+
+def WeekDungeonExcelAddGroupBuffId(builder, groupBuffId):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(groupBuffId), 0)
+
 def AddGroupBuffId(builder, groupBuffId):
-    return WeekDungeonExcelAddGroupBuffId(builder, groupBuffId)
-def WeekDungeonExcelStartGroupBuffIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    WeekDungeonExcelAddGroupBuffId(builder, groupBuffId)
+
+def WeekDungeonExcelStartGroupBuffIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartGroupBuffIdVector(builder, numElems):
     return WeekDungeonExcelStartGroupBuffIdVector(builder, numElems)
-def WeekDungeonExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds): builder.PrependInt64Slot(7, playTimeLimitInSeconds, 0)
+
+def WeekDungeonExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds):
+    builder.PrependInt64Slot(7, playTimeLimitInSeconds, 0)
+
 def AddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds):
-    return WeekDungeonExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds)
-def WeekDungeonExcelAddPrevStageId(builder, prevStageId): builder.PrependInt64Slot(8, prevStageId, 0)
+    WeekDungeonExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds)
+
+def WeekDungeonExcelAddPrevStageId(builder, prevStageId):
+    builder.PrependInt64Slot(8, prevStageId, 0)
+
 def AddPrevStageId(builder, prevStageId):
-    return WeekDungeonExcelAddPrevStageId(builder, prevStageId)
-def WeekDungeonExcelAddRecommandLevel(builder, recommandLevel): builder.PrependInt64Slot(9, recommandLevel, 0)
+    WeekDungeonExcelAddPrevStageId(builder, prevStageId)
+
+def WeekDungeonExcelAddRecommandLevel(builder, recommandLevel):
+    builder.PrependInt64Slot(9, recommandLevel, 0)
+
 def AddRecommandLevel(builder, recommandLevel):
-    return WeekDungeonExcelAddRecommandLevel(builder, recommandLevel)
-def WeekDungeonExcelAddStageEnterCostAmount(builder, stageEnterCostAmount): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostAmount), 0)
+    WeekDungeonExcelAddRecommandLevel(builder, recommandLevel)
+
+def WeekDungeonExcelAddStageEnterCostAmount(builder, stageEnterCostAmount):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostAmount), 0)
+
 def AddStageEnterCostAmount(builder, stageEnterCostAmount):
-    return WeekDungeonExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
-def WeekDungeonExcelStartStageEnterCostAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    WeekDungeonExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
+
+def WeekDungeonExcelStartStageEnterCostAmountVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartStageEnterCostAmountVector(builder, numElems):
     return WeekDungeonExcelStartStageEnterCostAmountVector(builder, numElems)
-def WeekDungeonExcelAddStageEnterCostId(builder, stageEnterCostId): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostId), 0)
+
+def WeekDungeonExcelAddStageEnterCostId(builder, stageEnterCostId):
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostId), 0)
+
 def AddStageEnterCostId(builder, stageEnterCostId):
-    return WeekDungeonExcelAddStageEnterCostId(builder, stageEnterCostId)
-def WeekDungeonExcelStartStageEnterCostIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    WeekDungeonExcelAddStageEnterCostId(builder, stageEnterCostId)
+
+def WeekDungeonExcelStartStageEnterCostIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartStageEnterCostIdVector(builder, numElems):
     return WeekDungeonExcelStartStageEnterCostIdVector(builder, numElems)
-def WeekDungeonExcelAddStageEnterCostType(builder, stageEnterCostType): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostType), 0)
+
+def WeekDungeonExcelAddStageEnterCostType(builder, stageEnterCostType):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(stageEnterCostType), 0)
+
 def AddStageEnterCostType(builder, stageEnterCostType):
-    return WeekDungeonExcelAddStageEnterCostType(builder, stageEnterCostType)
-def WeekDungeonExcelStartStageEnterCostTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    WeekDungeonExcelAddStageEnterCostType(builder, stageEnterCostType)
+
+def WeekDungeonExcelStartStageEnterCostTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartStageEnterCostTypeVector(builder, numElems):
     return WeekDungeonExcelStartStageEnterCostTypeVector(builder, numElems)
-def WeekDungeonExcelAddStageId(builder, stageId): builder.PrependInt64Slot(13, stageId, 0)
+
+def WeekDungeonExcelAddStageId(builder, stageId):
+    builder.PrependInt64Slot(13, stageId, 0)
+
 def AddStageId(builder, stageId):
-    return WeekDungeonExcelAddStageId(builder, stageId)
-def WeekDungeonExcelAddStageRewardId(builder, stageRewardId): builder.PrependInt64Slot(14, stageRewardId, 0)
+    WeekDungeonExcelAddStageId(builder, stageId)
+
+def WeekDungeonExcelAddStageRewardId(builder, stageRewardId):
+    builder.PrependInt64Slot(14, stageRewardId, 0)
+
 def AddStageRewardId(builder, stageRewardId):
-    return WeekDungeonExcelAddStageRewardId(builder, stageRewardId)
-def WeekDungeonExcelAddStageTopography(builder, stageTopography): builder.PrependInt32Slot(15, stageTopography, 0)
+    WeekDungeonExcelAddStageRewardId(builder, stageRewardId)
+
+def WeekDungeonExcelAddStageTopography(builder, stageTopography):
+    builder.PrependInt32Slot(15, stageTopography, 0)
+
 def AddStageTopography(builder, stageTopography):
-    return WeekDungeonExcelAddStageTopography(builder, stageTopography)
-def WeekDungeonExcelAddStarGoalAmount(builder, starGoalAmount): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(starGoalAmount), 0)
+    WeekDungeonExcelAddStageTopography(builder, stageTopography)
+
+def WeekDungeonExcelAddStarGoalAmount(builder, starGoalAmount):
+    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(starGoalAmount), 0)
+
 def AddStarGoalAmount(builder, starGoalAmount):
-    return WeekDungeonExcelAddStarGoalAmount(builder, starGoalAmount)
-def WeekDungeonExcelStartStarGoalAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    WeekDungeonExcelAddStarGoalAmount(builder, starGoalAmount)
+
+def WeekDungeonExcelStartStarGoalAmountVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartStarGoalAmountVector(builder, numElems):
     return WeekDungeonExcelStartStarGoalAmountVector(builder, numElems)
-def WeekDungeonExcelAddStarGoal(builder, starGoal): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(starGoal), 0)
+
+def WeekDungeonExcelAddStarGoal(builder, starGoal):
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(starGoal), 0)
+
 def AddStarGoal(builder, starGoal):
-    return WeekDungeonExcelAddStarGoal(builder, starGoal)
-def WeekDungeonExcelStartStarGoalVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    WeekDungeonExcelAddStarGoal(builder, starGoal)
+
+def WeekDungeonExcelStartStarGoalVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartStarGoalVector(builder, numElems):
     return WeekDungeonExcelStartStarGoalVector(builder, numElems)
-def WeekDungeonExcelAddWeekDungeonType(builder, weekDungeonType): builder.PrependInt32Slot(18, weekDungeonType, 0)
+
+def WeekDungeonExcelAddWeekDungeonType(builder, weekDungeonType):
+    builder.PrependInt32Slot(18, weekDungeonType, 0)
+
 def AddWeekDungeonType(builder, weekDungeonType):
-    return WeekDungeonExcelAddWeekDungeonType(builder, weekDungeonType)
-def WeekDungeonExcelEnd(builder): return builder.EndObject()
+    WeekDungeonExcelAddWeekDungeonType(builder, weekDungeonType)
+
+def WeekDungeonExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return WeekDungeonExcelEnd(builder)

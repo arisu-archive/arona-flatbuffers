@@ -49,15 +49,26 @@ class MinigameTBGVoiceExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def MinigameTBGVoiceExcelTableStart(builder): builder.StartObject(1)
+def MinigameTBGVoiceExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return MinigameTBGVoiceExcelTableStart(builder)
-def MinigameTBGVoiceExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    MinigameTBGVoiceExcelTableStart(builder)
+
+def MinigameTBGVoiceExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return MinigameTBGVoiceExcelTableAddDataList(builder, dataList)
-def MinigameTBGVoiceExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    MinigameTBGVoiceExcelTableAddDataList(builder, dataList)
+
+def MinigameTBGVoiceExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return MinigameTBGVoiceExcelTableStartDataListVector(builder, numElems)
-def MinigameTBGVoiceExcelTableEnd(builder): return builder.EndObject()
+
+def MinigameTBGVoiceExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MinigameTBGVoiceExcelTableEnd(builder)

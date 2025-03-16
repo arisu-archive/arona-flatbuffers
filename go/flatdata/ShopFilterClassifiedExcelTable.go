@@ -17,11 +17,19 @@ func GetRootAsShopFilterClassifiedExcelTable(buf []byte, offset flatbuffers.UOff
 	return x
 }
 
+func FinishShopFilterClassifiedExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsShopFilterClassifiedExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ShopFilterClassifiedExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ShopFilterClassifiedExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedShopFilterClassifiedExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ShopFilterClassifiedExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ShopFilterClassifiedExcelTableStartDataListVector(builder *flatbuffers.Buil
 }
 func ShopFilterClassifiedExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ShopFilterClassifiedExcelTable) Name() string {
-	return "ShopFilterClassifiedExcelTable"
 }

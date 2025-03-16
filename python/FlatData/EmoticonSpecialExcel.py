@@ -45,18 +45,32 @@ class EmoticonSpecialExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EmoticonSpecialExcelStart(builder): builder.StartObject(3)
+def EmoticonSpecialExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return EmoticonSpecialExcelStart(builder)
-def EmoticonSpecialExcelAddCharacterUniqueId(builder, characterUniqueId): builder.PrependInt64Slot(0, characterUniqueId, 0)
+    EmoticonSpecialExcelStart(builder)
+
+def EmoticonSpecialExcelAddCharacterUniqueId(builder, characterUniqueId):
+    builder.PrependInt64Slot(0, characterUniqueId, 0)
+
 def AddCharacterUniqueId(builder, characterUniqueId):
-    return EmoticonSpecialExcelAddCharacterUniqueId(builder, characterUniqueId)
-def EmoticonSpecialExcelAddRandom(builder, random): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(random), 0)
+    EmoticonSpecialExcelAddCharacterUniqueId(builder, characterUniqueId)
+
+def EmoticonSpecialExcelAddRandom(builder, random):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(random), 0)
+
 def AddRandom(builder, random):
-    return EmoticonSpecialExcelAddRandom(builder, random)
-def EmoticonSpecialExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(2, uniqueId, 0)
+    EmoticonSpecialExcelAddRandom(builder, random)
+
+def EmoticonSpecialExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(2, uniqueId, 0)
+
 def AddUniqueId(builder, uniqueId):
-    return EmoticonSpecialExcelAddUniqueId(builder, uniqueId)
-def EmoticonSpecialExcelEnd(builder): return builder.EndObject()
+    EmoticonSpecialExcelAddUniqueId(builder, uniqueId)
+
+def EmoticonSpecialExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EmoticonSpecialExcelEnd(builder)

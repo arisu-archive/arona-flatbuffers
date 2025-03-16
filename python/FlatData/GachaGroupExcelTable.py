@@ -49,15 +49,26 @@ class GachaGroupExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def GachaGroupExcelTableStart(builder): builder.StartObject(1)
+def GachaGroupExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return GachaGroupExcelTableStart(builder)
-def GachaGroupExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    GachaGroupExcelTableStart(builder)
+
+def GachaGroupExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return GachaGroupExcelTableAddDataList(builder, dataList)
-def GachaGroupExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    GachaGroupExcelTableAddDataList(builder, dataList)
+
+def GachaGroupExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return GachaGroupExcelTableStartDataListVector(builder, numElems)
-def GachaGroupExcelTableEnd(builder): return builder.EndObject()
+
+def GachaGroupExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return GachaGroupExcelTableEnd(builder)

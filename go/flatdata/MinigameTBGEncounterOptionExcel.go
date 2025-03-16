@@ -17,11 +17,19 @@ func GetRootAsMinigameTBGEncounterOptionExcel(buf []byte, offset flatbuffers.UOf
 	return x
 }
 
+func FinishMinigameTBGEncounterOptionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMinigameTBGEncounterOptionExcel(buf []byte, offset flatbuffers.UOffsetT) *MinigameTBGEncounterOptionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MinigameTBGEncounterOptionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMinigameTBGEncounterOptionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MinigameTBGEncounterOptionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -206,7 +214,4 @@ func MinigameTBGEncounterOptionExcelAddUniqueId(builder *flatbuffers.Builder, un
 }
 func MinigameTBGEncounterOptionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*MinigameTBGEncounterOptionExcel) Name() string {
-	return "MinigameTBGEncounterOptionExcel"
 }

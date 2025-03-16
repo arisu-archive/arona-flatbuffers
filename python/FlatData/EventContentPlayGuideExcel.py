@@ -66,27 +66,50 @@ class EventContentPlayGuideExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EventContentPlayGuideExcelStart(builder): builder.StartObject(6)
+def EventContentPlayGuideExcelStart(builder):
+    builder.StartObject(6)
+
 def Start(builder):
-    return EventContentPlayGuideExcelStart(builder)
-def EventContentPlayGuideExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt32Slot(0, displayOrder, 0)
+    EventContentPlayGuideExcelStart(builder)
+
+def EventContentPlayGuideExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt32Slot(0, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return EventContentPlayGuideExcelAddDisplayOrder(builder, displayOrder)
-def EventContentPlayGuideExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
+    EventContentPlayGuideExcelAddDisplayOrder(builder, displayOrder)
+
+def EventContentPlayGuideExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(1, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentPlayGuideExcelAddEventContentId(builder, eventContentId)
-def EventContentPlayGuideExcelAddGuideImagePath(builder, guideImagePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(guideImagePath), 0)
+    EventContentPlayGuideExcelAddEventContentId(builder, eventContentId)
+
+def EventContentPlayGuideExcelAddGuideImagePath(builder, guideImagePath):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(guideImagePath), 0)
+
 def AddGuideImagePath(builder, guideImagePath):
-    return EventContentPlayGuideExcelAddGuideImagePath(builder, guideImagePath)
-def EventContentPlayGuideExcelAddGuideText(builder, guideText): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(guideText), 0)
+    EventContentPlayGuideExcelAddGuideImagePath(builder, guideImagePath)
+
+def EventContentPlayGuideExcelAddGuideText(builder, guideText):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(guideText), 0)
+
 def AddGuideText(builder, guideText):
-    return EventContentPlayGuideExcelAddGuideText(builder, guideText)
-def EventContentPlayGuideExcelAddGuideTitle(builder, guideTitle): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(guideTitle), 0)
+    EventContentPlayGuideExcelAddGuideText(builder, guideText)
+
+def EventContentPlayGuideExcelAddGuideTitle(builder, guideTitle):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(guideTitle), 0)
+
 def AddGuideTitle(builder, guideTitle):
-    return EventContentPlayGuideExcelAddGuideTitle(builder, guideTitle)
-def EventContentPlayGuideExcelAddId(builder, id): builder.PrependInt64Slot(5, id, 0)
+    EventContentPlayGuideExcelAddGuideTitle(builder, guideTitle)
+
+def EventContentPlayGuideExcelAddId(builder, id):
+    builder.PrependInt64Slot(5, id, 0)
+
 def AddId(builder, id):
-    return EventContentPlayGuideExcelAddId(builder, id)
-def EventContentPlayGuideExcelEnd(builder): return builder.EndObject()
+    EventContentPlayGuideExcelAddId(builder, id)
+
+def EventContentPlayGuideExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentPlayGuideExcelEnd(builder)

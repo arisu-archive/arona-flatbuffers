@@ -129,54 +129,104 @@ class CampaignStrategyObjectExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def CampaignStrategyObjectExcelStart(builder): builder.StartObject(15)
+def CampaignStrategyObjectExcelStart(builder):
+    builder.StartObject(15)
+
 def Start(builder):
-    return CampaignStrategyObjectExcelStart(builder)
-def CampaignStrategyObjectExcelAddBuffId(builder, buffId): builder.PrependInt32Slot(0, buffId, 0)
+    CampaignStrategyObjectExcelStart(builder)
+
+def CampaignStrategyObjectExcelAddBuffId(builder, buffId):
+    builder.PrependInt32Slot(0, buffId, 0)
+
 def AddBuffId(builder, buffId):
-    return CampaignStrategyObjectExcelAddBuffId(builder, buffId)
-def CampaignStrategyObjectExcelAddDisposable(builder, disposable): builder.PrependBoolSlot(1, disposable, 0)
+    CampaignStrategyObjectExcelAddBuffId(builder, buffId)
+
+def CampaignStrategyObjectExcelAddDisposable(builder, disposable):
+    builder.PrependBoolSlot(1, disposable, 0)
+
 def AddDisposable(builder, disposable):
-    return CampaignStrategyObjectExcelAddDisposable(builder, disposable)
-def CampaignStrategyObjectExcelAddHealValue(builder, healValue): builder.PrependInt32Slot(2, healValue, 0)
+    CampaignStrategyObjectExcelAddDisposable(builder, disposable)
+
+def CampaignStrategyObjectExcelAddHealValue(builder, healValue):
+    builder.PrependInt32Slot(2, healValue, 0)
+
 def AddHealValue(builder, healValue):
-    return CampaignStrategyObjectExcelAddHealValue(builder, healValue)
-def CampaignStrategyObjectExcelAddId(builder, id): builder.PrependInt64Slot(3, id, 0)
+    CampaignStrategyObjectExcelAddHealValue(builder, healValue)
+
+def CampaignStrategyObjectExcelAddId(builder, id):
+    builder.PrependInt64Slot(3, id, 0)
+
 def AddId(builder, id):
-    return CampaignStrategyObjectExcelAddId(builder, id)
-def CampaignStrategyObjectExcelAddKey(builder, key): builder.PrependUint32Slot(4, key, 0)
+    CampaignStrategyObjectExcelAddId(builder, id)
+
+def CampaignStrategyObjectExcelAddKey(builder, key):
+    builder.PrependUint32Slot(4, key, 0)
+
 def AddKey(builder, key):
-    return CampaignStrategyObjectExcelAddKey(builder, key)
-def CampaignStrategyObjectExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+    CampaignStrategyObjectExcelAddKey(builder, key)
+
+def CampaignStrategyObjectExcelAddName(builder, name):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+
 def AddName(builder, name):
-    return CampaignStrategyObjectExcelAddName(builder, name)
-def CampaignStrategyObjectExcelAddPortalId(builder, portalId): builder.PrependInt32Slot(6, portalId, 0)
+    CampaignStrategyObjectExcelAddName(builder, name)
+
+def CampaignStrategyObjectExcelAddPortalId(builder, portalId):
+    builder.PrependInt32Slot(6, portalId, 0)
+
 def AddPortalId(builder, portalId):
-    return CampaignStrategyObjectExcelAddPortalId(builder, portalId)
-def CampaignStrategyObjectExcelAddPrefabName(builder, prefabName): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
+    CampaignStrategyObjectExcelAddPortalId(builder, portalId)
+
+def CampaignStrategyObjectExcelAddPrefabName(builder, prefabName):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
+
 def AddPrefabName(builder, prefabName):
-    return CampaignStrategyObjectExcelAddPrefabName(builder, prefabName)
-def CampaignStrategyObjectExcelAddStrategyObjectType(builder, strategyObjectType): builder.PrependInt32Slot(8, strategyObjectType, 0)
+    CampaignStrategyObjectExcelAddPrefabName(builder, prefabName)
+
+def CampaignStrategyObjectExcelAddStrategyObjectType(builder, strategyObjectType):
+    builder.PrependInt32Slot(8, strategyObjectType, 0)
+
 def AddStrategyObjectType(builder, strategyObjectType):
-    return CampaignStrategyObjectExcelAddStrategyObjectType(builder, strategyObjectType)
-def CampaignStrategyObjectExcelAddStrategyRewardAmount(builder, strategyRewardAmount): builder.PrependInt32Slot(9, strategyRewardAmount, 0)
+    CampaignStrategyObjectExcelAddStrategyObjectType(builder, strategyObjectType)
+
+def CampaignStrategyObjectExcelAddStrategyRewardAmount(builder, strategyRewardAmount):
+    builder.PrependInt32Slot(9, strategyRewardAmount, 0)
+
 def AddStrategyRewardAmount(builder, strategyRewardAmount):
-    return CampaignStrategyObjectExcelAddStrategyRewardAmount(builder, strategyRewardAmount)
-def CampaignStrategyObjectExcelAddStrategyRewardId(builder, strategyRewardId): builder.PrependInt64Slot(10, strategyRewardId, 0)
+    CampaignStrategyObjectExcelAddStrategyRewardAmount(builder, strategyRewardAmount)
+
+def CampaignStrategyObjectExcelAddStrategyRewardId(builder, strategyRewardId):
+    builder.PrependInt64Slot(10, strategyRewardId, 0)
+
 def AddStrategyRewardId(builder, strategyRewardId):
-    return CampaignStrategyObjectExcelAddStrategyRewardId(builder, strategyRewardId)
-def CampaignStrategyObjectExcelAddStrategyRewardName(builder, strategyRewardName): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(strategyRewardName), 0)
+    CampaignStrategyObjectExcelAddStrategyRewardId(builder, strategyRewardId)
+
+def CampaignStrategyObjectExcelAddStrategyRewardName(builder, strategyRewardName):
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(strategyRewardName), 0)
+
 def AddStrategyRewardName(builder, strategyRewardName):
-    return CampaignStrategyObjectExcelAddStrategyRewardName(builder, strategyRewardName)
-def CampaignStrategyObjectExcelAddStrategyRewardParcelType(builder, strategyRewardParcelType): builder.PrependInt32Slot(12, strategyRewardParcelType, 0)
+    CampaignStrategyObjectExcelAddStrategyRewardName(builder, strategyRewardName)
+
+def CampaignStrategyObjectExcelAddStrategyRewardParcelType(builder, strategyRewardParcelType):
+    builder.PrependInt32Slot(12, strategyRewardParcelType, 0)
+
 def AddStrategyRewardParcelType(builder, strategyRewardParcelType):
-    return CampaignStrategyObjectExcelAddStrategyRewardParcelType(builder, strategyRewardParcelType)
-def CampaignStrategyObjectExcelAddStrategySightRange(builder, strategySightRange): builder.PrependInt64Slot(13, strategySightRange, 0)
+    CampaignStrategyObjectExcelAddStrategyRewardParcelType(builder, strategyRewardParcelType)
+
+def CampaignStrategyObjectExcelAddStrategySightRange(builder, strategySightRange):
+    builder.PrependInt64Slot(13, strategySightRange, 0)
+
 def AddStrategySightRange(builder, strategySightRange):
-    return CampaignStrategyObjectExcelAddStrategySightRange(builder, strategySightRange)
-def CampaignStrategyObjectExcelAddSwithId(builder, swithId): builder.PrependInt32Slot(14, swithId, 0)
+    CampaignStrategyObjectExcelAddStrategySightRange(builder, strategySightRange)
+
+def CampaignStrategyObjectExcelAddSwithId(builder, swithId):
+    builder.PrependInt32Slot(14, swithId, 0)
+
 def AddSwithId(builder, swithId):
-    return CampaignStrategyObjectExcelAddSwithId(builder, swithId)
-def CampaignStrategyObjectExcelEnd(builder): return builder.EndObject()
+    CampaignStrategyObjectExcelAddSwithId(builder, swithId)
+
+def CampaignStrategyObjectExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CampaignStrategyObjectExcelEnd(builder)

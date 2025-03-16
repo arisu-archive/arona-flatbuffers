@@ -17,11 +17,19 @@ func GetRootAsMiniGameDreamCollectionScenarioExcel(buf []byte, offset flatbuffer
 	return x
 }
 
+func FinishMiniGameDreamCollectionScenarioExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMiniGameDreamCollectionScenarioExcel(buf []byte, offset flatbuffers.UOffsetT) *MiniGameDreamCollectionScenarioExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MiniGameDreamCollectionScenarioExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMiniGameDreamCollectionScenarioExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MiniGameDreamCollectionScenarioExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -162,7 +170,4 @@ func MiniGameDreamCollectionScenarioExcelAddScenarioGroupId(builder *flatbuffers
 }
 func MiniGameDreamCollectionScenarioExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*MiniGameDreamCollectionScenarioExcel) Name() string {
-	return "MiniGameDreamCollectionScenarioExcel"
 }

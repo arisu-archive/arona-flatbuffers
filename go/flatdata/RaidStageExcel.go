@@ -17,11 +17,19 @@ func GetRootAsRaidStageExcel(buf []byte, offset flatbuffers.UOffsetT) *RaidStage
 	return x
 }
 
+func FinishRaidStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsRaidStageExcel(buf []byte, offset flatbuffers.UOffsetT) *RaidStageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &RaidStageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedRaidStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *RaidStageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -594,7 +602,4 @@ func RaidStageExcelAddVictoryTimelinePath(builder *flatbuffers.Builder, victoryT
 }
 func RaidStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*RaidStageExcel) Name() string {
-	return "RaidStageExcel"
 }

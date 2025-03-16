@@ -17,11 +17,19 @@ func GetRootAsEventContentShopRefreshExcelTable(buf []byte, offset flatbuffers.U
 	return x
 }
 
+func FinishEventContentShopRefreshExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentShopRefreshExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentShopRefreshExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentShopRefreshExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentShopRefreshExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentShopRefreshExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func EventContentShopRefreshExcelTableStartDataListVector(builder *flatbuffers.B
 }
 func EventContentShopRefreshExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentShopRefreshExcelTable) Name() string {
-	return "EventContentShopRefreshExcelTable"
 }

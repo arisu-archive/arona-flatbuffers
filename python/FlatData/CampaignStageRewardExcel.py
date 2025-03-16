@@ -73,30 +73,56 @@ class CampaignStageRewardExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def CampaignStageRewardExcelStart(builder): builder.StartObject(7)
+def CampaignStageRewardExcelStart(builder):
+    builder.StartObject(7)
+
 def Start(builder):
-    return CampaignStageRewardExcelStart(builder)
-def CampaignStageRewardExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
+    CampaignStageRewardExcelStart(builder)
+
+def CampaignStageRewardExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(0, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return CampaignStageRewardExcelAddGroupId(builder, groupId)
-def CampaignStageRewardExcelAddIsDisplayed(builder, isDisplayed): builder.PrependBoolSlot(1, isDisplayed, 0)
+    CampaignStageRewardExcelAddGroupId(builder, groupId)
+
+def CampaignStageRewardExcelAddIsDisplayed(builder, isDisplayed):
+    builder.PrependBoolSlot(1, isDisplayed, 0)
+
 def AddIsDisplayed(builder, isDisplayed):
-    return CampaignStageRewardExcelAddIsDisplayed(builder, isDisplayed)
-def CampaignStageRewardExcelAddRewardTag(builder, rewardTag): builder.PrependInt32Slot(2, rewardTag, 0)
+    CampaignStageRewardExcelAddIsDisplayed(builder, isDisplayed)
+
+def CampaignStageRewardExcelAddRewardTag(builder, rewardTag):
+    builder.PrependInt32Slot(2, rewardTag, 0)
+
 def AddRewardTag(builder, rewardTag):
-    return CampaignStageRewardExcelAddRewardTag(builder, rewardTag)
-def CampaignStageRewardExcelAddStageRewardAmount(builder, stageRewardAmount): builder.PrependInt32Slot(3, stageRewardAmount, 0)
+    CampaignStageRewardExcelAddRewardTag(builder, rewardTag)
+
+def CampaignStageRewardExcelAddStageRewardAmount(builder, stageRewardAmount):
+    builder.PrependInt32Slot(3, stageRewardAmount, 0)
+
 def AddStageRewardAmount(builder, stageRewardAmount):
-    return CampaignStageRewardExcelAddStageRewardAmount(builder, stageRewardAmount)
-def CampaignStageRewardExcelAddStageRewardId(builder, stageRewardId): builder.PrependInt64Slot(4, stageRewardId, 0)
+    CampaignStageRewardExcelAddStageRewardAmount(builder, stageRewardAmount)
+
+def CampaignStageRewardExcelAddStageRewardId(builder, stageRewardId):
+    builder.PrependInt64Slot(4, stageRewardId, 0)
+
 def AddStageRewardId(builder, stageRewardId):
-    return CampaignStageRewardExcelAddStageRewardId(builder, stageRewardId)
-def CampaignStageRewardExcelAddStageRewardParcelType(builder, stageRewardParcelType): builder.PrependInt32Slot(5, stageRewardParcelType, 0)
+    CampaignStageRewardExcelAddStageRewardId(builder, stageRewardId)
+
+def CampaignStageRewardExcelAddStageRewardParcelType(builder, stageRewardParcelType):
+    builder.PrependInt32Slot(5, stageRewardParcelType, 0)
+
 def AddStageRewardParcelType(builder, stageRewardParcelType):
-    return CampaignStageRewardExcelAddStageRewardParcelType(builder, stageRewardParcelType)
-def CampaignStageRewardExcelAddStageRewardProb(builder, stageRewardProb): builder.PrependInt32Slot(6, stageRewardProb, 0)
+    CampaignStageRewardExcelAddStageRewardParcelType(builder, stageRewardParcelType)
+
+def CampaignStageRewardExcelAddStageRewardProb(builder, stageRewardProb):
+    builder.PrependInt32Slot(6, stageRewardProb, 0)
+
 def AddStageRewardProb(builder, stageRewardProb):
-    return CampaignStageRewardExcelAddStageRewardProb(builder, stageRewardProb)
-def CampaignStageRewardExcelEnd(builder): return builder.EndObject()
+    CampaignStageRewardExcelAddStageRewardProb(builder, stageRewardProb)
+
+def CampaignStageRewardExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CampaignStageRewardExcelEnd(builder)

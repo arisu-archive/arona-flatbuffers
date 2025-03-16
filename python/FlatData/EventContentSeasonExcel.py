@@ -303,123 +303,242 @@ class EventContentSeasonExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def EventContentSeasonExcelStart(builder): builder.StartObject(37)
+def EventContentSeasonExcelStart(builder):
+    builder.StartObject(37)
+
 def Start(builder):
-    return EventContentSeasonExcelStart(builder)
-def EventContentSeasonExcelAddBeforehandBgImagePath(builder, beforehandBgImagePath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(beforehandBgImagePath), 0)
+    EventContentSeasonExcelStart(builder)
+
+def EventContentSeasonExcelAddBeforehandBgImagePath(builder, beforehandBgImagePath):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(beforehandBgImagePath), 0)
+
 def AddBeforehandBgImagePath(builder, beforehandBgImagePath):
-    return EventContentSeasonExcelAddBeforehandBgImagePath(builder, beforehandBgImagePath)
-def EventContentSeasonExcelAddBeforehandExposedTime(builder, beforehandExposedTime): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(beforehandExposedTime), 0)
+    EventContentSeasonExcelAddBeforehandBgImagePath(builder, beforehandBgImagePath)
+
+def EventContentSeasonExcelAddBeforehandExposedTime(builder, beforehandExposedTime):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(beforehandExposedTime), 0)
+
 def AddBeforehandExposedTime(builder, beforehandExposedTime):
-    return EventContentSeasonExcelAddBeforehandExposedTime(builder, beforehandExposedTime)
-def EventContentSeasonExcelAddBeforehandScenarioGroupId(builder, beforehandScenarioGroupId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(beforehandScenarioGroupId), 0)
+    EventContentSeasonExcelAddBeforehandExposedTime(builder, beforehandExposedTime)
+
+def EventContentSeasonExcelAddBeforehandScenarioGroupId(builder, beforehandScenarioGroupId):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(beforehandScenarioGroupId), 0)
+
 def AddBeforehandScenarioGroupId(builder, beforehandScenarioGroupId):
-    return EventContentSeasonExcelAddBeforehandScenarioGroupId(builder, beforehandScenarioGroupId)
-def EventContentSeasonExcelStartBeforehandScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EventContentSeasonExcelAddBeforehandScenarioGroupId(builder, beforehandScenarioGroupId)
+
+def EventContentSeasonExcelStartBeforehandScenarioGroupIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartBeforehandScenarioGroupIdVector(builder, numElems):
     return EventContentSeasonExcelStartBeforehandScenarioGroupIdVector(builder, numElems)
-def EventContentSeasonExcelAddCardBgImagePath(builder, cardBgImagePath): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(cardBgImagePath), 0)
+
+def EventContentSeasonExcelAddCardBgImagePath(builder, cardBgImagePath):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(cardBgImagePath), 0)
+
 def AddCardBgImagePath(builder, cardBgImagePath):
-    return EventContentSeasonExcelAddCardBgImagePath(builder, cardBgImagePath)
-def EventContentSeasonExcelAddEventAssist(builder, eventAssist): builder.PrependBoolSlot(4, eventAssist, 0)
+    EventContentSeasonExcelAddCardBgImagePath(builder, cardBgImagePath)
+
+def EventContentSeasonExcelAddEventAssist(builder, eventAssist):
+    builder.PrependBoolSlot(4, eventAssist, 0)
+
 def AddEventAssist(builder, eventAssist):
-    return EventContentSeasonExcelAddEventAssist(builder, eventAssist)
-def EventContentSeasonExcelAddEventChangeOpenCondition(builder, eventChangeOpenCondition): builder.PrependInt64Slot(5, eventChangeOpenCondition, 0)
+    EventContentSeasonExcelAddEventAssist(builder, eventAssist)
+
+def EventContentSeasonExcelAddEventChangeOpenCondition(builder, eventChangeOpenCondition):
+    builder.PrependInt64Slot(5, eventChangeOpenCondition, 0)
+
 def AddEventChangeOpenCondition(builder, eventChangeOpenCondition):
-    return EventContentSeasonExcelAddEventChangeOpenCondition(builder, eventChangeOpenCondition)
-def EventContentSeasonExcelAddEventContentCloseTime(builder, eventContentCloseTime): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(eventContentCloseTime), 0)
+    EventContentSeasonExcelAddEventChangeOpenCondition(builder, eventChangeOpenCondition)
+
+def EventContentSeasonExcelAddEventContentCloseTime(builder, eventContentCloseTime):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(eventContentCloseTime), 0)
+
 def AddEventContentCloseTime(builder, eventContentCloseTime):
-    return EventContentSeasonExcelAddEventContentCloseTime(builder, eventContentCloseTime)
-def EventContentSeasonExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(7, eventContentId, 0)
+    EventContentSeasonExcelAddEventContentCloseTime(builder, eventContentCloseTime)
+
+def EventContentSeasonExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(7, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentSeasonExcelAddEventContentId(builder, eventContentId)
-def EventContentSeasonExcelAddEventContentOpenTime(builder, eventContentOpenTime): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(eventContentOpenTime), 0)
+    EventContentSeasonExcelAddEventContentId(builder, eventContentId)
+
+def EventContentSeasonExcelAddEventContentOpenTime(builder, eventContentOpenTime):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(eventContentOpenTime), 0)
+
 def AddEventContentOpenTime(builder, eventContentOpenTime):
-    return EventContentSeasonExcelAddEventContentOpenTime(builder, eventContentOpenTime)
-def EventContentSeasonExcelAddEventContentReleaseType(builder, eventContentReleaseType): builder.PrependInt32Slot(9, eventContentReleaseType, 0)
+    EventContentSeasonExcelAddEventContentOpenTime(builder, eventContentOpenTime)
+
+def EventContentSeasonExcelAddEventContentReleaseType(builder, eventContentReleaseType):
+    builder.PrependInt32Slot(9, eventContentReleaseType, 0)
+
 def AddEventContentReleaseType(builder, eventContentReleaseType):
-    return EventContentSeasonExcelAddEventContentReleaseType(builder, eventContentReleaseType)
-def EventContentSeasonExcelAddEventContentStageRewardIdPermanent(builder, eventContentStageRewardIdPermanent): builder.PrependInt64Slot(10, eventContentStageRewardIdPermanent, 0)
+    EventContentSeasonExcelAddEventContentReleaseType(builder, eventContentReleaseType)
+
+def EventContentSeasonExcelAddEventContentStageRewardIdPermanent(builder, eventContentStageRewardIdPermanent):
+    builder.PrependInt64Slot(10, eventContentStageRewardIdPermanent, 0)
+
 def AddEventContentStageRewardIdPermanent(builder, eventContentStageRewardIdPermanent):
-    return EventContentSeasonExcelAddEventContentStageRewardIdPermanent(builder, eventContentStageRewardIdPermanent)
-def EventContentSeasonExcelAddEventContentType(builder, eventContentType): builder.PrependInt32Slot(11, eventContentType, 0)
+    EventContentSeasonExcelAddEventContentStageRewardIdPermanent(builder, eventContentStageRewardIdPermanent)
+
+def EventContentSeasonExcelAddEventContentType(builder, eventContentType):
+    builder.PrependInt32Slot(11, eventContentType, 0)
+
 def AddEventContentType(builder, eventContentType):
-    return EventContentSeasonExcelAddEventContentType(builder, eventContentType)
-def EventContentSeasonExcelAddEventDisplay(builder, eventDisplay): builder.PrependBoolSlot(12, eventDisplay, 0)
+    EventContentSeasonExcelAddEventContentType(builder, eventContentType)
+
+def EventContentSeasonExcelAddEventDisplay(builder, eventDisplay):
+    builder.PrependBoolSlot(12, eventDisplay, 0)
+
 def AddEventDisplay(builder, eventDisplay):
-    return EventContentSeasonExcelAddEventDisplay(builder, eventDisplay)
-def EventContentSeasonExcelAddEventItemId(builder, eventItemId): builder.PrependInt64Slot(13, eventItemId, 0)
+    EventContentSeasonExcelAddEventDisplay(builder, eventDisplay)
+
+def EventContentSeasonExcelAddEventItemId(builder, eventItemId):
+    builder.PrependInt64Slot(13, eventItemId, 0)
+
 def AddEventItemId(builder, eventItemId):
-    return EventContentSeasonExcelAddEventItemId(builder, eventItemId)
-def EventContentSeasonExcelAddExtensionTime(builder, extensionTime): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(extensionTime), 0)
+    EventContentSeasonExcelAddEventItemId(builder, eventItemId)
+
+def EventContentSeasonExcelAddExtensionTime(builder, extensionTime):
+    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(extensionTime), 0)
+
 def AddExtensionTime(builder, extensionTime):
-    return EventContentSeasonExcelAddExtensionTime(builder, extensionTime)
-def EventContentSeasonExcelAddIconOrder(builder, iconOrder): builder.PrependInt32Slot(15, iconOrder, 0)
+    EventContentSeasonExcelAddExtensionTime(builder, extensionTime)
+
+def EventContentSeasonExcelAddIconOrder(builder, iconOrder):
+    builder.PrependInt32Slot(15, iconOrder, 0)
+
 def AddIconOrder(builder, iconOrder):
-    return EventContentSeasonExcelAddIconOrder(builder, iconOrder)
-def EventContentSeasonExcelAddIsReturn(builder, isReturn): builder.PrependBoolSlot(16, isReturn, 0)
+    EventContentSeasonExcelAddIconOrder(builder, iconOrder)
+
+def EventContentSeasonExcelAddIsReturn(builder, isReturn):
+    builder.PrependBoolSlot(16, isReturn, 0)
+
 def AddIsReturn(builder, isReturn):
-    return EventContentSeasonExcelAddIsReturn(builder, isReturn)
-def EventContentSeasonExcelAddMainBannerImagePath(builder, mainBannerImagePath): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(mainBannerImagePath), 0)
+    EventContentSeasonExcelAddIsReturn(builder, isReturn)
+
+def EventContentSeasonExcelAddMainBannerImagePath(builder, mainBannerImagePath):
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(mainBannerImagePath), 0)
+
 def AddMainBannerImagePath(builder, mainBannerImagePath):
-    return EventContentSeasonExcelAddMainBannerImagePath(builder, mainBannerImagePath)
-def EventContentSeasonExcelAddMainBgImagePath(builder, mainBgImagePath): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(mainBgImagePath), 0)
+    EventContentSeasonExcelAddMainBannerImagePath(builder, mainBannerImagePath)
+
+def EventContentSeasonExcelAddMainBgImagePath(builder, mainBgImagePath):
+    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(mainBgImagePath), 0)
+
 def AddMainBgImagePath(builder, mainBgImagePath):
-    return EventContentSeasonExcelAddMainBgImagePath(builder, mainBgImagePath)
-def EventContentSeasonExcelAddMainEventId(builder, mainEventId): builder.PrependInt64Slot(19, mainEventId, 0)
+    EventContentSeasonExcelAddMainBgImagePath(builder, mainBgImagePath)
+
+def EventContentSeasonExcelAddMainEventId(builder, mainEventId):
+    builder.PrependInt64Slot(19, mainEventId, 0)
+
 def AddMainEventId(builder, mainEventId):
-    return EventContentSeasonExcelAddMainEventId(builder, mainEventId)
-def EventContentSeasonExcelAddMainIconParcelPath(builder, mainIconParcelPath): builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(mainIconParcelPath), 0)
+    EventContentSeasonExcelAddMainEventId(builder, mainEventId)
+
+def EventContentSeasonExcelAddMainIconParcelPath(builder, mainIconParcelPath):
+    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(mainIconParcelPath), 0)
+
 def AddMainIconParcelPath(builder, mainIconParcelPath):
-    return EventContentSeasonExcelAddMainIconParcelPath(builder, mainIconParcelPath)
-def EventContentSeasonExcelAddMiniEventShortCutScenarioModeId(builder, miniEventShortCutScenarioModeId): builder.PrependInt64Slot(21, miniEventShortCutScenarioModeId, 0)
+    EventContentSeasonExcelAddMainIconParcelPath(builder, mainIconParcelPath)
+
+def EventContentSeasonExcelAddMiniEventShortCutScenarioModeId(builder, miniEventShortCutScenarioModeId):
+    builder.PrependInt64Slot(21, miniEventShortCutScenarioModeId, 0)
+
 def AddMiniEventShortCutScenarioModeId(builder, miniEventShortCutScenarioModeId):
-    return EventContentSeasonExcelAddMiniEventShortCutScenarioModeId(builder, miniEventShortCutScenarioModeId)
-def EventContentSeasonExcelAddMinigameLobbyPrefabName(builder, minigameLobbyPrefabName): builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(minigameLobbyPrefabName), 0)
+    EventContentSeasonExcelAddMiniEventShortCutScenarioModeId(builder, miniEventShortCutScenarioModeId)
+
+def EventContentSeasonExcelAddMinigameLobbyPrefabName(builder, minigameLobbyPrefabName):
+    builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(minigameLobbyPrefabName), 0)
+
 def AddMinigameLobbyPrefabName(builder, minigameLobbyPrefabName):
-    return EventContentSeasonExcelAddMinigameLobbyPrefabName(builder, minigameLobbyPrefabName)
-def EventContentSeasonExcelAddMinigameMissionBgImagePath(builder, minigameMissionBgImagePath): builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(minigameMissionBgImagePath), 0)
+    EventContentSeasonExcelAddMinigameLobbyPrefabName(builder, minigameLobbyPrefabName)
+
+def EventContentSeasonExcelAddMinigameMissionBgImagePath(builder, minigameMissionBgImagePath):
+    builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(minigameMissionBgImagePath), 0)
+
 def AddMinigameMissionBgImagePath(builder, minigameMissionBgImagePath):
-    return EventContentSeasonExcelAddMinigameMissionBgImagePath(builder, minigameMissionBgImagePath)
-def EventContentSeasonExcelAddMinigameMissionBgPrefabName(builder, minigameMissionBgPrefabName): builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(minigameMissionBgPrefabName), 0)
+    EventContentSeasonExcelAddMinigameMissionBgImagePath(builder, minigameMissionBgImagePath)
+
+def EventContentSeasonExcelAddMinigameMissionBgPrefabName(builder, minigameMissionBgPrefabName):
+    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(minigameMissionBgPrefabName), 0)
+
 def AddMinigameMissionBgPrefabName(builder, minigameMissionBgPrefabName):
-    return EventContentSeasonExcelAddMinigameMissionBgPrefabName(builder, minigameMissionBgPrefabName)
-def EventContentSeasonExcelAddMinigamePrologScenarioGroupId(builder, minigamePrologScenarioGroupId): builder.PrependInt64Slot(25, minigamePrologScenarioGroupId, 0)
+    EventContentSeasonExcelAddMinigameMissionBgPrefabName(builder, minigameMissionBgPrefabName)
+
+def EventContentSeasonExcelAddMinigamePrologScenarioGroupId(builder, minigamePrologScenarioGroupId):
+    builder.PrependInt64Slot(25, minigamePrologScenarioGroupId, 0)
+
 def AddMinigamePrologScenarioGroupId(builder, minigamePrologScenarioGroupId):
-    return EventContentSeasonExcelAddMinigamePrologScenarioGroupId(builder, minigamePrologScenarioGroupId)
-def EventContentSeasonExcelAddMinigameVictoryPrefabName(builder, minigameVictoryPrefabName): builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(minigameVictoryPrefabName), 0)
+    EventContentSeasonExcelAddMinigamePrologScenarioGroupId(builder, minigamePrologScenarioGroupId)
+
+def EventContentSeasonExcelAddMinigameVictoryPrefabName(builder, minigameVictoryPrefabName):
+    builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(minigameVictoryPrefabName), 0)
+
 def AddMinigameVictoryPrefabName(builder, minigameVictoryPrefabName):
-    return EventContentSeasonExcelAddMinigameVictoryPrefabName(builder, minigameVictoryPrefabName)
-def EventContentSeasonExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+    EventContentSeasonExcelAddMinigameVictoryPrefabName(builder, minigameVictoryPrefabName)
+
+def EventContentSeasonExcelAddName(builder, name):
+    builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+
 def AddName(builder, name):
-    return EventContentSeasonExcelAddName(builder, name)
-def EventContentSeasonExcelAddOpenConditionContent(builder, openConditionContent): builder.PrependInt32Slot(28, openConditionContent, 0)
+    EventContentSeasonExcelAddName(builder, name)
+
+def EventContentSeasonExcelAddOpenConditionContent(builder, openConditionContent):
+    builder.PrependInt32Slot(28, openConditionContent, 0)
+
 def AddOpenConditionContent(builder, openConditionContent):
-    return EventContentSeasonExcelAddOpenConditionContent(builder, openConditionContent)
-def EventContentSeasonExcelAddOriginalEventContentId(builder, originalEventContentId): builder.PrependInt64Slot(29, originalEventContentId, 0)
+    EventContentSeasonExcelAddOpenConditionContent(builder, openConditionContent)
+
+def EventContentSeasonExcelAddOriginalEventContentId(builder, originalEventContentId):
+    builder.PrependInt64Slot(29, originalEventContentId, 0)
+
 def AddOriginalEventContentId(builder, originalEventContentId):
-    return EventContentSeasonExcelAddOriginalEventContentId(builder, originalEventContentId)
-def EventContentSeasonExcelAddRewardTagPermanent(builder, rewardTagPermanent): builder.PrependInt32Slot(30, rewardTagPermanent, 0)
+    EventContentSeasonExcelAddOriginalEventContentId(builder, originalEventContentId)
+
+def EventContentSeasonExcelAddRewardTagPermanent(builder, rewardTagPermanent):
+    builder.PrependInt32Slot(30, rewardTagPermanent, 0)
+
 def AddRewardTagPermanent(builder, rewardTagPermanent):
-    return EventContentSeasonExcelAddRewardTagPermanent(builder, rewardTagPermanent)
-def EventContentSeasonExcelAddScenarioContentCollectionGroupId(builder, scenarioContentCollectionGroupId): builder.PrependInt64Slot(31, scenarioContentCollectionGroupId, 0)
+    EventContentSeasonExcelAddRewardTagPermanent(builder, rewardTagPermanent)
+
+def EventContentSeasonExcelAddScenarioContentCollectionGroupId(builder, scenarioContentCollectionGroupId):
+    builder.PrependInt64Slot(31, scenarioContentCollectionGroupId, 0)
+
 def AddScenarioContentCollectionGroupId(builder, scenarioContentCollectionGroupId):
-    return EventContentSeasonExcelAddScenarioContentCollectionGroupId(builder, scenarioContentCollectionGroupId)
-def EventContentSeasonExcelAddShiftMainBgImagePath(builder, shiftMainBgImagePath): builder.PrependUOffsetTRelativeSlot(32, flatbuffers.number_types.UOffsetTFlags.py_type(shiftMainBgImagePath), 0)
+    EventContentSeasonExcelAddScenarioContentCollectionGroupId(builder, scenarioContentCollectionGroupId)
+
+def EventContentSeasonExcelAddShiftMainBgImagePath(builder, shiftMainBgImagePath):
+    builder.PrependUOffsetTRelativeSlot(32, flatbuffers.number_types.UOffsetTFlags.py_type(shiftMainBgImagePath), 0)
+
 def AddShiftMainBgImagePath(builder, shiftMainBgImagePath):
-    return EventContentSeasonExcelAddShiftMainBgImagePath(builder, shiftMainBgImagePath)
-def EventContentSeasonExcelAddShiftTriggerStageId(builder, shiftTriggerStageId): builder.PrependInt64Slot(33, shiftTriggerStageId, 0)
+    EventContentSeasonExcelAddShiftMainBgImagePath(builder, shiftMainBgImagePath)
+
+def EventContentSeasonExcelAddShiftTriggerStageId(builder, shiftTriggerStageId):
+    builder.PrependInt64Slot(33, shiftTriggerStageId, 0)
+
 def AddShiftTriggerStageId(builder, shiftTriggerStageId):
-    return EventContentSeasonExcelAddShiftTriggerStageId(builder, shiftTriggerStageId)
-def EventContentSeasonExcelAddSubEvent(builder, subEvent): builder.PrependBoolSlot(34, subEvent, 0)
+    EventContentSeasonExcelAddShiftTriggerStageId(builder, shiftTriggerStageId)
+
+def EventContentSeasonExcelAddSubEvent(builder, subEvent):
+    builder.PrependBoolSlot(34, subEvent, 0)
+
 def AddSubEvent(builder, subEvent):
-    return EventContentSeasonExcelAddSubEvent(builder, subEvent)
-def EventContentSeasonExcelAddSubEventType(builder, subEventType): builder.PrependInt32Slot(35, subEventType, 0)
+    EventContentSeasonExcelAddSubEvent(builder, subEvent)
+
+def EventContentSeasonExcelAddSubEventType(builder, subEventType):
+    builder.PrependInt32Slot(35, subEventType, 0)
+
 def AddSubEventType(builder, subEventType):
-    return EventContentSeasonExcelAddSubEventType(builder, subEventType)
-def EventContentSeasonExcelAddSubIconParcelPath(builder, subIconParcelPath): builder.PrependUOffsetTRelativeSlot(36, flatbuffers.number_types.UOffsetTFlags.py_type(subIconParcelPath), 0)
+    EventContentSeasonExcelAddSubEventType(builder, subEventType)
+
+def EventContentSeasonExcelAddSubIconParcelPath(builder, subIconParcelPath):
+    builder.PrependUOffsetTRelativeSlot(36, flatbuffers.number_types.UOffsetTFlags.py_type(subIconParcelPath), 0)
+
 def AddSubIconParcelPath(builder, subIconParcelPath):
-    return EventContentSeasonExcelAddSubIconParcelPath(builder, subIconParcelPath)
-def EventContentSeasonExcelEnd(builder): return builder.EndObject()
+    EventContentSeasonExcelAddSubIconParcelPath(builder, subIconParcelPath)
+
+def EventContentSeasonExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentSeasonExcelEnd(builder)

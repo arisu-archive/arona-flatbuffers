@@ -17,11 +17,19 @@ func GetRootAsWebEventSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *WebE
 	return x
 }
 
+func FinishWebEventSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsWebEventSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *WebEventSeasonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &WebEventSeasonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedWebEventSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *WebEventSeasonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -123,7 +131,4 @@ func WebEventSeasonExcelAddStartDate(builder *flatbuffers.Builder, startDate fla
 }
 func WebEventSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*WebEventSeasonExcel) Name() string {
-	return "WebEventSeasonExcel"
 }

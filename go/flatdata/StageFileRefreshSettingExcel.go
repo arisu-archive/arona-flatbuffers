@@ -17,11 +17,19 @@ func GetRootAsStageFileRefreshSettingExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishStageFileRefreshSettingExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsStageFileRefreshSettingExcel(buf []byte, offset flatbuffers.UOffsetT) *StageFileRefreshSettingExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &StageFileRefreshSettingExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedStageFileRefreshSettingExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *StageFileRefreshSettingExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -68,7 +76,4 @@ func StageFileRefreshSettingExcelAddGroundId(builder *flatbuffers.Builder, groun
 }
 func StageFileRefreshSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*StageFileRefreshSettingExcel) Name() string {
-	return "StageFileRefreshSettingExcel"
 }

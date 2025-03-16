@@ -17,11 +17,19 @@ func GetRootAsConstAudioExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstAud
 	return x
 }
 
+func FinishConstAudioExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConstAudioExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstAudioExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstAudioExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConstAudioExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstAudioExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -82,7 +90,4 @@ func ConstAudioExcelAddRaidSnapShotName(builder *flatbuffers.Builder, raidSnapSh
 }
 func ConstAudioExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConstAudioExcel) Name() string {
-	return "ConstAudioExcel"
 }

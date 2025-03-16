@@ -49,15 +49,26 @@ class MiniGamePlayGuideExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def MiniGamePlayGuideExcelTableStart(builder): builder.StartObject(1)
+def MiniGamePlayGuideExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return MiniGamePlayGuideExcelTableStart(builder)
-def MiniGamePlayGuideExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    MiniGamePlayGuideExcelTableStart(builder)
+
+def MiniGamePlayGuideExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return MiniGamePlayGuideExcelTableAddDataList(builder, dataList)
-def MiniGamePlayGuideExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    MiniGamePlayGuideExcelTableAddDataList(builder, dataList)
+
+def MiniGamePlayGuideExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return MiniGamePlayGuideExcelTableStartDataListVector(builder, numElems)
-def MiniGamePlayGuideExcelTableEnd(builder): return builder.EndObject()
+
+def MiniGamePlayGuideExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MiniGamePlayGuideExcelTableEnd(builder)

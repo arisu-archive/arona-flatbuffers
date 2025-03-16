@@ -17,11 +17,19 @@ func GetRootAsForm(buf []byte, offset flatbuffers.UOffsetT) *Form {
 	return x
 }
 
+func FinishFormBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsForm(buf []byte, offset flatbuffers.UOffsetT) *Form {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &Form{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFormBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *Form) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -70,7 +78,4 @@ func FormAddPublicSkill(builder *flatbuffers.Builder, publicSkill flatbuffers.UO
 }
 func FormEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*Form) Name() string {
-	return "Form"
 }

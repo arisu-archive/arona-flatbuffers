@@ -17,11 +17,19 @@ func GetRootAsMemoryLobby_GlobalExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishMemoryLobby_GlobalExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMemoryLobby_GlobalExcel(buf []byte, offset flatbuffers.UOffsetT) *MemoryLobby_GlobalExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MemoryLobby_GlobalExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMemoryLobby_GlobalExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MemoryLobby_GlobalExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -134,7 +142,4 @@ func MemoryLobby_GlobalExcelAddPrefabNameTw(builder *flatbuffers.Builder, prefab
 }
 func MemoryLobby_GlobalExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*MemoryLobby_GlobalExcel) Name() string {
-	return "MemoryLobby_GlobalExcel"
 }

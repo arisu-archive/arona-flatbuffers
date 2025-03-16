@@ -17,11 +17,19 @@ func GetRootAsMultiFloorRaidRewardExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishMultiFloorRaidRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMultiFloorRaidRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *MultiFloorRaidRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MultiFloorRaidRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMultiFloorRaidRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MultiFloorRaidRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -113,7 +121,4 @@ func MultiFloorRaidRewardExcelAddRewardGroupId(builder *flatbuffers.Builder, rew
 }
 func MultiFloorRaidRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*MultiFloorRaidRewardExcel) Name() string {
-	return "MultiFloorRaidRewardExcel"
 }
