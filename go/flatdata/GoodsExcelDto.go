@@ -111,11 +111,11 @@ func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Type = fbsutils.Convert(e.Type(), t.FlatBuffer.TableKey)
-	t.Rarity = Rarity(int32(fbsutils.Convert(e.Rarity(), t.FlatBuffer.TableKey)))
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
 	t.ConsumeParcelType = make([]ParcelType, e.ConsumeParcelTypeLength())
 	for i := range e.ConsumeParcelTypeLength() {
-		t.ConsumeParcelType[i] = e.ConsumeParcelType(i)
+		t.ConsumeParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ConsumeParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.ConsumeParcelId = make([]int64, e.ConsumeParcelIdLength())
 	for i := range e.ConsumeParcelIdLength() {
@@ -127,9 +127,9 @@ func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
 	}
 	t.ConsumeCondition = make([]ConsumeCondition, e.ConsumeConditionLength())
 	for i := range e.ConsumeConditionLength() {
-		t.ConsumeCondition[i] = e.ConsumeCondition(i)
+		t.ConsumeCondition[i] = ConsumeCondition(fbsutils.Convert(int32(e.ConsumeCondition(i)), t.FlatBuffer.TableKey))
 	}
-	t.ConsumeGachaTicketType = GachaTicketType(int32(fbsutils.Convert(e.ConsumeGachaTicketType(), t.FlatBuffer.TableKey)))
+	t.ConsumeGachaTicketType = GachaTicketType(fbsutils.Convert(int32(e.ConsumeGachaTicketType()), t.FlatBuffer.TableKey))
 	t.ConsumeGachaTicketTypeAmount = fbsutils.Convert(e.ConsumeGachaTicketTypeAmount(), t.FlatBuffer.TableKey)
 	t.ProductIdAos = fbsutils.Convert(e.ProductIdAos(), t.FlatBuffer.TableKey)
 	t.ProductIdiOs = fbsutils.Convert(e.ProductIdiOs(), t.FlatBuffer.TableKey)
@@ -146,7 +146,7 @@ func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
 	t.State = fbsutils.Convert(e.State(), t.FlatBuffer.TableKey)
 	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
 	for i := range e.ParcelTypeLength() {
-		t.ParcelType[i] = e.ParcelType(i)
+		t.ParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {

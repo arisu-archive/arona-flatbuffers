@@ -78,11 +78,11 @@ func (t *EventContentZoneExcelDto) UnmarshalMessage(e *EventContentZoneExcel) er
 	t.RewardGroupId = fbsutils.Convert(e.RewardGroupId(), t.FlatBuffer.TableKey)
 	t.Tags = make([]Tag, e.TagsLength())
 	for i := range e.TagsLength() {
-		t.Tags[i] = e.Tags(i)
+		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
 	}
 	t.WhiteListTags = make([]Tag, e.WhiteListTagsLength())
 	for i := range e.WhiteListTagsLength() {
-		t.WhiteListTags[i] = e.WhiteListTags(i)
+		t.WhiteListTags[i] = Tag(fbsutils.Convert(int32(e.WhiteListTags(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

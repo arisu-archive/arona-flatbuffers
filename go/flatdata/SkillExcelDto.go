@@ -103,7 +103,7 @@ func (t *SkillExcelDto) UnmarshalMessage(e *SkillExcel) error {
 	t.ExtraEnemySkillCost = fbsutils.Convert(e.ExtraEnemySkillCost(), t.FlatBuffer.TableKey)
 	t.NpcSkillCost = fbsutils.Convert(e.NpcSkillCost(), t.FlatBuffer.TableKey)
 	t.ExtraNpcSkillCost = fbsutils.Convert(e.ExtraNpcSkillCost(), t.FlatBuffer.TableKey)
-	t.BulletType = BulletType(int32(fbsutils.Convert(e.BulletType(), t.FlatBuffer.TableKey)))
+	t.BulletType = BulletType(fbsutils.Convert(int32(e.BulletType()), t.FlatBuffer.TableKey))
 	t.StartCoolTime = fbsutils.Convert(e.StartCoolTime(), t.FlatBuffer.TableKey)
 	t.CoolTime = fbsutils.Convert(e.CoolTime(), t.FlatBuffer.TableKey)
 	t.EnemyStartCoolTime = fbsutils.Convert(e.EnemyStartCoolTime(), t.FlatBuffer.TableKey)

@@ -42,7 +42,7 @@ func (t *ConquestCalculateExcelDto) UnmarshalMessage(e *ConquestCalculateExcel) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestCalculate"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.CalculateConditionParcelType = ParcelType(int32(fbsutils.Convert(e.CalculateConditionParcelType(), t.FlatBuffer.TableKey)))
+	t.CalculateConditionParcelType = ParcelType(fbsutils.Convert(int32(e.CalculateConditionParcelType()), t.FlatBuffer.TableKey))
 	t.CalculateConditionParcelUniqueId = fbsutils.Convert(e.CalculateConditionParcelUniqueId(), t.FlatBuffer.TableKey)
 	t.CalculateConditionParcelAmount = fbsutils.Convert(e.CalculateConditionParcelAmount(), t.FlatBuffer.TableKey)
 	return nil

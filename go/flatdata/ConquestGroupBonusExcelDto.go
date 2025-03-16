@@ -94,12 +94,12 @@ func (t *ConquestGroupBonusExcelDto) UnmarshalMessage(e *ConquestGroupBonusExcel
 	t.ConquestBonusId = fbsutils.Convert(e.ConquestBonusId(), t.FlatBuffer.TableKey)
 	t.School = make([]School, e.SchoolLength())
 	for i := range e.SchoolLength() {
-		t.School[i] = e.School(i)
+		t.School[i] = School(fbsutils.Convert(int32(e.School(i)), t.FlatBuffer.TableKey))
 	}
 	t.RecommandLocalizeEtcId = fbsutils.Convert(e.RecommandLocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.BonusParcelType = make([]ParcelType, e.BonusParcelTypeLength())
 	for i := range e.BonusParcelTypeLength() {
-		t.BonusParcelType[i] = e.BonusParcelType(i)
+		t.BonusParcelType[i] = ParcelType(fbsutils.Convert(int32(e.BonusParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.BonusId = make([]int64, e.BonusIdLength())
 	for i := range e.BonusIdLength() {

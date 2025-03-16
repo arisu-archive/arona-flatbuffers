@@ -72,11 +72,11 @@ func (t *EventContentShopInfoExcelDto) UnmarshalMessage(e *EventContentShopInfoE
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShopInfo"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.CategoryType = ShopCategoryType(int32(fbsutils.Convert(e.CategoryType(), t.FlatBuffer.TableKey)))
+	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
 	t.LocalizeCode = fbsutils.Convert(e.LocalizeCode(), t.FlatBuffer.TableKey)
 	t.CostParcelType = make([]ParcelType, e.CostParcelTypeLength())
 	for i := range e.CostParcelTypeLength() {
-		t.CostParcelType[i] = e.CostParcelType(i)
+		t.CostParcelType[i] = ParcelType(fbsutils.Convert(int32(e.CostParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.CostParcelId = make([]int64, e.CostParcelIdLength())
 	for i := range e.CostParcelIdLength() {

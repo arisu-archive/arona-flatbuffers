@@ -54,8 +54,8 @@ func (t *MinigameTBGItemExcelDto) UnmarshalMessage(e *MinigameTBGItemExcel) erro
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGItem"))
 	}
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.ItemType = TBGItemType(int32(fbsutils.Convert(e.ItemType(), t.FlatBuffer.TableKey)))
-	t.TbgItemEffectType = TBGItemEffectType(int32(fbsutils.Convert(e.TbgItemEffectType(), t.FlatBuffer.TableKey)))
+	t.ItemType = TBGItemType(fbsutils.Convert(int32(e.ItemType()), t.FlatBuffer.TableKey))
+	t.TbgItemEffectType = TBGItemEffectType(fbsutils.Convert(int32(e.TbgItemEffectType()), t.FlatBuffer.TableKey))
 	t.ItemParameter = fbsutils.Convert(e.ItemParameter(), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(string(e.LocalizeEtcId()), t.FlatBuffer.TableKey)
 	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)

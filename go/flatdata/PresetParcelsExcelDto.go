@@ -41,7 +41,7 @@ func (t *PresetParcelsExcelDto) UnmarshalMessage(e *PresetParcelsExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PresetParcels"))
 	}
-	t.ParcelType = ParcelType(int32(fbsutils.Convert(e.ParcelType(), t.FlatBuffer.TableKey)))
+	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
 	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
 	t.PresetGroupId = fbsutils.Convert(e.PresetGroupId(), t.FlatBuffer.TableKey)
 	t.ParcelAmount = fbsutils.Convert(e.ParcelAmount(), t.FlatBuffer.TableKey)

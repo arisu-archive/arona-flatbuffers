@@ -62,11 +62,11 @@ func (t *MemoryLobbyExcelDto) UnmarshalMessage(e *MemoryLobbyExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MemoryLobby"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ProductionStep = ProductionStep(int32(fbsutils.Convert(e.ProductionStep(), t.FlatBuffer.TableKey)))
+	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
-	t.MemoryLobbyCategory = MemoryLobbyCategory(int32(fbsutils.Convert(e.MemoryLobbyCategory(), t.FlatBuffer.TableKey)))
+	t.MemoryLobbyCategory = MemoryLobbyCategory(fbsutils.Convert(int32(e.MemoryLobbyCategory()), t.FlatBuffer.TableKey))
 	t.SlotTextureName = fbsutils.Convert(string(e.SlotTextureName()), t.FlatBuffer.TableKey)
 	t.RewardTextureName = fbsutils.Convert(string(e.RewardTextureName()), t.FlatBuffer.TableKey)
 	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)

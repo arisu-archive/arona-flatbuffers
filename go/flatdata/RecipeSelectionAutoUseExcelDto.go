@@ -46,7 +46,7 @@ func (t *RecipeSelectionAutoUseExcelDto) UnmarshalMessage(e *RecipeSelectionAuto
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeSelectionAutoUse"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ParcelType = ParcelType(int32(fbsutils.Convert(e.ParcelType(), t.FlatBuffer.TableKey)))
+	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
 	t.TargetItemId = fbsutils.Convert(e.TargetItemId(), t.FlatBuffer.TableKey)
 	t.Priority = make([]int64, e.PriorityLength())
 	for i := range e.PriorityLength() {

@@ -17,7 +17,7 @@ type AcademyMessangerExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AcademyMessangerExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyMessangerTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyMessanger"))
 	}
 	AcademyMessangerExcelTableStart(b)
 	AcademyMessangerExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *AcademyMessangerExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AcademyMessangerExcelTableDto) UnmarshalMessage(e *AcademyMessangerExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyMessangerTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyMessanger"))
 	}
 	t.DataList = make([]AcademyMessangerExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

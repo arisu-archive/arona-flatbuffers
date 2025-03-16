@@ -17,7 +17,7 @@ type CharacterAcademyTagsExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterAcademyTagsExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAcademyTagsTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAcademyTags"))
 	}
 	CharacterAcademyTagsExcelTableStart(b)
 	CharacterAcademyTagsExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *CharacterAcademyTagsExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterAcademyTagsExcelTableDto) UnmarshalMessage(e *CharacterAcademyTagsExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAcademyTagsTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAcademyTags"))
 	}
 	t.DataList = make([]CharacterAcademyTagsExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

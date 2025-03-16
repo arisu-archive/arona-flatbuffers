@@ -17,7 +17,7 @@ type FieldContentStageRewardExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldContentStageRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStageRewardTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStageReward"))
 	}
 	FieldContentStageRewardExcelTableStart(b)
 	FieldContentStageRewardExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *FieldContentStageRewardExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldContentStageRewardExcelTableDto) UnmarshalMessage(e *FieldContentStageRewardExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStageRewardTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStageReward"))
 	}
 	t.DataList = make([]FieldContentStageRewardExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

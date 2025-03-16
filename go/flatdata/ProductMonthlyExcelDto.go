@@ -92,15 +92,15 @@ func (t *ProductMonthlyExcelDto) UnmarshalMessage(e *ProductMonthlyExcel) error 
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ProductId = fbsutils.Convert(string(e.ProductId()), t.FlatBuffer.TableKey)
 	t.TeenProductId = fbsutils.Convert(string(e.TeenProductId()), t.FlatBuffer.TableKey)
-	t.StoreType = StoreType(int32(fbsutils.Convert(e.StoreType(), t.FlatBuffer.TableKey)))
+	t.StoreType = StoreType(fbsutils.Convert(int32(e.StoreType()), t.FlatBuffer.TableKey))
 	t.Price = fbsutils.Convert(e.Price(), t.FlatBuffer.TableKey)
 	t.PriceReference = fbsutils.Convert(string(e.PriceReference()), t.FlatBuffer.TableKey)
-	t.ProductTagType = ProductTagType(int32(fbsutils.Convert(e.ProductTagType(), t.FlatBuffer.TableKey)))
+	t.ProductTagType = ProductTagType(fbsutils.Convert(int32(e.ProductTagType()), t.FlatBuffer.TableKey))
 	t.MonthlyDays = fbsutils.Convert(e.MonthlyDays(), t.FlatBuffer.TableKey)
 	t.UseMonthlyProductCheck = fbsutils.Convert(e.UseMonthlyProductCheck(), t.FlatBuffer.TableKey)
 	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
 	for i := range e.ParcelTypeLength() {
-		t.ParcelType[i] = e.ParcelType(i)
+		t.ParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {
@@ -113,7 +113,7 @@ func (t *ProductMonthlyExcelDto) UnmarshalMessage(e *ProductMonthlyExcel) error 
 	t.EnterCostReduceGroupId = fbsutils.Convert(e.EnterCostReduceGroupId(), t.FlatBuffer.TableKey)
 	t.DailyParcelType = make([]ParcelType, e.DailyParcelTypeLength())
 	for i := range e.DailyParcelTypeLength() {
-		t.DailyParcelType[i] = e.DailyParcelType(i)
+		t.DailyParcelType[i] = ParcelType(fbsutils.Convert(int32(e.DailyParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.DailyParcelId = make([]int64, e.DailyParcelIdLength())
 	for i := range e.DailyParcelIdLength() {

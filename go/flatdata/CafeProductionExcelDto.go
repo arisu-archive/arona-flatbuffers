@@ -49,7 +49,7 @@ func (t *CafeProductionExcelDto) UnmarshalMessage(e *CafeProductionExcel) error 
 	}
 	t.CafeId = fbsutils.Convert(e.CafeId(), t.FlatBuffer.TableKey)
 	t.Rank = fbsutils.Convert(e.Rank(), t.FlatBuffer.TableKey)
-	t.CafeProductionParcelType = ParcelType(int32(fbsutils.Convert(e.CafeProductionParcelType(), t.FlatBuffer.TableKey)))
+	t.CafeProductionParcelType = ParcelType(fbsutils.Convert(int32(e.CafeProductionParcelType()), t.FlatBuffer.TableKey))
 	t.CafeProductionParcelId = fbsutils.Convert(e.CafeProductionParcelId(), t.FlatBuffer.TableKey)
 	t.ParcelProductionCoefficient = fbsutils.Convert(e.ParcelProductionCoefficient(), t.FlatBuffer.TableKey)
 	t.ParcelProductionCorrectionValue = fbsutils.Convert(e.ParcelProductionCorrectionValue(), t.FlatBuffer.TableKey)

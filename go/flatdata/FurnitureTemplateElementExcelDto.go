@@ -49,7 +49,7 @@ func (t *FurnitureTemplateElementExcelDto) UnmarshalMessage(e *FurnitureTemplate
 	}
 	t.FurnitureTemplateId = fbsutils.Convert(e.FurnitureTemplateId(), t.FlatBuffer.TableKey)
 	t.FurnitureId = fbsutils.Convert(e.FurnitureId(), t.FlatBuffer.TableKey)
-	t.Location = FurnitureLocation(int32(fbsutils.Convert(e.Location(), t.FlatBuffer.TableKey)))
+	t.Location = FurnitureLocation(fbsutils.Convert(int32(e.Location()), t.FlatBuffer.TableKey))
 	t.PositionX = fbsutils.Convert(e.PositionX(), t.FlatBuffer.TableKey)
 	t.PositionY = fbsutils.Convert(e.PositionY(), t.FlatBuffer.TableKey)
 	t.Rotation = fbsutils.Convert(e.Rotation(), t.FlatBuffer.TableKey)

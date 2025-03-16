@@ -17,7 +17,7 @@ type ScenarioExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Scenario"))
 	}
 	ScenarioExcelTableStart(b)
 	ScenarioExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *ScenarioExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioExcelTableDto) UnmarshalMessage(e *ScenarioExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Scenario"))
 	}
 	t.DataList = make([]ScenarioExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

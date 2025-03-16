@@ -84,9 +84,9 @@ func (t *CampaignUnitExcelDto) UnmarshalMessage(e *CampaignUnitExcel) error {
 	}
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.MoveRange = fbsutils.Convert(e.MoveRange(), t.FlatBuffer.TableKey)
-	t.AiMoveType = StrategyAIType(int32(fbsutils.Convert(e.AiMoveType(), t.FlatBuffer.TableKey)))
-	t.Grade = HexaUnitGrade(int32(fbsutils.Convert(e.Grade(), t.FlatBuffer.TableKey)))
-	t.EnvironmentType = TacticEnvironment(int32(fbsutils.Convert(e.EnvironmentType(), t.FlatBuffer.TableKey)))
+	t.AiMoveType = StrategyAIType(fbsutils.Convert(int32(e.AiMoveType()), t.FlatBuffer.TableKey))
+	t.Grade = HexaUnitGrade(fbsutils.Convert(int32(e.Grade()), t.FlatBuffer.TableKey))
+	t.EnvironmentType = TacticEnvironment(fbsutils.Convert(int32(e.EnvironmentType()), t.FlatBuffer.TableKey))
 	t.Scale = fbsutils.Convert(e.Scale(), t.FlatBuffer.TableKey)
 	t.IsTacticSkip = fbsutils.Convert(e.IsTacticSkip(), t.FlatBuffer.TableKey)
 	return nil

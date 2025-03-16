@@ -54,10 +54,10 @@ func (t *EventContentChangeExcelDto) UnmarshalMessage(e *EventContentChangeExcel
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.ChangeCount = fbsutils.Convert(e.ChangeCount(), t.FlatBuffer.TableKey)
 	t.IsLast = fbsutils.Convert(e.IsLast(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(int32(fbsutils.Convert(e.RewardParcelType(), t.FlatBuffer.TableKey)))
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
 	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
-	t.ChangeCostType = ParcelType(int32(fbsutils.Convert(e.ChangeCostType(), t.FlatBuffer.TableKey)))
+	t.ChangeCostType = ParcelType(fbsutils.Convert(int32(e.ChangeCostType()), t.FlatBuffer.TableKey))
 	t.ChangeCostId = fbsutils.Convert(e.ChangeCostId(), t.FlatBuffer.TableKey)
 	t.ChangeCostAmount = fbsutils.Convert(e.ChangeCostAmount(), t.FlatBuffer.TableKey)
 	return nil

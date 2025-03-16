@@ -51,13 +51,13 @@ func (t *ParcelAutoSynthExcelDto) UnmarshalMessage(e *ParcelAutoSynthExcel) erro
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ParcelAutoSynth"))
 	}
-	t.RequireParcelType = ParcelType(int32(fbsutils.Convert(e.RequireParcelType(), t.FlatBuffer.TableKey)))
+	t.RequireParcelType = ParcelType(fbsutils.Convert(int32(e.RequireParcelType()), t.FlatBuffer.TableKey))
 	t.RequireParcelId = fbsutils.Convert(e.RequireParcelId(), t.FlatBuffer.TableKey)
 	t.RequireParcelAmount = fbsutils.Convert(e.RequireParcelAmount(), t.FlatBuffer.TableKey)
 	t.SynthStartAmount = fbsutils.Convert(e.SynthStartAmount(), t.FlatBuffer.TableKey)
 	t.SynthEndAmount = fbsutils.Convert(e.SynthEndAmount(), t.FlatBuffer.TableKey)
 	t.SynthMaxItem = fbsutils.Convert(e.SynthMaxItem(), t.FlatBuffer.TableKey)
-	t.ResultParcelType = ParcelType(int32(fbsutils.Convert(e.ResultParcelType(), t.FlatBuffer.TableKey)))
+	t.ResultParcelType = ParcelType(fbsutils.Convert(int32(e.ResultParcelType()), t.FlatBuffer.TableKey))
 	t.ResultParcelId = fbsutils.Convert(e.ResultParcelId(), t.FlatBuffer.TableKey)
 	t.ResultParcelAmount = fbsutils.Convert(e.ResultParcelAmount(), t.FlatBuffer.TableKey)
 	return nil

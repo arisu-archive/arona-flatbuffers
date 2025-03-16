@@ -74,7 +74,7 @@ func (t *EventContentZoneVisitRewardExcelDto) UnmarshalMessage(e *EventContentZo
 	t.CharacterDevName = fbsutils.Convert(string(e.CharacterDevName()), t.FlatBuffer.TableKey)
 	t.VisitRewardParcelType = make([]ParcelType, e.VisitRewardParcelTypeLength())
 	for i := range e.VisitRewardParcelTypeLength() {
-		t.VisitRewardParcelType[i] = e.VisitRewardParcelType(i)
+		t.VisitRewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.VisitRewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.VisitRewardParcelId = make([]int64, e.VisitRewardParcelIdLength())
 	for i := range e.VisitRewardParcelIdLength() {

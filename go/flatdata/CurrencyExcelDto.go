@@ -81,18 +81,18 @@ func (t *CurrencyExcelDto) UnmarshalMessage(e *CurrencyExcel) error {
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.CurrencyType = CurrencyTypes(int32(fbsutils.Convert(e.CurrencyType(), t.FlatBuffer.TableKey)))
+	t.CurrencyType = CurrencyTypes(fbsutils.Convert(int32(e.CurrencyType()), t.FlatBuffer.TableKey))
 	t.CurrencyName = fbsutils.Convert(string(e.CurrencyName()), t.FlatBuffer.TableKey)
 	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
-	t.Rarity = Rarity(int32(fbsutils.Convert(e.Rarity(), t.FlatBuffer.TableKey)))
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
 	t.AutoChargeMsc = fbsutils.Convert(e.AutoChargeMsc(), t.FlatBuffer.TableKey)
 	t.AutoChargeAmount = fbsutils.Convert(e.AutoChargeAmount(), t.FlatBuffer.TableKey)
-	t.CurrencyOverChargeType = CurrencyOverChargeType(int32(fbsutils.Convert(e.CurrencyOverChargeType(), t.FlatBuffer.TableKey)))
-	t.CurrencyAdditionalChargeType = CurrencyAdditionalChargeType(int32(fbsutils.Convert(e.CurrencyAdditionalChargeType(), t.FlatBuffer.TableKey)))
+	t.CurrencyOverChargeType = CurrencyOverChargeType(fbsutils.Convert(int32(e.CurrencyOverChargeType()), t.FlatBuffer.TableKey))
+	t.CurrencyAdditionalChargeType = CurrencyAdditionalChargeType(fbsutils.Convert(int32(e.CurrencyAdditionalChargeType()), t.FlatBuffer.TableKey))
 	t.ChargeLimit = fbsutils.Convert(e.ChargeLimit(), t.FlatBuffer.TableKey)
 	t.OverChargeLimit = fbsutils.Convert(e.OverChargeLimit(), t.FlatBuffer.TableKey)
 	t.SpriteName = fbsutils.Convert(string(e.SpriteName()), t.FlatBuffer.TableKey)
-	t.DailyRefillType = DailyRefillType(int32(fbsutils.Convert(e.DailyRefillType(), t.FlatBuffer.TableKey)))
+	t.DailyRefillType = DailyRefillType(fbsutils.Convert(int32(e.DailyRefillType()), t.FlatBuffer.TableKey))
 	t.DailyRefillAmount = fbsutils.Convert(e.DailyRefillAmount(), t.FlatBuffer.TableKey)
 	t.DailyRefillTime = make([]int64, e.DailyRefillTimeLength())
 	for i := range e.DailyRefillTimeLength() {
@@ -100,7 +100,7 @@ func (t *CurrencyExcelDto) UnmarshalMessage(e *CurrencyExcel) error {
 	}
 	t.ExpirationDateTime = fbsutils.Convert(string(e.ExpirationDateTime()), t.FlatBuffer.TableKey)
 	t.ExpirationNotifyDateIn = fbsutils.Convert(e.ExpirationNotifyDateIn(), t.FlatBuffer.TableKey)
-	t.ExpiryChangeParcelType = ParcelType(int32(fbsutils.Convert(e.ExpiryChangeParcelType(), t.FlatBuffer.TableKey)))
+	t.ExpiryChangeParcelType = ParcelType(fbsutils.Convert(int32(e.ExpiryChangeParcelType()), t.FlatBuffer.TableKey))
 	t.ExpiryChangeId = fbsutils.Convert(e.ExpiryChangeId(), t.FlatBuffer.TableKey)
 	t.ExpiryChangeAmount = fbsutils.Convert(e.ExpiryChangeAmount(), t.FlatBuffer.TableKey)
 	return nil

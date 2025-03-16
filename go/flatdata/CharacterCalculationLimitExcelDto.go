@@ -44,8 +44,8 @@ func (t *CharacterCalculationLimitExcelDto) UnmarshalMessage(e *CharacterCalcula
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCalculationLimit"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.TacticEntityType = TacticEntityType(int32(fbsutils.Convert(e.TacticEntityType(), t.FlatBuffer.TableKey)))
-	t.CalculationValue = BattleCalculationStat(int32(fbsutils.Convert(e.CalculationValue(), t.FlatBuffer.TableKey)))
+	t.TacticEntityType = TacticEntityType(fbsutils.Convert(int32(e.TacticEntityType()), t.FlatBuffer.TableKey))
+	t.CalculationValue = BattleCalculationStat(fbsutils.Convert(int32(e.CalculationValue()), t.FlatBuffer.TableKey))
 	t.MinValue = fbsutils.Convert(e.MinValue(), t.FlatBuffer.TableKey)
 	t.MaxValue = fbsutils.Convert(e.MaxValue(), t.FlatBuffer.TableKey)
 	return nil

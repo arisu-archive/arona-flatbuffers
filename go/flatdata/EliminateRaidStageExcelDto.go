@@ -131,7 +131,7 @@ func (t *EliminateRaidStageExcelDto) UnmarshalMessage(e *EliminateRaidStageExcel
 	t.UseBossIndex = fbsutils.Convert(e.UseBossIndex(), t.FlatBuffer.TableKey)
 	t.UseBossAiPhaseSync = fbsutils.Convert(e.UseBossAiPhaseSync(), t.FlatBuffer.TableKey)
 	t.RaidBossGroup = fbsutils.Convert(string(e.RaidBossGroup()), t.FlatBuffer.TableKey)
-	t.RaidEnterCostType = ParcelType(int32(fbsutils.Convert(e.RaidEnterCostType(), t.FlatBuffer.TableKey)))
+	t.RaidEnterCostType = ParcelType(fbsutils.Convert(int32(e.RaidEnterCostType()), t.FlatBuffer.TableKey))
 	t.RaidEnterCostId = fbsutils.Convert(e.RaidEnterCostId(), t.FlatBuffer.TableKey)
 	t.RaidEnterCostAmount = fbsutils.Convert(e.RaidEnterCostAmount(), t.FlatBuffer.TableKey)
 	t.BossSpinePath = fbsutils.Convert(string(e.BossSpinePath()), t.FlatBuffer.TableKey)
@@ -142,7 +142,7 @@ func (t *EliminateRaidStageExcelDto) UnmarshalMessage(e *EliminateRaidStageExcel
 	for i := range e.BossCharacterIdLength() {
 		t.BossCharacterId[i] = e.BossCharacterId(i)
 	}
-	t.Difficulty = Difficulty(int32(fbsutils.Convert(e.Difficulty(), t.FlatBuffer.TableKey)))
+	t.Difficulty = Difficulty(fbsutils.Convert(int32(e.Difficulty()), t.FlatBuffer.TableKey))
 	t.IsOpen = fbsutils.Convert(e.IsOpen(), t.FlatBuffer.TableKey)
 	t.MaxPlayerCount = fbsutils.Convert(e.MaxPlayerCount(), t.FlatBuffer.TableKey)
 	t.RaidRoomLifeTime = fbsutils.Convert(e.RaidRoomLifeTime(), t.FlatBuffer.TableKey)
@@ -150,7 +150,7 @@ func (t *EliminateRaidStageExcelDto) UnmarshalMessage(e *EliminateRaidStageExcel
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.GroundDevName = fbsutils.Convert(string(e.GroundDevName()), t.FlatBuffer.TableKey)
 	t.EnterTimeLine = fbsutils.Convert(string(e.EnterTimeLine()), t.FlatBuffer.TableKey)
-	t.TacticEnvironment = TacticEnvironment(int32(fbsutils.Convert(e.TacticEnvironment(), t.FlatBuffer.TableKey)))
+	t.TacticEnvironment = TacticEnvironment(fbsutils.Convert(int32(e.TacticEnvironment()), t.FlatBuffer.TableKey))
 	t.DefaultClearScore = fbsutils.Convert(e.DefaultClearScore(), t.FlatBuffer.TableKey)
 	t.MaximumScore = fbsutils.Convert(e.MaximumScore(), t.FlatBuffer.TableKey)
 	t.PerSecondMinusScore = fbsutils.Convert(e.PerSecondMinusScore(), t.FlatBuffer.TableKey)
@@ -177,7 +177,7 @@ func (t *EliminateRaidStageExcelDto) UnmarshalMessage(e *EliminateRaidStageExcel
 	t.ClearScenarioKey = fbsutils.Convert(e.ClearScenarioKey(), t.FlatBuffer.TableKey)
 	t.ShowSkillCard = fbsutils.Convert(e.ShowSkillCard(), t.FlatBuffer.TableKey)
 	t.BossBgInfoKey = fbsutils.Convert(e.BossBgInfoKey(), t.FlatBuffer.TableKey)
-	t.EchelonExtensionType = EchelonExtensionType(int32(fbsutils.Convert(e.EchelonExtensionType(), t.FlatBuffer.TableKey)))
+	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

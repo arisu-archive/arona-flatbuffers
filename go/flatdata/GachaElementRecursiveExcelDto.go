@@ -51,7 +51,7 @@ func (t *GachaElementRecursiveExcelDto) UnmarshalMessage(e *GachaElementRecursiv
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.GachaGroupId = fbsutils.Convert(e.GachaGroupId(), t.FlatBuffer.TableKey)
-	t.ParcelType = ParcelType(int32(fbsutils.Convert(e.ParcelType(), t.FlatBuffer.TableKey)))
+	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
 	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
 	t.ParcelAmountMin = fbsutils.Convert(e.ParcelAmountMin(), t.FlatBuffer.TableKey)
 	t.ParcelAmountMax = fbsutils.Convert(e.ParcelAmountMax(), t.FlatBuffer.TableKey)

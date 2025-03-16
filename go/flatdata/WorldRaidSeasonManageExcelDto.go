@@ -101,7 +101,7 @@ func (t *WorldRaidSeasonManageExcelDto) UnmarshalMessage(e *WorldRaidSeasonManag
 	}
 	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EnterTicket = CurrencyTypes(int32(fbsutils.Convert(e.EnterTicket(), t.FlatBuffer.TableKey)))
+	t.EnterTicket = CurrencyTypes(fbsutils.Convert(int32(e.EnterTicket()), t.FlatBuffer.TableKey))
 	t.WorldRaidLobbyScene = fbsutils.Convert(string(e.WorldRaidLobbyScene()), t.FlatBuffer.TableKey)
 	t.WorldRaidLobbyBanner = fbsutils.Convert(string(e.WorldRaidLobbyBanner()), t.FlatBuffer.TableKey)
 	t.WorldRaidLobbyBg = fbsutils.Convert(string(e.WorldRaidLobbyBg()), t.FlatBuffer.TableKey)

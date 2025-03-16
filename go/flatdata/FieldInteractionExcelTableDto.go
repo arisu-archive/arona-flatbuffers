@@ -17,7 +17,7 @@ type FieldInteractionExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldInteractionExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldInteractionTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldInteraction"))
 	}
 	FieldInteractionExcelTableStart(b)
 	FieldInteractionExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *FieldInteractionExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldInteractionExcelTableDto) UnmarshalMessage(e *FieldInteractionExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldInteractionTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldInteraction"))
 	}
 	t.DataList = make([]FieldInteractionExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

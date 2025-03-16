@@ -122,10 +122,10 @@ func (t *MissionExcelDto) UnmarshalMessage(e *MissionExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Mission"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Category = MissionCategory(int32(fbsutils.Convert(e.Category(), t.FlatBuffer.TableKey)))
+	t.Category = MissionCategory(fbsutils.Convert(int32(e.Category()), t.FlatBuffer.TableKey))
 	t.Description = fbsutils.Convert(e.Description(), t.FlatBuffer.TableKey)
-	t.ResetType = MissionResetType(int32(fbsutils.Convert(e.ResetType(), t.FlatBuffer.TableKey)))
-	t.ToastDisplayType = MissionToastDisplayConditionType(int32(fbsutils.Convert(e.ToastDisplayType(), t.FlatBuffer.TableKey)))
+	t.ResetType = MissionResetType(fbsutils.Convert(int32(e.ResetType()), t.FlatBuffer.TableKey))
+	t.ToastDisplayType = MissionToastDisplayConditionType(fbsutils.Convert(int32(e.ToastDisplayType()), t.FlatBuffer.TableKey))
 	t.ToastImagePath = fbsutils.Convert(string(e.ToastImagePath()), t.FlatBuffer.TableKey)
 	t.ViewFlag = fbsutils.Convert(e.ViewFlag(), t.FlatBuffer.TableKey)
 	t.Limit = fbsutils.Convert(e.Limit(), t.FlatBuffer.TableKey)
@@ -133,24 +133,24 @@ func (t *MissionExcelDto) UnmarshalMessage(e *MissionExcel) error {
 	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
 	t.EndDay = fbsutils.Convert(e.EndDay(), t.FlatBuffer.TableKey)
 	t.StartableEndDate = fbsutils.Convert(string(e.StartableEndDate()), t.FlatBuffer.TableKey)
-	t.DateAutoRefer = ContentType(int32(fbsutils.Convert(e.DateAutoRefer(), t.FlatBuffer.TableKey)))
+	t.DateAutoRefer = ContentType(fbsutils.Convert(int32(e.DateAutoRefer()), t.FlatBuffer.TableKey))
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.PreMissionId = make([]int64, e.PreMissionIdLength())
 	for i := range e.PreMissionIdLength() {
 		t.PreMissionId[i] = e.PreMissionId(i)
 	}
-	t.AccountType = AccountState(int32(fbsutils.Convert(e.AccountType(), t.FlatBuffer.TableKey)))
+	t.AccountType = AccountState(fbsutils.Convert(int32(e.AccountType()), t.FlatBuffer.TableKey))
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
 	t.ContentTags = make([]SuddenMissionContentType, e.ContentTagsLength())
 	for i := range e.ContentTagsLength() {
-		t.ContentTags[i] = e.ContentTags(i)
+		t.ContentTags[i] = SuddenMissionContentType(fbsutils.Convert(int32(e.ContentTags(i)), t.FlatBuffer.TableKey))
 	}
 	t.ShortcutUi = make([]string, e.ShortcutUiLength())
 	for i := range e.ShortcutUiLength() {
 		t.ShortcutUi[i] = string(e.ShortcutUi(i))
 	}
 	t.ChallengeStageShortcut = fbsutils.Convert(e.ChallengeStageShortcut(), t.FlatBuffer.TableKey)
-	t.CompleteConditionType = MissionCompleteConditionType(int32(fbsutils.Convert(e.CompleteConditionType(), t.FlatBuffer.TableKey)))
+	t.CompleteConditionType = MissionCompleteConditionType(fbsutils.Convert(int32(e.CompleteConditionType()), t.FlatBuffer.TableKey))
 	t.CompleteConditionCount = fbsutils.Convert(e.CompleteConditionCount(), t.FlatBuffer.TableKey)
 	t.CompleteConditionParameter = make([]int64, e.CompleteConditionParameterLength())
 	for i := range e.CompleteConditionParameterLength() {
@@ -158,12 +158,12 @@ func (t *MissionExcelDto) UnmarshalMessage(e *MissionExcel) error {
 	}
 	t.CompleteConditionParameterTag = make([]Tag, e.CompleteConditionParameterTagLength())
 	for i := range e.CompleteConditionParameterTagLength() {
-		t.CompleteConditionParameterTag[i] = e.CompleteConditionParameterTag(i)
+		t.CompleteConditionParameterTag[i] = Tag(fbsutils.Convert(int32(e.CompleteConditionParameterTag(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardIcon = fbsutils.Convert(string(e.RewardIcon()), t.FlatBuffer.TableKey)
 	t.MissionRewardParcelType = make([]ParcelType, e.MissionRewardParcelTypeLength())
 	for i := range e.MissionRewardParcelTypeLength() {
-		t.MissionRewardParcelType[i] = e.MissionRewardParcelType(i)
+		t.MissionRewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.MissionRewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.MissionRewardParcelId = make([]int64, e.MissionRewardParcelIdLength())
 	for i := range e.MissionRewardParcelIdLength() {

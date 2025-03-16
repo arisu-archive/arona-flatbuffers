@@ -50,7 +50,7 @@ func (t *IdCardBackgroundExcelDto) UnmarshalMessage(e *IdCardBackgroundExcel) er
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("IdCardBackground"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Rarity = Rarity(int32(fbsutils.Convert(e.Rarity(), t.FlatBuffer.TableKey)))
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.CollectionVisible = fbsutils.Convert(e.CollectionVisible(), t.FlatBuffer.TableKey)
 	t.IsDefault = fbsutils.Convert(e.IsDefault(), t.FlatBuffer.TableKey)

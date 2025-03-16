@@ -51,11 +51,11 @@ func (t *BossExternalBTExcelDto) UnmarshalMessage(e *BossExternalBTExcel) error 
 	}
 	t.ExternalBtId = fbsutils.Convert(e.ExternalBtId(), t.FlatBuffer.TableKey)
 	t.AiPhase = fbsutils.Convert(e.AiPhase(), t.FlatBuffer.TableKey)
-	t.ExternalBtNodeType = ExternalBTNodeType(int32(fbsutils.Convert(e.ExternalBtNodeType(), t.FlatBuffer.TableKey)))
-	t.ExternalBtTrigger = ExternalBTTrigger(int32(fbsutils.Convert(e.ExternalBtTrigger(), t.FlatBuffer.TableKey)))
+	t.ExternalBtNodeType = ExternalBTNodeType(fbsutils.Convert(int32(e.ExternalBtNodeType()), t.FlatBuffer.TableKey))
+	t.ExternalBtTrigger = ExternalBTTrigger(fbsutils.Convert(int32(e.ExternalBtTrigger()), t.FlatBuffer.TableKey))
 	t.TriggerArgument = fbsutils.Convert(string(e.TriggerArgument()), t.FlatBuffer.TableKey)
 	t.BehaviorRate = fbsutils.Convert(e.BehaviorRate(), t.FlatBuffer.TableKey)
-	t.ExternalBehavior = ExternalBehavior(int32(fbsutils.Convert(e.ExternalBehavior(), t.FlatBuffer.TableKey)))
+	t.ExternalBehavior = ExternalBehavior(fbsutils.Convert(int32(e.ExternalBehavior()), t.FlatBuffer.TableKey))
 	t.BehaviorArgument = fbsutils.Convert(string(e.BehaviorArgument()), t.FlatBuffer.TableKey)
 	return nil
 }

@@ -44,7 +44,7 @@ func (t *WeekDungeonGroupBuffExcelDto) UnmarshalMessage(e *WeekDungeonGroupBuffE
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonGroupBuff"))
 	}
 	t.WeekDungeonBuffId = fbsutils.Convert(e.WeekDungeonBuffId(), t.FlatBuffer.TableKey)
-	t.School = School(int32(fbsutils.Convert(e.School(), t.FlatBuffer.TableKey)))
+	t.School = School(fbsutils.Convert(int32(e.School()), t.FlatBuffer.TableKey))
 	t.RecommandLocalizeEtcId = fbsutils.Convert(e.RecommandLocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.FormationLocalizeEtcId = fbsutils.Convert(e.FormationLocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.SkillGroupId = fbsutils.Convert(string(e.SkillGroupId()), t.FlatBuffer.TableKey)

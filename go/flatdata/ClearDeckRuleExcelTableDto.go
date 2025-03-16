@@ -17,7 +17,7 @@ type ClearDeckRuleExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ClearDeckRuleExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClearDeckRuleTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClearDeckRule"))
 	}
 	ClearDeckRuleExcelTableStart(b)
 	ClearDeckRuleExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *ClearDeckRuleExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ClearDeckRuleExcelTableDto) UnmarshalMessage(e *ClearDeckRuleExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClearDeckRuleTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClearDeckRule"))
 	}
 	t.DataList = make([]ClearDeckRuleExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

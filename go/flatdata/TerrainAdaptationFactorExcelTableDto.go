@@ -17,7 +17,7 @@ type TerrainAdaptationFactorExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TerrainAdaptationFactorExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TerrainAdaptationFactorTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TerrainAdaptationFactor"))
 	}
 	TerrainAdaptationFactorExcelTableStart(b)
 	TerrainAdaptationFactorExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *TerrainAdaptationFactorExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TerrainAdaptationFactorExcelTableDto) UnmarshalMessage(e *TerrainAdaptationFactorExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TerrainAdaptationFactorTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TerrainAdaptationFactor"))
 	}
 	t.DataList = make([]TerrainAdaptationFactorExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

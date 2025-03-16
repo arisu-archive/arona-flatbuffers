@@ -50,7 +50,7 @@ func (t *ClanAssistSlotExcelDto) UnmarshalMessage(e *ClanAssistSlotExcel) error 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanAssistSlot"))
 	}
 	t.SlotId = fbsutils.Convert(e.SlotId(), t.FlatBuffer.TableKey)
-	t.EchelonType = EchelonType(int32(fbsutils.Convert(e.EchelonType(), t.FlatBuffer.TableKey)))
+	t.EchelonType = EchelonType(fbsutils.Convert(int32(e.EchelonType()), t.FlatBuffer.TableKey))
 	t.SlotNumber = fbsutils.Convert(e.SlotNumber(), t.FlatBuffer.TableKey)
 	t.AssistTermRewardPeriodFromSec = fbsutils.Convert(e.AssistTermRewardPeriodFromSec(), t.FlatBuffer.TableKey)
 	t.AssistRewardLimit = fbsutils.Convert(e.AssistRewardLimit(), t.FlatBuffer.TableKey)

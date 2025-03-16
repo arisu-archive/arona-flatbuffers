@@ -65,10 +65,10 @@ func (t *MiniGameTBGThemaRewardExcelDto) UnmarshalMessage(e *MiniGameTBGThemaRew
 	t.ThemaRound = fbsutils.Convert(e.ThemaRound(), t.FlatBuffer.TableKey)
 	t.ThemaUniqueId = fbsutils.Convert(e.ThemaUniqueId(), t.FlatBuffer.TableKey)
 	t.IsLoop = fbsutils.Convert(e.IsLoop(), t.FlatBuffer.TableKey)
-	t.MiniGameTbgThemaRewardType = MiniGameTBGThemaRewardType(int32(fbsutils.Convert(e.MiniGameTbgThemaRewardType(), t.FlatBuffer.TableKey)))
+	t.MiniGameTbgThemaRewardType = MiniGameTBGThemaRewardType(fbsutils.Convert(int32(e.MiniGameTbgThemaRewardType()), t.FlatBuffer.TableKey))
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = e.RewardParcelType(i)
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {

@@ -17,7 +17,7 @@ type SpecialLobbyIllustExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SpecialLobbyIllustExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpecialLobbyIllustTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpecialLobbyIllust"))
 	}
 	SpecialLobbyIllustExcelTableStart(b)
 	SpecialLobbyIllustExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *SpecialLobbyIllustExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *SpecialLobbyIllustExcelTableDto) UnmarshalMessage(e *SpecialLobbyIllustExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpecialLobbyIllustTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpecialLobbyIllust"))
 	}
 	t.DataList = make([]SpecialLobbyIllustExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

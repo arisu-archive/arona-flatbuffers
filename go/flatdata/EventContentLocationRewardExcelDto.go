@@ -129,7 +129,7 @@ func (t *EventContentLocationRewardExcelDto) UnmarshalMessage(e *EventContentLoc
 	t.ExtraFavorExpProb = fbsutils.Convert(e.ExtraFavorExpProb(), t.FlatBuffer.TableKey)
 	t.ExtraRewardParcelType = make([]ParcelType, e.ExtraRewardParcelTypeLength())
 	for i := range e.ExtraRewardParcelTypeLength() {
-		t.ExtraRewardParcelType[i] = e.ExtraRewardParcelType(i)
+		t.ExtraRewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ExtraRewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.ExtraRewardParcelId = make([]int64, e.ExtraRewardParcelIdLength())
 	for i := range e.ExtraRewardParcelIdLength() {
@@ -149,7 +149,7 @@ func (t *EventContentLocationRewardExcelDto) UnmarshalMessage(e *EventContentLoc
 	}
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = e.RewardParcelType(i)
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {

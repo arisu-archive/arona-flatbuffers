@@ -17,7 +17,7 @@ type CumulativeTimeRewardExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CumulativeTimeRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CumulativeTimeRewardTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CumulativeTimeReward"))
 	}
 	CumulativeTimeRewardExcelTableStart(b)
 	CumulativeTimeRewardExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *CumulativeTimeRewardExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CumulativeTimeRewardExcelTableDto) UnmarshalMessage(e *CumulativeTimeRewardExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CumulativeTimeRewardTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CumulativeTimeReward"))
 	}
 	t.DataList = make([]CumulativeTimeRewardExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

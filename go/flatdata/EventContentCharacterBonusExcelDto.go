@@ -53,7 +53,7 @@ func (t *EventContentCharacterBonusExcelDto) UnmarshalMessage(e *EventContentCha
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.EventContentItemType = make([]EventContentItemType, e.EventContentItemTypeLength())
 	for i := range e.EventContentItemTypeLength() {
-		t.EventContentItemType[i] = e.EventContentItemType(i)
+		t.EventContentItemType[i] = EventContentItemType(fbsutils.Convert(int32(e.EventContentItemType(i)), t.FlatBuffer.TableKey))
 	}
 	t.BonusPercentage = make([]int64, e.BonusPercentageLength())
 	for i := range e.BonusPercentageLength() {

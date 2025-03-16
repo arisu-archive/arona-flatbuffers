@@ -71,7 +71,7 @@ func (t *FavorLevelRewardExcelDto) UnmarshalMessage(e *FavorLevelRewardExcel) er
 	t.FavorLevel = fbsutils.Convert(e.FavorLevel(), t.FlatBuffer.TableKey)
 	t.StatType = make([]EquipmentOptionType, e.StatTypeLength())
 	for i := range e.StatTypeLength() {
-		t.StatType[i] = e.StatType(i)
+		t.StatType[i] = EquipmentOptionType(fbsutils.Convert(int32(e.StatType(i)), t.FlatBuffer.TableKey))
 	}
 	t.StatValue = make([]int64, e.StatValueLength())
 	for i := range e.StatValueLength() {
@@ -79,7 +79,7 @@ func (t *FavorLevelRewardExcelDto) UnmarshalMessage(e *FavorLevelRewardExcel) er
 	}
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = e.RewardParcelType(i)
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {

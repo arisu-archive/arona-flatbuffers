@@ -43,7 +43,7 @@ func (t *CharacterPotentialExcelDto) UnmarshalMessage(e *CharacterPotentialExcel
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.PotentialStatGroupId = fbsutils.Convert(e.PotentialStatGroupId(), t.FlatBuffer.TableKey)
-	t.PotentialStatBonusRateType = PotentialStatBonusRateType(int32(fbsutils.Convert(e.PotentialStatBonusRateType(), t.FlatBuffer.TableKey)))
+	t.PotentialStatBonusRateType = PotentialStatBonusRateType(fbsutils.Convert(int32(e.PotentialStatBonusRateType()), t.FlatBuffer.TableKey))
 	t.IsUnnecessaryStat = fbsutils.Convert(e.IsUnnecessaryStat(), t.FlatBuffer.TableKey)
 	return nil
 }

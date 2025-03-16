@@ -17,7 +17,7 @@ type FieldSeasonExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldSeasonExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeasonTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeason"))
 	}
 	FieldSeasonExcelTableStart(b)
 	FieldSeasonExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *FieldSeasonExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldSeasonExcelTableDto) UnmarshalMessage(e *FieldSeasonExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeasonTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeason"))
 	}
 	t.DataList = make([]FieldSeasonExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

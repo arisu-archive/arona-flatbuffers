@@ -59,7 +59,7 @@ func (t *CampaignChapterRewardExcelDto) UnmarshalMessage(e *CampaignChapterRewar
 	t.CampaignChapterStar = fbsutils.Convert(e.CampaignChapterStar(), t.FlatBuffer.TableKey)
 	t.ChapterRewardParcelType = make([]ParcelType, e.ChapterRewardParcelTypeLength())
 	for i := range e.ChapterRewardParcelTypeLength() {
-		t.ChapterRewardParcelType[i] = e.ChapterRewardParcelType(i)
+		t.ChapterRewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ChapterRewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.ChapterRewardId = make([]int64, e.ChapterRewardIdLength())
 	for i := range e.ChapterRewardIdLength() {

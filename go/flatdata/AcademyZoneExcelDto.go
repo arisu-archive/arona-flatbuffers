@@ -66,7 +66,7 @@ func (t *AcademyZoneExcelDto) UnmarshalMessage(e *AcademyZoneExcel) error {
 	t.RewardGroupId = fbsutils.Convert(e.RewardGroupId(), t.FlatBuffer.TableKey)
 	t.Tags = make([]Tag, e.TagsLength())
 	for i := range e.TagsLength() {
-		t.Tags[i] = e.Tags(i)
+		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

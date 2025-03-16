@@ -44,7 +44,7 @@ func (t *GachaGroupExcelDto) UnmarshalMessage(e *GachaGroupExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)
 	t.IsRecursive = fbsutils.Convert(e.IsRecursive(), t.FlatBuffer.TableKey)
-	t.GroupType = GachaGroupType(int32(fbsutils.Convert(e.GroupType(), t.FlatBuffer.TableKey)))
+	t.GroupType = GachaGroupType(fbsutils.Convert(int32(e.GroupType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

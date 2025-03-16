@@ -70,9 +70,9 @@ func (t *StoryStrategyExcelDto) UnmarshalMessage(e *StoryStrategyExcel) error {
 	t.StrategyMap = fbsutils.Convert(string(e.StrategyMap()), t.FlatBuffer.TableKey)
 	t.StrategyMapBg = fbsutils.Convert(string(e.StrategyMapBg()), t.FlatBuffer.TableKey)
 	t.MaxTurn = fbsutils.Convert(e.MaxTurn(), t.FlatBuffer.TableKey)
-	t.StageTopography = StageTopography(int32(fbsutils.Convert(e.StageTopography(), t.FlatBuffer.TableKey)))
-	t.StrategyEnvironment = StrategyEnvironment(int32(fbsutils.Convert(e.StrategyEnvironment(), t.FlatBuffer.TableKey)))
-	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
+	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
+	t.StrategyEnvironment = StrategyEnvironment(fbsutils.Convert(int32(e.StrategyEnvironment()), t.FlatBuffer.TableKey))
+	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
 	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
 	t.FirstClearReportEventName = fbsutils.Convert(string(e.FirstClearReportEventName()), t.FlatBuffer.TableKey)
 	return nil

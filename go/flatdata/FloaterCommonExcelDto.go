@@ -46,7 +46,7 @@ func (t *FloaterCommonExcelDto) UnmarshalMessage(e *FloaterCommonExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FloaterCommon"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.TacticEntityType = TacticEntityType(int32(fbsutils.Convert(e.TacticEntityType(), t.FlatBuffer.TableKey)))
+	t.TacticEntityType = TacticEntityType(fbsutils.Convert(int32(e.TacticEntityType()), t.FlatBuffer.TableKey))
 	t.FloaterOffsetPosX = fbsutils.Convert(e.FloaterOffsetPosX(), t.FlatBuffer.TableKey)
 	t.FloaterOffsetPosY = fbsutils.Convert(e.FloaterOffsetPosY(), t.FlatBuffer.TableKey)
 	t.FloaterRandomPosRangeX = fbsutils.Convert(e.FloaterRandomPosRangeX(), t.FlatBuffer.TableKey)

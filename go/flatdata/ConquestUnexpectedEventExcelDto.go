@@ -58,7 +58,7 @@ func (t *ConquestUnexpectedEventExcelDto) UnmarshalMessage(e *ConquestUnexpected
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestUnexpectedEvent"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.UnexpectedEventConditionType = ParcelType(int32(fbsutils.Convert(e.UnexpectedEventConditionType(), t.FlatBuffer.TableKey)))
+	t.UnexpectedEventConditionType = ParcelType(fbsutils.Convert(int32(e.UnexpectedEventConditionType()), t.FlatBuffer.TableKey))
 	t.UnexpectedEventConditionUniqueId = fbsutils.Convert(e.UnexpectedEventConditionUniqueId(), t.FlatBuffer.TableKey)
 	t.UnexpectedEventConditionAmount = fbsutils.Convert(e.UnexpectedEventConditionAmount(), t.FlatBuffer.TableKey)
 	t.UnexpectedEventOccurDailyLimitCount = fbsutils.Convert(e.UnexpectedEventOccurDailyLimitCount(), t.FlatBuffer.TableKey)

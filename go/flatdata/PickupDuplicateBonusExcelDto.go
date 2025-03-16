@@ -48,10 +48,10 @@ func (t *PickupDuplicateBonusExcelDto) UnmarshalMessage(e *PickupDuplicateBonusE
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PickupDuplicateBonus"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ShopCategoryType = ShopCategoryType(int32(fbsutils.Convert(e.ShopCategoryType(), t.FlatBuffer.TableKey)))
+	t.ShopCategoryType = ShopCategoryType(fbsutils.Convert(int32(e.ShopCategoryType()), t.FlatBuffer.TableKey))
 	t.ShopId = fbsutils.Convert(e.ShopId(), t.FlatBuffer.TableKey)
 	t.PickupCharacterId = fbsutils.Convert(e.PickupCharacterId(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(int32(fbsutils.Convert(e.RewardParcelType(), t.FlatBuffer.TableKey)))
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
 	return nil

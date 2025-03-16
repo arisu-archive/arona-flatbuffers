@@ -49,8 +49,8 @@ func (t *GroundNodeFlatDto) UnmarshalMessage(e *GroundNodeFlat) error {
 	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
 	t.IsCanNotUseSkill = fbsutils.Convert(e.IsCanNotUseSkill(), t.FlatBuffer.TableKey)
 	t.Position.UnmarshalMessage(e.Position(nil))
-	t.NodeType = GroundNodeType(int32(fbsutils.Convert(e.NodeType(), t.FlatBuffer.TableKey)))
-	t.OriginalNodeType = GroundNodeType(int32(fbsutils.Convert(e.OriginalNodeType(), t.FlatBuffer.TableKey)))
+	t.NodeType = GroundNodeType(fbsutils.Convert(int32(e.NodeType()), t.FlatBuffer.TableKey))
+	t.OriginalNodeType = GroundNodeType(fbsutils.Convert(int32(e.OriginalNodeType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

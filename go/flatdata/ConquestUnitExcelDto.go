@@ -114,35 +114,35 @@ func (t *ConquestUnitExcelDto) UnmarshalMessage(e *ConquestUnitExcel) error {
 	t.ShieldEffectScale = fbsutils.Convert(e.ShieldEffectScale(), t.FlatBuffer.TableKey)
 	t.UnitFxPrefabName = fbsutils.Convert(string(e.UnitFxPrefabName()), t.FlatBuffer.TableKey)
 	t.PointAnimation = fbsutils.Convert(string(e.PointAnimation()), t.FlatBuffer.TableKey)
-	t.EnemyType = ConquestEnemyType(int32(fbsutils.Convert(e.EnemyType(), t.FlatBuffer.TableKey)))
-	t.Team = ConquestTeamType(int32(fbsutils.Convert(e.Team(), t.FlatBuffer.TableKey)))
+	t.EnemyType = ConquestEnemyType(fbsutils.Convert(int32(e.EnemyType()), t.FlatBuffer.TableKey))
+	t.Team = ConquestTeamType(fbsutils.Convert(int32(e.Team()), t.FlatBuffer.TableKey))
 	t.UnitGroup = fbsutils.Convert(e.UnitGroup(), t.FlatBuffer.TableKey)
 	t.PrevUnitGroup = fbsutils.Convert(e.PrevUnitGroup(), t.FlatBuffer.TableKey)
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.StarGoal = make([]StarGoalType, e.StarGoalLength())
 	for i := range e.StarGoalLength() {
-		t.StarGoal[i] = e.StarGoal(i)
+		t.StarGoal[i] = StarGoalType(fbsutils.Convert(int32(e.StarGoal(i)), t.FlatBuffer.TableKey))
 	}
 	t.StarGoalAmount = make([]int32, e.StarGoalAmountLength())
 	for i := range e.StarGoalAmountLength() {
 		t.StarGoalAmount[i] = e.StarGoalAmount(i)
 	}
 	t.GroupBuffId = fbsutils.Convert(e.GroupBuffId(), t.FlatBuffer.TableKey)
-	t.StageEnterCostType = ParcelType(int32(fbsutils.Convert(e.StageEnterCostType(), t.FlatBuffer.TableKey)))
+	t.StageEnterCostType = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType()), t.FlatBuffer.TableKey))
 	t.StageEnterCostId = fbsutils.Convert(e.StageEnterCostId(), t.FlatBuffer.TableKey)
 	t.StageEnterCostAmount = fbsutils.Convert(e.StageEnterCostAmount(), t.FlatBuffer.TableKey)
-	t.ManageEchelonStageEnterCostType = ParcelType(int32(fbsutils.Convert(e.ManageEchelonStageEnterCostType(), t.FlatBuffer.TableKey)))
+	t.ManageEchelonStageEnterCostType = ParcelType(fbsutils.Convert(int32(e.ManageEchelonStageEnterCostType()), t.FlatBuffer.TableKey))
 	t.ManageEchelonStageEnterCostId = fbsutils.Convert(e.ManageEchelonStageEnterCostId(), t.FlatBuffer.TableKey)
 	t.ManageEchelonStageEnterCostAmount = fbsutils.Convert(e.ManageEchelonStageEnterCostAmount(), t.FlatBuffer.TableKey)
 	t.EnterScenarioGroupId = fbsutils.Convert(e.EnterScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.ClearScenarioGroupId = fbsutils.Convert(e.ClearScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.ConquestRewardId = fbsutils.Convert(e.ConquestRewardId(), t.FlatBuffer.TableKey)
-	t.StageTopography = StageTopography(int32(fbsutils.Convert(e.StageTopography(), t.FlatBuffer.TableKey)))
+	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
 	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
 	t.TacticRewardExp = fbsutils.Convert(e.TacticRewardExp(), t.FlatBuffer.TableKey)
 	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
-	t.EchelonExtensionType = EchelonExtensionType(int32(fbsutils.Convert(e.EchelonExtensionType(), t.FlatBuffer.TableKey)))
+	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

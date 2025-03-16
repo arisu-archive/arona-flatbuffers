@@ -65,13 +65,13 @@ func (t *AcademyLocationExcelDto) UnmarshalMessage(e *AcademyLocationExcel) erro
 	t.IconImagePath = fbsutils.Convert(string(e.IconImagePath()), t.FlatBuffer.TableKey)
 	t.OpenCondition = make([]School, e.OpenConditionLength())
 	for i := range e.OpenConditionLength() {
-		t.OpenCondition[i] = e.OpenCondition(i)
+		t.OpenCondition[i] = School(fbsutils.Convert(int32(e.OpenCondition(i)), t.FlatBuffer.TableKey))
 	}
 	t.OpenConditionCount = make([]int64, e.OpenConditionCountLength())
 	for i := range e.OpenConditionCountLength() {
 		t.OpenConditionCount[i] = e.OpenConditionCount(i)
 	}
-	t.RewardParcelType = ParcelType(int32(fbsutils.Convert(e.RewardParcelType(), t.FlatBuffer.TableKey)))
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.OpenTeacherRank = fbsutils.Convert(e.OpenTeacherRank(), t.FlatBuffer.TableKey)
 	return nil

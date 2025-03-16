@@ -60,7 +60,7 @@ func (t *StickerGroupExcelDto) UnmarshalMessage(e *StickerGroupExcel) error {
 	t.UniqueLayoutPath = fbsutils.Convert(string(e.UniqueLayoutPath()), t.FlatBuffer.TableKey)
 	t.StickerGroupIconpath = fbsutils.Convert(string(e.StickerGroupIconpath()), t.FlatBuffer.TableKey)
 	t.PageCompleteSlot = fbsutils.Convert(e.PageCompleteSlot(), t.FlatBuffer.TableKey)
-	t.PageCompleteRewardParcelType = ParcelType(int32(fbsutils.Convert(e.PageCompleteRewardParcelType(), t.FlatBuffer.TableKey)))
+	t.PageCompleteRewardParcelType = ParcelType(fbsutils.Convert(int32(e.PageCompleteRewardParcelType()), t.FlatBuffer.TableKey))
 	t.PageCompleteRewardParcelId = fbsutils.Convert(e.PageCompleteRewardParcelId(), t.FlatBuffer.TableKey)
 	t.PageCompleteRewardAmount = fbsutils.Convert(e.PageCompleteRewardAmount(), t.FlatBuffer.TableKey)
 	t.LocalizeTitle = fbsutils.Convert(e.LocalizeTitle(), t.FlatBuffer.TableKey)

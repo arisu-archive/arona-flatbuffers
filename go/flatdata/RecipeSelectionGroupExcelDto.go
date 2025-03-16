@@ -47,7 +47,7 @@ func (t *RecipeSelectionGroupExcelDto) UnmarshalMessage(e *RecipeSelectionGroupE
 	}
 	t.RecipeSelectionGroupId = fbsutils.Convert(e.RecipeSelectionGroupId(), t.FlatBuffer.TableKey)
 	t.RecipeSelectionGroupComponentId = fbsutils.Convert(e.RecipeSelectionGroupComponentId(), t.FlatBuffer.TableKey)
-	t.ParcelType = ParcelType(int32(fbsutils.Convert(e.ParcelType(), t.FlatBuffer.TableKey)))
+	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
 	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
 	t.ResultAmountMin = fbsutils.Convert(e.ResultAmountMin(), t.FlatBuffer.TableKey)
 	t.ResultAmountMax = fbsutils.Convert(e.ResultAmountMax(), t.FlatBuffer.TableKey)

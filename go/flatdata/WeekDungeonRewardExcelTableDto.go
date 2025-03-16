@@ -17,7 +17,7 @@ type WeekDungeonRewardExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WeekDungeonRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonRewardTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonReward"))
 	}
 	WeekDungeonRewardExcelTableStart(b)
 	WeekDungeonRewardExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *WeekDungeonRewardExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WeekDungeonRewardExcelTableDto) UnmarshalMessage(e *WeekDungeonRewardExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonRewardTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonReward"))
 	}
 	t.DataList = make([]WeekDungeonRewardExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

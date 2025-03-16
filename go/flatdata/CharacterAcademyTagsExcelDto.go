@@ -68,23 +68,23 @@ func (t *CharacterAcademyTagsExcelDto) UnmarshalMessage(e *CharacterAcademyTagsE
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.FavorTags = make([]Tag, e.FavorTagsLength())
 	for i := range e.FavorTagsLength() {
-		t.FavorTags[i] = e.FavorTags(i)
+		t.FavorTags[i] = Tag(fbsutils.Convert(int32(e.FavorTags(i)), t.FlatBuffer.TableKey))
 	}
 	t.FavorItemTags = make([]Tag, e.FavorItemTagsLength())
 	for i := range e.FavorItemTagsLength() {
-		t.FavorItemTags[i] = e.FavorItemTags(i)
+		t.FavorItemTags[i] = Tag(fbsutils.Convert(int32(e.FavorItemTags(i)), t.FlatBuffer.TableKey))
 	}
 	t.FavorItemUniqueTags = make([]Tag, e.FavorItemUniqueTagsLength())
 	for i := range e.FavorItemUniqueTagsLength() {
-		t.FavorItemUniqueTags[i] = e.FavorItemUniqueTags(i)
+		t.FavorItemUniqueTags[i] = Tag(fbsutils.Convert(int32(e.FavorItemUniqueTags(i)), t.FlatBuffer.TableKey))
 	}
 	t.ForbiddenTags = make([]Tag, e.ForbiddenTagsLength())
 	for i := range e.ForbiddenTagsLength() {
-		t.ForbiddenTags[i] = e.ForbiddenTags(i)
+		t.ForbiddenTags[i] = Tag(fbsutils.Convert(int32(e.ForbiddenTags(i)), t.FlatBuffer.TableKey))
 	}
 	t.ZoneWhiteListTags = make([]Tag, e.ZoneWhiteListTagsLength())
 	for i := range e.ZoneWhiteListTagsLength() {
-		t.ZoneWhiteListTags[i] = e.ZoneWhiteListTags(i)
+		t.ZoneWhiteListTags[i] = Tag(fbsutils.Convert(int32(e.ZoneWhiteListTags(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

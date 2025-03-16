@@ -17,7 +17,7 @@ type FieldMasteryLevelExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldMasteryLevelExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryLevelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryLevel"))
 	}
 	FieldMasteryLevelExcelTableStart(b)
 	FieldMasteryLevelExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *FieldMasteryLevelExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldMasteryLevelExcelTableDto) UnmarshalMessage(e *FieldMasteryLevelExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryLevelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryLevel"))
 	}
 	t.DataList = make([]FieldMasteryLevelExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

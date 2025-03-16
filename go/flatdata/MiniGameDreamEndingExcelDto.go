@@ -57,12 +57,12 @@ func (t *MiniGameDreamEndingExcelDto) UnmarshalMessage(e *MiniGameDreamEndingExc
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.EndingId = fbsutils.Convert(e.EndingId(), t.FlatBuffer.TableKey)
-	t.DreamMakerEndingType = DreamMakerEndingType(int32(fbsutils.Convert(e.DreamMakerEndingType(), t.FlatBuffer.TableKey)))
+	t.DreamMakerEndingType = DreamMakerEndingType(fbsutils.Convert(int32(e.DreamMakerEndingType()), t.FlatBuffer.TableKey))
 	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.EndingCondition = make([]DreamMakerEndingCondition, e.EndingConditionLength())
 	for i := range e.EndingConditionLength() {
-		t.EndingCondition[i] = e.EndingCondition(i)
+		t.EndingCondition[i] = DreamMakerEndingCondition(fbsutils.Convert(int32(e.EndingCondition(i)), t.FlatBuffer.TableKey))
 	}
 	t.EndingConditionValue = make([]int64, e.EndingConditionValueLength())
 	for i := range e.EndingConditionValueLength() {

@@ -44,7 +44,7 @@ func (t *DefaultFurnitureExcelDto) UnmarshalMessage(e *DefaultFurnitureExcel) er
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultFurniture"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Location = FurnitureLocation(int32(fbsutils.Convert(e.Location(), t.FlatBuffer.TableKey)))
+	t.Location = FurnitureLocation(fbsutils.Convert(int32(e.Location()), t.FlatBuffer.TableKey))
 	t.PositionX = fbsutils.Convert(e.PositionX(), t.FlatBuffer.TableKey)
 	t.PositionY = fbsutils.Convert(e.PositionY(), t.FlatBuffer.TableKey)
 	t.Rotation = fbsutils.Convert(e.Rotation(), t.FlatBuffer.TableKey)

@@ -17,7 +17,7 @@ type EventContentArchiveBannerOffsetExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentArchiveBannerOffsetExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentArchiveBannerOffsetTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentArchiveBannerOffset"))
 	}
 	EventContentArchiveBannerOffsetExcelTableStart(b)
 	EventContentArchiveBannerOffsetExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *EventContentArchiveBannerOffsetExcelTableDto) Marshal() ([]byte, error)
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentArchiveBannerOffsetExcelTableDto) UnmarshalMessage(e *EventContentArchiveBannerOffsetExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentArchiveBannerOffsetTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentArchiveBannerOffset"))
 	}
 	t.DataList = make([]EventContentArchiveBannerOffsetExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

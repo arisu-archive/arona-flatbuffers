@@ -41,7 +41,7 @@ func (t *EventContentMiniEventShortCutExcelDto) UnmarshalMessage(e *EventContent
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.ShorcutContentType = EventTargetType(int32(fbsutils.Convert(e.ShorcutContentType(), t.FlatBuffer.TableKey)))
+	t.ShorcutContentType = EventTargetType(fbsutils.Convert(int32(e.ShorcutContentType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

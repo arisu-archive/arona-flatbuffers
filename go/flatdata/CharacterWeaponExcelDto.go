@@ -98,7 +98,7 @@ func (t *CharacterWeaponExcelDto) UnmarshalMessage(e *CharacterWeaponExcel) erro
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
 	t.SetRecipe = fbsutils.Convert(e.SetRecipe(), t.FlatBuffer.TableKey)
-	t.StatLevelUpType = StatLevelUpType(int32(fbsutils.Convert(e.StatLevelUpType(), t.FlatBuffer.TableKey)))
+	t.StatLevelUpType = StatLevelUpType(fbsutils.Convert(int32(e.StatLevelUpType()), t.FlatBuffer.TableKey))
 	t.AttackPower = fbsutils.Convert(e.AttackPower(), t.FlatBuffer.TableKey)
 	t.AttackPower100 = fbsutils.Convert(e.AttackPower100(), t.FlatBuffer.TableKey)
 	t.MaxHp = fbsutils.Convert(e.MaxHp(), t.FlatBuffer.TableKey)
@@ -107,7 +107,7 @@ func (t *CharacterWeaponExcelDto) UnmarshalMessage(e *CharacterWeaponExcel) erro
 	t.HealPower100 = fbsutils.Convert(e.HealPower100(), t.FlatBuffer.TableKey)
 	t.Tags = make([]Tag, e.TagsLength())
 	for i := range e.TagsLength() {
-		t.Tags[i] = e.Tags(i)
+		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
 	}
 	t.Unlock = make([]bool, e.UnlockLength())
 	for i := range e.UnlockLength() {
@@ -127,7 +127,7 @@ func (t *CharacterWeaponExcelDto) UnmarshalMessage(e *CharacterWeaponExcel) erro
 	}
 	t.StatType = make([]EquipmentOptionType, e.StatTypeLength())
 	for i := range e.StatTypeLength() {
-		t.StatType[i] = e.StatType(i)
+		t.StatType[i] = EquipmentOptionType(fbsutils.Convert(int32(e.StatType(i)), t.FlatBuffer.TableKey))
 	}
 	t.StatValue = make([]int64, e.StatValueLength())
 	for i := range e.StatValueLength() {

@@ -45,7 +45,7 @@ func (t *FieldRewardExcelDto) UnmarshalMessage(e *FieldRewardExcel) error {
 	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.RewardProb = fbsutils.Convert(e.RewardProb(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(int32(fbsutils.Convert(e.RewardParcelType(), t.FlatBuffer.TableKey)))
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
 	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
 	return nil

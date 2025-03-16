@@ -43,7 +43,7 @@ func (t *MinigameTBGVoiceExcelDto) UnmarshalMessage(e *MinigameTBGVoiceExcel) er
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.VoiceCondition = TBGVoiceCondition(int32(fbsutils.Convert(e.VoiceCondition(), t.FlatBuffer.TableKey)))
+	t.VoiceCondition = TBGVoiceCondition(fbsutils.Convert(int32(e.VoiceCondition()), t.FlatBuffer.TableKey))
 	t.VoiceId = fbsutils.Convert(e.VoiceId(), t.FlatBuffer.TableKey)
 	return nil
 }

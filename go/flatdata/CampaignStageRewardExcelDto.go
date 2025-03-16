@@ -48,9 +48,9 @@ func (t *CampaignStageRewardExcelDto) UnmarshalMessage(e *CampaignStageRewardExc
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignStageReward"))
 	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.RewardTag = RewardTag(int32(fbsutils.Convert(e.RewardTag(), t.FlatBuffer.TableKey)))
+	t.RewardTag = RewardTag(fbsutils.Convert(int32(e.RewardTag()), t.FlatBuffer.TableKey))
 	t.StageRewardProb = fbsutils.Convert(e.StageRewardProb(), t.FlatBuffer.TableKey)
-	t.StageRewardParcelType = ParcelType(int32(fbsutils.Convert(e.StageRewardParcelType(), t.FlatBuffer.TableKey)))
+	t.StageRewardParcelType = ParcelType(fbsutils.Convert(int32(e.StageRewardParcelType()), t.FlatBuffer.TableKey))
 	t.StageRewardId = fbsutils.Convert(e.StageRewardId(), t.FlatBuffer.TableKey)
 	t.StageRewardAmount = fbsutils.Convert(e.StageRewardAmount(), t.FlatBuffer.TableKey)
 	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)

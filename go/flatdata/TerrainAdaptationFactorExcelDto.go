@@ -47,8 +47,8 @@ func (t *TerrainAdaptationFactorExcelDto) UnmarshalMessage(e *TerrainAdaptationF
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TerrainAdaptationFactor"))
 	}
-	t.TerrainAdaptation = StageTopography(int32(fbsutils.Convert(e.TerrainAdaptation(), t.FlatBuffer.TableKey)))
-	t.TerrainAdaptationStat = TerrainAdaptationStat(int32(fbsutils.Convert(e.TerrainAdaptationStat(), t.FlatBuffer.TableKey)))
+	t.TerrainAdaptation = StageTopography(fbsutils.Convert(int32(e.TerrainAdaptation()), t.FlatBuffer.TableKey))
+	t.TerrainAdaptationStat = TerrainAdaptationStat(fbsutils.Convert(int32(e.TerrainAdaptationStat()), t.FlatBuffer.TableKey))
 	t.ShotFactor = fbsutils.Convert(e.ShotFactor(), t.FlatBuffer.TableKey)
 	t.BlockFactor = fbsutils.Convert(e.BlockFactor(), t.FlatBuffer.TableKey)
 	t.AccuracyFactor = fbsutils.Convert(e.AccuracyFactor(), t.FlatBuffer.TableKey)

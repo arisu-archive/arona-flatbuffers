@@ -66,12 +66,12 @@ func (t *RecipeExcelDto) UnmarshalMessage(e *RecipeExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Recipe"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.RecipeType = RecipeType(int32(fbsutils.Convert(e.RecipeType(), t.FlatBuffer.TableKey)))
+	t.RecipeType = RecipeType(fbsutils.Convert(int32(e.RecipeType()), t.FlatBuffer.TableKey))
 	t.RecipeIngredientId = fbsutils.Convert(e.RecipeIngredientId(), t.FlatBuffer.TableKey)
 	t.RecipeSelectionGroupId = fbsutils.Convert(e.RecipeSelectionGroupId(), t.FlatBuffer.TableKey)
 	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
 	for i := range e.ParcelTypeLength() {
-		t.ParcelType[i] = e.ParcelType(i)
+		t.ParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {

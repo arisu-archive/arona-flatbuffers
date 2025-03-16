@@ -17,7 +17,7 @@ type FieldSceneExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldSceneExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSceneTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldScene"))
 	}
 	FieldSceneExcelTableStart(b)
 	FieldSceneExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *FieldSceneExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldSceneExcelTableDto) UnmarshalMessage(e *FieldSceneExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSceneTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldScene"))
 	}
 	t.DataList = make([]FieldSceneExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

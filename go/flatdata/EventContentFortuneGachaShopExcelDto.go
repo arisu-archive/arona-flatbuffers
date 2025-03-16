@@ -80,7 +80,7 @@ func (t *EventContentFortuneGachaShopExcelDto) UnmarshalMessage(e *EventContentF
 	t.ProbModifyLimit = fbsutils.Convert(e.ProbModifyLimit(), t.FlatBuffer.TableKey)
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = e.RewardParcelType(i)
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {

@@ -17,7 +17,7 @@ type MinigameTBGVoiceExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGVoiceExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGVoiceTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGVoice"))
 	}
 	MinigameTBGVoiceExcelTableStart(b)
 	MinigameTBGVoiceExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *MinigameTBGVoiceExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGVoiceExcelTableDto) UnmarshalMessage(e *MinigameTBGVoiceExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGVoiceTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGVoice"))
 	}
 	t.DataList = make([]MinigameTBGVoiceExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

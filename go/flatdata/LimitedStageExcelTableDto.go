@@ -17,7 +17,7 @@ type LimitedStageExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LimitedStageExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStageTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStage"))
 	}
 	LimitedStageExcelTableStart(b)
 	LimitedStageExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *LimitedStageExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LimitedStageExcelTableDto) UnmarshalMessage(e *LimitedStageExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStageTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LimitedStage"))
 	}
 	t.DataList = make([]LimitedStageExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

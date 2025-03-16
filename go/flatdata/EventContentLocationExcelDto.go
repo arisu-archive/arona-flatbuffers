@@ -60,10 +60,10 @@ func (t *EventContentLocationExcelDto) UnmarshalMessage(e *EventContentLocationE
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.PrefabPath = fbsutils.Convert(string(e.PrefabPath()), t.FlatBuffer.TableKey)
 	t.LocationResetScheduleCount = fbsutils.Convert(e.LocationResetScheduleCount(), t.FlatBuffer.TableKey)
-	t.ScheduleEventPointCostParcelType = ParcelType(int32(fbsutils.Convert(e.ScheduleEventPointCostParcelType(), t.FlatBuffer.TableKey)))
+	t.ScheduleEventPointCostParcelType = ParcelType(fbsutils.Convert(int32(e.ScheduleEventPointCostParcelType()), t.FlatBuffer.TableKey))
 	t.ScheduleEventPointCostParcelId = fbsutils.Convert(e.ScheduleEventPointCostParcelId(), t.FlatBuffer.TableKey)
 	t.ScheduleEventPointCostParcelAmount = fbsutils.Convert(e.ScheduleEventPointCostParcelAmount(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(int32(fbsutils.Convert(e.RewardParcelType(), t.FlatBuffer.TableKey)))
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.InformationGroupId = fbsutils.Convert(e.InformationGroupId(), t.FlatBuffer.TableKey)
 	return nil

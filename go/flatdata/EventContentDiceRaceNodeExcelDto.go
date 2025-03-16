@@ -61,11 +61,11 @@ func (t *EventContentDiceRaceNodeExcelDto) UnmarshalMessage(e *EventContentDiceR
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.NodeId = fbsutils.Convert(e.NodeId(), t.FlatBuffer.TableKey)
-	t.EventContentDiceRaceNodeType = EventContentDiceRaceNodeType(int32(fbsutils.Convert(e.EventContentDiceRaceNodeType(), t.FlatBuffer.TableKey)))
+	t.EventContentDiceRaceNodeType = EventContentDiceRaceNodeType(fbsutils.Convert(int32(e.EventContentDiceRaceNodeType()), t.FlatBuffer.TableKey))
 	t.MoveForwardTypeArg = fbsutils.Convert(e.MoveForwardTypeArg(), t.FlatBuffer.TableKey)
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = e.RewardParcelType(i)
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {

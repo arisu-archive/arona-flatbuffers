@@ -67,10 +67,10 @@ func (t *EchelonConstraintExcelDto) UnmarshalMessage(e *EchelonConstraintExcel) 
 	for i := range e.PersonalityIdLength() {
 		t.PersonalityId[i] = e.PersonalityId(i)
 	}
-	t.WeaponType = WeaponType(int32(fbsutils.Convert(e.WeaponType(), t.FlatBuffer.TableKey)))
-	t.School = School(int32(fbsutils.Convert(e.School(), t.FlatBuffer.TableKey)))
-	t.Club = Club(int32(fbsutils.Convert(e.Club(), t.FlatBuffer.TableKey)))
-	t.Role = TacticRole(int32(fbsutils.Convert(e.Role(), t.FlatBuffer.TableKey)))
+	t.WeaponType = WeaponType(fbsutils.Convert(int32(e.WeaponType()), t.FlatBuffer.TableKey))
+	t.School = School(fbsutils.Convert(int32(e.School()), t.FlatBuffer.TableKey))
+	t.Club = Club(fbsutils.Convert(int32(e.Club()), t.FlatBuffer.TableKey))
+	t.Role = TacticRole(fbsutils.Convert(int32(e.Role()), t.FlatBuffer.TableKey))
 	return nil
 }
 

@@ -17,7 +17,7 @@ type CheatCodeListExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CheatCodeListExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CheatCodeListTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CheatCodeList"))
 	}
 	CheatCodeListExcelTableStart(b)
 	CheatCodeListExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *CheatCodeListExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CheatCodeListExcelTableDto) UnmarshalMessage(e *CheatCodeListExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CheatCodeListTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CheatCodeList"))
 	}
 	t.DataList = make([]CheatCodeListExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

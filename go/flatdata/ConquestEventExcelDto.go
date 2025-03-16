@@ -87,7 +87,7 @@ func (t *ConquestEventExcelDto) UnmarshalMessage(e *ConquestEventExcel) error {
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.MainStoryEventContentId = fbsutils.Convert(e.MainStoryEventContentId(), t.FlatBuffer.TableKey)
-	t.ConquestEventType = ConquestEventType(int32(fbsutils.Convert(e.ConquestEventType(), t.FlatBuffer.TableKey)))
+	t.ConquestEventType = ConquestEventType(fbsutils.Convert(int32(e.ConquestEventType()), t.FlatBuffer.TableKey))
 	t.UseErosion = fbsutils.Convert(e.UseErosion(), t.FlatBuffer.TableKey)
 	t.UseUnexpectedEvent = fbsutils.Convert(e.UseUnexpectedEvent(), t.FlatBuffer.TableKey)
 	t.UseCalculate = fbsutils.Convert(e.UseCalculate(), t.FlatBuffer.TableKey)

@@ -101,12 +101,12 @@ func (t *ShopInfoExcelDto) UnmarshalMessage(e *ShopInfoExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopInfo"))
 	}
-	t.CategoryType = ShopCategoryType(int32(fbsutils.Convert(e.CategoryType(), t.FlatBuffer.TableKey)))
+	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
 	t.IsRefresh = fbsutils.Convert(e.IsRefresh(), t.FlatBuffer.TableKey)
 	t.IsSoldOutDimmed = fbsutils.Convert(e.IsSoldOutDimmed(), t.FlatBuffer.TableKey)
 	t.CostParcelType = make([]ParcelType, e.CostParcelTypeLength())
 	for i := range e.CostParcelTypeLength() {
-		t.CostParcelType[i] = e.CostParcelType(i)
+		t.CostParcelType[i] = ParcelType(fbsutils.Convert(int32(e.CostParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.CostParcelId = make([]int64, e.CostParcelIdLength())
 	for i := range e.CostParcelIdLength() {
@@ -121,7 +121,7 @@ func (t *ShopInfoExcelDto) UnmarshalMessage(e *ShopInfoExcel) error {
 	t.OpenPeriodFrom = fbsutils.Convert(string(e.OpenPeriodFrom()), t.FlatBuffer.TableKey)
 	t.OpenPeriodTo = fbsutils.Convert(string(e.OpenPeriodTo()), t.FlatBuffer.TableKey)
 	t.ShopProductUpdateTime = fbsutils.Convert(string(e.ShopProductUpdateTime()), t.FlatBuffer.TableKey)
-	t.DisplayParcelType = ParcelType(int32(fbsutils.Convert(e.DisplayParcelType(), t.FlatBuffer.TableKey)))
+	t.DisplayParcelType = ParcelType(fbsutils.Convert(int32(e.DisplayParcelType()), t.FlatBuffer.TableKey))
 	t.DisplayParcelId = fbsutils.Convert(e.DisplayParcelId(), t.FlatBuffer.TableKey)
 	t.IsShopVisible = fbsutils.Convert(e.IsShopVisible(), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)

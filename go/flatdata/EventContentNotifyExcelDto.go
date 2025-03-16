@@ -50,9 +50,9 @@ func (t *EventContentNotifyExcelDto) UnmarshalMessage(e *EventContentNotifyExcel
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
-	t.EventNotifyType = EventNotifyType(int32(fbsutils.Convert(e.EventNotifyType(), t.FlatBuffer.TableKey)))
-	t.EventTargetType = EventTargetType(int32(fbsutils.Convert(e.EventTargetType(), t.FlatBuffer.TableKey)))
-	t.ShortcutEventTargetType = EventTargetType(int32(fbsutils.Convert(e.ShortcutEventTargetType(), t.FlatBuffer.TableKey)))
+	t.EventNotifyType = EventNotifyType(fbsutils.Convert(int32(e.EventNotifyType()), t.FlatBuffer.TableKey))
+	t.EventTargetType = EventTargetType(fbsutils.Convert(int32(e.EventTargetType()), t.FlatBuffer.TableKey))
+	t.ShortcutEventTargetType = EventTargetType(fbsutils.Convert(int32(e.ShortcutEventTargetType()), t.FlatBuffer.TableKey))
 	t.IsShortcutEnable = fbsutils.Convert(e.IsShortcutEnable(), t.FlatBuffer.TableKey)
 	return nil
 }

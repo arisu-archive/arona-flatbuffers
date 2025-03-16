@@ -80,8 +80,8 @@ func (t *EquipmentExcelDto) UnmarshalMessage(e *EquipmentExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Equipment"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.EquipmentCategory = EquipmentCategory(int32(fbsutils.Convert(e.EquipmentCategory(), t.FlatBuffer.TableKey)))
-	t.Rarity = Rarity(int32(fbsutils.Convert(e.Rarity(), t.FlatBuffer.TableKey)))
+	t.EquipmentCategory = EquipmentCategory(fbsutils.Convert(int32(e.EquipmentCategory()), t.FlatBuffer.TableKey))
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.Wear = fbsutils.Convert(e.Wear(), t.FlatBuffer.TableKey)
 	t.MaxLevel = fbsutils.Convert(e.MaxLevel(), t.FlatBuffer.TableKey)
@@ -93,7 +93,7 @@ func (t *EquipmentExcelDto) UnmarshalMessage(e *EquipmentExcel) error {
 	t.ImageName = fbsutils.Convert(string(e.ImageName()), t.FlatBuffer.TableKey)
 	t.Tags = make([]Tag, e.TagsLength())
 	for i := range e.TagsLength() {
-		t.Tags[i] = e.Tags(i)
+		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
 	}
 	t.CraftQualityTier0 = fbsutils.Convert(e.CraftQualityTier0(), t.FlatBuffer.TableKey)
 	t.CraftQualityTier1 = fbsutils.Convert(e.CraftQualityTier1(), t.FlatBuffer.TableKey)
@@ -101,7 +101,7 @@ func (t *EquipmentExcelDto) UnmarshalMessage(e *EquipmentExcel) error {
 	t.ShiftingCraftQuality = fbsutils.Convert(e.ShiftingCraftQuality(), t.FlatBuffer.TableKey)
 	t.ShopCategory = make([]ShopCategoryType, e.ShopCategoryLength())
 	for i := range e.ShopCategoryLength() {
-		t.ShopCategory[i] = e.ShopCategory(i)
+		t.ShopCategory[i] = ShopCategoryType(fbsutils.Convert(int32(e.ShopCategory(i)), t.FlatBuffer.TableKey))
 	}
 	t.ShortcutTypeId = fbsutils.Convert(e.ShortcutTypeId(), t.FlatBuffer.TableKey)
 	return nil

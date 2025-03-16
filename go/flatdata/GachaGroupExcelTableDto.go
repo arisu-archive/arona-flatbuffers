@@ -17,7 +17,7 @@ type GachaGroupExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GachaGroupExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaGroupTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaGroup"))
 	}
 	GachaGroupExcelTableStart(b)
 	GachaGroupExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *GachaGroupExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GachaGroupExcelTableDto) UnmarshalMessage(e *GachaGroupExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaGroupTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaGroup"))
 	}
 	t.DataList = make([]GachaGroupExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

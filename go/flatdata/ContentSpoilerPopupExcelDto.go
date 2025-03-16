@@ -43,7 +43,7 @@ func (t *ContentSpoilerPopupExcelDto) UnmarshalMessage(e *ContentSpoilerPopupExc
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentSpoilerPopup"))
 	}
-	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
+	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
 	t.SpoilerPopupTitle = fbsutils.Convert(string(e.SpoilerPopupTitle()), t.FlatBuffer.TableKey)
 	t.SpoilerPopupDescription = fbsutils.Convert(string(e.SpoilerPopupDescription()), t.FlatBuffer.TableKey)
 	t.IsWarningPopUp = fbsutils.Convert(e.IsWarningPopUp(), t.FlatBuffer.TableKey)

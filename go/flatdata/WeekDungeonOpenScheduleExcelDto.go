@@ -41,10 +41,10 @@ func (t *WeekDungeonOpenScheduleExcelDto) UnmarshalMessage(e *WeekDungeonOpenSch
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonOpenSchedule"))
 	}
-	t.WeekDay = WeekDay(int32(fbsutils.Convert(e.WeekDay(), t.FlatBuffer.TableKey)))
+	t.WeekDay = WeekDay(fbsutils.Convert(int32(e.WeekDay()), t.FlatBuffer.TableKey))
 	t.Open = make([]WeekDungeonType, e.OpenLength())
 	for i := range e.OpenLength() {
-		t.Open[i] = e.Open(i)
+		t.Open[i] = WeekDungeonType(fbsutils.Convert(int32(e.Open(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

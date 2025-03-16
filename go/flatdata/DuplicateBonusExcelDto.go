@@ -48,10 +48,10 @@ func (t *DuplicateBonusExcelDto) UnmarshalMessage(e *DuplicateBonusExcel) error 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DuplicateBonus"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ItemCategory = ItemCategory(int32(fbsutils.Convert(e.ItemCategory(), t.FlatBuffer.TableKey)))
+	t.ItemCategory = ItemCategory(fbsutils.Convert(int32(e.ItemCategory()), t.FlatBuffer.TableKey))
 	t.ItemId = fbsutils.Convert(e.ItemId(), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(int32(fbsutils.Convert(e.RewardParcelType(), t.FlatBuffer.TableKey)))
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
 	return nil

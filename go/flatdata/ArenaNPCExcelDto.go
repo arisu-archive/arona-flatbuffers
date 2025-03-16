@@ -77,7 +77,7 @@ func (t *ArenaNPCExcelDto) UnmarshalMessage(e *ArenaNPCExcel) error {
 	t.NpcStarGrade = fbsutils.Convert(e.NpcStarGrade(), t.FlatBuffer.TableKey)
 	t.ExceptionCharacterRarities = make([]Rarity, e.ExceptionCharacterRaritiesLength())
 	for i := range e.ExceptionCharacterRaritiesLength() {
-		t.ExceptionCharacterRarities[i] = e.ExceptionCharacterRarities(i)
+		t.ExceptionCharacterRarities[i] = Rarity(fbsutils.Convert(int32(e.ExceptionCharacterRarities(i)), t.FlatBuffer.TableKey))
 	}
 	t.ExceptionMainCharacterIds = make([]int64, e.ExceptionMainCharacterIdsLength())
 	for i := range e.ExceptionMainCharacterIdsLength() {

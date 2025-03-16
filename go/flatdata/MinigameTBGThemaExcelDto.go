@@ -74,12 +74,12 @@ func (t *MinigameTBGThemaExcelDto) UnmarshalMessage(e *MinigameTBGThemaExcel) er
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.ThemaIndex = fbsutils.Convert(e.ThemaIndex(), t.FlatBuffer.TableKey)
-	t.ThemaType = TBGThemaType(int32(fbsutils.Convert(e.ThemaType(), t.FlatBuffer.TableKey)))
+	t.ThemaType = TBGThemaType(fbsutils.Convert(int32(e.ThemaType()), t.FlatBuffer.TableKey))
 	t.ThemaMap = fbsutils.Convert(string(e.ThemaMap()), t.FlatBuffer.TableKey)
 	t.ThemaMapBg = fbsutils.Convert(string(e.ThemaMapBg()), t.FlatBuffer.TableKey)
 	t.PortalCondition = make([]TBGPortalCondition, e.PortalConditionLength())
 	for i := range e.PortalConditionLength() {
-		t.PortalCondition[i] = e.PortalCondition(i)
+		t.PortalCondition[i] = TBGPortalCondition(fbsutils.Convert(int32(e.PortalCondition(i)), t.FlatBuffer.TableKey))
 	}
 	t.PortalConditionParameter = make([]string, e.PortalConditionParameterLength())
 	for i := range e.PortalConditionParameterLength() {

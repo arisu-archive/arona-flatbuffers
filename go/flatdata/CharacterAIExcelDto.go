@@ -58,8 +58,8 @@ func (t *CharacterAIExcelDto) UnmarshalMessage(e *CharacterAIExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAI"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.EngageType = EngageType(int32(fbsutils.Convert(e.EngageType(), t.FlatBuffer.TableKey)))
-	t.Positioning = PositioningType(int32(fbsutils.Convert(e.Positioning(), t.FlatBuffer.TableKey)))
+	t.EngageType = EngageType(fbsutils.Convert(int32(e.EngageType()), t.FlatBuffer.TableKey))
+	t.Positioning = PositioningType(fbsutils.Convert(int32(e.Positioning()), t.FlatBuffer.TableKey))
 	t.CheckCanUseAutoSkill = fbsutils.Convert(e.CheckCanUseAutoSkill(), t.FlatBuffer.TableKey)
 	t.DistanceReduceRatioObstaclePath = fbsutils.Convert(e.DistanceReduceRatioObstaclePath(), t.FlatBuffer.TableKey)
 	t.DistanceReduceObstaclePath = fbsutils.Convert(e.DistanceReduceObstaclePath(), t.FlatBuffer.TableKey)

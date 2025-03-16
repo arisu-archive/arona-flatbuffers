@@ -63,7 +63,7 @@ func (t *OperatorExcelDto) UnmarshalMessage(e *OperatorExcel) error {
 	}
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.GroupId = fbsutils.Convert(string(e.GroupId()), t.FlatBuffer.TableKey)
-	t.OperatorCondition = OperatorCondition(int32(fbsutils.Convert(e.OperatorCondition(), t.FlatBuffer.TableKey)))
+	t.OperatorCondition = OperatorCondition(fbsutils.Convert(int32(e.OperatorCondition()), t.FlatBuffer.TableKey))
 	t.OutputSequence = fbsutils.Convert(e.OutputSequence(), t.FlatBuffer.TableKey)
 	t.RandomWeight = fbsutils.Convert(e.RandomWeight(), t.FlatBuffer.TableKey)
 	t.OutputDelay = fbsutils.Convert(e.OutputDelay(), t.FlatBuffer.TableKey)

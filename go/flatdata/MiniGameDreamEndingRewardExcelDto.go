@@ -64,11 +64,11 @@ func (t *MiniGameDreamEndingRewardExcelDto) UnmarshalMessage(e *MiniGameDreamEnd
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.EndingId = fbsutils.Convert(e.EndingId(), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.DreamMakerEndingRewardType = DreamMakerEndingRewardType(int32(fbsutils.Convert(e.DreamMakerEndingRewardType(), t.FlatBuffer.TableKey)))
-	t.DreamMakerEndingType = DreamMakerEndingType(int32(fbsutils.Convert(e.DreamMakerEndingType(), t.FlatBuffer.TableKey)))
+	t.DreamMakerEndingRewardType = DreamMakerEndingRewardType(fbsutils.Convert(int32(e.DreamMakerEndingRewardType()), t.FlatBuffer.TableKey))
+	t.DreamMakerEndingType = DreamMakerEndingType(fbsutils.Convert(int32(e.DreamMakerEndingType()), t.FlatBuffer.TableKey))
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = e.RewardParcelType(i)
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {

@@ -41,10 +41,10 @@ func (t *CharacterStatsTransExcelDto) UnmarshalMessage(e *CharacterStatsTransExc
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatsTrans"))
 	}
-	t.TransSupportStats = StatType(int32(fbsutils.Convert(e.TransSupportStats(), t.FlatBuffer.TableKey)))
-	t.EchelonExtensionType = EchelonExtensionType(int32(fbsutils.Convert(e.EchelonExtensionType(), t.FlatBuffer.TableKey)))
+	t.TransSupportStats = StatType(fbsutils.Convert(int32(e.TransSupportStats()), t.FlatBuffer.TableKey))
+	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
 	t.TransSupportStatsFactor = fbsutils.Convert(e.TransSupportStatsFactor(), t.FlatBuffer.TableKey)
-	t.StatTransType = StatTransType(int32(fbsutils.Convert(e.StatTransType(), t.FlatBuffer.TableKey)))
+	t.StatTransType = StatTransType(fbsutils.Convert(int32(e.StatTransType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

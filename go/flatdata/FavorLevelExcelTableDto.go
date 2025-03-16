@@ -17,7 +17,7 @@ type FavorLevelExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FavorLevelExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FavorLevelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FavorLevel"))
 	}
 	FavorLevelExcelTableStart(b)
 	FavorLevelExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *FavorLevelExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FavorLevelExcelTableDto) UnmarshalMessage(e *FavorLevelExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FavorLevelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FavorLevel"))
 	}
 	t.DataList = make([]FavorLevelExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

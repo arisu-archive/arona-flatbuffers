@@ -50,7 +50,7 @@ func (t *MiniGameShootingGeasExcelDto) UnmarshalMessage(e *MiniGameShootingGeasE
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingGeas"))
 	}
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.GeasType = Geas(int32(fbsutils.Convert(e.GeasType(), t.FlatBuffer.TableKey)))
+	t.GeasType = Geas(fbsutils.Convert(int32(e.GeasType()), t.FlatBuffer.TableKey))
 	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
 	t.Probability = fbsutils.Convert(e.Probability(), t.FlatBuffer.TableKey)
 	t.MaxOverlapCount = fbsutils.Convert(e.MaxOverlapCount(), t.FlatBuffer.TableKey)

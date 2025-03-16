@@ -62,7 +62,7 @@ func (t *CharacterDialogFieldExcelDto) UnmarshalMessage(e *CharacterDialogFieldE
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.Phase = fbsutils.Convert(e.Phase(), t.FlatBuffer.TableKey)
 	t.TargetIndex = fbsutils.Convert(e.TargetIndex(), t.FlatBuffer.TableKey)
-	t.DialogType = FieldDialogType(int32(fbsutils.Convert(e.DialogType(), t.FlatBuffer.TableKey)))
+	t.DialogType = FieldDialogType(fbsutils.Convert(int32(e.DialogType()), t.FlatBuffer.TableKey))
 	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
 	t.MotionName = fbsutils.Convert(string(e.MotionName()), t.FlatBuffer.TableKey)
 	t.IsInteractionDialog = fbsutils.Convert(e.IsInteractionDialog(), t.FlatBuffer.TableKey)

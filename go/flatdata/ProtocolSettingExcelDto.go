@@ -44,7 +44,7 @@ func (t *ProtocolSettingExcelDto) UnmarshalMessage(e *ProtocolSettingExcel) erro
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProtocolSetting"))
 	}
 	t.Protocol = fbsutils.Convert(string(e.Protocol()), t.FlatBuffer.TableKey)
-	t.OpenConditionContent = OpenConditionContent(int32(fbsutils.Convert(e.OpenConditionContent(), t.FlatBuffer.TableKey)))
+	t.OpenConditionContent = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionContent()), t.FlatBuffer.TableKey))
 	t.Currency = fbsutils.Convert(e.Currency(), t.FlatBuffer.TableKey)
 	t.Inventory = fbsutils.Convert(e.Inventory(), t.FlatBuffer.TableKey)
 	t.Mail = fbsutils.Convert(e.Mail(), t.FlatBuffer.TableKey)

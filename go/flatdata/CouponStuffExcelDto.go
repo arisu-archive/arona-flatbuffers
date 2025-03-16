@@ -44,7 +44,7 @@ func (t *CouponStuffExcelDto) UnmarshalMessage(e *CouponStuffExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CouponStuff"))
 	}
 	t.StuffId = fbsutils.Convert(e.StuffId(), t.FlatBuffer.TableKey)
-	t.ParcelType = ParcelType(int32(fbsutils.Convert(e.ParcelType(), t.FlatBuffer.TableKey)))
+	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
 	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
 	t.LimitAmount = fbsutils.Convert(e.LimitAmount(), t.FlatBuffer.TableKey)
 	t.CouponStuffNameLocalizeKey = fbsutils.Convert(string(e.CouponStuffNameLocalizeKey()), t.FlatBuffer.TableKey)

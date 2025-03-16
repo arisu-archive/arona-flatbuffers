@@ -74,10 +74,10 @@ func (t *EquipmentStatExcelDto) UnmarshalMessage(e *EquipmentStatExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EquipmentStat"))
 	}
 	t.EquipmentId = fbsutils.Convert(e.EquipmentId(), t.FlatBuffer.TableKey)
-	t.StatLevelUpType = StatLevelUpType(int32(fbsutils.Convert(e.StatLevelUpType(), t.FlatBuffer.TableKey)))
+	t.StatLevelUpType = StatLevelUpType(fbsutils.Convert(int32(e.StatLevelUpType()), t.FlatBuffer.TableKey))
 	t.StatType = make([]EquipmentOptionType, e.StatTypeLength())
 	for i := range e.StatTypeLength() {
-		t.StatType[i] = e.StatType(i)
+		t.StatType[i] = EquipmentOptionType(fbsutils.Convert(int32(e.StatType(i)), t.FlatBuffer.TableKey))
 	}
 	t.MinStat = make([]int64, e.MinStatLength())
 	for i := range e.MinStatLength() {
@@ -89,9 +89,9 @@ func (t *EquipmentStatExcelDto) UnmarshalMessage(e *EquipmentStatExcel) error {
 	}
 	t.LevelUpInsertLimit = fbsutils.Convert(e.LevelUpInsertLimit(), t.FlatBuffer.TableKey)
 	t.LevelUpFeedExp = fbsutils.Convert(e.LevelUpFeedExp(), t.FlatBuffer.TableKey)
-	t.LevelUpFeedCostCurrency = CurrencyTypes(int32(fbsutils.Convert(e.LevelUpFeedCostCurrency(), t.FlatBuffer.TableKey)))
+	t.LevelUpFeedCostCurrency = CurrencyTypes(fbsutils.Convert(int32(e.LevelUpFeedCostCurrency()), t.FlatBuffer.TableKey))
 	t.LevelUpFeedCostAmount = fbsutils.Convert(e.LevelUpFeedCostAmount(), t.FlatBuffer.TableKey)
-	t.EquipmentCategory = EquipmentCategory(int32(fbsutils.Convert(e.EquipmentCategory(), t.FlatBuffer.TableKey)))
+	t.EquipmentCategory = EquipmentCategory(fbsutils.Convert(int32(e.EquipmentCategory()), t.FlatBuffer.TableKey))
 	t.LevelUpFeedAddExp = fbsutils.Convert(e.LevelUpFeedAddExp(), t.FlatBuffer.TableKey)
 	t.DefaultMaxLevel = fbsutils.Convert(e.DefaultMaxLevel(), t.FlatBuffer.TableKey)
 	t.TranscendenceMax = fbsutils.Convert(e.TranscendenceMax(), t.FlatBuffer.TableKey)

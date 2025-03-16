@@ -17,7 +17,7 @@ type ConstAudioExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstAudioExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstAudioTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstAudio"))
 	}
 	ConstAudioExcelTableStart(b)
 	ConstAudioExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *ConstAudioExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstAudioExcelTableDto) UnmarshalMessage(e *ConstAudioExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstAudioTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstAudio"))
 	}
 	t.DataList = make([]ConstAudioExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

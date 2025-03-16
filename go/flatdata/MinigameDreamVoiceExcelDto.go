@@ -43,7 +43,7 @@ func (t *MinigameDreamVoiceExcelDto) UnmarshalMessage(e *MinigameDreamVoiceExcel
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.VoiceCondition = DreamMakerVoiceCondition(int32(fbsutils.Convert(e.VoiceCondition(), t.FlatBuffer.TableKey)))
+	t.VoiceCondition = DreamMakerVoiceCondition(fbsutils.Convert(int32(e.VoiceCondition()), t.FlatBuffer.TableKey))
 	t.VoiceClip = fbsutils.Convert(e.VoiceClip(), t.FlatBuffer.TableKey)
 	return nil
 }

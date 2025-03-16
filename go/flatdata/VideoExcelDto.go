@@ -68,7 +68,7 @@ func (t *VideoExcelDto) UnmarshalMessage(e *VideoExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Nation = make([]Nation, e.NationLength())
 	for i := range e.NationLength() {
-		t.Nation[i] = e.Nation(i)
+		t.Nation[i] = Nation(fbsutils.Convert(int32(e.Nation(i)), t.FlatBuffer.TableKey))
 	}
 	t.VideoPath = make([]string, e.VideoPathLength())
 	for i := range e.VideoPathLength() {

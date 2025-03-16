@@ -50,7 +50,7 @@ func (t *TutorialFailureImageExcelDto) UnmarshalMessage(e *TutorialFailureImageE
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TutorialFailureImage"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Contents = TutorialFailureContentType(int32(fbsutils.Convert(e.Contents(), t.FlatBuffer.TableKey)))
+	t.Contents = TutorialFailureContentType(fbsutils.Convert(int32(e.Contents()), t.FlatBuffer.TableKey))
 	t.Type = fbsutils.Convert(string(e.Type()), t.FlatBuffer.TableKey)
 	t.ImagePathKr = fbsutils.Convert(string(e.ImagePathKr()), t.FlatBuffer.TableKey)
 	t.ImagePathJp = fbsutils.Convert(string(e.ImagePathJp()), t.FlatBuffer.TableKey)

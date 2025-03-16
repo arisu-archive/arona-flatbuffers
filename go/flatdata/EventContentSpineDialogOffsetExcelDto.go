@@ -48,7 +48,7 @@ func (t *EventContentSpineDialogOffsetExcelDto) UnmarshalMessage(e *EventContent
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpineDialogOffset"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EventContentType = EventContentType(int32(fbsutils.Convert(e.EventContentType(), t.FlatBuffer.TableKey)))
+	t.EventContentType = EventContentType(fbsutils.Convert(int32(e.EventContentType()), t.FlatBuffer.TableKey))
 	t.CostumeUniqueId = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
 	t.SpineOffsetX = fbsutils.Convert(e.SpineOffsetX(), t.FlatBuffer.TableKey)
 	t.SpineOffsetY = fbsutils.Convert(e.SpineOffsetY(), t.FlatBuffer.TableKey)

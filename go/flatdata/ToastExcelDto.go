@@ -44,7 +44,7 @@ func (t *ToastExcelDto) UnmarshalMessage(e *ToastExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Toast"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ToastType = ToastType(int32(fbsutils.Convert(e.ToastType(), t.FlatBuffer.TableKey)))
+	t.ToastType = ToastType(fbsutils.Convert(int32(e.ToastType()), t.FlatBuffer.TableKey))
 	t.MissionId = fbsutils.Convert(e.MissionId(), t.FlatBuffer.TableKey)
 	t.TextId = fbsutils.Convert(e.TextId(), t.FlatBuffer.TableKey)
 	t.LifeTime = fbsutils.Convert(e.LifeTime(), t.FlatBuffer.TableKey)

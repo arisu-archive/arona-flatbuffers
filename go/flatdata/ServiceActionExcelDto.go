@@ -39,7 +39,7 @@ func (t *ServiceActionExcelDto) UnmarshalMessage(e *ServiceActionExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ServiceAction"))
 	}
-	t.ServiceActionType = ServiceActionType(int32(fbsutils.Convert(e.ServiceActionType(), t.FlatBuffer.TableKey)))
+	t.ServiceActionType = ServiceActionType(fbsutils.Convert(int32(e.ServiceActionType()), t.FlatBuffer.TableKey))
 	t.IsLegacy = fbsutils.Convert(e.IsLegacy(), t.FlatBuffer.TableKey)
 	t.GoodsId = fbsutils.Convert(e.GoodsId(), t.FlatBuffer.TableKey)
 	return nil

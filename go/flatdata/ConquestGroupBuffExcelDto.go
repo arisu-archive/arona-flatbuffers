@@ -48,7 +48,7 @@ func (t *ConquestGroupBuffExcelDto) UnmarshalMessage(e *ConquestGroupBuffExcel) 
 	t.ConquestBuffId = fbsutils.Convert(e.ConquestBuffId(), t.FlatBuffer.TableKey)
 	t.School = make([]School, e.SchoolLength())
 	for i := range e.SchoolLength() {
-		t.School[i] = e.School(i)
+		t.School[i] = School(fbsutils.Convert(int32(e.School(i)), t.FlatBuffer.TableKey))
 	}
 	t.RecommandLocalizeEtcId = fbsutils.Convert(e.RecommandLocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.SkillGroupId = fbsutils.Convert(string(e.SkillGroupId()), t.FlatBuffer.TableKey)

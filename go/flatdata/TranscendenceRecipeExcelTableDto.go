@@ -17,7 +17,7 @@ type TranscendenceRecipeExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TranscendenceRecipeExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TranscendenceRecipeTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TranscendenceRecipe"))
 	}
 	TranscendenceRecipeExcelTableStart(b)
 	TranscendenceRecipeExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *TranscendenceRecipeExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TranscendenceRecipeExcelTableDto) UnmarshalMessage(e *TranscendenceRecipeExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TranscendenceRecipeTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TranscendenceRecipe"))
 	}
 	t.DataList = make([]TranscendenceRecipeExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

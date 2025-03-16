@@ -46,7 +46,7 @@ func (t *EventContentDiceRaceProbExcelDto) UnmarshalMessage(e *EventContentDiceR
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceProb"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EventContentDiceRaceResultType = EventContentDiceRaceResultType(int32(fbsutils.Convert(e.EventContentDiceRaceResultType(), t.FlatBuffer.TableKey)))
+	t.EventContentDiceRaceResultType = EventContentDiceRaceResultType(fbsutils.Convert(int32(e.EventContentDiceRaceResultType()), t.FlatBuffer.TableKey))
 	t.CostItemId = fbsutils.Convert(e.CostItemId(), t.FlatBuffer.TableKey)
 	t.CostItemAmount = fbsutils.Convert(e.CostItemAmount(), t.FlatBuffer.TableKey)
 	t.DiceResult = fbsutils.Convert(e.DiceResult(), t.FlatBuffer.TableKey)

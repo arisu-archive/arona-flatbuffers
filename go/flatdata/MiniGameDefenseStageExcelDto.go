@@ -106,14 +106,14 @@ func (t *MiniGameDefenseStageExcelDto) UnmarshalMessage(e *MiniGameDefenseStageE
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.StageDifficulty = StageDifficulty(int32(fbsutils.Convert(e.StageDifficulty(), t.FlatBuffer.TableKey)))
+	t.StageDifficulty = StageDifficulty(fbsutils.Convert(int32(e.StageDifficulty()), t.FlatBuffer.TableKey))
 	t.StageDifficultyLocalize = fbsutils.Convert(e.StageDifficultyLocalize(), t.FlatBuffer.TableKey)
 	t.StageNumber = fbsutils.Convert(e.StageNumber(), t.FlatBuffer.TableKey)
 	t.StageDisplay = fbsutils.Convert(e.StageDisplay(), t.FlatBuffer.TableKey)
 	t.PrevStageId = fbsutils.Convert(e.PrevStageId(), t.FlatBuffer.TableKey)
-	t.EchelonExtensionType = EchelonExtensionType(int32(fbsutils.Convert(e.EchelonExtensionType(), t.FlatBuffer.TableKey)))
+	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
-	t.StageEnterCostType = ParcelType(int32(fbsutils.Convert(e.StageEnterCostType(), t.FlatBuffer.TableKey)))
+	t.StageEnterCostType = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType()), t.FlatBuffer.TableKey))
 	t.StageEnterCostId = fbsutils.Convert(e.StageEnterCostId(), t.FlatBuffer.TableKey)
 	t.StageEnterCostAmount = fbsutils.Convert(e.StageEnterCostAmount(), t.FlatBuffer.TableKey)
 	t.EventContentStageRewardId = fbsutils.Convert(e.EventContentStageRewardId(), t.FlatBuffer.TableKey)
@@ -125,13 +125,13 @@ func (t *MiniGameDefenseStageExcelDto) UnmarshalMessage(e *MiniGameDefenseStageE
 	for i := range e.ClearScenarioGroupIdLength() {
 		t.ClearScenarioGroupId[i] = e.ClearScenarioGroupId(i)
 	}
-	t.StageTopography = StageTopography(int32(fbsutils.Convert(e.StageTopography(), t.FlatBuffer.TableKey)))
+	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
 	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
-	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
+	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
 	t.StarGoal = make([]StarGoalType, e.StarGoalLength())
 	for i := range e.StarGoalLength() {
-		t.StarGoal[i] = e.StarGoal(i)
+		t.StarGoal[i] = StarGoalType(fbsutils.Convert(int32(e.StarGoal(i)), t.FlatBuffer.TableKey))
 	}
 	t.StarGoalAmount = make([]int32, e.StarGoalAmountLength())
 	for i := range e.StarGoalAmountLength() {

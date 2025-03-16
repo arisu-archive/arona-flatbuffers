@@ -61,7 +61,7 @@ func (t *ScenarioReplayExcelDto) UnmarshalMessage(e *ScenarioReplayExcel) error 
 	}
 	t.ModeId = fbsutils.Convert(e.ModeId(), t.FlatBuffer.TableKey)
 	t.VolumeId = fbsutils.Convert(e.VolumeId(), t.FlatBuffer.TableKey)
-	t.ReplayType = ScenarioModeReplayTypes(int32(fbsutils.Convert(e.ReplayType(), t.FlatBuffer.TableKey)))
+	t.ReplayType = ScenarioModeReplayTypes(fbsutils.Convert(int32(e.ReplayType()), t.FlatBuffer.TableKey))
 	t.ChapterId = fbsutils.Convert(e.ChapterId(), t.FlatBuffer.TableKey)
 	t.EpisodeId = fbsutils.Convert(e.EpisodeId(), t.FlatBuffer.TableKey)
 	t.FrontScenarioGroupId = make([]int64, e.FrontScenarioGroupIdLength())

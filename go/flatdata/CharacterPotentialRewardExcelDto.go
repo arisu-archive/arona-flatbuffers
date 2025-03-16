@@ -56,13 +56,13 @@ func (t *CharacterPotentialRewardExcelDto) UnmarshalMessage(e *CharacterPotentia
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.RequirePotentialStatType = make([]PotentialStatBonusRateType, e.RequirePotentialStatTypeLength())
 	for i := range e.RequirePotentialStatTypeLength() {
-		t.RequirePotentialStatType[i] = e.RequirePotentialStatType(i)
+		t.RequirePotentialStatType[i] = PotentialStatBonusRateType(fbsutils.Convert(int32(e.RequirePotentialStatType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RequirePotentialStatLevel = make([]int64, e.RequirePotentialStatLevelLength())
 	for i := range e.RequirePotentialStatLevelLength() {
 		t.RequirePotentialStatLevel[i] = e.RequirePotentialStatLevel(i)
 	}
-	t.RewardParcelType = ParcelType(int32(fbsutils.Convert(e.RewardParcelType(), t.FlatBuffer.TableKey)))
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
 	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
 	return nil
