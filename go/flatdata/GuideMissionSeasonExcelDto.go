@@ -10,31 +10,31 @@ import (
 // GuideMissionSeasonExcelDto represents a FlatBuffers table
 type GuideMissionSeasonExcelDto struct {
 	fbsutils.FlatBuffer
-	AccountType                     AccountState        `json:"account_type"`
-	BackgroundImage                 string              `json:"background_image"`
-	BannerOpenDate                  string              `json:"banner_open_date"`
-	CloseBannerAfterCompletion      bool                `json:"close_banner_after_completion"`
-	Enabled                         bool                `json:"enabled"`
-	EndDate                         string              `json:"end_date"`
-	ExpiryDate                      int64               `json:"expiry_date"`
 	Id                              int64               `json:"id"`
-	InfomationLocalizeCode          string              `json:"infomation_localize_code"`
-	IsPermanent                     bool                `json:"is_permanent"`
-	LobbyBannerImage                string              `json:"lobby_banner_image"`
-	MaximumLoginCount               int64               `json:"maximum_login_count"`
-	PermanentInfomationLocalizeCode string              `json:"permanent_infomation_localize_code"`
-	PreSeasonId                     int64               `json:"pre_season_id"`
-	RequirementParcelAmount         int32               `json:"requirement_parcel_amount"`
-	RequirementParcelId             int64               `json:"requirement_parcel_id"`
-	RequirementParcelImage          string              `json:"requirement_parcel_image"`
-	RequirementParcelType           ParcelType          `json:"requirement_parcel_type"`
-	RewardImage                     string              `json:"reward_image"`
-	SpineCharacterId                int64               `json:"spine_character_id"`
-	StartableEndDate                string              `json:"startable_end_date"`
-	StartDate                       string              `json:"start_date"`
-	TabType                         GuideMissionTabType `json:"tab_type"`
-	TitleImage                      string              `json:"title_image"`
 	TitleLocalizeCode               string              `json:"title_localize_code"`
+	PermanentInfomationLocalizeCode string              `json:"permanent_infomation_localize_code"`
+	InfomationLocalizeCode          string              `json:"infomation_localize_code"`
+	AccountType                     AccountState        `json:"account_type"`
+	Enabled                         bool                `json:"enabled"`
+	BannerOpenDate                  string              `json:"banner_open_date"`
+	StartDate                       string              `json:"start_date"`
+	StartableEndDate                string              `json:"startable_end_date"`
+	EndDate                         string              `json:"end_date"`
+	CloseBannerAfterCompletion      bool                `json:"close_banner_after_completion"`
+	MaximumLoginCount               int64               `json:"maximum_login_count"`
+	ExpiryDate                      int64               `json:"expiry_date"`
+	SpineCharacterId                int64               `json:"spine_character_id"`
+	RequirementParcelImage          string              `json:"requirement_parcel_image"`
+	RewardImage                     string              `json:"reward_image"`
+	LobbyBannerImage                string              `json:"lobby_banner_image"`
+	BackgroundImage                 string              `json:"background_image"`
+	TitleImage                      string              `json:"title_image"`
+	RequirementParcelType           ParcelType          `json:"requirement_parcel_type"`
+	RequirementParcelId             int64               `json:"requirement_parcel_id"`
+	RequirementParcelAmount         int32               `json:"requirement_parcel_amount"`
+	TabType                         GuideMissionTabType `json:"tab_type"`
+	IsPermanent                     bool                `json:"is_permanent"`
+	PreSeasonId                     int64               `json:"pre_season_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -43,31 +43,31 @@ func (t *GuideMissionSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GuideMissionSeason"))
 	}
 	GuideMissionSeasonExcelStart(b)
-	GuideMissionSeasonExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddBackgroundImage(b, fbsutils.Convert(b.CreateString(t.BackgroundImage), t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddBannerOpenDate(b, fbsutils.Convert(b.CreateString(t.BannerOpenDate), t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddCloseBannerAfterCompletion(b, fbsutils.Convert(t.CloseBannerAfterCompletion, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddEnabled(b, fbsutils.Convert(t.Enabled, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddExpiryDate(b, fbsutils.Convert(t.ExpiryDate, t.FlatBuffer.TableKey))
 	GuideMissionSeasonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddInfomationLocalizeCode(b, fbsutils.Convert(b.CreateString(t.InfomationLocalizeCode), t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddIsPermanent(b, fbsutils.Convert(t.IsPermanent, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddLobbyBannerImage(b, fbsutils.Convert(b.CreateString(t.LobbyBannerImage), t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddMaximumLoginCount(b, fbsutils.Convert(t.MaximumLoginCount, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddPermanentInfomationLocalizeCode(b, fbsutils.Convert(b.CreateString(t.PermanentInfomationLocalizeCode), t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddPreSeasonId(b, fbsutils.Convert(t.PreSeasonId, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddRequirementParcelAmount(b, fbsutils.Convert(t.RequirementParcelAmount, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddRequirementParcelId(b, fbsutils.Convert(t.RequirementParcelId, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddRequirementParcelImage(b, fbsutils.Convert(b.CreateString(t.RequirementParcelImage), t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddRequirementParcelType(b, fbsutils.Convert(t.RequirementParcelType, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddRewardImage(b, fbsutils.Convert(b.CreateString(t.RewardImage), t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddSpineCharacterId(b, fbsutils.Convert(t.SpineCharacterId, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddStartableEndDate(b, fbsutils.Convert(b.CreateString(t.StartableEndDate), t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddStartDate(b, fbsutils.Convert(b.CreateString(t.StartDate), t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddTabType(b, fbsutils.Convert(t.TabType, t.FlatBuffer.TableKey))
-	GuideMissionSeasonExcelAddTitleImage(b, fbsutils.Convert(b.CreateString(t.TitleImage), t.FlatBuffer.TableKey))
 	GuideMissionSeasonExcelAddTitleLocalizeCode(b, fbsutils.Convert(b.CreateString(t.TitleLocalizeCode), t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddPermanentInfomationLocalizeCode(b, fbsutils.Convert(b.CreateString(t.PermanentInfomationLocalizeCode), t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddInfomationLocalizeCode(b, fbsutils.Convert(b.CreateString(t.InfomationLocalizeCode), t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddEnabled(b, fbsutils.Convert(t.Enabled, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddBannerOpenDate(b, fbsutils.Convert(b.CreateString(t.BannerOpenDate), t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddStartDate(b, fbsutils.Convert(b.CreateString(t.StartDate), t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddStartableEndDate(b, fbsutils.Convert(b.CreateString(t.StartableEndDate), t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddCloseBannerAfterCompletion(b, fbsutils.Convert(t.CloseBannerAfterCompletion, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddMaximumLoginCount(b, fbsutils.Convert(t.MaximumLoginCount, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddExpiryDate(b, fbsutils.Convert(t.ExpiryDate, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddSpineCharacterId(b, fbsutils.Convert(t.SpineCharacterId, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddRequirementParcelImage(b, fbsutils.Convert(b.CreateString(t.RequirementParcelImage), t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddRewardImage(b, fbsutils.Convert(b.CreateString(t.RewardImage), t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddLobbyBannerImage(b, fbsutils.Convert(b.CreateString(t.LobbyBannerImage), t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddBackgroundImage(b, fbsutils.Convert(b.CreateString(t.BackgroundImage), t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddTitleImage(b, fbsutils.Convert(b.CreateString(t.TitleImage), t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddRequirementParcelType(b, fbsutils.Convert(t.RequirementParcelType, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddRequirementParcelId(b, fbsutils.Convert(t.RequirementParcelId, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddRequirementParcelAmount(b, fbsutils.Convert(t.RequirementParcelAmount, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddTabType(b, fbsutils.Convert(t.TabType, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddIsPermanent(b, fbsutils.Convert(t.IsPermanent, t.FlatBuffer.TableKey))
+	GuideMissionSeasonExcelAddPreSeasonId(b, fbsutils.Convert(t.PreSeasonId, t.FlatBuffer.TableKey))
 	return GuideMissionSeasonExcelEnd(b)
 }
 
@@ -83,31 +83,31 @@ func (t *GuideMissionSeasonExcelDto) UnmarshalMessage(e *GuideMissionSeasonExcel
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GuideMissionSeason"))
 	}
-	t.AccountType = AccountState(int32(fbsutils.Convert(e.AccountType(), t.FlatBuffer.TableKey)))
-	t.BackgroundImage = fbsutils.Convert(string(e.BackgroundImage()), t.FlatBuffer.TableKey)
-	t.BannerOpenDate = fbsutils.Convert(string(e.BannerOpenDate()), t.FlatBuffer.TableKey)
-	t.CloseBannerAfterCompletion = fbsutils.Convert(e.CloseBannerAfterCompletion(), t.FlatBuffer.TableKey)
-	t.Enabled = fbsutils.Convert(e.Enabled(), t.FlatBuffer.TableKey)
-	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
-	t.ExpiryDate = fbsutils.Convert(e.ExpiryDate(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.InfomationLocalizeCode = fbsutils.Convert(string(e.InfomationLocalizeCode()), t.FlatBuffer.TableKey)
-	t.IsPermanent = fbsutils.Convert(e.IsPermanent(), t.FlatBuffer.TableKey)
-	t.LobbyBannerImage = fbsutils.Convert(string(e.LobbyBannerImage()), t.FlatBuffer.TableKey)
-	t.MaximumLoginCount = fbsutils.Convert(e.MaximumLoginCount(), t.FlatBuffer.TableKey)
-	t.PermanentInfomationLocalizeCode = fbsutils.Convert(string(e.PermanentInfomationLocalizeCode()), t.FlatBuffer.TableKey)
-	t.PreSeasonId = fbsutils.Convert(e.PreSeasonId(), t.FlatBuffer.TableKey)
-	t.RequirementParcelAmount = fbsutils.Convert(e.RequirementParcelAmount(), t.FlatBuffer.TableKey)
-	t.RequirementParcelId = fbsutils.Convert(e.RequirementParcelId(), t.FlatBuffer.TableKey)
-	t.RequirementParcelImage = fbsutils.Convert(string(e.RequirementParcelImage()), t.FlatBuffer.TableKey)
-	t.RequirementParcelType = ParcelType(int32(fbsutils.Convert(e.RequirementParcelType(), t.FlatBuffer.TableKey)))
-	t.RewardImage = fbsutils.Convert(string(e.RewardImage()), t.FlatBuffer.TableKey)
-	t.SpineCharacterId = fbsutils.Convert(e.SpineCharacterId(), t.FlatBuffer.TableKey)
-	t.StartableEndDate = fbsutils.Convert(string(e.StartableEndDate()), t.FlatBuffer.TableKey)
-	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
-	t.TabType = GuideMissionTabType(int32(fbsutils.Convert(e.TabType(), t.FlatBuffer.TableKey)))
-	t.TitleImage = fbsutils.Convert(string(e.TitleImage()), t.FlatBuffer.TableKey)
 	t.TitleLocalizeCode = fbsutils.Convert(string(e.TitleLocalizeCode()), t.FlatBuffer.TableKey)
+	t.PermanentInfomationLocalizeCode = fbsutils.Convert(string(e.PermanentInfomationLocalizeCode()), t.FlatBuffer.TableKey)
+	t.InfomationLocalizeCode = fbsutils.Convert(string(e.InfomationLocalizeCode()), t.FlatBuffer.TableKey)
+	t.AccountType = AccountState(int32(fbsutils.Convert(e.AccountType(), t.FlatBuffer.TableKey)))
+	t.Enabled = fbsutils.Convert(e.Enabled(), t.FlatBuffer.TableKey)
+	t.BannerOpenDate = fbsutils.Convert(string(e.BannerOpenDate()), t.FlatBuffer.TableKey)
+	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
+	t.StartableEndDate = fbsutils.Convert(string(e.StartableEndDate()), t.FlatBuffer.TableKey)
+	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
+	t.CloseBannerAfterCompletion = fbsutils.Convert(e.CloseBannerAfterCompletion(), t.FlatBuffer.TableKey)
+	t.MaximumLoginCount = fbsutils.Convert(e.MaximumLoginCount(), t.FlatBuffer.TableKey)
+	t.ExpiryDate = fbsutils.Convert(e.ExpiryDate(), t.FlatBuffer.TableKey)
+	t.SpineCharacterId = fbsutils.Convert(e.SpineCharacterId(), t.FlatBuffer.TableKey)
+	t.RequirementParcelImage = fbsutils.Convert(string(e.RequirementParcelImage()), t.FlatBuffer.TableKey)
+	t.RewardImage = fbsutils.Convert(string(e.RewardImage()), t.FlatBuffer.TableKey)
+	t.LobbyBannerImage = fbsutils.Convert(string(e.LobbyBannerImage()), t.FlatBuffer.TableKey)
+	t.BackgroundImage = fbsutils.Convert(string(e.BackgroundImage()), t.FlatBuffer.TableKey)
+	t.TitleImage = fbsutils.Convert(string(e.TitleImage()), t.FlatBuffer.TableKey)
+	t.RequirementParcelType = ParcelType(int32(fbsutils.Convert(e.RequirementParcelType(), t.FlatBuffer.TableKey)))
+	t.RequirementParcelId = fbsutils.Convert(e.RequirementParcelId(), t.FlatBuffer.TableKey)
+	t.RequirementParcelAmount = fbsutils.Convert(e.RequirementParcelAmount(), t.FlatBuffer.TableKey)
+	t.TabType = GuideMissionTabType(int32(fbsutils.Convert(e.TabType(), t.FlatBuffer.TableKey)))
+	t.IsPermanent = fbsutils.Convert(e.IsPermanent(), t.FlatBuffer.TableKey)
+	t.PreSeasonId = fbsutils.Convert(e.PreSeasonId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

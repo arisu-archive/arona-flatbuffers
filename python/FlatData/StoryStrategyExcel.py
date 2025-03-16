@@ -25,63 +25,63 @@ class StoryStrategyExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # StoryStrategyExcel
-    def BattleDuration(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # StoryStrategyExcel
-    def BgmId(self):
+    def Name(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # StoryStrategyExcel
-    def ContentType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # StoryStrategyExcel
-    def FirstClearReportEventName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
-
-    # StoryStrategyExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
 
     # StoryStrategyExcel
     def Localize(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # StoryStrategyExcel
-    def MaxTurn(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # StoryStrategyExcel
-    def Name(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # StoryStrategyExcel
     def StageEnterEchelonCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # StoryStrategyExcel
+    def BattleDuration(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # StoryStrategyExcel
+    def WhiteListId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # StoryStrategyExcel
+    def StrategyMap(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # StoryStrategyExcel
+    def StrategyMapBg(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # StoryStrategyExcel
+    def MaxTurn(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -102,25 +102,25 @@ class StoryStrategyExcel(object):
         return 0
 
     # StoryStrategyExcel
-    def StrategyMap(self):
+    def ContentType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # StoryStrategyExcel
-    def StrategyMapBg(self):
+    def BgmId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # StoryStrategyExcel
-    def WhiteListId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
+
+    # StoryStrategyExcel
+    def FirstClearReportEventName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def StoryStrategyExcelStart(builder):
     builder.StartObject(14)
@@ -128,59 +128,59 @@ def StoryStrategyExcelStart(builder):
 def Start(builder):
     StoryStrategyExcelStart(builder)
 
-def StoryStrategyExcelAddBattleDuration(builder, battleDuration):
-    builder.PrependInt64Slot(0, battleDuration, 0)
-
-def AddBattleDuration(builder, battleDuration):
-    StoryStrategyExcelAddBattleDuration(builder, battleDuration)
-
-def StoryStrategyExcelAddBgmId(builder, bgmId):
-    builder.PrependInt64Slot(1, bgmId, 0)
-
-def AddBgmId(builder, bgmId):
-    StoryStrategyExcelAddBgmId(builder, bgmId)
-
-def StoryStrategyExcelAddContentType(builder, contentType):
-    builder.PrependInt32Slot(2, contentType, 0)
-
-def AddContentType(builder, contentType):
-    StoryStrategyExcelAddContentType(builder, contentType)
-
-def StoryStrategyExcelAddFirstClearReportEventName(builder, firstClearReportEventName):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(firstClearReportEventName), 0)
-
-def AddFirstClearReportEventName(builder, firstClearReportEventName):
-    StoryStrategyExcelAddFirstClearReportEventName(builder, firstClearReportEventName)
-
 def StoryStrategyExcelAddId(builder, id):
-    builder.PrependInt64Slot(4, id, 0)
+    builder.PrependInt64Slot(0, id, 0)
 
 def AddId(builder, id):
     StoryStrategyExcelAddId(builder, id)
 
-def StoryStrategyExcelAddLocalize(builder, localize):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(localize), 0)
-
-def AddLocalize(builder, localize):
-    StoryStrategyExcelAddLocalize(builder, localize)
-
-def StoryStrategyExcelAddMaxTurn(builder, maxTurn):
-    builder.PrependInt32Slot(6, maxTurn, 0)
-
-def AddMaxTurn(builder, maxTurn):
-    StoryStrategyExcelAddMaxTurn(builder, maxTurn)
-
 def StoryStrategyExcelAddName(builder, name):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
 
 def AddName(builder, name):
     StoryStrategyExcelAddName(builder, name)
 
+def StoryStrategyExcelAddLocalize(builder, localize):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(localize), 0)
+
+def AddLocalize(builder, localize):
+    StoryStrategyExcelAddLocalize(builder, localize)
+
 def StoryStrategyExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount):
-    builder.PrependInt32Slot(8, stageEnterEchelonCount, 0)
+    builder.PrependInt32Slot(3, stageEnterEchelonCount, 0)
 
 def AddStageEnterEchelonCount(builder, stageEnterEchelonCount):
     StoryStrategyExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount)
+
+def StoryStrategyExcelAddBattleDuration(builder, battleDuration):
+    builder.PrependInt64Slot(4, battleDuration, 0)
+
+def AddBattleDuration(builder, battleDuration):
+    StoryStrategyExcelAddBattleDuration(builder, battleDuration)
+
+def StoryStrategyExcelAddWhiteListId(builder, whiteListId):
+    builder.PrependInt64Slot(5, whiteListId, 0)
+
+def AddWhiteListId(builder, whiteListId):
+    StoryStrategyExcelAddWhiteListId(builder, whiteListId)
+
+def StoryStrategyExcelAddStrategyMap(builder, strategyMap):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMap), 0)
+
+def AddStrategyMap(builder, strategyMap):
+    StoryStrategyExcelAddStrategyMap(builder, strategyMap)
+
+def StoryStrategyExcelAddStrategyMapBg(builder, strategyMapBg):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMapBg), 0)
+
+def AddStrategyMapBg(builder, strategyMapBg):
+    StoryStrategyExcelAddStrategyMapBg(builder, strategyMapBg)
+
+def StoryStrategyExcelAddMaxTurn(builder, maxTurn):
+    builder.PrependInt32Slot(8, maxTurn, 0)
+
+def AddMaxTurn(builder, maxTurn):
+    StoryStrategyExcelAddMaxTurn(builder, maxTurn)
 
 def StoryStrategyExcelAddStageTopography(builder, stageTopography):
     builder.PrependInt32Slot(9, stageTopography, 0)
@@ -194,23 +194,23 @@ def StoryStrategyExcelAddStrategyEnvironment(builder, strategyEnvironment):
 def AddStrategyEnvironment(builder, strategyEnvironment):
     StoryStrategyExcelAddStrategyEnvironment(builder, strategyEnvironment)
 
-def StoryStrategyExcelAddStrategyMap(builder, strategyMap):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMap), 0)
+def StoryStrategyExcelAddContentType(builder, contentType):
+    builder.PrependInt32Slot(11, contentType, 0)
 
-def AddStrategyMap(builder, strategyMap):
-    StoryStrategyExcelAddStrategyMap(builder, strategyMap)
+def AddContentType(builder, contentType):
+    StoryStrategyExcelAddContentType(builder, contentType)
 
-def StoryStrategyExcelAddStrategyMapBg(builder, strategyMapBg):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMapBg), 0)
+def StoryStrategyExcelAddBgmId(builder, bgmId):
+    builder.PrependInt64Slot(12, bgmId, 0)
 
-def AddStrategyMapBg(builder, strategyMapBg):
-    StoryStrategyExcelAddStrategyMapBg(builder, strategyMapBg)
+def AddBgmId(builder, bgmId):
+    StoryStrategyExcelAddBgmId(builder, bgmId)
 
-def StoryStrategyExcelAddWhiteListId(builder, whiteListId):
-    builder.PrependInt64Slot(13, whiteListId, 0)
+def StoryStrategyExcelAddFirstClearReportEventName(builder, firstClearReportEventName):
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(firstClearReportEventName), 0)
 
-def AddWhiteListId(builder, whiteListId):
-    StoryStrategyExcelAddWhiteListId(builder, whiteListId)
+def AddFirstClearReportEventName(builder, firstClearReportEventName):
+    StoryStrategyExcelAddFirstClearReportEventName(builder, firstClearReportEventName)
 
 def StoryStrategyExcelEnd(builder):
     return builder.EndObject()

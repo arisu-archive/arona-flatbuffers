@@ -25,39 +25,39 @@ class MiniGameDefenseInfoExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MiniGameDefenseInfoExcel
-    def DefenseBattleMultiplierMax(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameDefenseInfoExcel
-    def DefenseBattleParcelId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameDefenseInfoExcel
     def DefenseBattleParcelType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameDefenseInfoExcel
-    def DisableRootMotion(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # MiniGameDefenseInfoExcel
-    def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+    def DefenseBattleParcelId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
+
+    # MiniGameDefenseInfoExcel
+    def DefenseBattleMultiplierMax(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameDefenseInfoExcel
+    def DisableRootMotion(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
 def MiniGameDefenseInfoExcelStart(builder):
     builder.StartObject(5)
@@ -65,35 +65,35 @@ def MiniGameDefenseInfoExcelStart(builder):
 def Start(builder):
     MiniGameDefenseInfoExcelStart(builder)
 
-def MiniGameDefenseInfoExcelAddDefenseBattleMultiplierMax(builder, defenseBattleMultiplierMax):
-    builder.PrependInt64Slot(0, defenseBattleMultiplierMax, 0)
+def MiniGameDefenseInfoExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
 
-def AddDefenseBattleMultiplierMax(builder, defenseBattleMultiplierMax):
-    MiniGameDefenseInfoExcelAddDefenseBattleMultiplierMax(builder, defenseBattleMultiplierMax)
-
-def MiniGameDefenseInfoExcelAddDefenseBattleParcelId(builder, defenseBattleParcelId):
-    builder.PrependInt64Slot(1, defenseBattleParcelId, 0)
-
-def AddDefenseBattleParcelId(builder, defenseBattleParcelId):
-    MiniGameDefenseInfoExcelAddDefenseBattleParcelId(builder, defenseBattleParcelId)
+def AddEventContentId(builder, eventContentId):
+    MiniGameDefenseInfoExcelAddEventContentId(builder, eventContentId)
 
 def MiniGameDefenseInfoExcelAddDefenseBattleParcelType(builder, defenseBattleParcelType):
-    builder.PrependInt32Slot(2, defenseBattleParcelType, 0)
+    builder.PrependInt32Slot(1, defenseBattleParcelType, 0)
 
 def AddDefenseBattleParcelType(builder, defenseBattleParcelType):
     MiniGameDefenseInfoExcelAddDefenseBattleParcelType(builder, defenseBattleParcelType)
 
+def MiniGameDefenseInfoExcelAddDefenseBattleParcelId(builder, defenseBattleParcelId):
+    builder.PrependInt64Slot(2, defenseBattleParcelId, 0)
+
+def AddDefenseBattleParcelId(builder, defenseBattleParcelId):
+    MiniGameDefenseInfoExcelAddDefenseBattleParcelId(builder, defenseBattleParcelId)
+
+def MiniGameDefenseInfoExcelAddDefenseBattleMultiplierMax(builder, defenseBattleMultiplierMax):
+    builder.PrependInt64Slot(3, defenseBattleMultiplierMax, 0)
+
+def AddDefenseBattleMultiplierMax(builder, defenseBattleMultiplierMax):
+    MiniGameDefenseInfoExcelAddDefenseBattleMultiplierMax(builder, defenseBattleMultiplierMax)
+
 def MiniGameDefenseInfoExcelAddDisableRootMotion(builder, disableRootMotion):
-    builder.PrependBoolSlot(3, disableRootMotion, 0)
+    builder.PrependBoolSlot(4, disableRootMotion, 0)
 
 def AddDisableRootMotion(builder, disableRootMotion):
     MiniGameDefenseInfoExcelAddDisableRootMotion(builder, disableRootMotion)
-
-def MiniGameDefenseInfoExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(4, eventContentId, 0)
-
-def AddEventContentId(builder, eventContentId):
-    MiniGameDefenseInfoExcelAddEventContentId(builder, eventContentId)
 
 def MiniGameDefenseInfoExcelEnd(builder):
     return builder.EndObject()

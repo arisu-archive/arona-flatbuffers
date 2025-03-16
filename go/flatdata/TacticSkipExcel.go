@@ -41,20 +41,8 @@ func (rcv *TacticSkipExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *TacticSkipExcel) HpResult() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticSkipExcel) MutateHpResult(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
 func (rcv *TacticSkipExcel) LevelDiff() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -62,17 +50,29 @@ func (rcv *TacticSkipExcel) LevelDiff() int32 {
 }
 
 func (rcv *TacticSkipExcel) MutateLevelDiff(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
+	return rcv._tab.MutateInt32Slot(4, n)
+}
+
+func (rcv *TacticSkipExcel) HpResult() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticSkipExcel) MutateHpResult(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func TacticSkipExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func TacticSkipExcelAddHpResult(builder *flatbuffers.Builder, hpResult int64) {
-	builder.PrependInt64Slot(0, hpResult, 0)
-}
 func TacticSkipExcelAddLevelDiff(builder *flatbuffers.Builder, levelDiff int32) {
-	builder.PrependInt32Slot(1, levelDiff, 0)
+	builder.PrependInt32Slot(0, levelDiff, 0)
+}
+func TacticSkipExcelAddHpResult(builder *flatbuffers.Builder, hpResult int64) {
+	builder.PrependInt64Slot(1, hpResult, 0)
 }
 func TacticSkipExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

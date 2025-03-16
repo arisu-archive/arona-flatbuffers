@@ -53,20 +53,8 @@ func (rcv *EventContentDebuffRewardExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EventContentDebuffRewardExcel) EventContentItemType() EventContentItemType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return EventContentItemType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EventContentDebuffRewardExcel) MutateEventContentItemType(n EventContentItemType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
 func (rcv *EventContentDebuffRewardExcel) EventStageId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -74,7 +62,19 @@ func (rcv *EventContentDebuffRewardExcel) EventStageId() int64 {
 }
 
 func (rcv *EventContentDebuffRewardExcel) MutateEventStageId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *EventContentDebuffRewardExcel) EventContentItemType() EventContentItemType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return EventContentItemType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EventContentDebuffRewardExcel) MutateEventContentItemType(n EventContentItemType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
 func (rcv *EventContentDebuffRewardExcel) RewardPercentage() int64 {
@@ -95,11 +95,11 @@ func EventContentDebuffRewardExcelStart(builder *flatbuffers.Builder) {
 func EventContentDebuffRewardExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
 }
-func EventContentDebuffRewardExcelAddEventContentItemType(builder *flatbuffers.Builder, eventContentItemType EventContentItemType) {
-	builder.PrependInt32Slot(1, int32(eventContentItemType), 0)
-}
 func EventContentDebuffRewardExcelAddEventStageId(builder *flatbuffers.Builder, eventStageId int64) {
-	builder.PrependInt64Slot(2, eventStageId, 0)
+	builder.PrependInt64Slot(1, eventStageId, 0)
+}
+func EventContentDebuffRewardExcelAddEventContentItemType(builder *flatbuffers.Builder, eventContentItemType EventContentItemType) {
+	builder.PrependInt32Slot(2, int32(eventContentItemType), 0)
 }
 func EventContentDebuffRewardExcelAddRewardPercentage(builder *flatbuffers.Builder, rewardPercentage int64) {
 	builder.PrependInt64Slot(3, rewardPercentage, 0)

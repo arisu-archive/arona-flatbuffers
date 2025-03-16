@@ -1,13 +1,13 @@
 namespace FlatData;
 
 table ScenarioCharacterSituationSetExcel {
-    action: string;
+    name: uint;
+    face: string;
     behavior: string;
+    action: string;
+    shape: string;
     effect: uint;
     emotion: uint;
-    face: string;
-    name: uint;
-    shape: string;
 }
 
 root_type ScenarioCharacterSituationSetExcel;

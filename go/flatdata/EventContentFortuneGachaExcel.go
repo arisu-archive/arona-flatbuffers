@@ -53,16 +53,8 @@ func (rcv *EventContentFortuneGachaExcel) MutateFortuneGachaGroupId(n int32) boo
 	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *EventContentFortuneGachaExcel) IconPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *EventContentFortuneGachaExcel) LocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -70,7 +62,15 @@ func (rcv *EventContentFortuneGachaExcel) LocalizeEtcId() uint32 {
 }
 
 func (rcv *EventContentFortuneGachaExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(8, n)
+	return rcv._tab.MutateUint32Slot(6, n)
+}
+
+func (rcv *EventContentFortuneGachaExcel) IconPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func EventContentFortuneGachaExcelStart(builder *flatbuffers.Builder) {
@@ -79,11 +79,11 @@ func EventContentFortuneGachaExcelStart(builder *flatbuffers.Builder) {
 func EventContentFortuneGachaExcelAddFortuneGachaGroupId(builder *flatbuffers.Builder, fortuneGachaGroupId int32) {
 	builder.PrependInt32Slot(0, fortuneGachaGroupId, 0)
 }
-func EventContentFortuneGachaExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(iconPath), 0)
-}
 func EventContentFortuneGachaExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(2, localizeEtcId, 0)
+	builder.PrependUint32Slot(1, localizeEtcId, 0)
+}
+func EventContentFortuneGachaExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(iconPath), 0)
 }
 func EventContentFortuneGachaExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -41,7 +41,7 @@ func (rcv *EventContentBuffGroupExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentBuffGroupExcel) BuffContentId() int64 {
+func (rcv *EventContentBuffGroupExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -49,28 +49,24 @@ func (rcv *EventContentBuffGroupExcel) BuffContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentBuffGroupExcel) MutateBuffContentId(n int64) bool {
+func (rcv *EventContentBuffGroupExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EventContentBuffGroupExcel) BuffDescriptionIconPath1() []byte {
+func (rcv *EventContentBuffGroupExcel) BuffContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *EventContentBuffGroupExcel) BuffDescriptionIconPath2() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+func (rcv *EventContentBuffGroupExcel) MutateBuffContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *EventContentBuffGroupExcel) BuffGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -78,55 +74,11 @@ func (rcv *EventContentBuffGroupExcel) BuffGroupId() int64 {
 }
 
 func (rcv *EventContentBuffGroupExcel) MutateBuffGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func (rcv *EventContentBuffGroupExcel) BuffGroupNameLocalizeCodeId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentBuffGroupExcel) BuffGroupProb() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentBuffGroupExcel) MutateBuffGroupProb(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
-func (rcv *EventContentBuffGroupExcel) BuffNameLocalizeCodeId1() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentBuffGroupExcel) BuffNameLocalizeCodeId2() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentBuffGroupExcel) DeBuffDescriptionIconPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentBuffGroupExcel) DebuffNameLocalizeCodeId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -134,7 +86,7 @@ func (rcv *EventContentBuffGroupExcel) DebuffNameLocalizeCodeId() []byte {
 }
 
 func (rcv *EventContentBuffGroupExcel) EventContentBuffId1() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -142,11 +94,27 @@ func (rcv *EventContentBuffGroupExcel) EventContentBuffId1() int64 {
 }
 
 func (rcv *EventContentBuffGroupExcel) MutateEventContentBuffId1(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *EventContentBuffGroupExcel) BuffNameLocalizeCodeId1() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentBuffGroupExcel) BuffDescriptionIconPath1() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *EventContentBuffGroupExcel) EventContentBuffId2() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -154,11 +122,27 @@ func (rcv *EventContentBuffGroupExcel) EventContentBuffId2() int64 {
 }
 
 func (rcv *EventContentBuffGroupExcel) MutateEventContentBuffId2(n int64) bool {
-	return rcv._tab.MutateInt64Slot(26, n)
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
+func (rcv *EventContentBuffGroupExcel) BuffNameLocalizeCodeId2() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentBuffGroupExcel) BuffDescriptionIconPath2() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *EventContentBuffGroupExcel) EventContentDebuffId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -166,10 +150,26 @@ func (rcv *EventContentBuffGroupExcel) EventContentDebuffId() int64 {
 }
 
 func (rcv *EventContentBuffGroupExcel) MutateEventContentDebuffId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(28, n)
+	return rcv._tab.MutateInt64Slot(24, n)
 }
 
-func (rcv *EventContentBuffGroupExcel) EventContentId() int64 {
+func (rcv *EventContentBuffGroupExcel) DebuffNameLocalizeCodeId() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentBuffGroupExcel) DeBuffDescriptionIconPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentBuffGroupExcel) BuffGroupProb() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -177,54 +177,54 @@ func (rcv *EventContentBuffGroupExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentBuffGroupExcel) MutateEventContentId(n int64) bool {
+func (rcv *EventContentBuffGroupExcel) MutateBuffGroupProb(n int64) bool {
 	return rcv._tab.MutateInt64Slot(30, n)
 }
 
 func EventContentBuffGroupExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(14)
 }
+func EventContentBuffGroupExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(0, eventContentId, 0)
+}
 func EventContentBuffGroupExcelAddBuffContentId(builder *flatbuffers.Builder, buffContentId int64) {
-	builder.PrependInt64Slot(0, buffContentId, 0)
-}
-func EventContentBuffGroupExcelAddBuffDescriptionIconPath1(builder *flatbuffers.Builder, buffDescriptionIconPath1 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(buffDescriptionIconPath1), 0)
-}
-func EventContentBuffGroupExcelAddBuffDescriptionIconPath2(builder *flatbuffers.Builder, buffDescriptionIconPath2 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(buffDescriptionIconPath2), 0)
+	builder.PrependInt64Slot(1, buffContentId, 0)
 }
 func EventContentBuffGroupExcelAddBuffGroupId(builder *flatbuffers.Builder, buffGroupId int64) {
-	builder.PrependInt64Slot(3, buffGroupId, 0)
+	builder.PrependInt64Slot(2, buffGroupId, 0)
 }
 func EventContentBuffGroupExcelAddBuffGroupNameLocalizeCodeId(builder *flatbuffers.Builder, buffGroupNameLocalizeCodeId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(buffGroupNameLocalizeCodeId), 0)
-}
-func EventContentBuffGroupExcelAddBuffGroupProb(builder *flatbuffers.Builder, buffGroupProb int64) {
-	builder.PrependInt64Slot(5, buffGroupProb, 0)
-}
-func EventContentBuffGroupExcelAddBuffNameLocalizeCodeId1(builder *flatbuffers.Builder, buffNameLocalizeCodeId1 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(buffNameLocalizeCodeId1), 0)
-}
-func EventContentBuffGroupExcelAddBuffNameLocalizeCodeId2(builder *flatbuffers.Builder, buffNameLocalizeCodeId2 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(buffNameLocalizeCodeId2), 0)
-}
-func EventContentBuffGroupExcelAddDeBuffDescriptionIconPath(builder *flatbuffers.Builder, deBuffDescriptionIconPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(deBuffDescriptionIconPath), 0)
-}
-func EventContentBuffGroupExcelAddDebuffNameLocalizeCodeId(builder *flatbuffers.Builder, debuffNameLocalizeCodeId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(debuffNameLocalizeCodeId), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(buffGroupNameLocalizeCodeId), 0)
 }
 func EventContentBuffGroupExcelAddEventContentBuffId1(builder *flatbuffers.Builder, eventContentBuffId1 int64) {
-	builder.PrependInt64Slot(10, eventContentBuffId1, 0)
+	builder.PrependInt64Slot(4, eventContentBuffId1, 0)
+}
+func EventContentBuffGroupExcelAddBuffNameLocalizeCodeId1(builder *flatbuffers.Builder, buffNameLocalizeCodeId1 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(buffNameLocalizeCodeId1), 0)
+}
+func EventContentBuffGroupExcelAddBuffDescriptionIconPath1(builder *flatbuffers.Builder, buffDescriptionIconPath1 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(buffDescriptionIconPath1), 0)
 }
 func EventContentBuffGroupExcelAddEventContentBuffId2(builder *flatbuffers.Builder, eventContentBuffId2 int64) {
-	builder.PrependInt64Slot(11, eventContentBuffId2, 0)
+	builder.PrependInt64Slot(7, eventContentBuffId2, 0)
+}
+func EventContentBuffGroupExcelAddBuffNameLocalizeCodeId2(builder *flatbuffers.Builder, buffNameLocalizeCodeId2 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(buffNameLocalizeCodeId2), 0)
+}
+func EventContentBuffGroupExcelAddBuffDescriptionIconPath2(builder *flatbuffers.Builder, buffDescriptionIconPath2 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(buffDescriptionIconPath2), 0)
 }
 func EventContentBuffGroupExcelAddEventContentDebuffId(builder *flatbuffers.Builder, eventContentDebuffId int64) {
-	builder.PrependInt64Slot(12, eventContentDebuffId, 0)
+	builder.PrependInt64Slot(10, eventContentDebuffId, 0)
 }
-func EventContentBuffGroupExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(13, eventContentId, 0)
+func EventContentBuffGroupExcelAddDebuffNameLocalizeCodeId(builder *flatbuffers.Builder, debuffNameLocalizeCodeId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(debuffNameLocalizeCodeId), 0)
+}
+func EventContentBuffGroupExcelAddDeBuffDescriptionIconPath(builder *flatbuffers.Builder, deBuffDescriptionIconPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(deBuffDescriptionIconPath), 0)
+}
+func EventContentBuffGroupExcelAddBuffGroupProb(builder *flatbuffers.Builder, buffGroupProb int64) {
+	builder.PrependInt64Slot(13, buffGroupProb, 0)
 }
 func EventContentBuffGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

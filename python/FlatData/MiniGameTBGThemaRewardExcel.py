@@ -32,72 +32,32 @@ class MiniGameTBGThemaRewardExcel(object):
         return 0
 
     # MiniGameTBGThemaRewardExcel
-    def IsLoop(self):
+    def ThemaRound(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # MiniGameTBGThemaRewardExcel
-    def MiniGameTbgThemaRewardType(self):
+    def ThemaUniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameTBGThemaRewardExcel
-    def RewardParcelAmount(self, j):
+    def IsLoop(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # MiniGameTBGThemaRewardExcel
-    def RewardParcelAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # MiniGameTBGThemaRewardExcel
-    def RewardParcelAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MiniGameTBGThemaRewardExcel
-    def RewardParcelAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        return o == 0
-
-    # MiniGameTBGThemaRewardExcel
-    def RewardParcelId(self, j):
+    def MiniGameTbgThemaRewardType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
-
-    # MiniGameTBGThemaRewardExcel
-    def RewardParcelIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # MiniGameTBGThemaRewardExcel
-    def RewardParcelIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # MiniGameTBGThemaRewardExcel
-    def RewardParcelIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        return o == 0
 
     # MiniGameTBGThemaRewardExcel
     def RewardParcelType(self, j):
@@ -127,18 +87,58 @@ class MiniGameTBGThemaRewardExcel(object):
         return o == 0
 
     # MiniGameTBGThemaRewardExcel
-    def ThemaRound(self):
+    def RewardParcelId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # MiniGameTBGThemaRewardExcel
-    def ThemaUniqueId(self):
+    def RewardParcelIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # MiniGameTBGThemaRewardExcel
+    def RewardParcelIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MiniGameTBGThemaRewardExcel
+    def RewardParcelIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        return o == 0
+
+    # MiniGameTBGThemaRewardExcel
+    def RewardParcelAmount(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
+
+    # MiniGameTBGThemaRewardExcel
+    def RewardParcelAmountAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # MiniGameTBGThemaRewardExcel
+    def RewardParcelAmountLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # MiniGameTBGThemaRewardExcel
+    def RewardParcelAmountIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        return o == 0
 
 def MiniGameTBGThemaRewardExcelStart(builder):
     builder.StartObject(8)
@@ -152,41 +152,29 @@ def MiniGameTBGThemaRewardExcelAddEventContentId(builder, eventContentId):
 def AddEventContentId(builder, eventContentId):
     MiniGameTBGThemaRewardExcelAddEventContentId(builder, eventContentId)
 
+def MiniGameTBGThemaRewardExcelAddThemaRound(builder, themaRound):
+    builder.PrependInt32Slot(1, themaRound, 0)
+
+def AddThemaRound(builder, themaRound):
+    MiniGameTBGThemaRewardExcelAddThemaRound(builder, themaRound)
+
+def MiniGameTBGThemaRewardExcelAddThemaUniqueId(builder, themaUniqueId):
+    builder.PrependInt32Slot(2, themaUniqueId, 0)
+
+def AddThemaUniqueId(builder, themaUniqueId):
+    MiniGameTBGThemaRewardExcelAddThemaUniqueId(builder, themaUniqueId)
+
 def MiniGameTBGThemaRewardExcelAddIsLoop(builder, isLoop):
-    builder.PrependBoolSlot(1, isLoop, 0)
+    builder.PrependBoolSlot(3, isLoop, 0)
 
 def AddIsLoop(builder, isLoop):
     MiniGameTBGThemaRewardExcelAddIsLoop(builder, isLoop)
 
 def MiniGameTBGThemaRewardExcelAddMiniGameTbgThemaRewardType(builder, miniGameTbgThemaRewardType):
-    builder.PrependInt32Slot(2, miniGameTbgThemaRewardType, 0)
+    builder.PrependInt32Slot(4, miniGameTbgThemaRewardType, 0)
 
 def AddMiniGameTbgThemaRewardType(builder, miniGameTbgThemaRewardType):
     MiniGameTBGThemaRewardExcelAddMiniGameTbgThemaRewardType(builder, miniGameTbgThemaRewardType)
-
-def MiniGameTBGThemaRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
-
-def AddRewardParcelAmount(builder, rewardParcelAmount):
-    MiniGameTBGThemaRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-
-def MiniGameTBGThemaRewardExcelStartRewardParcelAmountVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartRewardParcelAmountVector(builder, numElems):
-    return MiniGameTBGThemaRewardExcelStartRewardParcelAmountVector(builder, numElems)
-
-def MiniGameTBGThemaRewardExcelAddRewardParcelId(builder, rewardParcelId):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
-
-def AddRewardParcelId(builder, rewardParcelId):
-    MiniGameTBGThemaRewardExcelAddRewardParcelId(builder, rewardParcelId)
-
-def MiniGameTBGThemaRewardExcelStartRewardParcelIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
-def StartRewardParcelIdVector(builder, numElems):
-    return MiniGameTBGThemaRewardExcelStartRewardParcelIdVector(builder, numElems)
 
 def MiniGameTBGThemaRewardExcelAddRewardParcelType(builder, rewardParcelType):
     builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
@@ -200,17 +188,29 @@ def MiniGameTBGThemaRewardExcelStartRewardParcelTypeVector(builder, numElems):
 def StartRewardParcelTypeVector(builder, numElems):
     return MiniGameTBGThemaRewardExcelStartRewardParcelTypeVector(builder, numElems)
 
-def MiniGameTBGThemaRewardExcelAddThemaRound(builder, themaRound):
-    builder.PrependInt32Slot(6, themaRound, 0)
+def MiniGameTBGThemaRewardExcelAddRewardParcelId(builder, rewardParcelId):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
 
-def AddThemaRound(builder, themaRound):
-    MiniGameTBGThemaRewardExcelAddThemaRound(builder, themaRound)
+def AddRewardParcelId(builder, rewardParcelId):
+    MiniGameTBGThemaRewardExcelAddRewardParcelId(builder, rewardParcelId)
 
-def MiniGameTBGThemaRewardExcelAddThemaUniqueId(builder, themaUniqueId):
-    builder.PrependInt32Slot(7, themaUniqueId, 0)
+def MiniGameTBGThemaRewardExcelStartRewardParcelIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
 
-def AddThemaUniqueId(builder, themaUniqueId):
-    MiniGameTBGThemaRewardExcelAddThemaUniqueId(builder, themaUniqueId)
+def StartRewardParcelIdVector(builder, numElems):
+    return MiniGameTBGThemaRewardExcelStartRewardParcelIdVector(builder, numElems)
+
+def MiniGameTBGThemaRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
+
+def AddRewardParcelAmount(builder, rewardParcelAmount):
+    MiniGameTBGThemaRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+
+def MiniGameTBGThemaRewardExcelStartRewardParcelAmountVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartRewardParcelAmountVector(builder, numElems):
+    return MiniGameTBGThemaRewardExcelStartRewardParcelAmountVector(builder, numElems)
 
 def MiniGameTBGThemaRewardExcelEnd(builder):
     return builder.EndObject()

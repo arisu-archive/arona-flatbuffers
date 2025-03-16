@@ -10,10 +10,10 @@ import (
 // PresetParcelsExcelDto represents a FlatBuffers table
 type PresetParcelsExcelDto struct {
 	fbsutils.FlatBuffer
-	ParcelAmount  int64      `json:"parcel_amount"`
-	ParcelId      int64      `json:"parcel_id"`
 	ParcelType    ParcelType `json:"parcel_type"`
+	ParcelId      int64      `json:"parcel_id"`
 	PresetGroupId int64      `json:"preset_group_id"`
+	ParcelAmount  int64      `json:"parcel_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *PresetParcelsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PresetParcels"))
 	}
 	PresetParcelsExcelStart(b)
-	PresetParcelsExcelAddParcelAmount(b, fbsutils.Convert(t.ParcelAmount, t.FlatBuffer.TableKey))
-	PresetParcelsExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
 	PresetParcelsExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
+	PresetParcelsExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
 	PresetParcelsExcelAddPresetGroupId(b, fbsutils.Convert(t.PresetGroupId, t.FlatBuffer.TableKey))
+	PresetParcelsExcelAddParcelAmount(b, fbsutils.Convert(t.ParcelAmount, t.FlatBuffer.TableKey))
 	return PresetParcelsExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *PresetParcelsExcelDto) UnmarshalMessage(e *PresetParcelsExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PresetParcels"))
 	}
-	t.ParcelAmount = fbsutils.Convert(e.ParcelAmount(), t.FlatBuffer.TableKey)
-	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
 	t.ParcelType = ParcelType(int32(fbsutils.Convert(e.ParcelType(), t.FlatBuffer.TableKey)))
+	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
 	t.PresetGroupId = fbsutils.Convert(e.PresetGroupId(), t.FlatBuffer.TableKey)
+	t.ParcelAmount = fbsutils.Convert(e.ParcelAmount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

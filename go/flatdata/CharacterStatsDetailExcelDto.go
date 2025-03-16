@@ -10,8 +10,8 @@ import (
 // CharacterStatsDetailExcelDto represents a FlatBuffers table
 type CharacterStatsDetailExcelDto struct {
 	fbsutils.FlatBuffer
-	DetailShowStats []StatType `json:"detail_show_stats"`
 	Id              int64      `json:"id"`
+	DetailShowStats []StatType `json:"detail_show_stats"`
 	IsStatsPercent  []bool     `json:"is_stats_percent"`
 }
 
@@ -21,12 +21,12 @@ func (t *CharacterStatsDetailExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatsDetail"))
 	}
 	CharacterStatsDetailExcelStart(b)
+	CharacterStatsDetailExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CharacterStatsDetailExcelStartDetailShowStatsVector(b, len(t.DetailShowStats))
 	for i := range len(t.DetailShowStats) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.DetailShowStats[len(t.DetailShowStats)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
 	}
 	CharacterStatsDetailExcelAddDetailShowStats(b, b.EndVector(len(t.DetailShowStats)))
-	CharacterStatsDetailExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CharacterStatsDetailExcelStartIsStatsPercentVector(b, len(t.IsStatsPercent))
 	for i := range len(t.IsStatsPercent) {
 		b.PrependBool(fbsutils.Convert(t.IsStatsPercent[len(t.IsStatsPercent)-i-1], t.FlatBuffer.TableKey))
@@ -47,11 +47,11 @@ func (t *CharacterStatsDetailExcelDto) UnmarshalMessage(e *CharacterStatsDetailE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatsDetail"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.DetailShowStats = make([]StatType, e.DetailShowStatsLength())
 	for i := range e.DetailShowStatsLength() {
 		t.DetailShowStats[i] = e.DetailShowStats(i)
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.IsStatsPercent = make([]bool, e.IsStatsPercentLength())
 	for i := range e.IsStatsPercentLength() {
 		t.IsStatsPercent[i] = e.IsStatsPercent(i)

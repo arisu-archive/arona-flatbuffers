@@ -3,13 +3,13 @@ include "WebAPIErrorLevel.fbs";
 namespace FlatData;
 
 table LocalizeErrorExcel {
-    en: string;
-    error_level: WebAPIErrorLevel;
-    jp: string;
     key: uint;
+    error_level: WebAPIErrorLevel;
     kr: string;
+    jp: string;
     th: string;
     tw: string;
+    en: string;
 }
 
 root_type LocalizeErrorExcel;

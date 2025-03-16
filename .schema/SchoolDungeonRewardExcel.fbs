@@ -1,16 +1,16 @@
+include "ParcelType.fbs";
 include "RewardTag.fbs";
 include "SchoolDungeonType.fbs";
-include "ParcelType.fbs";
 
 namespace FlatData;
 
 table SchoolDungeonRewardExcel {
-    dungeon_type: SchoolDungeonType;
     group_id: long;
-    is_displayed: bool;
-    reward_parcel_amount: long;
-    reward_parcel_id: long;
-    reward_parcel_probability: long;
-    reward_parcel_type: ParcelType;
+    dungeon_type: SchoolDungeonType;
     reward_tag: RewardTag;
+    reward_parcel_type: ParcelType;
+    reward_parcel_id: long;
+    reward_parcel_amount: long;
+    reward_parcel_probability: long;
+    is_displayed: bool;
 }

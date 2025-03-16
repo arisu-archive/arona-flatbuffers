@@ -10,8 +10,8 @@ import (
 // CharacterPotentialStatExcelDto represents a FlatBuffers table
 type CharacterPotentialStatExcelDto struct {
 	fbsutils.FlatBuffer
-	PotentialLevel       int32 `json:"potential_level"`
 	PotentialStatGroupId int64 `json:"potential_stat_group_id"`
+	PotentialLevel       int32 `json:"potential_level"`
 	RecipeId             int64 `json:"recipe_id"`
 	StatBonusRate        int64 `json:"stat_bonus_rate"`
 }
@@ -22,8 +22,8 @@ func (t *CharacterPotentialStatExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterPotentialStat"))
 	}
 	CharacterPotentialStatExcelStart(b)
-	CharacterPotentialStatExcelAddPotentialLevel(b, fbsutils.Convert(t.PotentialLevel, t.FlatBuffer.TableKey))
 	CharacterPotentialStatExcelAddPotentialStatGroupId(b, fbsutils.Convert(t.PotentialStatGroupId, t.FlatBuffer.TableKey))
+	CharacterPotentialStatExcelAddPotentialLevel(b, fbsutils.Convert(t.PotentialLevel, t.FlatBuffer.TableKey))
 	CharacterPotentialStatExcelAddRecipeId(b, fbsutils.Convert(t.RecipeId, t.FlatBuffer.TableKey))
 	CharacterPotentialStatExcelAddStatBonusRate(b, fbsutils.Convert(t.StatBonusRate, t.FlatBuffer.TableKey))
 	return CharacterPotentialStatExcelEnd(b)
@@ -41,8 +41,8 @@ func (t *CharacterPotentialStatExcelDto) UnmarshalMessage(e *CharacterPotentialS
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterPotentialStat"))
 	}
-	t.PotentialLevel = fbsutils.Convert(e.PotentialLevel(), t.FlatBuffer.TableKey)
 	t.PotentialStatGroupId = fbsutils.Convert(e.PotentialStatGroupId(), t.FlatBuffer.TableKey)
+	t.PotentialLevel = fbsutils.Convert(e.PotentialLevel(), t.FlatBuffer.TableKey)
 	t.RecipeId = fbsutils.Convert(e.RecipeId(), t.FlatBuffer.TableKey)
 	t.StatBonusRate = fbsutils.Convert(e.StatBonusRate(), t.FlatBuffer.TableKey)
 	return nil

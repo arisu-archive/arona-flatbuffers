@@ -10,8 +10,8 @@ import (
 // SkillAdditionalTooltipExcelDto represents a FlatBuffers table
 type SkillAdditionalTooltipExcelDto struct {
 	fbsutils.FlatBuffer
-	AdditionalSkillGroupId string `json:"additional_skill_group_id"`
 	GroupId                int64  `json:"group_id"`
+	AdditionalSkillGroupId string `json:"additional_skill_group_id"`
 	ShowSkillSlot          string `json:"show_skill_slot"`
 }
 
@@ -21,8 +21,8 @@ func (t *SkillAdditionalTooltipExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SkillAdditionalTooltip"))
 	}
 	SkillAdditionalTooltipExcelStart(b)
-	SkillAdditionalTooltipExcelAddAdditionalSkillGroupId(b, fbsutils.Convert(b.CreateString(t.AdditionalSkillGroupId), t.FlatBuffer.TableKey))
 	SkillAdditionalTooltipExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	SkillAdditionalTooltipExcelAddAdditionalSkillGroupId(b, fbsutils.Convert(b.CreateString(t.AdditionalSkillGroupId), t.FlatBuffer.TableKey))
 	SkillAdditionalTooltipExcelAddShowSkillSlot(b, fbsutils.Convert(b.CreateString(t.ShowSkillSlot), t.FlatBuffer.TableKey))
 	return SkillAdditionalTooltipExcelEnd(b)
 }
@@ -39,8 +39,8 @@ func (t *SkillAdditionalTooltipExcelDto) UnmarshalMessage(e *SkillAdditionalTool
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SkillAdditionalTooltip"))
 	}
-	t.AdditionalSkillGroupId = fbsutils.Convert(string(e.AdditionalSkillGroupId()), t.FlatBuffer.TableKey)
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.AdditionalSkillGroupId = fbsutils.Convert(string(e.AdditionalSkillGroupId()), t.FlatBuffer.TableKey)
 	t.ShowSkillSlot = fbsutils.Convert(string(e.ShowSkillSlot()), t.FlatBuffer.TableKey)
 	return nil
 }

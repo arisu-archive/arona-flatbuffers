@@ -1,12 +1,12 @@
 namespace FlatData;
 
 table TimeAttackDungeonSeasonManageExcel {
-    difficulty_geas: [long];
-    dungeon_id: long;
-    end_date: string;
     id: long;
-    room_life_time_in_seconds: long;
     start_date: string;
-    time_attack_dungeon_reward_id: long;
+    end_date: string;
     ui_slot: long;
+    dungeon_id: long;
+    difficulty_geas: [long];
+    time_attack_dungeon_reward_id: long;
+    room_life_time_in_seconds: long;
 }

@@ -10,20 +10,20 @@ import (
 // CampaignChapterExcelDto represents a FlatBuffers table
 type CampaignChapterExcelDto struct {
 	fbsutils.FlatBuffer
-	ChapterHardRewardId     int64   `json:"chapter_hard_reward_id"`
-	ChapterRewardId         int64   `json:"chapter_reward_id"`
-	ChapterVeryHardRewardId int64   `json:"chapter_very_hard_reward_id"`
-	HardCampaignStageId     []int64 `json:"hard_campaign_stage_id"`
-	HardImagePath           string  `json:"hard_image_path"`
 	Id                      int64   `json:"id"`
-	IsTacticSkip            bool    `json:"is_tactic_skip"`
 	Name                    string  `json:"name"`
-	NormalCampaignStageId   []int64 `json:"normal_campaign_stage_id"`
-	NormalExtraStageId      []int64 `json:"normal_extra_stage_id"`
 	NormalImagePath         string  `json:"normal_image_path"`
+	HardImagePath           string  `json:"hard_image_path"`
 	Order                   int64   `json:"order"`
 	PreChapterId            []int64 `json:"pre_chapter_id"`
+	ChapterRewardId         int64   `json:"chapter_reward_id"`
+	ChapterHardRewardId     int64   `json:"chapter_hard_reward_id"`
+	ChapterVeryHardRewardId int64   `json:"chapter_very_hard_reward_id"`
+	NormalCampaignStageId   []int64 `json:"normal_campaign_stage_id"`
+	NormalExtraStageId      []int64 `json:"normal_extra_stage_id"`
+	HardCampaignStageId     []int64 `json:"hard_campaign_stage_id"`
 	VeryHardCampaignStageId []int64 `json:"very_hard_campaign_stage_id"`
+	IsTacticSkip            bool    `json:"is_tactic_skip"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -32,18 +32,19 @@ func (t *CampaignChapterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignChapter"))
 	}
 	CampaignChapterExcelStart(b)
-	CampaignChapterExcelAddChapterHardRewardId(b, fbsutils.Convert(t.ChapterHardRewardId, t.FlatBuffer.TableKey))
-	CampaignChapterExcelAddChapterRewardId(b, fbsutils.Convert(t.ChapterRewardId, t.FlatBuffer.TableKey))
-	CampaignChapterExcelAddChapterVeryHardRewardId(b, fbsutils.Convert(t.ChapterVeryHardRewardId, t.FlatBuffer.TableKey))
-	CampaignChapterExcelStartHardCampaignStageIdVector(b, len(t.HardCampaignStageId))
-	for i := range len(t.HardCampaignStageId) {
-		b.PrependInt64(fbsutils.Convert(t.HardCampaignStageId[len(t.HardCampaignStageId)-i-1], t.FlatBuffer.TableKey))
-	}
-	CampaignChapterExcelAddHardCampaignStageId(b, b.EndVector(len(t.HardCampaignStageId)))
-	CampaignChapterExcelAddHardImagePath(b, fbsutils.Convert(b.CreateString(t.HardImagePath), t.FlatBuffer.TableKey))
 	CampaignChapterExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CampaignChapterExcelAddIsTacticSkip(b, fbsutils.Convert(t.IsTacticSkip, t.FlatBuffer.TableKey))
 	CampaignChapterExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	CampaignChapterExcelAddNormalImagePath(b, fbsutils.Convert(b.CreateString(t.NormalImagePath), t.FlatBuffer.TableKey))
+	CampaignChapterExcelAddHardImagePath(b, fbsutils.Convert(b.CreateString(t.HardImagePath), t.FlatBuffer.TableKey))
+	CampaignChapterExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
+	CampaignChapterExcelStartPreChapterIdVector(b, len(t.PreChapterId))
+	for i := range len(t.PreChapterId) {
+		b.PrependInt64(fbsutils.Convert(t.PreChapterId[len(t.PreChapterId)-i-1], t.FlatBuffer.TableKey))
+	}
+	CampaignChapterExcelAddPreChapterId(b, b.EndVector(len(t.PreChapterId)))
+	CampaignChapterExcelAddChapterRewardId(b, fbsutils.Convert(t.ChapterRewardId, t.FlatBuffer.TableKey))
+	CampaignChapterExcelAddChapterHardRewardId(b, fbsutils.Convert(t.ChapterHardRewardId, t.FlatBuffer.TableKey))
+	CampaignChapterExcelAddChapterVeryHardRewardId(b, fbsutils.Convert(t.ChapterVeryHardRewardId, t.FlatBuffer.TableKey))
 	CampaignChapterExcelStartNormalCampaignStageIdVector(b, len(t.NormalCampaignStageId))
 	for i := range len(t.NormalCampaignStageId) {
 		b.PrependInt64(fbsutils.Convert(t.NormalCampaignStageId[len(t.NormalCampaignStageId)-i-1], t.FlatBuffer.TableKey))
@@ -54,18 +55,17 @@ func (t *CampaignChapterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 		b.PrependInt64(fbsutils.Convert(t.NormalExtraStageId[len(t.NormalExtraStageId)-i-1], t.FlatBuffer.TableKey))
 	}
 	CampaignChapterExcelAddNormalExtraStageId(b, b.EndVector(len(t.NormalExtraStageId)))
-	CampaignChapterExcelAddNormalImagePath(b, fbsutils.Convert(b.CreateString(t.NormalImagePath), t.FlatBuffer.TableKey))
-	CampaignChapterExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
-	CampaignChapterExcelStartPreChapterIdVector(b, len(t.PreChapterId))
-	for i := range len(t.PreChapterId) {
-		b.PrependInt64(fbsutils.Convert(t.PreChapterId[len(t.PreChapterId)-i-1], t.FlatBuffer.TableKey))
+	CampaignChapterExcelStartHardCampaignStageIdVector(b, len(t.HardCampaignStageId))
+	for i := range len(t.HardCampaignStageId) {
+		b.PrependInt64(fbsutils.Convert(t.HardCampaignStageId[len(t.HardCampaignStageId)-i-1], t.FlatBuffer.TableKey))
 	}
-	CampaignChapterExcelAddPreChapterId(b, b.EndVector(len(t.PreChapterId)))
+	CampaignChapterExcelAddHardCampaignStageId(b, b.EndVector(len(t.HardCampaignStageId)))
 	CampaignChapterExcelStartVeryHardCampaignStageIdVector(b, len(t.VeryHardCampaignStageId))
 	for i := range len(t.VeryHardCampaignStageId) {
 		b.PrependInt64(fbsutils.Convert(t.VeryHardCampaignStageId[len(t.VeryHardCampaignStageId)-i-1], t.FlatBuffer.TableKey))
 	}
 	CampaignChapterExcelAddVeryHardCampaignStageId(b, b.EndVector(len(t.VeryHardCampaignStageId)))
+	CampaignChapterExcelAddIsTacticSkip(b, fbsutils.Convert(t.IsTacticSkip, t.FlatBuffer.TableKey))
 	return CampaignChapterExcelEnd(b)
 }
 
@@ -81,17 +81,18 @@ func (t *CampaignChapterExcelDto) UnmarshalMessage(e *CampaignChapterExcel) erro
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignChapter"))
 	}
-	t.ChapterHardRewardId = fbsutils.Convert(e.ChapterHardRewardId(), t.FlatBuffer.TableKey)
-	t.ChapterRewardId = fbsutils.Convert(e.ChapterRewardId(), t.FlatBuffer.TableKey)
-	t.ChapterVeryHardRewardId = fbsutils.Convert(e.ChapterVeryHardRewardId(), t.FlatBuffer.TableKey)
-	t.HardCampaignStageId = make([]int64, e.HardCampaignStageIdLength())
-	for i := range e.HardCampaignStageIdLength() {
-		t.HardCampaignStageId[i] = e.HardCampaignStageId(i)
-	}
-	t.HardImagePath = fbsutils.Convert(string(e.HardImagePath()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.IsTacticSkip = fbsutils.Convert(e.IsTacticSkip(), t.FlatBuffer.TableKey)
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
+	t.NormalImagePath = fbsutils.Convert(string(e.NormalImagePath()), t.FlatBuffer.TableKey)
+	t.HardImagePath = fbsutils.Convert(string(e.HardImagePath()), t.FlatBuffer.TableKey)
+	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
+	t.PreChapterId = make([]int64, e.PreChapterIdLength())
+	for i := range e.PreChapterIdLength() {
+		t.PreChapterId[i] = e.PreChapterId(i)
+	}
+	t.ChapterRewardId = fbsutils.Convert(e.ChapterRewardId(), t.FlatBuffer.TableKey)
+	t.ChapterHardRewardId = fbsutils.Convert(e.ChapterHardRewardId(), t.FlatBuffer.TableKey)
+	t.ChapterVeryHardRewardId = fbsutils.Convert(e.ChapterVeryHardRewardId(), t.FlatBuffer.TableKey)
 	t.NormalCampaignStageId = make([]int64, e.NormalCampaignStageIdLength())
 	for i := range e.NormalCampaignStageIdLength() {
 		t.NormalCampaignStageId[i] = e.NormalCampaignStageId(i)
@@ -100,16 +101,15 @@ func (t *CampaignChapterExcelDto) UnmarshalMessage(e *CampaignChapterExcel) erro
 	for i := range e.NormalExtraStageIdLength() {
 		t.NormalExtraStageId[i] = e.NormalExtraStageId(i)
 	}
-	t.NormalImagePath = fbsutils.Convert(string(e.NormalImagePath()), t.FlatBuffer.TableKey)
-	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
-	t.PreChapterId = make([]int64, e.PreChapterIdLength())
-	for i := range e.PreChapterIdLength() {
-		t.PreChapterId[i] = e.PreChapterId(i)
+	t.HardCampaignStageId = make([]int64, e.HardCampaignStageIdLength())
+	for i := range e.HardCampaignStageIdLength() {
+		t.HardCampaignStageId[i] = e.HardCampaignStageId(i)
 	}
 	t.VeryHardCampaignStageId = make([]int64, e.VeryHardCampaignStageIdLength())
 	for i := range e.VeryHardCampaignStageIdLength() {
 		t.VeryHardCampaignStageId[i] = e.VeryHardCampaignStageId(i)
 	}
+	t.IsTacticSkip = fbsutils.Convert(e.IsTacticSkip(), t.FlatBuffer.TableKey)
 	return nil
 }
 

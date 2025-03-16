@@ -1,43 +1,43 @@
-include "DialogType.fbs";
-include "ProductionStep.fbs";
 include "Anniversary.fbs";
 include "CVCollectionType.fbs";
 include "DialogCategory.fbs";
 include "DialogCondition.fbs";
+include "DialogType.fbs";
+include "ProductionStep.fbs";
 
 namespace FlatData;
 
 table CharacterDialogExcel {
-    action_name: string;
-    animation_name: string;
-    anniversary: Anniversary;
-    apply_position: bool;
     character_id: long;
-    collection_visible: bool;
     costume_unique_id: long;
-    cv_collection_type: CVCollectionType;
+    display_order: long;
+    production_step: ProductionStep;
     dialog_category: DialogCategory;
     dialog_condition: DialogCondition;
-    dialog_type: DialogType;
-    display_order: long;
-    duration: long;
-    duration_kr: long;
+    anniversary: Anniversary;
+    start_date: string;
     end_date: string;
     group_id: long;
-    localize_cv_group: string;
-    localize_en: string;
-    localize_jp: string;
+    dialog_type: DialogType;
+    action_name: string;
+    duration: long;
+    duration_kr: long;
+    animation_name: string;
     localize_kr: string;
+    localize_jp: string;
     localize_th: string;
     localize_tw: string;
+    localize_en: string;
+    voice_id: [uint];
+    apply_position: bool;
     pos_x: float;
     pos_y: float;
-    production_step: ProductionStep;
-    start_date: string;
-    teen_mode: bool;
-    unlock_equip_weapon: bool;
+    collection_visible: bool;
+    cv_collection_type: CVCollectionType;
     unlock_favor_rank: long;
-    voice_id: [uint];
+    unlock_equip_weapon: bool;
+    localize_cv_group: string;
+    teen_mode: bool;
 }
 
 root_type CharacterDialogExcel;

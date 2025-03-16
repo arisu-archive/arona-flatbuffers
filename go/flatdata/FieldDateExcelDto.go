@@ -10,18 +10,18 @@ import (
 // FieldDateExcelDto represents a FlatBuffers table
 type FieldDateExcelDto struct {
 	fbsutils.FlatBuffer
-	DateLocalizeKey        string             `json:"date_localize_key"`
-	DateResultSpineOffsetX float32            `json:"date_result_spine_offset_x"`
-	DateResultSpinePath    string             `json:"date_result_spine_path"`
-	EndConditionId         int64              `json:"end_condition_id"`
-	EndConditionType       FieldConditionType `json:"end_condition_type"`
-	EntrySceneId           int64              `json:"entry_scene_id"`
-	OpenConditionStage     int64              `json:"open_condition_stage"`
-	OpenDate               int64              `json:"open_date"`
-	SeasonId               int64              `json:"season_id"`
-	StartConditionId       int64              `json:"start_condition_id"`
-	StartConditionType     FieldConditionType `json:"start_condition_type"`
 	UniqueId               int64              `json:"unique_id"`
+	SeasonId               int64              `json:"season_id"`
+	OpenDate               int64              `json:"open_date"`
+	DateLocalizeKey        string             `json:"date_localize_key"`
+	EntrySceneId           int64              `json:"entry_scene_id"`
+	StartConditionType     FieldConditionType `json:"start_condition_type"`
+	StartConditionId       int64              `json:"start_condition_id"`
+	EndConditionType       FieldConditionType `json:"end_condition_type"`
+	EndConditionId         int64              `json:"end_condition_id"`
+	OpenConditionStage     int64              `json:"open_condition_stage"`
+	DateResultSpinePath    string             `json:"date_result_spine_path"`
+	DateResultSpineOffsetX float32            `json:"date_result_spine_offset_x"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -30,18 +30,18 @@ func (t *FieldDateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldDate"))
 	}
 	FieldDateExcelStart(b)
-	FieldDateExcelAddDateLocalizeKey(b, fbsutils.Convert(b.CreateString(t.DateLocalizeKey), t.FlatBuffer.TableKey))
-	FieldDateExcelAddDateResultSpineOffsetX(b, fbsutils.Convert(t.DateResultSpineOffsetX, t.FlatBuffer.TableKey))
-	FieldDateExcelAddDateResultSpinePath(b, fbsutils.Convert(b.CreateString(t.DateResultSpinePath), t.FlatBuffer.TableKey))
-	FieldDateExcelAddEndConditionId(b, fbsutils.Convert(t.EndConditionId, t.FlatBuffer.TableKey))
-	FieldDateExcelAddEndConditionType(b, fbsutils.Convert(t.EndConditionType, t.FlatBuffer.TableKey))
-	FieldDateExcelAddEntrySceneId(b, fbsutils.Convert(t.EntrySceneId, t.FlatBuffer.TableKey))
-	FieldDateExcelAddOpenConditionStage(b, fbsutils.Convert(t.OpenConditionStage, t.FlatBuffer.TableKey))
-	FieldDateExcelAddOpenDate(b, fbsutils.Convert(t.OpenDate, t.FlatBuffer.TableKey))
-	FieldDateExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
-	FieldDateExcelAddStartConditionId(b, fbsutils.Convert(t.StartConditionId, t.FlatBuffer.TableKey))
-	FieldDateExcelAddStartConditionType(b, fbsutils.Convert(t.StartConditionType, t.FlatBuffer.TableKey))
 	FieldDateExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	FieldDateExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
+	FieldDateExcelAddOpenDate(b, fbsutils.Convert(t.OpenDate, t.FlatBuffer.TableKey))
+	FieldDateExcelAddDateLocalizeKey(b, fbsutils.Convert(b.CreateString(t.DateLocalizeKey), t.FlatBuffer.TableKey))
+	FieldDateExcelAddEntrySceneId(b, fbsutils.Convert(t.EntrySceneId, t.FlatBuffer.TableKey))
+	FieldDateExcelAddStartConditionType(b, fbsutils.Convert(t.StartConditionType, t.FlatBuffer.TableKey))
+	FieldDateExcelAddStartConditionId(b, fbsutils.Convert(t.StartConditionId, t.FlatBuffer.TableKey))
+	FieldDateExcelAddEndConditionType(b, fbsutils.Convert(t.EndConditionType, t.FlatBuffer.TableKey))
+	FieldDateExcelAddEndConditionId(b, fbsutils.Convert(t.EndConditionId, t.FlatBuffer.TableKey))
+	FieldDateExcelAddOpenConditionStage(b, fbsutils.Convert(t.OpenConditionStage, t.FlatBuffer.TableKey))
+	FieldDateExcelAddDateResultSpinePath(b, fbsutils.Convert(b.CreateString(t.DateResultSpinePath), t.FlatBuffer.TableKey))
+	FieldDateExcelAddDateResultSpineOffsetX(b, fbsutils.Convert(t.DateResultSpineOffsetX, t.FlatBuffer.TableKey))
 	return FieldDateExcelEnd(b)
 }
 
@@ -57,18 +57,18 @@ func (t *FieldDateExcelDto) UnmarshalMessage(e *FieldDateExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldDate"))
 	}
-	t.DateLocalizeKey = fbsutils.Convert(string(e.DateLocalizeKey()), t.FlatBuffer.TableKey)
-	t.DateResultSpineOffsetX = fbsutils.Convert(e.DateResultSpineOffsetX(), t.FlatBuffer.TableKey)
-	t.DateResultSpinePath = fbsutils.Convert(string(e.DateResultSpinePath()), t.FlatBuffer.TableKey)
-	t.EndConditionId = fbsutils.Convert(e.EndConditionId(), t.FlatBuffer.TableKey)
-	t.EndConditionType = FieldConditionType(int32(fbsutils.Convert(e.EndConditionType(), t.FlatBuffer.TableKey)))
-	t.EntrySceneId = fbsutils.Convert(e.EntrySceneId(), t.FlatBuffer.TableKey)
-	t.OpenConditionStage = fbsutils.Convert(e.OpenConditionStage(), t.FlatBuffer.TableKey)
-	t.OpenDate = fbsutils.Convert(e.OpenDate(), t.FlatBuffer.TableKey)
-	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
-	t.StartConditionId = fbsutils.Convert(e.StartConditionId(), t.FlatBuffer.TableKey)
-	t.StartConditionType = FieldConditionType(int32(fbsutils.Convert(e.StartConditionType(), t.FlatBuffer.TableKey)))
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
+	t.OpenDate = fbsutils.Convert(e.OpenDate(), t.FlatBuffer.TableKey)
+	t.DateLocalizeKey = fbsutils.Convert(string(e.DateLocalizeKey()), t.FlatBuffer.TableKey)
+	t.EntrySceneId = fbsutils.Convert(e.EntrySceneId(), t.FlatBuffer.TableKey)
+	t.StartConditionType = FieldConditionType(int32(fbsutils.Convert(e.StartConditionType(), t.FlatBuffer.TableKey)))
+	t.StartConditionId = fbsutils.Convert(e.StartConditionId(), t.FlatBuffer.TableKey)
+	t.EndConditionType = FieldConditionType(int32(fbsutils.Convert(e.EndConditionType(), t.FlatBuffer.TableKey)))
+	t.EndConditionId = fbsutils.Convert(e.EndConditionId(), t.FlatBuffer.TableKey)
+	t.OpenConditionStage = fbsutils.Convert(e.OpenConditionStage(), t.FlatBuffer.TableKey)
+	t.DateResultSpinePath = fbsutils.Convert(string(e.DateResultSpinePath()), t.FlatBuffer.TableKey)
+	t.DateResultSpineOffsetX = fbsutils.Convert(e.DateResultSpineOffsetX(), t.FlatBuffer.TableKey)
 	return nil
 }
 

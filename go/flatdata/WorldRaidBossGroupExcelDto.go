@@ -10,28 +10,28 @@ import (
 // WorldRaidBossGroupExcelDto represents a FlatBuffers table
 type WorldRaidBossGroupExcelDto struct {
 	fbsutils.FlatBuffer
-	AnotherBossKilled               []int64 `json:"another_boss_killed"`
-	BossGroupOpenCondition          int64   `json:"boss_group_open_condition"`
-	EchelonConstraintGroupId        int64   `json:"echelon_constraint_group_id"`
-	ExclusiveOperatorBossDamaged    string  `json:"exclusive_operator_boss_damaged"`
-	ExclusiveOperatorBossKill       string  `json:"exclusive_operator_boss_kill"`
-	ExclusiveOperatorBossSpawn      string  `json:"exclusive_operator_boss_spawn"`
-	ExclusiveOperatorScenarioBattle string  `json:"exclusive_operator_scenario_battle"`
-	HideAnotherBossKilled           bool    `json:"hide_another_boss_killed"`
 	Id                              int64   `json:"id"`
-	UiHideBeforeSpawn               bool    `json:"ui_hide_before_spawn"`
-	WorldBossClearRewardGroupId     int64   `json:"world_boss_clear_reward_group_id"`
-	WorldBossHp                     int64   `json:"world_boss_hp"`
-	WorldBossHpAsia                 int64   `json:"world_boss_hp_asia"`
-	WorldBossHpGlobal               int64   `json:"world_boss_hp_global"`
-	WorldBossHpNa                   int64   `json:"world_boss_hp_na"`
-	WorldBossHpTw                   int64   `json:"world_boss_hp_tw"`
-	WorldBossListParcel             string  `json:"world_boss_list_parcel"`
-	WorldBossName                   string  `json:"world_boss_name"`
-	WorldBossParcelPortrait         string  `json:"world_boss_parcel_portrait"`
-	WorldBossPopupBg                string  `json:"world_boss_popup_bg"`
-	WorldBossPopupPortrait          string  `json:"world_boss_popup_portrait"`
 	WorldRaidBossGroupId            int64   `json:"world_raid_boss_group_id"`
+	WorldBossName                   string  `json:"world_boss_name"`
+	WorldBossPopupPortrait          string  `json:"world_boss_popup_portrait"`
+	WorldBossPopupBg                string  `json:"world_boss_popup_bg"`
+	WorldBossParcelPortrait         string  `json:"world_boss_parcel_portrait"`
+	WorldBossListParcel             string  `json:"world_boss_list_parcel"`
+	WorldBossHp                     int64   `json:"world_boss_hp"`
+	WorldBossHpTw                   int64   `json:"world_boss_hp_tw"`
+	WorldBossHpAsia                 int64   `json:"world_boss_hp_asia"`
+	WorldBossHpNa                   int64   `json:"world_boss_hp_na"`
+	WorldBossHpGlobal               int64   `json:"world_boss_hp_global"`
+	UiHideBeforeSpawn               bool    `json:"ui_hide_before_spawn"`
+	HideAnotherBossKilled           bool    `json:"hide_another_boss_killed"`
+	WorldBossClearRewardGroupId     int64   `json:"world_boss_clear_reward_group_id"`
+	AnotherBossKilled               []int64 `json:"another_boss_killed"`
+	EchelonConstraintGroupId        int64   `json:"echelon_constraint_group_id"`
+	ExclusiveOperatorBossSpawn      string  `json:"exclusive_operator_boss_spawn"`
+	ExclusiveOperatorBossKill       string  `json:"exclusive_operator_boss_kill"`
+	ExclusiveOperatorScenarioBattle string  `json:"exclusive_operator_scenario_battle"`
+	ExclusiveOperatorBossDamaged    string  `json:"exclusive_operator_boss_damaged"`
+	BossGroupOpenCondition          int64   `json:"boss_group_open_condition"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -40,32 +40,32 @@ func (t *WorldRaidBossGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidBossGroup"))
 	}
 	WorldRaidBossGroupExcelStart(b)
+	WorldRaidBossGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddWorldRaidBossGroupId(b, fbsutils.Convert(t.WorldRaidBossGroupId, t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddWorldBossName(b, fbsutils.Convert(b.CreateString(t.WorldBossName), t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddWorldBossPopupPortrait(b, fbsutils.Convert(b.CreateString(t.WorldBossPopupPortrait), t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddWorldBossPopupBg(b, fbsutils.Convert(b.CreateString(t.WorldBossPopupBg), t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddWorldBossParcelPortrait(b, fbsutils.Convert(b.CreateString(t.WorldBossParcelPortrait), t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddWorldBossListParcel(b, fbsutils.Convert(b.CreateString(t.WorldBossListParcel), t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddWorldBossHp(b, fbsutils.Convert(t.WorldBossHp, t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddWorldBossHpTw(b, fbsutils.Convert(t.WorldBossHpTw, t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddWorldBossHpAsia(b, fbsutils.Convert(t.WorldBossHpAsia, t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddWorldBossHpNa(b, fbsutils.Convert(t.WorldBossHpNa, t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddWorldBossHpGlobal(b, fbsutils.Convert(t.WorldBossHpGlobal, t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddUiHideBeforeSpawn(b, fbsutils.Convert(t.UiHideBeforeSpawn, t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddHideAnotherBossKilled(b, fbsutils.Convert(t.HideAnotherBossKilled, t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddWorldBossClearRewardGroupId(b, fbsutils.Convert(t.WorldBossClearRewardGroupId, t.FlatBuffer.TableKey))
 	WorldRaidBossGroupExcelStartAnotherBossKilledVector(b, len(t.AnotherBossKilled))
 	for i := range len(t.AnotherBossKilled) {
 		b.PrependInt64(fbsutils.Convert(t.AnotherBossKilled[len(t.AnotherBossKilled)-i-1], t.FlatBuffer.TableKey))
 	}
 	WorldRaidBossGroupExcelAddAnotherBossKilled(b, b.EndVector(len(t.AnotherBossKilled)))
-	WorldRaidBossGroupExcelAddBossGroupOpenCondition(b, fbsutils.Convert(t.BossGroupOpenCondition, t.FlatBuffer.TableKey))
 	WorldRaidBossGroupExcelAddEchelonConstraintGroupId(b, fbsutils.Convert(t.EchelonConstraintGroupId, t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddExclusiveOperatorBossDamaged(b, fbsutils.Convert(b.CreateString(t.ExclusiveOperatorBossDamaged), t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddExclusiveOperatorBossKill(b, fbsutils.Convert(b.CreateString(t.ExclusiveOperatorBossKill), t.FlatBuffer.TableKey))
 	WorldRaidBossGroupExcelAddExclusiveOperatorBossSpawn(b, fbsutils.Convert(b.CreateString(t.ExclusiveOperatorBossSpawn), t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddExclusiveOperatorBossKill(b, fbsutils.Convert(b.CreateString(t.ExclusiveOperatorBossKill), t.FlatBuffer.TableKey))
 	WorldRaidBossGroupExcelAddExclusiveOperatorScenarioBattle(b, fbsutils.Convert(b.CreateString(t.ExclusiveOperatorScenarioBattle), t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddHideAnotherBossKilled(b, fbsutils.Convert(t.HideAnotherBossKilled, t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddUiHideBeforeSpawn(b, fbsutils.Convert(t.UiHideBeforeSpawn, t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddWorldBossClearRewardGroupId(b, fbsutils.Convert(t.WorldBossClearRewardGroupId, t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddWorldBossHp(b, fbsutils.Convert(t.WorldBossHp, t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddWorldBossHpAsia(b, fbsutils.Convert(t.WorldBossHpAsia, t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddWorldBossHpGlobal(b, fbsutils.Convert(t.WorldBossHpGlobal, t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddWorldBossHpNa(b, fbsutils.Convert(t.WorldBossHpNa, t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddWorldBossHpTw(b, fbsutils.Convert(t.WorldBossHpTw, t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddWorldBossListParcel(b, fbsutils.Convert(b.CreateString(t.WorldBossListParcel), t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddWorldBossName(b, fbsutils.Convert(b.CreateString(t.WorldBossName), t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddWorldBossParcelPortrait(b, fbsutils.Convert(b.CreateString(t.WorldBossParcelPortrait), t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddWorldBossPopupBg(b, fbsutils.Convert(b.CreateString(t.WorldBossPopupBg), t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddWorldBossPopupPortrait(b, fbsutils.Convert(b.CreateString(t.WorldBossPopupPortrait), t.FlatBuffer.TableKey))
-	WorldRaidBossGroupExcelAddWorldRaidBossGroupId(b, fbsutils.Convert(t.WorldRaidBossGroupId, t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddExclusiveOperatorBossDamaged(b, fbsutils.Convert(b.CreateString(t.ExclusiveOperatorBossDamaged), t.FlatBuffer.TableKey))
+	WorldRaidBossGroupExcelAddBossGroupOpenCondition(b, fbsutils.Convert(t.BossGroupOpenCondition, t.FlatBuffer.TableKey))
 	return WorldRaidBossGroupExcelEnd(b)
 }
 
@@ -81,31 +81,31 @@ func (t *WorldRaidBossGroupExcelDto) UnmarshalMessage(e *WorldRaidBossGroupExcel
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidBossGroup"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.WorldRaidBossGroupId = fbsutils.Convert(e.WorldRaidBossGroupId(), t.FlatBuffer.TableKey)
+	t.WorldBossName = fbsutils.Convert(string(e.WorldBossName()), t.FlatBuffer.TableKey)
+	t.WorldBossPopupPortrait = fbsutils.Convert(string(e.WorldBossPopupPortrait()), t.FlatBuffer.TableKey)
+	t.WorldBossPopupBg = fbsutils.Convert(string(e.WorldBossPopupBg()), t.FlatBuffer.TableKey)
+	t.WorldBossParcelPortrait = fbsutils.Convert(string(e.WorldBossParcelPortrait()), t.FlatBuffer.TableKey)
+	t.WorldBossListParcel = fbsutils.Convert(string(e.WorldBossListParcel()), t.FlatBuffer.TableKey)
+	t.WorldBossHp = fbsutils.Convert(e.WorldBossHp(), t.FlatBuffer.TableKey)
+	t.WorldBossHpTw = fbsutils.Convert(e.WorldBossHpTw(), t.FlatBuffer.TableKey)
+	t.WorldBossHpAsia = fbsutils.Convert(e.WorldBossHpAsia(), t.FlatBuffer.TableKey)
+	t.WorldBossHpNa = fbsutils.Convert(e.WorldBossHpNa(), t.FlatBuffer.TableKey)
+	t.WorldBossHpGlobal = fbsutils.Convert(e.WorldBossHpGlobal(), t.FlatBuffer.TableKey)
+	t.UiHideBeforeSpawn = fbsutils.Convert(e.UiHideBeforeSpawn(), t.FlatBuffer.TableKey)
+	t.HideAnotherBossKilled = fbsutils.Convert(e.HideAnotherBossKilled(), t.FlatBuffer.TableKey)
+	t.WorldBossClearRewardGroupId = fbsutils.Convert(e.WorldBossClearRewardGroupId(), t.FlatBuffer.TableKey)
 	t.AnotherBossKilled = make([]int64, e.AnotherBossKilledLength())
 	for i := range e.AnotherBossKilledLength() {
 		t.AnotherBossKilled[i] = e.AnotherBossKilled(i)
 	}
-	t.BossGroupOpenCondition = fbsutils.Convert(e.BossGroupOpenCondition(), t.FlatBuffer.TableKey)
 	t.EchelonConstraintGroupId = fbsutils.Convert(e.EchelonConstraintGroupId(), t.FlatBuffer.TableKey)
-	t.ExclusiveOperatorBossDamaged = fbsutils.Convert(string(e.ExclusiveOperatorBossDamaged()), t.FlatBuffer.TableKey)
-	t.ExclusiveOperatorBossKill = fbsutils.Convert(string(e.ExclusiveOperatorBossKill()), t.FlatBuffer.TableKey)
 	t.ExclusiveOperatorBossSpawn = fbsutils.Convert(string(e.ExclusiveOperatorBossSpawn()), t.FlatBuffer.TableKey)
+	t.ExclusiveOperatorBossKill = fbsutils.Convert(string(e.ExclusiveOperatorBossKill()), t.FlatBuffer.TableKey)
 	t.ExclusiveOperatorScenarioBattle = fbsutils.Convert(string(e.ExclusiveOperatorScenarioBattle()), t.FlatBuffer.TableKey)
-	t.HideAnotherBossKilled = fbsutils.Convert(e.HideAnotherBossKilled(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.UiHideBeforeSpawn = fbsutils.Convert(e.UiHideBeforeSpawn(), t.FlatBuffer.TableKey)
-	t.WorldBossClearRewardGroupId = fbsutils.Convert(e.WorldBossClearRewardGroupId(), t.FlatBuffer.TableKey)
-	t.WorldBossHp = fbsutils.Convert(e.WorldBossHp(), t.FlatBuffer.TableKey)
-	t.WorldBossHpAsia = fbsutils.Convert(e.WorldBossHpAsia(), t.FlatBuffer.TableKey)
-	t.WorldBossHpGlobal = fbsutils.Convert(e.WorldBossHpGlobal(), t.FlatBuffer.TableKey)
-	t.WorldBossHpNa = fbsutils.Convert(e.WorldBossHpNa(), t.FlatBuffer.TableKey)
-	t.WorldBossHpTw = fbsutils.Convert(e.WorldBossHpTw(), t.FlatBuffer.TableKey)
-	t.WorldBossListParcel = fbsutils.Convert(string(e.WorldBossListParcel()), t.FlatBuffer.TableKey)
-	t.WorldBossName = fbsutils.Convert(string(e.WorldBossName()), t.FlatBuffer.TableKey)
-	t.WorldBossParcelPortrait = fbsutils.Convert(string(e.WorldBossParcelPortrait()), t.FlatBuffer.TableKey)
-	t.WorldBossPopupBg = fbsutils.Convert(string(e.WorldBossPopupBg()), t.FlatBuffer.TableKey)
-	t.WorldBossPopupPortrait = fbsutils.Convert(string(e.WorldBossPopupPortrait()), t.FlatBuffer.TableKey)
-	t.WorldRaidBossGroupId = fbsutils.Convert(e.WorldRaidBossGroupId(), t.FlatBuffer.TableKey)
+	t.ExclusiveOperatorBossDamaged = fbsutils.Convert(string(e.ExclusiveOperatorBossDamaged()), t.FlatBuffer.TableKey)
+	t.BossGroupOpenCondition = fbsutils.Convert(e.BossGroupOpenCondition(), t.FlatBuffer.TableKey)
 	return nil
 }
 

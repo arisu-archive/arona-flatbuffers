@@ -39,10 +39,10 @@ class ClanRewardExcel(object):
         return 0
 
     # ClanRewardExcel
-    def RewardParcelAmount(self):
+    def RewardParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ClanRewardExcel
@@ -53,10 +53,10 @@ class ClanRewardExcel(object):
         return 0
 
     # ClanRewardExcel
-    def RewardParcelType(self):
+    def RewardParcelAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def ClanRewardExcelStart(builder):
@@ -77,11 +77,11 @@ def ClanRewardExcelAddEchelonType(builder, echelonType):
 def AddEchelonType(builder, echelonType):
     ClanRewardExcelAddEchelonType(builder, echelonType)
 
-def ClanRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
-    builder.PrependInt64Slot(2, rewardParcelAmount, 0)
+def ClanRewardExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependInt32Slot(2, rewardParcelType, 0)
 
-def AddRewardParcelAmount(builder, rewardParcelAmount):
-    ClanRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def AddRewardParcelType(builder, rewardParcelType):
+    ClanRewardExcelAddRewardParcelType(builder, rewardParcelType)
 
 def ClanRewardExcelAddRewardParcelId(builder, rewardParcelId):
     builder.PrependInt64Slot(3, rewardParcelId, 0)
@@ -89,11 +89,11 @@ def ClanRewardExcelAddRewardParcelId(builder, rewardParcelId):
 def AddRewardParcelId(builder, rewardParcelId):
     ClanRewardExcelAddRewardParcelId(builder, rewardParcelId)
 
-def ClanRewardExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependInt32Slot(4, rewardParcelType, 0)
+def ClanRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
+    builder.PrependInt64Slot(4, rewardParcelAmount, 0)
 
-def AddRewardParcelType(builder, rewardParcelType):
-    ClanRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def AddRewardParcelAmount(builder, rewardParcelAmount):
+    ClanRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
 
 def ClanRewardExcelEnd(builder):
     return builder.EndObject()

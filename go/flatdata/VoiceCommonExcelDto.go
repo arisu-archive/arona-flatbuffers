@@ -10,8 +10,8 @@ import (
 // VoiceCommonExcelDto represents a FlatBuffers table
 type VoiceCommonExcelDto struct {
 	fbsutils.FlatBuffer
-	Rate       int64      `json:"rate"`
 	VoiceEvent VoiceEvent `json:"voice_event"`
+	Rate       int64      `json:"rate"`
 	VoiceHash  []uint32   `json:"voice_hash"`
 }
 
@@ -21,8 +21,8 @@ func (t *VoiceCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceCommon"))
 	}
 	VoiceCommonExcelStart(b)
-	VoiceCommonExcelAddRate(b, fbsutils.Convert(t.Rate, t.FlatBuffer.TableKey))
 	VoiceCommonExcelAddVoiceEvent(b, fbsutils.Convert(t.VoiceEvent, t.FlatBuffer.TableKey))
+	VoiceCommonExcelAddRate(b, fbsutils.Convert(t.Rate, t.FlatBuffer.TableKey))
 	VoiceCommonExcelStartVoiceHashVector(b, len(t.VoiceHash))
 	for i := range len(t.VoiceHash) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceHash[len(t.VoiceHash)-i-1], t.FlatBuffer.TableKey))
@@ -43,8 +43,8 @@ func (t *VoiceCommonExcelDto) UnmarshalMessage(e *VoiceCommonExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceCommon"))
 	}
-	t.Rate = fbsutils.Convert(e.Rate(), t.FlatBuffer.TableKey)
 	t.VoiceEvent = VoiceEvent(int32(fbsutils.Convert(e.VoiceEvent(), t.FlatBuffer.TableKey)))
+	t.Rate = fbsutils.Convert(e.Rate(), t.FlatBuffer.TableKey)
 	t.VoiceHash = make([]uint32, e.VoiceHashLength())
 	for i := range e.VoiceHashLength() {
 		t.VoiceHash[i] = e.VoiceHash(i)

@@ -25,18 +25,18 @@ class StageFileRefreshSettingExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # StageFileRefreshSettingExcel
-    def ForceSave(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # StageFileRefreshSettingExcel
     def GroundId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
+
+    # StageFileRefreshSettingExcel
+    def ForceSave(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
 def StageFileRefreshSettingExcelStart(builder):
     builder.StartObject(2)
@@ -44,17 +44,17 @@ def StageFileRefreshSettingExcelStart(builder):
 def Start(builder):
     StageFileRefreshSettingExcelStart(builder)
 
-def StageFileRefreshSettingExcelAddForceSave(builder, forceSave):
-    builder.PrependBoolSlot(0, forceSave, 0)
-
-def AddForceSave(builder, forceSave):
-    StageFileRefreshSettingExcelAddForceSave(builder, forceSave)
-
 def StageFileRefreshSettingExcelAddGroundId(builder, groundId):
-    builder.PrependInt64Slot(1, groundId, 0)
+    builder.PrependInt64Slot(0, groundId, 0)
 
 def AddGroundId(builder, groundId):
     StageFileRefreshSettingExcelAddGroundId(builder, groundId)
+
+def StageFileRefreshSettingExcelAddForceSave(builder, forceSave):
+    builder.PrependBoolSlot(1, forceSave, 0)
+
+def AddForceSave(builder, forceSave):
+    StageFileRefreshSettingExcelAddForceSave(builder, forceSave)
 
 def StageFileRefreshSettingExcelEnd(builder):
     return builder.EndObject()

@@ -32,46 +32,46 @@ class FieldContentStageRewardExcel(object):
         return 0
 
     # FieldContentStageRewardExcel
-    def IsDisplayed(self):
+    def RewardTag(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # FieldContentStageRewardExcel
-    def RewardAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldContentStageRewardExcel
-    def RewardId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldContentStageRewardExcel
-    def RewardParcelType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FieldContentStageRewardExcel
     def RewardProb(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldContentStageRewardExcel
+    def RewardParcelType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldContentStageRewardExcel
+    def RewardId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldContentStageRewardExcel
+    def RewardAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FieldContentStageRewardExcel
-    def RewardTag(self):
+    def IsDisplayed(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
 def FieldContentStageRewardExcelStart(builder):
     builder.StartObject(7)
@@ -85,41 +85,41 @@ def FieldContentStageRewardExcelAddGroupId(builder, groupId):
 def AddGroupId(builder, groupId):
     FieldContentStageRewardExcelAddGroupId(builder, groupId)
 
-def FieldContentStageRewardExcelAddIsDisplayed(builder, isDisplayed):
-    builder.PrependBoolSlot(1, isDisplayed, 0)
+def FieldContentStageRewardExcelAddRewardTag(builder, rewardTag):
+    builder.PrependInt32Slot(1, rewardTag, 0)
 
-def AddIsDisplayed(builder, isDisplayed):
-    FieldContentStageRewardExcelAddIsDisplayed(builder, isDisplayed)
-
-def FieldContentStageRewardExcelAddRewardAmount(builder, rewardAmount):
-    builder.PrependInt32Slot(2, rewardAmount, 0)
-
-def AddRewardAmount(builder, rewardAmount):
-    FieldContentStageRewardExcelAddRewardAmount(builder, rewardAmount)
-
-def FieldContentStageRewardExcelAddRewardId(builder, rewardId):
-    builder.PrependInt64Slot(3, rewardId, 0)
-
-def AddRewardId(builder, rewardId):
-    FieldContentStageRewardExcelAddRewardId(builder, rewardId)
-
-def FieldContentStageRewardExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependInt32Slot(4, rewardParcelType, 0)
-
-def AddRewardParcelType(builder, rewardParcelType):
-    FieldContentStageRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def AddRewardTag(builder, rewardTag):
+    FieldContentStageRewardExcelAddRewardTag(builder, rewardTag)
 
 def FieldContentStageRewardExcelAddRewardProb(builder, rewardProb):
-    builder.PrependInt32Slot(5, rewardProb, 0)
+    builder.PrependInt32Slot(2, rewardProb, 0)
 
 def AddRewardProb(builder, rewardProb):
     FieldContentStageRewardExcelAddRewardProb(builder, rewardProb)
 
-def FieldContentStageRewardExcelAddRewardTag(builder, rewardTag):
-    builder.PrependInt32Slot(6, rewardTag, 0)
+def FieldContentStageRewardExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependInt32Slot(3, rewardParcelType, 0)
 
-def AddRewardTag(builder, rewardTag):
-    FieldContentStageRewardExcelAddRewardTag(builder, rewardTag)
+def AddRewardParcelType(builder, rewardParcelType):
+    FieldContentStageRewardExcelAddRewardParcelType(builder, rewardParcelType)
+
+def FieldContentStageRewardExcelAddRewardId(builder, rewardId):
+    builder.PrependInt64Slot(4, rewardId, 0)
+
+def AddRewardId(builder, rewardId):
+    FieldContentStageRewardExcelAddRewardId(builder, rewardId)
+
+def FieldContentStageRewardExcelAddRewardAmount(builder, rewardAmount):
+    builder.PrependInt32Slot(5, rewardAmount, 0)
+
+def AddRewardAmount(builder, rewardAmount):
+    FieldContentStageRewardExcelAddRewardAmount(builder, rewardAmount)
+
+def FieldContentStageRewardExcelAddIsDisplayed(builder, isDisplayed):
+    builder.PrependBoolSlot(6, isDisplayed, 0)
+
+def AddIsDisplayed(builder, isDisplayed):
+    FieldContentStageRewardExcelAddIsDisplayed(builder, isDisplayed)
 
 def FieldContentStageRewardExcelEnd(builder):
     return builder.EndObject()

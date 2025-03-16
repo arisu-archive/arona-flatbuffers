@@ -25,7 +25,7 @@ class SpecialLobbyIllustExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # SpecialLobbyIllustExcel
-    def CharacterCostumeUniqueId(self):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -39,14 +39,14 @@ class SpecialLobbyIllustExcel(object):
         return None
 
     # SpecialLobbyIllustExcel
-    def PrefabName(self):
+    def CharacterCostumeUniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # SpecialLobbyIllustExcel
-    def RewardTextureName(self):
+    def PrefabName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -60,11 +60,11 @@ class SpecialLobbyIllustExcel(object):
         return None
 
     # SpecialLobbyIllustExcel
-    def UniqueId(self):
+    def RewardTextureName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def SpecialLobbyIllustExcelStart(builder):
     builder.StartObject(6)
@@ -72,11 +72,11 @@ def SpecialLobbyIllustExcelStart(builder):
 def Start(builder):
     SpecialLobbyIllustExcelStart(builder)
 
-def SpecialLobbyIllustExcelAddCharacterCostumeUniqueId(builder, characterCostumeUniqueId):
-    builder.PrependInt64Slot(0, characterCostumeUniqueId, 0)
+def SpecialLobbyIllustExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(0, uniqueId, 0)
 
-def AddCharacterCostumeUniqueId(builder, characterCostumeUniqueId):
-    SpecialLobbyIllustExcelAddCharacterCostumeUniqueId(builder, characterCostumeUniqueId)
+def AddUniqueId(builder, uniqueId):
+    SpecialLobbyIllustExcelAddUniqueId(builder, uniqueId)
 
 def SpecialLobbyIllustExcelAddDevName(builder, devName):
     builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
@@ -84,17 +84,17 @@ def SpecialLobbyIllustExcelAddDevName(builder, devName):
 def AddDevName(builder, devName):
     SpecialLobbyIllustExcelAddDevName(builder, devName)
 
+def SpecialLobbyIllustExcelAddCharacterCostumeUniqueId(builder, characterCostumeUniqueId):
+    builder.PrependInt64Slot(2, characterCostumeUniqueId, 0)
+
+def AddCharacterCostumeUniqueId(builder, characterCostumeUniqueId):
+    SpecialLobbyIllustExcelAddCharacterCostumeUniqueId(builder, characterCostumeUniqueId)
+
 def SpecialLobbyIllustExcelAddPrefabName(builder, prefabName):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
 
 def AddPrefabName(builder, prefabName):
     SpecialLobbyIllustExcelAddPrefabName(builder, prefabName)
-
-def SpecialLobbyIllustExcelAddRewardTextureName(builder, rewardTextureName):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardTextureName), 0)
-
-def AddRewardTextureName(builder, rewardTextureName):
-    SpecialLobbyIllustExcelAddRewardTextureName(builder, rewardTextureName)
 
 def SpecialLobbyIllustExcelAddSlotTextureName(builder, slotTextureName):
     builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(slotTextureName), 0)
@@ -102,11 +102,11 @@ def SpecialLobbyIllustExcelAddSlotTextureName(builder, slotTextureName):
 def AddSlotTextureName(builder, slotTextureName):
     SpecialLobbyIllustExcelAddSlotTextureName(builder, slotTextureName)
 
-def SpecialLobbyIllustExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(5, uniqueId, 0)
+def SpecialLobbyIllustExcelAddRewardTextureName(builder, rewardTextureName):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardTextureName), 0)
 
-def AddUniqueId(builder, uniqueId):
-    SpecialLobbyIllustExcelAddUniqueId(builder, uniqueId)
+def AddRewardTextureName(builder, rewardTextureName):
+    SpecialLobbyIllustExcelAddRewardTextureName(builder, rewardTextureName)
 
 def SpecialLobbyIllustExcelEnd(builder):
     return builder.EndObject()

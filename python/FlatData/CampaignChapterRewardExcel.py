@@ -25,69 +25,22 @@ class CampaignChapterRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CampaignChapterRewardExcel
-    def CampaignChapterStar(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CampaignChapterRewardExcel
-    def ChapterRewardAmount(self, j):
+    def CampaignChapterStar(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # CampaignChapterRewardExcel
-    def ChapterRewardAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # CampaignChapterRewardExcel
-    def ChapterRewardAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # CampaignChapterRewardExcel
-    def ChapterRewardAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        return o == 0
-
-    # CampaignChapterRewardExcel
-    def ChapterRewardId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # CampaignChapterRewardExcel
-    def ChapterRewardIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # CampaignChapterRewardExcel
-    def ChapterRewardIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # CampaignChapterRewardExcel
-    def ChapterRewardIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        return o == 0
 
     # CampaignChapterRewardExcel
     def ChapterRewardParcelType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -95,29 +48,76 @@ class CampaignChapterRewardExcel(object):
 
     # CampaignChapterRewardExcel
     def ChapterRewardParcelTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # CampaignChapterRewardExcel
     def ChapterRewardParcelTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CampaignChapterRewardExcel
     def ChapterRewardParcelTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        return o == 0
+
+    # CampaignChapterRewardExcel
+    def ChapterRewardId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # CampaignChapterRewardExcel
+    def ChapterRewardIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # CampaignChapterRewardExcel
+    def ChapterRewardIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CampaignChapterRewardExcel
+    def ChapterRewardIdIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         return o == 0
 
     # CampaignChapterRewardExcel
-    def Id(self):
+    def ChapterRewardAmount(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
+
+    # CampaignChapterRewardExcel
+    def ChapterRewardAmountAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # CampaignChapterRewardExcel
+    def ChapterRewardAmountLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CampaignChapterRewardExcel
+    def ChapterRewardAmountIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        return o == 0
 
 def CampaignChapterRewardExcelStart(builder):
     builder.StartObject(5)
@@ -125,38 +125,20 @@ def CampaignChapterRewardExcelStart(builder):
 def Start(builder):
     CampaignChapterRewardExcelStart(builder)
 
+def CampaignChapterRewardExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
+def AddId(builder, id):
+    CampaignChapterRewardExcelAddId(builder, id)
+
 def CampaignChapterRewardExcelAddCampaignChapterStar(builder, campaignChapterStar):
-    builder.PrependInt64Slot(0, campaignChapterStar, 0)
+    builder.PrependInt64Slot(1, campaignChapterStar, 0)
 
 def AddCampaignChapterStar(builder, campaignChapterStar):
     CampaignChapterRewardExcelAddCampaignChapterStar(builder, campaignChapterStar)
 
-def CampaignChapterRewardExcelAddChapterRewardAmount(builder, chapterRewardAmount):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(chapterRewardAmount), 0)
-
-def AddChapterRewardAmount(builder, chapterRewardAmount):
-    CampaignChapterRewardExcelAddChapterRewardAmount(builder, chapterRewardAmount)
-
-def CampaignChapterRewardExcelStartChapterRewardAmountVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartChapterRewardAmountVector(builder, numElems):
-    return CampaignChapterRewardExcelStartChapterRewardAmountVector(builder, numElems)
-
-def CampaignChapterRewardExcelAddChapterRewardId(builder, chapterRewardId):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(chapterRewardId), 0)
-
-def AddChapterRewardId(builder, chapterRewardId):
-    CampaignChapterRewardExcelAddChapterRewardId(builder, chapterRewardId)
-
-def CampaignChapterRewardExcelStartChapterRewardIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
-def StartChapterRewardIdVector(builder, numElems):
-    return CampaignChapterRewardExcelStartChapterRewardIdVector(builder, numElems)
-
 def CampaignChapterRewardExcelAddChapterRewardParcelType(builder, chapterRewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(chapterRewardParcelType), 0)
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(chapterRewardParcelType), 0)
 
 def AddChapterRewardParcelType(builder, chapterRewardParcelType):
     CampaignChapterRewardExcelAddChapterRewardParcelType(builder, chapterRewardParcelType)
@@ -167,11 +149,29 @@ def CampaignChapterRewardExcelStartChapterRewardParcelTypeVector(builder, numEle
 def StartChapterRewardParcelTypeVector(builder, numElems):
     return CampaignChapterRewardExcelStartChapterRewardParcelTypeVector(builder, numElems)
 
-def CampaignChapterRewardExcelAddId(builder, id):
-    builder.PrependInt64Slot(4, id, 0)
+def CampaignChapterRewardExcelAddChapterRewardId(builder, chapterRewardId):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(chapterRewardId), 0)
 
-def AddId(builder, id):
-    CampaignChapterRewardExcelAddId(builder, id)
+def AddChapterRewardId(builder, chapterRewardId):
+    CampaignChapterRewardExcelAddChapterRewardId(builder, chapterRewardId)
+
+def CampaignChapterRewardExcelStartChapterRewardIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartChapterRewardIdVector(builder, numElems):
+    return CampaignChapterRewardExcelStartChapterRewardIdVector(builder, numElems)
+
+def CampaignChapterRewardExcelAddChapterRewardAmount(builder, chapterRewardAmount):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(chapterRewardAmount), 0)
+
+def AddChapterRewardAmount(builder, chapterRewardAmount):
+    CampaignChapterRewardExcelAddChapterRewardAmount(builder, chapterRewardAmount)
+
+def CampaignChapterRewardExcelStartChapterRewardAmountVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartChapterRewardAmountVector(builder, numElems):
+    return CampaignChapterRewardExcelStartChapterRewardAmountVector(builder, numElems)
 
 def CampaignChapterRewardExcelEnd(builder):
     return builder.EndObject()

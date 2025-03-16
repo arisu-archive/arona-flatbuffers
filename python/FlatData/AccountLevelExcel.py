@@ -25,28 +25,28 @@ class AccountLevelExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # AccountLevelExcel
-    def ApAutoChargeMax(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # AccountLevelExcel
-    def Exp(self):
+    def Level(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # AccountLevelExcel
-    def Id(self):
+    def Exp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # AccountLevelExcel
-    def Level(self):
+    def ApAutoChargeMax(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -65,29 +65,29 @@ def AccountLevelExcelStart(builder):
 def Start(builder):
     AccountLevelExcelStart(builder)
 
-def AccountLevelExcelAddApAutoChargeMax(builder, apAutoChargeMax):
-    builder.PrependInt64Slot(0, apAutoChargeMax, 0)
-
-def AddApAutoChargeMax(builder, apAutoChargeMax):
-    AccountLevelExcelAddApAutoChargeMax(builder, apAutoChargeMax)
-
-def AccountLevelExcelAddExp(builder, exp):
-    builder.PrependInt64Slot(1, exp, 0)
-
-def AddExp(builder, exp):
-    AccountLevelExcelAddExp(builder, exp)
-
 def AccountLevelExcelAddId(builder, id):
-    builder.PrependInt64Slot(2, id, 0)
+    builder.PrependInt64Slot(0, id, 0)
 
 def AddId(builder, id):
     AccountLevelExcelAddId(builder, id)
 
 def AccountLevelExcelAddLevel(builder, level):
-    builder.PrependInt64Slot(3, level, 0)
+    builder.PrependInt64Slot(1, level, 0)
 
 def AddLevel(builder, level):
     AccountLevelExcelAddLevel(builder, level)
+
+def AccountLevelExcelAddExp(builder, exp):
+    builder.PrependInt64Slot(2, exp, 0)
+
+def AddExp(builder, exp):
+    AccountLevelExcelAddExp(builder, exp)
+
+def AccountLevelExcelAddApAutoChargeMax(builder, apAutoChargeMax):
+    builder.PrependInt64Slot(3, apAutoChargeMax, 0)
+
+def AddApAutoChargeMax(builder, apAutoChargeMax):
+    AccountLevelExcelAddApAutoChargeMax(builder, apAutoChargeMax)
 
 def AccountLevelExcelAddNeedReportEvent(builder, needReportEvent):
     builder.PrependBoolSlot(4, needReportEvent, 0)

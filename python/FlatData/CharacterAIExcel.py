@@ -25,88 +25,88 @@ class CharacterAIExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CharacterAIExcel
-    def CanUseObstacleOfKneelMotion(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # CharacterAIExcel
-    def CanUseObstacleOfStandMotion(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # CharacterAIExcel
-    def CheckCanUseAutoSkill(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # CharacterAIExcel
-    def DistanceReduceFormationPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CharacterAIExcel
-    def DistanceReduceObstaclePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CharacterAIExcel
-    def DistanceReduceRatioFormationPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CharacterAIExcel
-    def DistanceReduceRatioObstaclePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterAIExcel
     def EngageType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterAIExcel
-    def HasTargetSwitchingMotion(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+    def Positioning(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterAIExcel
+    def CheckCanUseAutoSkill(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # CharacterAIExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+    def DistanceReduceRatioObstaclePath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterAIExcel
+    def DistanceReduceObstaclePath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterAIExcel
+    def DistanceReduceRatioFormationPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterAIExcel
+    def DistanceReduceFormationPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterAIExcel
     def MinimumPositionGap(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterAIExcel
-    def Positioning(self):
+    def CanUseObstacleOfKneelMotion(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # CharacterAIExcel
+    def CanUseObstacleOfStandMotion(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # CharacterAIExcel
+    def HasTargetSwitchingMotion(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
 def CharacterAIExcelStart(builder):
     builder.StartObject(12)
@@ -114,77 +114,77 @@ def CharacterAIExcelStart(builder):
 def Start(builder):
     CharacterAIExcelStart(builder)
 
-def CharacterAIExcelAddCanUseObstacleOfKneelMotion(builder, canUseObstacleOfKneelMotion):
-    builder.PrependBoolSlot(0, canUseObstacleOfKneelMotion, 0)
+def CharacterAIExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
 
-def AddCanUseObstacleOfKneelMotion(builder, canUseObstacleOfKneelMotion):
-    CharacterAIExcelAddCanUseObstacleOfKneelMotion(builder, canUseObstacleOfKneelMotion)
+def AddId(builder, id):
+    CharacterAIExcelAddId(builder, id)
 
-def CharacterAIExcelAddCanUseObstacleOfStandMotion(builder, canUseObstacleOfStandMotion):
-    builder.PrependBoolSlot(1, canUseObstacleOfStandMotion, 0)
+def CharacterAIExcelAddEngageType(builder, engageType):
+    builder.PrependInt32Slot(1, engageType, 0)
 
-def AddCanUseObstacleOfStandMotion(builder, canUseObstacleOfStandMotion):
-    CharacterAIExcelAddCanUseObstacleOfStandMotion(builder, canUseObstacleOfStandMotion)
+def AddEngageType(builder, engageType):
+    CharacterAIExcelAddEngageType(builder, engageType)
+
+def CharacterAIExcelAddPositioning(builder, positioning):
+    builder.PrependInt32Slot(2, positioning, 0)
+
+def AddPositioning(builder, positioning):
+    CharacterAIExcelAddPositioning(builder, positioning)
 
 def CharacterAIExcelAddCheckCanUseAutoSkill(builder, checkCanUseAutoSkill):
-    builder.PrependBoolSlot(2, checkCanUseAutoSkill, 0)
+    builder.PrependBoolSlot(3, checkCanUseAutoSkill, 0)
 
 def AddCheckCanUseAutoSkill(builder, checkCanUseAutoSkill):
     CharacterAIExcelAddCheckCanUseAutoSkill(builder, checkCanUseAutoSkill)
 
-def CharacterAIExcelAddDistanceReduceFormationPath(builder, distanceReduceFormationPath):
-    builder.PrependInt64Slot(3, distanceReduceFormationPath, 0)
+def CharacterAIExcelAddDistanceReduceRatioObstaclePath(builder, distanceReduceRatioObstaclePath):
+    builder.PrependInt64Slot(4, distanceReduceRatioObstaclePath, 0)
 
-def AddDistanceReduceFormationPath(builder, distanceReduceFormationPath):
-    CharacterAIExcelAddDistanceReduceFormationPath(builder, distanceReduceFormationPath)
+def AddDistanceReduceRatioObstaclePath(builder, distanceReduceRatioObstaclePath):
+    CharacterAIExcelAddDistanceReduceRatioObstaclePath(builder, distanceReduceRatioObstaclePath)
 
 def CharacterAIExcelAddDistanceReduceObstaclePath(builder, distanceReduceObstaclePath):
-    builder.PrependInt64Slot(4, distanceReduceObstaclePath, 0)
+    builder.PrependInt64Slot(5, distanceReduceObstaclePath, 0)
 
 def AddDistanceReduceObstaclePath(builder, distanceReduceObstaclePath):
     CharacterAIExcelAddDistanceReduceObstaclePath(builder, distanceReduceObstaclePath)
 
 def CharacterAIExcelAddDistanceReduceRatioFormationPath(builder, distanceReduceRatioFormationPath):
-    builder.PrependInt64Slot(5, distanceReduceRatioFormationPath, 0)
+    builder.PrependInt64Slot(6, distanceReduceRatioFormationPath, 0)
 
 def AddDistanceReduceRatioFormationPath(builder, distanceReduceRatioFormationPath):
     CharacterAIExcelAddDistanceReduceRatioFormationPath(builder, distanceReduceRatioFormationPath)
 
-def CharacterAIExcelAddDistanceReduceRatioObstaclePath(builder, distanceReduceRatioObstaclePath):
-    builder.PrependInt64Slot(6, distanceReduceRatioObstaclePath, 0)
+def CharacterAIExcelAddDistanceReduceFormationPath(builder, distanceReduceFormationPath):
+    builder.PrependInt64Slot(7, distanceReduceFormationPath, 0)
 
-def AddDistanceReduceRatioObstaclePath(builder, distanceReduceRatioObstaclePath):
-    CharacterAIExcelAddDistanceReduceRatioObstaclePath(builder, distanceReduceRatioObstaclePath)
-
-def CharacterAIExcelAddEngageType(builder, engageType):
-    builder.PrependInt32Slot(7, engageType, 0)
-
-def AddEngageType(builder, engageType):
-    CharacterAIExcelAddEngageType(builder, engageType)
-
-def CharacterAIExcelAddHasTargetSwitchingMotion(builder, hasTargetSwitchingMotion):
-    builder.PrependBoolSlot(8, hasTargetSwitchingMotion, 0)
-
-def AddHasTargetSwitchingMotion(builder, hasTargetSwitchingMotion):
-    CharacterAIExcelAddHasTargetSwitchingMotion(builder, hasTargetSwitchingMotion)
-
-def CharacterAIExcelAddId(builder, id):
-    builder.PrependInt64Slot(9, id, 0)
-
-def AddId(builder, id):
-    CharacterAIExcelAddId(builder, id)
+def AddDistanceReduceFormationPath(builder, distanceReduceFormationPath):
+    CharacterAIExcelAddDistanceReduceFormationPath(builder, distanceReduceFormationPath)
 
 def CharacterAIExcelAddMinimumPositionGap(builder, minimumPositionGap):
-    builder.PrependInt64Slot(10, minimumPositionGap, 0)
+    builder.PrependInt64Slot(8, minimumPositionGap, 0)
 
 def AddMinimumPositionGap(builder, minimumPositionGap):
     CharacterAIExcelAddMinimumPositionGap(builder, minimumPositionGap)
 
-def CharacterAIExcelAddPositioning(builder, positioning):
-    builder.PrependInt32Slot(11, positioning, 0)
+def CharacterAIExcelAddCanUseObstacleOfKneelMotion(builder, canUseObstacleOfKneelMotion):
+    builder.PrependBoolSlot(9, canUseObstacleOfKneelMotion, 0)
 
-def AddPositioning(builder, positioning):
-    CharacterAIExcelAddPositioning(builder, positioning)
+def AddCanUseObstacleOfKneelMotion(builder, canUseObstacleOfKneelMotion):
+    CharacterAIExcelAddCanUseObstacleOfKneelMotion(builder, canUseObstacleOfKneelMotion)
+
+def CharacterAIExcelAddCanUseObstacleOfStandMotion(builder, canUseObstacleOfStandMotion):
+    builder.PrependBoolSlot(10, canUseObstacleOfStandMotion, 0)
+
+def AddCanUseObstacleOfStandMotion(builder, canUseObstacleOfStandMotion):
+    CharacterAIExcelAddCanUseObstacleOfStandMotion(builder, canUseObstacleOfStandMotion)
+
+def CharacterAIExcelAddHasTargetSwitchingMotion(builder, hasTargetSwitchingMotion):
+    builder.PrependBoolSlot(11, hasTargetSwitchingMotion, 0)
+
+def AddHasTargetSwitchingMotion(builder, hasTargetSwitchingMotion):
+    CharacterAIExcelAddHasTargetSwitchingMotion(builder, hasTargetSwitchingMotion)
 
 def CharacterAIExcelEnd(builder):
     return builder.EndObject()

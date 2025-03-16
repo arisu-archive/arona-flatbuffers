@@ -25,35 +25,42 @@ class MultiFloorRaidStatChangeExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MultiFloorRaidStatChangeExcel
-    def ApplyCharacterId(self, j):
+    def StatChangeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MultiFloorRaidStatChangeExcel
+    def StatType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
 
     # MultiFloorRaidStatChangeExcel
-    def ApplyCharacterIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+    def StatTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # MultiFloorRaidStatChangeExcel
-    def ApplyCharacterIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+    def StatTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # MultiFloorRaidStatChangeExcel
-    def ApplyCharacterIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+    def StatTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         return o == 0
 
     # MultiFloorRaidStatChangeExcel
     def StatAdd(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -61,29 +68,22 @@ class MultiFloorRaidStatChangeExcel(object):
 
     # MultiFloorRaidStatChangeExcel
     def StatAddAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # MultiFloorRaidStatChangeExcel
     def StatAddLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # MultiFloorRaidStatChangeExcel
     def StatAddIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        return o == 0
-
-    # MultiFloorRaidStatChangeExcel
-    def StatChangeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+        return o == 0
 
     # MultiFloorRaidStatChangeExcel
     def StatMultiply(self, j):
@@ -113,29 +113,29 @@ class MultiFloorRaidStatChangeExcel(object):
         return o == 0
 
     # MultiFloorRaidStatChangeExcel
-    def StatType(self, j):
+    def ApplyCharacterId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # MultiFloorRaidStatChangeExcel
-    def StatTypeAsNumpy(self):
+    def ApplyCharacterIdAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # MultiFloorRaidStatChangeExcel
-    def StatTypeLength(self):
+    def ApplyCharacterIdLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # MultiFloorRaidStatChangeExcel
-    def StatTypeIsNone(self):
+    def ApplyCharacterIdIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         return o == 0
 
@@ -145,20 +145,26 @@ def MultiFloorRaidStatChangeExcelStart(builder):
 def Start(builder):
     MultiFloorRaidStatChangeExcelStart(builder)
 
-def MultiFloorRaidStatChangeExcelAddApplyCharacterId(builder, applyCharacterId):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(applyCharacterId), 0)
+def MultiFloorRaidStatChangeExcelAddStatChangeId(builder, statChangeId):
+    builder.PrependInt64Slot(0, statChangeId, 0)
 
-def AddApplyCharacterId(builder, applyCharacterId):
-    MultiFloorRaidStatChangeExcelAddApplyCharacterId(builder, applyCharacterId)
+def AddStatChangeId(builder, statChangeId):
+    MultiFloorRaidStatChangeExcelAddStatChangeId(builder, statChangeId)
 
-def MultiFloorRaidStatChangeExcelStartApplyCharacterIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
+def MultiFloorRaidStatChangeExcelAddStatType(builder, statType):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(statType), 0)
 
-def StartApplyCharacterIdVector(builder, numElems):
-    return MultiFloorRaidStatChangeExcelStartApplyCharacterIdVector(builder, numElems)
+def AddStatType(builder, statType):
+    MultiFloorRaidStatChangeExcelAddStatType(builder, statType)
+
+def MultiFloorRaidStatChangeExcelStartStatTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartStatTypeVector(builder, numElems):
+    return MultiFloorRaidStatChangeExcelStartStatTypeVector(builder, numElems)
 
 def MultiFloorRaidStatChangeExcelAddStatAdd(builder, statAdd):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(statAdd), 0)
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(statAdd), 0)
 
 def AddStatAdd(builder, statAdd):
     MultiFloorRaidStatChangeExcelAddStatAdd(builder, statAdd)
@@ -168,12 +174,6 @@ def MultiFloorRaidStatChangeExcelStartStatAddVector(builder, numElems):
 
 def StartStatAddVector(builder, numElems):
     return MultiFloorRaidStatChangeExcelStartStatAddVector(builder, numElems)
-
-def MultiFloorRaidStatChangeExcelAddStatChangeId(builder, statChangeId):
-    builder.PrependInt64Slot(2, statChangeId, 0)
-
-def AddStatChangeId(builder, statChangeId):
-    MultiFloorRaidStatChangeExcelAddStatChangeId(builder, statChangeId)
 
 def MultiFloorRaidStatChangeExcelAddStatMultiply(builder, statMultiply):
     builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(statMultiply), 0)
@@ -187,17 +187,17 @@ def MultiFloorRaidStatChangeExcelStartStatMultiplyVector(builder, numElems):
 def StartStatMultiplyVector(builder, numElems):
     return MultiFloorRaidStatChangeExcelStartStatMultiplyVector(builder, numElems)
 
-def MultiFloorRaidStatChangeExcelAddStatType(builder, statType):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(statType), 0)
+def MultiFloorRaidStatChangeExcelAddApplyCharacterId(builder, applyCharacterId):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(applyCharacterId), 0)
 
-def AddStatType(builder, statType):
-    MultiFloorRaidStatChangeExcelAddStatType(builder, statType)
+def AddApplyCharacterId(builder, applyCharacterId):
+    MultiFloorRaidStatChangeExcelAddApplyCharacterId(builder, applyCharacterId)
 
-def MultiFloorRaidStatChangeExcelStartStatTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
+def MultiFloorRaidStatChangeExcelStartApplyCharacterIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
 
-def StartStatTypeVector(builder, numElems):
-    return MultiFloorRaidStatChangeExcelStartStatTypeVector(builder, numElems)
+def StartApplyCharacterIdVector(builder, numElems):
+    return MultiFloorRaidStatChangeExcelStartApplyCharacterIdVector(builder, numElems)
 
 def MultiFloorRaidStatChangeExcelEnd(builder):
     return builder.EndObject()

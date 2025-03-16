@@ -10,15 +10,15 @@ import (
 // EventContentBuffExcelDto represents a FlatBuffers table
 type EventContentBuffExcelDto struct {
 	fbsutils.FlatBuffer
-	BuffDescriptionLocalizeCodeId string                   `json:"buff_description_localize_code_id"`
+	EventContentBuffId            int64                    `json:"event_content_buff_id"`
+	IsBuff                        bool                     `json:"is_buff"`
 	CharacterTag                  Tag                      `json:"character_tag"`
 	EnumType                      EventContentBuffFindRule `json:"enum_type"`
 	EnumTypeValue                 []string                 `json:"enum_type_value"`
-	EventContentBuffId            int64                    `json:"event_content_buff_id"`
-	IconPath                      string                   `json:"icon_path"`
-	IsBuff                        bool                     `json:"is_buff"`
 	SkillGroupId                  string                   `json:"skill_group_id"`
+	IconPath                      string                   `json:"icon_path"`
 	SpriteName                    string                   `json:"sprite_name"`
+	BuffDescriptionLocalizeCodeId string                   `json:"buff_description_localize_code_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,7 +27,8 @@ func (t *EventContentBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuff"))
 	}
 	EventContentBuffExcelStart(b)
-	EventContentBuffExcelAddBuffDescriptionLocalizeCodeId(b, fbsutils.Convert(b.CreateString(t.BuffDescriptionLocalizeCodeId), t.FlatBuffer.TableKey))
+	EventContentBuffExcelAddEventContentBuffId(b, fbsutils.Convert(t.EventContentBuffId, t.FlatBuffer.TableKey))
+	EventContentBuffExcelAddIsBuff(b, fbsutils.Convert(t.IsBuff, t.FlatBuffer.TableKey))
 	EventContentBuffExcelAddCharacterTag(b, fbsutils.Convert(t.CharacterTag, t.FlatBuffer.TableKey))
 	EventContentBuffExcelAddEnumType(b, fbsutils.Convert(t.EnumType, t.FlatBuffer.TableKey))
 	EventContentBuffExcelStartEnumTypeValueVector(b, len(t.EnumTypeValue))
@@ -35,11 +36,10 @@ func (t *EventContentBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.EnumTypeValue[len(t.EnumTypeValue)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentBuffExcelAddEnumTypeValue(b, b.EndVector(len(t.EnumTypeValue)))
-	EventContentBuffExcelAddEventContentBuffId(b, fbsutils.Convert(t.EventContentBuffId, t.FlatBuffer.TableKey))
-	EventContentBuffExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
-	EventContentBuffExcelAddIsBuff(b, fbsutils.Convert(t.IsBuff, t.FlatBuffer.TableKey))
 	EventContentBuffExcelAddSkillGroupId(b, fbsutils.Convert(b.CreateString(t.SkillGroupId), t.FlatBuffer.TableKey))
+	EventContentBuffExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
 	EventContentBuffExcelAddSpriteName(b, fbsutils.Convert(b.CreateString(t.SpriteName), t.FlatBuffer.TableKey))
+	EventContentBuffExcelAddBuffDescriptionLocalizeCodeId(b, fbsutils.Convert(b.CreateString(t.BuffDescriptionLocalizeCodeId), t.FlatBuffer.TableKey))
 	return EventContentBuffExcelEnd(b)
 }
 
@@ -55,18 +55,18 @@ func (t *EventContentBuffExcelDto) UnmarshalMessage(e *EventContentBuffExcel) er
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuff"))
 	}
-	t.BuffDescriptionLocalizeCodeId = fbsutils.Convert(string(e.BuffDescriptionLocalizeCodeId()), t.FlatBuffer.TableKey)
+	t.EventContentBuffId = fbsutils.Convert(e.EventContentBuffId(), t.FlatBuffer.TableKey)
+	t.IsBuff = fbsutils.Convert(e.IsBuff(), t.FlatBuffer.TableKey)
 	t.CharacterTag = Tag(int32(fbsutils.Convert(e.CharacterTag(), t.FlatBuffer.TableKey)))
 	t.EnumType = EventContentBuffFindRule(int32(fbsutils.Convert(e.EnumType(), t.FlatBuffer.TableKey)))
 	t.EnumTypeValue = make([]string, e.EnumTypeValueLength())
 	for i := range e.EnumTypeValueLength() {
 		t.EnumTypeValue[i] = string(e.EnumTypeValue(i))
 	}
-	t.EventContentBuffId = fbsutils.Convert(e.EventContentBuffId(), t.FlatBuffer.TableKey)
-	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
-	t.IsBuff = fbsutils.Convert(e.IsBuff(), t.FlatBuffer.TableKey)
 	t.SkillGroupId = fbsutils.Convert(string(e.SkillGroupId()), t.FlatBuffer.TableKey)
+	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
 	t.SpriteName = fbsutils.Convert(string(e.SpriteName()), t.FlatBuffer.TableKey)
+	t.BuffDescriptionLocalizeCodeId = fbsutils.Convert(string(e.BuffDescriptionLocalizeCodeId()), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -25,8 +25,15 @@ class WeekDungeonOpenScheduleExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # WeekDungeonOpenScheduleExcel
-    def Open(self, j):
+    def WeekDay(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # WeekDungeonOpenScheduleExcel
+    def Open(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -34,29 +41,22 @@ class WeekDungeonOpenScheduleExcel(object):
 
     # WeekDungeonOpenScheduleExcel
     def OpenAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # WeekDungeonOpenScheduleExcel
     def OpenLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # WeekDungeonOpenScheduleExcel
     def OpenIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        return o == 0
-
-    # WeekDungeonOpenScheduleExcel
-    def WeekDay(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+        return o == 0
 
 def WeekDungeonOpenScheduleExcelStart(builder):
     builder.StartObject(2)
@@ -64,8 +64,14 @@ def WeekDungeonOpenScheduleExcelStart(builder):
 def Start(builder):
     WeekDungeonOpenScheduleExcelStart(builder)
 
+def WeekDungeonOpenScheduleExcelAddWeekDay(builder, weekDay):
+    builder.PrependInt32Slot(0, weekDay, 0)
+
+def AddWeekDay(builder, weekDay):
+    WeekDungeonOpenScheduleExcelAddWeekDay(builder, weekDay)
+
 def WeekDungeonOpenScheduleExcelAddOpen(builder, open):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(open), 0)
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(open), 0)
 
 def AddOpen(builder, open):
     WeekDungeonOpenScheduleExcelAddOpen(builder, open)
@@ -75,12 +81,6 @@ def WeekDungeonOpenScheduleExcelStartOpenVector(builder, numElems):
 
 def StartOpenVector(builder, numElems):
     return WeekDungeonOpenScheduleExcelStartOpenVector(builder, numElems)
-
-def WeekDungeonOpenScheduleExcelAddWeekDay(builder, weekDay):
-    builder.PrependInt32Slot(1, weekDay, 0)
-
-def AddWeekDay(builder, weekDay):
-    WeekDungeonOpenScheduleExcelAddWeekDay(builder, weekDay)
 
 def WeekDungeonOpenScheduleExcelEnd(builder):
     return builder.EndObject()

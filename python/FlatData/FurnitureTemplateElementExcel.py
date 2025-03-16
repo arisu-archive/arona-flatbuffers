@@ -25,14 +25,14 @@ class FurnitureTemplateElementExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # FurnitureTemplateElementExcel
-    def FurnitureId(self):
+    def FurnitureTemplateId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureTemplateElementExcel
-    def FurnitureTemplateId(self):
+    def FurnitureId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -46,32 +46,32 @@ class FurnitureTemplateElementExcel(object):
         return 0
 
     # FurnitureTemplateElementExcel
-    def Order(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FurnitureTemplateElementExcel
     def PositionX(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # FurnitureTemplateElementExcel
     def PositionY(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # FurnitureTemplateElementExcel
     def Rotation(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
+
+    # FurnitureTemplateElementExcel
+    def Order(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def FurnitureTemplateElementExcelStart(builder):
     builder.StartObject(7)
@@ -79,17 +79,17 @@ def FurnitureTemplateElementExcelStart(builder):
 def Start(builder):
     FurnitureTemplateElementExcelStart(builder)
 
-def FurnitureTemplateElementExcelAddFurnitureId(builder, furnitureId):
-    builder.PrependInt64Slot(0, furnitureId, 0)
-
-def AddFurnitureId(builder, furnitureId):
-    FurnitureTemplateElementExcelAddFurnitureId(builder, furnitureId)
-
 def FurnitureTemplateElementExcelAddFurnitureTemplateId(builder, furnitureTemplateId):
-    builder.PrependInt64Slot(1, furnitureTemplateId, 0)
+    builder.PrependInt64Slot(0, furnitureTemplateId, 0)
 
 def AddFurnitureTemplateId(builder, furnitureTemplateId):
     FurnitureTemplateElementExcelAddFurnitureTemplateId(builder, furnitureTemplateId)
+
+def FurnitureTemplateElementExcelAddFurnitureId(builder, furnitureId):
+    builder.PrependInt64Slot(1, furnitureId, 0)
+
+def AddFurnitureId(builder, furnitureId):
+    FurnitureTemplateElementExcelAddFurnitureId(builder, furnitureId)
 
 def FurnitureTemplateElementExcelAddLocation(builder, location):
     builder.PrependInt32Slot(2, location, 0)
@@ -97,29 +97,29 @@ def FurnitureTemplateElementExcelAddLocation(builder, location):
 def AddLocation(builder, location):
     FurnitureTemplateElementExcelAddLocation(builder, location)
 
-def FurnitureTemplateElementExcelAddOrder(builder, order):
-    builder.PrependInt64Slot(3, order, 0)
-
-def AddOrder(builder, order):
-    FurnitureTemplateElementExcelAddOrder(builder, order)
-
 def FurnitureTemplateElementExcelAddPositionX(builder, positionX):
-    builder.PrependFloat32Slot(4, positionX, 0.0)
+    builder.PrependFloat32Slot(3, positionX, 0.0)
 
 def AddPositionX(builder, positionX):
     FurnitureTemplateElementExcelAddPositionX(builder, positionX)
 
 def FurnitureTemplateElementExcelAddPositionY(builder, positionY):
-    builder.PrependFloat32Slot(5, positionY, 0.0)
+    builder.PrependFloat32Slot(4, positionY, 0.0)
 
 def AddPositionY(builder, positionY):
     FurnitureTemplateElementExcelAddPositionY(builder, positionY)
 
 def FurnitureTemplateElementExcelAddRotation(builder, rotation):
-    builder.PrependFloat32Slot(6, rotation, 0.0)
+    builder.PrependFloat32Slot(5, rotation, 0.0)
 
 def AddRotation(builder, rotation):
     FurnitureTemplateElementExcelAddRotation(builder, rotation)
+
+def FurnitureTemplateElementExcelAddOrder(builder, order):
+    builder.PrependInt64Slot(6, order, 0)
+
+def AddOrder(builder, order):
+    FurnitureTemplateElementExcelAddOrder(builder, order)
 
 def FurnitureTemplateElementExcelEnd(builder):
     return builder.EndObject()

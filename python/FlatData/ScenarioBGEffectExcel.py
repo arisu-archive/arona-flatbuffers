@@ -25,25 +25,25 @@ class ScenarioBGEffectExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ScenarioBGEffectExcel
-    def Effect(self):
+    def Name(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
 
     # ScenarioBGEffectExcel
-    def Effect2(self):
+    def Effect(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ScenarioBGEffectExcel
-    def Name(self):
+    def Effect2(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # ScenarioBGEffectExcel
     def Scroll(self):
@@ -53,14 +53,14 @@ class ScenarioBGEffectExcel(object):
         return 0
 
     # ScenarioBGEffectExcel
-    def ScrollFrom(self):
+    def ScrollTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ScenarioBGEffectExcel
-    def ScrollTime(self):
+    def ScrollFrom(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -79,23 +79,23 @@ def ScenarioBGEffectExcelStart(builder):
 def Start(builder):
     ScenarioBGEffectExcelStart(builder)
 
+def ScenarioBGEffectExcelAddName(builder, name):
+    builder.PrependUint32Slot(0, name, 0)
+
+def AddName(builder, name):
+    ScenarioBGEffectExcelAddName(builder, name)
+
 def ScenarioBGEffectExcelAddEffect(builder, effect):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(effect), 0)
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(effect), 0)
 
 def AddEffect(builder, effect):
     ScenarioBGEffectExcelAddEffect(builder, effect)
 
 def ScenarioBGEffectExcelAddEffect2(builder, effect2):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(effect2), 0)
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(effect2), 0)
 
 def AddEffect2(builder, effect2):
     ScenarioBGEffectExcelAddEffect2(builder, effect2)
-
-def ScenarioBGEffectExcelAddName(builder, name):
-    builder.PrependUint32Slot(2, name, 0)
-
-def AddName(builder, name):
-    ScenarioBGEffectExcelAddName(builder, name)
 
 def ScenarioBGEffectExcelAddScroll(builder, scroll):
     builder.PrependInt32Slot(3, scroll, 0)
@@ -103,17 +103,17 @@ def ScenarioBGEffectExcelAddScroll(builder, scroll):
 def AddScroll(builder, scroll):
     ScenarioBGEffectExcelAddScroll(builder, scroll)
 
-def ScenarioBGEffectExcelAddScrollFrom(builder, scrollFrom):
-    builder.PrependInt64Slot(4, scrollFrom, 0)
-
-def AddScrollFrom(builder, scrollFrom):
-    ScenarioBGEffectExcelAddScrollFrom(builder, scrollFrom)
-
 def ScenarioBGEffectExcelAddScrollTime(builder, scrollTime):
-    builder.PrependInt64Slot(5, scrollTime, 0)
+    builder.PrependInt64Slot(4, scrollTime, 0)
 
 def AddScrollTime(builder, scrollTime):
     ScenarioBGEffectExcelAddScrollTime(builder, scrollTime)
+
+def ScenarioBGEffectExcelAddScrollFrom(builder, scrollFrom):
+    builder.PrependInt64Slot(5, scrollFrom, 0)
+
+def AddScrollFrom(builder, scrollFrom):
+    ScenarioBGEffectExcelAddScrollFrom(builder, scrollFrom)
 
 def ScenarioBGEffectExcelAddScrollTo(builder, scrollTo):
     builder.PrependInt64Slot(6, scrollTo, 0)

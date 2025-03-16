@@ -1,13 +1,13 @@
 namespace FlatData;
 
 table ArenaMapExcel {
-    end_rank: long;
-    ground_group_id: long;
-    ground_group_name_localize_key: string;
-    ground_id: long;
-    image_path: string;
-    start_rank: long;
+    unique_id: long;
     terrain_type: long;
     terrain_type_localize_key: string;
-    unique_id: long;
+    image_path: string;
+    ground_group_id: long;
+    ground_group_name_localize_key: string;
+    start_rank: long;
+    end_rank: long;
+    ground_id: long;
 }

@@ -10,21 +10,21 @@ import (
 // ObstacleStatExcelDto represents a FlatBuffers table
 type ObstacleStatExcelDto struct {
 	fbsutils.FlatBuffer
-	BlockRate               int64   `json:"block_rate"`
-	CanNotStandRange        int64   `json:"can_not_stand_range"`
-	Dodge                   int64   `json:"dodge"`
-	EnhanceElasticArmorRate int64   `json:"enhance_elastic_armor_rate"`
-	EnhanceHeavyArmorRate   int64   `json:"enhance_heavy_armor_rate"`
-	EnhanceLightArmorRate   int64   `json:"enhance_light_armor_rate"`
-	EnhanceNormalArmorRate  int64   `json:"enhance_normal_armor_rate"`
-	EnhanceStructureRate    int64   `json:"enhance_structure_rate"`
-	EnhanceUnarmedRate      int64   `json:"enhance_unarmed_rate"`
-	HighlightFloaterHeight  float32 `json:"highlight_floater_height"`
+	StringId                uint32  `json:"string_id"`
+	Name                    string  `json:"name"`
 	MaxHp1                  int64   `json:"max_hp1"`
 	MaxHp100                int64   `json:"max_hp100"`
-	Name                    string  `json:"name"`
+	BlockRate               int64   `json:"block_rate"`
+	Dodge                   int64   `json:"dodge"`
+	CanNotStandRange        int64   `json:"can_not_stand_range"`
+	HighlightFloaterHeight  float32 `json:"highlight_floater_height"`
+	EnhanceLightArmorRate   int64   `json:"enhance_light_armor_rate"`
+	EnhanceHeavyArmorRate   int64   `json:"enhance_heavy_armor_rate"`
+	EnhanceUnarmedRate      int64   `json:"enhance_unarmed_rate"`
+	EnhanceElasticArmorRate int64   `json:"enhance_elastic_armor_rate"`
+	EnhanceStructureRate    int64   `json:"enhance_structure_rate"`
+	EnhanceNormalArmorRate  int64   `json:"enhance_normal_armor_rate"`
 	ReduceExDamagedRate     int64   `json:"reduce_ex_damaged_rate"`
-	StringId                uint32  `json:"string_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -33,21 +33,21 @@ func (t *ObstacleStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ObstacleStat"))
 	}
 	ObstacleStatExcelStart(b)
-	ObstacleStatExcelAddBlockRate(b, fbsutils.Convert(t.BlockRate, t.FlatBuffer.TableKey))
-	ObstacleStatExcelAddCanNotStandRange(b, fbsutils.Convert(t.CanNotStandRange, t.FlatBuffer.TableKey))
-	ObstacleStatExcelAddDodge(b, fbsutils.Convert(t.Dodge, t.FlatBuffer.TableKey))
-	ObstacleStatExcelAddEnhanceElasticArmorRate(b, fbsutils.Convert(t.EnhanceElasticArmorRate, t.FlatBuffer.TableKey))
-	ObstacleStatExcelAddEnhanceHeavyArmorRate(b, fbsutils.Convert(t.EnhanceHeavyArmorRate, t.FlatBuffer.TableKey))
-	ObstacleStatExcelAddEnhanceLightArmorRate(b, fbsutils.Convert(t.EnhanceLightArmorRate, t.FlatBuffer.TableKey))
-	ObstacleStatExcelAddEnhanceNormalArmorRate(b, fbsutils.Convert(t.EnhanceNormalArmorRate, t.FlatBuffer.TableKey))
-	ObstacleStatExcelAddEnhanceStructureRate(b, fbsutils.Convert(t.EnhanceStructureRate, t.FlatBuffer.TableKey))
-	ObstacleStatExcelAddEnhanceUnarmedRate(b, fbsutils.Convert(t.EnhanceUnarmedRate, t.FlatBuffer.TableKey))
-	ObstacleStatExcelAddHighlightFloaterHeight(b, fbsutils.Convert(t.HighlightFloaterHeight, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddStringId(b, fbsutils.Convert(t.StringId, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddMaxHp1(b, fbsutils.Convert(t.MaxHp1, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddMaxHp100(b, fbsutils.Convert(t.MaxHp100, t.FlatBuffer.TableKey))
-	ObstacleStatExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddBlockRate(b, fbsutils.Convert(t.BlockRate, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddDodge(b, fbsutils.Convert(t.Dodge, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddCanNotStandRange(b, fbsutils.Convert(t.CanNotStandRange, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddHighlightFloaterHeight(b, fbsutils.Convert(t.HighlightFloaterHeight, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddEnhanceLightArmorRate(b, fbsutils.Convert(t.EnhanceLightArmorRate, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddEnhanceHeavyArmorRate(b, fbsutils.Convert(t.EnhanceHeavyArmorRate, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddEnhanceUnarmedRate(b, fbsutils.Convert(t.EnhanceUnarmedRate, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddEnhanceElasticArmorRate(b, fbsutils.Convert(t.EnhanceElasticArmorRate, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddEnhanceStructureRate(b, fbsutils.Convert(t.EnhanceStructureRate, t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddEnhanceNormalArmorRate(b, fbsutils.Convert(t.EnhanceNormalArmorRate, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddReduceExDamagedRate(b, fbsutils.Convert(t.ReduceExDamagedRate, t.FlatBuffer.TableKey))
-	ObstacleStatExcelAddStringId(b, fbsutils.Convert(t.StringId, t.FlatBuffer.TableKey))
 	return ObstacleStatExcelEnd(b)
 }
 
@@ -63,21 +63,21 @@ func (t *ObstacleStatExcelDto) UnmarshalMessage(e *ObstacleStatExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ObstacleStat"))
 	}
-	t.BlockRate = fbsutils.Convert(e.BlockRate(), t.FlatBuffer.TableKey)
-	t.CanNotStandRange = fbsutils.Convert(e.CanNotStandRange(), t.FlatBuffer.TableKey)
-	t.Dodge = fbsutils.Convert(e.Dodge(), t.FlatBuffer.TableKey)
-	t.EnhanceElasticArmorRate = fbsutils.Convert(e.EnhanceElasticArmorRate(), t.FlatBuffer.TableKey)
-	t.EnhanceHeavyArmorRate = fbsutils.Convert(e.EnhanceHeavyArmorRate(), t.FlatBuffer.TableKey)
-	t.EnhanceLightArmorRate = fbsutils.Convert(e.EnhanceLightArmorRate(), t.FlatBuffer.TableKey)
-	t.EnhanceNormalArmorRate = fbsutils.Convert(e.EnhanceNormalArmorRate(), t.FlatBuffer.TableKey)
-	t.EnhanceStructureRate = fbsutils.Convert(e.EnhanceStructureRate(), t.FlatBuffer.TableKey)
-	t.EnhanceUnarmedRate = fbsutils.Convert(e.EnhanceUnarmedRate(), t.FlatBuffer.TableKey)
-	t.HighlightFloaterHeight = fbsutils.Convert(e.HighlightFloaterHeight(), t.FlatBuffer.TableKey)
+	t.StringId = fbsutils.Convert(e.StringId(), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.MaxHp1 = fbsutils.Convert(e.MaxHp1(), t.FlatBuffer.TableKey)
 	t.MaxHp100 = fbsutils.Convert(e.MaxHp100(), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
+	t.BlockRate = fbsutils.Convert(e.BlockRate(), t.FlatBuffer.TableKey)
+	t.Dodge = fbsutils.Convert(e.Dodge(), t.FlatBuffer.TableKey)
+	t.CanNotStandRange = fbsutils.Convert(e.CanNotStandRange(), t.FlatBuffer.TableKey)
+	t.HighlightFloaterHeight = fbsutils.Convert(e.HighlightFloaterHeight(), t.FlatBuffer.TableKey)
+	t.EnhanceLightArmorRate = fbsutils.Convert(e.EnhanceLightArmorRate(), t.FlatBuffer.TableKey)
+	t.EnhanceHeavyArmorRate = fbsutils.Convert(e.EnhanceHeavyArmorRate(), t.FlatBuffer.TableKey)
+	t.EnhanceUnarmedRate = fbsutils.Convert(e.EnhanceUnarmedRate(), t.FlatBuffer.TableKey)
+	t.EnhanceElasticArmorRate = fbsutils.Convert(e.EnhanceElasticArmorRate(), t.FlatBuffer.TableKey)
+	t.EnhanceStructureRate = fbsutils.Convert(e.EnhanceStructureRate(), t.FlatBuffer.TableKey)
+	t.EnhanceNormalArmorRate = fbsutils.Convert(e.EnhanceNormalArmorRate(), t.FlatBuffer.TableKey)
 	t.ReduceExDamagedRate = fbsutils.Convert(e.ReduceExDamagedRate(), t.FlatBuffer.TableKey)
-	t.StringId = fbsutils.Convert(e.StringId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -25,21 +25,21 @@ class LimitedStageSeasonExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # LimitedStageSeasonExcel
-    def EndDate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # LimitedStageSeasonExcel
     def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # LimitedStageSeasonExcel
     def StartDate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # LimitedStageSeasonExcel
+    def EndDate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -72,23 +72,23 @@ def LimitedStageSeasonExcelStart(builder):
 def Start(builder):
     LimitedStageSeasonExcelStart(builder)
 
-def LimitedStageSeasonExcelAddEndDate(builder, endDate):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
-
-def AddEndDate(builder, endDate):
-    LimitedStageSeasonExcelAddEndDate(builder, endDate)
-
 def LimitedStageSeasonExcelAddId(builder, id):
-    builder.PrependInt64Slot(1, id, 0)
+    builder.PrependInt64Slot(0, id, 0)
 
 def AddId(builder, id):
     LimitedStageSeasonExcelAddId(builder, id)
 
 def LimitedStageSeasonExcelAddStartDate(builder, startDate):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
 
 def AddStartDate(builder, startDate):
     LimitedStageSeasonExcelAddStartDate(builder, startDate)
+
+def LimitedStageSeasonExcelAddEndDate(builder, endDate):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
+
+def AddEndDate(builder, endDate):
+    LimitedStageSeasonExcelAddEndDate(builder, endDate)
 
 def LimitedStageSeasonExcelAddTypeACount(builder, typeACount):
     builder.PrependInt64Slot(3, typeACount, 0)

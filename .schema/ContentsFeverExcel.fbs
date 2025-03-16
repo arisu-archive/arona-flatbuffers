@@ -5,8 +5,8 @@ namespace FlatData;
 
 table ContentsFeverExcel {
     condition_content: FeverBattleType;
-    fever_duration_time: long;
-    fever_start_time: long;
-    skill_cost_fever: long;
     skill_fever_check_condition: SkillPriorityCheckTarget;
+    skill_cost_fever: long;
+    fever_start_time: long;
+    fever_duration_time: long;
 }

@@ -10,13 +10,13 @@ import (
 // EventContentNotifyExcelDto represents a FlatBuffers table
 type EventContentNotifyExcelDto struct {
 	fbsutils.FlatBuffer
+	Id                      int32           `json:"id"`
+	LocalizeEtcId           uint32          `json:"localize_etc_id"`
+	IconPath                string          `json:"icon_path"`
 	EventNotifyType         EventNotifyType `json:"event_notify_type"`
 	EventTargetType         EventTargetType `json:"event_target_type"`
-	IconPath                string          `json:"icon_path"`
-	Id                      int32           `json:"id"`
-	IsShortcutEnable        bool            `json:"is_shortcut_enable"`
-	LocalizeEtcId           uint32          `json:"localize_etc_id"`
 	ShortcutEventTargetType EventTargetType `json:"shortcut_event_target_type"`
+	IsShortcutEnable        bool            `json:"is_shortcut_enable"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,13 +25,13 @@ func (t *EventContentNotifyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentNotify"))
 	}
 	EventContentNotifyExcelStart(b)
+	EventContentNotifyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	EventContentNotifyExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	EventContentNotifyExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
 	EventContentNotifyExcelAddEventNotifyType(b, fbsutils.Convert(t.EventNotifyType, t.FlatBuffer.TableKey))
 	EventContentNotifyExcelAddEventTargetType(b, fbsutils.Convert(t.EventTargetType, t.FlatBuffer.TableKey))
-	EventContentNotifyExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
-	EventContentNotifyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentNotifyExcelAddIsShortcutEnable(b, fbsutils.Convert(t.IsShortcutEnable, t.FlatBuffer.TableKey))
-	EventContentNotifyExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	EventContentNotifyExcelAddShortcutEventTargetType(b, fbsutils.Convert(t.ShortcutEventTargetType, t.FlatBuffer.TableKey))
+	EventContentNotifyExcelAddIsShortcutEnable(b, fbsutils.Convert(t.IsShortcutEnable, t.FlatBuffer.TableKey))
 	return EventContentNotifyExcelEnd(b)
 }
 
@@ -47,13 +47,13 @@ func (t *EventContentNotifyExcelDto) UnmarshalMessage(e *EventContentNotifyExcel
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentNotify"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
 	t.EventNotifyType = EventNotifyType(int32(fbsutils.Convert(e.EventNotifyType(), t.FlatBuffer.TableKey)))
 	t.EventTargetType = EventTargetType(int32(fbsutils.Convert(e.EventTargetType(), t.FlatBuffer.TableKey)))
-	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.IsShortcutEnable = fbsutils.Convert(e.IsShortcutEnable(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.ShortcutEventTargetType = EventTargetType(int32(fbsutils.Convert(e.ShortcutEventTargetType(), t.FlatBuffer.TableKey)))
+	t.IsShortcutEnable = fbsutils.Convert(e.IsShortcutEnable(), t.FlatBuffer.TableKey)
 	return nil
 }
 

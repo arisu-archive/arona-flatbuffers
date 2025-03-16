@@ -1,16 +1,16 @@
 namespace FlatData;
 
 table CameraExcel {
-    bottom_margin: float;
-    ignore_enemies: bool;
-    left_margin: float;
-    max_distance: float;
+    unique_id: long;
     min_distance: float;
-    move_instantly: bool;
-    move_instantly_rotation_save: bool;
+    max_distance: float;
     rotation_x: float;
     rotation_y: float;
-    unique_id: long;
+    move_instantly: bool;
+    move_instantly_rotation_save: bool;
+    left_margin: float;
+    bottom_margin: float;
+    ignore_enemies: bool;
     use_rail_point_compensation: bool;
 }
 

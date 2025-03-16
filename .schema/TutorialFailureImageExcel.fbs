@@ -3,14 +3,14 @@ include "TutorialFailureContentType.fbs";
 namespace FlatData;
 
 table TutorialFailureImageExcel {
-    contents: TutorialFailureContentType;
     id: long;
-    image_path_en: string;
-    image_path_jp: string;
+    contents: TutorialFailureContentType;
+    type: string;
     image_path_kr: string;
+    image_path_jp: string;
     image_path_th: string;
     image_path_tw: string;
-    type: string;
+    image_path_en: string;
 }
 
 root_type TutorialFailureImageExcel;

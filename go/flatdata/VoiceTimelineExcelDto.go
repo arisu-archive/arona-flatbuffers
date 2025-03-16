@@ -10,11 +10,11 @@ import (
 // VoiceTimelineExcelDto represents a FlatBuffers table
 type VoiceTimelineExcelDto struct {
 	fbsutils.FlatBuffer
+	UniqueId    int64     `json:"unique_id"`
 	Id          uint32    `json:"id"`
 	Nation      []Nation  `json:"nation"`
 	Path        []string  `json:"path"`
 	SoundVolume []float32 `json:"sound_volume"`
-	UniqueId    int64     `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,6 +23,7 @@ func (t *VoiceTimelineExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceTimeline"))
 	}
 	VoiceTimelineExcelStart(b)
+	VoiceTimelineExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	VoiceTimelineExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	VoiceTimelineExcelStartNationVector(b, len(t.Nation))
 	for i := range len(t.Nation) {
@@ -39,7 +40,6 @@ func (t *VoiceTimelineExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		b.PrependFloat32(fbsutils.Convert(t.SoundVolume[len(t.SoundVolume)-i-1], t.FlatBuffer.TableKey))
 	}
 	VoiceTimelineExcelAddSoundVolume(b, b.EndVector(len(t.SoundVolume)))
-	VoiceTimelineExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return VoiceTimelineExcelEnd(b)
 }
 
@@ -55,6 +55,7 @@ func (t *VoiceTimelineExcelDto) UnmarshalMessage(e *VoiceTimelineExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceTimeline"))
 	}
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Nation = make([]Nation, e.NationLength())
 	for i := range e.NationLength() {
@@ -68,7 +69,6 @@ func (t *VoiceTimelineExcelDto) UnmarshalMessage(e *VoiceTimelineExcel) error {
 	for i := range e.SoundVolumeLength() {
 		t.SoundVolume[i] = e.SoundVolume(i)
 	}
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

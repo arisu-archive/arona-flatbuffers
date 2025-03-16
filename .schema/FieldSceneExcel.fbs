@@ -1,14 +1,14 @@
 namespace FlatData;
 
 table FieldSceneExcel {
-    art_level_path: string;
-    begin_conditional_bgm_scenario_group_id: [long];
-    bgm_id: long;
-    conditional_bgm_id: [long];
-    conditional_bgm_quest_id: [long];
-    date_id: long;
-    design_level_path: string;
-    end_conditional_bgm_scenario_group_id: [long];
-    group_id: long;
     unique_id: long;
+    date_id: long;
+    group_id: long;
+    art_level_path: string;
+    design_level_path: string;
+    bgm_id: long;
+    conditional_bgm_quest_id: [long];
+    begin_conditional_bgm_scenario_group_id: [long];
+    end_conditional_bgm_scenario_group_id: [long];
+    conditional_bgm_id: [long];
 }

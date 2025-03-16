@@ -41,15 +41,19 @@ func (rcv *EventContentZoneVisitRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentZoneVisitRewardExcel) CharacterDevName() []byte {
+func (rcv *EventContentZoneVisitRewardExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *EventContentZoneVisitRewardExcel) CharacterId() int64 {
+func (rcv *EventContentZoneVisitRewardExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *EventContentZoneVisitRewardExcel) EventContentLocationId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -57,7 +61,7 @@ func (rcv *EventContentZoneVisitRewardExcel) CharacterId() int64 {
 	return 0
 }
 
-func (rcv *EventContentZoneVisitRewardExcel) MutateCharacterId(n int64) bool {
+func (rcv *EventContentZoneVisitRewardExcel) MutateEventContentLocationId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
@@ -69,7 +73,7 @@ func (rcv *EventContentZoneVisitRewardExcel) DevName() []byte {
 	return nil
 }
 
-func (rcv *EventContentZoneVisitRewardExcel) EventContentId() int64 {
+func (rcv *EventContentZoneVisitRewardExcel) CharacterId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,32 +81,28 @@ func (rcv *EventContentZoneVisitRewardExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentZoneVisitRewardExcel) MutateEventContentId(n int64) bool {
+func (rcv *EventContentZoneVisitRewardExcel) MutateCharacterId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *EventContentZoneVisitRewardExcel) EventContentLocationId() int64 {
+func (rcv *EventContentZoneVisitRewardExcel) CharacterDevName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *EventContentZoneVisitRewardExcel) MutateEventContentLocationId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
-func (rcv *EventContentZoneVisitRewardExcel) VisitRewardAmount(j int) int64 {
+func (rcv *EventContentZoneVisitRewardExcel) VisitRewardParcelType(j int) ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *EventContentZoneVisitRewardExcel) VisitRewardAmountLength() int {
+func (rcv *EventContentZoneVisitRewardExcel) VisitRewardParcelTypeLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -110,11 +110,11 @@ func (rcv *EventContentZoneVisitRewardExcel) VisitRewardAmountLength() int {
 	return 0
 }
 
-func (rcv *EventContentZoneVisitRewardExcel) MutateVisitRewardAmount(j int, n int64) bool {
+func (rcv *EventContentZoneVisitRewardExcel) MutateVisitRewardParcelType(j int, n ParcelType) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
 }
@@ -145,16 +145,16 @@ func (rcv *EventContentZoneVisitRewardExcel) MutateVisitRewardParcelId(j int, n 
 	return false
 }
 
-func (rcv *EventContentZoneVisitRewardExcel) VisitRewardParcelType(j int) ParcelType {
+func (rcv *EventContentZoneVisitRewardExcel) VisitRewardAmount(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *EventContentZoneVisitRewardExcel) VisitRewardParcelTypeLength() int {
+func (rcv *EventContentZoneVisitRewardExcel) VisitRewardAmountLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -162,11 +162,11 @@ func (rcv *EventContentZoneVisitRewardExcel) VisitRewardParcelTypeLength() int {
 	return 0
 }
 
-func (rcv *EventContentZoneVisitRewardExcel) MutateVisitRewardParcelType(j int, n ParcelType) bool {
+func (rcv *EventContentZoneVisitRewardExcel) MutateVisitRewardAmount(j int, n int64) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
 }
@@ -200,26 +200,26 @@ func (rcv *EventContentZoneVisitRewardExcel) MutateVisitRewardProb(j int, n int6
 func EventContentZoneVisitRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(9)
 }
-func EventContentZoneVisitRewardExcelAddCharacterDevName(builder *flatbuffers.Builder, characterDevName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(characterDevName), 0)
+func EventContentZoneVisitRewardExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(0, eventContentId, 0)
 }
-func EventContentZoneVisitRewardExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(1, characterId, 0)
+func EventContentZoneVisitRewardExcelAddEventContentLocationId(builder *flatbuffers.Builder, eventContentLocationId int64) {
+	builder.PrependInt64Slot(1, eventContentLocationId, 0)
 }
 func EventContentZoneVisitRewardExcelAddDevName(builder *flatbuffers.Builder, devName flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(devName), 0)
 }
-func EventContentZoneVisitRewardExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(3, eventContentId, 0)
+func EventContentZoneVisitRewardExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
+	builder.PrependInt64Slot(3, characterId, 0)
 }
-func EventContentZoneVisitRewardExcelAddEventContentLocationId(builder *flatbuffers.Builder, eventContentLocationId int64) {
-	builder.PrependInt64Slot(4, eventContentLocationId, 0)
+func EventContentZoneVisitRewardExcelAddCharacterDevName(builder *flatbuffers.Builder, characterDevName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(characterDevName), 0)
 }
-func EventContentZoneVisitRewardExcelAddVisitRewardAmount(builder *flatbuffers.Builder, visitRewardAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(visitRewardAmount), 0)
+func EventContentZoneVisitRewardExcelAddVisitRewardParcelType(builder *flatbuffers.Builder, visitRewardParcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(visitRewardParcelType), 0)
 }
-func EventContentZoneVisitRewardExcelStartVisitRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func EventContentZoneVisitRewardExcelStartVisitRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func EventContentZoneVisitRewardExcelAddVisitRewardParcelId(builder *flatbuffers.Builder, visitRewardParcelId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(visitRewardParcelId), 0)
@@ -227,11 +227,11 @@ func EventContentZoneVisitRewardExcelAddVisitRewardParcelId(builder *flatbuffers
 func EventContentZoneVisitRewardExcelStartVisitRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func EventContentZoneVisitRewardExcelAddVisitRewardParcelType(builder *flatbuffers.Builder, visitRewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(visitRewardParcelType), 0)
+func EventContentZoneVisitRewardExcelAddVisitRewardAmount(builder *flatbuffers.Builder, visitRewardAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(visitRewardAmount), 0)
 }
-func EventContentZoneVisitRewardExcelStartVisitRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func EventContentZoneVisitRewardExcelStartVisitRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func EventContentZoneVisitRewardExcelAddVisitRewardProb(builder *flatbuffers.Builder, visitRewardProb flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(visitRewardProb), 0)

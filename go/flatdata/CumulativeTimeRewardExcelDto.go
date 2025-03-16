@@ -10,14 +10,14 @@ import (
 // CumulativeTimeRewardExcelDto represents a FlatBuffers table
 type CumulativeTimeRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	Description      string       `json:"description"`
-	EndDate          string       `json:"end_date"`
 	Id               int64        `json:"id"`
-	RewardAmount     []int32      `json:"reward_amount"`
-	RewardId         []int64      `json:"reward_id"`
-	RewardParcelType []ParcelType `json:"reward_parcel_type"`
+	Description      string       `json:"description"`
 	StartDate        string       `json:"start_date"`
+	EndDate          string       `json:"end_date"`
 	TimeCondition    []int64      `json:"time_condition"`
+	RewardParcelType []ParcelType `json:"reward_parcel_type"`
+	RewardId         []int64      `json:"reward_id"`
+	RewardAmount     []int32      `json:"reward_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,30 +26,30 @@ func (t *CumulativeTimeRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CumulativeTimeReward"))
 	}
 	CumulativeTimeRewardExcelStart(b)
-	CumulativeTimeRewardExcelAddDescription(b, fbsutils.Convert(b.CreateString(t.Description), t.FlatBuffer.TableKey))
-	CumulativeTimeRewardExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
 	CumulativeTimeRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CumulativeTimeRewardExcelStartRewardAmountVector(b, len(t.RewardAmount))
-	for i := range len(t.RewardAmount) {
-		b.PrependInt32(fbsutils.Convert(t.RewardAmount[len(t.RewardAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	CumulativeTimeRewardExcelAddRewardAmount(b, b.EndVector(len(t.RewardAmount)))
-	CumulativeTimeRewardExcelStartRewardIdVector(b, len(t.RewardId))
-	for i := range len(t.RewardId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardId[len(t.RewardId)-i-1], t.FlatBuffer.TableKey))
-	}
-	CumulativeTimeRewardExcelAddRewardId(b, b.EndVector(len(t.RewardId)))
-	CumulativeTimeRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
-	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
-	}
-	CumulativeTimeRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
+	CumulativeTimeRewardExcelAddDescription(b, fbsutils.Convert(b.CreateString(t.Description), t.FlatBuffer.TableKey))
 	CumulativeTimeRewardExcelAddStartDate(b, fbsutils.Convert(b.CreateString(t.StartDate), t.FlatBuffer.TableKey))
+	CumulativeTimeRewardExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
 	CumulativeTimeRewardExcelStartTimeConditionVector(b, len(t.TimeCondition))
 	for i := range len(t.TimeCondition) {
 		b.PrependInt64(fbsutils.Convert(t.TimeCondition[len(t.TimeCondition)-i-1], t.FlatBuffer.TableKey))
 	}
 	CumulativeTimeRewardExcelAddTimeCondition(b, b.EndVector(len(t.TimeCondition)))
+	CumulativeTimeRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
+	for i := range len(t.RewardParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+	}
+	CumulativeTimeRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
+	CumulativeTimeRewardExcelStartRewardIdVector(b, len(t.RewardId))
+	for i := range len(t.RewardId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardId[len(t.RewardId)-i-1], t.FlatBuffer.TableKey))
+	}
+	CumulativeTimeRewardExcelAddRewardId(b, b.EndVector(len(t.RewardId)))
+	CumulativeTimeRewardExcelStartRewardAmountVector(b, len(t.RewardAmount))
+	for i := range len(t.RewardAmount) {
+		b.PrependInt32(fbsutils.Convert(t.RewardAmount[len(t.RewardAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	CumulativeTimeRewardExcelAddRewardAmount(b, b.EndVector(len(t.RewardAmount)))
 	return CumulativeTimeRewardExcelEnd(b)
 }
 
@@ -65,25 +65,25 @@ func (t *CumulativeTimeRewardExcelDto) UnmarshalMessage(e *CumulativeTimeRewardE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CumulativeTimeReward"))
 	}
-	t.Description = fbsutils.Convert(string(e.Description()), t.FlatBuffer.TableKey)
-	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.RewardAmount = make([]int32, e.RewardAmountLength())
-	for i := range e.RewardAmountLength() {
-		t.RewardAmount[i] = e.RewardAmount(i)
-	}
-	t.RewardId = make([]int64, e.RewardIdLength())
-	for i := range e.RewardIdLength() {
-		t.RewardId[i] = e.RewardId(i)
+	t.Description = fbsutils.Convert(string(e.Description()), t.FlatBuffer.TableKey)
+	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
+	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
+	t.TimeCondition = make([]int64, e.TimeConditionLength())
+	for i := range e.TimeConditionLength() {
+		t.TimeCondition[i] = e.TimeCondition(i)
 	}
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
 		t.RewardParcelType[i] = e.RewardParcelType(i)
 	}
-	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
-	t.TimeCondition = make([]int64, e.TimeConditionLength())
-	for i := range e.TimeConditionLength() {
-		t.TimeCondition[i] = e.TimeCondition(i)
+	t.RewardId = make([]int64, e.RewardIdLength())
+	for i := range e.RewardIdLength() {
+		t.RewardId[i] = e.RewardId(i)
+	}
+	t.RewardAmount = make([]int32, e.RewardAmountLength())
+	for i := range e.RewardAmountLength() {
+		t.RewardAmount[i] = e.RewardAmount(i)
 	}
 	return nil
 }

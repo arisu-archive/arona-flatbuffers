@@ -10,8 +10,8 @@ import (
 // PresetCharacterGroupSettingExcelDto represents a FlatBuffers table
 type PresetCharacterGroupSettingExcelDto struct {
 	fbsutils.FlatBuffer
-	ArenaSimulatorFixed bool     `json:"arena_simulator_fixed"`
 	CharacterId         int64    `json:"character_id"`
+	ArenaSimulatorFixed bool     `json:"arena_simulator_fixed"`
 	PresetType          []string `json:"preset_type"`
 }
 
@@ -21,8 +21,8 @@ func (t *PresetCharacterGroupSettingExcelDto) MarshalModel(b *flatbuffers.Builde
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PresetCharacterGroupSetting"))
 	}
 	PresetCharacterGroupSettingExcelStart(b)
-	PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(b, fbsutils.Convert(t.ArenaSimulatorFixed, t.FlatBuffer.TableKey))
 	PresetCharacterGroupSettingExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
+	PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(b, fbsutils.Convert(t.ArenaSimulatorFixed, t.FlatBuffer.TableKey))
 	PresetCharacterGroupSettingExcelStartPresetTypeVector(b, len(t.PresetType))
 	for i := range len(t.PresetType) {
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.PresetType[len(t.PresetType)-i-1]), t.FlatBuffer.TableKey))
@@ -43,8 +43,8 @@ func (t *PresetCharacterGroupSettingExcelDto) UnmarshalMessage(e *PresetCharacte
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PresetCharacterGroupSetting"))
 	}
-	t.ArenaSimulatorFixed = fbsutils.Convert(e.ArenaSimulatorFixed(), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
+	t.ArenaSimulatorFixed = fbsutils.Convert(e.ArenaSimulatorFixed(), t.FlatBuffer.TableKey)
 	t.PresetType = make([]string, e.PresetTypeLength())
 	for i := range e.PresetTypeLength() {
 		t.PresetType[i] = string(e.PresetType(i))

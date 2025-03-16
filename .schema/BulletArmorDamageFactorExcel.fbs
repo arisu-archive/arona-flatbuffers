@@ -5,12 +5,12 @@ include "DamageAttribute.fbs";
 namespace FlatData;
 
 table BulletArmorDamageFactorExcel {
-    armor_type: ArmorType;
-    bullet_type: BulletType;
-    damage_attribute: DamageAttribute;
     damage_factor_group_id: string;
+    bullet_type: BulletType;
+    armor_type: ArmorType;
     damage_rate: long;
-    max_damage_rate: long;
+    damage_attribute: DamageAttribute;
     min_damage_rate: long;
+    max_damage_rate: long;
     show_highlight_floater: bool;
 }

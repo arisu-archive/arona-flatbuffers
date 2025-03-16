@@ -25,81 +25,81 @@ class GuideMissionSeasonExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # GuideMissionSeasonExcel
-    def AccountType(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GuideMissionSeasonExcel
-    def BackgroundImage(self):
+    def TitleLocalizeCode(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # GuideMissionSeasonExcel
-    def BannerOpenDate(self):
+    def PermanentInfomationLocalizeCode(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # GuideMissionSeasonExcel
-    def CloseBannerAfterCompletion(self):
+    def InfomationLocalizeCode(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # GuideMissionSeasonExcel
-    def Enabled(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # GuideMissionSeasonExcel
-    def EndDate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # GuideMissionSeasonExcel
-    def ExpiryDate(self):
+    def AccountType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # GuideMissionSeasonExcel
+    def Enabled(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # GuideMissionSeasonExcel
+    def BannerOpenDate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # GuideMissionSeasonExcel
-    def Id(self):
+    def StartDate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # GuideMissionSeasonExcel
-    def InfomationLocalizeCode(self):
+    def StartableEndDate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # GuideMissionSeasonExcel
-    def IsPermanent(self):
+    def EndDate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # GuideMissionSeasonExcel
-    def LobbyBannerImage(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
+
+    # GuideMissionSeasonExcel
+    def CloseBannerAfterCompletion(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # GuideMissionSeasonExcel
     def MaximumLoginCount(self):
@@ -109,74 +109,74 @@ class GuideMissionSeasonExcel(object):
         return 0
 
     # GuideMissionSeasonExcel
-    def PermanentInfomationLocalizeCode(self):
+    def ExpiryDate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # GuideMissionSeasonExcel
-    def PreSeasonId(self):
+    def SpineCharacterId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GuideMissionSeasonExcel
-    def RequirementParcelAmount(self):
+    def RequirementParcelImage(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # GuideMissionSeasonExcel
-    def RequirementParcelId(self):
+    def RewardImage(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # GuideMissionSeasonExcel
-    def RequirementParcelImage(self):
+    def LobbyBannerImage(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # GuideMissionSeasonExcel
-    def RequirementParcelType(self):
+    def BackgroundImage(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # GuideMissionSeasonExcel
-    def RewardImage(self):
+    def TitleImage(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # GuideMissionSeasonExcel
-    def SpineCharacterId(self):
+    def RequirementParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # GuideMissionSeasonExcel
+    def RequirementParcelId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GuideMissionSeasonExcel
-    def StartableEndDate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # GuideMissionSeasonExcel
-    def StartDate(self):
+    def RequirementParcelAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # GuideMissionSeasonExcel
     def TabType(self):
@@ -186,18 +186,18 @@ class GuideMissionSeasonExcel(object):
         return 0
 
     # GuideMissionSeasonExcel
-    def TitleImage(self):
+    def IsPermanent(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # GuideMissionSeasonExcel
-    def TitleLocalizeCode(self):
+    def PreSeasonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def GuideMissionSeasonExcelStart(builder):
     builder.StartObject(25)
@@ -205,71 +205,71 @@ def GuideMissionSeasonExcelStart(builder):
 def Start(builder):
     GuideMissionSeasonExcelStart(builder)
 
-def GuideMissionSeasonExcelAddAccountType(builder, accountType):
-    builder.PrependInt32Slot(0, accountType, 0)
-
-def AddAccountType(builder, accountType):
-    GuideMissionSeasonExcelAddAccountType(builder, accountType)
-
-def GuideMissionSeasonExcelAddBackgroundImage(builder, backgroundImage):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(backgroundImage), 0)
-
-def AddBackgroundImage(builder, backgroundImage):
-    GuideMissionSeasonExcelAddBackgroundImage(builder, backgroundImage)
-
-def GuideMissionSeasonExcelAddBannerOpenDate(builder, bannerOpenDate):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(bannerOpenDate), 0)
-
-def AddBannerOpenDate(builder, bannerOpenDate):
-    GuideMissionSeasonExcelAddBannerOpenDate(builder, bannerOpenDate)
-
-def GuideMissionSeasonExcelAddCloseBannerAfterCompletion(builder, closeBannerAfterCompletion):
-    builder.PrependBoolSlot(3, closeBannerAfterCompletion, 0)
-
-def AddCloseBannerAfterCompletion(builder, closeBannerAfterCompletion):
-    GuideMissionSeasonExcelAddCloseBannerAfterCompletion(builder, closeBannerAfterCompletion)
-
-def GuideMissionSeasonExcelAddEnabled(builder, enabled):
-    builder.PrependBoolSlot(4, enabled, 0)
-
-def AddEnabled(builder, enabled):
-    GuideMissionSeasonExcelAddEnabled(builder, enabled)
-
-def GuideMissionSeasonExcelAddEndDate(builder, endDate):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
-
-def AddEndDate(builder, endDate):
-    GuideMissionSeasonExcelAddEndDate(builder, endDate)
-
-def GuideMissionSeasonExcelAddExpiryDate(builder, expiryDate):
-    builder.PrependInt64Slot(6, expiryDate, 0)
-
-def AddExpiryDate(builder, expiryDate):
-    GuideMissionSeasonExcelAddExpiryDate(builder, expiryDate)
-
 def GuideMissionSeasonExcelAddId(builder, id):
-    builder.PrependInt64Slot(7, id, 0)
+    builder.PrependInt64Slot(0, id, 0)
 
 def AddId(builder, id):
     GuideMissionSeasonExcelAddId(builder, id)
 
+def GuideMissionSeasonExcelAddTitleLocalizeCode(builder, titleLocalizeCode):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(titleLocalizeCode), 0)
+
+def AddTitleLocalizeCode(builder, titleLocalizeCode):
+    GuideMissionSeasonExcelAddTitleLocalizeCode(builder, titleLocalizeCode)
+
+def GuideMissionSeasonExcelAddPermanentInfomationLocalizeCode(builder, permanentInfomationLocalizeCode):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(permanentInfomationLocalizeCode), 0)
+
+def AddPermanentInfomationLocalizeCode(builder, permanentInfomationLocalizeCode):
+    GuideMissionSeasonExcelAddPermanentInfomationLocalizeCode(builder, permanentInfomationLocalizeCode)
+
 def GuideMissionSeasonExcelAddInfomationLocalizeCode(builder, infomationLocalizeCode):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(infomationLocalizeCode), 0)
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(infomationLocalizeCode), 0)
 
 def AddInfomationLocalizeCode(builder, infomationLocalizeCode):
     GuideMissionSeasonExcelAddInfomationLocalizeCode(builder, infomationLocalizeCode)
 
-def GuideMissionSeasonExcelAddIsPermanent(builder, isPermanent):
-    builder.PrependBoolSlot(9, isPermanent, 0)
+def GuideMissionSeasonExcelAddAccountType(builder, accountType):
+    builder.PrependInt32Slot(4, accountType, 0)
 
-def AddIsPermanent(builder, isPermanent):
-    GuideMissionSeasonExcelAddIsPermanent(builder, isPermanent)
+def AddAccountType(builder, accountType):
+    GuideMissionSeasonExcelAddAccountType(builder, accountType)
 
-def GuideMissionSeasonExcelAddLobbyBannerImage(builder, lobbyBannerImage):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(lobbyBannerImage), 0)
+def GuideMissionSeasonExcelAddEnabled(builder, enabled):
+    builder.PrependBoolSlot(5, enabled, 0)
 
-def AddLobbyBannerImage(builder, lobbyBannerImage):
-    GuideMissionSeasonExcelAddLobbyBannerImage(builder, lobbyBannerImage)
+def AddEnabled(builder, enabled):
+    GuideMissionSeasonExcelAddEnabled(builder, enabled)
+
+def GuideMissionSeasonExcelAddBannerOpenDate(builder, bannerOpenDate):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(bannerOpenDate), 0)
+
+def AddBannerOpenDate(builder, bannerOpenDate):
+    GuideMissionSeasonExcelAddBannerOpenDate(builder, bannerOpenDate)
+
+def GuideMissionSeasonExcelAddStartDate(builder, startDate):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
+
+def AddStartDate(builder, startDate):
+    GuideMissionSeasonExcelAddStartDate(builder, startDate)
+
+def GuideMissionSeasonExcelAddStartableEndDate(builder, startableEndDate):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(startableEndDate), 0)
+
+def AddStartableEndDate(builder, startableEndDate):
+    GuideMissionSeasonExcelAddStartableEndDate(builder, startableEndDate)
+
+def GuideMissionSeasonExcelAddEndDate(builder, endDate):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
+
+def AddEndDate(builder, endDate):
+    GuideMissionSeasonExcelAddEndDate(builder, endDate)
+
+def GuideMissionSeasonExcelAddCloseBannerAfterCompletion(builder, closeBannerAfterCompletion):
+    builder.PrependBoolSlot(10, closeBannerAfterCompletion, 0)
+
+def AddCloseBannerAfterCompletion(builder, closeBannerAfterCompletion):
+    GuideMissionSeasonExcelAddCloseBannerAfterCompletion(builder, closeBannerAfterCompletion)
 
 def GuideMissionSeasonExcelAddMaximumLoginCount(builder, maximumLoginCount):
     builder.PrependInt64Slot(11, maximumLoginCount, 0)
@@ -277,65 +277,65 @@ def GuideMissionSeasonExcelAddMaximumLoginCount(builder, maximumLoginCount):
 def AddMaximumLoginCount(builder, maximumLoginCount):
     GuideMissionSeasonExcelAddMaximumLoginCount(builder, maximumLoginCount)
 
-def GuideMissionSeasonExcelAddPermanentInfomationLocalizeCode(builder, permanentInfomationLocalizeCode):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(permanentInfomationLocalizeCode), 0)
+def GuideMissionSeasonExcelAddExpiryDate(builder, expiryDate):
+    builder.PrependInt64Slot(12, expiryDate, 0)
 
-def AddPermanentInfomationLocalizeCode(builder, permanentInfomationLocalizeCode):
-    GuideMissionSeasonExcelAddPermanentInfomationLocalizeCode(builder, permanentInfomationLocalizeCode)
-
-def GuideMissionSeasonExcelAddPreSeasonId(builder, preSeasonId):
-    builder.PrependInt64Slot(13, preSeasonId, 0)
-
-def AddPreSeasonId(builder, preSeasonId):
-    GuideMissionSeasonExcelAddPreSeasonId(builder, preSeasonId)
-
-def GuideMissionSeasonExcelAddRequirementParcelAmount(builder, requirementParcelAmount):
-    builder.PrependInt32Slot(14, requirementParcelAmount, 0)
-
-def AddRequirementParcelAmount(builder, requirementParcelAmount):
-    GuideMissionSeasonExcelAddRequirementParcelAmount(builder, requirementParcelAmount)
-
-def GuideMissionSeasonExcelAddRequirementParcelId(builder, requirementParcelId):
-    builder.PrependInt64Slot(15, requirementParcelId, 0)
-
-def AddRequirementParcelId(builder, requirementParcelId):
-    GuideMissionSeasonExcelAddRequirementParcelId(builder, requirementParcelId)
-
-def GuideMissionSeasonExcelAddRequirementParcelImage(builder, requirementParcelImage):
-    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(requirementParcelImage), 0)
-
-def AddRequirementParcelImage(builder, requirementParcelImage):
-    GuideMissionSeasonExcelAddRequirementParcelImage(builder, requirementParcelImage)
-
-def GuideMissionSeasonExcelAddRequirementParcelType(builder, requirementParcelType):
-    builder.PrependInt32Slot(17, requirementParcelType, 0)
-
-def AddRequirementParcelType(builder, requirementParcelType):
-    GuideMissionSeasonExcelAddRequirementParcelType(builder, requirementParcelType)
-
-def GuideMissionSeasonExcelAddRewardImage(builder, rewardImage):
-    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(rewardImage), 0)
-
-def AddRewardImage(builder, rewardImage):
-    GuideMissionSeasonExcelAddRewardImage(builder, rewardImage)
+def AddExpiryDate(builder, expiryDate):
+    GuideMissionSeasonExcelAddExpiryDate(builder, expiryDate)
 
 def GuideMissionSeasonExcelAddSpineCharacterId(builder, spineCharacterId):
-    builder.PrependInt64Slot(19, spineCharacterId, 0)
+    builder.PrependInt64Slot(13, spineCharacterId, 0)
 
 def AddSpineCharacterId(builder, spineCharacterId):
     GuideMissionSeasonExcelAddSpineCharacterId(builder, spineCharacterId)
 
-def GuideMissionSeasonExcelAddStartableEndDate(builder, startableEndDate):
-    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(startableEndDate), 0)
+def GuideMissionSeasonExcelAddRequirementParcelImage(builder, requirementParcelImage):
+    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(requirementParcelImage), 0)
 
-def AddStartableEndDate(builder, startableEndDate):
-    GuideMissionSeasonExcelAddStartableEndDate(builder, startableEndDate)
+def AddRequirementParcelImage(builder, requirementParcelImage):
+    GuideMissionSeasonExcelAddRequirementParcelImage(builder, requirementParcelImage)
 
-def GuideMissionSeasonExcelAddStartDate(builder, startDate):
-    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
+def GuideMissionSeasonExcelAddRewardImage(builder, rewardImage):
+    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(rewardImage), 0)
 
-def AddStartDate(builder, startDate):
-    GuideMissionSeasonExcelAddStartDate(builder, startDate)
+def AddRewardImage(builder, rewardImage):
+    GuideMissionSeasonExcelAddRewardImage(builder, rewardImage)
+
+def GuideMissionSeasonExcelAddLobbyBannerImage(builder, lobbyBannerImage):
+    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(lobbyBannerImage), 0)
+
+def AddLobbyBannerImage(builder, lobbyBannerImage):
+    GuideMissionSeasonExcelAddLobbyBannerImage(builder, lobbyBannerImage)
+
+def GuideMissionSeasonExcelAddBackgroundImage(builder, backgroundImage):
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(backgroundImage), 0)
+
+def AddBackgroundImage(builder, backgroundImage):
+    GuideMissionSeasonExcelAddBackgroundImage(builder, backgroundImage)
+
+def GuideMissionSeasonExcelAddTitleImage(builder, titleImage):
+    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(titleImage), 0)
+
+def AddTitleImage(builder, titleImage):
+    GuideMissionSeasonExcelAddTitleImage(builder, titleImage)
+
+def GuideMissionSeasonExcelAddRequirementParcelType(builder, requirementParcelType):
+    builder.PrependInt32Slot(19, requirementParcelType, 0)
+
+def AddRequirementParcelType(builder, requirementParcelType):
+    GuideMissionSeasonExcelAddRequirementParcelType(builder, requirementParcelType)
+
+def GuideMissionSeasonExcelAddRequirementParcelId(builder, requirementParcelId):
+    builder.PrependInt64Slot(20, requirementParcelId, 0)
+
+def AddRequirementParcelId(builder, requirementParcelId):
+    GuideMissionSeasonExcelAddRequirementParcelId(builder, requirementParcelId)
+
+def GuideMissionSeasonExcelAddRequirementParcelAmount(builder, requirementParcelAmount):
+    builder.PrependInt32Slot(21, requirementParcelAmount, 0)
+
+def AddRequirementParcelAmount(builder, requirementParcelAmount):
+    GuideMissionSeasonExcelAddRequirementParcelAmount(builder, requirementParcelAmount)
 
 def GuideMissionSeasonExcelAddTabType(builder, tabType):
     builder.PrependInt32Slot(22, tabType, 0)
@@ -343,17 +343,17 @@ def GuideMissionSeasonExcelAddTabType(builder, tabType):
 def AddTabType(builder, tabType):
     GuideMissionSeasonExcelAddTabType(builder, tabType)
 
-def GuideMissionSeasonExcelAddTitleImage(builder, titleImage):
-    builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(titleImage), 0)
+def GuideMissionSeasonExcelAddIsPermanent(builder, isPermanent):
+    builder.PrependBoolSlot(23, isPermanent, 0)
 
-def AddTitleImage(builder, titleImage):
-    GuideMissionSeasonExcelAddTitleImage(builder, titleImage)
+def AddIsPermanent(builder, isPermanent):
+    GuideMissionSeasonExcelAddIsPermanent(builder, isPermanent)
 
-def GuideMissionSeasonExcelAddTitleLocalizeCode(builder, titleLocalizeCode):
-    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(titleLocalizeCode), 0)
+def GuideMissionSeasonExcelAddPreSeasonId(builder, preSeasonId):
+    builder.PrependInt64Slot(24, preSeasonId, 0)
 
-def AddTitleLocalizeCode(builder, titleLocalizeCode):
-    GuideMissionSeasonExcelAddTitleLocalizeCode(builder, titleLocalizeCode)
+def AddPreSeasonId(builder, preSeasonId):
+    GuideMissionSeasonExcelAddPreSeasonId(builder, preSeasonId)
 
 def GuideMissionSeasonExcelEnd(builder):
     return builder.EndObject()

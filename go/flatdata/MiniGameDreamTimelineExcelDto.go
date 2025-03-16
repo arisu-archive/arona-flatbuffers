@@ -10,15 +10,15 @@ import (
 // MiniGameDreamTimelineExcelDto represents a FlatBuffers table
 type MiniGameDreamTimelineExcelDto struct {
 	fbsutils.FlatBuffer
-	ArtLevelPath          string `json:"art_level_path"`
-	Bgm                   int64  `json:"bgm"`
-	DesignLevelPath       string `json:"design_level_path"`
-	DreamMakerActionPoint int64  `json:"dream_maker_action_point"`
-	DreamMakerDays        int64  `json:"dream_maker_days"`
-	EnterScenarioGroupId  int64  `json:"enter_scenario_group_id"`
+	Id                    int64  `json:"id"`
 	EventContentId        int64  `json:"event_content_id"`
 	GroupId               int64  `json:"group_id"`
-	Id                    int64  `json:"id"`
+	DreamMakerDays        int64  `json:"dream_maker_days"`
+	DreamMakerActionPoint int64  `json:"dream_maker_action_point"`
+	EnterScenarioGroupId  int64  `json:"enter_scenario_group_id"`
+	Bgm                   int64  `json:"bgm"`
+	ArtLevelPath          string `json:"art_level_path"`
+	DesignLevelPath       string `json:"design_level_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,15 +27,15 @@ func (t *MiniGameDreamTimelineExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamTimeline"))
 	}
 	MiniGameDreamTimelineExcelStart(b)
-	MiniGameDreamTimelineExcelAddArtLevelPath(b, fbsutils.Convert(b.CreateString(t.ArtLevelPath), t.FlatBuffer.TableKey))
-	MiniGameDreamTimelineExcelAddBgm(b, fbsutils.Convert(t.Bgm, t.FlatBuffer.TableKey))
-	MiniGameDreamTimelineExcelAddDesignLevelPath(b, fbsutils.Convert(b.CreateString(t.DesignLevelPath), t.FlatBuffer.TableKey))
-	MiniGameDreamTimelineExcelAddDreamMakerActionPoint(b, fbsutils.Convert(t.DreamMakerActionPoint, t.FlatBuffer.TableKey))
-	MiniGameDreamTimelineExcelAddDreamMakerDays(b, fbsutils.Convert(t.DreamMakerDays, t.FlatBuffer.TableKey))
-	MiniGameDreamTimelineExcelAddEnterScenarioGroupId(b, fbsutils.Convert(t.EnterScenarioGroupId, t.FlatBuffer.TableKey))
+	MiniGameDreamTimelineExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MiniGameDreamTimelineExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameDreamTimelineExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	MiniGameDreamTimelineExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	MiniGameDreamTimelineExcelAddDreamMakerDays(b, fbsutils.Convert(t.DreamMakerDays, t.FlatBuffer.TableKey))
+	MiniGameDreamTimelineExcelAddDreamMakerActionPoint(b, fbsutils.Convert(t.DreamMakerActionPoint, t.FlatBuffer.TableKey))
+	MiniGameDreamTimelineExcelAddEnterScenarioGroupId(b, fbsutils.Convert(t.EnterScenarioGroupId, t.FlatBuffer.TableKey))
+	MiniGameDreamTimelineExcelAddBgm(b, fbsutils.Convert(t.Bgm, t.FlatBuffer.TableKey))
+	MiniGameDreamTimelineExcelAddArtLevelPath(b, fbsutils.Convert(b.CreateString(t.ArtLevelPath), t.FlatBuffer.TableKey))
+	MiniGameDreamTimelineExcelAddDesignLevelPath(b, fbsutils.Convert(b.CreateString(t.DesignLevelPath), t.FlatBuffer.TableKey))
 	return MiniGameDreamTimelineExcelEnd(b)
 }
 
@@ -51,15 +51,15 @@ func (t *MiniGameDreamTimelineExcelDto) UnmarshalMessage(e *MiniGameDreamTimelin
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamTimeline"))
 	}
-	t.ArtLevelPath = fbsutils.Convert(string(e.ArtLevelPath()), t.FlatBuffer.TableKey)
-	t.Bgm = fbsutils.Convert(e.Bgm(), t.FlatBuffer.TableKey)
-	t.DesignLevelPath = fbsutils.Convert(string(e.DesignLevelPath()), t.FlatBuffer.TableKey)
-	t.DreamMakerActionPoint = fbsutils.Convert(e.DreamMakerActionPoint(), t.FlatBuffer.TableKey)
-	t.DreamMakerDays = fbsutils.Convert(e.DreamMakerDays(), t.FlatBuffer.TableKey)
-	t.EnterScenarioGroupId = fbsutils.Convert(e.EnterScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.DreamMakerDays = fbsutils.Convert(e.DreamMakerDays(), t.FlatBuffer.TableKey)
+	t.DreamMakerActionPoint = fbsutils.Convert(e.DreamMakerActionPoint(), t.FlatBuffer.TableKey)
+	t.EnterScenarioGroupId = fbsutils.Convert(e.EnterScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.Bgm = fbsutils.Convert(e.Bgm(), t.FlatBuffer.TableKey)
+	t.ArtLevelPath = fbsutils.Convert(string(e.ArtLevelPath()), t.FlatBuffer.TableKey)
+	t.DesignLevelPath = fbsutils.Convert(string(e.DesignLevelPath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

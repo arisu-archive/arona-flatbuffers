@@ -41,16 +41,32 @@ func (rcv *ShopExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ShopExcel) BuyReportEventName() []byte {
+func (rcv *ShopExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *ShopExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *ShopExcel) LocalizeEtcId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopExcel) MutateLocalizeEtcId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(6, n)
 }
 
 func (rcv *ShopExcel) CategoryType() ShopCategoryType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return ShopCategoryType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -58,31 +74,19 @@ func (rcv *ShopExcel) CategoryType() ShopCategoryType {
 }
 
 func (rcv *ShopExcel) MutateCategoryType(n ShopCategoryType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *ShopExcel) DisplayOrder() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopExcel) MutateDisplayOrder(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *ShopExcel) DisplayTag() ProductDisplayTag {
+func (rcv *ShopExcel) IsLegacy() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return ProductDisplayTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *ShopExcel) MutateDisplayTag(n ProductDisplayTag) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
+func (rcv *ShopExcel) MutateIsLegacy(n bool) bool {
+	return rcv._tab.MutateBoolSlot(10, n)
 }
 
 func (rcv *ShopExcel) GoodsId(j int) int64 {
@@ -111,7 +115,7 @@ func (rcv *ShopExcel) MutateGoodsId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *ShopExcel) Id() int64 {
+func (rcv *ShopExcel) DisplayOrder() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -119,32 +123,24 @@ func (rcv *ShopExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *ShopExcel) MutateId(n int64) bool {
+func (rcv *ShopExcel) MutateDisplayOrder(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
-func (rcv *ShopExcel) IsLegacy() bool {
+func (rcv *ShopExcel) SalePeriodFrom() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
+	return nil
 }
 
-func (rcv *ShopExcel) MutateIsLegacy(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
-}
-
-func (rcv *ShopExcel) LocalizeEtcId() uint32 {
+func (rcv *ShopExcel) SalePeriodTo() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *ShopExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(18, n)
+	return nil
 }
 
 func (rcv *ShopExcel) PurchaseCooltimeMin() int64 {
@@ -183,8 +179,16 @@ func (rcv *ShopExcel) MutatePurchaseCountResetType(n PurchaseCountResetType) boo
 	return rcv._tab.MutateInt32Slot(24, int32(n))
 }
 
-func (rcv *ShopExcel) RestrictBuyWhenInventoryFull() bool {
+func (rcv *ShopExcel) BuyReportEventName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ShopExcel) RestrictBuyWhenInventoryFull() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -192,23 +196,19 @@ func (rcv *ShopExcel) RestrictBuyWhenInventoryFull() bool {
 }
 
 func (rcv *ShopExcel) MutateRestrictBuyWhenInventoryFull(n bool) bool {
-	return rcv._tab.MutateBoolSlot(26, n)
+	return rcv._tab.MutateBoolSlot(28, n)
 }
 
-func (rcv *ShopExcel) SalePeriodFrom() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ShopExcel) SalePeriodTo() []byte {
+func (rcv *ShopExcel) DisplayTag() ProductDisplayTag {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return ProductDisplayTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
+}
+
+func (rcv *ShopExcel) MutateDisplayTag(n ProductDisplayTag) bool {
+	return rcv._tab.MutateInt32Slot(30, int32(n))
 }
 
 func (rcv *ShopExcel) ShopUpdateGroupId() int32 {
@@ -226,17 +226,17 @@ func (rcv *ShopExcel) MutateShopUpdateGroupId(n int32) bool {
 func ShopExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(15)
 }
-func ShopExcelAddBuyReportEventName(builder *flatbuffers.Builder, buyReportEventName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(buyReportEventName), 0)
+func ShopExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(0, id, 0)
+}
+func ShopExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
+	builder.PrependUint32Slot(1, localizeEtcId, 0)
 }
 func ShopExcelAddCategoryType(builder *flatbuffers.Builder, categoryType ShopCategoryType) {
-	builder.PrependInt32Slot(1, int32(categoryType), 0)
+	builder.PrependInt32Slot(2, int32(categoryType), 0)
 }
-func ShopExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
-	builder.PrependInt64Slot(2, displayOrder, 0)
-}
-func ShopExcelAddDisplayTag(builder *flatbuffers.Builder, displayTag ProductDisplayTag) {
-	builder.PrependInt32Slot(3, int32(displayTag), 0)
+func ShopExcelAddIsLegacy(builder *flatbuffers.Builder, isLegacy bool) {
+	builder.PrependBoolSlot(3, isLegacy, false)
 }
 func ShopExcelAddGoodsId(builder *flatbuffers.Builder, goodsId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(goodsId), 0)
@@ -244,14 +244,14 @@ func ShopExcelAddGoodsId(builder *flatbuffers.Builder, goodsId flatbuffers.UOffs
 func ShopExcelStartGoodsIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func ShopExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(5, id, 0)
+func ShopExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
+	builder.PrependInt64Slot(5, displayOrder, 0)
 }
-func ShopExcelAddIsLegacy(builder *flatbuffers.Builder, isLegacy bool) {
-	builder.PrependBoolSlot(6, isLegacy, false)
+func ShopExcelAddSalePeriodFrom(builder *flatbuffers.Builder, salePeriodFrom flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(salePeriodFrom), 0)
 }
-func ShopExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(7, localizeEtcId, 0)
+func ShopExcelAddSalePeriodTo(builder *flatbuffers.Builder, salePeriodTo flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(salePeriodTo), 0)
 }
 func ShopExcelAddPurchaseCooltimeMin(builder *flatbuffers.Builder, purchaseCooltimeMin int64) {
 	builder.PrependInt64Slot(8, purchaseCooltimeMin, 0)
@@ -262,14 +262,14 @@ func ShopExcelAddPurchaseCountLimit(builder *flatbuffers.Builder, purchaseCountL
 func ShopExcelAddPurchaseCountResetType(builder *flatbuffers.Builder, purchaseCountResetType PurchaseCountResetType) {
 	builder.PrependInt32Slot(10, int32(purchaseCountResetType), 0)
 }
+func ShopExcelAddBuyReportEventName(builder *flatbuffers.Builder, buyReportEventName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(buyReportEventName), 0)
+}
 func ShopExcelAddRestrictBuyWhenInventoryFull(builder *flatbuffers.Builder, restrictBuyWhenInventoryFull bool) {
-	builder.PrependBoolSlot(11, restrictBuyWhenInventoryFull, false)
+	builder.PrependBoolSlot(12, restrictBuyWhenInventoryFull, false)
 }
-func ShopExcelAddSalePeriodFrom(builder *flatbuffers.Builder, salePeriodFrom flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(salePeriodFrom), 0)
-}
-func ShopExcelAddSalePeriodTo(builder *flatbuffers.Builder, salePeriodTo flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(salePeriodTo), 0)
+func ShopExcelAddDisplayTag(builder *flatbuffers.Builder, displayTag ProductDisplayTag) {
+	builder.PrependInt32Slot(13, int32(displayTag), 0)
 }
 func ShopExcelAddShopUpdateGroupId(builder *flatbuffers.Builder, shopUpdateGroupId int32) {
 	builder.PrependInt32Slot(14, shopUpdateGroupId, 0)

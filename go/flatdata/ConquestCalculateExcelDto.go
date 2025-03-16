@@ -10,10 +10,10 @@ import (
 // ConquestCalculateExcelDto represents a FlatBuffers table
 type ConquestCalculateExcelDto struct {
 	fbsutils.FlatBuffer
-	CalculateConditionParcelAmount   int64      `json:"calculate_condition_parcel_amount"`
+	EventContentId                   int64      `json:"event_content_id"`
 	CalculateConditionParcelType     ParcelType `json:"calculate_condition_parcel_type"`
 	CalculateConditionParcelUniqueId int64      `json:"calculate_condition_parcel_unique_id"`
-	EventContentId                   int64      `json:"event_content_id"`
+	CalculateConditionParcelAmount   int64      `json:"calculate_condition_parcel_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *ConquestCalculateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestCalculate"))
 	}
 	ConquestCalculateExcelStart(b)
-	ConquestCalculateExcelAddCalculateConditionParcelAmount(b, fbsutils.Convert(t.CalculateConditionParcelAmount, t.FlatBuffer.TableKey))
+	ConquestCalculateExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ConquestCalculateExcelAddCalculateConditionParcelType(b, fbsutils.Convert(t.CalculateConditionParcelType, t.FlatBuffer.TableKey))
 	ConquestCalculateExcelAddCalculateConditionParcelUniqueId(b, fbsutils.Convert(t.CalculateConditionParcelUniqueId, t.FlatBuffer.TableKey))
-	ConquestCalculateExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	ConquestCalculateExcelAddCalculateConditionParcelAmount(b, fbsutils.Convert(t.CalculateConditionParcelAmount, t.FlatBuffer.TableKey))
 	return ConquestCalculateExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *ConquestCalculateExcelDto) UnmarshalMessage(e *ConquestCalculateExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestCalculate"))
 	}
-	t.CalculateConditionParcelAmount = fbsutils.Convert(e.CalculateConditionParcelAmount(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.CalculateConditionParcelType = ParcelType(int32(fbsutils.Convert(e.CalculateConditionParcelType(), t.FlatBuffer.TableKey)))
 	t.CalculateConditionParcelUniqueId = fbsutils.Convert(e.CalculateConditionParcelUniqueId(), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.CalculateConditionParcelAmount = fbsutils.Convert(e.CalculateConditionParcelAmount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

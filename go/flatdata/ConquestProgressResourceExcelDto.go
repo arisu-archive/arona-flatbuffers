@@ -10,12 +10,12 @@ import (
 // ConquestProgressResourceExcelDto represents a FlatBuffers table
 type ConquestProgressResourceExcelDto struct {
 	fbsutils.FlatBuffer
+	Id                   int64                `json:"id"`
 	EventContentId       int64                `json:"event_content_id"`
 	Group                ConquestProgressType `json:"group"`
-	Id                   int64                `json:"id"`
-	ProgressLocalizeCode string               `json:"progress_localize_code"`
 	ProgressResource     string               `json:"progress_resource"`
 	VoiceId              []uint32             `json:"voice_id"`
+	ProgressLocalizeCode string               `json:"progress_localize_code"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,16 +24,16 @@ func (t *ConquestProgressResourceExcelDto) MarshalModel(b *flatbuffers.Builder) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestProgressResource"))
 	}
 	ConquestProgressResourceExcelStart(b)
+	ConquestProgressResourceExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ConquestProgressResourceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ConquestProgressResourceExcelAddGroup(b, fbsutils.Convert(t.Group, t.FlatBuffer.TableKey))
-	ConquestProgressResourceExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ConquestProgressResourceExcelAddProgressLocalizeCode(b, fbsutils.Convert(b.CreateString(t.ProgressLocalizeCode), t.FlatBuffer.TableKey))
 	ConquestProgressResourceExcelAddProgressResource(b, fbsutils.Convert(b.CreateString(t.ProgressResource), t.FlatBuffer.TableKey))
 	ConquestProgressResourceExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ConquestProgressResourceExcelAddVoiceId(b, b.EndVector(len(t.VoiceId)))
+	ConquestProgressResourceExcelAddProgressLocalizeCode(b, fbsutils.Convert(b.CreateString(t.ProgressLocalizeCode), t.FlatBuffer.TableKey))
 	return ConquestProgressResourceExcelEnd(b)
 }
 
@@ -49,15 +49,15 @@ func (t *ConquestProgressResourceExcelDto) UnmarshalMessage(e *ConquestProgressR
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestProgressResource"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.Group = ConquestProgressType(int32(fbsutils.Convert(e.Group(), t.FlatBuffer.TableKey)))
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ProgressLocalizeCode = fbsutils.Convert(string(e.ProgressLocalizeCode()), t.FlatBuffer.TableKey)
 	t.ProgressResource = fbsutils.Convert(string(e.ProgressResource()), t.FlatBuffer.TableKey)
 	t.VoiceId = make([]uint32, e.VoiceIdLength())
 	for i := range e.VoiceIdLength() {
 		t.VoiceId[i] = e.VoiceId(i)
 	}
+	t.ProgressLocalizeCode = fbsutils.Convert(string(e.ProgressLocalizeCode()), t.FlatBuffer.TableKey)
 	return nil
 }
 

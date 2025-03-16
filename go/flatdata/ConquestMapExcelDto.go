@@ -10,19 +10,19 @@ import (
 // ConquestMapExcelDto represents a FlatBuffers table
 type ConquestMapExcelDto struct {
 	fbsutils.FlatBuffer
-	CameraSettingId            int64                   `json:"camera_setting_id"`
-	ConquestMap                string                  `json:"conquest_map"`
-	ConquestMapBg              string                  `json:"conquest_map_bg"`
-	DevName                    string                  `json:"dev_name"`
 	EventContentId             int64                   `json:"event_content_id"`
+	DevName                    string                  `json:"dev_name"`
 	MapDifficulty              StageDifficulty         `json:"map_difficulty"`
-	MapGoalLocalize            string                  `json:"map_goal_localize"`
-	StepEnterScenarioGroupId   int64                   `json:"step_enter_scenario_group_id"`
-	StepGoalLocalize           string                  `json:"step_goal_localize"`
 	StepIndex                  int32                   `json:"step_index"`
-	StepNameLocalize           string                  `json:"step_name_localize"`
-	StepOpenConditionParameter []string                `json:"step_open_condition_parameter"`
+	ConquestMap                string                  `json:"conquest_map"`
+	StepEnterScenarioGroupId   int64                   `json:"step_enter_scenario_group_id"`
 	StepOpenConditionType      []ConquestConditionType `json:"step_open_condition_type"`
+	StepOpenConditionParameter []string                `json:"step_open_condition_parameter"`
+	MapGoalLocalize            string                  `json:"map_goal_localize"`
+	StepGoalLocalize           string                  `json:"step_goal_localize"`
+	StepNameLocalize           string                  `json:"step_name_localize"`
+	ConquestMapBg              string                  `json:"conquest_map_bg"`
+	CameraSettingId            int64                   `json:"camera_setting_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -31,27 +31,27 @@ func (t *ConquestMapExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestMap"))
 	}
 	ConquestMapExcelStart(b)
-	ConquestMapExcelAddCameraSettingId(b, fbsutils.Convert(t.CameraSettingId, t.FlatBuffer.TableKey))
-	ConquestMapExcelAddConquestMap(b, fbsutils.Convert(b.CreateString(t.ConquestMap), t.FlatBuffer.TableKey))
-	ConquestMapExcelAddConquestMapBg(b, fbsutils.Convert(b.CreateString(t.ConquestMapBg), t.FlatBuffer.TableKey))
-	ConquestMapExcelAddDevName(b, fbsutils.Convert(b.CreateString(t.DevName), t.FlatBuffer.TableKey))
 	ConquestMapExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	ConquestMapExcelAddDevName(b, fbsutils.Convert(b.CreateString(t.DevName), t.FlatBuffer.TableKey))
 	ConquestMapExcelAddMapDifficulty(b, fbsutils.Convert(t.MapDifficulty, t.FlatBuffer.TableKey))
-	ConquestMapExcelAddMapGoalLocalize(b, fbsutils.Convert(b.CreateString(t.MapGoalLocalize), t.FlatBuffer.TableKey))
-	ConquestMapExcelAddStepEnterScenarioGroupId(b, fbsutils.Convert(t.StepEnterScenarioGroupId, t.FlatBuffer.TableKey))
-	ConquestMapExcelAddStepGoalLocalize(b, fbsutils.Convert(b.CreateString(t.StepGoalLocalize), t.FlatBuffer.TableKey))
 	ConquestMapExcelAddStepIndex(b, fbsutils.Convert(t.StepIndex, t.FlatBuffer.TableKey))
-	ConquestMapExcelAddStepNameLocalize(b, fbsutils.Convert(b.CreateString(t.StepNameLocalize), t.FlatBuffer.TableKey))
-	ConquestMapExcelStartStepOpenConditionParameterVector(b, len(t.StepOpenConditionParameter))
-	for i := range len(t.StepOpenConditionParameter) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.StepOpenConditionParameter[len(t.StepOpenConditionParameter)-i-1]), t.FlatBuffer.TableKey))
-	}
-	ConquestMapExcelAddStepOpenConditionParameter(b, b.EndVector(len(t.StepOpenConditionParameter)))
+	ConquestMapExcelAddConquestMap(b, fbsutils.Convert(b.CreateString(t.ConquestMap), t.FlatBuffer.TableKey))
+	ConquestMapExcelAddStepEnterScenarioGroupId(b, fbsutils.Convert(t.StepEnterScenarioGroupId, t.FlatBuffer.TableKey))
 	ConquestMapExcelStartStepOpenConditionTypeVector(b, len(t.StepOpenConditionType))
 	for i := range len(t.StepOpenConditionType) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.StepOpenConditionType[len(t.StepOpenConditionType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
 	}
 	ConquestMapExcelAddStepOpenConditionType(b, b.EndVector(len(t.StepOpenConditionType)))
+	ConquestMapExcelStartStepOpenConditionParameterVector(b, len(t.StepOpenConditionParameter))
+	for i := range len(t.StepOpenConditionParameter) {
+		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.StepOpenConditionParameter[len(t.StepOpenConditionParameter)-i-1]), t.FlatBuffer.TableKey))
+	}
+	ConquestMapExcelAddStepOpenConditionParameter(b, b.EndVector(len(t.StepOpenConditionParameter)))
+	ConquestMapExcelAddMapGoalLocalize(b, fbsutils.Convert(b.CreateString(t.MapGoalLocalize), t.FlatBuffer.TableKey))
+	ConquestMapExcelAddStepGoalLocalize(b, fbsutils.Convert(b.CreateString(t.StepGoalLocalize), t.FlatBuffer.TableKey))
+	ConquestMapExcelAddStepNameLocalize(b, fbsutils.Convert(b.CreateString(t.StepNameLocalize), t.FlatBuffer.TableKey))
+	ConquestMapExcelAddConquestMapBg(b, fbsutils.Convert(b.CreateString(t.ConquestMapBg), t.FlatBuffer.TableKey))
+	ConquestMapExcelAddCameraSettingId(b, fbsutils.Convert(t.CameraSettingId, t.FlatBuffer.TableKey))
 	return ConquestMapExcelEnd(b)
 }
 
@@ -67,25 +67,25 @@ func (t *ConquestMapExcelDto) UnmarshalMessage(e *ConquestMapExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestMap"))
 	}
-	t.CameraSettingId = fbsutils.Convert(e.CameraSettingId(), t.FlatBuffer.TableKey)
-	t.ConquestMap = fbsutils.Convert(string(e.ConquestMap()), t.FlatBuffer.TableKey)
-	t.ConquestMapBg = fbsutils.Convert(string(e.ConquestMapBg()), t.FlatBuffer.TableKey)
-	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
 	t.MapDifficulty = StageDifficulty(int32(fbsutils.Convert(e.MapDifficulty(), t.FlatBuffer.TableKey)))
-	t.MapGoalLocalize = fbsutils.Convert(string(e.MapGoalLocalize()), t.FlatBuffer.TableKey)
-	t.StepEnterScenarioGroupId = fbsutils.Convert(e.StepEnterScenarioGroupId(), t.FlatBuffer.TableKey)
-	t.StepGoalLocalize = fbsutils.Convert(string(e.StepGoalLocalize()), t.FlatBuffer.TableKey)
 	t.StepIndex = fbsutils.Convert(e.StepIndex(), t.FlatBuffer.TableKey)
-	t.StepNameLocalize = fbsutils.Convert(string(e.StepNameLocalize()), t.FlatBuffer.TableKey)
-	t.StepOpenConditionParameter = make([]string, e.StepOpenConditionParameterLength())
-	for i := range e.StepOpenConditionParameterLength() {
-		t.StepOpenConditionParameter[i] = string(e.StepOpenConditionParameter(i))
-	}
+	t.ConquestMap = fbsutils.Convert(string(e.ConquestMap()), t.FlatBuffer.TableKey)
+	t.StepEnterScenarioGroupId = fbsutils.Convert(e.StepEnterScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.StepOpenConditionType = make([]ConquestConditionType, e.StepOpenConditionTypeLength())
 	for i := range e.StepOpenConditionTypeLength() {
 		t.StepOpenConditionType[i] = e.StepOpenConditionType(i)
 	}
+	t.StepOpenConditionParameter = make([]string, e.StepOpenConditionParameterLength())
+	for i := range e.StepOpenConditionParameterLength() {
+		t.StepOpenConditionParameter[i] = string(e.StepOpenConditionParameter(i))
+	}
+	t.MapGoalLocalize = fbsutils.Convert(string(e.MapGoalLocalize()), t.FlatBuffer.TableKey)
+	t.StepGoalLocalize = fbsutils.Convert(string(e.StepGoalLocalize()), t.FlatBuffer.TableKey)
+	t.StepNameLocalize = fbsutils.Convert(string(e.StepNameLocalize()), t.FlatBuffer.TableKey)
+	t.ConquestMapBg = fbsutils.Convert(string(e.ConquestMapBg()), t.FlatBuffer.TableKey)
+	t.CameraSettingId = fbsutils.Convert(e.CameraSettingId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

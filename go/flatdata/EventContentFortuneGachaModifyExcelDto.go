@@ -10,13 +10,13 @@ import (
 // EventContentFortuneGachaModifyExcelDto represents a FlatBuffers table
 type EventContentFortuneGachaModifyExcelDto struct {
 	fbsutils.FlatBuffer
-	BucketImagePath      string `json:"bucket_image_path"`
 	EventContentId       int32  `json:"event_content_id"`
-	ProbModifyStartCount int32  `json:"prob_modify_start_count"`
-	ShopBgImagePath      string `json:"shop_bg_image_path"`
 	TargetGrade          int32  `json:"target_grade"`
-	TitleLocalizeKey     string `json:"title_localize_key"`
+	ProbModifyStartCount int32  `json:"prob_modify_start_count"`
 	UsePrefabName        string `json:"use_prefab_name"`
+	BucketImagePath      string `json:"bucket_image_path"`
+	ShopBgImagePath      string `json:"shop_bg_image_path"`
+	TitleLocalizeKey     string `json:"title_localize_key"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,13 +25,13 @@ func (t *EventContentFortuneGachaModifyExcelDto) MarshalModel(b *flatbuffers.Bui
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentFortuneGachaModify"))
 	}
 	EventContentFortuneGachaModifyExcelStart(b)
-	EventContentFortuneGachaModifyExcelAddBucketImagePath(b, fbsutils.Convert(b.CreateString(t.BucketImagePath), t.FlatBuffer.TableKey))
 	EventContentFortuneGachaModifyExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentFortuneGachaModifyExcelAddProbModifyStartCount(b, fbsutils.Convert(t.ProbModifyStartCount, t.FlatBuffer.TableKey))
-	EventContentFortuneGachaModifyExcelAddShopBgImagePath(b, fbsutils.Convert(b.CreateString(t.ShopBgImagePath), t.FlatBuffer.TableKey))
 	EventContentFortuneGachaModifyExcelAddTargetGrade(b, fbsutils.Convert(t.TargetGrade, t.FlatBuffer.TableKey))
-	EventContentFortuneGachaModifyExcelAddTitleLocalizeKey(b, fbsutils.Convert(b.CreateString(t.TitleLocalizeKey), t.FlatBuffer.TableKey))
+	EventContentFortuneGachaModifyExcelAddProbModifyStartCount(b, fbsutils.Convert(t.ProbModifyStartCount, t.FlatBuffer.TableKey))
 	EventContentFortuneGachaModifyExcelAddUsePrefabName(b, fbsutils.Convert(b.CreateString(t.UsePrefabName), t.FlatBuffer.TableKey))
+	EventContentFortuneGachaModifyExcelAddBucketImagePath(b, fbsutils.Convert(b.CreateString(t.BucketImagePath), t.FlatBuffer.TableKey))
+	EventContentFortuneGachaModifyExcelAddShopBgImagePath(b, fbsutils.Convert(b.CreateString(t.ShopBgImagePath), t.FlatBuffer.TableKey))
+	EventContentFortuneGachaModifyExcelAddTitleLocalizeKey(b, fbsutils.Convert(b.CreateString(t.TitleLocalizeKey), t.FlatBuffer.TableKey))
 	return EventContentFortuneGachaModifyExcelEnd(b)
 }
 
@@ -47,13 +47,13 @@ func (t *EventContentFortuneGachaModifyExcelDto) UnmarshalMessage(e *EventConten
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentFortuneGachaModify"))
 	}
-	t.BucketImagePath = fbsutils.Convert(string(e.BucketImagePath()), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.ProbModifyStartCount = fbsutils.Convert(e.ProbModifyStartCount(), t.FlatBuffer.TableKey)
-	t.ShopBgImagePath = fbsutils.Convert(string(e.ShopBgImagePath()), t.FlatBuffer.TableKey)
 	t.TargetGrade = fbsutils.Convert(e.TargetGrade(), t.FlatBuffer.TableKey)
-	t.TitleLocalizeKey = fbsutils.Convert(string(e.TitleLocalizeKey()), t.FlatBuffer.TableKey)
+	t.ProbModifyStartCount = fbsutils.Convert(e.ProbModifyStartCount(), t.FlatBuffer.TableKey)
 	t.UsePrefabName = fbsutils.Convert(string(e.UsePrefabName()), t.FlatBuffer.TableKey)
+	t.BucketImagePath = fbsutils.Convert(string(e.BucketImagePath()), t.FlatBuffer.TableKey)
+	t.ShopBgImagePath = fbsutils.Convert(string(e.ShopBgImagePath()), t.FlatBuffer.TableKey)
+	t.TitleLocalizeKey = fbsutils.Convert(string(e.TitleLocalizeKey()), t.FlatBuffer.TableKey)
 	return nil
 }
 

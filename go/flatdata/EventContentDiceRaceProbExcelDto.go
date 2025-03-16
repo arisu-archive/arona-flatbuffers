@@ -10,11 +10,11 @@ import (
 // EventContentDiceRaceProbExcelDto represents a FlatBuffers table
 type EventContentDiceRaceProbExcelDto struct {
 	fbsutils.FlatBuffer
-	CostItemAmount                 int32                          `json:"cost_item_amount"`
-	CostItemId                     int64                          `json:"cost_item_id"`
-	DiceResult                     int32                          `json:"dice_result"`
-	EventContentDiceRaceResultType EventContentDiceRaceResultType `json:"event_content_dice_race_result_type"`
 	EventContentId                 int64                          `json:"event_content_id"`
+	EventContentDiceRaceResultType EventContentDiceRaceResultType `json:"event_content_dice_race_result_type"`
+	CostItemId                     int64                          `json:"cost_item_id"`
+	CostItemAmount                 int32                          `json:"cost_item_amount"`
+	DiceResult                     int32                          `json:"dice_result"`
 	Prob                           int32                          `json:"prob"`
 }
 
@@ -24,11 +24,11 @@ func (t *EventContentDiceRaceProbExcelDto) MarshalModel(b *flatbuffers.Builder) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceProb"))
 	}
 	EventContentDiceRaceProbExcelStart(b)
-	EventContentDiceRaceProbExcelAddCostItemAmount(b, fbsutils.Convert(t.CostItemAmount, t.FlatBuffer.TableKey))
-	EventContentDiceRaceProbExcelAddCostItemId(b, fbsutils.Convert(t.CostItemId, t.FlatBuffer.TableKey))
-	EventContentDiceRaceProbExcelAddDiceResult(b, fbsutils.Convert(t.DiceResult, t.FlatBuffer.TableKey))
-	EventContentDiceRaceProbExcelAddEventContentDiceRaceResultType(b, fbsutils.Convert(t.EventContentDiceRaceResultType, t.FlatBuffer.TableKey))
 	EventContentDiceRaceProbExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentDiceRaceProbExcelAddEventContentDiceRaceResultType(b, fbsutils.Convert(t.EventContentDiceRaceResultType, t.FlatBuffer.TableKey))
+	EventContentDiceRaceProbExcelAddCostItemId(b, fbsutils.Convert(t.CostItemId, t.FlatBuffer.TableKey))
+	EventContentDiceRaceProbExcelAddCostItemAmount(b, fbsutils.Convert(t.CostItemAmount, t.FlatBuffer.TableKey))
+	EventContentDiceRaceProbExcelAddDiceResult(b, fbsutils.Convert(t.DiceResult, t.FlatBuffer.TableKey))
 	EventContentDiceRaceProbExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
 	return EventContentDiceRaceProbExcelEnd(b)
 }
@@ -45,11 +45,11 @@ func (t *EventContentDiceRaceProbExcelDto) UnmarshalMessage(e *EventContentDiceR
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceProb"))
 	}
-	t.CostItemAmount = fbsutils.Convert(e.CostItemAmount(), t.FlatBuffer.TableKey)
-	t.CostItemId = fbsutils.Convert(e.CostItemId(), t.FlatBuffer.TableKey)
-	t.DiceResult = fbsutils.Convert(e.DiceResult(), t.FlatBuffer.TableKey)
-	t.EventContentDiceRaceResultType = EventContentDiceRaceResultType(int32(fbsutils.Convert(e.EventContentDiceRaceResultType(), t.FlatBuffer.TableKey)))
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.EventContentDiceRaceResultType = EventContentDiceRaceResultType(int32(fbsutils.Convert(e.EventContentDiceRaceResultType(), t.FlatBuffer.TableKey)))
+	t.CostItemId = fbsutils.Convert(e.CostItemId(), t.FlatBuffer.TableKey)
+	t.CostItemAmount = fbsutils.Convert(e.CostItemAmount(), t.FlatBuffer.TableKey)
+	t.DiceResult = fbsutils.Convert(e.DiceResult(), t.FlatBuffer.TableKey)
 	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
 	return nil
 }

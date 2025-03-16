@@ -32,45 +32,45 @@ class CharacterStatLimitExcel(object):
         return 0
 
     # CharacterStatLimitExcel
-    def StatMaxValue(self):
+    def TacticEntityType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterStatLimitExcel
+    def StatType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatLimitExcel
     def StatMinValue(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CharacterStatLimitExcel
-    def StatRatioMaxValue(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatLimitExcel
-    def StatRatioMinValue(self):
+    def StatMaxValue(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatLimitExcel
-    def StatType(self):
+    def StatRatioMinValue(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterStatLimitExcel
-    def TacticEntityType(self):
+    def StatRatioMaxValue(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def CharacterStatLimitExcelStart(builder):
@@ -85,41 +85,41 @@ def CharacterStatLimitExcelAddId(builder, id):
 def AddId(builder, id):
     CharacterStatLimitExcelAddId(builder, id)
 
-def CharacterStatLimitExcelAddStatMaxValue(builder, statMaxValue):
-    builder.PrependInt64Slot(1, statMaxValue, 0)
+def CharacterStatLimitExcelAddTacticEntityType(builder, tacticEntityType):
+    builder.PrependInt32Slot(1, tacticEntityType, 0)
 
-def AddStatMaxValue(builder, statMaxValue):
-    CharacterStatLimitExcelAddStatMaxValue(builder, statMaxValue)
-
-def CharacterStatLimitExcelAddStatMinValue(builder, statMinValue):
-    builder.PrependInt64Slot(2, statMinValue, 0)
-
-def AddStatMinValue(builder, statMinValue):
-    CharacterStatLimitExcelAddStatMinValue(builder, statMinValue)
-
-def CharacterStatLimitExcelAddStatRatioMaxValue(builder, statRatioMaxValue):
-    builder.PrependInt64Slot(3, statRatioMaxValue, 0)
-
-def AddStatRatioMaxValue(builder, statRatioMaxValue):
-    CharacterStatLimitExcelAddStatRatioMaxValue(builder, statRatioMaxValue)
-
-def CharacterStatLimitExcelAddStatRatioMinValue(builder, statRatioMinValue):
-    builder.PrependInt64Slot(4, statRatioMinValue, 0)
-
-def AddStatRatioMinValue(builder, statRatioMinValue):
-    CharacterStatLimitExcelAddStatRatioMinValue(builder, statRatioMinValue)
+def AddTacticEntityType(builder, tacticEntityType):
+    CharacterStatLimitExcelAddTacticEntityType(builder, tacticEntityType)
 
 def CharacterStatLimitExcelAddStatType(builder, statType):
-    builder.PrependInt32Slot(5, statType, 0)
+    builder.PrependInt32Slot(2, statType, 0)
 
 def AddStatType(builder, statType):
     CharacterStatLimitExcelAddStatType(builder, statType)
 
-def CharacterStatLimitExcelAddTacticEntityType(builder, tacticEntityType):
-    builder.PrependInt32Slot(6, tacticEntityType, 0)
+def CharacterStatLimitExcelAddStatMinValue(builder, statMinValue):
+    builder.PrependInt64Slot(3, statMinValue, 0)
 
-def AddTacticEntityType(builder, tacticEntityType):
-    CharacterStatLimitExcelAddTacticEntityType(builder, tacticEntityType)
+def AddStatMinValue(builder, statMinValue):
+    CharacterStatLimitExcelAddStatMinValue(builder, statMinValue)
+
+def CharacterStatLimitExcelAddStatMaxValue(builder, statMaxValue):
+    builder.PrependInt64Slot(4, statMaxValue, 0)
+
+def AddStatMaxValue(builder, statMaxValue):
+    CharacterStatLimitExcelAddStatMaxValue(builder, statMaxValue)
+
+def CharacterStatLimitExcelAddStatRatioMinValue(builder, statRatioMinValue):
+    builder.PrependInt64Slot(5, statRatioMinValue, 0)
+
+def AddStatRatioMinValue(builder, statRatioMinValue):
+    CharacterStatLimitExcelAddStatRatioMinValue(builder, statRatioMinValue)
+
+def CharacterStatLimitExcelAddStatRatioMaxValue(builder, statRatioMaxValue):
+    builder.PrependInt64Slot(6, statRatioMaxValue, 0)
+
+def AddStatRatioMaxValue(builder, statRatioMaxValue):
+    CharacterStatLimitExcelAddStatRatioMaxValue(builder, statRatioMaxValue)
 
 def CharacterStatLimitExcelEnd(builder):
     return builder.EndObject()

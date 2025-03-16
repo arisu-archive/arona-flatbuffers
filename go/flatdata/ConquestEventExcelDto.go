@@ -10,32 +10,32 @@ import (
 // ConquestEventExcelDto represents a FlatBuffers table
 type ConquestEventExcelDto struct {
 	fbsutils.FlatBuffer
-	AnimationUnitAmountMax      int32             `json:"animation_unit_amount_max"`
-	AnimationUnitAmountMin      int32             `json:"animation_unit_amount_min"`
-	AnimationUnitDelay          float32           `json:"animation_unit_delay"`
-	AssistCount                 int32             `json:"assist_count"`
-	ConquestEventType           ConquestEventType `json:"conquest_event_type"`
 	EventContentId              int64             `json:"event_content_id"`
-	EvnetMapGoalLocalize        string            `json:"evnet_map_goal_localize"`
-	EvnetMapNameLocalize        string            `json:"evnet_map_name_localize"`
-	EvnetScenarioBg             string            `json:"evnet_scenario_bg"`
-	IndividualErosionDailyCount int64             `json:"individual_erosion_daily_count"`
-	LocalizeErosions            string            `json:"localize_erosions"`
-	LocalizeManage              string            `json:"localize_manage"`
-	LocalizeMapInfo             string            `json:"localize_map_info"`
-	LocalizeStep                string            `json:"localize_step"`
-	LocalizeTile                string            `json:"localize_tile"`
-	LocalizeTreasureBox         string            `json:"localize_treasure_box"`
-	LocalizeUnexpected          string            `json:"localize_unexpected"`
-	LocalizeUpgrade             string            `json:"localize_upgrade"`
 	MainStoryEventContentId     int64             `json:"main_story_event_content_id"`
-	ManageUnitChange            int32             `json:"manage_unit_change"`
-	MapEnterScenarioGroupId     int64             `json:"map_enter_scenario_group_id"`
-	PlayTimeLimitInSeconds      int32             `json:"play_time_limit_in_seconds"`
-	UseCalculate                bool              `json:"use_calculate"`
-	UseConquestObject           bool              `json:"use_conquest_object"`
+	ConquestEventType           ConquestEventType `json:"conquest_event_type"`
 	UseErosion                  bool              `json:"use_erosion"`
 	UseUnexpectedEvent          bool              `json:"use_unexpected_event"`
+	UseCalculate                bool              `json:"use_calculate"`
+	UseConquestObject           bool              `json:"use_conquest_object"`
+	EvnetMapGoalLocalize        string            `json:"evnet_map_goal_localize"`
+	EvnetMapNameLocalize        string            `json:"evnet_map_name_localize"`
+	MapEnterScenarioGroupId     int64             `json:"map_enter_scenario_group_id"`
+	EvnetScenarioBg             string            `json:"evnet_scenario_bg"`
+	ManageUnitChange            int32             `json:"manage_unit_change"`
+	AssistCount                 int32             `json:"assist_count"`
+	PlayTimeLimitInSeconds      int32             `json:"play_time_limit_in_seconds"`
+	AnimationUnitAmountMin      int32             `json:"animation_unit_amount_min"`
+	AnimationUnitAmountMax      int32             `json:"animation_unit_amount_max"`
+	AnimationUnitDelay          float32           `json:"animation_unit_delay"`
+	LocalizeUnexpected          string            `json:"localize_unexpected"`
+	LocalizeErosions            string            `json:"localize_erosions"`
+	LocalizeStep                string            `json:"localize_step"`
+	LocalizeTile                string            `json:"localize_tile"`
+	LocalizeMapInfo             string            `json:"localize_map_info"`
+	LocalizeManage              string            `json:"localize_manage"`
+	LocalizeUpgrade             string            `json:"localize_upgrade"`
+	LocalizeTreasureBox         string            `json:"localize_treasure_box"`
+	IndividualErosionDailyCount int64             `json:"individual_erosion_daily_count"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -44,32 +44,32 @@ func (t *ConquestEventExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestEvent"))
 	}
 	ConquestEventExcelStart(b)
-	ConquestEventExcelAddAnimationUnitAmountMax(b, fbsutils.Convert(t.AnimationUnitAmountMax, t.FlatBuffer.TableKey))
-	ConquestEventExcelAddAnimationUnitAmountMin(b, fbsutils.Convert(t.AnimationUnitAmountMin, t.FlatBuffer.TableKey))
-	ConquestEventExcelAddAnimationUnitDelay(b, fbsutils.Convert(t.AnimationUnitDelay, t.FlatBuffer.TableKey))
-	ConquestEventExcelAddAssistCount(b, fbsutils.Convert(t.AssistCount, t.FlatBuffer.TableKey))
-	ConquestEventExcelAddConquestEventType(b, fbsutils.Convert(t.ConquestEventType, t.FlatBuffer.TableKey))
 	ConquestEventExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	ConquestEventExcelAddEvnetMapGoalLocalize(b, fbsutils.Convert(b.CreateString(t.EvnetMapGoalLocalize), t.FlatBuffer.TableKey))
-	ConquestEventExcelAddEvnetMapNameLocalize(b, fbsutils.Convert(b.CreateString(t.EvnetMapNameLocalize), t.FlatBuffer.TableKey))
-	ConquestEventExcelAddEvnetScenarioBg(b, fbsutils.Convert(b.CreateString(t.EvnetScenarioBg), t.FlatBuffer.TableKey))
-	ConquestEventExcelAddIndividualErosionDailyCount(b, fbsutils.Convert(t.IndividualErosionDailyCount, t.FlatBuffer.TableKey))
-	ConquestEventExcelAddLocalizeErosions(b, fbsutils.Convert(b.CreateString(t.LocalizeErosions), t.FlatBuffer.TableKey))
-	ConquestEventExcelAddLocalizeManage(b, fbsutils.Convert(b.CreateString(t.LocalizeManage), t.FlatBuffer.TableKey))
-	ConquestEventExcelAddLocalizeMapInfo(b, fbsutils.Convert(b.CreateString(t.LocalizeMapInfo), t.FlatBuffer.TableKey))
-	ConquestEventExcelAddLocalizeStep(b, fbsutils.Convert(b.CreateString(t.LocalizeStep), t.FlatBuffer.TableKey))
-	ConquestEventExcelAddLocalizeTile(b, fbsutils.Convert(b.CreateString(t.LocalizeTile), t.FlatBuffer.TableKey))
-	ConquestEventExcelAddLocalizeTreasureBox(b, fbsutils.Convert(b.CreateString(t.LocalizeTreasureBox), t.FlatBuffer.TableKey))
-	ConquestEventExcelAddLocalizeUnexpected(b, fbsutils.Convert(b.CreateString(t.LocalizeUnexpected), t.FlatBuffer.TableKey))
-	ConquestEventExcelAddLocalizeUpgrade(b, fbsutils.Convert(b.CreateString(t.LocalizeUpgrade), t.FlatBuffer.TableKey))
 	ConquestEventExcelAddMainStoryEventContentId(b, fbsutils.Convert(t.MainStoryEventContentId, t.FlatBuffer.TableKey))
-	ConquestEventExcelAddManageUnitChange(b, fbsutils.Convert(t.ManageUnitChange, t.FlatBuffer.TableKey))
-	ConquestEventExcelAddMapEnterScenarioGroupId(b, fbsutils.Convert(t.MapEnterScenarioGroupId, t.FlatBuffer.TableKey))
-	ConquestEventExcelAddPlayTimeLimitInSeconds(b, fbsutils.Convert(t.PlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
-	ConquestEventExcelAddUseCalculate(b, fbsutils.Convert(t.UseCalculate, t.FlatBuffer.TableKey))
-	ConquestEventExcelAddUseConquestObject(b, fbsutils.Convert(t.UseConquestObject, t.FlatBuffer.TableKey))
+	ConquestEventExcelAddConquestEventType(b, fbsutils.Convert(t.ConquestEventType, t.FlatBuffer.TableKey))
 	ConquestEventExcelAddUseErosion(b, fbsutils.Convert(t.UseErosion, t.FlatBuffer.TableKey))
 	ConquestEventExcelAddUseUnexpectedEvent(b, fbsutils.Convert(t.UseUnexpectedEvent, t.FlatBuffer.TableKey))
+	ConquestEventExcelAddUseCalculate(b, fbsutils.Convert(t.UseCalculate, t.FlatBuffer.TableKey))
+	ConquestEventExcelAddUseConquestObject(b, fbsutils.Convert(t.UseConquestObject, t.FlatBuffer.TableKey))
+	ConquestEventExcelAddEvnetMapGoalLocalize(b, fbsutils.Convert(b.CreateString(t.EvnetMapGoalLocalize), t.FlatBuffer.TableKey))
+	ConquestEventExcelAddEvnetMapNameLocalize(b, fbsutils.Convert(b.CreateString(t.EvnetMapNameLocalize), t.FlatBuffer.TableKey))
+	ConquestEventExcelAddMapEnterScenarioGroupId(b, fbsutils.Convert(t.MapEnterScenarioGroupId, t.FlatBuffer.TableKey))
+	ConquestEventExcelAddEvnetScenarioBg(b, fbsutils.Convert(b.CreateString(t.EvnetScenarioBg), t.FlatBuffer.TableKey))
+	ConquestEventExcelAddManageUnitChange(b, fbsutils.Convert(t.ManageUnitChange, t.FlatBuffer.TableKey))
+	ConquestEventExcelAddAssistCount(b, fbsutils.Convert(t.AssistCount, t.FlatBuffer.TableKey))
+	ConquestEventExcelAddPlayTimeLimitInSeconds(b, fbsutils.Convert(t.PlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
+	ConquestEventExcelAddAnimationUnitAmountMin(b, fbsutils.Convert(t.AnimationUnitAmountMin, t.FlatBuffer.TableKey))
+	ConquestEventExcelAddAnimationUnitAmountMax(b, fbsutils.Convert(t.AnimationUnitAmountMax, t.FlatBuffer.TableKey))
+	ConquestEventExcelAddAnimationUnitDelay(b, fbsutils.Convert(t.AnimationUnitDelay, t.FlatBuffer.TableKey))
+	ConquestEventExcelAddLocalizeUnexpected(b, fbsutils.Convert(b.CreateString(t.LocalizeUnexpected), t.FlatBuffer.TableKey))
+	ConquestEventExcelAddLocalizeErosions(b, fbsutils.Convert(b.CreateString(t.LocalizeErosions), t.FlatBuffer.TableKey))
+	ConquestEventExcelAddLocalizeStep(b, fbsutils.Convert(b.CreateString(t.LocalizeStep), t.FlatBuffer.TableKey))
+	ConquestEventExcelAddLocalizeTile(b, fbsutils.Convert(b.CreateString(t.LocalizeTile), t.FlatBuffer.TableKey))
+	ConquestEventExcelAddLocalizeMapInfo(b, fbsutils.Convert(b.CreateString(t.LocalizeMapInfo), t.FlatBuffer.TableKey))
+	ConquestEventExcelAddLocalizeManage(b, fbsutils.Convert(b.CreateString(t.LocalizeManage), t.FlatBuffer.TableKey))
+	ConquestEventExcelAddLocalizeUpgrade(b, fbsutils.Convert(b.CreateString(t.LocalizeUpgrade), t.FlatBuffer.TableKey))
+	ConquestEventExcelAddLocalizeTreasureBox(b, fbsutils.Convert(b.CreateString(t.LocalizeTreasureBox), t.FlatBuffer.TableKey))
+	ConquestEventExcelAddIndividualErosionDailyCount(b, fbsutils.Convert(t.IndividualErosionDailyCount, t.FlatBuffer.TableKey))
 	return ConquestEventExcelEnd(b)
 }
 
@@ -85,32 +85,32 @@ func (t *ConquestEventExcelDto) UnmarshalMessage(e *ConquestEventExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestEvent"))
 	}
-	t.AnimationUnitAmountMax = fbsutils.Convert(e.AnimationUnitAmountMax(), t.FlatBuffer.TableKey)
-	t.AnimationUnitAmountMin = fbsutils.Convert(e.AnimationUnitAmountMin(), t.FlatBuffer.TableKey)
-	t.AnimationUnitDelay = fbsutils.Convert(e.AnimationUnitDelay(), t.FlatBuffer.TableKey)
-	t.AssistCount = fbsutils.Convert(e.AssistCount(), t.FlatBuffer.TableKey)
-	t.ConquestEventType = ConquestEventType(int32(fbsutils.Convert(e.ConquestEventType(), t.FlatBuffer.TableKey)))
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EvnetMapGoalLocalize = fbsutils.Convert(string(e.EvnetMapGoalLocalize()), t.FlatBuffer.TableKey)
-	t.EvnetMapNameLocalize = fbsutils.Convert(string(e.EvnetMapNameLocalize()), t.FlatBuffer.TableKey)
-	t.EvnetScenarioBg = fbsutils.Convert(string(e.EvnetScenarioBg()), t.FlatBuffer.TableKey)
-	t.IndividualErosionDailyCount = fbsutils.Convert(e.IndividualErosionDailyCount(), t.FlatBuffer.TableKey)
-	t.LocalizeErosions = fbsutils.Convert(string(e.LocalizeErosions()), t.FlatBuffer.TableKey)
-	t.LocalizeManage = fbsutils.Convert(string(e.LocalizeManage()), t.FlatBuffer.TableKey)
-	t.LocalizeMapInfo = fbsutils.Convert(string(e.LocalizeMapInfo()), t.FlatBuffer.TableKey)
-	t.LocalizeStep = fbsutils.Convert(string(e.LocalizeStep()), t.FlatBuffer.TableKey)
-	t.LocalizeTile = fbsutils.Convert(string(e.LocalizeTile()), t.FlatBuffer.TableKey)
-	t.LocalizeTreasureBox = fbsutils.Convert(string(e.LocalizeTreasureBox()), t.FlatBuffer.TableKey)
-	t.LocalizeUnexpected = fbsutils.Convert(string(e.LocalizeUnexpected()), t.FlatBuffer.TableKey)
-	t.LocalizeUpgrade = fbsutils.Convert(string(e.LocalizeUpgrade()), t.FlatBuffer.TableKey)
 	t.MainStoryEventContentId = fbsutils.Convert(e.MainStoryEventContentId(), t.FlatBuffer.TableKey)
-	t.ManageUnitChange = fbsutils.Convert(e.ManageUnitChange(), t.FlatBuffer.TableKey)
-	t.MapEnterScenarioGroupId = fbsutils.Convert(e.MapEnterScenarioGroupId(), t.FlatBuffer.TableKey)
-	t.PlayTimeLimitInSeconds = fbsutils.Convert(e.PlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
-	t.UseCalculate = fbsutils.Convert(e.UseCalculate(), t.FlatBuffer.TableKey)
-	t.UseConquestObject = fbsutils.Convert(e.UseConquestObject(), t.FlatBuffer.TableKey)
+	t.ConquestEventType = ConquestEventType(int32(fbsutils.Convert(e.ConquestEventType(), t.FlatBuffer.TableKey)))
 	t.UseErosion = fbsutils.Convert(e.UseErosion(), t.FlatBuffer.TableKey)
 	t.UseUnexpectedEvent = fbsutils.Convert(e.UseUnexpectedEvent(), t.FlatBuffer.TableKey)
+	t.UseCalculate = fbsutils.Convert(e.UseCalculate(), t.FlatBuffer.TableKey)
+	t.UseConquestObject = fbsutils.Convert(e.UseConquestObject(), t.FlatBuffer.TableKey)
+	t.EvnetMapGoalLocalize = fbsutils.Convert(string(e.EvnetMapGoalLocalize()), t.FlatBuffer.TableKey)
+	t.EvnetMapNameLocalize = fbsutils.Convert(string(e.EvnetMapNameLocalize()), t.FlatBuffer.TableKey)
+	t.MapEnterScenarioGroupId = fbsutils.Convert(e.MapEnterScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.EvnetScenarioBg = fbsutils.Convert(string(e.EvnetScenarioBg()), t.FlatBuffer.TableKey)
+	t.ManageUnitChange = fbsutils.Convert(e.ManageUnitChange(), t.FlatBuffer.TableKey)
+	t.AssistCount = fbsutils.Convert(e.AssistCount(), t.FlatBuffer.TableKey)
+	t.PlayTimeLimitInSeconds = fbsutils.Convert(e.PlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
+	t.AnimationUnitAmountMin = fbsutils.Convert(e.AnimationUnitAmountMin(), t.FlatBuffer.TableKey)
+	t.AnimationUnitAmountMax = fbsutils.Convert(e.AnimationUnitAmountMax(), t.FlatBuffer.TableKey)
+	t.AnimationUnitDelay = fbsutils.Convert(e.AnimationUnitDelay(), t.FlatBuffer.TableKey)
+	t.LocalizeUnexpected = fbsutils.Convert(string(e.LocalizeUnexpected()), t.FlatBuffer.TableKey)
+	t.LocalizeErosions = fbsutils.Convert(string(e.LocalizeErosions()), t.FlatBuffer.TableKey)
+	t.LocalizeStep = fbsutils.Convert(string(e.LocalizeStep()), t.FlatBuffer.TableKey)
+	t.LocalizeTile = fbsutils.Convert(string(e.LocalizeTile()), t.FlatBuffer.TableKey)
+	t.LocalizeMapInfo = fbsutils.Convert(string(e.LocalizeMapInfo()), t.FlatBuffer.TableKey)
+	t.LocalizeManage = fbsutils.Convert(string(e.LocalizeManage()), t.FlatBuffer.TableKey)
+	t.LocalizeUpgrade = fbsutils.Convert(string(e.LocalizeUpgrade()), t.FlatBuffer.TableKey)
+	t.LocalizeTreasureBox = fbsutils.Convert(string(e.LocalizeTreasureBox()), t.FlatBuffer.TableKey)
+	t.IndividualErosionDailyCount = fbsutils.Convert(e.IndividualErosionDailyCount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

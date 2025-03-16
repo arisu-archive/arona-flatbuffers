@@ -41,8 +41,20 @@ func (rcv *CharacterStatsDetailExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterStatsDetailExcel) DetailShowStats(j int) StatType {
+func (rcv *CharacterStatsDetailExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterStatsDetailExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *CharacterStatsDetailExcel) DetailShowStats(j int) StatType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return StatType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -51,7 +63,7 @@ func (rcv *CharacterStatsDetailExcel) DetailShowStats(j int) StatType {
 }
 
 func (rcv *CharacterStatsDetailExcel) DetailShowStatsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -59,24 +71,12 @@ func (rcv *CharacterStatsDetailExcel) DetailShowStatsLength() int {
 }
 
 func (rcv *CharacterStatsDetailExcel) MutateDetailShowStats(j int, n StatType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
-}
-
-func (rcv *CharacterStatsDetailExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterStatsDetailExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *CharacterStatsDetailExcel) IsStatsPercent(j int) bool {
@@ -108,14 +108,14 @@ func (rcv *CharacterStatsDetailExcel) MutateIsStatsPercent(j int, n bool) bool {
 func CharacterStatsDetailExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
+func CharacterStatsDetailExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(0, id, 0)
+}
 func CharacterStatsDetailExcelAddDetailShowStats(builder *flatbuffers.Builder, detailShowStats flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(detailShowStats), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(detailShowStats), 0)
 }
 func CharacterStatsDetailExcelStartDetailShowStatsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
-}
-func CharacterStatsDetailExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(1, id, 0)
 }
 func CharacterStatsDetailExcelAddIsStatsPercent(builder *flatbuffers.Builder, isStatsPercent flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(isStatsPercent), 0)

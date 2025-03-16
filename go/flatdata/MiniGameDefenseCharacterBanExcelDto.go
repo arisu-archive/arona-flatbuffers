@@ -10,8 +10,8 @@ import (
 // MiniGameDefenseCharacterBanExcelDto represents a FlatBuffers table
 type MiniGameDefenseCharacterBanExcelDto struct {
 	fbsutils.FlatBuffer
-	CharacterId    int64 `json:"character_id"`
 	EventContentId int64 `json:"event_content_id"`
+	CharacterId    int64 `json:"character_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -20,8 +20,8 @@ func (t *MiniGameDefenseCharacterBanExcelDto) MarshalModel(b *flatbuffers.Builde
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseCharacterBan"))
 	}
 	MiniGameDefenseCharacterBanExcelStart(b)
-	MiniGameDefenseCharacterBanExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	MiniGameDefenseCharacterBanExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	MiniGameDefenseCharacterBanExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	return MiniGameDefenseCharacterBanExcelEnd(b)
 }
 
@@ -37,8 +37,8 @@ func (t *MiniGameDefenseCharacterBanExcelDto) UnmarshalMessage(e *MiniGameDefens
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseCharacterBan"))
 	}
-	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

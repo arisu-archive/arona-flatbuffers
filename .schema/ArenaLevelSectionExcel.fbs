@@ -2,7 +2,7 @@ namespace FlatData;
 
 table ArenaLevelSectionExcel {
     arena_season_id: long;
-    last_level: long;
     start_level: long;
+    last_level: long;
     user_count: long;
 }

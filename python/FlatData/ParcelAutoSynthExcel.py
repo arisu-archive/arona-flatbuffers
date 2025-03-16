@@ -25,10 +25,10 @@ class ParcelAutoSynthExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ParcelAutoSynthExcel
-    def RequireParcelAmount(self):
+    def RequireParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ParcelAutoSynthExcel
@@ -39,49 +39,49 @@ class ParcelAutoSynthExcel(object):
         return 0
 
     # ParcelAutoSynthExcel
-    def RequireParcelType(self):
+    def RequireParcelAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ParcelAutoSynthExcel
-    def ResultParcelAmount(self):
+    def SynthStartAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ParcelAutoSynthExcel
-    def ResultParcelId(self):
+    def SynthEndAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ParcelAutoSynthExcel
-    def ResultParcelType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ParcelAutoSynthExcel
-    def SynthEndAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ParcelAutoSynthExcel
     def SynthMaxItem(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # ParcelAutoSynthExcel
-    def SynthStartAmount(self):
+    def ResultParcelType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ParcelAutoSynthExcel
+    def ResultParcelId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ParcelAutoSynthExcel
+    def ResultParcelAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -93,11 +93,11 @@ def ParcelAutoSynthExcelStart(builder):
 def Start(builder):
     ParcelAutoSynthExcelStart(builder)
 
-def ParcelAutoSynthExcelAddRequireParcelAmount(builder, requireParcelAmount):
-    builder.PrependInt64Slot(0, requireParcelAmount, 0)
+def ParcelAutoSynthExcelAddRequireParcelType(builder, requireParcelType):
+    builder.PrependInt32Slot(0, requireParcelType, 0)
 
-def AddRequireParcelAmount(builder, requireParcelAmount):
-    ParcelAutoSynthExcelAddRequireParcelAmount(builder, requireParcelAmount)
+def AddRequireParcelType(builder, requireParcelType):
+    ParcelAutoSynthExcelAddRequireParcelType(builder, requireParcelType)
 
 def ParcelAutoSynthExcelAddRequireParcelId(builder, requireParcelId):
     builder.PrependInt64Slot(1, requireParcelId, 0)
@@ -105,47 +105,47 @@ def ParcelAutoSynthExcelAddRequireParcelId(builder, requireParcelId):
 def AddRequireParcelId(builder, requireParcelId):
     ParcelAutoSynthExcelAddRequireParcelId(builder, requireParcelId)
 
-def ParcelAutoSynthExcelAddRequireParcelType(builder, requireParcelType):
-    builder.PrependInt32Slot(2, requireParcelType, 0)
+def ParcelAutoSynthExcelAddRequireParcelAmount(builder, requireParcelAmount):
+    builder.PrependInt64Slot(2, requireParcelAmount, 0)
 
-def AddRequireParcelType(builder, requireParcelType):
-    ParcelAutoSynthExcelAddRequireParcelType(builder, requireParcelType)
+def AddRequireParcelAmount(builder, requireParcelAmount):
+    ParcelAutoSynthExcelAddRequireParcelAmount(builder, requireParcelAmount)
 
-def ParcelAutoSynthExcelAddResultParcelAmount(builder, resultParcelAmount):
-    builder.PrependInt64Slot(3, resultParcelAmount, 0)
+def ParcelAutoSynthExcelAddSynthStartAmount(builder, synthStartAmount):
+    builder.PrependInt64Slot(3, synthStartAmount, 0)
 
-def AddResultParcelAmount(builder, resultParcelAmount):
-    ParcelAutoSynthExcelAddResultParcelAmount(builder, resultParcelAmount)
-
-def ParcelAutoSynthExcelAddResultParcelId(builder, resultParcelId):
-    builder.PrependInt64Slot(4, resultParcelId, 0)
-
-def AddResultParcelId(builder, resultParcelId):
-    ParcelAutoSynthExcelAddResultParcelId(builder, resultParcelId)
-
-def ParcelAutoSynthExcelAddResultParcelType(builder, resultParcelType):
-    builder.PrependInt32Slot(5, resultParcelType, 0)
-
-def AddResultParcelType(builder, resultParcelType):
-    ParcelAutoSynthExcelAddResultParcelType(builder, resultParcelType)
+def AddSynthStartAmount(builder, synthStartAmount):
+    ParcelAutoSynthExcelAddSynthStartAmount(builder, synthStartAmount)
 
 def ParcelAutoSynthExcelAddSynthEndAmount(builder, synthEndAmount):
-    builder.PrependInt64Slot(6, synthEndAmount, 0)
+    builder.PrependInt64Slot(4, synthEndAmount, 0)
 
 def AddSynthEndAmount(builder, synthEndAmount):
     ParcelAutoSynthExcelAddSynthEndAmount(builder, synthEndAmount)
 
 def ParcelAutoSynthExcelAddSynthMaxItem(builder, synthMaxItem):
-    builder.PrependBoolSlot(7, synthMaxItem, 0)
+    builder.PrependBoolSlot(5, synthMaxItem, 0)
 
 def AddSynthMaxItem(builder, synthMaxItem):
     ParcelAutoSynthExcelAddSynthMaxItem(builder, synthMaxItem)
 
-def ParcelAutoSynthExcelAddSynthStartAmount(builder, synthStartAmount):
-    builder.PrependInt64Slot(8, synthStartAmount, 0)
+def ParcelAutoSynthExcelAddResultParcelType(builder, resultParcelType):
+    builder.PrependInt32Slot(6, resultParcelType, 0)
 
-def AddSynthStartAmount(builder, synthStartAmount):
-    ParcelAutoSynthExcelAddSynthStartAmount(builder, synthStartAmount)
+def AddResultParcelType(builder, resultParcelType):
+    ParcelAutoSynthExcelAddResultParcelType(builder, resultParcelType)
+
+def ParcelAutoSynthExcelAddResultParcelId(builder, resultParcelId):
+    builder.PrependInt64Slot(7, resultParcelId, 0)
+
+def AddResultParcelId(builder, resultParcelId):
+    ParcelAutoSynthExcelAddResultParcelId(builder, resultParcelId)
+
+def ParcelAutoSynthExcelAddResultParcelAmount(builder, resultParcelAmount):
+    builder.PrependInt64Slot(8, resultParcelAmount, 0)
+
+def AddResultParcelAmount(builder, resultParcelAmount):
+    ParcelAutoSynthExcelAddResultParcelAmount(builder, resultParcelAmount)
 
 def ParcelAutoSynthExcelEnd(builder):
     return builder.EndObject()

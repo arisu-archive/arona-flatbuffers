@@ -1,8 +1,8 @@
 namespace FlatData;
 
 table CheatCodeListExcel {
-    cheat_code: [string];
-    desc: string;
     id: long;
+    cheat_code: [string];
     input_title: [string];
+    desc: string;
 }

@@ -10,10 +10,10 @@ import (
 // CharacterStatsTransExcelDto represents a FlatBuffers table
 type CharacterStatsTransExcelDto struct {
 	fbsutils.FlatBuffer
-	EchelonExtensionType    EchelonExtensionType `json:"echelon_extension_type"`
-	StatTransType           StatTransType        `json:"stat_trans_type"`
 	TransSupportStats       StatType             `json:"trans_support_stats"`
+	EchelonExtensionType    EchelonExtensionType `json:"echelon_extension_type"`
 	TransSupportStatsFactor int32                `json:"trans_support_stats_factor"`
+	StatTransType           StatTransType        `json:"stat_trans_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *CharacterStatsTransExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatsTrans"))
 	}
 	CharacterStatsTransExcelStart(b)
-	CharacterStatsTransExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
-	CharacterStatsTransExcelAddStatTransType(b, fbsutils.Convert(t.StatTransType, t.FlatBuffer.TableKey))
 	CharacterStatsTransExcelAddTransSupportStats(b, fbsutils.Convert(t.TransSupportStats, t.FlatBuffer.TableKey))
+	CharacterStatsTransExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
 	CharacterStatsTransExcelAddTransSupportStatsFactor(b, fbsutils.Convert(t.TransSupportStatsFactor, t.FlatBuffer.TableKey))
+	CharacterStatsTransExcelAddStatTransType(b, fbsutils.Convert(t.StatTransType, t.FlatBuffer.TableKey))
 	return CharacterStatsTransExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *CharacterStatsTransExcelDto) UnmarshalMessage(e *CharacterStatsTransExc
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatsTrans"))
 	}
-	t.EchelonExtensionType = EchelonExtensionType(int32(fbsutils.Convert(e.EchelonExtensionType(), t.FlatBuffer.TableKey)))
-	t.StatTransType = StatTransType(int32(fbsutils.Convert(e.StatTransType(), t.FlatBuffer.TableKey)))
 	t.TransSupportStats = StatType(int32(fbsutils.Convert(e.TransSupportStats(), t.FlatBuffer.TableKey)))
+	t.EchelonExtensionType = EchelonExtensionType(int32(fbsutils.Convert(e.EchelonExtensionType(), t.FlatBuffer.TableKey)))
 	t.TransSupportStatsFactor = fbsutils.Convert(e.TransSupportStatsFactor(), t.FlatBuffer.TableKey)
+	t.StatTransType = StatTransType(int32(fbsutils.Convert(e.StatTransType(), t.FlatBuffer.TableKey)))
 	return nil
 }
 

@@ -10,11 +10,11 @@ import (
 // ProtocolSettingExcelDto represents a FlatBuffers table
 type ProtocolSettingExcelDto struct {
 	fbsutils.FlatBuffer
+	Protocol             string               `json:"protocol"`
+	OpenConditionContent OpenConditionContent `json:"open_condition_content"`
 	Currency             bool                 `json:"currency"`
 	Inventory            bool                 `json:"inventory"`
 	Mail                 bool                 `json:"mail"`
-	OpenConditionContent OpenConditionContent `json:"open_condition_content"`
-	Protocol             string               `json:"protocol"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,11 +23,11 @@ func (t *ProtocolSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProtocolSetting"))
 	}
 	ProtocolSettingExcelStart(b)
+	ProtocolSettingExcelAddProtocol(b, fbsutils.Convert(b.CreateString(t.Protocol), t.FlatBuffer.TableKey))
+	ProtocolSettingExcelAddOpenConditionContent(b, fbsutils.Convert(t.OpenConditionContent, t.FlatBuffer.TableKey))
 	ProtocolSettingExcelAddCurrency(b, fbsutils.Convert(t.Currency, t.FlatBuffer.TableKey))
 	ProtocolSettingExcelAddInventory(b, fbsutils.Convert(t.Inventory, t.FlatBuffer.TableKey))
 	ProtocolSettingExcelAddMail(b, fbsutils.Convert(t.Mail, t.FlatBuffer.TableKey))
-	ProtocolSettingExcelAddOpenConditionContent(b, fbsutils.Convert(t.OpenConditionContent, t.FlatBuffer.TableKey))
-	ProtocolSettingExcelAddProtocol(b, fbsutils.Convert(b.CreateString(t.Protocol), t.FlatBuffer.TableKey))
 	return ProtocolSettingExcelEnd(b)
 }
 
@@ -43,11 +43,11 @@ func (t *ProtocolSettingExcelDto) UnmarshalMessage(e *ProtocolSettingExcel) erro
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProtocolSetting"))
 	}
+	t.Protocol = fbsutils.Convert(string(e.Protocol()), t.FlatBuffer.TableKey)
+	t.OpenConditionContent = OpenConditionContent(int32(fbsutils.Convert(e.OpenConditionContent(), t.FlatBuffer.TableKey)))
 	t.Currency = fbsutils.Convert(e.Currency(), t.FlatBuffer.TableKey)
 	t.Inventory = fbsutils.Convert(e.Inventory(), t.FlatBuffer.TableKey)
 	t.Mail = fbsutils.Convert(e.Mail(), t.FlatBuffer.TableKey)
-	t.OpenConditionContent = OpenConditionContent(int32(fbsutils.Convert(e.OpenConditionContent(), t.FlatBuffer.TableKey)))
-	t.Protocol = fbsutils.Convert(string(e.Protocol()), t.FlatBuffer.TableKey)
 	return nil
 }
 

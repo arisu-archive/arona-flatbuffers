@@ -32,14 +32,14 @@ class InformationExcel(object):
         return 0
 
     # InformationExcel
-    def LocalizeCodeId(self):
+    def PageName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # InformationExcel
-    def PageName(self):
+    def LocalizeCodeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -97,17 +97,17 @@ def InformationExcelAddGroupId(builder, groupId):
 def AddGroupId(builder, groupId):
     InformationExcelAddGroupId(builder, groupId)
 
-def InformationExcelAddLocalizeCodeId(builder, localizeCodeId):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCodeId), 0)
-
-def AddLocalizeCodeId(builder, localizeCodeId):
-    InformationExcelAddLocalizeCodeId(builder, localizeCodeId)
-
 def InformationExcelAddPageName(builder, pageName):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(pageName), 0)
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(pageName), 0)
 
 def AddPageName(builder, pageName):
     InformationExcelAddPageName(builder, pageName)
+
+def InformationExcelAddLocalizeCodeId(builder, localizeCodeId):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCodeId), 0)
+
+def AddLocalizeCodeId(builder, localizeCodeId):
+    InformationExcelAddLocalizeCodeId(builder, localizeCodeId)
 
 def InformationExcelAddTutorialParentName(builder, tutorialParentName):
     builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(tutorialParentName), 0)

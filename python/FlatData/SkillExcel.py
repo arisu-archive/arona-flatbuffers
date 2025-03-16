@@ -25,140 +25,140 @@ class SkillExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # SkillExcel
-    def AdditionalToolTipId(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # SkillExcel
-    def BulletType(self):
+    def LocalizeSkillId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # SkillExcel
-    def CoolTime(self):
+    def GroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # SkillExcel
-    def EnemyCoolTime(self):
+    def SkillDataKey(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # SkillExcel
-    def EnemySkillCost(self):
+    def VisualDataKey(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # SkillExcel
-    def EnemyStartCoolTime(self):
+    def Level(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # SkillExcel
-    def ExtraEnemySkillCost(self):
+    def SkillCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # SkillExcel
-    def ExtraNpcSkillCost(self):
+    def ExtraSkillCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # SkillExcel
-    def ExtraSkillCost(self):
+    def EnemySkillCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # SkillExcel
-    def GroupId(self):
+    def ExtraEnemySkillCost(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # SkillExcel
-    def IconName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # SkillExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # SkillExcel
-    def IsShowInfo(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # SkillExcel
-    def IsShowSpeechbubble(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # SkillExcel
-    def Level(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # SkillExcel
-    def LocalizeSkillId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
-
-    # SkillExcel
-    def NpcCoolTime(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # SkillExcel
     def NpcSkillCost(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # SkillExcel
+    def ExtraNpcSkillCost(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # SkillExcel
+    def BulletType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # SkillExcel
+    def StartCoolTime(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # SkillExcel
+    def CoolTime(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # SkillExcel
+    def EnemyStartCoolTime(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # SkillExcel
+    def EnemyCoolTime(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # SkillExcel
     def NpcStartCoolTime(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # SkillExcel
+    def NpcCoolTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # SkillExcel
-    def PublicSpeechDuration(self):
+    def UseAtg(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -179,49 +179,49 @@ class SkillExcel(object):
         return 0
 
     # SkillExcel
-    def SkillCardLabelPath(self):
+    def IconName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # SkillExcel
-    def SkillCost(self):
+    def IsShowInfo(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # SkillExcel
-    def SkillDataKey(self):
+    def IsShowSpeechbubble(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # SkillExcel
-    def StartCoolTime(self):
+    def PublicSpeechDuration(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # SkillExcel
-    def TextureSkillCardForFormConversion(self):
+    def AdditionalToolTipId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # SkillExcel
+    def TextureSkillCardForFormConversion(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # SkillExcel
-    def UseAtg(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # SkillExcel
-    def VisualDataKey(self):
+    def SkillCardLabelPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -233,125 +233,125 @@ def SkillExcelStart(builder):
 def Start(builder):
     SkillExcelStart(builder)
 
-def SkillExcelAddAdditionalToolTipId(builder, additionalToolTipId):
-    builder.PrependInt64Slot(0, additionalToolTipId, 0)
-
-def AddAdditionalToolTipId(builder, additionalToolTipId):
-    SkillExcelAddAdditionalToolTipId(builder, additionalToolTipId)
-
-def SkillExcelAddBulletType(builder, bulletType):
-    builder.PrependInt32Slot(1, bulletType, 0)
-
-def AddBulletType(builder, bulletType):
-    SkillExcelAddBulletType(builder, bulletType)
-
-def SkillExcelAddCoolTime(builder, coolTime):
-    builder.PrependInt32Slot(2, coolTime, 0)
-
-def AddCoolTime(builder, coolTime):
-    SkillExcelAddCoolTime(builder, coolTime)
-
-def SkillExcelAddEnemyCoolTime(builder, enemyCoolTime):
-    builder.PrependInt32Slot(3, enemyCoolTime, 0)
-
-def AddEnemyCoolTime(builder, enemyCoolTime):
-    SkillExcelAddEnemyCoolTime(builder, enemyCoolTime)
-
-def SkillExcelAddEnemySkillCost(builder, enemySkillCost):
-    builder.PrependInt32Slot(4, enemySkillCost, 0)
-
-def AddEnemySkillCost(builder, enemySkillCost):
-    SkillExcelAddEnemySkillCost(builder, enemySkillCost)
-
-def SkillExcelAddEnemyStartCoolTime(builder, enemyStartCoolTime):
-    builder.PrependInt32Slot(5, enemyStartCoolTime, 0)
-
-def AddEnemyStartCoolTime(builder, enemyStartCoolTime):
-    SkillExcelAddEnemyStartCoolTime(builder, enemyStartCoolTime)
-
-def SkillExcelAddExtraEnemySkillCost(builder, extraEnemySkillCost):
-    builder.PrependInt32Slot(6, extraEnemySkillCost, 0)
-
-def AddExtraEnemySkillCost(builder, extraEnemySkillCost):
-    SkillExcelAddExtraEnemySkillCost(builder, extraEnemySkillCost)
-
-def SkillExcelAddExtraNpcSkillCost(builder, extraNpcSkillCost):
-    builder.PrependInt32Slot(7, extraNpcSkillCost, 0)
-
-def AddExtraNpcSkillCost(builder, extraNpcSkillCost):
-    SkillExcelAddExtraNpcSkillCost(builder, extraNpcSkillCost)
-
-def SkillExcelAddExtraSkillCost(builder, extraSkillCost):
-    builder.PrependInt32Slot(8, extraSkillCost, 0)
-
-def AddExtraSkillCost(builder, extraSkillCost):
-    SkillExcelAddExtraSkillCost(builder, extraSkillCost)
-
-def SkillExcelAddGroupId(builder, groupId):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(groupId), 0)
-
-def AddGroupId(builder, groupId):
-    SkillExcelAddGroupId(builder, groupId)
-
-def SkillExcelAddIconName(builder, iconName):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(iconName), 0)
-
-def AddIconName(builder, iconName):
-    SkillExcelAddIconName(builder, iconName)
-
 def SkillExcelAddId(builder, id):
-    builder.PrependInt64Slot(11, id, 0)
+    builder.PrependInt64Slot(0, id, 0)
 
 def AddId(builder, id):
     SkillExcelAddId(builder, id)
 
-def SkillExcelAddIsShowInfo(builder, isShowInfo):
-    builder.PrependBoolSlot(12, isShowInfo, 0)
-
-def AddIsShowInfo(builder, isShowInfo):
-    SkillExcelAddIsShowInfo(builder, isShowInfo)
-
-def SkillExcelAddIsShowSpeechbubble(builder, isShowSpeechbubble):
-    builder.PrependBoolSlot(13, isShowSpeechbubble, 0)
-
-def AddIsShowSpeechbubble(builder, isShowSpeechbubble):
-    SkillExcelAddIsShowSpeechbubble(builder, isShowSpeechbubble)
-
-def SkillExcelAddLevel(builder, level):
-    builder.PrependInt32Slot(14, level, 0)
-
-def AddLevel(builder, level):
-    SkillExcelAddLevel(builder, level)
-
 def SkillExcelAddLocalizeSkillId(builder, localizeSkillId):
-    builder.PrependUint32Slot(15, localizeSkillId, 0)
+    builder.PrependUint32Slot(1, localizeSkillId, 0)
 
 def AddLocalizeSkillId(builder, localizeSkillId):
     SkillExcelAddLocalizeSkillId(builder, localizeSkillId)
 
-def SkillExcelAddNpcCoolTime(builder, npcCoolTime):
-    builder.PrependInt32Slot(16, npcCoolTime, 0)
+def SkillExcelAddGroupId(builder, groupId):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(groupId), 0)
 
-def AddNpcCoolTime(builder, npcCoolTime):
-    SkillExcelAddNpcCoolTime(builder, npcCoolTime)
+def AddGroupId(builder, groupId):
+    SkillExcelAddGroupId(builder, groupId)
+
+def SkillExcelAddSkillDataKey(builder, skillDataKey):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(skillDataKey), 0)
+
+def AddSkillDataKey(builder, skillDataKey):
+    SkillExcelAddSkillDataKey(builder, skillDataKey)
+
+def SkillExcelAddVisualDataKey(builder, visualDataKey):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(visualDataKey), 0)
+
+def AddVisualDataKey(builder, visualDataKey):
+    SkillExcelAddVisualDataKey(builder, visualDataKey)
+
+def SkillExcelAddLevel(builder, level):
+    builder.PrependInt32Slot(5, level, 0)
+
+def AddLevel(builder, level):
+    SkillExcelAddLevel(builder, level)
+
+def SkillExcelAddSkillCost(builder, skillCost):
+    builder.PrependInt32Slot(6, skillCost, 0)
+
+def AddSkillCost(builder, skillCost):
+    SkillExcelAddSkillCost(builder, skillCost)
+
+def SkillExcelAddExtraSkillCost(builder, extraSkillCost):
+    builder.PrependInt32Slot(7, extraSkillCost, 0)
+
+def AddExtraSkillCost(builder, extraSkillCost):
+    SkillExcelAddExtraSkillCost(builder, extraSkillCost)
+
+def SkillExcelAddEnemySkillCost(builder, enemySkillCost):
+    builder.PrependInt32Slot(8, enemySkillCost, 0)
+
+def AddEnemySkillCost(builder, enemySkillCost):
+    SkillExcelAddEnemySkillCost(builder, enemySkillCost)
+
+def SkillExcelAddExtraEnemySkillCost(builder, extraEnemySkillCost):
+    builder.PrependInt32Slot(9, extraEnemySkillCost, 0)
+
+def AddExtraEnemySkillCost(builder, extraEnemySkillCost):
+    SkillExcelAddExtraEnemySkillCost(builder, extraEnemySkillCost)
 
 def SkillExcelAddNpcSkillCost(builder, npcSkillCost):
-    builder.PrependInt32Slot(17, npcSkillCost, 0)
+    builder.PrependInt32Slot(10, npcSkillCost, 0)
 
 def AddNpcSkillCost(builder, npcSkillCost):
     SkillExcelAddNpcSkillCost(builder, npcSkillCost)
 
+def SkillExcelAddExtraNpcSkillCost(builder, extraNpcSkillCost):
+    builder.PrependInt32Slot(11, extraNpcSkillCost, 0)
+
+def AddExtraNpcSkillCost(builder, extraNpcSkillCost):
+    SkillExcelAddExtraNpcSkillCost(builder, extraNpcSkillCost)
+
+def SkillExcelAddBulletType(builder, bulletType):
+    builder.PrependInt32Slot(12, bulletType, 0)
+
+def AddBulletType(builder, bulletType):
+    SkillExcelAddBulletType(builder, bulletType)
+
+def SkillExcelAddStartCoolTime(builder, startCoolTime):
+    builder.PrependInt32Slot(13, startCoolTime, 0)
+
+def AddStartCoolTime(builder, startCoolTime):
+    SkillExcelAddStartCoolTime(builder, startCoolTime)
+
+def SkillExcelAddCoolTime(builder, coolTime):
+    builder.PrependInt32Slot(14, coolTime, 0)
+
+def AddCoolTime(builder, coolTime):
+    SkillExcelAddCoolTime(builder, coolTime)
+
+def SkillExcelAddEnemyStartCoolTime(builder, enemyStartCoolTime):
+    builder.PrependInt32Slot(15, enemyStartCoolTime, 0)
+
+def AddEnemyStartCoolTime(builder, enemyStartCoolTime):
+    SkillExcelAddEnemyStartCoolTime(builder, enemyStartCoolTime)
+
+def SkillExcelAddEnemyCoolTime(builder, enemyCoolTime):
+    builder.PrependInt32Slot(16, enemyCoolTime, 0)
+
+def AddEnemyCoolTime(builder, enemyCoolTime):
+    SkillExcelAddEnemyCoolTime(builder, enemyCoolTime)
+
 def SkillExcelAddNpcStartCoolTime(builder, npcStartCoolTime):
-    builder.PrependInt32Slot(18, npcStartCoolTime, 0)
+    builder.PrependInt32Slot(17, npcStartCoolTime, 0)
 
 def AddNpcStartCoolTime(builder, npcStartCoolTime):
     SkillExcelAddNpcStartCoolTime(builder, npcStartCoolTime)
 
-def SkillExcelAddPublicSpeechDuration(builder, publicSpeechDuration):
-    builder.PrependInt32Slot(19, publicSpeechDuration, 0)
+def SkillExcelAddNpcCoolTime(builder, npcCoolTime):
+    builder.PrependInt32Slot(18, npcCoolTime, 0)
 
-def AddPublicSpeechDuration(builder, publicSpeechDuration):
-    SkillExcelAddPublicSpeechDuration(builder, publicSpeechDuration)
+def AddNpcCoolTime(builder, npcCoolTime):
+    SkillExcelAddNpcCoolTime(builder, npcCoolTime)
+
+def SkillExcelAddUseAtg(builder, useAtg):
+    builder.PrependInt32Slot(19, useAtg, 0)
+
+def AddUseAtg(builder, useAtg):
+    SkillExcelAddUseAtg(builder, useAtg)
 
 def SkillExcelAddRequireCharacterLevel(builder, requireCharacterLevel):
     builder.PrependInt32Slot(20, requireCharacterLevel, 0)
@@ -365,47 +365,47 @@ def SkillExcelAddRequireLevelUpMaterial(builder, requireLevelUpMaterial):
 def AddRequireLevelUpMaterial(builder, requireLevelUpMaterial):
     SkillExcelAddRequireLevelUpMaterial(builder, requireLevelUpMaterial)
 
-def SkillExcelAddSkillCardLabelPath(builder, skillCardLabelPath):
-    builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(skillCardLabelPath), 0)
+def SkillExcelAddIconName(builder, iconName):
+    builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(iconName), 0)
 
-def AddSkillCardLabelPath(builder, skillCardLabelPath):
-    SkillExcelAddSkillCardLabelPath(builder, skillCardLabelPath)
+def AddIconName(builder, iconName):
+    SkillExcelAddIconName(builder, iconName)
 
-def SkillExcelAddSkillCost(builder, skillCost):
-    builder.PrependInt32Slot(23, skillCost, 0)
+def SkillExcelAddIsShowInfo(builder, isShowInfo):
+    builder.PrependBoolSlot(23, isShowInfo, 0)
 
-def AddSkillCost(builder, skillCost):
-    SkillExcelAddSkillCost(builder, skillCost)
+def AddIsShowInfo(builder, isShowInfo):
+    SkillExcelAddIsShowInfo(builder, isShowInfo)
 
-def SkillExcelAddSkillDataKey(builder, skillDataKey):
-    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(skillDataKey), 0)
+def SkillExcelAddIsShowSpeechbubble(builder, isShowSpeechbubble):
+    builder.PrependBoolSlot(24, isShowSpeechbubble, 0)
 
-def AddSkillDataKey(builder, skillDataKey):
-    SkillExcelAddSkillDataKey(builder, skillDataKey)
+def AddIsShowSpeechbubble(builder, isShowSpeechbubble):
+    SkillExcelAddIsShowSpeechbubble(builder, isShowSpeechbubble)
 
-def SkillExcelAddStartCoolTime(builder, startCoolTime):
-    builder.PrependInt32Slot(25, startCoolTime, 0)
+def SkillExcelAddPublicSpeechDuration(builder, publicSpeechDuration):
+    builder.PrependInt32Slot(25, publicSpeechDuration, 0)
 
-def AddStartCoolTime(builder, startCoolTime):
-    SkillExcelAddStartCoolTime(builder, startCoolTime)
+def AddPublicSpeechDuration(builder, publicSpeechDuration):
+    SkillExcelAddPublicSpeechDuration(builder, publicSpeechDuration)
+
+def SkillExcelAddAdditionalToolTipId(builder, additionalToolTipId):
+    builder.PrependInt64Slot(26, additionalToolTipId, 0)
+
+def AddAdditionalToolTipId(builder, additionalToolTipId):
+    SkillExcelAddAdditionalToolTipId(builder, additionalToolTipId)
 
 def SkillExcelAddTextureSkillCardForFormConversion(builder, textureSkillCardForFormConversion):
-    builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(textureSkillCardForFormConversion), 0)
+    builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(textureSkillCardForFormConversion), 0)
 
 def AddTextureSkillCardForFormConversion(builder, textureSkillCardForFormConversion):
     SkillExcelAddTextureSkillCardForFormConversion(builder, textureSkillCardForFormConversion)
 
-def SkillExcelAddUseAtg(builder, useAtg):
-    builder.PrependInt32Slot(27, useAtg, 0)
+def SkillExcelAddSkillCardLabelPath(builder, skillCardLabelPath):
+    builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(skillCardLabelPath), 0)
 
-def AddUseAtg(builder, useAtg):
-    SkillExcelAddUseAtg(builder, useAtg)
-
-def SkillExcelAddVisualDataKey(builder, visualDataKey):
-    builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(visualDataKey), 0)
-
-def AddVisualDataKey(builder, visualDataKey):
-    SkillExcelAddVisualDataKey(builder, visualDataKey)
+def AddSkillCardLabelPath(builder, skillCardLabelPath):
+    SkillExcelAddSkillCardLabelPath(builder, skillCardLabelPath)
 
 def SkillExcelEnd(builder):
     return builder.EndObject()

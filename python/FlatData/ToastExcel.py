@@ -32,10 +32,10 @@ class ToastExcel(object):
         return 0
 
     # ToastExcel
-    def LifeTime(self):
+    def ToastType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ToastExcel
@@ -53,10 +53,10 @@ class ToastExcel(object):
         return 0
 
     # ToastExcel
-    def ToastType(self):
+    def LifeTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def ToastExcelStart(builder):
@@ -71,11 +71,11 @@ def ToastExcelAddId(builder, id):
 def AddId(builder, id):
     ToastExcelAddId(builder, id)
 
-def ToastExcelAddLifeTime(builder, lifeTime):
-    builder.PrependInt64Slot(1, lifeTime, 0)
+def ToastExcelAddToastType(builder, toastType):
+    builder.PrependInt32Slot(1, toastType, 0)
 
-def AddLifeTime(builder, lifeTime):
-    ToastExcelAddLifeTime(builder, lifeTime)
+def AddToastType(builder, toastType):
+    ToastExcelAddToastType(builder, toastType)
 
 def ToastExcelAddMissionId(builder, missionId):
     builder.PrependUint32Slot(2, missionId, 0)
@@ -89,11 +89,11 @@ def ToastExcelAddTextId(builder, textId):
 def AddTextId(builder, textId):
     ToastExcelAddTextId(builder, textId)
 
-def ToastExcelAddToastType(builder, toastType):
-    builder.PrependInt32Slot(4, toastType, 0)
+def ToastExcelAddLifeTime(builder, lifeTime):
+    builder.PrependInt64Slot(4, lifeTime, 0)
 
-def AddToastType(builder, toastType):
-    ToastExcelAddToastType(builder, toastType)
+def AddLifeTime(builder, lifeTime):
+    ToastExcelAddLifeTime(builder, lifeTime)
 
 def ToastExcelEnd(builder):
     return builder.EndObject()

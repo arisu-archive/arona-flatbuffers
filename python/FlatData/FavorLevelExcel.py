@@ -25,8 +25,15 @@ class FavorLevelExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # FavorLevelExcel
-    def ExpType(self, j):
+    def Level(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FavorLevelExcel
+    def ExpType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -34,29 +41,22 @@ class FavorLevelExcel(object):
 
     # FavorLevelExcel
     def ExpTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # FavorLevelExcel
     def ExpTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FavorLevelExcel
     def ExpTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        return o == 0
-
-    # FavorLevelExcel
-    def Level(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+        return o == 0
 
 def FavorLevelExcelStart(builder):
     builder.StartObject(2)
@@ -64,8 +64,14 @@ def FavorLevelExcelStart(builder):
 def Start(builder):
     FavorLevelExcelStart(builder)
 
+def FavorLevelExcelAddLevel(builder, level):
+    builder.PrependInt64Slot(0, level, 0)
+
+def AddLevel(builder, level):
+    FavorLevelExcelAddLevel(builder, level)
+
 def FavorLevelExcelAddExpType(builder, expType):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(expType), 0)
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(expType), 0)
 
 def AddExpType(builder, expType):
     FavorLevelExcelAddExpType(builder, expType)
@@ -75,12 +81,6 @@ def FavorLevelExcelStartExpTypeVector(builder, numElems):
 
 def StartExpTypeVector(builder, numElems):
     return FavorLevelExcelStartExpTypeVector(builder, numElems)
-
-def FavorLevelExcelAddLevel(builder, level):
-    builder.PrependInt64Slot(1, level, 0)
-
-def AddLevel(builder, level):
-    FavorLevelExcelAddLevel(builder, level)
 
 def FavorLevelExcelEnd(builder):
     return builder.EndObject()

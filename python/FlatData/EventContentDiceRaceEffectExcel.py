@@ -25,11 +25,11 @@ class EventContentDiceRaceEffectExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentDiceRaceEffectExcel
-    def AniClip(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # EventContentDiceRaceEffectExcel
     def EventContentDiceRaceResultType(self):
@@ -39,18 +39,18 @@ class EventContentDiceRaceEffectExcel(object):
         return 0
 
     # EventContentDiceRaceEffectExcel
-    def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentDiceRaceEffectExcel
     def IsDiceResult(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
+
+    # EventContentDiceRaceEffectExcel
+    def AniClip(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # EventContentDiceRaceEffectExcel
     def VoiceId(self, j):
@@ -85,11 +85,11 @@ def EventContentDiceRaceEffectExcelStart(builder):
 def Start(builder):
     EventContentDiceRaceEffectExcelStart(builder)
 
-def EventContentDiceRaceEffectExcelAddAniClip(builder, aniClip):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(aniClip), 0)
+def EventContentDiceRaceEffectExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
 
-def AddAniClip(builder, aniClip):
-    EventContentDiceRaceEffectExcelAddAniClip(builder, aniClip)
+def AddEventContentId(builder, eventContentId):
+    EventContentDiceRaceEffectExcelAddEventContentId(builder, eventContentId)
 
 def EventContentDiceRaceEffectExcelAddEventContentDiceRaceResultType(builder, eventContentDiceRaceResultType):
     builder.PrependInt32Slot(1, eventContentDiceRaceResultType, 0)
@@ -97,17 +97,17 @@ def EventContentDiceRaceEffectExcelAddEventContentDiceRaceResultType(builder, ev
 def AddEventContentDiceRaceResultType(builder, eventContentDiceRaceResultType):
     EventContentDiceRaceEffectExcelAddEventContentDiceRaceResultType(builder, eventContentDiceRaceResultType)
 
-def EventContentDiceRaceEffectExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(2, eventContentId, 0)
-
-def AddEventContentId(builder, eventContentId):
-    EventContentDiceRaceEffectExcelAddEventContentId(builder, eventContentId)
-
 def EventContentDiceRaceEffectExcelAddIsDiceResult(builder, isDiceResult):
-    builder.PrependBoolSlot(3, isDiceResult, 0)
+    builder.PrependBoolSlot(2, isDiceResult, 0)
 
 def AddIsDiceResult(builder, isDiceResult):
     EventContentDiceRaceEffectExcelAddIsDiceResult(builder, isDiceResult)
+
+def EventContentDiceRaceEffectExcelAddAniClip(builder, aniClip):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(aniClip), 0)
+
+def AddAniClip(builder, aniClip):
+    EventContentDiceRaceEffectExcelAddAniClip(builder, aniClip)
 
 def EventContentDiceRaceEffectExcelAddVoiceId(builder, voiceId):
     builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(voiceId), 0)

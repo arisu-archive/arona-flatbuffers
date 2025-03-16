@@ -11,13 +11,13 @@ import (
 type RecipeExcelDto struct {
 	fbsutils.FlatBuffer
 	Id                     int64        `json:"id"`
-	ParcelId               []int64      `json:"parcel_id"`
-	ParcelType             []ParcelType `json:"parcel_type"`
+	RecipeType             RecipeType   `json:"recipe_type"`
 	RecipeIngredientId     int64        `json:"recipe_ingredient_id"`
 	RecipeSelectionGroupId int64        `json:"recipe_selection_group_id"`
-	RecipeType             RecipeType   `json:"recipe_type"`
-	ResultAmountMax        []int64      `json:"result_amount_max"`
+	ParcelType             []ParcelType `json:"parcel_type"`
+	ParcelId               []int64      `json:"parcel_id"`
 	ResultAmountMin        []int64      `json:"result_amount_min"`
+	ResultAmountMax        []int64      `json:"result_amount_max"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,29 +27,29 @@ func (t *RecipeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 	}
 	RecipeExcelStart(b)
 	RecipeExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	RecipeExcelStartParcelIdVector(b, len(t.ParcelId))
-	for i := range len(t.ParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.ParcelId[len(t.ParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	RecipeExcelAddParcelId(b, b.EndVector(len(t.ParcelId)))
+	RecipeExcelAddRecipeType(b, fbsutils.Convert(t.RecipeType, t.FlatBuffer.TableKey))
+	RecipeExcelAddRecipeIngredientId(b, fbsutils.Convert(t.RecipeIngredientId, t.FlatBuffer.TableKey))
+	RecipeExcelAddRecipeSelectionGroupId(b, fbsutils.Convert(t.RecipeSelectionGroupId, t.FlatBuffer.TableKey))
 	RecipeExcelStartParcelTypeVector(b, len(t.ParcelType))
 	for i := range len(t.ParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ParcelType[len(t.ParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
 	}
 	RecipeExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
-	RecipeExcelAddRecipeIngredientId(b, fbsutils.Convert(t.RecipeIngredientId, t.FlatBuffer.TableKey))
-	RecipeExcelAddRecipeSelectionGroupId(b, fbsutils.Convert(t.RecipeSelectionGroupId, t.FlatBuffer.TableKey))
-	RecipeExcelAddRecipeType(b, fbsutils.Convert(t.RecipeType, t.FlatBuffer.TableKey))
-	RecipeExcelStartResultAmountMaxVector(b, len(t.ResultAmountMax))
-	for i := range len(t.ResultAmountMax) {
-		b.PrependInt64(fbsutils.Convert(t.ResultAmountMax[len(t.ResultAmountMax)-i-1], t.FlatBuffer.TableKey))
+	RecipeExcelStartParcelIdVector(b, len(t.ParcelId))
+	for i := range len(t.ParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.ParcelId[len(t.ParcelId)-i-1], t.FlatBuffer.TableKey))
 	}
-	RecipeExcelAddResultAmountMax(b, b.EndVector(len(t.ResultAmountMax)))
+	RecipeExcelAddParcelId(b, b.EndVector(len(t.ParcelId)))
 	RecipeExcelStartResultAmountMinVector(b, len(t.ResultAmountMin))
 	for i := range len(t.ResultAmountMin) {
 		b.PrependInt64(fbsutils.Convert(t.ResultAmountMin[len(t.ResultAmountMin)-i-1], t.FlatBuffer.TableKey))
 	}
 	RecipeExcelAddResultAmountMin(b, b.EndVector(len(t.ResultAmountMin)))
+	RecipeExcelStartResultAmountMaxVector(b, len(t.ResultAmountMax))
+	for i := range len(t.ResultAmountMax) {
+		b.PrependInt64(fbsutils.Convert(t.ResultAmountMax[len(t.ResultAmountMax)-i-1], t.FlatBuffer.TableKey))
+	}
+	RecipeExcelAddResultAmountMax(b, b.EndVector(len(t.ResultAmountMax)))
 	return RecipeExcelEnd(b)
 }
 
@@ -66,24 +66,24 @@ func (t *RecipeExcelDto) UnmarshalMessage(e *RecipeExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Recipe"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ParcelId = make([]int64, e.ParcelIdLength())
-	for i := range e.ParcelIdLength() {
-		t.ParcelId[i] = e.ParcelId(i)
-	}
+	t.RecipeType = RecipeType(int32(fbsutils.Convert(e.RecipeType(), t.FlatBuffer.TableKey)))
+	t.RecipeIngredientId = fbsutils.Convert(e.RecipeIngredientId(), t.FlatBuffer.TableKey)
+	t.RecipeSelectionGroupId = fbsutils.Convert(e.RecipeSelectionGroupId(), t.FlatBuffer.TableKey)
 	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
 	for i := range e.ParcelTypeLength() {
 		t.ParcelType[i] = e.ParcelType(i)
 	}
-	t.RecipeIngredientId = fbsutils.Convert(e.RecipeIngredientId(), t.FlatBuffer.TableKey)
-	t.RecipeSelectionGroupId = fbsutils.Convert(e.RecipeSelectionGroupId(), t.FlatBuffer.TableKey)
-	t.RecipeType = RecipeType(int32(fbsutils.Convert(e.RecipeType(), t.FlatBuffer.TableKey)))
-	t.ResultAmountMax = make([]int64, e.ResultAmountMaxLength())
-	for i := range e.ResultAmountMaxLength() {
-		t.ResultAmountMax[i] = e.ResultAmountMax(i)
+	t.ParcelId = make([]int64, e.ParcelIdLength())
+	for i := range e.ParcelIdLength() {
+		t.ParcelId[i] = e.ParcelId(i)
 	}
 	t.ResultAmountMin = make([]int64, e.ResultAmountMinLength())
 	for i := range e.ResultAmountMinLength() {
 		t.ResultAmountMin[i] = e.ResultAmountMin(i)
+	}
+	t.ResultAmountMax = make([]int64, e.ResultAmountMaxLength())
+	for i := range e.ResultAmountMaxLength() {
+		t.ResultAmountMax[i] = e.ResultAmountMax(i)
 	}
 	return nil
 }

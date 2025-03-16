@@ -10,9 +10,9 @@ import (
 // ShortcutTypeExcelDto represents a FlatBuffers table
 type ShortcutTypeExcelDto struct {
 	fbsutils.FlatBuffer
-	ContentType []ShortcutContentType `json:"content_type"`
 	Id          int64                 `json:"id"`
 	IsAscending bool                  `json:"is_ascending"`
+	ContentType []ShortcutContentType `json:"content_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,13 +21,13 @@ func (t *ShortcutTypeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShortcutType"))
 	}
 	ShortcutTypeExcelStart(b)
+	ShortcutTypeExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	ShortcutTypeExcelAddIsAscending(b, fbsutils.Convert(t.IsAscending, t.FlatBuffer.TableKey))
 	ShortcutTypeExcelStartContentTypeVector(b, len(t.ContentType))
 	for i := range len(t.ContentType) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ContentType[len(t.ContentType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
 	}
 	ShortcutTypeExcelAddContentType(b, b.EndVector(len(t.ContentType)))
-	ShortcutTypeExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ShortcutTypeExcelAddIsAscending(b, fbsutils.Convert(t.IsAscending, t.FlatBuffer.TableKey))
 	return ShortcutTypeExcelEnd(b)
 }
 
@@ -43,12 +43,12 @@ func (t *ShortcutTypeExcelDto) UnmarshalMessage(e *ShortcutTypeExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShortcutType"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.IsAscending = fbsutils.Convert(e.IsAscending(), t.FlatBuffer.TableKey)
 	t.ContentType = make([]ShortcutContentType, e.ContentTypeLength())
 	for i := range e.ContentTypeLength() {
 		t.ContentType[i] = e.ContentType(i)
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.IsAscending = fbsutils.Convert(e.IsAscending(), t.FlatBuffer.TableKey)
 	return nil
 }
 

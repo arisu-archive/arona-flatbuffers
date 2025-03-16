@@ -10,14 +10,14 @@ import (
 // SchoolDungeonRewardExcelDto represents a FlatBuffers table
 type SchoolDungeonRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	DungeonType             SchoolDungeonType `json:"dungeon_type"`
 	GroupId                 int64             `json:"group_id"`
-	IsDisplayed             bool              `json:"is_displayed"`
-	RewardParcelAmount      int64             `json:"reward_parcel_amount"`
-	RewardParcelId          int64             `json:"reward_parcel_id"`
-	RewardParcelProbability int64             `json:"reward_parcel_probability"`
-	RewardParcelType        ParcelType        `json:"reward_parcel_type"`
+	DungeonType             SchoolDungeonType `json:"dungeon_type"`
 	RewardTag               RewardTag         `json:"reward_tag"`
+	RewardParcelType        ParcelType        `json:"reward_parcel_type"`
+	RewardParcelId          int64             `json:"reward_parcel_id"`
+	RewardParcelAmount      int64             `json:"reward_parcel_amount"`
+	RewardParcelProbability int64             `json:"reward_parcel_probability"`
+	IsDisplayed             bool              `json:"is_displayed"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,14 +26,14 @@ func (t *SchoolDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SchoolDungeonReward"))
 	}
 	SchoolDungeonRewardExcelStart(b)
-	SchoolDungeonRewardExcelAddDungeonType(b, fbsutils.Convert(t.DungeonType, t.FlatBuffer.TableKey))
 	SchoolDungeonRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	SchoolDungeonRewardExcelAddIsDisplayed(b, fbsutils.Convert(t.IsDisplayed, t.FlatBuffer.TableKey))
-	SchoolDungeonRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
-	SchoolDungeonRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
-	SchoolDungeonRewardExcelAddRewardParcelProbability(b, fbsutils.Convert(t.RewardParcelProbability, t.FlatBuffer.TableKey))
-	SchoolDungeonRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
+	SchoolDungeonRewardExcelAddDungeonType(b, fbsutils.Convert(t.DungeonType, t.FlatBuffer.TableKey))
 	SchoolDungeonRewardExcelAddRewardTag(b, fbsutils.Convert(t.RewardTag, t.FlatBuffer.TableKey))
+	SchoolDungeonRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
+	SchoolDungeonRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
+	SchoolDungeonRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
+	SchoolDungeonRewardExcelAddRewardParcelProbability(b, fbsutils.Convert(t.RewardParcelProbability, t.FlatBuffer.TableKey))
+	SchoolDungeonRewardExcelAddIsDisplayed(b, fbsutils.Convert(t.IsDisplayed, t.FlatBuffer.TableKey))
 	return SchoolDungeonRewardExcelEnd(b)
 }
 
@@ -49,14 +49,14 @@ func (t *SchoolDungeonRewardExcelDto) UnmarshalMessage(e *SchoolDungeonRewardExc
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SchoolDungeonReward"))
 	}
-	t.DungeonType = SchoolDungeonType(int32(fbsutils.Convert(e.DungeonType(), t.FlatBuffer.TableKey)))
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)
-	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
-	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
-	t.RewardParcelProbability = fbsutils.Convert(e.RewardParcelProbability(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(int32(fbsutils.Convert(e.RewardParcelType(), t.FlatBuffer.TableKey)))
+	t.DungeonType = SchoolDungeonType(int32(fbsutils.Convert(e.DungeonType(), t.FlatBuffer.TableKey)))
 	t.RewardTag = RewardTag(int32(fbsutils.Convert(e.RewardTag(), t.FlatBuffer.TableKey)))
+	t.RewardParcelType = ParcelType(int32(fbsutils.Convert(e.RewardParcelType(), t.FlatBuffer.TableKey)))
+	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
+	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
+	t.RewardParcelProbability = fbsutils.Convert(e.RewardParcelProbability(), t.FlatBuffer.TableKey)
+	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)
 	return nil
 }
 

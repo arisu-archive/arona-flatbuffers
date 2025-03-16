@@ -1,17 +1,17 @@
 namespace FlatData;
 
 table LocalizeEtcExcel {
-    description_en: string;
-    description_jp: string;
-    description_kr: string;
-    description_th: string;
-    description_tw: string;
     key: uint;
-    name_en: string;
-    name_jp: string;
     name_kr: string;
+    description_kr: string;
+    name_jp: string;
+    description_jp: string;
     name_th: string;
+    description_th: string;
     name_tw: string;
+    description_tw: string;
+    name_en: string;
+    description_en: string;
 }
 
 root_type LocalizeEtcExcel;

@@ -10,31 +10,31 @@ import (
 // ConquestTileExcelDto represents a FlatBuffers table
 type ConquestTileExcelDto struct {
 	fbsutils.FlatBuffer
-	ConquestCostAmount int32            `json:"conquest_cost_amount"`
-	ConquestCostId     int64            `json:"conquest_cost_id"`
-	ConquestCostType   ParcelType       `json:"conquest_cost_type"`
-	ConquestRewardId   int64            `json:"conquest_reward_id"`
-	EventId            int64            `json:"event_id"`
-	GroupBonusId       int64            `json:"group_bonus_id"`
 	Id                 int64            `json:"id"`
-	ManageCostAmount   int32            `json:"manage_cost_amount"`
-	ManageCostId       int64            `json:"manage_cost_id"`
-	ManageCostType     ParcelType       `json:"manage_cost_type"`
-	MassErosionId      int64            `json:"mass_erosion_id"`
 	Name               string           `json:"name"`
-	NotMapFog          bool             `json:"not_map_fog"`
-	Playable           bool             `json:"playable"`
-	PrefabName         string           `json:"prefab_name"`
+	EventId            int64            `json:"event_id"`
 	Step               int32            `json:"step"`
-	TileImageName      string           `json:"tile_image_name"`
+	PrefabName         string           `json:"prefab_name"`
 	TileNameLocalize   string           `json:"tile_name_localize"`
+	TileImageName      string           `json:"tile_image_name"`
+	Playable           bool             `json:"playable"`
 	TileType           ConquestTileType `json:"tile_type"`
-	Upgrade2CostAmount int32            `json:"upgrade2_cost_amount"`
-	Upgrade2CostId     int64            `json:"upgrade2_cost_id"`
+	NotMapFog          bool             `json:"not_map_fog"`
+	GroupBonusId       int64            `json:"group_bonus_id"`
+	ConquestCostType   ParcelType       `json:"conquest_cost_type"`
+	ConquestCostId     int64            `json:"conquest_cost_id"`
+	ConquestCostAmount int32            `json:"conquest_cost_amount"`
+	ManageCostType     ParcelType       `json:"manage_cost_type"`
+	ManageCostId       int64            `json:"manage_cost_id"`
+	ManageCostAmount   int32            `json:"manage_cost_amount"`
+	ConquestRewardId   int64            `json:"conquest_reward_id"`
+	MassErosionId      int64            `json:"mass_erosion_id"`
 	Upgrade2CostType   ParcelType       `json:"upgrade2_cost_type"`
-	Upgrade3CostAmount int32            `json:"upgrade3_cost_amount"`
-	Upgrade3CostId     int64            `json:"upgrade3_cost_id"`
+	Upgrade2CostId     int64            `json:"upgrade2_cost_id"`
+	Upgrade2CostAmount int32            `json:"upgrade2_cost_amount"`
 	Upgrade3CostType   ParcelType       `json:"upgrade3_cost_type"`
+	Upgrade3CostId     int64            `json:"upgrade3_cost_id"`
+	Upgrade3CostAmount int32            `json:"upgrade3_cost_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -43,31 +43,31 @@ func (t *ConquestTileExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestTile"))
 	}
 	ConquestTileExcelStart(b)
-	ConquestTileExcelAddConquestCostAmount(b, fbsutils.Convert(t.ConquestCostAmount, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddConquestCostId(b, fbsutils.Convert(t.ConquestCostId, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddConquestCostType(b, fbsutils.Convert(t.ConquestCostType, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddConquestRewardId(b, fbsutils.Convert(t.ConquestRewardId, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddEventId(b, fbsutils.Convert(t.EventId, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddGroupBonusId(b, fbsutils.Convert(t.GroupBonusId, t.FlatBuffer.TableKey))
 	ConquestTileExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddManageCostAmount(b, fbsutils.Convert(t.ManageCostAmount, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddManageCostId(b, fbsutils.Convert(t.ManageCostId, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddManageCostType(b, fbsutils.Convert(t.ManageCostType, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddMassErosionId(b, fbsutils.Convert(t.MassErosionId, t.FlatBuffer.TableKey))
 	ConquestTileExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
-	ConquestTileExcelAddNotMapFog(b, fbsutils.Convert(t.NotMapFog, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddPlayable(b, fbsutils.Convert(t.Playable, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddPrefabName(b, fbsutils.Convert(b.CreateString(t.PrefabName), t.FlatBuffer.TableKey))
+	ConquestTileExcelAddEventId(b, fbsutils.Convert(t.EventId, t.FlatBuffer.TableKey))
 	ConquestTileExcelAddStep(b, fbsutils.Convert(t.Step, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddTileImageName(b, fbsutils.Convert(b.CreateString(t.TileImageName), t.FlatBuffer.TableKey))
+	ConquestTileExcelAddPrefabName(b, fbsutils.Convert(b.CreateString(t.PrefabName), t.FlatBuffer.TableKey))
 	ConquestTileExcelAddTileNameLocalize(b, fbsutils.Convert(b.CreateString(t.TileNameLocalize), t.FlatBuffer.TableKey))
+	ConquestTileExcelAddTileImageName(b, fbsutils.Convert(b.CreateString(t.TileImageName), t.FlatBuffer.TableKey))
+	ConquestTileExcelAddPlayable(b, fbsutils.Convert(t.Playable, t.FlatBuffer.TableKey))
 	ConquestTileExcelAddTileType(b, fbsutils.Convert(t.TileType, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddUpgrade2CostAmount(b, fbsutils.Convert(t.Upgrade2CostAmount, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddUpgrade2CostId(b, fbsutils.Convert(t.Upgrade2CostId, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddNotMapFog(b, fbsutils.Convert(t.NotMapFog, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddGroupBonusId(b, fbsutils.Convert(t.GroupBonusId, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddConquestCostType(b, fbsutils.Convert(t.ConquestCostType, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddConquestCostId(b, fbsutils.Convert(t.ConquestCostId, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddConquestCostAmount(b, fbsutils.Convert(t.ConquestCostAmount, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddManageCostType(b, fbsutils.Convert(t.ManageCostType, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddManageCostId(b, fbsutils.Convert(t.ManageCostId, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddManageCostAmount(b, fbsutils.Convert(t.ManageCostAmount, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddConquestRewardId(b, fbsutils.Convert(t.ConquestRewardId, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddMassErosionId(b, fbsutils.Convert(t.MassErosionId, t.FlatBuffer.TableKey))
 	ConquestTileExcelAddUpgrade2CostType(b, fbsutils.Convert(t.Upgrade2CostType, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddUpgrade3CostAmount(b, fbsutils.Convert(t.Upgrade3CostAmount, t.FlatBuffer.TableKey))
-	ConquestTileExcelAddUpgrade3CostId(b, fbsutils.Convert(t.Upgrade3CostId, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddUpgrade2CostId(b, fbsutils.Convert(t.Upgrade2CostId, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddUpgrade2CostAmount(b, fbsutils.Convert(t.Upgrade2CostAmount, t.FlatBuffer.TableKey))
 	ConquestTileExcelAddUpgrade3CostType(b, fbsutils.Convert(t.Upgrade3CostType, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddUpgrade3CostId(b, fbsutils.Convert(t.Upgrade3CostId, t.FlatBuffer.TableKey))
+	ConquestTileExcelAddUpgrade3CostAmount(b, fbsutils.Convert(t.Upgrade3CostAmount, t.FlatBuffer.TableKey))
 	return ConquestTileExcelEnd(b)
 }
 
@@ -83,31 +83,31 @@ func (t *ConquestTileExcelDto) UnmarshalMessage(e *ConquestTileExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestTile"))
 	}
-	t.ConquestCostAmount = fbsutils.Convert(e.ConquestCostAmount(), t.FlatBuffer.TableKey)
-	t.ConquestCostId = fbsutils.Convert(e.ConquestCostId(), t.FlatBuffer.TableKey)
-	t.ConquestCostType = ParcelType(int32(fbsutils.Convert(e.ConquestCostType(), t.FlatBuffer.TableKey)))
-	t.ConquestRewardId = fbsutils.Convert(e.ConquestRewardId(), t.FlatBuffer.TableKey)
-	t.EventId = fbsutils.Convert(e.EventId(), t.FlatBuffer.TableKey)
-	t.GroupBonusId = fbsutils.Convert(e.GroupBonusId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ManageCostAmount = fbsutils.Convert(e.ManageCostAmount(), t.FlatBuffer.TableKey)
-	t.ManageCostId = fbsutils.Convert(e.ManageCostId(), t.FlatBuffer.TableKey)
-	t.ManageCostType = ParcelType(int32(fbsutils.Convert(e.ManageCostType(), t.FlatBuffer.TableKey)))
-	t.MassErosionId = fbsutils.Convert(e.MassErosionId(), t.FlatBuffer.TableKey)
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.NotMapFog = fbsutils.Convert(e.NotMapFog(), t.FlatBuffer.TableKey)
-	t.Playable = fbsutils.Convert(e.Playable(), t.FlatBuffer.TableKey)
-	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
+	t.EventId = fbsutils.Convert(e.EventId(), t.FlatBuffer.TableKey)
 	t.Step = fbsutils.Convert(e.Step(), t.FlatBuffer.TableKey)
-	t.TileImageName = fbsutils.Convert(string(e.TileImageName()), t.FlatBuffer.TableKey)
+	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
 	t.TileNameLocalize = fbsutils.Convert(string(e.TileNameLocalize()), t.FlatBuffer.TableKey)
+	t.TileImageName = fbsutils.Convert(string(e.TileImageName()), t.FlatBuffer.TableKey)
+	t.Playable = fbsutils.Convert(e.Playable(), t.FlatBuffer.TableKey)
 	t.TileType = ConquestTileType(int32(fbsutils.Convert(e.TileType(), t.FlatBuffer.TableKey)))
-	t.Upgrade2CostAmount = fbsutils.Convert(e.Upgrade2CostAmount(), t.FlatBuffer.TableKey)
-	t.Upgrade2CostId = fbsutils.Convert(e.Upgrade2CostId(), t.FlatBuffer.TableKey)
+	t.NotMapFog = fbsutils.Convert(e.NotMapFog(), t.FlatBuffer.TableKey)
+	t.GroupBonusId = fbsutils.Convert(e.GroupBonusId(), t.FlatBuffer.TableKey)
+	t.ConquestCostType = ParcelType(int32(fbsutils.Convert(e.ConquestCostType(), t.FlatBuffer.TableKey)))
+	t.ConquestCostId = fbsutils.Convert(e.ConquestCostId(), t.FlatBuffer.TableKey)
+	t.ConquestCostAmount = fbsutils.Convert(e.ConquestCostAmount(), t.FlatBuffer.TableKey)
+	t.ManageCostType = ParcelType(int32(fbsutils.Convert(e.ManageCostType(), t.FlatBuffer.TableKey)))
+	t.ManageCostId = fbsutils.Convert(e.ManageCostId(), t.FlatBuffer.TableKey)
+	t.ManageCostAmount = fbsutils.Convert(e.ManageCostAmount(), t.FlatBuffer.TableKey)
+	t.ConquestRewardId = fbsutils.Convert(e.ConquestRewardId(), t.FlatBuffer.TableKey)
+	t.MassErosionId = fbsutils.Convert(e.MassErosionId(), t.FlatBuffer.TableKey)
 	t.Upgrade2CostType = ParcelType(int32(fbsutils.Convert(e.Upgrade2CostType(), t.FlatBuffer.TableKey)))
-	t.Upgrade3CostAmount = fbsutils.Convert(e.Upgrade3CostAmount(), t.FlatBuffer.TableKey)
-	t.Upgrade3CostId = fbsutils.Convert(e.Upgrade3CostId(), t.FlatBuffer.TableKey)
+	t.Upgrade2CostId = fbsutils.Convert(e.Upgrade2CostId(), t.FlatBuffer.TableKey)
+	t.Upgrade2CostAmount = fbsutils.Convert(e.Upgrade2CostAmount(), t.FlatBuffer.TableKey)
 	t.Upgrade3CostType = ParcelType(int32(fbsutils.Convert(e.Upgrade3CostType(), t.FlatBuffer.TableKey)))
+	t.Upgrade3CostId = fbsutils.Convert(e.Upgrade3CostId(), t.FlatBuffer.TableKey)
+	t.Upgrade3CostAmount = fbsutils.Convert(e.Upgrade3CostAmount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -41,7 +41,7 @@ func (rcv *ConquestCalculateExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConquestCalculateExcel) CalculateConditionParcelAmount() int64 {
+func (rcv *ConquestCalculateExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -49,7 +49,7 @@ func (rcv *ConquestCalculateExcel) CalculateConditionParcelAmount() int64 {
 	return 0
 }
 
-func (rcv *ConquestCalculateExcel) MutateCalculateConditionParcelAmount(n int64) bool {
+func (rcv *ConquestCalculateExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
@@ -77,7 +77,7 @@ func (rcv *ConquestCalculateExcel) MutateCalculateConditionParcelUniqueId(n int6
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *ConquestCalculateExcel) EventContentId() int64 {
+func (rcv *ConquestCalculateExcel) CalculateConditionParcelAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -85,15 +85,15 @@ func (rcv *ConquestCalculateExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *ConquestCalculateExcel) MutateEventContentId(n int64) bool {
+func (rcv *ConquestCalculateExcel) MutateCalculateConditionParcelAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func ConquestCalculateExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func ConquestCalculateExcelAddCalculateConditionParcelAmount(builder *flatbuffers.Builder, calculateConditionParcelAmount int64) {
-	builder.PrependInt64Slot(0, calculateConditionParcelAmount, 0)
+func ConquestCalculateExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(0, eventContentId, 0)
 }
 func ConquestCalculateExcelAddCalculateConditionParcelType(builder *flatbuffers.Builder, calculateConditionParcelType ParcelType) {
 	builder.PrependInt32Slot(1, int32(calculateConditionParcelType), 0)
@@ -101,8 +101,8 @@ func ConquestCalculateExcelAddCalculateConditionParcelType(builder *flatbuffers.
 func ConquestCalculateExcelAddCalculateConditionParcelUniqueId(builder *flatbuffers.Builder, calculateConditionParcelUniqueId int64) {
 	builder.PrependInt64Slot(2, calculateConditionParcelUniqueId, 0)
 }
-func ConquestCalculateExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(3, eventContentId, 0)
+func ConquestCalculateExcelAddCalculateConditionParcelAmount(builder *flatbuffers.Builder, calculateConditionParcelAmount int64) {
+	builder.PrependInt64Slot(3, calculateConditionParcelAmount, 0)
 }
 func ConquestCalculateExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

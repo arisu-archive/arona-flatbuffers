@@ -10,8 +10,8 @@ import (
 // AddressableBlackListExcelDto represents a FlatBuffers table
 type AddressableBlackListExcelDto struct {
 	fbsutils.FlatBuffer
-	FolderPath   []string `json:"folder_path"`
 	Id           int64    `json:"id"`
+	FolderPath   []string `json:"folder_path"`
 	ResourcePath []string `json:"resource_path"`
 }
 
@@ -21,12 +21,12 @@ func (t *AddressableBlackListExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AddressableBlackList"))
 	}
 	AddressableBlackListExcelStart(b)
+	AddressableBlackListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	AddressableBlackListExcelStartFolderPathVector(b, len(t.FolderPath))
 	for i := range len(t.FolderPath) {
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.FolderPath[len(t.FolderPath)-i-1]), t.FlatBuffer.TableKey))
 	}
 	AddressableBlackListExcelAddFolderPath(b, b.EndVector(len(t.FolderPath)))
-	AddressableBlackListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	AddressableBlackListExcelStartResourcePathVector(b, len(t.ResourcePath))
 	for i := range len(t.ResourcePath) {
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.ResourcePath[len(t.ResourcePath)-i-1]), t.FlatBuffer.TableKey))
@@ -47,11 +47,11 @@ func (t *AddressableBlackListExcelDto) UnmarshalMessage(e *AddressableBlackListE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AddressableBlackList"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.FolderPath = make([]string, e.FolderPathLength())
 	for i := range e.FolderPathLength() {
 		t.FolderPath[i] = string(e.FolderPath(i))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ResourcePath = make([]string, e.ResourcePathLength())
 	for i := range e.ResourcePathLength() {
 		t.ResourcePath[i] = string(e.ResourcePath(i))

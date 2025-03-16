@@ -65,8 +65,20 @@ func (rcv *RecipeSelectionAutoUseExcel) MutateParcelType(n ParcelType) bool {
 	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
-func (rcv *RecipeSelectionAutoUseExcel) Priority(j int) int64 {
+func (rcv *RecipeSelectionAutoUseExcel) TargetItemId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *RecipeSelectionAutoUseExcel) MutateTargetItemId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *RecipeSelectionAutoUseExcel) Priority(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -75,7 +87,7 @@ func (rcv *RecipeSelectionAutoUseExcel) Priority(j int) int64 {
 }
 
 func (rcv *RecipeSelectionAutoUseExcel) PriorityLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -83,24 +95,12 @@ func (rcv *RecipeSelectionAutoUseExcel) PriorityLength() int {
 }
 
 func (rcv *RecipeSelectionAutoUseExcel) MutatePriority(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
-}
-
-func (rcv *RecipeSelectionAutoUseExcel) TargetItemId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *RecipeSelectionAutoUseExcel) MutateTargetItemId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func RecipeSelectionAutoUseExcelStart(builder *flatbuffers.Builder) {
@@ -112,14 +112,14 @@ func RecipeSelectionAutoUseExcelAddId(builder *flatbuffers.Builder, id int64) {
 func RecipeSelectionAutoUseExcelAddParcelType(builder *flatbuffers.Builder, parcelType ParcelType) {
 	builder.PrependInt32Slot(1, int32(parcelType), 0)
 }
+func RecipeSelectionAutoUseExcelAddTargetItemId(builder *flatbuffers.Builder, targetItemId int64) {
+	builder.PrependInt64Slot(2, targetItemId, 0)
+}
 func RecipeSelectionAutoUseExcelAddPriority(builder *flatbuffers.Builder, priority flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(priority), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(priority), 0)
 }
 func RecipeSelectionAutoUseExcelStartPriorityVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
-}
-func RecipeSelectionAutoUseExcelAddTargetItemId(builder *flatbuffers.Builder, targetItemId int64) {
-	builder.PrependInt64Slot(3, targetItemId, 0)
 }
 func RecipeSelectionAutoUseExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -11,9 +11,9 @@ import (
 type CharacterPotentialExcelDto struct {
 	fbsutils.FlatBuffer
 	Id                         int64                      `json:"id"`
-	IsUnnecessaryStat          bool                       `json:"is_unnecessary_stat"`
-	PotentialStatBonusRateType PotentialStatBonusRateType `json:"potential_stat_bonus_rate_type"`
 	PotentialStatGroupId       int64                      `json:"potential_stat_group_id"`
+	PotentialStatBonusRateType PotentialStatBonusRateType `json:"potential_stat_bonus_rate_type"`
+	IsUnnecessaryStat          bool                       `json:"is_unnecessary_stat"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,9 +23,9 @@ func (t *CharacterPotentialExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	}
 	CharacterPotentialExcelStart(b)
 	CharacterPotentialExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CharacterPotentialExcelAddIsUnnecessaryStat(b, fbsutils.Convert(t.IsUnnecessaryStat, t.FlatBuffer.TableKey))
-	CharacterPotentialExcelAddPotentialStatBonusRateType(b, fbsutils.Convert(t.PotentialStatBonusRateType, t.FlatBuffer.TableKey))
 	CharacterPotentialExcelAddPotentialStatGroupId(b, fbsutils.Convert(t.PotentialStatGroupId, t.FlatBuffer.TableKey))
+	CharacterPotentialExcelAddPotentialStatBonusRateType(b, fbsutils.Convert(t.PotentialStatBonusRateType, t.FlatBuffer.TableKey))
+	CharacterPotentialExcelAddIsUnnecessaryStat(b, fbsutils.Convert(t.IsUnnecessaryStat, t.FlatBuffer.TableKey))
 	return CharacterPotentialExcelEnd(b)
 }
 
@@ -42,9 +42,9 @@ func (t *CharacterPotentialExcelDto) UnmarshalMessage(e *CharacterPotentialExcel
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterPotential"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.IsUnnecessaryStat = fbsutils.Convert(e.IsUnnecessaryStat(), t.FlatBuffer.TableKey)
-	t.PotentialStatBonusRateType = PotentialStatBonusRateType(int32(fbsutils.Convert(e.PotentialStatBonusRateType(), t.FlatBuffer.TableKey)))
 	t.PotentialStatGroupId = fbsutils.Convert(e.PotentialStatGroupId(), t.FlatBuffer.TableKey)
+	t.PotentialStatBonusRateType = PotentialStatBonusRateType(int32(fbsutils.Convert(e.PotentialStatBonusRateType(), t.FlatBuffer.TableKey)))
+	t.IsUnnecessaryStat = fbsutils.Convert(e.IsUnnecessaryStat(), t.FlatBuffer.TableKey)
 	return nil
 }
 

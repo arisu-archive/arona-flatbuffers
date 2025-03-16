@@ -10,12 +10,12 @@ import (
 // ScenarioBGEffectExcelDto represents a FlatBuffers table
 type ScenarioBGEffectExcelDto struct {
 	fbsutils.FlatBuffer
+	Name       uint32           `json:"name"`
 	Effect     string           `json:"effect"`
 	Effect2    string           `json:"effect2"`
-	Name       uint32           `json:"name"`
 	Scroll     ScenarioBGScroll `json:"scroll"`
-	ScrollFrom int64            `json:"scroll_from"`
 	ScrollTime int64            `json:"scroll_time"`
+	ScrollFrom int64            `json:"scroll_from"`
 	ScrollTo   int64            `json:"scroll_to"`
 }
 
@@ -25,12 +25,12 @@ func (t *ScenarioBGEffectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioBGEffect"))
 	}
 	ScenarioBGEffectExcelStart(b)
+	ScenarioBGEffectExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	ScenarioBGEffectExcelAddEffect(b, fbsutils.Convert(b.CreateString(t.Effect), t.FlatBuffer.TableKey))
 	ScenarioBGEffectExcelAddEffect2(b, fbsutils.Convert(b.CreateString(t.Effect2), t.FlatBuffer.TableKey))
-	ScenarioBGEffectExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	ScenarioBGEffectExcelAddScroll(b, fbsutils.Convert(t.Scroll, t.FlatBuffer.TableKey))
-	ScenarioBGEffectExcelAddScrollFrom(b, fbsutils.Convert(t.ScrollFrom, t.FlatBuffer.TableKey))
 	ScenarioBGEffectExcelAddScrollTime(b, fbsutils.Convert(t.ScrollTime, t.FlatBuffer.TableKey))
+	ScenarioBGEffectExcelAddScrollFrom(b, fbsutils.Convert(t.ScrollFrom, t.FlatBuffer.TableKey))
 	ScenarioBGEffectExcelAddScrollTo(b, fbsutils.Convert(t.ScrollTo, t.FlatBuffer.TableKey))
 	return ScenarioBGEffectExcelEnd(b)
 }
@@ -47,12 +47,12 @@ func (t *ScenarioBGEffectExcelDto) UnmarshalMessage(e *ScenarioBGEffectExcel) er
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioBGEffect"))
 	}
+	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
 	t.Effect = fbsutils.Convert(string(e.Effect()), t.FlatBuffer.TableKey)
 	t.Effect2 = fbsutils.Convert(string(e.Effect2()), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
 	t.Scroll = ScenarioBGScroll(int32(fbsutils.Convert(e.Scroll(), t.FlatBuffer.TableKey)))
-	t.ScrollFrom = fbsutils.Convert(e.ScrollFrom(), t.FlatBuffer.TableKey)
 	t.ScrollTime = fbsutils.Convert(e.ScrollTime(), t.FlatBuffer.TableKey)
+	t.ScrollFrom = fbsutils.Convert(e.ScrollFrom(), t.FlatBuffer.TableKey)
 	t.ScrollTo = fbsutils.Convert(e.ScrollTo(), t.FlatBuffer.TableKey)
 	return nil
 }

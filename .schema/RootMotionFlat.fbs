@@ -1,11 +1,11 @@
-include "Motion.fbs";
 include "Form.fbs";
+include "Motion.fbs";
 
 namespace FlatData;
 
 table RootMotionFlat {
-    ex_skills: [Motion];
     forms: [Form];
+    ex_skills: [Motion];
     move_left: Motion;
     move_right: Motion;
 }

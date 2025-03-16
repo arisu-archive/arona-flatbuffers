@@ -41,34 +41,8 @@ func (rcv *EliminateRaidStageLimitedRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *EliminateRaidStageLimitedRewardExcel) MutateLimitedRewardAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
 func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -76,11 +50,11 @@ func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardId() int64 {
 }
 
 func (rcv *EliminateRaidStageLimitedRewardExcel) MutateLimitedRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -89,7 +63,7 @@ func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardParcelType(j int) 
 }
 
 func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -97,7 +71,7 @@ func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardParcelTypeLength()
 }
 
 func (rcv *EliminateRaidStageLimitedRewardExcel) MutateLimitedRewardParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -106,7 +80,7 @@ func (rcv *EliminateRaidStageLimitedRewardExcel) MutateLimitedRewardParcelType(j
 }
 
 func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardParcelUniqueId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -115,7 +89,7 @@ func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardParcelUniqueId(j i
 }
 
 func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardParcelUniqueIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -123,6 +97,32 @@ func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardParcelUniqueIdLeng
 }
 
 func (rcv *EliminateRaidStageLimitedRewardExcel) MutateLimitedRewardParcelUniqueId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardAmount(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *EliminateRaidStageLimitedRewardExcel) LimitedRewardAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EliminateRaidStageLimitedRewardExcel) MutateLimitedRewardAmount(j int, n int64) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
@@ -134,25 +134,25 @@ func (rcv *EliminateRaidStageLimitedRewardExcel) MutateLimitedRewardParcelUnique
 func EliminateRaidStageLimitedRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func EliminateRaidStageLimitedRewardExcelAddLimitedRewardAmount(builder *flatbuffers.Builder, limitedRewardAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(limitedRewardAmount), 0)
-}
-func EliminateRaidStageLimitedRewardExcelStartLimitedRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
 func EliminateRaidStageLimitedRewardExcelAddLimitedRewardId(builder *flatbuffers.Builder, limitedRewardId int64) {
-	builder.PrependInt64Slot(1, limitedRewardId, 0)
+	builder.PrependInt64Slot(0, limitedRewardId, 0)
 }
 func EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelType(builder *flatbuffers.Builder, limitedRewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(limitedRewardParcelType), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(limitedRewardParcelType), 0)
 }
 func EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelUniqueId(builder *flatbuffers.Builder, limitedRewardParcelUniqueId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(limitedRewardParcelUniqueId), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(limitedRewardParcelUniqueId), 0)
 }
 func EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelUniqueIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func EliminateRaidStageLimitedRewardExcelAddLimitedRewardAmount(builder *flatbuffers.Builder, limitedRewardAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(limitedRewardAmount), 0)
+}
+func EliminateRaidStageLimitedRewardExcelStartLimitedRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func EliminateRaidStageLimitedRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {

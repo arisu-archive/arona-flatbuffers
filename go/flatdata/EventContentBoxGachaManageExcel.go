@@ -53,7 +53,7 @@ func (rcv *EventContentBoxGachaManageExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EventContentBoxGachaManageExcel) GoodsId() int64 {
+func (rcv *EventContentBoxGachaManageExcel) Round() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -61,12 +61,24 @@ func (rcv *EventContentBoxGachaManageExcel) GoodsId() int64 {
 	return 0
 }
 
-func (rcv *EventContentBoxGachaManageExcel) MutateGoodsId(n int64) bool {
+func (rcv *EventContentBoxGachaManageExcel) MutateRound(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentBoxGachaManageExcel) IsLoop() bool {
+func (rcv *EventContentBoxGachaManageExcel) GoodsId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentBoxGachaManageExcel) MutateGoodsId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *EventContentBoxGachaManageExcel) IsLoop() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -74,19 +86,7 @@ func (rcv *EventContentBoxGachaManageExcel) IsLoop() bool {
 }
 
 func (rcv *EventContentBoxGachaManageExcel) MutateIsLoop(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
-}
-
-func (rcv *EventContentBoxGachaManageExcel) Round() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentBoxGachaManageExcel) MutateRound(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+	return rcv._tab.MutateBoolSlot(10, n)
 }
 
 func EventContentBoxGachaManageExcelStart(builder *flatbuffers.Builder) {
@@ -95,14 +95,14 @@ func EventContentBoxGachaManageExcelStart(builder *flatbuffers.Builder) {
 func EventContentBoxGachaManageExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
 }
+func EventContentBoxGachaManageExcelAddRound(builder *flatbuffers.Builder, round int64) {
+	builder.PrependInt64Slot(1, round, 0)
+}
 func EventContentBoxGachaManageExcelAddGoodsId(builder *flatbuffers.Builder, goodsId int64) {
-	builder.PrependInt64Slot(1, goodsId, 0)
+	builder.PrependInt64Slot(2, goodsId, 0)
 }
 func EventContentBoxGachaManageExcelAddIsLoop(builder *flatbuffers.Builder, isLoop bool) {
-	builder.PrependBoolSlot(2, isLoop, false)
-}
-func EventContentBoxGachaManageExcelAddRound(builder *flatbuffers.Builder, round int64) {
-	builder.PrependInt64Slot(3, round, 0)
+	builder.PrependBoolSlot(3, isLoop, false)
 }
 func EventContentBoxGachaManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

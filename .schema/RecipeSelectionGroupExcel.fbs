@@ -3,10 +3,10 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table RecipeSelectionGroupExcel {
-    parcel_id: long;
-    parcel_type: ParcelType;
-    recipe_selection_group_component_id: long;
     recipe_selection_group_id: long;
-    result_amount_max: long;
+    recipe_selection_group_component_id: long;
+    parcel_type: ParcelType;
+    parcel_id: long;
     result_amount_min: long;
+    result_amount_max: long;
 }

@@ -25,73 +25,73 @@ class CharacterDialogExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CharacterDialogExcel
-    def ActionName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CharacterDialogExcel
-    def AnimationName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CharacterDialogExcel
-    def Anniversary(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # CharacterDialogExcel
-    def ApplyPosition(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # CharacterDialogExcel
     def CharacterId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # CharacterDialogExcel
-    def CollectionVisible(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
 
     # CharacterDialogExcel
     def CostumeUniqueId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterDialogExcel
-    def CvCollectionType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+    def DisplayOrder(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterDialogExcel
+    def ProductionStep(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterDialogExcel
     def DialogCategory(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterDialogExcel
     def DialogCondition(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterDialogExcel
+    def Anniversary(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterDialogExcel
+    def StartDate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CharacterDialogExcel
+    def EndDate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CharacterDialogExcel
+    def GroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterDialogExcel
@@ -102,11 +102,11 @@ class CharacterDialogExcel(object):
         return 0
 
     # CharacterDialogExcel
-    def DisplayOrder(self):
+    def ActionName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # CharacterDialogExcel
     def Duration(self):
@@ -123,60 +123,80 @@ class CharacterDialogExcel(object):
         return 0
 
     # CharacterDialogExcel
-    def EndDate(self):
+    def AnimationName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CharacterDialogExcel
-    def GroupId(self):
+    def LocalizeKr(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CharacterDialogExcel
-    def LocalizeCvGroup(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CharacterDialogExcel
-    def LocalizeEn(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CharacterDialogExcel
     def LocalizeJp(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CharacterDialogExcel
-    def LocalizeKr(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CharacterDialogExcel
     def LocalizeTh(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CharacterDialogExcel
     def LocalizeTw(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
+
+    # CharacterDialogExcel
+    def LocalizeEn(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CharacterDialogExcel
+    def VoiceId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # CharacterDialogExcel
+    def VoiceIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Uint32Flags, o)
+        return 0
+
+    # CharacterDialogExcel
+    def VoiceIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CharacterDialogExcel
+    def VoiceIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        return o == 0
+
+    # CharacterDialogExcel
+    def ApplyPosition(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # CharacterDialogExcel
     def PosX(self):
@@ -193,25 +213,25 @@ class CharacterDialogExcel(object):
         return 0.0
 
     # CharacterDialogExcel
-    def ProductionStep(self):
+    def CollectionVisible(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # CharacterDialogExcel
+    def CvCollectionType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterDialogExcel
-    def StartDate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CharacterDialogExcel
-    def TeenMode(self):
+    def UnlockFavorRank(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # CharacterDialogExcel
     def UnlockEquipWeapon(self):
@@ -221,38 +241,18 @@ class CharacterDialogExcel(object):
         return False
 
     # CharacterDialogExcel
-    def UnlockFavorRank(self):
+    def LocalizeCvGroup(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # CharacterDialogExcel
-    def VoiceId(self, j):
+    def TeenMode(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # CharacterDialogExcel
-    def VoiceIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Uint32Flags, o)
-        return 0
-
-    # CharacterDialogExcel
-    def VoiceIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # CharacterDialogExcel
-    def VoiceIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
-        return o == 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
 def CharacterDialogExcelStart(builder):
     builder.StartObject(30)
@@ -260,65 +260,65 @@ def CharacterDialogExcelStart(builder):
 def Start(builder):
     CharacterDialogExcelStart(builder)
 
-def CharacterDialogExcelAddActionName(builder, actionName):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(actionName), 0)
-
-def AddActionName(builder, actionName):
-    CharacterDialogExcelAddActionName(builder, actionName)
-
-def CharacterDialogExcelAddAnimationName(builder, animationName):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(animationName), 0)
-
-def AddAnimationName(builder, animationName):
-    CharacterDialogExcelAddAnimationName(builder, animationName)
-
-def CharacterDialogExcelAddAnniversary(builder, anniversary):
-    builder.PrependInt32Slot(2, anniversary, 0)
-
-def AddAnniversary(builder, anniversary):
-    CharacterDialogExcelAddAnniversary(builder, anniversary)
-
-def CharacterDialogExcelAddApplyPosition(builder, applyPosition):
-    builder.PrependBoolSlot(3, applyPosition, 0)
-
-def AddApplyPosition(builder, applyPosition):
-    CharacterDialogExcelAddApplyPosition(builder, applyPosition)
-
 def CharacterDialogExcelAddCharacterId(builder, characterId):
-    builder.PrependInt64Slot(4, characterId, 0)
+    builder.PrependInt64Slot(0, characterId, 0)
 
 def AddCharacterId(builder, characterId):
     CharacterDialogExcelAddCharacterId(builder, characterId)
 
-def CharacterDialogExcelAddCollectionVisible(builder, collectionVisible):
-    builder.PrependBoolSlot(5, collectionVisible, 0)
-
-def AddCollectionVisible(builder, collectionVisible):
-    CharacterDialogExcelAddCollectionVisible(builder, collectionVisible)
-
 def CharacterDialogExcelAddCostumeUniqueId(builder, costumeUniqueId):
-    builder.PrependInt64Slot(6, costumeUniqueId, 0)
+    builder.PrependInt64Slot(1, costumeUniqueId, 0)
 
 def AddCostumeUniqueId(builder, costumeUniqueId):
     CharacterDialogExcelAddCostumeUniqueId(builder, costumeUniqueId)
 
-def CharacterDialogExcelAddCvCollectionType(builder, cvCollectionType):
-    builder.PrependInt32Slot(7, cvCollectionType, 0)
+def CharacterDialogExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt64Slot(2, displayOrder, 0)
 
-def AddCvCollectionType(builder, cvCollectionType):
-    CharacterDialogExcelAddCvCollectionType(builder, cvCollectionType)
+def AddDisplayOrder(builder, displayOrder):
+    CharacterDialogExcelAddDisplayOrder(builder, displayOrder)
+
+def CharacterDialogExcelAddProductionStep(builder, productionStep):
+    builder.PrependInt32Slot(3, productionStep, 0)
+
+def AddProductionStep(builder, productionStep):
+    CharacterDialogExcelAddProductionStep(builder, productionStep)
 
 def CharacterDialogExcelAddDialogCategory(builder, dialogCategory):
-    builder.PrependInt32Slot(8, dialogCategory, 0)
+    builder.PrependInt32Slot(4, dialogCategory, 0)
 
 def AddDialogCategory(builder, dialogCategory):
     CharacterDialogExcelAddDialogCategory(builder, dialogCategory)
 
 def CharacterDialogExcelAddDialogCondition(builder, dialogCondition):
-    builder.PrependInt32Slot(9, dialogCondition, 0)
+    builder.PrependInt32Slot(5, dialogCondition, 0)
 
 def AddDialogCondition(builder, dialogCondition):
     CharacterDialogExcelAddDialogCondition(builder, dialogCondition)
+
+def CharacterDialogExcelAddAnniversary(builder, anniversary):
+    builder.PrependInt32Slot(6, anniversary, 0)
+
+def AddAnniversary(builder, anniversary):
+    CharacterDialogExcelAddAnniversary(builder, anniversary)
+
+def CharacterDialogExcelAddStartDate(builder, startDate):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
+
+def AddStartDate(builder, startDate):
+    CharacterDialogExcelAddStartDate(builder, startDate)
+
+def CharacterDialogExcelAddEndDate(builder, endDate):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
+
+def AddEndDate(builder, endDate):
+    CharacterDialogExcelAddEndDate(builder, endDate)
+
+def CharacterDialogExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(9, groupId, 0)
+
+def AddGroupId(builder, groupId):
+    CharacterDialogExcelAddGroupId(builder, groupId)
 
 def CharacterDialogExcelAddDialogType(builder, dialogType):
     builder.PrependInt32Slot(10, dialogType, 0)
@@ -326,11 +326,11 @@ def CharacterDialogExcelAddDialogType(builder, dialogType):
 def AddDialogType(builder, dialogType):
     CharacterDialogExcelAddDialogType(builder, dialogType)
 
-def CharacterDialogExcelAddDisplayOrder(builder, displayOrder):
-    builder.PrependInt64Slot(11, displayOrder, 0)
+def CharacterDialogExcelAddActionName(builder, actionName):
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(actionName), 0)
 
-def AddDisplayOrder(builder, displayOrder):
-    CharacterDialogExcelAddDisplayOrder(builder, displayOrder)
+def AddActionName(builder, actionName):
+    CharacterDialogExcelAddActionName(builder, actionName)
 
 def CharacterDialogExcelAddDuration(builder, duration):
     builder.PrependInt64Slot(12, duration, 0)
@@ -344,53 +344,59 @@ def CharacterDialogExcelAddDurationKr(builder, durationKr):
 def AddDurationKr(builder, durationKr):
     CharacterDialogExcelAddDurationKr(builder, durationKr)
 
-def CharacterDialogExcelAddEndDate(builder, endDate):
-    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
+def CharacterDialogExcelAddAnimationName(builder, animationName):
+    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(animationName), 0)
 
-def AddEndDate(builder, endDate):
-    CharacterDialogExcelAddEndDate(builder, endDate)
-
-def CharacterDialogExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(15, groupId, 0)
-
-def AddGroupId(builder, groupId):
-    CharacterDialogExcelAddGroupId(builder, groupId)
-
-def CharacterDialogExcelAddLocalizeCvGroup(builder, localizeCvGroup):
-    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCvGroup), 0)
-
-def AddLocalizeCvGroup(builder, localizeCvGroup):
-    CharacterDialogExcelAddLocalizeCvGroup(builder, localizeCvGroup)
-
-def CharacterDialogExcelAddLocalizeEn(builder, localizeEn):
-    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(localizeEn), 0)
-
-def AddLocalizeEn(builder, localizeEn):
-    CharacterDialogExcelAddLocalizeEn(builder, localizeEn)
-
-def CharacterDialogExcelAddLocalizeJp(builder, localizeJp):
-    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(localizeJp), 0)
-
-def AddLocalizeJp(builder, localizeJp):
-    CharacterDialogExcelAddLocalizeJp(builder, localizeJp)
+def AddAnimationName(builder, animationName):
+    CharacterDialogExcelAddAnimationName(builder, animationName)
 
 def CharacterDialogExcelAddLocalizeKr(builder, localizeKr):
-    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(localizeKr), 0)
+    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(localizeKr), 0)
 
 def AddLocalizeKr(builder, localizeKr):
     CharacterDialogExcelAddLocalizeKr(builder, localizeKr)
 
+def CharacterDialogExcelAddLocalizeJp(builder, localizeJp):
+    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(localizeJp), 0)
+
+def AddLocalizeJp(builder, localizeJp):
+    CharacterDialogExcelAddLocalizeJp(builder, localizeJp)
+
 def CharacterDialogExcelAddLocalizeTh(builder, localizeTh):
-    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTh), 0)
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTh), 0)
 
 def AddLocalizeTh(builder, localizeTh):
     CharacterDialogExcelAddLocalizeTh(builder, localizeTh)
 
 def CharacterDialogExcelAddLocalizeTw(builder, localizeTw):
-    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTw), 0)
+    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTw), 0)
 
 def AddLocalizeTw(builder, localizeTw):
     CharacterDialogExcelAddLocalizeTw(builder, localizeTw)
+
+def CharacterDialogExcelAddLocalizeEn(builder, localizeEn):
+    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(localizeEn), 0)
+
+def AddLocalizeEn(builder, localizeEn):
+    CharacterDialogExcelAddLocalizeEn(builder, localizeEn)
+
+def CharacterDialogExcelAddVoiceId(builder, voiceId):
+    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(voiceId), 0)
+
+def AddVoiceId(builder, voiceId):
+    CharacterDialogExcelAddVoiceId(builder, voiceId)
+
+def CharacterDialogExcelStartVoiceIdVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartVoiceIdVector(builder, numElems):
+    return CharacterDialogExcelStartVoiceIdVector(builder, numElems)
+
+def CharacterDialogExcelAddApplyPosition(builder, applyPosition):
+    builder.PrependBoolSlot(21, applyPosition, 0)
+
+def AddApplyPosition(builder, applyPosition):
+    CharacterDialogExcelAddApplyPosition(builder, applyPosition)
 
 def CharacterDialogExcelAddPosX(builder, posX):
     builder.PrependFloat32Slot(22, posX, 0.0)
@@ -404,23 +410,23 @@ def CharacterDialogExcelAddPosY(builder, posY):
 def AddPosY(builder, posY):
     CharacterDialogExcelAddPosY(builder, posY)
 
-def CharacterDialogExcelAddProductionStep(builder, productionStep):
-    builder.PrependInt32Slot(24, productionStep, 0)
+def CharacterDialogExcelAddCollectionVisible(builder, collectionVisible):
+    builder.PrependBoolSlot(24, collectionVisible, 0)
 
-def AddProductionStep(builder, productionStep):
-    CharacterDialogExcelAddProductionStep(builder, productionStep)
+def AddCollectionVisible(builder, collectionVisible):
+    CharacterDialogExcelAddCollectionVisible(builder, collectionVisible)
 
-def CharacterDialogExcelAddStartDate(builder, startDate):
-    builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
+def CharacterDialogExcelAddCvCollectionType(builder, cvCollectionType):
+    builder.PrependInt32Slot(25, cvCollectionType, 0)
 
-def AddStartDate(builder, startDate):
-    CharacterDialogExcelAddStartDate(builder, startDate)
+def AddCvCollectionType(builder, cvCollectionType):
+    CharacterDialogExcelAddCvCollectionType(builder, cvCollectionType)
 
-def CharacterDialogExcelAddTeenMode(builder, teenMode):
-    builder.PrependBoolSlot(26, teenMode, 0)
+def CharacterDialogExcelAddUnlockFavorRank(builder, unlockFavorRank):
+    builder.PrependInt64Slot(26, unlockFavorRank, 0)
 
-def AddTeenMode(builder, teenMode):
-    CharacterDialogExcelAddTeenMode(builder, teenMode)
+def AddUnlockFavorRank(builder, unlockFavorRank):
+    CharacterDialogExcelAddUnlockFavorRank(builder, unlockFavorRank)
 
 def CharacterDialogExcelAddUnlockEquipWeapon(builder, unlockEquipWeapon):
     builder.PrependBoolSlot(27, unlockEquipWeapon, 0)
@@ -428,23 +434,17 @@ def CharacterDialogExcelAddUnlockEquipWeapon(builder, unlockEquipWeapon):
 def AddUnlockEquipWeapon(builder, unlockEquipWeapon):
     CharacterDialogExcelAddUnlockEquipWeapon(builder, unlockEquipWeapon)
 
-def CharacterDialogExcelAddUnlockFavorRank(builder, unlockFavorRank):
-    builder.PrependInt64Slot(28, unlockFavorRank, 0)
+def CharacterDialogExcelAddLocalizeCvGroup(builder, localizeCvGroup):
+    builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCvGroup), 0)
 
-def AddUnlockFavorRank(builder, unlockFavorRank):
-    CharacterDialogExcelAddUnlockFavorRank(builder, unlockFavorRank)
+def AddLocalizeCvGroup(builder, localizeCvGroup):
+    CharacterDialogExcelAddLocalizeCvGroup(builder, localizeCvGroup)
 
-def CharacterDialogExcelAddVoiceId(builder, voiceId):
-    builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(voiceId), 0)
+def CharacterDialogExcelAddTeenMode(builder, teenMode):
+    builder.PrependBoolSlot(29, teenMode, 0)
 
-def AddVoiceId(builder, voiceId):
-    CharacterDialogExcelAddVoiceId(builder, voiceId)
-
-def CharacterDialogExcelStartVoiceIdVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartVoiceIdVector(builder, numElems):
-    return CharacterDialogExcelStartVoiceIdVector(builder, numElems)
+def AddTeenMode(builder, teenMode):
+    CharacterDialogExcelAddTeenMode(builder, teenMode)
 
 def CharacterDialogExcelEnd(builder):
     return builder.EndObject()

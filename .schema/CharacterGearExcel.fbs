@@ -1,23 +1,23 @@
-include "StatLevelUpType.fbs";
 include "EquipmentOptionType.fbs";
+include "StatLevelUpType.fbs";
 include "Tag.fbs";
 
 namespace FlatData;
 
 table CharacterGearExcel {
-    character_id: long;
-    icon: string;
     id: long;
-    learn_skill_slot: string;
-    localize_etc_id: uint;
-    max_level: long;
-    max_stat_value: [long];
-    min_stat_value: [long];
-    next_tier_equipment: long;
-    open_favor_level: long;
-    recipe_id: long;
+    character_id: long;
     stat_level_up_type: StatLevelUpType;
-    stat_type: [EquipmentOptionType];
-    tags: [Tag];
     tier: long;
+    next_tier_equipment: long;
+    recipe_id: long;
+    open_favor_level: long;
+    max_level: long;
+    learn_skill_slot: string;
+    stat_type: [EquipmentOptionType];
+    min_stat_value: [long];
+    max_stat_value: [long];
+    icon: string;
+    localize_etc_id: uint;
+    tags: [Tag];
 }

@@ -46,64 +46,43 @@ class ConquestStepExcel(object):
         return 0
 
     # ConquestStepExcel
-    def StepEnterItemAmount(self):
+    def StepGoalLocalize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ConquestStepExcel
+    def StepEnterScenarioGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConquestStepExcel
     def StepEnterItemType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConquestStepExcel
     def StepEnterItemUniqueId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ConquestStepExcel
-    def StepEnterScenarioGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConquestStepExcel
-    def StepGoalLocalize(self):
+    def StepEnterItemAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ConquestStepExcel
-    def TreasureBoxCountPerStepOpen(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ConquestStepExcel
-    def TreasureBoxObjectId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConquestStepExcel
-    def UnexpectedEventPrefab(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ConquestStepExcel
     def UnexpectedEventUnitId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -111,22 +90,43 @@ class ConquestStepExcel(object):
 
     # ConquestStepExcel
     def UnexpectedEventUnitIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # ConquestStepExcel
     def UnexpectedEventUnitIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # ConquestStepExcel
     def UnexpectedEventUnitIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         return o == 0
+
+    # ConquestStepExcel
+    def UnexpectedEventPrefab(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ConquestStepExcel
+    def TreasureBoxObjectId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConquestStepExcel
+    def TreasureBoxCountPerStepOpen(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
 def ConquestStepExcelStart(builder):
     builder.StartObject(12)
@@ -152,56 +152,38 @@ def ConquestStepExcelAddStep(builder, step):
 def AddStep(builder, step):
     ConquestStepExcelAddStep(builder, step)
 
-def ConquestStepExcelAddStepEnterItemAmount(builder, stepEnterItemAmount):
-    builder.PrependInt64Slot(3, stepEnterItemAmount, 0)
+def ConquestStepExcelAddStepGoalLocalize(builder, stepGoalLocalize):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(stepGoalLocalize), 0)
 
-def AddStepEnterItemAmount(builder, stepEnterItemAmount):
-    ConquestStepExcelAddStepEnterItemAmount(builder, stepEnterItemAmount)
+def AddStepGoalLocalize(builder, stepGoalLocalize):
+    ConquestStepExcelAddStepGoalLocalize(builder, stepGoalLocalize)
+
+def ConquestStepExcelAddStepEnterScenarioGroupId(builder, stepEnterScenarioGroupId):
+    builder.PrependInt64Slot(4, stepEnterScenarioGroupId, 0)
+
+def AddStepEnterScenarioGroupId(builder, stepEnterScenarioGroupId):
+    ConquestStepExcelAddStepEnterScenarioGroupId(builder, stepEnterScenarioGroupId)
 
 def ConquestStepExcelAddStepEnterItemType(builder, stepEnterItemType):
-    builder.PrependInt32Slot(4, stepEnterItemType, 0)
+    builder.PrependInt32Slot(5, stepEnterItemType, 0)
 
 def AddStepEnterItemType(builder, stepEnterItemType):
     ConquestStepExcelAddStepEnterItemType(builder, stepEnterItemType)
 
 def ConquestStepExcelAddStepEnterItemUniqueId(builder, stepEnterItemUniqueId):
-    builder.PrependInt64Slot(5, stepEnterItemUniqueId, 0)
+    builder.PrependInt64Slot(6, stepEnterItemUniqueId, 0)
 
 def AddStepEnterItemUniqueId(builder, stepEnterItemUniqueId):
     ConquestStepExcelAddStepEnterItemUniqueId(builder, stepEnterItemUniqueId)
 
-def ConquestStepExcelAddStepEnterScenarioGroupId(builder, stepEnterScenarioGroupId):
-    builder.PrependInt64Slot(6, stepEnterScenarioGroupId, 0)
+def ConquestStepExcelAddStepEnterItemAmount(builder, stepEnterItemAmount):
+    builder.PrependInt64Slot(7, stepEnterItemAmount, 0)
 
-def AddStepEnterScenarioGroupId(builder, stepEnterScenarioGroupId):
-    ConquestStepExcelAddStepEnterScenarioGroupId(builder, stepEnterScenarioGroupId)
-
-def ConquestStepExcelAddStepGoalLocalize(builder, stepGoalLocalize):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(stepGoalLocalize), 0)
-
-def AddStepGoalLocalize(builder, stepGoalLocalize):
-    ConquestStepExcelAddStepGoalLocalize(builder, stepGoalLocalize)
-
-def ConquestStepExcelAddTreasureBoxCountPerStepOpen(builder, treasureBoxCountPerStepOpen):
-    builder.PrependInt32Slot(8, treasureBoxCountPerStepOpen, 0)
-
-def AddTreasureBoxCountPerStepOpen(builder, treasureBoxCountPerStepOpen):
-    ConquestStepExcelAddTreasureBoxCountPerStepOpen(builder, treasureBoxCountPerStepOpen)
-
-def ConquestStepExcelAddTreasureBoxObjectId(builder, treasureBoxObjectId):
-    builder.PrependInt64Slot(9, treasureBoxObjectId, 0)
-
-def AddTreasureBoxObjectId(builder, treasureBoxObjectId):
-    ConquestStepExcelAddTreasureBoxObjectId(builder, treasureBoxObjectId)
-
-def ConquestStepExcelAddUnexpectedEventPrefab(builder, unexpectedEventPrefab):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(unexpectedEventPrefab), 0)
-
-def AddUnexpectedEventPrefab(builder, unexpectedEventPrefab):
-    ConquestStepExcelAddUnexpectedEventPrefab(builder, unexpectedEventPrefab)
+def AddStepEnterItemAmount(builder, stepEnterItemAmount):
+    ConquestStepExcelAddStepEnterItemAmount(builder, stepEnterItemAmount)
 
 def ConquestStepExcelAddUnexpectedEventUnitId(builder, unexpectedEventUnitId):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(unexpectedEventUnitId), 0)
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(unexpectedEventUnitId), 0)
 
 def AddUnexpectedEventUnitId(builder, unexpectedEventUnitId):
     ConquestStepExcelAddUnexpectedEventUnitId(builder, unexpectedEventUnitId)
@@ -211,6 +193,24 @@ def ConquestStepExcelStartUnexpectedEventUnitIdVector(builder, numElems):
 
 def StartUnexpectedEventUnitIdVector(builder, numElems):
     return ConquestStepExcelStartUnexpectedEventUnitIdVector(builder, numElems)
+
+def ConquestStepExcelAddUnexpectedEventPrefab(builder, unexpectedEventPrefab):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(unexpectedEventPrefab), 0)
+
+def AddUnexpectedEventPrefab(builder, unexpectedEventPrefab):
+    ConquestStepExcelAddUnexpectedEventPrefab(builder, unexpectedEventPrefab)
+
+def ConquestStepExcelAddTreasureBoxObjectId(builder, treasureBoxObjectId):
+    builder.PrependInt64Slot(10, treasureBoxObjectId, 0)
+
+def AddTreasureBoxObjectId(builder, treasureBoxObjectId):
+    ConquestStepExcelAddTreasureBoxObjectId(builder, treasureBoxObjectId)
+
+def ConquestStepExcelAddTreasureBoxCountPerStepOpen(builder, treasureBoxCountPerStepOpen):
+    builder.PrependInt32Slot(11, treasureBoxCountPerStepOpen, 0)
+
+def AddTreasureBoxCountPerStepOpen(builder, treasureBoxCountPerStepOpen):
+    ConquestStepExcelAddTreasureBoxCountPerStepOpen(builder, treasureBoxCountPerStepOpen)
 
 def ConquestStepExcelEnd(builder):
     return builder.EndObject()

@@ -1,12 +1,12 @@
 namespace FlatData;
 
 table BGM_GlobalExcel {
-    bgm_id_en: long;
-    bgm_id_jp: long;
+    group_bgm_id: long;
     bgm_id_kr: long;
+    bgm_id_jp: long;
     bgm_id_th: long;
     bgm_id_tw: long;
-    group_bgm_id: long;
+    bgm_id_en: long;
 }
 
 root_type BGM_GlobalExcel;

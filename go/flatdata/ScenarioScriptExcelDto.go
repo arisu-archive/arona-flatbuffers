@@ -10,21 +10,21 @@ import (
 // ScenarioScriptExcelDto represents a FlatBuffers table
 type ScenarioScriptExcelDto struct {
 	fbsutils.FlatBuffer
-	BgEffect       uint32 `json:"bg_effect"`
-	BgmId          int64  `json:"bgm_id"`
-	BgName         uint32 `json:"bg_name"`
 	GroupId        int64  `json:"group_id"`
+	SelectionGroup int64  `json:"selection_group"`
+	BgmId          int64  `json:"bgm_id"`
+	Sound          string `json:"sound"`
+	Transition     uint32 `json:"transition"`
+	BgName         uint32 `json:"bg_name"`
+	BgEffect       uint32 `json:"bg_effect"`
 	PopupFileName  string `json:"popup_file_name"`
 	ScriptKr       string `json:"script_kr"`
-	SelectionGroup int64  `json:"selection_group"`
-	Sound          string `json:"sound"`
-	TeenMode       bool   `json:"teen_mode"`
-	TextEn         string `json:"text_en"`
 	TextJp         string `json:"text_jp"`
 	TextTh         string `json:"text_th"`
 	TextTw         string `json:"text_tw"`
-	Transition     uint32 `json:"transition"`
+	TextEn         string `json:"text_en"`
 	VoiceId        uint32 `json:"voice_id"`
+	TeenMode       bool   `json:"teen_mode"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -33,21 +33,21 @@ func (t *ScenarioScriptExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioScript"))
 	}
 	ScenarioScriptExcelStart(b)
-	ScenarioScriptExcelAddBgEffect(b, fbsutils.Convert(t.BgEffect, t.FlatBuffer.TableKey))
-	ScenarioScriptExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
-	ScenarioScriptExcelAddBgName(b, fbsutils.Convert(t.BgName, t.FlatBuffer.TableKey))
 	ScenarioScriptExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	ScenarioScriptExcelAddSelectionGroup(b, fbsutils.Convert(t.SelectionGroup, t.FlatBuffer.TableKey))
+	ScenarioScriptExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
+	ScenarioScriptExcelAddSound(b, fbsutils.Convert(b.CreateString(t.Sound), t.FlatBuffer.TableKey))
+	ScenarioScriptExcelAddTransition(b, fbsutils.Convert(t.Transition, t.FlatBuffer.TableKey))
+	ScenarioScriptExcelAddBgName(b, fbsutils.Convert(t.BgName, t.FlatBuffer.TableKey))
+	ScenarioScriptExcelAddBgEffect(b, fbsutils.Convert(t.BgEffect, t.FlatBuffer.TableKey))
 	ScenarioScriptExcelAddPopupFileName(b, fbsutils.Convert(b.CreateString(t.PopupFileName), t.FlatBuffer.TableKey))
 	ScenarioScriptExcelAddScriptKr(b, fbsutils.Convert(b.CreateString(t.ScriptKr), t.FlatBuffer.TableKey))
-	ScenarioScriptExcelAddSelectionGroup(b, fbsutils.Convert(t.SelectionGroup, t.FlatBuffer.TableKey))
-	ScenarioScriptExcelAddSound(b, fbsutils.Convert(b.CreateString(t.Sound), t.FlatBuffer.TableKey))
-	ScenarioScriptExcelAddTeenMode(b, fbsutils.Convert(t.TeenMode, t.FlatBuffer.TableKey))
-	ScenarioScriptExcelAddTextEn(b, fbsutils.Convert(b.CreateString(t.TextEn), t.FlatBuffer.TableKey))
 	ScenarioScriptExcelAddTextJp(b, fbsutils.Convert(b.CreateString(t.TextJp), t.FlatBuffer.TableKey))
 	ScenarioScriptExcelAddTextTh(b, fbsutils.Convert(b.CreateString(t.TextTh), t.FlatBuffer.TableKey))
 	ScenarioScriptExcelAddTextTw(b, fbsutils.Convert(b.CreateString(t.TextTw), t.FlatBuffer.TableKey))
-	ScenarioScriptExcelAddTransition(b, fbsutils.Convert(t.Transition, t.FlatBuffer.TableKey))
+	ScenarioScriptExcelAddTextEn(b, fbsutils.Convert(b.CreateString(t.TextEn), t.FlatBuffer.TableKey))
 	ScenarioScriptExcelAddVoiceId(b, fbsutils.Convert(t.VoiceId, t.FlatBuffer.TableKey))
+	ScenarioScriptExcelAddTeenMode(b, fbsutils.Convert(t.TeenMode, t.FlatBuffer.TableKey))
 	return ScenarioScriptExcelEnd(b)
 }
 
@@ -63,21 +63,21 @@ func (t *ScenarioScriptExcelDto) UnmarshalMessage(e *ScenarioScriptExcel) error 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioScript"))
 	}
-	t.BgEffect = fbsutils.Convert(e.BgEffect(), t.FlatBuffer.TableKey)
-	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
-	t.BgName = fbsutils.Convert(e.BgName(), t.FlatBuffer.TableKey)
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.SelectionGroup = fbsutils.Convert(e.SelectionGroup(), t.FlatBuffer.TableKey)
+	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
+	t.Sound = fbsutils.Convert(string(e.Sound()), t.FlatBuffer.TableKey)
+	t.Transition = fbsutils.Convert(e.Transition(), t.FlatBuffer.TableKey)
+	t.BgName = fbsutils.Convert(e.BgName(), t.FlatBuffer.TableKey)
+	t.BgEffect = fbsutils.Convert(e.BgEffect(), t.FlatBuffer.TableKey)
 	t.PopupFileName = fbsutils.Convert(string(e.PopupFileName()), t.FlatBuffer.TableKey)
 	t.ScriptKr = fbsutils.Convert(string(e.ScriptKr()), t.FlatBuffer.TableKey)
-	t.SelectionGroup = fbsutils.Convert(e.SelectionGroup(), t.FlatBuffer.TableKey)
-	t.Sound = fbsutils.Convert(string(e.Sound()), t.FlatBuffer.TableKey)
-	t.TeenMode = fbsutils.Convert(e.TeenMode(), t.FlatBuffer.TableKey)
-	t.TextEn = fbsutils.Convert(string(e.TextEn()), t.FlatBuffer.TableKey)
 	t.TextJp = fbsutils.Convert(string(e.TextJp()), t.FlatBuffer.TableKey)
 	t.TextTh = fbsutils.Convert(string(e.TextTh()), t.FlatBuffer.TableKey)
 	t.TextTw = fbsutils.Convert(string(e.TextTw()), t.FlatBuffer.TableKey)
-	t.Transition = fbsutils.Convert(e.Transition(), t.FlatBuffer.TableKey)
+	t.TextEn = fbsutils.Convert(string(e.TextEn()), t.FlatBuffer.TableKey)
 	t.VoiceId = fbsutils.Convert(e.VoiceId(), t.FlatBuffer.TableKey)
+	t.TeenMode = fbsutils.Convert(e.TeenMode(), t.FlatBuffer.TableKey)
 	return nil
 }
 

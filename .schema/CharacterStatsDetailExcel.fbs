@@ -3,7 +3,7 @@ include "StatType.fbs";
 namespace FlatData;
 
 table CharacterStatsDetailExcel {
-    detail_show_stats: [StatType];
     id: long;
+    detail_show_stats: [StatType];
     is_stats_percent: [bool];
 }

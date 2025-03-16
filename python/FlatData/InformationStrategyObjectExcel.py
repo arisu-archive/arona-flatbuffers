@@ -32,11 +32,11 @@ class InformationStrategyObjectExcel(object):
         return 0
 
     # InformationStrategyObjectExcel
-    def LocalizeCodeId(self):
+    def StageId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # InformationStrategyObjectExcel
     def PageName(self):
@@ -46,11 +46,11 @@ class InformationStrategyObjectExcel(object):
         return None
 
     # InformationStrategyObjectExcel
-    def StageId(self):
+    def LocalizeCodeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def InformationStrategyObjectExcelStart(builder):
     builder.StartObject(4)
@@ -64,11 +64,11 @@ def InformationStrategyObjectExcelAddId(builder, id):
 def AddId(builder, id):
     InformationStrategyObjectExcelAddId(builder, id)
 
-def InformationStrategyObjectExcelAddLocalizeCodeId(builder, localizeCodeId):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCodeId), 0)
+def InformationStrategyObjectExcelAddStageId(builder, stageId):
+    builder.PrependInt64Slot(1, stageId, 0)
 
-def AddLocalizeCodeId(builder, localizeCodeId):
-    InformationStrategyObjectExcelAddLocalizeCodeId(builder, localizeCodeId)
+def AddStageId(builder, stageId):
+    InformationStrategyObjectExcelAddStageId(builder, stageId)
 
 def InformationStrategyObjectExcelAddPageName(builder, pageName):
     builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(pageName), 0)
@@ -76,11 +76,11 @@ def InformationStrategyObjectExcelAddPageName(builder, pageName):
 def AddPageName(builder, pageName):
     InformationStrategyObjectExcelAddPageName(builder, pageName)
 
-def InformationStrategyObjectExcelAddStageId(builder, stageId):
-    builder.PrependInt64Slot(3, stageId, 0)
+def InformationStrategyObjectExcelAddLocalizeCodeId(builder, localizeCodeId):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCodeId), 0)
 
-def AddStageId(builder, stageId):
-    InformationStrategyObjectExcelAddStageId(builder, stageId)
+def AddLocalizeCodeId(builder, localizeCodeId):
+    InformationStrategyObjectExcelAddLocalizeCodeId(builder, localizeCodeId)
 
 def InformationStrategyObjectExcelEnd(builder):
     return builder.EndObject()

@@ -10,9 +10,9 @@ import (
 // TacticEntityEffectFilterExcelDto represents a FlatBuffers table
 type TacticEntityEffectFilterExcelDto struct {
 	fbsutils.FlatBuffer
-	ShowEffectToBoss    bool   `json:"show_effect_to_boss"`
-	ShowEffectToVehicle bool   `json:"show_effect_to_vehicle"`
 	TargetEffectName    string `json:"target_effect_name"`
+	ShowEffectToVehicle bool   `json:"show_effect_to_vehicle"`
+	ShowEffectToBoss    bool   `json:"show_effect_to_boss"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,9 +21,9 @@ func (t *TacticEntityEffectFilterExcelDto) MarshalModel(b *flatbuffers.Builder) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticEntityEffectFilter"))
 	}
 	TacticEntityEffectFilterExcelStart(b)
-	TacticEntityEffectFilterExcelAddShowEffectToBoss(b, fbsutils.Convert(t.ShowEffectToBoss, t.FlatBuffer.TableKey))
-	TacticEntityEffectFilterExcelAddShowEffectToVehicle(b, fbsutils.Convert(t.ShowEffectToVehicle, t.FlatBuffer.TableKey))
 	TacticEntityEffectFilterExcelAddTargetEffectName(b, fbsutils.Convert(b.CreateString(t.TargetEffectName), t.FlatBuffer.TableKey))
+	TacticEntityEffectFilterExcelAddShowEffectToVehicle(b, fbsutils.Convert(t.ShowEffectToVehicle, t.FlatBuffer.TableKey))
+	TacticEntityEffectFilterExcelAddShowEffectToBoss(b, fbsutils.Convert(t.ShowEffectToBoss, t.FlatBuffer.TableKey))
 	return TacticEntityEffectFilterExcelEnd(b)
 }
 
@@ -39,9 +39,9 @@ func (t *TacticEntityEffectFilterExcelDto) UnmarshalMessage(e *TacticEntityEffec
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticEntityEffectFilter"))
 	}
-	t.ShowEffectToBoss = fbsutils.Convert(e.ShowEffectToBoss(), t.FlatBuffer.TableKey)
-	t.ShowEffectToVehicle = fbsutils.Convert(e.ShowEffectToVehicle(), t.FlatBuffer.TableKey)
 	t.TargetEffectName = fbsutils.Convert(string(e.TargetEffectName()), t.FlatBuffer.TableKey)
+	t.ShowEffectToVehicle = fbsutils.Convert(e.ShowEffectToVehicle(), t.FlatBuffer.TableKey)
+	t.ShowEffectToBoss = fbsutils.Convert(e.ShowEffectToBoss(), t.FlatBuffer.TableKey)
 	return nil
 }
 

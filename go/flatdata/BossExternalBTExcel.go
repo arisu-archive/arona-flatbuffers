@@ -41,7 +41,7 @@ func (rcv *BossExternalBTExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *BossExternalBTExcel) AiPhase() int64 {
+func (rcv *BossExternalBTExcel) ExternalBtId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -49,56 +49,24 @@ func (rcv *BossExternalBTExcel) AiPhase() int64 {
 	return 0
 }
 
-func (rcv *BossExternalBTExcel) MutateAiPhase(n int64) bool {
+func (rcv *BossExternalBTExcel) MutateExternalBtId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *BossExternalBTExcel) BehaviorArgument() []byte {
+func (rcv *BossExternalBTExcel) AiPhase() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *BossExternalBTExcel) BehaviorRate() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *BossExternalBTExcel) MutateBehaviorRate(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *BossExternalBTExcel) ExternalBehavior() ExternalBehavior {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return ExternalBehavior(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *BossExternalBTExcel) MutateExternalBehavior(n ExternalBehavior) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
-}
-
-func (rcv *BossExternalBTExcel) ExternalBtId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *BossExternalBTExcel) MutateExternalBtId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+func (rcv *BossExternalBTExcel) MutateAiPhase(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *BossExternalBTExcel) ExternalBtNodeType() ExternalBTNodeType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return ExternalBTNodeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -106,11 +74,11 @@ func (rcv *BossExternalBTExcel) ExternalBtNodeType() ExternalBTNodeType {
 }
 
 func (rcv *BossExternalBTExcel) MutateExternalBtNodeType(n ExternalBTNodeType) bool {
-	return rcv._tab.MutateInt32Slot(14, int32(n))
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
 func (rcv *BossExternalBTExcel) ExternalBtTrigger() ExternalBTTrigger {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return ExternalBTTrigger(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -118,10 +86,42 @@ func (rcv *BossExternalBTExcel) ExternalBtTrigger() ExternalBTTrigger {
 }
 
 func (rcv *BossExternalBTExcel) MutateExternalBtTrigger(n ExternalBTTrigger) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
+	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
 func (rcv *BossExternalBTExcel) TriggerArgument() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *BossExternalBTExcel) BehaviorRate() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *BossExternalBTExcel) MutateBehaviorRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *BossExternalBTExcel) ExternalBehavior() ExternalBehavior {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return ExternalBehavior(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *BossExternalBTExcel) MutateExternalBehavior(n ExternalBehavior) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
+}
+
+func (rcv *BossExternalBTExcel) BehaviorArgument() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -132,29 +132,29 @@ func (rcv *BossExternalBTExcel) TriggerArgument() []byte {
 func BossExternalBTExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(8)
 }
-func BossExternalBTExcelAddAiPhase(builder *flatbuffers.Builder, aiPhase int64) {
-	builder.PrependInt64Slot(0, aiPhase, 0)
-}
-func BossExternalBTExcelAddBehaviorArgument(builder *flatbuffers.Builder, behaviorArgument flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(behaviorArgument), 0)
-}
-func BossExternalBTExcelAddBehaviorRate(builder *flatbuffers.Builder, behaviorRate int64) {
-	builder.PrependInt64Slot(2, behaviorRate, 0)
-}
-func BossExternalBTExcelAddExternalBehavior(builder *flatbuffers.Builder, externalBehavior ExternalBehavior) {
-	builder.PrependInt32Slot(3, int32(externalBehavior), 0)
-}
 func BossExternalBTExcelAddExternalBtId(builder *flatbuffers.Builder, externalBtId int64) {
-	builder.PrependInt64Slot(4, externalBtId, 0)
+	builder.PrependInt64Slot(0, externalBtId, 0)
+}
+func BossExternalBTExcelAddAiPhase(builder *flatbuffers.Builder, aiPhase int64) {
+	builder.PrependInt64Slot(1, aiPhase, 0)
 }
 func BossExternalBTExcelAddExternalBtNodeType(builder *flatbuffers.Builder, externalBtNodeType ExternalBTNodeType) {
-	builder.PrependInt32Slot(5, int32(externalBtNodeType), 0)
+	builder.PrependInt32Slot(2, int32(externalBtNodeType), 0)
 }
 func BossExternalBTExcelAddExternalBtTrigger(builder *flatbuffers.Builder, externalBtTrigger ExternalBTTrigger) {
-	builder.PrependInt32Slot(6, int32(externalBtTrigger), 0)
+	builder.PrependInt32Slot(3, int32(externalBtTrigger), 0)
 }
 func BossExternalBTExcelAddTriggerArgument(builder *flatbuffers.Builder, triggerArgument flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(triggerArgument), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(triggerArgument), 0)
+}
+func BossExternalBTExcelAddBehaviorRate(builder *flatbuffers.Builder, behaviorRate int64) {
+	builder.PrependInt64Slot(5, behaviorRate, 0)
+}
+func BossExternalBTExcelAddExternalBehavior(builder *flatbuffers.Builder, externalBehavior ExternalBehavior) {
+	builder.PrependInt32Slot(6, int32(externalBehavior), 0)
+}
+func BossExternalBTExcelAddBehaviorArgument(builder *flatbuffers.Builder, behaviorArgument flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(behaviorArgument), 0)
 }
 func BossExternalBTExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

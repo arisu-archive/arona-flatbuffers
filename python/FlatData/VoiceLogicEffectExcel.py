@@ -32,18 +32,18 @@ class VoiceLogicEffectExcel(object):
         return 0
 
     # VoiceLogicEffectExcel
-    def Priority(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # VoiceLogicEffectExcel
     def Self(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
+
+    # VoiceLogicEffectExcel
+    def Priority(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # VoiceLogicEffectExcel
     def VoiceHash(self, j):
@@ -91,17 +91,17 @@ def VoiceLogicEffectExcelAddLogicEffectNameHash(builder, logicEffectNameHash):
 def AddLogicEffectNameHash(builder, logicEffectNameHash):
     VoiceLogicEffectExcelAddLogicEffectNameHash(builder, logicEffectNameHash)
 
-def VoiceLogicEffectExcelAddPriority(builder, priority):
-    builder.PrependInt32Slot(1, priority, 0)
-
-def AddPriority(builder, priority):
-    VoiceLogicEffectExcelAddPriority(builder, priority)
-
 def VoiceLogicEffectExcelAddSelf(builder, self):
-    builder.PrependBoolSlot(2, self, 0)
+    builder.PrependBoolSlot(1, self, 0)
 
 def AddSelf(builder, self):
     VoiceLogicEffectExcelAddSelf(builder, self)
+
+def VoiceLogicEffectExcelAddPriority(builder, priority):
+    builder.PrependInt32Slot(2, priority, 0)
+
+def AddPriority(builder, priority):
+    VoiceLogicEffectExcelAddPriority(builder, priority)
 
 def VoiceLogicEffectExcelAddVoiceHash(builder, voiceHash):
     builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(voiceHash), 0)

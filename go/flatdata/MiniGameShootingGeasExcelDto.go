@@ -10,14 +10,14 @@ import (
 // MiniGameShootingGeasExcelDto represents a FlatBuffers table
 type MiniGameShootingGeasExcelDto struct {
 	fbsutils.FlatBuffer
-	GeasData         string `json:"geas_data"`
-	GeasType         Geas   `json:"geas_type"`
-	HideInPausePopup bool   `json:"hide_in_pause_popup"`
-	Icon             string `json:"icon"`
-	MaxOverlapCount  int32  `json:"max_overlap_count"`
-	NeedGeasId       int64  `json:"need_geas_id"`
-	Probability      int64  `json:"probability"`
 	UniqueId         int64  `json:"unique_id"`
+	GeasType         Geas   `json:"geas_type"`
+	Icon             string `json:"icon"`
+	Probability      int64  `json:"probability"`
+	MaxOverlapCount  int32  `json:"max_overlap_count"`
+	GeasData         string `json:"geas_data"`
+	NeedGeasId       int64  `json:"need_geas_id"`
+	HideInPausePopup bool   `json:"hide_in_pause_popup"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,14 +26,14 @@ func (t *MiniGameShootingGeasExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingGeas"))
 	}
 	MiniGameShootingGeasExcelStart(b)
-	MiniGameShootingGeasExcelAddGeasData(b, fbsutils.Convert(b.CreateString(t.GeasData), t.FlatBuffer.TableKey))
-	MiniGameShootingGeasExcelAddGeasType(b, fbsutils.Convert(t.GeasType, t.FlatBuffer.TableKey))
-	MiniGameShootingGeasExcelAddHideInPausePopup(b, fbsutils.Convert(t.HideInPausePopup, t.FlatBuffer.TableKey))
-	MiniGameShootingGeasExcelAddIcon(b, fbsutils.Convert(b.CreateString(t.Icon), t.FlatBuffer.TableKey))
-	MiniGameShootingGeasExcelAddMaxOverlapCount(b, fbsutils.Convert(t.MaxOverlapCount, t.FlatBuffer.TableKey))
-	MiniGameShootingGeasExcelAddNeedGeasId(b, fbsutils.Convert(t.NeedGeasId, t.FlatBuffer.TableKey))
-	MiniGameShootingGeasExcelAddProbability(b, fbsutils.Convert(t.Probability, t.FlatBuffer.TableKey))
 	MiniGameShootingGeasExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	MiniGameShootingGeasExcelAddGeasType(b, fbsutils.Convert(t.GeasType, t.FlatBuffer.TableKey))
+	MiniGameShootingGeasExcelAddIcon(b, fbsutils.Convert(b.CreateString(t.Icon), t.FlatBuffer.TableKey))
+	MiniGameShootingGeasExcelAddProbability(b, fbsutils.Convert(t.Probability, t.FlatBuffer.TableKey))
+	MiniGameShootingGeasExcelAddMaxOverlapCount(b, fbsutils.Convert(t.MaxOverlapCount, t.FlatBuffer.TableKey))
+	MiniGameShootingGeasExcelAddGeasData(b, fbsutils.Convert(b.CreateString(t.GeasData), t.FlatBuffer.TableKey))
+	MiniGameShootingGeasExcelAddNeedGeasId(b, fbsutils.Convert(t.NeedGeasId, t.FlatBuffer.TableKey))
+	MiniGameShootingGeasExcelAddHideInPausePopup(b, fbsutils.Convert(t.HideInPausePopup, t.FlatBuffer.TableKey))
 	return MiniGameShootingGeasExcelEnd(b)
 }
 
@@ -49,14 +49,14 @@ func (t *MiniGameShootingGeasExcelDto) UnmarshalMessage(e *MiniGameShootingGeasE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingGeas"))
 	}
-	t.GeasData = fbsutils.Convert(string(e.GeasData()), t.FlatBuffer.TableKey)
-	t.GeasType = Geas(int32(fbsutils.Convert(e.GeasType(), t.FlatBuffer.TableKey)))
-	t.HideInPausePopup = fbsutils.Convert(e.HideInPausePopup(), t.FlatBuffer.TableKey)
-	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
-	t.MaxOverlapCount = fbsutils.Convert(e.MaxOverlapCount(), t.FlatBuffer.TableKey)
-	t.NeedGeasId = fbsutils.Convert(e.NeedGeasId(), t.FlatBuffer.TableKey)
-	t.Probability = fbsutils.Convert(e.Probability(), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.GeasType = Geas(int32(fbsutils.Convert(e.GeasType(), t.FlatBuffer.TableKey)))
+	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
+	t.Probability = fbsutils.Convert(e.Probability(), t.FlatBuffer.TableKey)
+	t.MaxOverlapCount = fbsutils.Convert(e.MaxOverlapCount(), t.FlatBuffer.TableKey)
+	t.GeasData = fbsutils.Convert(string(e.GeasData()), t.FlatBuffer.TableKey)
+	t.NeedGeasId = fbsutils.Convert(e.NeedGeasId(), t.FlatBuffer.TableKey)
+	t.HideInPausePopup = fbsutils.Convert(e.HideInPausePopup(), t.FlatBuffer.TableKey)
 	return nil
 }
 

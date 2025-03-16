@@ -10,13 +10,13 @@ import (
 // ArenaSeasonCloseRewardExcelDto represents a FlatBuffers table
 type ArenaSeasonCloseRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	RankEnd                int64        `json:"rank_end"`
+	SeasonId               int64        `json:"season_id"`
 	RankStart              int64        `json:"rank_start"`
-	RewardParcelAmount     []int64      `json:"reward_parcel_amount"`
+	RankEnd                int64        `json:"rank_end"`
 	RewardParcelType       []ParcelType `json:"reward_parcel_type"`
 	RewardParcelUniqueId   []int64      `json:"reward_parcel_unique_id"`
 	RewardParcelUniqueName []string     `json:"reward_parcel_unique_name"`
-	SeasonId               int64        `json:"season_id"`
+	RewardParcelAmount     []int64      `json:"reward_parcel_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,13 +25,9 @@ func (t *ArenaSeasonCloseRewardExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaSeasonCloseReward"))
 	}
 	ArenaSeasonCloseRewardExcelStart(b)
-	ArenaSeasonCloseRewardExcelAddRankEnd(b, fbsutils.Convert(t.RankEnd, t.FlatBuffer.TableKey))
+	ArenaSeasonCloseRewardExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	ArenaSeasonCloseRewardExcelAddRankStart(b, fbsutils.Convert(t.RankStart, t.FlatBuffer.TableKey))
-	ArenaSeasonCloseRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
-	for i := range len(t.RewardParcelAmount) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	ArenaSeasonCloseRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
+	ArenaSeasonCloseRewardExcelAddRankEnd(b, fbsutils.Convert(t.RankEnd, t.FlatBuffer.TableKey))
 	ArenaSeasonCloseRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
@@ -47,7 +43,11 @@ func (t *ArenaSeasonCloseRewardExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.RewardParcelUniqueName[len(t.RewardParcelUniqueName)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ArenaSeasonCloseRewardExcelAddRewardParcelUniqueName(b, b.EndVector(len(t.RewardParcelUniqueName)))
-	ArenaSeasonCloseRewardExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
+	ArenaSeasonCloseRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
+	for i := range len(t.RewardParcelAmount) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	ArenaSeasonCloseRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
 	return ArenaSeasonCloseRewardExcelEnd(b)
 }
 
@@ -63,12 +63,9 @@ func (t *ArenaSeasonCloseRewardExcelDto) UnmarshalMessage(e *ArenaSeasonCloseRew
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaSeasonCloseReward"))
 	}
-	t.RankEnd = fbsutils.Convert(e.RankEnd(), t.FlatBuffer.TableKey)
+	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
 	t.RankStart = fbsutils.Convert(e.RankStart(), t.FlatBuffer.TableKey)
-	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
-	}
+	t.RankEnd = fbsutils.Convert(e.RankEnd(), t.FlatBuffer.TableKey)
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
 		t.RewardParcelType[i] = e.RewardParcelType(i)
@@ -81,7 +78,10 @@ func (t *ArenaSeasonCloseRewardExcelDto) UnmarshalMessage(e *ArenaSeasonCloseRew
 	for i := range e.RewardParcelUniqueNameLength() {
 		t.RewardParcelUniqueName[i] = string(e.RewardParcelUniqueName(i))
 	}
-	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
+	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
+	}
 	return nil
 }
 

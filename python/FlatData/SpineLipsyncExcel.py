@@ -25,25 +25,25 @@ class SpineLipsyncExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # SpineLipsyncExcel
-    def AnimJson(self):
+    def VoiceId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
 
     # SpineLipsyncExcel
-    def AnimJsonKr(self):
+    def AnimJson(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # SpineLipsyncExcel
-    def VoiceId(self):
+    def AnimJsonKr(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def SpineLipsyncExcelStart(builder):
     builder.StartObject(3)
@@ -51,23 +51,23 @@ def SpineLipsyncExcelStart(builder):
 def Start(builder):
     SpineLipsyncExcelStart(builder)
 
+def SpineLipsyncExcelAddVoiceId(builder, voiceId):
+    builder.PrependUint32Slot(0, voiceId, 0)
+
+def AddVoiceId(builder, voiceId):
+    SpineLipsyncExcelAddVoiceId(builder, voiceId)
+
 def SpineLipsyncExcelAddAnimJson(builder, animJson):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(animJson), 0)
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(animJson), 0)
 
 def AddAnimJson(builder, animJson):
     SpineLipsyncExcelAddAnimJson(builder, animJson)
 
 def SpineLipsyncExcelAddAnimJsonKr(builder, animJsonKr):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(animJsonKr), 0)
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(animJsonKr), 0)
 
 def AddAnimJsonKr(builder, animJsonKr):
     SpineLipsyncExcelAddAnimJsonKr(builder, animJsonKr)
-
-def SpineLipsyncExcelAddVoiceId(builder, voiceId):
-    builder.PrependUint32Slot(2, voiceId, 0)
-
-def AddVoiceId(builder, voiceId):
-    SpineLipsyncExcelAddVoiceId(builder, voiceId)
 
 def SpineLipsyncExcelEnd(builder):
     return builder.EndObject()

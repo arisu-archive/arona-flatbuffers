@@ -41,7 +41,7 @@ func (rcv *EventContentSpineDialogOffsetExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentSpineDialogOffsetExcel) CostumeUniqueId() int64 {
+func (rcv *EventContentSpineDialogOffsetExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -49,48 +49,12 @@ func (rcv *EventContentSpineDialogOffsetExcel) CostumeUniqueId() int64 {
 	return 0
 }
 
-func (rcv *EventContentSpineDialogOffsetExcel) MutateCostumeUniqueId(n int64) bool {
+func (rcv *EventContentSpineDialogOffsetExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EventContentSpineDialogOffsetExcel) DialogOffsetX() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *EventContentSpineDialogOffsetExcel) MutateDialogOffsetX(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(6, n)
-}
-
-func (rcv *EventContentSpineDialogOffsetExcel) DialogOffsetY() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *EventContentSpineDialogOffsetExcel) MutateDialogOffsetY(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(8, n)
-}
-
-func (rcv *EventContentSpineDialogOffsetExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentSpineDialogOffsetExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
 func (rcv *EventContentSpineDialogOffsetExcel) EventContentType() EventContentType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return EventContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -98,11 +62,23 @@ func (rcv *EventContentSpineDialogOffsetExcel) EventContentType() EventContentTy
 }
 
 func (rcv *EventContentSpineDialogOffsetExcel) MutateEventContentType(n EventContentType) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *EventContentSpineDialogOffsetExcel) CostumeUniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentSpineDialogOffsetExcel) MutateCostumeUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func (rcv *EventContentSpineDialogOffsetExcel) SpineOffsetX() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -110,11 +86,11 @@ func (rcv *EventContentSpineDialogOffsetExcel) SpineOffsetX() float32 {
 }
 
 func (rcv *EventContentSpineDialogOffsetExcel) MutateSpineOffsetX(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(14, n)
+	return rcv._tab.MutateFloat32Slot(10, n)
 }
 
 func (rcv *EventContentSpineDialogOffsetExcel) SpineOffsetY() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -122,32 +98,56 @@ func (rcv *EventContentSpineDialogOffsetExcel) SpineOffsetY() float32 {
 }
 
 func (rcv *EventContentSpineDialogOffsetExcel) MutateSpineOffsetY(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(12, n)
+}
+
+func (rcv *EventContentSpineDialogOffsetExcel) DialogOffsetX() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *EventContentSpineDialogOffsetExcel) MutateDialogOffsetX(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(14, n)
+}
+
+func (rcv *EventContentSpineDialogOffsetExcel) DialogOffsetY() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *EventContentSpineDialogOffsetExcel) MutateDialogOffsetY(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(16, n)
 }
 
 func EventContentSpineDialogOffsetExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func EventContentSpineDialogOffsetExcelAddCostumeUniqueId(builder *flatbuffers.Builder, costumeUniqueId int64) {
-	builder.PrependInt64Slot(0, costumeUniqueId, 0)
-}
-func EventContentSpineDialogOffsetExcelAddDialogOffsetX(builder *flatbuffers.Builder, dialogOffsetX float32) {
-	builder.PrependFloat32Slot(1, dialogOffsetX, 0.0)
-}
-func EventContentSpineDialogOffsetExcelAddDialogOffsetY(builder *flatbuffers.Builder, dialogOffsetY float32) {
-	builder.PrependFloat32Slot(2, dialogOffsetY, 0.0)
-}
 func EventContentSpineDialogOffsetExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(3, eventContentId, 0)
+	builder.PrependInt64Slot(0, eventContentId, 0)
 }
 func EventContentSpineDialogOffsetExcelAddEventContentType(builder *flatbuffers.Builder, eventContentType EventContentType) {
-	builder.PrependInt32Slot(4, int32(eventContentType), 0)
+	builder.PrependInt32Slot(1, int32(eventContentType), 0)
+}
+func EventContentSpineDialogOffsetExcelAddCostumeUniqueId(builder *flatbuffers.Builder, costumeUniqueId int64) {
+	builder.PrependInt64Slot(2, costumeUniqueId, 0)
 }
 func EventContentSpineDialogOffsetExcelAddSpineOffsetX(builder *flatbuffers.Builder, spineOffsetX float32) {
-	builder.PrependFloat32Slot(5, spineOffsetX, 0.0)
+	builder.PrependFloat32Slot(3, spineOffsetX, 0.0)
 }
 func EventContentSpineDialogOffsetExcelAddSpineOffsetY(builder *flatbuffers.Builder, spineOffsetY float32) {
-	builder.PrependFloat32Slot(6, spineOffsetY, 0.0)
+	builder.PrependFloat32Slot(4, spineOffsetY, 0.0)
+}
+func EventContentSpineDialogOffsetExcelAddDialogOffsetX(builder *flatbuffers.Builder, dialogOffsetX float32) {
+	builder.PrependFloat32Slot(5, dialogOffsetX, 0.0)
+}
+func EventContentSpineDialogOffsetExcelAddDialogOffsetY(builder *flatbuffers.Builder, dialogOffsetY float32) {
+	builder.PrependFloat32Slot(6, dialogOffsetY, 0.0)
 }
 func EventContentSpineDialogOffsetExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -3,10 +3,10 @@ include "ShopFreeRecruitType.fbs";
 namespace FlatData;
 
 table ShopFreeRecruitExcel {
-    free_recruit_decoration_image_path: string;
+    id: long;
     free_recruit_period_from: string;
     free_recruit_period_to: string;
     free_recruit_type: ShopFreeRecruitType;
-    id: long;
+    free_recruit_decoration_image_path: string;
     shop_recruit_id: [long];
 }

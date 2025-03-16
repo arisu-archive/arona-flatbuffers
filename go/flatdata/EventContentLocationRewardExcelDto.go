@@ -10,27 +10,27 @@ import (
 // EventContentLocationRewardExcelDto represents a FlatBuffers table
 type EventContentLocationRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	ExtraFavorExp          int64        `json:"extra_favor_exp"`
-	ExtraFavorExpProb      int64        `json:"extra_favor_exp_prob"`
-	ExtraRewardAmount      []int64      `json:"extra_reward_amount"`
-	ExtraRewardParcelId    []int64      `json:"extra_reward_parcel_id"`
-	ExtraRewardParcelType  []ParcelType `json:"extra_reward_parcel_type"`
-	ExtraRewardProb        []int64      `json:"extra_reward_prob"`
-	FavorExp               int64        `json:"favor_exp"`
-	Id                     int64        `json:"id"`
-	IsExtraRewardDisplayed []bool       `json:"is_extra_reward_displayed"`
-	LocalizeEtcId          uint32       `json:"localize_etc_id"`
 	Location               string       `json:"location"`
-	LocationRank           int64        `json:"location_rank"`
-	OrderInGroup           int64        `json:"order_in_group"`
-	ProgressTexture        string       `json:"progress_texture"`
-	RewardAmount           []int64      `json:"reward_amount"`
-	RewardParcelId         []int64      `json:"reward_parcel_id"`
-	RewardParcelType       []ParcelType `json:"reward_parcel_type"`
 	ScheduleGroupId        int64        `json:"schedule_group_id"`
+	OrderInGroup           int64        `json:"order_in_group"`
+	Id                     int64        `json:"id"`
+	ProgressTexture        string       `json:"progress_texture"`
+	VoiceId                []uint32     `json:"voice_id"`
+	LocalizeEtcId          uint32       `json:"localize_etc_id"`
+	LocationRank           int64        `json:"location_rank"`
+	FavorExp               int64        `json:"favor_exp"`
 	SecretStoneAmount      int64        `json:"secret_stone_amount"`
 	SecretStoneProb        int64        `json:"secret_stone_prob"`
-	VoiceId                []uint32     `json:"voice_id"`
+	ExtraFavorExp          int64        `json:"extra_favor_exp"`
+	ExtraFavorExpProb      int64        `json:"extra_favor_exp_prob"`
+	ExtraRewardParcelType  []ParcelType `json:"extra_reward_parcel_type"`
+	ExtraRewardParcelId    []int64      `json:"extra_reward_parcel_id"`
+	ExtraRewardAmount      []int64      `json:"extra_reward_amount"`
+	ExtraRewardProb        []int64      `json:"extra_reward_prob"`
+	IsExtraRewardDisplayed []bool       `json:"is_extra_reward_displayed"`
+	RewardParcelType       []ParcelType `json:"reward_parcel_type"`
+	RewardParcelId         []int64      `json:"reward_parcel_id"`
+	RewardAmount           []int64      `json:"reward_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -39,63 +39,63 @@ func (t *EventContentLocationRewardExcelDto) MarshalModel(b *flatbuffers.Builder
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLocationReward"))
 	}
 	EventContentLocationRewardExcelStart(b)
-	EventContentLocationRewardExcelAddExtraFavorExp(b, fbsutils.Convert(t.ExtraFavorExp, t.FlatBuffer.TableKey))
-	EventContentLocationRewardExcelAddExtraFavorExpProb(b, fbsutils.Convert(t.ExtraFavorExpProb, t.FlatBuffer.TableKey))
-	EventContentLocationRewardExcelStartExtraRewardAmountVector(b, len(t.ExtraRewardAmount))
-	for i := range len(t.ExtraRewardAmount) {
-		b.PrependInt64(fbsutils.Convert(t.ExtraRewardAmount[len(t.ExtraRewardAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentLocationRewardExcelAddExtraRewardAmount(b, b.EndVector(len(t.ExtraRewardAmount)))
-	EventContentLocationRewardExcelStartExtraRewardParcelIdVector(b, len(t.ExtraRewardParcelId))
-	for i := range len(t.ExtraRewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.ExtraRewardParcelId[len(t.ExtraRewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentLocationRewardExcelAddExtraRewardParcelId(b, b.EndVector(len(t.ExtraRewardParcelId)))
-	EventContentLocationRewardExcelStartExtraRewardParcelTypeVector(b, len(t.ExtraRewardParcelType))
-	for i := range len(t.ExtraRewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ExtraRewardParcelType[len(t.ExtraRewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
-	}
-	EventContentLocationRewardExcelAddExtraRewardParcelType(b, b.EndVector(len(t.ExtraRewardParcelType)))
-	EventContentLocationRewardExcelStartExtraRewardProbVector(b, len(t.ExtraRewardProb))
-	for i := range len(t.ExtraRewardProb) {
-		b.PrependInt64(fbsutils.Convert(t.ExtraRewardProb[len(t.ExtraRewardProb)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentLocationRewardExcelAddExtraRewardProb(b, b.EndVector(len(t.ExtraRewardProb)))
-	EventContentLocationRewardExcelAddFavorExp(b, fbsutils.Convert(t.FavorExp, t.FlatBuffer.TableKey))
-	EventContentLocationRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentLocationRewardExcelStartIsExtraRewardDisplayedVector(b, len(t.IsExtraRewardDisplayed))
-	for i := range len(t.IsExtraRewardDisplayed) {
-		b.PrependBool(fbsutils.Convert(t.IsExtraRewardDisplayed[len(t.IsExtraRewardDisplayed)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentLocationRewardExcelAddIsExtraRewardDisplayed(b, b.EndVector(len(t.IsExtraRewardDisplayed)))
-	EventContentLocationRewardExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	EventContentLocationRewardExcelAddLocation(b, fbsutils.Convert(b.CreateString(t.Location), t.FlatBuffer.TableKey))
-	EventContentLocationRewardExcelAddLocationRank(b, fbsutils.Convert(t.LocationRank, t.FlatBuffer.TableKey))
-	EventContentLocationRewardExcelAddOrderInGroup(b, fbsutils.Convert(t.OrderInGroup, t.FlatBuffer.TableKey))
-	EventContentLocationRewardExcelAddProgressTexture(b, fbsutils.Convert(b.CreateString(t.ProgressTexture), t.FlatBuffer.TableKey))
-	EventContentLocationRewardExcelStartRewardAmountVector(b, len(t.RewardAmount))
-	for i := range len(t.RewardAmount) {
-		b.PrependInt64(fbsutils.Convert(t.RewardAmount[len(t.RewardAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentLocationRewardExcelAddRewardAmount(b, b.EndVector(len(t.RewardAmount)))
-	EventContentLocationRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
-	for i := range len(t.RewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentLocationRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
-	EventContentLocationRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
-	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
-	}
-	EventContentLocationRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	EventContentLocationRewardExcelAddScheduleGroupId(b, fbsutils.Convert(t.ScheduleGroupId, t.FlatBuffer.TableKey))
-	EventContentLocationRewardExcelAddSecretStoneAmount(b, fbsutils.Convert(t.SecretStoneAmount, t.FlatBuffer.TableKey))
-	EventContentLocationRewardExcelAddSecretStoneProb(b, fbsutils.Convert(t.SecretStoneProb, t.FlatBuffer.TableKey))
+	EventContentLocationRewardExcelAddOrderInGroup(b, fbsutils.Convert(t.OrderInGroup, t.FlatBuffer.TableKey))
+	EventContentLocationRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	EventContentLocationRewardExcelAddProgressTexture(b, fbsutils.Convert(b.CreateString(t.ProgressTexture), t.FlatBuffer.TableKey))
 	EventContentLocationRewardExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentLocationRewardExcelAddVoiceId(b, b.EndVector(len(t.VoiceId)))
+	EventContentLocationRewardExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	EventContentLocationRewardExcelAddLocationRank(b, fbsutils.Convert(t.LocationRank, t.FlatBuffer.TableKey))
+	EventContentLocationRewardExcelAddFavorExp(b, fbsutils.Convert(t.FavorExp, t.FlatBuffer.TableKey))
+	EventContentLocationRewardExcelAddSecretStoneAmount(b, fbsutils.Convert(t.SecretStoneAmount, t.FlatBuffer.TableKey))
+	EventContentLocationRewardExcelAddSecretStoneProb(b, fbsutils.Convert(t.SecretStoneProb, t.FlatBuffer.TableKey))
+	EventContentLocationRewardExcelAddExtraFavorExp(b, fbsutils.Convert(t.ExtraFavorExp, t.FlatBuffer.TableKey))
+	EventContentLocationRewardExcelAddExtraFavorExpProb(b, fbsutils.Convert(t.ExtraFavorExpProb, t.FlatBuffer.TableKey))
+	EventContentLocationRewardExcelStartExtraRewardParcelTypeVector(b, len(t.ExtraRewardParcelType))
+	for i := range len(t.ExtraRewardParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ExtraRewardParcelType[len(t.ExtraRewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+	}
+	EventContentLocationRewardExcelAddExtraRewardParcelType(b, b.EndVector(len(t.ExtraRewardParcelType)))
+	EventContentLocationRewardExcelStartExtraRewardParcelIdVector(b, len(t.ExtraRewardParcelId))
+	for i := range len(t.ExtraRewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.ExtraRewardParcelId[len(t.ExtraRewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentLocationRewardExcelAddExtraRewardParcelId(b, b.EndVector(len(t.ExtraRewardParcelId)))
+	EventContentLocationRewardExcelStartExtraRewardAmountVector(b, len(t.ExtraRewardAmount))
+	for i := range len(t.ExtraRewardAmount) {
+		b.PrependInt64(fbsutils.Convert(t.ExtraRewardAmount[len(t.ExtraRewardAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentLocationRewardExcelAddExtraRewardAmount(b, b.EndVector(len(t.ExtraRewardAmount)))
+	EventContentLocationRewardExcelStartExtraRewardProbVector(b, len(t.ExtraRewardProb))
+	for i := range len(t.ExtraRewardProb) {
+		b.PrependInt64(fbsutils.Convert(t.ExtraRewardProb[len(t.ExtraRewardProb)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentLocationRewardExcelAddExtraRewardProb(b, b.EndVector(len(t.ExtraRewardProb)))
+	EventContentLocationRewardExcelStartIsExtraRewardDisplayedVector(b, len(t.IsExtraRewardDisplayed))
+	for i := range len(t.IsExtraRewardDisplayed) {
+		b.PrependBool(fbsutils.Convert(t.IsExtraRewardDisplayed[len(t.IsExtraRewardDisplayed)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentLocationRewardExcelAddIsExtraRewardDisplayed(b, b.EndVector(len(t.IsExtraRewardDisplayed)))
+	EventContentLocationRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
+	for i := range len(t.RewardParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+	}
+	EventContentLocationRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
+	EventContentLocationRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
+	for i := range len(t.RewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentLocationRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	EventContentLocationRewardExcelStartRewardAmountVector(b, len(t.RewardAmount))
+	for i := range len(t.RewardAmount) {
+		b.PrependInt64(fbsutils.Convert(t.RewardAmount[len(t.RewardAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentLocationRewardExcelAddRewardAmount(b, b.EndVector(len(t.RewardAmount)))
 	return EventContentLocationRewardExcelEnd(b)
 }
 
@@ -111,53 +111,53 @@ func (t *EventContentLocationRewardExcelDto) UnmarshalMessage(e *EventContentLoc
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLocationReward"))
 	}
+	t.Location = fbsutils.Convert(string(e.Location()), t.FlatBuffer.TableKey)
+	t.ScheduleGroupId = fbsutils.Convert(e.ScheduleGroupId(), t.FlatBuffer.TableKey)
+	t.OrderInGroup = fbsutils.Convert(e.OrderInGroup(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.ProgressTexture = fbsutils.Convert(string(e.ProgressTexture()), t.FlatBuffer.TableKey)
+	t.VoiceId = make([]uint32, e.VoiceIdLength())
+	for i := range e.VoiceIdLength() {
+		t.VoiceId[i] = e.VoiceId(i)
+	}
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.LocationRank = fbsutils.Convert(e.LocationRank(), t.FlatBuffer.TableKey)
+	t.FavorExp = fbsutils.Convert(e.FavorExp(), t.FlatBuffer.TableKey)
+	t.SecretStoneAmount = fbsutils.Convert(e.SecretStoneAmount(), t.FlatBuffer.TableKey)
+	t.SecretStoneProb = fbsutils.Convert(e.SecretStoneProb(), t.FlatBuffer.TableKey)
 	t.ExtraFavorExp = fbsutils.Convert(e.ExtraFavorExp(), t.FlatBuffer.TableKey)
 	t.ExtraFavorExpProb = fbsutils.Convert(e.ExtraFavorExpProb(), t.FlatBuffer.TableKey)
-	t.ExtraRewardAmount = make([]int64, e.ExtraRewardAmountLength())
-	for i := range e.ExtraRewardAmountLength() {
-		t.ExtraRewardAmount[i] = e.ExtraRewardAmount(i)
+	t.ExtraRewardParcelType = make([]ParcelType, e.ExtraRewardParcelTypeLength())
+	for i := range e.ExtraRewardParcelTypeLength() {
+		t.ExtraRewardParcelType[i] = e.ExtraRewardParcelType(i)
 	}
 	t.ExtraRewardParcelId = make([]int64, e.ExtraRewardParcelIdLength())
 	for i := range e.ExtraRewardParcelIdLength() {
 		t.ExtraRewardParcelId[i] = e.ExtraRewardParcelId(i)
 	}
-	t.ExtraRewardParcelType = make([]ParcelType, e.ExtraRewardParcelTypeLength())
-	for i := range e.ExtraRewardParcelTypeLength() {
-		t.ExtraRewardParcelType[i] = e.ExtraRewardParcelType(i)
+	t.ExtraRewardAmount = make([]int64, e.ExtraRewardAmountLength())
+	for i := range e.ExtraRewardAmountLength() {
+		t.ExtraRewardAmount[i] = e.ExtraRewardAmount(i)
 	}
 	t.ExtraRewardProb = make([]int64, e.ExtraRewardProbLength())
 	for i := range e.ExtraRewardProbLength() {
 		t.ExtraRewardProb[i] = e.ExtraRewardProb(i)
 	}
-	t.FavorExp = fbsutils.Convert(e.FavorExp(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.IsExtraRewardDisplayed = make([]bool, e.IsExtraRewardDisplayedLength())
 	for i := range e.IsExtraRewardDisplayedLength() {
 		t.IsExtraRewardDisplayed[i] = e.IsExtraRewardDisplayed(i)
-	}
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.Location = fbsutils.Convert(string(e.Location()), t.FlatBuffer.TableKey)
-	t.LocationRank = fbsutils.Convert(e.LocationRank(), t.FlatBuffer.TableKey)
-	t.OrderInGroup = fbsutils.Convert(e.OrderInGroup(), t.FlatBuffer.TableKey)
-	t.ProgressTexture = fbsutils.Convert(string(e.ProgressTexture()), t.FlatBuffer.TableKey)
-	t.RewardAmount = make([]int64, e.RewardAmountLength())
-	for i := range e.RewardAmountLength() {
-		t.RewardAmount[i] = e.RewardAmount(i)
-	}
-	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
-	for i := range e.RewardParcelIdLength() {
-		t.RewardParcelId[i] = e.RewardParcelId(i)
 	}
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
 		t.RewardParcelType[i] = e.RewardParcelType(i)
 	}
-	t.ScheduleGroupId = fbsutils.Convert(e.ScheduleGroupId(), t.FlatBuffer.TableKey)
-	t.SecretStoneAmount = fbsutils.Convert(e.SecretStoneAmount(), t.FlatBuffer.TableKey)
-	t.SecretStoneProb = fbsutils.Convert(e.SecretStoneProb(), t.FlatBuffer.TableKey)
-	t.VoiceId = make([]uint32, e.VoiceIdLength())
-	for i := range e.VoiceIdLength() {
-		t.VoiceId[i] = e.VoiceId(i)
+	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
+	for i := range e.RewardParcelIdLength() {
+		t.RewardParcelId[i] = e.RewardParcelId(i)
+	}
+	t.RewardAmount = make([]int64, e.RewardAmountLength())
+	for i := range e.RewardAmountLength() {
+		t.RewardAmount[i] = e.RewardAmount(i)
 	}
 	return nil
 }

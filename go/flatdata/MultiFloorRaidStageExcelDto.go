@@ -10,31 +10,31 @@ import (
 // MultiFloorRaidStageExcelDto represents a FlatBuffers table
 type MultiFloorRaidStageExcelDto struct {
 	fbsutils.FlatBuffer
-	AssistSlot                    int32                `json:"assist_slot"`
-	BattleDuration                int64                `json:"battle_duration"`
-	BattleReadyTimelinePath       []string             `json:"battle_ready_timeline_path"`
-	BattleReadyTimelinePhaseEnd   []int32              `json:"battle_ready_timeline_phase_end"`
-	BattleReadyTimelinePhaseStart []int32              `json:"battle_ready_timeline_phase_start"`
-	BossCharacterId               []int64              `json:"boss_character_id"`
-	BossGroupId                   string               `json:"boss_group_id"`
-	Difficulty                    int32                `json:"difficulty"`
-	EchelonExtensionType          EchelonExtensionType `json:"echelon_extension_type"`
-	FloorImgPath                  string               `json:"floor_img_path"`
-	FloorListImgPath              string               `json:"floor_list_img_path"`
-	FloorListSection              bool                 `json:"floor_list_section"`
-	FloorListSectionLabel         uint32               `json:"floor_list_section_label"`
-	FloorListSectionOpenCondition int64                `json:"floor_list_section_open_condition"`
-	GroundId                      int64                `json:"ground_id"`
 	Id                            int64                `json:"id"`
+	EchelonExtensionType          EchelonExtensionType `json:"echelon_extension_type"`
+	BossGroupId                   string               `json:"boss_group_id"`
+	AssistSlot                    int32                `json:"assist_slot"`
+	StageOpenCondition            int64                `json:"stage_open_condition"`
+	FloorListSection              bool                 `json:"floor_list_section"`
+	FloorListSectionOpenCondition int64                `json:"floor_list_section_open_condition"`
+	FloorListSectionLabel         uint32               `json:"floor_list_section_label"`
+	Difficulty                    int32                `json:"difficulty"`
+	UseBossIndex                  bool                 `json:"use_boss_index"`
+	UseBossAiPhaseSync            bool                 `json:"use_boss_ai_phase_sync"`
+	FloorListImgPath              string               `json:"floor_list_img_path"`
+	FloorImgPath                  string               `json:"floor_img_path"`
 	RaidCharacterId               int64                `json:"raid_character_id"`
+	BossCharacterId               []int64              `json:"boss_character_id"`
+	StatChangeId                  []int64              `json:"stat_change_id"`
+	BattleDuration                int64                `json:"battle_duration"`
+	GroundId                      int64                `json:"ground_id"`
 	RecommendLevel                int64                `json:"recommend_level"`
 	RewardGroupId                 int64                `json:"reward_group_id"`
-	ShowSkillCard                 bool                 `json:"show_skill_card"`
-	StageOpenCondition            int64                `json:"stage_open_condition"`
-	StatChangeId                  []int64              `json:"stat_change_id"`
-	UseBossAiPhaseSync            bool                 `json:"use_boss_ai_phase_sync"`
-	UseBossIndex                  bool                 `json:"use_boss_index"`
+	BattleReadyTimelinePath       []string             `json:"battle_ready_timeline_path"`
+	BattleReadyTimelinePhaseStart []int32              `json:"battle_ready_timeline_phase_start"`
+	BattleReadyTimelinePhaseEnd   []int32              `json:"battle_ready_timeline_phase_end"`
 	VictoryTimelinePath           string               `json:"victory_timeline_path"`
+	ShowSkillCard                 bool                 `json:"show_skill_card"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -43,51 +43,51 @@ func (t *MultiFloorRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MultiFloorRaidStage"))
 	}
 	MultiFloorRaidStageExcelStart(b)
+	MultiFloorRaidStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddBossGroupId(b, fbsutils.Convert(b.CreateString(t.BossGroupId), t.FlatBuffer.TableKey))
 	MultiFloorRaidStageExcelAddAssistSlot(b, fbsutils.Convert(t.AssistSlot, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelStartBattleReadyTimelinePathVector(b, len(t.BattleReadyTimelinePath))
-	for i := range len(t.BattleReadyTimelinePath) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.BattleReadyTimelinePath[len(t.BattleReadyTimelinePath)-i-1]), t.FlatBuffer.TableKey))
-	}
-	MultiFloorRaidStageExcelAddBattleReadyTimelinePath(b, b.EndVector(len(t.BattleReadyTimelinePath)))
-	MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseEndVector(b, len(t.BattleReadyTimelinePhaseEnd))
-	for i := range len(t.BattleReadyTimelinePhaseEnd) {
-		b.PrependInt32(fbsutils.Convert(t.BattleReadyTimelinePhaseEnd[len(t.BattleReadyTimelinePhaseEnd)-i-1], t.FlatBuffer.TableKey))
-	}
-	MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseEnd(b, b.EndVector(len(t.BattleReadyTimelinePhaseEnd)))
-	MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseStartVector(b, len(t.BattleReadyTimelinePhaseStart))
-	for i := range len(t.BattleReadyTimelinePhaseStart) {
-		b.PrependInt32(fbsutils.Convert(t.BattleReadyTimelinePhaseStart[len(t.BattleReadyTimelinePhaseStart)-i-1], t.FlatBuffer.TableKey))
-	}
-	MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseStart(b, b.EndVector(len(t.BattleReadyTimelinePhaseStart)))
+	MultiFloorRaidStageExcelAddStageOpenCondition(b, fbsutils.Convert(t.StageOpenCondition, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddFloorListSection(b, fbsutils.Convert(t.FloorListSection, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddFloorListSectionOpenCondition(b, fbsutils.Convert(t.FloorListSectionOpenCondition, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddFloorListSectionLabel(b, fbsutils.Convert(t.FloorListSectionLabel, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddDifficulty(b, fbsutils.Convert(t.Difficulty, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddUseBossIndex(b, fbsutils.Convert(t.UseBossIndex, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddUseBossAiPhaseSync(b, fbsutils.Convert(t.UseBossAiPhaseSync, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddFloorListImgPath(b, fbsutils.Convert(b.CreateString(t.FloorListImgPath), t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddFloorImgPath(b, fbsutils.Convert(b.CreateString(t.FloorImgPath), t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddRaidCharacterId(b, fbsutils.Convert(t.RaidCharacterId, t.FlatBuffer.TableKey))
 	MultiFloorRaidStageExcelStartBossCharacterIdVector(b, len(t.BossCharacterId))
 	for i := range len(t.BossCharacterId) {
 		b.PrependInt64(fbsutils.Convert(t.BossCharacterId[len(t.BossCharacterId)-i-1], t.FlatBuffer.TableKey))
 	}
 	MultiFloorRaidStageExcelAddBossCharacterId(b, b.EndVector(len(t.BossCharacterId)))
-	MultiFloorRaidStageExcelAddBossGroupId(b, fbsutils.Convert(b.CreateString(t.BossGroupId), t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddDifficulty(b, fbsutils.Convert(t.Difficulty, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddFloorImgPath(b, fbsutils.Convert(b.CreateString(t.FloorImgPath), t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddFloorListImgPath(b, fbsutils.Convert(b.CreateString(t.FloorListImgPath), t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddFloorListSection(b, fbsutils.Convert(t.FloorListSection, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddFloorListSectionLabel(b, fbsutils.Convert(t.FloorListSectionLabel, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddFloorListSectionOpenCondition(b, fbsutils.Convert(t.FloorListSectionOpenCondition, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddRaidCharacterId(b, fbsutils.Convert(t.RaidCharacterId, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddRecommendLevel(b, fbsutils.Convert(t.RecommendLevel, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddRewardGroupId(b, fbsutils.Convert(t.RewardGroupId, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddShowSkillCard(b, fbsutils.Convert(t.ShowSkillCard, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddStageOpenCondition(b, fbsutils.Convert(t.StageOpenCondition, t.FlatBuffer.TableKey))
 	MultiFloorRaidStageExcelStartStatChangeIdVector(b, len(t.StatChangeId))
 	for i := range len(t.StatChangeId) {
 		b.PrependInt64(fbsutils.Convert(t.StatChangeId[len(t.StatChangeId)-i-1], t.FlatBuffer.TableKey))
 	}
 	MultiFloorRaidStageExcelAddStatChangeId(b, b.EndVector(len(t.StatChangeId)))
-	MultiFloorRaidStageExcelAddUseBossAiPhaseSync(b, fbsutils.Convert(t.UseBossAiPhaseSync, t.FlatBuffer.TableKey))
-	MultiFloorRaidStageExcelAddUseBossIndex(b, fbsutils.Convert(t.UseBossIndex, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddRecommendLevel(b, fbsutils.Convert(t.RecommendLevel, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddRewardGroupId(b, fbsutils.Convert(t.RewardGroupId, t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelStartBattleReadyTimelinePathVector(b, len(t.BattleReadyTimelinePath))
+	for i := range len(t.BattleReadyTimelinePath) {
+		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.BattleReadyTimelinePath[len(t.BattleReadyTimelinePath)-i-1]), t.FlatBuffer.TableKey))
+	}
+	MultiFloorRaidStageExcelAddBattleReadyTimelinePath(b, b.EndVector(len(t.BattleReadyTimelinePath)))
+	MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseStartVector(b, len(t.BattleReadyTimelinePhaseStart))
+	for i := range len(t.BattleReadyTimelinePhaseStart) {
+		b.PrependInt32(fbsutils.Convert(t.BattleReadyTimelinePhaseStart[len(t.BattleReadyTimelinePhaseStart)-i-1], t.FlatBuffer.TableKey))
+	}
+	MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseStart(b, b.EndVector(len(t.BattleReadyTimelinePhaseStart)))
+	MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseEndVector(b, len(t.BattleReadyTimelinePhaseEnd))
+	for i := range len(t.BattleReadyTimelinePhaseEnd) {
+		b.PrependInt32(fbsutils.Convert(t.BattleReadyTimelinePhaseEnd[len(t.BattleReadyTimelinePhaseEnd)-i-1], t.FlatBuffer.TableKey))
+	}
+	MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseEnd(b, b.EndVector(len(t.BattleReadyTimelinePhaseEnd)))
 	MultiFloorRaidStageExcelAddVictoryTimelinePath(b, fbsutils.Convert(b.CreateString(t.VictoryTimelinePath), t.FlatBuffer.TableKey))
+	MultiFloorRaidStageExcelAddShowSkillCard(b, fbsutils.Convert(t.ShowSkillCard, t.FlatBuffer.TableKey))
 	return MultiFloorRaidStageExcelEnd(b)
 }
 
@@ -103,46 +103,46 @@ func (t *MultiFloorRaidStageExcelDto) UnmarshalMessage(e *MultiFloorRaidStageExc
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MultiFloorRaidStage"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.EchelonExtensionType = EchelonExtensionType(int32(fbsutils.Convert(e.EchelonExtensionType(), t.FlatBuffer.TableKey)))
+	t.BossGroupId = fbsutils.Convert(string(e.BossGroupId()), t.FlatBuffer.TableKey)
 	t.AssistSlot = fbsutils.Convert(e.AssistSlot(), t.FlatBuffer.TableKey)
+	t.StageOpenCondition = fbsutils.Convert(e.StageOpenCondition(), t.FlatBuffer.TableKey)
+	t.FloorListSection = fbsutils.Convert(e.FloorListSection(), t.FlatBuffer.TableKey)
+	t.FloorListSectionOpenCondition = fbsutils.Convert(e.FloorListSectionOpenCondition(), t.FlatBuffer.TableKey)
+	t.FloorListSectionLabel = fbsutils.Convert(e.FloorListSectionLabel(), t.FlatBuffer.TableKey)
+	t.Difficulty = fbsutils.Convert(e.Difficulty(), t.FlatBuffer.TableKey)
+	t.UseBossIndex = fbsutils.Convert(e.UseBossIndex(), t.FlatBuffer.TableKey)
+	t.UseBossAiPhaseSync = fbsutils.Convert(e.UseBossAiPhaseSync(), t.FlatBuffer.TableKey)
+	t.FloorListImgPath = fbsutils.Convert(string(e.FloorListImgPath()), t.FlatBuffer.TableKey)
+	t.FloorImgPath = fbsutils.Convert(string(e.FloorImgPath()), t.FlatBuffer.TableKey)
+	t.RaidCharacterId = fbsutils.Convert(e.RaidCharacterId(), t.FlatBuffer.TableKey)
+	t.BossCharacterId = make([]int64, e.BossCharacterIdLength())
+	for i := range e.BossCharacterIdLength() {
+		t.BossCharacterId[i] = e.BossCharacterId(i)
+	}
+	t.StatChangeId = make([]int64, e.StatChangeIdLength())
+	for i := range e.StatChangeIdLength() {
+		t.StatChangeId[i] = e.StatChangeId(i)
+	}
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
+	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
+	t.RecommendLevel = fbsutils.Convert(e.RecommendLevel(), t.FlatBuffer.TableKey)
+	t.RewardGroupId = fbsutils.Convert(e.RewardGroupId(), t.FlatBuffer.TableKey)
 	t.BattleReadyTimelinePath = make([]string, e.BattleReadyTimelinePathLength())
 	for i := range e.BattleReadyTimelinePathLength() {
 		t.BattleReadyTimelinePath[i] = string(e.BattleReadyTimelinePath(i))
-	}
-	t.BattleReadyTimelinePhaseEnd = make([]int32, e.BattleReadyTimelinePhaseEndLength())
-	for i := range e.BattleReadyTimelinePhaseEndLength() {
-		t.BattleReadyTimelinePhaseEnd[i] = e.BattleReadyTimelinePhaseEnd(i)
 	}
 	t.BattleReadyTimelinePhaseStart = make([]int32, e.BattleReadyTimelinePhaseStartLength())
 	for i := range e.BattleReadyTimelinePhaseStartLength() {
 		t.BattleReadyTimelinePhaseStart[i] = e.BattleReadyTimelinePhaseStart(i)
 	}
-	t.BossCharacterId = make([]int64, e.BossCharacterIdLength())
-	for i := range e.BossCharacterIdLength() {
-		t.BossCharacterId[i] = e.BossCharacterId(i)
+	t.BattleReadyTimelinePhaseEnd = make([]int32, e.BattleReadyTimelinePhaseEndLength())
+	for i := range e.BattleReadyTimelinePhaseEndLength() {
+		t.BattleReadyTimelinePhaseEnd[i] = e.BattleReadyTimelinePhaseEnd(i)
 	}
-	t.BossGroupId = fbsutils.Convert(string(e.BossGroupId()), t.FlatBuffer.TableKey)
-	t.Difficulty = fbsutils.Convert(e.Difficulty(), t.FlatBuffer.TableKey)
-	t.EchelonExtensionType = EchelonExtensionType(int32(fbsutils.Convert(e.EchelonExtensionType(), t.FlatBuffer.TableKey)))
-	t.FloorImgPath = fbsutils.Convert(string(e.FloorImgPath()), t.FlatBuffer.TableKey)
-	t.FloorListImgPath = fbsutils.Convert(string(e.FloorListImgPath()), t.FlatBuffer.TableKey)
-	t.FloorListSection = fbsutils.Convert(e.FloorListSection(), t.FlatBuffer.TableKey)
-	t.FloorListSectionLabel = fbsutils.Convert(e.FloorListSectionLabel(), t.FlatBuffer.TableKey)
-	t.FloorListSectionOpenCondition = fbsutils.Convert(e.FloorListSectionOpenCondition(), t.FlatBuffer.TableKey)
-	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.RaidCharacterId = fbsutils.Convert(e.RaidCharacterId(), t.FlatBuffer.TableKey)
-	t.RecommendLevel = fbsutils.Convert(e.RecommendLevel(), t.FlatBuffer.TableKey)
-	t.RewardGroupId = fbsutils.Convert(e.RewardGroupId(), t.FlatBuffer.TableKey)
-	t.ShowSkillCard = fbsutils.Convert(e.ShowSkillCard(), t.FlatBuffer.TableKey)
-	t.StageOpenCondition = fbsutils.Convert(e.StageOpenCondition(), t.FlatBuffer.TableKey)
-	t.StatChangeId = make([]int64, e.StatChangeIdLength())
-	for i := range e.StatChangeIdLength() {
-		t.StatChangeId[i] = e.StatChangeId(i)
-	}
-	t.UseBossAiPhaseSync = fbsutils.Convert(e.UseBossAiPhaseSync(), t.FlatBuffer.TableKey)
-	t.UseBossIndex = fbsutils.Convert(e.UseBossIndex(), t.FlatBuffer.TableKey)
 	t.VictoryTimelinePath = fbsutils.Convert(string(e.VictoryTimelinePath()), t.FlatBuffer.TableKey)
+	t.ShowSkillCard = fbsutils.Convert(e.ShowSkillCard(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -11,12 +11,12 @@ import (
 type MiniGameDreamReplayScenarioExcelDto struct {
 	fbsutils.FlatBuffer
 	EventContentId                  int64  `json:"event_content_id"`
-	IsReplayScenarioHorizon         bool   `json:"is_replay_scenario_horizon"`
-	Order                           int64  `json:"order"`
-	ReplayScenarioResource          string `json:"replay_scenario_resource"`
-	ReplaySummaryLocalizeScenarioId uint32 `json:"replay_summary_localize_scenario_id"`
-	ReplaySummaryTitleLocalize      uint32 `json:"replay_summary_title_localize"`
 	ScenarioGroupId                 int64  `json:"scenario_group_id"`
+	Order                           int64  `json:"order"`
+	ReplaySummaryTitleLocalize      uint32 `json:"replay_summary_title_localize"`
+	ReplaySummaryLocalizeScenarioId uint32 `json:"replay_summary_localize_scenario_id"`
+	ReplayScenarioResource          string `json:"replay_scenario_resource"`
+	IsReplayScenarioHorizon         bool   `json:"is_replay_scenario_horizon"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,12 +26,12 @@ func (t *MiniGameDreamReplayScenarioExcelDto) MarshalModel(b *flatbuffers.Builde
 	}
 	MiniGameDreamReplayScenarioExcelStart(b)
 	MiniGameDreamReplayScenarioExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameDreamReplayScenarioExcelAddIsReplayScenarioHorizon(b, fbsutils.Convert(t.IsReplayScenarioHorizon, t.FlatBuffer.TableKey))
-	MiniGameDreamReplayScenarioExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
-	MiniGameDreamReplayScenarioExcelAddReplayScenarioResource(b, fbsutils.Convert(b.CreateString(t.ReplayScenarioResource), t.FlatBuffer.TableKey))
-	MiniGameDreamReplayScenarioExcelAddReplaySummaryLocalizeScenarioId(b, fbsutils.Convert(t.ReplaySummaryLocalizeScenarioId, t.FlatBuffer.TableKey))
-	MiniGameDreamReplayScenarioExcelAddReplaySummaryTitleLocalize(b, fbsutils.Convert(t.ReplaySummaryTitleLocalize, t.FlatBuffer.TableKey))
 	MiniGameDreamReplayScenarioExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
+	MiniGameDreamReplayScenarioExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
+	MiniGameDreamReplayScenarioExcelAddReplaySummaryTitleLocalize(b, fbsutils.Convert(t.ReplaySummaryTitleLocalize, t.FlatBuffer.TableKey))
+	MiniGameDreamReplayScenarioExcelAddReplaySummaryLocalizeScenarioId(b, fbsutils.Convert(t.ReplaySummaryLocalizeScenarioId, t.FlatBuffer.TableKey))
+	MiniGameDreamReplayScenarioExcelAddReplayScenarioResource(b, fbsutils.Convert(b.CreateString(t.ReplayScenarioResource), t.FlatBuffer.TableKey))
+	MiniGameDreamReplayScenarioExcelAddIsReplayScenarioHorizon(b, fbsutils.Convert(t.IsReplayScenarioHorizon, t.FlatBuffer.TableKey))
 	return MiniGameDreamReplayScenarioExcelEnd(b)
 }
 
@@ -48,12 +48,12 @@ func (t *MiniGameDreamReplayScenarioExcelDto) UnmarshalMessage(e *MiniGameDreamR
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamReplayScenario"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.IsReplayScenarioHorizon = fbsutils.Convert(e.IsReplayScenarioHorizon(), t.FlatBuffer.TableKey)
-	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
-	t.ReplayScenarioResource = fbsutils.Convert(string(e.ReplayScenarioResource()), t.FlatBuffer.TableKey)
-	t.ReplaySummaryLocalizeScenarioId = fbsutils.Convert(e.ReplaySummaryLocalizeScenarioId(), t.FlatBuffer.TableKey)
-	t.ReplaySummaryTitleLocalize = fbsutils.Convert(e.ReplaySummaryTitleLocalize(), t.FlatBuffer.TableKey)
 	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
+	t.ReplaySummaryTitleLocalize = fbsutils.Convert(e.ReplaySummaryTitleLocalize(), t.FlatBuffer.TableKey)
+	t.ReplaySummaryLocalizeScenarioId = fbsutils.Convert(e.ReplaySummaryLocalizeScenarioId(), t.FlatBuffer.TableKey)
+	t.ReplayScenarioResource = fbsutils.Convert(string(e.ReplayScenarioResource()), t.FlatBuffer.TableKey)
+	t.IsReplayScenarioHorizon = fbsutils.Convert(e.IsReplayScenarioHorizon(), t.FlatBuffer.TableKey)
 	return nil
 }
 

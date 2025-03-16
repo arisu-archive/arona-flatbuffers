@@ -10,14 +10,14 @@ import (
 // EventContentZoneVisitRewardExcelDto represents a FlatBuffers table
 type EventContentZoneVisitRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	CharacterDevName       string       `json:"character_dev_name"`
-	CharacterId            int64        `json:"character_id"`
-	DevName                string       `json:"dev_name"`
 	EventContentId         int64        `json:"event_content_id"`
 	EventContentLocationId int64        `json:"event_content_location_id"`
-	VisitRewardAmount      []int64      `json:"visit_reward_amount"`
-	VisitRewardParcelId    []int64      `json:"visit_reward_parcel_id"`
+	DevName                string       `json:"dev_name"`
+	CharacterId            int64        `json:"character_id"`
+	CharacterDevName       string       `json:"character_dev_name"`
 	VisitRewardParcelType  []ParcelType `json:"visit_reward_parcel_type"`
+	VisitRewardParcelId    []int64      `json:"visit_reward_parcel_id"`
+	VisitRewardAmount      []int64      `json:"visit_reward_amount"`
 	VisitRewardProb        []int64      `json:"visit_reward_prob"`
 }
 
@@ -27,26 +27,26 @@ func (t *EventContentZoneVisitRewardExcelDto) MarshalModel(b *flatbuffers.Builde
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentZoneVisitReward"))
 	}
 	EventContentZoneVisitRewardExcelStart(b)
-	EventContentZoneVisitRewardExcelAddCharacterDevName(b, fbsutils.Convert(b.CreateString(t.CharacterDevName), t.FlatBuffer.TableKey))
-	EventContentZoneVisitRewardExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
-	EventContentZoneVisitRewardExcelAddDevName(b, fbsutils.Convert(b.CreateString(t.DevName), t.FlatBuffer.TableKey))
 	EventContentZoneVisitRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentZoneVisitRewardExcelAddEventContentLocationId(b, fbsutils.Convert(t.EventContentLocationId, t.FlatBuffer.TableKey))
-	EventContentZoneVisitRewardExcelStartVisitRewardAmountVector(b, len(t.VisitRewardAmount))
-	for i := range len(t.VisitRewardAmount) {
-		b.PrependInt64(fbsutils.Convert(t.VisitRewardAmount[len(t.VisitRewardAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentZoneVisitRewardExcelAddVisitRewardAmount(b, b.EndVector(len(t.VisitRewardAmount)))
-	EventContentZoneVisitRewardExcelStartVisitRewardParcelIdVector(b, len(t.VisitRewardParcelId))
-	for i := range len(t.VisitRewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.VisitRewardParcelId[len(t.VisitRewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentZoneVisitRewardExcelAddVisitRewardParcelId(b, b.EndVector(len(t.VisitRewardParcelId)))
+	EventContentZoneVisitRewardExcelAddDevName(b, fbsutils.Convert(b.CreateString(t.DevName), t.FlatBuffer.TableKey))
+	EventContentZoneVisitRewardExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
+	EventContentZoneVisitRewardExcelAddCharacterDevName(b, fbsutils.Convert(b.CreateString(t.CharacterDevName), t.FlatBuffer.TableKey))
 	EventContentZoneVisitRewardExcelStartVisitRewardParcelTypeVector(b, len(t.VisitRewardParcelType))
 	for i := range len(t.VisitRewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.VisitRewardParcelType[len(t.VisitRewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
 	}
 	EventContentZoneVisitRewardExcelAddVisitRewardParcelType(b, b.EndVector(len(t.VisitRewardParcelType)))
+	EventContentZoneVisitRewardExcelStartVisitRewardParcelIdVector(b, len(t.VisitRewardParcelId))
+	for i := range len(t.VisitRewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.VisitRewardParcelId[len(t.VisitRewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentZoneVisitRewardExcelAddVisitRewardParcelId(b, b.EndVector(len(t.VisitRewardParcelId)))
+	EventContentZoneVisitRewardExcelStartVisitRewardAmountVector(b, len(t.VisitRewardAmount))
+	for i := range len(t.VisitRewardAmount) {
+		b.PrependInt64(fbsutils.Convert(t.VisitRewardAmount[len(t.VisitRewardAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentZoneVisitRewardExcelAddVisitRewardAmount(b, b.EndVector(len(t.VisitRewardAmount)))
 	EventContentZoneVisitRewardExcelStartVisitRewardProbVector(b, len(t.VisitRewardProb))
 	for i := range len(t.VisitRewardProb) {
 		b.PrependInt64(fbsutils.Convert(t.VisitRewardProb[len(t.VisitRewardProb)-i-1], t.FlatBuffer.TableKey))
@@ -67,22 +67,22 @@ func (t *EventContentZoneVisitRewardExcelDto) UnmarshalMessage(e *EventContentZo
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentZoneVisitReward"))
 	}
-	t.CharacterDevName = fbsutils.Convert(string(e.CharacterDevName()), t.FlatBuffer.TableKey)
-	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
-	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.EventContentLocationId = fbsutils.Convert(e.EventContentLocationId(), t.FlatBuffer.TableKey)
-	t.VisitRewardAmount = make([]int64, e.VisitRewardAmountLength())
-	for i := range e.VisitRewardAmountLength() {
-		t.VisitRewardAmount[i] = e.VisitRewardAmount(i)
+	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
+	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
+	t.CharacterDevName = fbsutils.Convert(string(e.CharacterDevName()), t.FlatBuffer.TableKey)
+	t.VisitRewardParcelType = make([]ParcelType, e.VisitRewardParcelTypeLength())
+	for i := range e.VisitRewardParcelTypeLength() {
+		t.VisitRewardParcelType[i] = e.VisitRewardParcelType(i)
 	}
 	t.VisitRewardParcelId = make([]int64, e.VisitRewardParcelIdLength())
 	for i := range e.VisitRewardParcelIdLength() {
 		t.VisitRewardParcelId[i] = e.VisitRewardParcelId(i)
 	}
-	t.VisitRewardParcelType = make([]ParcelType, e.VisitRewardParcelTypeLength())
-	for i := range e.VisitRewardParcelTypeLength() {
-		t.VisitRewardParcelType[i] = e.VisitRewardParcelType(i)
+	t.VisitRewardAmount = make([]int64, e.VisitRewardAmountLength())
+	for i := range e.VisitRewardAmountLength() {
+		t.VisitRewardAmount[i] = e.VisitRewardAmount(i)
 	}
 	t.VisitRewardProb = make([]int64, e.VisitRewardProbLength())
 	for i := range e.VisitRewardProbLength() {

@@ -25,192 +25,192 @@ class TacticalSupportSystemExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # TacticalSupportSystemExcel
-    def CanCover(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # TacticalSupportSystemExcel
-    def CanTargeting(self):
+    def SummonedTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # TacticalSupportSystemExcel
-    def CharacterInteractionStartDelay(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticalSupportSystemExcel
-    def CrashObstacleObbHeight(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticalSupportSystemExcel
-    def CrashObstacleObbWidth(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # TacticalSupportSystemExcel
     def DefaultPersonalityId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # TacticalSupportSystemExcel
-    def DestroyFrame(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticalSupportSystemExcel
-    def GetOnEndEffectPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # TacticalSupportSystemExcel
-    def GetOnStartEffectPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # TacticalSupportSystemExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticalSupportSystemExcel
-    def InteractionChar(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticalSupportSystemExcel
-    def InteractionFrame(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticalSupportSystemExcel
-    def InteractionSkillCardTexture(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # TacticalSupportSystemExcel
-    def InteractionSkillSpine(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # TacticalSupportSystemExcel
-    def InteractionStudentExSkillGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # TacticalSupportSystemExcel
-    def InventoryOffsetX(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # TacticalSupportSystemExcel
-    def InventoryOffsetY(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # TacticalSupportSystemExcel
-    def InventoryOffsetZ(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # TacticalSupportSystemExcel
-    def IsTssBlockedNodeCheck(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+    def CanTargeting(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # TacticalSupportSystemExcel
-    def NumberOfUses(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+    def CanCover(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticalSupportSystemExcel
-    def ObstacleCoverRange(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # TacticalSupportSystemExcel
     def ObstacleUniqueName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # TacticalSupportSystemExcel
-    def RetreatFrame(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticalSupportSystemExcel
-    def SummonedTime(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticalSupportSystemExcel
-    def SummonerCharacterId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
+    def ObstacleCoverRange(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # TacticalSupportSystemExcel
     def SummonSkilllGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # TacticalSupportSystemExcel
-    def TsaInteractionAddDuration(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+    def CrashObstacleObbWidth(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticalSupportSystemExcel
+    def CrashObstacleObbHeight(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticalSupportSystemExcel
+    def IsTssBlockedNodeCheck(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # TacticalSupportSystemExcel
+    def NumberOfUses(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticalSupportSystemExcel
+    def InventoryOffsetX(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # TacticalSupportSystemExcel
+    def InventoryOffsetY(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # TacticalSupportSystemExcel
+    def InventoryOffsetZ(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # TacticalSupportSystemExcel
+    def InteractionChar(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticalSupportSystemExcel
+    def CharacterInteractionStartDelay(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticalSupportSystemExcel
+    def GetOnStartEffectPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # TacticalSupportSystemExcel
+    def GetOnEndEffectPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # TacticalSupportSystemExcel
+    def SummonerCharacterId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticalSupportSystemExcel
+    def InteractionFrame(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticalSupportSystemExcel
+    def TsaInteractionAddDuration(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticalSupportSystemExcel
+    def InteractionStudentExSkillGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # TacticalSupportSystemExcel
+    def InteractionSkillCardTexture(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # TacticalSupportSystemExcel
+    def InteractionSkillSpine(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # TacticalSupportSystemExcel
+    def RetreatFrame(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # TacticalSupportSystemExcel
+    def DestroyFrame(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
 def TacticalSupportSystemExcelStart(builder):
@@ -219,167 +219,167 @@ def TacticalSupportSystemExcelStart(builder):
 def Start(builder):
     TacticalSupportSystemExcelStart(builder)
 
-def TacticalSupportSystemExcelAddCanCover(builder, canCover):
-    builder.PrependBoolSlot(0, canCover, 0)
-
-def AddCanCover(builder, canCover):
-    TacticalSupportSystemExcelAddCanCover(builder, canCover)
-
-def TacticalSupportSystemExcelAddCanTargeting(builder, canTargeting):
-    builder.PrependBoolSlot(1, canTargeting, 0)
-
-def AddCanTargeting(builder, canTargeting):
-    TacticalSupportSystemExcelAddCanTargeting(builder, canTargeting)
-
-def TacticalSupportSystemExcelAddCharacterInteractionStartDelay(builder, characterInteractionStartDelay):
-    builder.PrependInt64Slot(2, characterInteractionStartDelay, 0)
-
-def AddCharacterInteractionStartDelay(builder, characterInteractionStartDelay):
-    TacticalSupportSystemExcelAddCharacterInteractionStartDelay(builder, characterInteractionStartDelay)
-
-def TacticalSupportSystemExcelAddCrashObstacleObbHeight(builder, crashObstacleObbHeight):
-    builder.PrependInt64Slot(3, crashObstacleObbHeight, 0)
-
-def AddCrashObstacleObbHeight(builder, crashObstacleObbHeight):
-    TacticalSupportSystemExcelAddCrashObstacleObbHeight(builder, crashObstacleObbHeight)
-
-def TacticalSupportSystemExcelAddCrashObstacleObbWidth(builder, crashObstacleObbWidth):
-    builder.PrependInt64Slot(4, crashObstacleObbWidth, 0)
-
-def AddCrashObstacleObbWidth(builder, crashObstacleObbWidth):
-    TacticalSupportSystemExcelAddCrashObstacleObbWidth(builder, crashObstacleObbWidth)
-
-def TacticalSupportSystemExcelAddDefaultPersonalityId(builder, defaultPersonalityId):
-    builder.PrependInt64Slot(5, defaultPersonalityId, 0)
-
-def AddDefaultPersonalityId(builder, defaultPersonalityId):
-    TacticalSupportSystemExcelAddDefaultPersonalityId(builder, defaultPersonalityId)
-
-def TacticalSupportSystemExcelAddDestroyFrame(builder, destroyFrame):
-    builder.PrependInt32Slot(6, destroyFrame, 0)
-
-def AddDestroyFrame(builder, destroyFrame):
-    TacticalSupportSystemExcelAddDestroyFrame(builder, destroyFrame)
-
-def TacticalSupportSystemExcelAddGetOnEndEffectPath(builder, getOnEndEffectPath):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(getOnEndEffectPath), 0)
-
-def AddGetOnEndEffectPath(builder, getOnEndEffectPath):
-    TacticalSupportSystemExcelAddGetOnEndEffectPath(builder, getOnEndEffectPath)
-
-def TacticalSupportSystemExcelAddGetOnStartEffectPath(builder, getOnStartEffectPath):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(getOnStartEffectPath), 0)
-
-def AddGetOnStartEffectPath(builder, getOnStartEffectPath):
-    TacticalSupportSystemExcelAddGetOnStartEffectPath(builder, getOnStartEffectPath)
-
 def TacticalSupportSystemExcelAddId(builder, id):
-    builder.PrependInt64Slot(9, id, 0)
+    builder.PrependInt64Slot(0, id, 0)
 
 def AddId(builder, id):
     TacticalSupportSystemExcelAddId(builder, id)
 
-def TacticalSupportSystemExcelAddInteractionChar(builder, interactionChar):
-    builder.PrependInt64Slot(10, interactionChar, 0)
+def TacticalSupportSystemExcelAddSummonedTime(builder, summonedTime):
+    builder.PrependInt64Slot(1, summonedTime, 0)
 
-def AddInteractionChar(builder, interactionChar):
-    TacticalSupportSystemExcelAddInteractionChar(builder, interactionChar)
+def AddSummonedTime(builder, summonedTime):
+    TacticalSupportSystemExcelAddSummonedTime(builder, summonedTime)
 
-def TacticalSupportSystemExcelAddInteractionFrame(builder, interactionFrame):
-    builder.PrependInt32Slot(11, interactionFrame, 0)
+def TacticalSupportSystemExcelAddDefaultPersonalityId(builder, defaultPersonalityId):
+    builder.PrependInt64Slot(2, defaultPersonalityId, 0)
 
-def AddInteractionFrame(builder, interactionFrame):
-    TacticalSupportSystemExcelAddInteractionFrame(builder, interactionFrame)
+def AddDefaultPersonalityId(builder, defaultPersonalityId):
+    TacticalSupportSystemExcelAddDefaultPersonalityId(builder, defaultPersonalityId)
 
-def TacticalSupportSystemExcelAddInteractionSkillCardTexture(builder, interactionSkillCardTexture):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(interactionSkillCardTexture), 0)
+def TacticalSupportSystemExcelAddCanTargeting(builder, canTargeting):
+    builder.PrependBoolSlot(3, canTargeting, 0)
 
-def AddInteractionSkillCardTexture(builder, interactionSkillCardTexture):
-    TacticalSupportSystemExcelAddInteractionSkillCardTexture(builder, interactionSkillCardTexture)
+def AddCanTargeting(builder, canTargeting):
+    TacticalSupportSystemExcelAddCanTargeting(builder, canTargeting)
 
-def TacticalSupportSystemExcelAddInteractionSkillSpine(builder, interactionSkillSpine):
-    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(interactionSkillSpine), 0)
+def TacticalSupportSystemExcelAddCanCover(builder, canCover):
+    builder.PrependBoolSlot(4, canCover, 0)
 
-def AddInteractionSkillSpine(builder, interactionSkillSpine):
-    TacticalSupportSystemExcelAddInteractionSkillSpine(builder, interactionSkillSpine)
+def AddCanCover(builder, canCover):
+    TacticalSupportSystemExcelAddCanCover(builder, canCover)
 
-def TacticalSupportSystemExcelAddInteractionStudentExSkillGroupId(builder, interactionStudentExSkillGroupId):
-    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(interactionStudentExSkillGroupId), 0)
+def TacticalSupportSystemExcelAddObstacleUniqueName(builder, obstacleUniqueName):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(obstacleUniqueName), 0)
 
-def AddInteractionStudentExSkillGroupId(builder, interactionStudentExSkillGroupId):
-    TacticalSupportSystemExcelAddInteractionStudentExSkillGroupId(builder, interactionStudentExSkillGroupId)
+def AddObstacleUniqueName(builder, obstacleUniqueName):
+    TacticalSupportSystemExcelAddObstacleUniqueName(builder, obstacleUniqueName)
 
-def TacticalSupportSystemExcelAddInventoryOffsetX(builder, inventoryOffsetX):
-    builder.PrependFloat32Slot(15, inventoryOffsetX, 0.0)
+def TacticalSupportSystemExcelAddObstacleCoverRange(builder, obstacleCoverRange):
+    builder.PrependInt64Slot(6, obstacleCoverRange, 0)
 
-def AddInventoryOffsetX(builder, inventoryOffsetX):
-    TacticalSupportSystemExcelAddInventoryOffsetX(builder, inventoryOffsetX)
+def AddObstacleCoverRange(builder, obstacleCoverRange):
+    TacticalSupportSystemExcelAddObstacleCoverRange(builder, obstacleCoverRange)
 
-def TacticalSupportSystemExcelAddInventoryOffsetY(builder, inventoryOffsetY):
-    builder.PrependFloat32Slot(16, inventoryOffsetY, 0.0)
+def TacticalSupportSystemExcelAddSummonSkilllGroupId(builder, summonSkilllGroupId):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(summonSkilllGroupId), 0)
 
-def AddInventoryOffsetY(builder, inventoryOffsetY):
-    TacticalSupportSystemExcelAddInventoryOffsetY(builder, inventoryOffsetY)
+def AddSummonSkilllGroupId(builder, summonSkilllGroupId):
+    TacticalSupportSystemExcelAddSummonSkilllGroupId(builder, summonSkilllGroupId)
 
-def TacticalSupportSystemExcelAddInventoryOffsetZ(builder, inventoryOffsetZ):
-    builder.PrependFloat32Slot(17, inventoryOffsetZ, 0.0)
+def TacticalSupportSystemExcelAddCrashObstacleObbWidth(builder, crashObstacleObbWidth):
+    builder.PrependInt64Slot(8, crashObstacleObbWidth, 0)
 
-def AddInventoryOffsetZ(builder, inventoryOffsetZ):
-    TacticalSupportSystemExcelAddInventoryOffsetZ(builder, inventoryOffsetZ)
+def AddCrashObstacleObbWidth(builder, crashObstacleObbWidth):
+    TacticalSupportSystemExcelAddCrashObstacleObbWidth(builder, crashObstacleObbWidth)
+
+def TacticalSupportSystemExcelAddCrashObstacleObbHeight(builder, crashObstacleObbHeight):
+    builder.PrependInt64Slot(9, crashObstacleObbHeight, 0)
+
+def AddCrashObstacleObbHeight(builder, crashObstacleObbHeight):
+    TacticalSupportSystemExcelAddCrashObstacleObbHeight(builder, crashObstacleObbHeight)
 
 def TacticalSupportSystemExcelAddIsTssBlockedNodeCheck(builder, isTssBlockedNodeCheck):
-    builder.PrependBoolSlot(18, isTssBlockedNodeCheck, 0)
+    builder.PrependBoolSlot(10, isTssBlockedNodeCheck, 0)
 
 def AddIsTssBlockedNodeCheck(builder, isTssBlockedNodeCheck):
     TacticalSupportSystemExcelAddIsTssBlockedNodeCheck(builder, isTssBlockedNodeCheck)
 
 def TacticalSupportSystemExcelAddNumberOfUses(builder, numberOfUses):
-    builder.PrependInt32Slot(19, numberOfUses, 0)
+    builder.PrependInt32Slot(11, numberOfUses, 0)
 
 def AddNumberOfUses(builder, numberOfUses):
     TacticalSupportSystemExcelAddNumberOfUses(builder, numberOfUses)
 
-def TacticalSupportSystemExcelAddObstacleCoverRange(builder, obstacleCoverRange):
-    builder.PrependInt64Slot(20, obstacleCoverRange, 0)
+def TacticalSupportSystemExcelAddInventoryOffsetX(builder, inventoryOffsetX):
+    builder.PrependFloat32Slot(12, inventoryOffsetX, 0.0)
 
-def AddObstacleCoverRange(builder, obstacleCoverRange):
-    TacticalSupportSystemExcelAddObstacleCoverRange(builder, obstacleCoverRange)
+def AddInventoryOffsetX(builder, inventoryOffsetX):
+    TacticalSupportSystemExcelAddInventoryOffsetX(builder, inventoryOffsetX)
 
-def TacticalSupportSystemExcelAddObstacleUniqueName(builder, obstacleUniqueName):
-    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(obstacleUniqueName), 0)
+def TacticalSupportSystemExcelAddInventoryOffsetY(builder, inventoryOffsetY):
+    builder.PrependFloat32Slot(13, inventoryOffsetY, 0.0)
 
-def AddObstacleUniqueName(builder, obstacleUniqueName):
-    TacticalSupportSystemExcelAddObstacleUniqueName(builder, obstacleUniqueName)
+def AddInventoryOffsetY(builder, inventoryOffsetY):
+    TacticalSupportSystemExcelAddInventoryOffsetY(builder, inventoryOffsetY)
 
-def TacticalSupportSystemExcelAddRetreatFrame(builder, retreatFrame):
-    builder.PrependInt32Slot(22, retreatFrame, 0)
+def TacticalSupportSystemExcelAddInventoryOffsetZ(builder, inventoryOffsetZ):
+    builder.PrependFloat32Slot(14, inventoryOffsetZ, 0.0)
 
-def AddRetreatFrame(builder, retreatFrame):
-    TacticalSupportSystemExcelAddRetreatFrame(builder, retreatFrame)
+def AddInventoryOffsetZ(builder, inventoryOffsetZ):
+    TacticalSupportSystemExcelAddInventoryOffsetZ(builder, inventoryOffsetZ)
 
-def TacticalSupportSystemExcelAddSummonedTime(builder, summonedTime):
-    builder.PrependInt64Slot(23, summonedTime, 0)
+def TacticalSupportSystemExcelAddInteractionChar(builder, interactionChar):
+    builder.PrependInt64Slot(15, interactionChar, 0)
 
-def AddSummonedTime(builder, summonedTime):
-    TacticalSupportSystemExcelAddSummonedTime(builder, summonedTime)
+def AddInteractionChar(builder, interactionChar):
+    TacticalSupportSystemExcelAddInteractionChar(builder, interactionChar)
+
+def TacticalSupportSystemExcelAddCharacterInteractionStartDelay(builder, characterInteractionStartDelay):
+    builder.PrependInt64Slot(16, characterInteractionStartDelay, 0)
+
+def AddCharacterInteractionStartDelay(builder, characterInteractionStartDelay):
+    TacticalSupportSystemExcelAddCharacterInteractionStartDelay(builder, characterInteractionStartDelay)
+
+def TacticalSupportSystemExcelAddGetOnStartEffectPath(builder, getOnStartEffectPath):
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(getOnStartEffectPath), 0)
+
+def AddGetOnStartEffectPath(builder, getOnStartEffectPath):
+    TacticalSupportSystemExcelAddGetOnStartEffectPath(builder, getOnStartEffectPath)
+
+def TacticalSupportSystemExcelAddGetOnEndEffectPath(builder, getOnEndEffectPath):
+    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(getOnEndEffectPath), 0)
+
+def AddGetOnEndEffectPath(builder, getOnEndEffectPath):
+    TacticalSupportSystemExcelAddGetOnEndEffectPath(builder, getOnEndEffectPath)
 
 def TacticalSupportSystemExcelAddSummonerCharacterId(builder, summonerCharacterId):
-    builder.PrependInt64Slot(24, summonerCharacterId, 0)
+    builder.PrependInt64Slot(19, summonerCharacterId, 0)
 
 def AddSummonerCharacterId(builder, summonerCharacterId):
     TacticalSupportSystemExcelAddSummonerCharacterId(builder, summonerCharacterId)
 
-def TacticalSupportSystemExcelAddSummonSkilllGroupId(builder, summonSkilllGroupId):
-    builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(summonSkilllGroupId), 0)
+def TacticalSupportSystemExcelAddInteractionFrame(builder, interactionFrame):
+    builder.PrependInt32Slot(20, interactionFrame, 0)
 
-def AddSummonSkilllGroupId(builder, summonSkilllGroupId):
-    TacticalSupportSystemExcelAddSummonSkilllGroupId(builder, summonSkilllGroupId)
+def AddInteractionFrame(builder, interactionFrame):
+    TacticalSupportSystemExcelAddInteractionFrame(builder, interactionFrame)
 
 def TacticalSupportSystemExcelAddTsaInteractionAddDuration(builder, tsaInteractionAddDuration):
-    builder.PrependInt64Slot(26, tsaInteractionAddDuration, 0)
+    builder.PrependInt64Slot(21, tsaInteractionAddDuration, 0)
 
 def AddTsaInteractionAddDuration(builder, tsaInteractionAddDuration):
     TacticalSupportSystemExcelAddTsaInteractionAddDuration(builder, tsaInteractionAddDuration)
+
+def TacticalSupportSystemExcelAddInteractionStudentExSkillGroupId(builder, interactionStudentExSkillGroupId):
+    builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(interactionStudentExSkillGroupId), 0)
+
+def AddInteractionStudentExSkillGroupId(builder, interactionStudentExSkillGroupId):
+    TacticalSupportSystemExcelAddInteractionStudentExSkillGroupId(builder, interactionStudentExSkillGroupId)
+
+def TacticalSupportSystemExcelAddInteractionSkillCardTexture(builder, interactionSkillCardTexture):
+    builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(interactionSkillCardTexture), 0)
+
+def AddInteractionSkillCardTexture(builder, interactionSkillCardTexture):
+    TacticalSupportSystemExcelAddInteractionSkillCardTexture(builder, interactionSkillCardTexture)
+
+def TacticalSupportSystemExcelAddInteractionSkillSpine(builder, interactionSkillSpine):
+    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(interactionSkillSpine), 0)
+
+def AddInteractionSkillSpine(builder, interactionSkillSpine):
+    TacticalSupportSystemExcelAddInteractionSkillSpine(builder, interactionSkillSpine)
+
+def TacticalSupportSystemExcelAddRetreatFrame(builder, retreatFrame):
+    builder.PrependInt32Slot(25, retreatFrame, 0)
+
+def AddRetreatFrame(builder, retreatFrame):
+    TacticalSupportSystemExcelAddRetreatFrame(builder, retreatFrame)
+
+def TacticalSupportSystemExcelAddDestroyFrame(builder, destroyFrame):
+    builder.PrependInt32Slot(26, destroyFrame, 0)
+
+def AddDestroyFrame(builder, destroyFrame):
+    TacticalSupportSystemExcelAddDestroyFrame(builder, destroyFrame)
 
 def TacticalSupportSystemExcelEnd(builder):
     return builder.EndObject()

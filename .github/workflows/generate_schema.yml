@@ -78,7 +78,7 @@ jobs:
       - name: Download decompiled zip file
         run: curl -s https://ba.pokeguy.dev/com.nexon.bluearchive/decompiled/${{ needs.determine-version.outputs.version }}/decompiled.zip -o output.zip
       - name: Unzip the file
-        run: unzip output.zip -d output "tmp/decompiled/DiffableCs/BlueArchive/**"
+        run: unzip output.zip -d output "DiffableCs/BlueArchive/**"
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
@@ -87,7 +87,7 @@ jobs:
         env:
           GOPRIVATE: github.com/arisu-archive
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: go run github.com/arisu-archive/arona-unflatd@latest d -i ./output/tmp/decompiled/DiffableCs/BlueArchive -o ./.schema
+        run: go run github.com/arisu-archive/arona-unflatd@latest d -i ./output/DiffableCs/BlueArchive -o ./.schema
       - name: Install FlatBuffers compiler
         run: |
           sudo apt update

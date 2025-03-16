@@ -25,164 +25,43 @@ class FieldInteractionExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # FieldInteractionExcel
-    def ConditionClass(self):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # FieldInteractionExcel
-    def ConditionClassParameters(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # FieldInteractionExcel
-    def ConditionClassParametersAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # FieldInteractionExcel
-    def ConditionClassParametersLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FieldInteractionExcel
-    def ConditionClassParametersIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        return o == 0
-
-    # FieldInteractionExcel
-    def ConditionId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # FieldInteractionExcel
-    def ConditionIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # FieldInteractionExcel
-    def ConditionIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FieldInteractionExcel
-    def ConditionIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        return o == 0
-
-    # FieldInteractionExcel
-    def ConditionIndex(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # FieldInteractionExcel
-    def ConditionIndexAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # FieldInteractionExcel
-    def ConditionIndexLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FieldInteractionExcel
-    def ConditionIndexIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        return o == 0
-
-    # FieldInteractionExcel
-    def ConditionType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # FieldInteractionExcel
-    def ConditionTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FieldInteractionExcel
-    def ConditionTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FieldInteractionExcel
-    def ConditionTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        return o == 0
 
     # FieldInteractionExcel
     def FieldDateId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
+
+    # FieldInteractionExcel
+    def ShowEmoji(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # FieldInteractionExcel
+    def KeywordLocalize(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # FieldInteractionExcel
     def FieldSeasonId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FieldInteractionExcel
-    def InteractionId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # FieldInteractionExcel
-    def InteractionIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # FieldInteractionExcel
-    def InteractionIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FieldInteractionExcel
-    def InteractionIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        return o == 0
-
-    # FieldInteractionExcel
     def InteractionType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -190,33 +69,175 @@ class FieldInteractionExcel(object):
 
     # FieldInteractionExcel
     def InteractionTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FieldInteractionExcel
     def InteractionTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FieldInteractionExcel
     def InteractionTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        return o == 0
+
+    # FieldInteractionExcel
+    def InteractionId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # FieldInteractionExcel
+    def InteractionIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # FieldInteractionExcel
+    def InteractionIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FieldInteractionExcel
+    def InteractionIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        return o == 0
+
+    # FieldInteractionExcel
+    def ConditionClass(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldInteractionExcel
+    def ConditionClassParameters(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # FieldInteractionExcel
+    def ConditionClassParametersAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # FieldInteractionExcel
+    def ConditionClassParametersLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FieldInteractionExcel
+    def ConditionClassParametersIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         return o == 0
 
     # FieldInteractionExcel
-    def KeywordLocalize(self):
+    def OnceOnly(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # FieldInteractionExcel
+    def ConditionIndex(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # FieldInteractionExcel
+    def ConditionIndexAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # FieldInteractionExcel
+    def ConditionIndexLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FieldInteractionExcel
+    def ConditionIndexIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        return o == 0
+
+    # FieldInteractionExcel
+    def ConditionType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FieldInteractionExcel
+    def ConditionTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FieldInteractionExcel
+    def ConditionTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FieldInteractionExcel
+    def ConditionTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        return o == 0
+
+    # FieldInteractionExcel
+    def ConditionId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # FieldInteractionExcel
+    def ConditionIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # FieldInteractionExcel
+    def ConditionIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FieldInteractionExcel
+    def ConditionIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        return o == 0
 
     # FieldInteractionExcel
     def NegateCondition(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.BoolFlags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 1))
@@ -224,43 +245,22 @@ class FieldInteractionExcel(object):
 
     # FieldInteractionExcel
     def NegateConditionAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.BoolFlags, o)
         return 0
 
     # FieldInteractionExcel
     def NegateConditionLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FieldInteractionExcel
     def NegateConditionIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        return o == 0
-
-    # FieldInteractionExcel
-    def OnceOnly(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # FieldInteractionExcel
-    def ShowEmoji(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # FieldInteractionExcel
-    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+        return o == 0
 
 def FieldInteractionExcelStart(builder):
     builder.StartObject(14)
@@ -268,14 +268,68 @@ def FieldInteractionExcelStart(builder):
 def Start(builder):
     FieldInteractionExcelStart(builder)
 
+def FieldInteractionExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(0, uniqueId, 0)
+
+def AddUniqueId(builder, uniqueId):
+    FieldInteractionExcelAddUniqueId(builder, uniqueId)
+
+def FieldInteractionExcelAddFieldDateId(builder, fieldDateId):
+    builder.PrependInt64Slot(1, fieldDateId, 0)
+
+def AddFieldDateId(builder, fieldDateId):
+    FieldInteractionExcelAddFieldDateId(builder, fieldDateId)
+
+def FieldInteractionExcelAddShowEmoji(builder, showEmoji):
+    builder.PrependBoolSlot(2, showEmoji, 0)
+
+def AddShowEmoji(builder, showEmoji):
+    FieldInteractionExcelAddShowEmoji(builder, showEmoji)
+
+def FieldInteractionExcelAddKeywordLocalize(builder, keywordLocalize):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(keywordLocalize), 0)
+
+def AddKeywordLocalize(builder, keywordLocalize):
+    FieldInteractionExcelAddKeywordLocalize(builder, keywordLocalize)
+
+def FieldInteractionExcelAddFieldSeasonId(builder, fieldSeasonId):
+    builder.PrependInt64Slot(4, fieldSeasonId, 0)
+
+def AddFieldSeasonId(builder, fieldSeasonId):
+    FieldInteractionExcelAddFieldSeasonId(builder, fieldSeasonId)
+
+def FieldInteractionExcelAddInteractionType(builder, interactionType):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(interactionType), 0)
+
+def AddInteractionType(builder, interactionType):
+    FieldInteractionExcelAddInteractionType(builder, interactionType)
+
+def FieldInteractionExcelStartInteractionTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartInteractionTypeVector(builder, numElems):
+    return FieldInteractionExcelStartInteractionTypeVector(builder, numElems)
+
+def FieldInteractionExcelAddInteractionId(builder, interactionId):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(interactionId), 0)
+
+def AddInteractionId(builder, interactionId):
+    FieldInteractionExcelAddInteractionId(builder, interactionId)
+
+def FieldInteractionExcelStartInteractionIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartInteractionIdVector(builder, numElems):
+    return FieldInteractionExcelStartInteractionIdVector(builder, numElems)
+
 def FieldInteractionExcelAddConditionClass(builder, conditionClass):
-    builder.PrependInt32Slot(0, conditionClass, 0)
+    builder.PrependInt32Slot(7, conditionClass, 0)
 
 def AddConditionClass(builder, conditionClass):
     FieldInteractionExcelAddConditionClass(builder, conditionClass)
 
 def FieldInteractionExcelAddConditionClassParameters(builder, conditionClassParameters):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(conditionClassParameters), 0)
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(conditionClassParameters), 0)
 
 def AddConditionClassParameters(builder, conditionClassParameters):
     FieldInteractionExcelAddConditionClassParameters(builder, conditionClassParameters)
@@ -286,20 +340,14 @@ def FieldInteractionExcelStartConditionClassParametersVector(builder, numElems):
 def StartConditionClassParametersVector(builder, numElems):
     return FieldInteractionExcelStartConditionClassParametersVector(builder, numElems)
 
-def FieldInteractionExcelAddConditionId(builder, conditionId):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(conditionId), 0)
+def FieldInteractionExcelAddOnceOnly(builder, onceOnly):
+    builder.PrependBoolSlot(9, onceOnly, 0)
 
-def AddConditionId(builder, conditionId):
-    FieldInteractionExcelAddConditionId(builder, conditionId)
-
-def FieldInteractionExcelStartConditionIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
-def StartConditionIdVector(builder, numElems):
-    return FieldInteractionExcelStartConditionIdVector(builder, numElems)
+def AddOnceOnly(builder, onceOnly):
+    FieldInteractionExcelAddOnceOnly(builder, onceOnly)
 
 def FieldInteractionExcelAddConditionIndex(builder, conditionIndex):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(conditionIndex), 0)
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(conditionIndex), 0)
 
 def AddConditionIndex(builder, conditionIndex):
     FieldInteractionExcelAddConditionIndex(builder, conditionIndex)
@@ -311,7 +359,7 @@ def StartConditionIndexVector(builder, numElems):
     return FieldInteractionExcelStartConditionIndexVector(builder, numElems)
 
 def FieldInteractionExcelAddConditionType(builder, conditionType):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(conditionType), 0)
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(conditionType), 0)
 
 def AddConditionType(builder, conditionType):
     FieldInteractionExcelAddConditionType(builder, conditionType)
@@ -322,50 +370,20 @@ def FieldInteractionExcelStartConditionTypeVector(builder, numElems):
 def StartConditionTypeVector(builder, numElems):
     return FieldInteractionExcelStartConditionTypeVector(builder, numElems)
 
-def FieldInteractionExcelAddFieldDateId(builder, fieldDateId):
-    builder.PrependInt64Slot(5, fieldDateId, 0)
+def FieldInteractionExcelAddConditionId(builder, conditionId):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(conditionId), 0)
 
-def AddFieldDateId(builder, fieldDateId):
-    FieldInteractionExcelAddFieldDateId(builder, fieldDateId)
+def AddConditionId(builder, conditionId):
+    FieldInteractionExcelAddConditionId(builder, conditionId)
 
-def FieldInteractionExcelAddFieldSeasonId(builder, fieldSeasonId):
-    builder.PrependInt64Slot(6, fieldSeasonId, 0)
-
-def AddFieldSeasonId(builder, fieldSeasonId):
-    FieldInteractionExcelAddFieldSeasonId(builder, fieldSeasonId)
-
-def FieldInteractionExcelAddInteractionId(builder, interactionId):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(interactionId), 0)
-
-def AddInteractionId(builder, interactionId):
-    FieldInteractionExcelAddInteractionId(builder, interactionId)
-
-def FieldInteractionExcelStartInteractionIdVector(builder, numElems):
+def FieldInteractionExcelStartConditionIdVector(builder, numElems):
     return builder.StartVector(8, numElems, 8)
 
-def StartInteractionIdVector(builder, numElems):
-    return FieldInteractionExcelStartInteractionIdVector(builder, numElems)
-
-def FieldInteractionExcelAddInteractionType(builder, interactionType):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(interactionType), 0)
-
-def AddInteractionType(builder, interactionType):
-    FieldInteractionExcelAddInteractionType(builder, interactionType)
-
-def FieldInteractionExcelStartInteractionTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartInteractionTypeVector(builder, numElems):
-    return FieldInteractionExcelStartInteractionTypeVector(builder, numElems)
-
-def FieldInteractionExcelAddKeywordLocalize(builder, keywordLocalize):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(keywordLocalize), 0)
-
-def AddKeywordLocalize(builder, keywordLocalize):
-    FieldInteractionExcelAddKeywordLocalize(builder, keywordLocalize)
+def StartConditionIdVector(builder, numElems):
+    return FieldInteractionExcelStartConditionIdVector(builder, numElems)
 
 def FieldInteractionExcelAddNegateCondition(builder, negateCondition):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(negateCondition), 0)
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(negateCondition), 0)
 
 def AddNegateCondition(builder, negateCondition):
     FieldInteractionExcelAddNegateCondition(builder, negateCondition)
@@ -375,24 +393,6 @@ def FieldInteractionExcelStartNegateConditionVector(builder, numElems):
 
 def StartNegateConditionVector(builder, numElems):
     return FieldInteractionExcelStartNegateConditionVector(builder, numElems)
-
-def FieldInteractionExcelAddOnceOnly(builder, onceOnly):
-    builder.PrependBoolSlot(11, onceOnly, 0)
-
-def AddOnceOnly(builder, onceOnly):
-    FieldInteractionExcelAddOnceOnly(builder, onceOnly)
-
-def FieldInteractionExcelAddShowEmoji(builder, showEmoji):
-    builder.PrependBoolSlot(12, showEmoji, 0)
-
-def AddShowEmoji(builder, showEmoji):
-    FieldInteractionExcelAddShowEmoji(builder, showEmoji)
-
-def FieldInteractionExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(13, uniqueId, 0)
-
-def AddUniqueId(builder, uniqueId):
-    FieldInteractionExcelAddUniqueId(builder, uniqueId)
 
 def FieldInteractionExcelEnd(builder):
     return builder.EndObject()

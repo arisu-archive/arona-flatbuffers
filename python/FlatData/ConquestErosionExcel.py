@@ -25,67 +25,120 @@ class ConquestErosionExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ConquestErosionExcel
-    def ConquestRewardId(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConquestErosionExcel
-    def ErosionBattleConditionParcelAmount(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ConquestErosionExcel
-    def ErosionBattleConditionParcelType(self):
+    def ErosionType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConquestErosionExcel
-    def ErosionBattleConditionParcelUniqueId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ConquestErosionExcel
-    def ErosionType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ConquestErosionExcel
-    def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ConquestErosionExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ConquestErosionExcel
     def Phase(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConquestErosionExcel
     def PhaseAlarm(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
+
+    # ConquestErosionExcel
+    def StepIndex(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConquestErosionExcel
+    def PhaseStartConditionType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # ConquestErosionExcel
+    def PhaseStartConditionTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # ConquestErosionExcel
+    def PhaseStartConditionTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ConquestErosionExcel
+    def PhaseStartConditionTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        return o == 0
+
+    # ConquestErosionExcel
+    def PhaseStartConditionParameter(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # ConquestErosionExcel
+    def PhaseStartConditionParameterLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ConquestErosionExcel
+    def PhaseStartConditionParameterIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        return o == 0
+
+    # ConquestErosionExcel
+    def PhaseBeforeExposeConditionType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # ConquestErosionExcel
+    def PhaseBeforeExposeConditionTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # ConquestErosionExcel
+    def PhaseBeforeExposeConditionTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ConquestErosionExcel
+    def PhaseBeforeExposeConditionTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        return o == 0
 
     # ConquestErosionExcel
     def PhaseBeforeExposeConditionParameter(self, j):
@@ -108,84 +161,31 @@ class ConquestErosionExcel(object):
         return o == 0
 
     # ConquestErosionExcel
-    def PhaseBeforeExposeConditionType(self, j):
+    def ErosionBattleConditionParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # ConquestErosionExcel
-    def PhaseBeforeExposeConditionTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # ConquestErosionExcel
-    def PhaseBeforeExposeConditionTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # ConquestErosionExcel
-    def PhaseBeforeExposeConditionTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        return o == 0
-
-    # ConquestErosionExcel
-    def PhaseStartConditionParameter(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # ConquestErosionExcel
-    def PhaseStartConditionParameterLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # ConquestErosionExcel
-    def PhaseStartConditionParameterIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        return o == 0
-
-    # ConquestErosionExcel
-    def PhaseStartConditionType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # ConquestErosionExcel
-    def PhaseStartConditionTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # ConquestErosionExcel
-    def PhaseStartConditionTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # ConquestErosionExcel
-    def PhaseStartConditionTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        return o == 0
-
-    # ConquestErosionExcel
-    def StepIndex(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ConquestErosionExcel
+    def ErosionBattleConditionParcelUniqueId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConquestErosionExcel
+    def ErosionBattleConditionParcelAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConquestErosionExcel
+    def ConquestRewardId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def ConquestErosionExcelStart(builder):
@@ -194,59 +194,77 @@ def ConquestErosionExcelStart(builder):
 def Start(builder):
     ConquestErosionExcelStart(builder)
 
-def ConquestErosionExcelAddConquestRewardId(builder, conquestRewardId):
-    builder.PrependInt64Slot(0, conquestRewardId, 0)
-
-def AddConquestRewardId(builder, conquestRewardId):
-    ConquestErosionExcelAddConquestRewardId(builder, conquestRewardId)
-
-def ConquestErosionExcelAddErosionBattleConditionParcelAmount(builder, erosionBattleConditionParcelAmount):
-    builder.PrependInt64Slot(1, erosionBattleConditionParcelAmount, 0)
-
-def AddErosionBattleConditionParcelAmount(builder, erosionBattleConditionParcelAmount):
-    ConquestErosionExcelAddErosionBattleConditionParcelAmount(builder, erosionBattleConditionParcelAmount)
-
-def ConquestErosionExcelAddErosionBattleConditionParcelType(builder, erosionBattleConditionParcelType):
-    builder.PrependInt32Slot(2, erosionBattleConditionParcelType, 0)
-
-def AddErosionBattleConditionParcelType(builder, erosionBattleConditionParcelType):
-    ConquestErosionExcelAddErosionBattleConditionParcelType(builder, erosionBattleConditionParcelType)
-
-def ConquestErosionExcelAddErosionBattleConditionParcelUniqueId(builder, erosionBattleConditionParcelUniqueId):
-    builder.PrependInt64Slot(3, erosionBattleConditionParcelUniqueId, 0)
-
-def AddErosionBattleConditionParcelUniqueId(builder, erosionBattleConditionParcelUniqueId):
-    ConquestErosionExcelAddErosionBattleConditionParcelUniqueId(builder, erosionBattleConditionParcelUniqueId)
-
-def ConquestErosionExcelAddErosionType(builder, erosionType):
-    builder.PrependInt32Slot(4, erosionType, 0)
-
-def AddErosionType(builder, erosionType):
-    ConquestErosionExcelAddErosionType(builder, erosionType)
-
 def ConquestErosionExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(5, eventContentId, 0)
+    builder.PrependInt64Slot(0, eventContentId, 0)
 
 def AddEventContentId(builder, eventContentId):
     ConquestErosionExcelAddEventContentId(builder, eventContentId)
 
 def ConquestErosionExcelAddId(builder, id):
-    builder.PrependInt64Slot(6, id, 0)
+    builder.PrependInt64Slot(1, id, 0)
 
 def AddId(builder, id):
     ConquestErosionExcelAddId(builder, id)
 
+def ConquestErosionExcelAddErosionType(builder, erosionType):
+    builder.PrependInt32Slot(2, erosionType, 0)
+
+def AddErosionType(builder, erosionType):
+    ConquestErosionExcelAddErosionType(builder, erosionType)
+
 def ConquestErosionExcelAddPhase(builder, phase):
-    builder.PrependInt32Slot(7, phase, 0)
+    builder.PrependInt32Slot(3, phase, 0)
 
 def AddPhase(builder, phase):
     ConquestErosionExcelAddPhase(builder, phase)
 
 def ConquestErosionExcelAddPhaseAlarm(builder, phaseAlarm):
-    builder.PrependBoolSlot(8, phaseAlarm, 0)
+    builder.PrependBoolSlot(4, phaseAlarm, 0)
 
 def AddPhaseAlarm(builder, phaseAlarm):
     ConquestErosionExcelAddPhaseAlarm(builder, phaseAlarm)
+
+def ConquestErosionExcelAddStepIndex(builder, stepIndex):
+    builder.PrependInt32Slot(5, stepIndex, 0)
+
+def AddStepIndex(builder, stepIndex):
+    ConquestErosionExcelAddStepIndex(builder, stepIndex)
+
+def ConquestErosionExcelAddPhaseStartConditionType(builder, phaseStartConditionType):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(phaseStartConditionType), 0)
+
+def AddPhaseStartConditionType(builder, phaseStartConditionType):
+    ConquestErosionExcelAddPhaseStartConditionType(builder, phaseStartConditionType)
+
+def ConquestErosionExcelStartPhaseStartConditionTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartPhaseStartConditionTypeVector(builder, numElems):
+    return ConquestErosionExcelStartPhaseStartConditionTypeVector(builder, numElems)
+
+def ConquestErosionExcelAddPhaseStartConditionParameter(builder, phaseStartConditionParameter):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(phaseStartConditionParameter), 0)
+
+def AddPhaseStartConditionParameter(builder, phaseStartConditionParameter):
+    ConquestErosionExcelAddPhaseStartConditionParameter(builder, phaseStartConditionParameter)
+
+def ConquestErosionExcelStartPhaseStartConditionParameterVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartPhaseStartConditionParameterVector(builder, numElems):
+    return ConquestErosionExcelStartPhaseStartConditionParameterVector(builder, numElems)
+
+def ConquestErosionExcelAddPhaseBeforeExposeConditionType(builder, phaseBeforeExposeConditionType):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(phaseBeforeExposeConditionType), 0)
+
+def AddPhaseBeforeExposeConditionType(builder, phaseBeforeExposeConditionType):
+    ConquestErosionExcelAddPhaseBeforeExposeConditionType(builder, phaseBeforeExposeConditionType)
+
+def ConquestErosionExcelStartPhaseBeforeExposeConditionTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartPhaseBeforeExposeConditionTypeVector(builder, numElems):
+    return ConquestErosionExcelStartPhaseBeforeExposeConditionTypeVector(builder, numElems)
 
 def ConquestErosionExcelAddPhaseBeforeExposeConditionParameter(builder, phaseBeforeExposeConditionParameter):
     builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(phaseBeforeExposeConditionParameter), 0)
@@ -260,47 +278,29 @@ def ConquestErosionExcelStartPhaseBeforeExposeConditionParameterVector(builder, 
 def StartPhaseBeforeExposeConditionParameterVector(builder, numElems):
     return ConquestErosionExcelStartPhaseBeforeExposeConditionParameterVector(builder, numElems)
 
-def ConquestErosionExcelAddPhaseBeforeExposeConditionType(builder, phaseBeforeExposeConditionType):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(phaseBeforeExposeConditionType), 0)
+def ConquestErosionExcelAddErosionBattleConditionParcelType(builder, erosionBattleConditionParcelType):
+    builder.PrependInt32Slot(10, erosionBattleConditionParcelType, 0)
 
-def AddPhaseBeforeExposeConditionType(builder, phaseBeforeExposeConditionType):
-    ConquestErosionExcelAddPhaseBeforeExposeConditionType(builder, phaseBeforeExposeConditionType)
+def AddErosionBattleConditionParcelType(builder, erosionBattleConditionParcelType):
+    ConquestErosionExcelAddErosionBattleConditionParcelType(builder, erosionBattleConditionParcelType)
 
-def ConquestErosionExcelStartPhaseBeforeExposeConditionTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
+def ConquestErosionExcelAddErosionBattleConditionParcelUniqueId(builder, erosionBattleConditionParcelUniqueId):
+    builder.PrependInt64Slot(11, erosionBattleConditionParcelUniqueId, 0)
 
-def StartPhaseBeforeExposeConditionTypeVector(builder, numElems):
-    return ConquestErosionExcelStartPhaseBeforeExposeConditionTypeVector(builder, numElems)
+def AddErosionBattleConditionParcelUniqueId(builder, erosionBattleConditionParcelUniqueId):
+    ConquestErosionExcelAddErosionBattleConditionParcelUniqueId(builder, erosionBattleConditionParcelUniqueId)
 
-def ConquestErosionExcelAddPhaseStartConditionParameter(builder, phaseStartConditionParameter):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(phaseStartConditionParameter), 0)
+def ConquestErosionExcelAddErosionBattleConditionParcelAmount(builder, erosionBattleConditionParcelAmount):
+    builder.PrependInt64Slot(12, erosionBattleConditionParcelAmount, 0)
 
-def AddPhaseStartConditionParameter(builder, phaseStartConditionParameter):
-    ConquestErosionExcelAddPhaseStartConditionParameter(builder, phaseStartConditionParameter)
+def AddErosionBattleConditionParcelAmount(builder, erosionBattleConditionParcelAmount):
+    ConquestErosionExcelAddErosionBattleConditionParcelAmount(builder, erosionBattleConditionParcelAmount)
 
-def ConquestErosionExcelStartPhaseStartConditionParameterVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
+def ConquestErosionExcelAddConquestRewardId(builder, conquestRewardId):
+    builder.PrependInt64Slot(13, conquestRewardId, 0)
 
-def StartPhaseStartConditionParameterVector(builder, numElems):
-    return ConquestErosionExcelStartPhaseStartConditionParameterVector(builder, numElems)
-
-def ConquestErosionExcelAddPhaseStartConditionType(builder, phaseStartConditionType):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(phaseStartConditionType), 0)
-
-def AddPhaseStartConditionType(builder, phaseStartConditionType):
-    ConquestErosionExcelAddPhaseStartConditionType(builder, phaseStartConditionType)
-
-def ConquestErosionExcelStartPhaseStartConditionTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartPhaseStartConditionTypeVector(builder, numElems):
-    return ConquestErosionExcelStartPhaseStartConditionTypeVector(builder, numElems)
-
-def ConquestErosionExcelAddStepIndex(builder, stepIndex):
-    builder.PrependInt32Slot(13, stepIndex, 0)
-
-def AddStepIndex(builder, stepIndex):
-    ConquestErosionExcelAddStepIndex(builder, stepIndex)
+def AddConquestRewardId(builder, conquestRewardId):
+    ConquestErosionExcelAddConquestRewardId(builder, conquestRewardId)
 
 def ConquestErosionExcelEnd(builder):
     return builder.EndObject()

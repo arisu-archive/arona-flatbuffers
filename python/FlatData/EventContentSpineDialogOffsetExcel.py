@@ -25,49 +25,49 @@ class EventContentSpineDialogOffsetExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentSpineDialogOffsetExcel
-    def CostumeUniqueId(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentSpineDialogOffsetExcel
-    def DialogOffsetX(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # EventContentSpineDialogOffsetExcel
-    def DialogOffsetY(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # EventContentSpineDialogOffsetExcel
-    def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentSpineDialogOffsetExcel
     def EventContentType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentSpineDialogOffsetExcel
+    def CostumeUniqueId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentSpineDialogOffsetExcel
     def SpineOffsetX(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # EventContentSpineDialogOffsetExcel
     def SpineOffsetY(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # EventContentSpineDialogOffsetExcel
+    def DialogOffsetX(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # EventContentSpineDialogOffsetExcel
+    def DialogOffsetY(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
@@ -79,47 +79,47 @@ def EventContentSpineDialogOffsetExcelStart(builder):
 def Start(builder):
     EventContentSpineDialogOffsetExcelStart(builder)
 
-def EventContentSpineDialogOffsetExcelAddCostumeUniqueId(builder, costumeUniqueId):
-    builder.PrependInt64Slot(0, costumeUniqueId, 0)
-
-def AddCostumeUniqueId(builder, costumeUniqueId):
-    EventContentSpineDialogOffsetExcelAddCostumeUniqueId(builder, costumeUniqueId)
-
-def EventContentSpineDialogOffsetExcelAddDialogOffsetX(builder, dialogOffsetX):
-    builder.PrependFloat32Slot(1, dialogOffsetX, 0.0)
-
-def AddDialogOffsetX(builder, dialogOffsetX):
-    EventContentSpineDialogOffsetExcelAddDialogOffsetX(builder, dialogOffsetX)
-
-def EventContentSpineDialogOffsetExcelAddDialogOffsetY(builder, dialogOffsetY):
-    builder.PrependFloat32Slot(2, dialogOffsetY, 0.0)
-
-def AddDialogOffsetY(builder, dialogOffsetY):
-    EventContentSpineDialogOffsetExcelAddDialogOffsetY(builder, dialogOffsetY)
-
 def EventContentSpineDialogOffsetExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(3, eventContentId, 0)
+    builder.PrependInt64Slot(0, eventContentId, 0)
 
 def AddEventContentId(builder, eventContentId):
     EventContentSpineDialogOffsetExcelAddEventContentId(builder, eventContentId)
 
 def EventContentSpineDialogOffsetExcelAddEventContentType(builder, eventContentType):
-    builder.PrependInt32Slot(4, eventContentType, 0)
+    builder.PrependInt32Slot(1, eventContentType, 0)
 
 def AddEventContentType(builder, eventContentType):
     EventContentSpineDialogOffsetExcelAddEventContentType(builder, eventContentType)
 
+def EventContentSpineDialogOffsetExcelAddCostumeUniqueId(builder, costumeUniqueId):
+    builder.PrependInt64Slot(2, costumeUniqueId, 0)
+
+def AddCostumeUniqueId(builder, costumeUniqueId):
+    EventContentSpineDialogOffsetExcelAddCostumeUniqueId(builder, costumeUniqueId)
+
 def EventContentSpineDialogOffsetExcelAddSpineOffsetX(builder, spineOffsetX):
-    builder.PrependFloat32Slot(5, spineOffsetX, 0.0)
+    builder.PrependFloat32Slot(3, spineOffsetX, 0.0)
 
 def AddSpineOffsetX(builder, spineOffsetX):
     EventContentSpineDialogOffsetExcelAddSpineOffsetX(builder, spineOffsetX)
 
 def EventContentSpineDialogOffsetExcelAddSpineOffsetY(builder, spineOffsetY):
-    builder.PrependFloat32Slot(6, spineOffsetY, 0.0)
+    builder.PrependFloat32Slot(4, spineOffsetY, 0.0)
 
 def AddSpineOffsetY(builder, spineOffsetY):
     EventContentSpineDialogOffsetExcelAddSpineOffsetY(builder, spineOffsetY)
+
+def EventContentSpineDialogOffsetExcelAddDialogOffsetX(builder, dialogOffsetX):
+    builder.PrependFloat32Slot(5, dialogOffsetX, 0.0)
+
+def AddDialogOffsetX(builder, dialogOffsetX):
+    EventContentSpineDialogOffsetExcelAddDialogOffsetX(builder, dialogOffsetX)
+
+def EventContentSpineDialogOffsetExcelAddDialogOffsetY(builder, dialogOffsetY):
+    builder.PrependFloat32Slot(6, dialogOffsetY, 0.0)
+
+def AddDialogOffsetY(builder, dialogOffsetY):
+    EventContentSpineDialogOffsetExcelAddDialogOffsetY(builder, dialogOffsetY)
 
 def EventContentSpineDialogOffsetExcelEnd(builder):
     return builder.EndObject()

@@ -25,24 +25,24 @@ class EventContentCardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentCardExcel
-    def BackIconPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # EventContentCardExcel
     def CardGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentCardExcel
     def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentCardExcel
+    def LocalizeEtcId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentCardExcel
@@ -53,42 +53,15 @@ class EventContentCardExcel(object):
         return None
 
     # EventContentCardExcel
-    def LocalizeEtcId(self):
+    def BackIconPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentCardExcel
-    def RewardParcelId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # EventContentCardExcel
-    def RewardParcelIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # EventContentCardExcel
-    def RewardParcelIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EventContentCardExcel
-    def RewardParcelIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        return o == 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # EventContentCardExcel
     def RewardParcelType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -96,20 +69,47 @@ class EventContentCardExcel(object):
 
     # EventContentCardExcel
     def RewardParcelTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # EventContentCardExcel
     def RewardParcelTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # EventContentCardExcel
     def RewardParcelTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        return o == 0
+
+    # EventContentCardExcel
+    def RewardParcelId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # EventContentCardExcel
+    def RewardParcelIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # EventContentCardExcel
+    def RewardParcelIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EventContentCardExcel
+    def RewardParcelIdIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         return o == 0
 
@@ -119,23 +119,23 @@ def EventContentCardExcelStart(builder):
 def Start(builder):
     EventContentCardExcelStart(builder)
 
-def EventContentCardExcelAddBackIconPath(builder, backIconPath):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(backIconPath), 0)
-
-def AddBackIconPath(builder, backIconPath):
-    EventContentCardExcelAddBackIconPath(builder, backIconPath)
-
 def EventContentCardExcelAddCardGroupId(builder, cardGroupId):
-    builder.PrependInt32Slot(1, cardGroupId, 0)
+    builder.PrependInt32Slot(0, cardGroupId, 0)
 
 def AddCardGroupId(builder, cardGroupId):
     EventContentCardExcelAddCardGroupId(builder, cardGroupId)
 
 def EventContentCardExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(2, eventContentId, 0)
+    builder.PrependInt64Slot(1, eventContentId, 0)
 
 def AddEventContentId(builder, eventContentId):
     EventContentCardExcelAddEventContentId(builder, eventContentId)
+
+def EventContentCardExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUint32Slot(2, localizeEtcId, 0)
+
+def AddLocalizeEtcId(builder, localizeEtcId):
+    EventContentCardExcelAddLocalizeEtcId(builder, localizeEtcId)
 
 def EventContentCardExcelAddIconPath(builder, iconPath):
     builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
@@ -143,26 +143,14 @@ def EventContentCardExcelAddIconPath(builder, iconPath):
 def AddIconPath(builder, iconPath):
     EventContentCardExcelAddIconPath(builder, iconPath)
 
-def EventContentCardExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(4, localizeEtcId, 0)
+def EventContentCardExcelAddBackIconPath(builder, backIconPath):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(backIconPath), 0)
 
-def AddLocalizeEtcId(builder, localizeEtcId):
-    EventContentCardExcelAddLocalizeEtcId(builder, localizeEtcId)
-
-def EventContentCardExcelAddRewardParcelId(builder, rewardParcelId):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
-
-def AddRewardParcelId(builder, rewardParcelId):
-    EventContentCardExcelAddRewardParcelId(builder, rewardParcelId)
-
-def EventContentCardExcelStartRewardParcelIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
-def StartRewardParcelIdVector(builder, numElems):
-    return EventContentCardExcelStartRewardParcelIdVector(builder, numElems)
+def AddBackIconPath(builder, backIconPath):
+    EventContentCardExcelAddBackIconPath(builder, backIconPath)
 
 def EventContentCardExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
 
 def AddRewardParcelType(builder, rewardParcelType):
     EventContentCardExcelAddRewardParcelType(builder, rewardParcelType)
@@ -172,6 +160,18 @@ def EventContentCardExcelStartRewardParcelTypeVector(builder, numElems):
 
 def StartRewardParcelTypeVector(builder, numElems):
     return EventContentCardExcelStartRewardParcelTypeVector(builder, numElems)
+
+def EventContentCardExcelAddRewardParcelId(builder, rewardParcelId):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
+
+def AddRewardParcelId(builder, rewardParcelId):
+    EventContentCardExcelAddRewardParcelId(builder, rewardParcelId)
+
+def EventContentCardExcelStartRewardParcelIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartRewardParcelIdVector(builder, numElems):
+    return EventContentCardExcelStartRewardParcelIdVector(builder, numElems)
 
 def EventContentCardExcelEnd(builder):
     return builder.EndObject()

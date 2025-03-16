@@ -41,20 +41,8 @@ func (rcv *EventContentDiceRaceTotalRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentDiceRaceTotalRewardExcel) DisplayLapFinishCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentDiceRaceTotalRewardExcel) MutateDisplayLapFinishCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
-}
-
 func (rcv *EventContentDiceRaceTotalRewardExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -62,6 +50,18 @@ func (rcv *EventContentDiceRaceTotalRewardExcel) EventContentId() int64 {
 }
 
 func (rcv *EventContentDiceRaceTotalRewardExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *EventContentDiceRaceTotalRewardExcel) RewardId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentDiceRaceTotalRewardExcel) MutateRewardId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
@@ -77,28 +77,28 @@ func (rcv *EventContentDiceRaceTotalRewardExcel) MutateRequiredLapFinishCount(n 
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *EventContentDiceRaceTotalRewardExcel) RewardId() int64 {
+func (rcv *EventContentDiceRaceTotalRewardExcel) DisplayLapFinishCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EventContentDiceRaceTotalRewardExcel) MutateRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+func (rcv *EventContentDiceRaceTotalRewardExcel) MutateDisplayLapFinishCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
 }
 
-func (rcv *EventContentDiceRaceTotalRewardExcel) RewardParcelAmount(j int) int64 {
+func (rcv *EventContentDiceRaceTotalRewardExcel) RewardParcelType(j int) ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *EventContentDiceRaceTotalRewardExcel) RewardParcelAmountLength() int {
+func (rcv *EventContentDiceRaceTotalRewardExcel) RewardParcelTypeLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -106,11 +106,11 @@ func (rcv *EventContentDiceRaceTotalRewardExcel) RewardParcelAmountLength() int 
 	return 0
 }
 
-func (rcv *EventContentDiceRaceTotalRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
+func (rcv *EventContentDiceRaceTotalRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
 }
@@ -141,16 +141,16 @@ func (rcv *EventContentDiceRaceTotalRewardExcel) MutateRewardParcelId(j int, n i
 	return false
 }
 
-func (rcv *EventContentDiceRaceTotalRewardExcel) RewardParcelType(j int) ParcelType {
+func (rcv *EventContentDiceRaceTotalRewardExcel) RewardParcelAmount(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *EventContentDiceRaceTotalRewardExcel) RewardParcelTypeLength() int {
+func (rcv *EventContentDiceRaceTotalRewardExcel) RewardParcelAmountLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -158,11 +158,11 @@ func (rcv *EventContentDiceRaceTotalRewardExcel) RewardParcelTypeLength() int {
 	return 0
 }
 
-func (rcv *EventContentDiceRaceTotalRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
+func (rcv *EventContentDiceRaceTotalRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
 }
@@ -170,23 +170,23 @@ func (rcv *EventContentDiceRaceTotalRewardExcel) MutateRewardParcelType(j int, n
 func EventContentDiceRaceTotalRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func EventContentDiceRaceTotalRewardExcelAddDisplayLapFinishCount(builder *flatbuffers.Builder, displayLapFinishCount int32) {
-	builder.PrependInt32Slot(0, displayLapFinishCount, 0)
-}
 func EventContentDiceRaceTotalRewardExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(1, eventContentId, 0)
+	builder.PrependInt64Slot(0, eventContentId, 0)
+}
+func EventContentDiceRaceTotalRewardExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
+	builder.PrependInt64Slot(1, rewardId, 0)
 }
 func EventContentDiceRaceTotalRewardExcelAddRequiredLapFinishCount(builder *flatbuffers.Builder, requiredLapFinishCount int32) {
 	builder.PrependInt32Slot(2, requiredLapFinishCount, 0)
 }
-func EventContentDiceRaceTotalRewardExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
-	builder.PrependInt64Slot(3, rewardId, 0)
+func EventContentDiceRaceTotalRewardExcelAddDisplayLapFinishCount(builder *flatbuffers.Builder, displayLapFinishCount int32) {
+	builder.PrependInt32Slot(3, displayLapFinishCount, 0)
 }
-func EventContentDiceRaceTotalRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+func EventContentDiceRaceTotalRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardParcelType), 0)
 }
-func EventContentDiceRaceTotalRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func EventContentDiceRaceTotalRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func EventContentDiceRaceTotalRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelId), 0)
@@ -194,11 +194,11 @@ func EventContentDiceRaceTotalRewardExcelAddRewardParcelId(builder *flatbuffers.
 func EventContentDiceRaceTotalRewardExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func EventContentDiceRaceTotalRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardParcelType), 0)
+func EventContentDiceRaceTotalRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardParcelAmount), 0)
 }
-func EventContentDiceRaceTotalRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func EventContentDiceRaceTotalRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func EventContentDiceRaceTotalRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

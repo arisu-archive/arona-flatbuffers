@@ -41,56 +41,8 @@ func (rcv *FloaterCommonExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FloaterCommonExcel) FloaterOffsetPosX() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FloaterCommonExcel) MutateFloaterOffsetPosX(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
-}
-
-func (rcv *FloaterCommonExcel) FloaterOffsetPosY() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FloaterCommonExcel) MutateFloaterOffsetPosY(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
-}
-
-func (rcv *FloaterCommonExcel) FloaterRandomPosRangeX() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FloaterCommonExcel) MutateFloaterRandomPosRangeX(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
-func (rcv *FloaterCommonExcel) FloaterRandomPosRangeY() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FloaterCommonExcel) MutateFloaterRandomPosRangeY(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
-}
-
 func (rcv *FloaterCommonExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -98,11 +50,11 @@ func (rcv *FloaterCommonExcel) Id() int64 {
 }
 
 func (rcv *FloaterCommonExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *FloaterCommonExcel) TacticEntityType() TacticEntityType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return TacticEntityType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -110,29 +62,77 @@ func (rcv *FloaterCommonExcel) TacticEntityType() TacticEntityType {
 }
 
 func (rcv *FloaterCommonExcel) MutateTacticEntityType(n TacticEntityType) bool {
-	return rcv._tab.MutateInt32Slot(14, int32(n))
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *FloaterCommonExcel) FloaterOffsetPosX() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FloaterCommonExcel) MutateFloaterOffsetPosX(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *FloaterCommonExcel) FloaterOffsetPosY() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FloaterCommonExcel) MutateFloaterOffsetPosY(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *FloaterCommonExcel) FloaterRandomPosRangeX() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FloaterCommonExcel) MutateFloaterRandomPosRangeX(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
+}
+
+func (rcv *FloaterCommonExcel) FloaterRandomPosRangeY() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FloaterCommonExcel) MutateFloaterRandomPosRangeY(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
 }
 
 func FloaterCommonExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func FloaterCommonExcelAddFloaterOffsetPosX(builder *flatbuffers.Builder, floaterOffsetPosX int32) {
-	builder.PrependInt32Slot(0, floaterOffsetPosX, 0)
-}
-func FloaterCommonExcelAddFloaterOffsetPosY(builder *flatbuffers.Builder, floaterOffsetPosY int32) {
-	builder.PrependInt32Slot(1, floaterOffsetPosY, 0)
-}
-func FloaterCommonExcelAddFloaterRandomPosRangeX(builder *flatbuffers.Builder, floaterRandomPosRangeX int32) {
-	builder.PrependInt32Slot(2, floaterRandomPosRangeX, 0)
-}
-func FloaterCommonExcelAddFloaterRandomPosRangeY(builder *flatbuffers.Builder, floaterRandomPosRangeY int32) {
-	builder.PrependInt32Slot(3, floaterRandomPosRangeY, 0)
-}
 func FloaterCommonExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(4, id, 0)
+	builder.PrependInt64Slot(0, id, 0)
 }
 func FloaterCommonExcelAddTacticEntityType(builder *flatbuffers.Builder, tacticEntityType TacticEntityType) {
-	builder.PrependInt32Slot(5, int32(tacticEntityType), 0)
+	builder.PrependInt32Slot(1, int32(tacticEntityType), 0)
+}
+func FloaterCommonExcelAddFloaterOffsetPosX(builder *flatbuffers.Builder, floaterOffsetPosX int32) {
+	builder.PrependInt32Slot(2, floaterOffsetPosX, 0)
+}
+func FloaterCommonExcelAddFloaterOffsetPosY(builder *flatbuffers.Builder, floaterOffsetPosY int32) {
+	builder.PrependInt32Slot(3, floaterOffsetPosY, 0)
+}
+func FloaterCommonExcelAddFloaterRandomPosRangeX(builder *flatbuffers.Builder, floaterRandomPosRangeX int32) {
+	builder.PrependInt32Slot(4, floaterRandomPosRangeX, 0)
+}
+func FloaterCommonExcelAddFloaterRandomPosRangeY(builder *flatbuffers.Builder, floaterRandomPosRangeY int32) {
+	builder.PrependInt32Slot(5, floaterRandomPosRangeY, 0)
 }
 func FloaterCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

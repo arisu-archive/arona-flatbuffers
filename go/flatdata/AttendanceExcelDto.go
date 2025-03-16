@@ -10,25 +10,25 @@ import (
 // AttendanceExcelDto represents a FlatBuffers table
 type AttendanceExcelDto struct {
 	fbsutils.FlatBuffer
-	AccountLevelLimit      int64               `json:"account_level_limit"`
-	AccountType            AccountState        `json:"account_type"`
-	BookSize               int64               `json:"book_size"`
+	Id                     int64               `json:"id"`
+	Type                   AttendanceType      `json:"type"`
 	CountdownPrefab        string              `json:"countdown_prefab"`
-	CountReset             AttendanceResetType `json:"count_reset"`
-	CountRule              AttendanceCountRule `json:"count_rule"`
-	DecorationImagePath    string              `json:"decoration_image_path"`
-	DialogCategory         DialogCategory      `json:"dialog_category"`
 	DisplayOrder           int64               `json:"display_order"`
+	AccountType            AccountState        `json:"account_type"`
+	AccountLevelLimit      int64               `json:"account_level_limit"`
+	Title                  string              `json:"title"`
+	InfomationLocalizeCode string              `json:"infomation_localize_code"`
+	CountRule              AttendanceCountRule `json:"count_rule"`
+	CountReset             AttendanceResetType `json:"count_reset"`
+	BookSize               int64               `json:"book_size"`
+	StartDate              string              `json:"start_date"`
+	StartableEndDate       string              `json:"startable_end_date"`
 	EndDate                string              `json:"end_date"`
 	ExpiryDate             int64               `json:"expiry_date"`
-	Id                     int64               `json:"id"`
-	InfomationLocalizeCode string              `json:"infomation_localize_code"`
 	MailType               MailType            `json:"mail_type"`
-	StartableEndDate       string              `json:"startable_end_date"`
-	StartDate              string              `json:"start_date"`
-	Title                  string              `json:"title"`
+	DialogCategory         DialogCategory      `json:"dialog_category"`
 	TitleImagePath         string              `json:"title_image_path"`
-	Type                   AttendanceType      `json:"type"`
+	DecorationImagePath    string              `json:"decoration_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -37,25 +37,25 @@ func (t *AttendanceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Attendance"))
 	}
 	AttendanceExcelStart(b)
-	AttendanceExcelAddAccountLevelLimit(b, fbsutils.Convert(t.AccountLevelLimit, t.FlatBuffer.TableKey))
-	AttendanceExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
-	AttendanceExcelAddBookSize(b, fbsutils.Convert(t.BookSize, t.FlatBuffer.TableKey))
+	AttendanceExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	AttendanceExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
 	AttendanceExcelAddCountdownPrefab(b, fbsutils.Convert(b.CreateString(t.CountdownPrefab), t.FlatBuffer.TableKey))
-	AttendanceExcelAddCountReset(b, fbsutils.Convert(t.CountReset, t.FlatBuffer.TableKey))
-	AttendanceExcelAddCountRule(b, fbsutils.Convert(t.CountRule, t.FlatBuffer.TableKey))
-	AttendanceExcelAddDecorationImagePath(b, fbsutils.Convert(b.CreateString(t.DecorationImagePath), t.FlatBuffer.TableKey))
-	AttendanceExcelAddDialogCategory(b, fbsutils.Convert(t.DialogCategory, t.FlatBuffer.TableKey))
 	AttendanceExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	AttendanceExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
+	AttendanceExcelAddAccountLevelLimit(b, fbsutils.Convert(t.AccountLevelLimit, t.FlatBuffer.TableKey))
+	AttendanceExcelAddTitle(b, fbsutils.Convert(b.CreateString(t.Title), t.FlatBuffer.TableKey))
+	AttendanceExcelAddInfomationLocalizeCode(b, fbsutils.Convert(b.CreateString(t.InfomationLocalizeCode), t.FlatBuffer.TableKey))
+	AttendanceExcelAddCountRule(b, fbsutils.Convert(t.CountRule, t.FlatBuffer.TableKey))
+	AttendanceExcelAddCountReset(b, fbsutils.Convert(t.CountReset, t.FlatBuffer.TableKey))
+	AttendanceExcelAddBookSize(b, fbsutils.Convert(t.BookSize, t.FlatBuffer.TableKey))
+	AttendanceExcelAddStartDate(b, fbsutils.Convert(b.CreateString(t.StartDate), t.FlatBuffer.TableKey))
+	AttendanceExcelAddStartableEndDate(b, fbsutils.Convert(b.CreateString(t.StartableEndDate), t.FlatBuffer.TableKey))
 	AttendanceExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
 	AttendanceExcelAddExpiryDate(b, fbsutils.Convert(t.ExpiryDate, t.FlatBuffer.TableKey))
-	AttendanceExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	AttendanceExcelAddInfomationLocalizeCode(b, fbsutils.Convert(b.CreateString(t.InfomationLocalizeCode), t.FlatBuffer.TableKey))
 	AttendanceExcelAddMailType(b, fbsutils.Convert(t.MailType, t.FlatBuffer.TableKey))
-	AttendanceExcelAddStartableEndDate(b, fbsutils.Convert(b.CreateString(t.StartableEndDate), t.FlatBuffer.TableKey))
-	AttendanceExcelAddStartDate(b, fbsutils.Convert(b.CreateString(t.StartDate), t.FlatBuffer.TableKey))
-	AttendanceExcelAddTitle(b, fbsutils.Convert(b.CreateString(t.Title), t.FlatBuffer.TableKey))
+	AttendanceExcelAddDialogCategory(b, fbsutils.Convert(t.DialogCategory, t.FlatBuffer.TableKey))
 	AttendanceExcelAddTitleImagePath(b, fbsutils.Convert(b.CreateString(t.TitleImagePath), t.FlatBuffer.TableKey))
-	AttendanceExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
+	AttendanceExcelAddDecorationImagePath(b, fbsutils.Convert(b.CreateString(t.DecorationImagePath), t.FlatBuffer.TableKey))
 	return AttendanceExcelEnd(b)
 }
 
@@ -71,25 +71,25 @@ func (t *AttendanceExcelDto) UnmarshalMessage(e *AttendanceExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Attendance"))
 	}
-	t.AccountLevelLimit = fbsutils.Convert(e.AccountLevelLimit(), t.FlatBuffer.TableKey)
-	t.AccountType = AccountState(int32(fbsutils.Convert(e.AccountType(), t.FlatBuffer.TableKey)))
-	t.BookSize = fbsutils.Convert(e.BookSize(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.Type = AttendanceType(int32(fbsutils.Convert(e.Type(), t.FlatBuffer.TableKey)))
 	t.CountdownPrefab = fbsutils.Convert(string(e.CountdownPrefab()), t.FlatBuffer.TableKey)
-	t.CountReset = AttendanceResetType(int32(fbsutils.Convert(e.CountReset(), t.FlatBuffer.TableKey)))
-	t.CountRule = AttendanceCountRule(int32(fbsutils.Convert(e.CountRule(), t.FlatBuffer.TableKey)))
-	t.DecorationImagePath = fbsutils.Convert(string(e.DecorationImagePath()), t.FlatBuffer.TableKey)
-	t.DialogCategory = DialogCategory(int32(fbsutils.Convert(e.DialogCategory(), t.FlatBuffer.TableKey)))
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.AccountType = AccountState(int32(fbsutils.Convert(e.AccountType(), t.FlatBuffer.TableKey)))
+	t.AccountLevelLimit = fbsutils.Convert(e.AccountLevelLimit(), t.FlatBuffer.TableKey)
+	t.Title = fbsutils.Convert(string(e.Title()), t.FlatBuffer.TableKey)
+	t.InfomationLocalizeCode = fbsutils.Convert(string(e.InfomationLocalizeCode()), t.FlatBuffer.TableKey)
+	t.CountRule = AttendanceCountRule(int32(fbsutils.Convert(e.CountRule(), t.FlatBuffer.TableKey)))
+	t.CountReset = AttendanceResetType(int32(fbsutils.Convert(e.CountReset(), t.FlatBuffer.TableKey)))
+	t.BookSize = fbsutils.Convert(e.BookSize(), t.FlatBuffer.TableKey)
+	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
+	t.StartableEndDate = fbsutils.Convert(string(e.StartableEndDate()), t.FlatBuffer.TableKey)
 	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
 	t.ExpiryDate = fbsutils.Convert(e.ExpiryDate(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.InfomationLocalizeCode = fbsutils.Convert(string(e.InfomationLocalizeCode()), t.FlatBuffer.TableKey)
 	t.MailType = MailType(int32(fbsutils.Convert(e.MailType(), t.FlatBuffer.TableKey)))
-	t.StartableEndDate = fbsutils.Convert(string(e.StartableEndDate()), t.FlatBuffer.TableKey)
-	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
-	t.Title = fbsutils.Convert(string(e.Title()), t.FlatBuffer.TableKey)
+	t.DialogCategory = DialogCategory(int32(fbsutils.Convert(e.DialogCategory(), t.FlatBuffer.TableKey)))
 	t.TitleImagePath = fbsutils.Convert(string(e.TitleImagePath()), t.FlatBuffer.TableKey)
-	t.Type = AttendanceType(int32(fbsutils.Convert(e.Type(), t.FlatBuffer.TableKey)))
+	t.DecorationImagePath = fbsutils.Convert(string(e.DecorationImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

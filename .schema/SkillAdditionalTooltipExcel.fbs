@@ -1,8 +1,8 @@
 namespace FlatData;
 
 table SkillAdditionalTooltipExcel {
-    additional_skill_group_id: string;
     group_id: long;
+    additional_skill_group_id: string;
     show_skill_slot: string;
 }
 

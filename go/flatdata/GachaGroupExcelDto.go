@@ -10,10 +10,10 @@ import (
 // GachaGroupExcelDto represents a FlatBuffers table
 type GachaGroupExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupType   GachaGroupType `json:"group_type"`
 	Id          int64          `json:"id"`
-	IsRecursive bool           `json:"is_recursive"`
 	NameKr      string         `json:"name_kr"`
+	IsRecursive bool           `json:"is_recursive"`
+	GroupType   GachaGroupType `json:"group_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *GachaGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaGroup"))
 	}
 	GachaGroupExcelStart(b)
-	GachaGroupExcelAddGroupType(b, fbsutils.Convert(t.GroupType, t.FlatBuffer.TableKey))
 	GachaGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	GachaGroupExcelAddIsRecursive(b, fbsutils.Convert(t.IsRecursive, t.FlatBuffer.TableKey))
 	GachaGroupExcelAddNameKr(b, fbsutils.Convert(b.CreateString(t.NameKr), t.FlatBuffer.TableKey))
+	GachaGroupExcelAddIsRecursive(b, fbsutils.Convert(t.IsRecursive, t.FlatBuffer.TableKey))
+	GachaGroupExcelAddGroupType(b, fbsutils.Convert(t.GroupType, t.FlatBuffer.TableKey))
 	return GachaGroupExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *GachaGroupExcelDto) UnmarshalMessage(e *GachaGroupExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaGroup"))
 	}
-	t.GroupType = GachaGroupType(int32(fbsutils.Convert(e.GroupType(), t.FlatBuffer.TableKey)))
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.IsRecursive = fbsutils.Convert(e.IsRecursive(), t.FlatBuffer.TableKey)
 	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)
+	t.IsRecursive = fbsutils.Convert(e.IsRecursive(), t.FlatBuffer.TableKey)
+	t.GroupType = GachaGroupType(int32(fbsutils.Convert(e.GroupType(), t.FlatBuffer.TableKey)))
 	return nil
 }
 

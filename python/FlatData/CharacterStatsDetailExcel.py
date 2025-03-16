@@ -25,8 +25,15 @@ class CharacterStatsDetailExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CharacterStatsDetailExcel
-    def DetailShowStats(self, j):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterStatsDetailExcel
+    def DetailShowStats(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -34,29 +41,22 @@ class CharacterStatsDetailExcel(object):
 
     # CharacterStatsDetailExcel
     def DetailShowStatsAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # CharacterStatsDetailExcel
     def DetailShowStatsLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterStatsDetailExcel
     def DetailShowStatsIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        return o == 0
-
-    # CharacterStatsDetailExcel
-    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+        return o == 0
 
     # CharacterStatsDetailExcel
     def IsStatsPercent(self, j):
@@ -91,8 +91,14 @@ def CharacterStatsDetailExcelStart(builder):
 def Start(builder):
     CharacterStatsDetailExcelStart(builder)
 
+def CharacterStatsDetailExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
+def AddId(builder, id):
+    CharacterStatsDetailExcelAddId(builder, id)
+
 def CharacterStatsDetailExcelAddDetailShowStats(builder, detailShowStats):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(detailShowStats), 0)
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(detailShowStats), 0)
 
 def AddDetailShowStats(builder, detailShowStats):
     CharacterStatsDetailExcelAddDetailShowStats(builder, detailShowStats)
@@ -102,12 +108,6 @@ def CharacterStatsDetailExcelStartDetailShowStatsVector(builder, numElems):
 
 def StartDetailShowStatsVector(builder, numElems):
     return CharacterStatsDetailExcelStartDetailShowStatsVector(builder, numElems)
-
-def CharacterStatsDetailExcelAddId(builder, id):
-    builder.PrependInt64Slot(1, id, 0)
-
-def AddId(builder, id):
-    CharacterStatsDetailExcelAddId(builder, id)
 
 def CharacterStatsDetailExcelAddIsStatsPercent(builder, isStatsPercent):
     builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(isStatsPercent), 0)

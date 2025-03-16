@@ -25,21 +25,21 @@ class BGM_GlobalExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # BGM_GlobalExcel
-    def BgmIdEn(self):
+    def GroupBgmId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # BGM_GlobalExcel
-    def BgmIdJp(self):
+    def BgmIdKr(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # BGM_GlobalExcel
-    def BgmIdKr(self):
+    def BgmIdJp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -60,7 +60,7 @@ class BGM_GlobalExcel(object):
         return 0
 
     # BGM_GlobalExcel
-    def GroupBgmId(self):
+    def BgmIdEn(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -72,23 +72,23 @@ def BGM_GlobalExcelStart(builder):
 def Start(builder):
     BGM_GlobalExcelStart(builder)
 
-def BGM_GlobalExcelAddBgmIdEn(builder, bgmIdEn):
-    builder.PrependInt64Slot(0, bgmIdEn, 0)
+def BGM_GlobalExcelAddGroupBgmId(builder, groupBgmId):
+    builder.PrependInt64Slot(0, groupBgmId, 0)
 
-def AddBgmIdEn(builder, bgmIdEn):
-    BGM_GlobalExcelAddBgmIdEn(builder, bgmIdEn)
-
-def BGM_GlobalExcelAddBgmIdJp(builder, bgmIdJp):
-    builder.PrependInt64Slot(1, bgmIdJp, 0)
-
-def AddBgmIdJp(builder, bgmIdJp):
-    BGM_GlobalExcelAddBgmIdJp(builder, bgmIdJp)
+def AddGroupBgmId(builder, groupBgmId):
+    BGM_GlobalExcelAddGroupBgmId(builder, groupBgmId)
 
 def BGM_GlobalExcelAddBgmIdKr(builder, bgmIdKr):
-    builder.PrependInt64Slot(2, bgmIdKr, 0)
+    builder.PrependInt64Slot(1, bgmIdKr, 0)
 
 def AddBgmIdKr(builder, bgmIdKr):
     BGM_GlobalExcelAddBgmIdKr(builder, bgmIdKr)
+
+def BGM_GlobalExcelAddBgmIdJp(builder, bgmIdJp):
+    builder.PrependInt64Slot(2, bgmIdJp, 0)
+
+def AddBgmIdJp(builder, bgmIdJp):
+    BGM_GlobalExcelAddBgmIdJp(builder, bgmIdJp)
 
 def BGM_GlobalExcelAddBgmIdTh(builder, bgmIdTh):
     builder.PrependInt64Slot(3, bgmIdTh, 0)
@@ -102,11 +102,11 @@ def BGM_GlobalExcelAddBgmIdTw(builder, bgmIdTw):
 def AddBgmIdTw(builder, bgmIdTw):
     BGM_GlobalExcelAddBgmIdTw(builder, bgmIdTw)
 
-def BGM_GlobalExcelAddGroupBgmId(builder, groupBgmId):
-    builder.PrependInt64Slot(5, groupBgmId, 0)
+def BGM_GlobalExcelAddBgmIdEn(builder, bgmIdEn):
+    builder.PrependInt64Slot(5, bgmIdEn, 0)
 
-def AddGroupBgmId(builder, groupBgmId):
-    BGM_GlobalExcelAddGroupBgmId(builder, groupBgmId)
+def AddBgmIdEn(builder, bgmIdEn):
+    BGM_GlobalExcelAddBgmIdEn(builder, bgmIdEn)
 
 def BGM_GlobalExcelEnd(builder):
     return builder.EndObject()

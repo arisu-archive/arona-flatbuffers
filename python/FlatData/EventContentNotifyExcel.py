@@ -25,17 +25,17 @@ class EventContentNotifyExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentNotifyExcel
-    def EventNotifyType(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentNotifyExcel
-    def EventTargetType(self):
+    def LocalizeEtcId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentNotifyExcel
@@ -46,32 +46,32 @@ class EventContentNotifyExcel(object):
         return None
 
     # EventContentNotifyExcel
-    def Id(self):
+    def EventNotifyType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentNotifyExcel
-    def IsShortcutEnable(self):
+    def EventTargetType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # EventContentNotifyExcel
-    def LocalizeEtcId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentNotifyExcel
     def ShortcutEventTargetType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
+
+    # EventContentNotifyExcel
+    def IsShortcutEnable(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
 def EventContentNotifyExcelStart(builder):
     builder.StartObject(7)
@@ -79,17 +79,17 @@ def EventContentNotifyExcelStart(builder):
 def Start(builder):
     EventContentNotifyExcelStart(builder)
 
-def EventContentNotifyExcelAddEventNotifyType(builder, eventNotifyType):
-    builder.PrependInt32Slot(0, eventNotifyType, 0)
+def EventContentNotifyExcelAddId(builder, id):
+    builder.PrependInt32Slot(0, id, 0)
 
-def AddEventNotifyType(builder, eventNotifyType):
-    EventContentNotifyExcelAddEventNotifyType(builder, eventNotifyType)
+def AddId(builder, id):
+    EventContentNotifyExcelAddId(builder, id)
 
-def EventContentNotifyExcelAddEventTargetType(builder, eventTargetType):
-    builder.PrependInt32Slot(1, eventTargetType, 0)
+def EventContentNotifyExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUint32Slot(1, localizeEtcId, 0)
 
-def AddEventTargetType(builder, eventTargetType):
-    EventContentNotifyExcelAddEventTargetType(builder, eventTargetType)
+def AddLocalizeEtcId(builder, localizeEtcId):
+    EventContentNotifyExcelAddLocalizeEtcId(builder, localizeEtcId)
 
 def EventContentNotifyExcelAddIconPath(builder, iconPath):
     builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
@@ -97,29 +97,29 @@ def EventContentNotifyExcelAddIconPath(builder, iconPath):
 def AddIconPath(builder, iconPath):
     EventContentNotifyExcelAddIconPath(builder, iconPath)
 
-def EventContentNotifyExcelAddId(builder, id):
-    builder.PrependInt32Slot(3, id, 0)
+def EventContentNotifyExcelAddEventNotifyType(builder, eventNotifyType):
+    builder.PrependInt32Slot(3, eventNotifyType, 0)
 
-def AddId(builder, id):
-    EventContentNotifyExcelAddId(builder, id)
+def AddEventNotifyType(builder, eventNotifyType):
+    EventContentNotifyExcelAddEventNotifyType(builder, eventNotifyType)
 
-def EventContentNotifyExcelAddIsShortcutEnable(builder, isShortcutEnable):
-    builder.PrependBoolSlot(4, isShortcutEnable, 0)
+def EventContentNotifyExcelAddEventTargetType(builder, eventTargetType):
+    builder.PrependInt32Slot(4, eventTargetType, 0)
 
-def AddIsShortcutEnable(builder, isShortcutEnable):
-    EventContentNotifyExcelAddIsShortcutEnable(builder, isShortcutEnable)
-
-def EventContentNotifyExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(5, localizeEtcId, 0)
-
-def AddLocalizeEtcId(builder, localizeEtcId):
-    EventContentNotifyExcelAddLocalizeEtcId(builder, localizeEtcId)
+def AddEventTargetType(builder, eventTargetType):
+    EventContentNotifyExcelAddEventTargetType(builder, eventTargetType)
 
 def EventContentNotifyExcelAddShortcutEventTargetType(builder, shortcutEventTargetType):
-    builder.PrependInt32Slot(6, shortcutEventTargetType, 0)
+    builder.PrependInt32Slot(5, shortcutEventTargetType, 0)
 
 def AddShortcutEventTargetType(builder, shortcutEventTargetType):
     EventContentNotifyExcelAddShortcutEventTargetType(builder, shortcutEventTargetType)
+
+def EventContentNotifyExcelAddIsShortcutEnable(builder, isShortcutEnable):
+    builder.PrependBoolSlot(6, isShortcutEnable, 0)
+
+def AddIsShortcutEnable(builder, isShortcutEnable):
+    EventContentNotifyExcelAddIsShortcutEnable(builder, isShortcutEnable)
 
 def EventContentNotifyExcelEnd(builder):
     return builder.EndObject()

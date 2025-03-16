@@ -25,53 +25,53 @@ class EventContentLobbyMenuExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentLobbyMenuExcel
-    def ButtonText(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # EventContentLobbyMenuExcel
-    def DisplayOrder(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentLobbyMenuExcel
     def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentLobbyMenuExcel
     def EventContentType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentLobbyMenuExcel
+    def IconSpriteName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # EventContentLobbyMenuExcel
+    def ButtonText(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # EventContentLobbyMenuExcel
+    def DisplayOrder(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentLobbyMenuExcel
     def IconOffsetX(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # EventContentLobbyMenuExcel
-    def IconOffsetY(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # EventContentLobbyMenuExcel
-    def IconSpriteName(self):
+    def IconOffsetY(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
 
     # EventContentLobbyMenuExcel
     def ReddotSpriteName(self):
@@ -86,47 +86,47 @@ def EventContentLobbyMenuExcelStart(builder):
 def Start(builder):
     EventContentLobbyMenuExcelStart(builder)
 
-def EventContentLobbyMenuExcelAddButtonText(builder, buttonText):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(buttonText), 0)
-
-def AddButtonText(builder, buttonText):
-    EventContentLobbyMenuExcelAddButtonText(builder, buttonText)
-
-def EventContentLobbyMenuExcelAddDisplayOrder(builder, displayOrder):
-    builder.PrependInt32Slot(1, displayOrder, 0)
-
-def AddDisplayOrder(builder, displayOrder):
-    EventContentLobbyMenuExcelAddDisplayOrder(builder, displayOrder)
-
 def EventContentLobbyMenuExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(2, eventContentId, 0)
+    builder.PrependInt64Slot(0, eventContentId, 0)
 
 def AddEventContentId(builder, eventContentId):
     EventContentLobbyMenuExcelAddEventContentId(builder, eventContentId)
 
 def EventContentLobbyMenuExcelAddEventContentType(builder, eventContentType):
-    builder.PrependInt32Slot(3, eventContentType, 0)
+    builder.PrependInt32Slot(1, eventContentType, 0)
 
 def AddEventContentType(builder, eventContentType):
     EventContentLobbyMenuExcelAddEventContentType(builder, eventContentType)
 
+def EventContentLobbyMenuExcelAddIconSpriteName(builder, iconSpriteName):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(iconSpriteName), 0)
+
+def AddIconSpriteName(builder, iconSpriteName):
+    EventContentLobbyMenuExcelAddIconSpriteName(builder, iconSpriteName)
+
+def EventContentLobbyMenuExcelAddButtonText(builder, buttonText):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(buttonText), 0)
+
+def AddButtonText(builder, buttonText):
+    EventContentLobbyMenuExcelAddButtonText(builder, buttonText)
+
+def EventContentLobbyMenuExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt32Slot(4, displayOrder, 0)
+
+def AddDisplayOrder(builder, displayOrder):
+    EventContentLobbyMenuExcelAddDisplayOrder(builder, displayOrder)
+
 def EventContentLobbyMenuExcelAddIconOffsetX(builder, iconOffsetX):
-    builder.PrependFloat32Slot(4, iconOffsetX, 0.0)
+    builder.PrependFloat32Slot(5, iconOffsetX, 0.0)
 
 def AddIconOffsetX(builder, iconOffsetX):
     EventContentLobbyMenuExcelAddIconOffsetX(builder, iconOffsetX)
 
 def EventContentLobbyMenuExcelAddIconOffsetY(builder, iconOffsetY):
-    builder.PrependFloat32Slot(5, iconOffsetY, 0.0)
+    builder.PrependFloat32Slot(6, iconOffsetY, 0.0)
 
 def AddIconOffsetY(builder, iconOffsetY):
     EventContentLobbyMenuExcelAddIconOffsetY(builder, iconOffsetY)
-
-def EventContentLobbyMenuExcelAddIconSpriteName(builder, iconSpriteName):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(iconSpriteName), 0)
-
-def AddIconSpriteName(builder, iconSpriteName):
-    EventContentLobbyMenuExcelAddIconSpriteName(builder, iconSpriteName)
 
 def EventContentLobbyMenuExcelAddReddotSpriteName(builder, reddotSpriteName):
     builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(reddotSpriteName), 0)

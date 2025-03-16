@@ -4,20 +4,20 @@ include "Nation.fbs";
 namespace FlatData;
 
 table CharacterVoiceExcel {
-    character_voice_group_id: long;
     character_voice_unique_id: long;
+    character_voice_group_id: long;
+    voice_hash: uint;
+    only_one: bool;
+    priority: int;
+    display_order: long;
     collection_visible: bool;
     cv_collection_type: CVCollectionType;
-    delay: [float];
-    display_order: long;
+    unlock_favor_rank: long;
     localize_cv_group: string;
     nation: [Nation];
-    only_one: bool;
-    path: [string];
-    priority: int;
-    unlock_favor_rank: long;
-    voice_hash: uint;
     volume: [float];
+    delay: [float];
+    path: [string];
 }
 
 root_type CharacterVoiceExcel;

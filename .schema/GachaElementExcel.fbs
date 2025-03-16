@@ -4,13 +4,13 @@ include "Rarity.fbs";
 namespace FlatData;
 
 table GachaElementExcel {
-    gacha_group_id: long;
     id: long;
-    parcel_amount_max: int;
-    parcel_amount_min: int;
-    parcel_id: long;
+    gacha_group_id: long;
     parcel_type: ParcelType;
-    prob: int;
+    parcel_id: long;
     rarity: Rarity;
+    parcel_amount_min: int;
+    parcel_amount_max: int;
+    prob: int;
     state: int;
 }

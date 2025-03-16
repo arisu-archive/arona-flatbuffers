@@ -10,12 +10,12 @@ import (
 // FloaterCommonExcelDto represents a FlatBuffers table
 type FloaterCommonExcelDto struct {
 	fbsutils.FlatBuffer
+	Id                     int64            `json:"id"`
+	TacticEntityType       TacticEntityType `json:"tactic_entity_type"`
 	FloaterOffsetPosX      int32            `json:"floater_offset_pos_x"`
 	FloaterOffsetPosY      int32            `json:"floater_offset_pos_y"`
 	FloaterRandomPosRangeX int32            `json:"floater_random_pos_range_x"`
 	FloaterRandomPosRangeY int32            `json:"floater_random_pos_range_y"`
-	Id                     int64            `json:"id"`
-	TacticEntityType       TacticEntityType `json:"tactic_entity_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,12 +24,12 @@ func (t *FloaterCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FloaterCommon"))
 	}
 	FloaterCommonExcelStart(b)
+	FloaterCommonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	FloaterCommonExcelAddTacticEntityType(b, fbsutils.Convert(t.TacticEntityType, t.FlatBuffer.TableKey))
 	FloaterCommonExcelAddFloaterOffsetPosX(b, fbsutils.Convert(t.FloaterOffsetPosX, t.FlatBuffer.TableKey))
 	FloaterCommonExcelAddFloaterOffsetPosY(b, fbsutils.Convert(t.FloaterOffsetPosY, t.FlatBuffer.TableKey))
 	FloaterCommonExcelAddFloaterRandomPosRangeX(b, fbsutils.Convert(t.FloaterRandomPosRangeX, t.FlatBuffer.TableKey))
 	FloaterCommonExcelAddFloaterRandomPosRangeY(b, fbsutils.Convert(t.FloaterRandomPosRangeY, t.FlatBuffer.TableKey))
-	FloaterCommonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	FloaterCommonExcelAddTacticEntityType(b, fbsutils.Convert(t.TacticEntityType, t.FlatBuffer.TableKey))
 	return FloaterCommonExcelEnd(b)
 }
 
@@ -45,12 +45,12 @@ func (t *FloaterCommonExcelDto) UnmarshalMessage(e *FloaterCommonExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FloaterCommon"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.TacticEntityType = TacticEntityType(int32(fbsutils.Convert(e.TacticEntityType(), t.FlatBuffer.TableKey)))
 	t.FloaterOffsetPosX = fbsutils.Convert(e.FloaterOffsetPosX(), t.FlatBuffer.TableKey)
 	t.FloaterOffsetPosY = fbsutils.Convert(e.FloaterOffsetPosY(), t.FlatBuffer.TableKey)
 	t.FloaterRandomPosRangeX = fbsutils.Convert(e.FloaterRandomPosRangeX(), t.FlatBuffer.TableKey)
 	t.FloaterRandomPosRangeY = fbsutils.Convert(e.FloaterRandomPosRangeY(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.TacticEntityType = TacticEntityType(int32(fbsutils.Convert(e.TacticEntityType(), t.FlatBuffer.TableKey)))
 	return nil
 }
 
