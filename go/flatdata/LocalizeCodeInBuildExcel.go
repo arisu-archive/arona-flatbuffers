@@ -41,24 +41,8 @@ func (rcv *LocalizeCodeInBuildExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LocalizeCodeInBuildExcel) En() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LocalizeCodeInBuildExcel) Jp() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *LocalizeCodeInBuildExcel) Key() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -66,11 +50,19 @@ func (rcv *LocalizeCodeInBuildExcel) Key() uint32 {
 }
 
 func (rcv *LocalizeCodeInBuildExcel) MutateKey(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(8, n)
+	return rcv._tab.MutateUint32Slot(4, n)
 }
 
 func (rcv *LocalizeCodeInBuildExcel) Kr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeCodeInBuildExcel) Jp() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -78,7 +70,7 @@ func (rcv *LocalizeCodeInBuildExcel) Kr() []byte {
 }
 
 func (rcv *LocalizeCodeInBuildExcel) Th() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -86,6 +78,14 @@ func (rcv *LocalizeCodeInBuildExcel) Th() []byte {
 }
 
 func (rcv *LocalizeCodeInBuildExcel) Tw() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeCodeInBuildExcel) En() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -96,23 +96,23 @@ func (rcv *LocalizeCodeInBuildExcel) Tw() []byte {
 func LocalizeCodeInBuildExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func LocalizeCodeInBuildExcelAddEn(builder *flatbuffers.Builder, en flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(en), 0)
-}
-func LocalizeCodeInBuildExcelAddJp(builder *flatbuffers.Builder, jp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(jp), 0)
-}
 func LocalizeCodeInBuildExcelAddKey(builder *flatbuffers.Builder, key uint32) {
-	builder.PrependUint32Slot(2, key, 0)
+	builder.PrependUint32Slot(0, key, 0)
 }
 func LocalizeCodeInBuildExcelAddKr(builder *flatbuffers.Builder, kr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(kr), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(kr), 0)
+}
+func LocalizeCodeInBuildExcelAddJp(builder *flatbuffers.Builder, jp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(jp), 0)
 }
 func LocalizeCodeInBuildExcelAddTh(builder *flatbuffers.Builder, th flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(th), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(th), 0)
 }
 func LocalizeCodeInBuildExcelAddTw(builder *flatbuffers.Builder, tw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(tw), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(tw), 0)
+}
+func LocalizeCodeInBuildExcelAddEn(builder *flatbuffers.Builder, en flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(en), 0)
 }
 func LocalizeCodeInBuildExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

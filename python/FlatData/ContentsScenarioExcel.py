@@ -25,24 +25,24 @@ class ContentsScenarioExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ContentsScenarioExcel
-    def DisplayOrder(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ContentsScenarioExcel
     def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # ContentsScenarioExcel
     def LocalizeId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
+    # ContentsScenarioExcel
+    def DisplayOrder(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ContentsScenarioExcel
@@ -85,23 +85,23 @@ def ContentsScenarioExcelStart(builder):
 def Start(builder):
     ContentsScenarioExcelStart(builder)
 
-def ContentsScenarioExcelAddDisplayOrder(builder, displayOrder):
-    builder.PrependInt32Slot(0, displayOrder, 0)
-
-def AddDisplayOrder(builder, displayOrder):
-    ContentsScenarioExcelAddDisplayOrder(builder, displayOrder)
-
 def ContentsScenarioExcelAddId(builder, id):
-    builder.PrependUint32Slot(1, id, 0)
+    builder.PrependUint32Slot(0, id, 0)
 
 def AddId(builder, id):
     ContentsScenarioExcelAddId(builder, id)
 
 def ContentsScenarioExcelAddLocalizeId(builder, localizeId):
-    builder.PrependUint32Slot(2, localizeId, 0)
+    builder.PrependUint32Slot(1, localizeId, 0)
 
 def AddLocalizeId(builder, localizeId):
     ContentsScenarioExcelAddLocalizeId(builder, localizeId)
+
+def ContentsScenarioExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt32Slot(2, displayOrder, 0)
+
+def AddDisplayOrder(builder, displayOrder):
+    ContentsScenarioExcelAddDisplayOrder(builder, displayOrder)
 
 def ContentsScenarioExcelAddScenarioContentType(builder, scenarioContentType):
     builder.PrependInt32Slot(3, scenarioContentType, 0)

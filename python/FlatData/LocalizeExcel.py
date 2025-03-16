@@ -25,42 +25,42 @@ class LocalizeExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # LocalizeExcel
-    def En(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # LocalizeExcel
-    def Jp(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # LocalizeExcel
     def Key(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # LocalizeExcel
     def Kr(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # LocalizeExcel
+    def Jp(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # LocalizeExcel
     def Th(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # LocalizeExcel
     def Tw(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # LocalizeExcel
+    def En(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -72,41 +72,41 @@ def LocalizeExcelStart(builder):
 def Start(builder):
     LocalizeExcelStart(builder)
 
-def LocalizeExcelAddEn(builder, en):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(en), 0)
-
-def AddEn(builder, en):
-    LocalizeExcelAddEn(builder, en)
-
-def LocalizeExcelAddJp(builder, jp):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(jp), 0)
-
-def AddJp(builder, jp):
-    LocalizeExcelAddJp(builder, jp)
-
 def LocalizeExcelAddKey(builder, key):
-    builder.PrependUint32Slot(2, key, 0)
+    builder.PrependUint32Slot(0, key, 0)
 
 def AddKey(builder, key):
     LocalizeExcelAddKey(builder, key)
 
 def LocalizeExcelAddKr(builder, kr):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(kr), 0)
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(kr), 0)
 
 def AddKr(builder, kr):
     LocalizeExcelAddKr(builder, kr)
 
+def LocalizeExcelAddJp(builder, jp):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(jp), 0)
+
+def AddJp(builder, jp):
+    LocalizeExcelAddJp(builder, jp)
+
 def LocalizeExcelAddTh(builder, th):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(th), 0)
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(th), 0)
 
 def AddTh(builder, th):
     LocalizeExcelAddTh(builder, th)
 
 def LocalizeExcelAddTw(builder, tw):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(tw), 0)
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(tw), 0)
 
 def AddTw(builder, tw):
     LocalizeExcelAddTw(builder, tw)
+
+def LocalizeExcelAddEn(builder, en):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(en), 0)
+
+def AddEn(builder, en):
+    LocalizeExcelAddEn(builder, en)
 
 def LocalizeExcelEnd(builder):
     return builder.EndObject()

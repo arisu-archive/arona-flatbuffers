@@ -25,42 +25,15 @@ class EliminateRaidStageSeasonRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EliminateRaidStageSeasonRewardExcel
-    def SeasonRewardAmount(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # EliminateRaidStageSeasonRewardExcel
-    def SeasonRewardAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # EliminateRaidStageSeasonRewardExcel
-    def SeasonRewardAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EliminateRaidStageSeasonRewardExcel
-    def SeasonRewardAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        return o == 0
-
-    # EliminateRaidStageSeasonRewardExcel
     def SeasonRewardId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EliminateRaidStageSeasonRewardExcel
     def SeasonRewardParcelType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -68,26 +41,26 @@ class EliminateRaidStageSeasonRewardExcel(object):
 
     # EliminateRaidStageSeasonRewardExcel
     def SeasonRewardParcelTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # EliminateRaidStageSeasonRewardExcel
     def SeasonRewardParcelTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # EliminateRaidStageSeasonRewardExcel
     def SeasonRewardParcelTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         return o == 0
 
     # EliminateRaidStageSeasonRewardExcel
     def SeasonRewardParcelUniqueId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -95,26 +68,26 @@ class EliminateRaidStageSeasonRewardExcel(object):
 
     # EliminateRaidStageSeasonRewardExcel
     def SeasonRewardParcelUniqueIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # EliminateRaidStageSeasonRewardExcel
     def SeasonRewardParcelUniqueIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # EliminateRaidStageSeasonRewardExcel
     def SeasonRewardParcelUniqueIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
     # EliminateRaidStageSeasonRewardExcel
     def SeasonRewardParcelUniqueName(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -122,13 +95,40 @@ class EliminateRaidStageSeasonRewardExcel(object):
 
     # EliminateRaidStageSeasonRewardExcel
     def SeasonRewardParcelUniqueNameLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # EliminateRaidStageSeasonRewardExcel
     def SeasonRewardParcelUniqueNameIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        return o == 0
+
+    # EliminateRaidStageSeasonRewardExcel
+    def SeasonRewardAmount(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # EliminateRaidStageSeasonRewardExcel
+    def SeasonRewardAmountAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # EliminateRaidStageSeasonRewardExcel
+    def SeasonRewardAmountLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EliminateRaidStageSeasonRewardExcel
+    def SeasonRewardAmountIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         return o == 0
 
@@ -138,26 +138,14 @@ def EliminateRaidStageSeasonRewardExcelStart(builder):
 def Start(builder):
     EliminateRaidStageSeasonRewardExcelStart(builder)
 
-def EliminateRaidStageSeasonRewardExcelAddSeasonRewardAmount(builder, seasonRewardAmount):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(seasonRewardAmount), 0)
-
-def AddSeasonRewardAmount(builder, seasonRewardAmount):
-    EliminateRaidStageSeasonRewardExcelAddSeasonRewardAmount(builder, seasonRewardAmount)
-
-def EliminateRaidStageSeasonRewardExcelStartSeasonRewardAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
-def StartSeasonRewardAmountVector(builder, numElems):
-    return EliminateRaidStageSeasonRewardExcelStartSeasonRewardAmountVector(builder, numElems)
-
 def EliminateRaidStageSeasonRewardExcelAddSeasonRewardId(builder, seasonRewardId):
-    builder.PrependInt64Slot(1, seasonRewardId, 0)
+    builder.PrependInt64Slot(0, seasonRewardId, 0)
 
 def AddSeasonRewardId(builder, seasonRewardId):
     EliminateRaidStageSeasonRewardExcelAddSeasonRewardId(builder, seasonRewardId)
 
 def EliminateRaidStageSeasonRewardExcelAddSeasonRewardParcelType(builder, seasonRewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(seasonRewardParcelType), 0)
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(seasonRewardParcelType), 0)
 
 def AddSeasonRewardParcelType(builder, seasonRewardParcelType):
     EliminateRaidStageSeasonRewardExcelAddSeasonRewardParcelType(builder, seasonRewardParcelType)
@@ -169,7 +157,7 @@ def StartSeasonRewardParcelTypeVector(builder, numElems):
     return EliminateRaidStageSeasonRewardExcelStartSeasonRewardParcelTypeVector(builder, numElems)
 
 def EliminateRaidStageSeasonRewardExcelAddSeasonRewardParcelUniqueId(builder, seasonRewardParcelUniqueId):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(seasonRewardParcelUniqueId), 0)
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(seasonRewardParcelUniqueId), 0)
 
 def AddSeasonRewardParcelUniqueId(builder, seasonRewardParcelUniqueId):
     EliminateRaidStageSeasonRewardExcelAddSeasonRewardParcelUniqueId(builder, seasonRewardParcelUniqueId)
@@ -181,7 +169,7 @@ def StartSeasonRewardParcelUniqueIdVector(builder, numElems):
     return EliminateRaidStageSeasonRewardExcelStartSeasonRewardParcelUniqueIdVector(builder, numElems)
 
 def EliminateRaidStageSeasonRewardExcelAddSeasonRewardParcelUniqueName(builder, seasonRewardParcelUniqueName):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(seasonRewardParcelUniqueName), 0)
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(seasonRewardParcelUniqueName), 0)
 
 def AddSeasonRewardParcelUniqueName(builder, seasonRewardParcelUniqueName):
     EliminateRaidStageSeasonRewardExcelAddSeasonRewardParcelUniqueName(builder, seasonRewardParcelUniqueName)
@@ -191,6 +179,18 @@ def EliminateRaidStageSeasonRewardExcelStartSeasonRewardParcelUniqueNameVector(b
 
 def StartSeasonRewardParcelUniqueNameVector(builder, numElems):
     return EliminateRaidStageSeasonRewardExcelStartSeasonRewardParcelUniqueNameVector(builder, numElems)
+
+def EliminateRaidStageSeasonRewardExcelAddSeasonRewardAmount(builder, seasonRewardAmount):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(seasonRewardAmount), 0)
+
+def AddSeasonRewardAmount(builder, seasonRewardAmount):
+    EliminateRaidStageSeasonRewardExcelAddSeasonRewardAmount(builder, seasonRewardAmount)
+
+def EliminateRaidStageSeasonRewardExcelStartSeasonRewardAmountVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartSeasonRewardAmountVector(builder, numElems):
+    return EliminateRaidStageSeasonRewardExcelStartSeasonRewardAmountVector(builder, numElems)
 
 def EliminateRaidStageSeasonRewardExcelEnd(builder):
     return builder.EndObject()

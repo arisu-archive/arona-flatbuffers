@@ -25,7 +25,7 @@ class TacticSimulatorSettingExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # TacticSimulatorSettingExcel
-    def Equipment(self):
+    def GroundId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -46,7 +46,7 @@ class TacticSimulatorSettingExcel(object):
         return 0
 
     # TacticSimulatorSettingExcel
-    def GroundId(self):
+    def Equipment(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -58,11 +58,11 @@ def TacticSimulatorSettingExcelStart(builder):
 def Start(builder):
     TacticSimulatorSettingExcelStart(builder)
 
-def TacticSimulatorSettingExcelAddEquipment(builder, equipment):
-    builder.PrependInt64Slot(0, equipment, 0)
+def TacticSimulatorSettingExcelAddGroundId(builder, groundId):
+    builder.PrependInt64Slot(0, groundId, 0)
 
-def AddEquipment(builder, equipment):
-    TacticSimulatorSettingExcelAddEquipment(builder, equipment)
+def AddGroundId(builder, groundId):
+    TacticSimulatorSettingExcelAddGroundId(builder, groundId)
 
 def TacticSimulatorSettingExcelAddGetExp(builder, getExp):
     builder.PrependInt64Slot(1, getExp, 0)
@@ -76,11 +76,11 @@ def TacticSimulatorSettingExcelAddGetStarGrade(builder, getStarGrade):
 def AddGetStarGrade(builder, getStarGrade):
     TacticSimulatorSettingExcelAddGetStarGrade(builder, getStarGrade)
 
-def TacticSimulatorSettingExcelAddGroundId(builder, groundId):
-    builder.PrependInt64Slot(3, groundId, 0)
+def TacticSimulatorSettingExcelAddEquipment(builder, equipment):
+    builder.PrependInt64Slot(3, equipment, 0)
 
-def AddGroundId(builder, groundId):
-    TacticSimulatorSettingExcelAddGroundId(builder, groundId)
+def AddEquipment(builder, equipment):
+    TacticSimulatorSettingExcelAddEquipment(builder, equipment)
 
 def TacticSimulatorSettingExcelEnd(builder):
     return builder.EndObject()

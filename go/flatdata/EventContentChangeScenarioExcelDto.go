@@ -10,9 +10,9 @@ import (
 // EventContentChangeScenarioExcelDto represents a FlatBuffers table
 type EventContentChangeScenarioExcelDto struct {
 	fbsutils.FlatBuffer
-	ChangeCount     int64           `json:"change_count"`
-	ChangeType      EventChangeType `json:"change_type"`
 	EventContentId  int64           `json:"event_content_id"`
+	ChangeType      EventChangeType `json:"change_type"`
+	ChangeCount     int64           `json:"change_count"`
 	ScenarioGroupId int64           `json:"scenario_group_id"`
 }
 
@@ -22,9 +22,9 @@ func (t *EventContentChangeScenarioExcelDto) MarshalModel(b *flatbuffers.Builder
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChangeScenario"))
 	}
 	EventContentChangeScenarioExcelStart(b)
-	EventContentChangeScenarioExcelAddChangeCount(b, fbsutils.Convert(t.ChangeCount, t.FlatBuffer.TableKey))
-	EventContentChangeScenarioExcelAddChangeType(b, fbsutils.Convert(t.ChangeType, t.FlatBuffer.TableKey))
 	EventContentChangeScenarioExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentChangeScenarioExcelAddChangeType(b, fbsutils.Convert(t.ChangeType, t.FlatBuffer.TableKey))
+	EventContentChangeScenarioExcelAddChangeCount(b, fbsutils.Convert(t.ChangeCount, t.FlatBuffer.TableKey))
 	EventContentChangeScenarioExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
 	return EventContentChangeScenarioExcelEnd(b)
 }
@@ -41,9 +41,9 @@ func (t *EventContentChangeScenarioExcelDto) UnmarshalMessage(e *EventContentCha
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChangeScenario"))
 	}
-	t.ChangeCount = fbsutils.Convert(e.ChangeCount(), t.FlatBuffer.TableKey)
-	t.ChangeType = EventChangeType(int32(fbsutils.Convert(e.ChangeType(), t.FlatBuffer.TableKey)))
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.ChangeType = EventChangeType(int32(fbsutils.Convert(e.ChangeType(), t.FlatBuffer.TableKey)))
+	t.ChangeCount = fbsutils.Convert(e.ChangeCount(), t.FlatBuffer.TableKey)
 	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
 	return nil
 }

@@ -25,45 +25,32 @@ class EventContentDiceRaceExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentDiceRaceExcel
-    def DiceCostGoodsId(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentDiceRaceExcel
-    def DiceRaceEventType(self, j):
+    def DiceCostGoodsId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # EventContentDiceRaceExcel
-    def DiceRaceEventTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EventContentDiceRaceExcel
-    def DiceRaceEventTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        return o == 0
-
-    # EventContentDiceRaceExcel
-    def DiceRacePawnPrefab(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # EventContentDiceRaceExcel
-    def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
+
+    # EventContentDiceRaceExcel
+    def SkipableLap(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentDiceRaceExcel
+    def DiceRacePawnPrefab(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # EventContentDiceRaceExcel
     def IsUsingFixedDice(self):
@@ -73,11 +60,24 @@ class EventContentDiceRaceExcel(object):
         return False
 
     # EventContentDiceRaceExcel
-    def SkipableLap(self):
+    def DiceRaceEventType(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # EventContentDiceRaceExcel
+    def DiceRaceEventTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.VectorLen(o)
         return 0
+
+    # EventContentDiceRaceExcel
+    def DiceRaceEventTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        return o == 0
 
 def EventContentDiceRaceExcelStart(builder):
     builder.StartObject(6)
@@ -85,14 +85,38 @@ def EventContentDiceRaceExcelStart(builder):
 def Start(builder):
     EventContentDiceRaceExcelStart(builder)
 
+def EventContentDiceRaceExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
+
+def AddEventContentId(builder, eventContentId):
+    EventContentDiceRaceExcelAddEventContentId(builder, eventContentId)
+
 def EventContentDiceRaceExcelAddDiceCostGoodsId(builder, diceCostGoodsId):
-    builder.PrependInt64Slot(0, diceCostGoodsId, 0)
+    builder.PrependInt64Slot(1, diceCostGoodsId, 0)
 
 def AddDiceCostGoodsId(builder, diceCostGoodsId):
     EventContentDiceRaceExcelAddDiceCostGoodsId(builder, diceCostGoodsId)
 
+def EventContentDiceRaceExcelAddSkipableLap(builder, skipableLap):
+    builder.PrependInt32Slot(2, skipableLap, 0)
+
+def AddSkipableLap(builder, skipableLap):
+    EventContentDiceRaceExcelAddSkipableLap(builder, skipableLap)
+
+def EventContentDiceRaceExcelAddDiceRacePawnPrefab(builder, diceRacePawnPrefab):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(diceRacePawnPrefab), 0)
+
+def AddDiceRacePawnPrefab(builder, diceRacePawnPrefab):
+    EventContentDiceRaceExcelAddDiceRacePawnPrefab(builder, diceRacePawnPrefab)
+
+def EventContentDiceRaceExcelAddIsUsingFixedDice(builder, isUsingFixedDice):
+    builder.PrependBoolSlot(4, isUsingFixedDice, 0)
+
+def AddIsUsingFixedDice(builder, isUsingFixedDice):
+    EventContentDiceRaceExcelAddIsUsingFixedDice(builder, isUsingFixedDice)
+
 def EventContentDiceRaceExcelAddDiceRaceEventType(builder, diceRaceEventType):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(diceRaceEventType), 0)
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(diceRaceEventType), 0)
 
 def AddDiceRaceEventType(builder, diceRaceEventType):
     EventContentDiceRaceExcelAddDiceRaceEventType(builder, diceRaceEventType)
@@ -102,30 +126,6 @@ def EventContentDiceRaceExcelStartDiceRaceEventTypeVector(builder, numElems):
 
 def StartDiceRaceEventTypeVector(builder, numElems):
     return EventContentDiceRaceExcelStartDiceRaceEventTypeVector(builder, numElems)
-
-def EventContentDiceRaceExcelAddDiceRacePawnPrefab(builder, diceRacePawnPrefab):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(diceRacePawnPrefab), 0)
-
-def AddDiceRacePawnPrefab(builder, diceRacePawnPrefab):
-    EventContentDiceRaceExcelAddDiceRacePawnPrefab(builder, diceRacePawnPrefab)
-
-def EventContentDiceRaceExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(3, eventContentId, 0)
-
-def AddEventContentId(builder, eventContentId):
-    EventContentDiceRaceExcelAddEventContentId(builder, eventContentId)
-
-def EventContentDiceRaceExcelAddIsUsingFixedDice(builder, isUsingFixedDice):
-    builder.PrependBoolSlot(4, isUsingFixedDice, 0)
-
-def AddIsUsingFixedDice(builder, isUsingFixedDice):
-    EventContentDiceRaceExcelAddIsUsingFixedDice(builder, isUsingFixedDice)
-
-def EventContentDiceRaceExcelAddSkipableLap(builder, skipableLap):
-    builder.PrependInt32Slot(5, skipableLap, 0)
-
-def AddSkipableLap(builder, skipableLap):
-    EventContentDiceRaceExcelAddSkipableLap(builder, skipableLap)
 
 def EventContentDiceRaceExcelEnd(builder):
     return builder.EndObject()

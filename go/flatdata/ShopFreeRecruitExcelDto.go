@@ -10,11 +10,11 @@ import (
 // ShopFreeRecruitExcelDto represents a FlatBuffers table
 type ShopFreeRecruitExcelDto struct {
 	fbsutils.FlatBuffer
-	FreeRecruitDecorationImagePath string              `json:"free_recruit_decoration_image_path"`
+	Id                             int64               `json:"id"`
 	FreeRecruitPeriodFrom          string              `json:"free_recruit_period_from"`
 	FreeRecruitPeriodTo            string              `json:"free_recruit_period_to"`
 	FreeRecruitType                ShopFreeRecruitType `json:"free_recruit_type"`
-	Id                             int64               `json:"id"`
+	FreeRecruitDecorationImagePath string              `json:"free_recruit_decoration_image_path"`
 	ShopRecruitId                  []int64             `json:"shop_recruit_id"`
 }
 
@@ -24,11 +24,11 @@ func (t *ShopFreeRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopFreeRecruit"))
 	}
 	ShopFreeRecruitExcelStart(b)
-	ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(b, fbsutils.Convert(b.CreateString(t.FreeRecruitDecorationImagePath), t.FlatBuffer.TableKey))
+	ShopFreeRecruitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ShopFreeRecruitExcelAddFreeRecruitPeriodFrom(b, fbsutils.Convert(b.CreateString(t.FreeRecruitPeriodFrom), t.FlatBuffer.TableKey))
 	ShopFreeRecruitExcelAddFreeRecruitPeriodTo(b, fbsutils.Convert(b.CreateString(t.FreeRecruitPeriodTo), t.FlatBuffer.TableKey))
 	ShopFreeRecruitExcelAddFreeRecruitType(b, fbsutils.Convert(t.FreeRecruitType, t.FlatBuffer.TableKey))
-	ShopFreeRecruitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(b, fbsutils.Convert(b.CreateString(t.FreeRecruitDecorationImagePath), t.FlatBuffer.TableKey))
 	ShopFreeRecruitExcelStartShopRecruitIdVector(b, len(t.ShopRecruitId))
 	for i := range len(t.ShopRecruitId) {
 		b.PrependInt64(fbsutils.Convert(t.ShopRecruitId[len(t.ShopRecruitId)-i-1], t.FlatBuffer.TableKey))
@@ -49,11 +49,11 @@ func (t *ShopFreeRecruitExcelDto) UnmarshalMessage(e *ShopFreeRecruitExcel) erro
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopFreeRecruit"))
 	}
-	t.FreeRecruitDecorationImagePath = fbsutils.Convert(string(e.FreeRecruitDecorationImagePath()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.FreeRecruitPeriodFrom = fbsutils.Convert(string(e.FreeRecruitPeriodFrom()), t.FlatBuffer.TableKey)
 	t.FreeRecruitPeriodTo = fbsutils.Convert(string(e.FreeRecruitPeriodTo()), t.FlatBuffer.TableKey)
 	t.FreeRecruitType = ShopFreeRecruitType(int32(fbsutils.Convert(e.FreeRecruitType(), t.FlatBuffer.TableKey)))
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.FreeRecruitDecorationImagePath = fbsutils.Convert(string(e.FreeRecruitDecorationImagePath()), t.FlatBuffer.TableKey)
 	t.ShopRecruitId = make([]int64, e.ShopRecruitIdLength())
 	for i := range e.ShopRecruitIdLength() {
 		t.ShopRecruitId[i] = e.ShopRecruitId(i)

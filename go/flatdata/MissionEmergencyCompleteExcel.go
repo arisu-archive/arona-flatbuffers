@@ -41,20 +41,8 @@ func (rcv *MissionEmergencyCompleteExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MissionEmergencyCompleteExcel) EmergencyComplete() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *MissionEmergencyCompleteExcel) MutateEmergencyComplete(n bool) bool {
-	return rcv._tab.MutateBoolSlot(4, n)
-}
-
 func (rcv *MissionEmergencyCompleteExcel) MissionId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -62,17 +50,29 @@ func (rcv *MissionEmergencyCompleteExcel) MissionId() int64 {
 }
 
 func (rcv *MissionEmergencyCompleteExcel) MutateMissionId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *MissionEmergencyCompleteExcel) EmergencyComplete() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *MissionEmergencyCompleteExcel) MutateEmergencyComplete(n bool) bool {
+	return rcv._tab.MutateBoolSlot(6, n)
 }
 
 func MissionEmergencyCompleteExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func MissionEmergencyCompleteExcelAddEmergencyComplete(builder *flatbuffers.Builder, emergencyComplete bool) {
-	builder.PrependBoolSlot(0, emergencyComplete, false)
-}
 func MissionEmergencyCompleteExcelAddMissionId(builder *flatbuffers.Builder, missionId int64) {
-	builder.PrependInt64Slot(1, missionId, 0)
+	builder.PrependInt64Slot(0, missionId, 0)
+}
+func MissionEmergencyCompleteExcelAddEmergencyComplete(builder *flatbuffers.Builder, emergencyComplete bool) {
+	builder.PrependBoolSlot(1, emergencyComplete, false)
 }
 func MissionEmergencyCompleteExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

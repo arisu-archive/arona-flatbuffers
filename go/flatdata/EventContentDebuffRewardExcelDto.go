@@ -11,8 +11,8 @@ import (
 type EventContentDebuffRewardExcelDto struct {
 	fbsutils.FlatBuffer
 	EventContentId       int64                `json:"event_content_id"`
-	EventContentItemType EventContentItemType `json:"event_content_item_type"`
 	EventStageId         int64                `json:"event_stage_id"`
+	EventContentItemType EventContentItemType `json:"event_content_item_type"`
 	RewardPercentage     int64                `json:"reward_percentage"`
 }
 
@@ -23,8 +23,8 @@ func (t *EventContentDebuffRewardExcelDto) MarshalModel(b *flatbuffers.Builder) 
 	}
 	EventContentDebuffRewardExcelStart(b)
 	EventContentDebuffRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentDebuffRewardExcelAddEventContentItemType(b, fbsutils.Convert(t.EventContentItemType, t.FlatBuffer.TableKey))
 	EventContentDebuffRewardExcelAddEventStageId(b, fbsutils.Convert(t.EventStageId, t.FlatBuffer.TableKey))
+	EventContentDebuffRewardExcelAddEventContentItemType(b, fbsutils.Convert(t.EventContentItemType, t.FlatBuffer.TableKey))
 	EventContentDebuffRewardExcelAddRewardPercentage(b, fbsutils.Convert(t.RewardPercentage, t.FlatBuffer.TableKey))
 	return EventContentDebuffRewardExcelEnd(b)
 }
@@ -42,8 +42,8 @@ func (t *EventContentDebuffRewardExcelDto) UnmarshalMessage(e *EventContentDebuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDebuffReward"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EventContentItemType = EventContentItemType(int32(fbsutils.Convert(e.EventContentItemType(), t.FlatBuffer.TableKey)))
 	t.EventStageId = fbsutils.Convert(e.EventStageId(), t.FlatBuffer.TableKey)
+	t.EventContentItemType = EventContentItemType(int32(fbsutils.Convert(e.EventContentItemType(), t.FlatBuffer.TableKey)))
 	t.RewardPercentage = fbsutils.Convert(e.RewardPercentage(), t.FlatBuffer.TableKey)
 	return nil
 }

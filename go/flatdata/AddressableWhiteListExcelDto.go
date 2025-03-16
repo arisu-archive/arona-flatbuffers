@@ -10,8 +10,8 @@ import (
 // AddressableWhiteListExcelDto represents a FlatBuffers table
 type AddressableWhiteListExcelDto struct {
 	fbsutils.FlatBuffer
-	FolderPath   []string `json:"folder_path"`
 	Id           int64    `json:"id"`
+	FolderPath   []string `json:"folder_path"`
 	ResourcePath []string `json:"resource_path"`
 }
 
@@ -21,12 +21,12 @@ func (t *AddressableWhiteListExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AddressableWhiteList"))
 	}
 	AddressableWhiteListExcelStart(b)
+	AddressableWhiteListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	AddressableWhiteListExcelStartFolderPathVector(b, len(t.FolderPath))
 	for i := range len(t.FolderPath) {
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.FolderPath[len(t.FolderPath)-i-1]), t.FlatBuffer.TableKey))
 	}
 	AddressableWhiteListExcelAddFolderPath(b, b.EndVector(len(t.FolderPath)))
-	AddressableWhiteListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	AddressableWhiteListExcelStartResourcePathVector(b, len(t.ResourcePath))
 	for i := range len(t.ResourcePath) {
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.ResourcePath[len(t.ResourcePath)-i-1]), t.FlatBuffer.TableKey))
@@ -47,11 +47,11 @@ func (t *AddressableWhiteListExcelDto) UnmarshalMessage(e *AddressableWhiteListE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AddressableWhiteList"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.FolderPath = make([]string, e.FolderPathLength())
 	for i := range e.FolderPathLength() {
 		t.FolderPath[i] = string(e.FolderPath(i))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ResourcePath = make([]string, e.ResourcePathLength())
 	for i := range e.ResourcePathLength() {
 		t.ResourcePath[i] = string(e.ResourcePath(i))

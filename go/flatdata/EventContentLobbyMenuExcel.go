@@ -41,28 +41,8 @@ func (rcv *EventContentLobbyMenuExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentLobbyMenuExcel) ButtonText() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentLobbyMenuExcel) DisplayOrder() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentLobbyMenuExcel) MutateDisplayOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
-}
-
 func (rcv *EventContentLobbyMenuExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -70,11 +50,11 @@ func (rcv *EventContentLobbyMenuExcel) EventContentId() int64 {
 }
 
 func (rcv *EventContentLobbyMenuExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *EventContentLobbyMenuExcel) EventContentType() EventContentType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return EventContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -82,22 +62,38 @@ func (rcv *EventContentLobbyMenuExcel) EventContentType() EventContentType {
 }
 
 func (rcv *EventContentLobbyMenuExcel) MutateEventContentType(n EventContentType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *EventContentLobbyMenuExcel) IconSpriteName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentLobbyMenuExcel) ButtonText() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentLobbyMenuExcel) DisplayOrder() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentLobbyMenuExcel) MutateDisplayOrder(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
 }
 
 func (rcv *EventContentLobbyMenuExcel) IconOffsetX() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *EventContentLobbyMenuExcel) MutateIconOffsetX(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(12, n)
-}
-
-func (rcv *EventContentLobbyMenuExcel) IconOffsetY() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -105,16 +101,20 @@ func (rcv *EventContentLobbyMenuExcel) IconOffsetY() float32 {
 	return 0.0
 }
 
-func (rcv *EventContentLobbyMenuExcel) MutateIconOffsetY(n float32) bool {
+func (rcv *EventContentLobbyMenuExcel) MutateIconOffsetX(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(14, n)
 }
 
-func (rcv *EventContentLobbyMenuExcel) IconSpriteName() []byte {
+func (rcv *EventContentLobbyMenuExcel) IconOffsetY() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0.0
+}
+
+func (rcv *EventContentLobbyMenuExcel) MutateIconOffsetY(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(16, n)
 }
 
 func (rcv *EventContentLobbyMenuExcel) ReddotSpriteName() []byte {
@@ -128,26 +128,26 @@ func (rcv *EventContentLobbyMenuExcel) ReddotSpriteName() []byte {
 func EventContentLobbyMenuExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(8)
 }
-func EventContentLobbyMenuExcelAddButtonText(builder *flatbuffers.Builder, buttonText flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(buttonText), 0)
-}
-func EventContentLobbyMenuExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int32) {
-	builder.PrependInt32Slot(1, displayOrder, 0)
-}
 func EventContentLobbyMenuExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(2, eventContentId, 0)
+	builder.PrependInt64Slot(0, eventContentId, 0)
 }
 func EventContentLobbyMenuExcelAddEventContentType(builder *flatbuffers.Builder, eventContentType EventContentType) {
-	builder.PrependInt32Slot(3, int32(eventContentType), 0)
-}
-func EventContentLobbyMenuExcelAddIconOffsetX(builder *flatbuffers.Builder, iconOffsetX float32) {
-	builder.PrependFloat32Slot(4, iconOffsetX, 0.0)
-}
-func EventContentLobbyMenuExcelAddIconOffsetY(builder *flatbuffers.Builder, iconOffsetY float32) {
-	builder.PrependFloat32Slot(5, iconOffsetY, 0.0)
+	builder.PrependInt32Slot(1, int32(eventContentType), 0)
 }
 func EventContentLobbyMenuExcelAddIconSpriteName(builder *flatbuffers.Builder, iconSpriteName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(iconSpriteName), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(iconSpriteName), 0)
+}
+func EventContentLobbyMenuExcelAddButtonText(builder *flatbuffers.Builder, buttonText flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(buttonText), 0)
+}
+func EventContentLobbyMenuExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int32) {
+	builder.PrependInt32Slot(4, displayOrder, 0)
+}
+func EventContentLobbyMenuExcelAddIconOffsetX(builder *flatbuffers.Builder, iconOffsetX float32) {
+	builder.PrependFloat32Slot(5, iconOffsetX, 0.0)
+}
+func EventContentLobbyMenuExcelAddIconOffsetY(builder *flatbuffers.Builder, iconOffsetY float32) {
+	builder.PrependFloat32Slot(6, iconOffsetY, 0.0)
 }
 func EventContentLobbyMenuExcelAddReddotSpriteName(builder *flatbuffers.Builder, reddotSpriteName flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(reddotSpriteName), 0)

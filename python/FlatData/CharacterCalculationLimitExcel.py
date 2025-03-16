@@ -25,24 +25,24 @@ class CharacterCalculationLimitExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CharacterCalculationLimitExcel
-    def CalculationValue(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterCalculationLimitExcel
+    def TacticEntityType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterCalculationLimitExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CharacterCalculationLimitExcel
-    def MaxValue(self):
+    def CalculationValue(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterCalculationLimitExcel
@@ -53,10 +53,10 @@ class CharacterCalculationLimitExcel(object):
         return 0
 
     # CharacterCalculationLimitExcel
-    def TacticEntityType(self):
+    def MaxValue(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def CharacterCalculationLimitExcelStart(builder):
@@ -65,23 +65,23 @@ def CharacterCalculationLimitExcelStart(builder):
 def Start(builder):
     CharacterCalculationLimitExcelStart(builder)
 
-def CharacterCalculationLimitExcelAddCalculationValue(builder, calculationValue):
-    builder.PrependInt32Slot(0, calculationValue, 0)
-
-def AddCalculationValue(builder, calculationValue):
-    CharacterCalculationLimitExcelAddCalculationValue(builder, calculationValue)
-
 def CharacterCalculationLimitExcelAddId(builder, id):
-    builder.PrependInt64Slot(1, id, 0)
+    builder.PrependInt64Slot(0, id, 0)
 
 def AddId(builder, id):
     CharacterCalculationLimitExcelAddId(builder, id)
 
-def CharacterCalculationLimitExcelAddMaxValue(builder, maxValue):
-    builder.PrependInt64Slot(2, maxValue, 0)
+def CharacterCalculationLimitExcelAddTacticEntityType(builder, tacticEntityType):
+    builder.PrependInt32Slot(1, tacticEntityType, 0)
 
-def AddMaxValue(builder, maxValue):
-    CharacterCalculationLimitExcelAddMaxValue(builder, maxValue)
+def AddTacticEntityType(builder, tacticEntityType):
+    CharacterCalculationLimitExcelAddTacticEntityType(builder, tacticEntityType)
+
+def CharacterCalculationLimitExcelAddCalculationValue(builder, calculationValue):
+    builder.PrependInt32Slot(2, calculationValue, 0)
+
+def AddCalculationValue(builder, calculationValue):
+    CharacterCalculationLimitExcelAddCalculationValue(builder, calculationValue)
 
 def CharacterCalculationLimitExcelAddMinValue(builder, minValue):
     builder.PrependInt64Slot(3, minValue, 0)
@@ -89,11 +89,11 @@ def CharacterCalculationLimitExcelAddMinValue(builder, minValue):
 def AddMinValue(builder, minValue):
     CharacterCalculationLimitExcelAddMinValue(builder, minValue)
 
-def CharacterCalculationLimitExcelAddTacticEntityType(builder, tacticEntityType):
-    builder.PrependInt32Slot(4, tacticEntityType, 0)
+def CharacterCalculationLimitExcelAddMaxValue(builder, maxValue):
+    builder.PrependInt64Slot(4, maxValue, 0)
 
-def AddTacticEntityType(builder, tacticEntityType):
-    CharacterCalculationLimitExcelAddTacticEntityType(builder, tacticEntityType)
+def AddMaxValue(builder, maxValue):
+    CharacterCalculationLimitExcelAddMaxValue(builder, maxValue)
 
 def CharacterCalculationLimitExcelEnd(builder):
     return builder.EndObject()

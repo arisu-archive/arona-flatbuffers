@@ -65,20 +65,8 @@ func (rcv *EventContentLocationExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentLocationExcel) InformationGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationExcel) MutateInformationGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
 func (rcv *EventContentLocationExcel) LocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -86,7 +74,15 @@ func (rcv *EventContentLocationExcel) LocalizeEtcId() uint32 {
 }
 
 func (rcv *EventContentLocationExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
+	return rcv._tab.MutateUint32Slot(8, n)
+}
+
+func (rcv *EventContentLocationExcel) PrefabPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *EventContentLocationExcel) LocationResetScheduleCount() int32 {
@@ -101,64 +97,8 @@ func (rcv *EventContentLocationExcel) MutateLocationResetScheduleCount(n int32) 
 	return rcv._tab.MutateInt32Slot(12, n)
 }
 
-func (rcv *EventContentLocationExcel) PrefabPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentLocationExcel) RewardParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationExcel) MutateRewardParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *EventContentLocationExcel) RewardParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationExcel) MutateRewardParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(18, int32(n))
-}
-
-func (rcv *EventContentLocationExcel) ScheduleEventPointCostParcelAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationExcel) MutateScheduleEventPointCostParcelAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *EventContentLocationExcel) ScheduleEventPointCostParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationExcel) MutateScheduleEventPointCostParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
-}
-
 func (rcv *EventContentLocationExcel) ScheduleEventPointCostParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -166,7 +106,67 @@ func (rcv *EventContentLocationExcel) ScheduleEventPointCostParcelType() ParcelT
 }
 
 func (rcv *EventContentLocationExcel) MutateScheduleEventPointCostParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(24, int32(n))
+	return rcv._tab.MutateInt32Slot(14, int32(n))
+}
+
+func (rcv *EventContentLocationExcel) ScheduleEventPointCostParcelId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationExcel) MutateScheduleEventPointCostParcelId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *EventContentLocationExcel) ScheduleEventPointCostParcelAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationExcel) MutateScheduleEventPointCostParcelAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
+func (rcv *EventContentLocationExcel) RewardParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationExcel) MutateRewardParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(20, int32(n))
+}
+
+func (rcv *EventContentLocationExcel) RewardParcelId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationExcel) MutateRewardParcelId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
+}
+
+func (rcv *EventContentLocationExcel) InformationGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationExcel) MutateInformationGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
 }
 
 func EventContentLocationExcelStart(builder *flatbuffers.Builder) {
@@ -178,32 +178,32 @@ func EventContentLocationExcelAddEventContentId(builder *flatbuffers.Builder, ev
 func EventContentLocationExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(1, id, 0)
 }
-func EventContentLocationExcelAddInformationGroupId(builder *flatbuffers.Builder, informationGroupId int64) {
-	builder.PrependInt64Slot(2, informationGroupId, 0)
-}
 func EventContentLocationExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(3, localizeEtcId, 0)
+	builder.PrependUint32Slot(2, localizeEtcId, 0)
+}
+func EventContentLocationExcelAddPrefabPath(builder *flatbuffers.Builder, prefabPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(prefabPath), 0)
 }
 func EventContentLocationExcelAddLocationResetScheduleCount(builder *flatbuffers.Builder, locationResetScheduleCount int32) {
 	builder.PrependInt32Slot(4, locationResetScheduleCount, 0)
 }
-func EventContentLocationExcelAddPrefabPath(builder *flatbuffers.Builder, prefabPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(prefabPath), 0)
-}
-func EventContentLocationExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
-	builder.PrependInt64Slot(6, rewardParcelId, 0)
-}
-func EventContentLocationExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
-	builder.PrependInt32Slot(7, int32(rewardParcelType), 0)
-}
-func EventContentLocationExcelAddScheduleEventPointCostParcelAmount(builder *flatbuffers.Builder, scheduleEventPointCostParcelAmount int64) {
-	builder.PrependInt64Slot(8, scheduleEventPointCostParcelAmount, 0)
+func EventContentLocationExcelAddScheduleEventPointCostParcelType(builder *flatbuffers.Builder, scheduleEventPointCostParcelType ParcelType) {
+	builder.PrependInt32Slot(5, int32(scheduleEventPointCostParcelType), 0)
 }
 func EventContentLocationExcelAddScheduleEventPointCostParcelId(builder *flatbuffers.Builder, scheduleEventPointCostParcelId int64) {
-	builder.PrependInt64Slot(9, scheduleEventPointCostParcelId, 0)
+	builder.PrependInt64Slot(6, scheduleEventPointCostParcelId, 0)
 }
-func EventContentLocationExcelAddScheduleEventPointCostParcelType(builder *flatbuffers.Builder, scheduleEventPointCostParcelType ParcelType) {
-	builder.PrependInt32Slot(10, int32(scheduleEventPointCostParcelType), 0)
+func EventContentLocationExcelAddScheduleEventPointCostParcelAmount(builder *flatbuffers.Builder, scheduleEventPointCostParcelAmount int64) {
+	builder.PrependInt64Slot(7, scheduleEventPointCostParcelAmount, 0)
+}
+func EventContentLocationExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
+	builder.PrependInt32Slot(8, int32(rewardParcelType), 0)
+}
+func EventContentLocationExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
+	builder.PrependInt64Slot(9, rewardParcelId, 0)
+}
+func EventContentLocationExcelAddInformationGroupId(builder *flatbuffers.Builder, informationGroupId int64) {
+	builder.PrependInt64Slot(10, informationGroupId, 0)
 }
 func EventContentLocationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

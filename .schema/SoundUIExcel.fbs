@@ -2,8 +2,8 @@ namespace FlatData;
 
 table SoundUIExcel {
     id: long;
-    path: string;
     sound_unique_id: string;
+    path: string;
 }
 
 root_type SoundUIExcel;

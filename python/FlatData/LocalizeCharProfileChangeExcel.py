@@ -25,21 +25,21 @@ class LocalizeCharProfileChangeExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # LocalizeCharProfileChangeExcel
-    def ChangeCharacterId(self):
+    def CharacterId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # LocalizeCharProfileChangeExcel
-    def CharacterId(self):
+    def ScenarioModeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # LocalizeCharProfileChangeExcel
-    def ScenarioModeId(self):
+    def ChangeCharacterId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -51,23 +51,23 @@ def LocalizeCharProfileChangeExcelStart(builder):
 def Start(builder):
     LocalizeCharProfileChangeExcelStart(builder)
 
-def LocalizeCharProfileChangeExcelAddChangeCharacterId(builder, changeCharacterId):
-    builder.PrependInt64Slot(0, changeCharacterId, 0)
-
-def AddChangeCharacterId(builder, changeCharacterId):
-    LocalizeCharProfileChangeExcelAddChangeCharacterId(builder, changeCharacterId)
-
 def LocalizeCharProfileChangeExcelAddCharacterId(builder, characterId):
-    builder.PrependInt64Slot(1, characterId, 0)
+    builder.PrependInt64Slot(0, characterId, 0)
 
 def AddCharacterId(builder, characterId):
     LocalizeCharProfileChangeExcelAddCharacterId(builder, characterId)
 
 def LocalizeCharProfileChangeExcelAddScenarioModeId(builder, scenarioModeId):
-    builder.PrependInt64Slot(2, scenarioModeId, 0)
+    builder.PrependInt64Slot(1, scenarioModeId, 0)
 
 def AddScenarioModeId(builder, scenarioModeId):
     LocalizeCharProfileChangeExcelAddScenarioModeId(builder, scenarioModeId)
+
+def LocalizeCharProfileChangeExcelAddChangeCharacterId(builder, changeCharacterId):
+    builder.PrependInt64Slot(2, changeCharacterId, 0)
+
+def AddChangeCharacterId(builder, changeCharacterId):
+    LocalizeCharProfileChangeExcelAddChangeCharacterId(builder, changeCharacterId)
 
 def LocalizeCharProfileChangeExcelEnd(builder):
     return builder.EndObject()

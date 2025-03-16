@@ -25,35 +25,35 @@ class TutorialFailureImageExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # TutorialFailureImageExcel
-    def Contents(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # TutorialFailureImageExcel
     def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # TutorialFailureImageExcel
-    def ImagePathEn(self):
+    def Contents(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # TutorialFailureImageExcel
+    def Type(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # TutorialFailureImageExcel
-    def ImagePathJp(self):
+    def ImagePathKr(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # TutorialFailureImageExcel
-    def ImagePathKr(self):
+    def ImagePathJp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -74,7 +74,7 @@ class TutorialFailureImageExcel(object):
         return None
 
     # TutorialFailureImageExcel
-    def Type(self):
+    def ImagePathEn(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -86,35 +86,35 @@ def TutorialFailureImageExcelStart(builder):
 def Start(builder):
     TutorialFailureImageExcelStart(builder)
 
-def TutorialFailureImageExcelAddContents(builder, contents):
-    builder.PrependInt32Slot(0, contents, 0)
-
-def AddContents(builder, contents):
-    TutorialFailureImageExcelAddContents(builder, contents)
-
 def TutorialFailureImageExcelAddId(builder, id):
-    builder.PrependInt64Slot(1, id, 0)
+    builder.PrependInt64Slot(0, id, 0)
 
 def AddId(builder, id):
     TutorialFailureImageExcelAddId(builder, id)
 
-def TutorialFailureImageExcelAddImagePathEn(builder, imagePathEn):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathEn), 0)
+def TutorialFailureImageExcelAddContents(builder, contents):
+    builder.PrependInt32Slot(1, contents, 0)
 
-def AddImagePathEn(builder, imagePathEn):
-    TutorialFailureImageExcelAddImagePathEn(builder, imagePathEn)
+def AddContents(builder, contents):
+    TutorialFailureImageExcelAddContents(builder, contents)
 
-def TutorialFailureImageExcelAddImagePathJp(builder, imagePathJp):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathJp), 0)
+def TutorialFailureImageExcelAddType(builder, type):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(type), 0)
 
-def AddImagePathJp(builder, imagePathJp):
-    TutorialFailureImageExcelAddImagePathJp(builder, imagePathJp)
+def AddType(builder, type):
+    TutorialFailureImageExcelAddType(builder, type)
 
 def TutorialFailureImageExcelAddImagePathKr(builder, imagePathKr):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathKr), 0)
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathKr), 0)
 
 def AddImagePathKr(builder, imagePathKr):
     TutorialFailureImageExcelAddImagePathKr(builder, imagePathKr)
+
+def TutorialFailureImageExcelAddImagePathJp(builder, imagePathJp):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathJp), 0)
+
+def AddImagePathJp(builder, imagePathJp):
+    TutorialFailureImageExcelAddImagePathJp(builder, imagePathJp)
 
 def TutorialFailureImageExcelAddImagePathTh(builder, imagePathTh):
     builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathTh), 0)
@@ -128,11 +128,11 @@ def TutorialFailureImageExcelAddImagePathTw(builder, imagePathTw):
 def AddImagePathTw(builder, imagePathTw):
     TutorialFailureImageExcelAddImagePathTw(builder, imagePathTw)
 
-def TutorialFailureImageExcelAddType(builder, type):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(type), 0)
+def TutorialFailureImageExcelAddImagePathEn(builder, imagePathEn):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathEn), 0)
 
-def AddType(builder, type):
-    TutorialFailureImageExcelAddType(builder, type)
+def AddImagePathEn(builder, imagePathEn):
+    TutorialFailureImageExcelAddImagePathEn(builder, imagePathEn)
 
 def TutorialFailureImageExcelEnd(builder):
     return builder.EndObject()

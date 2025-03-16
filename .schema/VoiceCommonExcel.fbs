@@ -3,8 +3,8 @@ include "VoiceEvent.fbs";
 namespace FlatData;
 
 table VoiceCommonExcel {
-    rate: long;
     voice_event: VoiceEvent;
+    rate: long;
     voice_hash: [uint];
 }
 

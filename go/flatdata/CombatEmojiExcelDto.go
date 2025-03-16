@@ -10,14 +10,14 @@ import (
 // CombatEmojiExcelDto represents a FlatBuffers table
 type CombatEmojiExcelDto struct {
 	fbsutils.FlatBuffer
-	EmojiDuration   bool       `json:"emoji_duration"`
+	UniqueId        int64      `json:"unique_id"`
 	EmojiEvent      EmojiEvent `json:"emoji_event"`
+	OrderOfPriority int32      `json:"order_of_priority"`
+	EmojiDuration   bool       `json:"emoji_duration"`
 	EmojiReversal   bool       `json:"emoji_reversal"`
 	EmojiTurnOn     bool       `json:"emoji_turn_on"`
-	OrderOfPriority int32      `json:"order_of_priority"`
-	ShowDefaultBg   bool       `json:"show_default_bg"`
 	ShowEmojiDelay  int32      `json:"show_emoji_delay"`
-	UniqueId        int64      `json:"unique_id"`
+	ShowDefaultBg   bool       `json:"show_default_bg"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,14 +26,14 @@ func (t *CombatEmojiExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CombatEmoji"))
 	}
 	CombatEmojiExcelStart(b)
-	CombatEmojiExcelAddEmojiDuration(b, fbsutils.Convert(t.EmojiDuration, t.FlatBuffer.TableKey))
+	CombatEmojiExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	CombatEmojiExcelAddEmojiEvent(b, fbsutils.Convert(t.EmojiEvent, t.FlatBuffer.TableKey))
+	CombatEmojiExcelAddOrderOfPriority(b, fbsutils.Convert(t.OrderOfPriority, t.FlatBuffer.TableKey))
+	CombatEmojiExcelAddEmojiDuration(b, fbsutils.Convert(t.EmojiDuration, t.FlatBuffer.TableKey))
 	CombatEmojiExcelAddEmojiReversal(b, fbsutils.Convert(t.EmojiReversal, t.FlatBuffer.TableKey))
 	CombatEmojiExcelAddEmojiTurnOn(b, fbsutils.Convert(t.EmojiTurnOn, t.FlatBuffer.TableKey))
-	CombatEmojiExcelAddOrderOfPriority(b, fbsutils.Convert(t.OrderOfPriority, t.FlatBuffer.TableKey))
-	CombatEmojiExcelAddShowDefaultBg(b, fbsutils.Convert(t.ShowDefaultBg, t.FlatBuffer.TableKey))
 	CombatEmojiExcelAddShowEmojiDelay(b, fbsutils.Convert(t.ShowEmojiDelay, t.FlatBuffer.TableKey))
-	CombatEmojiExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	CombatEmojiExcelAddShowDefaultBg(b, fbsutils.Convert(t.ShowDefaultBg, t.FlatBuffer.TableKey))
 	return CombatEmojiExcelEnd(b)
 }
 
@@ -49,14 +49,14 @@ func (t *CombatEmojiExcelDto) UnmarshalMessage(e *CombatEmojiExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CombatEmoji"))
 	}
-	t.EmojiDuration = fbsutils.Convert(e.EmojiDuration(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.EmojiEvent = EmojiEvent(int32(fbsutils.Convert(e.EmojiEvent(), t.FlatBuffer.TableKey)))
+	t.OrderOfPriority = fbsutils.Convert(e.OrderOfPriority(), t.FlatBuffer.TableKey)
+	t.EmojiDuration = fbsutils.Convert(e.EmojiDuration(), t.FlatBuffer.TableKey)
 	t.EmojiReversal = fbsutils.Convert(e.EmojiReversal(), t.FlatBuffer.TableKey)
 	t.EmojiTurnOn = fbsutils.Convert(e.EmojiTurnOn(), t.FlatBuffer.TableKey)
-	t.OrderOfPriority = fbsutils.Convert(e.OrderOfPriority(), t.FlatBuffer.TableKey)
-	t.ShowDefaultBg = fbsutils.Convert(e.ShowDefaultBg(), t.FlatBuffer.TableKey)
 	t.ShowEmojiDelay = fbsutils.Convert(e.ShowEmojiDelay(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.ShowDefaultBg = fbsutils.Convert(e.ShowDefaultBg(), t.FlatBuffer.TableKey)
 	return nil
 }
 

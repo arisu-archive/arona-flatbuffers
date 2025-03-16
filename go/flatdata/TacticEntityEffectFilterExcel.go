@@ -41,16 +41,12 @@ func (rcv *TacticEntityEffectFilterExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *TacticEntityEffectFilterExcel) ShowEffectToBoss() bool {
+func (rcv *TacticEntityEffectFilterExcel) TargetEffectName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
-}
-
-func (rcv *TacticEntityEffectFilterExcel) MutateShowEffectToBoss(n bool) bool {
-	return rcv._tab.MutateBoolSlot(4, n)
+	return nil
 }
 
 func (rcv *TacticEntityEffectFilterExcel) ShowEffectToVehicle() bool {
@@ -65,25 +61,29 @@ func (rcv *TacticEntityEffectFilterExcel) MutateShowEffectToVehicle(n bool) bool
 	return rcv._tab.MutateBoolSlot(6, n)
 }
 
-func (rcv *TacticEntityEffectFilterExcel) TargetEffectName() []byte {
+func (rcv *TacticEntityEffectFilterExcel) ShowEffectToBoss() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return nil
+	return false
+}
+
+func (rcv *TacticEntityEffectFilterExcel) MutateShowEffectToBoss(n bool) bool {
+	return rcv._tab.MutateBoolSlot(8, n)
 }
 
 func TacticEntityEffectFilterExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func TacticEntityEffectFilterExcelAddShowEffectToBoss(builder *flatbuffers.Builder, showEffectToBoss bool) {
-	builder.PrependBoolSlot(0, showEffectToBoss, false)
+func TacticEntityEffectFilterExcelAddTargetEffectName(builder *flatbuffers.Builder, targetEffectName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(targetEffectName), 0)
 }
 func TacticEntityEffectFilterExcelAddShowEffectToVehicle(builder *flatbuffers.Builder, showEffectToVehicle bool) {
 	builder.PrependBoolSlot(1, showEffectToVehicle, false)
 }
-func TacticEntityEffectFilterExcelAddTargetEffectName(builder *flatbuffers.Builder, targetEffectName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(targetEffectName), 0)
+func TacticEntityEffectFilterExcelAddShowEffectToBoss(builder *flatbuffers.Builder, showEffectToBoss bool) {
+	builder.PrependBoolSlot(2, showEffectToBoss, false)
 }
 func TacticEntityEffectFilterExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

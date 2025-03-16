@@ -25,18 +25,18 @@ class IdCardBackgroundExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # IdCardBackgroundExcel
-    def BgPath(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # IdCardBackgroundExcel
-    def CollectionVisible(self):
+    def Rarity(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # IdCardBackgroundExcel
     def DisplayOrder(self):
@@ -46,25 +46,25 @@ class IdCardBackgroundExcel(object):
         return 0
 
     # IdCardBackgroundExcel
-    def Icon(self):
+    def CollectionVisible(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # IdCardBackgroundExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # IdCardBackgroundExcel
-    def IsDefault(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
+
+    # IdCardBackgroundExcel
+    def IsDefault(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # IdCardBackgroundExcel
+    def BgPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # IdCardBackgroundExcel
     def LocalizeEtcId(self):
@@ -74,11 +74,11 @@ class IdCardBackgroundExcel(object):
         return 0
 
     # IdCardBackgroundExcel
-    def Rarity(self):
+    def Icon(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def IdCardBackgroundExcelStart(builder):
     builder.StartObject(8)
@@ -86,17 +86,17 @@ def IdCardBackgroundExcelStart(builder):
 def Start(builder):
     IdCardBackgroundExcelStart(builder)
 
-def IdCardBackgroundExcelAddBgPath(builder, bgPath):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(bgPath), 0)
+def IdCardBackgroundExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
 
-def AddBgPath(builder, bgPath):
-    IdCardBackgroundExcelAddBgPath(builder, bgPath)
+def AddId(builder, id):
+    IdCardBackgroundExcelAddId(builder, id)
 
-def IdCardBackgroundExcelAddCollectionVisible(builder, collectionVisible):
-    builder.PrependBoolSlot(1, collectionVisible, 0)
+def IdCardBackgroundExcelAddRarity(builder, rarity):
+    builder.PrependInt32Slot(1, rarity, 0)
 
-def AddCollectionVisible(builder, collectionVisible):
-    IdCardBackgroundExcelAddCollectionVisible(builder, collectionVisible)
+def AddRarity(builder, rarity):
+    IdCardBackgroundExcelAddRarity(builder, rarity)
 
 def IdCardBackgroundExcelAddDisplayOrder(builder, displayOrder):
     builder.PrependInt64Slot(2, displayOrder, 0)
@@ -104,23 +104,23 @@ def IdCardBackgroundExcelAddDisplayOrder(builder, displayOrder):
 def AddDisplayOrder(builder, displayOrder):
     IdCardBackgroundExcelAddDisplayOrder(builder, displayOrder)
 
-def IdCardBackgroundExcelAddIcon(builder, icon):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
+def IdCardBackgroundExcelAddCollectionVisible(builder, collectionVisible):
+    builder.PrependBoolSlot(3, collectionVisible, 0)
 
-def AddIcon(builder, icon):
-    IdCardBackgroundExcelAddIcon(builder, icon)
-
-def IdCardBackgroundExcelAddId(builder, id):
-    builder.PrependInt64Slot(4, id, 0)
-
-def AddId(builder, id):
-    IdCardBackgroundExcelAddId(builder, id)
+def AddCollectionVisible(builder, collectionVisible):
+    IdCardBackgroundExcelAddCollectionVisible(builder, collectionVisible)
 
 def IdCardBackgroundExcelAddIsDefault(builder, isDefault):
-    builder.PrependBoolSlot(5, isDefault, 0)
+    builder.PrependBoolSlot(4, isDefault, 0)
 
 def AddIsDefault(builder, isDefault):
     IdCardBackgroundExcelAddIsDefault(builder, isDefault)
+
+def IdCardBackgroundExcelAddBgPath(builder, bgPath):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(bgPath), 0)
+
+def AddBgPath(builder, bgPath):
+    IdCardBackgroundExcelAddBgPath(builder, bgPath)
 
 def IdCardBackgroundExcelAddLocalizeEtcId(builder, localizeEtcId):
     builder.PrependUint32Slot(6, localizeEtcId, 0)
@@ -128,11 +128,11 @@ def IdCardBackgroundExcelAddLocalizeEtcId(builder, localizeEtcId):
 def AddLocalizeEtcId(builder, localizeEtcId):
     IdCardBackgroundExcelAddLocalizeEtcId(builder, localizeEtcId)
 
-def IdCardBackgroundExcelAddRarity(builder, rarity):
-    builder.PrependInt32Slot(7, rarity, 0)
+def IdCardBackgroundExcelAddIcon(builder, icon):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
 
-def AddRarity(builder, rarity):
-    IdCardBackgroundExcelAddRarity(builder, rarity)
+def AddIcon(builder, icon):
+    IdCardBackgroundExcelAddIcon(builder, icon)
 
 def IdCardBackgroundExcelEnd(builder):
     return builder.EndObject()

@@ -25,36 +25,18 @@ class GroundGridFlat(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # GroundGridFlat
-    def Gap(self):
+    def X(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # GroundGridFlat
-    def Nodes(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            x = self._tab.Vector(o)
-            x += flatbuffers.number_types.UOffsetTFlags.py_type(j) * 4
-            x = self._tab.Indirect(x)
-            from FlatData.GroundNodeFlat import GroundNodeFlat
-            obj = GroundNodeFlat()
-            obj.Init(self._tab.Bytes, x)
-            return obj
-        return None
-
-    # GroundGridFlat
-    def NodesLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.VectorLen(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # GroundGridFlat
-    def NodesIsNone(self):
+    def Y(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        return o == 0
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # GroundGridFlat
     def StartX(self):
@@ -71,25 +53,43 @@ class GroundGridFlat(object):
         return 0.0
 
     # GroundGridFlat
-    def Version(self):
+    def Gap(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # GroundGridFlat
+    def Nodes(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            x = self._tab.Vector(o)
+            x += flatbuffers.number_types.UOffsetTFlags.py_type(j) * 4
+            x = self._tab.Indirect(x)
+            from FlatData.GroundNodeFlat import GroundNodeFlat
+            obj = GroundNodeFlat()
+            obj.Init(self._tab.Bytes, x)
+            return obj
         return None
 
     # GroundGridFlat
-    def X(self):
+    def NodesLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.VectorLen(o)
         return 0
 
     # GroundGridFlat
-    def Y(self):
+    def NodesIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        return o == 0
+
+    # GroundGridFlat
+    def Version(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def GroundGridFlatStart(builder):
     builder.StartObject(7)
@@ -97,23 +97,17 @@ def GroundGridFlatStart(builder):
 def Start(builder):
     GroundGridFlatStart(builder)
 
-def GroundGridFlatAddGap(builder, gap):
-    builder.PrependFloat32Slot(0, gap, 0.0)
+def GroundGridFlatAddX(builder, x):
+    builder.PrependInt32Slot(0, x, 0)
 
-def AddGap(builder, gap):
-    GroundGridFlatAddGap(builder, gap)
+def AddX(builder, x):
+    GroundGridFlatAddX(builder, x)
 
-def GroundGridFlatAddNodes(builder, nodes):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(nodes), 0)
+def GroundGridFlatAddY(builder, y):
+    builder.PrependInt32Slot(1, y, 0)
 
-def AddNodes(builder, nodes):
-    GroundGridFlatAddNodes(builder, nodes)
-
-def GroundGridFlatStartNodesVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartNodesVector(builder, numElems):
-    return GroundGridFlatStartNodesVector(builder, numElems)
+def AddY(builder, y):
+    GroundGridFlatAddY(builder, y)
 
 def GroundGridFlatAddStartX(builder, startX):
     builder.PrependFloat32Slot(2, startX, 0.0)
@@ -127,23 +121,29 @@ def GroundGridFlatAddStartY(builder, startY):
 def AddStartY(builder, startY):
     GroundGridFlatAddStartY(builder, startY)
 
+def GroundGridFlatAddGap(builder, gap):
+    builder.PrependFloat32Slot(4, gap, 0.0)
+
+def AddGap(builder, gap):
+    GroundGridFlatAddGap(builder, gap)
+
+def GroundGridFlatAddNodes(builder, nodes):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(nodes), 0)
+
+def AddNodes(builder, nodes):
+    GroundGridFlatAddNodes(builder, nodes)
+
+def GroundGridFlatStartNodesVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartNodesVector(builder, numElems):
+    return GroundGridFlatStartNodesVector(builder, numElems)
+
 def GroundGridFlatAddVersion(builder, version):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(version), 0)
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(version), 0)
 
 def AddVersion(builder, version):
     GroundGridFlatAddVersion(builder, version)
-
-def GroundGridFlatAddX(builder, x):
-    builder.PrependInt32Slot(5, x, 0)
-
-def AddX(builder, x):
-    GroundGridFlatAddX(builder, x)
-
-def GroundGridFlatAddY(builder, y):
-    builder.PrependInt32Slot(6, y, 0)
-
-def AddY(builder, y):
-    GroundGridFlatAddY(builder, y)
 
 def GroundGridFlatEnd(builder):
     return builder.EndObject()

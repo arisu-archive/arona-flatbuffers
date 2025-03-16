@@ -1,8 +1,8 @@
 namespace FlatData;
 
 table MissionEmergencyCompleteExcel {
-    emergency_complete: bool;
     mission_id: long;
+    emergency_complete: bool;
 }
 
 root_type MissionEmergencyCompleteExcel;

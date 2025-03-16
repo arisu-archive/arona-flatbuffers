@@ -25,39 +25,39 @@ class StickerPageContentExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # StickerPageContentExcel
-    def GetStickerConditionType(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # StickerPageContentExcel
-    def IconPath(self):
+    def StickerGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # StickerPageContentExcel
-    def Id(self):
+    def StickerPageId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # StickerPageContentExcel
-    def PackedStickerIconLocalizeEtcId(self):
+    def StickerSlot(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # StickerPageContentExcel
-    def PackedStickerIconPath(self):
+    def StickerGetConditionType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # StickerPageContentExcel
     def StickerCheckPassType(self):
@@ -67,11 +67,11 @@ class StickerPageContentExcel(object):
         return 0
 
     # StickerPageContentExcel
-    def StickerDetailPath(self):
+    def GetStickerConditionType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # StickerPageContentExcel
     def StickerGetConditionCount(self):
@@ -135,32 +135,32 @@ class StickerPageContentExcel(object):
         return o == 0
 
     # StickerPageContentExcel
-    def StickerGetConditionType(self):
+    def PackedStickerIconLocalizeEtcId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # StickerPageContentExcel
-    def StickerGroupId(self):
+    def PackedStickerIconPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # StickerPageContentExcel
-    def StickerPageId(self):
+    def IconPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # StickerPageContentExcel
-    def StickerSlot(self):
+    def StickerDetailPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def StickerPageContentExcelStart(builder):
     builder.StartObject(14)
@@ -168,35 +168,35 @@ def StickerPageContentExcelStart(builder):
 def Start(builder):
     StickerPageContentExcelStart(builder)
 
-def StickerPageContentExcelAddGetStickerConditionType(builder, getStickerConditionType):
-    builder.PrependInt32Slot(0, getStickerConditionType, 0)
-
-def AddGetStickerConditionType(builder, getStickerConditionType):
-    StickerPageContentExcelAddGetStickerConditionType(builder, getStickerConditionType)
-
-def StickerPageContentExcelAddIconPath(builder, iconPath):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
-
-def AddIconPath(builder, iconPath):
-    StickerPageContentExcelAddIconPath(builder, iconPath)
-
 def StickerPageContentExcelAddId(builder, id):
-    builder.PrependInt64Slot(2, id, 0)
+    builder.PrependInt64Slot(0, id, 0)
 
 def AddId(builder, id):
     StickerPageContentExcelAddId(builder, id)
 
-def StickerPageContentExcelAddPackedStickerIconLocalizeEtcId(builder, packedStickerIconLocalizeEtcId):
-    builder.PrependUint32Slot(3, packedStickerIconLocalizeEtcId, 0)
+def StickerPageContentExcelAddStickerGroupId(builder, stickerGroupId):
+    builder.PrependInt64Slot(1, stickerGroupId, 0)
 
-def AddPackedStickerIconLocalizeEtcId(builder, packedStickerIconLocalizeEtcId):
-    StickerPageContentExcelAddPackedStickerIconLocalizeEtcId(builder, packedStickerIconLocalizeEtcId)
+def AddStickerGroupId(builder, stickerGroupId):
+    StickerPageContentExcelAddStickerGroupId(builder, stickerGroupId)
 
-def StickerPageContentExcelAddPackedStickerIconPath(builder, packedStickerIconPath):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(packedStickerIconPath), 0)
+def StickerPageContentExcelAddStickerPageId(builder, stickerPageId):
+    builder.PrependInt64Slot(2, stickerPageId, 0)
 
-def AddPackedStickerIconPath(builder, packedStickerIconPath):
-    StickerPageContentExcelAddPackedStickerIconPath(builder, packedStickerIconPath)
+def AddStickerPageId(builder, stickerPageId):
+    StickerPageContentExcelAddStickerPageId(builder, stickerPageId)
+
+def StickerPageContentExcelAddStickerSlot(builder, stickerSlot):
+    builder.PrependInt64Slot(3, stickerSlot, 0)
+
+def AddStickerSlot(builder, stickerSlot):
+    StickerPageContentExcelAddStickerSlot(builder, stickerSlot)
+
+def StickerPageContentExcelAddStickerGetConditionType(builder, stickerGetConditionType):
+    builder.PrependInt32Slot(4, stickerGetConditionType, 0)
+
+def AddStickerGetConditionType(builder, stickerGetConditionType):
+    StickerPageContentExcelAddStickerGetConditionType(builder, stickerGetConditionType)
 
 def StickerPageContentExcelAddStickerCheckPassType(builder, stickerCheckPassType):
     builder.PrependInt32Slot(5, stickerCheckPassType, 0)
@@ -204,11 +204,11 @@ def StickerPageContentExcelAddStickerCheckPassType(builder, stickerCheckPassType
 def AddStickerCheckPassType(builder, stickerCheckPassType):
     StickerPageContentExcelAddStickerCheckPassType(builder, stickerCheckPassType)
 
-def StickerPageContentExcelAddStickerDetailPath(builder, stickerDetailPath):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(stickerDetailPath), 0)
+def StickerPageContentExcelAddGetStickerConditionType(builder, getStickerConditionType):
+    builder.PrependInt32Slot(6, getStickerConditionType, 0)
 
-def AddStickerDetailPath(builder, stickerDetailPath):
-    StickerPageContentExcelAddStickerDetailPath(builder, stickerDetailPath)
+def AddGetStickerConditionType(builder, getStickerConditionType):
+    StickerPageContentExcelAddGetStickerConditionType(builder, getStickerConditionType)
 
 def StickerPageContentExcelAddStickerGetConditionCount(builder, stickerGetConditionCount):
     builder.PrependInt64Slot(7, stickerGetConditionCount, 0)
@@ -240,29 +240,29 @@ def StickerPageContentExcelStartStickerGetConditionParameterTagVector(builder, n
 def StartStickerGetConditionParameterTagVector(builder, numElems):
     return StickerPageContentExcelStartStickerGetConditionParameterTagVector(builder, numElems)
 
-def StickerPageContentExcelAddStickerGetConditionType(builder, stickerGetConditionType):
-    builder.PrependInt32Slot(10, stickerGetConditionType, 0)
+def StickerPageContentExcelAddPackedStickerIconLocalizeEtcId(builder, packedStickerIconLocalizeEtcId):
+    builder.PrependUint32Slot(10, packedStickerIconLocalizeEtcId, 0)
 
-def AddStickerGetConditionType(builder, stickerGetConditionType):
-    StickerPageContentExcelAddStickerGetConditionType(builder, stickerGetConditionType)
+def AddPackedStickerIconLocalizeEtcId(builder, packedStickerIconLocalizeEtcId):
+    StickerPageContentExcelAddPackedStickerIconLocalizeEtcId(builder, packedStickerIconLocalizeEtcId)
 
-def StickerPageContentExcelAddStickerGroupId(builder, stickerGroupId):
-    builder.PrependInt64Slot(11, stickerGroupId, 0)
+def StickerPageContentExcelAddPackedStickerIconPath(builder, packedStickerIconPath):
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(packedStickerIconPath), 0)
 
-def AddStickerGroupId(builder, stickerGroupId):
-    StickerPageContentExcelAddStickerGroupId(builder, stickerGroupId)
+def AddPackedStickerIconPath(builder, packedStickerIconPath):
+    StickerPageContentExcelAddPackedStickerIconPath(builder, packedStickerIconPath)
 
-def StickerPageContentExcelAddStickerPageId(builder, stickerPageId):
-    builder.PrependInt64Slot(12, stickerPageId, 0)
+def StickerPageContentExcelAddIconPath(builder, iconPath):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
 
-def AddStickerPageId(builder, stickerPageId):
-    StickerPageContentExcelAddStickerPageId(builder, stickerPageId)
+def AddIconPath(builder, iconPath):
+    StickerPageContentExcelAddIconPath(builder, iconPath)
 
-def StickerPageContentExcelAddStickerSlot(builder, stickerSlot):
-    builder.PrependInt64Slot(13, stickerSlot, 0)
+def StickerPageContentExcelAddStickerDetailPath(builder, stickerDetailPath):
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(stickerDetailPath), 0)
 
-def AddStickerSlot(builder, stickerSlot):
-    StickerPageContentExcelAddStickerSlot(builder, stickerSlot)
+def AddStickerDetailPath(builder, stickerDetailPath):
+    StickerPageContentExcelAddStickerDetailPath(builder, stickerDetailPath)
 
 def StickerPageContentExcelEnd(builder):
     return builder.EndObject()

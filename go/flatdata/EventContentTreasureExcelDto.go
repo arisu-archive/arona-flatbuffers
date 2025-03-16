@@ -11,10 +11,10 @@ import (
 type EventContentTreasureExcelDto struct {
 	fbsutils.FlatBuffer
 	EventContentId      int64  `json:"event_content_id"`
-	LoopRound           int32  `json:"loop_round"`
 	TitleLocalize       string `json:"title_localize"`
-	TreasureBgImagePath string `json:"treasure_bg_image_path"`
+	LoopRound           int32  `json:"loop_round"`
 	UsePrefabName       string `json:"use_prefab_name"`
+	TreasureBgImagePath string `json:"treasure_bg_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,10 +24,10 @@ func (t *EventContentTreasureExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	}
 	EventContentTreasureExcelStart(b)
 	EventContentTreasureExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentTreasureExcelAddLoopRound(b, fbsutils.Convert(t.LoopRound, t.FlatBuffer.TableKey))
 	EventContentTreasureExcelAddTitleLocalize(b, fbsutils.Convert(b.CreateString(t.TitleLocalize), t.FlatBuffer.TableKey))
-	EventContentTreasureExcelAddTreasureBgImagePath(b, fbsutils.Convert(b.CreateString(t.TreasureBgImagePath), t.FlatBuffer.TableKey))
+	EventContentTreasureExcelAddLoopRound(b, fbsutils.Convert(t.LoopRound, t.FlatBuffer.TableKey))
 	EventContentTreasureExcelAddUsePrefabName(b, fbsutils.Convert(b.CreateString(t.UsePrefabName), t.FlatBuffer.TableKey))
+	EventContentTreasureExcelAddTreasureBgImagePath(b, fbsutils.Convert(b.CreateString(t.TreasureBgImagePath), t.FlatBuffer.TableKey))
 	return EventContentTreasureExcelEnd(b)
 }
 
@@ -44,10 +44,10 @@ func (t *EventContentTreasureExcelDto) UnmarshalMessage(e *EventContentTreasureE
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentTreasure"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.LoopRound = fbsutils.Convert(e.LoopRound(), t.FlatBuffer.TableKey)
 	t.TitleLocalize = fbsutils.Convert(string(e.TitleLocalize()), t.FlatBuffer.TableKey)
-	t.TreasureBgImagePath = fbsutils.Convert(string(e.TreasureBgImagePath()), t.FlatBuffer.TableKey)
+	t.LoopRound = fbsutils.Convert(e.LoopRound(), t.FlatBuffer.TableKey)
 	t.UsePrefabName = fbsutils.Convert(string(e.UsePrefabName()), t.FlatBuffer.TableKey)
+	t.TreasureBgImagePath = fbsutils.Convert(string(e.TreasureBgImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

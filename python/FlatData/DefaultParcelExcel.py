@@ -25,10 +25,10 @@ class DefaultParcelExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # DefaultParcelExcel
-    def ParcelAmount(self):
+    def ParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # DefaultParcelExcel
@@ -39,10 +39,10 @@ class DefaultParcelExcel(object):
         return 0
 
     # DefaultParcelExcel
-    def ParcelType(self):
+    def ParcelAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def DefaultParcelExcelStart(builder):
@@ -51,11 +51,11 @@ def DefaultParcelExcelStart(builder):
 def Start(builder):
     DefaultParcelExcelStart(builder)
 
-def DefaultParcelExcelAddParcelAmount(builder, parcelAmount):
-    builder.PrependInt64Slot(0, parcelAmount, 0)
+def DefaultParcelExcelAddParcelType(builder, parcelType):
+    builder.PrependInt32Slot(0, parcelType, 0)
 
-def AddParcelAmount(builder, parcelAmount):
-    DefaultParcelExcelAddParcelAmount(builder, parcelAmount)
+def AddParcelType(builder, parcelType):
+    DefaultParcelExcelAddParcelType(builder, parcelType)
 
 def DefaultParcelExcelAddParcelId(builder, parcelId):
     builder.PrependInt64Slot(1, parcelId, 0)
@@ -63,11 +63,11 @@ def DefaultParcelExcelAddParcelId(builder, parcelId):
 def AddParcelId(builder, parcelId):
     DefaultParcelExcelAddParcelId(builder, parcelId)
 
-def DefaultParcelExcelAddParcelType(builder, parcelType):
-    builder.PrependInt32Slot(2, parcelType, 0)
+def DefaultParcelExcelAddParcelAmount(builder, parcelAmount):
+    builder.PrependInt64Slot(2, parcelAmount, 0)
 
-def AddParcelType(builder, parcelType):
-    DefaultParcelExcelAddParcelType(builder, parcelType)
+def AddParcelAmount(builder, parcelAmount):
+    DefaultParcelExcelAddParcelAmount(builder, parcelAmount)
 
 def DefaultParcelExcelEnd(builder):
     return builder.EndObject()

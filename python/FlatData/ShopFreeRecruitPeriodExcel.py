@@ -25,31 +25,31 @@ class ShopFreeRecruitPeriodExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ShopFreeRecruitPeriodExcel
-    def FreeRecruitCount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ShopFreeRecruitPeriodExcel
-    def IntervalDate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ShopFreeRecruitPeriodExcel
     def ShopFreeRecruitId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopFreeRecruitPeriodExcel
     def ShopFreeRecruitIntervalId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopFreeRecruitPeriodExcel
+    def IntervalDate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ShopFreeRecruitPeriodExcel
+    def FreeRecruitCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
 def ShopFreeRecruitPeriodExcelStart(builder):
@@ -58,29 +58,29 @@ def ShopFreeRecruitPeriodExcelStart(builder):
 def Start(builder):
     ShopFreeRecruitPeriodExcelStart(builder)
 
-def ShopFreeRecruitPeriodExcelAddFreeRecruitCount(builder, freeRecruitCount):
-    builder.PrependInt32Slot(0, freeRecruitCount, 0)
-
-def AddFreeRecruitCount(builder, freeRecruitCount):
-    ShopFreeRecruitPeriodExcelAddFreeRecruitCount(builder, freeRecruitCount)
-
-def ShopFreeRecruitPeriodExcelAddIntervalDate(builder, intervalDate):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(intervalDate), 0)
-
-def AddIntervalDate(builder, intervalDate):
-    ShopFreeRecruitPeriodExcelAddIntervalDate(builder, intervalDate)
-
 def ShopFreeRecruitPeriodExcelAddShopFreeRecruitId(builder, shopFreeRecruitId):
-    builder.PrependInt64Slot(2, shopFreeRecruitId, 0)
+    builder.PrependInt64Slot(0, shopFreeRecruitId, 0)
 
 def AddShopFreeRecruitId(builder, shopFreeRecruitId):
     ShopFreeRecruitPeriodExcelAddShopFreeRecruitId(builder, shopFreeRecruitId)
 
 def ShopFreeRecruitPeriodExcelAddShopFreeRecruitIntervalId(builder, shopFreeRecruitIntervalId):
-    builder.PrependInt64Slot(3, shopFreeRecruitIntervalId, 0)
+    builder.PrependInt64Slot(1, shopFreeRecruitIntervalId, 0)
 
 def AddShopFreeRecruitIntervalId(builder, shopFreeRecruitIntervalId):
     ShopFreeRecruitPeriodExcelAddShopFreeRecruitIntervalId(builder, shopFreeRecruitIntervalId)
+
+def ShopFreeRecruitPeriodExcelAddIntervalDate(builder, intervalDate):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(intervalDate), 0)
+
+def AddIntervalDate(builder, intervalDate):
+    ShopFreeRecruitPeriodExcelAddIntervalDate(builder, intervalDate)
+
+def ShopFreeRecruitPeriodExcelAddFreeRecruitCount(builder, freeRecruitCount):
+    builder.PrependInt32Slot(3, freeRecruitCount, 0)
+
+def AddFreeRecruitCount(builder, freeRecruitCount):
+    ShopFreeRecruitPeriodExcelAddFreeRecruitCount(builder, freeRecruitCount)
 
 def ShopFreeRecruitPeriodExcelEnd(builder):
     return builder.EndObject()

@@ -25,15 +25,43 @@ class RaidSeasonManageExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # RaidSeasonManageExcel
-    def MaxSeasonRewardGauage(self):
+    def SeasonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # RaidSeasonManageExcel
-    def OpenRaidBossGroup(self, j):
+    def SeasonDisplay(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # RaidSeasonManageExcel
+    def SeasonStartData(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # RaidSeasonManageExcel
+    def SeasonEndData(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # RaidSeasonManageExcel
+    def SettlementEndDate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # RaidSeasonManageExcel
+    def OpenRaidBossGroup(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -41,88 +69,33 @@ class RaidSeasonManageExcel(object):
 
     # RaidSeasonManageExcel
     def OpenRaidBossGroupLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # RaidSeasonManageExcel
     def OpenRaidBossGroupIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         return o == 0
 
     # RaidSeasonManageExcel
     def RankingRewardGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # RaidSeasonManageExcel
-    def SeasonDisplay(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # RaidSeasonManageExcel
-    def SeasonEndData(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # RaidSeasonManageExcel
-    def SeasonId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # RaidSeasonManageExcel
-    def SeasonRewardId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # RaidSeasonManageExcel
-    def SeasonRewardIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # RaidSeasonManageExcel
-    def SeasonRewardIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # RaidSeasonManageExcel
-    def SeasonRewardIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        return o == 0
-
-    # RaidSeasonManageExcel
-    def SeasonStartData(self):
+    def MaxSeasonRewardGauage(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # RaidSeasonManageExcel
-    def SettlementEndDate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # RaidSeasonManageExcel
     def StackedSeasonRewardGauge(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -130,20 +103,47 @@ class RaidSeasonManageExcel(object):
 
     # RaidSeasonManageExcel
     def StackedSeasonRewardGaugeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # RaidSeasonManageExcel
     def StackedSeasonRewardGaugeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # RaidSeasonManageExcel
     def StackedSeasonRewardGaugeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        return o == 0
+
+    # RaidSeasonManageExcel
+    def SeasonRewardId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # RaidSeasonManageExcel
+    def SeasonRewardIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # RaidSeasonManageExcel
+    def SeasonRewardIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # RaidSeasonManageExcel
+    def SeasonRewardIdIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         return o == 0
 
@@ -153,14 +153,38 @@ def RaidSeasonManageExcelStart(builder):
 def Start(builder):
     RaidSeasonManageExcelStart(builder)
 
-def RaidSeasonManageExcelAddMaxSeasonRewardGauage(builder, maxSeasonRewardGauage):
-    builder.PrependInt32Slot(0, maxSeasonRewardGauage, 0)
+def RaidSeasonManageExcelAddSeasonId(builder, seasonId):
+    builder.PrependInt64Slot(0, seasonId, 0)
 
-def AddMaxSeasonRewardGauage(builder, maxSeasonRewardGauage):
-    RaidSeasonManageExcelAddMaxSeasonRewardGauage(builder, maxSeasonRewardGauage)
+def AddSeasonId(builder, seasonId):
+    RaidSeasonManageExcelAddSeasonId(builder, seasonId)
+
+def RaidSeasonManageExcelAddSeasonDisplay(builder, seasonDisplay):
+    builder.PrependInt64Slot(1, seasonDisplay, 0)
+
+def AddSeasonDisplay(builder, seasonDisplay):
+    RaidSeasonManageExcelAddSeasonDisplay(builder, seasonDisplay)
+
+def RaidSeasonManageExcelAddSeasonStartData(builder, seasonStartData):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(seasonStartData), 0)
+
+def AddSeasonStartData(builder, seasonStartData):
+    RaidSeasonManageExcelAddSeasonStartData(builder, seasonStartData)
+
+def RaidSeasonManageExcelAddSeasonEndData(builder, seasonEndData):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(seasonEndData), 0)
+
+def AddSeasonEndData(builder, seasonEndData):
+    RaidSeasonManageExcelAddSeasonEndData(builder, seasonEndData)
+
+def RaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(settlementEndDate), 0)
+
+def AddSettlementEndDate(builder, settlementEndDate):
+    RaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate)
 
 def RaidSeasonManageExcelAddOpenRaidBossGroup(builder, openRaidBossGroup):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(openRaidBossGroup), 0)
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(openRaidBossGroup), 0)
 
 def AddOpenRaidBossGroup(builder, openRaidBossGroup):
     RaidSeasonManageExcelAddOpenRaidBossGroup(builder, openRaidBossGroup)
@@ -172,55 +196,19 @@ def StartOpenRaidBossGroupVector(builder, numElems):
     return RaidSeasonManageExcelStartOpenRaidBossGroupVector(builder, numElems)
 
 def RaidSeasonManageExcelAddRankingRewardGroupId(builder, rankingRewardGroupId):
-    builder.PrependInt64Slot(2, rankingRewardGroupId, 0)
+    builder.PrependInt64Slot(6, rankingRewardGroupId, 0)
 
 def AddRankingRewardGroupId(builder, rankingRewardGroupId):
     RaidSeasonManageExcelAddRankingRewardGroupId(builder, rankingRewardGroupId)
 
-def RaidSeasonManageExcelAddSeasonDisplay(builder, seasonDisplay):
-    builder.PrependInt64Slot(3, seasonDisplay, 0)
+def RaidSeasonManageExcelAddMaxSeasonRewardGauage(builder, maxSeasonRewardGauage):
+    builder.PrependInt32Slot(7, maxSeasonRewardGauage, 0)
 
-def AddSeasonDisplay(builder, seasonDisplay):
-    RaidSeasonManageExcelAddSeasonDisplay(builder, seasonDisplay)
-
-def RaidSeasonManageExcelAddSeasonEndData(builder, seasonEndData):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(seasonEndData), 0)
-
-def AddSeasonEndData(builder, seasonEndData):
-    RaidSeasonManageExcelAddSeasonEndData(builder, seasonEndData)
-
-def RaidSeasonManageExcelAddSeasonId(builder, seasonId):
-    builder.PrependInt64Slot(5, seasonId, 0)
-
-def AddSeasonId(builder, seasonId):
-    RaidSeasonManageExcelAddSeasonId(builder, seasonId)
-
-def RaidSeasonManageExcelAddSeasonRewardId(builder, seasonRewardId):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(seasonRewardId), 0)
-
-def AddSeasonRewardId(builder, seasonRewardId):
-    RaidSeasonManageExcelAddSeasonRewardId(builder, seasonRewardId)
-
-def RaidSeasonManageExcelStartSeasonRewardIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
-def StartSeasonRewardIdVector(builder, numElems):
-    return RaidSeasonManageExcelStartSeasonRewardIdVector(builder, numElems)
-
-def RaidSeasonManageExcelAddSeasonStartData(builder, seasonStartData):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(seasonStartData), 0)
-
-def AddSeasonStartData(builder, seasonStartData):
-    RaidSeasonManageExcelAddSeasonStartData(builder, seasonStartData)
-
-def RaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(settlementEndDate), 0)
-
-def AddSettlementEndDate(builder, settlementEndDate):
-    RaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate)
+def AddMaxSeasonRewardGauage(builder, maxSeasonRewardGauage):
+    RaidSeasonManageExcelAddMaxSeasonRewardGauage(builder, maxSeasonRewardGauage)
 
 def RaidSeasonManageExcelAddStackedSeasonRewardGauge(builder, stackedSeasonRewardGauge):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(stackedSeasonRewardGauge), 0)
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(stackedSeasonRewardGauge), 0)
 
 def AddStackedSeasonRewardGauge(builder, stackedSeasonRewardGauge):
     RaidSeasonManageExcelAddStackedSeasonRewardGauge(builder, stackedSeasonRewardGauge)
@@ -230,6 +218,18 @@ def RaidSeasonManageExcelStartStackedSeasonRewardGaugeVector(builder, numElems):
 
 def StartStackedSeasonRewardGaugeVector(builder, numElems):
     return RaidSeasonManageExcelStartStackedSeasonRewardGaugeVector(builder, numElems)
+
+def RaidSeasonManageExcelAddSeasonRewardId(builder, seasonRewardId):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(seasonRewardId), 0)
+
+def AddSeasonRewardId(builder, seasonRewardId):
+    RaidSeasonManageExcelAddSeasonRewardId(builder, seasonRewardId)
+
+def RaidSeasonManageExcelStartSeasonRewardIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartSeasonRewardIdVector(builder, numElems):
+    return RaidSeasonManageExcelStartSeasonRewardIdVector(builder, numElems)
 
 def RaidSeasonManageExcelEnd(builder):
     return builder.EndObject()

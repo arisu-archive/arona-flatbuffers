@@ -41,20 +41,8 @@ func (rcv *StageFileRefreshSettingExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *StageFileRefreshSettingExcel) ForceSave() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *StageFileRefreshSettingExcel) MutateForceSave(n bool) bool {
-	return rcv._tab.MutateBoolSlot(4, n)
-}
-
 func (rcv *StageFileRefreshSettingExcel) GroundId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -62,17 +50,29 @@ func (rcv *StageFileRefreshSettingExcel) GroundId() int64 {
 }
 
 func (rcv *StageFileRefreshSettingExcel) MutateGroundId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *StageFileRefreshSettingExcel) ForceSave() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *StageFileRefreshSettingExcel) MutateForceSave(n bool) bool {
+	return rcv._tab.MutateBoolSlot(6, n)
 }
 
 func StageFileRefreshSettingExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func StageFileRefreshSettingExcelAddForceSave(builder *flatbuffers.Builder, forceSave bool) {
-	builder.PrependBoolSlot(0, forceSave, false)
-}
 func StageFileRefreshSettingExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
-	builder.PrependInt64Slot(1, groundId, 0)
+	builder.PrependInt64Slot(0, groundId, 0)
+}
+func StageFileRefreshSettingExcelAddForceSave(builder *flatbuffers.Builder, forceSave bool) {
+	builder.PrependBoolSlot(1, forceSave, false)
 }
 func StageFileRefreshSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

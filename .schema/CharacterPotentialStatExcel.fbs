@@ -1,8 +1,8 @@
 namespace FlatData;
 
 table CharacterPotentialStatExcel {
-    potential_level: int;
     potential_stat_group_id: long;
+    potential_level: int;
     recipe_id: long;
     stat_bonus_rate: long;
 }

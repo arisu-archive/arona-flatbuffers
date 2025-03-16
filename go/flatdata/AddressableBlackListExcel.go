@@ -41,8 +41,20 @@ func (rcv *AddressableBlackListExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *AddressableBlackListExcel) FolderPath(j int) []byte {
+func (rcv *AddressableBlackListExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AddressableBlackListExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *AddressableBlackListExcel) FolderPath(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -51,23 +63,11 @@ func (rcv *AddressableBlackListExcel) FolderPath(j int) []byte {
 }
 
 func (rcv *AddressableBlackListExcel) FolderPathLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
-}
-
-func (rcv *AddressableBlackListExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AddressableBlackListExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *AddressableBlackListExcel) ResourcePath(j int) []byte {
@@ -90,14 +90,14 @@ func (rcv *AddressableBlackListExcel) ResourcePathLength() int {
 func AddressableBlackListExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
+func AddressableBlackListExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(0, id, 0)
+}
 func AddressableBlackListExcelAddFolderPath(builder *flatbuffers.Builder, folderPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(folderPath), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(folderPath), 0)
 }
 func AddressableBlackListExcelStartFolderPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
-}
-func AddressableBlackListExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(1, id, 0)
 }
 func AddressableBlackListExcelAddResourcePath(builder *flatbuffers.Builder, resourcePath flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(resourcePath), 0)

@@ -41,7 +41,7 @@ func (rcv *EventContentChangeScenarioExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentChangeScenarioExcel) ChangeCount() int64 {
+func (rcv *EventContentChangeScenarioExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -49,7 +49,7 @@ func (rcv *EventContentChangeScenarioExcel) ChangeCount() int64 {
 	return 0
 }
 
-func (rcv *EventContentChangeScenarioExcel) MutateChangeCount(n int64) bool {
+func (rcv *EventContentChangeScenarioExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
@@ -65,7 +65,7 @@ func (rcv *EventContentChangeScenarioExcel) MutateChangeType(n EventChangeType) 
 	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
-func (rcv *EventContentChangeScenarioExcel) EventContentId() int64 {
+func (rcv *EventContentChangeScenarioExcel) ChangeCount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -73,7 +73,7 @@ func (rcv *EventContentChangeScenarioExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentChangeScenarioExcel) MutateEventContentId(n int64) bool {
+func (rcv *EventContentChangeScenarioExcel) MutateChangeCount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
@@ -92,14 +92,14 @@ func (rcv *EventContentChangeScenarioExcel) MutateScenarioGroupId(n int64) bool 
 func EventContentChangeScenarioExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func EventContentChangeScenarioExcelAddChangeCount(builder *flatbuffers.Builder, changeCount int64) {
-	builder.PrependInt64Slot(0, changeCount, 0)
+func EventContentChangeScenarioExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(0, eventContentId, 0)
 }
 func EventContentChangeScenarioExcelAddChangeType(builder *flatbuffers.Builder, changeType EventChangeType) {
 	builder.PrependInt32Slot(1, int32(changeType), 0)
 }
-func EventContentChangeScenarioExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(2, eventContentId, 0)
+func EventContentChangeScenarioExcelAddChangeCount(builder *flatbuffers.Builder, changeCount int64) {
+	builder.PrependInt64Slot(2, changeCount, 0)
 }
 func EventContentChangeScenarioExcelAddScenarioGroupId(builder *flatbuffers.Builder, scenarioGroupId int64) {
 	builder.PrependInt64Slot(3, scenarioGroupId, 0)

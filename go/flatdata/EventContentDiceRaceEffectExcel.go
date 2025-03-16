@@ -41,12 +41,16 @@ func (rcv *EventContentDiceRaceEffectExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentDiceRaceEffectExcel) AniClip() []byte {
+func (rcv *EventContentDiceRaceEffectExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *EventContentDiceRaceEffectExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *EventContentDiceRaceEffectExcel) EventContentDiceRaceResultType() EventContentDiceRaceResultType {
@@ -61,20 +65,8 @@ func (rcv *EventContentDiceRaceEffectExcel) MutateEventContentDiceRaceResultType
 	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
-func (rcv *EventContentDiceRaceEffectExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentDiceRaceEffectExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
 func (rcv *EventContentDiceRaceEffectExcel) IsDiceResult() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -82,7 +74,15 @@ func (rcv *EventContentDiceRaceEffectExcel) IsDiceResult() bool {
 }
 
 func (rcv *EventContentDiceRaceEffectExcel) MutateIsDiceResult(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
+	return rcv._tab.MutateBoolSlot(8, n)
+}
+
+func (rcv *EventContentDiceRaceEffectExcel) AniClip() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *EventContentDiceRaceEffectExcel) VoiceId(j int) uint32 {
@@ -114,17 +114,17 @@ func (rcv *EventContentDiceRaceEffectExcel) MutateVoiceId(j int, n uint32) bool 
 func EventContentDiceRaceEffectExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func EventContentDiceRaceEffectExcelAddAniClip(builder *flatbuffers.Builder, aniClip flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(aniClip), 0)
+func EventContentDiceRaceEffectExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(0, eventContentId, 0)
 }
 func EventContentDiceRaceEffectExcelAddEventContentDiceRaceResultType(builder *flatbuffers.Builder, eventContentDiceRaceResultType EventContentDiceRaceResultType) {
 	builder.PrependInt32Slot(1, int32(eventContentDiceRaceResultType), 0)
 }
-func EventContentDiceRaceEffectExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(2, eventContentId, 0)
-}
 func EventContentDiceRaceEffectExcelAddIsDiceResult(builder *flatbuffers.Builder, isDiceResult bool) {
-	builder.PrependBoolSlot(3, isDiceResult, false)
+	builder.PrependBoolSlot(2, isDiceResult, false)
+}
+func EventContentDiceRaceEffectExcelAddAniClip(builder *flatbuffers.Builder, aniClip flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(aniClip), 0)
 }
 func EventContentDiceRaceEffectExcelAddVoiceId(builder *flatbuffers.Builder, voiceId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(voiceId), 0)

@@ -25,38 +25,38 @@ class FieldMasteryExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # FieldMasteryExcel
-    def AccomplishmentConditionId(self):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FieldMasteryExcel
-    def AccomplishmentConditionType(self):
+    def SeasonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldMasteryExcel
-    def ExpAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FieldMasteryExcel
     def Order(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FieldMasteryExcel
-    def SeasonId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+    def ExpAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldMasteryExcel
+    def TokenType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FieldMasteryExcel
@@ -74,14 +74,14 @@ class FieldMasteryExcel(object):
         return 0
 
     # FieldMasteryExcel
-    def TokenType(self):
+    def AccomplishmentConditionType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FieldMasteryExcel
-    def UniqueId(self):
+    def AccomplishmentConditionId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -93,35 +93,35 @@ def FieldMasteryExcelStart(builder):
 def Start(builder):
     FieldMasteryExcelStart(builder)
 
-def FieldMasteryExcelAddAccomplishmentConditionId(builder, accomplishmentConditionId):
-    builder.PrependInt64Slot(0, accomplishmentConditionId, 0)
+def FieldMasteryExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(0, uniqueId, 0)
 
-def AddAccomplishmentConditionId(builder, accomplishmentConditionId):
-    FieldMasteryExcelAddAccomplishmentConditionId(builder, accomplishmentConditionId)
+def AddUniqueId(builder, uniqueId):
+    FieldMasteryExcelAddUniqueId(builder, uniqueId)
 
-def FieldMasteryExcelAddAccomplishmentConditionType(builder, accomplishmentConditionType):
-    builder.PrependInt32Slot(1, accomplishmentConditionType, 0)
+def FieldMasteryExcelAddSeasonId(builder, seasonId):
+    builder.PrependInt64Slot(1, seasonId, 0)
 
-def AddAccomplishmentConditionType(builder, accomplishmentConditionType):
-    FieldMasteryExcelAddAccomplishmentConditionType(builder, accomplishmentConditionType)
-
-def FieldMasteryExcelAddExpAmount(builder, expAmount):
-    builder.PrependInt64Slot(2, expAmount, 0)
-
-def AddExpAmount(builder, expAmount):
-    FieldMasteryExcelAddExpAmount(builder, expAmount)
+def AddSeasonId(builder, seasonId):
+    FieldMasteryExcelAddSeasonId(builder, seasonId)
 
 def FieldMasteryExcelAddOrder(builder, order):
-    builder.PrependInt32Slot(3, order, 0)
+    builder.PrependInt32Slot(2, order, 0)
 
 def AddOrder(builder, order):
     FieldMasteryExcelAddOrder(builder, order)
 
-def FieldMasteryExcelAddSeasonId(builder, seasonId):
-    builder.PrependInt64Slot(4, seasonId, 0)
+def FieldMasteryExcelAddExpAmount(builder, expAmount):
+    builder.PrependInt64Slot(3, expAmount, 0)
 
-def AddSeasonId(builder, seasonId):
-    FieldMasteryExcelAddSeasonId(builder, seasonId)
+def AddExpAmount(builder, expAmount):
+    FieldMasteryExcelAddExpAmount(builder, expAmount)
+
+def FieldMasteryExcelAddTokenType(builder, tokenType):
+    builder.PrependInt32Slot(4, tokenType, 0)
+
+def AddTokenType(builder, tokenType):
+    FieldMasteryExcelAddTokenType(builder, tokenType)
 
 def FieldMasteryExcelAddTokenId(builder, tokenId):
     builder.PrependInt64Slot(5, tokenId, 0)
@@ -135,17 +135,17 @@ def FieldMasteryExcelAddTokenRequirement(builder, tokenRequirement):
 def AddTokenRequirement(builder, tokenRequirement):
     FieldMasteryExcelAddTokenRequirement(builder, tokenRequirement)
 
-def FieldMasteryExcelAddTokenType(builder, tokenType):
-    builder.PrependInt32Slot(7, tokenType, 0)
+def FieldMasteryExcelAddAccomplishmentConditionType(builder, accomplishmentConditionType):
+    builder.PrependInt32Slot(7, accomplishmentConditionType, 0)
 
-def AddTokenType(builder, tokenType):
-    FieldMasteryExcelAddTokenType(builder, tokenType)
+def AddAccomplishmentConditionType(builder, accomplishmentConditionType):
+    FieldMasteryExcelAddAccomplishmentConditionType(builder, accomplishmentConditionType)
 
-def FieldMasteryExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(8, uniqueId, 0)
+def FieldMasteryExcelAddAccomplishmentConditionId(builder, accomplishmentConditionId):
+    builder.PrependInt64Slot(8, accomplishmentConditionId, 0)
 
-def AddUniqueId(builder, uniqueId):
-    FieldMasteryExcelAddUniqueId(builder, uniqueId)
+def AddAccomplishmentConditionId(builder, accomplishmentConditionId):
+    FieldMasteryExcelAddAccomplishmentConditionId(builder, accomplishmentConditionId)
 
 def FieldMasteryExcelEnd(builder):
     return builder.EndObject()

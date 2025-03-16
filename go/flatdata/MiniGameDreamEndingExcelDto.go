@@ -10,13 +10,13 @@ import (
 // MiniGameDreamEndingExcelDto represents a FlatBuffers table
 type MiniGameDreamEndingExcelDto struct {
 	fbsutils.FlatBuffer
-	DreamMakerEndingType DreamMakerEndingType        `json:"dream_maker_ending_type"`
-	EndingCondition      []DreamMakerEndingCondition `json:"ending_condition"`
-	EndingConditionValue []int64                     `json:"ending_condition_value"`
-	EndingId             int64                       `json:"ending_id"`
 	EventContentId       int64                       `json:"event_content_id"`
+	EndingId             int64                       `json:"ending_id"`
+	DreamMakerEndingType DreamMakerEndingType        `json:"dream_maker_ending_type"`
 	Order                int32                       `json:"order"`
 	ScenarioGroupId      int64                       `json:"scenario_group_id"`
+	EndingCondition      []DreamMakerEndingCondition `json:"ending_condition"`
+	EndingConditionValue []int64                     `json:"ending_condition_value"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,7 +25,11 @@ func (t *MiniGameDreamEndingExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamEnding"))
 	}
 	MiniGameDreamEndingExcelStart(b)
+	MiniGameDreamEndingExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	MiniGameDreamEndingExcelAddEndingId(b, fbsutils.Convert(t.EndingId, t.FlatBuffer.TableKey))
 	MiniGameDreamEndingExcelAddDreamMakerEndingType(b, fbsutils.Convert(t.DreamMakerEndingType, t.FlatBuffer.TableKey))
+	MiniGameDreamEndingExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
+	MiniGameDreamEndingExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
 	MiniGameDreamEndingExcelStartEndingConditionVector(b, len(t.EndingCondition))
 	for i := range len(t.EndingCondition) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.EndingCondition[len(t.EndingCondition)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
@@ -36,10 +40,6 @@ func (t *MiniGameDreamEndingExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		b.PrependInt64(fbsutils.Convert(t.EndingConditionValue[len(t.EndingConditionValue)-i-1], t.FlatBuffer.TableKey))
 	}
 	MiniGameDreamEndingExcelAddEndingConditionValue(b, b.EndVector(len(t.EndingConditionValue)))
-	MiniGameDreamEndingExcelAddEndingId(b, fbsutils.Convert(t.EndingId, t.FlatBuffer.TableKey))
-	MiniGameDreamEndingExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameDreamEndingExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
-	MiniGameDreamEndingExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
 	return MiniGameDreamEndingExcelEnd(b)
 }
 
@@ -55,7 +55,11 @@ func (t *MiniGameDreamEndingExcelDto) UnmarshalMessage(e *MiniGameDreamEndingExc
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamEnding"))
 	}
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.EndingId = fbsutils.Convert(e.EndingId(), t.FlatBuffer.TableKey)
 	t.DreamMakerEndingType = DreamMakerEndingType(int32(fbsutils.Convert(e.DreamMakerEndingType(), t.FlatBuffer.TableKey)))
+	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
+	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.EndingCondition = make([]DreamMakerEndingCondition, e.EndingConditionLength())
 	for i := range e.EndingConditionLength() {
 		t.EndingCondition[i] = e.EndingCondition(i)
@@ -64,10 +68,6 @@ func (t *MiniGameDreamEndingExcelDto) UnmarshalMessage(e *MiniGameDreamEndingExc
 	for i := range e.EndingConditionValueLength() {
 		t.EndingConditionValue[i] = e.EndingConditionValue(i)
 	}
-	t.EndingId = fbsutils.Convert(e.EndingId(), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
-	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

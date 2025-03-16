@@ -25,74 +25,74 @@ class FieldStoryStageExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # FieldStoryStageExcel
-    def BattleDuration(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FieldStoryStageExcel
-    def BgmId(self):
+    def SeasonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FieldStoryStageExcel
-    def FixedEchelonId(self):
+    def Name(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # FieldStoryStageExcel
-    def GroundId(self):
+    def BattleDuration(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FieldStoryStageExcel
-    def Id(self):
+    def StageTopography(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldStoryStageExcel
-    def Name(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # FieldStoryStageExcel
-    def RecommandLevel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FieldStoryStageExcel
-    def SeasonId(self):
+    def RecommandLevel(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldStoryStageExcel
+    def GroundId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldStoryStageExcel
+    def BgmId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FieldStoryStageExcel
-    def SkipFormationSettings(self):
+    def FixedEchelonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldStoryStageExcel
+    def SkipFormationSettings(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
-
-    # FieldStoryStageExcel
-    def StageTopography(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
 
 def FieldStoryStageExcelStart(builder):
     builder.StartObject(10)
@@ -100,65 +100,65 @@ def FieldStoryStageExcelStart(builder):
 def Start(builder):
     FieldStoryStageExcelStart(builder)
 
+def FieldStoryStageExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
+def AddId(builder, id):
+    FieldStoryStageExcelAddId(builder, id)
+
+def FieldStoryStageExcelAddSeasonId(builder, seasonId):
+    builder.PrependInt64Slot(1, seasonId, 0)
+
+def AddSeasonId(builder, seasonId):
+    FieldStoryStageExcelAddSeasonId(builder, seasonId)
+
+def FieldStoryStageExcelAddName(builder, name):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+
+def AddName(builder, name):
+    FieldStoryStageExcelAddName(builder, name)
+
 def FieldStoryStageExcelAddBattleDuration(builder, battleDuration):
-    builder.PrependInt64Slot(0, battleDuration, 0)
+    builder.PrependInt64Slot(3, battleDuration, 0)
 
 def AddBattleDuration(builder, battleDuration):
     FieldStoryStageExcelAddBattleDuration(builder, battleDuration)
 
+def FieldStoryStageExcelAddStageTopography(builder, stageTopography):
+    builder.PrependInt32Slot(4, stageTopography, 0)
+
+def AddStageTopography(builder, stageTopography):
+    FieldStoryStageExcelAddStageTopography(builder, stageTopography)
+
+def FieldStoryStageExcelAddRecommandLevel(builder, recommandLevel):
+    builder.PrependInt32Slot(5, recommandLevel, 0)
+
+def AddRecommandLevel(builder, recommandLevel):
+    FieldStoryStageExcelAddRecommandLevel(builder, recommandLevel)
+
+def FieldStoryStageExcelAddGroundId(builder, groundId):
+    builder.PrependInt64Slot(6, groundId, 0)
+
+def AddGroundId(builder, groundId):
+    FieldStoryStageExcelAddGroundId(builder, groundId)
+
 def FieldStoryStageExcelAddBgmId(builder, bgmId):
-    builder.PrependInt64Slot(1, bgmId, 0)
+    builder.PrependInt64Slot(7, bgmId, 0)
 
 def AddBgmId(builder, bgmId):
     FieldStoryStageExcelAddBgmId(builder, bgmId)
 
 def FieldStoryStageExcelAddFixedEchelonId(builder, fixedEchelonId):
-    builder.PrependInt64Slot(2, fixedEchelonId, 0)
+    builder.PrependInt64Slot(8, fixedEchelonId, 0)
 
 def AddFixedEchelonId(builder, fixedEchelonId):
     FieldStoryStageExcelAddFixedEchelonId(builder, fixedEchelonId)
 
-def FieldStoryStageExcelAddGroundId(builder, groundId):
-    builder.PrependInt64Slot(3, groundId, 0)
-
-def AddGroundId(builder, groundId):
-    FieldStoryStageExcelAddGroundId(builder, groundId)
-
-def FieldStoryStageExcelAddId(builder, id):
-    builder.PrependInt64Slot(4, id, 0)
-
-def AddId(builder, id):
-    FieldStoryStageExcelAddId(builder, id)
-
-def FieldStoryStageExcelAddName(builder, name):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
-
-def AddName(builder, name):
-    FieldStoryStageExcelAddName(builder, name)
-
-def FieldStoryStageExcelAddRecommandLevel(builder, recommandLevel):
-    builder.PrependInt32Slot(6, recommandLevel, 0)
-
-def AddRecommandLevel(builder, recommandLevel):
-    FieldStoryStageExcelAddRecommandLevel(builder, recommandLevel)
-
-def FieldStoryStageExcelAddSeasonId(builder, seasonId):
-    builder.PrependInt64Slot(7, seasonId, 0)
-
-def AddSeasonId(builder, seasonId):
-    FieldStoryStageExcelAddSeasonId(builder, seasonId)
-
 def FieldStoryStageExcelAddSkipFormationSettings(builder, skipFormationSettings):
-    builder.PrependBoolSlot(8, skipFormationSettings, 0)
+    builder.PrependBoolSlot(9, skipFormationSettings, 0)
 
 def AddSkipFormationSettings(builder, skipFormationSettings):
     FieldStoryStageExcelAddSkipFormationSettings(builder, skipFormationSettings)
-
-def FieldStoryStageExcelAddStageTopography(builder, stageTopography):
-    builder.PrependInt32Slot(9, stageTopography, 0)
-
-def AddStageTopography(builder, stageTopography):
-    FieldStoryStageExcelAddStageTopography(builder, stageTopography)
 
 def FieldStoryStageExcelEnd(builder):
     return builder.EndObject()

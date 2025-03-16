@@ -10,14 +10,14 @@ import (
 // MemoryLobbyGlobalExcelDto represents a FlatBuffers table
 type MemoryLobbyGlobalExcelDto struct {
 	fbsutils.FlatBuffer
-	CharacterId      int64  `json:"character_id"`
 	Id               int64  `json:"id"`
-	PrefabNameAsia   string `json:"prefab_name_asia"`
-	PrefabNameGlobal string `json:"prefab_name_global"`
+	CharacterId      int64  `json:"character_id"`
 	PrefabNameKr     string `json:"prefab_name_kr"`
-	PrefabNameNa     string `json:"prefab_name_na"`
-	PrefabNameTeen   string `json:"prefab_name_teen"`
 	PrefabNameTw     string `json:"prefab_name_tw"`
+	PrefabNameAsia   string `json:"prefab_name_asia"`
+	PrefabNameNa     string `json:"prefab_name_na"`
+	PrefabNameGlobal string `json:"prefab_name_global"`
+	PrefabNameTeen   string `json:"prefab_name_teen"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,14 +26,14 @@ func (t *MemoryLobbyGlobalExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MemoryLobby_Global"))
 	}
 	MemoryLobby_GlobalExcelStart(b)
-	MemoryLobby_GlobalExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	MemoryLobby_GlobalExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MemoryLobby_GlobalExcelAddPrefabNameAsia(b, fbsutils.Convert(b.CreateString(t.PrefabNameAsia), t.FlatBuffer.TableKey))
-	MemoryLobby_GlobalExcelAddPrefabNameGlobal(b, fbsutils.Convert(b.CreateString(t.PrefabNameGlobal), t.FlatBuffer.TableKey))
+	MemoryLobby_GlobalExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	MemoryLobby_GlobalExcelAddPrefabNameKr(b, fbsutils.Convert(b.CreateString(t.PrefabNameKr), t.FlatBuffer.TableKey))
-	MemoryLobby_GlobalExcelAddPrefabNameNa(b, fbsutils.Convert(b.CreateString(t.PrefabNameNa), t.FlatBuffer.TableKey))
-	MemoryLobby_GlobalExcelAddPrefabNameTeen(b, fbsutils.Convert(b.CreateString(t.PrefabNameTeen), t.FlatBuffer.TableKey))
 	MemoryLobby_GlobalExcelAddPrefabNameTw(b, fbsutils.Convert(b.CreateString(t.PrefabNameTw), t.FlatBuffer.TableKey))
+	MemoryLobby_GlobalExcelAddPrefabNameAsia(b, fbsutils.Convert(b.CreateString(t.PrefabNameAsia), t.FlatBuffer.TableKey))
+	MemoryLobby_GlobalExcelAddPrefabNameNa(b, fbsutils.Convert(b.CreateString(t.PrefabNameNa), t.FlatBuffer.TableKey))
+	MemoryLobby_GlobalExcelAddPrefabNameGlobal(b, fbsutils.Convert(b.CreateString(t.PrefabNameGlobal), t.FlatBuffer.TableKey))
+	MemoryLobby_GlobalExcelAddPrefabNameTeen(b, fbsutils.Convert(b.CreateString(t.PrefabNameTeen), t.FlatBuffer.TableKey))
 	return MemoryLobby_GlobalExcelEnd(b)
 }
 
@@ -49,14 +49,14 @@ func (t *MemoryLobbyGlobalExcelDto) UnmarshalMessage(e *MemoryLobby_GlobalExcel)
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MemoryLobby_Global"))
 	}
-	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.PrefabNameAsia = fbsutils.Convert(string(e.PrefabNameAsia()), t.FlatBuffer.TableKey)
-	t.PrefabNameGlobal = fbsutils.Convert(string(e.PrefabNameGlobal()), t.FlatBuffer.TableKey)
+	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.PrefabNameKr = fbsutils.Convert(string(e.PrefabNameKr()), t.FlatBuffer.TableKey)
-	t.PrefabNameNa = fbsutils.Convert(string(e.PrefabNameNa()), t.FlatBuffer.TableKey)
-	t.PrefabNameTeen = fbsutils.Convert(string(e.PrefabNameTeen()), t.FlatBuffer.TableKey)
 	t.PrefabNameTw = fbsutils.Convert(string(e.PrefabNameTw()), t.FlatBuffer.TableKey)
+	t.PrefabNameAsia = fbsutils.Convert(string(e.PrefabNameAsia()), t.FlatBuffer.TableKey)
+	t.PrefabNameNa = fbsutils.Convert(string(e.PrefabNameNa()), t.FlatBuffer.TableKey)
+	t.PrefabNameGlobal = fbsutils.Convert(string(e.PrefabNameGlobal()), t.FlatBuffer.TableKey)
+	t.PrefabNameTeen = fbsutils.Convert(string(e.PrefabNameTeen()), t.FlatBuffer.TableKey)
 	return nil
 }
 

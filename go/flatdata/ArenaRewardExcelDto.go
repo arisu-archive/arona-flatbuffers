@@ -10,15 +10,15 @@ import (
 // ArenaRewardExcelDto represents a FlatBuffers table
 type ArenaRewardExcelDto struct {
 	fbsutils.FlatBuffer
+	UniqueId               int64           `json:"unique_id"`
 	ArenaRewardType        ArenaRewardType `json:"arena_reward_type"`
+	RankStart              int64           `json:"rank_start"`
 	RankEnd                int64           `json:"rank_end"`
 	RankIconPath           string          `json:"rank_icon_path"`
-	RankStart              int64           `json:"rank_start"`
-	RewardParcelAmount     []int64         `json:"reward_parcel_amount"`
 	RewardParcelType       []ParcelType    `json:"reward_parcel_type"`
 	RewardParcelUniqueId   []int64         `json:"reward_parcel_unique_id"`
 	RewardParcelUniqueName []string        `json:"reward_parcel_unique_name"`
-	UniqueId               int64           `json:"unique_id"`
+	RewardParcelAmount     []int64         `json:"reward_parcel_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,15 +27,11 @@ func (t *ArenaRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaReward"))
 	}
 	ArenaRewardExcelStart(b)
+	ArenaRewardExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	ArenaRewardExcelAddArenaRewardType(b, fbsutils.Convert(t.ArenaRewardType, t.FlatBuffer.TableKey))
+	ArenaRewardExcelAddRankStart(b, fbsutils.Convert(t.RankStart, t.FlatBuffer.TableKey))
 	ArenaRewardExcelAddRankEnd(b, fbsutils.Convert(t.RankEnd, t.FlatBuffer.TableKey))
 	ArenaRewardExcelAddRankIconPath(b, fbsutils.Convert(b.CreateString(t.RankIconPath), t.FlatBuffer.TableKey))
-	ArenaRewardExcelAddRankStart(b, fbsutils.Convert(t.RankStart, t.FlatBuffer.TableKey))
-	ArenaRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
-	for i := range len(t.RewardParcelAmount) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	ArenaRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
 	ArenaRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
@@ -51,7 +47,11 @@ func (t *ArenaRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.RewardParcelUniqueName[len(t.RewardParcelUniqueName)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ArenaRewardExcelAddRewardParcelUniqueName(b, b.EndVector(len(t.RewardParcelUniqueName)))
-	ArenaRewardExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	ArenaRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
+	for i := range len(t.RewardParcelAmount) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	ArenaRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
 	return ArenaRewardExcelEnd(b)
 }
 
@@ -67,14 +67,11 @@ func (t *ArenaRewardExcelDto) UnmarshalMessage(e *ArenaRewardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaReward"))
 	}
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.ArenaRewardType = ArenaRewardType(int32(fbsutils.Convert(e.ArenaRewardType(), t.FlatBuffer.TableKey)))
+	t.RankStart = fbsutils.Convert(e.RankStart(), t.FlatBuffer.TableKey)
 	t.RankEnd = fbsutils.Convert(e.RankEnd(), t.FlatBuffer.TableKey)
 	t.RankIconPath = fbsutils.Convert(string(e.RankIconPath()), t.FlatBuffer.TableKey)
-	t.RankStart = fbsutils.Convert(e.RankStart(), t.FlatBuffer.TableKey)
-	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
-	}
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
 		t.RewardParcelType[i] = e.RewardParcelType(i)
@@ -87,7 +84,10 @@ func (t *ArenaRewardExcelDto) UnmarshalMessage(e *ArenaRewardExcel) error {
 	for i := range e.RewardParcelUniqueNameLength() {
 		t.RewardParcelUniqueName[i] = string(e.RewardParcelUniqueName(i))
 	}
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
+	}
 	return nil
 }
 

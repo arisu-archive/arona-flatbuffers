@@ -10,10 +10,10 @@ import (
 // ObstacleFireLineCheckExcelDto represents a FlatBuffers table
 type ObstacleFireLineCheckExcelDto struct {
 	fbsutils.FlatBuffer
-	AllyObstacleFireLineCheck  bool `json:"ally_obstacle_fire_line_check"`
-	EmptyObstacleFireLineCheck bool `json:"empty_obstacle_fire_line_check"`
-	EnemyObstacleFireLineCheck bool `json:"enemy_obstacle_fire_line_check"`
 	MyObstacleFireLineCheck    bool `json:"my_obstacle_fire_line_check"`
+	AllyObstacleFireLineCheck  bool `json:"ally_obstacle_fire_line_check"`
+	EnemyObstacleFireLineCheck bool `json:"enemy_obstacle_fire_line_check"`
+	EmptyObstacleFireLineCheck bool `json:"empty_obstacle_fire_line_check"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *ObstacleFireLineCheckExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ObstacleFireLineCheck"))
 	}
 	ObstacleFireLineCheckExcelStart(b)
-	ObstacleFireLineCheckExcelAddAllyObstacleFireLineCheck(b, fbsutils.Convert(t.AllyObstacleFireLineCheck, t.FlatBuffer.TableKey))
-	ObstacleFireLineCheckExcelAddEmptyObstacleFireLineCheck(b, fbsutils.Convert(t.EmptyObstacleFireLineCheck, t.FlatBuffer.TableKey))
-	ObstacleFireLineCheckExcelAddEnemyObstacleFireLineCheck(b, fbsutils.Convert(t.EnemyObstacleFireLineCheck, t.FlatBuffer.TableKey))
 	ObstacleFireLineCheckExcelAddMyObstacleFireLineCheck(b, fbsutils.Convert(t.MyObstacleFireLineCheck, t.FlatBuffer.TableKey))
+	ObstacleFireLineCheckExcelAddAllyObstacleFireLineCheck(b, fbsutils.Convert(t.AllyObstacleFireLineCheck, t.FlatBuffer.TableKey))
+	ObstacleFireLineCheckExcelAddEnemyObstacleFireLineCheck(b, fbsutils.Convert(t.EnemyObstacleFireLineCheck, t.FlatBuffer.TableKey))
+	ObstacleFireLineCheckExcelAddEmptyObstacleFireLineCheck(b, fbsutils.Convert(t.EmptyObstacleFireLineCheck, t.FlatBuffer.TableKey))
 	return ObstacleFireLineCheckExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *ObstacleFireLineCheckExcelDto) UnmarshalMessage(e *ObstacleFireLineChec
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ObstacleFireLineCheck"))
 	}
-	t.AllyObstacleFireLineCheck = fbsutils.Convert(e.AllyObstacleFireLineCheck(), t.FlatBuffer.TableKey)
-	t.EmptyObstacleFireLineCheck = fbsutils.Convert(e.EmptyObstacleFireLineCheck(), t.FlatBuffer.TableKey)
-	t.EnemyObstacleFireLineCheck = fbsutils.Convert(e.EnemyObstacleFireLineCheck(), t.FlatBuffer.TableKey)
 	t.MyObstacleFireLineCheck = fbsutils.Convert(e.MyObstacleFireLineCheck(), t.FlatBuffer.TableKey)
+	t.AllyObstacleFireLineCheck = fbsutils.Convert(e.AllyObstacleFireLineCheck(), t.FlatBuffer.TableKey)
+	t.EnemyObstacleFireLineCheck = fbsutils.Convert(e.EnemyObstacleFireLineCheck(), t.FlatBuffer.TableKey)
+	t.EmptyObstacleFireLineCheck = fbsutils.Convert(e.EmptyObstacleFireLineCheck(), t.FlatBuffer.TableKey)
 	return nil
 }
 

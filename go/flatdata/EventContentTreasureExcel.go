@@ -53,8 +53,16 @@ func (rcv *EventContentTreasureExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EventContentTreasureExcel) LoopRound() int32 {
+func (rcv *EventContentTreasureExcel) TitleLocalize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentTreasureExcel) LoopRound() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -62,18 +70,10 @@ func (rcv *EventContentTreasureExcel) LoopRound() int32 {
 }
 
 func (rcv *EventContentTreasureExcel) MutateLoopRound(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
+	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *EventContentTreasureExcel) TitleLocalize() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentTreasureExcel) TreasureBgImagePath() []byte {
+func (rcv *EventContentTreasureExcel) UsePrefabName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -81,7 +81,7 @@ func (rcv *EventContentTreasureExcel) TreasureBgImagePath() []byte {
 	return nil
 }
 
-func (rcv *EventContentTreasureExcel) UsePrefabName() []byte {
+func (rcv *EventContentTreasureExcel) TreasureBgImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -95,17 +95,17 @@ func EventContentTreasureExcelStart(builder *flatbuffers.Builder) {
 func EventContentTreasureExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
 }
-func EventContentTreasureExcelAddLoopRound(builder *flatbuffers.Builder, loopRound int32) {
-	builder.PrependInt32Slot(1, loopRound, 0)
-}
 func EventContentTreasureExcelAddTitleLocalize(builder *flatbuffers.Builder, titleLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(titleLocalize), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(titleLocalize), 0)
 }
-func EventContentTreasureExcelAddTreasureBgImagePath(builder *flatbuffers.Builder, treasureBgImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(treasureBgImagePath), 0)
+func EventContentTreasureExcelAddLoopRound(builder *flatbuffers.Builder, loopRound int32) {
+	builder.PrependInt32Slot(2, loopRound, 0)
 }
 func EventContentTreasureExcelAddUsePrefabName(builder *flatbuffers.Builder, usePrefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(usePrefabName), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(usePrefabName), 0)
+}
+func EventContentTreasureExcelAddTreasureBgImagePath(builder *flatbuffers.Builder, treasureBgImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(treasureBgImagePath), 0)
 }
 func EventContentTreasureExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

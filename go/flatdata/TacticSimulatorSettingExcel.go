@@ -41,7 +41,7 @@ func (rcv *TacticSimulatorSettingExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *TacticSimulatorSettingExcel) Equipment() int64 {
+func (rcv *TacticSimulatorSettingExcel) GroundId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -49,7 +49,7 @@ func (rcv *TacticSimulatorSettingExcel) Equipment() int64 {
 	return 0
 }
 
-func (rcv *TacticSimulatorSettingExcel) MutateEquipment(n int64) bool {
+func (rcv *TacticSimulatorSettingExcel) MutateGroundId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
@@ -77,7 +77,7 @@ func (rcv *TacticSimulatorSettingExcel) MutateGetStarGrade(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *TacticSimulatorSettingExcel) GroundId() int64 {
+func (rcv *TacticSimulatorSettingExcel) Equipment() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -85,15 +85,15 @@ func (rcv *TacticSimulatorSettingExcel) GroundId() int64 {
 	return 0
 }
 
-func (rcv *TacticSimulatorSettingExcel) MutateGroundId(n int64) bool {
+func (rcv *TacticSimulatorSettingExcel) MutateEquipment(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func TacticSimulatorSettingExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func TacticSimulatorSettingExcelAddEquipment(builder *flatbuffers.Builder, equipment int64) {
-	builder.PrependInt64Slot(0, equipment, 0)
+func TacticSimulatorSettingExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
+	builder.PrependInt64Slot(0, groundId, 0)
 }
 func TacticSimulatorSettingExcelAddGetExp(builder *flatbuffers.Builder, getExp int64) {
 	builder.PrependInt64Slot(1, getExp, 0)
@@ -101,8 +101,8 @@ func TacticSimulatorSettingExcelAddGetExp(builder *flatbuffers.Builder, getExp i
 func TacticSimulatorSettingExcelAddGetStarGrade(builder *flatbuffers.Builder, getStarGrade int64) {
 	builder.PrependInt64Slot(2, getStarGrade, 0)
 }
-func TacticSimulatorSettingExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
-	builder.PrependInt64Slot(3, groundId, 0)
+func TacticSimulatorSettingExcelAddEquipment(builder *flatbuffers.Builder, equipment int64) {
+	builder.PrependInt64Slot(3, equipment, 0)
 }
 func TacticSimulatorSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

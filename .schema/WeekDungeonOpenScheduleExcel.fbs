@@ -1,9 +1,9 @@
-include "WeekDungeonType.fbs";
 include "WeekDay.fbs";
+include "WeekDungeonType.fbs";
 
 namespace FlatData;
 
 table WeekDungeonOpenScheduleExcel {
-    open: [WeekDungeonType];
     week_day: WeekDay;
+    open: [WeekDungeonType];
 }

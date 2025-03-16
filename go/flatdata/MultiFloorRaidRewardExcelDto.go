@@ -10,11 +10,11 @@ import (
 // MultiFloorRaidRewardExcelDto represents a FlatBuffers table
 type MultiFloorRaidRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	ClearStageRewardAmount         int64      `json:"clear_stage_reward_amount"`
+	RewardGroupId                  int64      `json:"reward_group_id"`
+	ClearStageRewardProb           int64      `json:"clear_stage_reward_prob"`
 	ClearStageRewardParcelType     ParcelType `json:"clear_stage_reward_parcel_type"`
 	ClearStageRewardParcelUniqueId int64      `json:"clear_stage_reward_parcel_unique_id"`
-	ClearStageRewardProb           int64      `json:"clear_stage_reward_prob"`
-	RewardGroupId                  int64      `json:"reward_group_id"`
+	ClearStageRewardAmount         int64      `json:"clear_stage_reward_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,11 +23,11 @@ func (t *MultiFloorRaidRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MultiFloorRaidReward"))
 	}
 	MultiFloorRaidRewardExcelStart(b)
-	MultiFloorRaidRewardExcelAddClearStageRewardAmount(b, fbsutils.Convert(t.ClearStageRewardAmount, t.FlatBuffer.TableKey))
+	MultiFloorRaidRewardExcelAddRewardGroupId(b, fbsutils.Convert(t.RewardGroupId, t.FlatBuffer.TableKey))
+	MultiFloorRaidRewardExcelAddClearStageRewardProb(b, fbsutils.Convert(t.ClearStageRewardProb, t.FlatBuffer.TableKey))
 	MultiFloorRaidRewardExcelAddClearStageRewardParcelType(b, fbsutils.Convert(t.ClearStageRewardParcelType, t.FlatBuffer.TableKey))
 	MultiFloorRaidRewardExcelAddClearStageRewardParcelUniqueId(b, fbsutils.Convert(t.ClearStageRewardParcelUniqueId, t.FlatBuffer.TableKey))
-	MultiFloorRaidRewardExcelAddClearStageRewardProb(b, fbsutils.Convert(t.ClearStageRewardProb, t.FlatBuffer.TableKey))
-	MultiFloorRaidRewardExcelAddRewardGroupId(b, fbsutils.Convert(t.RewardGroupId, t.FlatBuffer.TableKey))
+	MultiFloorRaidRewardExcelAddClearStageRewardAmount(b, fbsutils.Convert(t.ClearStageRewardAmount, t.FlatBuffer.TableKey))
 	return MultiFloorRaidRewardExcelEnd(b)
 }
 
@@ -43,11 +43,11 @@ func (t *MultiFloorRaidRewardExcelDto) UnmarshalMessage(e *MultiFloorRaidRewardE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MultiFloorRaidReward"))
 	}
-	t.ClearStageRewardAmount = fbsutils.Convert(e.ClearStageRewardAmount(), t.FlatBuffer.TableKey)
+	t.RewardGroupId = fbsutils.Convert(e.RewardGroupId(), t.FlatBuffer.TableKey)
+	t.ClearStageRewardProb = fbsutils.Convert(e.ClearStageRewardProb(), t.FlatBuffer.TableKey)
 	t.ClearStageRewardParcelType = ParcelType(int32(fbsutils.Convert(e.ClearStageRewardParcelType(), t.FlatBuffer.TableKey)))
 	t.ClearStageRewardParcelUniqueId = fbsutils.Convert(e.ClearStageRewardParcelUniqueId(), t.FlatBuffer.TableKey)
-	t.ClearStageRewardProb = fbsutils.Convert(e.ClearStageRewardProb(), t.FlatBuffer.TableKey)
-	t.RewardGroupId = fbsutils.Convert(e.RewardGroupId(), t.FlatBuffer.TableKey)
+	t.ClearStageRewardAmount = fbsutils.Convert(e.ClearStageRewardAmount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

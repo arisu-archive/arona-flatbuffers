@@ -25,77 +25,120 @@ class LimitedStageExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # LimitedStageExcel
-    def BattleDuration(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # LimitedStageExcel
-    def BgmId(self):
+    def Name(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # LimitedStageExcel
-    def BgmIdC9738509(self):
+    def SeasonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # LimitedStageExcel
-    def BuffContentId(self):
+    def StageDifficulty(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def ChallengeDisplay(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # LimitedStageExcel
-    def ClearScenarioGroupId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # LimitedStageExcel
-    def ClearScenarioGroupIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # LimitedStageExcel
-    def ClearScenarioGroupIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # LimitedStageExcel
-    def ClearScenarioGroupIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        return o == 0
-
-    # LimitedStageExcel
-    def ContentType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # LimitedStageExcel
-    def EnterScenarioGroupId(self, j):
+    def StageNumber(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # LimitedStageExcel
+    def StageDisplay(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def PrevStageId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def OpenDate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def OpenEventPoint(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def BattleDuration(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def StageEnterCostType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def StageEnterCostId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def StageEnterCostAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def StageEnterEchelonCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def StarConditionTacticRankSCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def StarConditionTurnCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def EnterScenarioGroupId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -103,190 +146,147 @@ class LimitedStageExcel(object):
 
     # LimitedStageExcel
     def EnterScenarioGroupIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # LimitedStageExcel
     def EnterScenarioGroupIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # LimitedStageExcel
     def EnterScenarioGroupIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         return o == 0
 
     # LimitedStageExcel
-    def GroundId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def InstantClear(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # LimitedStageExcel
-    def MaxTurn(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def Name(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # LimitedStageExcel
-    def OpenDate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def OpenEventPoint(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def PrevStageId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def RecommandLevel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def SeasonId(self):
+    def ClearScenarioGroupId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # LimitedStageExcel
-    def StageDifficulty(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+    def ClearScenarioGroupIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # LimitedStageExcel
-    def StageDisplay(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+    def ClearScenarioGroupIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.VectorLen(o)
         return 0
 
     # LimitedStageExcel
-    def StageEnterCostAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def StageEnterCostId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def StageEnterCostType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def StageEnterEchelonCount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def StageNumber(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # LimitedStageExcel
-    def StageRewardId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def StageTopography(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def StarConditionTacticRankSCount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def StarConditionTurnCount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # LimitedStageExcel
-    def StrategyEnvironment(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+    def ClearScenarioGroupIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        return o == 0
 
     # LimitedStageExcel
     def StrategyMap(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # LimitedStageExcel
     def StrategyMapBg(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
+
+    # LimitedStageExcel
+    def StageRewardId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def MaxTurn(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def StageTopography(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def RecommandLevel(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def BgmId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # LimitedStageExcel
+    def StrategyEnvironment(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def GroundId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def ContentType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def BgmIdC9738509(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def InstantClear(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # LimitedStageExcel
+    def BuffContentId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # LimitedStageExcel
+    def ChallengeDisplay(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
 def LimitedStageExcelStart(builder):
     builder.StartObject(32)
@@ -294,56 +294,104 @@ def LimitedStageExcelStart(builder):
 def Start(builder):
     LimitedStageExcelStart(builder)
 
+def LimitedStageExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
+def AddId(builder, id):
+    LimitedStageExcelAddId(builder, id)
+
+def LimitedStageExcelAddName(builder, name):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+
+def AddName(builder, name):
+    LimitedStageExcelAddName(builder, name)
+
+def LimitedStageExcelAddSeasonId(builder, seasonId):
+    builder.PrependInt64Slot(2, seasonId, 0)
+
+def AddSeasonId(builder, seasonId):
+    LimitedStageExcelAddSeasonId(builder, seasonId)
+
+def LimitedStageExcelAddStageDifficulty(builder, stageDifficulty):
+    builder.PrependInt32Slot(3, stageDifficulty, 0)
+
+def AddStageDifficulty(builder, stageDifficulty):
+    LimitedStageExcelAddStageDifficulty(builder, stageDifficulty)
+
+def LimitedStageExcelAddStageNumber(builder, stageNumber):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(stageNumber), 0)
+
+def AddStageNumber(builder, stageNumber):
+    LimitedStageExcelAddStageNumber(builder, stageNumber)
+
+def LimitedStageExcelAddStageDisplay(builder, stageDisplay):
+    builder.PrependInt32Slot(5, stageDisplay, 0)
+
+def AddStageDisplay(builder, stageDisplay):
+    LimitedStageExcelAddStageDisplay(builder, stageDisplay)
+
+def LimitedStageExcelAddPrevStageId(builder, prevStageId):
+    builder.PrependInt64Slot(6, prevStageId, 0)
+
+def AddPrevStageId(builder, prevStageId):
+    LimitedStageExcelAddPrevStageId(builder, prevStageId)
+
+def LimitedStageExcelAddOpenDate(builder, openDate):
+    builder.PrependInt64Slot(7, openDate, 0)
+
+def AddOpenDate(builder, openDate):
+    LimitedStageExcelAddOpenDate(builder, openDate)
+
+def LimitedStageExcelAddOpenEventPoint(builder, openEventPoint):
+    builder.PrependInt64Slot(8, openEventPoint, 0)
+
+def AddOpenEventPoint(builder, openEventPoint):
+    LimitedStageExcelAddOpenEventPoint(builder, openEventPoint)
+
 def LimitedStageExcelAddBattleDuration(builder, battleDuration):
-    builder.PrependInt64Slot(0, battleDuration, 0)
+    builder.PrependInt64Slot(9, battleDuration, 0)
 
 def AddBattleDuration(builder, battleDuration):
     LimitedStageExcelAddBattleDuration(builder, battleDuration)
 
-def LimitedStageExcelAddBgmId(builder, bgmId):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(bgmId), 0)
+def LimitedStageExcelAddStageEnterCostType(builder, stageEnterCostType):
+    builder.PrependInt32Slot(10, stageEnterCostType, 0)
 
-def AddBgmId(builder, bgmId):
-    LimitedStageExcelAddBgmId(builder, bgmId)
+def AddStageEnterCostType(builder, stageEnterCostType):
+    LimitedStageExcelAddStageEnterCostType(builder, stageEnterCostType)
 
-def LimitedStageExcelAddBgmIdC9738509(builder, bgmIdC9738509):
-    builder.PrependInt64Slot(2, bgmIdC9738509, 0)
+def LimitedStageExcelAddStageEnterCostId(builder, stageEnterCostId):
+    builder.PrependInt64Slot(11, stageEnterCostId, 0)
 
-def AddBgmIdC9738509(builder, bgmIdC9738509):
-    LimitedStageExcelAddBgmIdC9738509(builder, bgmIdC9738509)
+def AddStageEnterCostId(builder, stageEnterCostId):
+    LimitedStageExcelAddStageEnterCostId(builder, stageEnterCostId)
 
-def LimitedStageExcelAddBuffContentId(builder, buffContentId):
-    builder.PrependInt64Slot(3, buffContentId, 0)
+def LimitedStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount):
+    builder.PrependInt32Slot(12, stageEnterCostAmount, 0)
 
-def AddBuffContentId(builder, buffContentId):
-    LimitedStageExcelAddBuffContentId(builder, buffContentId)
+def AddStageEnterCostAmount(builder, stageEnterCostAmount):
+    LimitedStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
 
-def LimitedStageExcelAddChallengeDisplay(builder, challengeDisplay):
-    builder.PrependBoolSlot(4, challengeDisplay, 0)
+def LimitedStageExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount):
+    builder.PrependInt32Slot(13, stageEnterEchelonCount, 0)
 
-def AddChallengeDisplay(builder, challengeDisplay):
-    LimitedStageExcelAddChallengeDisplay(builder, challengeDisplay)
+def AddStageEnterEchelonCount(builder, stageEnterEchelonCount):
+    LimitedStageExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount)
 
-def LimitedStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(clearScenarioGroupId), 0)
+def LimitedStageExcelAddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount):
+    builder.PrependInt64Slot(14, starConditionTacticRankSCount, 0)
 
-def AddClearScenarioGroupId(builder, clearScenarioGroupId):
-    LimitedStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId)
+def AddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount):
+    LimitedStageExcelAddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount)
 
-def LimitedStageExcelStartClearScenarioGroupIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
+def LimitedStageExcelAddStarConditionTurnCount(builder, starConditionTurnCount):
+    builder.PrependInt64Slot(15, starConditionTurnCount, 0)
 
-def StartClearScenarioGroupIdVector(builder, numElems):
-    return LimitedStageExcelStartClearScenarioGroupIdVector(builder, numElems)
-
-def LimitedStageExcelAddContentType(builder, contentType):
-    builder.PrependInt32Slot(6, contentType, 0)
-
-def AddContentType(builder, contentType):
-    LimitedStageExcelAddContentType(builder, contentType)
+def AddStarConditionTurnCount(builder, starConditionTurnCount):
+    LimitedStageExcelAddStarConditionTurnCount(builder, starConditionTurnCount)
 
 def LimitedStageExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(enterScenarioGroupId), 0)
+    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(enterScenarioGroupId), 0)
 
 def AddEnterScenarioGroupId(builder, enterScenarioGroupId):
     LimitedStageExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId)
@@ -354,149 +402,101 @@ def LimitedStageExcelStartEnterScenarioGroupIdVector(builder, numElems):
 def StartEnterScenarioGroupIdVector(builder, numElems):
     return LimitedStageExcelStartEnterScenarioGroupIdVector(builder, numElems)
 
-def LimitedStageExcelAddGroundId(builder, groundId):
-    builder.PrependInt64Slot(8, groundId, 0)
+def LimitedStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId):
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(clearScenarioGroupId), 0)
 
-def AddGroundId(builder, groundId):
-    LimitedStageExcelAddGroundId(builder, groundId)
+def AddClearScenarioGroupId(builder, clearScenarioGroupId):
+    LimitedStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId)
 
-def LimitedStageExcelAddId(builder, id):
-    builder.PrependInt64Slot(9, id, 0)
+def LimitedStageExcelStartClearScenarioGroupIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
 
-def AddId(builder, id):
-    LimitedStageExcelAddId(builder, id)
-
-def LimitedStageExcelAddInstantClear(builder, instantClear):
-    builder.PrependBoolSlot(10, instantClear, 0)
-
-def AddInstantClear(builder, instantClear):
-    LimitedStageExcelAddInstantClear(builder, instantClear)
-
-def LimitedStageExcelAddMaxTurn(builder, maxTurn):
-    builder.PrependInt32Slot(11, maxTurn, 0)
-
-def AddMaxTurn(builder, maxTurn):
-    LimitedStageExcelAddMaxTurn(builder, maxTurn)
-
-def LimitedStageExcelAddName(builder, name):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
-
-def AddName(builder, name):
-    LimitedStageExcelAddName(builder, name)
-
-def LimitedStageExcelAddOpenDate(builder, openDate):
-    builder.PrependInt64Slot(13, openDate, 0)
-
-def AddOpenDate(builder, openDate):
-    LimitedStageExcelAddOpenDate(builder, openDate)
-
-def LimitedStageExcelAddOpenEventPoint(builder, openEventPoint):
-    builder.PrependInt64Slot(14, openEventPoint, 0)
-
-def AddOpenEventPoint(builder, openEventPoint):
-    LimitedStageExcelAddOpenEventPoint(builder, openEventPoint)
-
-def LimitedStageExcelAddPrevStageId(builder, prevStageId):
-    builder.PrependInt64Slot(15, prevStageId, 0)
-
-def AddPrevStageId(builder, prevStageId):
-    LimitedStageExcelAddPrevStageId(builder, prevStageId)
-
-def LimitedStageExcelAddRecommandLevel(builder, recommandLevel):
-    builder.PrependInt32Slot(16, recommandLevel, 0)
-
-def AddRecommandLevel(builder, recommandLevel):
-    LimitedStageExcelAddRecommandLevel(builder, recommandLevel)
-
-def LimitedStageExcelAddSeasonId(builder, seasonId):
-    builder.PrependInt64Slot(17, seasonId, 0)
-
-def AddSeasonId(builder, seasonId):
-    LimitedStageExcelAddSeasonId(builder, seasonId)
-
-def LimitedStageExcelAddStageDifficulty(builder, stageDifficulty):
-    builder.PrependInt32Slot(18, stageDifficulty, 0)
-
-def AddStageDifficulty(builder, stageDifficulty):
-    LimitedStageExcelAddStageDifficulty(builder, stageDifficulty)
-
-def LimitedStageExcelAddStageDisplay(builder, stageDisplay):
-    builder.PrependInt32Slot(19, stageDisplay, 0)
-
-def AddStageDisplay(builder, stageDisplay):
-    LimitedStageExcelAddStageDisplay(builder, stageDisplay)
-
-def LimitedStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount):
-    builder.PrependInt32Slot(20, stageEnterCostAmount, 0)
-
-def AddStageEnterCostAmount(builder, stageEnterCostAmount):
-    LimitedStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
-
-def LimitedStageExcelAddStageEnterCostId(builder, stageEnterCostId):
-    builder.PrependInt64Slot(21, stageEnterCostId, 0)
-
-def AddStageEnterCostId(builder, stageEnterCostId):
-    LimitedStageExcelAddStageEnterCostId(builder, stageEnterCostId)
-
-def LimitedStageExcelAddStageEnterCostType(builder, stageEnterCostType):
-    builder.PrependInt32Slot(22, stageEnterCostType, 0)
-
-def AddStageEnterCostType(builder, stageEnterCostType):
-    LimitedStageExcelAddStageEnterCostType(builder, stageEnterCostType)
-
-def LimitedStageExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount):
-    builder.PrependInt32Slot(23, stageEnterEchelonCount, 0)
-
-def AddStageEnterEchelonCount(builder, stageEnterEchelonCount):
-    LimitedStageExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount)
-
-def LimitedStageExcelAddStageNumber(builder, stageNumber):
-    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(stageNumber), 0)
-
-def AddStageNumber(builder, stageNumber):
-    LimitedStageExcelAddStageNumber(builder, stageNumber)
-
-def LimitedStageExcelAddStageRewardId(builder, stageRewardId):
-    builder.PrependInt64Slot(25, stageRewardId, 0)
-
-def AddStageRewardId(builder, stageRewardId):
-    LimitedStageExcelAddStageRewardId(builder, stageRewardId)
-
-def LimitedStageExcelAddStageTopography(builder, stageTopography):
-    builder.PrependInt32Slot(26, stageTopography, 0)
-
-def AddStageTopography(builder, stageTopography):
-    LimitedStageExcelAddStageTopography(builder, stageTopography)
-
-def LimitedStageExcelAddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount):
-    builder.PrependInt64Slot(27, starConditionTacticRankSCount, 0)
-
-def AddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount):
-    LimitedStageExcelAddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount)
-
-def LimitedStageExcelAddStarConditionTurnCount(builder, starConditionTurnCount):
-    builder.PrependInt64Slot(28, starConditionTurnCount, 0)
-
-def AddStarConditionTurnCount(builder, starConditionTurnCount):
-    LimitedStageExcelAddStarConditionTurnCount(builder, starConditionTurnCount)
-
-def LimitedStageExcelAddStrategyEnvironment(builder, strategyEnvironment):
-    builder.PrependInt32Slot(29, strategyEnvironment, 0)
-
-def AddStrategyEnvironment(builder, strategyEnvironment):
-    LimitedStageExcelAddStrategyEnvironment(builder, strategyEnvironment)
+def StartClearScenarioGroupIdVector(builder, numElems):
+    return LimitedStageExcelStartClearScenarioGroupIdVector(builder, numElems)
 
 def LimitedStageExcelAddStrategyMap(builder, strategyMap):
-    builder.PrependUOffsetTRelativeSlot(30, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMap), 0)
+    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMap), 0)
 
 def AddStrategyMap(builder, strategyMap):
     LimitedStageExcelAddStrategyMap(builder, strategyMap)
 
 def LimitedStageExcelAddStrategyMapBg(builder, strategyMapBg):
-    builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMapBg), 0)
+    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMapBg), 0)
 
 def AddStrategyMapBg(builder, strategyMapBg):
     LimitedStageExcelAddStrategyMapBg(builder, strategyMapBg)
+
+def LimitedStageExcelAddStageRewardId(builder, stageRewardId):
+    builder.PrependInt64Slot(20, stageRewardId, 0)
+
+def AddStageRewardId(builder, stageRewardId):
+    LimitedStageExcelAddStageRewardId(builder, stageRewardId)
+
+def LimitedStageExcelAddMaxTurn(builder, maxTurn):
+    builder.PrependInt32Slot(21, maxTurn, 0)
+
+def AddMaxTurn(builder, maxTurn):
+    LimitedStageExcelAddMaxTurn(builder, maxTurn)
+
+def LimitedStageExcelAddStageTopography(builder, stageTopography):
+    builder.PrependInt32Slot(22, stageTopography, 0)
+
+def AddStageTopography(builder, stageTopography):
+    LimitedStageExcelAddStageTopography(builder, stageTopography)
+
+def LimitedStageExcelAddRecommandLevel(builder, recommandLevel):
+    builder.PrependInt32Slot(23, recommandLevel, 0)
+
+def AddRecommandLevel(builder, recommandLevel):
+    LimitedStageExcelAddRecommandLevel(builder, recommandLevel)
+
+def LimitedStageExcelAddBgmId(builder, bgmId):
+    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(bgmId), 0)
+
+def AddBgmId(builder, bgmId):
+    LimitedStageExcelAddBgmId(builder, bgmId)
+
+def LimitedStageExcelAddStrategyEnvironment(builder, strategyEnvironment):
+    builder.PrependInt32Slot(25, strategyEnvironment, 0)
+
+def AddStrategyEnvironment(builder, strategyEnvironment):
+    LimitedStageExcelAddStrategyEnvironment(builder, strategyEnvironment)
+
+def LimitedStageExcelAddGroundId(builder, groundId):
+    builder.PrependInt64Slot(26, groundId, 0)
+
+def AddGroundId(builder, groundId):
+    LimitedStageExcelAddGroundId(builder, groundId)
+
+def LimitedStageExcelAddContentType(builder, contentType):
+    builder.PrependInt32Slot(27, contentType, 0)
+
+def AddContentType(builder, contentType):
+    LimitedStageExcelAddContentType(builder, contentType)
+
+def LimitedStageExcelAddBgmIdC9738509(builder, bgmIdC9738509):
+    builder.PrependInt64Slot(28, bgmIdC9738509, 0)
+
+def AddBgmIdC9738509(builder, bgmIdC9738509):
+    LimitedStageExcelAddBgmIdC9738509(builder, bgmIdC9738509)
+
+def LimitedStageExcelAddInstantClear(builder, instantClear):
+    builder.PrependBoolSlot(29, instantClear, 0)
+
+def AddInstantClear(builder, instantClear):
+    LimitedStageExcelAddInstantClear(builder, instantClear)
+
+def LimitedStageExcelAddBuffContentId(builder, buffContentId):
+    builder.PrependInt64Slot(30, buffContentId, 0)
+
+def AddBuffContentId(builder, buffContentId):
+    LimitedStageExcelAddBuffContentId(builder, buffContentId)
+
+def LimitedStageExcelAddChallengeDisplay(builder, challengeDisplay):
+    builder.PrependBoolSlot(31, challengeDisplay, 0)
+
+def AddChallengeDisplay(builder, challengeDisplay):
+    LimitedStageExcelAddChallengeDisplay(builder, challengeDisplay)
 
 def LimitedStageExcelEnd(builder):
     return builder.EndObject()

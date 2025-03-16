@@ -10,21 +10,21 @@ import (
 // EventContentCollectionExcelDto represents a FlatBuffers table
 type EventContentCollectionExcelDto struct {
 	fbsutils.FlatBuffer
-	EmblemResource             string                     `json:"emblem_resource"`
-	EventContentId             int64                      `json:"event_content_id"`
-	FullResource               string                     `json:"full_resource"`
-	GroupId                    int64                      `json:"group_id"`
 	Id                         int64                      `json:"id"`
-	IsHorizon                  bool                       `json:"is_horizon"`
+	EventContentId             int64                      `json:"event_content_id"`
+	GroupId                    int64                      `json:"group_id"`
+	UnlockConditionType        CollectionUnlockType       `json:"unlock_condition_type"`
+	UnlockConditionParameter   []int64                    `json:"unlock_condition_parameter"`
+	MultipleConditionCheckType MultipleConditionCheckType `json:"multiple_condition_check_type"`
+	UnlockConditionCount       int64                      `json:"unlock_condition_count"`
 	IsObject                   bool                       `json:"is_object"`
 	IsObjectOnFullResource     bool                       `json:"is_object_on_full_resource"`
-	LocalizeEtcId              uint32                     `json:"localize_etc_id"`
-	MultipleConditionCheckType MultipleConditionCheckType `json:"multiple_condition_check_type"`
-	SubNameLocalizeCodeId      string                     `json:"sub_name_localize_code_id"`
+	IsHorizon                  bool                       `json:"is_horizon"`
+	EmblemResource             string                     `json:"emblem_resource"`
 	ThumbResource              string                     `json:"thumb_resource"`
-	UnlockConditionCount       int64                      `json:"unlock_condition_count"`
-	UnlockConditionParameter   []int64                    `json:"unlock_condition_parameter"`
-	UnlockConditionType        CollectionUnlockType       `json:"unlock_condition_type"`
+	FullResource               string                     `json:"full_resource"`
+	LocalizeEtcId              uint32                     `json:"localize_etc_id"`
+	SubNameLocalizeCodeId      string                     `json:"sub_name_localize_code_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -33,25 +33,25 @@ func (t *EventContentCollectionExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCollection"))
 	}
 	EventContentCollectionExcelStart(b)
-	EventContentCollectionExcelAddEmblemResource(b, fbsutils.Convert(b.CreateString(t.EmblemResource), t.FlatBuffer.TableKey))
-	EventContentCollectionExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentCollectionExcelAddFullResource(b, fbsutils.Convert(b.CreateString(t.FullResource), t.FlatBuffer.TableKey))
-	EventContentCollectionExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	EventContentCollectionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentCollectionExcelAddIsHorizon(b, fbsutils.Convert(t.IsHorizon, t.FlatBuffer.TableKey))
-	EventContentCollectionExcelAddIsObject(b, fbsutils.Convert(t.IsObject, t.FlatBuffer.TableKey))
-	EventContentCollectionExcelAddIsObjectOnFullResource(b, fbsutils.Convert(t.IsObjectOnFullResource, t.FlatBuffer.TableKey))
-	EventContentCollectionExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	EventContentCollectionExcelAddMultipleConditionCheckType(b, fbsutils.Convert(t.MultipleConditionCheckType, t.FlatBuffer.TableKey))
-	EventContentCollectionExcelAddSubNameLocalizeCodeId(b, fbsutils.Convert(b.CreateString(t.SubNameLocalizeCodeId), t.FlatBuffer.TableKey))
-	EventContentCollectionExcelAddThumbResource(b, fbsutils.Convert(b.CreateString(t.ThumbResource), t.FlatBuffer.TableKey))
-	EventContentCollectionExcelAddUnlockConditionCount(b, fbsutils.Convert(t.UnlockConditionCount, t.FlatBuffer.TableKey))
+	EventContentCollectionExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentCollectionExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	EventContentCollectionExcelAddUnlockConditionType(b, fbsutils.Convert(t.UnlockConditionType, t.FlatBuffer.TableKey))
 	EventContentCollectionExcelStartUnlockConditionParameterVector(b, len(t.UnlockConditionParameter))
 	for i := range len(t.UnlockConditionParameter) {
 		b.PrependInt64(fbsutils.Convert(t.UnlockConditionParameter[len(t.UnlockConditionParameter)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentCollectionExcelAddUnlockConditionParameter(b, b.EndVector(len(t.UnlockConditionParameter)))
-	EventContentCollectionExcelAddUnlockConditionType(b, fbsutils.Convert(t.UnlockConditionType, t.FlatBuffer.TableKey))
+	EventContentCollectionExcelAddMultipleConditionCheckType(b, fbsutils.Convert(t.MultipleConditionCheckType, t.FlatBuffer.TableKey))
+	EventContentCollectionExcelAddUnlockConditionCount(b, fbsutils.Convert(t.UnlockConditionCount, t.FlatBuffer.TableKey))
+	EventContentCollectionExcelAddIsObject(b, fbsutils.Convert(t.IsObject, t.FlatBuffer.TableKey))
+	EventContentCollectionExcelAddIsObjectOnFullResource(b, fbsutils.Convert(t.IsObjectOnFullResource, t.FlatBuffer.TableKey))
+	EventContentCollectionExcelAddIsHorizon(b, fbsutils.Convert(t.IsHorizon, t.FlatBuffer.TableKey))
+	EventContentCollectionExcelAddEmblemResource(b, fbsutils.Convert(b.CreateString(t.EmblemResource), t.FlatBuffer.TableKey))
+	EventContentCollectionExcelAddThumbResource(b, fbsutils.Convert(b.CreateString(t.ThumbResource), t.FlatBuffer.TableKey))
+	EventContentCollectionExcelAddFullResource(b, fbsutils.Convert(b.CreateString(t.FullResource), t.FlatBuffer.TableKey))
+	EventContentCollectionExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	EventContentCollectionExcelAddSubNameLocalizeCodeId(b, fbsutils.Convert(b.CreateString(t.SubNameLocalizeCodeId), t.FlatBuffer.TableKey))
 	return EventContentCollectionExcelEnd(b)
 }
 
@@ -67,24 +67,24 @@ func (t *EventContentCollectionExcelDto) UnmarshalMessage(e *EventContentCollect
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCollection"))
 	}
-	t.EmblemResource = fbsutils.Convert(string(e.EmblemResource()), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.FullResource = fbsutils.Convert(string(e.FullResource()), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.IsHorizon = fbsutils.Convert(e.IsHorizon(), t.FlatBuffer.TableKey)
-	t.IsObject = fbsutils.Convert(e.IsObject(), t.FlatBuffer.TableKey)
-	t.IsObjectOnFullResource = fbsutils.Convert(e.IsObjectOnFullResource(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.MultipleConditionCheckType = MultipleConditionCheckType(int32(fbsutils.Convert(e.MultipleConditionCheckType(), t.FlatBuffer.TableKey)))
-	t.SubNameLocalizeCodeId = fbsutils.Convert(string(e.SubNameLocalizeCodeId()), t.FlatBuffer.TableKey)
-	t.ThumbResource = fbsutils.Convert(string(e.ThumbResource()), t.FlatBuffer.TableKey)
-	t.UnlockConditionCount = fbsutils.Convert(e.UnlockConditionCount(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.UnlockConditionType = CollectionUnlockType(int32(fbsutils.Convert(e.UnlockConditionType(), t.FlatBuffer.TableKey)))
 	t.UnlockConditionParameter = make([]int64, e.UnlockConditionParameterLength())
 	for i := range e.UnlockConditionParameterLength() {
 		t.UnlockConditionParameter[i] = e.UnlockConditionParameter(i)
 	}
-	t.UnlockConditionType = CollectionUnlockType(int32(fbsutils.Convert(e.UnlockConditionType(), t.FlatBuffer.TableKey)))
+	t.MultipleConditionCheckType = MultipleConditionCheckType(int32(fbsutils.Convert(e.MultipleConditionCheckType(), t.FlatBuffer.TableKey)))
+	t.UnlockConditionCount = fbsutils.Convert(e.UnlockConditionCount(), t.FlatBuffer.TableKey)
+	t.IsObject = fbsutils.Convert(e.IsObject(), t.FlatBuffer.TableKey)
+	t.IsObjectOnFullResource = fbsutils.Convert(e.IsObjectOnFullResource(), t.FlatBuffer.TableKey)
+	t.IsHorizon = fbsutils.Convert(e.IsHorizon(), t.FlatBuffer.TableKey)
+	t.EmblemResource = fbsutils.Convert(string(e.EmblemResource()), t.FlatBuffer.TableKey)
+	t.ThumbResource = fbsutils.Convert(string(e.ThumbResource()), t.FlatBuffer.TableKey)
+	t.FullResource = fbsutils.Convert(string(e.FullResource()), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.SubNameLocalizeCodeId = fbsutils.Convert(string(e.SubNameLocalizeCodeId()), t.FlatBuffer.TableKey)
 	return nil
 }
 

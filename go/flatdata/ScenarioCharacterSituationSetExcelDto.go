@@ -10,13 +10,13 @@ import (
 // ScenarioCharacterSituationSetExcelDto represents a FlatBuffers table
 type ScenarioCharacterSituationSetExcelDto struct {
 	fbsutils.FlatBuffer
-	Action   string `json:"action"`
+	Name     uint32 `json:"name"`
+	Face     string `json:"face"`
 	Behavior string `json:"behavior"`
+	Action   string `json:"action"`
+	Shape    string `json:"shape"`
 	Effect   uint32 `json:"effect"`
 	Emotion  uint32 `json:"emotion"`
-	Face     string `json:"face"`
-	Name     uint32 `json:"name"`
-	Shape    string `json:"shape"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,13 +25,13 @@ func (t *ScenarioCharacterSituationSetExcelDto) MarshalModel(b *flatbuffers.Buil
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioCharacterSituationSet"))
 	}
 	ScenarioCharacterSituationSetExcelStart(b)
-	ScenarioCharacterSituationSetExcelAddAction(b, fbsutils.Convert(b.CreateString(t.Action), t.FlatBuffer.TableKey))
+	ScenarioCharacterSituationSetExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
+	ScenarioCharacterSituationSetExcelAddFace(b, fbsutils.Convert(b.CreateString(t.Face), t.FlatBuffer.TableKey))
 	ScenarioCharacterSituationSetExcelAddBehavior(b, fbsutils.Convert(b.CreateString(t.Behavior), t.FlatBuffer.TableKey))
+	ScenarioCharacterSituationSetExcelAddAction(b, fbsutils.Convert(b.CreateString(t.Action), t.FlatBuffer.TableKey))
+	ScenarioCharacterSituationSetExcelAddShape(b, fbsutils.Convert(b.CreateString(t.Shape), t.FlatBuffer.TableKey))
 	ScenarioCharacterSituationSetExcelAddEffect(b, fbsutils.Convert(t.Effect, t.FlatBuffer.TableKey))
 	ScenarioCharacterSituationSetExcelAddEmotion(b, fbsutils.Convert(t.Emotion, t.FlatBuffer.TableKey))
-	ScenarioCharacterSituationSetExcelAddFace(b, fbsutils.Convert(b.CreateString(t.Face), t.FlatBuffer.TableKey))
-	ScenarioCharacterSituationSetExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
-	ScenarioCharacterSituationSetExcelAddShape(b, fbsutils.Convert(b.CreateString(t.Shape), t.FlatBuffer.TableKey))
 	return ScenarioCharacterSituationSetExcelEnd(b)
 }
 
@@ -47,13 +47,13 @@ func (t *ScenarioCharacterSituationSetExcelDto) UnmarshalMessage(e *ScenarioChar
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioCharacterSituationSet"))
 	}
-	t.Action = fbsutils.Convert(string(e.Action()), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
+	t.Face = fbsutils.Convert(string(e.Face()), t.FlatBuffer.TableKey)
 	t.Behavior = fbsutils.Convert(string(e.Behavior()), t.FlatBuffer.TableKey)
+	t.Action = fbsutils.Convert(string(e.Action()), t.FlatBuffer.TableKey)
+	t.Shape = fbsutils.Convert(string(e.Shape()), t.FlatBuffer.TableKey)
 	t.Effect = fbsutils.Convert(e.Effect(), t.FlatBuffer.TableKey)
 	t.Emotion = fbsutils.Convert(e.Emotion(), t.FlatBuffer.TableKey)
-	t.Face = fbsutils.Convert(string(e.Face()), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
-	t.Shape = fbsutils.Convert(string(e.Shape()), t.FlatBuffer.TableKey)
 	return nil
 }
 

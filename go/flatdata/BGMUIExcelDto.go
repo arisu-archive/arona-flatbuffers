@@ -10,11 +10,11 @@ import (
 // BGMUIExcelDto represents a FlatBuffers table
 type BGMUIExcelDto struct {
 	fbsutils.FlatBuffer
+	UiPrefab       uint32 `json:"ui_prefab"`
 	BgmId          int64  `json:"bgm_id"`
 	BgmId2nd       int64  `json:"bgm_id2nd"`
 	BgmId3rd       int64  `json:"bgm_id3rd"`
 	EventContentId int64  `json:"event_content_id"`
-	UiPrefab       uint32 `json:"ui_prefab"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,11 +23,11 @@ func (t *BGMUIExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BGMUI"))
 	}
 	BGMUIExcelStart(b)
+	BGMUIExcelAddUiPrefab(b, fbsutils.Convert(t.UiPrefab, t.FlatBuffer.TableKey))
 	BGMUIExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
 	BGMUIExcelAddBgmId2nd(b, fbsutils.Convert(t.BgmId2nd, t.FlatBuffer.TableKey))
 	BGMUIExcelAddBgmId3rd(b, fbsutils.Convert(t.BgmId3rd, t.FlatBuffer.TableKey))
 	BGMUIExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	BGMUIExcelAddUiPrefab(b, fbsutils.Convert(t.UiPrefab, t.FlatBuffer.TableKey))
 	return BGMUIExcelEnd(b)
 }
 
@@ -43,11 +43,11 @@ func (t *BGMUIExcelDto) UnmarshalMessage(e *BGMUIExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BGMUI"))
 	}
+	t.UiPrefab = fbsutils.Convert(e.UiPrefab(), t.FlatBuffer.TableKey)
 	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
 	t.BgmId2nd = fbsutils.Convert(e.BgmId2nd(), t.FlatBuffer.TableKey)
 	t.BgmId3rd = fbsutils.Convert(e.BgmId3rd(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.UiPrefab = fbsutils.Convert(e.UiPrefab(), t.FlatBuffer.TableKey)
 	return nil
 }
 

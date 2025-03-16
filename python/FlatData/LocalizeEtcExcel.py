@@ -25,14 +25,14 @@ class LocalizeEtcExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # LocalizeEtcExcel
-    def DescriptionEn(self):
+    def Key(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
 
     # LocalizeEtcExcel
-    def DescriptionJp(self):
+    def NameKr(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -46,56 +46,56 @@ class LocalizeEtcExcel(object):
         return None
 
     # LocalizeEtcExcel
-    def DescriptionTh(self):
+    def NameJp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # LocalizeEtcExcel
-    def DescriptionTw(self):
+    def DescriptionJp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # LocalizeEtcExcel
-    def Key(self):
+    def NameTh(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # LocalizeEtcExcel
-    def NameEn(self):
+    def DescriptionTh(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # LocalizeEtcExcel
-    def NameJp(self):
+    def NameTw(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # LocalizeEtcExcel
-    def NameKr(self):
+    def DescriptionTw(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # LocalizeEtcExcel
-    def NameTh(self):
+    def NameEn(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # LocalizeEtcExcel
-    def NameTw(self):
+    def DescriptionEn(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -107,17 +107,17 @@ def LocalizeEtcExcelStart(builder):
 def Start(builder):
     LocalizeEtcExcelStart(builder)
 
-def LocalizeEtcExcelAddDescriptionEn(builder, descriptionEn):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(descriptionEn), 0)
+def LocalizeEtcExcelAddKey(builder, key):
+    builder.PrependUint32Slot(0, key, 0)
 
-def AddDescriptionEn(builder, descriptionEn):
-    LocalizeEtcExcelAddDescriptionEn(builder, descriptionEn)
+def AddKey(builder, key):
+    LocalizeEtcExcelAddKey(builder, key)
 
-def LocalizeEtcExcelAddDescriptionJp(builder, descriptionJp):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(descriptionJp), 0)
+def LocalizeEtcExcelAddNameKr(builder, nameKr):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(nameKr), 0)
 
-def AddDescriptionJp(builder, descriptionJp):
-    LocalizeEtcExcelAddDescriptionJp(builder, descriptionJp)
+def AddNameKr(builder, nameKr):
+    LocalizeEtcExcelAddNameKr(builder, nameKr)
 
 def LocalizeEtcExcelAddDescriptionKr(builder, descriptionKr):
     builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(descriptionKr), 0)
@@ -125,53 +125,53 @@ def LocalizeEtcExcelAddDescriptionKr(builder, descriptionKr):
 def AddDescriptionKr(builder, descriptionKr):
     LocalizeEtcExcelAddDescriptionKr(builder, descriptionKr)
 
-def LocalizeEtcExcelAddDescriptionTh(builder, descriptionTh):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(descriptionTh), 0)
-
-def AddDescriptionTh(builder, descriptionTh):
-    LocalizeEtcExcelAddDescriptionTh(builder, descriptionTh)
-
-def LocalizeEtcExcelAddDescriptionTw(builder, descriptionTw):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(descriptionTw), 0)
-
-def AddDescriptionTw(builder, descriptionTw):
-    LocalizeEtcExcelAddDescriptionTw(builder, descriptionTw)
-
-def LocalizeEtcExcelAddKey(builder, key):
-    builder.PrependUint32Slot(5, key, 0)
-
-def AddKey(builder, key):
-    LocalizeEtcExcelAddKey(builder, key)
-
-def LocalizeEtcExcelAddNameEn(builder, nameEn):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(nameEn), 0)
-
-def AddNameEn(builder, nameEn):
-    LocalizeEtcExcelAddNameEn(builder, nameEn)
-
 def LocalizeEtcExcelAddNameJp(builder, nameJp):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(nameJp), 0)
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(nameJp), 0)
 
 def AddNameJp(builder, nameJp):
     LocalizeEtcExcelAddNameJp(builder, nameJp)
 
-def LocalizeEtcExcelAddNameKr(builder, nameKr):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(nameKr), 0)
+def LocalizeEtcExcelAddDescriptionJp(builder, descriptionJp):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(descriptionJp), 0)
 
-def AddNameKr(builder, nameKr):
-    LocalizeEtcExcelAddNameKr(builder, nameKr)
+def AddDescriptionJp(builder, descriptionJp):
+    LocalizeEtcExcelAddDescriptionJp(builder, descriptionJp)
 
 def LocalizeEtcExcelAddNameTh(builder, nameTh):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(nameTh), 0)
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(nameTh), 0)
 
 def AddNameTh(builder, nameTh):
     LocalizeEtcExcelAddNameTh(builder, nameTh)
 
+def LocalizeEtcExcelAddDescriptionTh(builder, descriptionTh):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(descriptionTh), 0)
+
+def AddDescriptionTh(builder, descriptionTh):
+    LocalizeEtcExcelAddDescriptionTh(builder, descriptionTh)
+
 def LocalizeEtcExcelAddNameTw(builder, nameTw):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(nameTw), 0)
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(nameTw), 0)
 
 def AddNameTw(builder, nameTw):
     LocalizeEtcExcelAddNameTw(builder, nameTw)
+
+def LocalizeEtcExcelAddDescriptionTw(builder, descriptionTw):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(descriptionTw), 0)
+
+def AddDescriptionTw(builder, descriptionTw):
+    LocalizeEtcExcelAddDescriptionTw(builder, descriptionTw)
+
+def LocalizeEtcExcelAddNameEn(builder, nameEn):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(nameEn), 0)
+
+def AddNameEn(builder, nameEn):
+    LocalizeEtcExcelAddNameEn(builder, nameEn)
+
+def LocalizeEtcExcelAddDescriptionEn(builder, descriptionEn):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(descriptionEn), 0)
+
+def AddDescriptionEn(builder, descriptionEn):
+    LocalizeEtcExcelAddDescriptionEn(builder, descriptionEn)
 
 def LocalizeEtcExcelEnd(builder):
     return builder.EndObject()

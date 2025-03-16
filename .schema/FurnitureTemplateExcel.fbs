@@ -1,8 +1,8 @@
 namespace FlatData;
 
 table FurnitureTemplateExcel {
-    funiture_template_title: uint;
     furniture_template_id: long;
-    image_path: string;
+    funiture_template_title: uint;
     thumbnail_image_path: string;
+    image_path: string;
 }

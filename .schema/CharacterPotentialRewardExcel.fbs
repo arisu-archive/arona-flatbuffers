@@ -1,15 +1,15 @@
-include "PotentialStatBonusRateType.fbs";
 include "ParcelType.fbs";
+include "PotentialStatBonusRateType.fbs";
 
 namespace FlatData;
 
 table CharacterPotentialRewardExcel {
     id: long;
-    require_potential_stat_level: [long];
     require_potential_stat_type: [PotentialStatBonusRateType];
-    reward_amount: int;
-    reward_id: long;
+    require_potential_stat_level: [long];
     reward_parcel_type: ParcelType;
+    reward_id: long;
+    reward_amount: int;
 }
 
 root_type CharacterPotentialRewardExcel;

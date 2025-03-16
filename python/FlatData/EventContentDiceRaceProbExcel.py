@@ -25,38 +25,38 @@ class EventContentDiceRaceProbExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentDiceRaceProbExcel
-    def CostItemAmount(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentDiceRaceProbExcel
+    def EventContentDiceRaceResultType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentDiceRaceProbExcel
     def CostItemId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentDiceRaceProbExcel
-    def DiceResult(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentDiceRaceProbExcel
-    def EventContentDiceRaceResultType(self):
+    def CostItemAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentDiceRaceProbExcel
-    def EventContentId(self):
+    def DiceResult(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentDiceRaceProbExcel
@@ -72,35 +72,35 @@ def EventContentDiceRaceProbExcelStart(builder):
 def Start(builder):
     EventContentDiceRaceProbExcelStart(builder)
 
-def EventContentDiceRaceProbExcelAddCostItemAmount(builder, costItemAmount):
-    builder.PrependInt32Slot(0, costItemAmount, 0)
+def EventContentDiceRaceProbExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
 
-def AddCostItemAmount(builder, costItemAmount):
-    EventContentDiceRaceProbExcelAddCostItemAmount(builder, costItemAmount)
-
-def EventContentDiceRaceProbExcelAddCostItemId(builder, costItemId):
-    builder.PrependInt64Slot(1, costItemId, 0)
-
-def AddCostItemId(builder, costItemId):
-    EventContentDiceRaceProbExcelAddCostItemId(builder, costItemId)
-
-def EventContentDiceRaceProbExcelAddDiceResult(builder, diceResult):
-    builder.PrependInt32Slot(2, diceResult, 0)
-
-def AddDiceResult(builder, diceResult):
-    EventContentDiceRaceProbExcelAddDiceResult(builder, diceResult)
+def AddEventContentId(builder, eventContentId):
+    EventContentDiceRaceProbExcelAddEventContentId(builder, eventContentId)
 
 def EventContentDiceRaceProbExcelAddEventContentDiceRaceResultType(builder, eventContentDiceRaceResultType):
-    builder.PrependInt32Slot(3, eventContentDiceRaceResultType, 0)
+    builder.PrependInt32Slot(1, eventContentDiceRaceResultType, 0)
 
 def AddEventContentDiceRaceResultType(builder, eventContentDiceRaceResultType):
     EventContentDiceRaceProbExcelAddEventContentDiceRaceResultType(builder, eventContentDiceRaceResultType)
 
-def EventContentDiceRaceProbExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(4, eventContentId, 0)
+def EventContentDiceRaceProbExcelAddCostItemId(builder, costItemId):
+    builder.PrependInt64Slot(2, costItemId, 0)
 
-def AddEventContentId(builder, eventContentId):
-    EventContentDiceRaceProbExcelAddEventContentId(builder, eventContentId)
+def AddCostItemId(builder, costItemId):
+    EventContentDiceRaceProbExcelAddCostItemId(builder, costItemId)
+
+def EventContentDiceRaceProbExcelAddCostItemAmount(builder, costItemAmount):
+    builder.PrependInt32Slot(3, costItemAmount, 0)
+
+def AddCostItemAmount(builder, costItemAmount):
+    EventContentDiceRaceProbExcelAddCostItemAmount(builder, costItemAmount)
+
+def EventContentDiceRaceProbExcelAddDiceResult(builder, diceResult):
+    builder.PrependInt32Slot(4, diceResult, 0)
+
+def AddDiceResult(builder, diceResult):
+    EventContentDiceRaceProbExcelAddDiceResult(builder, diceResult)
 
 def EventContentDiceRaceProbExcelAddProb(builder, prob):
     builder.PrependInt32Slot(5, prob, 0)

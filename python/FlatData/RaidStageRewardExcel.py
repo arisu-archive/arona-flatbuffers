@@ -25,53 +25,53 @@ class RaidStageRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # RaidStageRewardExcel
-    def ClearStageRewardAmount(self):
+    def GroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # RaidStageRewardExcel
-    def ClearStageRewardParcelType(self):
+    def IsClearStageRewardHideInfo(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # RaidStageRewardExcel
-    def ClearStageRewardParcelUniqueId(self):
+    def ClearStageRewardProb(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # RaidStageRewardExcel
-    def ClearStageRewardParcelUniqueName(self):
+    def ClearStageRewardParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # RaidStageRewardExcel
-    def ClearStageRewardProb(self):
+    def ClearStageRewardParcelUniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # RaidStageRewardExcel
-    def GroupId(self):
+    def ClearStageRewardParcelUniqueName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # RaidStageRewardExcel
+    def ClearStageRewardAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # RaidStageRewardExcel
-    def IsClearStageRewardHideInfo(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
 
 def RaidStageRewardExcelStart(builder):
     builder.StartObject(7)
@@ -79,47 +79,47 @@ def RaidStageRewardExcelStart(builder):
 def Start(builder):
     RaidStageRewardExcelStart(builder)
 
-def RaidStageRewardExcelAddClearStageRewardAmount(builder, clearStageRewardAmount):
-    builder.PrependInt64Slot(0, clearStageRewardAmount, 0)
-
-def AddClearStageRewardAmount(builder, clearStageRewardAmount):
-    RaidStageRewardExcelAddClearStageRewardAmount(builder, clearStageRewardAmount)
-
-def RaidStageRewardExcelAddClearStageRewardParcelType(builder, clearStageRewardParcelType):
-    builder.PrependInt32Slot(1, clearStageRewardParcelType, 0)
-
-def AddClearStageRewardParcelType(builder, clearStageRewardParcelType):
-    RaidStageRewardExcelAddClearStageRewardParcelType(builder, clearStageRewardParcelType)
-
-def RaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId):
-    builder.PrependInt64Slot(2, clearStageRewardParcelUniqueId, 0)
-
-def AddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId):
-    RaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId)
-
-def RaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(clearStageRewardParcelUniqueName), 0)
-
-def AddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName):
-    RaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName)
-
-def RaidStageRewardExcelAddClearStageRewardProb(builder, clearStageRewardProb):
-    builder.PrependInt64Slot(4, clearStageRewardProb, 0)
-
-def AddClearStageRewardProb(builder, clearStageRewardProb):
-    RaidStageRewardExcelAddClearStageRewardProb(builder, clearStageRewardProb)
-
 def RaidStageRewardExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(5, groupId, 0)
+    builder.PrependInt64Slot(0, groupId, 0)
 
 def AddGroupId(builder, groupId):
     RaidStageRewardExcelAddGroupId(builder, groupId)
 
 def RaidStageRewardExcelAddIsClearStageRewardHideInfo(builder, isClearStageRewardHideInfo):
-    builder.PrependBoolSlot(6, isClearStageRewardHideInfo, 0)
+    builder.PrependBoolSlot(1, isClearStageRewardHideInfo, 0)
 
 def AddIsClearStageRewardHideInfo(builder, isClearStageRewardHideInfo):
     RaidStageRewardExcelAddIsClearStageRewardHideInfo(builder, isClearStageRewardHideInfo)
+
+def RaidStageRewardExcelAddClearStageRewardProb(builder, clearStageRewardProb):
+    builder.PrependInt64Slot(2, clearStageRewardProb, 0)
+
+def AddClearStageRewardProb(builder, clearStageRewardProb):
+    RaidStageRewardExcelAddClearStageRewardProb(builder, clearStageRewardProb)
+
+def RaidStageRewardExcelAddClearStageRewardParcelType(builder, clearStageRewardParcelType):
+    builder.PrependInt32Slot(3, clearStageRewardParcelType, 0)
+
+def AddClearStageRewardParcelType(builder, clearStageRewardParcelType):
+    RaidStageRewardExcelAddClearStageRewardParcelType(builder, clearStageRewardParcelType)
+
+def RaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId):
+    builder.PrependInt64Slot(4, clearStageRewardParcelUniqueId, 0)
+
+def AddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId):
+    RaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId)
+
+def RaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(clearStageRewardParcelUniqueName), 0)
+
+def AddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName):
+    RaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName)
+
+def RaidStageRewardExcelAddClearStageRewardAmount(builder, clearStageRewardAmount):
+    builder.PrependInt64Slot(6, clearStageRewardAmount, 0)
+
+def AddClearStageRewardAmount(builder, clearStageRewardAmount):
+    RaidStageRewardExcelAddClearStageRewardAmount(builder, clearStageRewardAmount)
 
 def RaidStageRewardExcelEnd(builder):
     return builder.EndObject()

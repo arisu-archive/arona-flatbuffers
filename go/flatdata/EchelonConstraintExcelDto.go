@@ -10,14 +10,14 @@ import (
 // EchelonConstraintExcelDto represents a FlatBuffers table
 type EchelonConstraintExcelDto struct {
 	fbsutils.FlatBuffer
-	CharacterId   []int64    `json:"character_id"`
-	Club          Club       `json:"club"`
 	GroupId       int64      `json:"group_id"`
 	IsWhiteList   bool       `json:"is_white_list"`
+	CharacterId   []int64    `json:"character_id"`
 	PersonalityId []int64    `json:"personality_id"`
-	Role          TacticRole `json:"role"`
-	School        School     `json:"school"`
 	WeaponType    WeaponType `json:"weapon_type"`
+	School        School     `json:"school"`
+	Club          Club       `json:"club"`
+	Role          TacticRole `json:"role"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,22 +26,22 @@ func (t *EchelonConstraintExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EchelonConstraint"))
 	}
 	EchelonConstraintExcelStart(b)
+	EchelonConstraintExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	EchelonConstraintExcelAddIsWhiteList(b, fbsutils.Convert(t.IsWhiteList, t.FlatBuffer.TableKey))
 	EchelonConstraintExcelStartCharacterIdVector(b, len(t.CharacterId))
 	for i := range len(t.CharacterId) {
 		b.PrependInt64(fbsutils.Convert(t.CharacterId[len(t.CharacterId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EchelonConstraintExcelAddCharacterId(b, b.EndVector(len(t.CharacterId)))
-	EchelonConstraintExcelAddClub(b, fbsutils.Convert(t.Club, t.FlatBuffer.TableKey))
-	EchelonConstraintExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	EchelonConstraintExcelAddIsWhiteList(b, fbsutils.Convert(t.IsWhiteList, t.FlatBuffer.TableKey))
 	EchelonConstraintExcelStartPersonalityIdVector(b, len(t.PersonalityId))
 	for i := range len(t.PersonalityId) {
 		b.PrependInt64(fbsutils.Convert(t.PersonalityId[len(t.PersonalityId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EchelonConstraintExcelAddPersonalityId(b, b.EndVector(len(t.PersonalityId)))
-	EchelonConstraintExcelAddRole(b, fbsutils.Convert(t.Role, t.FlatBuffer.TableKey))
-	EchelonConstraintExcelAddSchool(b, fbsutils.Convert(t.School, t.FlatBuffer.TableKey))
 	EchelonConstraintExcelAddWeaponType(b, fbsutils.Convert(t.WeaponType, t.FlatBuffer.TableKey))
+	EchelonConstraintExcelAddSchool(b, fbsutils.Convert(t.School, t.FlatBuffer.TableKey))
+	EchelonConstraintExcelAddClub(b, fbsutils.Convert(t.Club, t.FlatBuffer.TableKey))
+	EchelonConstraintExcelAddRole(b, fbsutils.Convert(t.Role, t.FlatBuffer.TableKey))
 	return EchelonConstraintExcelEnd(b)
 }
 
@@ -57,20 +57,20 @@ func (t *EchelonConstraintExcelDto) UnmarshalMessage(e *EchelonConstraintExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EchelonConstraint"))
 	}
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.IsWhiteList = fbsutils.Convert(e.IsWhiteList(), t.FlatBuffer.TableKey)
 	t.CharacterId = make([]int64, e.CharacterIdLength())
 	for i := range e.CharacterIdLength() {
 		t.CharacterId[i] = e.CharacterId(i)
 	}
-	t.Club = Club(int32(fbsutils.Convert(e.Club(), t.FlatBuffer.TableKey)))
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.IsWhiteList = fbsutils.Convert(e.IsWhiteList(), t.FlatBuffer.TableKey)
 	t.PersonalityId = make([]int64, e.PersonalityIdLength())
 	for i := range e.PersonalityIdLength() {
 		t.PersonalityId[i] = e.PersonalityId(i)
 	}
-	t.Role = TacticRole(int32(fbsutils.Convert(e.Role(), t.FlatBuffer.TableKey)))
-	t.School = School(int32(fbsutils.Convert(e.School(), t.FlatBuffer.TableKey)))
 	t.WeaponType = WeaponType(int32(fbsutils.Convert(e.WeaponType(), t.FlatBuffer.TableKey)))
+	t.School = School(int32(fbsutils.Convert(e.School(), t.FlatBuffer.TableKey)))
+	t.Club = Club(int32(fbsutils.Convert(e.Club(), t.FlatBuffer.TableKey)))
+	t.Role = TacticRole(int32(fbsutils.Convert(e.Role(), t.FlatBuffer.TableKey)))
 	return nil
 }
 

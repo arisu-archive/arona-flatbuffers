@@ -1,9 +1,9 @@
 namespace FlatData;
 
 table SpineLipsyncExcel {
+    voice_id: uint;
     anim_json: string;
     anim_json_kr: string;
-    voice_id: uint;
 }
 
 root_type SpineLipsyncExcel;

@@ -41,16 +41,16 @@ func (rcv *ConquestPlayGuideExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConquestPlayGuideExcel) DisplayOrder() int32 {
+func (rcv *ConquestPlayGuideExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConquestPlayGuideExcel) MutateDisplayOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
+func (rcv *ConquestPlayGuideExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *ConquestPlayGuideExcel) EventContentId() int64 {
@@ -65,15 +65,19 @@ func (rcv *ConquestPlayGuideExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *ConquestPlayGuideExcel) GuideImagePath() []byte {
+func (rcv *ConquestPlayGuideExcel) DisplayOrder() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *ConquestPlayGuideExcel) GuideText() []byte {
+func (rcv *ConquestPlayGuideExcel) MutateDisplayOrder(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *ConquestPlayGuideExcel) GuideTitle() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -81,7 +85,7 @@ func (rcv *ConquestPlayGuideExcel) GuideText() []byte {
 	return nil
 }
 
-func (rcv *ConquestPlayGuideExcel) GuideTitle() []byte {
+func (rcv *ConquestPlayGuideExcel) GuideImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -89,38 +93,34 @@ func (rcv *ConquestPlayGuideExcel) GuideTitle() []byte {
 	return nil
 }
 
-func (rcv *ConquestPlayGuideExcel) Id() int64 {
+func (rcv *ConquestPlayGuideExcel) GuideText() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *ConquestPlayGuideExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
+	return nil
 }
 
 func ConquestPlayGuideExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func ConquestPlayGuideExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int32) {
-	builder.PrependInt32Slot(0, displayOrder, 0)
+func ConquestPlayGuideExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(0, id, 0)
 }
 func ConquestPlayGuideExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(1, eventContentId, 0)
 }
-func ConquestPlayGuideExcelAddGuideImagePath(builder *flatbuffers.Builder, guideImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(guideImagePath), 0)
-}
-func ConquestPlayGuideExcelAddGuideText(builder *flatbuffers.Builder, guideText flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(guideText), 0)
+func ConquestPlayGuideExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int32) {
+	builder.PrependInt32Slot(2, displayOrder, 0)
 }
 func ConquestPlayGuideExcelAddGuideTitle(builder *flatbuffers.Builder, guideTitle flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(guideTitle), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(guideTitle), 0)
 }
-func ConquestPlayGuideExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(5, id, 0)
+func ConquestPlayGuideExcelAddGuideImagePath(builder *flatbuffers.Builder, guideImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(guideImagePath), 0)
+}
+func ConquestPlayGuideExcelAddGuideText(builder *flatbuffers.Builder, guideText flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(guideText), 0)
 }
 func ConquestPlayGuideExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

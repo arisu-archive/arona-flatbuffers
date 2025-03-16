@@ -25,21 +25,21 @@ class MiniGameDreamDailyPointExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MiniGameDreamDailyPointExcel
-    def DailyPointCoefficient(self):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameDreamDailyPointExcel
-    def DailyPointCorrectionValue(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameDreamDailyPointExcel
-    def EventContentId(self):
+    def TotalParameterMin(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -53,14 +53,14 @@ class MiniGameDreamDailyPointExcel(object):
         return 0
 
     # MiniGameDreamDailyPointExcel
-    def TotalParameterMin(self):
+    def DailyPointCoefficient(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameDreamDailyPointExcel
-    def UniqueId(self):
+    def DailyPointCorrectionValue(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -72,23 +72,23 @@ def MiniGameDreamDailyPointExcelStart(builder):
 def Start(builder):
     MiniGameDreamDailyPointExcelStart(builder)
 
-def MiniGameDreamDailyPointExcelAddDailyPointCoefficient(builder, dailyPointCoefficient):
-    builder.PrependInt64Slot(0, dailyPointCoefficient, 0)
+def MiniGameDreamDailyPointExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(0, uniqueId, 0)
 
-def AddDailyPointCoefficient(builder, dailyPointCoefficient):
-    MiniGameDreamDailyPointExcelAddDailyPointCoefficient(builder, dailyPointCoefficient)
-
-def MiniGameDreamDailyPointExcelAddDailyPointCorrectionValue(builder, dailyPointCorrectionValue):
-    builder.PrependInt64Slot(1, dailyPointCorrectionValue, 0)
-
-def AddDailyPointCorrectionValue(builder, dailyPointCorrectionValue):
-    MiniGameDreamDailyPointExcelAddDailyPointCorrectionValue(builder, dailyPointCorrectionValue)
+def AddUniqueId(builder, uniqueId):
+    MiniGameDreamDailyPointExcelAddUniqueId(builder, uniqueId)
 
 def MiniGameDreamDailyPointExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(2, eventContentId, 0)
+    builder.PrependInt64Slot(1, eventContentId, 0)
 
 def AddEventContentId(builder, eventContentId):
     MiniGameDreamDailyPointExcelAddEventContentId(builder, eventContentId)
+
+def MiniGameDreamDailyPointExcelAddTotalParameterMin(builder, totalParameterMin):
+    builder.PrependInt64Slot(2, totalParameterMin, 0)
+
+def AddTotalParameterMin(builder, totalParameterMin):
+    MiniGameDreamDailyPointExcelAddTotalParameterMin(builder, totalParameterMin)
 
 def MiniGameDreamDailyPointExcelAddTotalParameterMax(builder, totalParameterMax):
     builder.PrependInt64Slot(3, totalParameterMax, 0)
@@ -96,17 +96,17 @@ def MiniGameDreamDailyPointExcelAddTotalParameterMax(builder, totalParameterMax)
 def AddTotalParameterMax(builder, totalParameterMax):
     MiniGameDreamDailyPointExcelAddTotalParameterMax(builder, totalParameterMax)
 
-def MiniGameDreamDailyPointExcelAddTotalParameterMin(builder, totalParameterMin):
-    builder.PrependInt64Slot(4, totalParameterMin, 0)
+def MiniGameDreamDailyPointExcelAddDailyPointCoefficient(builder, dailyPointCoefficient):
+    builder.PrependInt64Slot(4, dailyPointCoefficient, 0)
 
-def AddTotalParameterMin(builder, totalParameterMin):
-    MiniGameDreamDailyPointExcelAddTotalParameterMin(builder, totalParameterMin)
+def AddDailyPointCoefficient(builder, dailyPointCoefficient):
+    MiniGameDreamDailyPointExcelAddDailyPointCoefficient(builder, dailyPointCoefficient)
 
-def MiniGameDreamDailyPointExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(5, uniqueId, 0)
+def MiniGameDreamDailyPointExcelAddDailyPointCorrectionValue(builder, dailyPointCorrectionValue):
+    builder.PrependInt64Slot(5, dailyPointCorrectionValue, 0)
 
-def AddUniqueId(builder, uniqueId):
-    MiniGameDreamDailyPointExcelAddUniqueId(builder, uniqueId)
+def AddDailyPointCorrectionValue(builder, dailyPointCorrectionValue):
+    MiniGameDreamDailyPointExcelAddDailyPointCorrectionValue(builder, dailyPointCorrectionValue)
 
 def MiniGameDreamDailyPointExcelEnd(builder):
     return builder.EndObject()

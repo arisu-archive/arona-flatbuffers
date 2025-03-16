@@ -25,59 +25,39 @@ class ArenaRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ArenaRewardExcel
-    def ArenaRewardType(self):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ArenaRewardExcel
-    def RankEnd(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ArenaRewardExcel
-    def RankIconPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+    def ArenaRewardType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # ArenaRewardExcel
     def RankStart(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ArenaRewardExcel
+    def RankEnd(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ArenaRewardExcel
-    def RewardParcelAmount(self, j):
+    def RankIconPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # ArenaRewardExcel
-    def RewardParcelAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # ArenaRewardExcel
-    def RewardParcelAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # ArenaRewardExcel
-    def RewardParcelAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        return o == 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # ArenaRewardExcel
     def RewardParcelType(self, j):
@@ -154,11 +134,31 @@ class ArenaRewardExcel(object):
         return o == 0
 
     # ArenaRewardExcel
-    def UniqueId(self):
+    def RewardParcelAmount(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
+
+    # ArenaRewardExcel
+    def RewardParcelAmountAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # ArenaRewardExcel
+    def RewardParcelAmountLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ArenaRewardExcel
+    def RewardParcelAmountIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        return o == 0
 
 def ArenaRewardExcelStart(builder):
     builder.StartObject(9)
@@ -166,41 +166,35 @@ def ArenaRewardExcelStart(builder):
 def Start(builder):
     ArenaRewardExcelStart(builder)
 
+def ArenaRewardExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(0, uniqueId, 0)
+
+def AddUniqueId(builder, uniqueId):
+    ArenaRewardExcelAddUniqueId(builder, uniqueId)
+
 def ArenaRewardExcelAddArenaRewardType(builder, arenaRewardType):
-    builder.PrependInt32Slot(0, arenaRewardType, 0)
+    builder.PrependInt32Slot(1, arenaRewardType, 0)
 
 def AddArenaRewardType(builder, arenaRewardType):
     ArenaRewardExcelAddArenaRewardType(builder, arenaRewardType)
 
+def ArenaRewardExcelAddRankStart(builder, rankStart):
+    builder.PrependInt64Slot(2, rankStart, 0)
+
+def AddRankStart(builder, rankStart):
+    ArenaRewardExcelAddRankStart(builder, rankStart)
+
 def ArenaRewardExcelAddRankEnd(builder, rankEnd):
-    builder.PrependInt64Slot(1, rankEnd, 0)
+    builder.PrependInt64Slot(3, rankEnd, 0)
 
 def AddRankEnd(builder, rankEnd):
     ArenaRewardExcelAddRankEnd(builder, rankEnd)
 
 def ArenaRewardExcelAddRankIconPath(builder, rankIconPath):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(rankIconPath), 0)
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rankIconPath), 0)
 
 def AddRankIconPath(builder, rankIconPath):
     ArenaRewardExcelAddRankIconPath(builder, rankIconPath)
-
-def ArenaRewardExcelAddRankStart(builder, rankStart):
-    builder.PrependInt64Slot(3, rankStart, 0)
-
-def AddRankStart(builder, rankStart):
-    ArenaRewardExcelAddRankStart(builder, rankStart)
-
-def ArenaRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
-
-def AddRewardParcelAmount(builder, rewardParcelAmount):
-    ArenaRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-
-def ArenaRewardExcelStartRewardParcelAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
-def StartRewardParcelAmountVector(builder, numElems):
-    return ArenaRewardExcelStartRewardParcelAmountVector(builder, numElems)
 
 def ArenaRewardExcelAddRewardParcelType(builder, rewardParcelType):
     builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
@@ -238,11 +232,17 @@ def ArenaRewardExcelStartRewardParcelUniqueNameVector(builder, numElems):
 def StartRewardParcelUniqueNameVector(builder, numElems):
     return ArenaRewardExcelStartRewardParcelUniqueNameVector(builder, numElems)
 
-def ArenaRewardExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(8, uniqueId, 0)
+def ArenaRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
 
-def AddUniqueId(builder, uniqueId):
-    ArenaRewardExcelAddUniqueId(builder, uniqueId)
+def AddRewardParcelAmount(builder, rewardParcelAmount):
+    ArenaRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+
+def ArenaRewardExcelStartRewardParcelAmountVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartRewardParcelAmountVector(builder, numElems):
+    return ArenaRewardExcelStartRewardParcelAmountVector(builder, numElems)
 
 def ArenaRewardExcelEnd(builder):
     return builder.EndObject()

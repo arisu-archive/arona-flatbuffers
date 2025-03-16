@@ -41,7 +41,7 @@ func (rcv *KatakanaConvertExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *KatakanaConvertExcel) Jp() []byte {
+func (rcv *KatakanaConvertExcel) Kr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -49,7 +49,7 @@ func (rcv *KatakanaConvertExcel) Jp() []byte {
 	return nil
 }
 
-func (rcv *KatakanaConvertExcel) Kr() []byte {
+func (rcv *KatakanaConvertExcel) Jp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -60,11 +60,11 @@ func (rcv *KatakanaConvertExcel) Kr() []byte {
 func KatakanaConvertExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func KatakanaConvertExcelAddJp(builder *flatbuffers.Builder, jp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(jp), 0)
-}
 func KatakanaConvertExcelAddKr(builder *flatbuffers.Builder, kr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(kr), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(kr), 0)
+}
+func KatakanaConvertExcelAddJp(builder *flatbuffers.Builder, jp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(jp), 0)
 }
 func KatakanaConvertExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

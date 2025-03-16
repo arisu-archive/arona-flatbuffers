@@ -3,15 +3,15 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table EventContentTreasureRewardExcel {
-    cell_under_image_height: int;
-    cell_under_image_path: string;
-    cell_under_image_width: int;
-    hidden_image: bool;
     id: long;
     localize_code_id: string;
-    reward_parcel_amount: [long];
-    reward_parcel_id: [long];
+    cell_under_image_width: int;
+    cell_under_image_height: int;
+    hidden_image: bool;
     reward_parcel_type: [ParcelType];
+    reward_parcel_id: [long];
+    reward_parcel_amount: [long];
+    cell_under_image_path: string;
     treasure_small_image_path: string;
 }
 

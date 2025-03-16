@@ -10,12 +10,12 @@ import (
 // EventContentPlayGuideExcelDto represents a FlatBuffers table
 type EventContentPlayGuideExcelDto struct {
 	fbsutils.FlatBuffer
-	DisplayOrder   int32  `json:"display_order"`
+	Id             int64  `json:"id"`
 	EventContentId int64  `json:"event_content_id"`
+	DisplayOrder   int32  `json:"display_order"`
+	GuideTitle     string `json:"guide_title"`
 	GuideImagePath string `json:"guide_image_path"`
 	GuideText      string `json:"guide_text"`
-	GuideTitle     string `json:"guide_title"`
-	Id             int64  `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,12 +24,12 @@ func (t *EventContentPlayGuideExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentPlayGuide"))
 	}
 	EventContentPlayGuideExcelStart(b)
-	EventContentPlayGuideExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	EventContentPlayGuideExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentPlayGuideExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentPlayGuideExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	EventContentPlayGuideExcelAddGuideTitle(b, fbsutils.Convert(b.CreateString(t.GuideTitle), t.FlatBuffer.TableKey))
 	EventContentPlayGuideExcelAddGuideImagePath(b, fbsutils.Convert(b.CreateString(t.GuideImagePath), t.FlatBuffer.TableKey))
 	EventContentPlayGuideExcelAddGuideText(b, fbsutils.Convert(b.CreateString(t.GuideText), t.FlatBuffer.TableKey))
-	EventContentPlayGuideExcelAddGuideTitle(b, fbsutils.Convert(b.CreateString(t.GuideTitle), t.FlatBuffer.TableKey))
-	EventContentPlayGuideExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return EventContentPlayGuideExcelEnd(b)
 }
 
@@ -45,12 +45,12 @@ func (t *EventContentPlayGuideExcelDto) UnmarshalMessage(e *EventContentPlayGuid
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentPlayGuide"))
 	}
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.GuideTitle = fbsutils.Convert(string(e.GuideTitle()), t.FlatBuffer.TableKey)
 	t.GuideImagePath = fbsutils.Convert(string(e.GuideImagePath()), t.FlatBuffer.TableKey)
 	t.GuideText = fbsutils.Convert(string(e.GuideText()), t.FlatBuffer.TableKey)
-	t.GuideTitle = fbsutils.Convert(string(e.GuideTitle()), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

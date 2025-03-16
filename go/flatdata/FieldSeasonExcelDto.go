@@ -10,15 +10,15 @@ import (
 // FieldSeasonExcelDto represents a FlatBuffers table
 type FieldSeasonExcelDto struct {
 	fbsutils.FlatBuffer
-	CharacterIconPath     string `json:"character_icon_path"`
-	EndDate               string `json:"end_date"`
-	EntryDateId           int64  `json:"entry_date_id"`
-	EventContentId        int64  `json:"event_content_id"`
-	InstantEntryDateId    int64  `json:"instant_entry_date_id"`
-	LobbyBgmChangeStageId int64  `json:"lobby_bgm_change_stage_id"`
-	MasteryImagePath      string `json:"mastery_image_path"`
-	StartDate             string `json:"start_date"`
 	UniqueId              int64  `json:"unique_id"`
+	EventContentId        int64  `json:"event_content_id"`
+	EntryDateId           int64  `json:"entry_date_id"`
+	InstantEntryDateId    int64  `json:"instant_entry_date_id"`
+	StartDate             string `json:"start_date"`
+	EndDate               string `json:"end_date"`
+	LobbyBgmChangeStageId int64  `json:"lobby_bgm_change_stage_id"`
+	CharacterIconPath     string `json:"character_icon_path"`
+	MasteryImagePath      string `json:"mastery_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,15 +27,15 @@ func (t *FieldSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeason"))
 	}
 	FieldSeasonExcelStart(b)
-	FieldSeasonExcelAddCharacterIconPath(b, fbsutils.Convert(b.CreateString(t.CharacterIconPath), t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddEntryDateId(b, fbsutils.Convert(t.EntryDateId, t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddInstantEntryDateId(b, fbsutils.Convert(t.InstantEntryDateId, t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddLobbyBgmChangeStageId(b, fbsutils.Convert(t.LobbyBgmChangeStageId, t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddMasteryImagePath(b, fbsutils.Convert(b.CreateString(t.MasteryImagePath), t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddStartDate(b, fbsutils.Convert(b.CreateString(t.StartDate), t.FlatBuffer.TableKey))
 	FieldSeasonExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddEntryDateId(b, fbsutils.Convert(t.EntryDateId, t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddInstantEntryDateId(b, fbsutils.Convert(t.InstantEntryDateId, t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddStartDate(b, fbsutils.Convert(b.CreateString(t.StartDate), t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddLobbyBgmChangeStageId(b, fbsutils.Convert(t.LobbyBgmChangeStageId, t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddCharacterIconPath(b, fbsutils.Convert(b.CreateString(t.CharacterIconPath), t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddMasteryImagePath(b, fbsutils.Convert(b.CreateString(t.MasteryImagePath), t.FlatBuffer.TableKey))
 	return FieldSeasonExcelEnd(b)
 }
 
@@ -51,15 +51,15 @@ func (t *FieldSeasonExcelDto) UnmarshalMessage(e *FieldSeasonExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldSeason"))
 	}
-	t.CharacterIconPath = fbsutils.Convert(string(e.CharacterIconPath()), t.FlatBuffer.TableKey)
-	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
-	t.EntryDateId = fbsutils.Convert(e.EntryDateId(), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.InstantEntryDateId = fbsutils.Convert(e.InstantEntryDateId(), t.FlatBuffer.TableKey)
-	t.LobbyBgmChangeStageId = fbsutils.Convert(e.LobbyBgmChangeStageId(), t.FlatBuffer.TableKey)
-	t.MasteryImagePath = fbsutils.Convert(string(e.MasteryImagePath()), t.FlatBuffer.TableKey)
-	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.EntryDateId = fbsutils.Convert(e.EntryDateId(), t.FlatBuffer.TableKey)
+	t.InstantEntryDateId = fbsutils.Convert(e.InstantEntryDateId(), t.FlatBuffer.TableKey)
+	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
+	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
+	t.LobbyBgmChangeStageId = fbsutils.Convert(e.LobbyBgmChangeStageId(), t.FlatBuffer.TableKey)
+	t.CharacterIconPath = fbsutils.Convert(string(e.CharacterIconPath()), t.FlatBuffer.TableKey)
+	t.MasteryImagePath = fbsutils.Convert(string(e.MasteryImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

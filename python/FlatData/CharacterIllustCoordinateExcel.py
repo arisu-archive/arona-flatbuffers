@@ -25,42 +25,42 @@ class CharacterIllustCoordinateExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CharacterIllustCoordinateExcel
-    def CharacterBodyCenterX(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # CharacterIllustCoordinateExcel
-    def CharacterBodyCenterY(self):
+    def CharacterBodyCenterX(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # CharacterIllustCoordinateExcel
-    def DefaultScale(self):
+    def CharacterBodyCenterY(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # CharacterIllustCoordinateExcel
-    def Id(self):
+    def DefaultScale(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CharacterIllustCoordinateExcel
-    def MaxScale(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # CharacterIllustCoordinateExcel
     def MinScale(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # CharacterIllustCoordinateExcel
+    def MaxScale(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
@@ -72,41 +72,41 @@ def CharacterIllustCoordinateExcelStart(builder):
 def Start(builder):
     CharacterIllustCoordinateExcelStart(builder)
 
+def CharacterIllustCoordinateExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
+def AddId(builder, id):
+    CharacterIllustCoordinateExcelAddId(builder, id)
+
 def CharacterIllustCoordinateExcelAddCharacterBodyCenterX(builder, characterBodyCenterX):
-    builder.PrependFloat32Slot(0, characterBodyCenterX, 0.0)
+    builder.PrependFloat32Slot(1, characterBodyCenterX, 0.0)
 
 def AddCharacterBodyCenterX(builder, characterBodyCenterX):
     CharacterIllustCoordinateExcelAddCharacterBodyCenterX(builder, characterBodyCenterX)
 
 def CharacterIllustCoordinateExcelAddCharacterBodyCenterY(builder, characterBodyCenterY):
-    builder.PrependFloat32Slot(1, characterBodyCenterY, 0.0)
+    builder.PrependFloat32Slot(2, characterBodyCenterY, 0.0)
 
 def AddCharacterBodyCenterY(builder, characterBodyCenterY):
     CharacterIllustCoordinateExcelAddCharacterBodyCenterY(builder, characterBodyCenterY)
 
 def CharacterIllustCoordinateExcelAddDefaultScale(builder, defaultScale):
-    builder.PrependFloat32Slot(2, defaultScale, 0.0)
+    builder.PrependFloat32Slot(3, defaultScale, 0.0)
 
 def AddDefaultScale(builder, defaultScale):
     CharacterIllustCoordinateExcelAddDefaultScale(builder, defaultScale)
 
-def CharacterIllustCoordinateExcelAddId(builder, id):
-    builder.PrependInt64Slot(3, id, 0)
-
-def AddId(builder, id):
-    CharacterIllustCoordinateExcelAddId(builder, id)
-
-def CharacterIllustCoordinateExcelAddMaxScale(builder, maxScale):
-    builder.PrependFloat32Slot(4, maxScale, 0.0)
-
-def AddMaxScale(builder, maxScale):
-    CharacterIllustCoordinateExcelAddMaxScale(builder, maxScale)
-
 def CharacterIllustCoordinateExcelAddMinScale(builder, minScale):
-    builder.PrependFloat32Slot(5, minScale, 0.0)
+    builder.PrependFloat32Slot(4, minScale, 0.0)
 
 def AddMinScale(builder, minScale):
     CharacterIllustCoordinateExcelAddMinScale(builder, minScale)
+
+def CharacterIllustCoordinateExcelAddMaxScale(builder, maxScale):
+    builder.PrependFloat32Slot(5, maxScale, 0.0)
+
+def AddMaxScale(builder, maxScale):
+    CharacterIllustCoordinateExcelAddMaxScale(builder, maxScale)
 
 def CharacterIllustCoordinateExcelEnd(builder):
     return builder.EndObject()

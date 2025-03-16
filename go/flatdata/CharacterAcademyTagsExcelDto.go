@@ -10,11 +10,11 @@ import (
 // CharacterAcademyTagsExcelDto represents a FlatBuffers table
 type CharacterAcademyTagsExcelDto struct {
 	fbsutils.FlatBuffer
+	Id                  int64 `json:"id"`
+	FavorTags           []Tag `json:"favor_tags"`
 	FavorItemTags       []Tag `json:"favor_item_tags"`
 	FavorItemUniqueTags []Tag `json:"favor_item_unique_tags"`
-	FavorTags           []Tag `json:"favor_tags"`
 	ForbiddenTags       []Tag `json:"forbidden_tags"`
-	Id                  int64 `json:"id"`
 	ZoneWhiteListTags   []Tag `json:"zone_white_list_tags"`
 }
 
@@ -24,6 +24,12 @@ func (t *CharacterAcademyTagsExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAcademyTags"))
 	}
 	CharacterAcademyTagsExcelStart(b)
+	CharacterAcademyTagsExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	CharacterAcademyTagsExcelStartFavorTagsVector(b, len(t.FavorTags))
+	for i := range len(t.FavorTags) {
+		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.FavorTags[len(t.FavorTags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+	}
+	CharacterAcademyTagsExcelAddFavorTags(b, b.EndVector(len(t.FavorTags)))
 	CharacterAcademyTagsExcelStartFavorItemTagsVector(b, len(t.FavorItemTags))
 	for i := range len(t.FavorItemTags) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.FavorItemTags[len(t.FavorItemTags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
@@ -34,17 +40,11 @@ func (t *CharacterAcademyTagsExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.FavorItemUniqueTags[len(t.FavorItemUniqueTags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
 	}
 	CharacterAcademyTagsExcelAddFavorItemUniqueTags(b, b.EndVector(len(t.FavorItemUniqueTags)))
-	CharacterAcademyTagsExcelStartFavorTagsVector(b, len(t.FavorTags))
-	for i := range len(t.FavorTags) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.FavorTags[len(t.FavorTags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
-	}
-	CharacterAcademyTagsExcelAddFavorTags(b, b.EndVector(len(t.FavorTags)))
 	CharacterAcademyTagsExcelStartForbiddenTagsVector(b, len(t.ForbiddenTags))
 	for i := range len(t.ForbiddenTags) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ForbiddenTags[len(t.ForbiddenTags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
 	}
 	CharacterAcademyTagsExcelAddForbiddenTags(b, b.EndVector(len(t.ForbiddenTags)))
-	CharacterAcademyTagsExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CharacterAcademyTagsExcelStartZoneWhiteListTagsVector(b, len(t.ZoneWhiteListTags))
 	for i := range len(t.ZoneWhiteListTags) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ZoneWhiteListTags[len(t.ZoneWhiteListTags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
@@ -65,6 +65,11 @@ func (t *CharacterAcademyTagsExcelDto) UnmarshalMessage(e *CharacterAcademyTagsE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAcademyTags"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.FavorTags = make([]Tag, e.FavorTagsLength())
+	for i := range e.FavorTagsLength() {
+		t.FavorTags[i] = e.FavorTags(i)
+	}
 	t.FavorItemTags = make([]Tag, e.FavorItemTagsLength())
 	for i := range e.FavorItemTagsLength() {
 		t.FavorItemTags[i] = e.FavorItemTags(i)
@@ -73,15 +78,10 @@ func (t *CharacterAcademyTagsExcelDto) UnmarshalMessage(e *CharacterAcademyTagsE
 	for i := range e.FavorItemUniqueTagsLength() {
 		t.FavorItemUniqueTags[i] = e.FavorItemUniqueTags(i)
 	}
-	t.FavorTags = make([]Tag, e.FavorTagsLength())
-	for i := range e.FavorTagsLength() {
-		t.FavorTags[i] = e.FavorTags(i)
-	}
 	t.ForbiddenTags = make([]Tag, e.ForbiddenTagsLength())
 	for i := range e.ForbiddenTagsLength() {
 		t.ForbiddenTags[i] = e.ForbiddenTags(i)
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ZoneWhiteListTags = make([]Tag, e.ZoneWhiteListTagsLength())
 	for i := range e.ZoneWhiteListTagsLength() {
 		t.ZoneWhiteListTags[i] = e.ZoneWhiteListTags(i)

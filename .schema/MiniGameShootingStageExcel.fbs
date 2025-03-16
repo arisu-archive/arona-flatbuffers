@@ -3,15 +3,15 @@ include "Difficulty.fbs";
 namespace FlatData;
 
 table MiniGameShootingStageExcel {
-    art_level: string;
+    unique_id: long;
     bgm_id: [long];
-    camera_size_rate: float;
     cost_goods_id: long;
+    difficulty: Difficulty;
+    design_level: string;
+    art_level: string;
+    start_battle_duration: long;
     default_battle_duration: long;
     default_logic_effect: string;
-    design_level: string;
-    difficulty: Difficulty;
+    camera_size_rate: float;
     event_content_stage_reward_id: long;
-    start_battle_duration: long;
-    unique_id: long;
 }

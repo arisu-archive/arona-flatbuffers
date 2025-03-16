@@ -10,14 +10,14 @@ import (
 // ClanAssistSlotExcelDto represents a FlatBuffers table
 type ClanAssistSlotExcelDto struct {
 	fbsutils.FlatBuffer
+	SlotId                        int64       `json:"slot_id"`
+	EchelonType                   EchelonType `json:"echelon_type"`
+	SlotNumber                    int64       `json:"slot_number"`
+	AssistTermRewardPeriodFromSec int64       `json:"assist_term_reward_period_from_sec"`
+	AssistRewardLimit             int64       `json:"assist_reward_limit"`
+	AssistRentRewardDailyMaxCount int64       `json:"assist_rent_reward_daily_max_count"`
 	AssistRentalFeeAmount         int64       `json:"assist_rental_fee_amount"`
 	AssistRentalFeeAmountStranger int64       `json:"assist_rental_fee_amount_stranger"`
-	AssistRentRewardDailyMaxCount int64       `json:"assist_rent_reward_daily_max_count"`
-	AssistRewardLimit             int64       `json:"assist_reward_limit"`
-	AssistTermRewardPeriodFromSec int64       `json:"assist_term_reward_period_from_sec"`
-	EchelonType                   EchelonType `json:"echelon_type"`
-	SlotId                        int64       `json:"slot_id"`
-	SlotNumber                    int64       `json:"slot_number"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,14 +26,14 @@ func (t *ClanAssistSlotExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanAssistSlot"))
 	}
 	ClanAssistSlotExcelStart(b)
+	ClanAssistSlotExcelAddSlotId(b, fbsutils.Convert(t.SlotId, t.FlatBuffer.TableKey))
+	ClanAssistSlotExcelAddEchelonType(b, fbsutils.Convert(t.EchelonType, t.FlatBuffer.TableKey))
+	ClanAssistSlotExcelAddSlotNumber(b, fbsutils.Convert(t.SlotNumber, t.FlatBuffer.TableKey))
+	ClanAssistSlotExcelAddAssistTermRewardPeriodFromSec(b, fbsutils.Convert(t.AssistTermRewardPeriodFromSec, t.FlatBuffer.TableKey))
+	ClanAssistSlotExcelAddAssistRewardLimit(b, fbsutils.Convert(t.AssistRewardLimit, t.FlatBuffer.TableKey))
+	ClanAssistSlotExcelAddAssistRentRewardDailyMaxCount(b, fbsutils.Convert(t.AssistRentRewardDailyMaxCount, t.FlatBuffer.TableKey))
 	ClanAssistSlotExcelAddAssistRentalFeeAmount(b, fbsutils.Convert(t.AssistRentalFeeAmount, t.FlatBuffer.TableKey))
 	ClanAssistSlotExcelAddAssistRentalFeeAmountStranger(b, fbsutils.Convert(t.AssistRentalFeeAmountStranger, t.FlatBuffer.TableKey))
-	ClanAssistSlotExcelAddAssistRentRewardDailyMaxCount(b, fbsutils.Convert(t.AssistRentRewardDailyMaxCount, t.FlatBuffer.TableKey))
-	ClanAssistSlotExcelAddAssistRewardLimit(b, fbsutils.Convert(t.AssistRewardLimit, t.FlatBuffer.TableKey))
-	ClanAssistSlotExcelAddAssistTermRewardPeriodFromSec(b, fbsutils.Convert(t.AssistTermRewardPeriodFromSec, t.FlatBuffer.TableKey))
-	ClanAssistSlotExcelAddEchelonType(b, fbsutils.Convert(t.EchelonType, t.FlatBuffer.TableKey))
-	ClanAssistSlotExcelAddSlotId(b, fbsutils.Convert(t.SlotId, t.FlatBuffer.TableKey))
-	ClanAssistSlotExcelAddSlotNumber(b, fbsutils.Convert(t.SlotNumber, t.FlatBuffer.TableKey))
 	return ClanAssistSlotExcelEnd(b)
 }
 
@@ -49,14 +49,14 @@ func (t *ClanAssistSlotExcelDto) UnmarshalMessage(e *ClanAssistSlotExcel) error 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanAssistSlot"))
 	}
+	t.SlotId = fbsutils.Convert(e.SlotId(), t.FlatBuffer.TableKey)
+	t.EchelonType = EchelonType(int32(fbsutils.Convert(e.EchelonType(), t.FlatBuffer.TableKey)))
+	t.SlotNumber = fbsutils.Convert(e.SlotNumber(), t.FlatBuffer.TableKey)
+	t.AssistTermRewardPeriodFromSec = fbsutils.Convert(e.AssistTermRewardPeriodFromSec(), t.FlatBuffer.TableKey)
+	t.AssistRewardLimit = fbsutils.Convert(e.AssistRewardLimit(), t.FlatBuffer.TableKey)
+	t.AssistRentRewardDailyMaxCount = fbsutils.Convert(e.AssistRentRewardDailyMaxCount(), t.FlatBuffer.TableKey)
 	t.AssistRentalFeeAmount = fbsutils.Convert(e.AssistRentalFeeAmount(), t.FlatBuffer.TableKey)
 	t.AssistRentalFeeAmountStranger = fbsutils.Convert(e.AssistRentalFeeAmountStranger(), t.FlatBuffer.TableKey)
-	t.AssistRentRewardDailyMaxCount = fbsutils.Convert(e.AssistRentRewardDailyMaxCount(), t.FlatBuffer.TableKey)
-	t.AssistRewardLimit = fbsutils.Convert(e.AssistRewardLimit(), t.FlatBuffer.TableKey)
-	t.AssistTermRewardPeriodFromSec = fbsutils.Convert(e.AssistTermRewardPeriodFromSec(), t.FlatBuffer.TableKey)
-	t.EchelonType = EchelonType(int32(fbsutils.Convert(e.EchelonType(), t.FlatBuffer.TableKey)))
-	t.SlotId = fbsutils.Convert(e.SlotId(), t.FlatBuffer.TableKey)
-	t.SlotNumber = fbsutils.Convert(e.SlotNumber(), t.FlatBuffer.TableKey)
 	return nil
 }
 

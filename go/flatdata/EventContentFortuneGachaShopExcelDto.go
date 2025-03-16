@@ -10,18 +10,18 @@ import (
 // EventContentFortuneGachaShopExcelDto represents a FlatBuffers table
 type EventContentFortuneGachaShopExcelDto struct {
 	fbsutils.FlatBuffer
-	CostGoodsId         int64        `json:"cost_goods_id"`
 	EventContentId      int64        `json:"event_content_id"`
-	FortuneGachaGroupId int32        `json:"fortune_gacha_group_id"`
-	Grade               int32        `json:"grade"`
 	Id                  int64        `json:"id"`
+	Grade               int32        `json:"grade"`
+	CostGoodsId         int64        `json:"cost_goods_id"`
 	IsLegacy            bool         `json:"is_legacy"`
+	FortuneGachaGroupId int32        `json:"fortune_gacha_group_id"`
 	Prob                int32        `json:"prob"`
-	ProbModifyLimit     int32        `json:"prob_modify_limit"`
 	ProbModifyValue     int32        `json:"prob_modify_value"`
-	RewardParcelAmount  []int64      `json:"reward_parcel_amount"`
-	RewardParcelId      []int64      `json:"reward_parcel_id"`
+	ProbModifyLimit     int32        `json:"prob_modify_limit"`
 	RewardParcelType    []ParcelType `json:"reward_parcel_type"`
+	RewardParcelId      []int64      `json:"reward_parcel_id"`
+	RewardParcelAmount  []int64      `json:"reward_parcel_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -30,30 +30,30 @@ func (t *EventContentFortuneGachaShopExcelDto) MarshalModel(b *flatbuffers.Build
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentFortuneGachaShop"))
 	}
 	EventContentFortuneGachaShopExcelStart(b)
-	EventContentFortuneGachaShopExcelAddCostGoodsId(b, fbsutils.Convert(t.CostGoodsId, t.FlatBuffer.TableKey))
 	EventContentFortuneGachaShopExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentFortuneGachaShopExcelAddFortuneGachaGroupId(b, fbsutils.Convert(t.FortuneGachaGroupId, t.FlatBuffer.TableKey))
-	EventContentFortuneGachaShopExcelAddGrade(b, fbsutils.Convert(t.Grade, t.FlatBuffer.TableKey))
 	EventContentFortuneGachaShopExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	EventContentFortuneGachaShopExcelAddGrade(b, fbsutils.Convert(t.Grade, t.FlatBuffer.TableKey))
+	EventContentFortuneGachaShopExcelAddCostGoodsId(b, fbsutils.Convert(t.CostGoodsId, t.FlatBuffer.TableKey))
 	EventContentFortuneGachaShopExcelAddIsLegacy(b, fbsutils.Convert(t.IsLegacy, t.FlatBuffer.TableKey))
+	EventContentFortuneGachaShopExcelAddFortuneGachaGroupId(b, fbsutils.Convert(t.FortuneGachaGroupId, t.FlatBuffer.TableKey))
 	EventContentFortuneGachaShopExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
-	EventContentFortuneGachaShopExcelAddProbModifyLimit(b, fbsutils.Convert(t.ProbModifyLimit, t.FlatBuffer.TableKey))
 	EventContentFortuneGachaShopExcelAddProbModifyValue(b, fbsutils.Convert(t.ProbModifyValue, t.FlatBuffer.TableKey))
-	EventContentFortuneGachaShopExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
-	for i := range len(t.RewardParcelAmount) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentFortuneGachaShopExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
-	EventContentFortuneGachaShopExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
-	for i := range len(t.RewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentFortuneGachaShopExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	EventContentFortuneGachaShopExcelAddProbModifyLimit(b, fbsutils.Convert(t.ProbModifyLimit, t.FlatBuffer.TableKey))
 	EventContentFortuneGachaShopExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
 	}
 	EventContentFortuneGachaShopExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
+	EventContentFortuneGachaShopExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
+	for i := range len(t.RewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentFortuneGachaShopExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	EventContentFortuneGachaShopExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
+	for i := range len(t.RewardParcelAmount) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentFortuneGachaShopExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
 	return EventContentFortuneGachaShopExcelEnd(b)
 }
 
@@ -69,26 +69,26 @@ func (t *EventContentFortuneGachaShopExcelDto) UnmarshalMessage(e *EventContentF
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentFortuneGachaShop"))
 	}
-	t.CostGoodsId = fbsutils.Convert(e.CostGoodsId(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.FortuneGachaGroupId = fbsutils.Convert(e.FortuneGachaGroupId(), t.FlatBuffer.TableKey)
-	t.Grade = fbsutils.Convert(e.Grade(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.Grade = fbsutils.Convert(e.Grade(), t.FlatBuffer.TableKey)
+	t.CostGoodsId = fbsutils.Convert(e.CostGoodsId(), t.FlatBuffer.TableKey)
 	t.IsLegacy = fbsutils.Convert(e.IsLegacy(), t.FlatBuffer.TableKey)
+	t.FortuneGachaGroupId = fbsutils.Convert(e.FortuneGachaGroupId(), t.FlatBuffer.TableKey)
 	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
-	t.ProbModifyLimit = fbsutils.Convert(e.ProbModifyLimit(), t.FlatBuffer.TableKey)
 	t.ProbModifyValue = fbsutils.Convert(e.ProbModifyValue(), t.FlatBuffer.TableKey)
-	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
+	t.ProbModifyLimit = fbsutils.Convert(e.ProbModifyLimit(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
+	for i := range e.RewardParcelTypeLength() {
+		t.RewardParcelType[i] = e.RewardParcelType(i)
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
 		t.RewardParcelId[i] = e.RewardParcelId(i)
 	}
-	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
-	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = e.RewardParcelType(i)
+	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
 	}
 	return nil
 }

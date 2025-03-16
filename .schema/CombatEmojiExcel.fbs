@@ -3,14 +3,14 @@ include "EmojiEvent.fbs";
 namespace FlatData;
 
 table CombatEmojiExcel {
-    emoji_duration: bool;
+    unique_id: long;
     emoji_event: EmojiEvent;
+    order_of_priority: int;
+    emoji_duration: bool;
     emoji_reversal: bool;
     emoji_turn_on: bool;
-    order_of_priority: int;
-    show_default_bg: bool;
     show_emoji_delay: int;
-    unique_id: long;
+    show_default_bg: bool;
 }
 
 root_type CombatEmojiExcel;

@@ -53,7 +53,7 @@ func (rcv *ScenarioBGName_GlobalExcel) MutateGroupName(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(4, n)
 }
 
-func (rcv *ScenarioBGName_GlobalExcel) NameAsia() uint32 {
+func (rcv *ScenarioBGName_GlobalExcel) NameKr() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
@@ -61,11 +61,11 @@ func (rcv *ScenarioBGName_GlobalExcel) NameAsia() uint32 {
 	return 0
 }
 
-func (rcv *ScenarioBGName_GlobalExcel) MutateNameAsia(n uint32) bool {
+func (rcv *ScenarioBGName_GlobalExcel) MutateNameKr(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(6, n)
 }
 
-func (rcv *ScenarioBGName_GlobalExcel) NameGlobal() uint32 {
+func (rcv *ScenarioBGName_GlobalExcel) NameTw() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
@@ -73,11 +73,11 @@ func (rcv *ScenarioBGName_GlobalExcel) NameGlobal() uint32 {
 	return 0
 }
 
-func (rcv *ScenarioBGName_GlobalExcel) MutateNameGlobal(n uint32) bool {
+func (rcv *ScenarioBGName_GlobalExcel) MutateNameTw(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(8, n)
 }
 
-func (rcv *ScenarioBGName_GlobalExcel) NameKr() uint32 {
+func (rcv *ScenarioBGName_GlobalExcel) NameAsia() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
@@ -85,7 +85,7 @@ func (rcv *ScenarioBGName_GlobalExcel) NameKr() uint32 {
 	return 0
 }
 
-func (rcv *ScenarioBGName_GlobalExcel) MutateNameKr(n uint32) bool {
+func (rcv *ScenarioBGName_GlobalExcel) MutateNameAsia(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(10, n)
 }
 
@@ -101,7 +101,7 @@ func (rcv *ScenarioBGName_GlobalExcel) MutateNameNa(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(12, n)
 }
 
-func (rcv *ScenarioBGName_GlobalExcel) NameTeen() uint32 {
+func (rcv *ScenarioBGName_GlobalExcel) NameGlobal() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
@@ -109,11 +109,11 @@ func (rcv *ScenarioBGName_GlobalExcel) NameTeen() uint32 {
 	return 0
 }
 
-func (rcv *ScenarioBGName_GlobalExcel) MutateNameTeen(n uint32) bool {
+func (rcv *ScenarioBGName_GlobalExcel) MutateNameGlobal(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(14, n)
 }
 
-func (rcv *ScenarioBGName_GlobalExcel) NameTw() uint32 {
+func (rcv *ScenarioBGName_GlobalExcel) NameTeen() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
@@ -121,7 +121,7 @@ func (rcv *ScenarioBGName_GlobalExcel) NameTw() uint32 {
 	return 0
 }
 
-func (rcv *ScenarioBGName_GlobalExcel) MutateNameTw(n uint32) bool {
+func (rcv *ScenarioBGName_GlobalExcel) MutateNameTeen(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(16, n)
 }
 
@@ -131,23 +131,23 @@ func ScenarioBGName_GlobalExcelStart(builder *flatbuffers.Builder) {
 func ScenarioBGName_GlobalExcelAddGroupName(builder *flatbuffers.Builder, groupName uint32) {
 	builder.PrependUint32Slot(0, groupName, 0)
 }
-func ScenarioBGName_GlobalExcelAddNameAsia(builder *flatbuffers.Builder, nameAsia uint32) {
-	builder.PrependUint32Slot(1, nameAsia, 0)
-}
-func ScenarioBGName_GlobalExcelAddNameGlobal(builder *flatbuffers.Builder, nameGlobal uint32) {
-	builder.PrependUint32Slot(2, nameGlobal, 0)
-}
 func ScenarioBGName_GlobalExcelAddNameKr(builder *flatbuffers.Builder, nameKr uint32) {
-	builder.PrependUint32Slot(3, nameKr, 0)
+	builder.PrependUint32Slot(1, nameKr, 0)
+}
+func ScenarioBGName_GlobalExcelAddNameTw(builder *flatbuffers.Builder, nameTw uint32) {
+	builder.PrependUint32Slot(2, nameTw, 0)
+}
+func ScenarioBGName_GlobalExcelAddNameAsia(builder *flatbuffers.Builder, nameAsia uint32) {
+	builder.PrependUint32Slot(3, nameAsia, 0)
 }
 func ScenarioBGName_GlobalExcelAddNameNa(builder *flatbuffers.Builder, nameNa uint32) {
 	builder.PrependUint32Slot(4, nameNa, 0)
 }
-func ScenarioBGName_GlobalExcelAddNameTeen(builder *flatbuffers.Builder, nameTeen uint32) {
-	builder.PrependUint32Slot(5, nameTeen, 0)
+func ScenarioBGName_GlobalExcelAddNameGlobal(builder *flatbuffers.Builder, nameGlobal uint32) {
+	builder.PrependUint32Slot(5, nameGlobal, 0)
 }
-func ScenarioBGName_GlobalExcelAddNameTw(builder *flatbuffers.Builder, nameTw uint32) {
-	builder.PrependUint32Slot(6, nameTw, 0)
+func ScenarioBGName_GlobalExcelAddNameTeen(builder *flatbuffers.Builder, nameTeen uint32) {
+	builder.PrependUint32Slot(6, nameTeen, 0)
 }
 func ScenarioBGName_GlobalExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

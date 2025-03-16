@@ -4,10 +4,10 @@ namespace FlatData;
 
 table AcademyZoneExcel {
     id: long;
-    localize_etc_id: uint;
     location_id: long;
     location_rank_for_unlock: long;
-    reward_group_id: long;
+    localize_etc_id: uint;
     student_visit_prob: [long];
+    reward_group_id: long;
     tags: [Tag];
 }

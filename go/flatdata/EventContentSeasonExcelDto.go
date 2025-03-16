@@ -10,43 +10,43 @@ import (
 // EventContentSeasonExcelDto represents a FlatBuffers table
 type EventContentSeasonExcelDto struct {
 	fbsutils.FlatBuffer
-	BeforehandBgImagePath              string                  `json:"beforehand_bg_image_path"`
-	BeforehandExposedTime              string                  `json:"beforehand_exposed_time"`
-	BeforehandScenarioGroupId          []int64                 `json:"beforehand_scenario_group_id"`
-	CardBgImagePath                    string                  `json:"card_bg_image_path"`
-	EventAssist                        bool                    `json:"event_assist"`
-	EventChangeOpenCondition           int64                   `json:"event_change_open_condition"`
-	EventContentCloseTime              string                  `json:"event_content_close_time"`
 	EventContentId                     int64                   `json:"event_content_id"`
-	EventContentOpenTime               string                  `json:"event_content_open_time"`
-	EventContentReleaseType            EventContentReleaseType `json:"event_content_release_type"`
-	EventContentStageRewardIdPermanent int64                   `json:"event_content_stage_reward_id_permanent"`
-	EventContentType                   EventContentType        `json:"event_content_type"`
-	EventDisplay                       bool                    `json:"event_display"`
-	EventItemId                        int64                   `json:"event_item_id"`
-	ExtensionTime                      string                  `json:"extension_time"`
-	IconOrder                          int32                   `json:"icon_order"`
+	OriginalEventContentId             int64                   `json:"original_event_content_id"`
 	IsReturn                           bool                    `json:"is_return"`
+	Name                               string                  `json:"name"`
+	EventContentType                   EventContentType        `json:"event_content_type"`
+	OpenConditionContent               OpenConditionContent    `json:"open_condition_content"`
+	EventDisplay                       bool                    `json:"event_display"`
+	IconOrder                          int32                   `json:"icon_order"`
+	SubEventType                       SubEventType            `json:"sub_event_type"`
+	SubEvent                           bool                    `json:"sub_event"`
+	EventItemId                        int64                   `json:"event_item_id"`
+	MainEventId                        int64                   `json:"main_event_id"`
+	EventChangeOpenCondition           int64                   `json:"event_change_open_condition"`
+	BeforehandExposedTime              string                  `json:"beforehand_exposed_time"`
+	EventContentOpenTime               string                  `json:"event_content_open_time"`
+	EventContentCloseTime              string                  `json:"event_content_close_time"`
+	ExtensionTime                      string                  `json:"extension_time"`
+	MainIconParcelPath                 string                  `json:"main_icon_parcel_path"`
+	SubIconParcelPath                  string                  `json:"sub_icon_parcel_path"`
+	BeforehandBgImagePath              string                  `json:"beforehand_bg_image_path"`
+	MinigamePrologScenarioGroupId      int64                   `json:"minigame_prolog_scenario_group_id"`
+	BeforehandScenarioGroupId          []int64                 `json:"beforehand_scenario_group_id"`
 	MainBannerImagePath                string                  `json:"main_banner_image_path"`
 	MainBgImagePath                    string                  `json:"main_bg_image_path"`
-	MainEventId                        int64                   `json:"main_event_id"`
-	MainIconParcelPath                 string                  `json:"main_icon_parcel_path"`
-	MiniEventShortCutScenarioModeId    int64                   `json:"mini_event_short_cut_scenario_mode_id"`
-	MinigameLobbyPrefabName            string                  `json:"minigame_lobby_prefab_name"`
-	MinigameMissionBgImagePath         string                  `json:"minigame_mission_bg_image_path"`
-	MinigameMissionBgPrefabName        string                  `json:"minigame_mission_bg_prefab_name"`
-	MinigamePrologScenarioGroupId      int64                   `json:"minigame_prolog_scenario_group_id"`
-	MinigameVictoryPrefabName          string                  `json:"minigame_victory_prefab_name"`
-	Name                               string                  `json:"name"`
-	OpenConditionContent               OpenConditionContent    `json:"open_condition_content"`
-	OriginalEventContentId             int64                   `json:"original_event_content_id"`
-	RewardTagPermanent                 RewardTag               `json:"reward_tag_permanent"`
-	ScenarioContentCollectionGroupId   int64                   `json:"scenario_content_collection_group_id"`
-	ShiftMainBgImagePath               string                  `json:"shift_main_bg_image_path"`
 	ShiftTriggerStageId                int64                   `json:"shift_trigger_stage_id"`
-	SubEvent                           bool                    `json:"sub_event"`
-	SubEventType                       SubEventType            `json:"sub_event_type"`
-	SubIconParcelPath                  string                  `json:"sub_icon_parcel_path"`
+	ShiftMainBgImagePath               string                  `json:"shift_main_bg_image_path"`
+	MinigameLobbyPrefabName            string                  `json:"minigame_lobby_prefab_name"`
+	MinigameVictoryPrefabName          string                  `json:"minigame_victory_prefab_name"`
+	MinigameMissionBgPrefabName        string                  `json:"minigame_mission_bg_prefab_name"`
+	MinigameMissionBgImagePath         string                  `json:"minigame_mission_bg_image_path"`
+	CardBgImagePath                    string                  `json:"card_bg_image_path"`
+	EventAssist                        bool                    `json:"event_assist"`
+	EventContentReleaseType            EventContentReleaseType `json:"event_content_release_type"`
+	EventContentStageRewardIdPermanent int64                   `json:"event_content_stage_reward_id_permanent"`
+	RewardTagPermanent                 RewardTag               `json:"reward_tag_permanent"`
+	MiniEventShortCutScenarioModeId    int64                   `json:"mini_event_short_cut_scenario_mode_id"`
+	ScenarioContentCollectionGroupId   int64                   `json:"scenario_content_collection_group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -55,47 +55,47 @@ func (t *EventContentSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSeason"))
 	}
 	EventContentSeasonExcelStart(b)
-	EventContentSeasonExcelAddBeforehandBgImagePath(b, fbsutils.Convert(b.CreateString(t.BeforehandBgImagePath), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddOriginalEventContentId(b, fbsutils.Convert(t.OriginalEventContentId, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddIsReturn(b, fbsutils.Convert(t.IsReturn, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddEventContentType(b, fbsutils.Convert(t.EventContentType, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddOpenConditionContent(b, fbsutils.Convert(t.OpenConditionContent, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddEventDisplay(b, fbsutils.Convert(t.EventDisplay, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddIconOrder(b, fbsutils.Convert(t.IconOrder, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddSubEventType(b, fbsutils.Convert(t.SubEventType, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddSubEvent(b, fbsutils.Convert(t.SubEvent, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddEventItemId(b, fbsutils.Convert(t.EventItemId, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddMainEventId(b, fbsutils.Convert(t.MainEventId, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddEventChangeOpenCondition(b, fbsutils.Convert(t.EventChangeOpenCondition, t.FlatBuffer.TableKey))
 	EventContentSeasonExcelAddBeforehandExposedTime(b, fbsutils.Convert(b.CreateString(t.BeforehandExposedTime), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddEventContentOpenTime(b, fbsutils.Convert(b.CreateString(t.EventContentOpenTime), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddEventContentCloseTime(b, fbsutils.Convert(b.CreateString(t.EventContentCloseTime), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddExtensionTime(b, fbsutils.Convert(b.CreateString(t.ExtensionTime), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddMainIconParcelPath(b, fbsutils.Convert(b.CreateString(t.MainIconParcelPath), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddSubIconParcelPath(b, fbsutils.Convert(b.CreateString(t.SubIconParcelPath), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddBeforehandBgImagePath(b, fbsutils.Convert(b.CreateString(t.BeforehandBgImagePath), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddMinigamePrologScenarioGroupId(b, fbsutils.Convert(t.MinigamePrologScenarioGroupId, t.FlatBuffer.TableKey))
 	EventContentSeasonExcelStartBeforehandScenarioGroupIdVector(b, len(t.BeforehandScenarioGroupId))
 	for i := range len(t.BeforehandScenarioGroupId) {
 		b.PrependInt64(fbsutils.Convert(t.BeforehandScenarioGroupId[len(t.BeforehandScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentSeasonExcelAddBeforehandScenarioGroupId(b, b.EndVector(len(t.BeforehandScenarioGroupId)))
-	EventContentSeasonExcelAddCardBgImagePath(b, fbsutils.Convert(b.CreateString(t.CardBgImagePath), t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddEventAssist(b, fbsutils.Convert(t.EventAssist, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddEventChangeOpenCondition(b, fbsutils.Convert(t.EventChangeOpenCondition, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddEventContentCloseTime(b, fbsutils.Convert(b.CreateString(t.EventContentCloseTime), t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddEventContentOpenTime(b, fbsutils.Convert(b.CreateString(t.EventContentOpenTime), t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddEventContentReleaseType(b, fbsutils.Convert(t.EventContentReleaseType, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddEventContentStageRewardIdPermanent(b, fbsutils.Convert(t.EventContentStageRewardIdPermanent, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddEventContentType(b, fbsutils.Convert(t.EventContentType, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddEventDisplay(b, fbsutils.Convert(t.EventDisplay, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddEventItemId(b, fbsutils.Convert(t.EventItemId, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddExtensionTime(b, fbsutils.Convert(b.CreateString(t.ExtensionTime), t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddIconOrder(b, fbsutils.Convert(t.IconOrder, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddIsReturn(b, fbsutils.Convert(t.IsReturn, t.FlatBuffer.TableKey))
 	EventContentSeasonExcelAddMainBannerImagePath(b, fbsutils.Convert(b.CreateString(t.MainBannerImagePath), t.FlatBuffer.TableKey))
 	EventContentSeasonExcelAddMainBgImagePath(b, fbsutils.Convert(b.CreateString(t.MainBgImagePath), t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddMainEventId(b, fbsutils.Convert(t.MainEventId, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddMainIconParcelPath(b, fbsutils.Convert(b.CreateString(t.MainIconParcelPath), t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddMiniEventShortCutScenarioModeId(b, fbsutils.Convert(t.MiniEventShortCutScenarioModeId, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddMinigameLobbyPrefabName(b, fbsutils.Convert(b.CreateString(t.MinigameLobbyPrefabName), t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddMinigameMissionBgImagePath(b, fbsutils.Convert(b.CreateString(t.MinigameMissionBgImagePath), t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddMinigameMissionBgPrefabName(b, fbsutils.Convert(b.CreateString(t.MinigameMissionBgPrefabName), t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddMinigamePrologScenarioGroupId(b, fbsutils.Convert(t.MinigamePrologScenarioGroupId, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddMinigameVictoryPrefabName(b, fbsutils.Convert(b.CreateString(t.MinigameVictoryPrefabName), t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddOpenConditionContent(b, fbsutils.Convert(t.OpenConditionContent, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddOriginalEventContentId(b, fbsutils.Convert(t.OriginalEventContentId, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddRewardTagPermanent(b, fbsutils.Convert(t.RewardTagPermanent, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddScenarioContentCollectionGroupId(b, fbsutils.Convert(t.ScenarioContentCollectionGroupId, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddShiftMainBgImagePath(b, fbsutils.Convert(b.CreateString(t.ShiftMainBgImagePath), t.FlatBuffer.TableKey))
 	EventContentSeasonExcelAddShiftTriggerStageId(b, fbsutils.Convert(t.ShiftTriggerStageId, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddSubEvent(b, fbsutils.Convert(t.SubEvent, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddSubEventType(b, fbsutils.Convert(t.SubEventType, t.FlatBuffer.TableKey))
-	EventContentSeasonExcelAddSubIconParcelPath(b, fbsutils.Convert(b.CreateString(t.SubIconParcelPath), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddShiftMainBgImagePath(b, fbsutils.Convert(b.CreateString(t.ShiftMainBgImagePath), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddMinigameLobbyPrefabName(b, fbsutils.Convert(b.CreateString(t.MinigameLobbyPrefabName), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddMinigameVictoryPrefabName(b, fbsutils.Convert(b.CreateString(t.MinigameVictoryPrefabName), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddMinigameMissionBgPrefabName(b, fbsutils.Convert(b.CreateString(t.MinigameMissionBgPrefabName), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddMinigameMissionBgImagePath(b, fbsutils.Convert(b.CreateString(t.MinigameMissionBgImagePath), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddCardBgImagePath(b, fbsutils.Convert(b.CreateString(t.CardBgImagePath), t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddEventAssist(b, fbsutils.Convert(t.EventAssist, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddEventContentReleaseType(b, fbsutils.Convert(t.EventContentReleaseType, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddEventContentStageRewardIdPermanent(b, fbsutils.Convert(t.EventContentStageRewardIdPermanent, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddRewardTagPermanent(b, fbsutils.Convert(t.RewardTagPermanent, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddMiniEventShortCutScenarioModeId(b, fbsutils.Convert(t.MiniEventShortCutScenarioModeId, t.FlatBuffer.TableKey))
+	EventContentSeasonExcelAddScenarioContentCollectionGroupId(b, fbsutils.Convert(t.ScenarioContentCollectionGroupId, t.FlatBuffer.TableKey))
 	return EventContentSeasonExcelEnd(b)
 }
 
@@ -111,46 +111,46 @@ func (t *EventContentSeasonExcelDto) UnmarshalMessage(e *EventContentSeasonExcel
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSeason"))
 	}
-	t.BeforehandBgImagePath = fbsutils.Convert(string(e.BeforehandBgImagePath()), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.OriginalEventContentId = fbsutils.Convert(e.OriginalEventContentId(), t.FlatBuffer.TableKey)
+	t.IsReturn = fbsutils.Convert(e.IsReturn(), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
+	t.EventContentType = EventContentType(int32(fbsutils.Convert(e.EventContentType(), t.FlatBuffer.TableKey)))
+	t.OpenConditionContent = OpenConditionContent(int32(fbsutils.Convert(e.OpenConditionContent(), t.FlatBuffer.TableKey)))
+	t.EventDisplay = fbsutils.Convert(e.EventDisplay(), t.FlatBuffer.TableKey)
+	t.IconOrder = fbsutils.Convert(e.IconOrder(), t.FlatBuffer.TableKey)
+	t.SubEventType = SubEventType(int32(fbsutils.Convert(e.SubEventType(), t.FlatBuffer.TableKey)))
+	t.SubEvent = fbsutils.Convert(e.SubEvent(), t.FlatBuffer.TableKey)
+	t.EventItemId = fbsutils.Convert(e.EventItemId(), t.FlatBuffer.TableKey)
+	t.MainEventId = fbsutils.Convert(e.MainEventId(), t.FlatBuffer.TableKey)
+	t.EventChangeOpenCondition = fbsutils.Convert(e.EventChangeOpenCondition(), t.FlatBuffer.TableKey)
 	t.BeforehandExposedTime = fbsutils.Convert(string(e.BeforehandExposedTime()), t.FlatBuffer.TableKey)
+	t.EventContentOpenTime = fbsutils.Convert(string(e.EventContentOpenTime()), t.FlatBuffer.TableKey)
+	t.EventContentCloseTime = fbsutils.Convert(string(e.EventContentCloseTime()), t.FlatBuffer.TableKey)
+	t.ExtensionTime = fbsutils.Convert(string(e.ExtensionTime()), t.FlatBuffer.TableKey)
+	t.MainIconParcelPath = fbsutils.Convert(string(e.MainIconParcelPath()), t.FlatBuffer.TableKey)
+	t.SubIconParcelPath = fbsutils.Convert(string(e.SubIconParcelPath()), t.FlatBuffer.TableKey)
+	t.BeforehandBgImagePath = fbsutils.Convert(string(e.BeforehandBgImagePath()), t.FlatBuffer.TableKey)
+	t.MinigamePrologScenarioGroupId = fbsutils.Convert(e.MinigamePrologScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.BeforehandScenarioGroupId = make([]int64, e.BeforehandScenarioGroupIdLength())
 	for i := range e.BeforehandScenarioGroupIdLength() {
 		t.BeforehandScenarioGroupId[i] = e.BeforehandScenarioGroupId(i)
 	}
-	t.CardBgImagePath = fbsutils.Convert(string(e.CardBgImagePath()), t.FlatBuffer.TableKey)
-	t.EventAssist = fbsutils.Convert(e.EventAssist(), t.FlatBuffer.TableKey)
-	t.EventChangeOpenCondition = fbsutils.Convert(e.EventChangeOpenCondition(), t.FlatBuffer.TableKey)
-	t.EventContentCloseTime = fbsutils.Convert(string(e.EventContentCloseTime()), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EventContentOpenTime = fbsutils.Convert(string(e.EventContentOpenTime()), t.FlatBuffer.TableKey)
-	t.EventContentReleaseType = EventContentReleaseType(int32(fbsutils.Convert(e.EventContentReleaseType(), t.FlatBuffer.TableKey)))
-	t.EventContentStageRewardIdPermanent = fbsutils.Convert(e.EventContentStageRewardIdPermanent(), t.FlatBuffer.TableKey)
-	t.EventContentType = EventContentType(int32(fbsutils.Convert(e.EventContentType(), t.FlatBuffer.TableKey)))
-	t.EventDisplay = fbsutils.Convert(e.EventDisplay(), t.FlatBuffer.TableKey)
-	t.EventItemId = fbsutils.Convert(e.EventItemId(), t.FlatBuffer.TableKey)
-	t.ExtensionTime = fbsutils.Convert(string(e.ExtensionTime()), t.FlatBuffer.TableKey)
-	t.IconOrder = fbsutils.Convert(e.IconOrder(), t.FlatBuffer.TableKey)
-	t.IsReturn = fbsutils.Convert(e.IsReturn(), t.FlatBuffer.TableKey)
 	t.MainBannerImagePath = fbsutils.Convert(string(e.MainBannerImagePath()), t.FlatBuffer.TableKey)
 	t.MainBgImagePath = fbsutils.Convert(string(e.MainBgImagePath()), t.FlatBuffer.TableKey)
-	t.MainEventId = fbsutils.Convert(e.MainEventId(), t.FlatBuffer.TableKey)
-	t.MainIconParcelPath = fbsutils.Convert(string(e.MainIconParcelPath()), t.FlatBuffer.TableKey)
-	t.MiniEventShortCutScenarioModeId = fbsutils.Convert(e.MiniEventShortCutScenarioModeId(), t.FlatBuffer.TableKey)
-	t.MinigameLobbyPrefabName = fbsutils.Convert(string(e.MinigameLobbyPrefabName()), t.FlatBuffer.TableKey)
-	t.MinigameMissionBgImagePath = fbsutils.Convert(string(e.MinigameMissionBgImagePath()), t.FlatBuffer.TableKey)
-	t.MinigameMissionBgPrefabName = fbsutils.Convert(string(e.MinigameMissionBgPrefabName()), t.FlatBuffer.TableKey)
-	t.MinigamePrologScenarioGroupId = fbsutils.Convert(e.MinigamePrologScenarioGroupId(), t.FlatBuffer.TableKey)
-	t.MinigameVictoryPrefabName = fbsutils.Convert(string(e.MinigameVictoryPrefabName()), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.OpenConditionContent = OpenConditionContent(int32(fbsutils.Convert(e.OpenConditionContent(), t.FlatBuffer.TableKey)))
-	t.OriginalEventContentId = fbsutils.Convert(e.OriginalEventContentId(), t.FlatBuffer.TableKey)
-	t.RewardTagPermanent = RewardTag(int32(fbsutils.Convert(e.RewardTagPermanent(), t.FlatBuffer.TableKey)))
-	t.ScenarioContentCollectionGroupId = fbsutils.Convert(e.ScenarioContentCollectionGroupId(), t.FlatBuffer.TableKey)
-	t.ShiftMainBgImagePath = fbsutils.Convert(string(e.ShiftMainBgImagePath()), t.FlatBuffer.TableKey)
 	t.ShiftTriggerStageId = fbsutils.Convert(e.ShiftTriggerStageId(), t.FlatBuffer.TableKey)
-	t.SubEvent = fbsutils.Convert(e.SubEvent(), t.FlatBuffer.TableKey)
-	t.SubEventType = SubEventType(int32(fbsutils.Convert(e.SubEventType(), t.FlatBuffer.TableKey)))
-	t.SubIconParcelPath = fbsutils.Convert(string(e.SubIconParcelPath()), t.FlatBuffer.TableKey)
+	t.ShiftMainBgImagePath = fbsutils.Convert(string(e.ShiftMainBgImagePath()), t.FlatBuffer.TableKey)
+	t.MinigameLobbyPrefabName = fbsutils.Convert(string(e.MinigameLobbyPrefabName()), t.FlatBuffer.TableKey)
+	t.MinigameVictoryPrefabName = fbsutils.Convert(string(e.MinigameVictoryPrefabName()), t.FlatBuffer.TableKey)
+	t.MinigameMissionBgPrefabName = fbsutils.Convert(string(e.MinigameMissionBgPrefabName()), t.FlatBuffer.TableKey)
+	t.MinigameMissionBgImagePath = fbsutils.Convert(string(e.MinigameMissionBgImagePath()), t.FlatBuffer.TableKey)
+	t.CardBgImagePath = fbsutils.Convert(string(e.CardBgImagePath()), t.FlatBuffer.TableKey)
+	t.EventAssist = fbsutils.Convert(e.EventAssist(), t.FlatBuffer.TableKey)
+	t.EventContentReleaseType = EventContentReleaseType(int32(fbsutils.Convert(e.EventContentReleaseType(), t.FlatBuffer.TableKey)))
+	t.EventContentStageRewardIdPermanent = fbsutils.Convert(e.EventContentStageRewardIdPermanent(), t.FlatBuffer.TableKey)
+	t.RewardTagPermanent = RewardTag(int32(fbsutils.Convert(e.RewardTagPermanent(), t.FlatBuffer.TableKey)))
+	t.MiniEventShortCutScenarioModeId = fbsutils.Convert(e.MiniEventShortCutScenarioModeId(), t.FlatBuffer.TableKey)
+	t.ScenarioContentCollectionGroupId = fbsutils.Convert(e.ScenarioContentCollectionGroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

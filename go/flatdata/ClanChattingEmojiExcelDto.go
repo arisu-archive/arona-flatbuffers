@@ -10,14 +10,14 @@ import (
 // ClanChattingEmojiExcelDto represents a FlatBuffers table
 type ClanChattingEmojiExcelDto struct {
 	fbsutils.FlatBuffer
-	DisplayOrder int32  `json:"display_order"`
 	Id           int64  `json:"id"`
-	ImagePathEn  string `json:"image_path_en"`
-	ImagePathJp  string `json:"image_path_jp"`
+	TabGroupId   int32  `json:"tab_group_id"`
+	DisplayOrder int32  `json:"display_order"`
 	ImagePathKr  string `json:"image_path_kr"`
+	ImagePathJp  string `json:"image_path_jp"`
 	ImagePathTh  string `json:"image_path_th"`
 	ImagePathTw  string `json:"image_path_tw"`
-	TabGroupId   int32  `json:"tab_group_id"`
+	ImagePathEn  string `json:"image_path_en"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,14 +26,14 @@ func (t *ClanChattingEmojiExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanChattingEmoji"))
 	}
 	ClanChattingEmojiExcelStart(b)
-	ClanChattingEmojiExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	ClanChattingEmojiExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ClanChattingEmojiExcelAddImagePathEn(b, fbsutils.Convert(b.CreateString(t.ImagePathEn), t.FlatBuffer.TableKey))
-	ClanChattingEmojiExcelAddImagePathJp(b, fbsutils.Convert(b.CreateString(t.ImagePathJp), t.FlatBuffer.TableKey))
+	ClanChattingEmojiExcelAddTabGroupId(b, fbsutils.Convert(t.TabGroupId, t.FlatBuffer.TableKey))
+	ClanChattingEmojiExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	ClanChattingEmojiExcelAddImagePathKr(b, fbsutils.Convert(b.CreateString(t.ImagePathKr), t.FlatBuffer.TableKey))
+	ClanChattingEmojiExcelAddImagePathJp(b, fbsutils.Convert(b.CreateString(t.ImagePathJp), t.FlatBuffer.TableKey))
 	ClanChattingEmojiExcelAddImagePathTh(b, fbsutils.Convert(b.CreateString(t.ImagePathTh), t.FlatBuffer.TableKey))
 	ClanChattingEmojiExcelAddImagePathTw(b, fbsutils.Convert(b.CreateString(t.ImagePathTw), t.FlatBuffer.TableKey))
-	ClanChattingEmojiExcelAddTabGroupId(b, fbsutils.Convert(t.TabGroupId, t.FlatBuffer.TableKey))
+	ClanChattingEmojiExcelAddImagePathEn(b, fbsutils.Convert(b.CreateString(t.ImagePathEn), t.FlatBuffer.TableKey))
 	return ClanChattingEmojiExcelEnd(b)
 }
 
@@ -49,14 +49,14 @@ func (t *ClanChattingEmojiExcelDto) UnmarshalMessage(e *ClanChattingEmojiExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanChattingEmoji"))
 	}
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ImagePathEn = fbsutils.Convert(string(e.ImagePathEn()), t.FlatBuffer.TableKey)
-	t.ImagePathJp = fbsutils.Convert(string(e.ImagePathJp()), t.FlatBuffer.TableKey)
+	t.TabGroupId = fbsutils.Convert(e.TabGroupId(), t.FlatBuffer.TableKey)
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.ImagePathKr = fbsutils.Convert(string(e.ImagePathKr()), t.FlatBuffer.TableKey)
+	t.ImagePathJp = fbsutils.Convert(string(e.ImagePathJp()), t.FlatBuffer.TableKey)
 	t.ImagePathTh = fbsutils.Convert(string(e.ImagePathTh()), t.FlatBuffer.TableKey)
 	t.ImagePathTw = fbsutils.Convert(string(e.ImagePathTw()), t.FlatBuffer.TableKey)
-	t.TabGroupId = fbsutils.Convert(e.TabGroupId(), t.FlatBuffer.TableKey)
+	t.ImagePathEn = fbsutils.Convert(string(e.ImagePathEn()), t.FlatBuffer.TableKey)
 	return nil
 }
 

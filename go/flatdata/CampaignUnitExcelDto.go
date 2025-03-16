@@ -10,20 +10,20 @@ import (
 // CampaignUnitExcelDto represents a FlatBuffers table
 type CampaignUnitExcelDto struct {
 	fbsutils.FlatBuffer
-	AiMoveType           StrategyAIType    `json:"ai_move_type"`
-	ClearScenarioGroupId []int64           `json:"clear_scenario_group_id"`
-	EnterScenarioGroupId []int64           `json:"enter_scenario_group_id"`
-	EnvironmentType      TacticEnvironment `json:"environment_type"`
-	Grade                HexaUnitGrade     `json:"grade"`
-	GroundId             int64             `json:"ground_id"`
 	Id                   int64             `json:"id"`
-	IsTacticSkip         bool              `json:"is_tactic_skip"`
 	Key                  uint32            `json:"key"`
-	MoveRange            int32             `json:"move_range"`
 	Name                 string            `json:"name"`
 	PrefabName           string            `json:"prefab_name"`
-	Scale                float32           `json:"scale"`
 	StrategyPrefabName   string            `json:"strategy_prefab_name"`
+	EnterScenarioGroupId []int64           `json:"enter_scenario_group_id"`
+	ClearScenarioGroupId []int64           `json:"clear_scenario_group_id"`
+	GroundId             int64             `json:"ground_id"`
+	MoveRange            int32             `json:"move_range"`
+	AiMoveType           StrategyAIType    `json:"ai_move_type"`
+	Grade                HexaUnitGrade     `json:"grade"`
+	EnvironmentType      TacticEnvironment `json:"environment_type"`
+	Scale                float32           `json:"scale"`
+	IsTacticSkip         bool              `json:"is_tactic_skip"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -32,28 +32,28 @@ func (t *CampaignUnitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignUnit"))
 	}
 	CampaignUnitExcelStart(b)
-	CampaignUnitExcelAddAiMoveType(b, fbsutils.Convert(t.AiMoveType, t.FlatBuffer.TableKey))
-	CampaignUnitExcelStartClearScenarioGroupIdVector(b, len(t.ClearScenarioGroupId))
-	for i := range len(t.ClearScenarioGroupId) {
-		b.PrependInt64(fbsutils.Convert(t.ClearScenarioGroupId[len(t.ClearScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
-	}
-	CampaignUnitExcelAddClearScenarioGroupId(b, b.EndVector(len(t.ClearScenarioGroupId)))
+	CampaignUnitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	CampaignUnitExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
+	CampaignUnitExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	CampaignUnitExcelAddPrefabName(b, fbsutils.Convert(b.CreateString(t.PrefabName), t.FlatBuffer.TableKey))
+	CampaignUnitExcelAddStrategyPrefabName(b, fbsutils.Convert(b.CreateString(t.StrategyPrefabName), t.FlatBuffer.TableKey))
 	CampaignUnitExcelStartEnterScenarioGroupIdVector(b, len(t.EnterScenarioGroupId))
 	for i := range len(t.EnterScenarioGroupId) {
 		b.PrependInt64(fbsutils.Convert(t.EnterScenarioGroupId[len(t.EnterScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	CampaignUnitExcelAddEnterScenarioGroupId(b, b.EndVector(len(t.EnterScenarioGroupId)))
-	CampaignUnitExcelAddEnvironmentType(b, fbsutils.Convert(t.EnvironmentType, t.FlatBuffer.TableKey))
-	CampaignUnitExcelAddGrade(b, fbsutils.Convert(t.Grade, t.FlatBuffer.TableKey))
+	CampaignUnitExcelStartClearScenarioGroupIdVector(b, len(t.ClearScenarioGroupId))
+	for i := range len(t.ClearScenarioGroupId) {
+		b.PrependInt64(fbsutils.Convert(t.ClearScenarioGroupId[len(t.ClearScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
+	}
+	CampaignUnitExcelAddClearScenarioGroupId(b, b.EndVector(len(t.ClearScenarioGroupId)))
 	CampaignUnitExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
-	CampaignUnitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CampaignUnitExcelAddIsTacticSkip(b, fbsutils.Convert(t.IsTacticSkip, t.FlatBuffer.TableKey))
-	CampaignUnitExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
 	CampaignUnitExcelAddMoveRange(b, fbsutils.Convert(t.MoveRange, t.FlatBuffer.TableKey))
-	CampaignUnitExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
-	CampaignUnitExcelAddPrefabName(b, fbsutils.Convert(b.CreateString(t.PrefabName), t.FlatBuffer.TableKey))
+	CampaignUnitExcelAddAiMoveType(b, fbsutils.Convert(t.AiMoveType, t.FlatBuffer.TableKey))
+	CampaignUnitExcelAddGrade(b, fbsutils.Convert(t.Grade, t.FlatBuffer.TableKey))
+	CampaignUnitExcelAddEnvironmentType(b, fbsutils.Convert(t.EnvironmentType, t.FlatBuffer.TableKey))
 	CampaignUnitExcelAddScale(b, fbsutils.Convert(t.Scale, t.FlatBuffer.TableKey))
-	CampaignUnitExcelAddStrategyPrefabName(b, fbsutils.Convert(b.CreateString(t.StrategyPrefabName), t.FlatBuffer.TableKey))
+	CampaignUnitExcelAddIsTacticSkip(b, fbsutils.Convert(t.IsTacticSkip, t.FlatBuffer.TableKey))
 	return CampaignUnitExcelEnd(b)
 }
 
@@ -69,26 +69,26 @@ func (t *CampaignUnitExcelDto) UnmarshalMessage(e *CampaignUnitExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignUnit"))
 	}
-	t.AiMoveType = StrategyAIType(int32(fbsutils.Convert(e.AiMoveType(), t.FlatBuffer.TableKey)))
-	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())
-	for i := range e.ClearScenarioGroupIdLength() {
-		t.ClearScenarioGroupId[i] = e.ClearScenarioGroupId(i)
-	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
+	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
+	t.StrategyPrefabName = fbsutils.Convert(string(e.StrategyPrefabName()), t.FlatBuffer.TableKey)
 	t.EnterScenarioGroupId = make([]int64, e.EnterScenarioGroupIdLength())
 	for i := range e.EnterScenarioGroupIdLength() {
 		t.EnterScenarioGroupId[i] = e.EnterScenarioGroupId(i)
 	}
-	t.EnvironmentType = TacticEnvironment(int32(fbsutils.Convert(e.EnvironmentType(), t.FlatBuffer.TableKey)))
-	t.Grade = HexaUnitGrade(int32(fbsutils.Convert(e.Grade(), t.FlatBuffer.TableKey)))
+	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())
+	for i := range e.ClearScenarioGroupIdLength() {
+		t.ClearScenarioGroupId[i] = e.ClearScenarioGroupId(i)
+	}
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.IsTacticSkip = fbsutils.Convert(e.IsTacticSkip(), t.FlatBuffer.TableKey)
-	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
 	t.MoveRange = fbsutils.Convert(e.MoveRange(), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
+	t.AiMoveType = StrategyAIType(int32(fbsutils.Convert(e.AiMoveType(), t.FlatBuffer.TableKey)))
+	t.Grade = HexaUnitGrade(int32(fbsutils.Convert(e.Grade(), t.FlatBuffer.TableKey)))
+	t.EnvironmentType = TacticEnvironment(int32(fbsutils.Convert(e.EnvironmentType(), t.FlatBuffer.TableKey)))
 	t.Scale = fbsutils.Convert(e.Scale(), t.FlatBuffer.TableKey)
-	t.StrategyPrefabName = fbsutils.Convert(string(e.StrategyPrefabName()), t.FlatBuffer.TableKey)
+	t.IsTacticSkip = fbsutils.Convert(e.IsTacticSkip(), t.FlatBuffer.TableKey)
 	return nil
 }
 

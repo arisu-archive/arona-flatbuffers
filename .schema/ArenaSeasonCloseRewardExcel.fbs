@@ -3,11 +3,11 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table ArenaSeasonCloseRewardExcel {
-    rank_end: long;
+    season_id: long;
     rank_start: long;
-    reward_parcel_amount: [long];
+    rank_end: long;
     reward_parcel_type: [ParcelType];
     reward_parcel_unique_id: [long];
     reward_parcel_unique_name: [string];
-    season_id: long;
+    reward_parcel_amount: [long];
 }

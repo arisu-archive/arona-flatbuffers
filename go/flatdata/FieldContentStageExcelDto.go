@@ -10,23 +10,23 @@ import (
 // FieldContentStageExcelDto represents a FlatBuffers table
 type FieldContentStageExcelDto struct {
 	fbsutils.FlatBuffer
-	AreaId                int64           `json:"area_id"`
-	BattleDuration        int64           `json:"battle_duration"`
-	BgmId                 int64           `json:"bgm_id"`
-	FixedEchelonId        int64           `json:"fixed_echelon_id"`
-	GroundId              int64           `json:"ground_id"`
-	GroupId               int64           `json:"group_id"`
 	Id                    int64           `json:"id"`
-	InstantClear          bool            `json:"instant_clear"`
-	Name                  string          `json:"name"`
-	RecommandLevel        int32           `json:"recommand_level"`
 	SeasonId              int64           `json:"season_id"`
-	SkipFormationSettings bool            `json:"skip_formation_settings"`
+	AreaId                int64           `json:"area_id"`
+	GroupId               int64           `json:"group_id"`
 	StageDifficulty       StageDifficulty `json:"stage_difficulty"`
-	StageEnterCostAmount  int32           `json:"stage_enter_cost_amount"`
-	StageEnterCostId      int64           `json:"stage_enter_cost_id"`
+	Name                  string          `json:"name"`
+	BattleDuration        int64           `json:"battle_duration"`
 	StageEnterCostType    ParcelType      `json:"stage_enter_cost_type"`
+	StageEnterCostId      int64           `json:"stage_enter_cost_id"`
+	StageEnterCostAmount  int32           `json:"stage_enter_cost_amount"`
 	StageTopography       StageTopography `json:"stage_topography"`
+	RecommandLevel        int32           `json:"recommand_level"`
+	GroundId              int64           `json:"ground_id"`
+	BgmId                 int64           `json:"bgm_id"`
+	InstantClear          bool            `json:"instant_clear"`
+	FixedEchelonId        int64           `json:"fixed_echelon_id"`
+	SkipFormationSettings bool            `json:"skip_formation_settings"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -35,23 +35,23 @@ func (t *FieldContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStage"))
 	}
 	FieldContentStageExcelStart(b)
-	FieldContentStageExcelAddAreaId(b, fbsutils.Convert(t.AreaId, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddInstantClear(b, fbsutils.Convert(t.InstantClear, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddSkipFormationSettings(b, fbsutils.Convert(t.SkipFormationSettings, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddAreaId(b, fbsutils.Convert(t.AreaId, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddStageEnterCostAmount(b, fbsutils.Convert(t.StageEnterCostAmount, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddStageEnterCostId(b, fbsutils.Convert(t.StageEnterCostId, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddStageEnterCostType(b, fbsutils.Convert(t.StageEnterCostType, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddStageEnterCostId(b, fbsutils.Convert(t.StageEnterCostId, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddStageEnterCostAmount(b, fbsutils.Convert(t.StageEnterCostAmount, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddInstantClear(b, fbsutils.Convert(t.InstantClear, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddSkipFormationSettings(b, fbsutils.Convert(t.SkipFormationSettings, t.FlatBuffer.TableKey))
 	return FieldContentStageExcelEnd(b)
 }
 
@@ -67,23 +67,23 @@ func (t *FieldContentStageExcelDto) UnmarshalMessage(e *FieldContentStageExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStage"))
 	}
-	t.AreaId = fbsutils.Convert(e.AreaId(), t.FlatBuffer.TableKey)
-	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
-	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
-	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
-	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.InstantClear = fbsutils.Convert(e.InstantClear(), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
 	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
-	t.SkipFormationSettings = fbsutils.Convert(e.SkipFormationSettings(), t.FlatBuffer.TableKey)
+	t.AreaId = fbsutils.Convert(e.AreaId(), t.FlatBuffer.TableKey)
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.StageDifficulty = StageDifficulty(int32(fbsutils.Convert(e.StageDifficulty(), t.FlatBuffer.TableKey)))
-	t.StageEnterCostAmount = fbsutils.Convert(e.StageEnterCostAmount(), t.FlatBuffer.TableKey)
-	t.StageEnterCostId = fbsutils.Convert(e.StageEnterCostId(), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
+	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.StageEnterCostType = ParcelType(int32(fbsutils.Convert(e.StageEnterCostType(), t.FlatBuffer.TableKey)))
+	t.StageEnterCostId = fbsutils.Convert(e.StageEnterCostId(), t.FlatBuffer.TableKey)
+	t.StageEnterCostAmount = fbsutils.Convert(e.StageEnterCostAmount(), t.FlatBuffer.TableKey)
 	t.StageTopography = StageTopography(int32(fbsutils.Convert(e.StageTopography(), t.FlatBuffer.TableKey)))
+	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
+	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
+	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
+	t.InstantClear = fbsutils.Convert(e.InstantClear(), t.FlatBuffer.TableKey)
+	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
+	t.SkipFormationSettings = fbsutils.Convert(e.SkipFormationSettings(), t.FlatBuffer.TableKey)
 	return nil
 }
 

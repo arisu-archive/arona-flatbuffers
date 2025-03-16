@@ -53,7 +53,7 @@ func (rcv *Video_GlobalExcel) MutateVideoId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *Video_GlobalExcel) VideoPathEn() []byte {
+func (rcv *Video_GlobalExcel) VideoPathKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -61,7 +61,7 @@ func (rcv *Video_GlobalExcel) VideoPathEn() []byte {
 	return nil
 }
 
-func (rcv *Video_GlobalExcel) VideoPathKr() []byte {
+func (rcv *Video_GlobalExcel) VideoTeenPathKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -77,7 +77,7 @@ func (rcv *Video_GlobalExcel) VideoPathTh() []byte {
 	return nil
 }
 
-func (rcv *Video_GlobalExcel) VideoPathTw() []byte {
+func (rcv *Video_GlobalExcel) VideoTeenPathTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -85,7 +85,7 @@ func (rcv *Video_GlobalExcel) VideoPathTw() []byte {
 	return nil
 }
 
-func (rcv *Video_GlobalExcel) VideoTeenPathEn() []byte {
+func (rcv *Video_GlobalExcel) VideoPathTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -93,7 +93,7 @@ func (rcv *Video_GlobalExcel) VideoTeenPathEn() []byte {
 	return nil
 }
 
-func (rcv *Video_GlobalExcel) VideoTeenPathKr() []byte {
+func (rcv *Video_GlobalExcel) VideoTeenPathTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -101,7 +101,7 @@ func (rcv *Video_GlobalExcel) VideoTeenPathKr() []byte {
 	return nil
 }
 
-func (rcv *Video_GlobalExcel) VideoTeenPathTh() []byte {
+func (rcv *Video_GlobalExcel) VideoPathEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -109,7 +109,7 @@ func (rcv *Video_GlobalExcel) VideoTeenPathTh() []byte {
 	return nil
 }
 
-func (rcv *Video_GlobalExcel) VideoTeenPathTw() []byte {
+func (rcv *Video_GlobalExcel) VideoTeenPathEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -123,29 +123,29 @@ func Video_GlobalExcelStart(builder *flatbuffers.Builder) {
 func Video_GlobalExcelAddVideoId(builder *flatbuffers.Builder, videoId int64) {
 	builder.PrependInt64Slot(0, videoId, 0)
 }
-func Video_GlobalExcelAddVideoPathEn(builder *flatbuffers.Builder, videoPathEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(videoPathEn), 0)
-}
 func Video_GlobalExcelAddVideoPathKr(builder *flatbuffers.Builder, videoPathKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(videoPathKr), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(videoPathKr), 0)
+}
+func Video_GlobalExcelAddVideoTeenPathKr(builder *flatbuffers.Builder, videoTeenPathKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(videoTeenPathKr), 0)
 }
 func Video_GlobalExcelAddVideoPathTh(builder *flatbuffers.Builder, videoPathTh flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(videoPathTh), 0)
 }
-func Video_GlobalExcelAddVideoPathTw(builder *flatbuffers.Builder, videoPathTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(videoPathTw), 0)
-}
-func Video_GlobalExcelAddVideoTeenPathEn(builder *flatbuffers.Builder, videoTeenPathEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(videoTeenPathEn), 0)
-}
-func Video_GlobalExcelAddVideoTeenPathKr(builder *flatbuffers.Builder, videoTeenPathKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(videoTeenPathKr), 0)
-}
 func Video_GlobalExcelAddVideoTeenPathTh(builder *flatbuffers.Builder, videoTeenPathTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(videoTeenPathTh), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(videoTeenPathTh), 0)
+}
+func Video_GlobalExcelAddVideoPathTw(builder *flatbuffers.Builder, videoPathTw flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(videoPathTw), 0)
 }
 func Video_GlobalExcelAddVideoTeenPathTw(builder *flatbuffers.Builder, videoTeenPathTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(videoTeenPathTw), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(videoTeenPathTw), 0)
+}
+func Video_GlobalExcelAddVideoPathEn(builder *flatbuffers.Builder, videoPathEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(videoPathEn), 0)
+}
+func Video_GlobalExcelAddVideoTeenPathEn(builder *flatbuffers.Builder, videoTeenPathEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(videoTeenPathEn), 0)
 }
 func Video_GlobalExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

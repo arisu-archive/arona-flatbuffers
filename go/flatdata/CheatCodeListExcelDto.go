@@ -10,10 +10,10 @@ import (
 // CheatCodeListExcelDto represents a FlatBuffers table
 type CheatCodeListExcelDto struct {
 	fbsutils.FlatBuffer
-	CheatCode  []string `json:"cheat_code"`
-	Desc       string   `json:"desc"`
 	Id         int64    `json:"id"`
+	CheatCode  []string `json:"cheat_code"`
 	InputTitle []string `json:"input_title"`
+	Desc       string   `json:"desc"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,18 +22,18 @@ func (t *CheatCodeListExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CheatCodeList"))
 	}
 	CheatCodeListExcelStart(b)
+	CheatCodeListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CheatCodeListExcelStartCheatCodeVector(b, len(t.CheatCode))
 	for i := range len(t.CheatCode) {
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.CheatCode[len(t.CheatCode)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CheatCodeListExcelAddCheatCode(b, b.EndVector(len(t.CheatCode)))
-	CheatCodeListExcelAddDesc(b, fbsutils.Convert(b.CreateString(t.Desc), t.FlatBuffer.TableKey))
-	CheatCodeListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CheatCodeListExcelStartInputTitleVector(b, len(t.InputTitle))
 	for i := range len(t.InputTitle) {
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.InputTitle[len(t.InputTitle)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CheatCodeListExcelAddInputTitle(b, b.EndVector(len(t.InputTitle)))
+	CheatCodeListExcelAddDesc(b, fbsutils.Convert(b.CreateString(t.Desc), t.FlatBuffer.TableKey))
 	return CheatCodeListExcelEnd(b)
 }
 
@@ -49,16 +49,16 @@ func (t *CheatCodeListExcelDto) UnmarshalMessage(e *CheatCodeListExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CheatCodeList"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.CheatCode = make([]string, e.CheatCodeLength())
 	for i := range e.CheatCodeLength() {
 		t.CheatCode[i] = string(e.CheatCode(i))
 	}
-	t.Desc = fbsutils.Convert(string(e.Desc()), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.InputTitle = make([]string, e.InputTitleLength())
 	for i := range e.InputTitleLength() {
 		t.InputTitle[i] = string(e.InputTitle(i))
 	}
+	t.Desc = fbsutils.Convert(string(e.Desc()), t.FlatBuffer.TableKey)
 	return nil
 }
 

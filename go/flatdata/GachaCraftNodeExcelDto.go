@@ -10,13 +10,13 @@ import (
 // GachaCraftNodeExcelDto represents a FlatBuffers table
 type GachaCraftNodeExcelDto struct {
 	fbsutils.FlatBuffer
-	Icon                       string `json:"icon"`
 	Id                         int64  `json:"id"`
-	LocalizeKey                uint32 `json:"localize_key"`
-	NodeQuality                int64  `json:"node_quality"`
-	Property                   int64  `json:"property"`
-	QuickCraftNodeDisplayOrder int32  `json:"quick_craft_node_display_order"`
 	Tier                       int64  `json:"tier"`
+	QuickCraftNodeDisplayOrder int32  `json:"quick_craft_node_display_order"`
+	NodeQuality                int64  `json:"node_quality"`
+	Icon                       string `json:"icon"`
+	LocalizeKey                uint32 `json:"localize_key"`
+	Property                   int64  `json:"property"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,13 +25,13 @@ func (t *GachaCraftNodeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaCraftNode"))
 	}
 	GachaCraftNodeExcelStart(b)
-	GachaCraftNodeExcelAddIcon(b, fbsutils.Convert(b.CreateString(t.Icon), t.FlatBuffer.TableKey))
 	GachaCraftNodeExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	GachaCraftNodeExcelAddLocalizeKey(b, fbsutils.Convert(t.LocalizeKey, t.FlatBuffer.TableKey))
-	GachaCraftNodeExcelAddNodeQuality(b, fbsutils.Convert(t.NodeQuality, t.FlatBuffer.TableKey))
-	GachaCraftNodeExcelAddProperty(b, fbsutils.Convert(t.Property, t.FlatBuffer.TableKey))
-	GachaCraftNodeExcelAddQuickCraftNodeDisplayOrder(b, fbsutils.Convert(t.QuickCraftNodeDisplayOrder, t.FlatBuffer.TableKey))
 	GachaCraftNodeExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
+	GachaCraftNodeExcelAddQuickCraftNodeDisplayOrder(b, fbsutils.Convert(t.QuickCraftNodeDisplayOrder, t.FlatBuffer.TableKey))
+	GachaCraftNodeExcelAddNodeQuality(b, fbsutils.Convert(t.NodeQuality, t.FlatBuffer.TableKey))
+	GachaCraftNodeExcelAddIcon(b, fbsutils.Convert(b.CreateString(t.Icon), t.FlatBuffer.TableKey))
+	GachaCraftNodeExcelAddLocalizeKey(b, fbsutils.Convert(t.LocalizeKey, t.FlatBuffer.TableKey))
+	GachaCraftNodeExcelAddProperty(b, fbsutils.Convert(t.Property, t.FlatBuffer.TableKey))
 	return GachaCraftNodeExcelEnd(b)
 }
 
@@ -47,13 +47,13 @@ func (t *GachaCraftNodeExcelDto) UnmarshalMessage(e *GachaCraftNodeExcel) error 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaCraftNode"))
 	}
-	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.LocalizeKey = fbsutils.Convert(e.LocalizeKey(), t.FlatBuffer.TableKey)
-	t.NodeQuality = fbsutils.Convert(e.NodeQuality(), t.FlatBuffer.TableKey)
-	t.Property = fbsutils.Convert(e.Property(), t.FlatBuffer.TableKey)
-	t.QuickCraftNodeDisplayOrder = fbsutils.Convert(e.QuickCraftNodeDisplayOrder(), t.FlatBuffer.TableKey)
 	t.Tier = fbsutils.Convert(e.Tier(), t.FlatBuffer.TableKey)
+	t.QuickCraftNodeDisplayOrder = fbsutils.Convert(e.QuickCraftNodeDisplayOrder(), t.FlatBuffer.TableKey)
+	t.NodeQuality = fbsutils.Convert(e.NodeQuality(), t.FlatBuffer.TableKey)
+	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
+	t.LocalizeKey = fbsutils.Convert(e.LocalizeKey(), t.FlatBuffer.TableKey)
+	t.Property = fbsutils.Convert(e.Property(), t.FlatBuffer.TableKey)
 	return nil
 }
 

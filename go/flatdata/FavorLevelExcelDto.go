@@ -10,8 +10,8 @@ import (
 // FavorLevelExcelDto represents a FlatBuffers table
 type FavorLevelExcelDto struct {
 	fbsutils.FlatBuffer
-	ExpType []int64 `json:"exp_type"`
 	Level   int64   `json:"level"`
+	ExpType []int64 `json:"exp_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -20,12 +20,12 @@ func (t *FavorLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FavorLevel"))
 	}
 	FavorLevelExcelStart(b)
+	FavorLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	FavorLevelExcelStartExpTypeVector(b, len(t.ExpType))
 	for i := range len(t.ExpType) {
 		b.PrependInt64(fbsutils.Convert(t.ExpType[len(t.ExpType)-i-1], t.FlatBuffer.TableKey))
 	}
 	FavorLevelExcelAddExpType(b, b.EndVector(len(t.ExpType)))
-	FavorLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	return FavorLevelExcelEnd(b)
 }
 
@@ -41,11 +41,11 @@ func (t *FavorLevelExcelDto) UnmarshalMessage(e *FavorLevelExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FavorLevel"))
 	}
+	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.ExpType = make([]int64, e.ExpTypeLength())
 	for i := range e.ExpTypeLength() {
 		t.ExpType[i] = e.ExpType(i)
 	}
-	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	return nil
 }
 

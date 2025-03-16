@@ -25,32 +25,32 @@ class WebEventSeasonExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # WebEventSeasonExcel
-    def Enabled(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # WebEventSeasonExcel
+    def Enabled(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # WebEventSeasonExcel
-    def EndDate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # WebEventSeasonExcel
-    def EventUrl(self):
+    def StartDate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # WebEventSeasonExcel
-    def Id(self):
+    def EndDate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # WebEventSeasonExcel
     def LobbyBannerImage(self):
@@ -67,7 +67,7 @@ class WebEventSeasonExcel(object):
         return None
 
     # WebEventSeasonExcel
-    def StartDate(self):
+    def EventUrl(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -79,29 +79,29 @@ def WebEventSeasonExcelStart(builder):
 def Start(builder):
     WebEventSeasonExcelStart(builder)
 
+def WebEventSeasonExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
+def AddId(builder, id):
+    WebEventSeasonExcelAddId(builder, id)
+
 def WebEventSeasonExcelAddEnabled(builder, enabled):
-    builder.PrependBoolSlot(0, enabled, 0)
+    builder.PrependBoolSlot(1, enabled, 0)
 
 def AddEnabled(builder, enabled):
     WebEventSeasonExcelAddEnabled(builder, enabled)
 
+def WebEventSeasonExcelAddStartDate(builder, startDate):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
+
+def AddStartDate(builder, startDate):
+    WebEventSeasonExcelAddStartDate(builder, startDate)
+
 def WebEventSeasonExcelAddEndDate(builder, endDate):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
 
 def AddEndDate(builder, endDate):
     WebEventSeasonExcelAddEndDate(builder, endDate)
-
-def WebEventSeasonExcelAddEventUrl(builder, eventUrl):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(eventUrl), 0)
-
-def AddEventUrl(builder, eventUrl):
-    WebEventSeasonExcelAddEventUrl(builder, eventUrl)
-
-def WebEventSeasonExcelAddId(builder, id):
-    builder.PrependInt64Slot(3, id, 0)
-
-def AddId(builder, id):
-    WebEventSeasonExcelAddId(builder, id)
 
 def WebEventSeasonExcelAddLobbyBannerImage(builder, lobbyBannerImage):
     builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(lobbyBannerImage), 0)
@@ -115,11 +115,11 @@ def WebEventSeasonExcelAddPopupTitleLocalizeKey(builder, popupTitleLocalizeKey):
 def AddPopupTitleLocalizeKey(builder, popupTitleLocalizeKey):
     WebEventSeasonExcelAddPopupTitleLocalizeKey(builder, popupTitleLocalizeKey)
 
-def WebEventSeasonExcelAddStartDate(builder, startDate):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
+def WebEventSeasonExcelAddEventUrl(builder, eventUrl):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(eventUrl), 0)
 
-def AddStartDate(builder, startDate):
-    WebEventSeasonExcelAddStartDate(builder, startDate)
+def AddEventUrl(builder, eventUrl):
+    WebEventSeasonExcelAddEventUrl(builder, eventUrl)
 
 def WebEventSeasonExcelEnd(builder):
     return builder.EndObject()

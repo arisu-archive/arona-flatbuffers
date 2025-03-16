@@ -10,17 +10,17 @@ import (
 // MiniGameShootingStageExcelDto represents a FlatBuffers table
 type MiniGameShootingStageExcelDto struct {
 	fbsutils.FlatBuffer
-	ArtLevel                  string     `json:"art_level"`
+	UniqueId                  int64      `json:"unique_id"`
 	BgmId                     []int64    `json:"bgm_id"`
-	CameraSizeRate            float32    `json:"camera_size_rate"`
 	CostGoodsId               int64      `json:"cost_goods_id"`
+	Difficulty                Difficulty `json:"difficulty"`
+	DesignLevel               string     `json:"design_level"`
+	ArtLevel                  string     `json:"art_level"`
+	StartBattleDuration       int64      `json:"start_battle_duration"`
 	DefaultBattleDuration     int64      `json:"default_battle_duration"`
 	DefaultLogicEffect        string     `json:"default_logic_effect"`
-	DesignLevel               string     `json:"design_level"`
-	Difficulty                Difficulty `json:"difficulty"`
+	CameraSizeRate            float32    `json:"camera_size_rate"`
 	EventContentStageRewardId int64      `json:"event_content_stage_reward_id"`
-	StartBattleDuration       int64      `json:"start_battle_duration"`
-	UniqueId                  int64      `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -29,21 +29,21 @@ func (t *MiniGameShootingStageExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingStage"))
 	}
 	MiniGameShootingStageExcelStart(b)
-	MiniGameShootingStageExcelAddArtLevel(b, fbsutils.Convert(b.CreateString(t.ArtLevel), t.FlatBuffer.TableKey))
+	MiniGameShootingStageExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelStartBgmIdVector(b, len(t.BgmId))
 	for i := range len(t.BgmId) {
 		b.PrependInt64(fbsutils.Convert(t.BgmId[len(t.BgmId)-i-1], t.FlatBuffer.TableKey))
 	}
 	MiniGameShootingStageExcelAddBgmId(b, b.EndVector(len(t.BgmId)))
-	MiniGameShootingStageExcelAddCameraSizeRate(b, fbsutils.Convert(t.CameraSizeRate, t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelAddCostGoodsId(b, fbsutils.Convert(t.CostGoodsId, t.FlatBuffer.TableKey))
+	MiniGameShootingStageExcelAddDifficulty(b, fbsutils.Convert(t.Difficulty, t.FlatBuffer.TableKey))
+	MiniGameShootingStageExcelAddDesignLevel(b, fbsutils.Convert(b.CreateString(t.DesignLevel), t.FlatBuffer.TableKey))
+	MiniGameShootingStageExcelAddArtLevel(b, fbsutils.Convert(b.CreateString(t.ArtLevel), t.FlatBuffer.TableKey))
+	MiniGameShootingStageExcelAddStartBattleDuration(b, fbsutils.Convert(t.StartBattleDuration, t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelAddDefaultBattleDuration(b, fbsutils.Convert(t.DefaultBattleDuration, t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelAddDefaultLogicEffect(b, fbsutils.Convert(b.CreateString(t.DefaultLogicEffect), t.FlatBuffer.TableKey))
-	MiniGameShootingStageExcelAddDesignLevel(b, fbsutils.Convert(b.CreateString(t.DesignLevel), t.FlatBuffer.TableKey))
-	MiniGameShootingStageExcelAddDifficulty(b, fbsutils.Convert(t.Difficulty, t.FlatBuffer.TableKey))
+	MiniGameShootingStageExcelAddCameraSizeRate(b, fbsutils.Convert(t.CameraSizeRate, t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelAddEventContentStageRewardId(b, fbsutils.Convert(t.EventContentStageRewardId, t.FlatBuffer.TableKey))
-	MiniGameShootingStageExcelAddStartBattleDuration(b, fbsutils.Convert(t.StartBattleDuration, t.FlatBuffer.TableKey))
-	MiniGameShootingStageExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return MiniGameShootingStageExcelEnd(b)
 }
 
@@ -59,20 +59,20 @@ func (t *MiniGameShootingStageExcelDto) UnmarshalMessage(e *MiniGameShootingStag
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingStage"))
 	}
-	t.ArtLevel = fbsutils.Convert(string(e.ArtLevel()), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.BgmId = make([]int64, e.BgmIdLength())
 	for i := range e.BgmIdLength() {
 		t.BgmId[i] = e.BgmId(i)
 	}
-	t.CameraSizeRate = fbsutils.Convert(e.CameraSizeRate(), t.FlatBuffer.TableKey)
 	t.CostGoodsId = fbsutils.Convert(e.CostGoodsId(), t.FlatBuffer.TableKey)
+	t.Difficulty = Difficulty(int32(fbsutils.Convert(e.Difficulty(), t.FlatBuffer.TableKey)))
+	t.DesignLevel = fbsutils.Convert(string(e.DesignLevel()), t.FlatBuffer.TableKey)
+	t.ArtLevel = fbsutils.Convert(string(e.ArtLevel()), t.FlatBuffer.TableKey)
+	t.StartBattleDuration = fbsutils.Convert(e.StartBattleDuration(), t.FlatBuffer.TableKey)
 	t.DefaultBattleDuration = fbsutils.Convert(e.DefaultBattleDuration(), t.FlatBuffer.TableKey)
 	t.DefaultLogicEffect = fbsutils.Convert(string(e.DefaultLogicEffect()), t.FlatBuffer.TableKey)
-	t.DesignLevel = fbsutils.Convert(string(e.DesignLevel()), t.FlatBuffer.TableKey)
-	t.Difficulty = Difficulty(int32(fbsutils.Convert(e.Difficulty(), t.FlatBuffer.TableKey)))
+	t.CameraSizeRate = fbsutils.Convert(e.CameraSizeRate(), t.FlatBuffer.TableKey)
 	t.EventContentStageRewardId = fbsutils.Convert(e.EventContentStageRewardId(), t.FlatBuffer.TableKey)
-	t.StartBattleDuration = fbsutils.Convert(e.StartBattleDuration(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

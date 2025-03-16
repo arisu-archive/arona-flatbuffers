@@ -10,29 +10,29 @@ import (
 // MinigameTBGEncounterExcelDto represents a FlatBuffers table
 type MinigameTBGEncounterExcelDto struct {
 	fbsutils.FlatBuffer
+	EventContentId             int64         `json:"event_content_id"`
+	UniqueId                   int64         `json:"unique_id"`
 	AllThema                   bool          `json:"all_thema"`
-	AllyAttackLocalize         string        `json:"ally_attack_localize"`
-	AttackDefenceLocalize      string        `json:"attack_defence_localize"`
+	ThemaIndex                 int32         `json:"thema_index"`
+	ThemaType                  TBGThemaType  `json:"thema_type"`
+	ObjectType                 TBGObjectType `json:"object_type"`
+	EnemyImagePath             string        `json:"enemy_image_path"`
+	EnemyPrefabName            string        `json:"enemy_prefab_name"`
+	EnemyNameLocalize          string        `json:"enemy_name_localize"`
+	OptionGroupId              int64         `json:"option_group_id"`
+	RewardHide                 bool          `json:"reward_hide"`
+	EncounterTitleLocalize     string        `json:"encounter_title_localize"`
+	StoryImagePath             string        `json:"story_image_path"`
 	BeforeStoryLocalize        string        `json:"before_story_localize"`
 	BeforeStoryOption1Localize string        `json:"before_story_option1_localize"`
 	BeforeStoryOption2Localize string        `json:"before_story_option2_localize"`
 	BeforeStoryOption3Localize string        `json:"before_story_option3_localize"`
+	AllyAttackLocalize         string        `json:"ally_attack_localize"`
+	EnemyAttackLocalize        string        `json:"enemy_attack_localize"`
+	AttackDefenceLocalize      string        `json:"attack_defence_localize"`
 	ClearStoryLocalize         string        `json:"clear_story_localize"`
 	DefeatStoryLocalize        string        `json:"defeat_story_localize"`
-	EncounterTitleLocalize     string        `json:"encounter_title_localize"`
-	EnemyAttackLocalize        string        `json:"enemy_attack_localize"`
-	EnemyImagePath             string        `json:"enemy_image_path"`
-	EnemyNameLocalize          string        `json:"enemy_name_localize"`
-	EnemyPrefabName            string        `json:"enemy_prefab_name"`
-	EventContentId             int64         `json:"event_content_id"`
-	ObjectType                 TBGObjectType `json:"object_type"`
-	OptionGroupId              int64         `json:"option_group_id"`
-	RewardHide                 bool          `json:"reward_hide"`
 	RunawayStoryLocalize       string        `json:"runaway_story_localize"`
-	StoryImagePath             string        `json:"story_image_path"`
-	ThemaIndex                 int32         `json:"thema_index"`
-	ThemaType                  TBGThemaType  `json:"thema_type"`
-	UniqueId                   int64         `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -41,29 +41,29 @@ func (t *MinigameTBGEncounterExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGEncounter"))
 	}
 	MinigameTBGEncounterExcelStart(b)
+	MinigameTBGEncounterExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	MinigameTBGEncounterExcelAddAllThema(b, fbsutils.Convert(t.AllThema, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddAllyAttackLocalize(b, fbsutils.Convert(b.CreateString(t.AllyAttackLocalize), t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddAttackDefenceLocalize(b, fbsutils.Convert(b.CreateString(t.AttackDefenceLocalize), t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddThemaIndex(b, fbsutils.Convert(t.ThemaIndex, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddThemaType(b, fbsutils.Convert(t.ThemaType, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddObjectType(b, fbsutils.Convert(t.ObjectType, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddEnemyImagePath(b, fbsutils.Convert(b.CreateString(t.EnemyImagePath), t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddEnemyPrefabName(b, fbsutils.Convert(b.CreateString(t.EnemyPrefabName), t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddEnemyNameLocalize(b, fbsutils.Convert(b.CreateString(t.EnemyNameLocalize), t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddOptionGroupId(b, fbsutils.Convert(t.OptionGroupId, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddRewardHide(b, fbsutils.Convert(t.RewardHide, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddEncounterTitleLocalize(b, fbsutils.Convert(b.CreateString(t.EncounterTitleLocalize), t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddStoryImagePath(b, fbsutils.Convert(b.CreateString(t.StoryImagePath), t.FlatBuffer.TableKey))
 	MinigameTBGEncounterExcelAddBeforeStoryLocalize(b, fbsutils.Convert(b.CreateString(t.BeforeStoryLocalize), t.FlatBuffer.TableKey))
 	MinigameTBGEncounterExcelAddBeforeStoryOption1Localize(b, fbsutils.Convert(b.CreateString(t.BeforeStoryOption1Localize), t.FlatBuffer.TableKey))
 	MinigameTBGEncounterExcelAddBeforeStoryOption2Localize(b, fbsutils.Convert(b.CreateString(t.BeforeStoryOption2Localize), t.FlatBuffer.TableKey))
 	MinigameTBGEncounterExcelAddBeforeStoryOption3Localize(b, fbsutils.Convert(b.CreateString(t.BeforeStoryOption3Localize), t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddAllyAttackLocalize(b, fbsutils.Convert(b.CreateString(t.AllyAttackLocalize), t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddEnemyAttackLocalize(b, fbsutils.Convert(b.CreateString(t.EnemyAttackLocalize), t.FlatBuffer.TableKey))
+	MinigameTBGEncounterExcelAddAttackDefenceLocalize(b, fbsutils.Convert(b.CreateString(t.AttackDefenceLocalize), t.FlatBuffer.TableKey))
 	MinigameTBGEncounterExcelAddClearStoryLocalize(b, fbsutils.Convert(b.CreateString(t.ClearStoryLocalize), t.FlatBuffer.TableKey))
 	MinigameTBGEncounterExcelAddDefeatStoryLocalize(b, fbsutils.Convert(b.CreateString(t.DefeatStoryLocalize), t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddEncounterTitleLocalize(b, fbsutils.Convert(b.CreateString(t.EncounterTitleLocalize), t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddEnemyAttackLocalize(b, fbsutils.Convert(b.CreateString(t.EnemyAttackLocalize), t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddEnemyImagePath(b, fbsutils.Convert(b.CreateString(t.EnemyImagePath), t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddEnemyNameLocalize(b, fbsutils.Convert(b.CreateString(t.EnemyNameLocalize), t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddEnemyPrefabName(b, fbsutils.Convert(b.CreateString(t.EnemyPrefabName), t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddObjectType(b, fbsutils.Convert(t.ObjectType, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddOptionGroupId(b, fbsutils.Convert(t.OptionGroupId, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddRewardHide(b, fbsutils.Convert(t.RewardHide, t.FlatBuffer.TableKey))
 	MinigameTBGEncounterExcelAddRunawayStoryLocalize(b, fbsutils.Convert(b.CreateString(t.RunawayStoryLocalize), t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddStoryImagePath(b, fbsutils.Convert(b.CreateString(t.StoryImagePath), t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddThemaIndex(b, fbsutils.Convert(t.ThemaIndex, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddThemaType(b, fbsutils.Convert(t.ThemaType, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return MinigameTBGEncounterExcelEnd(b)
 }
 
@@ -79,29 +79,29 @@ func (t *MinigameTBGEncounterExcelDto) UnmarshalMessage(e *MinigameTBGEncounterE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGEncounter"))
 	}
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.AllThema = fbsutils.Convert(e.AllThema(), t.FlatBuffer.TableKey)
-	t.AllyAttackLocalize = fbsutils.Convert(string(e.AllyAttackLocalize()), t.FlatBuffer.TableKey)
-	t.AttackDefenceLocalize = fbsutils.Convert(string(e.AttackDefenceLocalize()), t.FlatBuffer.TableKey)
+	t.ThemaIndex = fbsutils.Convert(e.ThemaIndex(), t.FlatBuffer.TableKey)
+	t.ThemaType = TBGThemaType(int32(fbsutils.Convert(e.ThemaType(), t.FlatBuffer.TableKey)))
+	t.ObjectType = TBGObjectType(int32(fbsutils.Convert(e.ObjectType(), t.FlatBuffer.TableKey)))
+	t.EnemyImagePath = fbsutils.Convert(string(e.EnemyImagePath()), t.FlatBuffer.TableKey)
+	t.EnemyPrefabName = fbsutils.Convert(string(e.EnemyPrefabName()), t.FlatBuffer.TableKey)
+	t.EnemyNameLocalize = fbsutils.Convert(string(e.EnemyNameLocalize()), t.FlatBuffer.TableKey)
+	t.OptionGroupId = fbsutils.Convert(e.OptionGroupId(), t.FlatBuffer.TableKey)
+	t.RewardHide = fbsutils.Convert(e.RewardHide(), t.FlatBuffer.TableKey)
+	t.EncounterTitleLocalize = fbsutils.Convert(string(e.EncounterTitleLocalize()), t.FlatBuffer.TableKey)
+	t.StoryImagePath = fbsutils.Convert(string(e.StoryImagePath()), t.FlatBuffer.TableKey)
 	t.BeforeStoryLocalize = fbsutils.Convert(string(e.BeforeStoryLocalize()), t.FlatBuffer.TableKey)
 	t.BeforeStoryOption1Localize = fbsutils.Convert(string(e.BeforeStoryOption1Localize()), t.FlatBuffer.TableKey)
 	t.BeforeStoryOption2Localize = fbsutils.Convert(string(e.BeforeStoryOption2Localize()), t.FlatBuffer.TableKey)
 	t.BeforeStoryOption3Localize = fbsutils.Convert(string(e.BeforeStoryOption3Localize()), t.FlatBuffer.TableKey)
+	t.AllyAttackLocalize = fbsutils.Convert(string(e.AllyAttackLocalize()), t.FlatBuffer.TableKey)
+	t.EnemyAttackLocalize = fbsutils.Convert(string(e.EnemyAttackLocalize()), t.FlatBuffer.TableKey)
+	t.AttackDefenceLocalize = fbsutils.Convert(string(e.AttackDefenceLocalize()), t.FlatBuffer.TableKey)
 	t.ClearStoryLocalize = fbsutils.Convert(string(e.ClearStoryLocalize()), t.FlatBuffer.TableKey)
 	t.DefeatStoryLocalize = fbsutils.Convert(string(e.DefeatStoryLocalize()), t.FlatBuffer.TableKey)
-	t.EncounterTitleLocalize = fbsutils.Convert(string(e.EncounterTitleLocalize()), t.FlatBuffer.TableKey)
-	t.EnemyAttackLocalize = fbsutils.Convert(string(e.EnemyAttackLocalize()), t.FlatBuffer.TableKey)
-	t.EnemyImagePath = fbsutils.Convert(string(e.EnemyImagePath()), t.FlatBuffer.TableKey)
-	t.EnemyNameLocalize = fbsutils.Convert(string(e.EnemyNameLocalize()), t.FlatBuffer.TableKey)
-	t.EnemyPrefabName = fbsutils.Convert(string(e.EnemyPrefabName()), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.ObjectType = TBGObjectType(int32(fbsutils.Convert(e.ObjectType(), t.FlatBuffer.TableKey)))
-	t.OptionGroupId = fbsutils.Convert(e.OptionGroupId(), t.FlatBuffer.TableKey)
-	t.RewardHide = fbsutils.Convert(e.RewardHide(), t.FlatBuffer.TableKey)
 	t.RunawayStoryLocalize = fbsutils.Convert(string(e.RunawayStoryLocalize()), t.FlatBuffer.TableKey)
-	t.StoryImagePath = fbsutils.Convert(string(e.StoryImagePath()), t.FlatBuffer.TableKey)
-	t.ThemaIndex = fbsutils.Convert(e.ThemaIndex(), t.FlatBuffer.TableKey)
-	t.ThemaType = TBGThemaType(int32(fbsutils.Convert(e.ThemaType(), t.FlatBuffer.TableKey)))
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

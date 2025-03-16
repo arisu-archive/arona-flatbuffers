@@ -59,122 +59,8 @@ class CharacterTranscendenceExcel(object):
         return o == 0
 
     # CharacterTranscendenceExcel
-    def MaxlevelStar(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # CharacterTranscendenceExcel
-    def MaxlevelStarAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # CharacterTranscendenceExcel
-    def MaxlevelStarLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # CharacterTranscendenceExcel
-    def MaxlevelStarIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        return o == 0
-
-    # CharacterTranscendenceExcel
-    def RecipeId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # CharacterTranscendenceExcel
-    def RecipeIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # CharacterTranscendenceExcel
-    def RecipeIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # CharacterTranscendenceExcel
-    def RecipeIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        return o == 0
-
-    # CharacterTranscendenceExcel
-    def SkillSlotA(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # CharacterTranscendenceExcel
-    def SkillSlotALength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # CharacterTranscendenceExcel
-    def SkillSlotAIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        return o == 0
-
-    # CharacterTranscendenceExcel
-    def SkillSlotB(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # CharacterTranscendenceExcel
-    def SkillSlotBLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # CharacterTranscendenceExcel
-    def SkillSlotBIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        return o == 0
-
-    # CharacterTranscendenceExcel
-    def SkillSlotC(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # CharacterTranscendenceExcel
-    def SkillSlotCLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # CharacterTranscendenceExcel
-    def SkillSlotCIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        return o == 0
-
-    # CharacterTranscendenceExcel
     def StatBonusRateAttack(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -182,53 +68,26 @@ class CharacterTranscendenceExcel(object):
 
     # CharacterTranscendenceExcel
     def StatBonusRateAttackAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # CharacterTranscendenceExcel
     def StatBonusRateAttackLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterTranscendenceExcel
     def StatBonusRateAttackIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        return o == 0
-
-    # CharacterTranscendenceExcel
-    def StatBonusRateHeal(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # CharacterTranscendenceExcel
-    def StatBonusRateHealAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # CharacterTranscendenceExcel
-    def StatBonusRateHealLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # CharacterTranscendenceExcel
-    def StatBonusRateHealIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
     # CharacterTranscendenceExcel
     def StatBonusRateHp(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -236,20 +95,161 @@ class CharacterTranscendenceExcel(object):
 
     # CharacterTranscendenceExcel
     def StatBonusRateHpAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # CharacterTranscendenceExcel
     def StatBonusRateHpLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterTranscendenceExcel
     def StatBonusRateHpIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        return o == 0
+
+    # CharacterTranscendenceExcel
+    def StatBonusRateHeal(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # CharacterTranscendenceExcel
+    def StatBonusRateHealAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # CharacterTranscendenceExcel
+    def StatBonusRateHealLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CharacterTranscendenceExcel
+    def StatBonusRateHealIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        return o == 0
+
+    # CharacterTranscendenceExcel
+    def RecipeId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # CharacterTranscendenceExcel
+    def RecipeIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # CharacterTranscendenceExcel
+    def RecipeIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CharacterTranscendenceExcel
+    def RecipeIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        return o == 0
+
+    # CharacterTranscendenceExcel
+    def SkillSlotA(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # CharacterTranscendenceExcel
+    def SkillSlotALength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CharacterTranscendenceExcel
+    def SkillSlotAIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        return o == 0
+
+    # CharacterTranscendenceExcel
+    def SkillSlotB(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # CharacterTranscendenceExcel
+    def SkillSlotBLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CharacterTranscendenceExcel
+    def SkillSlotBIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        return o == 0
+
+    # CharacterTranscendenceExcel
+    def SkillSlotC(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # CharacterTranscendenceExcel
+    def SkillSlotCLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CharacterTranscendenceExcel
+    def SkillSlotCIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        return o == 0
+
+    # CharacterTranscendenceExcel
+    def MaxlevelStar(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # CharacterTranscendenceExcel
+    def MaxlevelStarAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # CharacterTranscendenceExcel
+    def MaxlevelStarLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CharacterTranscendenceExcel
+    def MaxlevelStarIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         return o == 0
 
@@ -277,20 +277,44 @@ def CharacterTranscendenceExcelStartMaxFavorLevelVector(builder, numElems):
 def StartMaxFavorLevelVector(builder, numElems):
     return CharacterTranscendenceExcelStartMaxFavorLevelVector(builder, numElems)
 
-def CharacterTranscendenceExcelAddMaxlevelStar(builder, maxlevelStar):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(maxlevelStar), 0)
+def CharacterTranscendenceExcelAddStatBonusRateAttack(builder, statBonusRateAttack):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(statBonusRateAttack), 0)
 
-def AddMaxlevelStar(builder, maxlevelStar):
-    CharacterTranscendenceExcelAddMaxlevelStar(builder, maxlevelStar)
+def AddStatBonusRateAttack(builder, statBonusRateAttack):
+    CharacterTranscendenceExcelAddStatBonusRateAttack(builder, statBonusRateAttack)
 
-def CharacterTranscendenceExcelStartMaxlevelStarVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
+def CharacterTranscendenceExcelStartStatBonusRateAttackVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
 
-def StartMaxlevelStarVector(builder, numElems):
-    return CharacterTranscendenceExcelStartMaxlevelStarVector(builder, numElems)
+def StartStatBonusRateAttackVector(builder, numElems):
+    return CharacterTranscendenceExcelStartStatBonusRateAttackVector(builder, numElems)
+
+def CharacterTranscendenceExcelAddStatBonusRateHp(builder, statBonusRateHp):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(statBonusRateHp), 0)
+
+def AddStatBonusRateHp(builder, statBonusRateHp):
+    CharacterTranscendenceExcelAddStatBonusRateHp(builder, statBonusRateHp)
+
+def CharacterTranscendenceExcelStartStatBonusRateHpVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartStatBonusRateHpVector(builder, numElems):
+    return CharacterTranscendenceExcelStartStatBonusRateHpVector(builder, numElems)
+
+def CharacterTranscendenceExcelAddStatBonusRateHeal(builder, statBonusRateHeal):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(statBonusRateHeal), 0)
+
+def AddStatBonusRateHeal(builder, statBonusRateHeal):
+    CharacterTranscendenceExcelAddStatBonusRateHeal(builder, statBonusRateHeal)
+
+def CharacterTranscendenceExcelStartStatBonusRateHealVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartStatBonusRateHealVector(builder, numElems):
+    return CharacterTranscendenceExcelStartStatBonusRateHealVector(builder, numElems)
 
 def CharacterTranscendenceExcelAddRecipeId(builder, recipeId):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(recipeId), 0)
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(recipeId), 0)
 
 def AddRecipeId(builder, recipeId):
     CharacterTranscendenceExcelAddRecipeId(builder, recipeId)
@@ -302,7 +326,7 @@ def StartRecipeIdVector(builder, numElems):
     return CharacterTranscendenceExcelStartRecipeIdVector(builder, numElems)
 
 def CharacterTranscendenceExcelAddSkillSlotA(builder, skillSlotA):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(skillSlotA), 0)
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(skillSlotA), 0)
 
 def AddSkillSlotA(builder, skillSlotA):
     CharacterTranscendenceExcelAddSkillSlotA(builder, skillSlotA)
@@ -314,7 +338,7 @@ def StartSkillSlotAVector(builder, numElems):
     return CharacterTranscendenceExcelStartSkillSlotAVector(builder, numElems)
 
 def CharacterTranscendenceExcelAddSkillSlotB(builder, skillSlotB):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(skillSlotB), 0)
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(skillSlotB), 0)
 
 def AddSkillSlotB(builder, skillSlotB):
     CharacterTranscendenceExcelAddSkillSlotB(builder, skillSlotB)
@@ -326,7 +350,7 @@ def StartSkillSlotBVector(builder, numElems):
     return CharacterTranscendenceExcelStartSkillSlotBVector(builder, numElems)
 
 def CharacterTranscendenceExcelAddSkillSlotC(builder, skillSlotC):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(skillSlotC), 0)
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(skillSlotC), 0)
 
 def AddSkillSlotC(builder, skillSlotC):
     CharacterTranscendenceExcelAddSkillSlotC(builder, skillSlotC)
@@ -337,41 +361,17 @@ def CharacterTranscendenceExcelStartSkillSlotCVector(builder, numElems):
 def StartSkillSlotCVector(builder, numElems):
     return CharacterTranscendenceExcelStartSkillSlotCVector(builder, numElems)
 
-def CharacterTranscendenceExcelAddStatBonusRateAttack(builder, statBonusRateAttack):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(statBonusRateAttack), 0)
+def CharacterTranscendenceExcelAddMaxlevelStar(builder, maxlevelStar):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(maxlevelStar), 0)
 
-def AddStatBonusRateAttack(builder, statBonusRateAttack):
-    CharacterTranscendenceExcelAddStatBonusRateAttack(builder, statBonusRateAttack)
+def AddMaxlevelStar(builder, maxlevelStar):
+    CharacterTranscendenceExcelAddMaxlevelStar(builder, maxlevelStar)
 
-def CharacterTranscendenceExcelStartStatBonusRateAttackVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
+def CharacterTranscendenceExcelStartMaxlevelStarVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
 
-def StartStatBonusRateAttackVector(builder, numElems):
-    return CharacterTranscendenceExcelStartStatBonusRateAttackVector(builder, numElems)
-
-def CharacterTranscendenceExcelAddStatBonusRateHeal(builder, statBonusRateHeal):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(statBonusRateHeal), 0)
-
-def AddStatBonusRateHeal(builder, statBonusRateHeal):
-    CharacterTranscendenceExcelAddStatBonusRateHeal(builder, statBonusRateHeal)
-
-def CharacterTranscendenceExcelStartStatBonusRateHealVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
-def StartStatBonusRateHealVector(builder, numElems):
-    return CharacterTranscendenceExcelStartStatBonusRateHealVector(builder, numElems)
-
-def CharacterTranscendenceExcelAddStatBonusRateHp(builder, statBonusRateHp):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(statBonusRateHp), 0)
-
-def AddStatBonusRateHp(builder, statBonusRateHp):
-    CharacterTranscendenceExcelAddStatBonusRateHp(builder, statBonusRateHp)
-
-def CharacterTranscendenceExcelStartStatBonusRateHpVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
-def StartStatBonusRateHpVector(builder, numElems):
-    return CharacterTranscendenceExcelStartStatBonusRateHpVector(builder, numElems)
+def StartMaxlevelStarVector(builder, numElems):
+    return CharacterTranscendenceExcelStartMaxlevelStarVector(builder, numElems)
 
 def CharacterTranscendenceExcelEnd(builder):
     return builder.EndObject()

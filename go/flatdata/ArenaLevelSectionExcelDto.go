@@ -11,8 +11,8 @@ import (
 type ArenaLevelSectionExcelDto struct {
 	fbsutils.FlatBuffer
 	ArenaSeasonId int64 `json:"arena_season_id"`
-	LastLevel     int64 `json:"last_level"`
 	StartLevel    int64 `json:"start_level"`
+	LastLevel     int64 `json:"last_level"`
 	UserCount     int64 `json:"user_count"`
 }
 
@@ -23,8 +23,8 @@ func (t *ArenaLevelSectionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	}
 	ArenaLevelSectionExcelStart(b)
 	ArenaLevelSectionExcelAddArenaSeasonId(b, fbsutils.Convert(t.ArenaSeasonId, t.FlatBuffer.TableKey))
-	ArenaLevelSectionExcelAddLastLevel(b, fbsutils.Convert(t.LastLevel, t.FlatBuffer.TableKey))
 	ArenaLevelSectionExcelAddStartLevel(b, fbsutils.Convert(t.StartLevel, t.FlatBuffer.TableKey))
+	ArenaLevelSectionExcelAddLastLevel(b, fbsutils.Convert(t.LastLevel, t.FlatBuffer.TableKey))
 	ArenaLevelSectionExcelAddUserCount(b, fbsutils.Convert(t.UserCount, t.FlatBuffer.TableKey))
 	return ArenaLevelSectionExcelEnd(b)
 }
@@ -42,8 +42,8 @@ func (t *ArenaLevelSectionExcelDto) UnmarshalMessage(e *ArenaLevelSectionExcel) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaLevelSection"))
 	}
 	t.ArenaSeasonId = fbsutils.Convert(e.ArenaSeasonId(), t.FlatBuffer.TableKey)
-	t.LastLevel = fbsutils.Convert(e.LastLevel(), t.FlatBuffer.TableKey)
 	t.StartLevel = fbsutils.Convert(e.StartLevel(), t.FlatBuffer.TableKey)
+	t.LastLevel = fbsutils.Convert(e.LastLevel(), t.FlatBuffer.TableKey)
 	t.UserCount = fbsutils.Convert(e.UserCount(), t.FlatBuffer.TableKey)
 	return nil
 }

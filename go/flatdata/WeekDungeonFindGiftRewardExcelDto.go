@@ -10,13 +10,13 @@ import (
 // WeekDungeonFindGiftRewardExcelDto represents a FlatBuffers table
 type WeekDungeonFindGiftRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	DevName                 string       `json:"dev_name"`
-	DropItemModelPrefabPath []string     `json:"drop_item_model_prefab_path"`
-	RewardParcelAmount      []int64      `json:"reward_parcel_amount"`
-	RewardParcelId          []int64      `json:"reward_parcel_id"`
-	RewardParcelProbability []int64      `json:"reward_parcel_probability"`
-	RewardParcelType        []ParcelType `json:"reward_parcel_type"`
 	StageRewardId           int64        `json:"stage_reward_id"`
+	DevName                 string       `json:"dev_name"`
+	RewardParcelType        []ParcelType `json:"reward_parcel_type"`
+	RewardParcelId          []int64      `json:"reward_parcel_id"`
+	RewardParcelAmount      []int64      `json:"reward_parcel_amount"`
+	RewardParcelProbability []int64      `json:"reward_parcel_probability"`
+	DropItemModelPrefabPath []string     `json:"drop_item_model_prefab_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,33 +25,33 @@ func (t *WeekDungeonFindGiftRewardExcelDto) MarshalModel(b *flatbuffers.Builder)
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonFindGiftReward"))
 	}
 	WeekDungeonFindGiftRewardExcelStart(b)
+	WeekDungeonFindGiftRewardExcelAddStageRewardId(b, fbsutils.Convert(t.StageRewardId, t.FlatBuffer.TableKey))
 	WeekDungeonFindGiftRewardExcelAddDevName(b, fbsutils.Convert(b.CreateString(t.DevName), t.FlatBuffer.TableKey))
-	WeekDungeonFindGiftRewardExcelStartDropItemModelPrefabPathVector(b, len(t.DropItemModelPrefabPath))
-	for i := range len(t.DropItemModelPrefabPath) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.DropItemModelPrefabPath[len(t.DropItemModelPrefabPath)-i-1]), t.FlatBuffer.TableKey))
-	}
-	WeekDungeonFindGiftRewardExcelAddDropItemModelPrefabPath(b, b.EndVector(len(t.DropItemModelPrefabPath)))
-	WeekDungeonFindGiftRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
-	for i := range len(t.RewardParcelAmount) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	WeekDungeonFindGiftRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
-	WeekDungeonFindGiftRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
-	for i := range len(t.RewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	WeekDungeonFindGiftRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
-	WeekDungeonFindGiftRewardExcelStartRewardParcelProbabilityVector(b, len(t.RewardParcelProbability))
-	for i := range len(t.RewardParcelProbability) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelProbability[len(t.RewardParcelProbability)-i-1], t.FlatBuffer.TableKey))
-	}
-	WeekDungeonFindGiftRewardExcelAddRewardParcelProbability(b, b.EndVector(len(t.RewardParcelProbability)))
 	WeekDungeonFindGiftRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
 	}
 	WeekDungeonFindGiftRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
-	WeekDungeonFindGiftRewardExcelAddStageRewardId(b, fbsutils.Convert(t.StageRewardId, t.FlatBuffer.TableKey))
+	WeekDungeonFindGiftRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
+	for i := range len(t.RewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	WeekDungeonFindGiftRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	WeekDungeonFindGiftRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
+	for i := range len(t.RewardParcelAmount) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	WeekDungeonFindGiftRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
+	WeekDungeonFindGiftRewardExcelStartRewardParcelProbabilityVector(b, len(t.RewardParcelProbability))
+	for i := range len(t.RewardParcelProbability) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelProbability[len(t.RewardParcelProbability)-i-1], t.FlatBuffer.TableKey))
+	}
+	WeekDungeonFindGiftRewardExcelAddRewardParcelProbability(b, b.EndVector(len(t.RewardParcelProbability)))
+	WeekDungeonFindGiftRewardExcelStartDropItemModelPrefabPathVector(b, len(t.DropItemModelPrefabPath))
+	for i := range len(t.DropItemModelPrefabPath) {
+		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.DropItemModelPrefabPath[len(t.DropItemModelPrefabPath)-i-1]), t.FlatBuffer.TableKey))
+	}
+	WeekDungeonFindGiftRewardExcelAddDropItemModelPrefabPath(b, b.EndVector(len(t.DropItemModelPrefabPath)))
 	return WeekDungeonFindGiftRewardExcelEnd(b)
 }
 
@@ -67,28 +67,28 @@ func (t *WeekDungeonFindGiftRewardExcelDto) UnmarshalMessage(e *WeekDungeonFindG
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonFindGiftReward"))
 	}
+	t.StageRewardId = fbsutils.Convert(e.StageRewardId(), t.FlatBuffer.TableKey)
 	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
-	t.DropItemModelPrefabPath = make([]string, e.DropItemModelPrefabPathLength())
-	for i := range e.DropItemModelPrefabPathLength() {
-		t.DropItemModelPrefabPath[i] = string(e.DropItemModelPrefabPath(i))
-	}
-	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
+	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
+	for i := range e.RewardParcelTypeLength() {
+		t.RewardParcelType[i] = e.RewardParcelType(i)
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
 		t.RewardParcelId[i] = e.RewardParcelId(i)
 	}
+	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
+	}
 	t.RewardParcelProbability = make([]int64, e.RewardParcelProbabilityLength())
 	for i := range e.RewardParcelProbabilityLength() {
 		t.RewardParcelProbability[i] = e.RewardParcelProbability(i)
 	}
-	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
-	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = e.RewardParcelType(i)
+	t.DropItemModelPrefabPath = make([]string, e.DropItemModelPrefabPathLength())
+	for i := range e.DropItemModelPrefabPathLength() {
+		t.DropItemModelPrefabPath[i] = string(e.DropItemModelPrefabPath(i))
 	}
-	t.StageRewardId = fbsutils.Convert(e.StageRewardId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

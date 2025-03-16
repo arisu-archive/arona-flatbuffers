@@ -41,7 +41,7 @@ func (rcv *CharacterLevelStatFactorExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterLevelStatFactorExcel) AccuracyFactor() int64 {
+func (rcv *CharacterLevelStatFactorExcel) Level() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -49,7 +49,7 @@ func (rcv *CharacterLevelStatFactorExcel) AccuracyFactor() int64 {
 	return 0
 }
 
-func (rcv *CharacterLevelStatFactorExcel) MutateAccuracyFactor(n int64) bool {
+func (rcv *CharacterLevelStatFactorExcel) MutateLevel(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
@@ -65,7 +65,7 @@ func (rcv *CharacterLevelStatFactorExcel) MutateCriticalFactor(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *CharacterLevelStatFactorExcel) DefenceFactor() int64 {
+func (rcv *CharacterLevelStatFactorExcel) StabilityFactor() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -73,11 +73,11 @@ func (rcv *CharacterLevelStatFactorExcel) DefenceFactor() int64 {
 	return 0
 }
 
-func (rcv *CharacterLevelStatFactorExcel) MutateDefenceFactor(n int64) bool {
+func (rcv *CharacterLevelStatFactorExcel) MutateStabilityFactor(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *CharacterLevelStatFactorExcel) Level() int64 {
+func (rcv *CharacterLevelStatFactorExcel) DefenceFactor() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -85,11 +85,11 @@ func (rcv *CharacterLevelStatFactorExcel) Level() int64 {
 	return 0
 }
 
-func (rcv *CharacterLevelStatFactorExcel) MutateLevel(n int64) bool {
+func (rcv *CharacterLevelStatFactorExcel) MutateDefenceFactor(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *CharacterLevelStatFactorExcel) StabilityFactor() int64 {
+func (rcv *CharacterLevelStatFactorExcel) AccuracyFactor() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -97,27 +97,27 @@ func (rcv *CharacterLevelStatFactorExcel) StabilityFactor() int64 {
 	return 0
 }
 
-func (rcv *CharacterLevelStatFactorExcel) MutateStabilityFactor(n int64) bool {
+func (rcv *CharacterLevelStatFactorExcel) MutateAccuracyFactor(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func CharacterLevelStatFactorExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func CharacterLevelStatFactorExcelAddAccuracyFactor(builder *flatbuffers.Builder, accuracyFactor int64) {
-	builder.PrependInt64Slot(0, accuracyFactor, 0)
+func CharacterLevelStatFactorExcelAddLevel(builder *flatbuffers.Builder, level int64) {
+	builder.PrependInt64Slot(0, level, 0)
 }
 func CharacterLevelStatFactorExcelAddCriticalFactor(builder *flatbuffers.Builder, criticalFactor int64) {
 	builder.PrependInt64Slot(1, criticalFactor, 0)
 }
-func CharacterLevelStatFactorExcelAddDefenceFactor(builder *flatbuffers.Builder, defenceFactor int64) {
-	builder.PrependInt64Slot(2, defenceFactor, 0)
-}
-func CharacterLevelStatFactorExcelAddLevel(builder *flatbuffers.Builder, level int64) {
-	builder.PrependInt64Slot(3, level, 0)
-}
 func CharacterLevelStatFactorExcelAddStabilityFactor(builder *flatbuffers.Builder, stabilityFactor int64) {
-	builder.PrependInt64Slot(4, stabilityFactor, 0)
+	builder.PrependInt64Slot(2, stabilityFactor, 0)
+}
+func CharacterLevelStatFactorExcelAddDefenceFactor(builder *flatbuffers.Builder, defenceFactor int64) {
+	builder.PrependInt64Slot(3, defenceFactor, 0)
+}
+func CharacterLevelStatFactorExcelAddAccuracyFactor(builder *flatbuffers.Builder, accuracyFactor int64) {
+	builder.PrependInt64Slot(4, accuracyFactor, 0)
 }
 func CharacterLevelStatFactorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

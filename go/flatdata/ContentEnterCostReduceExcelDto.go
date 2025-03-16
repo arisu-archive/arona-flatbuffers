@@ -10,12 +10,12 @@ import (
 // ContentEnterCostReduceExcelDto represents a FlatBuffers table
 type ContentEnterCostReduceExcelDto struct {
 	fbsutils.FlatBuffer
-	ContentType            ContentType `json:"content_type"`
 	EnterCostReduceGroupId int64       `json:"enter_cost_reduce_group_id"`
-	ReduceAmount           int64       `json:"reduce_amount"`
-	ReduceEnterCostId      int64       `json:"reduce_enter_cost_id"`
-	ReduceEnterCostType    ParcelType  `json:"reduce_enter_cost_type"`
+	ContentType            ContentType `json:"content_type"`
 	StageId                int64       `json:"stage_id"`
+	ReduceEnterCostType    ParcelType  `json:"reduce_enter_cost_type"`
+	ReduceEnterCostId      int64       `json:"reduce_enter_cost_id"`
+	ReduceAmount           int64       `json:"reduce_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,12 +24,12 @@ func (t *ContentEnterCostReduceExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentEnterCostReduce"))
 	}
 	ContentEnterCostReduceExcelStart(b)
-	ContentEnterCostReduceExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
 	ContentEnterCostReduceExcelAddEnterCostReduceGroupId(b, fbsutils.Convert(t.EnterCostReduceGroupId, t.FlatBuffer.TableKey))
-	ContentEnterCostReduceExcelAddReduceAmount(b, fbsutils.Convert(t.ReduceAmount, t.FlatBuffer.TableKey))
-	ContentEnterCostReduceExcelAddReduceEnterCostId(b, fbsutils.Convert(t.ReduceEnterCostId, t.FlatBuffer.TableKey))
-	ContentEnterCostReduceExcelAddReduceEnterCostType(b, fbsutils.Convert(t.ReduceEnterCostType, t.FlatBuffer.TableKey))
+	ContentEnterCostReduceExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
 	ContentEnterCostReduceExcelAddStageId(b, fbsutils.Convert(t.StageId, t.FlatBuffer.TableKey))
+	ContentEnterCostReduceExcelAddReduceEnterCostType(b, fbsutils.Convert(t.ReduceEnterCostType, t.FlatBuffer.TableKey))
+	ContentEnterCostReduceExcelAddReduceEnterCostId(b, fbsutils.Convert(t.ReduceEnterCostId, t.FlatBuffer.TableKey))
+	ContentEnterCostReduceExcelAddReduceAmount(b, fbsutils.Convert(t.ReduceAmount, t.FlatBuffer.TableKey))
 	return ContentEnterCostReduceExcelEnd(b)
 }
 
@@ -45,12 +45,12 @@ func (t *ContentEnterCostReduceExcelDto) UnmarshalMessage(e *ContentEnterCostRed
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentEnterCostReduce"))
 	}
-	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
 	t.EnterCostReduceGroupId = fbsutils.Convert(e.EnterCostReduceGroupId(), t.FlatBuffer.TableKey)
-	t.ReduceAmount = fbsutils.Convert(e.ReduceAmount(), t.FlatBuffer.TableKey)
-	t.ReduceEnterCostId = fbsutils.Convert(e.ReduceEnterCostId(), t.FlatBuffer.TableKey)
-	t.ReduceEnterCostType = ParcelType(int32(fbsutils.Convert(e.ReduceEnterCostType(), t.FlatBuffer.TableKey)))
+	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
 	t.StageId = fbsutils.Convert(e.StageId(), t.FlatBuffer.TableKey)
+	t.ReduceEnterCostType = ParcelType(int32(fbsutils.Convert(e.ReduceEnterCostType(), t.FlatBuffer.TableKey)))
+	t.ReduceEnterCostId = fbsutils.Convert(e.ReduceEnterCostId(), t.FlatBuffer.TableKey)
+	t.ReduceAmount = fbsutils.Convert(e.ReduceAmount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

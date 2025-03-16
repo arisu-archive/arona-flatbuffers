@@ -25,10 +25,10 @@ class ServiceActionExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ServiceActionExcel
-    def GoodsId(self):
+    def ServiceActionType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ServiceActionExcel
@@ -39,10 +39,10 @@ class ServiceActionExcel(object):
         return False
 
     # ServiceActionExcel
-    def ServiceActionType(self):
+    def GoodsId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def ServiceActionExcelStart(builder):
@@ -51,11 +51,11 @@ def ServiceActionExcelStart(builder):
 def Start(builder):
     ServiceActionExcelStart(builder)
 
-def ServiceActionExcelAddGoodsId(builder, goodsId):
-    builder.PrependInt64Slot(0, goodsId, 0)
+def ServiceActionExcelAddServiceActionType(builder, serviceActionType):
+    builder.PrependInt32Slot(0, serviceActionType, 0)
 
-def AddGoodsId(builder, goodsId):
-    ServiceActionExcelAddGoodsId(builder, goodsId)
+def AddServiceActionType(builder, serviceActionType):
+    ServiceActionExcelAddServiceActionType(builder, serviceActionType)
 
 def ServiceActionExcelAddIsLegacy(builder, isLegacy):
     builder.PrependBoolSlot(1, isLegacy, 0)
@@ -63,11 +63,11 @@ def ServiceActionExcelAddIsLegacy(builder, isLegacy):
 def AddIsLegacy(builder, isLegacy):
     ServiceActionExcelAddIsLegacy(builder, isLegacy)
 
-def ServiceActionExcelAddServiceActionType(builder, serviceActionType):
-    builder.PrependInt32Slot(2, serviceActionType, 0)
+def ServiceActionExcelAddGoodsId(builder, goodsId):
+    builder.PrependInt64Slot(2, goodsId, 0)
 
-def AddServiceActionType(builder, serviceActionType):
-    ServiceActionExcelAddServiceActionType(builder, serviceActionType)
+def AddGoodsId(builder, goodsId):
+    ServiceActionExcelAddGoodsId(builder, goodsId)
 
 def ServiceActionExcelEnd(builder):
     return builder.EndObject()

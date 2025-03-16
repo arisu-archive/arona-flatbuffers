@@ -10,10 +10,10 @@ import (
 // FieldKeywordExcelDto represents a FlatBuffers table
 type FieldKeywordExcelDto struct {
 	fbsutils.FlatBuffer
+	UniqueId               int64  `json:"unique_id"`
+	NameLocalizeKey        string `json:"name_localize_key"`
 	DescriptionLocalizeKey string `json:"description_localize_key"`
 	ImagePath              string `json:"image_path"`
-	NameLocalizeKey        string `json:"name_localize_key"`
-	UniqueId               int64  `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *FieldKeywordExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeyword"))
 	}
 	FieldKeywordExcelStart(b)
+	FieldKeywordExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	FieldKeywordExcelAddNameLocalizeKey(b, fbsutils.Convert(b.CreateString(t.NameLocalizeKey), t.FlatBuffer.TableKey))
 	FieldKeywordExcelAddDescriptionLocalizeKey(b, fbsutils.Convert(b.CreateString(t.DescriptionLocalizeKey), t.FlatBuffer.TableKey))
 	FieldKeywordExcelAddImagePath(b, fbsutils.Convert(b.CreateString(t.ImagePath), t.FlatBuffer.TableKey))
-	FieldKeywordExcelAddNameLocalizeKey(b, fbsutils.Convert(b.CreateString(t.NameLocalizeKey), t.FlatBuffer.TableKey))
-	FieldKeywordExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return FieldKeywordExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *FieldKeywordExcelDto) UnmarshalMessage(e *FieldKeywordExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeyword"))
 	}
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.NameLocalizeKey = fbsutils.Convert(string(e.NameLocalizeKey()), t.FlatBuffer.TableKey)
 	t.DescriptionLocalizeKey = fbsutils.Convert(string(e.DescriptionLocalizeKey()), t.FlatBuffer.TableKey)
 	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
-	t.NameLocalizeKey = fbsutils.Convert(string(e.NameLocalizeKey()), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

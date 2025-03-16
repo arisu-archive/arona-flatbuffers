@@ -32,18 +32,18 @@ class EventContentFortuneGachaExcel(object):
         return 0
 
     # EventContentFortuneGachaExcel
-    def IconPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # EventContentFortuneGachaExcel
     def LocalizeEtcId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
+
+    # EventContentFortuneGachaExcel
+    def IconPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def EventContentFortuneGachaExcelStart(builder):
     builder.StartObject(3)
@@ -57,17 +57,17 @@ def EventContentFortuneGachaExcelAddFortuneGachaGroupId(builder, fortuneGachaGro
 def AddFortuneGachaGroupId(builder, fortuneGachaGroupId):
     EventContentFortuneGachaExcelAddFortuneGachaGroupId(builder, fortuneGachaGroupId)
 
-def EventContentFortuneGachaExcelAddIconPath(builder, iconPath):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
-
-def AddIconPath(builder, iconPath):
-    EventContentFortuneGachaExcelAddIconPath(builder, iconPath)
-
 def EventContentFortuneGachaExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(2, localizeEtcId, 0)
+    builder.PrependUint32Slot(1, localizeEtcId, 0)
 
 def AddLocalizeEtcId(builder, localizeEtcId):
     EventContentFortuneGachaExcelAddLocalizeEtcId(builder, localizeEtcId)
+
+def EventContentFortuneGachaExcelAddIconPath(builder, iconPath):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+
+def AddIconPath(builder, iconPath):
+    EventContentFortuneGachaExcelAddIconPath(builder, iconPath)
 
 def EventContentFortuneGachaExcelEnd(builder):
     return builder.EndObject()

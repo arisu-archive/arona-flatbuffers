@@ -25,11 +25,11 @@ class CombatEmojiExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CombatEmojiExcel
-    def EmojiDuration(self):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # CombatEmojiExcel
     def EmojiEvent(self):
@@ -39,28 +39,28 @@ class CombatEmojiExcel(object):
         return 0
 
     # CombatEmojiExcel
-    def EmojiReversal(self):
+    def OrderOfPriority(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # CombatEmojiExcel
-    def EmojiTurnOn(self):
+    def EmojiDuration(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # CombatEmojiExcel
-    def OrderOfPriority(self):
+    def EmojiReversal(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # CombatEmojiExcel
-    def ShowDefaultBg(self):
+    def EmojiTurnOn(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
@@ -74,11 +74,11 @@ class CombatEmojiExcel(object):
         return 0
 
     # CombatEmojiExcel
-    def UniqueId(self):
+    def ShowDefaultBg(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
 def CombatEmojiExcelStart(builder):
     builder.StartObject(8)
@@ -86,11 +86,11 @@ def CombatEmojiExcelStart(builder):
 def Start(builder):
     CombatEmojiExcelStart(builder)
 
-def CombatEmojiExcelAddEmojiDuration(builder, emojiDuration):
-    builder.PrependBoolSlot(0, emojiDuration, 0)
+def CombatEmojiExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(0, uniqueId, 0)
 
-def AddEmojiDuration(builder, emojiDuration):
-    CombatEmojiExcelAddEmojiDuration(builder, emojiDuration)
+def AddUniqueId(builder, uniqueId):
+    CombatEmojiExcelAddUniqueId(builder, uniqueId)
 
 def CombatEmojiExcelAddEmojiEvent(builder, emojiEvent):
     builder.PrependInt32Slot(1, emojiEvent, 0)
@@ -98,29 +98,29 @@ def CombatEmojiExcelAddEmojiEvent(builder, emojiEvent):
 def AddEmojiEvent(builder, emojiEvent):
     CombatEmojiExcelAddEmojiEvent(builder, emojiEvent)
 
+def CombatEmojiExcelAddOrderOfPriority(builder, orderOfPriority):
+    builder.PrependInt32Slot(2, orderOfPriority, 0)
+
+def AddOrderOfPriority(builder, orderOfPriority):
+    CombatEmojiExcelAddOrderOfPriority(builder, orderOfPriority)
+
+def CombatEmojiExcelAddEmojiDuration(builder, emojiDuration):
+    builder.PrependBoolSlot(3, emojiDuration, 0)
+
+def AddEmojiDuration(builder, emojiDuration):
+    CombatEmojiExcelAddEmojiDuration(builder, emojiDuration)
+
 def CombatEmojiExcelAddEmojiReversal(builder, emojiReversal):
-    builder.PrependBoolSlot(2, emojiReversal, 0)
+    builder.PrependBoolSlot(4, emojiReversal, 0)
 
 def AddEmojiReversal(builder, emojiReversal):
     CombatEmojiExcelAddEmojiReversal(builder, emojiReversal)
 
 def CombatEmojiExcelAddEmojiTurnOn(builder, emojiTurnOn):
-    builder.PrependBoolSlot(3, emojiTurnOn, 0)
+    builder.PrependBoolSlot(5, emojiTurnOn, 0)
 
 def AddEmojiTurnOn(builder, emojiTurnOn):
     CombatEmojiExcelAddEmojiTurnOn(builder, emojiTurnOn)
-
-def CombatEmojiExcelAddOrderOfPriority(builder, orderOfPriority):
-    builder.PrependInt32Slot(4, orderOfPriority, 0)
-
-def AddOrderOfPriority(builder, orderOfPriority):
-    CombatEmojiExcelAddOrderOfPriority(builder, orderOfPriority)
-
-def CombatEmojiExcelAddShowDefaultBg(builder, showDefaultBg):
-    builder.PrependBoolSlot(5, showDefaultBg, 0)
-
-def AddShowDefaultBg(builder, showDefaultBg):
-    CombatEmojiExcelAddShowDefaultBg(builder, showDefaultBg)
 
 def CombatEmojiExcelAddShowEmojiDelay(builder, showEmojiDelay):
     builder.PrependInt32Slot(6, showEmojiDelay, 0)
@@ -128,11 +128,11 @@ def CombatEmojiExcelAddShowEmojiDelay(builder, showEmojiDelay):
 def AddShowEmojiDelay(builder, showEmojiDelay):
     CombatEmojiExcelAddShowEmojiDelay(builder, showEmojiDelay)
 
-def CombatEmojiExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(7, uniqueId, 0)
+def CombatEmojiExcelAddShowDefaultBg(builder, showDefaultBg):
+    builder.PrependBoolSlot(7, showDefaultBg, 0)
 
-def AddUniqueId(builder, uniqueId):
-    CombatEmojiExcelAddUniqueId(builder, uniqueId)
+def AddShowDefaultBg(builder, showDefaultBg):
+    CombatEmojiExcelAddShowDefaultBg(builder, showDefaultBg)
 
 def CombatEmojiExcelEnd(builder):
     return builder.EndObject()

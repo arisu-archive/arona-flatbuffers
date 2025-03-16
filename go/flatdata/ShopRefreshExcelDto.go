@@ -10,18 +10,18 @@ import (
 // ShopRefreshExcelDto represents a FlatBuffers table
 type ShopRefreshExcelDto struct {
 	fbsutils.FlatBuffer
-	BuyReportEventName string            `json:"buy_report_event_name"`
-	CategoryType       ShopCategoryType  `json:"category_type"`
-	DisplayOrder       int64             `json:"display_order"`
-	DisplayTag         ProductDisplayTag `json:"display_tag"`
-	GoodsId            int64             `json:"goods_id"`
 	Id                 int64             `json:"id"`
-	IsBundle           bool              `json:"is_bundle"`
-	IsLegacy           bool              `json:"is_legacy"`
 	LocalizeEtcId      uint32            `json:"localize_etc_id"`
-	Prob               int32             `json:"prob"`
-	RefreshGroup       int32             `json:"refresh_group"`
+	IsLegacy           bool              `json:"is_legacy"`
+	GoodsId            int64             `json:"goods_id"`
+	IsBundle           bool              `json:"is_bundle"`
 	VisibleAmount      int64             `json:"visible_amount"`
+	DisplayOrder       int64             `json:"display_order"`
+	CategoryType       ShopCategoryType  `json:"category_type"`
+	RefreshGroup       int32             `json:"refresh_group"`
+	Prob               int32             `json:"prob"`
+	BuyReportEventName string            `json:"buy_report_event_name"`
+	DisplayTag         ProductDisplayTag `json:"display_tag"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -30,18 +30,18 @@ func (t *ShopRefreshExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopRefresh"))
 	}
 	ShopRefreshExcelStart(b)
-	ShopRefreshExcelAddBuyReportEventName(b, fbsutils.Convert(b.CreateString(t.BuyReportEventName), t.FlatBuffer.TableKey))
-	ShopRefreshExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
-	ShopRefreshExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	ShopRefreshExcelAddDisplayTag(b, fbsutils.Convert(t.DisplayTag, t.FlatBuffer.TableKey))
-	ShopRefreshExcelAddGoodsId(b, fbsutils.Convert(t.GoodsId, t.FlatBuffer.TableKey))
 	ShopRefreshExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ShopRefreshExcelAddIsBundle(b, fbsutils.Convert(t.IsBundle, t.FlatBuffer.TableKey))
-	ShopRefreshExcelAddIsLegacy(b, fbsutils.Convert(t.IsLegacy, t.FlatBuffer.TableKey))
 	ShopRefreshExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	ShopRefreshExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
-	ShopRefreshExcelAddRefreshGroup(b, fbsutils.Convert(t.RefreshGroup, t.FlatBuffer.TableKey))
+	ShopRefreshExcelAddIsLegacy(b, fbsutils.Convert(t.IsLegacy, t.FlatBuffer.TableKey))
+	ShopRefreshExcelAddGoodsId(b, fbsutils.Convert(t.GoodsId, t.FlatBuffer.TableKey))
+	ShopRefreshExcelAddIsBundle(b, fbsutils.Convert(t.IsBundle, t.FlatBuffer.TableKey))
 	ShopRefreshExcelAddVisibleAmount(b, fbsutils.Convert(t.VisibleAmount, t.FlatBuffer.TableKey))
+	ShopRefreshExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	ShopRefreshExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
+	ShopRefreshExcelAddRefreshGroup(b, fbsutils.Convert(t.RefreshGroup, t.FlatBuffer.TableKey))
+	ShopRefreshExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
+	ShopRefreshExcelAddBuyReportEventName(b, fbsutils.Convert(b.CreateString(t.BuyReportEventName), t.FlatBuffer.TableKey))
+	ShopRefreshExcelAddDisplayTag(b, fbsutils.Convert(t.DisplayTag, t.FlatBuffer.TableKey))
 	return ShopRefreshExcelEnd(b)
 }
 
@@ -57,18 +57,18 @@ func (t *ShopRefreshExcelDto) UnmarshalMessage(e *ShopRefreshExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopRefresh"))
 	}
-	t.BuyReportEventName = fbsutils.Convert(string(e.BuyReportEventName()), t.FlatBuffer.TableKey)
-	t.CategoryType = ShopCategoryType(int32(fbsutils.Convert(e.CategoryType(), t.FlatBuffer.TableKey)))
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.DisplayTag = ProductDisplayTag(int32(fbsutils.Convert(e.DisplayTag(), t.FlatBuffer.TableKey)))
-	t.GoodsId = fbsutils.Convert(e.GoodsId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.IsBundle = fbsutils.Convert(e.IsBundle(), t.FlatBuffer.TableKey)
-	t.IsLegacy = fbsutils.Convert(e.IsLegacy(), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
-	t.RefreshGroup = fbsutils.Convert(e.RefreshGroup(), t.FlatBuffer.TableKey)
+	t.IsLegacy = fbsutils.Convert(e.IsLegacy(), t.FlatBuffer.TableKey)
+	t.GoodsId = fbsutils.Convert(e.GoodsId(), t.FlatBuffer.TableKey)
+	t.IsBundle = fbsutils.Convert(e.IsBundle(), t.FlatBuffer.TableKey)
 	t.VisibleAmount = fbsutils.Convert(e.VisibleAmount(), t.FlatBuffer.TableKey)
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.CategoryType = ShopCategoryType(int32(fbsutils.Convert(e.CategoryType(), t.FlatBuffer.TableKey)))
+	t.RefreshGroup = fbsutils.Convert(e.RefreshGroup(), t.FlatBuffer.TableKey)
+	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
+	t.BuyReportEventName = fbsutils.Convert(string(e.BuyReportEventName()), t.FlatBuffer.TableKey)
+	t.DisplayTag = ProductDisplayTag(int32(fbsutils.Convert(e.DisplayTag(), t.FlatBuffer.TableKey)))
 	return nil
 }
 

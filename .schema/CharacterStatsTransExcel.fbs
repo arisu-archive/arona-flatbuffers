@@ -5,8 +5,8 @@ include "StatType.fbs";
 namespace FlatData;
 
 table CharacterStatsTransExcel {
-    echelon_extension_type: EchelonExtensionType;
-    stat_trans_type: StatTransType;
     trans_support_stats: StatType;
+    echelon_extension_type: EchelonExtensionType;
     trans_support_stats_factor: int;
+    stat_trans_type: StatTransType;
 }

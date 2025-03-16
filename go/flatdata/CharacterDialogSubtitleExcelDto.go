@@ -10,17 +10,17 @@ import (
 // CharacterDialogSubtitleExcelDto represents a FlatBuffers table
 type CharacterDialogSubtitleExcelDto struct {
 	fbsutils.FlatBuffer
+	LocalizeCvGroup string `json:"localize_cv_group"`
 	CharacterId     int64  `json:"character_id"`
+	Tlmid           string `json:"tlmid"`
 	Duration        int64  `json:"duration"`
 	DurationKr      int64  `json:"duration_kr"`
-	LocalizeCvGroup string `json:"localize_cv_group"`
-	LocalizeEn      string `json:"localize_en"`
-	LocalizeJp      string `json:"localize_jp"`
+	Separate        bool   `json:"separate"`
 	LocalizeKr      string `json:"localize_kr"`
+	LocalizeJp      string `json:"localize_jp"`
 	LocalizeTh      string `json:"localize_th"`
 	LocalizeTw      string `json:"localize_tw"`
-	Separate        bool   `json:"separate"`
-	Tlmid           string `json:"tlmid"`
+	LocalizeEn      string `json:"localize_en"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -29,17 +29,17 @@ func (t *CharacterDialogSubtitleExcelDto) MarshalModel(b *flatbuffers.Builder) f
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogSubtitle"))
 	}
 	CharacterDialogSubtitleExcelStart(b)
+	CharacterDialogSubtitleExcelAddLocalizeCvGroup(b, fbsutils.Convert(b.CreateString(t.LocalizeCvGroup), t.FlatBuffer.TableKey))
 	CharacterDialogSubtitleExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
+	CharacterDialogSubtitleExcelAddTlmid(b, fbsutils.Convert(b.CreateString(t.Tlmid), t.FlatBuffer.TableKey))
 	CharacterDialogSubtitleExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
 	CharacterDialogSubtitleExcelAddDurationKr(b, fbsutils.Convert(t.DurationKr, t.FlatBuffer.TableKey))
-	CharacterDialogSubtitleExcelAddLocalizeCvGroup(b, fbsutils.Convert(b.CreateString(t.LocalizeCvGroup), t.FlatBuffer.TableKey))
-	CharacterDialogSubtitleExcelAddLocalizeEn(b, fbsutils.Convert(b.CreateString(t.LocalizeEn), t.FlatBuffer.TableKey))
-	CharacterDialogSubtitleExcelAddLocalizeJp(b, fbsutils.Convert(b.CreateString(t.LocalizeJp), t.FlatBuffer.TableKey))
+	CharacterDialogSubtitleExcelAddSeparate(b, fbsutils.Convert(t.Separate, t.FlatBuffer.TableKey))
 	CharacterDialogSubtitleExcelAddLocalizeKr(b, fbsutils.Convert(b.CreateString(t.LocalizeKr), t.FlatBuffer.TableKey))
+	CharacterDialogSubtitleExcelAddLocalizeJp(b, fbsutils.Convert(b.CreateString(t.LocalizeJp), t.FlatBuffer.TableKey))
 	CharacterDialogSubtitleExcelAddLocalizeTh(b, fbsutils.Convert(b.CreateString(t.LocalizeTh), t.FlatBuffer.TableKey))
 	CharacterDialogSubtitleExcelAddLocalizeTw(b, fbsutils.Convert(b.CreateString(t.LocalizeTw), t.FlatBuffer.TableKey))
-	CharacterDialogSubtitleExcelAddSeparate(b, fbsutils.Convert(t.Separate, t.FlatBuffer.TableKey))
-	CharacterDialogSubtitleExcelAddTlmid(b, fbsutils.Convert(b.CreateString(t.Tlmid), t.FlatBuffer.TableKey))
+	CharacterDialogSubtitleExcelAddLocalizeEn(b, fbsutils.Convert(b.CreateString(t.LocalizeEn), t.FlatBuffer.TableKey))
 	return CharacterDialogSubtitleExcelEnd(b)
 }
 
@@ -55,17 +55,17 @@ func (t *CharacterDialogSubtitleExcelDto) UnmarshalMessage(e *CharacterDialogSub
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogSubtitle"))
 	}
+	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
+	t.Tlmid = fbsutils.Convert(string(e.Tlmid()), t.FlatBuffer.TableKey)
 	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
 	t.DurationKr = fbsutils.Convert(e.DurationKr(), t.FlatBuffer.TableKey)
-	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
-	t.LocalizeEn = fbsutils.Convert(string(e.LocalizeEn()), t.FlatBuffer.TableKey)
-	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
+	t.Separate = fbsutils.Convert(e.Separate(), t.FlatBuffer.TableKey)
 	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
+	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
 	t.LocalizeTh = fbsutils.Convert(string(e.LocalizeTh()), t.FlatBuffer.TableKey)
 	t.LocalizeTw = fbsutils.Convert(string(e.LocalizeTw()), t.FlatBuffer.TableKey)
-	t.Separate = fbsutils.Convert(e.Separate(), t.FlatBuffer.TableKey)
-	t.Tlmid = fbsutils.Convert(string(e.Tlmid()), t.FlatBuffer.TableKey)
+	t.LocalizeEn = fbsutils.Convert(string(e.LocalizeEn()), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -10,20 +10,20 @@ import (
 // StoryStrategyExcelDto represents a FlatBuffers table
 type StoryStrategyExcelDto struct {
 	fbsutils.FlatBuffer
-	BattleDuration            int64               `json:"battle_duration"`
-	BgmId                     int64               `json:"bgm_id"`
-	ContentType               ContentType         `json:"content_type"`
-	FirstClearReportEventName string              `json:"first_clear_report_event_name"`
 	Id                        int64               `json:"id"`
-	Localize                  string              `json:"localize"`
-	MaxTurn                   int32               `json:"max_turn"`
 	Name                      string              `json:"name"`
+	Localize                  string              `json:"localize"`
 	StageEnterEchelonCount    int32               `json:"stage_enter_echelon_count"`
-	StageTopography           StageTopography     `json:"stage_topography"`
-	StrategyEnvironment       StrategyEnvironment `json:"strategy_environment"`
+	BattleDuration            int64               `json:"battle_duration"`
+	WhiteListId               int64               `json:"white_list_id"`
 	StrategyMap               string              `json:"strategy_map"`
 	StrategyMapBg             string              `json:"strategy_map_bg"`
-	WhiteListId               int64               `json:"white_list_id"`
+	MaxTurn                   int32               `json:"max_turn"`
+	StageTopography           StageTopography     `json:"stage_topography"`
+	StrategyEnvironment       StrategyEnvironment `json:"strategy_environment"`
+	ContentType               ContentType         `json:"content_type"`
+	BgmId                     int64               `json:"bgm_id"`
+	FirstClearReportEventName string              `json:"first_clear_report_event_name"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -32,20 +32,20 @@ func (t *StoryStrategyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StoryStrategy"))
 	}
 	StoryStrategyExcelStart(b)
-	StoryStrategyExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
-	StoryStrategyExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
-	StoryStrategyExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
-	StoryStrategyExcelAddFirstClearReportEventName(b, fbsutils.Convert(b.CreateString(t.FirstClearReportEventName), t.FlatBuffer.TableKey))
 	StoryStrategyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	StoryStrategyExcelAddLocalize(b, fbsutils.Convert(b.CreateString(t.Localize), t.FlatBuffer.TableKey))
-	StoryStrategyExcelAddMaxTurn(b, fbsutils.Convert(t.MaxTurn, t.FlatBuffer.TableKey))
 	StoryStrategyExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	StoryStrategyExcelAddLocalize(b, fbsutils.Convert(b.CreateString(t.Localize), t.FlatBuffer.TableKey))
 	StoryStrategyExcelAddStageEnterEchelonCount(b, fbsutils.Convert(t.StageEnterEchelonCount, t.FlatBuffer.TableKey))
-	StoryStrategyExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
-	StoryStrategyExcelAddStrategyEnvironment(b, fbsutils.Convert(t.StrategyEnvironment, t.FlatBuffer.TableKey))
+	StoryStrategyExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
+	StoryStrategyExcelAddWhiteListId(b, fbsutils.Convert(t.WhiteListId, t.FlatBuffer.TableKey))
 	StoryStrategyExcelAddStrategyMap(b, fbsutils.Convert(b.CreateString(t.StrategyMap), t.FlatBuffer.TableKey))
 	StoryStrategyExcelAddStrategyMapBg(b, fbsutils.Convert(b.CreateString(t.StrategyMapBg), t.FlatBuffer.TableKey))
-	StoryStrategyExcelAddWhiteListId(b, fbsutils.Convert(t.WhiteListId, t.FlatBuffer.TableKey))
+	StoryStrategyExcelAddMaxTurn(b, fbsutils.Convert(t.MaxTurn, t.FlatBuffer.TableKey))
+	StoryStrategyExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
+	StoryStrategyExcelAddStrategyEnvironment(b, fbsutils.Convert(t.StrategyEnvironment, t.FlatBuffer.TableKey))
+	StoryStrategyExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
+	StoryStrategyExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
+	StoryStrategyExcelAddFirstClearReportEventName(b, fbsutils.Convert(b.CreateString(t.FirstClearReportEventName), t.FlatBuffer.TableKey))
 	return StoryStrategyExcelEnd(b)
 }
 
@@ -61,20 +61,20 @@ func (t *StoryStrategyExcelDto) UnmarshalMessage(e *StoryStrategyExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StoryStrategy"))
 	}
-	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
-	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
-	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
-	t.FirstClearReportEventName = fbsutils.Convert(string(e.FirstClearReportEventName()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Localize = fbsutils.Convert(string(e.Localize()), t.FlatBuffer.TableKey)
-	t.MaxTurn = fbsutils.Convert(e.MaxTurn(), t.FlatBuffer.TableKey)
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
+	t.Localize = fbsutils.Convert(string(e.Localize()), t.FlatBuffer.TableKey)
 	t.StageEnterEchelonCount = fbsutils.Convert(e.StageEnterEchelonCount(), t.FlatBuffer.TableKey)
-	t.StageTopography = StageTopography(int32(fbsutils.Convert(e.StageTopography(), t.FlatBuffer.TableKey)))
-	t.StrategyEnvironment = StrategyEnvironment(int32(fbsutils.Convert(e.StrategyEnvironment(), t.FlatBuffer.TableKey)))
+	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
+	t.WhiteListId = fbsutils.Convert(e.WhiteListId(), t.FlatBuffer.TableKey)
 	t.StrategyMap = fbsutils.Convert(string(e.StrategyMap()), t.FlatBuffer.TableKey)
 	t.StrategyMapBg = fbsutils.Convert(string(e.StrategyMapBg()), t.FlatBuffer.TableKey)
-	t.WhiteListId = fbsutils.Convert(e.WhiteListId(), t.FlatBuffer.TableKey)
+	t.MaxTurn = fbsutils.Convert(e.MaxTurn(), t.FlatBuffer.TableKey)
+	t.StageTopography = StageTopography(int32(fbsutils.Convert(e.StageTopography(), t.FlatBuffer.TableKey)))
+	t.StrategyEnvironment = StrategyEnvironment(int32(fbsutils.Convert(e.StrategyEnvironment(), t.FlatBuffer.TableKey)))
+	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
+	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
+	t.FirstClearReportEventName = fbsutils.Convert(string(e.FirstClearReportEventName()), t.FlatBuffer.TableKey)
 	return nil
 }
 

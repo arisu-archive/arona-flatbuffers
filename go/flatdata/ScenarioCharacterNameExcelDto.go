@@ -11,20 +11,20 @@ import (
 type ScenarioCharacterNameExcelDto struct {
 	fbsutils.FlatBuffer
 	CharacterName   uint32                  `json:"character_name"`
-	NameEn          string                  `json:"name_en"`
-	NameJp          string                  `json:"name_jp"`
-	NameKr          string                  `json:"name_kr"`
-	NameTh          string                  `json:"name_th"`
-	NameTw          string                  `json:"name_tw"`
-	NicknameEn      string                  `json:"nickname_en"`
-	NicknameJp      string                  `json:"nickname_jp"`
-	NicknameKr      string                  `json:"nickname_kr"`
-	NicknameTh      string                  `json:"nickname_th"`
-	NicknameTw      string                  `json:"nickname_tw"`
 	ProductionStep  ProductionStep          `json:"production_step"`
+	NameKr          string                  `json:"name_kr"`
+	NicknameKr      string                  `json:"nickname_kr"`
+	NameJp          string                  `json:"name_jp"`
+	NicknameJp      string                  `json:"nickname_jp"`
+	NameTh          string                  `json:"name_th"`
+	NicknameTh      string                  `json:"nickname_th"`
+	NameTw          string                  `json:"name_tw"`
+	NicknameTw      string                  `json:"nickname_tw"`
+	NameEn          string                  `json:"name_en"`
+	NicknameEn      string                  `json:"nickname_en"`
 	Shape           ScenarioCharacterShapes `json:"shape"`
-	SmallPortrait   string                  `json:"small_portrait"`
 	SpinePrefabName string                  `json:"spine_prefab_name"`
+	SmallPortrait   string                  `json:"small_portrait"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -34,20 +34,20 @@ func (t *ScenarioCharacterNameExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	}
 	ScenarioCharacterNameExcelStart(b)
 	ScenarioCharacterNameExcelAddCharacterName(b, fbsutils.Convert(t.CharacterName, t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddNameEn(b, fbsutils.Convert(b.CreateString(t.NameEn), t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddNameJp(b, fbsutils.Convert(b.CreateString(t.NameJp), t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddNameKr(b, fbsutils.Convert(b.CreateString(t.NameKr), t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddNameTh(b, fbsutils.Convert(b.CreateString(t.NameTh), t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddNameTw(b, fbsutils.Convert(b.CreateString(t.NameTw), t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddNicknameEn(b, fbsutils.Convert(b.CreateString(t.NicknameEn), t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddNicknameJp(b, fbsutils.Convert(b.CreateString(t.NicknameJp), t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddNicknameKr(b, fbsutils.Convert(b.CreateString(t.NicknameKr), t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddNicknameTh(b, fbsutils.Convert(b.CreateString(t.NicknameTh), t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddNicknameTw(b, fbsutils.Convert(b.CreateString(t.NicknameTw), t.FlatBuffer.TableKey))
 	ScenarioCharacterNameExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
+	ScenarioCharacterNameExcelAddNameKr(b, fbsutils.Convert(b.CreateString(t.NameKr), t.FlatBuffer.TableKey))
+	ScenarioCharacterNameExcelAddNicknameKr(b, fbsutils.Convert(b.CreateString(t.NicknameKr), t.FlatBuffer.TableKey))
+	ScenarioCharacterNameExcelAddNameJp(b, fbsutils.Convert(b.CreateString(t.NameJp), t.FlatBuffer.TableKey))
+	ScenarioCharacterNameExcelAddNicknameJp(b, fbsutils.Convert(b.CreateString(t.NicknameJp), t.FlatBuffer.TableKey))
+	ScenarioCharacterNameExcelAddNameTh(b, fbsutils.Convert(b.CreateString(t.NameTh), t.FlatBuffer.TableKey))
+	ScenarioCharacterNameExcelAddNicknameTh(b, fbsutils.Convert(b.CreateString(t.NicknameTh), t.FlatBuffer.TableKey))
+	ScenarioCharacterNameExcelAddNameTw(b, fbsutils.Convert(b.CreateString(t.NameTw), t.FlatBuffer.TableKey))
+	ScenarioCharacterNameExcelAddNicknameTw(b, fbsutils.Convert(b.CreateString(t.NicknameTw), t.FlatBuffer.TableKey))
+	ScenarioCharacterNameExcelAddNameEn(b, fbsutils.Convert(b.CreateString(t.NameEn), t.FlatBuffer.TableKey))
+	ScenarioCharacterNameExcelAddNicknameEn(b, fbsutils.Convert(b.CreateString(t.NicknameEn), t.FlatBuffer.TableKey))
 	ScenarioCharacterNameExcelAddShape(b, fbsutils.Convert(t.Shape, t.FlatBuffer.TableKey))
-	ScenarioCharacterNameExcelAddSmallPortrait(b, fbsutils.Convert(b.CreateString(t.SmallPortrait), t.FlatBuffer.TableKey))
 	ScenarioCharacterNameExcelAddSpinePrefabName(b, fbsutils.Convert(b.CreateString(t.SpinePrefabName), t.FlatBuffer.TableKey))
+	ScenarioCharacterNameExcelAddSmallPortrait(b, fbsutils.Convert(b.CreateString(t.SmallPortrait), t.FlatBuffer.TableKey))
 	return ScenarioCharacterNameExcelEnd(b)
 }
 
@@ -64,20 +64,20 @@ func (t *ScenarioCharacterNameExcelDto) UnmarshalMessage(e *ScenarioCharacterNam
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioCharacterName"))
 	}
 	t.CharacterName = fbsutils.Convert(e.CharacterName(), t.FlatBuffer.TableKey)
-	t.NameEn = fbsutils.Convert(string(e.NameEn()), t.FlatBuffer.TableKey)
-	t.NameJp = fbsutils.Convert(string(e.NameJp()), t.FlatBuffer.TableKey)
-	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)
-	t.NameTh = fbsutils.Convert(string(e.NameTh()), t.FlatBuffer.TableKey)
-	t.NameTw = fbsutils.Convert(string(e.NameTw()), t.FlatBuffer.TableKey)
-	t.NicknameEn = fbsutils.Convert(string(e.NicknameEn()), t.FlatBuffer.TableKey)
-	t.NicknameJp = fbsutils.Convert(string(e.NicknameJp()), t.FlatBuffer.TableKey)
-	t.NicknameKr = fbsutils.Convert(string(e.NicknameKr()), t.FlatBuffer.TableKey)
-	t.NicknameTh = fbsutils.Convert(string(e.NicknameTh()), t.FlatBuffer.TableKey)
-	t.NicknameTw = fbsutils.Convert(string(e.NicknameTw()), t.FlatBuffer.TableKey)
 	t.ProductionStep = ProductionStep(int32(fbsutils.Convert(e.ProductionStep(), t.FlatBuffer.TableKey)))
+	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)
+	t.NicknameKr = fbsutils.Convert(string(e.NicknameKr()), t.FlatBuffer.TableKey)
+	t.NameJp = fbsutils.Convert(string(e.NameJp()), t.FlatBuffer.TableKey)
+	t.NicknameJp = fbsutils.Convert(string(e.NicknameJp()), t.FlatBuffer.TableKey)
+	t.NameTh = fbsutils.Convert(string(e.NameTh()), t.FlatBuffer.TableKey)
+	t.NicknameTh = fbsutils.Convert(string(e.NicknameTh()), t.FlatBuffer.TableKey)
+	t.NameTw = fbsutils.Convert(string(e.NameTw()), t.FlatBuffer.TableKey)
+	t.NicknameTw = fbsutils.Convert(string(e.NicknameTw()), t.FlatBuffer.TableKey)
+	t.NameEn = fbsutils.Convert(string(e.NameEn()), t.FlatBuffer.TableKey)
+	t.NicknameEn = fbsutils.Convert(string(e.NicknameEn()), t.FlatBuffer.TableKey)
 	t.Shape = ScenarioCharacterShapes(int32(fbsutils.Convert(e.Shape(), t.FlatBuffer.TableKey)))
-	t.SmallPortrait = fbsutils.Convert(string(e.SmallPortrait()), t.FlatBuffer.TableKey)
 	t.SpinePrefabName = fbsutils.Convert(string(e.SpinePrefabName()), t.FlatBuffer.TableKey)
+	t.SmallPortrait = fbsutils.Convert(string(e.SmallPortrait()), t.FlatBuffer.TableKey)
 	return nil
 }
 

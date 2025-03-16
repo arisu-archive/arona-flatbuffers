@@ -25,7 +25,7 @@ class MoveEnd(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MoveEnd
-    def Kneel(self):
+    def Normal(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
@@ -36,7 +36,7 @@ class MoveEnd(object):
         return None
 
     # MoveEnd
-    def Normal(self):
+    def Stand(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
@@ -47,7 +47,7 @@ class MoveEnd(object):
         return None
 
     # MoveEnd
-    def Stand(self):
+    def Kneel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
@@ -63,23 +63,23 @@ def MoveEndStart(builder):
 def Start(builder):
     MoveEndStart(builder)
 
-def MoveEndAddKneel(builder, kneel):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(kneel), 0)
-
-def AddKneel(builder, kneel):
-    MoveEndAddKneel(builder, kneel)
-
 def MoveEndAddNormal(builder, normal):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(normal), 0)
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(normal), 0)
 
 def AddNormal(builder, normal):
     MoveEndAddNormal(builder, normal)
 
 def MoveEndAddStand(builder, stand):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(stand), 0)
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(stand), 0)
 
 def AddStand(builder, stand):
     MoveEndAddStand(builder, stand)
+
+def MoveEndAddKneel(builder, kneel):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(kneel), 0)
+
+def AddKneel(builder, kneel):
+    MoveEndAddKneel(builder, kneel)
 
 def MoveEndEnd(builder):
     return builder.EndObject()

@@ -4,12 +4,12 @@ include "TBGOptionSuccessType.fbs";
 namespace FlatData;
 
 table MinigameTBGEncounterRewardExcel {
-    amount: long;
     group_id: long;
-    parcel_id: long;
-    parcel_type: ParcelType;
-    paremeter: long;
-    prob: int;
-    tbg_option_success_type: TBGOptionSuccessType;
     unique_id: long;
+    tbg_option_success_type: TBGOptionSuccessType;
+    paremeter: long;
+    parcel_type: ParcelType;
+    parcel_id: long;
+    amount: long;
+    prob: int;
 }

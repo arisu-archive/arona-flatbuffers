@@ -25,32 +25,32 @@ class ShopExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ShopExcel
-    def BuyReportEventName(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ShopExcel
-    def CategoryType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ShopExcel
-    def DisplayOrder(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopExcel
-    def DisplayTag(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+    def LocalizeEtcId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopExcel
+    def CategoryType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
+
+    # ShopExcel
+    def IsLegacy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # ShopExcel
     def GoodsId(self, j):
@@ -80,25 +80,25 @@ class ShopExcel(object):
         return o == 0
 
     # ShopExcel
-    def Id(self):
+    def DisplayOrder(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopExcel
-    def IsLegacy(self):
+    def SalePeriodFrom(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # ShopExcel
-    def LocalizeEtcId(self):
+    def SalePeriodTo(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # ShopExcel
     def PurchaseCooltimeMin(self):
@@ -122,25 +122,25 @@ class ShopExcel(object):
         return 0
 
     # ShopExcel
-    def RestrictBuyWhenInventoryFull(self):
+    def BuyReportEventName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ShopExcel
+    def RestrictBuyWhenInventoryFull(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # ShopExcel
-    def SalePeriodFrom(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ShopExcel
-    def SalePeriodTo(self):
+    def DisplayTag(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # ShopExcel
     def ShopUpdateGroupId(self):
@@ -155,29 +155,29 @@ def ShopExcelStart(builder):
 def Start(builder):
     ShopExcelStart(builder)
 
-def ShopExcelAddBuyReportEventName(builder, buyReportEventName):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(buyReportEventName), 0)
+def ShopExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
 
-def AddBuyReportEventName(builder, buyReportEventName):
-    ShopExcelAddBuyReportEventName(builder, buyReportEventName)
+def AddId(builder, id):
+    ShopExcelAddId(builder, id)
+
+def ShopExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUint32Slot(1, localizeEtcId, 0)
+
+def AddLocalizeEtcId(builder, localizeEtcId):
+    ShopExcelAddLocalizeEtcId(builder, localizeEtcId)
 
 def ShopExcelAddCategoryType(builder, categoryType):
-    builder.PrependInt32Slot(1, categoryType, 0)
+    builder.PrependInt32Slot(2, categoryType, 0)
 
 def AddCategoryType(builder, categoryType):
     ShopExcelAddCategoryType(builder, categoryType)
 
-def ShopExcelAddDisplayOrder(builder, displayOrder):
-    builder.PrependInt64Slot(2, displayOrder, 0)
+def ShopExcelAddIsLegacy(builder, isLegacy):
+    builder.PrependBoolSlot(3, isLegacy, 0)
 
-def AddDisplayOrder(builder, displayOrder):
-    ShopExcelAddDisplayOrder(builder, displayOrder)
-
-def ShopExcelAddDisplayTag(builder, displayTag):
-    builder.PrependInt32Slot(3, displayTag, 0)
-
-def AddDisplayTag(builder, displayTag):
-    ShopExcelAddDisplayTag(builder, displayTag)
+def AddIsLegacy(builder, isLegacy):
+    ShopExcelAddIsLegacy(builder, isLegacy)
 
 def ShopExcelAddGoodsId(builder, goodsId):
     builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(goodsId), 0)
@@ -191,23 +191,23 @@ def ShopExcelStartGoodsIdVector(builder, numElems):
 def StartGoodsIdVector(builder, numElems):
     return ShopExcelStartGoodsIdVector(builder, numElems)
 
-def ShopExcelAddId(builder, id):
-    builder.PrependInt64Slot(5, id, 0)
+def ShopExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt64Slot(5, displayOrder, 0)
 
-def AddId(builder, id):
-    ShopExcelAddId(builder, id)
+def AddDisplayOrder(builder, displayOrder):
+    ShopExcelAddDisplayOrder(builder, displayOrder)
 
-def ShopExcelAddIsLegacy(builder, isLegacy):
-    builder.PrependBoolSlot(6, isLegacy, 0)
+def ShopExcelAddSalePeriodFrom(builder, salePeriodFrom):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodFrom), 0)
 
-def AddIsLegacy(builder, isLegacy):
-    ShopExcelAddIsLegacy(builder, isLegacy)
+def AddSalePeriodFrom(builder, salePeriodFrom):
+    ShopExcelAddSalePeriodFrom(builder, salePeriodFrom)
 
-def ShopExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(7, localizeEtcId, 0)
+def ShopExcelAddSalePeriodTo(builder, salePeriodTo):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodTo), 0)
 
-def AddLocalizeEtcId(builder, localizeEtcId):
-    ShopExcelAddLocalizeEtcId(builder, localizeEtcId)
+def AddSalePeriodTo(builder, salePeriodTo):
+    ShopExcelAddSalePeriodTo(builder, salePeriodTo)
 
 def ShopExcelAddPurchaseCooltimeMin(builder, purchaseCooltimeMin):
     builder.PrependInt64Slot(8, purchaseCooltimeMin, 0)
@@ -227,23 +227,23 @@ def ShopExcelAddPurchaseCountResetType(builder, purchaseCountResetType):
 def AddPurchaseCountResetType(builder, purchaseCountResetType):
     ShopExcelAddPurchaseCountResetType(builder, purchaseCountResetType)
 
+def ShopExcelAddBuyReportEventName(builder, buyReportEventName):
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(buyReportEventName), 0)
+
+def AddBuyReportEventName(builder, buyReportEventName):
+    ShopExcelAddBuyReportEventName(builder, buyReportEventName)
+
 def ShopExcelAddRestrictBuyWhenInventoryFull(builder, restrictBuyWhenInventoryFull):
-    builder.PrependBoolSlot(11, restrictBuyWhenInventoryFull, 0)
+    builder.PrependBoolSlot(12, restrictBuyWhenInventoryFull, 0)
 
 def AddRestrictBuyWhenInventoryFull(builder, restrictBuyWhenInventoryFull):
     ShopExcelAddRestrictBuyWhenInventoryFull(builder, restrictBuyWhenInventoryFull)
 
-def ShopExcelAddSalePeriodFrom(builder, salePeriodFrom):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodFrom), 0)
+def ShopExcelAddDisplayTag(builder, displayTag):
+    builder.PrependInt32Slot(13, displayTag, 0)
 
-def AddSalePeriodFrom(builder, salePeriodFrom):
-    ShopExcelAddSalePeriodFrom(builder, salePeriodFrom)
-
-def ShopExcelAddSalePeriodTo(builder, salePeriodTo):
-    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodTo), 0)
-
-def AddSalePeriodTo(builder, salePeriodTo):
-    ShopExcelAddSalePeriodTo(builder, salePeriodTo)
+def AddDisplayTag(builder, displayTag):
+    ShopExcelAddDisplayTag(builder, displayTag)
 
 def ShopExcelAddShopUpdateGroupId(builder, shopUpdateGroupId):
     builder.PrependInt32Slot(14, shopUpdateGroupId, 0)

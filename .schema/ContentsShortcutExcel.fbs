@@ -1,22 +1,22 @@
-include "StageDifficulty.fbs";
 include "ContentType.fbs";
+include "StageDifficulty.fbs";
 
 namespace FlatData;
 
 table ContentsShortcutExcel {
+    unique_id: long;
+    content_type: ContentType;
+    event_content_id: long;
+    scenario_mode_volume: long;
+    scenario_mode_chapter: long;
+    shortcut_open_time: string;
+    shortcut_close_time: string;
     condition_content_id: long;
     conquest_map_difficulty: StageDifficulty;
     conquest_step_index: int;
-    content_type: ContentType;
-    event_content_id: long;
-    localize: string;
-    scenario_mode_chapter: long;
-    scenario_mode_volume: long;
-    shortcut_close_time: string;
     shortcut_content_id: long;
-    shortcut_open_time: string;
     shortcut_ui_name: [string];
-    unique_id: long;
+    localize: string;
 }
 
 root_type ContentsShortcutExcel;

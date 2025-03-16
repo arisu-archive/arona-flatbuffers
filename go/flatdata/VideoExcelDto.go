@@ -12,10 +12,10 @@ type VideoExcelDto struct {
 	fbsutils.FlatBuffer
 	Id            int64     `json:"id"`
 	Nation        []Nation  `json:"nation"`
-	SoundPath     []string  `json:"sound_path"`
-	SoundVolume   []float32 `json:"sound_volume"`
 	VideoPath     []string  `json:"video_path"`
 	VideoTeenPath []string  `json:"video_teen_path"`
+	SoundPath     []string  `json:"sound_path"`
+	SoundVolume   []float32 `json:"sound_volume"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -30,16 +30,6 @@ func (t *VideoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.Nation[len(t.Nation)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
 	}
 	VideoExcelAddNation(b, b.EndVector(len(t.Nation)))
-	VideoExcelStartSoundPathVector(b, len(t.SoundPath))
-	for i := range len(t.SoundPath) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.SoundPath[len(t.SoundPath)-i-1]), t.FlatBuffer.TableKey))
-	}
-	VideoExcelAddSoundPath(b, b.EndVector(len(t.SoundPath)))
-	VideoExcelStartSoundVolumeVector(b, len(t.SoundVolume))
-	for i := range len(t.SoundVolume) {
-		b.PrependFloat32(fbsutils.Convert(t.SoundVolume[len(t.SoundVolume)-i-1], t.FlatBuffer.TableKey))
-	}
-	VideoExcelAddSoundVolume(b, b.EndVector(len(t.SoundVolume)))
 	VideoExcelStartVideoPathVector(b, len(t.VideoPath))
 	for i := range len(t.VideoPath) {
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.VideoPath[len(t.VideoPath)-i-1]), t.FlatBuffer.TableKey))
@@ -50,6 +40,16 @@ func (t *VideoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.VideoTeenPath[len(t.VideoTeenPath)-i-1]), t.FlatBuffer.TableKey))
 	}
 	VideoExcelAddVideoTeenPath(b, b.EndVector(len(t.VideoTeenPath)))
+	VideoExcelStartSoundPathVector(b, len(t.SoundPath))
+	for i := range len(t.SoundPath) {
+		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.SoundPath[len(t.SoundPath)-i-1]), t.FlatBuffer.TableKey))
+	}
+	VideoExcelAddSoundPath(b, b.EndVector(len(t.SoundPath)))
+	VideoExcelStartSoundVolumeVector(b, len(t.SoundVolume))
+	for i := range len(t.SoundVolume) {
+		b.PrependFloat32(fbsutils.Convert(t.SoundVolume[len(t.SoundVolume)-i-1], t.FlatBuffer.TableKey))
+	}
+	VideoExcelAddSoundVolume(b, b.EndVector(len(t.SoundVolume)))
 	return VideoExcelEnd(b)
 }
 
@@ -70,14 +70,6 @@ func (t *VideoExcelDto) UnmarshalMessage(e *VideoExcel) error {
 	for i := range e.NationLength() {
 		t.Nation[i] = e.Nation(i)
 	}
-	t.SoundPath = make([]string, e.SoundPathLength())
-	for i := range e.SoundPathLength() {
-		t.SoundPath[i] = string(e.SoundPath(i))
-	}
-	t.SoundVolume = make([]float32, e.SoundVolumeLength())
-	for i := range e.SoundVolumeLength() {
-		t.SoundVolume[i] = e.SoundVolume(i)
-	}
 	t.VideoPath = make([]string, e.VideoPathLength())
 	for i := range e.VideoPathLength() {
 		t.VideoPath[i] = string(e.VideoPath(i))
@@ -85,6 +77,14 @@ func (t *VideoExcelDto) UnmarshalMessage(e *VideoExcel) error {
 	t.VideoTeenPath = make([]string, e.VideoTeenPathLength())
 	for i := range e.VideoTeenPathLength() {
 		t.VideoTeenPath[i] = string(e.VideoTeenPath(i))
+	}
+	t.SoundPath = make([]string, e.SoundPathLength())
+	for i := range e.SoundPathLength() {
+		t.SoundPath[i] = string(e.SoundPath(i))
+	}
+	t.SoundVolume = make([]float32, e.SoundVolumeLength())
+	for i := range e.SoundVolumeLength() {
+		t.SoundVolume[i] = e.SoundVolume(i)
 	}
 	return nil
 }

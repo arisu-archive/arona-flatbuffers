@@ -10,20 +10,20 @@ import (
 // EventContentBuffGroupExcelDto represents a FlatBuffers table
 type EventContentBuffGroupExcelDto struct {
 	fbsutils.FlatBuffer
+	EventContentId              int64  `json:"event_content_id"`
 	BuffContentId               int64  `json:"buff_content_id"`
-	BuffDescriptionIconPath1    string `json:"buff_description_icon_path1"`
-	BuffDescriptionIconPath2    string `json:"buff_description_icon_path2"`
 	BuffGroupId                 int64  `json:"buff_group_id"`
 	BuffGroupNameLocalizeCodeId string `json:"buff_group_name_localize_code_id"`
-	BuffGroupProb               int64  `json:"buff_group_prob"`
-	BuffNameLocalizeCodeId1     string `json:"buff_name_localize_code_id1"`
-	BuffNameLocalizeCodeId2     string `json:"buff_name_localize_code_id2"`
-	DeBuffDescriptionIconPath   string `json:"de_buff_description_icon_path"`
-	DebuffNameLocalizeCodeId    string `json:"debuff_name_localize_code_id"`
 	EventContentBuffId1         int64  `json:"event_content_buff_id1"`
+	BuffNameLocalizeCodeId1     string `json:"buff_name_localize_code_id1"`
+	BuffDescriptionIconPath1    string `json:"buff_description_icon_path1"`
 	EventContentBuffId2         int64  `json:"event_content_buff_id2"`
+	BuffNameLocalizeCodeId2     string `json:"buff_name_localize_code_id2"`
+	BuffDescriptionIconPath2    string `json:"buff_description_icon_path2"`
 	EventContentDebuffId        int64  `json:"event_content_debuff_id"`
-	EventContentId              int64  `json:"event_content_id"`
+	DebuffNameLocalizeCodeId    string `json:"debuff_name_localize_code_id"`
+	DeBuffDescriptionIconPath   string `json:"de_buff_description_icon_path"`
+	BuffGroupProb               int64  `json:"buff_group_prob"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -32,20 +32,20 @@ func (t *EventContentBuffGroupExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuffGroup"))
 	}
 	EventContentBuffGroupExcelStart(b)
+	EventContentBuffGroupExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentBuffGroupExcelAddBuffContentId(b, fbsutils.Convert(t.BuffContentId, t.FlatBuffer.TableKey))
-	EventContentBuffGroupExcelAddBuffDescriptionIconPath1(b, fbsutils.Convert(b.CreateString(t.BuffDescriptionIconPath1), t.FlatBuffer.TableKey))
-	EventContentBuffGroupExcelAddBuffDescriptionIconPath2(b, fbsutils.Convert(b.CreateString(t.BuffDescriptionIconPath2), t.FlatBuffer.TableKey))
 	EventContentBuffGroupExcelAddBuffGroupId(b, fbsutils.Convert(t.BuffGroupId, t.FlatBuffer.TableKey))
 	EventContentBuffGroupExcelAddBuffGroupNameLocalizeCodeId(b, fbsutils.Convert(b.CreateString(t.BuffGroupNameLocalizeCodeId), t.FlatBuffer.TableKey))
-	EventContentBuffGroupExcelAddBuffGroupProb(b, fbsutils.Convert(t.BuffGroupProb, t.FlatBuffer.TableKey))
-	EventContentBuffGroupExcelAddBuffNameLocalizeCodeId1(b, fbsutils.Convert(b.CreateString(t.BuffNameLocalizeCodeId1), t.FlatBuffer.TableKey))
-	EventContentBuffGroupExcelAddBuffNameLocalizeCodeId2(b, fbsutils.Convert(b.CreateString(t.BuffNameLocalizeCodeId2), t.FlatBuffer.TableKey))
-	EventContentBuffGroupExcelAddDeBuffDescriptionIconPath(b, fbsutils.Convert(b.CreateString(t.DeBuffDescriptionIconPath), t.FlatBuffer.TableKey))
-	EventContentBuffGroupExcelAddDebuffNameLocalizeCodeId(b, fbsutils.Convert(b.CreateString(t.DebuffNameLocalizeCodeId), t.FlatBuffer.TableKey))
 	EventContentBuffGroupExcelAddEventContentBuffId1(b, fbsutils.Convert(t.EventContentBuffId1, t.FlatBuffer.TableKey))
+	EventContentBuffGroupExcelAddBuffNameLocalizeCodeId1(b, fbsutils.Convert(b.CreateString(t.BuffNameLocalizeCodeId1), t.FlatBuffer.TableKey))
+	EventContentBuffGroupExcelAddBuffDescriptionIconPath1(b, fbsutils.Convert(b.CreateString(t.BuffDescriptionIconPath1), t.FlatBuffer.TableKey))
 	EventContentBuffGroupExcelAddEventContentBuffId2(b, fbsutils.Convert(t.EventContentBuffId2, t.FlatBuffer.TableKey))
+	EventContentBuffGroupExcelAddBuffNameLocalizeCodeId2(b, fbsutils.Convert(b.CreateString(t.BuffNameLocalizeCodeId2), t.FlatBuffer.TableKey))
+	EventContentBuffGroupExcelAddBuffDescriptionIconPath2(b, fbsutils.Convert(b.CreateString(t.BuffDescriptionIconPath2), t.FlatBuffer.TableKey))
 	EventContentBuffGroupExcelAddEventContentDebuffId(b, fbsutils.Convert(t.EventContentDebuffId, t.FlatBuffer.TableKey))
-	EventContentBuffGroupExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentBuffGroupExcelAddDebuffNameLocalizeCodeId(b, fbsutils.Convert(b.CreateString(t.DebuffNameLocalizeCodeId), t.FlatBuffer.TableKey))
+	EventContentBuffGroupExcelAddDeBuffDescriptionIconPath(b, fbsutils.Convert(b.CreateString(t.DeBuffDescriptionIconPath), t.FlatBuffer.TableKey))
+	EventContentBuffGroupExcelAddBuffGroupProb(b, fbsutils.Convert(t.BuffGroupProb, t.FlatBuffer.TableKey))
 	return EventContentBuffGroupExcelEnd(b)
 }
 
@@ -61,20 +61,20 @@ func (t *EventContentBuffGroupExcelDto) UnmarshalMessage(e *EventContentBuffGrou
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuffGroup"))
 	}
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.BuffContentId = fbsutils.Convert(e.BuffContentId(), t.FlatBuffer.TableKey)
-	t.BuffDescriptionIconPath1 = fbsutils.Convert(string(e.BuffDescriptionIconPath1()), t.FlatBuffer.TableKey)
-	t.BuffDescriptionIconPath2 = fbsutils.Convert(string(e.BuffDescriptionIconPath2()), t.FlatBuffer.TableKey)
 	t.BuffGroupId = fbsutils.Convert(e.BuffGroupId(), t.FlatBuffer.TableKey)
 	t.BuffGroupNameLocalizeCodeId = fbsutils.Convert(string(e.BuffGroupNameLocalizeCodeId()), t.FlatBuffer.TableKey)
-	t.BuffGroupProb = fbsutils.Convert(e.BuffGroupProb(), t.FlatBuffer.TableKey)
-	t.BuffNameLocalizeCodeId1 = fbsutils.Convert(string(e.BuffNameLocalizeCodeId1()), t.FlatBuffer.TableKey)
-	t.BuffNameLocalizeCodeId2 = fbsutils.Convert(string(e.BuffNameLocalizeCodeId2()), t.FlatBuffer.TableKey)
-	t.DeBuffDescriptionIconPath = fbsutils.Convert(string(e.DeBuffDescriptionIconPath()), t.FlatBuffer.TableKey)
-	t.DebuffNameLocalizeCodeId = fbsutils.Convert(string(e.DebuffNameLocalizeCodeId()), t.FlatBuffer.TableKey)
 	t.EventContentBuffId1 = fbsutils.Convert(e.EventContentBuffId1(), t.FlatBuffer.TableKey)
+	t.BuffNameLocalizeCodeId1 = fbsutils.Convert(string(e.BuffNameLocalizeCodeId1()), t.FlatBuffer.TableKey)
+	t.BuffDescriptionIconPath1 = fbsutils.Convert(string(e.BuffDescriptionIconPath1()), t.FlatBuffer.TableKey)
 	t.EventContentBuffId2 = fbsutils.Convert(e.EventContentBuffId2(), t.FlatBuffer.TableKey)
+	t.BuffNameLocalizeCodeId2 = fbsutils.Convert(string(e.BuffNameLocalizeCodeId2()), t.FlatBuffer.TableKey)
+	t.BuffDescriptionIconPath2 = fbsutils.Convert(string(e.BuffDescriptionIconPath2()), t.FlatBuffer.TableKey)
 	t.EventContentDebuffId = fbsutils.Convert(e.EventContentDebuffId(), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.DebuffNameLocalizeCodeId = fbsutils.Convert(string(e.DebuffNameLocalizeCodeId()), t.FlatBuffer.TableKey)
+	t.DeBuffDescriptionIconPath = fbsutils.Convert(string(e.DeBuffDescriptionIconPath()), t.FlatBuffer.TableKey)
+	t.BuffGroupProb = fbsutils.Convert(e.BuffGroupProb(), t.FlatBuffer.TableKey)
 	return nil
 }
 

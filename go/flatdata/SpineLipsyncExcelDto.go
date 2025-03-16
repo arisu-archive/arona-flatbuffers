@@ -10,9 +10,9 @@ import (
 // SpineLipsyncExcelDto represents a FlatBuffers table
 type SpineLipsyncExcelDto struct {
 	fbsutils.FlatBuffer
+	VoiceId    uint32 `json:"voice_id"`
 	AnimJson   string `json:"anim_json"`
 	AnimJsonKr string `json:"anim_json_kr"`
-	VoiceId    uint32 `json:"voice_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,9 +21,9 @@ func (t *SpineLipsyncExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpineLipsync"))
 	}
 	SpineLipsyncExcelStart(b)
+	SpineLipsyncExcelAddVoiceId(b, fbsutils.Convert(t.VoiceId, t.FlatBuffer.TableKey))
 	SpineLipsyncExcelAddAnimJson(b, fbsutils.Convert(b.CreateString(t.AnimJson), t.FlatBuffer.TableKey))
 	SpineLipsyncExcelAddAnimJsonKr(b, fbsutils.Convert(b.CreateString(t.AnimJsonKr), t.FlatBuffer.TableKey))
-	SpineLipsyncExcelAddVoiceId(b, fbsutils.Convert(t.VoiceId, t.FlatBuffer.TableKey))
 	return SpineLipsyncExcelEnd(b)
 }
 
@@ -39,9 +39,9 @@ func (t *SpineLipsyncExcelDto) UnmarshalMessage(e *SpineLipsyncExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpineLipsync"))
 	}
+	t.VoiceId = fbsutils.Convert(e.VoiceId(), t.FlatBuffer.TableKey)
 	t.AnimJson = fbsutils.Convert(string(e.AnimJson()), t.FlatBuffer.TableKey)
 	t.AnimJsonKr = fbsutils.Convert(string(e.AnimJsonKr()), t.FlatBuffer.TableKey)
-	t.VoiceId = fbsutils.Convert(e.VoiceId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

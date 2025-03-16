@@ -10,14 +10,14 @@ import (
 // EventContentZoneExcelDto represents a FlatBuffers table
 type EventContentZoneExcelDto struct {
 	fbsutils.FlatBuffer
-	EventPointForLocationRank int64   `json:"event_point_for_location_rank"`
 	Id                        int64   `json:"id"`
-	LocalizeEtcId             uint32  `json:"localize_etc_id"`
+	OriginalZoneId            int64   `json:"original_zone_id"`
 	LocationId                int64   `json:"location_id"`
 	LocationRank              int64   `json:"location_rank"`
-	OriginalZoneId            int64   `json:"original_zone_id"`
-	RewardGroupId             int64   `json:"reward_group_id"`
+	EventPointForLocationRank int64   `json:"event_point_for_location_rank"`
+	LocalizeEtcId             uint32  `json:"localize_etc_id"`
 	StudentVisitProb          []int64 `json:"student_visit_prob"`
+	RewardGroupId             int64   `json:"reward_group_id"`
 	Tags                      []Tag   `json:"tags"`
 	WhiteListTags             []Tag   `json:"white_list_tags"`
 }
@@ -28,18 +28,18 @@ func (t *EventContentZoneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentZone"))
 	}
 	EventContentZoneExcelStart(b)
-	EventContentZoneExcelAddEventPointForLocationRank(b, fbsutils.Convert(t.EventPointForLocationRank, t.FlatBuffer.TableKey))
 	EventContentZoneExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentZoneExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	EventContentZoneExcelAddOriginalZoneId(b, fbsutils.Convert(t.OriginalZoneId, t.FlatBuffer.TableKey))
 	EventContentZoneExcelAddLocationId(b, fbsutils.Convert(t.LocationId, t.FlatBuffer.TableKey))
 	EventContentZoneExcelAddLocationRank(b, fbsutils.Convert(t.LocationRank, t.FlatBuffer.TableKey))
-	EventContentZoneExcelAddOriginalZoneId(b, fbsutils.Convert(t.OriginalZoneId, t.FlatBuffer.TableKey))
-	EventContentZoneExcelAddRewardGroupId(b, fbsutils.Convert(t.RewardGroupId, t.FlatBuffer.TableKey))
+	EventContentZoneExcelAddEventPointForLocationRank(b, fbsutils.Convert(t.EventPointForLocationRank, t.FlatBuffer.TableKey))
+	EventContentZoneExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	EventContentZoneExcelStartStudentVisitProbVector(b, len(t.StudentVisitProb))
 	for i := range len(t.StudentVisitProb) {
 		b.PrependInt64(fbsutils.Convert(t.StudentVisitProb[len(t.StudentVisitProb)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentZoneExcelAddStudentVisitProb(b, b.EndVector(len(t.StudentVisitProb)))
+	EventContentZoneExcelAddRewardGroupId(b, fbsutils.Convert(t.RewardGroupId, t.FlatBuffer.TableKey))
 	EventContentZoneExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.Tags[len(t.Tags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
@@ -65,17 +65,17 @@ func (t *EventContentZoneExcelDto) UnmarshalMessage(e *EventContentZoneExcel) er
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentZone"))
 	}
-	t.EventPointForLocationRank = fbsutils.Convert(e.EventPointForLocationRank(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.OriginalZoneId = fbsutils.Convert(e.OriginalZoneId(), t.FlatBuffer.TableKey)
 	t.LocationId = fbsutils.Convert(e.LocationId(), t.FlatBuffer.TableKey)
 	t.LocationRank = fbsutils.Convert(e.LocationRank(), t.FlatBuffer.TableKey)
-	t.OriginalZoneId = fbsutils.Convert(e.OriginalZoneId(), t.FlatBuffer.TableKey)
-	t.RewardGroupId = fbsutils.Convert(e.RewardGroupId(), t.FlatBuffer.TableKey)
+	t.EventPointForLocationRank = fbsutils.Convert(e.EventPointForLocationRank(), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.StudentVisitProb = make([]int64, e.StudentVisitProbLength())
 	for i := range e.StudentVisitProbLength() {
 		t.StudentVisitProb[i] = e.StudentVisitProb(i)
 	}
+	t.RewardGroupId = fbsutils.Convert(e.RewardGroupId(), t.FlatBuffer.TableKey)
 	t.Tags = make([]Tag, e.TagsLength())
 	for i := range e.TagsLength() {
 		t.Tags[i] = e.Tags(i)

@@ -10,27 +10,27 @@ import (
 // LocalizeGachaShopExcelDto represents a FlatBuffers table
 type LocalizeGachaShopExcelDto struct {
 	fbsutils.FlatBuffer
-	GachaDescriptionEn string `json:"gacha_description_en"`
-	GachaDescriptionJp string `json:"gacha_description_jp"`
-	GachaDescriptionKr string `json:"gacha_description_kr"`
-	GachaDescriptionTh string `json:"gacha_description_th"`
-	GachaDescriptionTw string `json:"gacha_description_tw"`
 	GachaShopId        int64  `json:"gacha_shop_id"`
-	SubTitleEn         string `json:"sub_title_en"`
-	SubTitleJp         string `json:"sub_title_jp"`
-	SubTitleKr         string `json:"sub_title_kr"`
-	SubTitleTh         string `json:"sub_title_th"`
-	SubTitleTw         string `json:"sub_title_tw"`
-	TabNameEn          string `json:"tab_name_en"`
-	TabNameJp          string `json:"tab_name_jp"`
 	TabNameKr          string `json:"tab_name_kr"`
+	TabNameJp          string `json:"tab_name_jp"`
 	TabNameTh          string `json:"tab_name_th"`
 	TabNameTw          string `json:"tab_name_tw"`
-	TitleNameEn        string `json:"title_name_en"`
-	TitleNameJp        string `json:"title_name_jp"`
+	TabNameEn          string `json:"tab_name_en"`
 	TitleNameKr        string `json:"title_name_kr"`
+	TitleNameJp        string `json:"title_name_jp"`
 	TitleNameTh        string `json:"title_name_th"`
 	TitleNameTw        string `json:"title_name_tw"`
+	TitleNameEn        string `json:"title_name_en"`
+	SubTitleKr         string `json:"sub_title_kr"`
+	SubTitleJp         string `json:"sub_title_jp"`
+	SubTitleTh         string `json:"sub_title_th"`
+	SubTitleTw         string `json:"sub_title_tw"`
+	SubTitleEn         string `json:"sub_title_en"`
+	GachaDescriptionKr string `json:"gacha_description_kr"`
+	GachaDescriptionJp string `json:"gacha_description_jp"`
+	GachaDescriptionTh string `json:"gacha_description_th"`
+	GachaDescriptionTw string `json:"gacha_description_tw"`
+	GachaDescriptionEn string `json:"gacha_description_en"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -39,27 +39,27 @@ func (t *LocalizeGachaShopExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeGachaShop"))
 	}
 	LocalizeGachaShopExcelStart(b)
-	LocalizeGachaShopExcelAddGachaDescriptionEn(b, fbsutils.Convert(b.CreateString(t.GachaDescriptionEn), t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddGachaDescriptionJp(b, fbsutils.Convert(b.CreateString(t.GachaDescriptionJp), t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddGachaDescriptionKr(b, fbsutils.Convert(b.CreateString(t.GachaDescriptionKr), t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddGachaDescriptionTh(b, fbsutils.Convert(b.CreateString(t.GachaDescriptionTh), t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddGachaDescriptionTw(b, fbsutils.Convert(b.CreateString(t.GachaDescriptionTw), t.FlatBuffer.TableKey))
 	LocalizeGachaShopExcelAddGachaShopId(b, fbsutils.Convert(t.GachaShopId, t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddSubTitleEn(b, fbsutils.Convert(b.CreateString(t.SubTitleEn), t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddSubTitleJp(b, fbsutils.Convert(b.CreateString(t.SubTitleJp), t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddSubTitleKr(b, fbsutils.Convert(b.CreateString(t.SubTitleKr), t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddSubTitleTh(b, fbsutils.Convert(b.CreateString(t.SubTitleTh), t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddSubTitleTw(b, fbsutils.Convert(b.CreateString(t.SubTitleTw), t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddTabNameEn(b, fbsutils.Convert(b.CreateString(t.TabNameEn), t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddTabNameJp(b, fbsutils.Convert(b.CreateString(t.TabNameJp), t.FlatBuffer.TableKey))
 	LocalizeGachaShopExcelAddTabNameKr(b, fbsutils.Convert(b.CreateString(t.TabNameKr), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddTabNameJp(b, fbsutils.Convert(b.CreateString(t.TabNameJp), t.FlatBuffer.TableKey))
 	LocalizeGachaShopExcelAddTabNameTh(b, fbsutils.Convert(b.CreateString(t.TabNameTh), t.FlatBuffer.TableKey))
 	LocalizeGachaShopExcelAddTabNameTw(b, fbsutils.Convert(b.CreateString(t.TabNameTw), t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddTitleNameEn(b, fbsutils.Convert(b.CreateString(t.TitleNameEn), t.FlatBuffer.TableKey))
-	LocalizeGachaShopExcelAddTitleNameJp(b, fbsutils.Convert(b.CreateString(t.TitleNameJp), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddTabNameEn(b, fbsutils.Convert(b.CreateString(t.TabNameEn), t.FlatBuffer.TableKey))
 	LocalizeGachaShopExcelAddTitleNameKr(b, fbsutils.Convert(b.CreateString(t.TitleNameKr), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddTitleNameJp(b, fbsutils.Convert(b.CreateString(t.TitleNameJp), t.FlatBuffer.TableKey))
 	LocalizeGachaShopExcelAddTitleNameTh(b, fbsutils.Convert(b.CreateString(t.TitleNameTh), t.FlatBuffer.TableKey))
 	LocalizeGachaShopExcelAddTitleNameTw(b, fbsutils.Convert(b.CreateString(t.TitleNameTw), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddTitleNameEn(b, fbsutils.Convert(b.CreateString(t.TitleNameEn), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddSubTitleKr(b, fbsutils.Convert(b.CreateString(t.SubTitleKr), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddSubTitleJp(b, fbsutils.Convert(b.CreateString(t.SubTitleJp), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddSubTitleTh(b, fbsutils.Convert(b.CreateString(t.SubTitleTh), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddSubTitleTw(b, fbsutils.Convert(b.CreateString(t.SubTitleTw), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddSubTitleEn(b, fbsutils.Convert(b.CreateString(t.SubTitleEn), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddGachaDescriptionKr(b, fbsutils.Convert(b.CreateString(t.GachaDescriptionKr), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddGachaDescriptionJp(b, fbsutils.Convert(b.CreateString(t.GachaDescriptionJp), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddGachaDescriptionTh(b, fbsutils.Convert(b.CreateString(t.GachaDescriptionTh), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddGachaDescriptionTw(b, fbsutils.Convert(b.CreateString(t.GachaDescriptionTw), t.FlatBuffer.TableKey))
+	LocalizeGachaShopExcelAddGachaDescriptionEn(b, fbsutils.Convert(b.CreateString(t.GachaDescriptionEn), t.FlatBuffer.TableKey))
 	return LocalizeGachaShopExcelEnd(b)
 }
 
@@ -75,27 +75,27 @@ func (t *LocalizeGachaShopExcelDto) UnmarshalMessage(e *LocalizeGachaShopExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeGachaShop"))
 	}
-	t.GachaDescriptionEn = fbsutils.Convert(string(e.GachaDescriptionEn()), t.FlatBuffer.TableKey)
-	t.GachaDescriptionJp = fbsutils.Convert(string(e.GachaDescriptionJp()), t.FlatBuffer.TableKey)
-	t.GachaDescriptionKr = fbsutils.Convert(string(e.GachaDescriptionKr()), t.FlatBuffer.TableKey)
-	t.GachaDescriptionTh = fbsutils.Convert(string(e.GachaDescriptionTh()), t.FlatBuffer.TableKey)
-	t.GachaDescriptionTw = fbsutils.Convert(string(e.GachaDescriptionTw()), t.FlatBuffer.TableKey)
 	t.GachaShopId = fbsutils.Convert(e.GachaShopId(), t.FlatBuffer.TableKey)
-	t.SubTitleEn = fbsutils.Convert(string(e.SubTitleEn()), t.FlatBuffer.TableKey)
-	t.SubTitleJp = fbsutils.Convert(string(e.SubTitleJp()), t.FlatBuffer.TableKey)
-	t.SubTitleKr = fbsutils.Convert(string(e.SubTitleKr()), t.FlatBuffer.TableKey)
-	t.SubTitleTh = fbsutils.Convert(string(e.SubTitleTh()), t.FlatBuffer.TableKey)
-	t.SubTitleTw = fbsutils.Convert(string(e.SubTitleTw()), t.FlatBuffer.TableKey)
-	t.TabNameEn = fbsutils.Convert(string(e.TabNameEn()), t.FlatBuffer.TableKey)
-	t.TabNameJp = fbsutils.Convert(string(e.TabNameJp()), t.FlatBuffer.TableKey)
 	t.TabNameKr = fbsutils.Convert(string(e.TabNameKr()), t.FlatBuffer.TableKey)
+	t.TabNameJp = fbsutils.Convert(string(e.TabNameJp()), t.FlatBuffer.TableKey)
 	t.TabNameTh = fbsutils.Convert(string(e.TabNameTh()), t.FlatBuffer.TableKey)
 	t.TabNameTw = fbsutils.Convert(string(e.TabNameTw()), t.FlatBuffer.TableKey)
-	t.TitleNameEn = fbsutils.Convert(string(e.TitleNameEn()), t.FlatBuffer.TableKey)
-	t.TitleNameJp = fbsutils.Convert(string(e.TitleNameJp()), t.FlatBuffer.TableKey)
+	t.TabNameEn = fbsutils.Convert(string(e.TabNameEn()), t.FlatBuffer.TableKey)
 	t.TitleNameKr = fbsutils.Convert(string(e.TitleNameKr()), t.FlatBuffer.TableKey)
+	t.TitleNameJp = fbsutils.Convert(string(e.TitleNameJp()), t.FlatBuffer.TableKey)
 	t.TitleNameTh = fbsutils.Convert(string(e.TitleNameTh()), t.FlatBuffer.TableKey)
 	t.TitleNameTw = fbsutils.Convert(string(e.TitleNameTw()), t.FlatBuffer.TableKey)
+	t.TitleNameEn = fbsutils.Convert(string(e.TitleNameEn()), t.FlatBuffer.TableKey)
+	t.SubTitleKr = fbsutils.Convert(string(e.SubTitleKr()), t.FlatBuffer.TableKey)
+	t.SubTitleJp = fbsutils.Convert(string(e.SubTitleJp()), t.FlatBuffer.TableKey)
+	t.SubTitleTh = fbsutils.Convert(string(e.SubTitleTh()), t.FlatBuffer.TableKey)
+	t.SubTitleTw = fbsutils.Convert(string(e.SubTitleTw()), t.FlatBuffer.TableKey)
+	t.SubTitleEn = fbsutils.Convert(string(e.SubTitleEn()), t.FlatBuffer.TableKey)
+	t.GachaDescriptionKr = fbsutils.Convert(string(e.GachaDescriptionKr()), t.FlatBuffer.TableKey)
+	t.GachaDescriptionJp = fbsutils.Convert(string(e.GachaDescriptionJp()), t.FlatBuffer.TableKey)
+	t.GachaDescriptionTh = fbsutils.Convert(string(e.GachaDescriptionTh()), t.FlatBuffer.TableKey)
+	t.GachaDescriptionTw = fbsutils.Convert(string(e.GachaDescriptionTw()), t.FlatBuffer.TableKey)
+	t.GachaDescriptionEn = fbsutils.Convert(string(e.GachaDescriptionEn()), t.FlatBuffer.TableKey)
 	return nil
 }
 

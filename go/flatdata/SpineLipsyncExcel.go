@@ -41,24 +41,8 @@ func (rcv *SpineLipsyncExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *SpineLipsyncExcel) AnimJson() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *SpineLipsyncExcel) AnimJsonKr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *SpineLipsyncExcel) VoiceId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -66,20 +50,36 @@ func (rcv *SpineLipsyncExcel) VoiceId() uint32 {
 }
 
 func (rcv *SpineLipsyncExcel) MutateVoiceId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(8, n)
+	return rcv._tab.MutateUint32Slot(4, n)
+}
+
+func (rcv *SpineLipsyncExcel) AnimJson() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *SpineLipsyncExcel) AnimJsonKr() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func SpineLipsyncExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
+func SpineLipsyncExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint32) {
+	builder.PrependUint32Slot(0, voiceId, 0)
+}
 func SpineLipsyncExcelAddAnimJson(builder *flatbuffers.Builder, animJson flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(animJson), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(animJson), 0)
 }
 func SpineLipsyncExcelAddAnimJsonKr(builder *flatbuffers.Builder, animJsonKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(animJsonKr), 0)
-}
-func SpineLipsyncExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint32) {
-	builder.PrependUint32Slot(2, voiceId, 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(animJsonKr), 0)
 }
 func SpineLipsyncExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -41,48 +41,8 @@ func (rcv *LocalizeGachaShopExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LocalizeGachaShopExcel) GachaDescriptionEn() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LocalizeGachaShopExcel) GachaDescriptionJp() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LocalizeGachaShopExcel) GachaDescriptionKr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LocalizeGachaShopExcel) GachaDescriptionTh() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LocalizeGachaShopExcel) GachaDescriptionTw() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *LocalizeGachaShopExcel) GachaShopId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -90,51 +50,11 @@ func (rcv *LocalizeGachaShopExcel) GachaShopId() int64 {
 }
 
 func (rcv *LocalizeGachaShopExcel) MutateGachaShopId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *LocalizeGachaShopExcel) SubTitleEn() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LocalizeGachaShopExcel) SubTitleJp() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LocalizeGachaShopExcel) SubTitleKr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LocalizeGachaShopExcel) SubTitleTh() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LocalizeGachaShopExcel) SubTitleTw() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LocalizeGachaShopExcel) TabNameEn() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+func (rcv *LocalizeGachaShopExcel) TabNameKr() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -142,15 +62,7 @@ func (rcv *LocalizeGachaShopExcel) TabNameEn() []byte {
 }
 
 func (rcv *LocalizeGachaShopExcel) TabNameJp() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LocalizeGachaShopExcel) TabNameKr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -158,7 +70,7 @@ func (rcv *LocalizeGachaShopExcel) TabNameKr() []byte {
 }
 
 func (rcv *LocalizeGachaShopExcel) TabNameTh() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -166,23 +78,15 @@ func (rcv *LocalizeGachaShopExcel) TabNameTh() []byte {
 }
 
 func (rcv *LocalizeGachaShopExcel) TabNameTw() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *LocalizeGachaShopExcel) TitleNameEn() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *LocalizeGachaShopExcel) TitleNameJp() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+func (rcv *LocalizeGachaShopExcel) TabNameEn() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -190,7 +94,15 @@ func (rcv *LocalizeGachaShopExcel) TitleNameJp() []byte {
 }
 
 func (rcv *LocalizeGachaShopExcel) TitleNameKr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeGachaShopExcel) TitleNameJp() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -198,7 +110,7 @@ func (rcv *LocalizeGachaShopExcel) TitleNameKr() []byte {
 }
 
 func (rcv *LocalizeGachaShopExcel) TitleNameTh() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -206,6 +118,94 @@ func (rcv *LocalizeGachaShopExcel) TitleNameTh() []byte {
 }
 
 func (rcv *LocalizeGachaShopExcel) TitleNameTw() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeGachaShopExcel) TitleNameEn() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeGachaShopExcel) SubTitleKr() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeGachaShopExcel) SubTitleJp() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeGachaShopExcel) SubTitleTh() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeGachaShopExcel) SubTitleTw() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeGachaShopExcel) SubTitleEn() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeGachaShopExcel) GachaDescriptionKr() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeGachaShopExcel) GachaDescriptionJp() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeGachaShopExcel) GachaDescriptionTh() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeGachaShopExcel) GachaDescriptionTw() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeGachaShopExcel) GachaDescriptionEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -216,68 +216,68 @@ func (rcv *LocalizeGachaShopExcel) TitleNameTw() []byte {
 func LocalizeGachaShopExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(21)
 }
-func LocalizeGachaShopExcelAddGachaDescriptionEn(builder *flatbuffers.Builder, gachaDescriptionEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(gachaDescriptionEn), 0)
-}
-func LocalizeGachaShopExcelAddGachaDescriptionJp(builder *flatbuffers.Builder, gachaDescriptionJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(gachaDescriptionJp), 0)
-}
-func LocalizeGachaShopExcelAddGachaDescriptionKr(builder *flatbuffers.Builder, gachaDescriptionKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(gachaDescriptionKr), 0)
-}
-func LocalizeGachaShopExcelAddGachaDescriptionTh(builder *flatbuffers.Builder, gachaDescriptionTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(gachaDescriptionTh), 0)
-}
-func LocalizeGachaShopExcelAddGachaDescriptionTw(builder *flatbuffers.Builder, gachaDescriptionTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(gachaDescriptionTw), 0)
-}
 func LocalizeGachaShopExcelAddGachaShopId(builder *flatbuffers.Builder, gachaShopId int64) {
-	builder.PrependInt64Slot(5, gachaShopId, 0)
-}
-func LocalizeGachaShopExcelAddSubTitleEn(builder *flatbuffers.Builder, subTitleEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(subTitleEn), 0)
-}
-func LocalizeGachaShopExcelAddSubTitleJp(builder *flatbuffers.Builder, subTitleJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(subTitleJp), 0)
-}
-func LocalizeGachaShopExcelAddSubTitleKr(builder *flatbuffers.Builder, subTitleKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(subTitleKr), 0)
-}
-func LocalizeGachaShopExcelAddSubTitleTh(builder *flatbuffers.Builder, subTitleTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(subTitleTh), 0)
-}
-func LocalizeGachaShopExcelAddSubTitleTw(builder *flatbuffers.Builder, subTitleTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(subTitleTw), 0)
-}
-func LocalizeGachaShopExcelAddTabNameEn(builder *flatbuffers.Builder, tabNameEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(tabNameEn), 0)
-}
-func LocalizeGachaShopExcelAddTabNameJp(builder *flatbuffers.Builder, tabNameJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(tabNameJp), 0)
+	builder.PrependInt64Slot(0, gachaShopId, 0)
 }
 func LocalizeGachaShopExcelAddTabNameKr(builder *flatbuffers.Builder, tabNameKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(tabNameKr), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(tabNameKr), 0)
+}
+func LocalizeGachaShopExcelAddTabNameJp(builder *flatbuffers.Builder, tabNameJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(tabNameJp), 0)
 }
 func LocalizeGachaShopExcelAddTabNameTh(builder *flatbuffers.Builder, tabNameTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(tabNameTh), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(tabNameTh), 0)
 }
 func LocalizeGachaShopExcelAddTabNameTw(builder *flatbuffers.Builder, tabNameTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(tabNameTw), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(tabNameTw), 0)
 }
-func LocalizeGachaShopExcelAddTitleNameEn(builder *flatbuffers.Builder, titleNameEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(titleNameEn), 0)
-}
-func LocalizeGachaShopExcelAddTitleNameJp(builder *flatbuffers.Builder, titleNameJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(titleNameJp), 0)
+func LocalizeGachaShopExcelAddTabNameEn(builder *flatbuffers.Builder, tabNameEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(tabNameEn), 0)
 }
 func LocalizeGachaShopExcelAddTitleNameKr(builder *flatbuffers.Builder, titleNameKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(titleNameKr), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(titleNameKr), 0)
+}
+func LocalizeGachaShopExcelAddTitleNameJp(builder *flatbuffers.Builder, titleNameJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(titleNameJp), 0)
 }
 func LocalizeGachaShopExcelAddTitleNameTh(builder *flatbuffers.Builder, titleNameTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(titleNameTh), 0)
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(titleNameTh), 0)
 }
 func LocalizeGachaShopExcelAddTitleNameTw(builder *flatbuffers.Builder, titleNameTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(titleNameTw), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(titleNameTw), 0)
+}
+func LocalizeGachaShopExcelAddTitleNameEn(builder *flatbuffers.Builder, titleNameEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(titleNameEn), 0)
+}
+func LocalizeGachaShopExcelAddSubTitleKr(builder *flatbuffers.Builder, subTitleKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(subTitleKr), 0)
+}
+func LocalizeGachaShopExcelAddSubTitleJp(builder *flatbuffers.Builder, subTitleJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(subTitleJp), 0)
+}
+func LocalizeGachaShopExcelAddSubTitleTh(builder *flatbuffers.Builder, subTitleTh flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(subTitleTh), 0)
+}
+func LocalizeGachaShopExcelAddSubTitleTw(builder *flatbuffers.Builder, subTitleTw flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(subTitleTw), 0)
+}
+func LocalizeGachaShopExcelAddSubTitleEn(builder *flatbuffers.Builder, subTitleEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(subTitleEn), 0)
+}
+func LocalizeGachaShopExcelAddGachaDescriptionKr(builder *flatbuffers.Builder, gachaDescriptionKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(gachaDescriptionKr), 0)
+}
+func LocalizeGachaShopExcelAddGachaDescriptionJp(builder *flatbuffers.Builder, gachaDescriptionJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(gachaDescriptionJp), 0)
+}
+func LocalizeGachaShopExcelAddGachaDescriptionTh(builder *flatbuffers.Builder, gachaDescriptionTh flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(gachaDescriptionTh), 0)
+}
+func LocalizeGachaShopExcelAddGachaDescriptionTw(builder *flatbuffers.Builder, gachaDescriptionTw flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(gachaDescriptionTw), 0)
+}
+func LocalizeGachaShopExcelAddGachaDescriptionEn(builder *flatbuffers.Builder, gachaDescriptionEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(gachaDescriptionEn), 0)
 }
 func LocalizeGachaShopExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

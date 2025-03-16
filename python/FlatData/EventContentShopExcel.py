@@ -25,36 +25,43 @@ class EventContentShopExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentShopExcel
-    def BuyReportEventName(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentShopExcel
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentShopExcel
+    def LocalizeEtcId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
 
     # EventContentShopExcel
     def CategoryType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentShopExcel
-    def DisplayOrder(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+    def IsLegacy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentShopExcel
-    def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # EventContentShopExcel
     def GoodsId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -62,85 +69,78 @@ class EventContentShopExcel(object):
 
     # EventContentShopExcel
     def GoodsIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # EventContentShopExcel
     def GoodsIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # EventContentShopExcel
     def GoodsIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         return o == 0
 
     # EventContentShopExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentShopExcel
-    def IsLegacy(self):
+    def DisplayOrder(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # EventContentShopExcel
-    def LocalizeEtcId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentShopExcel
-    def PurchaseCooltimeMin(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # EventContentShopExcel
-    def PurchaseCountLimit(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentShopExcel
-    def PurchaseCountResetType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentShopExcel
-    def RestrictBuyWhenInventoryFull(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
 
     # EventContentShopExcel
     def SalePeriodFrom(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # EventContentShopExcel
     def SalePeriodTo(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
+
+    # EventContentShopExcel
+    def PurchaseCooltimeMin(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentShopExcel
+    def PurchaseCountLimit(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentShopExcel
+    def PurchaseCountResetType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentShopExcel
+    def BuyReportEventName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # EventContentShopExcel
+    def RestrictBuyWhenInventoryFull(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
 def EventContentShopExcelStart(builder):
     builder.StartObject(14)
@@ -148,32 +148,38 @@ def EventContentShopExcelStart(builder):
 def Start(builder):
     EventContentShopExcelStart(builder)
 
-def EventContentShopExcelAddBuyReportEventName(builder, buyReportEventName):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(buyReportEventName), 0)
-
-def AddBuyReportEventName(builder, buyReportEventName):
-    EventContentShopExcelAddBuyReportEventName(builder, buyReportEventName)
-
-def EventContentShopExcelAddCategoryType(builder, categoryType):
-    builder.PrependInt32Slot(1, categoryType, 0)
-
-def AddCategoryType(builder, categoryType):
-    EventContentShopExcelAddCategoryType(builder, categoryType)
-
-def EventContentShopExcelAddDisplayOrder(builder, displayOrder):
-    builder.PrependInt64Slot(2, displayOrder, 0)
-
-def AddDisplayOrder(builder, displayOrder):
-    EventContentShopExcelAddDisplayOrder(builder, displayOrder)
-
 def EventContentShopExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(3, eventContentId, 0)
+    builder.PrependInt64Slot(0, eventContentId, 0)
 
 def AddEventContentId(builder, eventContentId):
     EventContentShopExcelAddEventContentId(builder, eventContentId)
 
+def EventContentShopExcelAddId(builder, id):
+    builder.PrependInt64Slot(1, id, 0)
+
+def AddId(builder, id):
+    EventContentShopExcelAddId(builder, id)
+
+def EventContentShopExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUint32Slot(2, localizeEtcId, 0)
+
+def AddLocalizeEtcId(builder, localizeEtcId):
+    EventContentShopExcelAddLocalizeEtcId(builder, localizeEtcId)
+
+def EventContentShopExcelAddCategoryType(builder, categoryType):
+    builder.PrependInt32Slot(3, categoryType, 0)
+
+def AddCategoryType(builder, categoryType):
+    EventContentShopExcelAddCategoryType(builder, categoryType)
+
+def EventContentShopExcelAddIsLegacy(builder, isLegacy):
+    builder.PrependBoolSlot(4, isLegacy, 0)
+
+def AddIsLegacy(builder, isLegacy):
+    EventContentShopExcelAddIsLegacy(builder, isLegacy)
+
 def EventContentShopExcelAddGoodsId(builder, goodsId):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(goodsId), 0)
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(goodsId), 0)
 
 def AddGoodsId(builder, goodsId):
     EventContentShopExcelAddGoodsId(builder, goodsId)
@@ -184,59 +190,53 @@ def EventContentShopExcelStartGoodsIdVector(builder, numElems):
 def StartGoodsIdVector(builder, numElems):
     return EventContentShopExcelStartGoodsIdVector(builder, numElems)
 
-def EventContentShopExcelAddId(builder, id):
-    builder.PrependInt64Slot(5, id, 0)
+def EventContentShopExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt64Slot(6, displayOrder, 0)
 
-def AddId(builder, id):
-    EventContentShopExcelAddId(builder, id)
-
-def EventContentShopExcelAddIsLegacy(builder, isLegacy):
-    builder.PrependBoolSlot(6, isLegacy, 0)
-
-def AddIsLegacy(builder, isLegacy):
-    EventContentShopExcelAddIsLegacy(builder, isLegacy)
-
-def EventContentShopExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(7, localizeEtcId, 0)
-
-def AddLocalizeEtcId(builder, localizeEtcId):
-    EventContentShopExcelAddLocalizeEtcId(builder, localizeEtcId)
-
-def EventContentShopExcelAddPurchaseCooltimeMin(builder, purchaseCooltimeMin):
-    builder.PrependInt64Slot(8, purchaseCooltimeMin, 0)
-
-def AddPurchaseCooltimeMin(builder, purchaseCooltimeMin):
-    EventContentShopExcelAddPurchaseCooltimeMin(builder, purchaseCooltimeMin)
-
-def EventContentShopExcelAddPurchaseCountLimit(builder, purchaseCountLimit):
-    builder.PrependInt64Slot(9, purchaseCountLimit, 0)
-
-def AddPurchaseCountLimit(builder, purchaseCountLimit):
-    EventContentShopExcelAddPurchaseCountLimit(builder, purchaseCountLimit)
-
-def EventContentShopExcelAddPurchaseCountResetType(builder, purchaseCountResetType):
-    builder.PrependInt32Slot(10, purchaseCountResetType, 0)
-
-def AddPurchaseCountResetType(builder, purchaseCountResetType):
-    EventContentShopExcelAddPurchaseCountResetType(builder, purchaseCountResetType)
-
-def EventContentShopExcelAddRestrictBuyWhenInventoryFull(builder, restrictBuyWhenInventoryFull):
-    builder.PrependBoolSlot(11, restrictBuyWhenInventoryFull, 0)
-
-def AddRestrictBuyWhenInventoryFull(builder, restrictBuyWhenInventoryFull):
-    EventContentShopExcelAddRestrictBuyWhenInventoryFull(builder, restrictBuyWhenInventoryFull)
+def AddDisplayOrder(builder, displayOrder):
+    EventContentShopExcelAddDisplayOrder(builder, displayOrder)
 
 def EventContentShopExcelAddSalePeriodFrom(builder, salePeriodFrom):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodFrom), 0)
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodFrom), 0)
 
 def AddSalePeriodFrom(builder, salePeriodFrom):
     EventContentShopExcelAddSalePeriodFrom(builder, salePeriodFrom)
 
 def EventContentShopExcelAddSalePeriodTo(builder, salePeriodTo):
-    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodTo), 0)
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodTo), 0)
 
 def AddSalePeriodTo(builder, salePeriodTo):
     EventContentShopExcelAddSalePeriodTo(builder, salePeriodTo)
+
+def EventContentShopExcelAddPurchaseCooltimeMin(builder, purchaseCooltimeMin):
+    builder.PrependInt64Slot(9, purchaseCooltimeMin, 0)
+
+def AddPurchaseCooltimeMin(builder, purchaseCooltimeMin):
+    EventContentShopExcelAddPurchaseCooltimeMin(builder, purchaseCooltimeMin)
+
+def EventContentShopExcelAddPurchaseCountLimit(builder, purchaseCountLimit):
+    builder.PrependInt64Slot(10, purchaseCountLimit, 0)
+
+def AddPurchaseCountLimit(builder, purchaseCountLimit):
+    EventContentShopExcelAddPurchaseCountLimit(builder, purchaseCountLimit)
+
+def EventContentShopExcelAddPurchaseCountResetType(builder, purchaseCountResetType):
+    builder.PrependInt32Slot(11, purchaseCountResetType, 0)
+
+def AddPurchaseCountResetType(builder, purchaseCountResetType):
+    EventContentShopExcelAddPurchaseCountResetType(builder, purchaseCountResetType)
+
+def EventContentShopExcelAddBuyReportEventName(builder, buyReportEventName):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(buyReportEventName), 0)
+
+def AddBuyReportEventName(builder, buyReportEventName):
+    EventContentShopExcelAddBuyReportEventName(builder, buyReportEventName)
+
+def EventContentShopExcelAddRestrictBuyWhenInventoryFull(builder, restrictBuyWhenInventoryFull):
+    builder.PrependBoolSlot(13, restrictBuyWhenInventoryFull, 0)
+
+def AddRestrictBuyWhenInventoryFull(builder, restrictBuyWhenInventoryFull):
+    EventContentShopExcelAddRestrictBuyWhenInventoryFull(builder, restrictBuyWhenInventoryFull)
 
 def EventContentShopExcelEnd(builder):
     return builder.EndObject()

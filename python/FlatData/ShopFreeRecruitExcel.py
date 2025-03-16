@@ -25,11 +25,11 @@ class ShopFreeRecruitExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ShopFreeRecruitExcel
-    def FreeRecruitDecorationImagePath(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # ShopFreeRecruitExcel
     def FreeRecruitPeriodFrom(self):
@@ -53,11 +53,11 @@ class ShopFreeRecruitExcel(object):
         return 0
 
     # ShopFreeRecruitExcel
-    def Id(self):
+    def FreeRecruitDecorationImagePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # ShopFreeRecruitExcel
     def ShopRecruitId(self, j):
@@ -92,11 +92,11 @@ def ShopFreeRecruitExcelStart(builder):
 def Start(builder):
     ShopFreeRecruitExcelStart(builder)
 
-def ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(builder, freeRecruitDecorationImagePath):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(freeRecruitDecorationImagePath), 0)
+def ShopFreeRecruitExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
 
-def AddFreeRecruitDecorationImagePath(builder, freeRecruitDecorationImagePath):
-    ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(builder, freeRecruitDecorationImagePath)
+def AddId(builder, id):
+    ShopFreeRecruitExcelAddId(builder, id)
 
 def ShopFreeRecruitExcelAddFreeRecruitPeriodFrom(builder, freeRecruitPeriodFrom):
     builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(freeRecruitPeriodFrom), 0)
@@ -116,11 +116,11 @@ def ShopFreeRecruitExcelAddFreeRecruitType(builder, freeRecruitType):
 def AddFreeRecruitType(builder, freeRecruitType):
     ShopFreeRecruitExcelAddFreeRecruitType(builder, freeRecruitType)
 
-def ShopFreeRecruitExcelAddId(builder, id):
-    builder.PrependInt64Slot(4, id, 0)
+def ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(builder, freeRecruitDecorationImagePath):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(freeRecruitDecorationImagePath), 0)
 
-def AddId(builder, id):
-    ShopFreeRecruitExcelAddId(builder, id)
+def AddFreeRecruitDecorationImagePath(builder, freeRecruitDecorationImagePath):
+    ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(builder, freeRecruitDecorationImagePath)
 
 def ShopFreeRecruitExcelAddShopRecruitId(builder, shopRecruitId):
     builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(shopRecruitId), 0)

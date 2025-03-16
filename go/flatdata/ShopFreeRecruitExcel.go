@@ -41,12 +41,16 @@ func (rcv *ShopFreeRecruitExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ShopFreeRecruitExcel) FreeRecruitDecorationImagePath() []byte {
+func (rcv *ShopFreeRecruitExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *ShopFreeRecruitExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *ShopFreeRecruitExcel) FreeRecruitPeriodFrom() []byte {
@@ -77,16 +81,12 @@ func (rcv *ShopFreeRecruitExcel) MutateFreeRecruitType(n ShopFreeRecruitType) bo
 	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
-func (rcv *ShopFreeRecruitExcel) Id() int64 {
+func (rcv *ShopFreeRecruitExcel) FreeRecruitDecorationImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *ShopFreeRecruitExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return nil
 }
 
 func (rcv *ShopFreeRecruitExcel) ShopRecruitId(j int) int64 {
@@ -118,8 +118,8 @@ func (rcv *ShopFreeRecruitExcel) MutateShopRecruitId(j int, n int64) bool {
 func ShopFreeRecruitExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(builder *flatbuffers.Builder, freeRecruitDecorationImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(freeRecruitDecorationImagePath), 0)
+func ShopFreeRecruitExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(0, id, 0)
 }
 func ShopFreeRecruitExcelAddFreeRecruitPeriodFrom(builder *flatbuffers.Builder, freeRecruitPeriodFrom flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(freeRecruitPeriodFrom), 0)
@@ -130,8 +130,8 @@ func ShopFreeRecruitExcelAddFreeRecruitPeriodTo(builder *flatbuffers.Builder, fr
 func ShopFreeRecruitExcelAddFreeRecruitType(builder *flatbuffers.Builder, freeRecruitType ShopFreeRecruitType) {
 	builder.PrependInt32Slot(3, int32(freeRecruitType), 0)
 }
-func ShopFreeRecruitExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(4, id, 0)
+func ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(builder *flatbuffers.Builder, freeRecruitDecorationImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(freeRecruitDecorationImagePath), 0)
 }
 func ShopFreeRecruitExcelAddShopRecruitId(builder *flatbuffers.Builder, shopRecruitId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(shopRecruitId), 0)

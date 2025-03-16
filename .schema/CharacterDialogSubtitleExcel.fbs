@@ -1,17 +1,17 @@
 namespace FlatData;
 
 table CharacterDialogSubtitleExcel {
+    localize_cv_group: string;
     character_id: long;
+    tlmid: string;
     duration: long;
     duration_kr: long;
-    localize_cv_group: string;
-    localize_en: string;
-    localize_jp: string;
+    separate: bool;
     localize_kr: string;
+    localize_jp: string;
     localize_th: string;
     localize_tw: string;
-    separate: bool;
-    tlmid: string;
+    localize_en: string;
 }
 
 root_type CharacterDialogSubtitleExcel;

@@ -25,25 +25,25 @@ class GroundModuleRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # GroundModuleRewardExcel
-    def DropItemModelPrefabPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # GroundModuleRewardExcel
     def GroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # GroundModuleRewardExcel
-    def IsDisplayed(self):
+    def RewardParcelType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundModuleRewardExcel
+    def RewardParcelId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # GroundModuleRewardExcel
     def RewardParcelAmount(self):
@@ -53,25 +53,25 @@ class GroundModuleRewardExcel(object):
         return 0
 
     # GroundModuleRewardExcel
-    def RewardParcelId(self):
+    def RewardParcelProbability(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GroundModuleRewardExcel
-    def RewardParcelProbability(self):
+    def IsDisplayed(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # GroundModuleRewardExcel
-    def RewardParcelType(self):
+    def DropItemModelPrefabPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def GroundModuleRewardExcelStart(builder):
     builder.StartObject(7)
@@ -79,23 +79,23 @@ def GroundModuleRewardExcelStart(builder):
 def Start(builder):
     GroundModuleRewardExcelStart(builder)
 
-def GroundModuleRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dropItemModelPrefabPath), 0)
-
-def AddDropItemModelPrefabPath(builder, dropItemModelPrefabPath):
-    GroundModuleRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath)
-
 def GroundModuleRewardExcelAddGroupId(builder, groupId):
-    builder.PrependUint32Slot(1, groupId, 0)
+    builder.PrependUint32Slot(0, groupId, 0)
 
 def AddGroupId(builder, groupId):
     GroundModuleRewardExcelAddGroupId(builder, groupId)
 
-def GroundModuleRewardExcelAddIsDisplayed(builder, isDisplayed):
-    builder.PrependBoolSlot(2, isDisplayed, 0)
+def GroundModuleRewardExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependInt32Slot(1, rewardParcelType, 0)
 
-def AddIsDisplayed(builder, isDisplayed):
-    GroundModuleRewardExcelAddIsDisplayed(builder, isDisplayed)
+def AddRewardParcelType(builder, rewardParcelType):
+    GroundModuleRewardExcelAddRewardParcelType(builder, rewardParcelType)
+
+def GroundModuleRewardExcelAddRewardParcelId(builder, rewardParcelId):
+    builder.PrependInt64Slot(2, rewardParcelId, 0)
+
+def AddRewardParcelId(builder, rewardParcelId):
+    GroundModuleRewardExcelAddRewardParcelId(builder, rewardParcelId)
 
 def GroundModuleRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
     builder.PrependInt64Slot(3, rewardParcelAmount, 0)
@@ -103,23 +103,23 @@ def GroundModuleRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
 def AddRewardParcelAmount(builder, rewardParcelAmount):
     GroundModuleRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
 
-def GroundModuleRewardExcelAddRewardParcelId(builder, rewardParcelId):
-    builder.PrependInt64Slot(4, rewardParcelId, 0)
-
-def AddRewardParcelId(builder, rewardParcelId):
-    GroundModuleRewardExcelAddRewardParcelId(builder, rewardParcelId)
-
 def GroundModuleRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability):
-    builder.PrependInt64Slot(5, rewardParcelProbability, 0)
+    builder.PrependInt64Slot(4, rewardParcelProbability, 0)
 
 def AddRewardParcelProbability(builder, rewardParcelProbability):
     GroundModuleRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability)
 
-def GroundModuleRewardExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependInt32Slot(6, rewardParcelType, 0)
+def GroundModuleRewardExcelAddIsDisplayed(builder, isDisplayed):
+    builder.PrependBoolSlot(5, isDisplayed, 0)
 
-def AddRewardParcelType(builder, rewardParcelType):
-    GroundModuleRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def AddIsDisplayed(builder, isDisplayed):
+    GroundModuleRewardExcelAddIsDisplayed(builder, isDisplayed)
+
+def GroundModuleRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(dropItemModelPrefabPath), 0)
+
+def AddDropItemModelPrefabPath(builder, dropItemModelPrefabPath):
+    GroundModuleRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath)
 
 def GroundModuleRewardExcelEnd(builder):
     return builder.EndObject()

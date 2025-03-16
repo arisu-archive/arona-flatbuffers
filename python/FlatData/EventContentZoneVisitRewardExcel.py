@@ -25,14 +25,14 @@ class EventContentZoneVisitRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentZoneVisitRewardExcel
-    def CharacterDevName(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # EventContentZoneVisitRewardExcel
-    def CharacterId(self):
+    def EventContentLocationId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -46,43 +46,43 @@ class EventContentZoneVisitRewardExcel(object):
         return None
 
     # EventContentZoneVisitRewardExcel
-    def EventContentId(self):
+    def CharacterId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentZoneVisitRewardExcel
-    def EventContentLocationId(self):
+    def CharacterDevName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # EventContentZoneVisitRewardExcel
-    def VisitRewardAmount(self, j):
+    def VisitRewardParcelType(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
 
     # EventContentZoneVisitRewardExcel
-    def VisitRewardAmountAsNumpy(self):
+    def VisitRewardParcelTypeAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # EventContentZoneVisitRewardExcel
-    def VisitRewardAmountLength(self):
+    def VisitRewardParcelTypeLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # EventContentZoneVisitRewardExcel
-    def VisitRewardAmountIsNone(self):
+    def VisitRewardParcelTypeIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         return o == 0
 
@@ -114,29 +114,29 @@ class EventContentZoneVisitRewardExcel(object):
         return o == 0
 
     # EventContentZoneVisitRewardExcel
-    def VisitRewardParcelType(self, j):
+    def VisitRewardAmount(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # EventContentZoneVisitRewardExcel
-    def VisitRewardParcelTypeAsNumpy(self):
+    def VisitRewardAmountAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # EventContentZoneVisitRewardExcel
-    def VisitRewardParcelTypeLength(self):
+    def VisitRewardAmountLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # EventContentZoneVisitRewardExcel
-    def VisitRewardParcelTypeIsNone(self):
+    def VisitRewardAmountIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         return o == 0
 
@@ -173,17 +173,17 @@ def EventContentZoneVisitRewardExcelStart(builder):
 def Start(builder):
     EventContentZoneVisitRewardExcelStart(builder)
 
-def EventContentZoneVisitRewardExcelAddCharacterDevName(builder, characterDevName):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(characterDevName), 0)
+def EventContentZoneVisitRewardExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
 
-def AddCharacterDevName(builder, characterDevName):
-    EventContentZoneVisitRewardExcelAddCharacterDevName(builder, characterDevName)
+def AddEventContentId(builder, eventContentId):
+    EventContentZoneVisitRewardExcelAddEventContentId(builder, eventContentId)
 
-def EventContentZoneVisitRewardExcelAddCharacterId(builder, characterId):
-    builder.PrependInt64Slot(1, characterId, 0)
+def EventContentZoneVisitRewardExcelAddEventContentLocationId(builder, eventContentLocationId):
+    builder.PrependInt64Slot(1, eventContentLocationId, 0)
 
-def AddCharacterId(builder, characterId):
-    EventContentZoneVisitRewardExcelAddCharacterId(builder, characterId)
+def AddEventContentLocationId(builder, eventContentLocationId):
+    EventContentZoneVisitRewardExcelAddEventContentLocationId(builder, eventContentLocationId)
 
 def EventContentZoneVisitRewardExcelAddDevName(builder, devName):
     builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
@@ -191,29 +191,29 @@ def EventContentZoneVisitRewardExcelAddDevName(builder, devName):
 def AddDevName(builder, devName):
     EventContentZoneVisitRewardExcelAddDevName(builder, devName)
 
-def EventContentZoneVisitRewardExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(3, eventContentId, 0)
+def EventContentZoneVisitRewardExcelAddCharacterId(builder, characterId):
+    builder.PrependInt64Slot(3, characterId, 0)
 
-def AddEventContentId(builder, eventContentId):
-    EventContentZoneVisitRewardExcelAddEventContentId(builder, eventContentId)
+def AddCharacterId(builder, characterId):
+    EventContentZoneVisitRewardExcelAddCharacterId(builder, characterId)
 
-def EventContentZoneVisitRewardExcelAddEventContentLocationId(builder, eventContentLocationId):
-    builder.PrependInt64Slot(4, eventContentLocationId, 0)
+def EventContentZoneVisitRewardExcelAddCharacterDevName(builder, characterDevName):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(characterDevName), 0)
 
-def AddEventContentLocationId(builder, eventContentLocationId):
-    EventContentZoneVisitRewardExcelAddEventContentLocationId(builder, eventContentLocationId)
+def AddCharacterDevName(builder, characterDevName):
+    EventContentZoneVisitRewardExcelAddCharacterDevName(builder, characterDevName)
 
-def EventContentZoneVisitRewardExcelAddVisitRewardAmount(builder, visitRewardAmount):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(visitRewardAmount), 0)
+def EventContentZoneVisitRewardExcelAddVisitRewardParcelType(builder, visitRewardParcelType):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(visitRewardParcelType), 0)
 
-def AddVisitRewardAmount(builder, visitRewardAmount):
-    EventContentZoneVisitRewardExcelAddVisitRewardAmount(builder, visitRewardAmount)
+def AddVisitRewardParcelType(builder, visitRewardParcelType):
+    EventContentZoneVisitRewardExcelAddVisitRewardParcelType(builder, visitRewardParcelType)
 
-def EventContentZoneVisitRewardExcelStartVisitRewardAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
+def EventContentZoneVisitRewardExcelStartVisitRewardParcelTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
 
-def StartVisitRewardAmountVector(builder, numElems):
-    return EventContentZoneVisitRewardExcelStartVisitRewardAmountVector(builder, numElems)
+def StartVisitRewardParcelTypeVector(builder, numElems):
+    return EventContentZoneVisitRewardExcelStartVisitRewardParcelTypeVector(builder, numElems)
 
 def EventContentZoneVisitRewardExcelAddVisitRewardParcelId(builder, visitRewardParcelId):
     builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(visitRewardParcelId), 0)
@@ -227,17 +227,17 @@ def EventContentZoneVisitRewardExcelStartVisitRewardParcelIdVector(builder, numE
 def StartVisitRewardParcelIdVector(builder, numElems):
     return EventContentZoneVisitRewardExcelStartVisitRewardParcelIdVector(builder, numElems)
 
-def EventContentZoneVisitRewardExcelAddVisitRewardParcelType(builder, visitRewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(visitRewardParcelType), 0)
+def EventContentZoneVisitRewardExcelAddVisitRewardAmount(builder, visitRewardAmount):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(visitRewardAmount), 0)
 
-def AddVisitRewardParcelType(builder, visitRewardParcelType):
-    EventContentZoneVisitRewardExcelAddVisitRewardParcelType(builder, visitRewardParcelType)
+def AddVisitRewardAmount(builder, visitRewardAmount):
+    EventContentZoneVisitRewardExcelAddVisitRewardAmount(builder, visitRewardAmount)
 
-def EventContentZoneVisitRewardExcelStartVisitRewardParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
+def EventContentZoneVisitRewardExcelStartVisitRewardAmountVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
 
-def StartVisitRewardParcelTypeVector(builder, numElems):
-    return EventContentZoneVisitRewardExcelStartVisitRewardParcelTypeVector(builder, numElems)
+def StartVisitRewardAmountVector(builder, numElems):
+    return EventContentZoneVisitRewardExcelStartVisitRewardAmountVector(builder, numElems)
 
 def EventContentZoneVisitRewardExcelAddVisitRewardProb(builder, visitRewardProb):
     builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(visitRewardProb), 0)

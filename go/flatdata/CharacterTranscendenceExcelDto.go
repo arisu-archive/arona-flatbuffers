@@ -12,14 +12,14 @@ type CharacterTranscendenceExcelDto struct {
 	fbsutils.FlatBuffer
 	CharacterId         int64    `json:"character_id"`
 	MaxFavorLevel       []int32  `json:"max_favor_level"`
-	MaxlevelStar        []int32  `json:"maxlevel_star"`
+	StatBonusRateAttack []int64  `json:"stat_bonus_rate_attack"`
+	StatBonusRateHp     []int64  `json:"stat_bonus_rate_hp"`
+	StatBonusRateHeal   []int64  `json:"stat_bonus_rate_heal"`
 	RecipeId            []int64  `json:"recipe_id"`
 	SkillSlotA          []string `json:"skill_slot_a"`
 	SkillSlotB          []string `json:"skill_slot_b"`
 	SkillSlotC          []string `json:"skill_slot_c"`
-	StatBonusRateAttack []int64  `json:"stat_bonus_rate_attack"`
-	StatBonusRateHeal   []int64  `json:"stat_bonus_rate_heal"`
-	StatBonusRateHp     []int64  `json:"stat_bonus_rate_hp"`
+	MaxlevelStar        []int32  `json:"maxlevel_star"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -34,11 +34,21 @@ func (t *CharacterTranscendenceExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 		b.PrependInt32(fbsutils.Convert(t.MaxFavorLevel[len(t.MaxFavorLevel)-i-1], t.FlatBuffer.TableKey))
 	}
 	CharacterTranscendenceExcelAddMaxFavorLevel(b, b.EndVector(len(t.MaxFavorLevel)))
-	CharacterTranscendenceExcelStartMaxlevelStarVector(b, len(t.MaxlevelStar))
-	for i := range len(t.MaxlevelStar) {
-		b.PrependInt32(fbsutils.Convert(t.MaxlevelStar[len(t.MaxlevelStar)-i-1], t.FlatBuffer.TableKey))
+	CharacterTranscendenceExcelStartStatBonusRateAttackVector(b, len(t.StatBonusRateAttack))
+	for i := range len(t.StatBonusRateAttack) {
+		b.PrependInt64(fbsutils.Convert(t.StatBonusRateAttack[len(t.StatBonusRateAttack)-i-1], t.FlatBuffer.TableKey))
 	}
-	CharacterTranscendenceExcelAddMaxlevelStar(b, b.EndVector(len(t.MaxlevelStar)))
+	CharacterTranscendenceExcelAddStatBonusRateAttack(b, b.EndVector(len(t.StatBonusRateAttack)))
+	CharacterTranscendenceExcelStartStatBonusRateHpVector(b, len(t.StatBonusRateHp))
+	for i := range len(t.StatBonusRateHp) {
+		b.PrependInt64(fbsutils.Convert(t.StatBonusRateHp[len(t.StatBonusRateHp)-i-1], t.FlatBuffer.TableKey))
+	}
+	CharacterTranscendenceExcelAddStatBonusRateHp(b, b.EndVector(len(t.StatBonusRateHp)))
+	CharacterTranscendenceExcelStartStatBonusRateHealVector(b, len(t.StatBonusRateHeal))
+	for i := range len(t.StatBonusRateHeal) {
+		b.PrependInt64(fbsutils.Convert(t.StatBonusRateHeal[len(t.StatBonusRateHeal)-i-1], t.FlatBuffer.TableKey))
+	}
+	CharacterTranscendenceExcelAddStatBonusRateHeal(b, b.EndVector(len(t.StatBonusRateHeal)))
 	CharacterTranscendenceExcelStartRecipeIdVector(b, len(t.RecipeId))
 	for i := range len(t.RecipeId) {
 		b.PrependInt64(fbsutils.Convert(t.RecipeId[len(t.RecipeId)-i-1], t.FlatBuffer.TableKey))
@@ -59,21 +69,11 @@ func (t *CharacterTranscendenceExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.SkillSlotC[len(t.SkillSlotC)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CharacterTranscendenceExcelAddSkillSlotC(b, b.EndVector(len(t.SkillSlotC)))
-	CharacterTranscendenceExcelStartStatBonusRateAttackVector(b, len(t.StatBonusRateAttack))
-	for i := range len(t.StatBonusRateAttack) {
-		b.PrependInt64(fbsutils.Convert(t.StatBonusRateAttack[len(t.StatBonusRateAttack)-i-1], t.FlatBuffer.TableKey))
+	CharacterTranscendenceExcelStartMaxlevelStarVector(b, len(t.MaxlevelStar))
+	for i := range len(t.MaxlevelStar) {
+		b.PrependInt32(fbsutils.Convert(t.MaxlevelStar[len(t.MaxlevelStar)-i-1], t.FlatBuffer.TableKey))
 	}
-	CharacterTranscendenceExcelAddStatBonusRateAttack(b, b.EndVector(len(t.StatBonusRateAttack)))
-	CharacterTranscendenceExcelStartStatBonusRateHealVector(b, len(t.StatBonusRateHeal))
-	for i := range len(t.StatBonusRateHeal) {
-		b.PrependInt64(fbsutils.Convert(t.StatBonusRateHeal[len(t.StatBonusRateHeal)-i-1], t.FlatBuffer.TableKey))
-	}
-	CharacterTranscendenceExcelAddStatBonusRateHeal(b, b.EndVector(len(t.StatBonusRateHeal)))
-	CharacterTranscendenceExcelStartStatBonusRateHpVector(b, len(t.StatBonusRateHp))
-	for i := range len(t.StatBonusRateHp) {
-		b.PrependInt64(fbsutils.Convert(t.StatBonusRateHp[len(t.StatBonusRateHp)-i-1], t.FlatBuffer.TableKey))
-	}
-	CharacterTranscendenceExcelAddStatBonusRateHp(b, b.EndVector(len(t.StatBonusRateHp)))
+	CharacterTranscendenceExcelAddMaxlevelStar(b, b.EndVector(len(t.MaxlevelStar)))
 	return CharacterTranscendenceExcelEnd(b)
 }
 
@@ -94,9 +94,17 @@ func (t *CharacterTranscendenceExcelDto) UnmarshalMessage(e *CharacterTranscende
 	for i := range e.MaxFavorLevelLength() {
 		t.MaxFavorLevel[i] = e.MaxFavorLevel(i)
 	}
-	t.MaxlevelStar = make([]int32, e.MaxlevelStarLength())
-	for i := range e.MaxlevelStarLength() {
-		t.MaxlevelStar[i] = e.MaxlevelStar(i)
+	t.StatBonusRateAttack = make([]int64, e.StatBonusRateAttackLength())
+	for i := range e.StatBonusRateAttackLength() {
+		t.StatBonusRateAttack[i] = e.StatBonusRateAttack(i)
+	}
+	t.StatBonusRateHp = make([]int64, e.StatBonusRateHpLength())
+	for i := range e.StatBonusRateHpLength() {
+		t.StatBonusRateHp[i] = e.StatBonusRateHp(i)
+	}
+	t.StatBonusRateHeal = make([]int64, e.StatBonusRateHealLength())
+	for i := range e.StatBonusRateHealLength() {
+		t.StatBonusRateHeal[i] = e.StatBonusRateHeal(i)
 	}
 	t.RecipeId = make([]int64, e.RecipeIdLength())
 	for i := range e.RecipeIdLength() {
@@ -114,17 +122,9 @@ func (t *CharacterTranscendenceExcelDto) UnmarshalMessage(e *CharacterTranscende
 	for i := range e.SkillSlotCLength() {
 		t.SkillSlotC[i] = string(e.SkillSlotC(i))
 	}
-	t.StatBonusRateAttack = make([]int64, e.StatBonusRateAttackLength())
-	for i := range e.StatBonusRateAttackLength() {
-		t.StatBonusRateAttack[i] = e.StatBonusRateAttack(i)
-	}
-	t.StatBonusRateHeal = make([]int64, e.StatBonusRateHealLength())
-	for i := range e.StatBonusRateHealLength() {
-		t.StatBonusRateHeal[i] = e.StatBonusRateHeal(i)
-	}
-	t.StatBonusRateHp = make([]int64, e.StatBonusRateHpLength())
-	for i := range e.StatBonusRateHpLength() {
-		t.StatBonusRateHp[i] = e.StatBonusRateHp(i)
+	t.MaxlevelStar = make([]int32, e.MaxlevelStarLength())
+	for i := range e.MaxlevelStarLength() {
+		t.MaxlevelStar[i] = e.MaxlevelStar(i)
 	}
 	return nil
 }

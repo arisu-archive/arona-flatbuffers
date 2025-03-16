@@ -11,12 +11,12 @@ import (
 type ScenarioBGNameGlobalExcelDto struct {
 	fbsutils.FlatBuffer
 	GroupName  uint32 `json:"group_name"`
-	NameAsia   uint32 `json:"name_asia"`
-	NameGlobal uint32 `json:"name_global"`
 	NameKr     uint32 `json:"name_kr"`
-	NameNa     uint32 `json:"name_na"`
-	NameTeen   uint32 `json:"name_teen"`
 	NameTw     uint32 `json:"name_tw"`
+	NameAsia   uint32 `json:"name_asia"`
+	NameNa     uint32 `json:"name_na"`
+	NameGlobal uint32 `json:"name_global"`
+	NameTeen   uint32 `json:"name_teen"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,12 +26,12 @@ func (t *ScenarioBGNameGlobalExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	}
 	ScenarioBGName_GlobalExcelStart(b)
 	ScenarioBGName_GlobalExcelAddGroupName(b, fbsutils.Convert(t.GroupName, t.FlatBuffer.TableKey))
-	ScenarioBGName_GlobalExcelAddNameAsia(b, fbsutils.Convert(t.NameAsia, t.FlatBuffer.TableKey))
-	ScenarioBGName_GlobalExcelAddNameGlobal(b, fbsutils.Convert(t.NameGlobal, t.FlatBuffer.TableKey))
 	ScenarioBGName_GlobalExcelAddNameKr(b, fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey))
-	ScenarioBGName_GlobalExcelAddNameNa(b, fbsutils.Convert(t.NameNa, t.FlatBuffer.TableKey))
-	ScenarioBGName_GlobalExcelAddNameTeen(b, fbsutils.Convert(t.NameTeen, t.FlatBuffer.TableKey))
 	ScenarioBGName_GlobalExcelAddNameTw(b, fbsutils.Convert(t.NameTw, t.FlatBuffer.TableKey))
+	ScenarioBGName_GlobalExcelAddNameAsia(b, fbsutils.Convert(t.NameAsia, t.FlatBuffer.TableKey))
+	ScenarioBGName_GlobalExcelAddNameNa(b, fbsutils.Convert(t.NameNa, t.FlatBuffer.TableKey))
+	ScenarioBGName_GlobalExcelAddNameGlobal(b, fbsutils.Convert(t.NameGlobal, t.FlatBuffer.TableKey))
+	ScenarioBGName_GlobalExcelAddNameTeen(b, fbsutils.Convert(t.NameTeen, t.FlatBuffer.TableKey))
 	return ScenarioBGName_GlobalExcelEnd(b)
 }
 
@@ -48,12 +48,12 @@ func (t *ScenarioBGNameGlobalExcelDto) UnmarshalMessage(e *ScenarioBGName_Global
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioBGName_Global"))
 	}
 	t.GroupName = fbsutils.Convert(e.GroupName(), t.FlatBuffer.TableKey)
-	t.NameAsia = fbsutils.Convert(e.NameAsia(), t.FlatBuffer.TableKey)
-	t.NameGlobal = fbsutils.Convert(e.NameGlobal(), t.FlatBuffer.TableKey)
 	t.NameKr = fbsutils.Convert(e.NameKr(), t.FlatBuffer.TableKey)
-	t.NameNa = fbsutils.Convert(e.NameNa(), t.FlatBuffer.TableKey)
-	t.NameTeen = fbsutils.Convert(e.NameTeen(), t.FlatBuffer.TableKey)
 	t.NameTw = fbsutils.Convert(e.NameTw(), t.FlatBuffer.TableKey)
+	t.NameAsia = fbsutils.Convert(e.NameAsia(), t.FlatBuffer.TableKey)
+	t.NameNa = fbsutils.Convert(e.NameNa(), t.FlatBuffer.TableKey)
+	t.NameGlobal = fbsutils.Convert(e.NameGlobal(), t.FlatBuffer.TableKey)
+	t.NameTeen = fbsutils.Convert(e.NameTeen(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -41,20 +41,8 @@ func (rcv *LoadingImageExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LoadingImageExcel) DisplayWeight() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LoadingImageExcel) MutateDisplayWeight(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
-}
-
 func (rcv *LoadingImageExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -62,11 +50,11 @@ func (rcv *LoadingImageExcel) Id() int64 {
 }
 
 func (rcv *LoadingImageExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *LoadingImageExcel) ImagePathEn() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+func (rcv *LoadingImageExcel) ImagePathKr() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -74,14 +62,26 @@ func (rcv *LoadingImageExcel) ImagePathEn() []byte {
 }
 
 func (rcv *LoadingImageExcel) ImagePathJp() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *LoadingImageExcel) ImagePathKr() []byte {
+func (rcv *LoadingImageExcel) DisplayWeight() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LoadingImageExcel) MutateDisplayWeight(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *LoadingImageExcel) ImagePathTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -89,7 +89,7 @@ func (rcv *LoadingImageExcel) ImagePathKr() []byte {
 	return nil
 }
 
-func (rcv *LoadingImageExcel) ImagePathTh() []byte {
+func (rcv *LoadingImageExcel) ImagePathTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -97,7 +97,7 @@ func (rcv *LoadingImageExcel) ImagePathTh() []byte {
 	return nil
 }
 
-func (rcv *LoadingImageExcel) ImagePathTw() []byte {
+func (rcv *LoadingImageExcel) ImagePathEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -108,26 +108,26 @@ func (rcv *LoadingImageExcel) ImagePathTw() []byte {
 func LoadingImageExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func LoadingImageExcelAddDisplayWeight(builder *flatbuffers.Builder, displayWeight int32) {
-	builder.PrependInt32Slot(0, displayWeight, 0)
-}
 func LoadingImageExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(1, id, 0)
-}
-func LoadingImageExcelAddImagePathEn(builder *flatbuffers.Builder, imagePathEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(imagePathEn), 0)
-}
-func LoadingImageExcelAddImagePathJp(builder *flatbuffers.Builder, imagePathJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(imagePathJp), 0)
+	builder.PrependInt64Slot(0, id, 0)
 }
 func LoadingImageExcelAddImagePathKr(builder *flatbuffers.Builder, imagePathKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(imagePathKr), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(imagePathKr), 0)
+}
+func LoadingImageExcelAddImagePathJp(builder *flatbuffers.Builder, imagePathJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(imagePathJp), 0)
+}
+func LoadingImageExcelAddDisplayWeight(builder *flatbuffers.Builder, displayWeight int32) {
+	builder.PrependInt32Slot(3, displayWeight, 0)
 }
 func LoadingImageExcelAddImagePathTh(builder *flatbuffers.Builder, imagePathTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(imagePathTh), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(imagePathTh), 0)
 }
 func LoadingImageExcelAddImagePathTw(builder *flatbuffers.Builder, imagePathTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(imagePathTw), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(imagePathTw), 0)
+}
+func LoadingImageExcelAddImagePathEn(builder *flatbuffers.Builder, imagePathEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(imagePathEn), 0)
 }
 func LoadingImageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

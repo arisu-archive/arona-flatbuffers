@@ -25,8 +25,22 @@ class ShortcutTypeExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ShortcutTypeExcel
-    def ContentType(self, j):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShortcutTypeExcel
+    def IsAscending(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # ShortcutTypeExcel
+    def ContentType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -34,36 +48,22 @@ class ShortcutTypeExcel(object):
 
     # ShortcutTypeExcel
     def ContentTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # ShortcutTypeExcel
     def ContentTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # ShortcutTypeExcel
     def ContentTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        return o == 0
-
-    # ShortcutTypeExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ShortcutTypeExcel
-    def IsAscending(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+        return o == 0
 
 def ShortcutTypeExcelStart(builder):
     builder.StartObject(3)
@@ -71,8 +71,20 @@ def ShortcutTypeExcelStart(builder):
 def Start(builder):
     ShortcutTypeExcelStart(builder)
 
+def ShortcutTypeExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
+def AddId(builder, id):
+    ShortcutTypeExcelAddId(builder, id)
+
+def ShortcutTypeExcelAddIsAscending(builder, isAscending):
+    builder.PrependBoolSlot(1, isAscending, 0)
+
+def AddIsAscending(builder, isAscending):
+    ShortcutTypeExcelAddIsAscending(builder, isAscending)
+
 def ShortcutTypeExcelAddContentType(builder, contentType):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(contentType), 0)
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(contentType), 0)
 
 def AddContentType(builder, contentType):
     ShortcutTypeExcelAddContentType(builder, contentType)
@@ -82,18 +94,6 @@ def ShortcutTypeExcelStartContentTypeVector(builder, numElems):
 
 def StartContentTypeVector(builder, numElems):
     return ShortcutTypeExcelStartContentTypeVector(builder, numElems)
-
-def ShortcutTypeExcelAddId(builder, id):
-    builder.PrependInt64Slot(1, id, 0)
-
-def AddId(builder, id):
-    ShortcutTypeExcelAddId(builder, id)
-
-def ShortcutTypeExcelAddIsAscending(builder, isAscending):
-    builder.PrependBoolSlot(2, isAscending, 0)
-
-def AddIsAscending(builder, isAscending):
-    ShortcutTypeExcelAddIsAscending(builder, isAscending)
 
 def ShortcutTypeExcelEnd(builder):
     return builder.EndObject()

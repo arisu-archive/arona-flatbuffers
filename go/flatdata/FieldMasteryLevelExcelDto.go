@@ -10,11 +10,11 @@ import (
 // FieldMasteryLevelExcelDto represents a FlatBuffers table
 type FieldMasteryLevelExcelDto struct {
 	fbsutils.FlatBuffer
-	Exp      []int64 `json:"exp"`
-	Id       []int64 `json:"id"`
 	Level    int32   `json:"level"`
-	RewardId []int64 `json:"reward_id"`
+	Id       []int64 `json:"id"`
+	Exp      []int64 `json:"exp"`
 	TotalExp []int64 `json:"total_exp"`
+	RewardId []int64 `json:"reward_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,27 +23,27 @@ func (t *FieldMasteryLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryLevel"))
 	}
 	FieldMasteryLevelExcelStart(b)
-	FieldMasteryLevelExcelStartExpVector(b, len(t.Exp))
-	for i := range len(t.Exp) {
-		b.PrependInt64(fbsutils.Convert(t.Exp[len(t.Exp)-i-1], t.FlatBuffer.TableKey))
-	}
-	FieldMasteryLevelExcelAddExp(b, b.EndVector(len(t.Exp)))
+	FieldMasteryLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	FieldMasteryLevelExcelStartIdVector(b, len(t.Id))
 	for i := range len(t.Id) {
 		b.PrependInt64(fbsutils.Convert(t.Id[len(t.Id)-i-1], t.FlatBuffer.TableKey))
 	}
 	FieldMasteryLevelExcelAddId(b, b.EndVector(len(t.Id)))
-	FieldMasteryLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
-	FieldMasteryLevelExcelStartRewardIdVector(b, len(t.RewardId))
-	for i := range len(t.RewardId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardId[len(t.RewardId)-i-1], t.FlatBuffer.TableKey))
+	FieldMasteryLevelExcelStartExpVector(b, len(t.Exp))
+	for i := range len(t.Exp) {
+		b.PrependInt64(fbsutils.Convert(t.Exp[len(t.Exp)-i-1], t.FlatBuffer.TableKey))
 	}
-	FieldMasteryLevelExcelAddRewardId(b, b.EndVector(len(t.RewardId)))
+	FieldMasteryLevelExcelAddExp(b, b.EndVector(len(t.Exp)))
 	FieldMasteryLevelExcelStartTotalExpVector(b, len(t.TotalExp))
 	for i := range len(t.TotalExp) {
 		b.PrependInt64(fbsutils.Convert(t.TotalExp[len(t.TotalExp)-i-1], t.FlatBuffer.TableKey))
 	}
 	FieldMasteryLevelExcelAddTotalExp(b, b.EndVector(len(t.TotalExp)))
+	FieldMasteryLevelExcelStartRewardIdVector(b, len(t.RewardId))
+	for i := range len(t.RewardId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardId[len(t.RewardId)-i-1], t.FlatBuffer.TableKey))
+	}
+	FieldMasteryLevelExcelAddRewardId(b, b.EndVector(len(t.RewardId)))
 	return FieldMasteryLevelExcelEnd(b)
 }
 
@@ -59,22 +59,22 @@ func (t *FieldMasteryLevelExcelDto) UnmarshalMessage(e *FieldMasteryLevelExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryLevel"))
 	}
-	t.Exp = make([]int64, e.ExpLength())
-	for i := range e.ExpLength() {
-		t.Exp[i] = e.Exp(i)
-	}
+	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.Id = make([]int64, e.IdLength())
 	for i := range e.IdLength() {
 		t.Id[i] = e.Id(i)
 	}
-	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
-	t.RewardId = make([]int64, e.RewardIdLength())
-	for i := range e.RewardIdLength() {
-		t.RewardId[i] = e.RewardId(i)
+	t.Exp = make([]int64, e.ExpLength())
+	for i := range e.ExpLength() {
+		t.Exp[i] = e.Exp(i)
 	}
 	t.TotalExp = make([]int64, e.TotalExpLength())
 	for i := range e.TotalExpLength() {
 		t.TotalExp[i] = e.TotalExp(i)
+	}
+	t.RewardId = make([]int64, e.RewardIdLength())
+	for i := range e.RewardIdLength() {
+		t.RewardId[i] = e.RewardId(i)
 	}
 	return nil
 }

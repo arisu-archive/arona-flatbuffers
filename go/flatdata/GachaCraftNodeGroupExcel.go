@@ -41,7 +41,7 @@ func (rcv *GachaCraftNodeGroupExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *GachaCraftNodeGroupExcel) GachaGroupId() int64 {
+func (rcv *GachaCraftNodeGroupExcel) NodeId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -49,11 +49,11 @@ func (rcv *GachaCraftNodeGroupExcel) GachaGroupId() int64 {
 	return 0
 }
 
-func (rcv *GachaCraftNodeGroupExcel) MutateGachaGroupId(n int64) bool {
+func (rcv *GachaCraftNodeGroupExcel) MutateNodeId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *GachaCraftNodeGroupExcel) NodeId() int64 {
+func (rcv *GachaCraftNodeGroupExcel) GachaGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -61,7 +61,7 @@ func (rcv *GachaCraftNodeGroupExcel) NodeId() int64 {
 	return 0
 }
 
-func (rcv *GachaCraftNodeGroupExcel) MutateNodeId(n int64) bool {
+func (rcv *GachaCraftNodeGroupExcel) MutateGachaGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
@@ -80,11 +80,11 @@ func (rcv *GachaCraftNodeGroupExcel) MutateProbWeight(n int64) bool {
 func GachaCraftNodeGroupExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func GachaCraftNodeGroupExcelAddGachaGroupId(builder *flatbuffers.Builder, gachaGroupId int64) {
-	builder.PrependInt64Slot(0, gachaGroupId, 0)
-}
 func GachaCraftNodeGroupExcelAddNodeId(builder *flatbuffers.Builder, nodeId int64) {
-	builder.PrependInt64Slot(1, nodeId, 0)
+	builder.PrependInt64Slot(0, nodeId, 0)
+}
+func GachaCraftNodeGroupExcelAddGachaGroupId(builder *flatbuffers.Builder, gachaGroupId int64) {
+	builder.PrependInt64Slot(1, gachaGroupId, 0)
 }
 func GachaCraftNodeGroupExcelAddProbWeight(builder *flatbuffers.Builder, probWeight int64) {
 	builder.PrependInt64Slot(2, probWeight, 0)

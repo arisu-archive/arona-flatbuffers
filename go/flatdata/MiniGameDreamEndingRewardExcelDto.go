@@ -10,14 +10,14 @@ import (
 // MiniGameDreamEndingRewardExcelDto represents a FlatBuffers table
 type MiniGameDreamEndingRewardExcelDto struct {
 	fbsutils.FlatBuffer
+	EventContentId             int64                      `json:"event_content_id"`
+	EndingId                   int64                      `json:"ending_id"`
+	LocalizeEtcId              uint32                     `json:"localize_etc_id"`
 	DreamMakerEndingRewardType DreamMakerEndingRewardType `json:"dream_maker_ending_reward_type"`
 	DreamMakerEndingType       DreamMakerEndingType       `json:"dream_maker_ending_type"`
-	EndingId                   int64                      `json:"ending_id"`
-	EventContentId             int64                      `json:"event_content_id"`
-	LocalizeEtcId              uint32                     `json:"localize_etc_id"`
-	RewardParcelAmount         []int64                    `json:"reward_parcel_amount"`
-	RewardParcelId             []int64                    `json:"reward_parcel_id"`
 	RewardParcelType           []ParcelType               `json:"reward_parcel_type"`
+	RewardParcelId             []int64                    `json:"reward_parcel_id"`
+	RewardParcelAmount         []int64                    `json:"reward_parcel_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,26 +26,26 @@ func (t *MiniGameDreamEndingRewardExcelDto) MarshalModel(b *flatbuffers.Builder)
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamEndingReward"))
 	}
 	MiniGameDreamEndingRewardExcelStart(b)
+	MiniGameDreamEndingRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	MiniGameDreamEndingRewardExcelAddEndingId(b, fbsutils.Convert(t.EndingId, t.FlatBuffer.TableKey))
+	MiniGameDreamEndingRewardExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	MiniGameDreamEndingRewardExcelAddDreamMakerEndingRewardType(b, fbsutils.Convert(t.DreamMakerEndingRewardType, t.FlatBuffer.TableKey))
 	MiniGameDreamEndingRewardExcelAddDreamMakerEndingType(b, fbsutils.Convert(t.DreamMakerEndingType, t.FlatBuffer.TableKey))
-	MiniGameDreamEndingRewardExcelAddEndingId(b, fbsutils.Convert(t.EndingId, t.FlatBuffer.TableKey))
-	MiniGameDreamEndingRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameDreamEndingRewardExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	MiniGameDreamEndingRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
-	for i := range len(t.RewardParcelAmount) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	MiniGameDreamEndingRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
-	MiniGameDreamEndingRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
-	for i := range len(t.RewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	MiniGameDreamEndingRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
 	MiniGameDreamEndingRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
 	}
 	MiniGameDreamEndingRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
+	MiniGameDreamEndingRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
+	for i := range len(t.RewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	MiniGameDreamEndingRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	MiniGameDreamEndingRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
+	for i := range len(t.RewardParcelAmount) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	MiniGameDreamEndingRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
 	return MiniGameDreamEndingRewardExcelEnd(b)
 }
 
@@ -61,22 +61,22 @@ func (t *MiniGameDreamEndingRewardExcelDto) UnmarshalMessage(e *MiniGameDreamEnd
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamEndingReward"))
 	}
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.EndingId = fbsutils.Convert(e.EndingId(), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.DreamMakerEndingRewardType = DreamMakerEndingRewardType(int32(fbsutils.Convert(e.DreamMakerEndingRewardType(), t.FlatBuffer.TableKey)))
 	t.DreamMakerEndingType = DreamMakerEndingType(int32(fbsutils.Convert(e.DreamMakerEndingType(), t.FlatBuffer.TableKey)))
-	t.EndingId = fbsutils.Convert(e.EndingId(), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
+	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
+	for i := range e.RewardParcelTypeLength() {
+		t.RewardParcelType[i] = e.RewardParcelType(i)
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
 		t.RewardParcelId[i] = e.RewardParcelId(i)
 	}
-	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
-	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = e.RewardParcelType(i)
+	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
 	}
 	return nil
 }

@@ -25,15 +25,22 @@ class VoiceExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # VoiceExcel
-    def Id(self):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # VoiceExcel
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # VoiceExcel
     def Nation(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -41,26 +48,26 @@ class VoiceExcel(object):
 
     # VoiceExcel
     def NationAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # VoiceExcel
     def NationLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # VoiceExcel
     def NationIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
     # VoiceExcel
     def Path(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -68,22 +75,15 @@ class VoiceExcel(object):
 
     # VoiceExcel
     def PathLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # VoiceExcel
     def PathIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        return o == 0
-
-    # VoiceExcel
-    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+        return o == 0
 
     # VoiceExcel
     def Volume(self, j):
@@ -118,14 +118,20 @@ def VoiceExcelStart(builder):
 def Start(builder):
     VoiceExcelStart(builder)
 
+def VoiceExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(0, uniqueId, 0)
+
+def AddUniqueId(builder, uniqueId):
+    VoiceExcelAddUniqueId(builder, uniqueId)
+
 def VoiceExcelAddId(builder, id):
-    builder.PrependUint32Slot(0, id, 0)
+    builder.PrependUint32Slot(1, id, 0)
 
 def AddId(builder, id):
     VoiceExcelAddId(builder, id)
 
 def VoiceExcelAddNation(builder, nation):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(nation), 0)
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(nation), 0)
 
 def AddNation(builder, nation):
     VoiceExcelAddNation(builder, nation)
@@ -137,7 +143,7 @@ def StartNationVector(builder, numElems):
     return VoiceExcelStartNationVector(builder, numElems)
 
 def VoiceExcelAddPath(builder, path):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(path), 0)
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(path), 0)
 
 def AddPath(builder, path):
     VoiceExcelAddPath(builder, path)
@@ -147,12 +153,6 @@ def VoiceExcelStartPathVector(builder, numElems):
 
 def StartPathVector(builder, numElems):
     return VoiceExcelStartPathVector(builder, numElems)
-
-def VoiceExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(3, uniqueId, 0)
-
-def AddUniqueId(builder, uniqueId):
-    VoiceExcelAddUniqueId(builder, uniqueId)
 
 def VoiceExcelAddVolume(builder, volume):
     builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(volume), 0)

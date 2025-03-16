@@ -1,23 +1,23 @@
-include "ProductionStep.fbs";
 include "MemoryLobbyCategory.fbs";
+include "ProductionStep.fbs";
 
 namespace FlatData;
 
 table MemoryLobbyExcel {
-    audio_clip_en: string;
+    id: long;
+    production_step: ProductionStep;
+    localize_etc_id: uint;
+    character_id: long;
+    prefab_name: string;
+    memory_lobby_category: MemoryLobbyCategory;
+    slot_texture_name: string;
+    reward_texture_name: string;
+    bgm_id: long;
     audio_clip_jp: string;
     audio_clip_kr: string;
     audio_clip_th: string;
     audio_clip_tw: string;
-    bgm_id: long;
-    character_id: long;
-    id: long;
-    localize_etc_id: uint;
-    memory_lobby_category: MemoryLobbyCategory;
-    prefab_name: string;
-    production_step: ProductionStep;
-    reward_texture_name: string;
-    slot_texture_name: string;
+    audio_clip_en: string;
 }
 
 root_type MemoryLobbyExcel;

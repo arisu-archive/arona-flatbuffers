@@ -1,7 +1,7 @@
 namespace FlatData;
 
 table PresetCharacterGroupSettingExcel {
-    arena_simulator_fixed: bool;
     character_id: long;
+    arena_simulator_fixed: bool;
     preset_type: [string];
 }

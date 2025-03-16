@@ -25,8 +25,22 @@ class TrophyCollectionExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # TrophyCollectionExcel
-    def FurnitureId(self, j):
+    def GroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # TrophyCollectionExcel
+    def LocalizeCodeId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
+    # TrophyCollectionExcel
+    def FurnitureId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -34,36 +48,22 @@ class TrophyCollectionExcel(object):
 
     # TrophyCollectionExcel
     def FurnitureIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # TrophyCollectionExcel
     def FurnitureIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # TrophyCollectionExcel
     def FurnitureIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        return o == 0
-
-    # TrophyCollectionExcel
-    def GroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # TrophyCollectionExcel
-    def LocalizeCodeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
+        return o == 0
 
 def TrophyCollectionExcelStart(builder):
     builder.StartObject(3)
@@ -71,8 +71,20 @@ def TrophyCollectionExcelStart(builder):
 def Start(builder):
     TrophyCollectionExcelStart(builder)
 
+def TrophyCollectionExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(0, groupId, 0)
+
+def AddGroupId(builder, groupId):
+    TrophyCollectionExcelAddGroupId(builder, groupId)
+
+def TrophyCollectionExcelAddLocalizeCodeId(builder, localizeCodeId):
+    builder.PrependUint32Slot(1, localizeCodeId, 0)
+
+def AddLocalizeCodeId(builder, localizeCodeId):
+    TrophyCollectionExcelAddLocalizeCodeId(builder, localizeCodeId)
+
 def TrophyCollectionExcelAddFurnitureId(builder, furnitureId):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(furnitureId), 0)
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(furnitureId), 0)
 
 def AddFurnitureId(builder, furnitureId):
     TrophyCollectionExcelAddFurnitureId(builder, furnitureId)
@@ -82,18 +94,6 @@ def TrophyCollectionExcelStartFurnitureIdVector(builder, numElems):
 
 def StartFurnitureIdVector(builder, numElems):
     return TrophyCollectionExcelStartFurnitureIdVector(builder, numElems)
-
-def TrophyCollectionExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(1, groupId, 0)
-
-def AddGroupId(builder, groupId):
-    TrophyCollectionExcelAddGroupId(builder, groupId)
-
-def TrophyCollectionExcelAddLocalizeCodeId(builder, localizeCodeId):
-    builder.PrependUint32Slot(2, localizeCodeId, 0)
-
-def AddLocalizeCodeId(builder, localizeCodeId):
-    TrophyCollectionExcelAddLocalizeCodeId(builder, localizeCodeId)
 
 def TrophyCollectionExcelEnd(builder):
     return builder.EndObject()

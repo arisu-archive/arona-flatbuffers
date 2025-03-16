@@ -49,16 +49,8 @@ func (rcv *CharacterCombatSkinExcel) GroupId() []byte {
 	return nil
 }
 
-func (rcv *CharacterCombatSkinExcel) ResourcePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *CharacterCombatSkinExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -66,7 +58,15 @@ func (rcv *CharacterCombatSkinExcel) UniqueId() int64 {
 }
 
 func (rcv *CharacterCombatSkinExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *CharacterCombatSkinExcel) ResourcePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func CharacterCombatSkinExcelStart(builder *flatbuffers.Builder) {
@@ -75,11 +75,11 @@ func CharacterCombatSkinExcelStart(builder *flatbuffers.Builder) {
 func CharacterCombatSkinExcelAddGroupId(builder *flatbuffers.Builder, groupId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(groupId), 0)
 }
-func CharacterCombatSkinExcelAddResourcePath(builder *flatbuffers.Builder, resourcePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(resourcePath), 0)
-}
 func CharacterCombatSkinExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(2, uniqueId, 0)
+	builder.PrependInt64Slot(1, uniqueId, 0)
+}
+func CharacterCombatSkinExcelAddResourcePath(builder *flatbuffers.Builder, resourcePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(resourcePath), 0)
 }
 func CharacterCombatSkinExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

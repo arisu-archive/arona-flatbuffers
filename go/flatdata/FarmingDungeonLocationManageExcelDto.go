@@ -10,16 +10,16 @@ import (
 // FarmingDungeonLocationManageExcelDto represents a FlatBuffers table
 type FarmingDungeonLocationManageExcelDto struct {
 	fbsutils.FlatBuffer
-	ContentType              ContentType       `json:"content_type"`
 	FarmingDungeonLocationId int64             `json:"farming_dungeon_location_id"`
-	LocalizeCodeInfo         uint32            `json:"localize_code_info"`
-	LocalizeCodeTitle        uint32            `json:"localize_code_title"`
-	LocationButtonImagePath  string            `json:"location_button_image_path"`
-	OpenEndDateTime          string            `json:"open_end_date_time"`
-	OpenStartDateTime        string            `json:"open_start_date_time"`
-	Order                    int64             `json:"order"`
-	SchoolDungeonType        SchoolDungeonType `json:"school_dungeon_type"`
+	ContentType              ContentType       `json:"content_type"`
 	WeekDungeonType          WeekDungeonType   `json:"week_dungeon_type"`
+	SchoolDungeonType        SchoolDungeonType `json:"school_dungeon_type"`
+	Order                    int64             `json:"order"`
+	OpenStartDateTime        string            `json:"open_start_date_time"`
+	OpenEndDateTime          string            `json:"open_end_date_time"`
+	LocationButtonImagePath  string            `json:"location_button_image_path"`
+	LocalizeCodeTitle        uint32            `json:"localize_code_title"`
+	LocalizeCodeInfo         uint32            `json:"localize_code_info"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -28,16 +28,16 @@ func (t *FarmingDungeonLocationManageExcelDto) MarshalModel(b *flatbuffers.Build
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FarmingDungeonLocationManage"))
 	}
 	FarmingDungeonLocationManageExcelStart(b)
-	FarmingDungeonLocationManageExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
 	FarmingDungeonLocationManageExcelAddFarmingDungeonLocationId(b, fbsutils.Convert(t.FarmingDungeonLocationId, t.FlatBuffer.TableKey))
-	FarmingDungeonLocationManageExcelAddLocalizeCodeInfo(b, fbsutils.Convert(t.LocalizeCodeInfo, t.FlatBuffer.TableKey))
-	FarmingDungeonLocationManageExcelAddLocalizeCodeTitle(b, fbsutils.Convert(t.LocalizeCodeTitle, t.FlatBuffer.TableKey))
-	FarmingDungeonLocationManageExcelAddLocationButtonImagePath(b, fbsutils.Convert(b.CreateString(t.LocationButtonImagePath), t.FlatBuffer.TableKey))
-	FarmingDungeonLocationManageExcelAddOpenEndDateTime(b, fbsutils.Convert(b.CreateString(t.OpenEndDateTime), t.FlatBuffer.TableKey))
-	FarmingDungeonLocationManageExcelAddOpenStartDateTime(b, fbsutils.Convert(b.CreateString(t.OpenStartDateTime), t.FlatBuffer.TableKey))
-	FarmingDungeonLocationManageExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
-	FarmingDungeonLocationManageExcelAddSchoolDungeonType(b, fbsutils.Convert(t.SchoolDungeonType, t.FlatBuffer.TableKey))
+	FarmingDungeonLocationManageExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
 	FarmingDungeonLocationManageExcelAddWeekDungeonType(b, fbsutils.Convert(t.WeekDungeonType, t.FlatBuffer.TableKey))
+	FarmingDungeonLocationManageExcelAddSchoolDungeonType(b, fbsutils.Convert(t.SchoolDungeonType, t.FlatBuffer.TableKey))
+	FarmingDungeonLocationManageExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
+	FarmingDungeonLocationManageExcelAddOpenStartDateTime(b, fbsutils.Convert(b.CreateString(t.OpenStartDateTime), t.FlatBuffer.TableKey))
+	FarmingDungeonLocationManageExcelAddOpenEndDateTime(b, fbsutils.Convert(b.CreateString(t.OpenEndDateTime), t.FlatBuffer.TableKey))
+	FarmingDungeonLocationManageExcelAddLocationButtonImagePath(b, fbsutils.Convert(b.CreateString(t.LocationButtonImagePath), t.FlatBuffer.TableKey))
+	FarmingDungeonLocationManageExcelAddLocalizeCodeTitle(b, fbsutils.Convert(t.LocalizeCodeTitle, t.FlatBuffer.TableKey))
+	FarmingDungeonLocationManageExcelAddLocalizeCodeInfo(b, fbsutils.Convert(t.LocalizeCodeInfo, t.FlatBuffer.TableKey))
 	return FarmingDungeonLocationManageExcelEnd(b)
 }
 
@@ -53,16 +53,16 @@ func (t *FarmingDungeonLocationManageExcelDto) UnmarshalMessage(e *FarmingDungeo
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FarmingDungeonLocationManage"))
 	}
-	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
 	t.FarmingDungeonLocationId = fbsutils.Convert(e.FarmingDungeonLocationId(), t.FlatBuffer.TableKey)
-	t.LocalizeCodeInfo = fbsutils.Convert(e.LocalizeCodeInfo(), t.FlatBuffer.TableKey)
-	t.LocalizeCodeTitle = fbsutils.Convert(e.LocalizeCodeTitle(), t.FlatBuffer.TableKey)
-	t.LocationButtonImagePath = fbsutils.Convert(string(e.LocationButtonImagePath()), t.FlatBuffer.TableKey)
-	t.OpenEndDateTime = fbsutils.Convert(string(e.OpenEndDateTime()), t.FlatBuffer.TableKey)
-	t.OpenStartDateTime = fbsutils.Convert(string(e.OpenStartDateTime()), t.FlatBuffer.TableKey)
-	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
-	t.SchoolDungeonType = SchoolDungeonType(int32(fbsutils.Convert(e.SchoolDungeonType(), t.FlatBuffer.TableKey)))
+	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
 	t.WeekDungeonType = WeekDungeonType(int32(fbsutils.Convert(e.WeekDungeonType(), t.FlatBuffer.TableKey)))
+	t.SchoolDungeonType = SchoolDungeonType(int32(fbsutils.Convert(e.SchoolDungeonType(), t.FlatBuffer.TableKey)))
+	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
+	t.OpenStartDateTime = fbsutils.Convert(string(e.OpenStartDateTime()), t.FlatBuffer.TableKey)
+	t.OpenEndDateTime = fbsutils.Convert(string(e.OpenEndDateTime()), t.FlatBuffer.TableKey)
+	t.LocationButtonImagePath = fbsutils.Convert(string(e.LocationButtonImagePath()), t.FlatBuffer.TableKey)
+	t.LocalizeCodeTitle = fbsutils.Convert(e.LocalizeCodeTitle(), t.FlatBuffer.TableKey)
+	t.LocalizeCodeInfo = fbsutils.Convert(e.LocalizeCodeInfo(), t.FlatBuffer.TableKey)
 	return nil
 }
 

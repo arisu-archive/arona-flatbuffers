@@ -10,8 +10,8 @@ import (
 // WeekDungeonOpenScheduleExcelDto represents a FlatBuffers table
 type WeekDungeonOpenScheduleExcelDto struct {
 	fbsutils.FlatBuffer
-	Open    []WeekDungeonType `json:"open"`
 	WeekDay WeekDay           `json:"week_day"`
+	Open    []WeekDungeonType `json:"open"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -20,12 +20,12 @@ func (t *WeekDungeonOpenScheduleExcelDto) MarshalModel(b *flatbuffers.Builder) f
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonOpenSchedule"))
 	}
 	WeekDungeonOpenScheduleExcelStart(b)
+	WeekDungeonOpenScheduleExcelAddWeekDay(b, fbsutils.Convert(t.WeekDay, t.FlatBuffer.TableKey))
 	WeekDungeonOpenScheduleExcelStartOpenVector(b, len(t.Open))
 	for i := range len(t.Open) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.Open[len(t.Open)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
 	}
 	WeekDungeonOpenScheduleExcelAddOpen(b, b.EndVector(len(t.Open)))
-	WeekDungeonOpenScheduleExcelAddWeekDay(b, fbsutils.Convert(t.WeekDay, t.FlatBuffer.TableKey))
 	return WeekDungeonOpenScheduleExcelEnd(b)
 }
 
@@ -41,11 +41,11 @@ func (t *WeekDungeonOpenScheduleExcelDto) UnmarshalMessage(e *WeekDungeonOpenSch
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonOpenSchedule"))
 	}
+	t.WeekDay = WeekDay(int32(fbsutils.Convert(e.WeekDay(), t.FlatBuffer.TableKey)))
 	t.Open = make([]WeekDungeonType, e.OpenLength())
 	for i := range e.OpenLength() {
 		t.Open[i] = e.Open(i)
 	}
-	t.WeekDay = WeekDay(int32(fbsutils.Convert(e.WeekDay(), t.FlatBuffer.TableKey)))
 	return nil
 }
 

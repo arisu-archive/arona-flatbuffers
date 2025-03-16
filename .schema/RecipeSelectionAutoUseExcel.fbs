@@ -5,6 +5,6 @@ namespace FlatData;
 table RecipeSelectionAutoUseExcel {
     id: long;
     parcel_type: ParcelType;
-    priority: [long];
     target_item_id: long;
+    priority: [long];
 }

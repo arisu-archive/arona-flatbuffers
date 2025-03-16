@@ -25,83 +25,29 @@ class FixedEchelonSettingExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # FixedEchelonSettingExcel
-    def EchelonSceneSkip(self):
+    def FixedEchelonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def EchelonSceneSkip(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # FixedEchelonSettingExcel
-    def FixedEchelonId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def InteractionTsCharacterId(self):
+    def MainLeaderSlot(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterGearLevel(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterGearLevelAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterGearLevelLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterGearLevelIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        return o == 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterGearTier(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterGearTierAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterGearTierLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterGearTierIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        return o == 0
 
     # FixedEchelonSettingExcel
     def MainCharacterId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -109,303 +55,26 @@ class FixedEchelonSettingExcel(object):
 
     # FixedEchelonSettingExcel
     def MainCharacterIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
     def MainCharacterIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
     def MainCharacterIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         return o == 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterWeaponGrade(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterWeaponGradeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterWeaponGradeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterWeaponGradeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        return o == 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterWeaponLevel(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterWeaponLevelAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterWeaponLevelLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainCharacterWeaponLevelIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        return o == 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment1Level(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment1LevelAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment1LevelLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment1LevelIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        return o == 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment1Tier(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment1TierAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment1TierLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment1TierIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        return o == 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment2Level(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment2LevelAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment2LevelLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment2LevelIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        return o == 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment2Tier(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment2TierAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment2TierLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment2TierIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        return o == 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment3Level(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment3LevelAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment3LevelLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment3LevelIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        return o == 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment3Tier(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment3TierAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment3TierLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainEquipment3TierIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        return o == 0
-
-    # FixedEchelonSettingExcel
-    def MainExSkillLevel(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainExSkillLevelAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainExSkillLevelLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainExSkillLevelIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        return o == 0
-
-    # FixedEchelonSettingExcel
-    def MainGrade(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainGradeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainGradeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def MainGradeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        return o == 0
-
-    # FixedEchelonSettingExcel
-    def MainLeaderSlot(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
 
     # FixedEchelonSettingExcel
     def MainLevel(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -413,26 +82,80 @@ class FixedEchelonSettingExcel(object):
 
     # FixedEchelonSettingExcel
     def MainLevelAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
     def MainLevelLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
     def MainLevelIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        return o == 0
+
+    # FixedEchelonSettingExcel
+    def MainGrade(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainGradeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainGradeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainGradeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        return o == 0
+
+    # FixedEchelonSettingExcel
+    def MainExSkillLevel(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainExSkillLevelAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainExSkillLevelLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainExSkillLevelIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         return o == 0
 
     # FixedEchelonSettingExcel
     def MainNoneExSkillLevel(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -440,80 +163,296 @@ class FixedEchelonSettingExcel(object):
 
     # FixedEchelonSettingExcel
     def MainNoneExSkillLevelAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
     def MainNoneExSkillLevelLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
     def MainNoneExSkillLevelIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         return o == 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterGearLevel(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+    def MainEquipment1Tier(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterGearLevelAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+    def MainEquipment1TierAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterGearLevelLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+    def MainEquipment1TierLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterGearLevelIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+    def MainEquipment1TierIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         return o == 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterGearTier(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+    def MainEquipment1Level(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterGearTierAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+    def MainEquipment1LevelAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterGearTierLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+    def MainEquipment1LevelLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterGearTierIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+    def MainEquipment1LevelIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        return o == 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment2Tier(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment2TierAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment2TierLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment2TierIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        return o == 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment2Level(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment2LevelAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment2LevelLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment2LevelIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        return o == 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment3Tier(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment3TierAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment3TierLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment3TierIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        return o == 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment3Level(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment3LevelAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment3LevelLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainEquipment3LevelIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        return o == 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterWeaponGrade(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterWeaponGradeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterWeaponGradeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterWeaponGradeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        return o == 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterWeaponLevel(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterWeaponLevelAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterWeaponLevelLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterWeaponLevelIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        return o == 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterGearTier(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterGearTierAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterGearTierLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterGearTierIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        return o == 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterGearLevel(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterGearLevelAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterGearLevelLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def MainCharacterGearLevelIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         return o == 0
 
     # FixedEchelonSettingExcel
     def SupportCharacterId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -521,25 +460,106 @@ class FixedEchelonSettingExcel(object):
 
     # FixedEchelonSettingExcel
     def SupportCharacterIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
     def SupportCharacterIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
     def SupportCharacterIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        return o == 0
+
+    # FixedEchelonSettingExcel
+    def SupportLevel(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FixedEchelonSettingExcel
+    def SupportLevelAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def SupportLevelLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def SupportLevelIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        return o == 0
+
+    # FixedEchelonSettingExcel
+    def SupportGrade(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FixedEchelonSettingExcel
+    def SupportGradeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def SupportGradeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def SupportGradeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        return o == 0
+
+    # FixedEchelonSettingExcel
+    def SupportExSkillLevel(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # FixedEchelonSettingExcel
+    def SupportExSkillLevelAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def SupportExSkillLevelLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FixedEchelonSettingExcel
+    def SupportExSkillLevelIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         return o == 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterWeaponGrade(self, j):
+    def SupportNoneExSkillLevel(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
             a = self._tab.Vector(o)
@@ -547,26 +567,26 @@ class FixedEchelonSettingExcel(object):
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterWeaponGradeAsNumpy(self):
+    def SupportNoneExSkillLevelAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterWeaponGradeLength(self):
+    def SupportNoneExSkillLevelLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterWeaponGradeIsNone(self):
+    def SupportNoneExSkillLevelIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         return o == 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterWeaponLevel(self, j):
+    def SupportEquipment1Tier(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
             a = self._tab.Vector(o)
@@ -574,21 +594,21 @@ class FixedEchelonSettingExcel(object):
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterWeaponLevelAsNumpy(self):
+    def SupportEquipment1TierAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterWeaponLevelLength(self):
+    def SupportEquipment1TierLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportCharacterWeaponLevelIsNone(self):
+    def SupportEquipment1TierIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         return o == 0
 
@@ -620,7 +640,7 @@ class FixedEchelonSettingExcel(object):
         return o == 0
 
     # FixedEchelonSettingExcel
-    def SupportEquipment1Tier(self, j):
+    def SupportEquipment2Tier(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
             a = self._tab.Vector(o)
@@ -628,21 +648,21 @@ class FixedEchelonSettingExcel(object):
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportEquipment1TierAsNumpy(self):
+    def SupportEquipment2TierAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportEquipment1TierLength(self):
+    def SupportEquipment2TierLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportEquipment1TierIsNone(self):
+    def SupportEquipment2TierIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         return o == 0
 
@@ -674,7 +694,7 @@ class FixedEchelonSettingExcel(object):
         return o == 0
 
     # FixedEchelonSettingExcel
-    def SupportEquipment2Tier(self, j):
+    def SupportEquipment3Tier(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
             a = self._tab.Vector(o)
@@ -682,21 +702,21 @@ class FixedEchelonSettingExcel(object):
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportEquipment2TierAsNumpy(self):
+    def SupportEquipment3TierAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportEquipment2TierLength(self):
+    def SupportEquipment3TierLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportEquipment2TierIsNone(self):
+    def SupportEquipment3TierIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         return o == 0
 
@@ -728,7 +748,7 @@ class FixedEchelonSettingExcel(object):
         return o == 0
 
     # FixedEchelonSettingExcel
-    def SupportEquipment3Tier(self, j):
+    def SupportCharacterWeaponGrade(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         if o != 0:
             a = self._tab.Vector(o)
@@ -736,26 +756,26 @@ class FixedEchelonSettingExcel(object):
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportEquipment3TierAsNumpy(self):
+    def SupportCharacterWeaponGradeAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportEquipment3TierLength(self):
+    def SupportCharacterWeaponGradeLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportEquipment3TierIsNone(self):
+    def SupportCharacterWeaponGradeIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         return o == 0
 
     # FixedEchelonSettingExcel
-    def SupportExSkillLevel(self, j):
+    def SupportCharacterWeaponLevel(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
         if o != 0:
             a = self._tab.Vector(o)
@@ -763,26 +783,26 @@ class FixedEchelonSettingExcel(object):
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportExSkillLevelAsNumpy(self):
+    def SupportCharacterWeaponLevelAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportExSkillLevelLength(self):
+    def SupportCharacterWeaponLevelLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportExSkillLevelIsNone(self):
+    def SupportCharacterWeaponLevelIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
         return o == 0
 
     # FixedEchelonSettingExcel
-    def SupportGrade(self, j):
+    def SupportCharacterGearTier(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
         if o != 0:
             a = self._tab.Vector(o)
@@ -790,26 +810,26 @@ class FixedEchelonSettingExcel(object):
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportGradeAsNumpy(self):
+    def SupportCharacterGearTierAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportGradeLength(self):
+    def SupportCharacterGearTierLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportGradeIsNone(self):
+    def SupportCharacterGearTierIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
         return o == 0
 
     # FixedEchelonSettingExcel
-    def SupportLevel(self, j):
+    def SupportCharacterGearLevel(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             a = self._tab.Vector(o)
@@ -817,50 +837,30 @@ class FixedEchelonSettingExcel(object):
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportLevelAsNumpy(self):
+    def SupportCharacterGearLevelAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportLevelLength(self):
+    def SupportCharacterGearLevelLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FixedEchelonSettingExcel
-    def SupportLevelIsNone(self):
+    def SupportCharacterGearLevelIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         return o == 0
 
     # FixedEchelonSettingExcel
-    def SupportNoneExSkillLevel(self, j):
+    def InteractionTsCharacterId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # FixedEchelonSettingExcel
-    def SupportNoneExSkillLevelAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def SupportNoneExSkillLevelLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FixedEchelonSettingExcel
-    def SupportNoneExSkillLevelIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
-        return o == 0
 
 def FixedEchelonSettingExcelStart(builder):
     builder.StartObject(34)
@@ -868,50 +868,26 @@ def FixedEchelonSettingExcelStart(builder):
 def Start(builder):
     FixedEchelonSettingExcelStart(builder)
 
-def FixedEchelonSettingExcelAddEchelonSceneSkip(builder, echelonSceneSkip):
-    builder.PrependBoolSlot(0, echelonSceneSkip, 0)
-
-def AddEchelonSceneSkip(builder, echelonSceneSkip):
-    FixedEchelonSettingExcelAddEchelonSceneSkip(builder, echelonSceneSkip)
-
 def FixedEchelonSettingExcelAddFixedEchelonId(builder, fixedEchelonId):
-    builder.PrependInt64Slot(1, fixedEchelonId, 0)
+    builder.PrependInt64Slot(0, fixedEchelonId, 0)
 
 def AddFixedEchelonId(builder, fixedEchelonId):
     FixedEchelonSettingExcelAddFixedEchelonId(builder, fixedEchelonId)
 
-def FixedEchelonSettingExcelAddInteractionTsCharacterId(builder, interactionTsCharacterId):
-    builder.PrependInt64Slot(2, interactionTsCharacterId, 0)
+def FixedEchelonSettingExcelAddEchelonSceneSkip(builder, echelonSceneSkip):
+    builder.PrependBoolSlot(1, echelonSceneSkip, 0)
 
-def AddInteractionTsCharacterId(builder, interactionTsCharacterId):
-    FixedEchelonSettingExcelAddInteractionTsCharacterId(builder, interactionTsCharacterId)
+def AddEchelonSceneSkip(builder, echelonSceneSkip):
+    FixedEchelonSettingExcelAddEchelonSceneSkip(builder, echelonSceneSkip)
 
-def FixedEchelonSettingExcelAddMainCharacterGearLevel(builder, mainCharacterGearLevel):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(mainCharacterGearLevel), 0)
+def FixedEchelonSettingExcelAddMainLeaderSlot(builder, mainLeaderSlot):
+    builder.PrependInt32Slot(2, mainLeaderSlot, 0)
 
-def AddMainCharacterGearLevel(builder, mainCharacterGearLevel):
-    FixedEchelonSettingExcelAddMainCharacterGearLevel(builder, mainCharacterGearLevel)
-
-def FixedEchelonSettingExcelStartMainCharacterGearLevelVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartMainCharacterGearLevelVector(builder, numElems):
-    return FixedEchelonSettingExcelStartMainCharacterGearLevelVector(builder, numElems)
-
-def FixedEchelonSettingExcelAddMainCharacterGearTier(builder, mainCharacterGearTier):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(mainCharacterGearTier), 0)
-
-def AddMainCharacterGearTier(builder, mainCharacterGearTier):
-    FixedEchelonSettingExcelAddMainCharacterGearTier(builder, mainCharacterGearTier)
-
-def FixedEchelonSettingExcelStartMainCharacterGearTierVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartMainCharacterGearTierVector(builder, numElems):
-    return FixedEchelonSettingExcelStartMainCharacterGearTierVector(builder, numElems)
+def AddMainLeaderSlot(builder, mainLeaderSlot):
+    FixedEchelonSettingExcelAddMainLeaderSlot(builder, mainLeaderSlot)
 
 def FixedEchelonSettingExcelAddMainCharacterId(builder, mainCharacterId):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(mainCharacterId), 0)
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(mainCharacterId), 0)
 
 def AddMainCharacterId(builder, mainCharacterId):
     FixedEchelonSettingExcelAddMainCharacterId(builder, mainCharacterId)
@@ -922,8 +898,128 @@ def FixedEchelonSettingExcelStartMainCharacterIdVector(builder, numElems):
 def StartMainCharacterIdVector(builder, numElems):
     return FixedEchelonSettingExcelStartMainCharacterIdVector(builder, numElems)
 
+def FixedEchelonSettingExcelAddMainLevel(builder, mainLevel):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(mainLevel), 0)
+
+def AddMainLevel(builder, mainLevel):
+    FixedEchelonSettingExcelAddMainLevel(builder, mainLevel)
+
+def FixedEchelonSettingExcelStartMainLevelVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartMainLevelVector(builder, numElems):
+    return FixedEchelonSettingExcelStartMainLevelVector(builder, numElems)
+
+def FixedEchelonSettingExcelAddMainGrade(builder, mainGrade):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(mainGrade), 0)
+
+def AddMainGrade(builder, mainGrade):
+    FixedEchelonSettingExcelAddMainGrade(builder, mainGrade)
+
+def FixedEchelonSettingExcelStartMainGradeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartMainGradeVector(builder, numElems):
+    return FixedEchelonSettingExcelStartMainGradeVector(builder, numElems)
+
+def FixedEchelonSettingExcelAddMainExSkillLevel(builder, mainExSkillLevel):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(mainExSkillLevel), 0)
+
+def AddMainExSkillLevel(builder, mainExSkillLevel):
+    FixedEchelonSettingExcelAddMainExSkillLevel(builder, mainExSkillLevel)
+
+def FixedEchelonSettingExcelStartMainExSkillLevelVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartMainExSkillLevelVector(builder, numElems):
+    return FixedEchelonSettingExcelStartMainExSkillLevelVector(builder, numElems)
+
+def FixedEchelonSettingExcelAddMainNoneExSkillLevel(builder, mainNoneExSkillLevel):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(mainNoneExSkillLevel), 0)
+
+def AddMainNoneExSkillLevel(builder, mainNoneExSkillLevel):
+    FixedEchelonSettingExcelAddMainNoneExSkillLevel(builder, mainNoneExSkillLevel)
+
+def FixedEchelonSettingExcelStartMainNoneExSkillLevelVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartMainNoneExSkillLevelVector(builder, numElems):
+    return FixedEchelonSettingExcelStartMainNoneExSkillLevelVector(builder, numElems)
+
+def FixedEchelonSettingExcelAddMainEquipment1Tier(builder, mainEquipment1Tier):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(mainEquipment1Tier), 0)
+
+def AddMainEquipment1Tier(builder, mainEquipment1Tier):
+    FixedEchelonSettingExcelAddMainEquipment1Tier(builder, mainEquipment1Tier)
+
+def FixedEchelonSettingExcelStartMainEquipment1TierVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartMainEquipment1TierVector(builder, numElems):
+    return FixedEchelonSettingExcelStartMainEquipment1TierVector(builder, numElems)
+
+def FixedEchelonSettingExcelAddMainEquipment1Level(builder, mainEquipment1Level):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(mainEquipment1Level), 0)
+
+def AddMainEquipment1Level(builder, mainEquipment1Level):
+    FixedEchelonSettingExcelAddMainEquipment1Level(builder, mainEquipment1Level)
+
+def FixedEchelonSettingExcelStartMainEquipment1LevelVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartMainEquipment1LevelVector(builder, numElems):
+    return FixedEchelonSettingExcelStartMainEquipment1LevelVector(builder, numElems)
+
+def FixedEchelonSettingExcelAddMainEquipment2Tier(builder, mainEquipment2Tier):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(mainEquipment2Tier), 0)
+
+def AddMainEquipment2Tier(builder, mainEquipment2Tier):
+    FixedEchelonSettingExcelAddMainEquipment2Tier(builder, mainEquipment2Tier)
+
+def FixedEchelonSettingExcelStartMainEquipment2TierVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartMainEquipment2TierVector(builder, numElems):
+    return FixedEchelonSettingExcelStartMainEquipment2TierVector(builder, numElems)
+
+def FixedEchelonSettingExcelAddMainEquipment2Level(builder, mainEquipment2Level):
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(mainEquipment2Level), 0)
+
+def AddMainEquipment2Level(builder, mainEquipment2Level):
+    FixedEchelonSettingExcelAddMainEquipment2Level(builder, mainEquipment2Level)
+
+def FixedEchelonSettingExcelStartMainEquipment2LevelVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartMainEquipment2LevelVector(builder, numElems):
+    return FixedEchelonSettingExcelStartMainEquipment2LevelVector(builder, numElems)
+
+def FixedEchelonSettingExcelAddMainEquipment3Tier(builder, mainEquipment3Tier):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(mainEquipment3Tier), 0)
+
+def AddMainEquipment3Tier(builder, mainEquipment3Tier):
+    FixedEchelonSettingExcelAddMainEquipment3Tier(builder, mainEquipment3Tier)
+
+def FixedEchelonSettingExcelStartMainEquipment3TierVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartMainEquipment3TierVector(builder, numElems):
+    return FixedEchelonSettingExcelStartMainEquipment3TierVector(builder, numElems)
+
+def FixedEchelonSettingExcelAddMainEquipment3Level(builder, mainEquipment3Level):
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(mainEquipment3Level), 0)
+
+def AddMainEquipment3Level(builder, mainEquipment3Level):
+    FixedEchelonSettingExcelAddMainEquipment3Level(builder, mainEquipment3Level)
+
+def FixedEchelonSettingExcelStartMainEquipment3LevelVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartMainEquipment3LevelVector(builder, numElems):
+    return FixedEchelonSettingExcelStartMainEquipment3LevelVector(builder, numElems)
+
 def FixedEchelonSettingExcelAddMainCharacterWeaponGrade(builder, mainCharacterWeaponGrade):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(mainCharacterWeaponGrade), 0)
+    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(mainCharacterWeaponGrade), 0)
 
 def AddMainCharacterWeaponGrade(builder, mainCharacterWeaponGrade):
     FixedEchelonSettingExcelAddMainCharacterWeaponGrade(builder, mainCharacterWeaponGrade)
@@ -935,7 +1031,7 @@ def StartMainCharacterWeaponGradeVector(builder, numElems):
     return FixedEchelonSettingExcelStartMainCharacterWeaponGradeVector(builder, numElems)
 
 def FixedEchelonSettingExcelAddMainCharacterWeaponLevel(builder, mainCharacterWeaponLevel):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(mainCharacterWeaponLevel), 0)
+    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(mainCharacterWeaponLevel), 0)
 
 def AddMainCharacterWeaponLevel(builder, mainCharacterWeaponLevel):
     FixedEchelonSettingExcelAddMainCharacterWeaponLevel(builder, mainCharacterWeaponLevel)
@@ -946,158 +1042,32 @@ def FixedEchelonSettingExcelStartMainCharacterWeaponLevelVector(builder, numElem
 def StartMainCharacterWeaponLevelVector(builder, numElems):
     return FixedEchelonSettingExcelStartMainCharacterWeaponLevelVector(builder, numElems)
 
-def FixedEchelonSettingExcelAddMainEquipment1Level(builder, mainEquipment1Level):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(mainEquipment1Level), 0)
+def FixedEchelonSettingExcelAddMainCharacterGearTier(builder, mainCharacterGearTier):
+    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(mainCharacterGearTier), 0)
 
-def AddMainEquipment1Level(builder, mainEquipment1Level):
-    FixedEchelonSettingExcelAddMainEquipment1Level(builder, mainEquipment1Level)
+def AddMainCharacterGearTier(builder, mainCharacterGearTier):
+    FixedEchelonSettingExcelAddMainCharacterGearTier(builder, mainCharacterGearTier)
 
-def FixedEchelonSettingExcelStartMainEquipment1LevelVector(builder, numElems):
+def FixedEchelonSettingExcelStartMainCharacterGearTierVector(builder, numElems):
     return builder.StartVector(4, numElems, 4)
 
-def StartMainEquipment1LevelVector(builder, numElems):
-    return FixedEchelonSettingExcelStartMainEquipment1LevelVector(builder, numElems)
+def StartMainCharacterGearTierVector(builder, numElems):
+    return FixedEchelonSettingExcelStartMainCharacterGearTierVector(builder, numElems)
 
-def FixedEchelonSettingExcelAddMainEquipment1Tier(builder, mainEquipment1Tier):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(mainEquipment1Tier), 0)
+def FixedEchelonSettingExcelAddMainCharacterGearLevel(builder, mainCharacterGearLevel):
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(mainCharacterGearLevel), 0)
 
-def AddMainEquipment1Tier(builder, mainEquipment1Tier):
-    FixedEchelonSettingExcelAddMainEquipment1Tier(builder, mainEquipment1Tier)
+def AddMainCharacterGearLevel(builder, mainCharacterGearLevel):
+    FixedEchelonSettingExcelAddMainCharacterGearLevel(builder, mainCharacterGearLevel)
 
-def FixedEchelonSettingExcelStartMainEquipment1TierVector(builder, numElems):
+def FixedEchelonSettingExcelStartMainCharacterGearLevelVector(builder, numElems):
     return builder.StartVector(4, numElems, 4)
 
-def StartMainEquipment1TierVector(builder, numElems):
-    return FixedEchelonSettingExcelStartMainEquipment1TierVector(builder, numElems)
-
-def FixedEchelonSettingExcelAddMainEquipment2Level(builder, mainEquipment2Level):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(mainEquipment2Level), 0)
-
-def AddMainEquipment2Level(builder, mainEquipment2Level):
-    FixedEchelonSettingExcelAddMainEquipment2Level(builder, mainEquipment2Level)
-
-def FixedEchelonSettingExcelStartMainEquipment2LevelVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartMainEquipment2LevelVector(builder, numElems):
-    return FixedEchelonSettingExcelStartMainEquipment2LevelVector(builder, numElems)
-
-def FixedEchelonSettingExcelAddMainEquipment2Tier(builder, mainEquipment2Tier):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(mainEquipment2Tier), 0)
-
-def AddMainEquipment2Tier(builder, mainEquipment2Tier):
-    FixedEchelonSettingExcelAddMainEquipment2Tier(builder, mainEquipment2Tier)
-
-def FixedEchelonSettingExcelStartMainEquipment2TierVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartMainEquipment2TierVector(builder, numElems):
-    return FixedEchelonSettingExcelStartMainEquipment2TierVector(builder, numElems)
-
-def FixedEchelonSettingExcelAddMainEquipment3Level(builder, mainEquipment3Level):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(mainEquipment3Level), 0)
-
-def AddMainEquipment3Level(builder, mainEquipment3Level):
-    FixedEchelonSettingExcelAddMainEquipment3Level(builder, mainEquipment3Level)
-
-def FixedEchelonSettingExcelStartMainEquipment3LevelVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartMainEquipment3LevelVector(builder, numElems):
-    return FixedEchelonSettingExcelStartMainEquipment3LevelVector(builder, numElems)
-
-def FixedEchelonSettingExcelAddMainEquipment3Tier(builder, mainEquipment3Tier):
-    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(mainEquipment3Tier), 0)
-
-def AddMainEquipment3Tier(builder, mainEquipment3Tier):
-    FixedEchelonSettingExcelAddMainEquipment3Tier(builder, mainEquipment3Tier)
-
-def FixedEchelonSettingExcelStartMainEquipment3TierVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartMainEquipment3TierVector(builder, numElems):
-    return FixedEchelonSettingExcelStartMainEquipment3TierVector(builder, numElems)
-
-def FixedEchelonSettingExcelAddMainExSkillLevel(builder, mainExSkillLevel):
-    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(mainExSkillLevel), 0)
-
-def AddMainExSkillLevel(builder, mainExSkillLevel):
-    FixedEchelonSettingExcelAddMainExSkillLevel(builder, mainExSkillLevel)
-
-def FixedEchelonSettingExcelStartMainExSkillLevelVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartMainExSkillLevelVector(builder, numElems):
-    return FixedEchelonSettingExcelStartMainExSkillLevelVector(builder, numElems)
-
-def FixedEchelonSettingExcelAddMainGrade(builder, mainGrade):
-    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(mainGrade), 0)
-
-def AddMainGrade(builder, mainGrade):
-    FixedEchelonSettingExcelAddMainGrade(builder, mainGrade)
-
-def FixedEchelonSettingExcelStartMainGradeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartMainGradeVector(builder, numElems):
-    return FixedEchelonSettingExcelStartMainGradeVector(builder, numElems)
-
-def FixedEchelonSettingExcelAddMainLeaderSlot(builder, mainLeaderSlot):
-    builder.PrependInt32Slot(16, mainLeaderSlot, 0)
-
-def AddMainLeaderSlot(builder, mainLeaderSlot):
-    FixedEchelonSettingExcelAddMainLeaderSlot(builder, mainLeaderSlot)
-
-def FixedEchelonSettingExcelAddMainLevel(builder, mainLevel):
-    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(mainLevel), 0)
-
-def AddMainLevel(builder, mainLevel):
-    FixedEchelonSettingExcelAddMainLevel(builder, mainLevel)
-
-def FixedEchelonSettingExcelStartMainLevelVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartMainLevelVector(builder, numElems):
-    return FixedEchelonSettingExcelStartMainLevelVector(builder, numElems)
-
-def FixedEchelonSettingExcelAddMainNoneExSkillLevel(builder, mainNoneExSkillLevel):
-    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(mainNoneExSkillLevel), 0)
-
-def AddMainNoneExSkillLevel(builder, mainNoneExSkillLevel):
-    FixedEchelonSettingExcelAddMainNoneExSkillLevel(builder, mainNoneExSkillLevel)
-
-def FixedEchelonSettingExcelStartMainNoneExSkillLevelVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartMainNoneExSkillLevelVector(builder, numElems):
-    return FixedEchelonSettingExcelStartMainNoneExSkillLevelVector(builder, numElems)
-
-def FixedEchelonSettingExcelAddSupportCharacterGearLevel(builder, supportCharacterGearLevel):
-    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(supportCharacterGearLevel), 0)
-
-def AddSupportCharacterGearLevel(builder, supportCharacterGearLevel):
-    FixedEchelonSettingExcelAddSupportCharacterGearLevel(builder, supportCharacterGearLevel)
-
-def FixedEchelonSettingExcelStartSupportCharacterGearLevelVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartSupportCharacterGearLevelVector(builder, numElems):
-    return FixedEchelonSettingExcelStartSupportCharacterGearLevelVector(builder, numElems)
-
-def FixedEchelonSettingExcelAddSupportCharacterGearTier(builder, supportCharacterGearTier):
-    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(supportCharacterGearTier), 0)
-
-def AddSupportCharacterGearTier(builder, supportCharacterGearTier):
-    FixedEchelonSettingExcelAddSupportCharacterGearTier(builder, supportCharacterGearTier)
-
-def FixedEchelonSettingExcelStartSupportCharacterGearTierVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartSupportCharacterGearTierVector(builder, numElems):
-    return FixedEchelonSettingExcelStartSupportCharacterGearTierVector(builder, numElems)
+def StartMainCharacterGearLevelVector(builder, numElems):
+    return FixedEchelonSettingExcelStartMainCharacterGearLevelVector(builder, numElems)
 
 def FixedEchelonSettingExcelAddSupportCharacterId(builder, supportCharacterId):
-    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(supportCharacterId), 0)
+    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(supportCharacterId), 0)
 
 def AddSupportCharacterId(builder, supportCharacterId):
     FixedEchelonSettingExcelAddSupportCharacterId(builder, supportCharacterId)
@@ -1108,29 +1078,65 @@ def FixedEchelonSettingExcelStartSupportCharacterIdVector(builder, numElems):
 def StartSupportCharacterIdVector(builder, numElems):
     return FixedEchelonSettingExcelStartSupportCharacterIdVector(builder, numElems)
 
-def FixedEchelonSettingExcelAddSupportCharacterWeaponGrade(builder, supportCharacterWeaponGrade):
-    builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(supportCharacterWeaponGrade), 0)
+def FixedEchelonSettingExcelAddSupportLevel(builder, supportLevel):
+    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(supportLevel), 0)
 
-def AddSupportCharacterWeaponGrade(builder, supportCharacterWeaponGrade):
-    FixedEchelonSettingExcelAddSupportCharacterWeaponGrade(builder, supportCharacterWeaponGrade)
+def AddSupportLevel(builder, supportLevel):
+    FixedEchelonSettingExcelAddSupportLevel(builder, supportLevel)
 
-def FixedEchelonSettingExcelStartSupportCharacterWeaponGradeVector(builder, numElems):
+def FixedEchelonSettingExcelStartSupportLevelVector(builder, numElems):
     return builder.StartVector(4, numElems, 4)
 
-def StartSupportCharacterWeaponGradeVector(builder, numElems):
-    return FixedEchelonSettingExcelStartSupportCharacterWeaponGradeVector(builder, numElems)
+def StartSupportLevelVector(builder, numElems):
+    return FixedEchelonSettingExcelStartSupportLevelVector(builder, numElems)
 
-def FixedEchelonSettingExcelAddSupportCharacterWeaponLevel(builder, supportCharacterWeaponLevel):
-    builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(supportCharacterWeaponLevel), 0)
+def FixedEchelonSettingExcelAddSupportGrade(builder, supportGrade):
+    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(supportGrade), 0)
 
-def AddSupportCharacterWeaponLevel(builder, supportCharacterWeaponLevel):
-    FixedEchelonSettingExcelAddSupportCharacterWeaponLevel(builder, supportCharacterWeaponLevel)
+def AddSupportGrade(builder, supportGrade):
+    FixedEchelonSettingExcelAddSupportGrade(builder, supportGrade)
 
-def FixedEchelonSettingExcelStartSupportCharacterWeaponLevelVector(builder, numElems):
+def FixedEchelonSettingExcelStartSupportGradeVector(builder, numElems):
     return builder.StartVector(4, numElems, 4)
 
-def StartSupportCharacterWeaponLevelVector(builder, numElems):
-    return FixedEchelonSettingExcelStartSupportCharacterWeaponLevelVector(builder, numElems)
+def StartSupportGradeVector(builder, numElems):
+    return FixedEchelonSettingExcelStartSupportGradeVector(builder, numElems)
+
+def FixedEchelonSettingExcelAddSupportExSkillLevel(builder, supportExSkillLevel):
+    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(supportExSkillLevel), 0)
+
+def AddSupportExSkillLevel(builder, supportExSkillLevel):
+    FixedEchelonSettingExcelAddSupportExSkillLevel(builder, supportExSkillLevel)
+
+def FixedEchelonSettingExcelStartSupportExSkillLevelVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartSupportExSkillLevelVector(builder, numElems):
+    return FixedEchelonSettingExcelStartSupportExSkillLevelVector(builder, numElems)
+
+def FixedEchelonSettingExcelAddSupportNoneExSkillLevel(builder, supportNoneExSkillLevel):
+    builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(supportNoneExSkillLevel), 0)
+
+def AddSupportNoneExSkillLevel(builder, supportNoneExSkillLevel):
+    FixedEchelonSettingExcelAddSupportNoneExSkillLevel(builder, supportNoneExSkillLevel)
+
+def FixedEchelonSettingExcelStartSupportNoneExSkillLevelVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartSupportNoneExSkillLevelVector(builder, numElems):
+    return FixedEchelonSettingExcelStartSupportNoneExSkillLevelVector(builder, numElems)
+
+def FixedEchelonSettingExcelAddSupportEquipment1Tier(builder, supportEquipment1Tier):
+    builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(supportEquipment1Tier), 0)
+
+def AddSupportEquipment1Tier(builder, supportEquipment1Tier):
+    FixedEchelonSettingExcelAddSupportEquipment1Tier(builder, supportEquipment1Tier)
+
+def FixedEchelonSettingExcelStartSupportEquipment1TierVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartSupportEquipment1TierVector(builder, numElems):
+    return FixedEchelonSettingExcelStartSupportEquipment1TierVector(builder, numElems)
 
 def FixedEchelonSettingExcelAddSupportEquipment1Level(builder, supportEquipment1Level):
     builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(supportEquipment1Level), 0)
@@ -1144,17 +1150,17 @@ def FixedEchelonSettingExcelStartSupportEquipment1LevelVector(builder, numElems)
 def StartSupportEquipment1LevelVector(builder, numElems):
     return FixedEchelonSettingExcelStartSupportEquipment1LevelVector(builder, numElems)
 
-def FixedEchelonSettingExcelAddSupportEquipment1Tier(builder, supportEquipment1Tier):
-    builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(supportEquipment1Tier), 0)
+def FixedEchelonSettingExcelAddSupportEquipment2Tier(builder, supportEquipment2Tier):
+    builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(supportEquipment2Tier), 0)
 
-def AddSupportEquipment1Tier(builder, supportEquipment1Tier):
-    FixedEchelonSettingExcelAddSupportEquipment1Tier(builder, supportEquipment1Tier)
+def AddSupportEquipment2Tier(builder, supportEquipment2Tier):
+    FixedEchelonSettingExcelAddSupportEquipment2Tier(builder, supportEquipment2Tier)
 
-def FixedEchelonSettingExcelStartSupportEquipment1TierVector(builder, numElems):
+def FixedEchelonSettingExcelStartSupportEquipment2TierVector(builder, numElems):
     return builder.StartVector(4, numElems, 4)
 
-def StartSupportEquipment1TierVector(builder, numElems):
-    return FixedEchelonSettingExcelStartSupportEquipment1TierVector(builder, numElems)
+def StartSupportEquipment2TierVector(builder, numElems):
+    return FixedEchelonSettingExcelStartSupportEquipment2TierVector(builder, numElems)
 
 def FixedEchelonSettingExcelAddSupportEquipment2Level(builder, supportEquipment2Level):
     builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(supportEquipment2Level), 0)
@@ -1168,17 +1174,17 @@ def FixedEchelonSettingExcelStartSupportEquipment2LevelVector(builder, numElems)
 def StartSupportEquipment2LevelVector(builder, numElems):
     return FixedEchelonSettingExcelStartSupportEquipment2LevelVector(builder, numElems)
 
-def FixedEchelonSettingExcelAddSupportEquipment2Tier(builder, supportEquipment2Tier):
-    builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(supportEquipment2Tier), 0)
+def FixedEchelonSettingExcelAddSupportEquipment3Tier(builder, supportEquipment3Tier):
+    builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(supportEquipment3Tier), 0)
 
-def AddSupportEquipment2Tier(builder, supportEquipment2Tier):
-    FixedEchelonSettingExcelAddSupportEquipment2Tier(builder, supportEquipment2Tier)
+def AddSupportEquipment3Tier(builder, supportEquipment3Tier):
+    FixedEchelonSettingExcelAddSupportEquipment3Tier(builder, supportEquipment3Tier)
 
-def FixedEchelonSettingExcelStartSupportEquipment2TierVector(builder, numElems):
+def FixedEchelonSettingExcelStartSupportEquipment3TierVector(builder, numElems):
     return builder.StartVector(4, numElems, 4)
 
-def StartSupportEquipment2TierVector(builder, numElems):
-    return FixedEchelonSettingExcelStartSupportEquipment2TierVector(builder, numElems)
+def StartSupportEquipment3TierVector(builder, numElems):
+    return FixedEchelonSettingExcelStartSupportEquipment3TierVector(builder, numElems)
 
 def FixedEchelonSettingExcelAddSupportEquipment3Level(builder, supportEquipment3Level):
     builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(supportEquipment3Level), 0)
@@ -1192,65 +1198,59 @@ def FixedEchelonSettingExcelStartSupportEquipment3LevelVector(builder, numElems)
 def StartSupportEquipment3LevelVector(builder, numElems):
     return FixedEchelonSettingExcelStartSupportEquipment3LevelVector(builder, numElems)
 
-def FixedEchelonSettingExcelAddSupportEquipment3Tier(builder, supportEquipment3Tier):
-    builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(supportEquipment3Tier), 0)
+def FixedEchelonSettingExcelAddSupportCharacterWeaponGrade(builder, supportCharacterWeaponGrade):
+    builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(supportCharacterWeaponGrade), 0)
 
-def AddSupportEquipment3Tier(builder, supportEquipment3Tier):
-    FixedEchelonSettingExcelAddSupportEquipment3Tier(builder, supportEquipment3Tier)
+def AddSupportCharacterWeaponGrade(builder, supportCharacterWeaponGrade):
+    FixedEchelonSettingExcelAddSupportCharacterWeaponGrade(builder, supportCharacterWeaponGrade)
 
-def FixedEchelonSettingExcelStartSupportEquipment3TierVector(builder, numElems):
+def FixedEchelonSettingExcelStartSupportCharacterWeaponGradeVector(builder, numElems):
     return builder.StartVector(4, numElems, 4)
 
-def StartSupportEquipment3TierVector(builder, numElems):
-    return FixedEchelonSettingExcelStartSupportEquipment3TierVector(builder, numElems)
+def StartSupportCharacterWeaponGradeVector(builder, numElems):
+    return FixedEchelonSettingExcelStartSupportCharacterWeaponGradeVector(builder, numElems)
 
-def FixedEchelonSettingExcelAddSupportExSkillLevel(builder, supportExSkillLevel):
-    builder.PrependUOffsetTRelativeSlot(30, flatbuffers.number_types.UOffsetTFlags.py_type(supportExSkillLevel), 0)
+def FixedEchelonSettingExcelAddSupportCharacterWeaponLevel(builder, supportCharacterWeaponLevel):
+    builder.PrependUOffsetTRelativeSlot(30, flatbuffers.number_types.UOffsetTFlags.py_type(supportCharacterWeaponLevel), 0)
 
-def AddSupportExSkillLevel(builder, supportExSkillLevel):
-    FixedEchelonSettingExcelAddSupportExSkillLevel(builder, supportExSkillLevel)
+def AddSupportCharacterWeaponLevel(builder, supportCharacterWeaponLevel):
+    FixedEchelonSettingExcelAddSupportCharacterWeaponLevel(builder, supportCharacterWeaponLevel)
 
-def FixedEchelonSettingExcelStartSupportExSkillLevelVector(builder, numElems):
+def FixedEchelonSettingExcelStartSupportCharacterWeaponLevelVector(builder, numElems):
     return builder.StartVector(4, numElems, 4)
 
-def StartSupportExSkillLevelVector(builder, numElems):
-    return FixedEchelonSettingExcelStartSupportExSkillLevelVector(builder, numElems)
+def StartSupportCharacterWeaponLevelVector(builder, numElems):
+    return FixedEchelonSettingExcelStartSupportCharacterWeaponLevelVector(builder, numElems)
 
-def FixedEchelonSettingExcelAddSupportGrade(builder, supportGrade):
-    builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(supportGrade), 0)
+def FixedEchelonSettingExcelAddSupportCharacterGearTier(builder, supportCharacterGearTier):
+    builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(supportCharacterGearTier), 0)
 
-def AddSupportGrade(builder, supportGrade):
-    FixedEchelonSettingExcelAddSupportGrade(builder, supportGrade)
+def AddSupportCharacterGearTier(builder, supportCharacterGearTier):
+    FixedEchelonSettingExcelAddSupportCharacterGearTier(builder, supportCharacterGearTier)
 
-def FixedEchelonSettingExcelStartSupportGradeVector(builder, numElems):
+def FixedEchelonSettingExcelStartSupportCharacterGearTierVector(builder, numElems):
     return builder.StartVector(4, numElems, 4)
 
-def StartSupportGradeVector(builder, numElems):
-    return FixedEchelonSettingExcelStartSupportGradeVector(builder, numElems)
+def StartSupportCharacterGearTierVector(builder, numElems):
+    return FixedEchelonSettingExcelStartSupportCharacterGearTierVector(builder, numElems)
 
-def FixedEchelonSettingExcelAddSupportLevel(builder, supportLevel):
-    builder.PrependUOffsetTRelativeSlot(32, flatbuffers.number_types.UOffsetTFlags.py_type(supportLevel), 0)
+def FixedEchelonSettingExcelAddSupportCharacterGearLevel(builder, supportCharacterGearLevel):
+    builder.PrependUOffsetTRelativeSlot(32, flatbuffers.number_types.UOffsetTFlags.py_type(supportCharacterGearLevel), 0)
 
-def AddSupportLevel(builder, supportLevel):
-    FixedEchelonSettingExcelAddSupportLevel(builder, supportLevel)
+def AddSupportCharacterGearLevel(builder, supportCharacterGearLevel):
+    FixedEchelonSettingExcelAddSupportCharacterGearLevel(builder, supportCharacterGearLevel)
 
-def FixedEchelonSettingExcelStartSupportLevelVector(builder, numElems):
+def FixedEchelonSettingExcelStartSupportCharacterGearLevelVector(builder, numElems):
     return builder.StartVector(4, numElems, 4)
 
-def StartSupportLevelVector(builder, numElems):
-    return FixedEchelonSettingExcelStartSupportLevelVector(builder, numElems)
+def StartSupportCharacterGearLevelVector(builder, numElems):
+    return FixedEchelonSettingExcelStartSupportCharacterGearLevelVector(builder, numElems)
 
-def FixedEchelonSettingExcelAddSupportNoneExSkillLevel(builder, supportNoneExSkillLevel):
-    builder.PrependUOffsetTRelativeSlot(33, flatbuffers.number_types.UOffsetTFlags.py_type(supportNoneExSkillLevel), 0)
+def FixedEchelonSettingExcelAddInteractionTsCharacterId(builder, interactionTsCharacterId):
+    builder.PrependInt64Slot(33, interactionTsCharacterId, 0)
 
-def AddSupportNoneExSkillLevel(builder, supportNoneExSkillLevel):
-    FixedEchelonSettingExcelAddSupportNoneExSkillLevel(builder, supportNoneExSkillLevel)
-
-def FixedEchelonSettingExcelStartSupportNoneExSkillLevelVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
-def StartSupportNoneExSkillLevelVector(builder, numElems):
-    return FixedEchelonSettingExcelStartSupportNoneExSkillLevelVector(builder, numElems)
+def AddInteractionTsCharacterId(builder, interactionTsCharacterId):
+    FixedEchelonSettingExcelAddInteractionTsCharacterId(builder, interactionTsCharacterId)
 
 def FixedEchelonSettingExcelEnd(builder):
     return builder.EndObject()

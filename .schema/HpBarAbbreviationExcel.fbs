@@ -2,6 +2,6 @@ namespace FlatData;
 
 table HpBarAbbreviationExcel {
     monster_lv: int;
-    raid_boss_hp_bar: int;
     standard_hp_bar: int;
+    raid_boss_hp_bar: int;
 }

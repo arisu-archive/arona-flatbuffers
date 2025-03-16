@@ -10,23 +10,23 @@ import (
 // AcademyMessangerExcelDto represents a FlatBuffers table
 type AcademyMessangerExcelDto struct {
 	fbsutils.FlatBuffer
-	CharacterId                 int64                    `json:"character_id"`
-	ConditionValue              int64                    `json:"condition_value"`
-	FavorScheduleId             int64                    `json:"favor_schedule_id"`
-	FeedbackTimeMillisec        int64                    `json:"feedback_time_millisec"`
-	Id                          int64                    `json:"id"`
-	ImagePath                   string                   `json:"image_path"`
-	MessageCondition            AcademyMessageConditions `json:"message_condition"`
-	MessageEn                   string                   `json:"message_en"`
 	MessageGroupId              int64                    `json:"message_group_id"`
-	MessageJp                   string                   `json:"message_jp"`
+	Id                          int64                    `json:"id"`
+	CharacterId                 int64                    `json:"character_id"`
+	MessageCondition            AcademyMessageConditions `json:"message_condition"`
+	ConditionValue              int64                    `json:"condition_value"`
+	PreConditionGroupId         int64                    `json:"pre_condition_group_id"`
+	PreConditionFavorScheduleId int64                    `json:"pre_condition_favor_schedule_id"`
+	FavorScheduleId             int64                    `json:"favor_schedule_id"`
+	NextGroupId                 int64                    `json:"next_group_id"`
+	FeedbackTimeMillisec        int64                    `json:"feedback_time_millisec"`
+	MessageType                 AcademyMessageTypes      `json:"message_type"`
+	ImagePath                   string                   `json:"image_path"`
 	MessageKr                   string                   `json:"message_kr"`
+	MessageJp                   string                   `json:"message_jp"`
 	MessageTh                   string                   `json:"message_th"`
 	MessageTw                   string                   `json:"message_tw"`
-	MessageType                 AcademyMessageTypes      `json:"message_type"`
-	NextGroupId                 int64                    `json:"next_group_id"`
-	PreConditionFavorScheduleId int64                    `json:"pre_condition_favor_schedule_id"`
-	PreConditionGroupId         int64                    `json:"pre_condition_group_id"`
+	MessageEn                   string                   `json:"message_en"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -35,23 +35,23 @@ func (t *AcademyMessangerExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyMessanger"))
 	}
 	AcademyMessangerExcelStart(b)
-	AcademyMessangerExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddConditionValue(b, fbsutils.Convert(t.ConditionValue, t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddFavorScheduleId(b, fbsutils.Convert(t.FavorScheduleId, t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddFeedbackTimeMillisec(b, fbsutils.Convert(t.FeedbackTimeMillisec, t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddImagePath(b, fbsutils.Convert(b.CreateString(t.ImagePath), t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddMessageCondition(b, fbsutils.Convert(t.MessageCondition, t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddMessageEn(b, fbsutils.Convert(b.CreateString(t.MessageEn), t.FlatBuffer.TableKey))
 	AcademyMessangerExcelAddMessageGroupId(b, fbsutils.Convert(t.MessageGroupId, t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddMessageJp(b, fbsutils.Convert(b.CreateString(t.MessageJp), t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddMessageCondition(b, fbsutils.Convert(t.MessageCondition, t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddConditionValue(b, fbsutils.Convert(t.ConditionValue, t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddPreConditionGroupId(b, fbsutils.Convert(t.PreConditionGroupId, t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddPreConditionFavorScheduleId(b, fbsutils.Convert(t.PreConditionFavorScheduleId, t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddFavorScheduleId(b, fbsutils.Convert(t.FavorScheduleId, t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddNextGroupId(b, fbsutils.Convert(t.NextGroupId, t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddFeedbackTimeMillisec(b, fbsutils.Convert(t.FeedbackTimeMillisec, t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddMessageType(b, fbsutils.Convert(t.MessageType, t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddImagePath(b, fbsutils.Convert(b.CreateString(t.ImagePath), t.FlatBuffer.TableKey))
 	AcademyMessangerExcelAddMessageKr(b, fbsutils.Convert(b.CreateString(t.MessageKr), t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddMessageJp(b, fbsutils.Convert(b.CreateString(t.MessageJp), t.FlatBuffer.TableKey))
 	AcademyMessangerExcelAddMessageTh(b, fbsutils.Convert(b.CreateString(t.MessageTh), t.FlatBuffer.TableKey))
 	AcademyMessangerExcelAddMessageTw(b, fbsutils.Convert(b.CreateString(t.MessageTw), t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddMessageType(b, fbsutils.Convert(t.MessageType, t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddNextGroupId(b, fbsutils.Convert(t.NextGroupId, t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddPreConditionFavorScheduleId(b, fbsutils.Convert(t.PreConditionFavorScheduleId, t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddPreConditionGroupId(b, fbsutils.Convert(t.PreConditionGroupId, t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddMessageEn(b, fbsutils.Convert(b.CreateString(t.MessageEn), t.FlatBuffer.TableKey))
 	return AcademyMessangerExcelEnd(b)
 }
 
@@ -67,23 +67,23 @@ func (t *AcademyMessangerExcelDto) UnmarshalMessage(e *AcademyMessangerExcel) er
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyMessanger"))
 	}
-	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
-	t.ConditionValue = fbsutils.Convert(e.ConditionValue(), t.FlatBuffer.TableKey)
-	t.FavorScheduleId = fbsutils.Convert(e.FavorScheduleId(), t.FlatBuffer.TableKey)
-	t.FeedbackTimeMillisec = fbsutils.Convert(e.FeedbackTimeMillisec(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
-	t.MessageCondition = AcademyMessageConditions(int32(fbsutils.Convert(e.MessageCondition(), t.FlatBuffer.TableKey)))
-	t.MessageEn = fbsutils.Convert(string(e.MessageEn()), t.FlatBuffer.TableKey)
 	t.MessageGroupId = fbsutils.Convert(e.MessageGroupId(), t.FlatBuffer.TableKey)
-	t.MessageJp = fbsutils.Convert(string(e.MessageJp()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
+	t.MessageCondition = AcademyMessageConditions(int32(fbsutils.Convert(e.MessageCondition(), t.FlatBuffer.TableKey)))
+	t.ConditionValue = fbsutils.Convert(e.ConditionValue(), t.FlatBuffer.TableKey)
+	t.PreConditionGroupId = fbsutils.Convert(e.PreConditionGroupId(), t.FlatBuffer.TableKey)
+	t.PreConditionFavorScheduleId = fbsutils.Convert(e.PreConditionFavorScheduleId(), t.FlatBuffer.TableKey)
+	t.FavorScheduleId = fbsutils.Convert(e.FavorScheduleId(), t.FlatBuffer.TableKey)
+	t.NextGroupId = fbsutils.Convert(e.NextGroupId(), t.FlatBuffer.TableKey)
+	t.FeedbackTimeMillisec = fbsutils.Convert(e.FeedbackTimeMillisec(), t.FlatBuffer.TableKey)
+	t.MessageType = AcademyMessageTypes(int32(fbsutils.Convert(e.MessageType(), t.FlatBuffer.TableKey)))
+	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
 	t.MessageKr = fbsutils.Convert(string(e.MessageKr()), t.FlatBuffer.TableKey)
+	t.MessageJp = fbsutils.Convert(string(e.MessageJp()), t.FlatBuffer.TableKey)
 	t.MessageTh = fbsutils.Convert(string(e.MessageTh()), t.FlatBuffer.TableKey)
 	t.MessageTw = fbsutils.Convert(string(e.MessageTw()), t.FlatBuffer.TableKey)
-	t.MessageType = AcademyMessageTypes(int32(fbsutils.Convert(e.MessageType(), t.FlatBuffer.TableKey)))
-	t.NextGroupId = fbsutils.Convert(e.NextGroupId(), t.FlatBuffer.TableKey)
-	t.PreConditionFavorScheduleId = fbsutils.Convert(e.PreConditionFavorScheduleId(), t.FlatBuffer.TableKey)
-	t.PreConditionGroupId = fbsutils.Convert(e.PreConditionGroupId(), t.FlatBuffer.TableKey)
+	t.MessageEn = fbsutils.Convert(string(e.MessageEn()), t.FlatBuffer.TableKey)
 	return nil
 }
 

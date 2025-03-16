@@ -25,14 +25,14 @@ class CouponStuffExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CouponStuffExcel
-    def CouponStuffNameLocalizeKey(self):
+    def StuffId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # CouponStuffExcel
-    def LimitAmount(self):
+    def ParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -46,18 +46,18 @@ class CouponStuffExcel(object):
         return 0
 
     # CouponStuffExcel
-    def ParcelType(self):
+    def LimitAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CouponStuffExcel
-    def StuffId(self):
+    def CouponStuffNameLocalizeKey(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def CouponStuffExcelStart(builder):
     builder.StartObject(5)
@@ -65,17 +65,17 @@ def CouponStuffExcelStart(builder):
 def Start(builder):
     CouponStuffExcelStart(builder)
 
-def CouponStuffExcelAddCouponStuffNameLocalizeKey(builder, couponStuffNameLocalizeKey):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(couponStuffNameLocalizeKey), 0)
+def CouponStuffExcelAddStuffId(builder, stuffId):
+    builder.PrependInt64Slot(0, stuffId, 0)
 
-def AddCouponStuffNameLocalizeKey(builder, couponStuffNameLocalizeKey):
-    CouponStuffExcelAddCouponStuffNameLocalizeKey(builder, couponStuffNameLocalizeKey)
+def AddStuffId(builder, stuffId):
+    CouponStuffExcelAddStuffId(builder, stuffId)
 
-def CouponStuffExcelAddLimitAmount(builder, limitAmount):
-    builder.PrependInt32Slot(1, limitAmount, 0)
+def CouponStuffExcelAddParcelType(builder, parcelType):
+    builder.PrependInt32Slot(1, parcelType, 0)
 
-def AddLimitAmount(builder, limitAmount):
-    CouponStuffExcelAddLimitAmount(builder, limitAmount)
+def AddParcelType(builder, parcelType):
+    CouponStuffExcelAddParcelType(builder, parcelType)
 
 def CouponStuffExcelAddParcelId(builder, parcelId):
     builder.PrependInt64Slot(2, parcelId, 0)
@@ -83,17 +83,17 @@ def CouponStuffExcelAddParcelId(builder, parcelId):
 def AddParcelId(builder, parcelId):
     CouponStuffExcelAddParcelId(builder, parcelId)
 
-def CouponStuffExcelAddParcelType(builder, parcelType):
-    builder.PrependInt32Slot(3, parcelType, 0)
+def CouponStuffExcelAddLimitAmount(builder, limitAmount):
+    builder.PrependInt32Slot(3, limitAmount, 0)
 
-def AddParcelType(builder, parcelType):
-    CouponStuffExcelAddParcelType(builder, parcelType)
+def AddLimitAmount(builder, limitAmount):
+    CouponStuffExcelAddLimitAmount(builder, limitAmount)
 
-def CouponStuffExcelAddStuffId(builder, stuffId):
-    builder.PrependInt64Slot(4, stuffId, 0)
+def CouponStuffExcelAddCouponStuffNameLocalizeKey(builder, couponStuffNameLocalizeKey):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(couponStuffNameLocalizeKey), 0)
 
-def AddStuffId(builder, stuffId):
-    CouponStuffExcelAddStuffId(builder, stuffId)
+def AddCouponStuffNameLocalizeKey(builder, couponStuffNameLocalizeKey):
+    CouponStuffExcelAddCouponStuffNameLocalizeKey(builder, couponStuffNameLocalizeKey)
 
 def CouponStuffExcelEnd(builder):
     return builder.EndObject()

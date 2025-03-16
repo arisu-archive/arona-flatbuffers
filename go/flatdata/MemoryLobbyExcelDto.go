@@ -10,20 +10,20 @@ import (
 // MemoryLobbyExcelDto represents a FlatBuffers table
 type MemoryLobbyExcelDto struct {
 	fbsutils.FlatBuffer
-	AudioClipEn         string              `json:"audio_clip_en"`
+	Id                  int64               `json:"id"`
+	ProductionStep      ProductionStep      `json:"production_step"`
+	LocalizeEtcId       uint32              `json:"localize_etc_id"`
+	CharacterId         int64               `json:"character_id"`
+	PrefabName          string              `json:"prefab_name"`
+	MemoryLobbyCategory MemoryLobbyCategory `json:"memory_lobby_category"`
+	SlotTextureName     string              `json:"slot_texture_name"`
+	RewardTextureName   string              `json:"reward_texture_name"`
+	BgmId               int64               `json:"bgm_id"`
 	AudioClipJp         string              `json:"audio_clip_jp"`
 	AudioClipKr         string              `json:"audio_clip_kr"`
 	AudioClipTh         string              `json:"audio_clip_th"`
 	AudioClipTw         string              `json:"audio_clip_tw"`
-	BgmId               int64               `json:"bgm_id"`
-	CharacterId         int64               `json:"character_id"`
-	Id                  int64               `json:"id"`
-	LocalizeEtcId       uint32              `json:"localize_etc_id"`
-	MemoryLobbyCategory MemoryLobbyCategory `json:"memory_lobby_category"`
-	PrefabName          string              `json:"prefab_name"`
-	ProductionStep      ProductionStep      `json:"production_step"`
-	RewardTextureName   string              `json:"reward_texture_name"`
-	SlotTextureName     string              `json:"slot_texture_name"`
+	AudioClipEn         string              `json:"audio_clip_en"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -32,20 +32,20 @@ func (t *MemoryLobbyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MemoryLobby"))
 	}
 	MemoryLobbyExcelStart(b)
-	MemoryLobbyExcelAddAudioClipEn(b, fbsutils.Convert(b.CreateString(t.AudioClipEn), t.FlatBuffer.TableKey))
+	MemoryLobbyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	MemoryLobbyExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
+	MemoryLobbyExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	MemoryLobbyExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
+	MemoryLobbyExcelAddPrefabName(b, fbsutils.Convert(b.CreateString(t.PrefabName), t.FlatBuffer.TableKey))
+	MemoryLobbyExcelAddMemoryLobbyCategory(b, fbsutils.Convert(t.MemoryLobbyCategory, t.FlatBuffer.TableKey))
+	MemoryLobbyExcelAddSlotTextureName(b, fbsutils.Convert(b.CreateString(t.SlotTextureName), t.FlatBuffer.TableKey))
+	MemoryLobbyExcelAddRewardTextureName(b, fbsutils.Convert(b.CreateString(t.RewardTextureName), t.FlatBuffer.TableKey))
+	MemoryLobbyExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
 	MemoryLobbyExcelAddAudioClipJp(b, fbsutils.Convert(b.CreateString(t.AudioClipJp), t.FlatBuffer.TableKey))
 	MemoryLobbyExcelAddAudioClipKr(b, fbsutils.Convert(b.CreateString(t.AudioClipKr), t.FlatBuffer.TableKey))
 	MemoryLobbyExcelAddAudioClipTh(b, fbsutils.Convert(b.CreateString(t.AudioClipTh), t.FlatBuffer.TableKey))
 	MemoryLobbyExcelAddAudioClipTw(b, fbsutils.Convert(b.CreateString(t.AudioClipTw), t.FlatBuffer.TableKey))
-	MemoryLobbyExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
-	MemoryLobbyExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
-	MemoryLobbyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	MemoryLobbyExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	MemoryLobbyExcelAddMemoryLobbyCategory(b, fbsutils.Convert(t.MemoryLobbyCategory, t.FlatBuffer.TableKey))
-	MemoryLobbyExcelAddPrefabName(b, fbsutils.Convert(b.CreateString(t.PrefabName), t.FlatBuffer.TableKey))
-	MemoryLobbyExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
-	MemoryLobbyExcelAddRewardTextureName(b, fbsutils.Convert(b.CreateString(t.RewardTextureName), t.FlatBuffer.TableKey))
-	MemoryLobbyExcelAddSlotTextureName(b, fbsutils.Convert(b.CreateString(t.SlotTextureName), t.FlatBuffer.TableKey))
+	MemoryLobbyExcelAddAudioClipEn(b, fbsutils.Convert(b.CreateString(t.AudioClipEn), t.FlatBuffer.TableKey))
 	return MemoryLobbyExcelEnd(b)
 }
 
@@ -61,20 +61,20 @@ func (t *MemoryLobbyExcelDto) UnmarshalMessage(e *MemoryLobbyExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MemoryLobby"))
 	}
-	t.AudioClipEn = fbsutils.Convert(string(e.AudioClipEn()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.ProductionStep = ProductionStep(int32(fbsutils.Convert(e.ProductionStep(), t.FlatBuffer.TableKey)))
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
+	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
+	t.MemoryLobbyCategory = MemoryLobbyCategory(int32(fbsutils.Convert(e.MemoryLobbyCategory(), t.FlatBuffer.TableKey)))
+	t.SlotTextureName = fbsutils.Convert(string(e.SlotTextureName()), t.FlatBuffer.TableKey)
+	t.RewardTextureName = fbsutils.Convert(string(e.RewardTextureName()), t.FlatBuffer.TableKey)
+	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
 	t.AudioClipJp = fbsutils.Convert(string(e.AudioClipJp()), t.FlatBuffer.TableKey)
 	t.AudioClipKr = fbsutils.Convert(string(e.AudioClipKr()), t.FlatBuffer.TableKey)
 	t.AudioClipTh = fbsutils.Convert(string(e.AudioClipTh()), t.FlatBuffer.TableKey)
 	t.AudioClipTw = fbsutils.Convert(string(e.AudioClipTw()), t.FlatBuffer.TableKey)
-	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
-	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.MemoryLobbyCategory = MemoryLobbyCategory(int32(fbsutils.Convert(e.MemoryLobbyCategory(), t.FlatBuffer.TableKey)))
-	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
-	t.ProductionStep = ProductionStep(int32(fbsutils.Convert(e.ProductionStep(), t.FlatBuffer.TableKey)))
-	t.RewardTextureName = fbsutils.Convert(string(e.RewardTextureName()), t.FlatBuffer.TableKey)
-	t.SlotTextureName = fbsutils.Convert(string(e.SlotTextureName()), t.FlatBuffer.TableKey)
+	t.AudioClipEn = fbsutils.Convert(string(e.AudioClipEn()), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -25,11 +25,11 @@ class SystemMailExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # SystemMailExcel
-    def Comment(self):
+    def MailType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # SystemMailExcel
     def ExpiredDay(self):
@@ -39,14 +39,14 @@ class SystemMailExcel(object):
         return 0
 
     # SystemMailExcel
-    def MailType(self):
+    def Sender(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # SystemMailExcel
-    def Sender(self):
+    def Comment(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -58,11 +58,11 @@ def SystemMailExcelStart(builder):
 def Start(builder):
     SystemMailExcelStart(builder)
 
-def SystemMailExcelAddComment(builder, comment):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(comment), 0)
+def SystemMailExcelAddMailType(builder, mailType):
+    builder.PrependInt32Slot(0, mailType, 0)
 
-def AddComment(builder, comment):
-    SystemMailExcelAddComment(builder, comment)
+def AddMailType(builder, mailType):
+    SystemMailExcelAddMailType(builder, mailType)
 
 def SystemMailExcelAddExpiredDay(builder, expiredDay):
     builder.PrependInt64Slot(1, expiredDay, 0)
@@ -70,17 +70,17 @@ def SystemMailExcelAddExpiredDay(builder, expiredDay):
 def AddExpiredDay(builder, expiredDay):
     SystemMailExcelAddExpiredDay(builder, expiredDay)
 
-def SystemMailExcelAddMailType(builder, mailType):
-    builder.PrependInt32Slot(2, mailType, 0)
-
-def AddMailType(builder, mailType):
-    SystemMailExcelAddMailType(builder, mailType)
-
 def SystemMailExcelAddSender(builder, sender):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(sender), 0)
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(sender), 0)
 
 def AddSender(builder, sender):
     SystemMailExcelAddSender(builder, sender)
+
+def SystemMailExcelAddComment(builder, comment):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(comment), 0)
+
+def AddComment(builder, comment):
+    SystemMailExcelAddComment(builder, comment)
 
 def SystemMailExcelEnd(builder):
     return builder.EndObject()

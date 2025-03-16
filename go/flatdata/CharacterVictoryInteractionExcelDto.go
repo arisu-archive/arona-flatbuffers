@@ -10,36 +10,36 @@ import (
 // CharacterVictoryInteractionExcelDto represents a FlatBuffers table
 type CharacterVictoryInteractionExcelDto struct {
 	fbsutils.FlatBuffer
-	CostumeId01                 int64      `json:"costume_id01"`
-	CostumeId02                 int64      `json:"costume_id02"`
-	CostumeId03                 int64      `json:"costume_id03"`
-	CostumeId04                 int64      `json:"costume_id04"`
-	CostumeId05                 int64      `json:"costume_id05"`
-	CostumeId06                 int64      `json:"costume_id06"`
 	InteractionId               int64      `json:"interaction_id"`
+	CostumeId01                 int64      `json:"costume_id01"`
 	PositionIndex01             int32      `json:"position_index01"`
-	PositionIndex02             int32      `json:"position_index02"`
-	PositionIndex03             int32      `json:"position_index03"`
-	PositionIndex04             int32      `json:"position_index04"`
-	PositionIndex05             int32      `json:"position_index05"`
-	PositionIndex06             int32      `json:"position_index06"`
-	VictoryEndAnimationPath01   string     `json:"victory_end_animation_path01"`
-	VictoryEndAnimationPath02   string     `json:"victory_end_animation_path02"`
-	VictoryEndAnimationPath03   string     `json:"victory_end_animation_path03"`
-	VictoryEndAnimationPath04   string     `json:"victory_end_animation_path04"`
-	VictoryEndAnimationPath05   string     `json:"victory_end_animation_path05"`
-	VictoryEndAnimationPath06   string     `json:"victory_end_animation_path06"`
 	VictoryStartAnimationPath01 string     `json:"victory_start_animation_path01"`
-	VictoryStartAnimationPath02 string     `json:"victory_start_animation_path02"`
-	VictoryStartAnimationPath03 string     `json:"victory_start_animation_path03"`
-	VictoryStartAnimationPath04 string     `json:"victory_start_animation_path04"`
-	VictoryStartAnimationPath05 string     `json:"victory_start_animation_path05"`
-	VictoryStartAnimationPath06 string     `json:"victory_start_animation_path06"`
+	VictoryEndAnimationPath01   string     `json:"victory_end_animation_path01"`
 	VoiceEvent01                VoiceEvent `json:"voice_event01"`
+	CostumeId02                 int64      `json:"costume_id02"`
+	PositionIndex02             int32      `json:"position_index02"`
+	VictoryStartAnimationPath02 string     `json:"victory_start_animation_path02"`
+	VictoryEndAnimationPath02   string     `json:"victory_end_animation_path02"`
 	VoiceEvent02                VoiceEvent `json:"voice_event02"`
+	CostumeId03                 int64      `json:"costume_id03"`
+	PositionIndex03             int32      `json:"position_index03"`
+	VictoryStartAnimationPath03 string     `json:"victory_start_animation_path03"`
+	VictoryEndAnimationPath03   string     `json:"victory_end_animation_path03"`
 	VoiceEvent03                VoiceEvent `json:"voice_event03"`
+	CostumeId04                 int64      `json:"costume_id04"`
+	PositionIndex04             int32      `json:"position_index04"`
+	VictoryStartAnimationPath04 string     `json:"victory_start_animation_path04"`
+	VictoryEndAnimationPath04   string     `json:"victory_end_animation_path04"`
 	VoiceEvent04                VoiceEvent `json:"voice_event04"`
+	CostumeId05                 int64      `json:"costume_id05"`
+	PositionIndex05             int32      `json:"position_index05"`
+	VictoryStartAnimationPath05 string     `json:"victory_start_animation_path05"`
+	VictoryEndAnimationPath05   string     `json:"victory_end_animation_path05"`
 	VoiceEvent05                VoiceEvent `json:"voice_event05"`
+	CostumeId06                 int64      `json:"costume_id06"`
+	PositionIndex06             int32      `json:"position_index06"`
+	VictoryStartAnimationPath06 string     `json:"victory_start_animation_path06"`
+	VictoryEndAnimationPath06   string     `json:"victory_end_animation_path06"`
 	VoiceEvent06                VoiceEvent `json:"voice_event06"`
 }
 
@@ -49,36 +49,36 @@ func (t *CharacterVictoryInteractionExcelDto) MarshalModel(b *flatbuffers.Builde
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVictoryInteraction"))
 	}
 	CharacterVictoryInteractionExcelStart(b)
-	CharacterVictoryInteractionExcelAddCostumeId01(b, fbsutils.Convert(t.CostumeId01, t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddCostumeId02(b, fbsutils.Convert(t.CostumeId02, t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddCostumeId03(b, fbsutils.Convert(t.CostumeId03, t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddCostumeId04(b, fbsutils.Convert(t.CostumeId04, t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddCostumeId05(b, fbsutils.Convert(t.CostumeId05, t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddCostumeId06(b, fbsutils.Convert(t.CostumeId06, t.FlatBuffer.TableKey))
 	CharacterVictoryInteractionExcelAddInteractionId(b, fbsutils.Convert(t.InteractionId, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddCostumeId01(b, fbsutils.Convert(t.CostumeId01, t.FlatBuffer.TableKey))
 	CharacterVictoryInteractionExcelAddPositionIndex01(b, fbsutils.Convert(t.PositionIndex01, t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddPositionIndex02(b, fbsutils.Convert(t.PositionIndex02, t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddPositionIndex03(b, fbsutils.Convert(t.PositionIndex03, t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddPositionIndex04(b, fbsutils.Convert(t.PositionIndex04, t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddPositionIndex05(b, fbsutils.Convert(t.PositionIndex05, t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddPositionIndex06(b, fbsutils.Convert(t.PositionIndex06, t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddVictoryEndAnimationPath01(b, fbsutils.Convert(b.CreateString(t.VictoryEndAnimationPath01), t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddVictoryEndAnimationPath02(b, fbsutils.Convert(b.CreateString(t.VictoryEndAnimationPath02), t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddVictoryEndAnimationPath03(b, fbsutils.Convert(b.CreateString(t.VictoryEndAnimationPath03), t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddVictoryEndAnimationPath04(b, fbsutils.Convert(b.CreateString(t.VictoryEndAnimationPath04), t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddVictoryEndAnimationPath05(b, fbsutils.Convert(b.CreateString(t.VictoryEndAnimationPath05), t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddVictoryEndAnimationPath06(b, fbsutils.Convert(b.CreateString(t.VictoryEndAnimationPath06), t.FlatBuffer.TableKey))
 	CharacterVictoryInteractionExcelAddVictoryStartAnimationPath01(b, fbsutils.Convert(b.CreateString(t.VictoryStartAnimationPath01), t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddVictoryStartAnimationPath02(b, fbsutils.Convert(b.CreateString(t.VictoryStartAnimationPath02), t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddVictoryStartAnimationPath03(b, fbsutils.Convert(b.CreateString(t.VictoryStartAnimationPath03), t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddVictoryStartAnimationPath04(b, fbsutils.Convert(b.CreateString(t.VictoryStartAnimationPath04), t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddVictoryStartAnimationPath05(b, fbsutils.Convert(b.CreateString(t.VictoryStartAnimationPath05), t.FlatBuffer.TableKey))
-	CharacterVictoryInteractionExcelAddVictoryStartAnimationPath06(b, fbsutils.Convert(b.CreateString(t.VictoryStartAnimationPath06), t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddVictoryEndAnimationPath01(b, fbsutils.Convert(b.CreateString(t.VictoryEndAnimationPath01), t.FlatBuffer.TableKey))
 	CharacterVictoryInteractionExcelAddVoiceEvent01(b, fbsutils.Convert(t.VoiceEvent01, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddCostumeId02(b, fbsutils.Convert(t.CostumeId02, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddPositionIndex02(b, fbsutils.Convert(t.PositionIndex02, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddVictoryStartAnimationPath02(b, fbsutils.Convert(b.CreateString(t.VictoryStartAnimationPath02), t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddVictoryEndAnimationPath02(b, fbsutils.Convert(b.CreateString(t.VictoryEndAnimationPath02), t.FlatBuffer.TableKey))
 	CharacterVictoryInteractionExcelAddVoiceEvent02(b, fbsutils.Convert(t.VoiceEvent02, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddCostumeId03(b, fbsutils.Convert(t.CostumeId03, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddPositionIndex03(b, fbsutils.Convert(t.PositionIndex03, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddVictoryStartAnimationPath03(b, fbsutils.Convert(b.CreateString(t.VictoryStartAnimationPath03), t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddVictoryEndAnimationPath03(b, fbsutils.Convert(b.CreateString(t.VictoryEndAnimationPath03), t.FlatBuffer.TableKey))
 	CharacterVictoryInteractionExcelAddVoiceEvent03(b, fbsutils.Convert(t.VoiceEvent03, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddCostumeId04(b, fbsutils.Convert(t.CostumeId04, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddPositionIndex04(b, fbsutils.Convert(t.PositionIndex04, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddVictoryStartAnimationPath04(b, fbsutils.Convert(b.CreateString(t.VictoryStartAnimationPath04), t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddVictoryEndAnimationPath04(b, fbsutils.Convert(b.CreateString(t.VictoryEndAnimationPath04), t.FlatBuffer.TableKey))
 	CharacterVictoryInteractionExcelAddVoiceEvent04(b, fbsutils.Convert(t.VoiceEvent04, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddCostumeId05(b, fbsutils.Convert(t.CostumeId05, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddPositionIndex05(b, fbsutils.Convert(t.PositionIndex05, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddVictoryStartAnimationPath05(b, fbsutils.Convert(b.CreateString(t.VictoryStartAnimationPath05), t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddVictoryEndAnimationPath05(b, fbsutils.Convert(b.CreateString(t.VictoryEndAnimationPath05), t.FlatBuffer.TableKey))
 	CharacterVictoryInteractionExcelAddVoiceEvent05(b, fbsutils.Convert(t.VoiceEvent05, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddCostumeId06(b, fbsutils.Convert(t.CostumeId06, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddPositionIndex06(b, fbsutils.Convert(t.PositionIndex06, t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddVictoryStartAnimationPath06(b, fbsutils.Convert(b.CreateString(t.VictoryStartAnimationPath06), t.FlatBuffer.TableKey))
+	CharacterVictoryInteractionExcelAddVictoryEndAnimationPath06(b, fbsutils.Convert(b.CreateString(t.VictoryEndAnimationPath06), t.FlatBuffer.TableKey))
 	CharacterVictoryInteractionExcelAddVoiceEvent06(b, fbsutils.Convert(t.VoiceEvent06, t.FlatBuffer.TableKey))
 	return CharacterVictoryInteractionExcelEnd(b)
 }
@@ -95,36 +95,36 @@ func (t *CharacterVictoryInteractionExcelDto) UnmarshalMessage(e *CharacterVicto
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVictoryInteraction"))
 	}
-	t.CostumeId01 = fbsutils.Convert(e.CostumeId01(), t.FlatBuffer.TableKey)
-	t.CostumeId02 = fbsutils.Convert(e.CostumeId02(), t.FlatBuffer.TableKey)
-	t.CostumeId03 = fbsutils.Convert(e.CostumeId03(), t.FlatBuffer.TableKey)
-	t.CostumeId04 = fbsutils.Convert(e.CostumeId04(), t.FlatBuffer.TableKey)
-	t.CostumeId05 = fbsutils.Convert(e.CostumeId05(), t.FlatBuffer.TableKey)
-	t.CostumeId06 = fbsutils.Convert(e.CostumeId06(), t.FlatBuffer.TableKey)
 	t.InteractionId = fbsutils.Convert(e.InteractionId(), t.FlatBuffer.TableKey)
+	t.CostumeId01 = fbsutils.Convert(e.CostumeId01(), t.FlatBuffer.TableKey)
 	t.PositionIndex01 = fbsutils.Convert(e.PositionIndex01(), t.FlatBuffer.TableKey)
-	t.PositionIndex02 = fbsutils.Convert(e.PositionIndex02(), t.FlatBuffer.TableKey)
-	t.PositionIndex03 = fbsutils.Convert(e.PositionIndex03(), t.FlatBuffer.TableKey)
-	t.PositionIndex04 = fbsutils.Convert(e.PositionIndex04(), t.FlatBuffer.TableKey)
-	t.PositionIndex05 = fbsutils.Convert(e.PositionIndex05(), t.FlatBuffer.TableKey)
-	t.PositionIndex06 = fbsutils.Convert(e.PositionIndex06(), t.FlatBuffer.TableKey)
-	t.VictoryEndAnimationPath01 = fbsutils.Convert(string(e.VictoryEndAnimationPath01()), t.FlatBuffer.TableKey)
-	t.VictoryEndAnimationPath02 = fbsutils.Convert(string(e.VictoryEndAnimationPath02()), t.FlatBuffer.TableKey)
-	t.VictoryEndAnimationPath03 = fbsutils.Convert(string(e.VictoryEndAnimationPath03()), t.FlatBuffer.TableKey)
-	t.VictoryEndAnimationPath04 = fbsutils.Convert(string(e.VictoryEndAnimationPath04()), t.FlatBuffer.TableKey)
-	t.VictoryEndAnimationPath05 = fbsutils.Convert(string(e.VictoryEndAnimationPath05()), t.FlatBuffer.TableKey)
-	t.VictoryEndAnimationPath06 = fbsutils.Convert(string(e.VictoryEndAnimationPath06()), t.FlatBuffer.TableKey)
 	t.VictoryStartAnimationPath01 = fbsutils.Convert(string(e.VictoryStartAnimationPath01()), t.FlatBuffer.TableKey)
-	t.VictoryStartAnimationPath02 = fbsutils.Convert(string(e.VictoryStartAnimationPath02()), t.FlatBuffer.TableKey)
-	t.VictoryStartAnimationPath03 = fbsutils.Convert(string(e.VictoryStartAnimationPath03()), t.FlatBuffer.TableKey)
-	t.VictoryStartAnimationPath04 = fbsutils.Convert(string(e.VictoryStartAnimationPath04()), t.FlatBuffer.TableKey)
-	t.VictoryStartAnimationPath05 = fbsutils.Convert(string(e.VictoryStartAnimationPath05()), t.FlatBuffer.TableKey)
-	t.VictoryStartAnimationPath06 = fbsutils.Convert(string(e.VictoryStartAnimationPath06()), t.FlatBuffer.TableKey)
+	t.VictoryEndAnimationPath01 = fbsutils.Convert(string(e.VictoryEndAnimationPath01()), t.FlatBuffer.TableKey)
 	t.VoiceEvent01 = VoiceEvent(int32(fbsutils.Convert(e.VoiceEvent01(), t.FlatBuffer.TableKey)))
+	t.CostumeId02 = fbsutils.Convert(e.CostumeId02(), t.FlatBuffer.TableKey)
+	t.PositionIndex02 = fbsutils.Convert(e.PositionIndex02(), t.FlatBuffer.TableKey)
+	t.VictoryStartAnimationPath02 = fbsutils.Convert(string(e.VictoryStartAnimationPath02()), t.FlatBuffer.TableKey)
+	t.VictoryEndAnimationPath02 = fbsutils.Convert(string(e.VictoryEndAnimationPath02()), t.FlatBuffer.TableKey)
 	t.VoiceEvent02 = VoiceEvent(int32(fbsutils.Convert(e.VoiceEvent02(), t.FlatBuffer.TableKey)))
+	t.CostumeId03 = fbsutils.Convert(e.CostumeId03(), t.FlatBuffer.TableKey)
+	t.PositionIndex03 = fbsutils.Convert(e.PositionIndex03(), t.FlatBuffer.TableKey)
+	t.VictoryStartAnimationPath03 = fbsutils.Convert(string(e.VictoryStartAnimationPath03()), t.FlatBuffer.TableKey)
+	t.VictoryEndAnimationPath03 = fbsutils.Convert(string(e.VictoryEndAnimationPath03()), t.FlatBuffer.TableKey)
 	t.VoiceEvent03 = VoiceEvent(int32(fbsutils.Convert(e.VoiceEvent03(), t.FlatBuffer.TableKey)))
+	t.CostumeId04 = fbsutils.Convert(e.CostumeId04(), t.FlatBuffer.TableKey)
+	t.PositionIndex04 = fbsutils.Convert(e.PositionIndex04(), t.FlatBuffer.TableKey)
+	t.VictoryStartAnimationPath04 = fbsutils.Convert(string(e.VictoryStartAnimationPath04()), t.FlatBuffer.TableKey)
+	t.VictoryEndAnimationPath04 = fbsutils.Convert(string(e.VictoryEndAnimationPath04()), t.FlatBuffer.TableKey)
 	t.VoiceEvent04 = VoiceEvent(int32(fbsutils.Convert(e.VoiceEvent04(), t.FlatBuffer.TableKey)))
+	t.CostumeId05 = fbsutils.Convert(e.CostumeId05(), t.FlatBuffer.TableKey)
+	t.PositionIndex05 = fbsutils.Convert(e.PositionIndex05(), t.FlatBuffer.TableKey)
+	t.VictoryStartAnimationPath05 = fbsutils.Convert(string(e.VictoryStartAnimationPath05()), t.FlatBuffer.TableKey)
+	t.VictoryEndAnimationPath05 = fbsutils.Convert(string(e.VictoryEndAnimationPath05()), t.FlatBuffer.TableKey)
 	t.VoiceEvent05 = VoiceEvent(int32(fbsutils.Convert(e.VoiceEvent05(), t.FlatBuffer.TableKey)))
+	t.CostumeId06 = fbsutils.Convert(e.CostumeId06(), t.FlatBuffer.TableKey)
+	t.PositionIndex06 = fbsutils.Convert(e.PositionIndex06(), t.FlatBuffer.TableKey)
+	t.VictoryStartAnimationPath06 = fbsutils.Convert(string(e.VictoryStartAnimationPath06()), t.FlatBuffer.TableKey)
+	t.VictoryEndAnimationPath06 = fbsutils.Convert(string(e.VictoryEndAnimationPath06()), t.FlatBuffer.TableKey)
 	t.VoiceEvent06 = VoiceEvent(int32(fbsutils.Convert(e.VoiceEvent06(), t.FlatBuffer.TableKey)))
 	return nil
 }

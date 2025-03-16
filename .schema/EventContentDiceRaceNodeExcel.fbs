@@ -4,11 +4,11 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table EventContentDiceRaceNodeExcel {
-    event_content_dice_race_node_type: EventContentDiceRaceNodeType;
     event_content_id: long;
-    move_forward_type_arg: int;
     node_id: long;
-    reward_amount: [long];
-    reward_parcel_id: [long];
+    event_content_dice_race_node_type: EventContentDiceRaceNodeType;
+    move_forward_type_arg: int;
     reward_parcel_type: [ParcelType];
+    reward_parcel_id: [long];
+    reward_amount: [long];
 }

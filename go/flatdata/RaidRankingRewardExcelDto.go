@@ -10,25 +10,25 @@ import (
 // RaidRankingRewardExcelDto represents a FlatBuffers table
 type RaidRankingRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                     int64        `json:"id"`
-	PercentRankEnd         int64        `json:"percent_rank_end"`
-	PercentRankStart       int64        `json:"percent_rank_start"`
-	RankEnd                int64        `json:"rank_end"`
-	RankEndAsia            int64        `json:"rank_end_asia"`
-	RankEndGlobal          int64        `json:"rank_end_global"`
-	RankEndNa              int64        `json:"rank_end_na"`
-	RankEndTw              int64        `json:"rank_end_tw"`
 	RankingRewardGroupId   int64        `json:"ranking_reward_group_id"`
+	Id                     int64        `json:"id"`
 	RankStart              int64        `json:"rank_start"`
-	RankStartAsia          int64        `json:"rank_start_asia"`
-	RankStartGlobal        int64        `json:"rank_start_global"`
-	RankStartNa            int64        `json:"rank_start_na"`
+	RankEnd                int64        `json:"rank_end"`
 	RankStartTw            int64        `json:"rank_start_tw"`
-	RewardParcelAmount     []int64      `json:"reward_parcel_amount"`
+	RankEndTw              int64        `json:"rank_end_tw"`
+	RankStartAsia          int64        `json:"rank_start_asia"`
+	RankEndAsia            int64        `json:"rank_end_asia"`
+	RankStartNa            int64        `json:"rank_start_na"`
+	RankEndNa              int64        `json:"rank_end_na"`
+	RankStartGlobal        int64        `json:"rank_start_global"`
+	RankEndGlobal          int64        `json:"rank_end_global"`
+	PercentRankStart       int64        `json:"percent_rank_start"`
+	PercentRankEnd         int64        `json:"percent_rank_end"`
+	Tier                   int32        `json:"tier"`
 	RewardParcelType       []ParcelType `json:"reward_parcel_type"`
 	RewardParcelUniqueId   []int64      `json:"reward_parcel_unique_id"`
 	RewardParcelUniqueName []string     `json:"reward_parcel_unique_name"`
-	Tier                   int32        `json:"tier"`
+	RewardParcelAmount     []int64      `json:"reward_parcel_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -37,25 +37,21 @@ func (t *RaidRankingRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidRankingReward"))
 	}
 	RaidRankingRewardExcelStart(b)
-	RaidRankingRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	RaidRankingRewardExcelAddPercentRankEnd(b, fbsutils.Convert(t.PercentRankEnd, t.FlatBuffer.TableKey))
-	RaidRankingRewardExcelAddPercentRankStart(b, fbsutils.Convert(t.PercentRankStart, t.FlatBuffer.TableKey))
-	RaidRankingRewardExcelAddRankEnd(b, fbsutils.Convert(t.RankEnd, t.FlatBuffer.TableKey))
-	RaidRankingRewardExcelAddRankEndAsia(b, fbsutils.Convert(t.RankEndAsia, t.FlatBuffer.TableKey))
-	RaidRankingRewardExcelAddRankEndGlobal(b, fbsutils.Convert(t.RankEndGlobal, t.FlatBuffer.TableKey))
-	RaidRankingRewardExcelAddRankEndNa(b, fbsutils.Convert(t.RankEndNa, t.FlatBuffer.TableKey))
-	RaidRankingRewardExcelAddRankEndTw(b, fbsutils.Convert(t.RankEndTw, t.FlatBuffer.TableKey))
 	RaidRankingRewardExcelAddRankingRewardGroupId(b, fbsutils.Convert(t.RankingRewardGroupId, t.FlatBuffer.TableKey))
+	RaidRankingRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	RaidRankingRewardExcelAddRankStart(b, fbsutils.Convert(t.RankStart, t.FlatBuffer.TableKey))
-	RaidRankingRewardExcelAddRankStartAsia(b, fbsutils.Convert(t.RankStartAsia, t.FlatBuffer.TableKey))
-	RaidRankingRewardExcelAddRankStartGlobal(b, fbsutils.Convert(t.RankStartGlobal, t.FlatBuffer.TableKey))
-	RaidRankingRewardExcelAddRankStartNa(b, fbsutils.Convert(t.RankStartNa, t.FlatBuffer.TableKey))
+	RaidRankingRewardExcelAddRankEnd(b, fbsutils.Convert(t.RankEnd, t.FlatBuffer.TableKey))
 	RaidRankingRewardExcelAddRankStartTw(b, fbsutils.Convert(t.RankStartTw, t.FlatBuffer.TableKey))
-	RaidRankingRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
-	for i := range len(t.RewardParcelAmount) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	RaidRankingRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
+	RaidRankingRewardExcelAddRankEndTw(b, fbsutils.Convert(t.RankEndTw, t.FlatBuffer.TableKey))
+	RaidRankingRewardExcelAddRankStartAsia(b, fbsutils.Convert(t.RankStartAsia, t.FlatBuffer.TableKey))
+	RaidRankingRewardExcelAddRankEndAsia(b, fbsutils.Convert(t.RankEndAsia, t.FlatBuffer.TableKey))
+	RaidRankingRewardExcelAddRankStartNa(b, fbsutils.Convert(t.RankStartNa, t.FlatBuffer.TableKey))
+	RaidRankingRewardExcelAddRankEndNa(b, fbsutils.Convert(t.RankEndNa, t.FlatBuffer.TableKey))
+	RaidRankingRewardExcelAddRankStartGlobal(b, fbsutils.Convert(t.RankStartGlobal, t.FlatBuffer.TableKey))
+	RaidRankingRewardExcelAddRankEndGlobal(b, fbsutils.Convert(t.RankEndGlobal, t.FlatBuffer.TableKey))
+	RaidRankingRewardExcelAddPercentRankStart(b, fbsutils.Convert(t.PercentRankStart, t.FlatBuffer.TableKey))
+	RaidRankingRewardExcelAddPercentRankEnd(b, fbsutils.Convert(t.PercentRankEnd, t.FlatBuffer.TableKey))
+	RaidRankingRewardExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
 	RaidRankingRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
@@ -71,7 +67,11 @@ func (t *RaidRankingRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.RewardParcelUniqueName[len(t.RewardParcelUniqueName)-i-1]), t.FlatBuffer.TableKey))
 	}
 	RaidRankingRewardExcelAddRewardParcelUniqueName(b, b.EndVector(len(t.RewardParcelUniqueName)))
-	RaidRankingRewardExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
+	RaidRankingRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
+	for i := range len(t.RewardParcelAmount) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	RaidRankingRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
 	return RaidRankingRewardExcelEnd(b)
 }
 
@@ -87,24 +87,21 @@ func (t *RaidRankingRewardExcelDto) UnmarshalMessage(e *RaidRankingRewardExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidRankingReward"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.PercentRankEnd = fbsutils.Convert(e.PercentRankEnd(), t.FlatBuffer.TableKey)
-	t.PercentRankStart = fbsutils.Convert(e.PercentRankStart(), t.FlatBuffer.TableKey)
-	t.RankEnd = fbsutils.Convert(e.RankEnd(), t.FlatBuffer.TableKey)
-	t.RankEndAsia = fbsutils.Convert(e.RankEndAsia(), t.FlatBuffer.TableKey)
-	t.RankEndGlobal = fbsutils.Convert(e.RankEndGlobal(), t.FlatBuffer.TableKey)
-	t.RankEndNa = fbsutils.Convert(e.RankEndNa(), t.FlatBuffer.TableKey)
-	t.RankEndTw = fbsutils.Convert(e.RankEndTw(), t.FlatBuffer.TableKey)
 	t.RankingRewardGroupId = fbsutils.Convert(e.RankingRewardGroupId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.RankStart = fbsutils.Convert(e.RankStart(), t.FlatBuffer.TableKey)
-	t.RankStartAsia = fbsutils.Convert(e.RankStartAsia(), t.FlatBuffer.TableKey)
-	t.RankStartGlobal = fbsutils.Convert(e.RankStartGlobal(), t.FlatBuffer.TableKey)
-	t.RankStartNa = fbsutils.Convert(e.RankStartNa(), t.FlatBuffer.TableKey)
+	t.RankEnd = fbsutils.Convert(e.RankEnd(), t.FlatBuffer.TableKey)
 	t.RankStartTw = fbsutils.Convert(e.RankStartTw(), t.FlatBuffer.TableKey)
-	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
-	}
+	t.RankEndTw = fbsutils.Convert(e.RankEndTw(), t.FlatBuffer.TableKey)
+	t.RankStartAsia = fbsutils.Convert(e.RankStartAsia(), t.FlatBuffer.TableKey)
+	t.RankEndAsia = fbsutils.Convert(e.RankEndAsia(), t.FlatBuffer.TableKey)
+	t.RankStartNa = fbsutils.Convert(e.RankStartNa(), t.FlatBuffer.TableKey)
+	t.RankEndNa = fbsutils.Convert(e.RankEndNa(), t.FlatBuffer.TableKey)
+	t.RankStartGlobal = fbsutils.Convert(e.RankStartGlobal(), t.FlatBuffer.TableKey)
+	t.RankEndGlobal = fbsutils.Convert(e.RankEndGlobal(), t.FlatBuffer.TableKey)
+	t.PercentRankStart = fbsutils.Convert(e.PercentRankStart(), t.FlatBuffer.TableKey)
+	t.PercentRankEnd = fbsutils.Convert(e.PercentRankEnd(), t.FlatBuffer.TableKey)
+	t.Tier = fbsutils.Convert(e.Tier(), t.FlatBuffer.TableKey)
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
 		t.RewardParcelType[i] = e.RewardParcelType(i)
@@ -117,7 +114,10 @@ func (t *RaidRankingRewardExcelDto) UnmarshalMessage(e *RaidRankingRewardExcel) 
 	for i := range e.RewardParcelUniqueNameLength() {
 		t.RewardParcelUniqueName[i] = string(e.RewardParcelUniqueName(i))
 	}
-	t.Tier = fbsutils.Convert(e.Tier(), t.FlatBuffer.TableKey)
+	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
+	}
 	return nil
 }
 
