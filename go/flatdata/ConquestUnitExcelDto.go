@@ -126,7 +126,7 @@ func (t *ConquestUnitExcelDto) UnmarshalMessage(e *ConquestUnitExcel) error {
 	}
 	t.StarGoalAmount = make([]int32, e.StarGoalAmountLength())
 	for i := range e.StarGoalAmountLength() {
-		t.StarGoalAmount[i] = e.StarGoalAmount(i)
+		t.StarGoalAmount[i] = fbsutils.Convert(e.StarGoalAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.GroupBuffId = fbsutils.Convert(e.GroupBuffId(), t.FlatBuffer.TableKey)
 	t.StageEnterCostType = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType()), t.FlatBuffer.TableKey))

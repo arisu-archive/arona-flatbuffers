@@ -44,7 +44,7 @@ func (t *VoiceSkillUseExcelDto) UnmarshalMessage(e *VoiceSkillUseExcel) error {
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.VoiceHash = make([]uint32, e.VoiceHashLength())
 	for i := range e.VoiceHashLength() {
-		t.VoiceHash[i] = e.VoiceHash(i)
+		t.VoiceHash[i] = fbsutils.Convert(e.VoiceHash(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

@@ -50,7 +50,7 @@ func (t *BossPhaseExcelDto) UnmarshalMessage(e *BossPhaseExcel) error {
 	t.NormalAttackSkillUniqueName = fbsutils.Convert(string(e.NormalAttackSkillUniqueName()), t.FlatBuffer.TableKey)
 	t.UseExSkill = make([]bool, e.UseExSkillLength())
 	for i := range e.UseExSkillLength() {
-		t.UseExSkill[i] = e.UseExSkill(i)
+		t.UseExSkill[i] = fbsutils.Convert(e.UseExSkill(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

@@ -62,7 +62,7 @@ func (t *MiniGameDreamCollectionScenarioExcelDto) UnmarshalMessage(e *MiniGameDr
 	}
 	t.ParameterAmount = make([]int64, e.ParameterAmountLength())
 	for i := range e.ParameterAmountLength() {
-		t.ParameterAmount[i] = e.ParameterAmount(i)
+		t.ParameterAmount[i] = fbsutils.Convert(e.ParameterAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
 	return nil

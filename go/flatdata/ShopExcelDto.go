@@ -73,7 +73,7 @@ func (t *ShopExcelDto) UnmarshalMessage(e *ShopExcel) error {
 	t.IsLegacy = fbsutils.Convert(e.IsLegacy(), t.FlatBuffer.TableKey)
 	t.GoodsId = make([]int64, e.GoodsIdLength())
 	for i := range e.GoodsIdLength() {
-		t.GoodsId[i] = e.GoodsId(i)
+		t.GoodsId[i] = fbsutils.Convert(e.GoodsId(i), t.FlatBuffer.TableKey)
 	}
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.SalePeriodFrom = fbsutils.Convert(string(e.SalePeriodFrom()), t.FlatBuffer.TableKey)

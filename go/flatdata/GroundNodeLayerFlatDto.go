@@ -41,7 +41,7 @@ func (t *GroundNodeLayerFlatDto) UnmarshalMessage(e *GroundNodeLayerFlat) error 
 	}
 	t.Layers = make([]int8, e.LayersLength())
 	for i := range e.LayersLength() {
-		t.Layers[i] = e.Layers(i)
+		t.Layers[i] = fbsutils.Convert(e.Layers(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

@@ -88,26 +88,26 @@ func (t *CampaignChapterExcelDto) UnmarshalMessage(e *CampaignChapterExcel) erro
 	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	t.PreChapterId = make([]int64, e.PreChapterIdLength())
 	for i := range e.PreChapterIdLength() {
-		t.PreChapterId[i] = e.PreChapterId(i)
+		t.PreChapterId[i] = fbsutils.Convert(e.PreChapterId(i), t.FlatBuffer.TableKey)
 	}
 	t.ChapterRewardId = fbsutils.Convert(e.ChapterRewardId(), t.FlatBuffer.TableKey)
 	t.ChapterHardRewardId = fbsutils.Convert(e.ChapterHardRewardId(), t.FlatBuffer.TableKey)
 	t.ChapterVeryHardRewardId = fbsutils.Convert(e.ChapterVeryHardRewardId(), t.FlatBuffer.TableKey)
 	t.NormalCampaignStageId = make([]int64, e.NormalCampaignStageIdLength())
 	for i := range e.NormalCampaignStageIdLength() {
-		t.NormalCampaignStageId[i] = e.NormalCampaignStageId(i)
+		t.NormalCampaignStageId[i] = fbsutils.Convert(e.NormalCampaignStageId(i), t.FlatBuffer.TableKey)
 	}
 	t.NormalExtraStageId = make([]int64, e.NormalExtraStageIdLength())
 	for i := range e.NormalExtraStageIdLength() {
-		t.NormalExtraStageId[i] = e.NormalExtraStageId(i)
+		t.NormalExtraStageId[i] = fbsutils.Convert(e.NormalExtraStageId(i), t.FlatBuffer.TableKey)
 	}
 	t.HardCampaignStageId = make([]int64, e.HardCampaignStageIdLength())
 	for i := range e.HardCampaignStageIdLength() {
-		t.HardCampaignStageId[i] = e.HardCampaignStageId(i)
+		t.HardCampaignStageId[i] = fbsutils.Convert(e.HardCampaignStageId(i), t.FlatBuffer.TableKey)
 	}
 	t.VeryHardCampaignStageId = make([]int64, e.VeryHardCampaignStageIdLength())
 	for i := range e.VeryHardCampaignStageIdLength() {
-		t.VeryHardCampaignStageId[i] = e.VeryHardCampaignStageId(i)
+		t.VeryHardCampaignStageId[i] = fbsutils.Convert(e.VeryHardCampaignStageId(i), t.FlatBuffer.TableKey)
 	}
 	t.IsTacticSkip = fbsutils.Convert(e.IsTacticSkip(), t.FlatBuffer.TableKey)
 	return nil

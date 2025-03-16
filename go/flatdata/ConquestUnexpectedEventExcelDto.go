@@ -69,7 +69,7 @@ func (t *ConquestUnexpectedEventExcelDto) UnmarshalMessage(e *ConquestUnexpected
 	}
 	t.UnexpectedEventUnitId = make([]int64, e.UnexpectedEventUnitIdLength())
 	for i := range e.UnexpectedEventUnitIdLength() {
-		t.UnexpectedEventUnitId[i] = e.UnexpectedEventUnitId(i)
+		t.UnexpectedEventUnitId[i] = fbsutils.Convert(e.UnexpectedEventUnitId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

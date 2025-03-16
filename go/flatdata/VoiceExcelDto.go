@@ -67,7 +67,7 @@ func (t *VoiceExcelDto) UnmarshalMessage(e *VoiceExcel) error {
 	}
 	t.Volume = make([]float32, e.VolumeLength())
 	for i := range e.VolumeLength() {
-		t.Volume[i] = e.Volume(i)
+		t.Volume[i] = fbsutils.Convert(e.Volume(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

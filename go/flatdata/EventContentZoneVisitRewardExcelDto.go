@@ -78,15 +78,15 @@ func (t *EventContentZoneVisitRewardExcelDto) UnmarshalMessage(e *EventContentZo
 	}
 	t.VisitRewardParcelId = make([]int64, e.VisitRewardParcelIdLength())
 	for i := range e.VisitRewardParcelIdLength() {
-		t.VisitRewardParcelId[i] = e.VisitRewardParcelId(i)
+		t.VisitRewardParcelId[i] = fbsutils.Convert(e.VisitRewardParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.VisitRewardAmount = make([]int64, e.VisitRewardAmountLength())
 	for i := range e.VisitRewardAmountLength() {
-		t.VisitRewardAmount[i] = e.VisitRewardAmount(i)
+		t.VisitRewardAmount[i] = fbsutils.Convert(e.VisitRewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.VisitRewardProb = make([]int64, e.VisitRewardProbLength())
 	for i := range e.VisitRewardProbLength() {
-		t.VisitRewardProb[i] = e.VisitRewardProb(i)
+		t.VisitRewardProb[i] = fbsutils.Convert(e.VisitRewardProb(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

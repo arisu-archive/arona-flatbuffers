@@ -122,7 +122,7 @@ func (t *MiniGameMissionExcelDto) UnmarshalMessage(e *MiniGameMissionExcel) erro
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.PreMissionId = make([]int64, e.PreMissionIdLength())
 	for i := range e.PreMissionIdLength() {
-		t.PreMissionId[i] = e.PreMissionId(i)
+		t.PreMissionId[i] = fbsutils.Convert(e.PreMissionId(i), t.FlatBuffer.TableKey)
 	}
 	t.AccountType = AccountState(fbsutils.Convert(int32(e.AccountType()), t.FlatBuffer.TableKey))
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
@@ -135,7 +135,7 @@ func (t *MiniGameMissionExcelDto) UnmarshalMessage(e *MiniGameMissionExcel) erro
 	t.CompleteConditionCount = fbsutils.Convert(e.CompleteConditionCount(), t.FlatBuffer.TableKey)
 	t.CompleteConditionParameter = make([]int64, e.CompleteConditionParameterLength())
 	for i := range e.CompleteConditionParameterLength() {
-		t.CompleteConditionParameter[i] = e.CompleteConditionParameter(i)
+		t.CompleteConditionParameter[i] = fbsutils.Convert(e.CompleteConditionParameter(i), t.FlatBuffer.TableKey)
 	}
 	t.CompleteConditionParameterTag = make([]Tag, e.CompleteConditionParameterTagLength())
 	for i := range e.CompleteConditionParameterTagLength() {
@@ -148,11 +148,11 @@ func (t *MiniGameMissionExcelDto) UnmarshalMessage(e *MiniGameMissionExcel) erro
 	}
 	t.MissionRewardParcelId = make([]int64, e.MissionRewardParcelIdLength())
 	for i := range e.MissionRewardParcelIdLength() {
-		t.MissionRewardParcelId[i] = e.MissionRewardParcelId(i)
+		t.MissionRewardParcelId[i] = fbsutils.Convert(e.MissionRewardParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.MissionRewardAmount = make([]int32, e.MissionRewardAmountLength())
 	for i := range e.MissionRewardAmountLength() {
-		t.MissionRewardAmount[i] = e.MissionRewardAmount(i)
+		t.MissionRewardAmount[i] = fbsutils.Convert(e.MissionRewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

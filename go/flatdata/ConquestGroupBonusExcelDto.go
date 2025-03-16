@@ -103,31 +103,31 @@ func (t *ConquestGroupBonusExcelDto) UnmarshalMessage(e *ConquestGroupBonusExcel
 	}
 	t.BonusId = make([]int64, e.BonusIdLength())
 	for i := range e.BonusIdLength() {
-		t.BonusId[i] = e.BonusId(i)
+		t.BonusId[i] = fbsutils.Convert(e.BonusId(i), t.FlatBuffer.TableKey)
 	}
 	t.BonusCharacterCount1 = make([]int32, e.BonusCharacterCount1Length())
 	for i := range e.BonusCharacterCount1Length() {
-		t.BonusCharacterCount1[i] = e.BonusCharacterCount1(i)
+		t.BonusCharacterCount1[i] = fbsutils.Convert(e.BonusCharacterCount1(i), t.FlatBuffer.TableKey)
 	}
 	t.BonusPercentage1 = make([]int64, e.BonusPercentage1Length())
 	for i := range e.BonusPercentage1Length() {
-		t.BonusPercentage1[i] = e.BonusPercentage1(i)
+		t.BonusPercentage1[i] = fbsutils.Convert(e.BonusPercentage1(i), t.FlatBuffer.TableKey)
 	}
 	t.BonusCharacterCount2 = make([]int32, e.BonusCharacterCount2Length())
 	for i := range e.BonusCharacterCount2Length() {
-		t.BonusCharacterCount2[i] = e.BonusCharacterCount2(i)
+		t.BonusCharacterCount2[i] = fbsutils.Convert(e.BonusCharacterCount2(i), t.FlatBuffer.TableKey)
 	}
 	t.BonusPercentage2 = make([]int64, e.BonusPercentage2Length())
 	for i := range e.BonusPercentage2Length() {
-		t.BonusPercentage2[i] = e.BonusPercentage2(i)
+		t.BonusPercentage2[i] = fbsutils.Convert(e.BonusPercentage2(i), t.FlatBuffer.TableKey)
 	}
 	t.BonusCharacterCount3 = make([]int32, e.BonusCharacterCount3Length())
 	for i := range e.BonusCharacterCount3Length() {
-		t.BonusCharacterCount3[i] = e.BonusCharacterCount3(i)
+		t.BonusCharacterCount3[i] = fbsutils.Convert(e.BonusCharacterCount3(i), t.FlatBuffer.TableKey)
 	}
 	t.BonusPercentage3 = make([]int64, e.BonusPercentage3Length())
 	for i := range e.BonusPercentage3Length() {
-		t.BonusPercentage3[i] = e.BonusPercentage3(i)
+		t.BonusPercentage3[i] = fbsutils.Convert(e.BonusPercentage3(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

@@ -62,19 +62,19 @@ func (t *FieldMasteryLevelExcelDto) UnmarshalMessage(e *FieldMasteryLevelExcel) 
 	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.Id = make([]int64, e.IdLength())
 	for i := range e.IdLength() {
-		t.Id[i] = e.Id(i)
+		t.Id[i] = fbsutils.Convert(e.Id(i), t.FlatBuffer.TableKey)
 	}
 	t.Exp = make([]int64, e.ExpLength())
 	for i := range e.ExpLength() {
-		t.Exp[i] = e.Exp(i)
+		t.Exp[i] = fbsutils.Convert(e.Exp(i), t.FlatBuffer.TableKey)
 	}
 	t.TotalExp = make([]int64, e.TotalExpLength())
 	for i := range e.TotalExpLength() {
-		t.TotalExp[i] = e.TotalExp(i)
+		t.TotalExp[i] = fbsutils.Convert(e.TotalExp(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardId = make([]int64, e.RewardIdLength())
 	for i := range e.RewardIdLength() {
-		t.RewardId[i] = e.RewardId(i)
+		t.RewardId[i] = fbsutils.Convert(e.RewardId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

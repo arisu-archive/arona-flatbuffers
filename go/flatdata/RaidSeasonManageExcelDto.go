@@ -78,11 +78,11 @@ func (t *RaidSeasonManageExcelDto) UnmarshalMessage(e *RaidSeasonManageExcel) er
 	t.MaxSeasonRewardGauage = fbsutils.Convert(e.MaxSeasonRewardGauage(), t.FlatBuffer.TableKey)
 	t.StackedSeasonRewardGauge = make([]int64, e.StackedSeasonRewardGaugeLength())
 	for i := range e.StackedSeasonRewardGaugeLength() {
-		t.StackedSeasonRewardGauge[i] = e.StackedSeasonRewardGauge(i)
+		t.StackedSeasonRewardGauge[i] = fbsutils.Convert(e.StackedSeasonRewardGauge(i), t.FlatBuffer.TableKey)
 	}
 	t.SeasonRewardId = make([]int64, e.SeasonRewardIdLength())
 	for i := range e.SeasonRewardIdLength() {
-		t.SeasonRewardId[i] = e.SeasonRewardId(i)
+		t.SeasonRewardId[i] = fbsutils.Convert(e.SeasonRewardId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

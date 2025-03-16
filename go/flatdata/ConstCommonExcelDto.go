@@ -422,12 +422,12 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.NicknameLength = fbsutils.Convert(e.NicknameLength(), t.FlatBuffer.TableKey)
 	t.CraftDuration = make([]int32, e.CraftDurationLength())
 	for i := range e.CraftDurationLength() {
-		t.CraftDuration[i] = e.CraftDuration(i)
+		t.CraftDuration[i] = fbsutils.Convert(e.CraftDuration(i), t.FlatBuffer.TableKey)
 	}
 	t.CraftLimitTime = fbsutils.Convert(e.CraftLimitTime(), t.FlatBuffer.TableKey)
 	t.ShiftingCraftDuration = make([]int32, e.ShiftingCraftDurationLength())
 	for i := range e.ShiftingCraftDurationLength() {
-		t.ShiftingCraftDuration[i] = e.ShiftingCraftDuration(i)
+		t.ShiftingCraftDuration[i] = fbsutils.Convert(e.ShiftingCraftDuration(i), t.FlatBuffer.TableKey)
 	}
 	t.ShiftingCraftTicketConsumeAmount = fbsutils.Convert(e.ShiftingCraftTicketConsumeAmount(), t.FlatBuffer.TableKey)
 	t.ShiftingCraftSlotMaxCapacity = fbsutils.Convert(e.ShiftingCraftSlotMaxCapacity(), t.FlatBuffer.TableKey)
@@ -444,7 +444,7 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.TutorialGachaGoodsId = fbsutils.Convert(e.TutorialGachaGoodsId(), t.FlatBuffer.TableKey)
 	t.EquipmentSlotOpenLevel = make([]int32, e.EquipmentSlotOpenLevelLength())
 	for i := range e.EquipmentSlotOpenLevelLength() {
-		t.EquipmentSlotOpenLevel[i] = e.EquipmentSlotOpenLevel(i)
+		t.EquipmentSlotOpenLevel[i] = fbsutils.Convert(e.EquipmentSlotOpenLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.ScenarioAutoDelayMillisec = fbsutils.Convert(e.ScenarioAutoDelayMillisec(), t.FlatBuffer.TableKey)
 	t.JoinOrCreateClanCoolTimeFromHour = fbsutils.Convert(e.JoinOrCreateClanCoolTimeFromHour(), t.FlatBuffer.TableKey)
@@ -470,7 +470,7 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.RaidOpponentListAmount = fbsutils.Convert(e.RaidOpponentListAmount(), t.FlatBuffer.TableKey)
 	t.CraftBaseGoldRequired = make([]int64, e.CraftBaseGoldRequiredLength())
 	for i := range e.CraftBaseGoldRequiredLength() {
-		t.CraftBaseGoldRequired[i] = e.CraftBaseGoldRequired(i)
+		t.CraftBaseGoldRequired[i] = fbsutils.Convert(e.CraftBaseGoldRequired(i), t.FlatBuffer.TableKey)
 	}
 	t.PostExpiredDayAttendance = fbsutils.Convert(e.PostExpiredDayAttendance(), t.FlatBuffer.TableKey)
 	t.PostExpiredDayInventoryOverflow = fbsutils.Convert(e.PostExpiredDayInventoryOverflow(), t.FlatBuffer.TableKey)

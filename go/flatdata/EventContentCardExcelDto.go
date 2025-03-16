@@ -66,7 +66,7 @@ func (t *EventContentCardExcelDto) UnmarshalMessage(e *EventContentCardExcel) er
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
-		t.RewardParcelId[i] = e.RewardParcelId(i)
+		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

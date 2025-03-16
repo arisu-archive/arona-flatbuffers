@@ -71,7 +71,7 @@ func (t *ConquestStepExcelDto) UnmarshalMessage(e *ConquestStepExcel) error {
 	t.StepEnterItemAmount = fbsutils.Convert(e.StepEnterItemAmount(), t.FlatBuffer.TableKey)
 	t.UnexpectedEventUnitId = make([]int64, e.UnexpectedEventUnitIdLength())
 	for i := range e.UnexpectedEventUnitIdLength() {
-		t.UnexpectedEventUnitId[i] = e.UnexpectedEventUnitId(i)
+		t.UnexpectedEventUnitId[i] = fbsutils.Convert(e.UnexpectedEventUnitId(i), t.FlatBuffer.TableKey)
 	}
 	t.UnexpectedEventPrefab = fbsutils.Convert(string(e.UnexpectedEventPrefab()), t.FlatBuffer.TableKey)
 	t.TreasureBoxObjectId = fbsutils.Convert(e.TreasureBoxObjectId(), t.FlatBuffer.TableKey)

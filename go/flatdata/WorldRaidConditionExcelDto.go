@@ -76,17 +76,17 @@ func (t *WorldRaidConditionExcelDto) UnmarshalMessage(e *WorldRaidConditionExcel
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
 	t.ScenarioModeId = make([]int64, e.ScenarioModeIdLength())
 	for i := range e.ScenarioModeIdLength() {
-		t.ScenarioModeId[i] = e.ScenarioModeId(i)
+		t.ScenarioModeId[i] = fbsutils.Convert(e.ScenarioModeId(i), t.FlatBuffer.TableKey)
 	}
 	t.CampaignStageId = make([]int64, e.CampaignStageIdLength())
 	for i := range e.CampaignStageIdLength() {
-		t.CampaignStageId[i] = e.CampaignStageId(i)
+		t.CampaignStageId[i] = fbsutils.Convert(e.CampaignStageId(i), t.FlatBuffer.TableKey)
 	}
 	t.MultipleConditionCheckType = MultipleConditionCheckType(fbsutils.Convert(int32(e.MultipleConditionCheckType()), t.FlatBuffer.TableKey))
 	t.AfterWhenDate = fbsutils.Convert(string(e.AfterWhenDate()), t.FlatBuffer.TableKey)
 	t.WorldRaidBossKill = make([]int64, e.WorldRaidBossKillLength())
 	for i := range e.WorldRaidBossKillLength() {
-		t.WorldRaidBossKill[i] = e.WorldRaidBossKill(i)
+		t.WorldRaidBossKill[i] = fbsutils.Convert(e.WorldRaidBossKill(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

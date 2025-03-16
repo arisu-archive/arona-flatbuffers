@@ -138,16 +138,16 @@ func (t *ConstArenaExcelDto) UnmarshalMessage(e *ConstArenaExcel) error {
 	t.OpenScenarioId = fbsutils.Convert(string(e.OpenScenarioId()), t.FlatBuffer.TableKey)
 	t.CharacterSlotHideRank = make([]int64, e.CharacterSlotHideRankLength())
 	for i := range e.CharacterSlotHideRankLength() {
-		t.CharacterSlotHideRank[i] = e.CharacterSlotHideRank(i)
+		t.CharacterSlotHideRank[i] = fbsutils.Convert(e.CharacterSlotHideRank(i), t.FlatBuffer.TableKey)
 	}
 	t.MapSlotHideRank = fbsutils.Convert(e.MapSlotHideRank(), t.FlatBuffer.TableKey)
 	t.RelativeOpponentRankStart = make([]int64, e.RelativeOpponentRankStartLength())
 	for i := range e.RelativeOpponentRankStartLength() {
-		t.RelativeOpponentRankStart[i] = e.RelativeOpponentRankStart(i)
+		t.RelativeOpponentRankStart[i] = fbsutils.Convert(e.RelativeOpponentRankStart(i), t.FlatBuffer.TableKey)
 	}
 	t.RelativeOpponentRankEnd = make([]int64, e.RelativeOpponentRankEndLength())
 	for i := range e.RelativeOpponentRankEndLength() {
-		t.RelativeOpponentRankEnd[i] = e.RelativeOpponentRankEnd(i)
+		t.RelativeOpponentRankEnd[i] = fbsutils.Convert(e.RelativeOpponentRankEnd(i), t.FlatBuffer.TableKey)
 	}
 	t.ModifiedStatType = make([]StatType, e.ModifiedStatTypeLength())
 	for i := range e.ModifiedStatTypeLength() {
@@ -155,11 +155,11 @@ func (t *ConstArenaExcelDto) UnmarshalMessage(e *ConstArenaExcel) error {
 	}
 	t.StatMulFactor = make([]int64, e.StatMulFactorLength())
 	for i := range e.StatMulFactorLength() {
-		t.StatMulFactor[i] = e.StatMulFactor(i)
+		t.StatMulFactor[i] = fbsutils.Convert(e.StatMulFactor(i), t.FlatBuffer.TableKey)
 	}
 	t.StatSumFactor = make([]int64, e.StatSumFactorLength())
 	for i := range e.StatSumFactorLength() {
-		t.StatSumFactor[i] = e.StatSumFactor(i)
+		t.StatSumFactor[i] = fbsutils.Convert(e.StatSumFactor(i), t.FlatBuffer.TableKey)
 	}
 	t.NpcName = make([]string, e.NpcNameLength())
 	for i := range e.NpcNameLength() {

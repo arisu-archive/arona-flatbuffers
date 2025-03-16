@@ -50,11 +50,11 @@ func (t *EquipmentLevelExcelDto) UnmarshalMessage(e *EquipmentLevelExcel) error 
 	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.TierLevelExp = make([]int64, e.TierLevelExpLength())
 	for i := range e.TierLevelExpLength() {
-		t.TierLevelExp[i] = e.TierLevelExp(i)
+		t.TierLevelExp[i] = fbsutils.Convert(e.TierLevelExp(i), t.FlatBuffer.TableKey)
 	}
 	t.TotalExp = make([]int64, e.TotalExpLength())
 	for i := range e.TotalExpLength() {
-		t.TotalExp[i] = e.TotalExp(i)
+		t.TotalExp[i] = fbsutils.Convert(e.TotalExp(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

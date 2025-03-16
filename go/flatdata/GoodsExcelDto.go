@@ -119,11 +119,11 @@ func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
 	}
 	t.ConsumeParcelId = make([]int64, e.ConsumeParcelIdLength())
 	for i := range e.ConsumeParcelIdLength() {
-		t.ConsumeParcelId[i] = e.ConsumeParcelId(i)
+		t.ConsumeParcelId[i] = fbsutils.Convert(e.ConsumeParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.ConsumeParcelAmount = make([]int64, e.ConsumeParcelAmountLength())
 	for i := range e.ConsumeParcelAmountLength() {
-		t.ConsumeParcelAmount[i] = e.ConsumeParcelAmount(i)
+		t.ConsumeParcelAmount[i] = fbsutils.Convert(e.ConsumeParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.ConsumeCondition = make([]ConsumeCondition, e.ConsumeConditionLength())
 	for i := range e.ConsumeConditionLength() {
@@ -137,11 +137,11 @@ func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
 	t.ProductIdSgs = fbsutils.Convert(e.ProductIdSgs(), t.FlatBuffer.TableKey)
 	t.ConsumeExtraStep = make([]int64, e.ConsumeExtraStepLength())
 	for i := range e.ConsumeExtraStepLength() {
-		t.ConsumeExtraStep[i] = e.ConsumeExtraStep(i)
+		t.ConsumeExtraStep[i] = fbsutils.Convert(e.ConsumeExtraStep(i), t.FlatBuffer.TableKey)
 	}
 	t.ConsumeExtraAmount = make([]int64, e.ConsumeExtraAmountLength())
 	for i := range e.ConsumeExtraAmountLength() {
-		t.ConsumeExtraAmount[i] = e.ConsumeExtraAmount(i)
+		t.ConsumeExtraAmount[i] = fbsutils.Convert(e.ConsumeExtraAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.State = fbsutils.Convert(e.State(), t.FlatBuffer.TableKey)
 	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
@@ -150,11 +150,11 @@ func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
 	}
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {
-		t.ParcelId[i] = e.ParcelId(i)
+		t.ParcelId[i] = fbsutils.Convert(e.ParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.ParcelAmount = make([]int64, e.ParcelAmountLength())
 	for i := range e.ParcelAmountLength() {
-		t.ParcelAmount[i] = e.ParcelAmount(i)
+		t.ParcelAmount[i] = fbsutils.Convert(e.ParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

@@ -54,7 +54,7 @@ func (t *CharacterStatsDetailExcelDto) UnmarshalMessage(e *CharacterStatsDetailE
 	}
 	t.IsStatsPercent = make([]bool, e.IsStatsPercentLength())
 	for i := range e.IsStatsPercentLength() {
-		t.IsStatsPercent[i] = e.IsStatsPercent(i)
+		t.IsStatsPercent[i] = fbsutils.Convert(e.IsStatsPercent(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

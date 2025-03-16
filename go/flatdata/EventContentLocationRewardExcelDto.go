@@ -118,7 +118,7 @@ func (t *EventContentLocationRewardExcelDto) UnmarshalMessage(e *EventContentLoc
 	t.ProgressTexture = fbsutils.Convert(string(e.ProgressTexture()), t.FlatBuffer.TableKey)
 	t.VoiceId = make([]uint32, e.VoiceIdLength())
 	for i := range e.VoiceIdLength() {
-		t.VoiceId[i] = e.VoiceId(i)
+		t.VoiceId[i] = fbsutils.Convert(e.VoiceId(i), t.FlatBuffer.TableKey)
 	}
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.LocationRank = fbsutils.Convert(e.LocationRank(), t.FlatBuffer.TableKey)
@@ -133,19 +133,19 @@ func (t *EventContentLocationRewardExcelDto) UnmarshalMessage(e *EventContentLoc
 	}
 	t.ExtraRewardParcelId = make([]int64, e.ExtraRewardParcelIdLength())
 	for i := range e.ExtraRewardParcelIdLength() {
-		t.ExtraRewardParcelId[i] = e.ExtraRewardParcelId(i)
+		t.ExtraRewardParcelId[i] = fbsutils.Convert(e.ExtraRewardParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.ExtraRewardAmount = make([]int64, e.ExtraRewardAmountLength())
 	for i := range e.ExtraRewardAmountLength() {
-		t.ExtraRewardAmount[i] = e.ExtraRewardAmount(i)
+		t.ExtraRewardAmount[i] = fbsutils.Convert(e.ExtraRewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.ExtraRewardProb = make([]int64, e.ExtraRewardProbLength())
 	for i := range e.ExtraRewardProbLength() {
-		t.ExtraRewardProb[i] = e.ExtraRewardProb(i)
+		t.ExtraRewardProb[i] = fbsutils.Convert(e.ExtraRewardProb(i), t.FlatBuffer.TableKey)
 	}
 	t.IsExtraRewardDisplayed = make([]bool, e.IsExtraRewardDisplayedLength())
 	for i := range e.IsExtraRewardDisplayedLength() {
-		t.IsExtraRewardDisplayed[i] = e.IsExtraRewardDisplayed(i)
+		t.IsExtraRewardDisplayed[i] = fbsutils.Convert(e.IsExtraRewardDisplayed(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
@@ -153,11 +153,11 @@ func (t *EventContentLocationRewardExcelDto) UnmarshalMessage(e *EventContentLoc
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
-		t.RewardParcelId[i] = e.RewardParcelId(i)
+		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardAmount = make([]int64, e.RewardAmountLength())
 	for i := range e.RewardAmountLength() {
-		t.RewardAmount[i] = e.RewardAmount(i)
+		t.RewardAmount[i] = fbsutils.Convert(e.RewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

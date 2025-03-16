@@ -119,11 +119,11 @@ func (t *MultiFloorRaidStageExcelDto) UnmarshalMessage(e *MultiFloorRaidStageExc
 	t.RaidCharacterId = fbsutils.Convert(e.RaidCharacterId(), t.FlatBuffer.TableKey)
 	t.BossCharacterId = make([]int64, e.BossCharacterIdLength())
 	for i := range e.BossCharacterIdLength() {
-		t.BossCharacterId[i] = e.BossCharacterId(i)
+		t.BossCharacterId[i] = fbsutils.Convert(e.BossCharacterId(i), t.FlatBuffer.TableKey)
 	}
 	t.StatChangeId = make([]int64, e.StatChangeIdLength())
 	for i := range e.StatChangeIdLength() {
-		t.StatChangeId[i] = e.StatChangeId(i)
+		t.StatChangeId[i] = fbsutils.Convert(e.StatChangeId(i), t.FlatBuffer.TableKey)
 	}
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
@@ -135,11 +135,11 @@ func (t *MultiFloorRaidStageExcelDto) UnmarshalMessage(e *MultiFloorRaidStageExc
 	}
 	t.BattleReadyTimelinePhaseStart = make([]int32, e.BattleReadyTimelinePhaseStartLength())
 	for i := range e.BattleReadyTimelinePhaseStartLength() {
-		t.BattleReadyTimelinePhaseStart[i] = e.BattleReadyTimelinePhaseStart(i)
+		t.BattleReadyTimelinePhaseStart[i] = fbsutils.Convert(e.BattleReadyTimelinePhaseStart(i), t.FlatBuffer.TableKey)
 	}
 	t.BattleReadyTimelinePhaseEnd = make([]int32, e.BattleReadyTimelinePhaseEndLength())
 	for i := range e.BattleReadyTimelinePhaseEndLength() {
-		t.BattleReadyTimelinePhaseEnd[i] = e.BattleReadyTimelinePhaseEnd(i)
+		t.BattleReadyTimelinePhaseEnd[i] = fbsutils.Convert(e.BattleReadyTimelinePhaseEnd(i), t.FlatBuffer.TableKey)
 	}
 	t.VictoryTimelinePath = fbsutils.Convert(string(e.VictoryTimelinePath()), t.FlatBuffer.TableKey)
 	t.ShowSkillCard = fbsutils.Convert(e.ShowSkillCard(), t.FlatBuffer.TableKey)

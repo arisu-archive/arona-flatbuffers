@@ -56,7 +56,7 @@ func (t *ShopFreeRecruitExcelDto) UnmarshalMessage(e *ShopFreeRecruitExcel) erro
 	t.FreeRecruitDecorationImagePath = fbsutils.Convert(string(e.FreeRecruitDecorationImagePath()), t.FlatBuffer.TableKey)
 	t.ShopRecruitId = make([]int64, e.ShopRecruitIdLength())
 	for i := range e.ShopRecruitIdLength() {
-		t.ShopRecruitId[i] = e.ShopRecruitId(i)
+		t.ShopRecruitId[i] = fbsutils.Convert(e.ShopRecruitId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

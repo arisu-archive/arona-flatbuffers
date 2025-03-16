@@ -64,7 +64,7 @@ func (t *FieldTutorialExcelDto) UnmarshalMessage(e *FieldTutorialExcel) error {
 	}
 	t.ConditionId = make([]int64, e.ConditionIdLength())
 	for i := range e.ConditionIdLength() {
-		t.ConditionId[i] = e.ConditionId(i)
+		t.ConditionId[i] = fbsutils.Convert(e.ConditionId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

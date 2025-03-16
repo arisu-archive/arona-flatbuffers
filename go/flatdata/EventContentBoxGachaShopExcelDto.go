@@ -61,7 +61,7 @@ func (t *EventContentBoxGachaShopExcelDto) UnmarshalMessage(e *EventContentBoxGa
 	t.IsPrize = fbsutils.Convert(e.IsPrize(), t.FlatBuffer.TableKey)
 	t.GoodsId = make([]int64, e.GoodsIdLength())
 	for i := range e.GoodsIdLength() {
-		t.GoodsId[i] = e.GoodsId(i)
+		t.GoodsId[i] = fbsutils.Convert(e.GoodsId(i), t.FlatBuffer.TableKey)
 	}
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	return nil

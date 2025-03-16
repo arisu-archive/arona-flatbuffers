@@ -94,7 +94,7 @@ func (t *ObstacleExcelDto) UnmarshalMessage(e *ObstacleExcel) error {
 	t.JumpAble = fbsutils.Convert(e.JumpAble(), t.FlatBuffer.TableKey)
 	t.SubOffset = make([]float32, e.SubOffsetLength())
 	for i := range e.SubOffsetLength() {
-		t.SubOffset[i] = e.SubOffset(i)
+		t.SubOffset[i] = fbsutils.Convert(e.SubOffset(i), t.FlatBuffer.TableKey)
 	}
 	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
 	t.Z = fbsutils.Convert(e.Z(), t.FlatBuffer.TableKey)
@@ -105,23 +105,23 @@ func (t *ObstacleExcelDto) UnmarshalMessage(e *ObstacleExcel) error {
 	t.DestroyType = ObstacleDestroyType(fbsutils.Convert(int32(e.DestroyType()), t.FlatBuffer.TableKey))
 	t.Point1Offeset = make([]float32, e.Point1OffesetLength())
 	for i := range e.Point1OffesetLength() {
-		t.Point1Offeset[i] = e.Point1Offeset(i)
+		t.Point1Offeset[i] = fbsutils.Convert(e.Point1Offeset(i), t.FlatBuffer.TableKey)
 	}
 	t.EnemyPoint1Osset = make([]float32, e.EnemyPoint1OssetLength())
 	for i := range e.EnemyPoint1OssetLength() {
-		t.EnemyPoint1Osset[i] = e.EnemyPoint1Osset(i)
+		t.EnemyPoint1Osset[i] = fbsutils.Convert(e.EnemyPoint1Osset(i), t.FlatBuffer.TableKey)
 	}
 	t.Point2Offeset = make([]float32, e.Point2OffesetLength())
 	for i := range e.Point2OffesetLength() {
-		t.Point2Offeset[i] = e.Point2Offeset(i)
+		t.Point2Offeset[i] = fbsutils.Convert(e.Point2Offeset(i), t.FlatBuffer.TableKey)
 	}
 	t.EnemyPoint2Osset = make([]float32, e.EnemyPoint2OssetLength())
 	for i := range e.EnemyPoint2OssetLength() {
-		t.EnemyPoint2Osset[i] = e.EnemyPoint2Osset(i)
+		t.EnemyPoint2Osset[i] = fbsutils.Convert(e.EnemyPoint2Osset(i), t.FlatBuffer.TableKey)
 	}
 	t.SubObstacleId = make([]int64, e.SubObstacleIdLength())
 	for i := range e.SubObstacleIdLength() {
-		t.SubObstacleId[i] = e.SubObstacleId(i)
+		t.SubObstacleId[i] = fbsutils.Convert(e.SubObstacleId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

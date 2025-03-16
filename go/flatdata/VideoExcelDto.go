@@ -84,7 +84,7 @@ func (t *VideoExcelDto) UnmarshalMessage(e *VideoExcel) error {
 	}
 	t.SoundVolume = make([]float32, e.SoundVolumeLength())
 	for i := range e.SoundVolumeLength() {
-		t.SoundVolume[i] = e.SoundVolume(i)
+		t.SoundVolume[i] = fbsutils.Convert(e.SoundVolume(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

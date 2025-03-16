@@ -66,13 +66,13 @@ func (t *ScenarioReplayExcelDto) UnmarshalMessage(e *ScenarioReplayExcel) error 
 	t.EpisodeId = fbsutils.Convert(e.EpisodeId(), t.FlatBuffer.TableKey)
 	t.FrontScenarioGroupId = make([]int64, e.FrontScenarioGroupIdLength())
 	for i := range e.FrontScenarioGroupIdLength() {
-		t.FrontScenarioGroupId[i] = e.FrontScenarioGroupId(i)
+		t.FrontScenarioGroupId[i] = fbsutils.Convert(e.FrontScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.BackScenarioGroupId = make([]int64, e.BackScenarioGroupIdLength())
 	for i := range e.BackScenarioGroupIdLength() {
-		t.BackScenarioGroupId[i] = e.BackScenarioGroupId(i)
+		t.BackScenarioGroupId[i] = fbsutils.Convert(e.BackScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

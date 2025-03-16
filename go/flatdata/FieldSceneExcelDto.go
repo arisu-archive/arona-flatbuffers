@@ -77,19 +77,19 @@ func (t *FieldSceneExcelDto) UnmarshalMessage(e *FieldSceneExcel) error {
 	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
 	t.ConditionalBgmQuestId = make([]int64, e.ConditionalBgmQuestIdLength())
 	for i := range e.ConditionalBgmQuestIdLength() {
-		t.ConditionalBgmQuestId[i] = e.ConditionalBgmQuestId(i)
+		t.ConditionalBgmQuestId[i] = fbsutils.Convert(e.ConditionalBgmQuestId(i), t.FlatBuffer.TableKey)
 	}
 	t.BeginConditionalBgmScenarioGroupId = make([]int64, e.BeginConditionalBgmScenarioGroupIdLength())
 	for i := range e.BeginConditionalBgmScenarioGroupIdLength() {
-		t.BeginConditionalBgmScenarioGroupId[i] = e.BeginConditionalBgmScenarioGroupId(i)
+		t.BeginConditionalBgmScenarioGroupId[i] = fbsutils.Convert(e.BeginConditionalBgmScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.EndConditionalBgmScenarioGroupId = make([]int64, e.EndConditionalBgmScenarioGroupIdLength())
 	for i := range e.EndConditionalBgmScenarioGroupIdLength() {
-		t.EndConditionalBgmScenarioGroupId[i] = e.EndConditionalBgmScenarioGroupId(i)
+		t.EndConditionalBgmScenarioGroupId[i] = fbsutils.Convert(e.EndConditionalBgmScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.ConditionalBgmId = make([]int64, e.ConditionalBgmIdLength())
 	for i := range e.ConditionalBgmIdLength() {
-		t.ConditionalBgmId[i] = e.ConditionalBgmId(i)
+		t.ConditionalBgmId[i] = fbsutils.Convert(e.ConditionalBgmId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

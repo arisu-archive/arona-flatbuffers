@@ -53,7 +53,7 @@ func (t *EventContentDiceRaceEffectExcelDto) UnmarshalMessage(e *EventContentDic
 	t.AniClip = fbsutils.Convert(string(e.AniClip()), t.FlatBuffer.TableKey)
 	t.VoiceId = make([]uint32, e.VoiceIdLength())
 	for i := range e.VoiceIdLength() {
-		t.VoiceId[i] = e.VoiceId(i)
+		t.VoiceId[i] = fbsutils.Convert(e.VoiceId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

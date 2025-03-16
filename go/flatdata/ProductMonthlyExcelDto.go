@@ -104,11 +104,11 @@ func (t *ProductMonthlyExcelDto) UnmarshalMessage(e *ProductMonthlyExcel) error 
 	}
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {
-		t.ParcelId[i] = e.ParcelId(i)
+		t.ParcelId[i] = fbsutils.Convert(e.ParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.ParcelAmount = make([]int64, e.ParcelAmountLength())
 	for i := range e.ParcelAmountLength() {
-		t.ParcelAmount[i] = e.ParcelAmount(i)
+		t.ParcelAmount[i] = fbsutils.Convert(e.ParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.EnterCostReduceGroupId = fbsutils.Convert(e.EnterCostReduceGroupId(), t.FlatBuffer.TableKey)
 	t.DailyParcelType = make([]ParcelType, e.DailyParcelTypeLength())
@@ -117,11 +117,11 @@ func (t *ProductMonthlyExcelDto) UnmarshalMessage(e *ProductMonthlyExcel) error 
 	}
 	t.DailyParcelId = make([]int64, e.DailyParcelIdLength())
 	for i := range e.DailyParcelIdLength() {
-		t.DailyParcelId[i] = e.DailyParcelId(i)
+		t.DailyParcelId[i] = fbsutils.Convert(e.DailyParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.DailyParcelAmount = make([]int64, e.DailyParcelAmountLength())
 	for i := range e.DailyParcelAmountLength() {
-		t.DailyParcelAmount[i] = e.DailyParcelAmount(i)
+		t.DailyParcelAmount[i] = fbsutils.Convert(e.DailyParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

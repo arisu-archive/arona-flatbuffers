@@ -142,7 +142,7 @@ func (t *ScenarioModeExcelDto) UnmarshalMessage(e *ScenarioModeExcel) error {
 	t.EpisodeContinueModeId = fbsutils.Convert(e.EpisodeContinueModeId(), t.FlatBuffer.TableKey)
 	t.FrontScenarioGroupId = make([]int64, e.FrontScenarioGroupIdLength())
 	for i := range e.FrontScenarioGroupIdLength() {
-		t.FrontScenarioGroupId[i] = e.FrontScenarioGroupId(i)
+		t.FrontScenarioGroupId[i] = fbsutils.Convert(e.FrontScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.StrategyId = fbsutils.Convert(e.StrategyId(), t.FlatBuffer.TableKey)
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
@@ -150,11 +150,11 @@ func (t *ScenarioModeExcelDto) UnmarshalMessage(e *ScenarioModeExcel) error {
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.BackScenarioGroupId = make([]int64, e.BackScenarioGroupIdLength())
 	for i := range e.BackScenarioGroupIdLength() {
-		t.BackScenarioGroupId[i] = e.BackScenarioGroupId(i)
+		t.BackScenarioGroupId[i] = fbsutils.Convert(e.BackScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.ClearedModeId = make([]int64, e.ClearedModeIdLength())
 	for i := range e.ClearedModeIdLength() {
-		t.ClearedModeId[i] = e.ClearedModeId(i)
+		t.ClearedModeId[i] = fbsutils.Convert(e.ClearedModeId(i), t.FlatBuffer.TableKey)
 	}
 	t.ScenarioModeRewardId = fbsutils.Convert(e.ScenarioModeRewardId(), t.FlatBuffer.TableKey)
 	t.IsScenarioSpecialReward = fbsutils.Convert(e.IsScenarioSpecialReward(), t.FlatBuffer.TableKey)

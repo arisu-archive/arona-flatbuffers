@@ -81,15 +81,15 @@ func (t *ArenaNPCExcelDto) UnmarshalMessage(e *ArenaNPCExcel) error {
 	}
 	t.ExceptionMainCharacterIds = make([]int64, e.ExceptionMainCharacterIdsLength())
 	for i := range e.ExceptionMainCharacterIdsLength() {
-		t.ExceptionMainCharacterIds[i] = e.ExceptionMainCharacterIds(i)
+		t.ExceptionMainCharacterIds[i] = fbsutils.Convert(e.ExceptionMainCharacterIds(i), t.FlatBuffer.TableKey)
 	}
 	t.ExceptionSupportCharacterIds = make([]int64, e.ExceptionSupportCharacterIdsLength())
 	for i := range e.ExceptionSupportCharacterIdsLength() {
-		t.ExceptionSupportCharacterIds[i] = e.ExceptionSupportCharacterIds(i)
+		t.ExceptionSupportCharacterIds[i] = fbsutils.Convert(e.ExceptionSupportCharacterIds(i), t.FlatBuffer.TableKey)
 	}
 	t.ExceptionTssIds = make([]int64, e.ExceptionTssIdsLength())
 	for i := range e.ExceptionTssIdsLength() {
-		t.ExceptionTssIds[i] = e.ExceptionTssIds(i)
+		t.ExceptionTssIds[i] = fbsutils.Convert(e.ExceptionTssIds(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

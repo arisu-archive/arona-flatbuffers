@@ -69,11 +69,11 @@ func (t *TranscendenceRecipeExcelDto) UnmarshalMessage(e *TranscendenceRecipeExc
 	}
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {
-		t.ParcelId[i] = e.ParcelId(i)
+		t.ParcelId[i] = fbsutils.Convert(e.ParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.ParcelAmount = make([]int32, e.ParcelAmountLength())
 	for i := range e.ParcelAmountLength() {
-		t.ParcelAmount[i] = e.ParcelAmount(i)
+		t.ParcelAmount[i] = fbsutils.Convert(e.ParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

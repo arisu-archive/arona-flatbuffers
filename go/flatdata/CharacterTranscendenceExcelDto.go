@@ -92,23 +92,23 @@ func (t *CharacterTranscendenceExcelDto) UnmarshalMessage(e *CharacterTranscende
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.MaxFavorLevel = make([]int32, e.MaxFavorLevelLength())
 	for i := range e.MaxFavorLevelLength() {
-		t.MaxFavorLevel[i] = e.MaxFavorLevel(i)
+		t.MaxFavorLevel[i] = fbsutils.Convert(e.MaxFavorLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.StatBonusRateAttack = make([]int64, e.StatBonusRateAttackLength())
 	for i := range e.StatBonusRateAttackLength() {
-		t.StatBonusRateAttack[i] = e.StatBonusRateAttack(i)
+		t.StatBonusRateAttack[i] = fbsutils.Convert(e.StatBonusRateAttack(i), t.FlatBuffer.TableKey)
 	}
 	t.StatBonusRateHp = make([]int64, e.StatBonusRateHpLength())
 	for i := range e.StatBonusRateHpLength() {
-		t.StatBonusRateHp[i] = e.StatBonusRateHp(i)
+		t.StatBonusRateHp[i] = fbsutils.Convert(e.StatBonusRateHp(i), t.FlatBuffer.TableKey)
 	}
 	t.StatBonusRateHeal = make([]int64, e.StatBonusRateHealLength())
 	for i := range e.StatBonusRateHealLength() {
-		t.StatBonusRateHeal[i] = e.StatBonusRateHeal(i)
+		t.StatBonusRateHeal[i] = fbsutils.Convert(e.StatBonusRateHeal(i), t.FlatBuffer.TableKey)
 	}
 	t.RecipeId = make([]int64, e.RecipeIdLength())
 	for i := range e.RecipeIdLength() {
-		t.RecipeId[i] = e.RecipeId(i)
+		t.RecipeId[i] = fbsutils.Convert(e.RecipeId(i), t.FlatBuffer.TableKey)
 	}
 	t.SkillSlotA = make([]string, e.SkillSlotALength())
 	for i := range e.SkillSlotALength() {
@@ -124,7 +124,7 @@ func (t *CharacterTranscendenceExcelDto) UnmarshalMessage(e *CharacterTranscende
 	}
 	t.MaxlevelStar = make([]int32, e.MaxlevelStarLength())
 	for i := range e.MaxlevelStarLength() {
-		t.MaxlevelStar[i] = e.MaxlevelStar(i)
+		t.MaxlevelStar[i] = fbsutils.Convert(e.MaxlevelStar(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

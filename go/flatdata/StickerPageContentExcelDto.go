@@ -79,7 +79,7 @@ func (t *StickerPageContentExcelDto) UnmarshalMessage(e *StickerPageContentExcel
 	t.StickerGetConditionCount = fbsutils.Convert(e.StickerGetConditionCount(), t.FlatBuffer.TableKey)
 	t.StickerGetConditionParameter = make([]int64, e.StickerGetConditionParameterLength())
 	for i := range e.StickerGetConditionParameterLength() {
-		t.StickerGetConditionParameter[i] = e.StickerGetConditionParameter(i)
+		t.StickerGetConditionParameter[i] = fbsutils.Convert(e.StickerGetConditionParameter(i), t.FlatBuffer.TableKey)
 	}
 	t.StickerGetConditionParameterTag = make([]Tag, e.StickerGetConditionParameterTagLength())
 	for i := range e.StickerGetConditionParameterTagLength() {

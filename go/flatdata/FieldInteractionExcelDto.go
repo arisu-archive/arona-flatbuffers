@@ -100,17 +100,17 @@ func (t *FieldInteractionExcelDto) UnmarshalMessage(e *FieldInteractionExcel) er
 	}
 	t.InteractionId = make([]int64, e.InteractionIdLength())
 	for i := range e.InteractionIdLength() {
-		t.InteractionId[i] = e.InteractionId(i)
+		t.InteractionId[i] = fbsutils.Convert(e.InteractionId(i), t.FlatBuffer.TableKey)
 	}
 	t.ConditionClass = FieldConditionClass(fbsutils.Convert(int32(e.ConditionClass()), t.FlatBuffer.TableKey))
 	t.ConditionClassParameters = make([]int64, e.ConditionClassParametersLength())
 	for i := range e.ConditionClassParametersLength() {
-		t.ConditionClassParameters[i] = e.ConditionClassParameters(i)
+		t.ConditionClassParameters[i] = fbsutils.Convert(e.ConditionClassParameters(i), t.FlatBuffer.TableKey)
 	}
 	t.OnceOnly = fbsutils.Convert(e.OnceOnly(), t.FlatBuffer.TableKey)
 	t.ConditionIndex = make([]int64, e.ConditionIndexLength())
 	for i := range e.ConditionIndexLength() {
-		t.ConditionIndex[i] = e.ConditionIndex(i)
+		t.ConditionIndex[i] = fbsutils.Convert(e.ConditionIndex(i), t.FlatBuffer.TableKey)
 	}
 	t.ConditionType = make([]FieldConditionType, e.ConditionTypeLength())
 	for i := range e.ConditionTypeLength() {
@@ -118,11 +118,11 @@ func (t *FieldInteractionExcelDto) UnmarshalMessage(e *FieldInteractionExcel) er
 	}
 	t.ConditionId = make([]int64, e.ConditionIdLength())
 	for i := range e.ConditionIdLength() {
-		t.ConditionId[i] = e.ConditionId(i)
+		t.ConditionId[i] = fbsutils.Convert(e.ConditionId(i), t.FlatBuffer.TableKey)
 	}
 	t.NegateCondition = make([]bool, e.NegateConditionLength())
 	for i := range e.NegateConditionLength() {
-		t.NegateCondition[i] = e.NegateCondition(i)
+		t.NegateCondition[i] = fbsutils.Convert(e.NegateCondition(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

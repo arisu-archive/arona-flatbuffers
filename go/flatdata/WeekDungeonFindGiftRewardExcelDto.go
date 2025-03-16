@@ -75,15 +75,15 @@ func (t *WeekDungeonFindGiftRewardExcelDto) UnmarshalMessage(e *WeekDungeonFindG
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
-		t.RewardParcelId[i] = e.RewardParcelId(i)
+		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
 	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
+		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelProbability = make([]int64, e.RewardParcelProbabilityLength())
 	for i := range e.RewardParcelProbabilityLength() {
-		t.RewardParcelProbability[i] = e.RewardParcelProbability(i)
+		t.RewardParcelProbability[i] = fbsutils.Convert(e.RewardParcelProbability(i), t.FlatBuffer.TableKey)
 	}
 	t.DropItemModelPrefabPath = make([]string, e.DropItemModelPrefabPathLength())
 	for i := range e.DropItemModelPrefabPathLength() {

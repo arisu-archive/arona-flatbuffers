@@ -62,7 +62,7 @@ func (t *MiniGameShootingStageExcelDto) UnmarshalMessage(e *MiniGameShootingStag
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.BgmId = make([]int64, e.BgmIdLength())
 	for i := range e.BgmIdLength() {
-		t.BgmId[i] = e.BgmId(i)
+		t.BgmId[i] = fbsutils.Convert(e.BgmId(i), t.FlatBuffer.TableKey)
 	}
 	t.CostGoodsId = fbsutils.Convert(e.CostGoodsId(), t.FlatBuffer.TableKey)
 	t.Difficulty = Difficulty(fbsutils.Convert(int32(e.Difficulty()), t.FlatBuffer.TableKey))

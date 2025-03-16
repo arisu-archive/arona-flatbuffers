@@ -47,7 +47,7 @@ func (t *VoiceCommonExcelDto) UnmarshalMessage(e *VoiceCommonExcel) error {
 	t.Rate = fbsutils.Convert(e.Rate(), t.FlatBuffer.TableKey)
 	t.VoiceHash = make([]uint32, e.VoiceHashLength())
 	for i := range e.VoiceHashLength() {
-		t.VoiceHash[i] = e.VoiceHash(i)
+		t.VoiceHash[i] = fbsutils.Convert(e.VoiceHash(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

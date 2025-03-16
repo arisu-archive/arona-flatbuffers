@@ -75,7 +75,7 @@ func (t *CafeInteractionExcelDto) UnmarshalMessage(e *CafeInteractionExcel) erro
 	}
 	t.BubbleDuration = make([]int64, e.BubbleDurationLength())
 	for i := range e.BubbleDurationLength() {
-		t.BubbleDuration[i] = e.BubbleDuration(i)
+		t.BubbleDuration[i] = fbsutils.Convert(e.BubbleDuration(i), t.FlatBuffer.TableKey)
 	}
 	t.FavorEmoticonRewardParcelType = ParcelType(fbsutils.Convert(int32(e.FavorEmoticonRewardParcelType()), t.FlatBuffer.TableKey))
 	t.FavorEmoticonRewardId = fbsutils.Convert(e.FavorEmoticonRewardId(), t.FlatBuffer.TableKey)

@@ -98,7 +98,7 @@ func (t *WorldRaidBossGroupExcelDto) UnmarshalMessage(e *WorldRaidBossGroupExcel
 	t.WorldBossClearRewardGroupId = fbsutils.Convert(e.WorldBossClearRewardGroupId(), t.FlatBuffer.TableKey)
 	t.AnotherBossKilled = make([]int64, e.AnotherBossKilledLength())
 	for i := range e.AnotherBossKilledLength() {
-		t.AnotherBossKilled[i] = e.AnotherBossKilled(i)
+		t.AnotherBossKilled[i] = fbsutils.Convert(e.AnotherBossKilled(i), t.FlatBuffer.TableKey)
 	}
 	t.EchelonConstraintGroupId = fbsutils.Convert(e.EchelonConstraintGroupId(), t.FlatBuffer.TableKey)
 	t.ExclusiveOperatorBossSpawn = fbsutils.Convert(string(e.ExclusiveOperatorBossSpawn()), t.FlatBuffer.TableKey)

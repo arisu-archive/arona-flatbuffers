@@ -67,7 +67,7 @@ func (t *LogicEffectCommonVisualExcelDto) UnmarshalMessage(e *LogicEffectCommonV
 	t.IconSpriteName = fbsutils.Convert(string(e.IconSpriteName()), t.FlatBuffer.TableKey)
 	t.IconDispelColor = make([]float32, e.IconDispelColorLength())
 	for i := range e.IconDispelColorLength() {
-		t.IconDispelColor[i] = e.IconDispelColor(i)
+		t.IconDispelColor[i] = fbsutils.Convert(e.IconDispelColor(i), t.FlatBuffer.TableKey)
 	}
 	t.ParticleEnterPath = fbsutils.Convert(string(e.ParticleEnterPath()), t.FlatBuffer.TableKey)
 	t.ParticleEnterSocket = EffectBone(fbsutils.Convert(int32(e.ParticleEnterSocket()), t.FlatBuffer.TableKey))

@@ -117,7 +117,7 @@ func (t *WorldRaidSeasonManageExcelDto) UnmarshalMessage(e *WorldRaidSeasonManag
 	t.UseWorldRaidCommonToast = fbsutils.Convert(e.UseWorldRaidCommonToast(), t.FlatBuffer.TableKey)
 	t.OpenRaidBossGroupId = make([]int64, e.OpenRaidBossGroupIdLength())
 	for i := range e.OpenRaidBossGroupIdLength() {
-		t.OpenRaidBossGroupId[i] = e.OpenRaidBossGroupId(i)
+		t.OpenRaidBossGroupId[i] = fbsutils.Convert(e.OpenRaidBossGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.BossSpawnTime = make([]string, e.BossSpawnTimeLength())
 	for i := range e.BossSpawnTimeLength() {
@@ -129,11 +129,11 @@ func (t *WorldRaidSeasonManageExcelDto) UnmarshalMessage(e *WorldRaidSeasonManag
 	}
 	t.ScenarioOutputConditionId = make([]int64, e.ScenarioOutputConditionIdLength())
 	for i := range e.ScenarioOutputConditionIdLength() {
-		t.ScenarioOutputConditionId[i] = e.ScenarioOutputConditionId(i)
+		t.ScenarioOutputConditionId[i] = fbsutils.Convert(e.ScenarioOutputConditionId(i), t.FlatBuffer.TableKey)
 	}
 	t.ConditionScenarioGroupid = make([]int64, e.ConditionScenarioGroupidLength())
 	for i := range e.ConditionScenarioGroupidLength() {
-		t.ConditionScenarioGroupid[i] = e.ConditionScenarioGroupid(i)
+		t.ConditionScenarioGroupid[i] = fbsutils.Convert(e.ConditionScenarioGroupid(i), t.FlatBuffer.TableKey)
 	}
 	t.WorldRaidMapEnterOperator = fbsutils.Convert(string(e.WorldRaidMapEnterOperator()), t.FlatBuffer.TableKey)
 	t.UseFavorRankBuff = fbsutils.Convert(e.UseFavorRankBuff(), t.FlatBuffer.TableKey)

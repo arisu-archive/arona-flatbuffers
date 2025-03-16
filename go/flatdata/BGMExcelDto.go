@@ -88,23 +88,23 @@ func (t *BGMExcelDto) UnmarshalMessage(e *BGMExcel) error {
 	}
 	t.Volume = make([]float32, e.VolumeLength())
 	for i := range e.VolumeLength() {
-		t.Volume[i] = e.Volume(i)
+		t.Volume[i] = fbsutils.Convert(e.Volume(i), t.FlatBuffer.TableKey)
 	}
 	t.LoopStartTime = make([]float32, e.LoopStartTimeLength())
 	for i := range e.LoopStartTimeLength() {
-		t.LoopStartTime[i] = e.LoopStartTime(i)
+		t.LoopStartTime[i] = fbsutils.Convert(e.LoopStartTime(i), t.FlatBuffer.TableKey)
 	}
 	t.LoopEndTime = make([]float32, e.LoopEndTimeLength())
 	for i := range e.LoopEndTimeLength() {
-		t.LoopEndTime[i] = e.LoopEndTime(i)
+		t.LoopEndTime[i] = fbsutils.Convert(e.LoopEndTime(i), t.FlatBuffer.TableKey)
 	}
 	t.LoopTranstionTime = make([]float32, e.LoopTranstionTimeLength())
 	for i := range e.LoopTranstionTimeLength() {
-		t.LoopTranstionTime[i] = e.LoopTranstionTime(i)
+		t.LoopTranstionTime[i] = fbsutils.Convert(e.LoopTranstionTime(i), t.FlatBuffer.TableKey)
 	}
 	t.LoopOffsetTime = make([]float32, e.LoopOffsetTimeLength())
 	for i := range e.LoopOffsetTimeLength() {
-		t.LoopOffsetTime[i] = e.LoopOffsetTime(i)
+		t.LoopOffsetTime[i] = fbsutils.Convert(e.LoopOffsetTime(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

@@ -53,11 +53,11 @@ func (t *FormationLocationExcelDto) UnmarshalMessage(e *FormationLocationExcel) 
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.SlotZ = make([]float32, e.SlotZLength())
 	for i := range e.SlotZLength() {
-		t.SlotZ[i] = e.SlotZ(i)
+		t.SlotZ[i] = fbsutils.Convert(e.SlotZ(i), t.FlatBuffer.TableKey)
 	}
 	t.SlotX = make([]float32, e.SlotXLength())
 	for i := range e.SlotXLength() {
-		t.SlotX[i] = e.SlotX(i)
+		t.SlotX[i] = fbsutils.Convert(e.SlotX(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

@@ -111,7 +111,7 @@ func (t *CharacterDialogEventExcelDto) UnmarshalMessage(e *CharacterDialogEventE
 	t.LocalizeEn = fbsutils.Convert(string(e.LocalizeEn()), t.FlatBuffer.TableKey)
 	t.VoiceId = make([]uint32, e.VoiceIdLength())
 	for i := range e.VoiceIdLength() {
-		t.VoiceId[i] = e.VoiceId(i)
+		t.VoiceId[i] = fbsutils.Convert(e.VoiceId(i), t.FlatBuffer.TableKey)
 	}
 	t.CollectionVisible = fbsutils.Convert(e.CollectionVisible(), t.FlatBuffer.TableKey)
 	t.CvCollectionType = CVCollectionType(fbsutils.Convert(int32(e.CvCollectionType()), t.FlatBuffer.TableKey))

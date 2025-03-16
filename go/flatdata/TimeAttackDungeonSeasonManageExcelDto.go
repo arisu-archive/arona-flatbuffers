@@ -60,7 +60,7 @@ func (t *TimeAttackDungeonSeasonManageExcelDto) UnmarshalMessage(e *TimeAttackDu
 	t.DungeonId = fbsutils.Convert(e.DungeonId(), t.FlatBuffer.TableKey)
 	t.DifficultyGeas = make([]int64, e.DifficultyGeasLength())
 	for i := range e.DifficultyGeasLength() {
-		t.DifficultyGeas[i] = e.DifficultyGeas(i)
+		t.DifficultyGeas[i] = fbsutils.Convert(e.DifficultyGeas(i), t.FlatBuffer.TableKey)
 	}
 	t.TimeAttackDungeonRewardId = fbsutils.Convert(e.TimeAttackDungeonRewardId(), t.FlatBuffer.TableKey)
 	t.RoomLifeTimeInSeconds = fbsutils.Convert(e.RoomLifeTimeInSeconds(), t.FlatBuffer.TableKey)
