@@ -38,7 +38,7 @@ type MinigameTBGEncounterExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGEncounterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGEncounterExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGEncounter"))
 	}
 	MinigameTBGEncounterExcelStart(b)
 	MinigameTBGEncounterExcelAddAllThema(b, fbsutils.Convert(t.AllThema, t.FlatBuffer.TableKey))
@@ -77,7 +77,7 @@ func (t *MinigameTBGEncounterExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGEncounterExcelDto) UnmarshalMessage(e *MinigameTBGEncounterExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGEncounterExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGEncounter"))
 	}
 	t.AllThema = fbsutils.Convert(e.AllThema(), t.FlatBuffer.TableKey)
 	t.AllyAttackLocalize = fbsutils.Convert(string(e.AllyAttackLocalize()), t.FlatBuffer.TableKey)

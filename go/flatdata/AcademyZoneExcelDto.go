@@ -22,7 +22,7 @@ type AcademyZoneExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AcademyZoneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyZoneExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyZone"))
 	}
 	AcademyZoneExcelStart(b)
 	AcademyZoneExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -53,7 +53,7 @@ func (t *AcademyZoneExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AcademyZoneExcelDto) UnmarshalMessage(e *AcademyZoneExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyZoneExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyZone"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)

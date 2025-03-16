@@ -27,7 +27,7 @@ type EventContentCardShopExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentCardShopExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCardShopExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCardShop"))
 	}
 	EventContentCardShopExcelStart(b)
 	EventContentCardShopExcelAddCardGroupId(b, fbsutils.Convert(t.CardGroupId, t.FlatBuffer.TableKey))
@@ -67,7 +67,7 @@ func (t *EventContentCardShopExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentCardShopExcelDto) UnmarshalMessage(e *EventContentCardShopExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCardShopExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCardShop"))
 	}
 	t.CardGroupId = fbsutils.Convert(e.CardGroupId(), t.FlatBuffer.TableKey)
 	t.CostGoodsId = fbsutils.Convert(e.CostGoodsId(), t.FlatBuffer.TableKey)

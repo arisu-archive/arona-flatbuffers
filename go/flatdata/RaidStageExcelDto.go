@@ -50,7 +50,7 @@ type RaidStageExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidStageExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidStage"))
 	}
 	RaidStageExcelStart(b)
 	RaidStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
@@ -117,7 +117,7 @@ func (t *RaidStageExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RaidStageExcelDto) UnmarshalMessage(e *RaidStageExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidStageExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidStage"))
 	}
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.BattleReadyTimelinePath = make([]string, e.BattleReadyTimelinePathLength())

@@ -30,7 +30,7 @@ type MiniGameDefenseFixedStatExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDefenseFixedStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseFixedStatExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseFixedStat"))
 	}
 	MiniGameDefenseFixedStatExcelStart(b)
 	MiniGameDefenseFixedStatExcelAddCharacterGearLevel(b, fbsutils.Convert(t.CharacterGearLevel, t.FlatBuffer.TableKey))
@@ -61,7 +61,7 @@ func (t *MiniGameDefenseFixedStatExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDefenseFixedStatExcelDto) UnmarshalMessage(e *MiniGameDefenseFixedStatExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseFixedStatExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseFixedStat"))
 	}
 	t.CharacterGearLevel = fbsutils.Convert(e.CharacterGearLevel(), t.FlatBuffer.TableKey)
 	t.CharacterGearTier = fbsutils.Convert(e.CharacterGearTier(), t.FlatBuffer.TableKey)

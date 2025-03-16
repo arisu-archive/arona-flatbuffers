@@ -21,7 +21,7 @@ type EventContentDiceRaceProbExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentDiceRaceProbExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceProbExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceProb"))
 	}
 	EventContentDiceRaceProbExcelStart(b)
 	EventContentDiceRaceProbExcelAddCostItemAmount(b, fbsutils.Convert(t.CostItemAmount, t.FlatBuffer.TableKey))
@@ -43,7 +43,7 @@ func (t *EventContentDiceRaceProbExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentDiceRaceProbExcelDto) UnmarshalMessage(e *EventContentDiceRaceProbExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceProbExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceProb"))
 	}
 	t.CostItemAmount = fbsutils.Convert(e.CostItemAmount(), t.FlatBuffer.TableKey)
 	t.CostItemId = fbsutils.Convert(e.CostItemId(), t.FlatBuffer.TableKey)

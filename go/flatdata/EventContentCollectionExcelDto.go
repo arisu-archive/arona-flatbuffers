@@ -30,7 +30,7 @@ type EventContentCollectionExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentCollectionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCollectionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCollection"))
 	}
 	EventContentCollectionExcelStart(b)
 	EventContentCollectionExcelAddEmblemResource(b, fbsutils.Convert(b.CreateString(t.EmblemResource), t.FlatBuffer.TableKey))
@@ -65,7 +65,7 @@ func (t *EventContentCollectionExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentCollectionExcelDto) UnmarshalMessage(e *EventContentCollectionExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCollectionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCollection"))
 	}
 	t.EmblemResource = fbsutils.Convert(string(e.EmblemResource()), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)

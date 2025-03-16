@@ -17,7 +17,7 @@ type MiniGameRhythmExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameRhythmExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameRhythmExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameRhythmTable"))
 	}
 	MiniGameRhythmExcelTableStart(b)
 	MiniGameRhythmExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *MiniGameRhythmExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameRhythmExcelTableDto) UnmarshalMessage(e *MiniGameRhythmExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameRhythmExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameRhythmTable"))
 	}
 	t.DataList = make([]MiniGameRhythmExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

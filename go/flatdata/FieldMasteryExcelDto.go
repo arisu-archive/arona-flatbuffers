@@ -24,7 +24,7 @@ type FieldMasteryExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldMasteryExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMastery"))
 	}
 	FieldMasteryExcelStart(b)
 	FieldMasteryExcelAddAccomplishmentConditionId(b, fbsutils.Convert(t.AccomplishmentConditionId, t.FlatBuffer.TableKey))
@@ -49,7 +49,7 @@ func (t *FieldMasteryExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldMasteryExcelDto) UnmarshalMessage(e *FieldMasteryExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMastery"))
 	}
 	t.AccomplishmentConditionId = fbsutils.Convert(e.AccomplishmentConditionId(), t.FlatBuffer.TableKey)
 	t.AccomplishmentConditionType = FieldConditionType(int32(fbsutils.Convert(e.AccomplishmentConditionType(), t.FlatBuffer.TableKey)))

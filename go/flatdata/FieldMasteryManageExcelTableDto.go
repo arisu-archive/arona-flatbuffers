@@ -17,7 +17,7 @@ type FieldMasteryManageExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldMasteryManageExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryManageExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryManageTable"))
 	}
 	FieldMasteryManageExcelTableStart(b)
 	FieldMasteryManageExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *FieldMasteryManageExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldMasteryManageExcelTableDto) UnmarshalMessage(e *FieldMasteryManageExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryManageExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryManageTable"))
 	}
 	t.DataList = make([]FieldMasteryManageExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

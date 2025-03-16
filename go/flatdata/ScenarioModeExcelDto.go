@@ -56,7 +56,7 @@ type ScenarioModeExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioModeExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioMode"))
 	}
 	ScenarioModeExcelStart(b)
 	ScenarioModeExcelAddAccountLevelLimit(b, fbsutils.Convert(t.AccountLevelLimit, t.FlatBuffer.TableKey))
@@ -125,7 +125,7 @@ func (t *ScenarioModeExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioModeExcelDto) UnmarshalMessage(e *ScenarioModeExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioModeExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioMode"))
 	}
 	t.AccountLevelLimit = fbsutils.Convert(e.AccountLevelLimit(), t.FlatBuffer.TableKey)
 	t.BackScenarioGroupId = make([]int64, e.BackScenarioGroupIdLength())

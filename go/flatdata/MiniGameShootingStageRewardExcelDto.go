@@ -21,7 +21,7 @@ type MiniGameShootingStageRewardExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameShootingStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingStageRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingStageReward"))
 	}
 	MiniGameShootingStageRewardExcelStart(b)
 	MiniGameShootingStageRewardExcelAddClearSection(b, fbsutils.Convert(t.ClearSection, t.FlatBuffer.TableKey))
@@ -55,7 +55,7 @@ func (t *MiniGameShootingStageRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameShootingStageRewardExcelDto) UnmarshalMessage(e *MiniGameShootingStageRewardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingStageRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingStageReward"))
 	}
 	t.ClearSection = fbsutils.Convert(e.ClearSection(), t.FlatBuffer.TableKey)
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)

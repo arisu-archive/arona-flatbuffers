@@ -24,7 +24,7 @@ type AcademyLocationExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AcademyLocationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyLocationExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyLocation"))
 	}
 	AcademyLocationExcelStart(b)
 	AcademyLocationExcelAddIconImagePath(b, fbsutils.Convert(b.CreateString(t.IconImagePath), t.FlatBuffer.TableKey))
@@ -57,7 +57,7 @@ func (t *AcademyLocationExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AcademyLocationExcelDto) UnmarshalMessage(e *AcademyLocationExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyLocationExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyLocation"))
 	}
 	t.IconImagePath = fbsutils.Convert(string(e.IconImagePath()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

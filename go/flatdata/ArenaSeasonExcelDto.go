@@ -20,7 +20,7 @@ type ArenaSeasonExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaSeasonExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaSeason"))
 	}
 	ArenaSeasonExcelStart(b)
 	ArenaSeasonExcelAddPrevSeasonId(b, fbsutils.Convert(t.PrevSeasonId, t.FlatBuffer.TableKey))
@@ -41,7 +41,7 @@ func (t *ArenaSeasonExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaSeasonExcelDto) UnmarshalMessage(e *ArenaSeasonExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaSeasonExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaSeason"))
 	}
 	t.PrevSeasonId = fbsutils.Convert(e.PrevSeasonId(), t.FlatBuffer.TableKey)
 	t.SeasonEndDate = fbsutils.Convert(string(e.SeasonEndDate()), t.FlatBuffer.TableKey)

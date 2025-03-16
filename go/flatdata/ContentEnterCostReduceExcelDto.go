@@ -21,7 +21,7 @@ type ContentEnterCostReduceExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ContentEnterCostReduceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentEnterCostReduceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentEnterCostReduce"))
 	}
 	ContentEnterCostReduceExcelStart(b)
 	ContentEnterCostReduceExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
@@ -43,7 +43,7 @@ func (t *ContentEnterCostReduceExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ContentEnterCostReduceExcelDto) UnmarshalMessage(e *ContentEnterCostReduceExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentEnterCostReduceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentEnterCostReduce"))
 	}
 	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
 	t.EnterCostReduceGroupId = fbsutils.Convert(e.EnterCostReduceGroupId(), t.FlatBuffer.TableKey)

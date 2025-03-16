@@ -17,7 +17,7 @@ type DefaultParcelExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *DefaultParcelExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultParcelExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultParcelTable"))
 	}
 	DefaultParcelExcelTableStart(b)
 	DefaultParcelExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *DefaultParcelExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *DefaultParcelExcelTableDto) UnmarshalMessage(e *DefaultParcelExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultParcelExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultParcelTable"))
 	}
 	t.DataList = make([]DefaultParcelExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

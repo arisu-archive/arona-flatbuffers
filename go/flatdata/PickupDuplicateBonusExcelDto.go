@@ -22,7 +22,7 @@ type PickupDuplicateBonusExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *PickupDuplicateBonusExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PickupDuplicateBonusExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PickupDuplicateBonus"))
 	}
 	PickupDuplicateBonusExcelStart(b)
 	PickupDuplicateBonusExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -45,7 +45,7 @@ func (t *PickupDuplicateBonusExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *PickupDuplicateBonusExcelDto) UnmarshalMessage(e *PickupDuplicateBonusExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PickupDuplicateBonusExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PickupDuplicateBonus"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.PickupCharacterId = fbsutils.Convert(e.PickupCharacterId(), t.FlatBuffer.TableKey)

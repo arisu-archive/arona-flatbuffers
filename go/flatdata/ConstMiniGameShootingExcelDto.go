@@ -27,7 +27,7 @@ type ConstMiniGameShootingExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstMiniGameShootingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMiniGameShootingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMiniGameShooting"))
 	}
 	ConstMiniGameShootingExcelStart(b)
 	ConstMiniGameShootingExcelAddCameraSmoothTime(b, fbsutils.Convert(t.CameraSmoothTime, t.FlatBuffer.TableKey))
@@ -59,7 +59,7 @@ func (t *ConstMiniGameShootingExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstMiniGameShootingExcelDto) UnmarshalMessage(e *ConstMiniGameShootingExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMiniGameShootingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstMiniGameShooting"))
 	}
 	t.CameraSmoothTime = fbsutils.Convert(e.CameraSmoothTime(), t.FlatBuffer.TableKey)
 	t.FreeGearInterval = fbsutils.Convert(e.FreeGearInterval(), t.FlatBuffer.TableKey)

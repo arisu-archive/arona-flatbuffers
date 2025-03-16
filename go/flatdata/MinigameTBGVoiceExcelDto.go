@@ -19,7 +19,7 @@ type MinigameTBGVoiceExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGVoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGVoiceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGVoice"))
 	}
 	MinigameTBGVoiceExcelStart(b)
 	MinigameTBGVoiceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
@@ -39,7 +39,7 @@ func (t *MinigameTBGVoiceExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGVoiceExcelDto) UnmarshalMessage(e *MinigameTBGVoiceExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGVoiceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGVoice"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)

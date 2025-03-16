@@ -24,7 +24,7 @@ type MinigameTBGObjectExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGObjectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGObjectExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGObject"))
 	}
 	MinigameTBGObjectExcelStart(b)
 	MinigameTBGObjectExcelAddDisposable(b, fbsutils.Convert(t.Disposable, t.FlatBuffer.TableKey))
@@ -49,7 +49,7 @@ func (t *MinigameTBGObjectExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGObjectExcelDto) UnmarshalMessage(e *MinigameTBGObjectExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGObjectExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGObject"))
 	}
 	t.Disposable = fbsutils.Convert(e.Disposable(), t.FlatBuffer.TableKey)
 	t.Key = fbsutils.Convert(string(e.Key()), t.FlatBuffer.TableKey)

@@ -17,7 +17,7 @@ type CharacterIllustCoordinateExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterIllustCoordinateExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterIllustCoordinateExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterIllustCoordinateTable"))
 	}
 	CharacterIllustCoordinateExcelTableStart(b)
 	CharacterIllustCoordinateExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *CharacterIllustCoordinateExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterIllustCoordinateExcelTableDto) UnmarshalMessage(e *CharacterIllustCoordinateExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterIllustCoordinateExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterIllustCoordinateTable"))
 	}
 	t.DataList = make([]CharacterIllustCoordinateExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

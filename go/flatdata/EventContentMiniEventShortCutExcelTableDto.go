@@ -17,7 +17,7 @@ type EventContentMiniEventShortCutExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentMiniEventShortCutExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMiniEventShortCutExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMiniEventShortCutTable"))
 	}
 	EventContentMiniEventShortCutExcelTableStart(b)
 	EventContentMiniEventShortCutExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *EventContentMiniEventShortCutExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentMiniEventShortCutExcelTableDto) UnmarshalMessage(e *EventContentMiniEventShortCutExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMiniEventShortCutExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMiniEventShortCutTable"))
 	}
 	t.DataList = make([]EventContentMiniEventShortCutExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

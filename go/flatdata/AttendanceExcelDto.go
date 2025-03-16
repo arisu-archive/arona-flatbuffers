@@ -34,7 +34,7 @@ type AttendanceExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AttendanceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AttendanceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Attendance"))
 	}
 	AttendanceExcelStart(b)
 	AttendanceExcelAddAccountLevelLimit(b, fbsutils.Convert(t.AccountLevelLimit, t.FlatBuffer.TableKey))
@@ -69,7 +69,7 @@ func (t *AttendanceExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AttendanceExcelDto) UnmarshalMessage(e *AttendanceExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AttendanceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Attendance"))
 	}
 	t.AccountLevelLimit = fbsutils.Convert(e.AccountLevelLimit(), t.FlatBuffer.TableKey)
 	t.AccountType = AccountState(int32(fbsutils.Convert(e.AccountType(), t.FlatBuffer.TableKey)))

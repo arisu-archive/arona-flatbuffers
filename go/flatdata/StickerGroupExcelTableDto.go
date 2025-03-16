@@ -17,7 +17,7 @@ type StickerGroupExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StickerGroupExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StickerGroupExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StickerGroupTable"))
 	}
 	StickerGroupExcelTableStart(b)
 	StickerGroupExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *StickerGroupExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StickerGroupExcelTableDto) UnmarshalMessage(e *StickerGroupExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StickerGroupExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StickerGroupTable"))
 	}
 	t.DataList = make([]StickerGroupExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

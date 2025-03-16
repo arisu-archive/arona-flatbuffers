@@ -17,7 +17,7 @@ type FieldCurtainCallFreeModeExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldCurtainCallFreeModeExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldCurtainCallFreeModeExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldCurtainCallFreeModeTable"))
 	}
 	FieldCurtainCallFreeModeExcelTableStart(b)
 	FieldCurtainCallFreeModeExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *FieldCurtainCallFreeModeExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldCurtainCallFreeModeExcelTableDto) UnmarshalMessage(e *FieldCurtainCallFreeModeExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldCurtainCallFreeModeExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldCurtainCallFreeModeTable"))
 	}
 	t.DataList = make([]FieldCurtainCallFreeModeExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

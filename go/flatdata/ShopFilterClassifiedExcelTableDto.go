@@ -17,7 +17,7 @@ type ShopFilterClassifiedExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopFilterClassifiedExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopFilterClassifiedExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopFilterClassifiedTable"))
 	}
 	ShopFilterClassifiedExcelTableStart(b)
 	ShopFilterClassifiedExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *ShopFilterClassifiedExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShopFilterClassifiedExcelTableDto) UnmarshalMessage(e *ShopFilterClassifiedExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopFilterClassifiedExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopFilterClassifiedTable"))
 	}
 	t.DataList = make([]ShopFilterClassifiedExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

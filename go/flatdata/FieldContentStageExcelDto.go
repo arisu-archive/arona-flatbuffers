@@ -32,7 +32,7 @@ type FieldContentStageExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStageExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStage"))
 	}
 	FieldContentStageExcelStart(b)
 	FieldContentStageExcelAddAreaId(b, fbsutils.Convert(t.AreaId, t.FlatBuffer.TableKey))
@@ -65,7 +65,7 @@ func (t *FieldContentStageExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldContentStageExcelDto) UnmarshalMessage(e *FieldContentStageExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStageExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldContentStage"))
 	}
 	t.AreaId = fbsutils.Convert(e.AreaId(), t.FlatBuffer.TableKey)
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)

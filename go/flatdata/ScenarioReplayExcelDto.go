@@ -24,7 +24,7 @@ type ScenarioReplayExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioReplayExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioReplayExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioReplay"))
 	}
 	ScenarioReplayExcelStart(b)
 	ScenarioReplayExcelStartBackScenarioGroupIdVector(b, len(t.BackScenarioGroupId))
@@ -57,7 +57,7 @@ func (t *ScenarioReplayExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioReplayExcelDto) UnmarshalMessage(e *ScenarioReplayExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioReplayExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioReplay"))
 	}
 	t.BackScenarioGroupId = make([]int64, e.BackScenarioGroupIdLength())
 	for i := range e.BackScenarioGroupIdLength() {

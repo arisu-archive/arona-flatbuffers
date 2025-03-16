@@ -17,7 +17,7 @@ type BattleLevelFactorExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BattleLevelFactorExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BattleLevelFactorExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BattleLevelFactorTable"))
 	}
 	BattleLevelFactorExcelTableStart(b)
 	BattleLevelFactorExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *BattleLevelFactorExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BattleLevelFactorExcelTableDto) UnmarshalMessage(e *BattleLevelFactorExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BattleLevelFactorExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BattleLevelFactorTable"))
 	}
 	t.DataList = make([]BattleLevelFactorExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

@@ -19,7 +19,7 @@ type FormationLocationExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FormationLocationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FormationLocationExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FormationLocation"))
 	}
 	FormationLocationExcelStart(b)
 	FormationLocationExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
@@ -47,7 +47,7 @@ func (t *FormationLocationExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FormationLocationExcelDto) UnmarshalMessage(e *FormationLocationExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FormationLocationExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FormationLocation"))
 	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

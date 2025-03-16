@@ -22,7 +22,7 @@ type MiniGameDreamEndingExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamEndingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamEndingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamEnding"))
 	}
 	MiniGameDreamEndingExcelStart(b)
 	MiniGameDreamEndingExcelAddDreamMakerEndingType(b, fbsutils.Convert(t.DreamMakerEndingType, t.FlatBuffer.TableKey))
@@ -53,7 +53,7 @@ func (t *MiniGameDreamEndingExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamEndingExcelDto) UnmarshalMessage(e *MiniGameDreamEndingExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamEndingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamEnding"))
 	}
 	t.DreamMakerEndingType = DreamMakerEndingType(int32(fbsutils.Convert(e.DreamMakerEndingType(), t.FlatBuffer.TableKey)))
 	t.EndingCondition = make([]DreamMakerEndingCondition, e.EndingConditionLength())

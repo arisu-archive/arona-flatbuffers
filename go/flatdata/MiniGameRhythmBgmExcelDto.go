@@ -25,7 +25,7 @@ type MiniGameRhythmBgmExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameRhythmBgmExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameRhythmBgmExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameRhythmBgm"))
 	}
 	MiniGameRhythmBgmExcelStart(b)
 	MiniGameRhythmBgmExcelAddBgm(b, fbsutils.Convert(t.Bgm, t.FlatBuffer.TableKey))
@@ -51,7 +51,7 @@ func (t *MiniGameRhythmBgmExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameRhythmBgmExcelDto) UnmarshalMessage(e *MiniGameRhythmBgmExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameRhythmBgmExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameRhythmBgm"))
 	}
 	t.Bgm = fbsutils.Convert(e.Bgm(), t.FlatBuffer.TableKey)
 	t.BgmArtistText = fbsutils.Convert(string(e.BgmArtistText()), t.FlatBuffer.TableKey)

@@ -22,7 +22,7 @@ type WeekDungeonFindGiftRewardExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WeekDungeonFindGiftRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonFindGiftRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonFindGiftReward"))
 	}
 	WeekDungeonFindGiftRewardExcelStart(b)
 	WeekDungeonFindGiftRewardExcelAddDevName(b, fbsutils.Convert(b.CreateString(t.DevName), t.FlatBuffer.TableKey))
@@ -65,7 +65,7 @@ func (t *WeekDungeonFindGiftRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WeekDungeonFindGiftRewardExcelDto) UnmarshalMessage(e *WeekDungeonFindGiftRewardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonFindGiftRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonFindGiftReward"))
 	}
 	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
 	t.DropItemModelPrefabPath = make([]string, e.DropItemModelPrefabPathLength())

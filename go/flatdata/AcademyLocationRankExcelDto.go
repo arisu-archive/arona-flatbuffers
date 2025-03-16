@@ -18,7 +18,7 @@ type AcademyLocationRankExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AcademyLocationRankExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyLocationRankExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyLocationRank"))
 	}
 	AcademyLocationRankExcelStart(b)
 	AcademyLocationRankExcelAddRank(b, fbsutils.Convert(t.Rank, t.FlatBuffer.TableKey))
@@ -37,7 +37,7 @@ func (t *AcademyLocationRankExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AcademyLocationRankExcelDto) UnmarshalMessage(e *AcademyLocationRankExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyLocationRankExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyLocationRank"))
 	}
 	t.Rank = fbsutils.Convert(e.Rank(), t.FlatBuffer.TableKey)
 	t.RankExp = fbsutils.Convert(e.RankExp(), t.FlatBuffer.TableKey)

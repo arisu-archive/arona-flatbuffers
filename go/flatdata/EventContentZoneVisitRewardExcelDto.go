@@ -24,7 +24,7 @@ type EventContentZoneVisitRewardExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentZoneVisitRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentZoneVisitRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentZoneVisitReward"))
 	}
 	EventContentZoneVisitRewardExcelStart(b)
 	EventContentZoneVisitRewardExcelAddCharacterDevName(b, fbsutils.Convert(b.CreateString(t.CharacterDevName), t.FlatBuffer.TableKey))
@@ -65,7 +65,7 @@ func (t *EventContentZoneVisitRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentZoneVisitRewardExcelDto) UnmarshalMessage(e *EventContentZoneVisitRewardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentZoneVisitRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentZoneVisitReward"))
 	}
 	t.CharacterDevName = fbsutils.Convert(string(e.CharacterDevName()), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)

@@ -17,7 +17,7 @@ type EchelonConstraintExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EchelonConstraintExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EchelonConstraintExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EchelonConstraintTable"))
 	}
 	EchelonConstraintExcelTableStart(b)
 	EchelonConstraintExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *EchelonConstraintExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EchelonConstraintExcelTableDto) UnmarshalMessage(e *EchelonConstraintExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EchelonConstraintExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EchelonConstraintTable"))
 	}
 	t.DataList = make([]EchelonConstraintExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

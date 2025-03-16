@@ -20,7 +20,7 @@ type ConquestErosionUnitExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestErosionUnitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestErosionUnitExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestErosionUnit"))
 	}
 	ConquestErosionUnitExcelStart(b)
 	ConquestErosionUnitExcelAddIndividualErosionUnitId(b, fbsutils.Convert(t.IndividualErosionUnitId, t.FlatBuffer.TableKey))
@@ -41,7 +41,7 @@ func (t *ConquestErosionUnitExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestErosionUnitExcelDto) UnmarshalMessage(e *ConquestErosionUnitExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestErosionUnitExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestErosionUnit"))
 	}
 	t.IndividualErosionUnitId = fbsutils.Convert(e.IndividualErosionUnitId(), t.FlatBuffer.TableKey)
 	t.IndividualErosionUnitRotationY = fbsutils.Convert(e.IndividualErosionUnitRotationY(), t.FlatBuffer.TableKey)

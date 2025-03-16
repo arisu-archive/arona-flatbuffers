@@ -22,7 +22,7 @@ type EventContentStageRewardExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentStageRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentStageReward"))
 	}
 	EventContentStageRewardExcelStart(b)
 	EventContentStageRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
@@ -45,7 +45,7 @@ func (t *EventContentStageRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentStageRewardExcelDto) UnmarshalMessage(e *EventContentStageRewardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentStageRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentStageReward"))
 	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)

@@ -17,7 +17,7 @@ type GachaCraftOpenTagExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GachaCraftOpenTagExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaCraftOpenTagExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaCraftOpenTag"))
 	}
 	GachaCraftOpenTagExcelStart(b)
 	GachaCraftOpenTagExcelAddNodeTier(b, fbsutils.Convert(t.NodeTier, t.FlatBuffer.TableKey))
@@ -39,7 +39,7 @@ func (t *GachaCraftOpenTagExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GachaCraftOpenTagExcelDto) UnmarshalMessage(e *GachaCraftOpenTagExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaCraftOpenTagExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaCraftOpenTag"))
 	}
 	t.NodeTier = CraftNodeTier(int32(fbsutils.Convert(e.NodeTier(), t.FlatBuffer.TableKey)))
 	t.Tag = make([]Tag, e.TagLength())

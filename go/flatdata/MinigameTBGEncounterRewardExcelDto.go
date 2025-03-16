@@ -23,7 +23,7 @@ type MinigameTBGEncounterRewardExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGEncounterRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGEncounterRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGEncounterReward"))
 	}
 	MinigameTBGEncounterRewardExcelStart(b)
 	MinigameTBGEncounterRewardExcelAddAmount(b, fbsutils.Convert(t.Amount, t.FlatBuffer.TableKey))
@@ -47,7 +47,7 @@ func (t *MinigameTBGEncounterRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGEncounterRewardExcelDto) UnmarshalMessage(e *MinigameTBGEncounterRewardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGEncounterRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGEncounterReward"))
 	}
 	t.Amount = fbsutils.Convert(e.Amount(), t.FlatBuffer.TableKey)
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)

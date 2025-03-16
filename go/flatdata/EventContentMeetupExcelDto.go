@@ -22,7 +22,7 @@ type EventContentMeetupExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentMeetupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMeetupExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMeetup"))
 	}
 	EventContentMeetupExcelStart(b)
 	EventContentMeetupExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
@@ -49,7 +49,7 @@ func (t *EventContentMeetupExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentMeetupExcelDto) UnmarshalMessage(e *EventContentMeetupExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMeetupExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMeetup"))
 	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.ConditionParameter = make([]int64, e.ConditionParameterLength())

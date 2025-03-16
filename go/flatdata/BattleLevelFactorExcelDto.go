@@ -17,7 +17,7 @@ type BattleLevelFactorExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BattleLevelFactorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BattleLevelFactorExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BattleLevelFactor"))
 	}
 	BattleLevelFactorExcelStart(b)
 	BattleLevelFactorExcelAddDamageRate(b, fbsutils.Convert(t.DamageRate, t.FlatBuffer.TableKey))
@@ -35,7 +35,7 @@ func (t *BattleLevelFactorExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BattleLevelFactorExcelDto) UnmarshalMessage(e *BattleLevelFactorExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BattleLevelFactorExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BattleLevelFactor"))
 	}
 	t.DamageRate = fbsutils.Convert(e.DamageRate(), t.FlatBuffer.TableKey)
 	t.LevelDiff = fbsutils.Convert(e.LevelDiff(), t.FlatBuffer.TableKey)

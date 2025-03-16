@@ -18,7 +18,7 @@ type ShopCashScenarioResourceInfoExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopCashScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopCashScenarioResourceInfoExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopCashScenarioResourceInfo"))
 	}
 	ShopCashScenarioResourceInfoExcelStart(b)
 	ShopCashScenarioResourceInfoExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
@@ -37,7 +37,7 @@ func (t *ShopCashScenarioResourceInfoExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShopCashScenarioResourceInfoExcelDto) UnmarshalMessage(e *ShopCashScenarioResourceInfoExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopCashScenarioResourceInfoExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopCashScenarioResourceInfo"))
 	}
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
 	t.ScenarioResrouceInfoId = fbsutils.Convert(e.ScenarioResrouceInfoId(), t.FlatBuffer.TableKey)

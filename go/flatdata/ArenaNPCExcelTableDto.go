@@ -17,7 +17,7 @@ type ArenaNPCExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaNPCExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaNPCExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaNPCTable"))
 	}
 	ArenaNPCExcelTableStart(b)
 	ArenaNPCExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *ArenaNPCExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaNPCExcelTableDto) UnmarshalMessage(e *ArenaNPCExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaNPCExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaNPCTable"))
 	}
 	t.DataList = make([]ArenaNPCExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

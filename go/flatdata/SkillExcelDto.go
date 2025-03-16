@@ -44,7 +44,7 @@ type SkillExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SkillExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SkillExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Skill"))
 	}
 	SkillExcelStart(b)
 	SkillExcelAddAdditionalToolTipId(b, fbsutils.Convert(t.AdditionalToolTipId, t.FlatBuffer.TableKey))
@@ -89,7 +89,7 @@ func (t *SkillExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *SkillExcelDto) UnmarshalMessage(e *SkillExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SkillExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Skill"))
 	}
 	t.AdditionalToolTipId = fbsutils.Convert(e.AdditionalToolTipId(), t.FlatBuffer.TableKey)
 	t.BulletType = BulletType(int32(fbsutils.Convert(e.BulletType(), t.FlatBuffer.TableKey)))

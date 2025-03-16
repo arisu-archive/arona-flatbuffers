@@ -46,7 +46,7 @@ type CharacterVictoryInteractionExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterVictoryInteractionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVictoryInteractionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVictoryInteraction"))
 	}
 	CharacterVictoryInteractionExcelStart(b)
 	CharacterVictoryInteractionExcelAddCostumeId01(b, fbsutils.Convert(t.CostumeId01, t.FlatBuffer.TableKey))
@@ -93,7 +93,7 @@ func (t *CharacterVictoryInteractionExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterVictoryInteractionExcelDto) UnmarshalMessage(e *CharacterVictoryInteractionExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVictoryInteractionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVictoryInteraction"))
 	}
 	t.CostumeId01 = fbsutils.Convert(e.CostumeId01(), t.FlatBuffer.TableKey)
 	t.CostumeId02 = fbsutils.Convert(e.CostumeId02(), t.FlatBuffer.TableKey)

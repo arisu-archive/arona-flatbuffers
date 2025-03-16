@@ -110,7 +110,7 @@ type ConstCombatExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstCombatExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstCombat"))
 	}
 	ConstCombatExcelStart(b)
 	ConstCombatExcelAddAccuracyConstA(b, fbsutils.Convert(t.AccuracyConstA, t.FlatBuffer.TableKey))
@@ -221,7 +221,7 @@ func (t *ConstCombatExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstCombatExcelDto) UnmarshalMessage(e *ConstCombatExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstCombatExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstCombat"))
 	}
 	t.AccuracyConstA = fbsutils.Convert(e.AccuracyConstA(), t.FlatBuffer.TableKey)
 	t.AccuracyConstB = fbsutils.Convert(e.AccuracyConstB(), t.FlatBuffer.TableKey)

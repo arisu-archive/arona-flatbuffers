@@ -26,7 +26,7 @@ type MiniGameDreamScheduleResultExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamScheduleResultExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamScheduleResultExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamScheduleResult"))
 	}
 	MiniGameDreamScheduleResultExcelStart(b)
 	MiniGameDreamScheduleResultExcelAddDreamMakerResult(b, fbsutils.Convert(t.DreamMakerResult, t.FlatBuffer.TableKey))
@@ -65,7 +65,7 @@ func (t *MiniGameDreamScheduleResultExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamScheduleResultExcelDto) UnmarshalMessage(e *MiniGameDreamScheduleResultExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamScheduleResultExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamScheduleResult"))
 	}
 	t.DreamMakerResult = DreamMakerResult(int32(fbsutils.Convert(e.DreamMakerResult(), t.FlatBuffer.TableKey)))
 	t.DreamMakerScheduleGroup = fbsutils.Convert(e.DreamMakerScheduleGroup(), t.FlatBuffer.TableKey)

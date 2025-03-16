@@ -21,7 +21,7 @@ type CharacterIllustCoordinateExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterIllustCoordinateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterIllustCoordinateExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterIllustCoordinate"))
 	}
 	CharacterIllustCoordinateExcelStart(b)
 	CharacterIllustCoordinateExcelAddCharacterBodyCenterX(b, fbsutils.Convert(t.CharacterBodyCenterX, t.FlatBuffer.TableKey))
@@ -43,7 +43,7 @@ func (t *CharacterIllustCoordinateExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterIllustCoordinateExcelDto) UnmarshalMessage(e *CharacterIllustCoordinateExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterIllustCoordinateExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterIllustCoordinate"))
 	}
 	t.CharacterBodyCenterX = fbsutils.Convert(e.CharacterBodyCenterX(), t.FlatBuffer.TableKey)
 	t.CharacterBodyCenterY = fbsutils.Convert(e.CharacterBodyCenterY(), t.FlatBuffer.TableKey)

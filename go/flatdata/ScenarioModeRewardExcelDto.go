@@ -22,7 +22,7 @@ type ScenarioModeRewardExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioModeRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioModeRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioModeReward"))
 	}
 	ScenarioModeRewardExcelStart(b)
 	ScenarioModeRewardExcelAddIsDisplayed(b, fbsutils.Convert(t.IsDisplayed, t.FlatBuffer.TableKey))
@@ -45,7 +45,7 @@ func (t *ScenarioModeRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioModeRewardExcelDto) UnmarshalMessage(e *ScenarioModeRewardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioModeRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioModeReward"))
 	}
 	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)

@@ -20,7 +20,7 @@ type TimeAttackDungeonExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TimeAttackDungeonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeon"))
 	}
 	TimeAttackDungeonExcelStart(b)
 	TimeAttackDungeonExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
@@ -41,7 +41,7 @@ func (t *TimeAttackDungeonExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TimeAttackDungeonExcelDto) UnmarshalMessage(e *TimeAttackDungeonExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeon"))
 	}
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

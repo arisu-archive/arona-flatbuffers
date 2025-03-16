@@ -17,7 +17,7 @@ type RaidSeasonManageExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RaidSeasonManageExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidSeasonManageExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidSeasonManageTable"))
 	}
 	RaidSeasonManageExcelTableStart(b)
 	RaidSeasonManageExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *RaidSeasonManageExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RaidSeasonManageExcelTableDto) UnmarshalMessage(e *RaidSeasonManageExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidSeasonManageExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidSeasonManageTable"))
 	}
 	t.DataList = make([]RaidSeasonManageExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

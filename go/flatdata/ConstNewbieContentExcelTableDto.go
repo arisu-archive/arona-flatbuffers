@@ -17,7 +17,7 @@ type ConstNewbieContentExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstNewbieContentExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstNewbieContentExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstNewbieContentTable"))
 	}
 	ConstNewbieContentExcelTableStart(b)
 	ConstNewbieContentExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *ConstNewbieContentExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstNewbieContentExcelTableDto) UnmarshalMessage(e *ConstNewbieContentExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstNewbieContentExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstNewbieContentTable"))
 	}
 	t.DataList = make([]ConstNewbieContentExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

@@ -17,7 +17,7 @@ type FixedStrategyExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FixedStrategyExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedStrategyExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedStrategyTable"))
 	}
 	FixedStrategyExcelTableStart(b)
 	FixedStrategyExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *FixedStrategyExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FixedStrategyExcelTableDto) UnmarshalMessage(e *FixedStrategyExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedStrategyExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedStrategyTable"))
 	}
 	t.DataList = make([]FixedStrategyExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

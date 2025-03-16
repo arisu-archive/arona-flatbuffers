@@ -21,7 +21,7 @@ type CharacterAcademyTagsExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterAcademyTagsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAcademyTagsExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAcademyTags"))
 	}
 	CharacterAcademyTagsExcelStart(b)
 	CharacterAcademyTagsExcelStartFavorItemTagsVector(b, len(t.FavorItemTags))
@@ -63,7 +63,7 @@ func (t *CharacterAcademyTagsExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterAcademyTagsExcelDto) UnmarshalMessage(e *CharacterAcademyTagsExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAcademyTagsExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAcademyTags"))
 	}
 	t.FavorItemTags = make([]Tag, e.FavorItemTagsLength())
 	for i := range e.FavorItemTagsLength() {

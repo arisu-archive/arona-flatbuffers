@@ -25,7 +25,7 @@ type FieldQuestExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldQuestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldQuestExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldQuest"))
 	}
 	FieldQuestExcelStart(b)
 	FieldQuestExcelAddAssetPath(b, fbsutils.Convert(b.CreateString(t.AssetPath), t.FlatBuffer.TableKey))
@@ -51,7 +51,7 @@ func (t *FieldQuestExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldQuestExcelDto) UnmarshalMessage(e *FieldQuestExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldQuestExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldQuest"))
 	}
 	t.AssetPath = fbsutils.Convert(string(e.AssetPath()), t.FlatBuffer.TableKey)
 	t.FieldDateId = fbsutils.Convert(e.FieldDateId(), t.FlatBuffer.TableKey)

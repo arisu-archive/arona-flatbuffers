@@ -17,7 +17,7 @@ type StatLevelInterpolationExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StatLevelInterpolationExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StatLevelInterpolationExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StatLevelInterpolationTable"))
 	}
 	StatLevelInterpolationExcelTableStart(b)
 	StatLevelInterpolationExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *StatLevelInterpolationExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StatLevelInterpolationExcelTableDto) UnmarshalMessage(e *StatLevelInterpolationExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StatLevelInterpolationExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StatLevelInterpolationTable"))
 	}
 	t.DataList = make([]StatLevelInterpolationExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

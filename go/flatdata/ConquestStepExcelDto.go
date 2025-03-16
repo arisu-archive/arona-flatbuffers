@@ -27,7 +27,7 @@ type ConquestStepExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestStepExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestStepExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestStep"))
 	}
 	ConquestStepExcelStart(b)
 	ConquestStepExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
@@ -59,7 +59,7 @@ func (t *ConquestStepExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestStepExcelDto) UnmarshalMessage(e *ConquestStepExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestStepExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestStep"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.MapDifficulty = StageDifficulty(int32(fbsutils.Convert(e.MapDifficulty(), t.FlatBuffer.TableKey)))

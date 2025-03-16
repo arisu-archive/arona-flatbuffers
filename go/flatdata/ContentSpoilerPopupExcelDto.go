@@ -20,7 +20,7 @@ type ContentSpoilerPopupExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ContentSpoilerPopupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentSpoilerPopupExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentSpoilerPopup"))
 	}
 	ContentSpoilerPopupExcelStart(b)
 	ContentSpoilerPopupExcelAddConditionScenarioModeId(b, fbsutils.Convert(t.ConditionScenarioModeId, t.FlatBuffer.TableKey))
@@ -41,7 +41,7 @@ func (t *ContentSpoilerPopupExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ContentSpoilerPopupExcelDto) UnmarshalMessage(e *ContentSpoilerPopupExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentSpoilerPopupExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentSpoilerPopup"))
 	}
 	t.ConditionScenarioModeId = fbsutils.Convert(e.ConditionScenarioModeId(), t.FlatBuffer.TableKey)
 	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))

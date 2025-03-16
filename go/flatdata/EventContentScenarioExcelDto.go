@@ -37,7 +37,7 @@ type EventContentScenarioExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentScenarioExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentScenario"))
 	}
 	EventContentScenarioExcelStart(b)
 	EventContentScenarioExcelAddClearedScenarioGroupId(b, fbsutils.Convert(t.ClearedScenarioGroupId, t.FlatBuffer.TableKey))
@@ -91,7 +91,7 @@ func (t *EventContentScenarioExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentScenarioExcelDto) UnmarshalMessage(e *EventContentScenarioExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentScenarioExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentScenario"))
 	}
 	t.ClearedScenarioGroupId = fbsutils.Convert(e.ClearedScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.ConditionAmount = fbsutils.Convert(e.ConditionAmount(), t.FlatBuffer.TableKey)

@@ -28,7 +28,7 @@ type EventContentShopInfoExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentShopInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShopInfoExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShopInfo"))
 	}
 	EventContentShopInfoExcelStart(b)
 	EventContentShopInfoExcelAddAutoRefreshCoolTime(b, fbsutils.Convert(t.AutoRefreshCoolTime, t.FlatBuffer.TableKey))
@@ -69,7 +69,7 @@ func (t *EventContentShopInfoExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentShopInfoExcelDto) UnmarshalMessage(e *EventContentShopInfoExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShopInfoExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShopInfo"))
 	}
 	t.AutoRefreshCoolTime = fbsutils.Convert(e.AutoRefreshCoolTime(), t.FlatBuffer.TableKey)
 	t.CategoryType = ShopCategoryType(int32(fbsutils.Convert(e.CategoryType(), t.FlatBuffer.TableKey)))

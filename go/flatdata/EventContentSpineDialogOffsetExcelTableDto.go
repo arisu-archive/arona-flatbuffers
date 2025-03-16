@@ -17,7 +17,7 @@ type EventContentSpineDialogOffsetExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentSpineDialogOffsetExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpineDialogOffsetExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpineDialogOffsetTable"))
 	}
 	EventContentSpineDialogOffsetExcelTableStart(b)
 	EventContentSpineDialogOffsetExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *EventContentSpineDialogOffsetExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentSpineDialogOffsetExcelTableDto) UnmarshalMessage(e *EventContentSpineDialogOffsetExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpineDialogOffsetExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpineDialogOffsetTable"))
 	}
 	t.DataList = make([]EventContentSpineDialogOffsetExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

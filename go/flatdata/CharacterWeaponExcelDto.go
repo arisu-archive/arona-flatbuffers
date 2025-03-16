@@ -32,7 +32,7 @@ type CharacterWeaponExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterWeaponExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeaponExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeapon"))
 	}
 	CharacterWeaponExcelStart(b)
 	CharacterWeaponExcelAddAttackPower(b, fbsutils.Convert(t.AttackPower, t.FlatBuffer.TableKey))
@@ -93,7 +93,7 @@ func (t *CharacterWeaponExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterWeaponExcelDto) UnmarshalMessage(e *CharacterWeaponExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeaponExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeapon"))
 	}
 	t.AttackPower = fbsutils.Convert(e.AttackPower(), t.FlatBuffer.TableKey)
 	t.AttackPower100 = fbsutils.Convert(e.AttackPower100(), t.FlatBuffer.TableKey)

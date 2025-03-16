@@ -19,7 +19,7 @@ type ConstAudioExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstAudioExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstAudioExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstAudio"))
 	}
 	ConstAudioExcelStart(b)
 	ConstAudioExcelAddBattleSnapShotName(b, fbsutils.Convert(b.CreateString(t.BattleSnapShotName), t.FlatBuffer.TableKey))
@@ -39,7 +39,7 @@ func (t *ConstAudioExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstAudioExcelDto) UnmarshalMessage(e *ConstAudioExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstAudioExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstAudio"))
 	}
 	t.BattleSnapShotName = fbsutils.Convert(string(e.BattleSnapShotName()), t.FlatBuffer.TableKey)
 	t.DefaultSnapShotName = fbsutils.Convert(string(e.DefaultSnapShotName()), t.FlatBuffer.TableKey)

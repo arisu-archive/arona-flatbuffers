@@ -20,7 +20,7 @@ type FieldEvidenceExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldEvidenceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldEvidenceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldEvidence"))
 	}
 	FieldEvidenceExcelStart(b)
 	FieldEvidenceExcelAddDescriptionLocalizeKey(b, fbsutils.Convert(b.CreateString(t.DescriptionLocalizeKey), t.FlatBuffer.TableKey))
@@ -41,7 +41,7 @@ func (t *FieldEvidenceExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldEvidenceExcelDto) UnmarshalMessage(e *FieldEvidenceExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldEvidenceExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldEvidence"))
 	}
 	t.DescriptionLocalizeKey = fbsutils.Convert(string(e.DescriptionLocalizeKey()), t.FlatBuffer.TableKey)
 	t.DetailLocalizeKey = fbsutils.Convert(string(e.DetailLocalizeKey()), t.FlatBuffer.TableKey)

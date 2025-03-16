@@ -17,7 +17,7 @@ type ConquestGroupBonusExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestGroupBonusExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestGroupBonusExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestGroupBonusTable"))
 	}
 	ConquestGroupBonusExcelTableStart(b)
 	ConquestGroupBonusExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *ConquestGroupBonusExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestGroupBonusExcelTableDto) UnmarshalMessage(e *ConquestGroupBonusExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestGroupBonusExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestGroupBonusTable"))
 	}
 	t.DataList = make([]ConquestGroupBonusExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

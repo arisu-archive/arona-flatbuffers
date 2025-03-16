@@ -30,7 +30,7 @@ type TacticArenaSimulatorSettingExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TacticArenaSimulatorSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticArenaSimulatorSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticArenaSimulatorSetting"))
 	}
 	TacticArenaSimulatorSettingExcelStart(b)
 	TacticArenaSimulatorSettingExcelAddAttackerFrom(b, fbsutils.Convert(t.AttackerFrom, t.FlatBuffer.TableKey))
@@ -61,7 +61,7 @@ func (t *TacticArenaSimulatorSettingExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TacticArenaSimulatorSettingExcelDto) UnmarshalMessage(e *TacticArenaSimulatorSettingExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticArenaSimulatorSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticArenaSimulatorSetting"))
 	}
 	t.AttackerFrom = ArenaSimulatorServer(int32(fbsutils.Convert(e.AttackerFrom(), t.FlatBuffer.TableKey)))
 	t.AttackerPresetGroupId = fbsutils.Convert(e.AttackerPresetGroupId(), t.FlatBuffer.TableKey)

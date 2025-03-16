@@ -19,7 +19,7 @@ type CafeInfoExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CafeInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeInfoExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeInfo"))
 	}
 	CafeInfoExcelStart(b)
 	CafeInfoExcelAddCafeId(b, fbsutils.Convert(t.CafeId, t.FlatBuffer.TableKey))
@@ -39,7 +39,7 @@ func (t *CafeInfoExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CafeInfoExcelDto) UnmarshalMessage(e *CafeInfoExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeInfoExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeInfo"))
 	}
 	t.CafeId = fbsutils.Convert(e.CafeId(), t.FlatBuffer.TableKey)
 	t.IsDefault = fbsutils.Convert(e.IsDefault(), t.FlatBuffer.TableKey)

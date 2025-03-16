@@ -47,7 +47,7 @@ type ConstArenaExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstArenaExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstArenaExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstArena"))
 	}
 	ConstArenaExcelStart(b)
 	ConstArenaExcelAddAttackCoolTime(b, fbsutils.Convert(t.AttackCoolTime, t.FlatBuffer.TableKey))
@@ -123,7 +123,7 @@ func (t *ConstArenaExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstArenaExcelDto) UnmarshalMessage(e *ConstArenaExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstArenaExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstArena"))
 	}
 	t.AttackCoolTime = fbsutils.Convert(e.AttackCoolTime(), t.FlatBuffer.TableKey)
 	t.AutoRefreshIntervalMilliSeconds = fbsutils.Convert(e.AutoRefreshIntervalMilliSeconds(), t.FlatBuffer.TableKey)

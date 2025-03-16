@@ -25,7 +25,7 @@ type RecipeCraftExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RecipeCraftExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeCraftExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeCraft"))
 	}
 	RecipeCraftExcelStart(b)
 	RecipeCraftExcelAddDevName(b, fbsutils.Convert(b.CreateString(t.DevName), t.FlatBuffer.TableKey))
@@ -71,7 +71,7 @@ func (t *RecipeCraftExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RecipeCraftExcelDto) UnmarshalMessage(e *RecipeCraftExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeCraftExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeCraft"))
 	}
 	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

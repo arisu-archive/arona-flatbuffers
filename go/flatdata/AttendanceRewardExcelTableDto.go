@@ -17,7 +17,7 @@ type AttendanceRewardExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AttendanceRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AttendanceRewardExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AttendanceRewardTable"))
 	}
 	AttendanceRewardExcelTableStart(b)
 	AttendanceRewardExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *AttendanceRewardExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AttendanceRewardExcelTableDto) UnmarshalMessage(e *AttendanceRewardExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AttendanceRewardExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AttendanceRewardTable"))
 	}
 	t.DataList = make([]AttendanceRewardExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

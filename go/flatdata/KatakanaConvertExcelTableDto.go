@@ -17,7 +17,7 @@ type KatakanaConvertExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *KatakanaConvertExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KatakanaConvertExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KatakanaConvertTable"))
 	}
 	KatakanaConvertExcelTableStart(b)
 	KatakanaConvertExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *KatakanaConvertExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *KatakanaConvertExcelTableDto) UnmarshalMessage(e *KatakanaConvertExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KatakanaConvertExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KatakanaConvertTable"))
 	}
 	t.DataList = make([]KatakanaConvertExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

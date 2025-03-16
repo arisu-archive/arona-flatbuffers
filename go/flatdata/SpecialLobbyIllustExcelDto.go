@@ -21,7 +21,7 @@ type SpecialLobbyIllustExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SpecialLobbyIllustExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpecialLobbyIllustExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpecialLobbyIllust"))
 	}
 	SpecialLobbyIllustExcelStart(b)
 	SpecialLobbyIllustExcelAddCharacterCostumeUniqueId(b, fbsutils.Convert(t.CharacterCostumeUniqueId, t.FlatBuffer.TableKey))
@@ -43,7 +43,7 @@ func (t *SpecialLobbyIllustExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *SpecialLobbyIllustExcelDto) UnmarshalMessage(e *SpecialLobbyIllustExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpecialLobbyIllustExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SpecialLobbyIllust"))
 	}
 	t.CharacterCostumeUniqueId = fbsutils.Convert(e.CharacterCostumeUniqueId(), t.FlatBuffer.TableKey)
 	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)

@@ -17,7 +17,7 @@ type CharacterVictoryInteractionExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterVictoryInteractionExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVictoryInteractionExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVictoryInteractionTable"))
 	}
 	CharacterVictoryInteractionExcelTableStart(b)
 	CharacterVictoryInteractionExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *CharacterVictoryInteractionExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterVictoryInteractionExcelTableDto) UnmarshalMessage(e *CharacterVictoryInteractionExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVictoryInteractionExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVictoryInteractionTable"))
 	}
 	t.DataList = make([]CharacterVictoryInteractionExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

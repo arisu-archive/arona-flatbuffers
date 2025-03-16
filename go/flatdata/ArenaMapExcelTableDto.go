@@ -17,7 +17,7 @@ type ArenaMapExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaMapExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaMapExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaMapTable"))
 	}
 	ArenaMapExcelTableStart(b)
 	ArenaMapExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *ArenaMapExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaMapExcelTableDto) UnmarshalMessage(e *ArenaMapExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaMapExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaMapTable"))
 	}
 	t.DataList = make([]ArenaMapExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

@@ -28,7 +28,7 @@ type ContentsShortcutExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ContentsShortcutExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentsShortcutExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentsShortcut"))
 	}
 	ContentsShortcutExcelStart(b)
 	ContentsShortcutExcelAddConditionContentId(b, fbsutils.Convert(t.ConditionContentId, t.FlatBuffer.TableKey))
@@ -61,7 +61,7 @@ func (t *ContentsShortcutExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ContentsShortcutExcelDto) UnmarshalMessage(e *ContentsShortcutExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentsShortcutExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentsShortcut"))
 	}
 	t.ConditionContentId = fbsutils.Convert(e.ConditionContentId(), t.FlatBuffer.TableKey)
 	t.ConquestMapDifficulty = StageDifficulty(int32(fbsutils.Convert(e.ConquestMapDifficulty(), t.FlatBuffer.TableKey)))

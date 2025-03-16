@@ -29,7 +29,7 @@ type CampaignUnitExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CampaignUnitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignUnitExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignUnit"))
 	}
 	CampaignUnitExcelStart(b)
 	CampaignUnitExcelAddAiMoveType(b, fbsutils.Convert(t.AiMoveType, t.FlatBuffer.TableKey))
@@ -67,7 +67,7 @@ func (t *CampaignUnitExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CampaignUnitExcelDto) UnmarshalMessage(e *CampaignUnitExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignUnitExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignUnit"))
 	}
 	t.AiMoveType = StrategyAIType(int32(fbsutils.Convert(e.AiMoveType(), t.FlatBuffer.TableKey)))
 	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())

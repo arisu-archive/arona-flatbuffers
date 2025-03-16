@@ -17,7 +17,7 @@ type EmoticonSpecialExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EmoticonSpecialExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmoticonSpecialExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmoticonSpecialTable"))
 	}
 	EmoticonSpecialExcelTableStart(b)
 	EmoticonSpecialExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *EmoticonSpecialExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EmoticonSpecialExcelTableDto) UnmarshalMessage(e *EmoticonSpecialExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmoticonSpecialExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmoticonSpecialTable"))
 	}
 	t.DataList = make([]EmoticonSpecialExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

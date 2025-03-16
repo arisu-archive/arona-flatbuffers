@@ -19,7 +19,7 @@ type TacticSimulatorSettingExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TacticSimulatorSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticSimulatorSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticSimulatorSetting"))
 	}
 	TacticSimulatorSettingExcelStart(b)
 	TacticSimulatorSettingExcelAddEquipment(b, fbsutils.Convert(t.Equipment, t.FlatBuffer.TableKey))
@@ -39,7 +39,7 @@ func (t *TacticSimulatorSettingExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TacticSimulatorSettingExcelDto) UnmarshalMessage(e *TacticSimulatorSettingExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticSimulatorSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticSimulatorSetting"))
 	}
 	t.Equipment = fbsutils.Convert(e.Equipment(), t.FlatBuffer.TableKey)
 	t.GetExp = fbsutils.Convert(e.GetExp(), t.FlatBuffer.TableKey)

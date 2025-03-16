@@ -49,7 +49,7 @@ type FixedEchelonSettingExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FixedEchelonSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedEchelonSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedEchelonSetting"))
 	}
 	FixedEchelonSettingExcelStart(b)
 	FixedEchelonSettingExcelAddEchelonSceneSkip(b, fbsutils.Convert(t.EchelonSceneSkip, t.FlatBuffer.TableKey))
@@ -219,7 +219,7 @@ func (t *FixedEchelonSettingExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FixedEchelonSettingExcelDto) UnmarshalMessage(e *FixedEchelonSettingExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedEchelonSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedEchelonSetting"))
 	}
 	t.EchelonSceneSkip = fbsutils.Convert(e.EchelonSceneSkip(), t.FlatBuffer.TableKey)
 	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)

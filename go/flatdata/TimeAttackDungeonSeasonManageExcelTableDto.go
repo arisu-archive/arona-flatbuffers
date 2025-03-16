@@ -17,7 +17,7 @@ type TimeAttackDungeonSeasonManageExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TimeAttackDungeonSeasonManageExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonSeasonManageExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonSeasonManageTable"))
 	}
 	TimeAttackDungeonSeasonManageExcelTableStart(b)
 	TimeAttackDungeonSeasonManageExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *TimeAttackDungeonSeasonManageExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TimeAttackDungeonSeasonManageExcelTableDto) UnmarshalMessage(e *TimeAttackDungeonSeasonManageExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonSeasonManageExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonSeasonManageTable"))
 	}
 	t.DataList = make([]TimeAttackDungeonSeasonManageExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

@@ -26,7 +26,7 @@ type ConquestCameraSettingExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestCameraSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestCameraSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestCameraSetting"))
 	}
 	ConquestCameraSettingExcelStart(b)
 	ConquestCameraSettingExcelAddCameraAngle(b, fbsutils.Convert(t.CameraAngle, t.FlatBuffer.TableKey))
@@ -53,7 +53,7 @@ func (t *ConquestCameraSettingExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestCameraSettingExcelDto) UnmarshalMessage(e *ConquestCameraSettingExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestCameraSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestCameraSetting"))
 	}
 	t.CameraAngle = fbsutils.Convert(e.CameraAngle(), t.FlatBuffer.TableKey)
 	t.CameraZoomDefault = fbsutils.Convert(e.CameraZoomDefault(), t.FlatBuffer.TableKey)

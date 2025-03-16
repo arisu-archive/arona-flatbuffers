@@ -32,7 +32,7 @@ type SchoolDungeonStageExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SchoolDungeonStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SchoolDungeonStageExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SchoolDungeonStage"))
 	}
 	SchoolDungeonStageExcelStart(b)
 	SchoolDungeonStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
@@ -89,7 +89,7 @@ func (t *SchoolDungeonStageExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *SchoolDungeonStageExcelDto) UnmarshalMessage(e *SchoolDungeonStageExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SchoolDungeonStageExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SchoolDungeonStage"))
 	}
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.Difficulty = fbsutils.Convert(e.Difficulty(), t.FlatBuffer.TableKey)

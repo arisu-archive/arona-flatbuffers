@@ -17,7 +17,7 @@ type GoodsExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GoodsExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GoodsExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GoodsTable"))
 	}
 	GoodsExcelTableStart(b)
 	GoodsExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *GoodsExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GoodsExcelTableDto) UnmarshalMessage(e *GoodsExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GoodsExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GoodsTable"))
 	}
 	t.DataList = make([]GoodsExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

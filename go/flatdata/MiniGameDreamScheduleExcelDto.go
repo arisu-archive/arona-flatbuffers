@@ -23,7 +23,7 @@ type MiniGameDreamScheduleExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamScheduleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamScheduleExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamSchedule"))
 	}
 	MiniGameDreamScheduleExcelStart(b)
 	MiniGameDreamScheduleExcelAddAnimationName(b, fbsutils.Convert(b.CreateString(t.AnimationName), t.FlatBuffer.TableKey))
@@ -47,7 +47,7 @@ func (t *MiniGameDreamScheduleExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamScheduleExcelDto) UnmarshalMessage(e *MiniGameDreamScheduleExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamScheduleExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamSchedule"))
 	}
 	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)

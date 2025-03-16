@@ -25,7 +25,7 @@ type ArenaNPCExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaNPCExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaNPCExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaNPC"))
 	}
 	ArenaNPCExcelStart(b)
 	ArenaNPCExcelStartExceptionCharacterRaritiesVector(b, len(t.ExceptionCharacterRarities))
@@ -67,7 +67,7 @@ func (t *ArenaNPCExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaNPCExcelDto) UnmarshalMessage(e *ArenaNPCExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaNPCExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaNPC"))
 	}
 	t.ExceptionCharacterRarities = make([]Rarity, e.ExceptionCharacterRaritiesLength())
 	for i := range e.ExceptionCharacterRaritiesLength() {

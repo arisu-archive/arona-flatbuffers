@@ -17,7 +17,7 @@ type EmblemExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EmblemExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmblemExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmblemTable"))
 	}
 	EmblemExcelTableStart(b)
 	EmblemExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *EmblemExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EmblemExcelTableDto) UnmarshalMessage(e *EmblemExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmblemExcelTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EmblemTable"))
 	}
 	t.DataList = make([]EmblemExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

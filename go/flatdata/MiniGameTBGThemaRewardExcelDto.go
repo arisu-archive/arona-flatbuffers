@@ -23,7 +23,7 @@ type MiniGameTBGThemaRewardExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameTBGThemaRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameTBGThemaRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameTBGThemaReward"))
 	}
 	MiniGameTBGThemaRewardExcelStart(b)
 	MiniGameTBGThemaRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
@@ -59,7 +59,7 @@ func (t *MiniGameTBGThemaRewardExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameTBGThemaRewardExcelDto) UnmarshalMessage(e *MiniGameTBGThemaRewardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameTBGThemaRewardExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameTBGThemaReward"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.IsLoop = fbsutils.Convert(e.IsLoop(), t.FlatBuffer.TableKey)

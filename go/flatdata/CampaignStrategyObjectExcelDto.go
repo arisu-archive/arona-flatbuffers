@@ -30,7 +30,7 @@ type CampaignStrategyObjectExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CampaignStrategyObjectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignStrategyObjectExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignStrategyObject"))
 	}
 	CampaignStrategyObjectExcelStart(b)
 	CampaignStrategyObjectExcelAddBuffId(b, fbsutils.Convert(t.BuffId, t.FlatBuffer.TableKey))
@@ -61,7 +61,7 @@ func (t *CampaignStrategyObjectExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CampaignStrategyObjectExcelDto) UnmarshalMessage(e *CampaignStrategyObjectExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignStrategyObjectExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignStrategyObject"))
 	}
 	t.BuffId = fbsutils.Convert(e.BuffId(), t.FlatBuffer.TableKey)
 	t.Disposable = fbsutils.Convert(e.Disposable(), t.FlatBuffer.TableKey)

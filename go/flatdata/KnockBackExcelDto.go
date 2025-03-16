@@ -18,7 +18,7 @@ type KnockBackExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *KnockBackExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KnockBackExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KnockBack"))
 	}
 	KnockBackExcelStart(b)
 	KnockBackExcelAddDist(b, fbsutils.Convert(t.Dist, t.FlatBuffer.TableKey))
@@ -37,7 +37,7 @@ func (t *KnockBackExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *KnockBackExcelDto) UnmarshalMessage(e *KnockBackExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KnockBackExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KnockBack"))
 	}
 	t.Dist = fbsutils.Convert(e.Dist(), t.FlatBuffer.TableKey)
 	t.Index = fbsutils.Convert(e.Index(), t.FlatBuffer.TableKey)

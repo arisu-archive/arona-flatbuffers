@@ -28,7 +28,7 @@ type ConquestMapExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestMapExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestMapExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestMap"))
 	}
 	ConquestMapExcelStart(b)
 	ConquestMapExcelAddCameraSettingId(b, fbsutils.Convert(t.CameraSettingId, t.FlatBuffer.TableKey))
@@ -65,7 +65,7 @@ func (t *ConquestMapExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestMapExcelDto) UnmarshalMessage(e *ConquestMapExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestMapExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestMap"))
 	}
 	t.CameraSettingId = fbsutils.Convert(e.CameraSettingId(), t.FlatBuffer.TableKey)
 	t.ConquestMap = fbsutils.Convert(string(e.ConquestMap()), t.FlatBuffer.TableKey)

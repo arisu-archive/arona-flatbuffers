@@ -24,7 +24,7 @@ type EventContentChangeExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentChangeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChangeExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChange"))
 	}
 	EventContentChangeExcelStart(b)
 	EventContentChangeExcelAddChangeCostAmount(b, fbsutils.Convert(t.ChangeCostAmount, t.FlatBuffer.TableKey))
@@ -49,7 +49,7 @@ func (t *EventContentChangeExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentChangeExcelDto) UnmarshalMessage(e *EventContentChangeExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChangeExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChange"))
 	}
 	t.ChangeCostAmount = fbsutils.Convert(e.ChangeCostAmount(), t.FlatBuffer.TableKey)
 	t.ChangeCostId = fbsutils.Convert(e.ChangeCostId(), t.FlatBuffer.TableKey)

@@ -21,7 +21,7 @@ type VideoExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VideoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VideoExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Video"))
 	}
 	VideoExcelStart(b)
 	VideoExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -63,7 +63,7 @@ func (t *VideoExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VideoExcelDto) UnmarshalMessage(e *VideoExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VideoExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Video"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Nation = make([]Nation, e.NationLength())

@@ -19,7 +19,7 @@ type EventContentCharacterBonusExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentCharacterBonusExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCharacterBonusExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCharacterBonus"))
 	}
 	EventContentCharacterBonusExcelStart(b)
 	EventContentCharacterBonusExcelStartBonusPercentageVector(b, len(t.BonusPercentage))
@@ -47,7 +47,7 @@ func (t *EventContentCharacterBonusExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentCharacterBonusExcelDto) UnmarshalMessage(e *EventContentCharacterBonusExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCharacterBonusExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCharacterBonus"))
 	}
 	t.BonusPercentage = make([]int64, e.BonusPercentageLength())
 	for i := range e.BonusPercentageLength() {

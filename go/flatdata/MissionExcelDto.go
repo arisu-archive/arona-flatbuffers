@@ -43,7 +43,7 @@ type MissionExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MissionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Mission"))
 	}
 	MissionExcelStart(b)
 	MissionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
@@ -119,7 +119,7 @@ func (t *MissionExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MissionExcelDto) UnmarshalMessage(e *MissionExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MissionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Mission"))
 	}
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
 	t.AccountType = AccountState(int32(fbsutils.Convert(e.AccountType(), t.FlatBuffer.TableKey)))

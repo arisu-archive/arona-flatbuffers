@@ -27,7 +27,7 @@ type ConquestObjectExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestObjectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestObjectExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestObject"))
 	}
 	ConquestObjectExcelStart(b)
 	ConquestObjectExcelAddConquestObjectType(b, fbsutils.Convert(t.ConquestObjectType, t.FlatBuffer.TableKey))
@@ -55,7 +55,7 @@ func (t *ConquestObjectExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestObjectExcelDto) UnmarshalMessage(e *ConquestObjectExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestObjectExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestObject"))
 	}
 	t.ConquestObjectType = ConquestObjectType(int32(fbsutils.Convert(e.ConquestObjectType(), t.FlatBuffer.TableKey)))
 	t.ConquestRewardAmount = fbsutils.Convert(e.ConquestRewardAmount(), t.FlatBuffer.TableKey)

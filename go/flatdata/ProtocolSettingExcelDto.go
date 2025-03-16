@@ -20,7 +20,7 @@ type ProtocolSettingExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ProtocolSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProtocolSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProtocolSetting"))
 	}
 	ProtocolSettingExcelStart(b)
 	ProtocolSettingExcelAddCurrency(b, fbsutils.Convert(t.Currency, t.FlatBuffer.TableKey))
@@ -41,7 +41,7 @@ func (t *ProtocolSettingExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ProtocolSettingExcelDto) UnmarshalMessage(e *ProtocolSettingExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProtocolSettingExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProtocolSetting"))
 	}
 	t.Currency = fbsutils.Convert(e.Currency(), t.FlatBuffer.TableKey)
 	t.Inventory = fbsutils.Convert(e.Inventory(), t.FlatBuffer.TableKey)

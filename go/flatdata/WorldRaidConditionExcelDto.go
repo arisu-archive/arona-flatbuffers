@@ -24,7 +24,7 @@ type WorldRaidConditionExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WorldRaidConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidConditionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidCondition"))
 	}
 	WorldRaidConditionExcelStart(b)
 	WorldRaidConditionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
@@ -65,7 +65,7 @@ func (t *WorldRaidConditionExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WorldRaidConditionExcelDto) UnmarshalMessage(e *WorldRaidConditionExcel) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidConditionExcel"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidCondition"))
 	}
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
 	t.AfterWhenDate = fbsutils.Convert(string(e.AfterWhenDate()), t.FlatBuffer.TableKey)
