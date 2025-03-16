@@ -24,6 +24,9 @@ type FarmingDungeonLocationManageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FarmingDungeonLocationManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FarmingDungeonLocationManageExcel"))
+	}
 	FarmingDungeonLocationManageExcelStart(b)
 	FarmingDungeonLocationManageExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
 	FarmingDungeonLocationManageExcelAddFarmingDungeonLocationId(b, fbsutils.Convert(t.FarmingDungeonLocationId, t.FlatBuffer.TableKey))
@@ -47,6 +50,9 @@ func (t *FarmingDungeonLocationManageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FarmingDungeonLocationManageExcelDto) UnmarshalMessage(e *FarmingDungeonLocationManageExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FarmingDungeonLocationManageExcel"))
+	}
 	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
 	t.FarmingDungeonLocationId = fbsutils.Convert(e.FarmingDungeonLocationId(), t.FlatBuffer.TableKey)
 	t.LocalizeCodeInfo = fbsutils.Convert(e.LocalizeCodeInfo(), t.FlatBuffer.TableKey)

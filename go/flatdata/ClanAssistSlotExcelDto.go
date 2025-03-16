@@ -22,6 +22,9 @@ type ClanAssistSlotExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ClanAssistSlotExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanAssistSlotExcel"))
+	}
 	ClanAssistSlotExcelStart(b)
 	ClanAssistSlotExcelAddAssistRentalFeeAmount(b, fbsutils.Convert(t.AssistRentalFeeAmount, t.FlatBuffer.TableKey))
 	ClanAssistSlotExcelAddAssistRentalFeeAmountStranger(b, fbsutils.Convert(t.AssistRentalFeeAmountStranger, t.FlatBuffer.TableKey))
@@ -43,6 +46,9 @@ func (t *ClanAssistSlotExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ClanAssistSlotExcelDto) UnmarshalMessage(e *ClanAssistSlotExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanAssistSlotExcel"))
+	}
 	t.AssistRentalFeeAmount = fbsutils.Convert(e.AssistRentalFeeAmount(), t.FlatBuffer.TableKey)
 	t.AssistRentalFeeAmountStranger = fbsutils.Convert(e.AssistRentalFeeAmountStranger(), t.FlatBuffer.TableKey)
 	t.AssistRentRewardDailyMaxCount = fbsutils.Convert(e.AssistRentRewardDailyMaxCount(), t.FlatBuffer.TableKey)

@@ -16,6 +16,9 @@ type CharacterCalculationLimitExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterCalculationLimitExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCalculationLimitExcelTable"))
+	}
 	CharacterCalculationLimitExcelTableStart(b)
 	CharacterCalculationLimitExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *CharacterCalculationLimitExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterCalculationLimitExcelTableDto) UnmarshalMessage(e *CharacterCalculationLimitExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCalculationLimitExcelTable"))
+	}
 	t.DataList = make([]CharacterCalculationLimitExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(CharacterCalculationLimitExcel)

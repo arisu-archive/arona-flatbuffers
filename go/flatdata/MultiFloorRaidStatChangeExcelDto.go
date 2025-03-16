@@ -19,6 +19,9 @@ type MultiFloorRaidStatChangeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MultiFloorRaidStatChangeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MultiFloorRaidStatChangeExcel"))
+	}
 	MultiFloorRaidStatChangeExcelStart(b)
 	MultiFloorRaidStatChangeExcelStartApplyCharacterIdVector(b, len(t.ApplyCharacterId))
 	for i := range len(t.ApplyCharacterId) {
@@ -53,6 +56,9 @@ func (t *MultiFloorRaidStatChangeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MultiFloorRaidStatChangeExcelDto) UnmarshalMessage(e *MultiFloorRaidStatChangeExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MultiFloorRaidStatChangeExcel"))
+	}
 	t.ApplyCharacterId = make([]int64, e.ApplyCharacterIdLength())
 	for i := range e.ApplyCharacterIdLength() {
 		t.ApplyCharacterId[i] = e.ApplyCharacterId(i)

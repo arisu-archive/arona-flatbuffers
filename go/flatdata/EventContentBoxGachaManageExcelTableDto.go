@@ -16,6 +16,9 @@ type EventContentBoxGachaManageExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentBoxGachaManageExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBoxGachaManageExcelTable"))
+	}
 	EventContentBoxGachaManageExcelTableStart(b)
 	EventContentBoxGachaManageExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *EventContentBoxGachaManageExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentBoxGachaManageExcelTableDto) UnmarshalMessage(e *EventContentBoxGachaManageExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBoxGachaManageExcelTable"))
+	}
 	t.DataList = make([]EventContentBoxGachaManageExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(EventContentBoxGachaManageExcel)

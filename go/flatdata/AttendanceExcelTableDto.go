@@ -16,6 +16,9 @@ type AttendanceExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AttendanceExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AttendanceExcelTable"))
+	}
 	AttendanceExcelTableStart(b)
 	AttendanceExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *AttendanceExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AttendanceExcelTableDto) UnmarshalMessage(e *AttendanceExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AttendanceExcelTable"))
+	}
 	t.DataList = make([]AttendanceExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(AttendanceExcel)

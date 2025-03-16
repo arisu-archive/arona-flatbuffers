@@ -34,6 +34,9 @@ type MiniGameRhythmExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameRhythmExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameRhythmExcel"))
+	}
 	MiniGameRhythmExcelStart(b)
 	MiniGameRhythmExcelAddArtLevelSceneName(b, fbsutils.Convert(b.CreateString(t.ArtLevelSceneName), t.FlatBuffer.TableKey))
 	MiniGameRhythmExcelAddAttackScoreRate(b, fbsutils.Convert(t.AttackScoreRate, t.FlatBuffer.TableKey))
@@ -67,6 +70,9 @@ func (t *MiniGameRhythmExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameRhythmExcelDto) UnmarshalMessage(e *MiniGameRhythmExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameRhythmExcel"))
+	}
 	t.ArtLevelSceneName = fbsutils.Convert(string(e.ArtLevelSceneName()), t.FlatBuffer.TableKey)
 	t.AttackScoreRate = fbsutils.Convert(e.AttackScoreRate(), t.FlatBuffer.TableKey)
 	t.ComboImagePath = fbsutils.Convert(string(e.ComboImagePath()), t.FlatBuffer.TableKey)

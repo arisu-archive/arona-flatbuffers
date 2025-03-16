@@ -28,6 +28,9 @@ type FieldInteractionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldInteractionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldInteractionExcel"))
+	}
 	FieldInteractionExcelStart(b)
 	FieldInteractionExcelAddConditionClass(b, fbsutils.Convert(t.ConditionClass, t.FlatBuffer.TableKey))
 	FieldInteractionExcelStartConditionClassParametersVector(b, len(t.ConditionClassParameters))
@@ -83,6 +86,9 @@ func (t *FieldInteractionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldInteractionExcelDto) UnmarshalMessage(e *FieldInteractionExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldInteractionExcel"))
+	}
 	t.ConditionClass = FieldConditionClass(int32(fbsutils.Convert(e.ConditionClass(), t.FlatBuffer.TableKey)))
 	t.ConditionClassParameters = make([]int64, e.ConditionClassParametersLength())
 	for i := range e.ConditionClassParametersLength() {

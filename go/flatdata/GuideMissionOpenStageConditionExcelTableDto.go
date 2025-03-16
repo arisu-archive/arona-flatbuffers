@@ -16,6 +16,9 @@ type GuideMissionOpenStageConditionExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GuideMissionOpenStageConditionExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GuideMissionOpenStageConditionExcelTable"))
+	}
 	GuideMissionOpenStageConditionExcelTableStart(b)
 	GuideMissionOpenStageConditionExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *GuideMissionOpenStageConditionExcelTableDto) Marshal() ([]byte, error) 
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GuideMissionOpenStageConditionExcelTableDto) UnmarshalMessage(e *GuideMissionOpenStageConditionExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GuideMissionOpenStageConditionExcelTable"))
+	}
 	t.DataList = make([]GuideMissionOpenStageConditionExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(GuideMissionOpenStageConditionExcel)

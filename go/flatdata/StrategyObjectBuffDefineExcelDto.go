@@ -19,6 +19,9 @@ type StrategyObjectBuffDefineExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StrategyObjectBuffDefineExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StrategyObjectBuffDefineExcel"))
+	}
 	StrategyObjectBuffDefineExcelStart(b)
 	StrategyObjectBuffDefineExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
 	StrategyObjectBuffDefineExcelAddLocalizeCodeId(b, fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
@@ -37,6 +40,9 @@ func (t *StrategyObjectBuffDefineExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StrategyObjectBuffDefineExcelDto) UnmarshalMessage(e *StrategyObjectBuffDefineExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StrategyObjectBuffDefineExcel"))
+	}
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
 	t.LocalizeCodeId = fbsutils.Convert(e.LocalizeCodeId(), t.FlatBuffer.TableKey)
 	t.SkillGroupId = fbsutils.Convert(string(e.SkillGroupId()), t.FlatBuffer.TableKey)

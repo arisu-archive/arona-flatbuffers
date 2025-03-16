@@ -32,6 +32,9 @@ type GuideMissionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GuideMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GuideMissionExcel"))
+	}
 	GuideMissionExcelStart(b)
 	GuideMissionExcelAddCategory(b, fbsutils.Convert(t.Category, t.FlatBuffer.TableKey))
 	GuideMissionExcelAddCompleteConditionCount(b, fbsutils.Convert(t.CompleteConditionCount, t.FlatBuffer.TableKey))
@@ -91,6 +94,9 @@ func (t *GuideMissionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GuideMissionExcelDto) UnmarshalMessage(e *GuideMissionExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GuideMissionExcel"))
+	}
 	t.Category = MissionCategory(int32(fbsutils.Convert(e.Category(), t.FlatBuffer.TableKey)))
 	t.CompleteConditionCount = fbsutils.Convert(e.CompleteConditionCount(), t.FlatBuffer.TableKey)
 	t.CompleteConditionParameter = make([]int64, e.CompleteConditionParameterLength())

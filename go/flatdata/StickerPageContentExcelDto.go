@@ -28,6 +28,9 @@ type StickerPageContentExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StickerPageContentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StickerPageContentExcel"))
+	}
 	StickerPageContentExcelStart(b)
 	StickerPageContentExcelAddGetStickerConditionType(b, fbsutils.Convert(t.GetStickerConditionType, t.FlatBuffer.TableKey))
 	StickerPageContentExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
@@ -63,6 +66,9 @@ func (t *StickerPageContentExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StickerPageContentExcelDto) UnmarshalMessage(e *StickerPageContentExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StickerPageContentExcel"))
+	}
 	t.GetStickerConditionType = GetStickerConditionType(int32(fbsutils.Convert(e.GetStickerConditionType(), t.FlatBuffer.TableKey)))
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

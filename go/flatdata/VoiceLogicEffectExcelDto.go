@@ -19,6 +19,9 @@ type VoiceLogicEffectExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceLogicEffectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceLogicEffectExcel"))
+	}
 	VoiceLogicEffectExcelStart(b)
 	VoiceLogicEffectExcelAddLogicEffectNameHash(b, fbsutils.Convert(t.LogicEffectNameHash, t.FlatBuffer.TableKey))
 	VoiceLogicEffectExcelAddPriority(b, fbsutils.Convert(t.Priority, t.FlatBuffer.TableKey))
@@ -41,6 +44,9 @@ func (t *VoiceLogicEffectExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VoiceLogicEffectExcelDto) UnmarshalMessage(e *VoiceLogicEffectExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceLogicEffectExcel"))
+	}
 	t.LogicEffectNameHash = fbsutils.Convert(e.LogicEffectNameHash(), t.FlatBuffer.TableKey)
 	t.Priority = fbsutils.Convert(e.Priority(), t.FlatBuffer.TableKey)
 	t.Self = fbsutils.Convert(e.Self(), t.FlatBuffer.TableKey)

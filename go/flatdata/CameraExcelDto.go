@@ -25,6 +25,9 @@ type CameraExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CameraExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CameraExcel"))
+	}
 	CameraExcelStart(b)
 	CameraExcelAddBottomMargin(b, fbsutils.Convert(t.BottomMargin, t.FlatBuffer.TableKey))
 	CameraExcelAddIgnoreEnemies(b, fbsutils.Convert(t.IgnoreEnemies, t.FlatBuffer.TableKey))
@@ -49,6 +52,9 @@ func (t *CameraExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CameraExcelDto) UnmarshalMessage(e *CameraExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CameraExcel"))
+	}
 	t.BottomMargin = fbsutils.Convert(e.BottomMargin(), t.FlatBuffer.TableKey)
 	t.IgnoreEnemies = fbsutils.Convert(e.IgnoreEnemies(), t.FlatBuffer.TableKey)
 	t.LeftMargin = fbsutils.Convert(e.LeftMargin(), t.FlatBuffer.TableKey)

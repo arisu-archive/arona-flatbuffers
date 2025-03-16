@@ -17,6 +17,9 @@ type GroundVector3Dto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GroundVector3Dto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundVector3"))
+	}
 	GroundVector3Start(b)
 	GroundVector3AddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
 	GroundVector3AddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
@@ -33,6 +36,9 @@ func (t *GroundVector3Dto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GroundVector3Dto) UnmarshalMessage(e *GroundVector3) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundVector3"))
+	}
 	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
 	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
 	t.Z = fbsutils.Convert(e.Z(), t.FlatBuffer.TableKey)

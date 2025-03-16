@@ -23,6 +23,9 @@ type ScenarioBGNameExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioBGNameExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioBGNameExcel"))
+	}
 	ScenarioBGNameExcelStart(b)
 	ScenarioBGNameExcelAddAnimationName(b, fbsutils.Convert(b.CreateString(t.AnimationName), t.FlatBuffer.TableKey))
 	ScenarioBGNameExcelAddAnimationRoot(b, fbsutils.Convert(b.CreateString(t.AnimationRoot), t.FlatBuffer.TableKey))
@@ -45,6 +48,9 @@ func (t *ScenarioBGNameExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioBGNameExcelDto) UnmarshalMessage(e *ScenarioBGNameExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioBGNameExcel"))
+	}
 	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
 	t.AnimationRoot = fbsutils.Convert(string(e.AnimationRoot()), t.FlatBuffer.TableKey)
 	t.BgFileName = fbsutils.Convert(string(e.BgFileName()), t.FlatBuffer.TableKey)

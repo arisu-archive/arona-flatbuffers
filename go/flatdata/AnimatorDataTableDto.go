@@ -16,6 +16,9 @@ type AnimatorDataTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AnimatorDataTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AnimatorDataTable"))
+	}
 	AnimatorDataTableStart(b)
 	AnimatorDataTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *AnimatorDataTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AnimatorDataTableDto) UnmarshalMessage(e *AnimatorDataTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AnimatorDataTable"))
+	}
 	t.DataList = make([]AnimatorDataDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(AnimatorData)

@@ -16,6 +16,9 @@ type ConquestProgressResourceExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestProgressResourceExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestProgressResourceExcelTable"))
+	}
 	ConquestProgressResourceExcelTableStart(b)
 	ConquestProgressResourceExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *ConquestProgressResourceExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestProgressResourceExcelTableDto) UnmarshalMessage(e *ConquestProgressResourceExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestProgressResourceExcelTable"))
+	}
 	t.DataList = make([]ConquestProgressResourceExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(ConquestProgressResourceExcel)

@@ -21,6 +21,9 @@ type DuplicateBonusExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *DuplicateBonusExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DuplicateBonusExcel"))
+	}
 	DuplicateBonusExcelStart(b)
 	DuplicateBonusExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	DuplicateBonusExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -41,6 +44,9 @@ func (t *DuplicateBonusExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *DuplicateBonusExcelDto) UnmarshalMessage(e *DuplicateBonusExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DuplicateBonusExcel"))
+	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ItemCategory = ItemCategory(int32(fbsutils.Convert(e.ItemCategory(), t.FlatBuffer.TableKey)))

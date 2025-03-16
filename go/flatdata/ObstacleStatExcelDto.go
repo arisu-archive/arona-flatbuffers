@@ -29,6 +29,9 @@ type ObstacleStatExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ObstacleStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ObstacleStatExcel"))
+	}
 	ObstacleStatExcelStart(b)
 	ObstacleStatExcelAddBlockRate(b, fbsutils.Convert(t.BlockRate, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddCanNotStandRange(b, fbsutils.Convert(t.CanNotStandRange, t.FlatBuffer.TableKey))
@@ -57,6 +60,9 @@ func (t *ObstacleStatExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ObstacleStatExcelDto) UnmarshalMessage(e *ObstacleStatExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ObstacleStatExcel"))
+	}
 	t.BlockRate = fbsutils.Convert(e.BlockRate(), t.FlatBuffer.TableKey)
 	t.CanNotStandRange = fbsutils.Convert(e.CanNotStandRange(), t.FlatBuffer.TableKey)
 	t.Dodge = fbsutils.Convert(e.Dodge(), t.FlatBuffer.TableKey)

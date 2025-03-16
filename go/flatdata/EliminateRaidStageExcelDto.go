@@ -53,6 +53,9 @@ type EliminateRaidStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EliminateRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidStageExcel"))
+	}
 	EliminateRaidStageExcelStart(b)
 	EliminateRaidStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
 	EliminateRaidStageExcelStartBattleReadyTimelinePathVector(b, len(t.BattleReadyTimelinePath))
@@ -121,6 +124,9 @@ func (t *EliminateRaidStageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EliminateRaidStageExcelDto) UnmarshalMessage(e *EliminateRaidStageExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidStageExcel"))
+	}
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.BattleReadyTimelinePath = make([]string, e.BattleReadyTimelinePathLength())
 	for i := range e.BattleReadyTimelinePathLength() {

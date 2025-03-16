@@ -19,6 +19,9 @@ type CharacterWeaponExpBonusExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterWeaponExpBonusExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeaponExpBonusExcel"))
+	}
 	CharacterWeaponExpBonusExcelStart(b)
 	CharacterWeaponExpBonusExcelAddWeaponExpGrowthA(b, fbsutils.Convert(t.WeaponExpGrowthA, t.FlatBuffer.TableKey))
 	CharacterWeaponExpBonusExcelAddWeaponExpGrowthB(b, fbsutils.Convert(t.WeaponExpGrowthB, t.FlatBuffer.TableKey))
@@ -37,6 +40,9 @@ func (t *CharacterWeaponExpBonusExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterWeaponExpBonusExcelDto) UnmarshalMessage(e *CharacterWeaponExpBonusExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeaponExpBonusExcel"))
+	}
 	t.WeaponExpGrowthA = fbsutils.Convert(e.WeaponExpGrowthA(), t.FlatBuffer.TableKey)
 	t.WeaponExpGrowthB = fbsutils.Convert(e.WeaponExpGrowthB(), t.FlatBuffer.TableKey)
 	t.WeaponExpGrowthC = fbsutils.Convert(e.WeaponExpGrowthC(), t.FlatBuffer.TableKey)

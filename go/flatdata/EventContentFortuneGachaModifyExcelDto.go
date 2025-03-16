@@ -21,6 +21,9 @@ type EventContentFortuneGachaModifyExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentFortuneGachaModifyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentFortuneGachaModifyExcel"))
+	}
 	EventContentFortuneGachaModifyExcelStart(b)
 	EventContentFortuneGachaModifyExcelAddBucketImagePath(b, fbsutils.Convert(b.CreateString(t.BucketImagePath), t.FlatBuffer.TableKey))
 	EventContentFortuneGachaModifyExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
@@ -41,6 +44,9 @@ func (t *EventContentFortuneGachaModifyExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentFortuneGachaModifyExcelDto) UnmarshalMessage(e *EventContentFortuneGachaModifyExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentFortuneGachaModifyExcel"))
+	}
 	t.BucketImagePath = fbsutils.Convert(string(e.BucketImagePath()), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.ProbModifyStartCount = fbsutils.Convert(e.ProbModifyStartCount(), t.FlatBuffer.TableKey)

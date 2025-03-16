@@ -16,6 +16,9 @@ type FloaterCommonExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FloaterCommonExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FloaterCommonExcelTable"))
+	}
 	FloaterCommonExcelTableStart(b)
 	FloaterCommonExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *FloaterCommonExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FloaterCommonExcelTableDto) UnmarshalMessage(e *FloaterCommonExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FloaterCommonExcelTable"))
+	}
 	t.DataList = make([]FloaterCommonExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(FloaterCommonExcel)

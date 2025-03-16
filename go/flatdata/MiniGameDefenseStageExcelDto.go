@@ -41,6 +41,9 @@ type MiniGameDefenseStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDefenseStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseStageExcel"))
+	}
 	MiniGameDefenseStageExcelStart(b)
 	MiniGameDefenseStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
 	MiniGameDefenseStageExcelStartClearScenarioGroupIdVector(b, len(t.ClearScenarioGroupId))
@@ -97,6 +100,9 @@ func (t *MiniGameDefenseStageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDefenseStageExcelDto) UnmarshalMessage(e *MiniGameDefenseStageExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseStageExcel"))
+	}
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())
 	for i := range e.ClearScenarioGroupIdLength() {

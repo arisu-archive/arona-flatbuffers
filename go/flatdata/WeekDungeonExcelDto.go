@@ -33,6 +33,9 @@ type WeekDungeonExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WeekDungeonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonExcel"))
+	}
 	WeekDungeonExcelStart(b)
 	WeekDungeonExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
 	WeekDungeonExcelAddBattleRewardExp(b, fbsutils.Convert(t.BattleRewardExp, t.FlatBuffer.TableKey))
@@ -89,6 +92,9 @@ func (t *WeekDungeonExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WeekDungeonExcelDto) UnmarshalMessage(e *WeekDungeonExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeonExcel"))
+	}
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.BattleRewardExp = fbsutils.Convert(e.BattleRewardExp(), t.FlatBuffer.TableKey)
 	t.BattleRewardPlayerExp = fbsutils.Convert(e.BattleRewardPlayerExp(), t.FlatBuffer.TableKey)

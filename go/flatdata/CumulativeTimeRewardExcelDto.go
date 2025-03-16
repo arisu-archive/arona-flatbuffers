@@ -22,6 +22,9 @@ type CumulativeTimeRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CumulativeTimeRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CumulativeTimeRewardExcel"))
+	}
 	CumulativeTimeRewardExcelStart(b)
 	CumulativeTimeRewardExcelAddDescription(b, fbsutils.Convert(b.CreateString(t.Description), t.FlatBuffer.TableKey))
 	CumulativeTimeRewardExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
@@ -59,6 +62,9 @@ func (t *CumulativeTimeRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CumulativeTimeRewardExcelDto) UnmarshalMessage(e *CumulativeTimeRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CumulativeTimeRewardExcel"))
+	}
 	t.Description = fbsutils.Convert(string(e.Description()), t.FlatBuffer.TableKey)
 	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

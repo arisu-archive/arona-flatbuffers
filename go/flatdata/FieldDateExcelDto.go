@@ -26,6 +26,9 @@ type FieldDateExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldDateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldDateExcel"))
+	}
 	FieldDateExcelStart(b)
 	FieldDateExcelAddDateLocalizeKey(b, fbsutils.Convert(b.CreateString(t.DateLocalizeKey), t.FlatBuffer.TableKey))
 	FieldDateExcelAddDateResultSpineOffsetX(b, fbsutils.Convert(t.DateResultSpineOffsetX, t.FlatBuffer.TableKey))
@@ -51,6 +54,9 @@ func (t *FieldDateExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldDateExcelDto) UnmarshalMessage(e *FieldDateExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldDateExcel"))
+	}
 	t.DateLocalizeKey = fbsutils.Convert(string(e.DateLocalizeKey()), t.FlatBuffer.TableKey)
 	t.DateResultSpineOffsetX = fbsutils.Convert(e.DateResultSpineOffsetX(), t.FlatBuffer.TableKey)
 	t.DateResultSpinePath = fbsutils.Convert(string(e.DateResultSpinePath()), t.FlatBuffer.TableKey)

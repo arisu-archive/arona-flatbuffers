@@ -21,6 +21,9 @@ type ScenarioBGEffectExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioBGEffectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioBGEffectExcel"))
+	}
 	ScenarioBGEffectExcelStart(b)
 	ScenarioBGEffectExcelAddEffect(b, fbsutils.Convert(b.CreateString(t.Effect), t.FlatBuffer.TableKey))
 	ScenarioBGEffectExcelAddEffect2(b, fbsutils.Convert(b.CreateString(t.Effect2), t.FlatBuffer.TableKey))
@@ -41,6 +44,9 @@ func (t *ScenarioBGEffectExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioBGEffectExcelDto) UnmarshalMessage(e *ScenarioBGEffectExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioBGEffectExcel"))
+	}
 	t.Effect = fbsutils.Convert(string(e.Effect()), t.FlatBuffer.TableKey)
 	t.Effect2 = fbsutils.Convert(string(e.Effect2()), t.FlatBuffer.TableKey)
 	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)

@@ -182,6 +182,9 @@ type ConstCommonExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstCommonExcel"))
+	}
 	ConstCommonExcelStart(b)
 	ConstCommonExcelAddAcademyEnterCostId(b, fbsutils.Convert(t.AcademyEnterCostId, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddAcademyEnterCostType(b, fbsutils.Convert(t.AcademyEnterCostType, t.FlatBuffer.TableKey))
@@ -383,6 +386,9 @@ func (t *ConstCommonExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstCommonExcel"))
+	}
 	t.AcademyEnterCostId = fbsutils.Convert(e.AcademyEnterCostId(), t.FlatBuffer.TableKey)
 	t.AcademyEnterCostType = ParcelType(int32(fbsutils.Convert(e.AcademyEnterCostType(), t.FlatBuffer.TableKey)))
 	t.AcademyFavorZoneId = fbsutils.Convert(e.AcademyFavorZoneId(), t.FlatBuffer.TableKey)

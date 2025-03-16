@@ -21,6 +21,9 @@ type EventContentDiceRaceTotalRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentDiceRaceTotalRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceTotalRewardExcel"))
+	}
 	EventContentDiceRaceTotalRewardExcelStart(b)
 	EventContentDiceRaceTotalRewardExcelAddDisplayLapFinishCount(b, fbsutils.Convert(t.DisplayLapFinishCount, t.FlatBuffer.TableKey))
 	EventContentDiceRaceTotalRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
@@ -53,6 +56,9 @@ func (t *EventContentDiceRaceTotalRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentDiceRaceTotalRewardExcelDto) UnmarshalMessage(e *EventContentDiceRaceTotalRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceTotalRewardExcel"))
+	}
 	t.DisplayLapFinishCount = fbsutils.Convert(e.DisplayLapFinishCount(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.RequiredLapFinishCount = fbsutils.Convert(e.RequiredLapFinishCount(), t.FlatBuffer.TableKey)

@@ -19,6 +19,9 @@ type AccountLevelExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AccountLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AccountLevelExcel"))
+	}
 	AccountLevelExcelStart(b)
 	AccountLevelExcelAddApAutoChargeMax(b, fbsutils.Convert(t.ApAutoChargeMax, t.FlatBuffer.TableKey))
 	AccountLevelExcelAddExp(b, fbsutils.Convert(t.Exp, t.FlatBuffer.TableKey))
@@ -37,6 +40,9 @@ func (t *AccountLevelExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AccountLevelExcelDto) UnmarshalMessage(e *AccountLevelExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AccountLevelExcel"))
+	}
 	t.ApAutoChargeMax = fbsutils.Convert(e.ApAutoChargeMax(), t.FlatBuffer.TableKey)
 	t.Exp = fbsutils.Convert(e.Exp(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

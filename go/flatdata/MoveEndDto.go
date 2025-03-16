@@ -17,6 +17,9 @@ type MoveEndDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MoveEndDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MoveEnd"))
+	}
 	MoveEndStart(b)
 	MoveEndAddKneel(b, t.Kneel.MarshalModel(b))
 	MoveEndAddNormal(b, t.Normal.MarshalModel(b))
@@ -33,6 +36,9 @@ func (t *MoveEndDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MoveEndDto) UnmarshalMessage(e *MoveEnd) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MoveEnd"))
+	}
 	t.Kneel.UnmarshalMessage(e.Kneel(nil))
 	t.Normal.UnmarshalMessage(e.Normal(nil))
 	t.Stand.UnmarshalMessage(e.Stand(nil))

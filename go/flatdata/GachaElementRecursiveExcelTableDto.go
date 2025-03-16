@@ -16,6 +16,9 @@ type GachaElementRecursiveExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GachaElementRecursiveExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaElementRecursiveExcelTable"))
+	}
 	GachaElementRecursiveExcelTableStart(b)
 	GachaElementRecursiveExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *GachaElementRecursiveExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GachaElementRecursiveExcelTableDto) UnmarshalMessage(e *GachaElementRecursiveExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaElementRecursiveExcelTable"))
+	}
 	t.DataList = make([]GachaElementRecursiveExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(GachaElementRecursiveExcel)

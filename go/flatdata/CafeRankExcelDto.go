@@ -24,6 +24,9 @@ type CafeRankExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CafeRankExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeRankExcel"))
+	}
 	CafeRankExcelStart(b)
 	CafeRankExcelAddCafeId(b, fbsutils.Convert(t.CafeId, t.FlatBuffer.TableKey))
 	CafeRankExcelAddCafeVisitWeightBase(b, fbsutils.Convert(t.CafeVisitWeightBase, t.FlatBuffer.TableKey))
@@ -55,6 +58,9 @@ func (t *CafeRankExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CafeRankExcelDto) UnmarshalMessage(e *CafeRankExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeRankExcel"))
+	}
 	t.CafeId = fbsutils.Convert(e.CafeId(), t.FlatBuffer.TableKey)
 	t.CafeVisitWeightBase = fbsutils.Convert(e.CafeVisitWeightBase(), t.FlatBuffer.TableKey)
 	t.CafeVisitWeightTagBonus = make([]int32, e.CafeVisitWeightTagBonusLength())

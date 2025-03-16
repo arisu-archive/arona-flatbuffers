@@ -21,6 +21,9 @@ type ArenaSeasonCloseRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaSeasonCloseRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaSeasonCloseRewardExcel"))
+	}
 	ArenaSeasonCloseRewardExcelStart(b)
 	ArenaSeasonCloseRewardExcelAddRankEnd(b, fbsutils.Convert(t.RankEnd, t.FlatBuffer.TableKey))
 	ArenaSeasonCloseRewardExcelAddRankStart(b, fbsutils.Convert(t.RankStart, t.FlatBuffer.TableKey))
@@ -57,6 +60,9 @@ func (t *ArenaSeasonCloseRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaSeasonCloseRewardExcelDto) UnmarshalMessage(e *ArenaSeasonCloseRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaSeasonCloseRewardExcel"))
+	}
 	t.RankEnd = fbsutils.Convert(e.RankEnd(), t.FlatBuffer.TableKey)
 	t.RankStart = fbsutils.Convert(e.RankStart(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())

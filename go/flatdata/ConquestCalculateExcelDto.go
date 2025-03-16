@@ -18,6 +18,9 @@ type ConquestCalculateExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestCalculateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestCalculateExcel"))
+	}
 	ConquestCalculateExcelStart(b)
 	ConquestCalculateExcelAddCalculateConditionParcelAmount(b, fbsutils.Convert(t.CalculateConditionParcelAmount, t.FlatBuffer.TableKey))
 	ConquestCalculateExcelAddCalculateConditionParcelType(b, fbsutils.Convert(t.CalculateConditionParcelType, t.FlatBuffer.TableKey))
@@ -35,6 +38,9 @@ func (t *ConquestCalculateExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestCalculateExcelDto) UnmarshalMessage(e *ConquestCalculateExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestCalculateExcel"))
+	}
 	t.CalculateConditionParcelAmount = fbsutils.Convert(e.CalculateConditionParcelAmount(), t.FlatBuffer.TableKey)
 	t.CalculateConditionParcelType = ParcelType(int32(fbsutils.Convert(e.CalculateConditionParcelType(), t.FlatBuffer.TableKey)))
 	t.CalculateConditionParcelUniqueId = fbsutils.Convert(e.CalculateConditionParcelUniqueId(), t.FlatBuffer.TableKey)

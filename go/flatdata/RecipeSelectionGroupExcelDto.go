@@ -20,6 +20,9 @@ type RecipeSelectionGroupExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RecipeSelectionGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeSelectionGroupExcel"))
+	}
 	RecipeSelectionGroupExcelStart(b)
 	RecipeSelectionGroupExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
 	RecipeSelectionGroupExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
@@ -39,6 +42,9 @@ func (t *RecipeSelectionGroupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RecipeSelectionGroupExcelDto) UnmarshalMessage(e *RecipeSelectionGroupExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeSelectionGroupExcel"))
+	}
 	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
 	t.ParcelType = ParcelType(int32(fbsutils.Convert(e.ParcelType(), t.FlatBuffer.TableKey)))
 	t.RecipeSelectionGroupComponentId = fbsutils.Convert(e.RecipeSelectionGroupComponentId(), t.FlatBuffer.TableKey)

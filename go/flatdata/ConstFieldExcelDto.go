@@ -33,6 +33,9 @@ type ConstFieldExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstFieldExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstFieldExcel"))
+	}
 	ConstFieldExcelStart(b)
 	ConstFieldExcelAddAngryDurationDefault(b, fbsutils.Convert(t.AngryDurationDefault, t.FlatBuffer.TableKey))
 	ConstFieldExcelAddBulbDurationDefault(b, fbsutils.Convert(t.BulbDurationDefault, t.FlatBuffer.TableKey))
@@ -65,6 +68,9 @@ func (t *ConstFieldExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstFieldExcelDto) UnmarshalMessage(e *ConstFieldExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstFieldExcel"))
+	}
 	t.AngryDurationDefault = fbsutils.Convert(e.AngryDurationDefault(), t.FlatBuffer.TableKey)
 	t.BulbDurationDefault = fbsutils.Convert(e.BulbDurationDefault(), t.FlatBuffer.TableKey)
 	t.DialogSmoothTime = fbsutils.Convert(e.DialogSmoothTime(), t.FlatBuffer.TableKey)

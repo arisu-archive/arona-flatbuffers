@@ -16,6 +16,9 @@ type TacticEntityEffectFilterExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TacticEntityEffectFilterExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticEntityEffectFilterExcelTable"))
+	}
 	TacticEntityEffectFilterExcelTableStart(b)
 	TacticEntityEffectFilterExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *TacticEntityEffectFilterExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TacticEntityEffectFilterExcelTableDto) UnmarshalMessage(e *TacticEntityEffectFilterExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticEntityEffectFilterExcelTable"))
+	}
 	t.DataList = make([]TacticEntityEffectFilterExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(TacticEntityEffectFilterExcel)

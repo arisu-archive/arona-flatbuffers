@@ -39,6 +39,9 @@ type ConstStrategyExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstStrategyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstStrategyExcel"))
+	}
 	ConstStrategyExcelStart(b)
 	ConstStrategyExcelAddAdventureEchelonCount(b, fbsutils.Convert(t.AdventureEchelonCount, t.FlatBuffer.TableKey))
 	ConstStrategyExcelAddCameraZoomDefault(b, fbsutils.Convert(t.CameraZoomDefault, t.FlatBuffer.TableKey))
@@ -81,6 +84,9 @@ func (t *ConstStrategyExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstStrategyExcelDto) UnmarshalMessage(e *ConstStrategyExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstStrategyExcel"))
+	}
 	t.AdventureEchelonCount = fbsutils.Convert(e.AdventureEchelonCount(), t.FlatBuffer.TableKey)
 	t.CameraZoomDefault = fbsutils.Convert(e.CameraZoomDefault(), t.FlatBuffer.TableKey)
 	t.CameraZoomMax = fbsutils.Convert(e.CameraZoomMax(), t.FlatBuffer.TableKey)

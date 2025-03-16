@@ -25,6 +25,9 @@ type ShiftingCraftRecipeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShiftingCraftRecipeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShiftingCraftRecipeExcel"))
+	}
 	ShiftingCraftRecipeExcelStart(b)
 	ShiftingCraftRecipeExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	ShiftingCraftRecipeExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -53,6 +56,9 @@ func (t *ShiftingCraftRecipeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShiftingCraftRecipeExcelDto) UnmarshalMessage(e *ShiftingCraftRecipeExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShiftingCraftRecipeExcel"))
+	}
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.IngredientExp = fbsutils.Convert(e.IngredientExp(), t.FlatBuffer.TableKey)

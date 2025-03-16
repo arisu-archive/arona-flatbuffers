@@ -17,6 +17,9 @@ type MotionDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MotionDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Motion"))
+	}
 	MotionStart(b)
 	MotionAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
 	MotionStartPositionsVector(b, len(t.Positions))
@@ -37,6 +40,9 @@ func (t *MotionDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MotionDto) UnmarshalMessage(e *Motion) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Motion"))
+	}
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.Positions = make([]PositionDto, e.PositionsLength())
 	for i := range e.PositionsLength() {

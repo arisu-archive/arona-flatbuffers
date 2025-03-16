@@ -22,6 +22,9 @@ type BGMExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BGMExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BGMExcel"))
+	}
 	BGMExcelStart(b)
 	BGMExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	BGMExcelStartLoopEndTimeVector(b, len(t.LoopEndTime))
@@ -71,6 +74,9 @@ func (t *BGMExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BGMExcelDto) UnmarshalMessage(e *BGMExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BGMExcel"))
+	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LoopEndTime = make([]float32, e.LoopEndTimeLength())
 	for i := range e.LoopEndTimeLength() {

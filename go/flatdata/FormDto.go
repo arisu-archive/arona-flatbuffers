@@ -16,6 +16,9 @@ type FormDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FormDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Form"))
+	}
 	FormStart(b)
 	FormAddMoveEnd(b, t.MoveEnd.MarshalModel(b))
 	FormAddPublicSkill(b, t.PublicSkill.MarshalModel(b))
@@ -31,6 +34,9 @@ func (t *FormDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FormDto) UnmarshalMessage(e *Form) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Form"))
+	}
 	t.MoveEnd.UnmarshalMessage(e.MoveEnd(nil))
 	t.PublicSkill.UnmarshalMessage(e.PublicSkill(nil))
 	return nil

@@ -46,6 +46,9 @@ type CostumeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CostumeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CostumeExcel"))
+	}
 	CostumeExcelStart(b)
 	CostumeExcelAddAnimationSsr(b, fbsutils.Convert(b.CreateString(t.AnimationSsr), t.FlatBuffer.TableKey))
 	CostumeExcelAddAnimationValidator(b, fbsutils.Convert(t.AnimationValidator, t.FlatBuffer.TableKey))
@@ -99,6 +102,9 @@ func (t *CostumeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CostumeExcelDto) UnmarshalMessage(e *CostumeExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CostumeExcel"))
+	}
 	t.AnimationSsr = fbsutils.Convert(string(e.AnimationSsr()), t.FlatBuffer.TableKey)
 	t.AnimationValidator = fbsutils.Convert(e.AnimationValidator(), t.FlatBuffer.TableKey)
 	t.CafeModelPrefabName = fbsutils.Convert(string(e.CafeModelPrefabName()), t.FlatBuffer.TableKey)

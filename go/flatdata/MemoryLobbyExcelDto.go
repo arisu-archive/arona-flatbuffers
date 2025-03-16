@@ -28,6 +28,9 @@ type MemoryLobbyExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MemoryLobbyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MemoryLobbyExcel"))
+	}
 	MemoryLobbyExcelStart(b)
 	MemoryLobbyExcelAddAudioClipEn(b, fbsutils.Convert(b.CreateString(t.AudioClipEn), t.FlatBuffer.TableKey))
 	MemoryLobbyExcelAddAudioClipJp(b, fbsutils.Convert(b.CreateString(t.AudioClipJp), t.FlatBuffer.TableKey))
@@ -55,6 +58,9 @@ func (t *MemoryLobbyExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MemoryLobbyExcelDto) UnmarshalMessage(e *MemoryLobbyExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MemoryLobbyExcel"))
+	}
 	t.AudioClipEn = fbsutils.Convert(string(e.AudioClipEn()), t.FlatBuffer.TableKey)
 	t.AudioClipJp = fbsutils.Convert(string(e.AudioClipJp()), t.FlatBuffer.TableKey)
 	t.AudioClipKr = fbsutils.Convert(string(e.AudioClipKr()), t.FlatBuffer.TableKey)

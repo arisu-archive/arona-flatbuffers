@@ -20,6 +20,9 @@ type CharacterPotentialRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterPotentialRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterPotentialRewardExcel"))
+	}
 	CharacterPotentialRewardExcelStart(b)
 	CharacterPotentialRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CharacterPotentialRewardExcelStartRequirePotentialStatLevelVector(b, len(t.RequirePotentialStatLevel))
@@ -47,6 +50,9 @@ func (t *CharacterPotentialRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterPotentialRewardExcelDto) UnmarshalMessage(e *CharacterPotentialRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterPotentialRewardExcel"))
+	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.RequirePotentialStatLevel = make([]int64, e.RequirePotentialStatLevelLength())
 	for i := range e.RequirePotentialStatLevelLength() {

@@ -22,6 +22,9 @@ type GroundGridFlatDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GroundGridFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundGridFlat"))
+	}
 	GroundGridFlatStart(b)
 	GroundGridFlatAddGap(b, fbsutils.Convert(t.Gap, t.FlatBuffer.TableKey))
 	GroundGridFlatStartNodesVector(b, len(t.Nodes))
@@ -47,6 +50,9 @@ func (t *GroundGridFlatDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GroundGridFlatDto) UnmarshalMessage(e *GroundGridFlat) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundGridFlat"))
+	}
 	t.Gap = fbsutils.Convert(e.Gap(), t.FlatBuffer.TableKey)
 	t.Nodes = make([]GroundNodeFlatDto, e.NodesLength())
 	for i := range e.NodesLength() {

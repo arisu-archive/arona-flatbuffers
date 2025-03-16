@@ -19,6 +19,9 @@ type AniEventDataDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AniEventDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniEventData"))
+	}
 	AniEventDataStart(b)
 	AniEventDataAddFloatParam(b, fbsutils.Convert(t.FloatParam, t.FlatBuffer.TableKey))
 	AniEventDataAddIntParam(b, fbsutils.Convert(t.IntParam, t.FlatBuffer.TableKey))
@@ -37,6 +40,9 @@ func (t *AniEventDataDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AniEventDataDto) UnmarshalMessage(e *AniEventData) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniEventData"))
+	}
 	t.FloatParam = fbsutils.Convert(e.FloatParam(), t.FlatBuffer.TableKey)
 	t.IntParam = fbsutils.Convert(e.IntParam(), t.FlatBuffer.TableKey)
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)

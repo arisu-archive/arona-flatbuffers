@@ -26,6 +26,9 @@ type MinigameTBGEncounterOptionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGEncounterOptionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGEncounterOptionExcel"))
+	}
 	MinigameTBGEncounterOptionExcelStart(b)
 	MinigameTBGEncounterOptionExcelAddOptionFailLessDiceCount(b, fbsutils.Convert(t.OptionFailLessDiceCount, t.FlatBuffer.TableKey))
 	MinigameTBGEncounterOptionExcelAddOptionFailLocalize(b, fbsutils.Convert(b.CreateString(t.OptionFailLocalize), t.FlatBuffer.TableKey))
@@ -51,6 +54,9 @@ func (t *MinigameTBGEncounterOptionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGEncounterOptionExcelDto) UnmarshalMessage(e *MinigameTBGEncounterOptionExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGEncounterOptionExcel"))
+	}
 	t.OptionFailLessDiceCount = fbsutils.Convert(e.OptionFailLessDiceCount(), t.FlatBuffer.TableKey)
 	t.OptionFailLocalize = fbsutils.Convert(string(e.OptionFailLocalize()), t.FlatBuffer.TableKey)
 	t.OptionGreatSuccessOrHigherDiceCount = fbsutils.Convert(e.OptionGreatSuccessOrHigherDiceCount(), t.FlatBuffer.TableKey)

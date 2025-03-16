@@ -16,6 +16,9 @@ type ClearDeckRuleExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ClearDeckRuleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClearDeckRuleExcel"))
+	}
 	ClearDeckRuleExcelStart(b)
 	ClearDeckRuleExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
 	ClearDeckRuleExcelAddSizeLimit(b, fbsutils.Convert(t.SizeLimit, t.FlatBuffer.TableKey))
@@ -31,6 +34,9 @@ func (t *ClearDeckRuleExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ClearDeckRuleExcelDto) UnmarshalMessage(e *ClearDeckRuleExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClearDeckRuleExcel"))
+	}
 	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
 	t.SizeLimit = fbsutils.Convert(e.SizeLimit(), t.FlatBuffer.TableKey)
 	return nil

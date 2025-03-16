@@ -20,6 +20,9 @@ type FloaterCommonExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FloaterCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FloaterCommonExcel"))
+	}
 	FloaterCommonExcelStart(b)
 	FloaterCommonExcelAddFloaterOffsetPosX(b, fbsutils.Convert(t.FloaterOffsetPosX, t.FlatBuffer.TableKey))
 	FloaterCommonExcelAddFloaterOffsetPosY(b, fbsutils.Convert(t.FloaterOffsetPosY, t.FlatBuffer.TableKey))
@@ -39,6 +42,9 @@ func (t *FloaterCommonExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FloaterCommonExcelDto) UnmarshalMessage(e *FloaterCommonExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FloaterCommonExcel"))
+	}
 	t.FloaterOffsetPosX = fbsutils.Convert(e.FloaterOffsetPosX(), t.FlatBuffer.TableKey)
 	t.FloaterOffsetPosY = fbsutils.Convert(e.FloaterOffsetPosY(), t.FlatBuffer.TableKey)
 	t.FloaterRandomPosRangeX = fbsutils.Convert(e.FloaterRandomPosRangeX(), t.FlatBuffer.TableKey)

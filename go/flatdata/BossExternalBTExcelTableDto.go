@@ -16,6 +16,9 @@ type BossExternalBTExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BossExternalBTExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossExternalBTExcelTable"))
+	}
 	BossExternalBTExcelTableStart(b)
 	BossExternalBTExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *BossExternalBTExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BossExternalBTExcelTableDto) UnmarshalMessage(e *BossExternalBTExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossExternalBTExcelTable"))
+	}
 	t.DataList = make([]BossExternalBTExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(BossExternalBTExcel)

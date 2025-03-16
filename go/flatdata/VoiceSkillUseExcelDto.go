@@ -16,6 +16,9 @@ type VoiceSkillUseExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceSkillUseExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceSkillUseExcel"))
+	}
 	VoiceSkillUseExcelStart(b)
 	VoiceSkillUseExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
 	VoiceSkillUseExcelStartVoiceHashVector(b, len(t.VoiceHash))
@@ -35,6 +38,9 @@ func (t *VoiceSkillUseExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VoiceSkillUseExcelDto) UnmarshalMessage(e *VoiceSkillUseExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceSkillUseExcel"))
+	}
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.VoiceHash = make([]uint32, e.VoiceHashLength())
 	for i := range e.VoiceHashLength() {

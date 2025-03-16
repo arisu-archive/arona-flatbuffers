@@ -17,6 +17,9 @@ type BlendInfoDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BlendInfoDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BlendInfo"))
+	}
 	BlendInfoStart(b)
 	BlendInfoAddBlend(b, fbsutils.Convert(t.Blend, t.FlatBuffer.TableKey))
 	BlendInfoAddFrom(b, fbsutils.Convert(t.From, t.FlatBuffer.TableKey))
@@ -33,6 +36,9 @@ func (t *BlendInfoDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BlendInfoDto) UnmarshalMessage(e *BlendInfo) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BlendInfo"))
+	}
 	t.Blend = fbsutils.Convert(e.Blend(), t.FlatBuffer.TableKey)
 	t.From = fbsutils.Convert(e.From(), t.FlatBuffer.TableKey)
 	t.To = fbsutils.Convert(e.To(), t.FlatBuffer.TableKey)

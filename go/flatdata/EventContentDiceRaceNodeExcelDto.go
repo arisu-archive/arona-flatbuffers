@@ -21,6 +21,9 @@ type EventContentDiceRaceNodeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentDiceRaceNodeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceNodeExcel"))
+	}
 	EventContentDiceRaceNodeExcelStart(b)
 	EventContentDiceRaceNodeExcelAddEventContentDiceRaceNodeType(b, fbsutils.Convert(t.EventContentDiceRaceNodeType, t.FlatBuffer.TableKey))
 	EventContentDiceRaceNodeExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
@@ -53,6 +56,9 @@ func (t *EventContentDiceRaceNodeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentDiceRaceNodeExcelDto) UnmarshalMessage(e *EventContentDiceRaceNodeExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceNodeExcel"))
+	}
 	t.EventContentDiceRaceNodeType = EventContentDiceRaceNodeType(int32(fbsutils.Convert(e.EventContentDiceRaceNodeType(), t.FlatBuffer.TableKey)))
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.MoveForwardTypeArg = fbsutils.Convert(e.MoveForwardTypeArg(), t.FlatBuffer.TableKey)

@@ -19,6 +19,9 @@ type CampaignChapterRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CampaignChapterRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignChapterRewardExcel"))
+	}
 	CampaignChapterRewardExcelStart(b)
 	CampaignChapterRewardExcelAddCampaignChapterStar(b, fbsutils.Convert(t.CampaignChapterStar, t.FlatBuffer.TableKey))
 	CampaignChapterRewardExcelStartChapterRewardAmountVector(b, len(t.ChapterRewardAmount))
@@ -49,6 +52,9 @@ func (t *CampaignChapterRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CampaignChapterRewardExcelDto) UnmarshalMessage(e *CampaignChapterRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CampaignChapterRewardExcel"))
+	}
 	t.CampaignChapterStar = fbsutils.Convert(e.CampaignChapterStar(), t.FlatBuffer.TableKey)
 	t.ChapterRewardAmount = make([]int32, e.ChapterRewardAmountLength())
 	for i := range e.ChapterRewardAmountLength() {

@@ -16,6 +16,9 @@ type EventContentBuffGroupExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentBuffGroupExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuffGroupExcelTable"))
+	}
 	EventContentBuffGroupExcelTableStart(b)
 	EventContentBuffGroupExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *EventContentBuffGroupExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentBuffGroupExcelTableDto) UnmarshalMessage(e *EventContentBuffGroupExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuffGroupExcelTable"))
+	}
 	t.DataList = make([]EventContentBuffGroupExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(EventContentBuffGroupExcel)

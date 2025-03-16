@@ -18,6 +18,9 @@ type FieldTutorialExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldTutorialExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldTutorialExcel"))
+	}
 	FieldTutorialExcelStart(b)
 	FieldTutorialExcelStartConditionIdVector(b, len(t.ConditionId))
 	for i := range len(t.ConditionId) {
@@ -47,6 +50,9 @@ func (t *FieldTutorialExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldTutorialExcelDto) UnmarshalMessage(e *FieldTutorialExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldTutorialExcel"))
+	}
 	t.ConditionId = make([]int64, e.ConditionIdLength())
 	for i := range e.ConditionIdLength() {
 		t.ConditionId[i] = e.ConditionId(i)

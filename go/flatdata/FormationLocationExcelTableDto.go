@@ -16,6 +16,9 @@ type FormationLocationExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FormationLocationExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FormationLocationExcelTable"))
+	}
 	FormationLocationExcelTableStart(b)
 	FormationLocationExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *FormationLocationExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FormationLocationExcelTableDto) UnmarshalMessage(e *FormationLocationExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FormationLocationExcelTable"))
+	}
 	t.DataList = make([]FormationLocationExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(FormationLocationExcel)

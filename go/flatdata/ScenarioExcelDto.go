@@ -23,6 +23,9 @@ type ScenarioExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioExcel"))
+	}
 	ScenarioExcelStart(b)
 	ScenarioExcelAddCafe(b, fbsutils.Convert(t.Cafe, t.FlatBuffer.TableKey))
 	ScenarioExcelAddCenter(b, fbsutils.Convert(t.Center, t.FlatBuffer.TableKey))
@@ -53,6 +56,9 @@ func (t *ScenarioExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioExcelDto) UnmarshalMessage(e *ScenarioExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioExcel"))
+	}
 	t.Cafe = DialogCategory(int32(fbsutils.Convert(e.Cafe(), t.FlatBuffer.TableKey)))
 	t.Center = ScenarioZoomAnchors(int32(fbsutils.Convert(e.Center(), t.FlatBuffer.TableKey)))
 	t.EnterConver = EmojiEvent(int32(fbsutils.Convert(e.EnterConver(), t.FlatBuffer.TableKey)))

@@ -25,6 +25,9 @@ type MultiFloorRaidSeasonManageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MultiFloorRaidSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MultiFloorRaidSeasonManageExcel"))
+	}
 	MultiFloorRaidSeasonManageExcelStart(b)
 	MultiFloorRaidSeasonManageExcelAddEnterScenarioKey(b, fbsutils.Convert(t.EnterScenarioKey, t.FlatBuffer.TableKey))
 	MultiFloorRaidSeasonManageExcelAddLevelImgPath(b, fbsutils.Convert(b.CreateString(t.LevelImgPath), t.FlatBuffer.TableKey))
@@ -49,6 +52,9 @@ func (t *MultiFloorRaidSeasonManageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MultiFloorRaidSeasonManageExcelDto) UnmarshalMessage(e *MultiFloorRaidSeasonManageExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MultiFloorRaidSeasonManageExcel"))
+	}
 	t.EnterScenarioKey = fbsutils.Convert(e.EnterScenarioKey(), t.FlatBuffer.TableKey)
 	t.LevelImgPath = fbsutils.Convert(string(e.LevelImgPath()), t.FlatBuffer.TableKey)
 	t.LobbyEnterScenario = fbsutils.Convert(e.LobbyEnterScenario(), t.FlatBuffer.TableKey)

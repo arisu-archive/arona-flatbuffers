@@ -16,6 +16,9 @@ type ProtocolSettingExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ProtocolSettingExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProtocolSettingExcelTable"))
+	}
 	ProtocolSettingExcelTableStart(b)
 	ProtocolSettingExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *ProtocolSettingExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ProtocolSettingExcelTableDto) UnmarshalMessage(e *ProtocolSettingExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProtocolSettingExcelTable"))
+	}
 	t.DataList = make([]ProtocolSettingExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(ProtocolSettingExcel)

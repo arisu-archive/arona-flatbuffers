@@ -26,6 +26,9 @@ type OperatorExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *OperatorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("OperatorExcel"))
+	}
 	OperatorExcelStart(b)
 	OperatorExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
 	OperatorExcelAddGroupId(b, fbsutils.Convert(b.CreateString(t.GroupId), t.FlatBuffer.TableKey))
@@ -55,6 +58,9 @@ func (t *OperatorExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *OperatorExcelDto) UnmarshalMessage(e *OperatorExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("OperatorExcel"))
+	}
 	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
 	t.GroupId = fbsutils.Convert(string(e.GroupId()), t.FlatBuffer.TableKey)
 	t.OperatorCondition = OperatorCondition(int32(fbsutils.Convert(e.OperatorCondition(), t.FlatBuffer.TableKey)))

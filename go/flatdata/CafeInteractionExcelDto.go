@@ -24,6 +24,9 @@ type CafeInteractionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CafeInteractionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeInteractionExcel"))
+	}
 	CafeInteractionExcelStart(b)
 	CafeInteractionExcelStartBubbleDurationVector(b, len(t.BubbleDuration))
 	for i := range len(t.BubbleDuration) {
@@ -59,6 +62,9 @@ func (t *CafeInteractionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CafeInteractionExcelDto) UnmarshalMessage(e *CafeInteractionExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeInteractionExcel"))
+	}
 	t.BubbleDuration = make([]int64, e.BubbleDurationLength())
 	for i := range e.BubbleDurationLength() {
 		t.BubbleDuration[i] = e.BubbleDuration(i)

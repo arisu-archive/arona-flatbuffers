@@ -16,6 +16,9 @@ type ArenaRewardExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ArenaRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaRewardExcelTable"))
+	}
 	ArenaRewardExcelTableStart(b)
 	ArenaRewardExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *ArenaRewardExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ArenaRewardExcelTableDto) UnmarshalMessage(e *ArenaRewardExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaRewardExcelTable"))
+	}
 	t.DataList = make([]ArenaRewardExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(ArenaRewardExcel)

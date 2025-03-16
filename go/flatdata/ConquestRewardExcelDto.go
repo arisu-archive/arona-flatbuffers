@@ -21,6 +21,9 @@ type ConquestRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestRewardExcel"))
+	}
 	ConquestRewardExcelStart(b)
 	ConquestRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	ConquestRewardExcelAddIsDisplayed(b, fbsutils.Convert(t.IsDisplayed, t.FlatBuffer.TableKey))
@@ -41,6 +44,9 @@ func (t *ConquestRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestRewardExcelDto) UnmarshalMessage(e *ConquestRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestRewardExcel"))
+	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)
 	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)

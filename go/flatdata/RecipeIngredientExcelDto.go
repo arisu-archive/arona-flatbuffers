@@ -23,6 +23,9 @@ type RecipeIngredientExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RecipeIngredientExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeIngredientExcel"))
+	}
 	RecipeIngredientExcelStart(b)
 	RecipeIngredientExcelStartCostAmountVector(b, len(t.CostAmount))
 	for i := range len(t.CostAmount) {
@@ -69,6 +72,9 @@ func (t *RecipeIngredientExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RecipeIngredientExcelDto) UnmarshalMessage(e *RecipeIngredientExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeIngredientExcel"))
+	}
 	t.CostAmount = make([]int64, e.CostAmountLength())
 	for i := range e.CostAmountLength() {
 		t.CostAmount[i] = e.CostAmount(i)

@@ -23,6 +23,9 @@ type EventContentBuffExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuffExcel"))
+	}
 	EventContentBuffExcelStart(b)
 	EventContentBuffExcelAddBuffDescriptionLocalizeCodeId(b, fbsutils.Convert(b.CreateString(t.BuffDescriptionLocalizeCodeId), t.FlatBuffer.TableKey))
 	EventContentBuffExcelAddCharacterTag(b, fbsutils.Convert(t.CharacterTag, t.FlatBuffer.TableKey))
@@ -49,6 +52,9 @@ func (t *EventContentBuffExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentBuffExcelDto) UnmarshalMessage(e *EventContentBuffExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuffExcel"))
+	}
 	t.BuffDescriptionLocalizeCodeId = fbsutils.Convert(string(e.BuffDescriptionLocalizeCodeId()), t.FlatBuffer.TableKey)
 	t.CharacterTag = Tag(int32(fbsutils.Convert(e.CharacterTag(), t.FlatBuffer.TableKey)))
 	t.EnumType = EventContentBuffFindRule(int32(fbsutils.Convert(e.EnumType(), t.FlatBuffer.TableKey)))

@@ -70,6 +70,9 @@ type GroundExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GroundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundExcel"))
+	}
 	GroundExcelStart(b)
 	GroundExcelStartAllyPassiveSkillIdVector(b, len(t.AllyPassiveSkillId))
 	for i := range len(t.AllyPassiveSkillId) {
@@ -159,6 +162,9 @@ func (t *GroundExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GroundExcelDto) UnmarshalMessage(e *GroundExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundExcel"))
+	}
 	t.AllyPassiveSkillId = make([]string, e.AllyPassiveSkillIdLength())
 	for i := range e.AllyPassiveSkillIdLength() {
 		t.AllyPassiveSkillId[i] = string(e.AllyPassiveSkillId(i))

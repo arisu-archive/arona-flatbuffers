@@ -35,6 +35,9 @@ type EventContentLocationRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentLocationRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLocationRewardExcel"))
+	}
 	EventContentLocationRewardExcelStart(b)
 	EventContentLocationRewardExcelAddExtraFavorExp(b, fbsutils.Convert(t.ExtraFavorExp, t.FlatBuffer.TableKey))
 	EventContentLocationRewardExcelAddExtraFavorExpProb(b, fbsutils.Convert(t.ExtraFavorExpProb, t.FlatBuffer.TableKey))
@@ -105,6 +108,9 @@ func (t *EventContentLocationRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentLocationRewardExcelDto) UnmarshalMessage(e *EventContentLocationRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLocationRewardExcel"))
+	}
 	t.ExtraFavorExp = fbsutils.Convert(e.ExtraFavorExp(), t.FlatBuffer.TableKey)
 	t.ExtraFavorExpProb = fbsutils.Convert(e.ExtraFavorExpProb(), t.FlatBuffer.TableKey)
 	t.ExtraRewardAmount = make([]int64, e.ExtraRewardAmountLength())

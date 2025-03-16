@@ -18,6 +18,9 @@ type FieldCurtainCallFreeModeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldCurtainCallFreeModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldCurtainCallFreeModeExcel"))
+	}
 	FieldCurtainCallFreeModeExcelStart(b)
 	FieldCurtainCallFreeModeExcelAddOpenDate(b, fbsutils.Convert(t.OpenDate, t.FlatBuffer.TableKey))
 	FieldCurtainCallFreeModeExcelAddSetFieldDateId(b, fbsutils.Convert(t.SetFieldDateId, t.FlatBuffer.TableKey))
@@ -35,6 +38,9 @@ func (t *FieldCurtainCallFreeModeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldCurtainCallFreeModeExcelDto) UnmarshalMessage(e *FieldCurtainCallFreeModeExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldCurtainCallFreeModeExcel"))
+	}
 	t.OpenDate = fbsutils.Convert(e.OpenDate(), t.FlatBuffer.TableKey)
 	t.SetFieldDateId = fbsutils.Convert(e.SetFieldDateId(), t.FlatBuffer.TableKey)
 	t.SetFieldQuestOpenDate = fbsutils.Convert(e.SetFieldQuestOpenDate(), t.FlatBuffer.TableKey)

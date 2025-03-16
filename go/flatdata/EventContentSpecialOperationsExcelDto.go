@@ -16,6 +16,9 @@ type EventContentSpecialOperationsExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentSpecialOperationsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpecialOperationsExcel"))
+	}
 	EventContentSpecialOperationsExcelStart(b)
 	EventContentSpecialOperationsExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentSpecialOperationsExcelAddPointItemId(b, fbsutils.Convert(t.PointItemId, t.FlatBuffer.TableKey))
@@ -31,6 +34,9 @@ func (t *EventContentSpecialOperationsExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentSpecialOperationsExcelDto) UnmarshalMessage(e *EventContentSpecialOperationsExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpecialOperationsExcel"))
+	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.PointItemId = fbsutils.Convert(e.PointItemId(), t.FlatBuffer.TableKey)
 	return nil

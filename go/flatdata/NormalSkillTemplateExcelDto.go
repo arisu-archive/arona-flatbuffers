@@ -18,6 +18,9 @@ type NormalSkillTemplateExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *NormalSkillTemplateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("NormalSkillTemplateExcel"))
+	}
 	NormalSkillTemplateExcelStart(b)
 	NormalSkillTemplateExcelAddCoolTime(b, fbsutils.Convert(t.CoolTime, t.FlatBuffer.TableKey))
 	NormalSkillTemplateExcelAddFirstCoolTime(b, fbsutils.Convert(t.FirstCoolTime, t.FlatBuffer.TableKey))
@@ -35,6 +38,9 @@ func (t *NormalSkillTemplateExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *NormalSkillTemplateExcelDto) UnmarshalMessage(e *NormalSkillTemplateExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("NormalSkillTemplateExcel"))
+	}
 	t.CoolTime = fbsutils.Convert(e.CoolTime(), t.FlatBuffer.TableKey)
 	t.FirstCoolTime = fbsutils.Convert(e.FirstCoolTime(), t.FlatBuffer.TableKey)
 	t.Index = fbsutils.Convert(e.Index(), t.FlatBuffer.TableKey)

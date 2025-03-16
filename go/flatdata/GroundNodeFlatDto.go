@@ -20,6 +20,9 @@ type GroundNodeFlatDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GroundNodeFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundNodeFlat"))
+	}
 	GroundNodeFlatStart(b)
 	GroundNodeFlatAddIsCanNotUseSkill(b, fbsutils.Convert(t.IsCanNotUseSkill, t.FlatBuffer.TableKey))
 	GroundNodeFlatAddNodeType(b, fbsutils.Convert(t.NodeType, t.FlatBuffer.TableKey))
@@ -39,6 +42,9 @@ func (t *GroundNodeFlatDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GroundNodeFlatDto) UnmarshalMessage(e *GroundNodeFlat) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundNodeFlat"))
+	}
 	t.IsCanNotUseSkill = fbsutils.Convert(e.IsCanNotUseSkill(), t.FlatBuffer.TableKey)
 	t.NodeType = GroundNodeType(int32(fbsutils.Convert(e.NodeType(), t.FlatBuffer.TableKey)))
 	t.OriginalNodeType = GroundNodeType(int32(fbsutils.Convert(e.OriginalNodeType(), t.FlatBuffer.TableKey)))

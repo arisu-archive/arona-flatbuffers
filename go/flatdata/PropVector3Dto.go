@@ -17,6 +17,9 @@ type PropVector3Dto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *PropVector3Dto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropVector3"))
+	}
 	PropVector3Start(b)
 	PropVector3AddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
 	PropVector3AddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
@@ -33,6 +36,9 @@ func (t *PropVector3Dto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *PropVector3Dto) UnmarshalMessage(e *PropVector3) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropVector3"))
+	}
 	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
 	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
 	t.Z = fbsutils.Convert(e.Z(), t.FlatBuffer.TableKey)

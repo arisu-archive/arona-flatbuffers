@@ -36,6 +36,9 @@ type WorldRaidBossGroupExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WorldRaidBossGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidBossGroupExcel"))
+	}
 	WorldRaidBossGroupExcelStart(b)
 	WorldRaidBossGroupExcelStartAnotherBossKilledVector(b, len(t.AnotherBossKilled))
 	for i := range len(t.AnotherBossKilled) {
@@ -75,6 +78,9 @@ func (t *WorldRaidBossGroupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WorldRaidBossGroupExcelDto) UnmarshalMessage(e *WorldRaidBossGroupExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidBossGroupExcel"))
+	}
 	t.AnotherBossKilled = make([]int64, e.AnotherBossKilledLength())
 	for i := range e.AnotherBossKilledLength() {
 		t.AnotherBossKilled[i] = e.AnotherBossKilled(i)

@@ -16,6 +16,9 @@ type ConstFieldExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConstFieldExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstFieldExcelTable"))
+	}
 	ConstFieldExcelTableStart(b)
 	ConstFieldExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *ConstFieldExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConstFieldExcelTableDto) UnmarshalMessage(e *ConstFieldExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstFieldExcelTable"))
+	}
 	t.DataList = make([]ConstFieldExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(ConstFieldExcel)

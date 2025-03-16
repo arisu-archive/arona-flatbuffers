@@ -46,6 +46,9 @@ type ItemExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ItemExcel"))
+	}
 	ItemExcelStart(b)
 	ItemExcelAddCanTierUpgrade(b, fbsutils.Convert(t.CanTierUpgrade, t.FlatBuffer.TableKey))
 	ItemExcelAddCraftQualityTier0(b, fbsutils.Convert(t.CraftQualityTier0, t.FlatBuffer.TableKey))
@@ -99,6 +102,9 @@ func (t *ItemExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ItemExcelDto) UnmarshalMessage(e *ItemExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ItemExcel"))
+	}
 	t.CanTierUpgrade = fbsutils.Convert(e.CanTierUpgrade(), t.FlatBuffer.TableKey)
 	t.CraftQualityTier0 = fbsutils.Convert(e.CraftQualityTier0(), t.FlatBuffer.TableKey)
 	t.CraftQualityTier1 = fbsutils.Convert(e.CraftQualityTier1(), t.FlatBuffer.TableKey)

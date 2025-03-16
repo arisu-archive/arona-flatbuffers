@@ -23,6 +23,9 @@ type GuideMissionOpenStageConditionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GuideMissionOpenStageConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GuideMissionOpenStageConditionExcel"))
+	}
 	GuideMissionOpenStageConditionExcelStart(b)
 	GuideMissionOpenStageConditionExcelAddClearScenarioModeId(b, fbsutils.Convert(t.ClearScenarioModeId, t.FlatBuffer.TableKey))
 	GuideMissionOpenStageConditionExcelAddClearStageId(b, fbsutils.Convert(t.ClearStageId, t.FlatBuffer.TableKey))
@@ -45,6 +48,9 @@ func (t *GuideMissionOpenStageConditionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GuideMissionOpenStageConditionExcelDto) UnmarshalMessage(e *GuideMissionOpenStageConditionExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GuideMissionOpenStageConditionExcel"))
+	}
 	t.ClearScenarioModeId = fbsutils.Convert(e.ClearScenarioModeId(), t.FlatBuffer.TableKey)
 	t.ClearStageId = fbsutils.Convert(e.ClearStageId(), t.FlatBuffer.TableKey)
 	t.LockScenarioTextLocailzeCode = fbsutils.Convert(string(e.LockScenarioTextLocailzeCode()), t.FlatBuffer.TableKey)

@@ -21,6 +21,9 @@ type RaidStageRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RaidStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidStageRewardExcel"))
+	}
 	RaidStageRewardExcelStart(b)
 	RaidStageRewardExcelAddClearStageRewardAmount(b, fbsutils.Convert(t.ClearStageRewardAmount, t.FlatBuffer.TableKey))
 	RaidStageRewardExcelAddClearStageRewardParcelType(b, fbsutils.Convert(t.ClearStageRewardParcelType, t.FlatBuffer.TableKey))
@@ -41,6 +44,9 @@ func (t *RaidStageRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RaidStageRewardExcelDto) UnmarshalMessage(e *RaidStageRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidStageRewardExcel"))
+	}
 	t.ClearStageRewardAmount = fbsutils.Convert(e.ClearStageRewardAmount(), t.FlatBuffer.TableKey)
 	t.ClearStageRewardParcelType = ParcelType(int32(fbsutils.Convert(e.ClearStageRewardParcelType(), t.FlatBuffer.TableKey)))
 	t.ClearStageRewardParcelUniqueId = fbsutils.Convert(e.ClearStageRewardParcelUniqueId(), t.FlatBuffer.TableKey)

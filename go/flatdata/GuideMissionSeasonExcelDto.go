@@ -39,6 +39,9 @@ type GuideMissionSeasonExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GuideMissionSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GuideMissionSeasonExcel"))
+	}
 	GuideMissionSeasonExcelStart(b)
 	GuideMissionSeasonExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
 	GuideMissionSeasonExcelAddBackgroundImage(b, fbsutils.Convert(b.CreateString(t.BackgroundImage), t.FlatBuffer.TableKey))
@@ -77,6 +80,9 @@ func (t *GuideMissionSeasonExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GuideMissionSeasonExcelDto) UnmarshalMessage(e *GuideMissionSeasonExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GuideMissionSeasonExcel"))
+	}
 	t.AccountType = AccountState(int32(fbsutils.Convert(e.AccountType(), t.FlatBuffer.TableKey)))
 	t.BackgroundImage = fbsutils.Convert(string(e.BackgroundImage()), t.FlatBuffer.TableKey)
 	t.BannerOpenDate = fbsutils.Convert(string(e.BannerOpenDate()), t.FlatBuffer.TableKey)

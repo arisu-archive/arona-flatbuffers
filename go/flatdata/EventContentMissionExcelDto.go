@@ -44,6 +44,9 @@ type EventContentMissionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMissionExcel"))
+	}
 	EventContentMissionExcelStart(b)
 	EventContentMissionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
 	EventContentMissionExcelAddAccountType(b, fbsutils.Convert(t.AccountType, t.FlatBuffer.TableKey))
@@ -131,6 +134,9 @@ func (t *EventContentMissionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentMissionExcelDto) UnmarshalMessage(e *EventContentMissionExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMissionExcel"))
+	}
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
 	t.AccountType = AccountState(int32(fbsutils.Convert(e.AccountType(), t.FlatBuffer.TableKey)))
 	t.Category = MissionCategory(int32(fbsutils.Convert(e.Category(), t.FlatBuffer.TableKey)))

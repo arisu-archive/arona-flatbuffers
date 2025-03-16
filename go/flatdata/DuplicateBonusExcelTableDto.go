@@ -16,6 +16,9 @@ type DuplicateBonusExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *DuplicateBonusExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DuplicateBonusExcelTable"))
+	}
 	DuplicateBonusExcelTableStart(b)
 	DuplicateBonusExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *DuplicateBonusExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *DuplicateBonusExcelTableDto) UnmarshalMessage(e *DuplicateBonusExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DuplicateBonusExcelTable"))
+	}
 	t.DataList = make([]DuplicateBonusExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(DuplicateBonusExcel)

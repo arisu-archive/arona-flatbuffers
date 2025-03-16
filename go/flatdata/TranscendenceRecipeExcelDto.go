@@ -21,6 +21,9 @@ type TranscendenceRecipeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TranscendenceRecipeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TranscendenceRecipeExcel"))
+	}
 	TranscendenceRecipeExcelStart(b)
 	TranscendenceRecipeExcelAddCostCurrencyAmount(b, fbsutils.Convert(t.CostCurrencyAmount, t.FlatBuffer.TableKey))
 	TranscendenceRecipeExcelAddCostCurrencyType(b, fbsutils.Convert(t.CostCurrencyType, t.FlatBuffer.TableKey))
@@ -53,6 +56,9 @@ func (t *TranscendenceRecipeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TranscendenceRecipeExcelDto) UnmarshalMessage(e *TranscendenceRecipeExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TranscendenceRecipeExcel"))
+	}
 	t.CostCurrencyAmount = fbsutils.Convert(e.CostCurrencyAmount(), t.FlatBuffer.TableKey)
 	t.CostCurrencyType = CurrencyTypes(int32(fbsutils.Convert(e.CostCurrencyType(), t.FlatBuffer.TableKey)))
 	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)

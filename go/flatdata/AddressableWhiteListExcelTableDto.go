@@ -16,6 +16,9 @@ type AddressableWhiteListExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AddressableWhiteListExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AddressableWhiteListExcelTable"))
+	}
 	AddressableWhiteListExcelTableStart(b)
 	AddressableWhiteListExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *AddressableWhiteListExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AddressableWhiteListExcelTableDto) UnmarshalMessage(e *AddressableWhiteListExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AddressableWhiteListExcelTable"))
+	}
 	t.DataList = make([]AddressableWhiteListExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(AddressableWhiteListExcel)

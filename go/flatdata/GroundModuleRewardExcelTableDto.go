@@ -16,6 +16,9 @@ type GroundModuleRewardExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GroundModuleRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundModuleRewardExcelTable"))
+	}
 	GroundModuleRewardExcelTableStart(b)
 	GroundModuleRewardExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *GroundModuleRewardExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GroundModuleRewardExcelTableDto) UnmarshalMessage(e *GroundModuleRewardExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundModuleRewardExcelTable"))
+	}
 	t.DataList = make([]GroundModuleRewardExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(GroundModuleRewardExcel)

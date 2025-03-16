@@ -22,6 +22,9 @@ type ClanChattingEmojiExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ClanChattingEmojiExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanChattingEmojiExcel"))
+	}
 	ClanChattingEmojiExcelStart(b)
 	ClanChattingEmojiExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	ClanChattingEmojiExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -43,6 +46,9 @@ func (t *ClanChattingEmojiExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ClanChattingEmojiExcelDto) UnmarshalMessage(e *ClanChattingEmojiExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanChattingEmojiExcel"))
+	}
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ImagePathEn = fbsutils.Convert(string(e.ImagePathEn()), t.FlatBuffer.TableKey)

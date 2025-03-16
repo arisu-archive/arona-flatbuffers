@@ -16,6 +16,9 @@ type AssistEchelonTypeConvertExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AssistEchelonTypeConvertExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AssistEchelonTypeConvertExcel"))
+	}
 	AssistEchelonTypeConvertExcelStart(b)
 	AssistEchelonTypeConvertExcelAddContents(b, fbsutils.Convert(t.Contents, t.FlatBuffer.TableKey))
 	AssistEchelonTypeConvertExcelAddConvertTo(b, fbsutils.Convert(t.ConvertTo, t.FlatBuffer.TableKey))
@@ -31,6 +34,9 @@ func (t *AssistEchelonTypeConvertExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AssistEchelonTypeConvertExcelDto) UnmarshalMessage(e *AssistEchelonTypeConvertExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AssistEchelonTypeConvertExcel"))
+	}
 	t.Contents = EchelonType(int32(fbsutils.Convert(e.Contents(), t.FlatBuffer.TableKey)))
 	t.ConvertTo = EchelonType(int32(fbsutils.Convert(e.ConvertTo(), t.FlatBuffer.TableKey)))
 	return nil

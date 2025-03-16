@@ -22,6 +22,9 @@ type RecipeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *RecipeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeExcel"))
+	}
 	RecipeExcelStart(b)
 	RecipeExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	RecipeExcelStartParcelIdVector(b, len(t.ParcelId))
@@ -59,6 +62,9 @@ func (t *RecipeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *RecipeExcelDto) UnmarshalMessage(e *RecipeExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RecipeExcel"))
+	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {

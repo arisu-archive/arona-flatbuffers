@@ -20,6 +20,9 @@ type TacticTimeAttackSimulatorConfigExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TacticTimeAttackSimulatorConfigExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticTimeAttackSimulatorConfigExcel"))
+	}
 	TacticTimeAttackSimulatorConfigExcelStart(b)
 	TacticTimeAttackSimulatorConfigExcelAddAttackSpecialNum(b, fbsutils.Convert(t.AttackSpecialNum, t.FlatBuffer.TableKey))
 	TacticTimeAttackSimulatorConfigExcelAddAttackStrikerNum(b, fbsutils.Convert(t.AttackStrikerNum, t.FlatBuffer.TableKey))
@@ -39,6 +42,9 @@ func (t *TacticTimeAttackSimulatorConfigExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TacticTimeAttackSimulatorConfigExcelDto) UnmarshalMessage(e *TacticTimeAttackSimulatorConfigExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticTimeAttackSimulatorConfigExcel"))
+	}
 	t.AttackSpecialNum = fbsutils.Convert(e.AttackSpecialNum(), t.FlatBuffer.TableKey)
 	t.AttackStrikerNum = fbsutils.Convert(e.AttackStrikerNum(), t.FlatBuffer.TableKey)
 	t.GeasId = fbsutils.Convert(e.GeasId(), t.FlatBuffer.TableKey)

@@ -17,6 +17,9 @@ type StringTestExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StringTestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StringTestExcel"))
+	}
 	StringTestExcelStart(b)
 	StringTestExcelAddScript(b, fbsutils.Convert(b.CreateString(t.Script), t.FlatBuffer.TableKey))
 	StringTestExcelAddSentence1(b, fbsutils.Convert(b.CreateString(t.Sentence1), t.FlatBuffer.TableKey))
@@ -37,6 +40,9 @@ func (t *StringTestExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StringTestExcelDto) UnmarshalMessage(e *StringTestExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StringTestExcel"))
+	}
 	t.Script = fbsutils.Convert(string(e.Script()), t.FlatBuffer.TableKey)
 	t.Sentence1 = fbsutils.Convert(string(e.Sentence1()), t.FlatBuffer.TableKey)
 	t.String = make([]string, e.StringLength())

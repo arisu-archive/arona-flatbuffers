@@ -43,6 +43,9 @@ type MinigameTBGSeasonExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameTBGSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGSeasonExcel"))
+	}
 	MinigameTBGSeasonExcelStart(b)
 	MinigameTBGSeasonExcelAddAttackDamage(b, fbsutils.Convert(t.AttackDamage, t.FlatBuffer.TableKey))
 	MinigameTBGSeasonExcelAddCriticalAttackDamage(b, fbsutils.Convert(t.CriticalAttackDamage, t.FlatBuffer.TableKey))
@@ -85,6 +88,9 @@ func (t *MinigameTBGSeasonExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameTBGSeasonExcelDto) UnmarshalMessage(e *MinigameTBGSeasonExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGSeasonExcel"))
+	}
 	t.AttackDamage = fbsutils.Convert(e.AttackDamage(), t.FlatBuffer.TableKey)
 	t.CriticalAttackDamage = fbsutils.Convert(e.CriticalAttackDamage(), t.FlatBuffer.TableKey)
 	t.DefaultEchelonHp = fbsutils.Convert(e.DefaultEchelonHp(), t.FlatBuffer.TableKey)

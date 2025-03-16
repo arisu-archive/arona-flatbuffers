@@ -19,6 +19,9 @@ type CharacterCalculationLimitExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterCalculationLimitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCalculationLimitExcel"))
+	}
 	CharacterCalculationLimitExcelStart(b)
 	CharacterCalculationLimitExcelAddCalculationValue(b, fbsutils.Convert(t.CalculationValue, t.FlatBuffer.TableKey))
 	CharacterCalculationLimitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -37,6 +40,9 @@ func (t *CharacterCalculationLimitExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterCalculationLimitExcelDto) UnmarshalMessage(e *CharacterCalculationLimitExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCalculationLimitExcel"))
+	}
 	t.CalculationValue = BattleCalculationStat(int32(fbsutils.Convert(e.CalculationValue(), t.FlatBuffer.TableKey)))
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.MaxValue = fbsutils.Convert(e.MaxValue(), t.FlatBuffer.TableKey)

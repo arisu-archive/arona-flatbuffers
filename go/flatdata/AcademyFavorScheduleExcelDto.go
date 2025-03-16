@@ -26,6 +26,9 @@ type AcademyFavorScheduleExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AcademyFavorScheduleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyFavorScheduleExcel"))
+	}
 	AcademyFavorScheduleExcelStart(b)
 	AcademyFavorScheduleExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	AcademyFavorScheduleExcelAddFavorRank(b, fbsutils.Convert(t.FavorRank, t.FlatBuffer.TableKey))
@@ -63,6 +66,9 @@ func (t *AcademyFavorScheduleExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AcademyFavorScheduleExcelDto) UnmarshalMessage(e *AcademyFavorScheduleExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyFavorScheduleExcel"))
+	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.FavorRank = fbsutils.Convert(e.FavorRank(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)

@@ -16,6 +16,9 @@ type EventContentCharacterBonusExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentCharacterBonusExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCharacterBonusExcelTable"))
+	}
 	EventContentCharacterBonusExcelTableStart(b)
 	EventContentCharacterBonusExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *EventContentCharacterBonusExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentCharacterBonusExcelTableDto) UnmarshalMessage(e *EventContentCharacterBonusExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCharacterBonusExcelTable"))
+	}
 	t.DataList = make([]EventContentCharacterBonusExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(EventContentCharacterBonusExcel)

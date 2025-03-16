@@ -24,6 +24,9 @@ type FieldWorldMapZoneExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FieldWorldMapZoneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldWorldMapZoneExcel"))
+	}
 	FieldWorldMapZoneExcelStart(b)
 	FieldWorldMapZoneExcelAddCloseConditionId(b, fbsutils.Convert(t.CloseConditionId, t.FlatBuffer.TableKey))
 	FieldWorldMapZoneExcelAddCloseConditionType(b, fbsutils.Convert(t.CloseConditionType, t.FlatBuffer.TableKey))
@@ -47,6 +50,9 @@ func (t *FieldWorldMapZoneExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FieldWorldMapZoneExcelDto) UnmarshalMessage(e *FieldWorldMapZoneExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldWorldMapZoneExcel"))
+	}
 	t.CloseConditionId = fbsutils.Convert(e.CloseConditionId(), t.FlatBuffer.TableKey)
 	t.CloseConditionType = FieldConditionType(int32(fbsutils.Convert(e.CloseConditionType(), t.FlatBuffer.TableKey)))
 	t.Date = fbsutils.Convert(e.Date(), t.FlatBuffer.TableKey)

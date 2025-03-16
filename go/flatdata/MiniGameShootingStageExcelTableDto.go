@@ -16,6 +16,9 @@ type MiniGameShootingStageExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameShootingStageExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingStageExcelTable"))
+	}
 	MiniGameShootingStageExcelTableStart(b)
 	MiniGameShootingStageExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *MiniGameShootingStageExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameShootingStageExcelTableDto) UnmarshalMessage(e *MiniGameShootingStageExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameShootingStageExcelTable"))
+	}
 	t.DataList = make([]MiniGameShootingStageExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(MiniGameShootingStageExcel)

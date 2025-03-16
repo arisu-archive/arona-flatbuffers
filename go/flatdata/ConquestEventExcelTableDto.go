@@ -16,6 +16,9 @@ type ConquestEventExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestEventExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestEventExcelTable"))
+	}
 	ConquestEventExcelTableStart(b)
 	ConquestEventExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *ConquestEventExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestEventExcelTableDto) UnmarshalMessage(e *ConquestEventExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestEventExcelTable"))
+	}
 	t.DataList = make([]ConquestEventExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(ConquestEventExcel)

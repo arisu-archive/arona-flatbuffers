@@ -21,6 +21,9 @@ type TutorialExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TutorialExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TutorialExcel"))
+	}
 	TutorialExcelStart(b)
 	TutorialExcelAddCompletionReportEventName(b, fbsutils.Convert(b.CreateString(t.CompletionReportEventName), t.FlatBuffer.TableKey))
 	TutorialExcelAddCompulsoryTutorial(b, fbsutils.Convert(t.CompulsoryTutorial, t.FlatBuffer.TableKey))
@@ -49,6 +52,9 @@ func (t *TutorialExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TutorialExcelDto) UnmarshalMessage(e *TutorialExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TutorialExcel"))
+	}
 	t.CompletionReportEventName = fbsutils.Convert(string(e.CompletionReportEventName()), t.FlatBuffer.TableKey)
 	t.CompulsoryTutorial = fbsutils.Convert(e.CompulsoryTutorial(), t.FlatBuffer.TableKey)
 	t.DescriptionTutorial = fbsutils.Convert(e.DescriptionTutorial(), t.FlatBuffer.TableKey)

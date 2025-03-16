@@ -35,6 +35,9 @@ type EliminateRaidSeasonManageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EliminateRaidSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidSeasonManageExcel"))
+	}
 	EliminateRaidSeasonManageExcelStart(b)
 	EliminateRaidSeasonManageExcelAddLimitedRewardIdExtreme(b, fbsutils.Convert(t.LimitedRewardIdExtreme, t.FlatBuffer.TableKey))
 	EliminateRaidSeasonManageExcelAddLimitedRewardIdHard(b, fbsutils.Convert(t.LimitedRewardIdHard, t.FlatBuffer.TableKey))
@@ -77,6 +80,9 @@ func (t *EliminateRaidSeasonManageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EliminateRaidSeasonManageExcelDto) UnmarshalMessage(e *EliminateRaidSeasonManageExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidSeasonManageExcel"))
+	}
 	t.LimitedRewardIdExtreme = fbsutils.Convert(e.LimitedRewardIdExtreme(), t.FlatBuffer.TableKey)
 	t.LimitedRewardIdHard = fbsutils.Convert(e.LimitedRewardIdHard(), t.FlatBuffer.TableKey)
 	t.LimitedRewardIdHardcore = fbsutils.Convert(e.LimitedRewardIdHardcore(), t.FlatBuffer.TableKey)

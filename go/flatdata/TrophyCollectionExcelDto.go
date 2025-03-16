@@ -17,6 +17,9 @@ type TrophyCollectionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TrophyCollectionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TrophyCollectionExcel"))
+	}
 	TrophyCollectionExcelStart(b)
 	TrophyCollectionExcelStartFurnitureIdVector(b, len(t.FurnitureId))
 	for i := range len(t.FurnitureId) {
@@ -37,6 +40,9 @@ func (t *TrophyCollectionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TrophyCollectionExcelDto) UnmarshalMessage(e *TrophyCollectionExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TrophyCollectionExcel"))
+	}
 	t.FurnitureId = make([]int64, e.FurnitureIdLength())
 	for i := range e.FurnitureIdLength() {
 		t.FurnitureId[i] = e.FurnitureId(i)

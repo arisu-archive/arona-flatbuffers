@@ -25,6 +25,9 @@ type LocalizeEtcExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeEtcExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeEtcExcel"))
+	}
 	LocalizeEtcExcelStart(b)
 	LocalizeEtcExcelAddDescriptionEn(b, fbsutils.Convert(b.CreateString(t.DescriptionEn), t.FlatBuffer.TableKey))
 	LocalizeEtcExcelAddDescriptionJp(b, fbsutils.Convert(b.CreateString(t.DescriptionJp), t.FlatBuffer.TableKey))
@@ -49,6 +52,9 @@ func (t *LocalizeEtcExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LocalizeEtcExcelDto) UnmarshalMessage(e *LocalizeEtcExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeEtcExcel"))
+	}
 	t.DescriptionEn = fbsutils.Convert(string(e.DescriptionEn()), t.FlatBuffer.TableKey)
 	t.DescriptionJp = fbsutils.Convert(string(e.DescriptionJp()), t.FlatBuffer.TableKey)
 	t.DescriptionKr = fbsutils.Convert(string(e.DescriptionKr()), t.FlatBuffer.TableKey)

@@ -30,6 +30,9 @@ type ProductMonthlyExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ProductMonthlyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProductMonthlyExcel"))
+	}
 	ProductMonthlyExcelStart(b)
 	ProductMonthlyExcelStartDailyParcelAmountVector(b, len(t.DailyParcelAmount))
 	for i := range len(t.DailyParcelAmount) {
@@ -83,6 +86,9 @@ func (t *ProductMonthlyExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ProductMonthlyExcelDto) UnmarshalMessage(e *ProductMonthlyExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProductMonthlyExcel"))
+	}
 	t.DailyParcelAmount = make([]int64, e.DailyParcelAmountLength())
 	for i := range e.DailyParcelAmountLength() {
 		t.DailyParcelAmount[i] = e.DailyParcelAmount(i)

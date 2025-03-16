@@ -16,6 +16,9 @@ type HpBarAbbreviationExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *HpBarAbbreviationExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("HpBarAbbreviationExcelTable"))
+	}
 	HpBarAbbreviationExcelTableStart(b)
 	HpBarAbbreviationExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *HpBarAbbreviationExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *HpBarAbbreviationExcelTableDto) UnmarshalMessage(e *HpBarAbbreviationExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("HpBarAbbreviationExcelTable"))
+	}
 	t.DataList = make([]HpBarAbbreviationExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(HpBarAbbreviationExcel)

@@ -19,6 +19,9 @@ type CharacterLevelStatFactorExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterLevelStatFactorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterLevelStatFactorExcel"))
+	}
 	CharacterLevelStatFactorExcelStart(b)
 	CharacterLevelStatFactorExcelAddAccuracyFactor(b, fbsutils.Convert(t.AccuracyFactor, t.FlatBuffer.TableKey))
 	CharacterLevelStatFactorExcelAddCriticalFactor(b, fbsutils.Convert(t.CriticalFactor, t.FlatBuffer.TableKey))
@@ -37,6 +40,9 @@ func (t *CharacterLevelStatFactorExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterLevelStatFactorExcelDto) UnmarshalMessage(e *CharacterLevelStatFactorExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterLevelStatFactorExcel"))
+	}
 	t.AccuracyFactor = fbsutils.Convert(e.AccuracyFactor(), t.FlatBuffer.TableKey)
 	t.CriticalFactor = fbsutils.Convert(e.CriticalFactor(), t.FlatBuffer.TableKey)
 	t.DefenceFactor = fbsutils.Convert(e.DefenceFactor(), t.FlatBuffer.TableKey)

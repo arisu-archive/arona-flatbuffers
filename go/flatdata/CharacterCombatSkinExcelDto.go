@@ -17,6 +17,9 @@ type CharacterCombatSkinExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterCombatSkinExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCombatSkinExcel"))
+	}
 	CharacterCombatSkinExcelStart(b)
 	CharacterCombatSkinExcelAddGroupId(b, fbsutils.Convert(b.CreateString(t.GroupId), t.FlatBuffer.TableKey))
 	CharacterCombatSkinExcelAddResourcePath(b, fbsutils.Convert(b.CreateString(t.ResourcePath), t.FlatBuffer.TableKey))
@@ -33,6 +36,9 @@ func (t *CharacterCombatSkinExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterCombatSkinExcelDto) UnmarshalMessage(e *CharacterCombatSkinExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCombatSkinExcel"))
+	}
 	t.GroupId = fbsutils.Convert(string(e.GroupId()), t.FlatBuffer.TableKey)
 	t.ResourcePath = fbsutils.Convert(string(e.ResourcePath()), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)

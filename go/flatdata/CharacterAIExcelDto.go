@@ -26,6 +26,9 @@ type CharacterAIExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterAIExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAIExcel"))
+	}
 	CharacterAIExcelStart(b)
 	CharacterAIExcelAddCanUseObstacleOfKneelMotion(b, fbsutils.Convert(t.CanUseObstacleOfKneelMotion, t.FlatBuffer.TableKey))
 	CharacterAIExcelAddCanUseObstacleOfStandMotion(b, fbsutils.Convert(t.CanUseObstacleOfStandMotion, t.FlatBuffer.TableKey))
@@ -51,6 +54,9 @@ func (t *CharacterAIExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterAIExcelDto) UnmarshalMessage(e *CharacterAIExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAIExcel"))
+	}
 	t.CanUseObstacleOfKneelMotion = fbsutils.Convert(e.CanUseObstacleOfKneelMotion(), t.FlatBuffer.TableKey)
 	t.CanUseObstacleOfStandMotion = fbsutils.Convert(e.CanUseObstacleOfStandMotion(), t.FlatBuffer.TableKey)
 	t.CheckCanUseAutoSkill = fbsutils.Convert(e.CheckCanUseAutoSkill(), t.FlatBuffer.TableKey)

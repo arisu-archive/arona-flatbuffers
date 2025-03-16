@@ -34,6 +34,9 @@ type GoodsExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GoodsExcel"))
+	}
 	GoodsExcelStart(b)
 	GoodsExcelStartConsumeConditionVector(b, len(t.ConsumeCondition))
 	for i := range len(t.ConsumeCondition) {
@@ -103,6 +106,9 @@ func (t *GoodsExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GoodsExcel"))
+	}
 	t.ConsumeCondition = make([]ConsumeCondition, e.ConsumeConditionLength())
 	for i := range e.ConsumeConditionLength() {
 		t.ConsumeCondition[i] = e.ConsumeCondition(i)

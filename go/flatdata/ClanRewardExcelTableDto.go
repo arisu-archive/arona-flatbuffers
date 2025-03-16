@@ -16,6 +16,9 @@ type ClanRewardExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ClanRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanRewardExcelTable"))
+	}
 	ClanRewardExcelTableStart(b)
 	ClanRewardExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *ClanRewardExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ClanRewardExcelTableDto) UnmarshalMessage(e *ClanRewardExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanRewardExcelTable"))
+	}
 	t.DataList = make([]ClanRewardExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(ClanRewardExcel)

@@ -34,6 +34,9 @@ type AcademyRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AcademyRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyRewardExcel"))
+	}
 	AcademyRewardExcelStart(b)
 	AcademyRewardExcelAddExtraFavorExp(b, fbsutils.Convert(t.ExtraFavorExp, t.FlatBuffer.TableKey))
 	AcademyRewardExcelAddExtraFavorExpProb(b, fbsutils.Convert(t.ExtraFavorExpProb, t.FlatBuffer.TableKey))
@@ -99,6 +102,9 @@ func (t *AcademyRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AcademyRewardExcelDto) UnmarshalMessage(e *AcademyRewardExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyRewardExcel"))
+	}
 	t.ExtraFavorExp = fbsutils.Convert(e.ExtraFavorExp(), t.FlatBuffer.TableKey)
 	t.ExtraFavorExpProb = fbsutils.Convert(e.ExtraFavorExpProb(), t.FlatBuffer.TableKey)
 	t.ExtraRewardAmount = make([]int64, e.ExtraRewardAmountLength())

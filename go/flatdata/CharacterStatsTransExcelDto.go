@@ -18,6 +18,9 @@ type CharacterStatsTransExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterStatsTransExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatsTransExcel"))
+	}
 	CharacterStatsTransExcelStart(b)
 	CharacterStatsTransExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
 	CharacterStatsTransExcelAddStatTransType(b, fbsutils.Convert(t.StatTransType, t.FlatBuffer.TableKey))
@@ -35,6 +38,9 @@ func (t *CharacterStatsTransExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterStatsTransExcelDto) UnmarshalMessage(e *CharacterStatsTransExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatsTransExcel"))
+	}
 	t.EchelonExtensionType = EchelonExtensionType(int32(fbsutils.Convert(e.EchelonExtensionType(), t.FlatBuffer.TableKey)))
 	t.StatTransType = StatTransType(int32(fbsutils.Convert(e.StatTransType(), t.FlatBuffer.TableKey)))
 	t.TransSupportStats = StatType(int32(fbsutils.Convert(e.TransSupportStats(), t.FlatBuffer.TableKey)))

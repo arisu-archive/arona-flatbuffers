@@ -16,6 +16,9 @@ type DefaultMailExcelTableDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *DefaultMailExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultMailExcelTable"))
+	}
 	DefaultMailExcelTableStart(b)
 	DefaultMailExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -35,6 +38,9 @@ func (t *DefaultMailExcelTableDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *DefaultMailExcelTableDto) UnmarshalMessage(e *DefaultMailExcelTable) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultMailExcelTable"))
+	}
 	t.DataList = make([]DefaultMailExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
 		d := new(DefaultMailExcel)

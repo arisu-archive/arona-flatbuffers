@@ -20,6 +20,9 @@ type ShopFreeRecruitExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopFreeRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopFreeRecruitExcel"))
+	}
 	ShopFreeRecruitExcelStart(b)
 	ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(b, fbsutils.Convert(b.CreateString(t.FreeRecruitDecorationImagePath), t.FlatBuffer.TableKey))
 	ShopFreeRecruitExcelAddFreeRecruitPeriodFrom(b, fbsutils.Convert(b.CreateString(t.FreeRecruitPeriodFrom), t.FlatBuffer.TableKey))
@@ -43,6 +46,9 @@ func (t *ShopFreeRecruitExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShopFreeRecruitExcelDto) UnmarshalMessage(e *ShopFreeRecruitExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopFreeRecruitExcel"))
+	}
 	t.FreeRecruitDecorationImagePath = fbsutils.Convert(string(e.FreeRecruitDecorationImagePath()), t.FlatBuffer.TableKey)
 	t.FreeRecruitPeriodFrom = fbsutils.Convert(string(e.FreeRecruitPeriodFrom()), t.FlatBuffer.TableKey)
 	t.FreeRecruitPeriodTo = fbsutils.Convert(string(e.FreeRecruitPeriodTo()), t.FlatBuffer.TableKey)

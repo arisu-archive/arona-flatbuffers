@@ -22,6 +22,9 @@ type IdCardBackgroundExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *IdCardBackgroundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("IdCardBackgroundExcel"))
+	}
 	IdCardBackgroundExcelStart(b)
 	IdCardBackgroundExcelAddBgPath(b, fbsutils.Convert(b.CreateString(t.BgPath), t.FlatBuffer.TableKey))
 	IdCardBackgroundExcelAddCollectionVisible(b, fbsutils.Convert(t.CollectionVisible, t.FlatBuffer.TableKey))
@@ -43,6 +46,9 @@ func (t *IdCardBackgroundExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *IdCardBackgroundExcelDto) UnmarshalMessage(e *IdCardBackgroundExcel) error {
+	if t.FlatBuffer.TableKey == nil {
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("IdCardBackgroundExcel"))
+	}
 	t.BgPath = fbsutils.Convert(string(e.BgPath()), t.FlatBuffer.TableKey)
 	t.CollectionVisible = fbsutils.Convert(e.CollectionVisible(), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
