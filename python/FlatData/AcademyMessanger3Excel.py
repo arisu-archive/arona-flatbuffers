@@ -143,60 +143,116 @@ class AcademyMessanger3Excel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def AcademyMessanger3ExcelStart(builder): builder.StartObject(17)
+def AcademyMessanger3ExcelStart(builder):
+    builder.StartObject(17)
+
 def Start(builder):
-    return AcademyMessanger3ExcelStart(builder)
-def AcademyMessanger3ExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(0, characterId, 0)
+    AcademyMessanger3ExcelStart(builder)
+
+def AcademyMessanger3ExcelAddCharacterId(builder, characterId):
+    builder.PrependInt64Slot(0, characterId, 0)
+
 def AddCharacterId(builder, characterId):
-    return AcademyMessanger3ExcelAddCharacterId(builder, characterId)
-def AcademyMessanger3ExcelAddConditionValue(builder, conditionValue): builder.PrependInt64Slot(1, conditionValue, 0)
+    AcademyMessanger3ExcelAddCharacterId(builder, characterId)
+
+def AcademyMessanger3ExcelAddConditionValue(builder, conditionValue):
+    builder.PrependInt64Slot(1, conditionValue, 0)
+
 def AddConditionValue(builder, conditionValue):
-    return AcademyMessanger3ExcelAddConditionValue(builder, conditionValue)
-def AcademyMessanger3ExcelAddFavorScheduleId(builder, favorScheduleId): builder.PrependInt64Slot(2, favorScheduleId, 0)
+    AcademyMessanger3ExcelAddConditionValue(builder, conditionValue)
+
+def AcademyMessanger3ExcelAddFavorScheduleId(builder, favorScheduleId):
+    builder.PrependInt64Slot(2, favorScheduleId, 0)
+
 def AddFavorScheduleId(builder, favorScheduleId):
-    return AcademyMessanger3ExcelAddFavorScheduleId(builder, favorScheduleId)
-def AcademyMessanger3ExcelAddFeedbackTimeMillisec(builder, feedbackTimeMillisec): builder.PrependInt64Slot(3, feedbackTimeMillisec, 0)
+    AcademyMessanger3ExcelAddFavorScheduleId(builder, favorScheduleId)
+
+def AcademyMessanger3ExcelAddFeedbackTimeMillisec(builder, feedbackTimeMillisec):
+    builder.PrependInt64Slot(3, feedbackTimeMillisec, 0)
+
 def AddFeedbackTimeMillisec(builder, feedbackTimeMillisec):
-    return AcademyMessanger3ExcelAddFeedbackTimeMillisec(builder, feedbackTimeMillisec)
-def AcademyMessanger3ExcelAddId(builder, id): builder.PrependInt64Slot(4, id, 0)
+    AcademyMessanger3ExcelAddFeedbackTimeMillisec(builder, feedbackTimeMillisec)
+
+def AcademyMessanger3ExcelAddId(builder, id):
+    builder.PrependInt64Slot(4, id, 0)
+
 def AddId(builder, id):
-    return AcademyMessanger3ExcelAddId(builder, id)
-def AcademyMessanger3ExcelAddImagePath(builder, imagePath): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(imagePath), 0)
+    AcademyMessanger3ExcelAddId(builder, id)
+
+def AcademyMessanger3ExcelAddImagePath(builder, imagePath):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(imagePath), 0)
+
 def AddImagePath(builder, imagePath):
-    return AcademyMessanger3ExcelAddImagePath(builder, imagePath)
-def AcademyMessanger3ExcelAddMessageCondition(builder, messageCondition): builder.PrependInt32Slot(6, messageCondition, 0)
+    AcademyMessanger3ExcelAddImagePath(builder, imagePath)
+
+def AcademyMessanger3ExcelAddMessageCondition(builder, messageCondition):
+    builder.PrependInt32Slot(6, messageCondition, 0)
+
 def AddMessageCondition(builder, messageCondition):
-    return AcademyMessanger3ExcelAddMessageCondition(builder, messageCondition)
-def AcademyMessanger3ExcelAddMessageEn(builder, messageEn): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(messageEn), 0)
+    AcademyMessanger3ExcelAddMessageCondition(builder, messageCondition)
+
+def AcademyMessanger3ExcelAddMessageEn(builder, messageEn):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(messageEn), 0)
+
 def AddMessageEn(builder, messageEn):
-    return AcademyMessanger3ExcelAddMessageEn(builder, messageEn)
-def AcademyMessanger3ExcelAddMessageGroupId(builder, messageGroupId): builder.PrependInt64Slot(8, messageGroupId, 0)
+    AcademyMessanger3ExcelAddMessageEn(builder, messageEn)
+
+def AcademyMessanger3ExcelAddMessageGroupId(builder, messageGroupId):
+    builder.PrependInt64Slot(8, messageGroupId, 0)
+
 def AddMessageGroupId(builder, messageGroupId):
-    return AcademyMessanger3ExcelAddMessageGroupId(builder, messageGroupId)
-def AcademyMessanger3ExcelAddMessageJp(builder, messageJp): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(messageJp), 0)
+    AcademyMessanger3ExcelAddMessageGroupId(builder, messageGroupId)
+
+def AcademyMessanger3ExcelAddMessageJp(builder, messageJp):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(messageJp), 0)
+
 def AddMessageJp(builder, messageJp):
-    return AcademyMessanger3ExcelAddMessageJp(builder, messageJp)
-def AcademyMessanger3ExcelAddMessageKr(builder, messageKr): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(messageKr), 0)
+    AcademyMessanger3ExcelAddMessageJp(builder, messageJp)
+
+def AcademyMessanger3ExcelAddMessageKr(builder, messageKr):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(messageKr), 0)
+
 def AddMessageKr(builder, messageKr):
-    return AcademyMessanger3ExcelAddMessageKr(builder, messageKr)
-def AcademyMessanger3ExcelAddMessageTh(builder, messageTh): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(messageTh), 0)
+    AcademyMessanger3ExcelAddMessageKr(builder, messageKr)
+
+def AcademyMessanger3ExcelAddMessageTh(builder, messageTh):
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(messageTh), 0)
+
 def AddMessageTh(builder, messageTh):
-    return AcademyMessanger3ExcelAddMessageTh(builder, messageTh)
-def AcademyMessanger3ExcelAddMessageTw(builder, messageTw): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(messageTw), 0)
+    AcademyMessanger3ExcelAddMessageTh(builder, messageTh)
+
+def AcademyMessanger3ExcelAddMessageTw(builder, messageTw):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(messageTw), 0)
+
 def AddMessageTw(builder, messageTw):
-    return AcademyMessanger3ExcelAddMessageTw(builder, messageTw)
-def AcademyMessanger3ExcelAddMessageType(builder, messageType): builder.PrependInt32Slot(13, messageType, 0)
+    AcademyMessanger3ExcelAddMessageTw(builder, messageTw)
+
+def AcademyMessanger3ExcelAddMessageType(builder, messageType):
+    builder.PrependInt32Slot(13, messageType, 0)
+
 def AddMessageType(builder, messageType):
-    return AcademyMessanger3ExcelAddMessageType(builder, messageType)
-def AcademyMessanger3ExcelAddNextGroupId(builder, nextGroupId): builder.PrependInt64Slot(14, nextGroupId, 0)
+    AcademyMessanger3ExcelAddMessageType(builder, messageType)
+
+def AcademyMessanger3ExcelAddNextGroupId(builder, nextGroupId):
+    builder.PrependInt64Slot(14, nextGroupId, 0)
+
 def AddNextGroupId(builder, nextGroupId):
-    return AcademyMessanger3ExcelAddNextGroupId(builder, nextGroupId)
-def AcademyMessanger3ExcelAddPreConditionFavorScheduleId(builder, preConditionFavorScheduleId): builder.PrependInt64Slot(15, preConditionFavorScheduleId, 0)
+    AcademyMessanger3ExcelAddNextGroupId(builder, nextGroupId)
+
+def AcademyMessanger3ExcelAddPreConditionFavorScheduleId(builder, preConditionFavorScheduleId):
+    builder.PrependInt64Slot(15, preConditionFavorScheduleId, 0)
+
 def AddPreConditionFavorScheduleId(builder, preConditionFavorScheduleId):
-    return AcademyMessanger3ExcelAddPreConditionFavorScheduleId(builder, preConditionFavorScheduleId)
-def AcademyMessanger3ExcelAddPreConditionGroupId(builder, preConditionGroupId): builder.PrependInt64Slot(16, preConditionGroupId, 0)
+    AcademyMessanger3ExcelAddPreConditionFavorScheduleId(builder, preConditionFavorScheduleId)
+
+def AcademyMessanger3ExcelAddPreConditionGroupId(builder, preConditionGroupId):
+    builder.PrependInt64Slot(16, preConditionGroupId, 0)
+
 def AddPreConditionGroupId(builder, preConditionGroupId):
-    return AcademyMessanger3ExcelAddPreConditionGroupId(builder, preConditionGroupId)
-def AcademyMessanger3ExcelEnd(builder): return builder.EndObject()
+    AcademyMessanger3ExcelAddPreConditionGroupId(builder, preConditionGroupId)
+
+def AcademyMessanger3ExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return AcademyMessanger3ExcelEnd(builder)

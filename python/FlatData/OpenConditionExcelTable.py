@@ -49,15 +49,26 @@ class OpenConditionExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def OpenConditionExcelTableStart(builder): builder.StartObject(1)
+def OpenConditionExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return OpenConditionExcelTableStart(builder)
-def OpenConditionExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    OpenConditionExcelTableStart(builder)
+
+def OpenConditionExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return OpenConditionExcelTableAddDataList(builder, dataList)
-def OpenConditionExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    OpenConditionExcelTableAddDataList(builder, dataList)
+
+def OpenConditionExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return OpenConditionExcelTableStartDataListVector(builder, numElems)
-def OpenConditionExcelTableEnd(builder): return builder.EndObject()
+
+def OpenConditionExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return OpenConditionExcelTableEnd(builder)

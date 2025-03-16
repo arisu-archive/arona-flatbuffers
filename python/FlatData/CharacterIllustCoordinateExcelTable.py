@@ -49,15 +49,26 @@ class CharacterIllustCoordinateExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CharacterIllustCoordinateExcelTableStart(builder): builder.StartObject(1)
+def CharacterIllustCoordinateExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return CharacterIllustCoordinateExcelTableStart(builder)
-def CharacterIllustCoordinateExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    CharacterIllustCoordinateExcelTableStart(builder)
+
+def CharacterIllustCoordinateExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return CharacterIllustCoordinateExcelTableAddDataList(builder, dataList)
-def CharacterIllustCoordinateExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    CharacterIllustCoordinateExcelTableAddDataList(builder, dataList)
+
+def CharacterIllustCoordinateExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return CharacterIllustCoordinateExcelTableStartDataListVector(builder, numElems)
-def CharacterIllustCoordinateExcelTableEnd(builder): return builder.EndObject()
+
+def CharacterIllustCoordinateExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CharacterIllustCoordinateExcelTableEnd(builder)

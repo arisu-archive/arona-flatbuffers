@@ -73,30 +73,56 @@ class EventContentFortuneGachaModifyExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def EventContentFortuneGachaModifyExcelStart(builder): builder.StartObject(7)
+def EventContentFortuneGachaModifyExcelStart(builder):
+    builder.StartObject(7)
+
 def Start(builder):
-    return EventContentFortuneGachaModifyExcelStart(builder)
-def EventContentFortuneGachaModifyExcelAddBucketImagePath(builder, bucketImagePath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(bucketImagePath), 0)
+    EventContentFortuneGachaModifyExcelStart(builder)
+
+def EventContentFortuneGachaModifyExcelAddBucketImagePath(builder, bucketImagePath):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(bucketImagePath), 0)
+
 def AddBucketImagePath(builder, bucketImagePath):
-    return EventContentFortuneGachaModifyExcelAddBucketImagePath(builder, bucketImagePath)
-def EventContentFortuneGachaModifyExcelAddEventContentId(builder, eventContentId): builder.PrependInt32Slot(1, eventContentId, 0)
+    EventContentFortuneGachaModifyExcelAddBucketImagePath(builder, bucketImagePath)
+
+def EventContentFortuneGachaModifyExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt32Slot(1, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentFortuneGachaModifyExcelAddEventContentId(builder, eventContentId)
-def EventContentFortuneGachaModifyExcelAddProbModifyStartCount(builder, probModifyStartCount): builder.PrependInt32Slot(2, probModifyStartCount, 0)
+    EventContentFortuneGachaModifyExcelAddEventContentId(builder, eventContentId)
+
+def EventContentFortuneGachaModifyExcelAddProbModifyStartCount(builder, probModifyStartCount):
+    builder.PrependInt32Slot(2, probModifyStartCount, 0)
+
 def AddProbModifyStartCount(builder, probModifyStartCount):
-    return EventContentFortuneGachaModifyExcelAddProbModifyStartCount(builder, probModifyStartCount)
-def EventContentFortuneGachaModifyExcelAddShopBgImagePath(builder, shopBgImagePath): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(shopBgImagePath), 0)
+    EventContentFortuneGachaModifyExcelAddProbModifyStartCount(builder, probModifyStartCount)
+
+def EventContentFortuneGachaModifyExcelAddShopBgImagePath(builder, shopBgImagePath):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(shopBgImagePath), 0)
+
 def AddShopBgImagePath(builder, shopBgImagePath):
-    return EventContentFortuneGachaModifyExcelAddShopBgImagePath(builder, shopBgImagePath)
-def EventContentFortuneGachaModifyExcelAddTargetGrade(builder, targetGrade): builder.PrependInt32Slot(4, targetGrade, 0)
+    EventContentFortuneGachaModifyExcelAddShopBgImagePath(builder, shopBgImagePath)
+
+def EventContentFortuneGachaModifyExcelAddTargetGrade(builder, targetGrade):
+    builder.PrependInt32Slot(4, targetGrade, 0)
+
 def AddTargetGrade(builder, targetGrade):
-    return EventContentFortuneGachaModifyExcelAddTargetGrade(builder, targetGrade)
-def EventContentFortuneGachaModifyExcelAddTitleLocalizeKey(builder, titleLocalizeKey): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(titleLocalizeKey), 0)
+    EventContentFortuneGachaModifyExcelAddTargetGrade(builder, targetGrade)
+
+def EventContentFortuneGachaModifyExcelAddTitleLocalizeKey(builder, titleLocalizeKey):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(titleLocalizeKey), 0)
+
 def AddTitleLocalizeKey(builder, titleLocalizeKey):
-    return EventContentFortuneGachaModifyExcelAddTitleLocalizeKey(builder, titleLocalizeKey)
-def EventContentFortuneGachaModifyExcelAddUsePrefabName(builder, usePrefabName): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(usePrefabName), 0)
+    EventContentFortuneGachaModifyExcelAddTitleLocalizeKey(builder, titleLocalizeKey)
+
+def EventContentFortuneGachaModifyExcelAddUsePrefabName(builder, usePrefabName):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(usePrefabName), 0)
+
 def AddUsePrefabName(builder, usePrefabName):
-    return EventContentFortuneGachaModifyExcelAddUsePrefabName(builder, usePrefabName)
-def EventContentFortuneGachaModifyExcelEnd(builder): return builder.EndObject()
+    EventContentFortuneGachaModifyExcelAddUsePrefabName(builder, usePrefabName)
+
+def EventContentFortuneGachaModifyExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentFortuneGachaModifyExcelEnd(builder)

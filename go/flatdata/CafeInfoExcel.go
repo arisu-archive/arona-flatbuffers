@@ -17,11 +17,19 @@ func GetRootAsCafeInfoExcel(buf []byte, offset flatbuffers.UOffsetT) *CafeInfoEx
 	return x
 }
 
+func FinishCafeInfoExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCafeInfoExcel(buf []byte, offset flatbuffers.UOffsetT) *CafeInfoExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CafeInfoExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCafeInfoExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CafeInfoExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -98,7 +106,4 @@ func CafeInfoExcelAddOpenConditionCafeInvite(builder *flatbuffers.Builder, openC
 }
 func CafeInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CafeInfoExcel) Name() string {
-	return "CafeInfoExcel"
 }

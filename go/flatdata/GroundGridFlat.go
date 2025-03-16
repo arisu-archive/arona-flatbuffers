@@ -17,11 +17,19 @@ func GetRootAsGroundGridFlat(buf []byte, offset flatbuffers.UOffsetT) *GroundGri
 	return x
 }
 
+func FinishGroundGridFlatBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsGroundGridFlat(buf []byte, offset flatbuffers.UOffsetT) *GroundGridFlat {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GroundGridFlat{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedGroundGridFlatBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GroundGridFlat) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -150,7 +158,4 @@ func GroundGridFlatAddY(builder *flatbuffers.Builder, y int32) {
 }
 func GroundGridFlatEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*GroundGridFlat) Name() string {
-	return "GroundGridFlat"
 }

@@ -17,11 +17,19 @@ func GetRootAsAssistEchelonTypeConvertExcelTable(buf []byte, offset flatbuffers.
 	return x
 }
 
+func FinishAssistEchelonTypeConvertExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsAssistEchelonTypeConvertExcelTable(buf []byte, offset flatbuffers.UOffsetT) *AssistEchelonTypeConvertExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AssistEchelonTypeConvertExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedAssistEchelonTypeConvertExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AssistEchelonTypeConvertExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func AssistEchelonTypeConvertExcelTableStartDataListVector(builder *flatbuffers.
 }
 func AssistEchelonTypeConvertExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*AssistEchelonTypeConvertExcelTable) Name() string {
-	return "AssistEchelonTypeConvertExcelTable"
 }

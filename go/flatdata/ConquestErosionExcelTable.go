@@ -17,11 +17,19 @@ func GetRootAsConquestErosionExcelTable(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishConquestErosionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConquestErosionExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ConquestErosionExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestErosionExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConquestErosionExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestErosionExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ConquestErosionExcelTableStartDataListVector(builder *flatbuffers.Builder, 
 }
 func ConquestErosionExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConquestErosionExcelTable) Name() string {
-	return "ConquestErosionExcelTable"
 }

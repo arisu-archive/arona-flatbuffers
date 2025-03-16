@@ -17,11 +17,19 @@ func GetRootAsFloaterCommonExcelTable(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishFloaterCommonExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFloaterCommonExcelTable(buf []byte, offset flatbuffers.UOffsetT) *FloaterCommonExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FloaterCommonExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFloaterCommonExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FloaterCommonExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func FloaterCommonExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 }
 func FloaterCommonExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*FloaterCommonExcelTable) Name() string {
-	return "FloaterCommonExcelTable"
 }

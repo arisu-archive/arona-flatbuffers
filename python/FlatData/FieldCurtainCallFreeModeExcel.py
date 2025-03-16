@@ -52,21 +52,38 @@ class FieldCurtainCallFreeModeExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def FieldCurtainCallFreeModeExcelStart(builder): builder.StartObject(4)
+def FieldCurtainCallFreeModeExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return FieldCurtainCallFreeModeExcelStart(builder)
-def FieldCurtainCallFreeModeExcelAddOpenDate(builder, openDate): builder.PrependInt64Slot(0, openDate, 0)
+    FieldCurtainCallFreeModeExcelStart(builder)
+
+def FieldCurtainCallFreeModeExcelAddOpenDate(builder, openDate):
+    builder.PrependInt64Slot(0, openDate, 0)
+
 def AddOpenDate(builder, openDate):
-    return FieldCurtainCallFreeModeExcelAddOpenDate(builder, openDate)
-def FieldCurtainCallFreeModeExcelAddSetFieldDateId(builder, setFieldDateId): builder.PrependInt64Slot(1, setFieldDateId, 0)
+    FieldCurtainCallFreeModeExcelAddOpenDate(builder, openDate)
+
+def FieldCurtainCallFreeModeExcelAddSetFieldDateId(builder, setFieldDateId):
+    builder.PrependInt64Slot(1, setFieldDateId, 0)
+
 def AddSetFieldDateId(builder, setFieldDateId):
-    return FieldCurtainCallFreeModeExcelAddSetFieldDateId(builder, setFieldDateId)
-def FieldCurtainCallFreeModeExcelAddSetFieldQuestOpenDate(builder, setFieldQuestOpenDate): builder.PrependInt64Slot(2, setFieldQuestOpenDate, 0)
+    FieldCurtainCallFreeModeExcelAddSetFieldDateId(builder, setFieldDateId)
+
+def FieldCurtainCallFreeModeExcelAddSetFieldQuestOpenDate(builder, setFieldQuestOpenDate):
+    builder.PrependInt64Slot(2, setFieldQuestOpenDate, 0)
+
 def AddSetFieldQuestOpenDate(builder, setFieldQuestOpenDate):
-    return FieldCurtainCallFreeModeExcelAddSetFieldQuestOpenDate(builder, setFieldQuestOpenDate)
-def FieldCurtainCallFreeModeExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(3, uniqueId, 0)
+    FieldCurtainCallFreeModeExcelAddSetFieldQuestOpenDate(builder, setFieldQuestOpenDate)
+
+def FieldCurtainCallFreeModeExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(3, uniqueId, 0)
+
 def AddUniqueId(builder, uniqueId):
-    return FieldCurtainCallFreeModeExcelAddUniqueId(builder, uniqueId)
-def FieldCurtainCallFreeModeExcelEnd(builder): return builder.EndObject()
+    FieldCurtainCallFreeModeExcelAddUniqueId(builder, uniqueId)
+
+def FieldCurtainCallFreeModeExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FieldCurtainCallFreeModeExcelEnd(builder)

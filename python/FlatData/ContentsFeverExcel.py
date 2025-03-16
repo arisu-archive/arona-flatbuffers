@@ -59,24 +59,44 @@ class ContentsFeverExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ContentsFeverExcelStart(builder): builder.StartObject(5)
+def ContentsFeverExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return ContentsFeverExcelStart(builder)
-def ContentsFeverExcelAddConditionContent(builder, conditionContent): builder.PrependInt32Slot(0, conditionContent, 0)
+    ContentsFeverExcelStart(builder)
+
+def ContentsFeverExcelAddConditionContent(builder, conditionContent):
+    builder.PrependInt32Slot(0, conditionContent, 0)
+
 def AddConditionContent(builder, conditionContent):
-    return ContentsFeverExcelAddConditionContent(builder, conditionContent)
-def ContentsFeverExcelAddFeverDurationTime(builder, feverDurationTime): builder.PrependInt64Slot(1, feverDurationTime, 0)
+    ContentsFeverExcelAddConditionContent(builder, conditionContent)
+
+def ContentsFeverExcelAddFeverDurationTime(builder, feverDurationTime):
+    builder.PrependInt64Slot(1, feverDurationTime, 0)
+
 def AddFeverDurationTime(builder, feverDurationTime):
-    return ContentsFeverExcelAddFeverDurationTime(builder, feverDurationTime)
-def ContentsFeverExcelAddFeverStartTime(builder, feverStartTime): builder.PrependInt64Slot(2, feverStartTime, 0)
+    ContentsFeverExcelAddFeverDurationTime(builder, feverDurationTime)
+
+def ContentsFeverExcelAddFeverStartTime(builder, feverStartTime):
+    builder.PrependInt64Slot(2, feverStartTime, 0)
+
 def AddFeverStartTime(builder, feverStartTime):
-    return ContentsFeverExcelAddFeverStartTime(builder, feverStartTime)
-def ContentsFeverExcelAddSkillCostFever(builder, skillCostFever): builder.PrependInt64Slot(3, skillCostFever, 0)
+    ContentsFeverExcelAddFeverStartTime(builder, feverStartTime)
+
+def ContentsFeverExcelAddSkillCostFever(builder, skillCostFever):
+    builder.PrependInt64Slot(3, skillCostFever, 0)
+
 def AddSkillCostFever(builder, skillCostFever):
-    return ContentsFeverExcelAddSkillCostFever(builder, skillCostFever)
-def ContentsFeverExcelAddSkillFeverCheckCondition(builder, skillFeverCheckCondition): builder.PrependInt32Slot(4, skillFeverCheckCondition, 0)
+    ContentsFeverExcelAddSkillCostFever(builder, skillCostFever)
+
+def ContentsFeverExcelAddSkillFeverCheckCondition(builder, skillFeverCheckCondition):
+    builder.PrependInt32Slot(4, skillFeverCheckCondition, 0)
+
 def AddSkillFeverCheckCondition(builder, skillFeverCheckCondition):
-    return ContentsFeverExcelAddSkillFeverCheckCondition(builder, skillFeverCheckCondition)
-def ContentsFeverExcelEnd(builder): return builder.EndObject()
+    ContentsFeverExcelAddSkillFeverCheckCondition(builder, skillFeverCheckCondition)
+
+def ContentsFeverExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ContentsFeverExcelEnd(builder)

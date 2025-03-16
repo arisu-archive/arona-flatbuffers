@@ -52,21 +52,38 @@ class CharacterPotentialExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def CharacterPotentialExcelStart(builder): builder.StartObject(4)
+def CharacterPotentialExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return CharacterPotentialExcelStart(builder)
-def CharacterPotentialExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    CharacterPotentialExcelStart(builder)
+
+def CharacterPotentialExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return CharacterPotentialExcelAddId(builder, id)
-def CharacterPotentialExcelAddIsUnnecessaryStat(builder, isUnnecessaryStat): builder.PrependBoolSlot(1, isUnnecessaryStat, 0)
+    CharacterPotentialExcelAddId(builder, id)
+
+def CharacterPotentialExcelAddIsUnnecessaryStat(builder, isUnnecessaryStat):
+    builder.PrependBoolSlot(1, isUnnecessaryStat, 0)
+
 def AddIsUnnecessaryStat(builder, isUnnecessaryStat):
-    return CharacterPotentialExcelAddIsUnnecessaryStat(builder, isUnnecessaryStat)
-def CharacterPotentialExcelAddPotentialStatBonusRateType(builder, potentialStatBonusRateType): builder.PrependInt32Slot(2, potentialStatBonusRateType, 0)
+    CharacterPotentialExcelAddIsUnnecessaryStat(builder, isUnnecessaryStat)
+
+def CharacterPotentialExcelAddPotentialStatBonusRateType(builder, potentialStatBonusRateType):
+    builder.PrependInt32Slot(2, potentialStatBonusRateType, 0)
+
 def AddPotentialStatBonusRateType(builder, potentialStatBonusRateType):
-    return CharacterPotentialExcelAddPotentialStatBonusRateType(builder, potentialStatBonusRateType)
-def CharacterPotentialExcelAddPotentialStatGroupId(builder, potentialStatGroupId): builder.PrependInt64Slot(3, potentialStatGroupId, 0)
+    CharacterPotentialExcelAddPotentialStatBonusRateType(builder, potentialStatBonusRateType)
+
+def CharacterPotentialExcelAddPotentialStatGroupId(builder, potentialStatGroupId):
+    builder.PrependInt64Slot(3, potentialStatGroupId, 0)
+
 def AddPotentialStatGroupId(builder, potentialStatGroupId):
-    return CharacterPotentialExcelAddPotentialStatGroupId(builder, potentialStatGroupId)
-def CharacterPotentialExcelEnd(builder): return builder.EndObject()
+    CharacterPotentialExcelAddPotentialStatGroupId(builder, potentialStatGroupId)
+
+def CharacterPotentialExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CharacterPotentialExcelEnd(builder)

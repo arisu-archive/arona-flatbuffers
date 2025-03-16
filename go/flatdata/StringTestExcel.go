@@ -17,11 +17,19 @@ func GetRootAsStringTestExcel(buf []byte, offset flatbuffers.UOffsetT) *StringTe
 	return x
 }
 
+func FinishStringTestExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsStringTestExcel(buf []byte, offset flatbuffers.UOffsetT) *StringTestExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &StringTestExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedStringTestExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *StringTestExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -83,7 +91,4 @@ func StringTestExcelStartStringVector(builder *flatbuffers.Builder, numElems int
 }
 func StringTestExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*StringTestExcel) Name() string {
-	return "StringTestExcel"
 }

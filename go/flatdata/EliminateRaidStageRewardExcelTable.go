@@ -17,11 +17,19 @@ func GetRootAsEliminateRaidStageRewardExcelTable(buf []byte, offset flatbuffers.
 	return x
 }
 
+func FinishEliminateRaidStageRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEliminateRaidStageRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EliminateRaidStageRewardExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EliminateRaidStageRewardExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEliminateRaidStageRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EliminateRaidStageRewardExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func EliminateRaidStageRewardExcelTableStartDataListVector(builder *flatbuffers.
 }
 func EliminateRaidStageRewardExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EliminateRaidStageRewardExcelTable) Name() string {
-	return "EliminateRaidStageRewardExcelTable"
 }

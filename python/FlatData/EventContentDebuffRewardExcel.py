@@ -52,21 +52,38 @@ class EventContentDebuffRewardExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EventContentDebuffRewardExcelStart(builder): builder.StartObject(4)
+def EventContentDebuffRewardExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return EventContentDebuffRewardExcelStart(builder)
-def EventContentDebuffRewardExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
+    EventContentDebuffRewardExcelStart(builder)
+
+def EventContentDebuffRewardExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentDebuffRewardExcelAddEventContentId(builder, eventContentId)
-def EventContentDebuffRewardExcelAddEventContentItemType(builder, eventContentItemType): builder.PrependInt32Slot(1, eventContentItemType, 0)
+    EventContentDebuffRewardExcelAddEventContentId(builder, eventContentId)
+
+def EventContentDebuffRewardExcelAddEventContentItemType(builder, eventContentItemType):
+    builder.PrependInt32Slot(1, eventContentItemType, 0)
+
 def AddEventContentItemType(builder, eventContentItemType):
-    return EventContentDebuffRewardExcelAddEventContentItemType(builder, eventContentItemType)
-def EventContentDebuffRewardExcelAddEventStageId(builder, eventStageId): builder.PrependInt64Slot(2, eventStageId, 0)
+    EventContentDebuffRewardExcelAddEventContentItemType(builder, eventContentItemType)
+
+def EventContentDebuffRewardExcelAddEventStageId(builder, eventStageId):
+    builder.PrependInt64Slot(2, eventStageId, 0)
+
 def AddEventStageId(builder, eventStageId):
-    return EventContentDebuffRewardExcelAddEventStageId(builder, eventStageId)
-def EventContentDebuffRewardExcelAddRewardPercentage(builder, rewardPercentage): builder.PrependInt64Slot(3, rewardPercentage, 0)
+    EventContentDebuffRewardExcelAddEventStageId(builder, eventStageId)
+
+def EventContentDebuffRewardExcelAddRewardPercentage(builder, rewardPercentage):
+    builder.PrependInt64Slot(3, rewardPercentage, 0)
+
 def AddRewardPercentage(builder, rewardPercentage):
-    return EventContentDebuffRewardExcelAddRewardPercentage(builder, rewardPercentage)
-def EventContentDebuffRewardExcelEnd(builder): return builder.EndObject()
+    EventContentDebuffRewardExcelAddRewardPercentage(builder, rewardPercentage)
+
+def EventContentDebuffRewardExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentDebuffRewardExcelEnd(builder)

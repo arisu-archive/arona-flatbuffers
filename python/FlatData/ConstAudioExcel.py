@@ -52,21 +52,38 @@ class ConstAudioExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def ConstAudioExcelStart(builder): builder.StartObject(4)
+def ConstAudioExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return ConstAudioExcelStart(builder)
-def ConstAudioExcelAddBattleSnapShotName(builder, battleSnapShotName): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(battleSnapShotName), 0)
+    ConstAudioExcelStart(builder)
+
+def ConstAudioExcelAddBattleSnapShotName(builder, battleSnapShotName):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(battleSnapShotName), 0)
+
 def AddBattleSnapShotName(builder, battleSnapShotName):
-    return ConstAudioExcelAddBattleSnapShotName(builder, battleSnapShotName)
-def ConstAudioExcelAddDefaultSnapShotName(builder, defaultSnapShotName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(defaultSnapShotName), 0)
+    ConstAudioExcelAddBattleSnapShotName(builder, battleSnapShotName)
+
+def ConstAudioExcelAddDefaultSnapShotName(builder, defaultSnapShotName):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(defaultSnapShotName), 0)
+
 def AddDefaultSnapShotName(builder, defaultSnapShotName):
-    return ConstAudioExcelAddDefaultSnapShotName(builder, defaultSnapShotName)
-def ConstAudioExcelAddExSkillCutInSnapShotName(builder, exSkillCutInSnapShotName): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(exSkillCutInSnapShotName), 0)
+    ConstAudioExcelAddDefaultSnapShotName(builder, defaultSnapShotName)
+
+def ConstAudioExcelAddExSkillCutInSnapShotName(builder, exSkillCutInSnapShotName):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(exSkillCutInSnapShotName), 0)
+
 def AddExSkillCutInSnapShotName(builder, exSkillCutInSnapShotName):
-    return ConstAudioExcelAddExSkillCutInSnapShotName(builder, exSkillCutInSnapShotName)
-def ConstAudioExcelAddRaidSnapShotName(builder, raidSnapShotName): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(raidSnapShotName), 0)
+    ConstAudioExcelAddExSkillCutInSnapShotName(builder, exSkillCutInSnapShotName)
+
+def ConstAudioExcelAddRaidSnapShotName(builder, raidSnapShotName):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(raidSnapShotName), 0)
+
 def AddRaidSnapShotName(builder, raidSnapShotName):
-    return ConstAudioExcelAddRaidSnapShotName(builder, raidSnapShotName)
-def ConstAudioExcelEnd(builder): return builder.EndObject()
+    ConstAudioExcelAddRaidSnapShotName(builder, raidSnapShotName)
+
+def ConstAudioExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConstAudioExcelEnd(builder)

@@ -87,36 +87,68 @@ class FieldSeasonExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def FieldSeasonExcelStart(builder): builder.StartObject(9)
+def FieldSeasonExcelStart(builder):
+    builder.StartObject(9)
+
 def Start(builder):
-    return FieldSeasonExcelStart(builder)
-def FieldSeasonExcelAddCharacterIconPath(builder, characterIconPath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(characterIconPath), 0)
+    FieldSeasonExcelStart(builder)
+
+def FieldSeasonExcelAddCharacterIconPath(builder, characterIconPath):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(characterIconPath), 0)
+
 def AddCharacterIconPath(builder, characterIconPath):
-    return FieldSeasonExcelAddCharacterIconPath(builder, characterIconPath)
-def FieldSeasonExcelAddEndDate(builder, endDate): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
+    FieldSeasonExcelAddCharacterIconPath(builder, characterIconPath)
+
+def FieldSeasonExcelAddEndDate(builder, endDate):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
+
 def AddEndDate(builder, endDate):
-    return FieldSeasonExcelAddEndDate(builder, endDate)
-def FieldSeasonExcelAddEntryDateId(builder, entryDateId): builder.PrependInt64Slot(2, entryDateId, 0)
+    FieldSeasonExcelAddEndDate(builder, endDate)
+
+def FieldSeasonExcelAddEntryDateId(builder, entryDateId):
+    builder.PrependInt64Slot(2, entryDateId, 0)
+
 def AddEntryDateId(builder, entryDateId):
-    return FieldSeasonExcelAddEntryDateId(builder, entryDateId)
-def FieldSeasonExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(3, eventContentId, 0)
+    FieldSeasonExcelAddEntryDateId(builder, entryDateId)
+
+def FieldSeasonExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(3, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return FieldSeasonExcelAddEventContentId(builder, eventContentId)
-def FieldSeasonExcelAddInstantEntryDateId(builder, instantEntryDateId): builder.PrependInt64Slot(4, instantEntryDateId, 0)
+    FieldSeasonExcelAddEventContentId(builder, eventContentId)
+
+def FieldSeasonExcelAddInstantEntryDateId(builder, instantEntryDateId):
+    builder.PrependInt64Slot(4, instantEntryDateId, 0)
+
 def AddInstantEntryDateId(builder, instantEntryDateId):
-    return FieldSeasonExcelAddInstantEntryDateId(builder, instantEntryDateId)
-def FieldSeasonExcelAddLobbyBgmChangeStageId(builder, lobbyBgmChangeStageId): builder.PrependInt64Slot(5, lobbyBgmChangeStageId, 0)
+    FieldSeasonExcelAddInstantEntryDateId(builder, instantEntryDateId)
+
+def FieldSeasonExcelAddLobbyBgmChangeStageId(builder, lobbyBgmChangeStageId):
+    builder.PrependInt64Slot(5, lobbyBgmChangeStageId, 0)
+
 def AddLobbyBgmChangeStageId(builder, lobbyBgmChangeStageId):
-    return FieldSeasonExcelAddLobbyBgmChangeStageId(builder, lobbyBgmChangeStageId)
-def FieldSeasonExcelAddMasteryImagePath(builder, masteryImagePath): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(masteryImagePath), 0)
+    FieldSeasonExcelAddLobbyBgmChangeStageId(builder, lobbyBgmChangeStageId)
+
+def FieldSeasonExcelAddMasteryImagePath(builder, masteryImagePath):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(masteryImagePath), 0)
+
 def AddMasteryImagePath(builder, masteryImagePath):
-    return FieldSeasonExcelAddMasteryImagePath(builder, masteryImagePath)
-def FieldSeasonExcelAddStartDate(builder, startDate): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
+    FieldSeasonExcelAddMasteryImagePath(builder, masteryImagePath)
+
+def FieldSeasonExcelAddStartDate(builder, startDate):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
+
 def AddStartDate(builder, startDate):
-    return FieldSeasonExcelAddStartDate(builder, startDate)
-def FieldSeasonExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(8, uniqueId, 0)
+    FieldSeasonExcelAddStartDate(builder, startDate)
+
+def FieldSeasonExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(8, uniqueId, 0)
+
 def AddUniqueId(builder, uniqueId):
-    return FieldSeasonExcelAddUniqueId(builder, uniqueId)
-def FieldSeasonExcelEnd(builder): return builder.EndObject()
+    FieldSeasonExcelAddUniqueId(builder, uniqueId)
+
+def FieldSeasonExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FieldSeasonExcelEnd(builder)

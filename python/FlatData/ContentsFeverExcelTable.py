@@ -49,15 +49,26 @@ class ContentsFeverExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ContentsFeverExcelTableStart(builder): builder.StartObject(1)
+def ContentsFeverExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ContentsFeverExcelTableStart(builder)
-def ContentsFeverExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ContentsFeverExcelTableStart(builder)
+
+def ContentsFeverExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ContentsFeverExcelTableAddDataList(builder, dataList)
-def ContentsFeverExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ContentsFeverExcelTableAddDataList(builder, dataList)
+
+def ContentsFeverExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ContentsFeverExcelTableStartDataListVector(builder, numElems)
-def ContentsFeverExcelTableEnd(builder): return builder.EndObject()
+
+def ContentsFeverExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ContentsFeverExcelTableEnd(builder)

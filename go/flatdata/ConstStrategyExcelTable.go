@@ -17,11 +17,19 @@ func GetRootAsConstStrategyExcelTable(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishConstStrategyExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConstStrategyExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ConstStrategyExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstStrategyExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConstStrategyExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstStrategyExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ConstStrategyExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 }
 func ConstStrategyExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConstStrategyExcelTable) Name() string {
-	return "ConstStrategyExcelTable"
 }

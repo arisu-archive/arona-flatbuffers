@@ -17,11 +17,19 @@ func GetRootAsConquestGroupBonusExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishConquestGroupBonusExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConquestGroupBonusExcel(buf []byte, offset flatbuffers.UOffsetT) *ConquestGroupBonusExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestGroupBonusExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConquestGroupBonusExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestGroupBonusExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -356,7 +364,4 @@ func ConquestGroupBonusExcelStartSchoolVector(builder *flatbuffers.Builder, numE
 }
 func ConquestGroupBonusExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConquestGroupBonusExcel) Name() string {
-	return "ConquestGroupBonusExcel"
 }

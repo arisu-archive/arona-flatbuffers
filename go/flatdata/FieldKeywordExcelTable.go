@@ -17,11 +17,19 @@ func GetRootAsFieldKeywordExcelTable(buf []byte, offset flatbuffers.UOffsetT) *F
 	return x
 }
 
+func FinishFieldKeywordExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFieldKeywordExcelTable(buf []byte, offset flatbuffers.UOffsetT) *FieldKeywordExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldKeywordExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFieldKeywordExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldKeywordExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func FieldKeywordExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 }
 func FieldKeywordExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*FieldKeywordExcelTable) Name() string {
-	return "FieldKeywordExcelTable"
 }

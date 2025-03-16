@@ -121,45 +121,86 @@ class ShiftingCraftRecipeExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ShiftingCraftRecipeExcelStart(builder): builder.StartObject(11)
+def ShiftingCraftRecipeExcelStart(builder):
+    builder.StartObject(11)
+
 def Start(builder):
-    return ShiftingCraftRecipeExcelStart(builder)
-def ShiftingCraftRecipeExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(0, displayOrder, 0)
+    ShiftingCraftRecipeExcelStart(builder)
+
+def ShiftingCraftRecipeExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt64Slot(0, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return ShiftingCraftRecipeExcelAddDisplayOrder(builder, displayOrder)
-def ShiftingCraftRecipeExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+    ShiftingCraftRecipeExcelAddDisplayOrder(builder, displayOrder)
+
+def ShiftingCraftRecipeExcelAddId(builder, id):
+    builder.PrependInt64Slot(1, id, 0)
+
 def AddId(builder, id):
-    return ShiftingCraftRecipeExcelAddId(builder, id)
-def ShiftingCraftRecipeExcelAddIngredientExp(builder, ingredientExp): builder.PrependInt64Slot(2, ingredientExp, 0)
+    ShiftingCraftRecipeExcelAddId(builder, id)
+
+def ShiftingCraftRecipeExcelAddIngredientExp(builder, ingredientExp):
+    builder.PrependInt64Slot(2, ingredientExp, 0)
+
 def AddIngredientExp(builder, ingredientExp):
-    return ShiftingCraftRecipeExcelAddIngredientExp(builder, ingredientExp)
-def ShiftingCraftRecipeExcelAddIngredientTag(builder, ingredientTag): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(ingredientTag), 0)
+    ShiftingCraftRecipeExcelAddIngredientExp(builder, ingredientExp)
+
+def ShiftingCraftRecipeExcelAddIngredientTag(builder, ingredientTag):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(ingredientTag), 0)
+
 def AddIngredientTag(builder, ingredientTag):
-    return ShiftingCraftRecipeExcelAddIngredientTag(builder, ingredientTag)
-def ShiftingCraftRecipeExcelStartIngredientTagVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ShiftingCraftRecipeExcelAddIngredientTag(builder, ingredientTag)
+
+def ShiftingCraftRecipeExcelStartIngredientTagVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartIngredientTagVector(builder, numElems):
     return ShiftingCraftRecipeExcelStartIngredientTagVector(builder, numElems)
-def ShiftingCraftRecipeExcelAddNotificationId(builder, notificationId): builder.PrependInt32Slot(4, notificationId, 0)
+
+def ShiftingCraftRecipeExcelAddNotificationId(builder, notificationId):
+    builder.PrependInt32Slot(4, notificationId, 0)
+
 def AddNotificationId(builder, notificationId):
-    return ShiftingCraftRecipeExcelAddNotificationId(builder, notificationId)
-def ShiftingCraftRecipeExcelAddRequireGold(builder, requireGold): builder.PrependInt64Slot(5, requireGold, 0)
+    ShiftingCraftRecipeExcelAddNotificationId(builder, notificationId)
+
+def ShiftingCraftRecipeExcelAddRequireGold(builder, requireGold):
+    builder.PrependInt64Slot(5, requireGold, 0)
+
 def AddRequireGold(builder, requireGold):
-    return ShiftingCraftRecipeExcelAddRequireGold(builder, requireGold)
-def ShiftingCraftRecipeExcelAddRequireItemAmount(builder, requireItemAmount): builder.PrependInt64Slot(6, requireItemAmount, 0)
+    ShiftingCraftRecipeExcelAddRequireGold(builder, requireGold)
+
+def ShiftingCraftRecipeExcelAddRequireItemAmount(builder, requireItemAmount):
+    builder.PrependInt64Slot(6, requireItemAmount, 0)
+
 def AddRequireItemAmount(builder, requireItemAmount):
-    return ShiftingCraftRecipeExcelAddRequireItemAmount(builder, requireItemAmount)
-def ShiftingCraftRecipeExcelAddRequireItemId(builder, requireItemId): builder.PrependInt64Slot(7, requireItemId, 0)
+    ShiftingCraftRecipeExcelAddRequireItemAmount(builder, requireItemAmount)
+
+def ShiftingCraftRecipeExcelAddRequireItemId(builder, requireItemId):
+    builder.PrependInt64Slot(7, requireItemId, 0)
+
 def AddRequireItemId(builder, requireItemId):
-    return ShiftingCraftRecipeExcelAddRequireItemId(builder, requireItemId)
-def ShiftingCraftRecipeExcelAddResultAmount(builder, resultAmount): builder.PrependInt64Slot(8, resultAmount, 0)
+    ShiftingCraftRecipeExcelAddRequireItemId(builder, requireItemId)
+
+def ShiftingCraftRecipeExcelAddResultAmount(builder, resultAmount):
+    builder.PrependInt64Slot(8, resultAmount, 0)
+
 def AddResultAmount(builder, resultAmount):
-    return ShiftingCraftRecipeExcelAddResultAmount(builder, resultAmount)
-def ShiftingCraftRecipeExcelAddResultId(builder, resultId): builder.PrependInt64Slot(9, resultId, 0)
+    ShiftingCraftRecipeExcelAddResultAmount(builder, resultAmount)
+
+def ShiftingCraftRecipeExcelAddResultId(builder, resultId):
+    builder.PrependInt64Slot(9, resultId, 0)
+
 def AddResultId(builder, resultId):
-    return ShiftingCraftRecipeExcelAddResultId(builder, resultId)
-def ShiftingCraftRecipeExcelAddResultParcel(builder, resultParcel): builder.PrependInt32Slot(10, resultParcel, 0)
+    ShiftingCraftRecipeExcelAddResultId(builder, resultId)
+
+def ShiftingCraftRecipeExcelAddResultParcel(builder, resultParcel):
+    builder.PrependInt32Slot(10, resultParcel, 0)
+
 def AddResultParcel(builder, resultParcel):
-    return ShiftingCraftRecipeExcelAddResultParcel(builder, resultParcel)
-def ShiftingCraftRecipeExcelEnd(builder): return builder.EndObject()
+    ShiftingCraftRecipeExcelAddResultParcel(builder, resultParcel)
+
+def ShiftingCraftRecipeExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ShiftingCraftRecipeExcelEnd(builder)

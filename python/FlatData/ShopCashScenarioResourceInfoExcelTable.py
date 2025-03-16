@@ -49,15 +49,26 @@ class ShopCashScenarioResourceInfoExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ShopCashScenarioResourceInfoExcelTableStart(builder): builder.StartObject(1)
+def ShopCashScenarioResourceInfoExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ShopCashScenarioResourceInfoExcelTableStart(builder)
-def ShopCashScenarioResourceInfoExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ShopCashScenarioResourceInfoExcelTableStart(builder)
+
+def ShopCashScenarioResourceInfoExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ShopCashScenarioResourceInfoExcelTableAddDataList(builder, dataList)
-def ShopCashScenarioResourceInfoExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ShopCashScenarioResourceInfoExcelTableAddDataList(builder, dataList)
+
+def ShopCashScenarioResourceInfoExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ShopCashScenarioResourceInfoExcelTableStartDataListVector(builder, numElems)
-def ShopCashScenarioResourceInfoExcelTableEnd(builder): return builder.EndObject()
+
+def ShopCashScenarioResourceInfoExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ShopCashScenarioResourceInfoExcelTableEnd(builder)

@@ -17,11 +17,19 @@ func GetRootAsEventContentChangeScenarioExcelTable(buf []byte, offset flatbuffer
 	return x
 }
 
+func FinishEventContentChangeScenarioExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentChangeScenarioExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentChangeScenarioExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentChangeScenarioExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentChangeScenarioExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentChangeScenarioExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func EventContentChangeScenarioExcelTableStartDataListVector(builder *flatbuffer
 }
 func EventContentChangeScenarioExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentChangeScenarioExcelTable) Name() string {
-	return "EventContentChangeScenarioExcelTable"
 }

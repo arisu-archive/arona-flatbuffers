@@ -17,11 +17,19 @@ func GetRootAsFixedStrategyExcel(buf []byte, offset flatbuffers.UOffsetT) *Fixed
 	return x
 }
 
+func FinishFixedStrategyExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFixedStrategyExcel(buf []byte, offset flatbuffers.UOffsetT) *FixedStrategyExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FixedStrategyExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFixedStrategyExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FixedStrategyExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -173,7 +181,4 @@ func FixedStrategyExcelAddStageEnterEchelon04Starttile(builder *flatbuffers.Buil
 }
 func FixedStrategyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*FixedStrategyExcel) Name() string {
-	return "FixedStrategyExcel"
 }

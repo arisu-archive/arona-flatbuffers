@@ -59,24 +59,44 @@ class CharacterCalculationLimitExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def CharacterCalculationLimitExcelStart(builder): builder.StartObject(5)
+def CharacterCalculationLimitExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return CharacterCalculationLimitExcelStart(builder)
-def CharacterCalculationLimitExcelAddCalculationValue(builder, calculationValue): builder.PrependInt32Slot(0, calculationValue, 0)
+    CharacterCalculationLimitExcelStart(builder)
+
+def CharacterCalculationLimitExcelAddCalculationValue(builder, calculationValue):
+    builder.PrependInt32Slot(0, calculationValue, 0)
+
 def AddCalculationValue(builder, calculationValue):
-    return CharacterCalculationLimitExcelAddCalculationValue(builder, calculationValue)
-def CharacterCalculationLimitExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+    CharacterCalculationLimitExcelAddCalculationValue(builder, calculationValue)
+
+def CharacterCalculationLimitExcelAddId(builder, id):
+    builder.PrependInt64Slot(1, id, 0)
+
 def AddId(builder, id):
-    return CharacterCalculationLimitExcelAddId(builder, id)
-def CharacterCalculationLimitExcelAddMaxValue(builder, maxValue): builder.PrependInt64Slot(2, maxValue, 0)
+    CharacterCalculationLimitExcelAddId(builder, id)
+
+def CharacterCalculationLimitExcelAddMaxValue(builder, maxValue):
+    builder.PrependInt64Slot(2, maxValue, 0)
+
 def AddMaxValue(builder, maxValue):
-    return CharacterCalculationLimitExcelAddMaxValue(builder, maxValue)
-def CharacterCalculationLimitExcelAddMinValue(builder, minValue): builder.PrependInt64Slot(3, minValue, 0)
+    CharacterCalculationLimitExcelAddMaxValue(builder, maxValue)
+
+def CharacterCalculationLimitExcelAddMinValue(builder, minValue):
+    builder.PrependInt64Slot(3, minValue, 0)
+
 def AddMinValue(builder, minValue):
-    return CharacterCalculationLimitExcelAddMinValue(builder, minValue)
-def CharacterCalculationLimitExcelAddTacticEntityType(builder, tacticEntityType): builder.PrependInt32Slot(4, tacticEntityType, 0)
+    CharacterCalculationLimitExcelAddMinValue(builder, minValue)
+
+def CharacterCalculationLimitExcelAddTacticEntityType(builder, tacticEntityType):
+    builder.PrependInt32Slot(4, tacticEntityType, 0)
+
 def AddTacticEntityType(builder, tacticEntityType):
-    return CharacterCalculationLimitExcelAddTacticEntityType(builder, tacticEntityType)
-def CharacterCalculationLimitExcelEnd(builder): return builder.EndObject()
+    CharacterCalculationLimitExcelAddTacticEntityType(builder, tacticEntityType)
+
+def CharacterCalculationLimitExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CharacterCalculationLimitExcelEnd(builder)

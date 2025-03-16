@@ -168,54 +168,104 @@ class EventContentCardShopExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         return o == 0
 
-def EventContentCardShopExcelStart(builder): builder.StartObject(12)
+def EventContentCardShopExcelStart(builder):
+    builder.StartObject(12)
+
 def Start(builder):
-    return EventContentCardShopExcelStart(builder)
-def EventContentCardShopExcelAddCardGroupId(builder, cardGroupId): builder.PrependInt32Slot(0, cardGroupId, 0)
+    EventContentCardShopExcelStart(builder)
+
+def EventContentCardShopExcelAddCardGroupId(builder, cardGroupId):
+    builder.PrependInt32Slot(0, cardGroupId, 0)
+
 def AddCardGroupId(builder, cardGroupId):
-    return EventContentCardShopExcelAddCardGroupId(builder, cardGroupId)
-def EventContentCardShopExcelAddCostGoodsId(builder, costGoodsId): builder.PrependInt64Slot(1, costGoodsId, 0)
+    EventContentCardShopExcelAddCardGroupId(builder, cardGroupId)
+
+def EventContentCardShopExcelAddCostGoodsId(builder, costGoodsId):
+    builder.PrependInt64Slot(1, costGoodsId, 0)
+
 def AddCostGoodsId(builder, costGoodsId):
-    return EventContentCardShopExcelAddCostGoodsId(builder, costGoodsId)
-def EventContentCardShopExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(2, eventContentId, 0)
+    EventContentCardShopExcelAddCostGoodsId(builder, costGoodsId)
+
+def EventContentCardShopExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(2, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentCardShopExcelAddEventContentId(builder, eventContentId)
-def EventContentCardShopExcelAddId(builder, id): builder.PrependInt64Slot(3, id, 0)
+    EventContentCardShopExcelAddEventContentId(builder, eventContentId)
+
+def EventContentCardShopExcelAddId(builder, id):
+    builder.PrependInt64Slot(3, id, 0)
+
 def AddId(builder, id):
-    return EventContentCardShopExcelAddId(builder, id)
-def EventContentCardShopExcelAddIsLegacy(builder, isLegacy): builder.PrependBoolSlot(4, isLegacy, 0)
+    EventContentCardShopExcelAddId(builder, id)
+
+def EventContentCardShopExcelAddIsLegacy(builder, isLegacy):
+    builder.PrependBoolSlot(4, isLegacy, 0)
+
 def AddIsLegacy(builder, isLegacy):
-    return EventContentCardShopExcelAddIsLegacy(builder, isLegacy)
-def EventContentCardShopExcelAddProb(builder, prob): builder.PrependInt32Slot(5, prob, 0)
+    EventContentCardShopExcelAddIsLegacy(builder, isLegacy)
+
+def EventContentCardShopExcelAddProb(builder, prob):
+    builder.PrependInt32Slot(5, prob, 0)
+
 def AddProb(builder, prob):
-    return EventContentCardShopExcelAddProb(builder, prob)
-def EventContentCardShopExcelAddProbWeight1(builder, probWeight1): builder.PrependInt32Slot(6, probWeight1, 0)
+    EventContentCardShopExcelAddProb(builder, prob)
+
+def EventContentCardShopExcelAddProbWeight1(builder, probWeight1):
+    builder.PrependInt32Slot(6, probWeight1, 0)
+
 def AddProbWeight1(builder, probWeight1):
-    return EventContentCardShopExcelAddProbWeight1(builder, probWeight1)
-def EventContentCardShopExcelAddRarity(builder, rarity): builder.PrependInt32Slot(7, rarity, 0)
+    EventContentCardShopExcelAddProbWeight1(builder, probWeight1)
+
+def EventContentCardShopExcelAddRarity(builder, rarity):
+    builder.PrependInt32Slot(7, rarity, 0)
+
 def AddRarity(builder, rarity):
-    return EventContentCardShopExcelAddRarity(builder, rarity)
-def EventContentCardShopExcelAddRefreshGroup(builder, refreshGroup): builder.PrependInt32Slot(8, refreshGroup, 0)
+    EventContentCardShopExcelAddRarity(builder, rarity)
+
+def EventContentCardShopExcelAddRefreshGroup(builder, refreshGroup):
+    builder.PrependInt32Slot(8, refreshGroup, 0)
+
 def AddRefreshGroup(builder, refreshGroup):
-    return EventContentCardShopExcelAddRefreshGroup(builder, refreshGroup)
-def EventContentCardShopExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
+    EventContentCardShopExcelAddRefreshGroup(builder, refreshGroup)
+
+def EventContentCardShopExcelAddRewardParcelAmount(builder, rewardParcelAmount):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
+
 def AddRewardParcelAmount(builder, rewardParcelAmount):
-    return EventContentCardShopExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-def EventContentCardShopExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EventContentCardShopExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+
+def EventContentCardShopExcelStartRewardParcelAmountVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartRewardParcelAmountVector(builder, numElems):
     return EventContentCardShopExcelStartRewardParcelAmountVector(builder, numElems)
-def EventContentCardShopExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
+
+def EventContentCardShopExcelAddRewardParcelId(builder, rewardParcelId):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
+
 def AddRewardParcelId(builder, rewardParcelId):
-    return EventContentCardShopExcelAddRewardParcelId(builder, rewardParcelId)
-def EventContentCardShopExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EventContentCardShopExcelAddRewardParcelId(builder, rewardParcelId)
+
+def EventContentCardShopExcelStartRewardParcelIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartRewardParcelIdVector(builder, numElems):
     return EventContentCardShopExcelStartRewardParcelIdVector(builder, numElems)
-def EventContentCardShopExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+
+def EventContentCardShopExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+
 def AddRewardParcelType(builder, rewardParcelType):
-    return EventContentCardShopExcelAddRewardParcelType(builder, rewardParcelType)
-def EventContentCardShopExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentCardShopExcelAddRewardParcelType(builder, rewardParcelType)
+
+def EventContentCardShopExcelStartRewardParcelTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartRewardParcelTypeVector(builder, numElems):
     return EventContentCardShopExcelStartRewardParcelTypeVector(builder, numElems)
-def EventContentCardShopExcelEnd(builder): return builder.EndObject()
+
+def EventContentCardShopExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentCardShopExcelEnd(builder)

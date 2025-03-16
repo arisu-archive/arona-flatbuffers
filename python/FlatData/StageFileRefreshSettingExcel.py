@@ -38,15 +38,26 @@ class StageFileRefreshSettingExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def StageFileRefreshSettingExcelStart(builder): builder.StartObject(2)
+def StageFileRefreshSettingExcelStart(builder):
+    builder.StartObject(2)
+
 def Start(builder):
-    return StageFileRefreshSettingExcelStart(builder)
-def StageFileRefreshSettingExcelAddForceSave(builder, forceSave): builder.PrependBoolSlot(0, forceSave, 0)
+    StageFileRefreshSettingExcelStart(builder)
+
+def StageFileRefreshSettingExcelAddForceSave(builder, forceSave):
+    builder.PrependBoolSlot(0, forceSave, 0)
+
 def AddForceSave(builder, forceSave):
-    return StageFileRefreshSettingExcelAddForceSave(builder, forceSave)
-def StageFileRefreshSettingExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(1, groundId, 0)
+    StageFileRefreshSettingExcelAddForceSave(builder, forceSave)
+
+def StageFileRefreshSettingExcelAddGroundId(builder, groundId):
+    builder.PrependInt64Slot(1, groundId, 0)
+
 def AddGroundId(builder, groundId):
-    return StageFileRefreshSettingExcelAddGroundId(builder, groundId)
-def StageFileRefreshSettingExcelEnd(builder): return builder.EndObject()
+    StageFileRefreshSettingExcelAddGroundId(builder, groundId)
+
+def StageFileRefreshSettingExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return StageFileRefreshSettingExcelEnd(builder)

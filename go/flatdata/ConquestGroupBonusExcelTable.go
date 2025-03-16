@@ -17,11 +17,19 @@ func GetRootAsConquestGroupBonusExcelTable(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishConquestGroupBonusExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConquestGroupBonusExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ConquestGroupBonusExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestGroupBonusExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConquestGroupBonusExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestGroupBonusExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ConquestGroupBonusExcelTableStartDataListVector(builder *flatbuffers.Builde
 }
 func ConquestGroupBonusExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConquestGroupBonusExcelTable) Name() string {
-	return "ConquestGroupBonusExcelTable"
 }

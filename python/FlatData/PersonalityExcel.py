@@ -38,15 +38,26 @@ class PersonalityExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def PersonalityExcelStart(builder): builder.StartObject(2)
+def PersonalityExcelStart(builder):
+    builder.StartObject(2)
+
 def Start(builder):
-    return PersonalityExcelStart(builder)
-def PersonalityExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    PersonalityExcelStart(builder)
+
+def PersonalityExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return PersonalityExcelAddId(builder, id)
-def PersonalityExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+    PersonalityExcelAddId(builder, id)
+
+def PersonalityExcelAddName(builder, name):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+
 def AddName(builder, name):
-    return PersonalityExcelAddName(builder, name)
-def PersonalityExcelEnd(builder): return builder.EndObject()
+    PersonalityExcelAddName(builder, name)
+
+def PersonalityExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return PersonalityExcelEnd(builder)

@@ -17,11 +17,19 @@ func GetRootAsCharacterStatLimitExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishCharacterStatLimitExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCharacterStatLimitExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterStatLimitExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterStatLimitExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCharacterStatLimitExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterStatLimitExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -143,7 +151,4 @@ func CharacterStatLimitExcelAddTacticEntityType(builder *flatbuffers.Builder, ta
 }
 func CharacterStatLimitExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CharacterStatLimitExcel) Name() string {
-	return "CharacterStatLimitExcel"
 }

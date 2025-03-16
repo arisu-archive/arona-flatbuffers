@@ -49,15 +49,26 @@ class ConquestCameraSettingExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ConquestCameraSettingExcelTableStart(builder): builder.StartObject(1)
+def ConquestCameraSettingExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ConquestCameraSettingExcelTableStart(builder)
-def ConquestCameraSettingExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ConquestCameraSettingExcelTableStart(builder)
+
+def ConquestCameraSettingExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ConquestCameraSettingExcelTableAddDataList(builder, dataList)
-def ConquestCameraSettingExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ConquestCameraSettingExcelTableAddDataList(builder, dataList)
+
+def ConquestCameraSettingExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ConquestCameraSettingExcelTableStartDataListVector(builder, numElems)
-def ConquestCameraSettingExcelTableEnd(builder): return builder.EndObject()
+
+def ConquestCameraSettingExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConquestCameraSettingExcelTableEnd(builder)

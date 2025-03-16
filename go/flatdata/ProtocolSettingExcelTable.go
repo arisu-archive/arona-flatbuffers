@@ -17,11 +17,19 @@ func GetRootAsProtocolSettingExcelTable(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishProtocolSettingExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsProtocolSettingExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ProtocolSettingExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ProtocolSettingExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedProtocolSettingExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ProtocolSettingExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ProtocolSettingExcelTableStartDataListVector(builder *flatbuffers.Builder, 
 }
 func ProtocolSettingExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ProtocolSettingExcelTable) Name() string {
-	return "ProtocolSettingExcelTable"
 }

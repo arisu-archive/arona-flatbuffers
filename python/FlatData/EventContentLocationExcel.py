@@ -101,42 +101,80 @@ class EventContentLocationExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def EventContentLocationExcelStart(builder): builder.StartObject(11)
+def EventContentLocationExcelStart(builder):
+    builder.StartObject(11)
+
 def Start(builder):
-    return EventContentLocationExcelStart(builder)
-def EventContentLocationExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
+    EventContentLocationExcelStart(builder)
+
+def EventContentLocationExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentLocationExcelAddEventContentId(builder, eventContentId)
-def EventContentLocationExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+    EventContentLocationExcelAddEventContentId(builder, eventContentId)
+
+def EventContentLocationExcelAddId(builder, id):
+    builder.PrependInt64Slot(1, id, 0)
+
 def AddId(builder, id):
-    return EventContentLocationExcelAddId(builder, id)
-def EventContentLocationExcelAddInformationGroupId(builder, informationGroupId): builder.PrependInt64Slot(2, informationGroupId, 0)
+    EventContentLocationExcelAddId(builder, id)
+
+def EventContentLocationExcelAddInformationGroupId(builder, informationGroupId):
+    builder.PrependInt64Slot(2, informationGroupId, 0)
+
 def AddInformationGroupId(builder, informationGroupId):
-    return EventContentLocationExcelAddInformationGroupId(builder, informationGroupId)
-def EventContentLocationExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(3, localizeEtcId, 0)
+    EventContentLocationExcelAddInformationGroupId(builder, informationGroupId)
+
+def EventContentLocationExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUint32Slot(3, localizeEtcId, 0)
+
 def AddLocalizeEtcId(builder, localizeEtcId):
-    return EventContentLocationExcelAddLocalizeEtcId(builder, localizeEtcId)
-def EventContentLocationExcelAddLocationResetScheduleCount(builder, locationResetScheduleCount): builder.PrependInt32Slot(4, locationResetScheduleCount, 0)
+    EventContentLocationExcelAddLocalizeEtcId(builder, localizeEtcId)
+
+def EventContentLocationExcelAddLocationResetScheduleCount(builder, locationResetScheduleCount):
+    builder.PrependInt32Slot(4, locationResetScheduleCount, 0)
+
 def AddLocationResetScheduleCount(builder, locationResetScheduleCount):
-    return EventContentLocationExcelAddLocationResetScheduleCount(builder, locationResetScheduleCount)
-def EventContentLocationExcelAddPrefabPath(builder, prefabPath): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(prefabPath), 0)
+    EventContentLocationExcelAddLocationResetScheduleCount(builder, locationResetScheduleCount)
+
+def EventContentLocationExcelAddPrefabPath(builder, prefabPath):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(prefabPath), 0)
+
 def AddPrefabPath(builder, prefabPath):
-    return EventContentLocationExcelAddPrefabPath(builder, prefabPath)
-def EventContentLocationExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependInt64Slot(6, rewardParcelId, 0)
+    EventContentLocationExcelAddPrefabPath(builder, prefabPath)
+
+def EventContentLocationExcelAddRewardParcelId(builder, rewardParcelId):
+    builder.PrependInt64Slot(6, rewardParcelId, 0)
+
 def AddRewardParcelId(builder, rewardParcelId):
-    return EventContentLocationExcelAddRewardParcelId(builder, rewardParcelId)
-def EventContentLocationExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(7, rewardParcelType, 0)
+    EventContentLocationExcelAddRewardParcelId(builder, rewardParcelId)
+
+def EventContentLocationExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependInt32Slot(7, rewardParcelType, 0)
+
 def AddRewardParcelType(builder, rewardParcelType):
-    return EventContentLocationExcelAddRewardParcelType(builder, rewardParcelType)
-def EventContentLocationExcelAddScheduleEventPointCostParcelAmount(builder, scheduleEventPointCostParcelAmount): builder.PrependInt64Slot(8, scheduleEventPointCostParcelAmount, 0)
+    EventContentLocationExcelAddRewardParcelType(builder, rewardParcelType)
+
+def EventContentLocationExcelAddScheduleEventPointCostParcelAmount(builder, scheduleEventPointCostParcelAmount):
+    builder.PrependInt64Slot(8, scheduleEventPointCostParcelAmount, 0)
+
 def AddScheduleEventPointCostParcelAmount(builder, scheduleEventPointCostParcelAmount):
-    return EventContentLocationExcelAddScheduleEventPointCostParcelAmount(builder, scheduleEventPointCostParcelAmount)
-def EventContentLocationExcelAddScheduleEventPointCostParcelId(builder, scheduleEventPointCostParcelId): builder.PrependInt64Slot(9, scheduleEventPointCostParcelId, 0)
+    EventContentLocationExcelAddScheduleEventPointCostParcelAmount(builder, scheduleEventPointCostParcelAmount)
+
+def EventContentLocationExcelAddScheduleEventPointCostParcelId(builder, scheduleEventPointCostParcelId):
+    builder.PrependInt64Slot(9, scheduleEventPointCostParcelId, 0)
+
 def AddScheduleEventPointCostParcelId(builder, scheduleEventPointCostParcelId):
-    return EventContentLocationExcelAddScheduleEventPointCostParcelId(builder, scheduleEventPointCostParcelId)
-def EventContentLocationExcelAddScheduleEventPointCostParcelType(builder, scheduleEventPointCostParcelType): builder.PrependInt32Slot(10, scheduleEventPointCostParcelType, 0)
+    EventContentLocationExcelAddScheduleEventPointCostParcelId(builder, scheduleEventPointCostParcelId)
+
+def EventContentLocationExcelAddScheduleEventPointCostParcelType(builder, scheduleEventPointCostParcelType):
+    builder.PrependInt32Slot(10, scheduleEventPointCostParcelType, 0)
+
 def AddScheduleEventPointCostParcelType(builder, scheduleEventPointCostParcelType):
-    return EventContentLocationExcelAddScheduleEventPointCostParcelType(builder, scheduleEventPointCostParcelType)
-def EventContentLocationExcelEnd(builder): return builder.EndObject()
+    EventContentLocationExcelAddScheduleEventPointCostParcelType(builder, scheduleEventPointCostParcelType)
+
+def EventContentLocationExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentLocationExcelEnd(builder)

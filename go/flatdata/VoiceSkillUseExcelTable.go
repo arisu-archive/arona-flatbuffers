@@ -17,11 +17,19 @@ func GetRootAsVoiceSkillUseExcelTable(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishVoiceSkillUseExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsVoiceSkillUseExcelTable(buf []byte, offset flatbuffers.UOffsetT) *VoiceSkillUseExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &VoiceSkillUseExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedVoiceSkillUseExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *VoiceSkillUseExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func VoiceSkillUseExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 }
 func VoiceSkillUseExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*VoiceSkillUseExcelTable) Name() string {
-	return "VoiceSkillUseExcelTable"
 }

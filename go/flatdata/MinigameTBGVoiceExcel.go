@@ -17,11 +17,19 @@ func GetRootAsMinigameTBGVoiceExcel(buf []byte, offset flatbuffers.UOffsetT) *Mi
 	return x
 }
 
+func FinishMinigameTBGVoiceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMinigameTBGVoiceExcel(buf []byte, offset flatbuffers.UOffsetT) *MinigameTBGVoiceExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MinigameTBGVoiceExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMinigameTBGVoiceExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MinigameTBGVoiceExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -98,7 +106,4 @@ func MinigameTBGVoiceExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint3
 }
 func MinigameTBGVoiceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*MinigameTBGVoiceExcel) Name() string {
-	return "MinigameTBGVoiceExcel"
 }

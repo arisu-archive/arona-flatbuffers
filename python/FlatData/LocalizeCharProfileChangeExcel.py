@@ -45,18 +45,32 @@ class LocalizeCharProfileChangeExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def LocalizeCharProfileChangeExcelStart(builder): builder.StartObject(3)
+def LocalizeCharProfileChangeExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return LocalizeCharProfileChangeExcelStart(builder)
-def LocalizeCharProfileChangeExcelAddChangeCharacterId(builder, changeCharacterId): builder.PrependInt64Slot(0, changeCharacterId, 0)
+    LocalizeCharProfileChangeExcelStart(builder)
+
+def LocalizeCharProfileChangeExcelAddChangeCharacterId(builder, changeCharacterId):
+    builder.PrependInt64Slot(0, changeCharacterId, 0)
+
 def AddChangeCharacterId(builder, changeCharacterId):
-    return LocalizeCharProfileChangeExcelAddChangeCharacterId(builder, changeCharacterId)
-def LocalizeCharProfileChangeExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(1, characterId, 0)
+    LocalizeCharProfileChangeExcelAddChangeCharacterId(builder, changeCharacterId)
+
+def LocalizeCharProfileChangeExcelAddCharacterId(builder, characterId):
+    builder.PrependInt64Slot(1, characterId, 0)
+
 def AddCharacterId(builder, characterId):
-    return LocalizeCharProfileChangeExcelAddCharacterId(builder, characterId)
-def LocalizeCharProfileChangeExcelAddScenarioModeId(builder, scenarioModeId): builder.PrependInt64Slot(2, scenarioModeId, 0)
+    LocalizeCharProfileChangeExcelAddCharacterId(builder, characterId)
+
+def LocalizeCharProfileChangeExcelAddScenarioModeId(builder, scenarioModeId):
+    builder.PrependInt64Slot(2, scenarioModeId, 0)
+
 def AddScenarioModeId(builder, scenarioModeId):
-    return LocalizeCharProfileChangeExcelAddScenarioModeId(builder, scenarioModeId)
-def LocalizeCharProfileChangeExcelEnd(builder): return builder.EndObject()
+    LocalizeCharProfileChangeExcelAddScenarioModeId(builder, scenarioModeId)
+
+def LocalizeCharProfileChangeExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return LocalizeCharProfileChangeExcelEnd(builder)

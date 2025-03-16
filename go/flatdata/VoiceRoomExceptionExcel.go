@@ -17,11 +17,19 @@ func GetRootAsVoiceRoomExceptionExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishVoiceRoomExceptionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsVoiceRoomExceptionExcel(buf []byte, offset flatbuffers.UOffsetT) *VoiceRoomExceptionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &VoiceRoomExceptionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedVoiceRoomExceptionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *VoiceRoomExceptionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -83,7 +91,4 @@ func VoiceRoomExceptionExcelAddLinkedCostumeUniqueId(builder *flatbuffers.Builde
 }
 func VoiceRoomExceptionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*VoiceRoomExceptionExcel) Name() string {
-	return "VoiceRoomExceptionExcel"
 }

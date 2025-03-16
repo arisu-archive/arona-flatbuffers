@@ -17,11 +17,19 @@ func GetRootAsConquestPlayGuideExcel(buf []byte, offset flatbuffers.UOffsetT) *C
 	return x
 }
 
+func FinishConquestPlayGuideExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConquestPlayGuideExcel(buf []byte, offset flatbuffers.UOffsetT) *ConquestPlayGuideExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestPlayGuideExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConquestPlayGuideExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestPlayGuideExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -116,7 +124,4 @@ func ConquestPlayGuideExcelAddId(builder *flatbuffers.Builder, id int64) {
 }
 func ConquestPlayGuideExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConquestPlayGuideExcel) Name() string {
-	return "ConquestPlayGuideExcel"
 }

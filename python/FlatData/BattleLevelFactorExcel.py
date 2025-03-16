@@ -38,15 +38,26 @@ class BattleLevelFactorExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def BattleLevelFactorExcelStart(builder): builder.StartObject(2)
+def BattleLevelFactorExcelStart(builder):
+    builder.StartObject(2)
+
 def Start(builder):
-    return BattleLevelFactorExcelStart(builder)
-def BattleLevelFactorExcelAddDamageRate(builder, damageRate): builder.PrependInt64Slot(0, damageRate, 0)
+    BattleLevelFactorExcelStart(builder)
+
+def BattleLevelFactorExcelAddDamageRate(builder, damageRate):
+    builder.PrependInt64Slot(0, damageRate, 0)
+
 def AddDamageRate(builder, damageRate):
-    return BattleLevelFactorExcelAddDamageRate(builder, damageRate)
-def BattleLevelFactorExcelAddLevelDiff(builder, levelDiff): builder.PrependInt32Slot(1, levelDiff, 0)
+    BattleLevelFactorExcelAddDamageRate(builder, damageRate)
+
+def BattleLevelFactorExcelAddLevelDiff(builder, levelDiff):
+    builder.PrependInt32Slot(1, levelDiff, 0)
+
 def AddLevelDiff(builder, levelDiff):
-    return BattleLevelFactorExcelAddLevelDiff(builder, levelDiff)
-def BattleLevelFactorExcelEnd(builder): return builder.EndObject()
+    BattleLevelFactorExcelAddLevelDiff(builder, levelDiff)
+
+def BattleLevelFactorExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return BattleLevelFactorExcelEnd(builder)

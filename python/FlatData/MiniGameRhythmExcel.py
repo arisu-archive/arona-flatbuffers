@@ -164,69 +164,134 @@ class MiniGameRhythmExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def MiniGameRhythmExcelStart(builder): builder.StartObject(20)
+def MiniGameRhythmExcelStart(builder):
+    builder.StartObject(20)
+
 def Start(builder):
-    return MiniGameRhythmExcelStart(builder)
-def MiniGameRhythmExcelAddArtLevelSceneName(builder, artLevelSceneName): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(artLevelSceneName), 0)
+    MiniGameRhythmExcelStart(builder)
+
+def MiniGameRhythmExcelAddArtLevelSceneName(builder, artLevelSceneName):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(artLevelSceneName), 0)
+
 def AddArtLevelSceneName(builder, artLevelSceneName):
-    return MiniGameRhythmExcelAddArtLevelSceneName(builder, artLevelSceneName)
-def MiniGameRhythmExcelAddAttackScoreRate(builder, attackScoreRate): builder.PrependInt64Slot(1, attackScoreRate, 0)
+    MiniGameRhythmExcelAddArtLevelSceneName(builder, artLevelSceneName)
+
+def MiniGameRhythmExcelAddAttackScoreRate(builder, attackScoreRate):
+    builder.PrependInt64Slot(1, attackScoreRate, 0)
+
 def AddAttackScoreRate(builder, attackScoreRate):
-    return MiniGameRhythmExcelAddAttackScoreRate(builder, attackScoreRate)
-def MiniGameRhythmExcelAddComboImagePath(builder, comboImagePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(comboImagePath), 0)
+    MiniGameRhythmExcelAddAttackScoreRate(builder, attackScoreRate)
+
+def MiniGameRhythmExcelAddComboImagePath(builder, comboImagePath):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(comboImagePath), 0)
+
 def AddComboImagePath(builder, comboImagePath):
-    return MiniGameRhythmExcelAddComboImagePath(builder, comboImagePath)
-def MiniGameRhythmExcelAddComboScoreRate(builder, comboScoreRate): builder.PrependInt64Slot(3, comboScoreRate, 0)
+    MiniGameRhythmExcelAddComboImagePath(builder, comboImagePath)
+
+def MiniGameRhythmExcelAddComboScoreRate(builder, comboScoreRate):
+    builder.PrependInt64Slot(3, comboScoreRate, 0)
+
 def AddComboScoreRate(builder, comboScoreRate):
-    return MiniGameRhythmExcelAddComboScoreRate(builder, comboScoreRate)
-def MiniGameRhythmExcelAddCriticalHpRestoreValue(builder, criticalHpRestoreValue): builder.PrependInt64Slot(4, criticalHpRestoreValue, 0)
+    MiniGameRhythmExcelAddComboScoreRate(builder, comboScoreRate)
+
+def MiniGameRhythmExcelAddCriticalHpRestoreValue(builder, criticalHpRestoreValue):
+    builder.PrependInt64Slot(4, criticalHpRestoreValue, 0)
+
 def AddCriticalHpRestoreValue(builder, criticalHpRestoreValue):
-    return MiniGameRhythmExcelAddCriticalHpRestoreValue(builder, criticalHpRestoreValue)
-def MiniGameRhythmExcelAddFeverAttackRate(builder, feverAttackRate): builder.PrependFloat32Slot(5, feverAttackRate, 0.0)
+    MiniGameRhythmExcelAddCriticalHpRestoreValue(builder, criticalHpRestoreValue)
+
+def MiniGameRhythmExcelAddFeverAttackRate(builder, feverAttackRate):
+    builder.PrependFloat32Slot(5, feverAttackRate, 0.0)
+
 def AddFeverAttackRate(builder, feverAttackRate):
-    return MiniGameRhythmExcelAddFeverAttackRate(builder, feverAttackRate)
-def MiniGameRhythmExcelAddFeverCriticalRate(builder, feverCriticalRate): builder.PrependFloat32Slot(6, feverCriticalRate, 0.0)
+    MiniGameRhythmExcelAddFeverAttackRate(builder, feverAttackRate)
+
+def MiniGameRhythmExcelAddFeverCriticalRate(builder, feverCriticalRate):
+    builder.PrependFloat32Slot(6, feverCriticalRate, 0.0)
+
 def AddFeverCriticalRate(builder, feverCriticalRate):
-    return MiniGameRhythmExcelAddFeverCriticalRate(builder, feverCriticalRate)
-def MiniGameRhythmExcelAddFeverScoreRate(builder, feverScoreRate): builder.PrependInt64Slot(7, feverScoreRate, 0)
+    MiniGameRhythmExcelAddFeverCriticalRate(builder, feverCriticalRate)
+
+def MiniGameRhythmExcelAddFeverScoreRate(builder, feverScoreRate):
+    builder.PrependInt64Slot(7, feverScoreRate, 0)
+
 def AddFeverScoreRate(builder, feverScoreRate):
-    return MiniGameRhythmExcelAddFeverScoreRate(builder, feverScoreRate)
-def MiniGameRhythmExcelAddIsSpecial(builder, isSpecial): builder.PrependBoolSlot(8, isSpecial, 0)
+    MiniGameRhythmExcelAddFeverScoreRate(builder, feverScoreRate)
+
+def MiniGameRhythmExcelAddIsSpecial(builder, isSpecial):
+    builder.PrependBoolSlot(8, isSpecial, 0)
+
 def AddIsSpecial(builder, isSpecial):
-    return MiniGameRhythmExcelAddIsSpecial(builder, isSpecial)
-def MiniGameRhythmExcelAddMaxHp(builder, maxHp): builder.PrependInt64Slot(9, maxHp, 0)
+    MiniGameRhythmExcelAddIsSpecial(builder, isSpecial)
+
+def MiniGameRhythmExcelAddMaxHp(builder, maxHp):
+    builder.PrependInt64Slot(9, maxHp, 0)
+
 def AddMaxHp(builder, maxHp):
-    return MiniGameRhythmExcelAddMaxHp(builder, maxHp)
-def MiniGameRhythmExcelAddMaxHpScore(builder, maxHpScore): builder.PrependInt64Slot(10, maxHpScore, 0)
+    MiniGameRhythmExcelAddMaxHp(builder, maxHp)
+
+def MiniGameRhythmExcelAddMaxHpScore(builder, maxHpScore):
+    builder.PrependInt64Slot(10, maxHpScore, 0)
+
 def AddMaxHpScore(builder, maxHpScore):
-    return MiniGameRhythmExcelAddMaxHpScore(builder, maxHpScore)
-def MiniGameRhythmExcelAddMaxScore(builder, maxScore): builder.PrependInt64Slot(11, maxScore, 0)
+    MiniGameRhythmExcelAddMaxHpScore(builder, maxHpScore)
+
+def MiniGameRhythmExcelAddMaxScore(builder, maxScore):
+    builder.PrependInt64Slot(11, maxScore, 0)
+
 def AddMaxScore(builder, maxScore):
-    return MiniGameRhythmExcelAddMaxScore(builder, maxScore)
-def MiniGameRhythmExcelAddMissDamage(builder, missDamage): builder.PrependInt64Slot(12, missDamage, 0)
+    MiniGameRhythmExcelAddMaxScore(builder, maxScore)
+
+def MiniGameRhythmExcelAddMissDamage(builder, missDamage):
+    builder.PrependInt64Slot(12, missDamage, 0)
+
 def AddMissDamage(builder, missDamage):
-    return MiniGameRhythmExcelAddMissDamage(builder, missDamage)
-def MiniGameRhythmExcelAddNoteScoreRate(builder, noteScoreRate): builder.PrependInt64Slot(13, noteScoreRate, 0)
+    MiniGameRhythmExcelAddMissDamage(builder, missDamage)
+
+def MiniGameRhythmExcelAddNoteScoreRate(builder, noteScoreRate):
+    builder.PrependInt64Slot(13, noteScoreRate, 0)
+
 def AddNoteScoreRate(builder, noteScoreRate):
-    return MiniGameRhythmExcelAddNoteScoreRate(builder, noteScoreRate)
-def MiniGameRhythmExcelAddOpenStageScoreAmount(builder, openStageScoreAmount): builder.PrependInt64Slot(14, openStageScoreAmount, 0)
+    MiniGameRhythmExcelAddNoteScoreRate(builder, noteScoreRate)
+
+def MiniGameRhythmExcelAddOpenStageScoreAmount(builder, openStageScoreAmount):
+    builder.PrependInt64Slot(14, openStageScoreAmount, 0)
+
 def AddOpenStageScoreAmount(builder, openStageScoreAmount):
-    return MiniGameRhythmExcelAddOpenStageScoreAmount(builder, openStageScoreAmount)
-def MiniGameRhythmExcelAddPresetName(builder, presetName): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(presetName), 0)
+    MiniGameRhythmExcelAddOpenStageScoreAmount(builder, openStageScoreAmount)
+
+def MiniGameRhythmExcelAddPresetName(builder, presetName):
+    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(presetName), 0)
+
 def AddPresetName(builder, presetName):
-    return MiniGameRhythmExcelAddPresetName(builder, presetName)
-def MiniGameRhythmExcelAddRhythmBgmId(builder, rhythmBgmId): builder.PrependInt64Slot(16, rhythmBgmId, 0)
+    MiniGameRhythmExcelAddPresetName(builder, presetName)
+
+def MiniGameRhythmExcelAddRhythmBgmId(builder, rhythmBgmId):
+    builder.PrependInt64Slot(16, rhythmBgmId, 0)
+
 def AddRhythmBgmId(builder, rhythmBgmId):
-    return MiniGameRhythmExcelAddRhythmBgmId(builder, rhythmBgmId)
-def MiniGameRhythmExcelAddRhythmFileName(builder, rhythmFileName): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(rhythmFileName), 0)
+    MiniGameRhythmExcelAddRhythmBgmId(builder, rhythmBgmId)
+
+def MiniGameRhythmExcelAddRhythmFileName(builder, rhythmFileName):
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(rhythmFileName), 0)
+
 def AddRhythmFileName(builder, rhythmFileName):
-    return MiniGameRhythmExcelAddRhythmFileName(builder, rhythmFileName)
-def MiniGameRhythmExcelAddStageDifficulty(builder, stageDifficulty): builder.PrependInt32Slot(18, stageDifficulty, 0)
+    MiniGameRhythmExcelAddRhythmFileName(builder, rhythmFileName)
+
+def MiniGameRhythmExcelAddStageDifficulty(builder, stageDifficulty):
+    builder.PrependInt32Slot(18, stageDifficulty, 0)
+
 def AddStageDifficulty(builder, stageDifficulty):
-    return MiniGameRhythmExcelAddStageDifficulty(builder, stageDifficulty)
-def MiniGameRhythmExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(19, uniqueId, 0)
+    MiniGameRhythmExcelAddStageDifficulty(builder, stageDifficulty)
+
+def MiniGameRhythmExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(19, uniqueId, 0)
+
 def AddUniqueId(builder, uniqueId):
-    return MiniGameRhythmExcelAddUniqueId(builder, uniqueId)
-def MiniGameRhythmExcelEnd(builder): return builder.EndObject()
+    MiniGameRhythmExcelAddUniqueId(builder, uniqueId)
+
+def MiniGameRhythmExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MiniGameRhythmExcelEnd(builder)

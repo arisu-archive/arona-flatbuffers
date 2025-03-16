@@ -73,30 +73,56 @@ class WorldRaidStageRewardExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def WorldRaidStageRewardExcelStart(builder): builder.StartObject(7)
+def WorldRaidStageRewardExcelStart(builder):
+    builder.StartObject(7)
+
 def Start(builder):
-    return WorldRaidStageRewardExcelStart(builder)
-def WorldRaidStageRewardExcelAddClearStageRewardAmount(builder, clearStageRewardAmount): builder.PrependInt64Slot(0, clearStageRewardAmount, 0)
+    WorldRaidStageRewardExcelStart(builder)
+
+def WorldRaidStageRewardExcelAddClearStageRewardAmount(builder, clearStageRewardAmount):
+    builder.PrependInt64Slot(0, clearStageRewardAmount, 0)
+
 def AddClearStageRewardAmount(builder, clearStageRewardAmount):
-    return WorldRaidStageRewardExcelAddClearStageRewardAmount(builder, clearStageRewardAmount)
-def WorldRaidStageRewardExcelAddClearStageRewardParcelType(builder, clearStageRewardParcelType): builder.PrependInt32Slot(1, clearStageRewardParcelType, 0)
+    WorldRaidStageRewardExcelAddClearStageRewardAmount(builder, clearStageRewardAmount)
+
+def WorldRaidStageRewardExcelAddClearStageRewardParcelType(builder, clearStageRewardParcelType):
+    builder.PrependInt32Slot(1, clearStageRewardParcelType, 0)
+
 def AddClearStageRewardParcelType(builder, clearStageRewardParcelType):
-    return WorldRaidStageRewardExcelAddClearStageRewardParcelType(builder, clearStageRewardParcelType)
-def WorldRaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId): builder.PrependInt64Slot(2, clearStageRewardParcelUniqueId, 0)
+    WorldRaidStageRewardExcelAddClearStageRewardParcelType(builder, clearStageRewardParcelType)
+
+def WorldRaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId):
+    builder.PrependInt64Slot(2, clearStageRewardParcelUniqueId, 0)
+
 def AddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId):
-    return WorldRaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId)
-def WorldRaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(clearStageRewardParcelUniqueName), 0)
+    WorldRaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId)
+
+def WorldRaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(clearStageRewardParcelUniqueName), 0)
+
 def AddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName):
-    return WorldRaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName)
-def WorldRaidStageRewardExcelAddClearStageRewardProb(builder, clearStageRewardProb): builder.PrependInt64Slot(4, clearStageRewardProb, 0)
+    WorldRaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName)
+
+def WorldRaidStageRewardExcelAddClearStageRewardProb(builder, clearStageRewardProb):
+    builder.PrependInt64Slot(4, clearStageRewardProb, 0)
+
 def AddClearStageRewardProb(builder, clearStageRewardProb):
-    return WorldRaidStageRewardExcelAddClearStageRewardProb(builder, clearStageRewardProb)
-def WorldRaidStageRewardExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(5, groupId, 0)
+    WorldRaidStageRewardExcelAddClearStageRewardProb(builder, clearStageRewardProb)
+
+def WorldRaidStageRewardExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(5, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return WorldRaidStageRewardExcelAddGroupId(builder, groupId)
-def WorldRaidStageRewardExcelAddIsClearStageRewardHideInfo(builder, isClearStageRewardHideInfo): builder.PrependBoolSlot(6, isClearStageRewardHideInfo, 0)
+    WorldRaidStageRewardExcelAddGroupId(builder, groupId)
+
+def WorldRaidStageRewardExcelAddIsClearStageRewardHideInfo(builder, isClearStageRewardHideInfo):
+    builder.PrependBoolSlot(6, isClearStageRewardHideInfo, 0)
+
 def AddIsClearStageRewardHideInfo(builder, isClearStageRewardHideInfo):
-    return WorldRaidStageRewardExcelAddIsClearStageRewardHideInfo(builder, isClearStageRewardHideInfo)
-def WorldRaidStageRewardExcelEnd(builder): return builder.EndObject()
+    WorldRaidStageRewardExcelAddIsClearStageRewardHideInfo(builder, isClearStageRewardHideInfo)
+
+def WorldRaidStageRewardExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return WorldRaidStageRewardExcelEnd(builder)

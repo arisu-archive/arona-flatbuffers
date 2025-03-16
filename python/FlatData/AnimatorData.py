@@ -63,21 +63,38 @@ class AnimatorData(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def AnimatorDataStart(builder): builder.StartObject(3)
+def AnimatorDataStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return AnimatorDataStart(builder)
-def AnimatorDataAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    AnimatorDataStart(builder)
+
+def AnimatorDataAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return AnimatorDataAddDataList(builder, dataList)
-def AnimatorDataStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    AnimatorDataAddDataList(builder, dataList)
+
+def AnimatorDataStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return AnimatorDataStartDataListVector(builder, numElems)
-def AnimatorDataAddDefaultStateName(builder, defaultStateName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(defaultStateName), 0)
+
+def AnimatorDataAddDefaultStateName(builder, defaultStateName):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(defaultStateName), 0)
+
 def AddDefaultStateName(builder, defaultStateName):
-    return AnimatorDataAddDefaultStateName(builder, defaultStateName)
-def AnimatorDataAddName(builder, name): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+    AnimatorDataAddDefaultStateName(builder, defaultStateName)
+
+def AnimatorDataAddName(builder, name):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+
 def AddName(builder, name):
-    return AnimatorDataAddName(builder, name)
-def AnimatorDataEnd(builder): return builder.EndObject()
+    AnimatorDataAddName(builder, name)
+
+def AnimatorDataEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return AnimatorDataEnd(builder)

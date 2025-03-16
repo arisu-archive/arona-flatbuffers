@@ -59,24 +59,44 @@ class DefaultFurnitureExcel(object):
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-def DefaultFurnitureExcelStart(builder): builder.StartObject(5)
+def DefaultFurnitureExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return DefaultFurnitureExcelStart(builder)
-def DefaultFurnitureExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    DefaultFurnitureExcelStart(builder)
+
+def DefaultFurnitureExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return DefaultFurnitureExcelAddId(builder, id)
-def DefaultFurnitureExcelAddLocation(builder, location): builder.PrependInt32Slot(1, location, 0)
+    DefaultFurnitureExcelAddId(builder, id)
+
+def DefaultFurnitureExcelAddLocation(builder, location):
+    builder.PrependInt32Slot(1, location, 0)
+
 def AddLocation(builder, location):
-    return DefaultFurnitureExcelAddLocation(builder, location)
-def DefaultFurnitureExcelAddPositionX(builder, positionX): builder.PrependFloat32Slot(2, positionX, 0.0)
+    DefaultFurnitureExcelAddLocation(builder, location)
+
+def DefaultFurnitureExcelAddPositionX(builder, positionX):
+    builder.PrependFloat32Slot(2, positionX, 0.0)
+
 def AddPositionX(builder, positionX):
-    return DefaultFurnitureExcelAddPositionX(builder, positionX)
-def DefaultFurnitureExcelAddPositionY(builder, positionY): builder.PrependFloat32Slot(3, positionY, 0.0)
+    DefaultFurnitureExcelAddPositionX(builder, positionX)
+
+def DefaultFurnitureExcelAddPositionY(builder, positionY):
+    builder.PrependFloat32Slot(3, positionY, 0.0)
+
 def AddPositionY(builder, positionY):
-    return DefaultFurnitureExcelAddPositionY(builder, positionY)
-def DefaultFurnitureExcelAddRotation(builder, rotation): builder.PrependFloat32Slot(4, rotation, 0.0)
+    DefaultFurnitureExcelAddPositionY(builder, positionY)
+
+def DefaultFurnitureExcelAddRotation(builder, rotation):
+    builder.PrependFloat32Slot(4, rotation, 0.0)
+
 def AddRotation(builder, rotation):
-    return DefaultFurnitureExcelAddRotation(builder, rotation)
-def DefaultFurnitureExcelEnd(builder): return builder.EndObject()
+    DefaultFurnitureExcelAddRotation(builder, rotation)
+
+def DefaultFurnitureExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return DefaultFurnitureExcelEnd(builder)

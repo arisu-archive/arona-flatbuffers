@@ -17,11 +17,19 @@ func GetRootAsConquestCalculateExcelTable(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
+func FinishConquestCalculateExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConquestCalculateExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ConquestCalculateExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestCalculateExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConquestCalculateExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestCalculateExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ConquestCalculateExcelTableStartDataListVector(builder *flatbuffers.Builder
 }
 func ConquestCalculateExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConquestCalculateExcelTable) Name() string {
-	return "ConquestCalculateExcelTable"
 }

@@ -17,11 +17,19 @@ func GetRootAsGachaCraftOpenTagExcel(buf []byte, offset flatbuffers.UOffsetT) *G
 	return x
 }
 
+func FinishGachaCraftOpenTagExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsGachaCraftOpenTagExcel(buf []byte, offset flatbuffers.UOffsetT) *GachaCraftOpenTagExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GachaCraftOpenTagExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedGachaCraftOpenTagExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GachaCraftOpenTagExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -85,7 +93,4 @@ func GachaCraftOpenTagExcelStartTagVector(builder *flatbuffers.Builder, numElems
 }
 func GachaCraftOpenTagExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*GachaCraftOpenTagExcel) Name() string {
-	return "GachaCraftOpenTagExcel"
 }

@@ -17,11 +17,19 @@ func GetRootAsTacticArenaSimulatorSettingExcelTable(buf []byte, offset flatbuffe
 	return x
 }
 
+func FinishTacticArenaSimulatorSettingExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsTacticArenaSimulatorSettingExcelTable(buf []byte, offset flatbuffers.UOffsetT) *TacticArenaSimulatorSettingExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TacticArenaSimulatorSettingExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedTacticArenaSimulatorSettingExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TacticArenaSimulatorSettingExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func TacticArenaSimulatorSettingExcelTableStartDataListVector(builder *flatbuffe
 }
 func TacticArenaSimulatorSettingExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*TacticArenaSimulatorSettingExcelTable) Name() string {
-	return "TacticArenaSimulatorSettingExcelTable"
 }

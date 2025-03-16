@@ -49,15 +49,26 @@ class FarmingDungeonLocationManageExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FarmingDungeonLocationManageExcelTableStart(builder): builder.StartObject(1)
+def FarmingDungeonLocationManageExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return FarmingDungeonLocationManageExcelTableStart(builder)
-def FarmingDungeonLocationManageExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    FarmingDungeonLocationManageExcelTableStart(builder)
+
+def FarmingDungeonLocationManageExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return FarmingDungeonLocationManageExcelTableAddDataList(builder, dataList)
-def FarmingDungeonLocationManageExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    FarmingDungeonLocationManageExcelTableAddDataList(builder, dataList)
+
+def FarmingDungeonLocationManageExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return FarmingDungeonLocationManageExcelTableStartDataListVector(builder, numElems)
-def FarmingDungeonLocationManageExcelTableEnd(builder): return builder.EndObject()
+
+def FarmingDungeonLocationManageExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FarmingDungeonLocationManageExcelTableEnd(builder)

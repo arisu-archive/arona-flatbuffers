@@ -108,45 +108,86 @@ class ShopRefreshExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ShopRefreshExcelStart(builder): builder.StartObject(12)
+def ShopRefreshExcelStart(builder):
+    builder.StartObject(12)
+
 def Start(builder):
-    return ShopRefreshExcelStart(builder)
-def ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(buyReportEventName), 0)
+    ShopRefreshExcelStart(builder)
+
+def ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(buyReportEventName), 0)
+
 def AddBuyReportEventName(builder, buyReportEventName):
-    return ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName)
-def ShopRefreshExcelAddCategoryType(builder, categoryType): builder.PrependInt32Slot(1, categoryType, 0)
+    ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName)
+
+def ShopRefreshExcelAddCategoryType(builder, categoryType):
+    builder.PrependInt32Slot(1, categoryType, 0)
+
 def AddCategoryType(builder, categoryType):
-    return ShopRefreshExcelAddCategoryType(builder, categoryType)
-def ShopRefreshExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(2, displayOrder, 0)
+    ShopRefreshExcelAddCategoryType(builder, categoryType)
+
+def ShopRefreshExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt64Slot(2, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return ShopRefreshExcelAddDisplayOrder(builder, displayOrder)
-def ShopRefreshExcelAddDisplayTag(builder, displayTag): builder.PrependInt32Slot(3, displayTag, 0)
+    ShopRefreshExcelAddDisplayOrder(builder, displayOrder)
+
+def ShopRefreshExcelAddDisplayTag(builder, displayTag):
+    builder.PrependInt32Slot(3, displayTag, 0)
+
 def AddDisplayTag(builder, displayTag):
-    return ShopRefreshExcelAddDisplayTag(builder, displayTag)
-def ShopRefreshExcelAddGoodsId(builder, goodsId): builder.PrependInt64Slot(4, goodsId, 0)
+    ShopRefreshExcelAddDisplayTag(builder, displayTag)
+
+def ShopRefreshExcelAddGoodsId(builder, goodsId):
+    builder.PrependInt64Slot(4, goodsId, 0)
+
 def AddGoodsId(builder, goodsId):
-    return ShopRefreshExcelAddGoodsId(builder, goodsId)
-def ShopRefreshExcelAddId(builder, id): builder.PrependInt64Slot(5, id, 0)
+    ShopRefreshExcelAddGoodsId(builder, goodsId)
+
+def ShopRefreshExcelAddId(builder, id):
+    builder.PrependInt64Slot(5, id, 0)
+
 def AddId(builder, id):
-    return ShopRefreshExcelAddId(builder, id)
-def ShopRefreshExcelAddIsBundle(builder, isBundle): builder.PrependBoolSlot(6, isBundle, 0)
+    ShopRefreshExcelAddId(builder, id)
+
+def ShopRefreshExcelAddIsBundle(builder, isBundle):
+    builder.PrependBoolSlot(6, isBundle, 0)
+
 def AddIsBundle(builder, isBundle):
-    return ShopRefreshExcelAddIsBundle(builder, isBundle)
-def ShopRefreshExcelAddIsLegacy(builder, isLegacy): builder.PrependBoolSlot(7, isLegacy, 0)
+    ShopRefreshExcelAddIsBundle(builder, isBundle)
+
+def ShopRefreshExcelAddIsLegacy(builder, isLegacy):
+    builder.PrependBoolSlot(7, isLegacy, 0)
+
 def AddIsLegacy(builder, isLegacy):
-    return ShopRefreshExcelAddIsLegacy(builder, isLegacy)
-def ShopRefreshExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(8, localizeEtcId, 0)
+    ShopRefreshExcelAddIsLegacy(builder, isLegacy)
+
+def ShopRefreshExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUint32Slot(8, localizeEtcId, 0)
+
 def AddLocalizeEtcId(builder, localizeEtcId):
-    return ShopRefreshExcelAddLocalizeEtcId(builder, localizeEtcId)
-def ShopRefreshExcelAddProb(builder, prob): builder.PrependInt32Slot(9, prob, 0)
+    ShopRefreshExcelAddLocalizeEtcId(builder, localizeEtcId)
+
+def ShopRefreshExcelAddProb(builder, prob):
+    builder.PrependInt32Slot(9, prob, 0)
+
 def AddProb(builder, prob):
-    return ShopRefreshExcelAddProb(builder, prob)
-def ShopRefreshExcelAddRefreshGroup(builder, refreshGroup): builder.PrependInt32Slot(10, refreshGroup, 0)
+    ShopRefreshExcelAddProb(builder, prob)
+
+def ShopRefreshExcelAddRefreshGroup(builder, refreshGroup):
+    builder.PrependInt32Slot(10, refreshGroup, 0)
+
 def AddRefreshGroup(builder, refreshGroup):
-    return ShopRefreshExcelAddRefreshGroup(builder, refreshGroup)
-def ShopRefreshExcelAddVisibleAmount(builder, visibleAmount): builder.PrependInt64Slot(11, visibleAmount, 0)
+    ShopRefreshExcelAddRefreshGroup(builder, refreshGroup)
+
+def ShopRefreshExcelAddVisibleAmount(builder, visibleAmount):
+    builder.PrependInt64Slot(11, visibleAmount, 0)
+
 def AddVisibleAmount(builder, visibleAmount):
-    return ShopRefreshExcelAddVisibleAmount(builder, visibleAmount)
-def ShopRefreshExcelEnd(builder): return builder.EndObject()
+    ShopRefreshExcelAddVisibleAmount(builder, visibleAmount)
+
+def ShopRefreshExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ShopRefreshExcelEnd(builder)

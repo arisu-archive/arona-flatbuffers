@@ -17,11 +17,19 @@ func GetRootAsLogicEffectCommonVisualExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishLogicEffectCommonVisualExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsLogicEffectCommonVisualExcel(buf []byte, offset flatbuffers.UOffsetT) *LogicEffectCommonVisualExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LogicEffectCommonVisualExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedLogicEffectCommonVisualExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LogicEffectCommonVisualExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -226,7 +234,4 @@ func LogicEffectCommonVisualExcelAddStringId(builder *flatbuffers.Builder, strin
 }
 func LogicEffectCommonVisualExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*LogicEffectCommonVisualExcel) Name() string {
-	return "LogicEffectCommonVisualExcel"
 }

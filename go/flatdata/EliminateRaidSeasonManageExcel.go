@@ -17,11 +17,19 @@ func GetRootAsEliminateRaidSeasonManageExcel(buf []byte, offset flatbuffers.UOff
 	return x
 }
 
+func FinishEliminateRaidSeasonManageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEliminateRaidSeasonManageExcel(buf []byte, offset flatbuffers.UOffsetT) *EliminateRaidSeasonManageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EliminateRaidSeasonManageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEliminateRaidSeasonManageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EliminateRaidSeasonManageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -355,7 +363,4 @@ func EliminateRaidSeasonManageExcelStartStackedSeasonRewardGaugeVector(builder *
 }
 func EliminateRaidSeasonManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EliminateRaidSeasonManageExcel) Name() string {
-	return "EliminateRaidSeasonManageExcel"
 }

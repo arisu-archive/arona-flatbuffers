@@ -17,11 +17,19 @@ func GetRootAsScenarioModeRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishScenarioModeRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsScenarioModeRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *ScenarioModeRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ScenarioModeRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedScenarioModeRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ScenarioModeRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -143,7 +151,4 @@ func ScenarioModeRewardExcelAddScenarioModeRewardId(builder *flatbuffers.Builder
 }
 func ScenarioModeRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ScenarioModeRewardExcel) Name() string {
-	return "ScenarioModeRewardExcel"
 }

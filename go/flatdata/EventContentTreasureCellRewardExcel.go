@@ -17,11 +17,19 @@ func GetRootAsEventContentTreasureCellRewardExcel(buf []byte, offset flatbuffers
 	return x
 }
 
+func FinishEventContentTreasureCellRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentTreasureCellRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentTreasureCellRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentTreasureCellRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentTreasureCellRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentTreasureCellRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -160,7 +168,4 @@ func EventContentTreasureCellRewardExcelStartRewardParcelTypeVector(builder *fla
 }
 func EventContentTreasureCellRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentTreasureCellRewardExcel) Name() string {
-	return "EventContentTreasureCellRewardExcel"
 }

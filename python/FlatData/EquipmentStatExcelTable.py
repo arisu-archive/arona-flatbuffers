@@ -49,15 +49,26 @@ class EquipmentStatExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EquipmentStatExcelTableStart(builder): builder.StartObject(1)
+def EquipmentStatExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return EquipmentStatExcelTableStart(builder)
-def EquipmentStatExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    EquipmentStatExcelTableStart(builder)
+
+def EquipmentStatExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return EquipmentStatExcelTableAddDataList(builder, dataList)
-def EquipmentStatExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EquipmentStatExcelTableAddDataList(builder, dataList)
+
+def EquipmentStatExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return EquipmentStatExcelTableStartDataListVector(builder, numElems)
-def EquipmentStatExcelTableEnd(builder): return builder.EndObject()
+
+def EquipmentStatExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EquipmentStatExcelTableEnd(builder)

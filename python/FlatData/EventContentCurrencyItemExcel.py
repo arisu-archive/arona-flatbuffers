@@ -45,18 +45,32 @@ class EventContentCurrencyItemExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EventContentCurrencyItemExcelStart(builder): builder.StartObject(3)
+def EventContentCurrencyItemExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return EventContentCurrencyItemExcelStart(builder)
-def EventContentCurrencyItemExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
+    EventContentCurrencyItemExcelStart(builder)
+
+def EventContentCurrencyItemExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentCurrencyItemExcelAddEventContentId(builder, eventContentId)
-def EventContentCurrencyItemExcelAddEventContentItemType(builder, eventContentItemType): builder.PrependInt32Slot(1, eventContentItemType, 0)
+    EventContentCurrencyItemExcelAddEventContentId(builder, eventContentId)
+
+def EventContentCurrencyItemExcelAddEventContentItemType(builder, eventContentItemType):
+    builder.PrependInt32Slot(1, eventContentItemType, 0)
+
 def AddEventContentItemType(builder, eventContentItemType):
-    return EventContentCurrencyItemExcelAddEventContentItemType(builder, eventContentItemType)
-def EventContentCurrencyItemExcelAddItemUniqueId(builder, itemUniqueId): builder.PrependInt64Slot(2, itemUniqueId, 0)
+    EventContentCurrencyItemExcelAddEventContentItemType(builder, eventContentItemType)
+
+def EventContentCurrencyItemExcelAddItemUniqueId(builder, itemUniqueId):
+    builder.PrependInt64Slot(2, itemUniqueId, 0)
+
 def AddItemUniqueId(builder, itemUniqueId):
-    return EventContentCurrencyItemExcelAddItemUniqueId(builder, itemUniqueId)
-def EventContentCurrencyItemExcelEnd(builder): return builder.EndObject()
+    EventContentCurrencyItemExcelAddItemUniqueId(builder, itemUniqueId)
+
+def EventContentCurrencyItemExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentCurrencyItemExcelEnd(builder)

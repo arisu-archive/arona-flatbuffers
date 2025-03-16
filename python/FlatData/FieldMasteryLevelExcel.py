@@ -139,36 +139,68 @@ class FieldMasteryLevelExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         return o == 0
 
-def FieldMasteryLevelExcelStart(builder): builder.StartObject(5)
+def FieldMasteryLevelExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return FieldMasteryLevelExcelStart(builder)
-def FieldMasteryLevelExcelAddExp(builder, exp): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(exp), 0)
+    FieldMasteryLevelExcelStart(builder)
+
+def FieldMasteryLevelExcelAddExp(builder, exp):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(exp), 0)
+
 def AddExp(builder, exp):
-    return FieldMasteryLevelExcelAddExp(builder, exp)
-def FieldMasteryLevelExcelStartExpVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    FieldMasteryLevelExcelAddExp(builder, exp)
+
+def FieldMasteryLevelExcelStartExpVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartExpVector(builder, numElems):
     return FieldMasteryLevelExcelStartExpVector(builder, numElems)
-def FieldMasteryLevelExcelAddId(builder, id): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(id), 0)
+
+def FieldMasteryLevelExcelAddId(builder, id):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(id), 0)
+
 def AddId(builder, id):
-    return FieldMasteryLevelExcelAddId(builder, id)
-def FieldMasteryLevelExcelStartIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    FieldMasteryLevelExcelAddId(builder, id)
+
+def FieldMasteryLevelExcelStartIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartIdVector(builder, numElems):
     return FieldMasteryLevelExcelStartIdVector(builder, numElems)
-def FieldMasteryLevelExcelAddLevel(builder, level): builder.PrependInt32Slot(2, level, 0)
+
+def FieldMasteryLevelExcelAddLevel(builder, level):
+    builder.PrependInt32Slot(2, level, 0)
+
 def AddLevel(builder, level):
-    return FieldMasteryLevelExcelAddLevel(builder, level)
-def FieldMasteryLevelExcelAddRewardId(builder, rewardId): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardId), 0)
+    FieldMasteryLevelExcelAddLevel(builder, level)
+
+def FieldMasteryLevelExcelAddRewardId(builder, rewardId):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardId), 0)
+
 def AddRewardId(builder, rewardId):
-    return FieldMasteryLevelExcelAddRewardId(builder, rewardId)
-def FieldMasteryLevelExcelStartRewardIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    FieldMasteryLevelExcelAddRewardId(builder, rewardId)
+
+def FieldMasteryLevelExcelStartRewardIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartRewardIdVector(builder, numElems):
     return FieldMasteryLevelExcelStartRewardIdVector(builder, numElems)
-def FieldMasteryLevelExcelAddTotalExp(builder, totalExp): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(totalExp), 0)
+
+def FieldMasteryLevelExcelAddTotalExp(builder, totalExp):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(totalExp), 0)
+
 def AddTotalExp(builder, totalExp):
-    return FieldMasteryLevelExcelAddTotalExp(builder, totalExp)
-def FieldMasteryLevelExcelStartTotalExpVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    FieldMasteryLevelExcelAddTotalExp(builder, totalExp)
+
+def FieldMasteryLevelExcelStartTotalExpVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartTotalExpVector(builder, numElems):
     return FieldMasteryLevelExcelStartTotalExpVector(builder, numElems)
-def FieldMasteryLevelExcelEnd(builder): return builder.EndObject()
+
+def FieldMasteryLevelExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FieldMasteryLevelExcelEnd(builder)

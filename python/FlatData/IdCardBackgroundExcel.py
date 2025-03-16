@@ -80,33 +80,62 @@ class IdCardBackgroundExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def IdCardBackgroundExcelStart(builder): builder.StartObject(8)
+def IdCardBackgroundExcelStart(builder):
+    builder.StartObject(8)
+
 def Start(builder):
-    return IdCardBackgroundExcelStart(builder)
-def IdCardBackgroundExcelAddBgPath(builder, bgPath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(bgPath), 0)
+    IdCardBackgroundExcelStart(builder)
+
+def IdCardBackgroundExcelAddBgPath(builder, bgPath):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(bgPath), 0)
+
 def AddBgPath(builder, bgPath):
-    return IdCardBackgroundExcelAddBgPath(builder, bgPath)
-def IdCardBackgroundExcelAddCollectionVisible(builder, collectionVisible): builder.PrependBoolSlot(1, collectionVisible, 0)
+    IdCardBackgroundExcelAddBgPath(builder, bgPath)
+
+def IdCardBackgroundExcelAddCollectionVisible(builder, collectionVisible):
+    builder.PrependBoolSlot(1, collectionVisible, 0)
+
 def AddCollectionVisible(builder, collectionVisible):
-    return IdCardBackgroundExcelAddCollectionVisible(builder, collectionVisible)
-def IdCardBackgroundExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(2, displayOrder, 0)
+    IdCardBackgroundExcelAddCollectionVisible(builder, collectionVisible)
+
+def IdCardBackgroundExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt64Slot(2, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return IdCardBackgroundExcelAddDisplayOrder(builder, displayOrder)
-def IdCardBackgroundExcelAddIcon(builder, icon): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
+    IdCardBackgroundExcelAddDisplayOrder(builder, displayOrder)
+
+def IdCardBackgroundExcelAddIcon(builder, icon):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
+
 def AddIcon(builder, icon):
-    return IdCardBackgroundExcelAddIcon(builder, icon)
-def IdCardBackgroundExcelAddId(builder, id): builder.PrependInt64Slot(4, id, 0)
+    IdCardBackgroundExcelAddIcon(builder, icon)
+
+def IdCardBackgroundExcelAddId(builder, id):
+    builder.PrependInt64Slot(4, id, 0)
+
 def AddId(builder, id):
-    return IdCardBackgroundExcelAddId(builder, id)
-def IdCardBackgroundExcelAddIsDefault(builder, isDefault): builder.PrependBoolSlot(5, isDefault, 0)
+    IdCardBackgroundExcelAddId(builder, id)
+
+def IdCardBackgroundExcelAddIsDefault(builder, isDefault):
+    builder.PrependBoolSlot(5, isDefault, 0)
+
 def AddIsDefault(builder, isDefault):
-    return IdCardBackgroundExcelAddIsDefault(builder, isDefault)
-def IdCardBackgroundExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(6, localizeEtcId, 0)
+    IdCardBackgroundExcelAddIsDefault(builder, isDefault)
+
+def IdCardBackgroundExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUint32Slot(6, localizeEtcId, 0)
+
 def AddLocalizeEtcId(builder, localizeEtcId):
-    return IdCardBackgroundExcelAddLocalizeEtcId(builder, localizeEtcId)
-def IdCardBackgroundExcelAddRarity(builder, rarity): builder.PrependInt32Slot(7, rarity, 0)
+    IdCardBackgroundExcelAddLocalizeEtcId(builder, localizeEtcId)
+
+def IdCardBackgroundExcelAddRarity(builder, rarity):
+    builder.PrependInt32Slot(7, rarity, 0)
+
 def AddRarity(builder, rarity):
-    return IdCardBackgroundExcelAddRarity(builder, rarity)
-def IdCardBackgroundExcelEnd(builder): return builder.EndObject()
+    IdCardBackgroundExcelAddRarity(builder, rarity)
+
+def IdCardBackgroundExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return IdCardBackgroundExcelEnd(builder)

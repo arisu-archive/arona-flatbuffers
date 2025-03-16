@@ -17,11 +17,19 @@ func GetRootAsCombatEmojiExcel(buf []byte, offset flatbuffers.UOffsetT) *CombatE
 	return x
 }
 
+func FinishCombatEmojiExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCombatEmojiExcel(buf []byte, offset flatbuffers.UOffsetT) *CombatEmojiExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CombatEmojiExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCombatEmojiExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CombatEmojiExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -158,7 +166,4 @@ func CombatEmojiExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 }
 func CombatEmojiExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CombatEmojiExcel) Name() string {
-	return "CombatEmojiExcel"
 }

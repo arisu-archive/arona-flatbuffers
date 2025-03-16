@@ -17,11 +17,19 @@ func GetRootAsConquestErosionExcel(buf []byte, offset flatbuffers.UOffsetT) *Con
 	return x
 }
 
+func FinishConquestErosionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConquestErosionExcel(buf []byte, offset flatbuffers.UOffsetT) *ConquestErosionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestErosionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConquestErosionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestErosionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -298,7 +306,4 @@ func ConquestErosionExcelAddStepIndex(builder *flatbuffers.Builder, stepIndex in
 }
 func ConquestErosionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConquestErosionExcel) Name() string {
-	return "ConquestErosionExcel"
 }

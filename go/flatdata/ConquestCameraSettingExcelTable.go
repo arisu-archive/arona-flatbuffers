@@ -17,11 +17,19 @@ func GetRootAsConquestCameraSettingExcelTable(buf []byte, offset flatbuffers.UOf
 	return x
 }
 
+func FinishConquestCameraSettingExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConquestCameraSettingExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ConquestCameraSettingExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestCameraSettingExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConquestCameraSettingExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestCameraSettingExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ConquestCameraSettingExcelTableStartDataListVector(builder *flatbuffers.Bui
 }
 func ConquestCameraSettingExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConquestCameraSettingExcelTable) Name() string {
-	return "ConquestCameraSettingExcelTable"
 }

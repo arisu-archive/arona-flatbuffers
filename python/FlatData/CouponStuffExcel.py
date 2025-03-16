@@ -59,24 +59,44 @@ class CouponStuffExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def CouponStuffExcelStart(builder): builder.StartObject(5)
+def CouponStuffExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return CouponStuffExcelStart(builder)
-def CouponStuffExcelAddCouponStuffNameLocalizeKey(builder, couponStuffNameLocalizeKey): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(couponStuffNameLocalizeKey), 0)
+    CouponStuffExcelStart(builder)
+
+def CouponStuffExcelAddCouponStuffNameLocalizeKey(builder, couponStuffNameLocalizeKey):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(couponStuffNameLocalizeKey), 0)
+
 def AddCouponStuffNameLocalizeKey(builder, couponStuffNameLocalizeKey):
-    return CouponStuffExcelAddCouponStuffNameLocalizeKey(builder, couponStuffNameLocalizeKey)
-def CouponStuffExcelAddLimitAmount(builder, limitAmount): builder.PrependInt32Slot(1, limitAmount, 0)
+    CouponStuffExcelAddCouponStuffNameLocalizeKey(builder, couponStuffNameLocalizeKey)
+
+def CouponStuffExcelAddLimitAmount(builder, limitAmount):
+    builder.PrependInt32Slot(1, limitAmount, 0)
+
 def AddLimitAmount(builder, limitAmount):
-    return CouponStuffExcelAddLimitAmount(builder, limitAmount)
-def CouponStuffExcelAddParcelId(builder, parcelId): builder.PrependInt64Slot(2, parcelId, 0)
+    CouponStuffExcelAddLimitAmount(builder, limitAmount)
+
+def CouponStuffExcelAddParcelId(builder, parcelId):
+    builder.PrependInt64Slot(2, parcelId, 0)
+
 def AddParcelId(builder, parcelId):
-    return CouponStuffExcelAddParcelId(builder, parcelId)
-def CouponStuffExcelAddParcelType(builder, parcelType): builder.PrependInt32Slot(3, parcelType, 0)
+    CouponStuffExcelAddParcelId(builder, parcelId)
+
+def CouponStuffExcelAddParcelType(builder, parcelType):
+    builder.PrependInt32Slot(3, parcelType, 0)
+
 def AddParcelType(builder, parcelType):
-    return CouponStuffExcelAddParcelType(builder, parcelType)
-def CouponStuffExcelAddStuffId(builder, stuffId): builder.PrependInt64Slot(4, stuffId, 0)
+    CouponStuffExcelAddParcelType(builder, parcelType)
+
+def CouponStuffExcelAddStuffId(builder, stuffId):
+    builder.PrependInt64Slot(4, stuffId, 0)
+
 def AddStuffId(builder, stuffId):
-    return CouponStuffExcelAddStuffId(builder, stuffId)
-def CouponStuffExcelEnd(builder): return builder.EndObject()
+    CouponStuffExcelAddStuffId(builder, stuffId)
+
+def CouponStuffExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CouponStuffExcelEnd(builder)

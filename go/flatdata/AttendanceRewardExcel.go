@@ -17,11 +17,19 @@ func GetRootAsAttendanceRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *At
 	return x
 }
 
+func FinishAttendanceRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsAttendanceRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *AttendanceRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AttendanceRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedAttendanceRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AttendanceRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -175,7 +183,4 @@ func AttendanceRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Build
 }
 func AttendanceRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*AttendanceRewardExcel) Name() string {
-	return "AttendanceRewardExcel"
 }

@@ -17,11 +17,19 @@ func GetRootAsEventContentDiceRaceNodeExcelTable(buf []byte, offset flatbuffers.
 	return x
 }
 
+func FinishEventContentDiceRaceNodeExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentDiceRaceNodeExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentDiceRaceNodeExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentDiceRaceNodeExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentDiceRaceNodeExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentDiceRaceNodeExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func EventContentDiceRaceNodeExcelTableStartDataListVector(builder *flatbuffers.
 }
 func EventContentDiceRaceNodeExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentDiceRaceNodeExcelTable) Name() string {
-	return "EventContentDiceRaceNodeExcelTable"
 }

@@ -17,11 +17,19 @@ func GetRootAsEchelonConstraintExcel(buf []byte, offset flatbuffers.UOffsetT) *E
 	return x
 }
 
+func FinishEchelonConstraintExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEchelonConstraintExcel(buf []byte, offset flatbuffers.UOffsetT) *EchelonConstraintExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EchelonConstraintExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEchelonConstraintExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EchelonConstraintExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -192,7 +200,4 @@ func EchelonConstraintExcelAddWeaponType(builder *flatbuffers.Builder, weaponTyp
 }
 func EchelonConstraintExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EchelonConstraintExcel) Name() string {
-	return "EchelonConstraintExcel"
 }

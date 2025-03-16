@@ -7,5 +7,15 @@
   "gopls": {
     "formatting.local": "github.com/arisu-archive/arona-flatbuffers",
     "formatting.gofumpt": true
-  }
+  },
+  "cSpell.words": [
+    "arisu",
+    "bluearchive",
+    "fbsgen",
+    "fbsutils",
+    "flatbuffers",
+    "flatdata",
+    "Sript",
+    "unmarshals"
+  ]
 }

@@ -17,11 +17,19 @@ func GetRootAsWorldRaidConditionExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishWorldRaidConditionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsWorldRaidConditionExcel(buf []byte, offset flatbuffers.UOffsetT) *WorldRaidConditionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &WorldRaidConditionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedWorldRaidConditionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *WorldRaidConditionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -228,7 +236,4 @@ func WorldRaidConditionExcelStartWorldRaidBossKillVector(builder *flatbuffers.Bu
 }
 func WorldRaidConditionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*WorldRaidConditionExcel) Name() string {
-	return "WorldRaidConditionExcel"
 }

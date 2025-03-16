@@ -17,11 +17,19 @@ func GetRootAsAttendanceExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Att
 	return x
 }
 
+func FinishAttendanceExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsAttendanceExcelTable(buf []byte, offset flatbuffers.UOffsetT) *AttendanceExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AttendanceExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedAttendanceExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AttendanceExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func AttendanceExcelTableStartDataListVector(builder *flatbuffers.Builder, numEl
 }
 func AttendanceExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*AttendanceExcelTable) Name() string {
-	return "AttendanceExcelTable"
 }

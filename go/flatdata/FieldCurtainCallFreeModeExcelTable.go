@@ -17,11 +17,19 @@ func GetRootAsFieldCurtainCallFreeModeExcelTable(buf []byte, offset flatbuffers.
 	return x
 }
 
+func FinishFieldCurtainCallFreeModeExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFieldCurtainCallFreeModeExcelTable(buf []byte, offset flatbuffers.UOffsetT) *FieldCurtainCallFreeModeExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldCurtainCallFreeModeExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFieldCurtainCallFreeModeExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldCurtainCallFreeModeExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func FieldCurtainCallFreeModeExcelTableStartDataListVector(builder *flatbuffers.
 }
 func FieldCurtainCallFreeModeExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*FieldCurtainCallFreeModeExcelTable) Name() string {
-	return "FieldCurtainCallFreeModeExcelTable"
 }

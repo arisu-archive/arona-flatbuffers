@@ -45,18 +45,32 @@ class EventContentMiniEventShortCutExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def EventContentMiniEventShortCutExcelStart(builder): builder.StartObject(3)
+def EventContentMiniEventShortCutExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return EventContentMiniEventShortCutExcelStart(builder)
-def EventContentMiniEventShortCutExcelAddId(builder, id): builder.PrependInt32Slot(0, id, 0)
+    EventContentMiniEventShortCutExcelStart(builder)
+
+def EventContentMiniEventShortCutExcelAddId(builder, id):
+    builder.PrependInt32Slot(0, id, 0)
+
 def AddId(builder, id):
-    return EventContentMiniEventShortCutExcelAddId(builder, id)
-def EventContentMiniEventShortCutExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(1, localizeEtcId, 0)
+    EventContentMiniEventShortCutExcelAddId(builder, id)
+
+def EventContentMiniEventShortCutExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUint32Slot(1, localizeEtcId, 0)
+
 def AddLocalizeEtcId(builder, localizeEtcId):
-    return EventContentMiniEventShortCutExcelAddLocalizeEtcId(builder, localizeEtcId)
-def EventContentMiniEventShortCutExcelAddShorcutContentType(builder, shorcutContentType): builder.PrependInt32Slot(2, shorcutContentType, 0)
+    EventContentMiniEventShortCutExcelAddLocalizeEtcId(builder, localizeEtcId)
+
+def EventContentMiniEventShortCutExcelAddShorcutContentType(builder, shorcutContentType):
+    builder.PrependInt32Slot(2, shorcutContentType, 0)
+
 def AddShorcutContentType(builder, shorcutContentType):
-    return EventContentMiniEventShortCutExcelAddShorcutContentType(builder, shorcutContentType)
-def EventContentMiniEventShortCutExcelEnd(builder): return builder.EndObject()
+    EventContentMiniEventShortCutExcelAddShorcutContentType(builder, shorcutContentType)
+
+def EventContentMiniEventShortCutExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentMiniEventShortCutExcelEnd(builder)

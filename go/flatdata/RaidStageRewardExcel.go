@@ -17,11 +17,19 @@ func GetRootAsRaidStageRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *Rai
 	return x
 }
 
+func FinishRaidStageRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsRaidStageRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *RaidStageRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &RaidStageRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedRaidStageRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *RaidStageRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -139,7 +147,4 @@ func RaidStageRewardExcelAddIsClearStageRewardHideInfo(builder *flatbuffers.Buil
 }
 func RaidStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*RaidStageRewardExcel) Name() string {
-	return "RaidStageRewardExcel"
 }

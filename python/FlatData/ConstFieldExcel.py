@@ -157,66 +157,128 @@ class ConstFieldExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ConstFieldExcelStart(builder): builder.StartObject(19)
+def ConstFieldExcelStart(builder):
+    builder.StartObject(19)
+
 def Start(builder):
-    return ConstFieldExcelStart(builder)
-def ConstFieldExcelAddAngryDurationDefault(builder, angryDurationDefault): builder.PrependInt32Slot(0, angryDurationDefault, 0)
+    ConstFieldExcelStart(builder)
+
+def ConstFieldExcelAddAngryDurationDefault(builder, angryDurationDefault):
+    builder.PrependInt32Slot(0, angryDurationDefault, 0)
+
 def AddAngryDurationDefault(builder, angryDurationDefault):
-    return ConstFieldExcelAddAngryDurationDefault(builder, angryDurationDefault)
-def ConstFieldExcelAddBulbDurationDefault(builder, bulbDurationDefault): builder.PrependInt32Slot(1, bulbDurationDefault, 0)
+    ConstFieldExcelAddAngryDurationDefault(builder, angryDurationDefault)
+
+def ConstFieldExcelAddBulbDurationDefault(builder, bulbDurationDefault):
+    builder.PrependInt32Slot(1, bulbDurationDefault, 0)
+
 def AddBulbDurationDefault(builder, bulbDurationDefault):
-    return ConstFieldExcelAddBulbDurationDefault(builder, bulbDurationDefault)
-def ConstFieldExcelAddDialogSmoothTime(builder, dialogSmoothTime): builder.PrependInt32Slot(2, dialogSmoothTime, 0)
+    ConstFieldExcelAddBulbDurationDefault(builder, bulbDurationDefault)
+
+def ConstFieldExcelAddDialogSmoothTime(builder, dialogSmoothTime):
+    builder.PrependInt32Slot(2, dialogSmoothTime, 0)
+
 def AddDialogSmoothTime(builder, dialogSmoothTime):
-    return ConstFieldExcelAddDialogSmoothTime(builder, dialogSmoothTime)
-def ConstFieldExcelAddDotDurationDefault(builder, dotDurationDefault): builder.PrependInt32Slot(3, dotDurationDefault, 0)
+    ConstFieldExcelAddDialogSmoothTime(builder, dialogSmoothTime)
+
+def ConstFieldExcelAddDotDurationDefault(builder, dotDurationDefault):
+    builder.PrependInt32Slot(3, dotDurationDefault, 0)
+
 def AddDotDurationDefault(builder, dotDurationDefault):
-    return ConstFieldExcelAddDotDurationDefault(builder, dotDurationDefault)
-def ConstFieldExcelAddEvidenceDurationDefault(builder, evidenceDurationDefault): builder.PrependInt32Slot(4, evidenceDurationDefault, 0)
+    ConstFieldExcelAddDotDurationDefault(builder, dotDurationDefault)
+
+def ConstFieldExcelAddEvidenceDurationDefault(builder, evidenceDurationDefault):
+    builder.PrependInt32Slot(4, evidenceDurationDefault, 0)
+
 def AddEvidenceDurationDefault(builder, evidenceDurationDefault):
-    return ConstFieldExcelAddEvidenceDurationDefault(builder, evidenceDurationDefault)
-def ConstFieldExcelAddExclaimDurationDefault(builder, exclaimDurationDefault): builder.PrependInt32Slot(5, exclaimDurationDefault, 0)
+    ConstFieldExcelAddEvidenceDurationDefault(builder, evidenceDurationDefault)
+
+def ConstFieldExcelAddExclaimDurationDefault(builder, exclaimDurationDefault):
+    builder.PrependInt32Slot(5, exclaimDurationDefault, 0)
+
 def AddExclaimDurationDefault(builder, exclaimDurationDefault):
-    return ConstFieldExcelAddExclaimDurationDefault(builder, exclaimDurationDefault)
-def ConstFieldExcelAddHeartDurationDefault(builder, heartDurationDefault): builder.PrependInt32Slot(6, heartDurationDefault, 0)
+    ConstFieldExcelAddExclaimDurationDefault(builder, exclaimDurationDefault)
+
+def ConstFieldExcelAddHeartDurationDefault(builder, heartDurationDefault):
+    builder.PrependInt32Slot(6, heartDurationDefault, 0)
+
 def AddHeartDurationDefault(builder, heartDurationDefault):
-    return ConstFieldExcelAddHeartDurationDefault(builder, heartDurationDefault)
-def ConstFieldExcelAddIdleThinkDelayMax(builder, idleThinkDelayMax): builder.PrependInt32Slot(7, idleThinkDelayMax, 0)
+    ConstFieldExcelAddHeartDurationDefault(builder, heartDurationDefault)
+
+def ConstFieldExcelAddIdleThinkDelayMax(builder, idleThinkDelayMax):
+    builder.PrependInt32Slot(7, idleThinkDelayMax, 0)
+
 def AddIdleThinkDelayMax(builder, idleThinkDelayMax):
-    return ConstFieldExcelAddIdleThinkDelayMax(builder, idleThinkDelayMax)
-def ConstFieldExcelAddIdleThinkDelayMin(builder, idleThinkDelayMin): builder.PrependInt32Slot(8, idleThinkDelayMin, 0)
+    ConstFieldExcelAddIdleThinkDelayMax(builder, idleThinkDelayMax)
+
+def ConstFieldExcelAddIdleThinkDelayMin(builder, idleThinkDelayMin):
+    builder.PrependInt32Slot(8, idleThinkDelayMin, 0)
+
 def AddIdleThinkDelayMin(builder, idleThinkDelayMin):
-    return ConstFieldExcelAddIdleThinkDelayMin(builder, idleThinkDelayMin)
-def ConstFieldExcelAddKeywordDurationDefault(builder, keywordDurationDefault): builder.PrependInt32Slot(9, keywordDurationDefault, 0)
+    ConstFieldExcelAddIdleThinkDelayMin(builder, idleThinkDelayMin)
+
+def ConstFieldExcelAddKeywordDurationDefault(builder, keywordDurationDefault):
+    builder.PrependInt32Slot(9, keywordDurationDefault, 0)
+
 def AddKeywordDurationDefault(builder, keywordDurationDefault):
-    return ConstFieldExcelAddKeywordDurationDefault(builder, keywordDurationDefault)
-def ConstFieldExcelAddMomotalkDurationDefault(builder, momotalkDurationDefault): builder.PrependInt32Slot(10, momotalkDurationDefault, 0)
+    ConstFieldExcelAddKeywordDurationDefault(builder, keywordDurationDefault)
+
+def ConstFieldExcelAddMomotalkDurationDefault(builder, momotalkDurationDefault):
+    builder.PrependInt32Slot(10, momotalkDurationDefault, 0)
+
 def AddMomotalkDurationDefault(builder, momotalkDurationDefault):
-    return ConstFieldExcelAddMomotalkDurationDefault(builder, momotalkDurationDefault)
-def ConstFieldExcelAddMusicDurationDefault(builder, musicDurationDefault): builder.PrependInt32Slot(11, musicDurationDefault, 0)
+    ConstFieldExcelAddMomotalkDurationDefault(builder, momotalkDurationDefault)
+
+def ConstFieldExcelAddMusicDurationDefault(builder, musicDurationDefault):
+    builder.PrependInt32Slot(11, musicDurationDefault, 0)
+
 def AddMusicDurationDefault(builder, musicDurationDefault):
-    return ConstFieldExcelAddMusicDurationDefault(builder, musicDurationDefault)
-def ConstFieldExcelAddPhoneDurationDefault(builder, phoneDurationDefault): builder.PrependInt32Slot(12, phoneDurationDefault, 0)
+    ConstFieldExcelAddMusicDurationDefault(builder, musicDurationDefault)
+
+def ConstFieldExcelAddPhoneDurationDefault(builder, phoneDurationDefault):
+    builder.PrependInt32Slot(12, phoneDurationDefault, 0)
+
 def AddPhoneDurationDefault(builder, phoneDurationDefault):
-    return ConstFieldExcelAddPhoneDurationDefault(builder, phoneDurationDefault)
-def ConstFieldExcelAddQuestionDurationDefault(builder, questionDurationDefault): builder.PrependInt32Slot(13, questionDurationDefault, 0)
+    ConstFieldExcelAddPhoneDurationDefault(builder, phoneDurationDefault)
+
+def ConstFieldExcelAddQuestionDurationDefault(builder, questionDurationDefault):
+    builder.PrependInt32Slot(13, questionDurationDefault, 0)
+
 def AddQuestionDurationDefault(builder, questionDurationDefault):
-    return ConstFieldExcelAddQuestionDurationDefault(builder, questionDurationDefault)
-def ConstFieldExcelAddSurpriseDurationDefault(builder, surpriseDurationDefault): builder.PrependInt32Slot(14, surpriseDurationDefault, 0)
+    ConstFieldExcelAddQuestionDurationDefault(builder, questionDurationDefault)
+
+def ConstFieldExcelAddSurpriseDurationDefault(builder, surpriseDurationDefault):
+    builder.PrependInt32Slot(14, surpriseDurationDefault, 0)
+
 def AddSurpriseDurationDefault(builder, surpriseDurationDefault):
-    return ConstFieldExcelAddSurpriseDurationDefault(builder, surpriseDurationDefault)
-def ConstFieldExcelAddSweatDurationDefault(builder, sweatDurationDefault): builder.PrependInt32Slot(15, sweatDurationDefault, 0)
+    ConstFieldExcelAddSurpriseDurationDefault(builder, surpriseDurationDefault)
+
+def ConstFieldExcelAddSweatDurationDefault(builder, sweatDurationDefault):
+    builder.PrependInt32Slot(15, sweatDurationDefault, 0)
+
 def AddSweatDurationDefault(builder, sweatDurationDefault):
-    return ConstFieldExcelAddSweatDurationDefault(builder, sweatDurationDefault)
-def ConstFieldExcelAddTalkDialogDurationDefault(builder, talkDialogDurationDefault): builder.PrependInt32Slot(16, talkDialogDurationDefault, 0)
+    ConstFieldExcelAddSweatDurationDefault(builder, sweatDurationDefault)
+
+def ConstFieldExcelAddTalkDialogDurationDefault(builder, talkDialogDurationDefault):
+    builder.PrependInt32Slot(16, talkDialogDurationDefault, 0)
+
 def AddTalkDialogDurationDefault(builder, talkDialogDurationDefault):
-    return ConstFieldExcelAddTalkDialogDurationDefault(builder, talkDialogDurationDefault)
-def ConstFieldExcelAddThinkDialogDurationDefault(builder, thinkDialogDurationDefault): builder.PrependInt32Slot(17, thinkDialogDurationDefault, 0)
+    ConstFieldExcelAddTalkDialogDurationDefault(builder, talkDialogDurationDefault)
+
+def ConstFieldExcelAddThinkDialogDurationDefault(builder, thinkDialogDurationDefault):
+    builder.PrependInt32Slot(17, thinkDialogDurationDefault, 0)
+
 def AddThinkDialogDurationDefault(builder, thinkDialogDurationDefault):
-    return ConstFieldExcelAddThinkDialogDurationDefault(builder, thinkDialogDurationDefault)
-def ConstFieldExcelAddUpsetDurationDefault(builder, upsetDurationDefault): builder.PrependInt32Slot(18, upsetDurationDefault, 0)
+    ConstFieldExcelAddThinkDialogDurationDefault(builder, thinkDialogDurationDefault)
+
+def ConstFieldExcelAddUpsetDurationDefault(builder, upsetDurationDefault):
+    builder.PrependInt32Slot(18, upsetDurationDefault, 0)
+
 def AddUpsetDurationDefault(builder, upsetDurationDefault):
-    return ConstFieldExcelAddUpsetDurationDefault(builder, upsetDurationDefault)
-def ConstFieldExcelEnd(builder): return builder.EndObject()
+    ConstFieldExcelAddUpsetDurationDefault(builder, upsetDurationDefault)
+
+def ConstFieldExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConstFieldExcelEnd(builder)

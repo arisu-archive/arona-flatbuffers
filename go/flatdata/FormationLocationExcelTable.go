@@ -17,11 +17,19 @@ func GetRootAsFormationLocationExcelTable(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
+func FinishFormationLocationExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFormationLocationExcelTable(buf []byte, offset flatbuffers.UOffsetT) *FormationLocationExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FormationLocationExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFormationLocationExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FormationLocationExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func FormationLocationExcelTableStartDataListVector(builder *flatbuffers.Builder
 }
 func FormationLocationExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*FormationLocationExcelTable) Name() string {
-	return "FormationLocationExcelTable"
 }

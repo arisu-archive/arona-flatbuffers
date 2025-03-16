@@ -59,24 +59,44 @@ class FieldRewardExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def FieldRewardExcelStart(builder): builder.StartObject(5)
+def FieldRewardExcelStart(builder):
+    builder.StartObject(5)
+
 def Start(builder):
-    return FieldRewardExcelStart(builder)
-def FieldRewardExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
+    FieldRewardExcelStart(builder)
+
+def FieldRewardExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(0, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return FieldRewardExcelAddGroupId(builder, groupId)
-def FieldRewardExcelAddRewardAmount(builder, rewardAmount): builder.PrependInt32Slot(1, rewardAmount, 0)
+    FieldRewardExcelAddGroupId(builder, groupId)
+
+def FieldRewardExcelAddRewardAmount(builder, rewardAmount):
+    builder.PrependInt32Slot(1, rewardAmount, 0)
+
 def AddRewardAmount(builder, rewardAmount):
-    return FieldRewardExcelAddRewardAmount(builder, rewardAmount)
-def FieldRewardExcelAddRewardId(builder, rewardId): builder.PrependInt64Slot(2, rewardId, 0)
+    FieldRewardExcelAddRewardAmount(builder, rewardAmount)
+
+def FieldRewardExcelAddRewardId(builder, rewardId):
+    builder.PrependInt64Slot(2, rewardId, 0)
+
 def AddRewardId(builder, rewardId):
-    return FieldRewardExcelAddRewardId(builder, rewardId)
-def FieldRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(3, rewardParcelType, 0)
+    FieldRewardExcelAddRewardId(builder, rewardId)
+
+def FieldRewardExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependInt32Slot(3, rewardParcelType, 0)
+
 def AddRewardParcelType(builder, rewardParcelType):
-    return FieldRewardExcelAddRewardParcelType(builder, rewardParcelType)
-def FieldRewardExcelAddRewardProb(builder, rewardProb): builder.PrependInt32Slot(4, rewardProb, 0)
+    FieldRewardExcelAddRewardParcelType(builder, rewardParcelType)
+
+def FieldRewardExcelAddRewardProb(builder, rewardProb):
+    builder.PrependInt32Slot(4, rewardProb, 0)
+
 def AddRewardProb(builder, rewardProb):
-    return FieldRewardExcelAddRewardProb(builder, rewardProb)
-def FieldRewardExcelEnd(builder): return builder.EndObject()
+    FieldRewardExcelAddRewardProb(builder, rewardProb)
+
+def FieldRewardExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FieldRewardExcelEnd(builder)

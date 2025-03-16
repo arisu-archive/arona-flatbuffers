@@ -17,11 +17,19 @@ func GetRootAsFieldQuestExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldQue
 	return x
 }
 
+func FinishFieldQuestExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFieldQuestExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldQuestExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldQuestExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFieldQuestExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldQuestExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -184,7 +192,4 @@ func FieldQuestExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 }
 func FieldQuestExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*FieldQuestExcel) Name() string {
-	return "FieldQuestExcel"
 }

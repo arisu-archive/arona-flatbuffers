@@ -57,18 +57,32 @@ class MoveEnd(object):
             return obj
         return None
 
-def MoveEndStart(builder): builder.StartObject(3)
+def MoveEndStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return MoveEndStart(builder)
-def MoveEndAddKneel(builder, kneel): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(kneel), 0)
+    MoveEndStart(builder)
+
+def MoveEndAddKneel(builder, kneel):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(kneel), 0)
+
 def AddKneel(builder, kneel):
-    return MoveEndAddKneel(builder, kneel)
-def MoveEndAddNormal(builder, normal): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(normal), 0)
+    MoveEndAddKneel(builder, kneel)
+
+def MoveEndAddNormal(builder, normal):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(normal), 0)
+
 def AddNormal(builder, normal):
-    return MoveEndAddNormal(builder, normal)
-def MoveEndAddStand(builder, stand): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(stand), 0)
+    MoveEndAddNormal(builder, normal)
+
+def MoveEndAddStand(builder, stand):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(stand), 0)
+
 def AddStand(builder, stand):
-    return MoveEndAddStand(builder, stand)
-def MoveEndEnd(builder): return builder.EndObject()
+    MoveEndAddStand(builder, stand)
+
+def MoveEndEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MoveEndEnd(builder)

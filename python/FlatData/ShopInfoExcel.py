@@ -280,102 +280,200 @@ class ShopInfoExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ShopInfoExcelStart(builder): builder.StartObject(28)
+def ShopInfoExcelStart(builder):
+    builder.StartObject(28)
+
 def Start(builder):
-    return ShopInfoExcelStart(builder)
-def ShopInfoExcelAddAutoRefreshCoolTime(builder, autoRefreshCoolTime): builder.PrependInt64Slot(0, autoRefreshCoolTime, 0)
+    ShopInfoExcelStart(builder)
+
+def ShopInfoExcelAddAutoRefreshCoolTime(builder, autoRefreshCoolTime):
+    builder.PrependInt64Slot(0, autoRefreshCoolTime, 0)
+
 def AddAutoRefreshCoolTime(builder, autoRefreshCoolTime):
-    return ShopInfoExcelAddAutoRefreshCoolTime(builder, autoRefreshCoolTime)
-def ShopInfoExcelAddCategoryType(builder, categoryType): builder.PrependInt32Slot(1, categoryType, 0)
+    ShopInfoExcelAddAutoRefreshCoolTime(builder, autoRefreshCoolTime)
+
+def ShopInfoExcelAddCategoryType(builder, categoryType):
+    builder.PrependInt32Slot(1, categoryType, 0)
+
 def AddCategoryType(builder, categoryType):
-    return ShopInfoExcelAddCategoryType(builder, categoryType)
-def ShopInfoExcelAddCostParcelId(builder, costParcelId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(costParcelId), 0)
+    ShopInfoExcelAddCategoryType(builder, categoryType)
+
+def ShopInfoExcelAddCostParcelId(builder, costParcelId):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(costParcelId), 0)
+
 def AddCostParcelId(builder, costParcelId):
-    return ShopInfoExcelAddCostParcelId(builder, costParcelId)
-def ShopInfoExcelStartCostParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    ShopInfoExcelAddCostParcelId(builder, costParcelId)
+
+def ShopInfoExcelStartCostParcelIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartCostParcelIdVector(builder, numElems):
     return ShopInfoExcelStartCostParcelIdVector(builder, numElems)
-def ShopInfoExcelAddCostParcelType(builder, costParcelType): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(costParcelType), 0)
+
+def ShopInfoExcelAddCostParcelType(builder, costParcelType):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(costParcelType), 0)
+
 def AddCostParcelType(builder, costParcelType):
-    return ShopInfoExcelAddCostParcelType(builder, costParcelType)
-def ShopInfoExcelStartCostParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ShopInfoExcelAddCostParcelType(builder, costParcelType)
+
+def ShopInfoExcelStartCostParcelTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartCostParcelTypeVector(builder, numElems):
     return ShopInfoExcelStartCostParcelTypeVector(builder, numElems)
-def ShopInfoExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt32Slot(4, displayOrder, 0)
+
+def ShopInfoExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt32Slot(4, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return ShopInfoExcelAddDisplayOrder(builder, displayOrder)
-def ShopInfoExcelAddDisplayParcelId(builder, displayParcelId): builder.PrependInt64Slot(5, displayParcelId, 0)
+    ShopInfoExcelAddDisplayOrder(builder, displayOrder)
+
+def ShopInfoExcelAddDisplayParcelId(builder, displayParcelId):
+    builder.PrependInt64Slot(5, displayParcelId, 0)
+
 def AddDisplayParcelId(builder, displayParcelId):
-    return ShopInfoExcelAddDisplayParcelId(builder, displayParcelId)
-def ShopInfoExcelAddDisplayParcelType(builder, displayParcelType): builder.PrependInt32Slot(6, displayParcelType, 0)
+    ShopInfoExcelAddDisplayParcelId(builder, displayParcelId)
+
+def ShopInfoExcelAddDisplayParcelType(builder, displayParcelType):
+    builder.PrependInt32Slot(6, displayParcelType, 0)
+
 def AddDisplayParcelType(builder, displayParcelType):
-    return ShopInfoExcelAddDisplayParcelType(builder, displayParcelType)
-def ShopInfoExcelAddGoodsId(builder, goodsId): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(goodsId), 0)
+    ShopInfoExcelAddDisplayParcelType(builder, displayParcelType)
+
+def ShopInfoExcelAddGoodsId(builder, goodsId):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(goodsId), 0)
+
 def AddGoodsId(builder, goodsId):
-    return ShopInfoExcelAddGoodsId(builder, goodsId)
-def ShopInfoExcelStartGoodsIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    ShopInfoExcelAddGoodsId(builder, goodsId)
+
+def ShopInfoExcelStartGoodsIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartGoodsIdVector(builder, numElems):
     return ShopInfoExcelStartGoodsIdVector(builder, numElems)
-def ShopInfoExcelAddIsRefresh(builder, isRefresh): builder.PrependBoolSlot(8, isRefresh, 0)
+
+def ShopInfoExcelAddIsRefresh(builder, isRefresh):
+    builder.PrependBoolSlot(8, isRefresh, 0)
+
 def AddIsRefresh(builder, isRefresh):
-    return ShopInfoExcelAddIsRefresh(builder, isRefresh)
-def ShopInfoExcelAddIsShopVisible(builder, isShopVisible): builder.PrependBoolSlot(9, isShopVisible, 0)
+    ShopInfoExcelAddIsRefresh(builder, isRefresh)
+
+def ShopInfoExcelAddIsShopVisible(builder, isShopVisible):
+    builder.PrependBoolSlot(9, isShopVisible, 0)
+
 def AddIsShopVisible(builder, isShopVisible):
-    return ShopInfoExcelAddIsShopVisible(builder, isShopVisible)
-def ShopInfoExcelAddIsSoldOutDimmed(builder, isSoldOutDimmed): builder.PrependBoolSlot(10, isSoldOutDimmed, 0)
+    ShopInfoExcelAddIsShopVisible(builder, isShopVisible)
+
+def ShopInfoExcelAddIsSoldOutDimmed(builder, isSoldOutDimmed):
+    builder.PrependBoolSlot(10, isSoldOutDimmed, 0)
+
 def AddIsSoldOutDimmed(builder, isSoldOutDimmed):
-    return ShopInfoExcelAddIsSoldOutDimmed(builder, isSoldOutDimmed)
-def ShopInfoExcelAddOpenPeriodFrom(builder, openPeriodFrom): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(openPeriodFrom), 0)
+    ShopInfoExcelAddIsSoldOutDimmed(builder, isSoldOutDimmed)
+
+def ShopInfoExcelAddOpenPeriodFrom(builder, openPeriodFrom):
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(openPeriodFrom), 0)
+
 def AddOpenPeriodFrom(builder, openPeriodFrom):
-    return ShopInfoExcelAddOpenPeriodFrom(builder, openPeriodFrom)
-def ShopInfoExcelAddOpenPeriodTo(builder, openPeriodTo): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(openPeriodTo), 0)
+    ShopInfoExcelAddOpenPeriodFrom(builder, openPeriodFrom)
+
+def ShopInfoExcelAddOpenPeriodTo(builder, openPeriodTo):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(openPeriodTo), 0)
+
 def AddOpenPeriodTo(builder, openPeriodTo):
-    return ShopInfoExcelAddOpenPeriodTo(builder, openPeriodTo)
-def ShopInfoExcelAddRefreshAbleCount(builder, refreshAbleCount): builder.PrependInt64Slot(13, refreshAbleCount, 0)
+    ShopInfoExcelAddOpenPeriodTo(builder, openPeriodTo)
+
+def ShopInfoExcelAddRefreshAbleCount(builder, refreshAbleCount):
+    builder.PrependInt64Slot(13, refreshAbleCount, 0)
+
 def AddRefreshAbleCount(builder, refreshAbleCount):
-    return ShopInfoExcelAddRefreshAbleCount(builder, refreshAbleCount)
-def ShopInfoExcelAddShopProductUpdateTime(builder, shopProductUpdateTime): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(shopProductUpdateTime), 0)
+    ShopInfoExcelAddRefreshAbleCount(builder, refreshAbleCount)
+
+def ShopInfoExcelAddShopProductUpdateTime(builder, shopProductUpdateTime):
+    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(shopProductUpdateTime), 0)
+
 def AddShopProductUpdateTime(builder, shopProductUpdateTime):
-    return ShopInfoExcelAddShopProductUpdateTime(builder, shopProductUpdateTime)
-def ShopInfoExcelAddShopUpdateDate(builder, shopUpdateDate): builder.PrependInt32Slot(15, shopUpdateDate, 0)
+    ShopInfoExcelAddShopProductUpdateTime(builder, shopProductUpdateTime)
+
+def ShopInfoExcelAddShopUpdateDate(builder, shopUpdateDate):
+    builder.PrependInt32Slot(15, shopUpdateDate, 0)
+
 def AddShopUpdateDate(builder, shopUpdateDate):
-    return ShopInfoExcelAddShopUpdateDate(builder, shopUpdateDate)
-def ShopInfoExcelAddShopUpdateGroupId1(builder, shopUpdateGroupId1): builder.PrependInt32Slot(16, shopUpdateGroupId1, 0)
+    ShopInfoExcelAddShopUpdateDate(builder, shopUpdateDate)
+
+def ShopInfoExcelAddShopUpdateGroupId1(builder, shopUpdateGroupId1):
+    builder.PrependInt32Slot(16, shopUpdateGroupId1, 0)
+
 def AddShopUpdateGroupId1(builder, shopUpdateGroupId1):
-    return ShopInfoExcelAddShopUpdateGroupId1(builder, shopUpdateGroupId1)
-def ShopInfoExcelAddShopUpdateGroupId10(builder, shopUpdateGroupId10): builder.PrependInt32Slot(17, shopUpdateGroupId10, 0)
+    ShopInfoExcelAddShopUpdateGroupId1(builder, shopUpdateGroupId1)
+
+def ShopInfoExcelAddShopUpdateGroupId10(builder, shopUpdateGroupId10):
+    builder.PrependInt32Slot(17, shopUpdateGroupId10, 0)
+
 def AddShopUpdateGroupId10(builder, shopUpdateGroupId10):
-    return ShopInfoExcelAddShopUpdateGroupId10(builder, shopUpdateGroupId10)
-def ShopInfoExcelAddShopUpdateGroupId11(builder, shopUpdateGroupId11): builder.PrependInt32Slot(18, shopUpdateGroupId11, 0)
+    ShopInfoExcelAddShopUpdateGroupId10(builder, shopUpdateGroupId10)
+
+def ShopInfoExcelAddShopUpdateGroupId11(builder, shopUpdateGroupId11):
+    builder.PrependInt32Slot(18, shopUpdateGroupId11, 0)
+
 def AddShopUpdateGroupId11(builder, shopUpdateGroupId11):
-    return ShopInfoExcelAddShopUpdateGroupId11(builder, shopUpdateGroupId11)
-def ShopInfoExcelAddShopUpdateGroupId12(builder, shopUpdateGroupId12): builder.PrependInt32Slot(19, shopUpdateGroupId12, 0)
+    ShopInfoExcelAddShopUpdateGroupId11(builder, shopUpdateGroupId11)
+
+def ShopInfoExcelAddShopUpdateGroupId12(builder, shopUpdateGroupId12):
+    builder.PrependInt32Slot(19, shopUpdateGroupId12, 0)
+
 def AddShopUpdateGroupId12(builder, shopUpdateGroupId12):
-    return ShopInfoExcelAddShopUpdateGroupId12(builder, shopUpdateGroupId12)
-def ShopInfoExcelAddShopUpdateGroupId2(builder, shopUpdateGroupId2): builder.PrependInt32Slot(20, shopUpdateGroupId2, 0)
+    ShopInfoExcelAddShopUpdateGroupId12(builder, shopUpdateGroupId12)
+
+def ShopInfoExcelAddShopUpdateGroupId2(builder, shopUpdateGroupId2):
+    builder.PrependInt32Slot(20, shopUpdateGroupId2, 0)
+
 def AddShopUpdateGroupId2(builder, shopUpdateGroupId2):
-    return ShopInfoExcelAddShopUpdateGroupId2(builder, shopUpdateGroupId2)
-def ShopInfoExcelAddShopUpdateGroupId3(builder, shopUpdateGroupId3): builder.PrependInt32Slot(21, shopUpdateGroupId3, 0)
+    ShopInfoExcelAddShopUpdateGroupId2(builder, shopUpdateGroupId2)
+
+def ShopInfoExcelAddShopUpdateGroupId3(builder, shopUpdateGroupId3):
+    builder.PrependInt32Slot(21, shopUpdateGroupId3, 0)
+
 def AddShopUpdateGroupId3(builder, shopUpdateGroupId3):
-    return ShopInfoExcelAddShopUpdateGroupId3(builder, shopUpdateGroupId3)
-def ShopInfoExcelAddShopUpdateGroupId4(builder, shopUpdateGroupId4): builder.PrependInt32Slot(22, shopUpdateGroupId4, 0)
+    ShopInfoExcelAddShopUpdateGroupId3(builder, shopUpdateGroupId3)
+
+def ShopInfoExcelAddShopUpdateGroupId4(builder, shopUpdateGroupId4):
+    builder.PrependInt32Slot(22, shopUpdateGroupId4, 0)
+
 def AddShopUpdateGroupId4(builder, shopUpdateGroupId4):
-    return ShopInfoExcelAddShopUpdateGroupId4(builder, shopUpdateGroupId4)
-def ShopInfoExcelAddShopUpdateGroupId5(builder, shopUpdateGroupId5): builder.PrependInt32Slot(23, shopUpdateGroupId5, 0)
+    ShopInfoExcelAddShopUpdateGroupId4(builder, shopUpdateGroupId4)
+
+def ShopInfoExcelAddShopUpdateGroupId5(builder, shopUpdateGroupId5):
+    builder.PrependInt32Slot(23, shopUpdateGroupId5, 0)
+
 def AddShopUpdateGroupId5(builder, shopUpdateGroupId5):
-    return ShopInfoExcelAddShopUpdateGroupId5(builder, shopUpdateGroupId5)
-def ShopInfoExcelAddShopUpdateGroupId6(builder, shopUpdateGroupId6): builder.PrependInt32Slot(24, shopUpdateGroupId6, 0)
+    ShopInfoExcelAddShopUpdateGroupId5(builder, shopUpdateGroupId5)
+
+def ShopInfoExcelAddShopUpdateGroupId6(builder, shopUpdateGroupId6):
+    builder.PrependInt32Slot(24, shopUpdateGroupId6, 0)
+
 def AddShopUpdateGroupId6(builder, shopUpdateGroupId6):
-    return ShopInfoExcelAddShopUpdateGroupId6(builder, shopUpdateGroupId6)
-def ShopInfoExcelAddShopUpdateGroupId7(builder, shopUpdateGroupId7): builder.PrependInt32Slot(25, shopUpdateGroupId7, 0)
+    ShopInfoExcelAddShopUpdateGroupId6(builder, shopUpdateGroupId6)
+
+def ShopInfoExcelAddShopUpdateGroupId7(builder, shopUpdateGroupId7):
+    builder.PrependInt32Slot(25, shopUpdateGroupId7, 0)
+
 def AddShopUpdateGroupId7(builder, shopUpdateGroupId7):
-    return ShopInfoExcelAddShopUpdateGroupId7(builder, shopUpdateGroupId7)
-def ShopInfoExcelAddShopUpdateGroupId8(builder, shopUpdateGroupId8): builder.PrependInt32Slot(26, shopUpdateGroupId8, 0)
+    ShopInfoExcelAddShopUpdateGroupId7(builder, shopUpdateGroupId7)
+
+def ShopInfoExcelAddShopUpdateGroupId8(builder, shopUpdateGroupId8):
+    builder.PrependInt32Slot(26, shopUpdateGroupId8, 0)
+
 def AddShopUpdateGroupId8(builder, shopUpdateGroupId8):
-    return ShopInfoExcelAddShopUpdateGroupId8(builder, shopUpdateGroupId8)
-def ShopInfoExcelAddShopUpdateGroupId9(builder, shopUpdateGroupId9): builder.PrependInt32Slot(27, shopUpdateGroupId9, 0)
+    ShopInfoExcelAddShopUpdateGroupId8(builder, shopUpdateGroupId8)
+
+def ShopInfoExcelAddShopUpdateGroupId9(builder, shopUpdateGroupId9):
+    builder.PrependInt32Slot(27, shopUpdateGroupId9, 0)
+
 def AddShopUpdateGroupId9(builder, shopUpdateGroupId9):
-    return ShopInfoExcelAddShopUpdateGroupId9(builder, shopUpdateGroupId9)
-def ShopInfoExcelEnd(builder): return builder.EndObject()
+    ShopInfoExcelAddShopUpdateGroupId9(builder, shopUpdateGroupId9)
+
+def ShopInfoExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ShopInfoExcelEnd(builder)

@@ -17,11 +17,19 @@ func GetRootAsWorldRaidSeasonManageExcel(buf []byte, offset flatbuffers.UOffsetT
 	return x
 }
 
+func FinishWorldRaidSeasonManageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsWorldRaidSeasonManageExcel(buf []byte, offset flatbuffers.UOffsetT) *WorldRaidSeasonManageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &WorldRaidSeasonManageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedWorldRaidSeasonManageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *WorldRaidSeasonManageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -430,7 +438,4 @@ func WorldRaidSeasonManageExcelAddWorldRaidUniqueThemeName(builder *flatbuffers.
 }
 func WorldRaidSeasonManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*WorldRaidSeasonManageExcel) Name() string {
-	return "WorldRaidSeasonManageExcel"
 }

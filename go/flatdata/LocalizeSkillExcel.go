@@ -17,11 +17,19 @@ func GetRootAsLocalizeSkillExcel(buf []byte, offset flatbuffers.UOffsetT) *Local
 	return x
 }
 
+func FinishLocalizeSkillExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsLocalizeSkillExcel(buf []byte, offset flatbuffers.UOffsetT) *LocalizeSkillExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LocalizeSkillExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedLocalizeSkillExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LocalizeSkillExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -218,7 +226,4 @@ func LocalizeSkillExcelAddSkillInvokeLocalizeTw(builder *flatbuffers.Builder, sk
 }
 func LocalizeSkillExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*LocalizeSkillExcel) Name() string {
-	return "LocalizeSkillExcel"
 }

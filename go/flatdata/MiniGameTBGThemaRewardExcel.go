@@ -17,11 +17,19 @@ func GetRootAsMiniGameTBGThemaRewardExcel(buf []byte, offset flatbuffers.UOffset
 	return x
 }
 
+func FinishMiniGameTBGThemaRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMiniGameTBGThemaRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *MiniGameTBGThemaRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MiniGameTBGThemaRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMiniGameTBGThemaRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MiniGameTBGThemaRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -209,7 +217,4 @@ func MiniGameTBGThemaRewardExcelAddThemaUniqueId(builder *flatbuffers.Builder, t
 }
 func MiniGameTBGThemaRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*MiniGameTBGThemaRewardExcel) Name() string {
-	return "MiniGameTBGThemaRewardExcel"
 }

@@ -274,111 +274,218 @@ class CostumeExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def CostumeExcelStart(builder): builder.StartObject(32)
+def CostumeExcelStart(builder):
+    builder.StartObject(32)
+
 def Start(builder):
-    return CostumeExcelStart(builder)
-def CostumeExcelAddAnimationSsr(builder, animationSsr): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(animationSsr), 0)
+    CostumeExcelStart(builder)
+
+def CostumeExcelAddAnimationSsr(builder, animationSsr):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(animationSsr), 0)
+
 def AddAnimationSsr(builder, animationSsr):
-    return CostumeExcelAddAnimationSsr(builder, animationSsr)
-def CostumeExcelAddAnimationValidator(builder, animationValidator): builder.PrependBoolSlot(1, animationValidator, 0)
+    CostumeExcelAddAnimationSsr(builder, animationSsr)
+
+def CostumeExcelAddAnimationValidator(builder, animationValidator):
+    builder.PrependBoolSlot(1, animationValidator, 0)
+
 def AddAnimationValidator(builder, animationValidator):
-    return CostumeExcelAddAnimationValidator(builder, animationValidator)
-def CostumeExcelAddCafeModelPrefabName(builder, cafeModelPrefabName): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(cafeModelPrefabName), 0)
+    CostumeExcelAddAnimationValidator(builder, animationValidator)
+
+def CostumeExcelAddCafeModelPrefabName(builder, cafeModelPrefabName):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(cafeModelPrefabName), 0)
+
 def AddCafeModelPrefabName(builder, cafeModelPrefabName):
-    return CostumeExcelAddCafeModelPrefabName(builder, cafeModelPrefabName)
-def CostumeExcelAddCharacterSkillListGroupId(builder, characterSkillListGroupId): builder.PrependInt64Slot(3, characterSkillListGroupId, 0)
+    CostumeExcelAddCafeModelPrefabName(builder, cafeModelPrefabName)
+
+def CostumeExcelAddCharacterSkillListGroupId(builder, characterSkillListGroupId):
+    builder.PrependInt64Slot(3, characterSkillListGroupId, 0)
+
 def AddCharacterSkillListGroupId(builder, characterSkillListGroupId):
-    return CostumeExcelAddCharacterSkillListGroupId(builder, characterSkillListGroupId)
-def CostumeExcelAddCharacterVoiceGroupId(builder, characterVoiceGroupId): builder.PrependInt64Slot(4, characterVoiceGroupId, 0)
+    CostumeExcelAddCharacterSkillListGroupId(builder, characterSkillListGroupId)
+
+def CostumeExcelAddCharacterVoiceGroupId(builder, characterVoiceGroupId):
+    builder.PrependInt64Slot(4, characterVoiceGroupId, 0)
+
 def AddCharacterVoiceGroupId(builder, characterVoiceGroupId):
-    return CostumeExcelAddCharacterVoiceGroupId(builder, characterVoiceGroupId)
-def CostumeExcelAddCollectionBgTexturePath(builder, collectionBgTexturePath): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(collectionBgTexturePath), 0)
+    CostumeExcelAddCharacterVoiceGroupId(builder, characterVoiceGroupId)
+
+def CostumeExcelAddCollectionBgTexturePath(builder, collectionBgTexturePath):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(collectionBgTexturePath), 0)
+
 def AddCollectionBgTexturePath(builder, collectionBgTexturePath):
-    return CostumeExcelAddCollectionBgTexturePath(builder, collectionBgTexturePath)
-def CostumeExcelAddCollectionTexturePath(builder, collectionTexturePath): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(collectionTexturePath), 0)
+    CostumeExcelAddCollectionBgTexturePath(builder, collectionBgTexturePath)
+
+def CostumeExcelAddCollectionTexturePath(builder, collectionTexturePath):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(collectionTexturePath), 0)
+
 def AddCollectionTexturePath(builder, collectionTexturePath):
-    return CostumeExcelAddCollectionTexturePath(builder, collectionTexturePath)
-def CostumeExcelAddCollectionVisible(builder, collectionVisible): builder.PrependBoolSlot(7, collectionVisible, 0)
+    CostumeExcelAddCollectionTexturePath(builder, collectionTexturePath)
+
+def CostumeExcelAddCollectionVisible(builder, collectionVisible):
+    builder.PrependBoolSlot(7, collectionVisible, 0)
+
 def AddCollectionVisible(builder, collectionVisible):
-    return CostumeExcelAddCollectionVisible(builder, collectionVisible)
-def CostumeExcelAddCollectionVisibleEndDate(builder, collectionVisibleEndDate): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(collectionVisibleEndDate), 0)
+    CostumeExcelAddCollectionVisible(builder, collectionVisible)
+
+def CostumeExcelAddCollectionVisibleEndDate(builder, collectionVisibleEndDate):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(collectionVisibleEndDate), 0)
+
 def AddCollectionVisibleEndDate(builder, collectionVisibleEndDate):
-    return CostumeExcelAddCollectionVisibleEndDate(builder, collectionVisibleEndDate)
-def CostumeExcelAddCollectionVisibleStartDate(builder, collectionVisibleStartDate): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(collectionVisibleStartDate), 0)
+    CostumeExcelAddCollectionVisibleEndDate(builder, collectionVisibleEndDate)
+
+def CostumeExcelAddCollectionVisibleStartDate(builder, collectionVisibleStartDate):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(collectionVisibleStartDate), 0)
+
 def AddCollectionVisibleStartDate(builder, collectionVisibleStartDate):
-    return CostumeExcelAddCollectionVisibleStartDate(builder, collectionVisibleStartDate)
-def CostumeExcelAddCombatStyleTexturePath(builder, combatStyleTexturePath): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(combatStyleTexturePath), 0)
+    CostumeExcelAddCollectionVisibleStartDate(builder, collectionVisibleStartDate)
+
+def CostumeExcelAddCombatStyleTexturePath(builder, combatStyleTexturePath):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(combatStyleTexturePath), 0)
+
 def AddCombatStyleTexturePath(builder, combatStyleTexturePath):
-    return CostumeExcelAddCombatStyleTexturePath(builder, combatStyleTexturePath)
-def CostumeExcelAddCostumeGroupId(builder, costumeGroupId): builder.PrependInt64Slot(11, costumeGroupId, 0)
+    CostumeExcelAddCombatStyleTexturePath(builder, combatStyleTexturePath)
+
+def CostumeExcelAddCostumeGroupId(builder, costumeGroupId):
+    builder.PrependInt64Slot(11, costumeGroupId, 0)
+
 def AddCostumeGroupId(builder, costumeGroupId):
-    return CostumeExcelAddCostumeGroupId(builder, costumeGroupId)
-def CostumeExcelAddCostumeUniqueId(builder, costumeUniqueId): builder.PrependInt64Slot(12, costumeUniqueId, 0)
+    CostumeExcelAddCostumeGroupId(builder, costumeGroupId)
+
+def CostumeExcelAddCostumeUniqueId(builder, costumeUniqueId):
+    builder.PrependInt64Slot(12, costumeUniqueId, 0)
+
 def AddCostumeUniqueId(builder, costumeUniqueId):
-    return CostumeExcelAddCostumeUniqueId(builder, costumeUniqueId)
-def CostumeExcelAddDevName(builder, devName): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
+    CostumeExcelAddCostumeUniqueId(builder, costumeUniqueId)
+
+def CostumeExcelAddDevName(builder, devName):
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
+
 def AddDevName(builder, devName):
-    return CostumeExcelAddDevName(builder, devName)
-def CostumeExcelAddEchelonModelPrefabName(builder, echelonModelPrefabName): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(echelonModelPrefabName), 0)
+    CostumeExcelAddDevName(builder, devName)
+
+def CostumeExcelAddEchelonModelPrefabName(builder, echelonModelPrefabName):
+    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(echelonModelPrefabName), 0)
+
 def AddEchelonModelPrefabName(builder, echelonModelPrefabName):
-    return CostumeExcelAddEchelonModelPrefabName(builder, echelonModelPrefabName)
-def CostumeExcelAddEnterStrategyAnimationName(builder, enterStrategyAnimationName): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(enterStrategyAnimationName), 0)
+    CostumeExcelAddEchelonModelPrefabName(builder, echelonModelPrefabName)
+
+def CostumeExcelAddEnterStrategyAnimationName(builder, enterStrategyAnimationName):
+    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(enterStrategyAnimationName), 0)
+
 def AddEnterStrategyAnimationName(builder, enterStrategyAnimationName):
-    return CostumeExcelAddEnterStrategyAnimationName(builder, enterStrategyAnimationName)
-def CostumeExcelAddEntityMaterialType(builder, entityMaterialType): builder.PrependInt32Slot(16, entityMaterialType, 0)
+    CostumeExcelAddEnterStrategyAnimationName(builder, enterStrategyAnimationName)
+
+def CostumeExcelAddEntityMaterialType(builder, entityMaterialType):
+    builder.PrependInt32Slot(16, entityMaterialType, 0)
+
 def AddEntityMaterialType(builder, entityMaterialType):
-    return CostumeExcelAddEntityMaterialType(builder, entityMaterialType)
-def CostumeExcelAddInformationPacel(builder, informationPacel): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(informationPacel), 0)
+    CostumeExcelAddEntityMaterialType(builder, entityMaterialType)
+
+def CostumeExcelAddInformationPacel(builder, informationPacel):
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(informationPacel), 0)
+
 def AddInformationPacel(builder, informationPacel):
-    return CostumeExcelAddInformationPacel(builder, informationPacel)
-def CostumeExcelAddIsDefault(builder, isDefault): builder.PrependBoolSlot(18, isDefault, 0)
+    CostumeExcelAddInformationPacel(builder, informationPacel)
+
+def CostumeExcelAddIsDefault(builder, isDefault):
+    builder.PrependBoolSlot(18, isDefault, 0)
+
 def AddIsDefault(builder, isDefault):
-    return CostumeExcelAddIsDefault(builder, isDefault)
-def CostumeExcelAddModelPrefabName(builder, modelPrefabName): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(modelPrefabName), 0)
+    CostumeExcelAddIsDefault(builder, isDefault)
+
+def CostumeExcelAddModelPrefabName(builder, modelPrefabName):
+    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(modelPrefabName), 0)
+
 def AddModelPrefabName(builder, modelPrefabName):
-    return CostumeExcelAddModelPrefabName(builder, modelPrefabName)
-def CostumeExcelAddProductionStep(builder, productionStep): builder.PrependInt32Slot(20, productionStep, 0)
+    CostumeExcelAddModelPrefabName(builder, modelPrefabName)
+
+def CostumeExcelAddProductionStep(builder, productionStep):
+    builder.PrependInt32Slot(20, productionStep, 0)
+
 def AddProductionStep(builder, productionStep):
-    return CostumeExcelAddProductionStep(builder, productionStep)
-def CostumeExcelAddRarity(builder, rarity): builder.PrependInt32Slot(21, rarity, 0)
+    CostumeExcelAddProductionStep(builder, productionStep)
+
+def CostumeExcelAddRarity(builder, rarity):
+    builder.PrependInt32Slot(21, rarity, 0)
+
 def AddRarity(builder, rarity):
-    return CostumeExcelAddRarity(builder, rarity)
-def CostumeExcelAddReleaseDate(builder, releaseDate): builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(releaseDate), 0)
+    CostumeExcelAddRarity(builder, rarity)
+
+def CostumeExcelAddReleaseDate(builder, releaseDate):
+    builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(releaseDate), 0)
+
 def AddReleaseDate(builder, releaseDate):
-    return CostumeExcelAddReleaseDate(builder, releaseDate)
-def CostumeExcelAddShowObjectHpStatus(builder, showObjectHpStatus): builder.PrependBoolSlot(23, showObjectHpStatus, 0)
+    CostumeExcelAddReleaseDate(builder, releaseDate)
+
+def CostumeExcelAddShowObjectHpStatus(builder, showObjectHpStatus):
+    builder.PrependBoolSlot(23, showObjectHpStatus, 0)
+
 def AddShowObjectHpStatus(builder, showObjectHpStatus):
-    return CostumeExcelAddShowObjectHpStatus(builder, showObjectHpStatus)
-def CostumeExcelAddSpineResourceName(builder, spineResourceName): builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(spineResourceName), 0)
+    CostumeExcelAddShowObjectHpStatus(builder, showObjectHpStatus)
+
+def CostumeExcelAddSpineResourceName(builder, spineResourceName):
+    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(spineResourceName), 0)
+
 def AddSpineResourceName(builder, spineResourceName):
-    return CostumeExcelAddSpineResourceName(builder, spineResourceName)
-def CostumeExcelAddSpineResourceNameDiorama(builder, spineResourceNameDiorama): builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(spineResourceNameDiorama), 0)
+    CostumeExcelAddSpineResourceName(builder, spineResourceName)
+
+def CostumeExcelAddSpineResourceNameDiorama(builder, spineResourceNameDiorama):
+    builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(spineResourceNameDiorama), 0)
+
 def AddSpineResourceNameDiorama(builder, spineResourceNameDiorama):
-    return CostumeExcelAddSpineResourceNameDiorama(builder, spineResourceNameDiorama)
-def CostumeExcelAddSpineResourceNameDioramaForFormConversion(builder, spineResourceNameDioramaForFormConversion): builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(spineResourceNameDioramaForFormConversion), 0)
+    CostumeExcelAddSpineResourceNameDiorama(builder, spineResourceNameDiorama)
+
+def CostumeExcelAddSpineResourceNameDioramaForFormConversion(builder, spineResourceNameDioramaForFormConversion):
+    builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(spineResourceNameDioramaForFormConversion), 0)
+
 def AddSpineResourceNameDioramaForFormConversion(builder, spineResourceNameDioramaForFormConversion):
-    return CostumeExcelAddSpineResourceNameDioramaForFormConversion(builder, spineResourceNameDioramaForFormConversion)
-def CostumeExcelStartSpineResourceNameDioramaForFormConversionVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    CostumeExcelAddSpineResourceNameDioramaForFormConversion(builder, spineResourceNameDioramaForFormConversion)
+
+def CostumeExcelStartSpineResourceNameDioramaForFormConversionVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartSpineResourceNameDioramaForFormConversionVector(builder, numElems):
     return CostumeExcelStartSpineResourceNameDioramaForFormConversionVector(builder, numElems)
-def CostumeExcelAddStrategyModelPrefabName(builder, strategyModelPrefabName): builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(strategyModelPrefabName), 0)
+
+def CostumeExcelAddStrategyModelPrefabName(builder, strategyModelPrefabName):
+    builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(strategyModelPrefabName), 0)
+
 def AddStrategyModelPrefabName(builder, strategyModelPrefabName):
-    return CostumeExcelAddStrategyModelPrefabName(builder, strategyModelPrefabName)
-def CostumeExcelAddTextureBoss(builder, textureBoss): builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(textureBoss), 0)
+    CostumeExcelAddStrategyModelPrefabName(builder, strategyModelPrefabName)
+
+def CostumeExcelAddTextureBoss(builder, textureBoss):
+    builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(textureBoss), 0)
+
 def AddTextureBoss(builder, textureBoss):
-    return CostumeExcelAddTextureBoss(builder, textureBoss)
-def CostumeExcelAddTextureDir(builder, textureDir): builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(textureDir), 0)
+    CostumeExcelAddTextureBoss(builder, textureBoss)
+
+def CostumeExcelAddTextureDir(builder, textureDir):
+    builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(textureDir), 0)
+
 def AddTextureDir(builder, textureDir):
-    return CostumeExcelAddTextureDir(builder, textureDir)
-def CostumeExcelAddTextureSkillCard(builder, textureSkillCard): builder.PrependUOffsetTRelativeSlot(30, flatbuffers.number_types.UOffsetTFlags.py_type(textureSkillCard), 0)
+    CostumeExcelAddTextureDir(builder, textureDir)
+
+def CostumeExcelAddTextureSkillCard(builder, textureSkillCard):
+    builder.PrependUOffsetTRelativeSlot(30, flatbuffers.number_types.UOffsetTFlags.py_type(textureSkillCard), 0)
+
 def AddTextureSkillCard(builder, textureSkillCard):
-    return CostumeExcelAddTextureSkillCard(builder, textureSkillCard)
-def CostumeExcelStartTextureSkillCardVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    CostumeExcelAddTextureSkillCard(builder, textureSkillCard)
+
+def CostumeExcelStartTextureSkillCardVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartTextureSkillCardVector(builder, numElems):
     return CostumeExcelStartTextureSkillCardVector(builder, numElems)
-def CostumeExcelAddUseObjectHpbar(builder, useObjectHpbar): builder.PrependBoolSlot(31, useObjectHpbar, 0)
+
+def CostumeExcelAddUseObjectHpbar(builder, useObjectHpbar):
+    builder.PrependBoolSlot(31, useObjectHpbar, 0)
+
 def AddUseObjectHpbar(builder, useObjectHpbar):
-    return CostumeExcelAddUseObjectHpbar(builder, useObjectHpbar)
-def CostumeExcelEnd(builder): return builder.EndObject()
+    CostumeExcelAddUseObjectHpbar(builder, useObjectHpbar)
+
+def CostumeExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CostumeExcelEnd(builder)

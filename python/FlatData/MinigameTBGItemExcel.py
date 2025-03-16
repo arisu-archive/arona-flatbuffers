@@ -94,39 +94,74 @@ class MinigameTBGItemExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def MinigameTBGItemExcelStart(builder): builder.StartObject(10)
+def MinigameTBGItemExcelStart(builder):
+    builder.StartObject(10)
+
 def Start(builder):
-    return MinigameTBGItemExcelStart(builder)
-def MinigameTBGItemExcelAddBuffIcon(builder, buffIcon): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(buffIcon), 0)
+    MinigameTBGItemExcelStart(builder)
+
+def MinigameTBGItemExcelAddBuffIcon(builder, buffIcon):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(buffIcon), 0)
+
 def AddBuffIcon(builder, buffIcon):
-    return MinigameTBGItemExcelAddBuffIcon(builder, buffIcon)
-def MinigameTBGItemExcelAddBuffIconHudVisible(builder, buffIconHudVisible): builder.PrependBoolSlot(1, buffIconHudVisible, 0)
+    MinigameTBGItemExcelAddBuffIcon(builder, buffIcon)
+
+def MinigameTBGItemExcelAddBuffIconHudVisible(builder, buffIconHudVisible):
+    builder.PrependBoolSlot(1, buffIconHudVisible, 0)
+
 def AddBuffIconHudVisible(builder, buffIconHudVisible):
-    return MinigameTBGItemExcelAddBuffIconHudVisible(builder, buffIconHudVisible)
-def MinigameTBGItemExcelAddDiceEffectAniClip(builder, diceEffectAniClip): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(diceEffectAniClip), 0)
+    MinigameTBGItemExcelAddBuffIconHudVisible(builder, buffIconHudVisible)
+
+def MinigameTBGItemExcelAddDiceEffectAniClip(builder, diceEffectAniClip):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(diceEffectAniClip), 0)
+
 def AddDiceEffectAniClip(builder, diceEffectAniClip):
-    return MinigameTBGItemExcelAddDiceEffectAniClip(builder, diceEffectAniClip)
-def MinigameTBGItemExcelAddEncounterCount(builder, encounterCount): builder.PrependInt32Slot(3, encounterCount, 0)
+    MinigameTBGItemExcelAddDiceEffectAniClip(builder, diceEffectAniClip)
+
+def MinigameTBGItemExcelAddEncounterCount(builder, encounterCount):
+    builder.PrependInt32Slot(3, encounterCount, 0)
+
 def AddEncounterCount(builder, encounterCount):
-    return MinigameTBGItemExcelAddEncounterCount(builder, encounterCount)
-def MinigameTBGItemExcelAddIcon(builder, icon): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
+    MinigameTBGItemExcelAddEncounterCount(builder, encounterCount)
+
+def MinigameTBGItemExcelAddIcon(builder, icon):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
+
 def AddIcon(builder, icon):
-    return MinigameTBGItemExcelAddIcon(builder, icon)
-def MinigameTBGItemExcelAddItemParameter(builder, itemParameter): builder.PrependInt32Slot(5, itemParameter, 0)
+    MinigameTBGItemExcelAddIcon(builder, icon)
+
+def MinigameTBGItemExcelAddItemParameter(builder, itemParameter):
+    builder.PrependInt32Slot(5, itemParameter, 0)
+
 def AddItemParameter(builder, itemParameter):
-    return MinigameTBGItemExcelAddItemParameter(builder, itemParameter)
-def MinigameTBGItemExcelAddItemType(builder, itemType): builder.PrependInt32Slot(6, itemType, 0)
+    MinigameTBGItemExcelAddItemParameter(builder, itemParameter)
+
+def MinigameTBGItemExcelAddItemType(builder, itemType):
+    builder.PrependInt32Slot(6, itemType, 0)
+
 def AddItemType(builder, itemType):
-    return MinigameTBGItemExcelAddItemType(builder, itemType)
-def MinigameTBGItemExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(localizeEtcId), 0)
+    MinigameTBGItemExcelAddItemType(builder, itemType)
+
+def MinigameTBGItemExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(localizeEtcId), 0)
+
 def AddLocalizeEtcId(builder, localizeEtcId):
-    return MinigameTBGItemExcelAddLocalizeEtcId(builder, localizeEtcId)
-def MinigameTBGItemExcelAddTbgItemEffectType(builder, tbgItemEffectType): builder.PrependInt32Slot(8, tbgItemEffectType, 0)
+    MinigameTBGItemExcelAddLocalizeEtcId(builder, localizeEtcId)
+
+def MinigameTBGItemExcelAddTbgItemEffectType(builder, tbgItemEffectType):
+    builder.PrependInt32Slot(8, tbgItemEffectType, 0)
+
 def AddTbgItemEffectType(builder, tbgItemEffectType):
-    return MinigameTBGItemExcelAddTbgItemEffectType(builder, tbgItemEffectType)
-def MinigameTBGItemExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(9, uniqueId, 0)
+    MinigameTBGItemExcelAddTbgItemEffectType(builder, tbgItemEffectType)
+
+def MinigameTBGItemExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(9, uniqueId, 0)
+
 def AddUniqueId(builder, uniqueId):
-    return MinigameTBGItemExcelAddUniqueId(builder, uniqueId)
-def MinigameTBGItemExcelEnd(builder): return builder.EndObject()
+    MinigameTBGItemExcelAddUniqueId(builder, uniqueId)
+
+def MinigameTBGItemExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MinigameTBGItemExcelEnd(builder)

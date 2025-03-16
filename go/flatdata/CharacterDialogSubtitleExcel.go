@@ -17,11 +17,19 @@ func GetRootAsCharacterDialogSubtitleExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishCharacterDialogSubtitleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCharacterDialogSubtitleExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterDialogSubtitleExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterDialogSubtitleExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCharacterDialogSubtitleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterDialogSubtitleExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -175,7 +183,4 @@ func CharacterDialogSubtitleExcelAddTlmid(builder *flatbuffers.Builder, tlmid fl
 }
 func CharacterDialogSubtitleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CharacterDialogSubtitleExcel) Name() string {
-	return "CharacterDialogSubtitleExcel"
 }

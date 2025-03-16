@@ -17,11 +17,19 @@ func GetRootAsMiniGameRhythmExcel(buf []byte, offset flatbuffers.UOffsetT) *Mini
 	return x
 }
 
+func FinishMiniGameRhythmExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMiniGameRhythmExcel(buf []byte, offset flatbuffers.UOffsetT) *MiniGameRhythmExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MiniGameRhythmExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMiniGameRhythmExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MiniGameRhythmExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -322,7 +330,4 @@ func MiniGameRhythmExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64
 }
 func MiniGameRhythmExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*MiniGameRhythmExcel) Name() string {
-	return "MiniGameRhythmExcel"
 }

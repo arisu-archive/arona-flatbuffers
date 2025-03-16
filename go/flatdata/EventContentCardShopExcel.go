@@ -17,11 +17,19 @@ func GetRootAsEventContentCardShopExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishEventContentCardShopExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentCardShopExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentCardShopExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentCardShopExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentCardShopExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentCardShopExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -269,7 +277,4 @@ func EventContentCardShopExcelStartRewardParcelTypeVector(builder *flatbuffers.B
 }
 func EventContentCardShopExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentCardShopExcel) Name() string {
-	return "EventContentCardShopExcel"
 }

@@ -17,11 +17,19 @@ func GetRootAsCharacterStatsDetailExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishCharacterStatsDetailExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCharacterStatsDetailExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterStatsDetailExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterStatsDetailExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCharacterStatsDetailExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterStatsDetailExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -117,7 +125,4 @@ func CharacterStatsDetailExcelStartIsStatsPercentVector(builder *flatbuffers.Bui
 }
 func CharacterStatsDetailExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CharacterStatsDetailExcel) Name() string {
-	return "CharacterStatsDetailExcel"
 }

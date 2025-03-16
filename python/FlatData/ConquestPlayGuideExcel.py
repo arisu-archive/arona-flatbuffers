@@ -66,27 +66,50 @@ class ConquestPlayGuideExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ConquestPlayGuideExcelStart(builder): builder.StartObject(6)
+def ConquestPlayGuideExcelStart(builder):
+    builder.StartObject(6)
+
 def Start(builder):
-    return ConquestPlayGuideExcelStart(builder)
-def ConquestPlayGuideExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt32Slot(0, displayOrder, 0)
+    ConquestPlayGuideExcelStart(builder)
+
+def ConquestPlayGuideExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt32Slot(0, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return ConquestPlayGuideExcelAddDisplayOrder(builder, displayOrder)
-def ConquestPlayGuideExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
+    ConquestPlayGuideExcelAddDisplayOrder(builder, displayOrder)
+
+def ConquestPlayGuideExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(1, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return ConquestPlayGuideExcelAddEventContentId(builder, eventContentId)
-def ConquestPlayGuideExcelAddGuideImagePath(builder, guideImagePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(guideImagePath), 0)
+    ConquestPlayGuideExcelAddEventContentId(builder, eventContentId)
+
+def ConquestPlayGuideExcelAddGuideImagePath(builder, guideImagePath):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(guideImagePath), 0)
+
 def AddGuideImagePath(builder, guideImagePath):
-    return ConquestPlayGuideExcelAddGuideImagePath(builder, guideImagePath)
-def ConquestPlayGuideExcelAddGuideText(builder, guideText): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(guideText), 0)
+    ConquestPlayGuideExcelAddGuideImagePath(builder, guideImagePath)
+
+def ConquestPlayGuideExcelAddGuideText(builder, guideText):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(guideText), 0)
+
 def AddGuideText(builder, guideText):
-    return ConquestPlayGuideExcelAddGuideText(builder, guideText)
-def ConquestPlayGuideExcelAddGuideTitle(builder, guideTitle): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(guideTitle), 0)
+    ConquestPlayGuideExcelAddGuideText(builder, guideText)
+
+def ConquestPlayGuideExcelAddGuideTitle(builder, guideTitle):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(guideTitle), 0)
+
 def AddGuideTitle(builder, guideTitle):
-    return ConquestPlayGuideExcelAddGuideTitle(builder, guideTitle)
-def ConquestPlayGuideExcelAddId(builder, id): builder.PrependInt64Slot(5, id, 0)
+    ConquestPlayGuideExcelAddGuideTitle(builder, guideTitle)
+
+def ConquestPlayGuideExcelAddId(builder, id):
+    builder.PrependInt64Slot(5, id, 0)
+
 def AddId(builder, id):
-    return ConquestPlayGuideExcelAddId(builder, id)
-def ConquestPlayGuideExcelEnd(builder): return builder.EndObject()
+    ConquestPlayGuideExcelAddId(builder, id)
+
+def ConquestPlayGuideExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ConquestPlayGuideExcelEnd(builder)

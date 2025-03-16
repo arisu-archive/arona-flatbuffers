@@ -17,11 +17,19 @@ func GetRootAsClanChattingEmojiExcel(buf []byte, offset flatbuffers.UOffsetT) *C
 	return x
 }
 
+func FinishClanChattingEmojiExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsClanChattingEmojiExcel(buf []byte, offset flatbuffers.UOffsetT) *ClanChattingEmojiExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ClanChattingEmojiExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedClanChattingEmojiExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ClanChattingEmojiExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -138,7 +146,4 @@ func ClanChattingEmojiExcelAddTabGroupId(builder *flatbuffers.Builder, tabGroupI
 }
 func ClanChattingEmojiExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ClanChattingEmojiExcel) Name() string {
-	return "ClanChattingEmojiExcel"
 }

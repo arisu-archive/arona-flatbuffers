@@ -17,11 +17,19 @@ func GetRootAsEventContentChangeScenarioExcel(buf []byte, offset flatbuffers.UOf
 	return x
 }
 
+func FinishEventContentChangeScenarioExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentChangeScenarioExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentChangeScenarioExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentChangeScenarioExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentChangeScenarioExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentChangeScenarioExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -98,7 +106,4 @@ func EventContentChangeScenarioExcelAddScenarioGroupId(builder *flatbuffers.Buil
 }
 func EventContentChangeScenarioExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentChangeScenarioExcel) Name() string {
-	return "EventContentChangeScenarioExcel"
 }

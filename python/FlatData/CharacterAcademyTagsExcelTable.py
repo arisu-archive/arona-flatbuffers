@@ -49,15 +49,26 @@ class CharacterAcademyTagsExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CharacterAcademyTagsExcelTableStart(builder): builder.StartObject(1)
+def CharacterAcademyTagsExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return CharacterAcademyTagsExcelTableStart(builder)
-def CharacterAcademyTagsExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    CharacterAcademyTagsExcelTableStart(builder)
+
+def CharacterAcademyTagsExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return CharacterAcademyTagsExcelTableAddDataList(builder, dataList)
-def CharacterAcademyTagsExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    CharacterAcademyTagsExcelTableAddDataList(builder, dataList)
+
+def CharacterAcademyTagsExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return CharacterAcademyTagsExcelTableStartDataListVector(builder, numElems)
-def CharacterAcademyTagsExcelTableEnd(builder): return builder.EndObject()
+
+def CharacterAcademyTagsExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CharacterAcademyTagsExcelTableEnd(builder)

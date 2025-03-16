@@ -17,11 +17,19 @@ func GetRootAsScenarioCharacterNameExcel(buf []byte, offset flatbuffers.UOffsetT
 	return x
 }
 
+func FinishScenarioCharacterNameExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsScenarioCharacterNameExcel(buf []byte, offset flatbuffers.UOffsetT) *ScenarioCharacterNameExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ScenarioCharacterNameExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedScenarioCharacterNameExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ScenarioCharacterNameExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -215,7 +223,4 @@ func ScenarioCharacterNameExcelAddSpinePrefabName(builder *flatbuffers.Builder, 
 }
 func ScenarioCharacterNameExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ScenarioCharacterNameExcel) Name() string {
-	return "ScenarioCharacterNameExcel"
 }

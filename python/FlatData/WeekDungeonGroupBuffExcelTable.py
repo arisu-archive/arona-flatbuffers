@@ -49,15 +49,26 @@ class WeekDungeonGroupBuffExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def WeekDungeonGroupBuffExcelTableStart(builder): builder.StartObject(1)
+def WeekDungeonGroupBuffExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return WeekDungeonGroupBuffExcelTableStart(builder)
-def WeekDungeonGroupBuffExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    WeekDungeonGroupBuffExcelTableStart(builder)
+
+def WeekDungeonGroupBuffExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return WeekDungeonGroupBuffExcelTableAddDataList(builder, dataList)
-def WeekDungeonGroupBuffExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    WeekDungeonGroupBuffExcelTableAddDataList(builder, dataList)
+
+def WeekDungeonGroupBuffExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return WeekDungeonGroupBuffExcelTableStartDataListVector(builder, numElems)
-def WeekDungeonGroupBuffExcelTableEnd(builder): return builder.EndObject()
+
+def WeekDungeonGroupBuffExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return WeekDungeonGroupBuffExcelTableEnd(builder)

@@ -49,15 +49,26 @@ class EventContentMiniEventTokenExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentMiniEventTokenExcelTableStart(builder): builder.StartObject(1)
+def EventContentMiniEventTokenExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return EventContentMiniEventTokenExcelTableStart(builder)
-def EventContentMiniEventTokenExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    EventContentMiniEventTokenExcelTableStart(builder)
+
+def EventContentMiniEventTokenExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return EventContentMiniEventTokenExcelTableAddDataList(builder, dataList)
-def EventContentMiniEventTokenExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentMiniEventTokenExcelTableAddDataList(builder, dataList)
+
+def EventContentMiniEventTokenExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return EventContentMiniEventTokenExcelTableStartDataListVector(builder, numElems)
-def EventContentMiniEventTokenExcelTableEnd(builder): return builder.EndObject()
+
+def EventContentMiniEventTokenExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentMiniEventTokenExcelTableEnd(builder)

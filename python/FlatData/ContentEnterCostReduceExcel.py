@@ -66,27 +66,50 @@ class ContentEnterCostReduceExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ContentEnterCostReduceExcelStart(builder): builder.StartObject(6)
+def ContentEnterCostReduceExcelStart(builder):
+    builder.StartObject(6)
+
 def Start(builder):
-    return ContentEnterCostReduceExcelStart(builder)
-def ContentEnterCostReduceExcelAddContentType(builder, contentType): builder.PrependInt32Slot(0, contentType, 0)
+    ContentEnterCostReduceExcelStart(builder)
+
+def ContentEnterCostReduceExcelAddContentType(builder, contentType):
+    builder.PrependInt32Slot(0, contentType, 0)
+
 def AddContentType(builder, contentType):
-    return ContentEnterCostReduceExcelAddContentType(builder, contentType)
-def ContentEnterCostReduceExcelAddEnterCostReduceGroupId(builder, enterCostReduceGroupId): builder.PrependInt64Slot(1, enterCostReduceGroupId, 0)
+    ContentEnterCostReduceExcelAddContentType(builder, contentType)
+
+def ContentEnterCostReduceExcelAddEnterCostReduceGroupId(builder, enterCostReduceGroupId):
+    builder.PrependInt64Slot(1, enterCostReduceGroupId, 0)
+
 def AddEnterCostReduceGroupId(builder, enterCostReduceGroupId):
-    return ContentEnterCostReduceExcelAddEnterCostReduceGroupId(builder, enterCostReduceGroupId)
-def ContentEnterCostReduceExcelAddReduceAmount(builder, reduceAmount): builder.PrependInt64Slot(2, reduceAmount, 0)
+    ContentEnterCostReduceExcelAddEnterCostReduceGroupId(builder, enterCostReduceGroupId)
+
+def ContentEnterCostReduceExcelAddReduceAmount(builder, reduceAmount):
+    builder.PrependInt64Slot(2, reduceAmount, 0)
+
 def AddReduceAmount(builder, reduceAmount):
-    return ContentEnterCostReduceExcelAddReduceAmount(builder, reduceAmount)
-def ContentEnterCostReduceExcelAddReduceEnterCostId(builder, reduceEnterCostId): builder.PrependInt64Slot(3, reduceEnterCostId, 0)
+    ContentEnterCostReduceExcelAddReduceAmount(builder, reduceAmount)
+
+def ContentEnterCostReduceExcelAddReduceEnterCostId(builder, reduceEnterCostId):
+    builder.PrependInt64Slot(3, reduceEnterCostId, 0)
+
 def AddReduceEnterCostId(builder, reduceEnterCostId):
-    return ContentEnterCostReduceExcelAddReduceEnterCostId(builder, reduceEnterCostId)
-def ContentEnterCostReduceExcelAddReduceEnterCostType(builder, reduceEnterCostType): builder.PrependInt32Slot(4, reduceEnterCostType, 0)
+    ContentEnterCostReduceExcelAddReduceEnterCostId(builder, reduceEnterCostId)
+
+def ContentEnterCostReduceExcelAddReduceEnterCostType(builder, reduceEnterCostType):
+    builder.PrependInt32Slot(4, reduceEnterCostType, 0)
+
 def AddReduceEnterCostType(builder, reduceEnterCostType):
-    return ContentEnterCostReduceExcelAddReduceEnterCostType(builder, reduceEnterCostType)
-def ContentEnterCostReduceExcelAddStageId(builder, stageId): builder.PrependInt64Slot(5, stageId, 0)
+    ContentEnterCostReduceExcelAddReduceEnterCostType(builder, reduceEnterCostType)
+
+def ContentEnterCostReduceExcelAddStageId(builder, stageId):
+    builder.PrependInt64Slot(5, stageId, 0)
+
 def AddStageId(builder, stageId):
-    return ContentEnterCostReduceExcelAddStageId(builder, stageId)
-def ContentEnterCostReduceExcelEnd(builder): return builder.EndObject()
+    ContentEnterCostReduceExcelAddStageId(builder, stageId)
+
+def ContentEnterCostReduceExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ContentEnterCostReduceExcelEnd(builder)

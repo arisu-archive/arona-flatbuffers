@@ -17,11 +17,19 @@ func GetRootAsTutorialFailureImageExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishTutorialFailureImageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsTutorialFailureImageExcel(buf []byte, offset flatbuffers.UOffsetT) *TutorialFailureImageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &TutorialFailureImageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedTutorialFailureImageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *TutorialFailureImageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -134,7 +142,4 @@ func TutorialFailureImageExcelAddType(builder *flatbuffers.Builder, type_ flatbu
 }
 func TutorialFailureImageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*TutorialFailureImageExcel) Name() string {
-	return "TutorialFailureImageExcel"
 }

@@ -17,11 +17,19 @@ func GetRootAsParcelAutoSynthExcelTable(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishParcelAutoSynthExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsParcelAutoSynthExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ParcelAutoSynthExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ParcelAutoSynthExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedParcelAutoSynthExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ParcelAutoSynthExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ParcelAutoSynthExcelTableStartDataListVector(builder *flatbuffers.Builder, 
 }
 func ParcelAutoSynthExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ParcelAutoSynthExcelTable) Name() string {
-	return "ParcelAutoSynthExcelTable"
 }

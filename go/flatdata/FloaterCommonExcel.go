@@ -17,11 +17,19 @@ func GetRootAsFloaterCommonExcel(buf []byte, offset flatbuffers.UOffsetT) *Float
 	return x
 }
 
+func FinishFloaterCommonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsFloaterCommonExcel(buf []byte, offset flatbuffers.UOffsetT) *FloaterCommonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FloaterCommonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedFloaterCommonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FloaterCommonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -128,7 +136,4 @@ func FloaterCommonExcelAddTacticEntityType(builder *flatbuffers.Builder, tacticE
 }
 func FloaterCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*FloaterCommonExcel) Name() string {
-	return "FloaterCommonExcel"
 }

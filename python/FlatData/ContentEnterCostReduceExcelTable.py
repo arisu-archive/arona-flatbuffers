@@ -49,15 +49,26 @@ class ContentEnterCostReduceExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ContentEnterCostReduceExcelTableStart(builder): builder.StartObject(1)
+def ContentEnterCostReduceExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ContentEnterCostReduceExcelTableStart(builder)
-def ContentEnterCostReduceExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ContentEnterCostReduceExcelTableStart(builder)
+
+def ContentEnterCostReduceExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ContentEnterCostReduceExcelTableAddDataList(builder, dataList)
-def ContentEnterCostReduceExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ContentEnterCostReduceExcelTableAddDataList(builder, dataList)
+
+def ContentEnterCostReduceExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ContentEnterCostReduceExcelTableStartDataListVector(builder, numElems)
-def ContentEnterCostReduceExcelTableEnd(builder): return builder.EndObject()
+
+def ContentEnterCostReduceExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ContentEnterCostReduceExcelTableEnd(builder)

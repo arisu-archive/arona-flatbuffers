@@ -182,60 +182,116 @@ class EquipmentStatExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def EquipmentStatExcelStart(builder): builder.StartObject(14)
+def EquipmentStatExcelStart(builder):
+    builder.StartObject(14)
+
 def Start(builder):
-    return EquipmentStatExcelStart(builder)
-def EquipmentStatExcelAddDamageFactorGroupId(builder, damageFactorGroupId): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(damageFactorGroupId), 0)
+    EquipmentStatExcelStart(builder)
+
+def EquipmentStatExcelAddDamageFactorGroupId(builder, damageFactorGroupId):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(damageFactorGroupId), 0)
+
 def AddDamageFactorGroupId(builder, damageFactorGroupId):
-    return EquipmentStatExcelAddDamageFactorGroupId(builder, damageFactorGroupId)
-def EquipmentStatExcelAddDefaultMaxLevel(builder, defaultMaxLevel): builder.PrependInt32Slot(1, defaultMaxLevel, 0)
+    EquipmentStatExcelAddDamageFactorGroupId(builder, damageFactorGroupId)
+
+def EquipmentStatExcelAddDefaultMaxLevel(builder, defaultMaxLevel):
+    builder.PrependInt32Slot(1, defaultMaxLevel, 0)
+
 def AddDefaultMaxLevel(builder, defaultMaxLevel):
-    return EquipmentStatExcelAddDefaultMaxLevel(builder, defaultMaxLevel)
-def EquipmentStatExcelAddEquipmentCategory(builder, equipmentCategory): builder.PrependInt32Slot(2, equipmentCategory, 0)
+    EquipmentStatExcelAddDefaultMaxLevel(builder, defaultMaxLevel)
+
+def EquipmentStatExcelAddEquipmentCategory(builder, equipmentCategory):
+    builder.PrependInt32Slot(2, equipmentCategory, 0)
+
 def AddEquipmentCategory(builder, equipmentCategory):
-    return EquipmentStatExcelAddEquipmentCategory(builder, equipmentCategory)
-def EquipmentStatExcelAddEquipmentId(builder, equipmentId): builder.PrependInt64Slot(3, equipmentId, 0)
+    EquipmentStatExcelAddEquipmentCategory(builder, equipmentCategory)
+
+def EquipmentStatExcelAddEquipmentId(builder, equipmentId):
+    builder.PrependInt64Slot(3, equipmentId, 0)
+
 def AddEquipmentId(builder, equipmentId):
-    return EquipmentStatExcelAddEquipmentId(builder, equipmentId)
-def EquipmentStatExcelAddLevelUpFeedAddExp(builder, levelUpFeedAddExp): builder.PrependInt64Slot(4, levelUpFeedAddExp, 0)
+    EquipmentStatExcelAddEquipmentId(builder, equipmentId)
+
+def EquipmentStatExcelAddLevelUpFeedAddExp(builder, levelUpFeedAddExp):
+    builder.PrependInt64Slot(4, levelUpFeedAddExp, 0)
+
 def AddLevelUpFeedAddExp(builder, levelUpFeedAddExp):
-    return EquipmentStatExcelAddLevelUpFeedAddExp(builder, levelUpFeedAddExp)
-def EquipmentStatExcelAddLevelUpFeedCostAmount(builder, levelUpFeedCostAmount): builder.PrependInt64Slot(5, levelUpFeedCostAmount, 0)
+    EquipmentStatExcelAddLevelUpFeedAddExp(builder, levelUpFeedAddExp)
+
+def EquipmentStatExcelAddLevelUpFeedCostAmount(builder, levelUpFeedCostAmount):
+    builder.PrependInt64Slot(5, levelUpFeedCostAmount, 0)
+
 def AddLevelUpFeedCostAmount(builder, levelUpFeedCostAmount):
-    return EquipmentStatExcelAddLevelUpFeedCostAmount(builder, levelUpFeedCostAmount)
-def EquipmentStatExcelAddLevelUpFeedCostCurrency(builder, levelUpFeedCostCurrency): builder.PrependInt32Slot(6, levelUpFeedCostCurrency, 0)
+    EquipmentStatExcelAddLevelUpFeedCostAmount(builder, levelUpFeedCostAmount)
+
+def EquipmentStatExcelAddLevelUpFeedCostCurrency(builder, levelUpFeedCostCurrency):
+    builder.PrependInt32Slot(6, levelUpFeedCostCurrency, 0)
+
 def AddLevelUpFeedCostCurrency(builder, levelUpFeedCostCurrency):
-    return EquipmentStatExcelAddLevelUpFeedCostCurrency(builder, levelUpFeedCostCurrency)
-def EquipmentStatExcelAddLevelUpFeedExp(builder, levelUpFeedExp): builder.PrependInt64Slot(7, levelUpFeedExp, 0)
+    EquipmentStatExcelAddLevelUpFeedCostCurrency(builder, levelUpFeedCostCurrency)
+
+def EquipmentStatExcelAddLevelUpFeedExp(builder, levelUpFeedExp):
+    builder.PrependInt64Slot(7, levelUpFeedExp, 0)
+
 def AddLevelUpFeedExp(builder, levelUpFeedExp):
-    return EquipmentStatExcelAddLevelUpFeedExp(builder, levelUpFeedExp)
-def EquipmentStatExcelAddLevelUpInsertLimit(builder, levelUpInsertLimit): builder.PrependInt32Slot(8, levelUpInsertLimit, 0)
+    EquipmentStatExcelAddLevelUpFeedExp(builder, levelUpFeedExp)
+
+def EquipmentStatExcelAddLevelUpInsertLimit(builder, levelUpInsertLimit):
+    builder.PrependInt32Slot(8, levelUpInsertLimit, 0)
+
 def AddLevelUpInsertLimit(builder, levelUpInsertLimit):
-    return EquipmentStatExcelAddLevelUpInsertLimit(builder, levelUpInsertLimit)
-def EquipmentStatExcelAddMaxStat(builder, maxStat): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(maxStat), 0)
+    EquipmentStatExcelAddLevelUpInsertLimit(builder, levelUpInsertLimit)
+
+def EquipmentStatExcelAddMaxStat(builder, maxStat):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(maxStat), 0)
+
 def AddMaxStat(builder, maxStat):
-    return EquipmentStatExcelAddMaxStat(builder, maxStat)
-def EquipmentStatExcelStartMaxStatVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EquipmentStatExcelAddMaxStat(builder, maxStat)
+
+def EquipmentStatExcelStartMaxStatVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartMaxStatVector(builder, numElems):
     return EquipmentStatExcelStartMaxStatVector(builder, numElems)
-def EquipmentStatExcelAddMinStat(builder, minStat): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(minStat), 0)
+
+def EquipmentStatExcelAddMinStat(builder, minStat):
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(minStat), 0)
+
 def AddMinStat(builder, minStat):
-    return EquipmentStatExcelAddMinStat(builder, minStat)
-def EquipmentStatExcelStartMinStatVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EquipmentStatExcelAddMinStat(builder, minStat)
+
+def EquipmentStatExcelStartMinStatVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartMinStatVector(builder, numElems):
     return EquipmentStatExcelStartMinStatVector(builder, numElems)
-def EquipmentStatExcelAddStatLevelUpType(builder, statLevelUpType): builder.PrependInt32Slot(11, statLevelUpType, 0)
+
+def EquipmentStatExcelAddStatLevelUpType(builder, statLevelUpType):
+    builder.PrependInt32Slot(11, statLevelUpType, 0)
+
 def AddStatLevelUpType(builder, statLevelUpType):
-    return EquipmentStatExcelAddStatLevelUpType(builder, statLevelUpType)
-def EquipmentStatExcelAddStatType(builder, statType): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(statType), 0)
+    EquipmentStatExcelAddStatLevelUpType(builder, statLevelUpType)
+
+def EquipmentStatExcelAddStatType(builder, statType):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(statType), 0)
+
 def AddStatType(builder, statType):
-    return EquipmentStatExcelAddStatType(builder, statType)
-def EquipmentStatExcelStartStatTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EquipmentStatExcelAddStatType(builder, statType)
+
+def EquipmentStatExcelStartStatTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartStatTypeVector(builder, numElems):
     return EquipmentStatExcelStartStatTypeVector(builder, numElems)
-def EquipmentStatExcelAddTranscendenceMax(builder, transcendenceMax): builder.PrependInt32Slot(13, transcendenceMax, 0)
+
+def EquipmentStatExcelAddTranscendenceMax(builder, transcendenceMax):
+    builder.PrependInt32Slot(13, transcendenceMax, 0)
+
 def AddTranscendenceMax(builder, transcendenceMax):
-    return EquipmentStatExcelAddTranscendenceMax(builder, transcendenceMax)
-def EquipmentStatExcelEnd(builder): return builder.EndObject()
+    EquipmentStatExcelAddTranscendenceMax(builder, transcendenceMax)
+
+def EquipmentStatExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EquipmentStatExcelEnd(builder)

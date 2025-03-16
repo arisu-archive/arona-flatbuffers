@@ -17,11 +17,19 @@ func GetRootAsSchoolDungeonStageExcel(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishSchoolDungeonStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsSchoolDungeonStageExcel(buf []byte, offset flatbuffers.UOffsetT) *SchoolDungeonStageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &SchoolDungeonStageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedSchoolDungeonStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *SchoolDungeonStageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -395,7 +403,4 @@ func SchoolDungeonStageExcelStartStarGoalVector(builder *flatbuffers.Builder, nu
 }
 func SchoolDungeonStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*SchoolDungeonStageExcel) Name() string {
-	return "SchoolDungeonStageExcel"
 }

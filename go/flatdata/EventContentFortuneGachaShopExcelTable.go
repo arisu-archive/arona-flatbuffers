@@ -17,11 +17,19 @@ func GetRootAsEventContentFortuneGachaShopExcelTable(buf []byte, offset flatbuff
 	return x
 }
 
+func FinishEventContentFortuneGachaShopExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentFortuneGachaShopExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentFortuneGachaShopExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentFortuneGachaShopExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentFortuneGachaShopExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentFortuneGachaShopExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func EventContentFortuneGachaShopExcelTableStartDataListVector(builder *flatbuff
 }
 func EventContentFortuneGachaShopExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentFortuneGachaShopExcelTable) Name() string {
-	return "EventContentFortuneGachaShopExcelTable"
 }

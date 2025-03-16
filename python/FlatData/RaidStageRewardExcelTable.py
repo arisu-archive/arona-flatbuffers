@@ -49,15 +49,26 @@ class RaidStageRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def RaidStageRewardExcelTableStart(builder): builder.StartObject(1)
+def RaidStageRewardExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return RaidStageRewardExcelTableStart(builder)
-def RaidStageRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    RaidStageRewardExcelTableStart(builder)
+
+def RaidStageRewardExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return RaidStageRewardExcelTableAddDataList(builder, dataList)
-def RaidStageRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    RaidStageRewardExcelTableAddDataList(builder, dataList)
+
+def RaidStageRewardExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return RaidStageRewardExcelTableStartDataListVector(builder, numElems)
-def RaidStageRewardExcelTableEnd(builder): return builder.EndObject()
+
+def RaidStageRewardExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return RaidStageRewardExcelTableEnd(builder)

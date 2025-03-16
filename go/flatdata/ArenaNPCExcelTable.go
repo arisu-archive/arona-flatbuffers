@@ -17,11 +17,19 @@ func GetRootAsArenaNPCExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Arena
 	return x
 }
 
+func FinishArenaNPCExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsArenaNPCExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ArenaNPCExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ArenaNPCExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedArenaNPCExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ArenaNPCExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ArenaNPCExcelTableStartDataListVector(builder *flatbuffers.Builder, numElem
 }
 func ArenaNPCExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ArenaNPCExcelTable) Name() string {
-	return "ArenaNPCExcelTable"
 }

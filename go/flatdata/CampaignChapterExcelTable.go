@@ -17,11 +17,19 @@ func GetRootAsCampaignChapterExcelTable(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishCampaignChapterExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCampaignChapterExcelTable(buf []byte, offset flatbuffers.UOffsetT) *CampaignChapterExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CampaignChapterExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCampaignChapterExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CampaignChapterExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func CampaignChapterExcelTableStartDataListVector(builder *flatbuffers.Builder, 
 }
 func CampaignChapterExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CampaignChapterExcelTable) Name() string {
-	return "CampaignChapterExcelTable"
 }

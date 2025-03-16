@@ -52,21 +52,38 @@ class FieldKeywordExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def FieldKeywordExcelStart(builder): builder.StartObject(4)
+def FieldKeywordExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return FieldKeywordExcelStart(builder)
-def FieldKeywordExcelAddDescriptionLocalizeKey(builder, descriptionLocalizeKey): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(descriptionLocalizeKey), 0)
+    FieldKeywordExcelStart(builder)
+
+def FieldKeywordExcelAddDescriptionLocalizeKey(builder, descriptionLocalizeKey):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(descriptionLocalizeKey), 0)
+
 def AddDescriptionLocalizeKey(builder, descriptionLocalizeKey):
-    return FieldKeywordExcelAddDescriptionLocalizeKey(builder, descriptionLocalizeKey)
-def FieldKeywordExcelAddImagePath(builder, imagePath): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(imagePath), 0)
+    FieldKeywordExcelAddDescriptionLocalizeKey(builder, descriptionLocalizeKey)
+
+def FieldKeywordExcelAddImagePath(builder, imagePath):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(imagePath), 0)
+
 def AddImagePath(builder, imagePath):
-    return FieldKeywordExcelAddImagePath(builder, imagePath)
-def FieldKeywordExcelAddNameLocalizeKey(builder, nameLocalizeKey): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(nameLocalizeKey), 0)
+    FieldKeywordExcelAddImagePath(builder, imagePath)
+
+def FieldKeywordExcelAddNameLocalizeKey(builder, nameLocalizeKey):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(nameLocalizeKey), 0)
+
 def AddNameLocalizeKey(builder, nameLocalizeKey):
-    return FieldKeywordExcelAddNameLocalizeKey(builder, nameLocalizeKey)
-def FieldKeywordExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(3, uniqueId, 0)
+    FieldKeywordExcelAddNameLocalizeKey(builder, nameLocalizeKey)
+
+def FieldKeywordExcelAddUniqueId(builder, uniqueId):
+    builder.PrependInt64Slot(3, uniqueId, 0)
+
 def AddUniqueId(builder, uniqueId):
-    return FieldKeywordExcelAddUniqueId(builder, uniqueId)
-def FieldKeywordExcelEnd(builder): return builder.EndObject()
+    FieldKeywordExcelAddUniqueId(builder, uniqueId)
+
+def FieldKeywordExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return FieldKeywordExcelEnd(builder)

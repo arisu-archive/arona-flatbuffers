@@ -52,21 +52,38 @@ class EventContentBoxGachaElementExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EventContentBoxGachaElementExcelStart(builder): builder.StartObject(4)
+def EventContentBoxGachaElementExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return EventContentBoxGachaElementExcelStart(builder)
-def EventContentBoxGachaElementExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
+    EventContentBoxGachaElementExcelStart(builder)
+
+def EventContentBoxGachaElementExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(0, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentBoxGachaElementExcelAddEventContentId(builder, eventContentId)
-def EventContentBoxGachaElementExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(1, groupId, 0)
+    EventContentBoxGachaElementExcelAddEventContentId(builder, eventContentId)
+
+def EventContentBoxGachaElementExcelAddGroupId(builder, groupId):
+    builder.PrependInt64Slot(1, groupId, 0)
+
 def AddGroupId(builder, groupId):
-    return EventContentBoxGachaElementExcelAddGroupId(builder, groupId)
-def EventContentBoxGachaElementExcelAddId(builder, id): builder.PrependInt64Slot(2, id, 0)
+    EventContentBoxGachaElementExcelAddGroupId(builder, groupId)
+
+def EventContentBoxGachaElementExcelAddId(builder, id):
+    builder.PrependInt64Slot(2, id, 0)
+
 def AddId(builder, id):
-    return EventContentBoxGachaElementExcelAddId(builder, id)
-def EventContentBoxGachaElementExcelAddRound(builder, round): builder.PrependInt64Slot(3, round, 0)
+    EventContentBoxGachaElementExcelAddId(builder, id)
+
+def EventContentBoxGachaElementExcelAddRound(builder, round):
+    builder.PrependInt64Slot(3, round, 0)
+
 def AddRound(builder, round):
-    return EventContentBoxGachaElementExcelAddRound(builder, round)
-def EventContentBoxGachaElementExcelEnd(builder): return builder.EndObject()
+    EventContentBoxGachaElementExcelAddRound(builder, round)
+
+def EventContentBoxGachaElementExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentBoxGachaElementExcelEnd(builder)

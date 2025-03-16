@@ -17,11 +17,19 @@ func GetRootAsLocalizeCodeInBuildExcel(buf []byte, offset flatbuffers.UOffsetT) 
 	return x
 }
 
+func FinishLocalizeCodeInBuildExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsLocalizeCodeInBuildExcel(buf []byte, offset flatbuffers.UOffsetT) *LocalizeCodeInBuildExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LocalizeCodeInBuildExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedLocalizeCodeInBuildExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LocalizeCodeInBuildExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -108,7 +116,4 @@ func LocalizeCodeInBuildExcelAddTw(builder *flatbuffers.Builder, tw flatbuffers.
 }
 func LocalizeCodeInBuildExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*LocalizeCodeInBuildExcel) Name() string {
-	return "LocalizeCodeInBuildExcel"
 }

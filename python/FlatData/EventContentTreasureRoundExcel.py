@@ -147,45 +147,86 @@ class EventContentTreasureRoundExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         return o == 0
 
-def EventContentTreasureRoundExcelStart(builder): builder.StartObject(9)
+def EventContentTreasureRoundExcelStart(builder):
+    builder.StartObject(9)
+
 def Start(builder):
-    return EventContentTreasureRoundExcelStart(builder)
-def EventContentTreasureRoundExcelAddCellCheckGoodsId(builder, cellCheckGoodsId): builder.PrependInt64Slot(0, cellCheckGoodsId, 0)
+    EventContentTreasureRoundExcelStart(builder)
+
+def EventContentTreasureRoundExcelAddCellCheckGoodsId(builder, cellCheckGoodsId):
+    builder.PrependInt64Slot(0, cellCheckGoodsId, 0)
+
 def AddCellCheckGoodsId(builder, cellCheckGoodsId):
-    return EventContentTreasureRoundExcelAddCellCheckGoodsId(builder, cellCheckGoodsId)
-def EventContentTreasureRoundExcelAddCellRewardId(builder, cellRewardId): builder.PrependInt64Slot(1, cellRewardId, 0)
+    EventContentTreasureRoundExcelAddCellCheckGoodsId(builder, cellCheckGoodsId)
+
+def EventContentTreasureRoundExcelAddCellRewardId(builder, cellRewardId):
+    builder.PrependInt64Slot(1, cellRewardId, 0)
+
 def AddCellRewardId(builder, cellRewardId):
-    return EventContentTreasureRoundExcelAddCellRewardId(builder, cellRewardId)
-def EventContentTreasureRoundExcelAddCellVisualSortUnstructed(builder, cellVisualSortUnstructed): builder.PrependBoolSlot(2, cellVisualSortUnstructed, 0)
+    EventContentTreasureRoundExcelAddCellRewardId(builder, cellRewardId)
+
+def EventContentTreasureRoundExcelAddCellVisualSortUnstructed(builder, cellVisualSortUnstructed):
+    builder.PrependBoolSlot(2, cellVisualSortUnstructed, 0)
+
 def AddCellVisualSortUnstructed(builder, cellVisualSortUnstructed):
-    return EventContentTreasureRoundExcelAddCellVisualSortUnstructed(builder, cellVisualSortUnstructed)
-def EventContentTreasureRoundExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(3, eventContentId, 0)
+    EventContentTreasureRoundExcelAddCellVisualSortUnstructed(builder, cellVisualSortUnstructed)
+
+def EventContentTreasureRoundExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(3, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentTreasureRoundExcelAddEventContentId(builder, eventContentId)
-def EventContentTreasureRoundExcelAddRewardAmount(builder, rewardAmount): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
+    EventContentTreasureRoundExcelAddEventContentId(builder, eventContentId)
+
+def EventContentTreasureRoundExcelAddRewardAmount(builder, rewardAmount):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
+
 def AddRewardAmount(builder, rewardAmount):
-    return EventContentTreasureRoundExcelAddRewardAmount(builder, rewardAmount)
-def EventContentTreasureRoundExcelStartRewardAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentTreasureRoundExcelAddRewardAmount(builder, rewardAmount)
+
+def EventContentTreasureRoundExcelStartRewardAmountVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartRewardAmountVector(builder, numElems):
     return EventContentTreasureRoundExcelStartRewardAmountVector(builder, numElems)
-def EventContentTreasureRoundExcelAddRewardId(builder, rewardId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardId), 0)
+
+def EventContentTreasureRoundExcelAddRewardId(builder, rewardId):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardId), 0)
+
 def AddRewardId(builder, rewardId):
-    return EventContentTreasureRoundExcelAddRewardId(builder, rewardId)
-def EventContentTreasureRoundExcelStartRewardIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EventContentTreasureRoundExcelAddRewardId(builder, rewardId)
+
+def EventContentTreasureRoundExcelStartRewardIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartRewardIdVector(builder, numElems):
     return EventContentTreasureRoundExcelStartRewardIdVector(builder, numElems)
-def EventContentTreasureRoundExcelAddTreasureCellImagePath(builder, treasureCellImagePath): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(treasureCellImagePath), 0)
+
+def EventContentTreasureRoundExcelAddTreasureCellImagePath(builder, treasureCellImagePath):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(treasureCellImagePath), 0)
+
 def AddTreasureCellImagePath(builder, treasureCellImagePath):
-    return EventContentTreasureRoundExcelAddTreasureCellImagePath(builder, treasureCellImagePath)
-def EventContentTreasureRoundExcelAddTreasureRound(builder, treasureRound): builder.PrependInt32Slot(7, treasureRound, 0)
+    EventContentTreasureRoundExcelAddTreasureCellImagePath(builder, treasureCellImagePath)
+
+def EventContentTreasureRoundExcelAddTreasureRound(builder, treasureRound):
+    builder.PrependInt32Slot(7, treasureRound, 0)
+
 def AddTreasureRound(builder, treasureRound):
-    return EventContentTreasureRoundExcelAddTreasureRound(builder, treasureRound)
-def EventContentTreasureRoundExcelAddTreasureRoundSize(builder, treasureRoundSize): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(treasureRoundSize), 0)
+    EventContentTreasureRoundExcelAddTreasureRound(builder, treasureRound)
+
+def EventContentTreasureRoundExcelAddTreasureRoundSize(builder, treasureRoundSize):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(treasureRoundSize), 0)
+
 def AddTreasureRoundSize(builder, treasureRoundSize):
-    return EventContentTreasureRoundExcelAddTreasureRoundSize(builder, treasureRoundSize)
-def EventContentTreasureRoundExcelStartTreasureRoundSizeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentTreasureRoundExcelAddTreasureRoundSize(builder, treasureRoundSize)
+
+def EventContentTreasureRoundExcelStartTreasureRoundSizeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartTreasureRoundSizeVector(builder, numElems):
     return EventContentTreasureRoundExcelStartTreasureRoundSizeVector(builder, numElems)
-def EventContentTreasureRoundExcelEnd(builder): return builder.EndObject()
+
+def EventContentTreasureRoundExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentTreasureRoundExcelEnd(builder)

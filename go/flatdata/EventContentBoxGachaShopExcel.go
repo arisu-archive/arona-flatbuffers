@@ -17,11 +17,19 @@ func GetRootAsEventContentBoxGachaShopExcel(buf []byte, offset flatbuffers.UOffs
 	return x
 }
 
+func FinishEventContentBoxGachaShopExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentBoxGachaShopExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentBoxGachaShopExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentBoxGachaShopExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentBoxGachaShopExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentBoxGachaShopExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -175,7 +183,4 @@ func EventContentBoxGachaShopExcelAddRound(builder *flatbuffers.Builder, round i
 }
 func EventContentBoxGachaShopExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentBoxGachaShopExcel) Name() string {
-	return "EventContentBoxGachaShopExcel"
 }

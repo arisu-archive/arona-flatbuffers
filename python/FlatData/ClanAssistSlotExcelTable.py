@@ -49,15 +49,26 @@ class ClanAssistSlotExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ClanAssistSlotExcelTableStart(builder): builder.StartObject(1)
+def ClanAssistSlotExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ClanAssistSlotExcelTableStart(builder)
-def ClanAssistSlotExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ClanAssistSlotExcelTableStart(builder)
+
+def ClanAssistSlotExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ClanAssistSlotExcelTableAddDataList(builder, dataList)
-def ClanAssistSlotExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ClanAssistSlotExcelTableAddDataList(builder, dataList)
+
+def ClanAssistSlotExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ClanAssistSlotExcelTableStartDataListVector(builder, numElems)
-def ClanAssistSlotExcelTableEnd(builder): return builder.EndObject()
+
+def ClanAssistSlotExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ClanAssistSlotExcelTableEnd(builder)

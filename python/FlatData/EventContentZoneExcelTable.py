@@ -49,15 +49,26 @@ class EventContentZoneExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentZoneExcelTableStart(builder): builder.StartObject(1)
+def EventContentZoneExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return EventContentZoneExcelTableStart(builder)
-def EventContentZoneExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    EventContentZoneExcelTableStart(builder)
+
+def EventContentZoneExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return EventContentZoneExcelTableAddDataList(builder, dataList)
-def EventContentZoneExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentZoneExcelTableAddDataList(builder, dataList)
+
+def EventContentZoneExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return EventContentZoneExcelTableStartDataListVector(builder, numElems)
-def EventContentZoneExcelTableEnd(builder): return builder.EndObject()
+
+def EventContentZoneExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentZoneExcelTableEnd(builder)

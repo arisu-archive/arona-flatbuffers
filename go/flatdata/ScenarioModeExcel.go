@@ -17,11 +17,19 @@ func GetRootAsScenarioModeExcel(buf []byte, offset flatbuffers.UOffsetT) *Scenar
 	return x
 }
 
+func FinishScenarioModeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsScenarioModeExcel(buf []byte, offset flatbuffers.UOffsetT) *ScenarioModeExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ScenarioModeExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedScenarioModeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ScenarioModeExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -684,7 +692,4 @@ func ScenarioModeExcelAddVolumeId(builder *flatbuffers.Builder, volumeId int64) 
 }
 func ScenarioModeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ScenarioModeExcel) Name() string {
-	return "ScenarioModeExcel"
 }

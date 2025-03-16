@@ -49,15 +49,26 @@ class ObstacleStatExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ObstacleStatExcelTableStart(builder): builder.StartObject(1)
+def ObstacleStatExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ObstacleStatExcelTableStart(builder)
-def ObstacleStatExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ObstacleStatExcelTableStart(builder)
+
+def ObstacleStatExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ObstacleStatExcelTableAddDataList(builder, dataList)
-def ObstacleStatExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ObstacleStatExcelTableAddDataList(builder, dataList)
+
+def ObstacleStatExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ObstacleStatExcelTableStartDataListVector(builder, numElems)
-def ObstacleStatExcelTableEnd(builder): return builder.EndObject()
+
+def ObstacleStatExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ObstacleStatExcelTableEnd(builder)

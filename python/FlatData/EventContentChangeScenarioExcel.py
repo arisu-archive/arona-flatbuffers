@@ -52,21 +52,38 @@ class EventContentChangeScenarioExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EventContentChangeScenarioExcelStart(builder): builder.StartObject(4)
+def EventContentChangeScenarioExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return EventContentChangeScenarioExcelStart(builder)
-def EventContentChangeScenarioExcelAddChangeCount(builder, changeCount): builder.PrependInt64Slot(0, changeCount, 0)
+    EventContentChangeScenarioExcelStart(builder)
+
+def EventContentChangeScenarioExcelAddChangeCount(builder, changeCount):
+    builder.PrependInt64Slot(0, changeCount, 0)
+
 def AddChangeCount(builder, changeCount):
-    return EventContentChangeScenarioExcelAddChangeCount(builder, changeCount)
-def EventContentChangeScenarioExcelAddChangeType(builder, changeType): builder.PrependInt32Slot(1, changeType, 0)
+    EventContentChangeScenarioExcelAddChangeCount(builder, changeCount)
+
+def EventContentChangeScenarioExcelAddChangeType(builder, changeType):
+    builder.PrependInt32Slot(1, changeType, 0)
+
 def AddChangeType(builder, changeType):
-    return EventContentChangeScenarioExcelAddChangeType(builder, changeType)
-def EventContentChangeScenarioExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(2, eventContentId, 0)
+    EventContentChangeScenarioExcelAddChangeType(builder, changeType)
+
+def EventContentChangeScenarioExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(2, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentChangeScenarioExcelAddEventContentId(builder, eventContentId)
-def EventContentChangeScenarioExcelAddScenarioGroupId(builder, scenarioGroupId): builder.PrependInt64Slot(3, scenarioGroupId, 0)
+    EventContentChangeScenarioExcelAddEventContentId(builder, eventContentId)
+
+def EventContentChangeScenarioExcelAddScenarioGroupId(builder, scenarioGroupId):
+    builder.PrependInt64Slot(3, scenarioGroupId, 0)
+
 def AddScenarioGroupId(builder, scenarioGroupId):
-    return EventContentChangeScenarioExcelAddScenarioGroupId(builder, scenarioGroupId)
-def EventContentChangeScenarioExcelEnd(builder): return builder.EndObject()
+    EventContentChangeScenarioExcelAddScenarioGroupId(builder, scenarioGroupId)
+
+def EventContentChangeScenarioExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentChangeScenarioExcelEnd(builder)

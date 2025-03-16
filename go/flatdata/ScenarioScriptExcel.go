@@ -17,11 +17,19 @@ func GetRootAsScenarioScriptExcel(buf []byte, offset flatbuffers.UOffsetT) *Scen
 	return x
 }
 
+func FinishScenarioScriptExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsScenarioScriptExcel(buf []byte, offset flatbuffers.UOffsetT) *ScenarioScriptExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ScenarioScriptExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedScenarioScriptExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ScenarioScriptExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -235,7 +243,4 @@ func ScenarioScriptExcelAddVoiceId(builder *flatbuffers.Builder, voiceId uint32)
 }
 func ScenarioScriptExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ScenarioScriptExcel) Name() string {
-	return "ScenarioScriptExcel"
 }

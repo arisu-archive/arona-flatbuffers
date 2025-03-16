@@ -94,39 +94,74 @@ class MiniGameRhythmBgmExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def MiniGameRhythmBgmExcelStart(builder): builder.StartObject(10)
+def MiniGameRhythmBgmExcelStart(builder):
+    builder.StartObject(10)
+
 def Start(builder):
-    return MiniGameRhythmBgmExcelStart(builder)
-def MiniGameRhythmBgmExcelAddBgm(builder, bgm): builder.PrependInt64Slot(0, bgm, 0)
+    MiniGameRhythmBgmExcelStart(builder)
+
+def MiniGameRhythmBgmExcelAddBgm(builder, bgm):
+    builder.PrependInt64Slot(0, bgm, 0)
+
 def AddBgm(builder, bgm):
-    return MiniGameRhythmBgmExcelAddBgm(builder, bgm)
-def MiniGameRhythmBgmExcelAddBgmArtistText(builder, bgmArtistText): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(bgmArtistText), 0)
+    MiniGameRhythmBgmExcelAddBgm(builder, bgm)
+
+def MiniGameRhythmBgmExcelAddBgmArtistText(builder, bgmArtistText):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(bgmArtistText), 0)
+
 def AddBgmArtistText(builder, bgmArtistText):
-    return MiniGameRhythmBgmExcelAddBgmArtistText(builder, bgmArtistText)
-def MiniGameRhythmBgmExcelAddBgmComposerText(builder, bgmComposerText): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(bgmComposerText), 0)
+    MiniGameRhythmBgmExcelAddBgmArtistText(builder, bgmArtistText)
+
+def MiniGameRhythmBgmExcelAddBgmComposerText(builder, bgmComposerText):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(bgmComposerText), 0)
+
 def AddBgmComposerText(builder, bgmComposerText):
-    return MiniGameRhythmBgmExcelAddBgmComposerText(builder, bgmComposerText)
-def MiniGameRhythmBgmExcelAddBgmLength(builder, bgmLength): builder.PrependInt32Slot(3, bgmLength, 0)
+    MiniGameRhythmBgmExcelAddBgmComposerText(builder, bgmComposerText)
+
+def MiniGameRhythmBgmExcelAddBgmLength(builder, bgmLength):
+    builder.PrependInt32Slot(3, bgmLength, 0)
+
 def AddBgmLength(builder, bgmLength):
-    return MiniGameRhythmBgmExcelAddBgmLength(builder, bgmLength)
-def MiniGameRhythmBgmExcelAddBgmNameText(builder, bgmNameText): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(bgmNameText), 0)
+    MiniGameRhythmBgmExcelAddBgmLength(builder, bgmLength)
+
+def MiniGameRhythmBgmExcelAddBgmNameText(builder, bgmNameText):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(bgmNameText), 0)
+
 def AddBgmNameText(builder, bgmNameText):
-    return MiniGameRhythmBgmExcelAddBgmNameText(builder, bgmNameText)
-def MiniGameRhythmBgmExcelAddBpm(builder, bpm): builder.PrependInt64Slot(5, bpm, 0)
+    MiniGameRhythmBgmExcelAddBgmNameText(builder, bgmNameText)
+
+def MiniGameRhythmBgmExcelAddBpm(builder, bpm):
+    builder.PrependInt64Slot(5, bpm, 0)
+
 def AddBpm(builder, bpm):
-    return MiniGameRhythmBgmExcelAddBpm(builder, bpm)
-def MiniGameRhythmBgmExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(6, eventContentId, 0)
+    MiniGameRhythmBgmExcelAddBpm(builder, bpm)
+
+def MiniGameRhythmBgmExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(6, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return MiniGameRhythmBgmExcelAddEventContentId(builder, eventContentId)
-def MiniGameRhythmBgmExcelAddHasLyricist(builder, hasLyricist): builder.PrependBoolSlot(7, hasLyricist, 0)
+    MiniGameRhythmBgmExcelAddEventContentId(builder, eventContentId)
+
+def MiniGameRhythmBgmExcelAddHasLyricist(builder, hasLyricist):
+    builder.PrependBoolSlot(7, hasLyricist, 0)
+
 def AddHasLyricist(builder, hasLyricist):
-    return MiniGameRhythmBgmExcelAddHasLyricist(builder, hasLyricist)
-def MiniGameRhythmBgmExcelAddRhythmBgmId(builder, rhythmBgmId): builder.PrependInt64Slot(8, rhythmBgmId, 0)
+    MiniGameRhythmBgmExcelAddHasLyricist(builder, hasLyricist)
+
+def MiniGameRhythmBgmExcelAddRhythmBgmId(builder, rhythmBgmId):
+    builder.PrependInt64Slot(8, rhythmBgmId, 0)
+
 def AddRhythmBgmId(builder, rhythmBgmId):
-    return MiniGameRhythmBgmExcelAddRhythmBgmId(builder, rhythmBgmId)
-def MiniGameRhythmBgmExcelAddStageSelectImagePath(builder, stageSelectImagePath): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(stageSelectImagePath), 0)
+    MiniGameRhythmBgmExcelAddRhythmBgmId(builder, rhythmBgmId)
+
+def MiniGameRhythmBgmExcelAddStageSelectImagePath(builder, stageSelectImagePath):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(stageSelectImagePath), 0)
+
 def AddStageSelectImagePath(builder, stageSelectImagePath):
-    return MiniGameRhythmBgmExcelAddStageSelectImagePath(builder, stageSelectImagePath)
-def MiniGameRhythmBgmExcelEnd(builder): return builder.EndObject()
+    MiniGameRhythmBgmExcelAddStageSelectImagePath(builder, stageSelectImagePath)
+
+def MiniGameRhythmBgmExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return MiniGameRhythmBgmExcelEnd(builder)

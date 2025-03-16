@@ -113,36 +113,68 @@ class EventContentCardExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         return o == 0
 
-def EventContentCardExcelStart(builder): builder.StartObject(7)
+def EventContentCardExcelStart(builder):
+    builder.StartObject(7)
+
 def Start(builder):
-    return EventContentCardExcelStart(builder)
-def EventContentCardExcelAddBackIconPath(builder, backIconPath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(backIconPath), 0)
+    EventContentCardExcelStart(builder)
+
+def EventContentCardExcelAddBackIconPath(builder, backIconPath):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(backIconPath), 0)
+
 def AddBackIconPath(builder, backIconPath):
-    return EventContentCardExcelAddBackIconPath(builder, backIconPath)
-def EventContentCardExcelAddCardGroupId(builder, cardGroupId): builder.PrependInt32Slot(1, cardGroupId, 0)
+    EventContentCardExcelAddBackIconPath(builder, backIconPath)
+
+def EventContentCardExcelAddCardGroupId(builder, cardGroupId):
+    builder.PrependInt32Slot(1, cardGroupId, 0)
+
 def AddCardGroupId(builder, cardGroupId):
-    return EventContentCardExcelAddCardGroupId(builder, cardGroupId)
-def EventContentCardExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(2, eventContentId, 0)
+    EventContentCardExcelAddCardGroupId(builder, cardGroupId)
+
+def EventContentCardExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(2, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentCardExcelAddEventContentId(builder, eventContentId)
-def EventContentCardExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+    EventContentCardExcelAddEventContentId(builder, eventContentId)
+
+def EventContentCardExcelAddIconPath(builder, iconPath):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+
 def AddIconPath(builder, iconPath):
-    return EventContentCardExcelAddIconPath(builder, iconPath)
-def EventContentCardExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(4, localizeEtcId, 0)
+    EventContentCardExcelAddIconPath(builder, iconPath)
+
+def EventContentCardExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUint32Slot(4, localizeEtcId, 0)
+
 def AddLocalizeEtcId(builder, localizeEtcId):
-    return EventContentCardExcelAddLocalizeEtcId(builder, localizeEtcId)
-def EventContentCardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
+    EventContentCardExcelAddLocalizeEtcId(builder, localizeEtcId)
+
+def EventContentCardExcelAddRewardParcelId(builder, rewardParcelId):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
+
 def AddRewardParcelId(builder, rewardParcelId):
-    return EventContentCardExcelAddRewardParcelId(builder, rewardParcelId)
-def EventContentCardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EventContentCardExcelAddRewardParcelId(builder, rewardParcelId)
+
+def EventContentCardExcelStartRewardParcelIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartRewardParcelIdVector(builder, numElems):
     return EventContentCardExcelStartRewardParcelIdVector(builder, numElems)
-def EventContentCardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+
+def EventContentCardExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+
 def AddRewardParcelType(builder, rewardParcelType):
-    return EventContentCardExcelAddRewardParcelType(builder, rewardParcelType)
-def EventContentCardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentCardExcelAddRewardParcelType(builder, rewardParcelType)
+
+def EventContentCardExcelStartRewardParcelTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartRewardParcelTypeVector(builder, numElems):
     return EventContentCardExcelStartRewardParcelTypeVector(builder, numElems)
-def EventContentCardExcelEnd(builder): return builder.EndObject()
+
+def EventContentCardExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentCardExcelEnd(builder)

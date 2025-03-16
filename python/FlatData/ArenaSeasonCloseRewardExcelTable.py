@@ -49,15 +49,26 @@ class ArenaSeasonCloseRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ArenaSeasonCloseRewardExcelTableStart(builder): builder.StartObject(1)
+def ArenaSeasonCloseRewardExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return ArenaSeasonCloseRewardExcelTableStart(builder)
-def ArenaSeasonCloseRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    ArenaSeasonCloseRewardExcelTableStart(builder)
+
+def ArenaSeasonCloseRewardExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return ArenaSeasonCloseRewardExcelTableAddDataList(builder, dataList)
-def ArenaSeasonCloseRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    ArenaSeasonCloseRewardExcelTableAddDataList(builder, dataList)
+
+def ArenaSeasonCloseRewardExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return ArenaSeasonCloseRewardExcelTableStartDataListVector(builder, numElems)
-def ArenaSeasonCloseRewardExcelTableEnd(builder): return builder.EndObject()
+
+def ArenaSeasonCloseRewardExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ArenaSeasonCloseRewardExcelTableEnd(builder)

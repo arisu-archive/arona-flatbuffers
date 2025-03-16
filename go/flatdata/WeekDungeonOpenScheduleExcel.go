@@ -17,11 +17,19 @@ func GetRootAsWeekDungeonOpenScheduleExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishWeekDungeonOpenScheduleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsWeekDungeonOpenScheduleExcel(buf []byte, offset flatbuffers.UOffsetT) *WeekDungeonOpenScheduleExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &WeekDungeonOpenScheduleExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedWeekDungeonOpenScheduleExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *WeekDungeonOpenScheduleExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -85,7 +93,4 @@ func WeekDungeonOpenScheduleExcelAddWeekDay(builder *flatbuffers.Builder, weekDa
 }
 func WeekDungeonOpenScheduleExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*WeekDungeonOpenScheduleExcel) Name() string {
-	return "WeekDungeonOpenScheduleExcel"
 }

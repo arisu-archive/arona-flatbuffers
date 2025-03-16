@@ -17,11 +17,19 @@ func GetRootAsEventContentStageRewardExcel(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishEventContentStageRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentStageRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentStageRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentStageRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentStageRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentStageRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -143,7 +151,4 @@ func EventContentStageRewardExcelAddRewardTag(builder *flatbuffers.Builder, rewa
 }
 func EventContentStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentStageRewardExcel) Name() string {
-	return "EventContentStageRewardExcel"
 }

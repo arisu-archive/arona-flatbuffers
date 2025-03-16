@@ -17,11 +17,19 @@ func GetRootAsWorldRaidBossGroupExcelTable(buf []byte, offset flatbuffers.UOffse
 	return x
 }
 
+func FinishWorldRaidBossGroupExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsWorldRaidBossGroupExcelTable(buf []byte, offset flatbuffers.UOffsetT) *WorldRaidBossGroupExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &WorldRaidBossGroupExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedWorldRaidBossGroupExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *WorldRaidBossGroupExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func WorldRaidBossGroupExcelTableStartDataListVector(builder *flatbuffers.Builde
 }
 func WorldRaidBossGroupExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*WorldRaidBossGroupExcelTable) Name() string {
-	return "WorldRaidBossGroupExcelTable"
 }

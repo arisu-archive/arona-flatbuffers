@@ -17,11 +17,19 @@ func GetRootAsGuideMissionOpenStageConditionExcel(buf []byte, offset flatbuffers
 	return x
 }
 
+func FinishGuideMissionOpenStageConditionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsGuideMissionOpenStageConditionExcel(buf []byte, offset flatbuffers.UOffsetT) *GuideMissionOpenStageConditionExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GuideMissionOpenStageConditionExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedGuideMissionOpenStageConditionExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GuideMissionOpenStageConditionExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -153,7 +161,4 @@ func GuideMissionOpenStageConditionExcelAddTabLocalizeCode(builder *flatbuffers.
 }
 func GuideMissionOpenStageConditionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*GuideMissionOpenStageConditionExcel) Name() string {
-	return "GuideMissionOpenStageConditionExcel"
 }

@@ -17,11 +17,19 @@ func GetRootAsGachaCraftNodeGroupExcelTable(buf []byte, offset flatbuffers.UOffs
 	return x
 }
 
+func FinishGachaCraftNodeGroupExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsGachaCraftNodeGroupExcelTable(buf []byte, offset flatbuffers.UOffsetT) *GachaCraftNodeGroupExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &GachaCraftNodeGroupExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedGachaCraftNodeGroupExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *GachaCraftNodeGroupExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func GachaCraftNodeGroupExcelTableStartDataListVector(builder *flatbuffers.Build
 }
 func GachaCraftNodeGroupExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*GachaCraftNodeGroupExcelTable) Name() string {
-	return "GachaCraftNodeGroupExcelTable"
 }

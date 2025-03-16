@@ -17,11 +17,19 @@ func GetRootAsObstacleExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Obsta
 	return x
 }
 
+func FinishObstacleExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsObstacleExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ObstacleExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ObstacleExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedObstacleExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ObstacleExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ObstacleExcelTableStartDataListVector(builder *flatbuffers.Builder, numElem
 }
 func ObstacleExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ObstacleExcelTable) Name() string {
-	return "ObstacleExcelTable"
 }

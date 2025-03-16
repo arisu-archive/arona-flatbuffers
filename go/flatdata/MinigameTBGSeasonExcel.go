@@ -17,11 +17,19 @@ func GetRootAsMinigameTBGSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *M
 	return x
 }
 
+func FinishMinigameTBGSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsMinigameTBGSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *MinigameTBGSeasonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &MinigameTBGSeasonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedMinigameTBGSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *MinigameTBGSeasonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -449,7 +457,4 @@ func MinigameTBGSeasonExcelAddStartThemaIndex(builder *flatbuffers.Builder, star
 }
 func MinigameTBGSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*MinigameTBGSeasonExcel) Name() string {
-	return "MinigameTBGSeasonExcel"
 }

@@ -17,11 +17,19 @@ func GetRootAsPresetParcelsExcelTable(buf []byte, offset flatbuffers.UOffsetT) *
 	return x
 }
 
+func FinishPresetParcelsExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsPresetParcelsExcelTable(buf []byte, offset flatbuffers.UOffsetT) *PresetParcelsExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &PresetParcelsExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedPresetParcelsExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *PresetParcelsExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func PresetParcelsExcelTableStartDataListVector(builder *flatbuffers.Builder, nu
 }
 func PresetParcelsExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*PresetParcelsExcelTable) Name() string {
-	return "PresetParcelsExcelTable"
 }

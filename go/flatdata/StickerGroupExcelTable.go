@@ -17,11 +17,19 @@ func GetRootAsStickerGroupExcelTable(buf []byte, offset flatbuffers.UOffsetT) *S
 	return x
 }
 
+func FinishStickerGroupExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsStickerGroupExcelTable(buf []byte, offset flatbuffers.UOffsetT) *StickerGroupExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &StickerGroupExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedStickerGroupExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *StickerGroupExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func StickerGroupExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 }
 func StickerGroupExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*StickerGroupExcelTable) Name() string {
-	return "StickerGroupExcelTable"
 }

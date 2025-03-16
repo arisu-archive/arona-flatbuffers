@@ -38,15 +38,26 @@ class TacticSkipExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def TacticSkipExcelStart(builder): builder.StartObject(2)
+def TacticSkipExcelStart(builder):
+    builder.StartObject(2)
+
 def Start(builder):
-    return TacticSkipExcelStart(builder)
-def TacticSkipExcelAddHpResult(builder, hpResult): builder.PrependInt64Slot(0, hpResult, 0)
+    TacticSkipExcelStart(builder)
+
+def TacticSkipExcelAddHpResult(builder, hpResult):
+    builder.PrependInt64Slot(0, hpResult, 0)
+
 def AddHpResult(builder, hpResult):
-    return TacticSkipExcelAddHpResult(builder, hpResult)
-def TacticSkipExcelAddLevelDiff(builder, levelDiff): builder.PrependInt32Slot(1, levelDiff, 0)
+    TacticSkipExcelAddHpResult(builder, hpResult)
+
+def TacticSkipExcelAddLevelDiff(builder, levelDiff):
+    builder.PrependInt32Slot(1, levelDiff, 0)
+
 def AddLevelDiff(builder, levelDiff):
-    return TacticSkipExcelAddLevelDiff(builder, levelDiff)
-def TacticSkipExcelEnd(builder): return builder.EndObject()
+    TacticSkipExcelAddLevelDiff(builder, levelDiff)
+
+def TacticSkipExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return TacticSkipExcelEnd(builder)

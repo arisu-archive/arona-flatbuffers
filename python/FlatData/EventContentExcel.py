@@ -52,21 +52,38 @@ class EventContentExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EventContentExcelStart(builder): builder.StartObject(4)
+def EventContentExcelStart(builder):
+    builder.StartObject(4)
+
 def Start(builder):
-    return EventContentExcelStart(builder)
-def EventContentExcelAddBgImagePath(builder, bgImagePath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(bgImagePath), 0)
+    EventContentExcelStart(builder)
+
+def EventContentExcelAddBgImagePath(builder, bgImagePath):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(bgImagePath), 0)
+
 def AddBgImagePath(builder, bgImagePath):
-    return EventContentExcelAddBgImagePath(builder, bgImagePath)
-def EventContentExcelAddDevName(builder, devName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
+    EventContentExcelAddBgImagePath(builder, bgImagePath)
+
+def EventContentExcelAddDevName(builder, devName):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
+
 def AddDevName(builder, devName):
-    return EventContentExcelAddDevName(builder, devName)
-def EventContentExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(2, eventContentId, 0)
+    EventContentExcelAddDevName(builder, devName)
+
+def EventContentExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(2, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentExcelAddEventContentId(builder, eventContentId)
-def EventContentExcelAddId(builder, id): builder.PrependInt64Slot(3, id, 0)
+    EventContentExcelAddEventContentId(builder, eventContentId)
+
+def EventContentExcelAddId(builder, id):
+    builder.PrependInt64Slot(3, id, 0)
+
 def AddId(builder, id):
-    return EventContentExcelAddId(builder, id)
-def EventContentExcelEnd(builder): return builder.EndObject()
+    EventContentExcelAddId(builder, id)
+
+def EventContentExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentExcelEnd(builder)

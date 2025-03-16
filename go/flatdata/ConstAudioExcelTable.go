@@ -17,11 +17,19 @@ func GetRootAsConstAudioExcelTable(buf []byte, offset flatbuffers.UOffsetT) *Con
 	return x
 }
 
+func FinishConstAudioExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConstAudioExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ConstAudioExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstAudioExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConstAudioExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstAudioExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func ConstAudioExcelTableStartDataListVector(builder *flatbuffers.Builder, numEl
 }
 func ConstAudioExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConstAudioExcelTable) Name() string {
-	return "ConstAudioExcelTable"
 }

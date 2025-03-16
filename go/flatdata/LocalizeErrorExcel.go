@@ -17,11 +17,19 @@ func GetRootAsLocalizeErrorExcel(buf []byte, offset flatbuffers.UOffsetT) *Local
 	return x
 }
 
+func FinishLocalizeErrorExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsLocalizeErrorExcel(buf []byte, offset flatbuffers.UOffsetT) *LocalizeErrorExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &LocalizeErrorExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedLocalizeErrorExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *LocalizeErrorExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -123,7 +131,4 @@ func LocalizeErrorExcelAddTw(builder *flatbuffers.Builder, tw flatbuffers.UOffse
 }
 func LocalizeErrorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*LocalizeErrorExcel) Name() string {
-	return "LocalizeErrorExcel"
 }

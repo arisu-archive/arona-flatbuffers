@@ -17,11 +17,19 @@ func GetRootAsOperatorExcel(buf []byte, offset flatbuffers.UOffsetT) *OperatorEx
 	return x
 }
 
+func FinishOperatorExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsOperatorExcel(buf []byte, offset flatbuffers.UOffsetT) *OperatorExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &OperatorExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedOperatorExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *OperatorExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -223,7 +231,4 @@ func OperatorExcelStartVoiceIdVector(builder *flatbuffers.Builder, numElems int)
 }
 func OperatorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*OperatorExcel) Name() string {
-	return "OperatorExcel"
 }

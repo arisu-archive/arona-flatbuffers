@@ -17,11 +17,19 @@ func GetRootAsConquestGroupBuffExcel(buf []byte, offset flatbuffers.UOffsetT) *C
 	return x
 }
 
+func FinishConquestGroupBuffExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConquestGroupBuffExcel(buf []byte, offset flatbuffers.UOffsetT) *ConquestGroupBuffExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConquestGroupBuffExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConquestGroupBuffExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConquestGroupBuffExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -111,7 +119,4 @@ func ConquestGroupBuffExcelAddSkillGroupId(builder *flatbuffers.Builder, skillGr
 }
 func ConquestGroupBuffExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*ConquestGroupBuffExcel) Name() string {
-	return "ConquestGroupBuffExcel"
 }

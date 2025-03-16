@@ -17,11 +17,19 @@ func GetRootAsCharacterCombatSkinExcel(buf []byte, offset flatbuffers.UOffsetT) 
 	return x
 }
 
+func FinishCharacterCombatSkinExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsCharacterCombatSkinExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterCombatSkinExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterCombatSkinExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedCharacterCombatSkinExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterCombatSkinExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -75,7 +83,4 @@ func CharacterCombatSkinExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId 
 }
 func CharacterCombatSkinExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*CharacterCombatSkinExcel) Name() string {
-	return "CharacterCombatSkinExcel"
 }

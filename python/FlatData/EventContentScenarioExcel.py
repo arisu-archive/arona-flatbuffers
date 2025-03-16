@@ -258,87 +258,170 @@ class EventContentScenarioExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         return o == 0
 
-def EventContentScenarioExcelStart(builder): builder.StartObject(22)
+def EventContentScenarioExcelStart(builder):
+    builder.StartObject(22)
+
 def Start(builder):
-    return EventContentScenarioExcelStart(builder)
-def EventContentScenarioExcelAddClearedScenarioGroupId(builder, clearedScenarioGroupId): builder.PrependInt64Slot(0, clearedScenarioGroupId, 0)
+    EventContentScenarioExcelStart(builder)
+
+def EventContentScenarioExcelAddClearedScenarioGroupId(builder, clearedScenarioGroupId):
+    builder.PrependInt64Slot(0, clearedScenarioGroupId, 0)
+
 def AddClearedScenarioGroupId(builder, clearedScenarioGroupId):
-    return EventContentScenarioExcelAddClearedScenarioGroupId(builder, clearedScenarioGroupId)
-def EventContentScenarioExcelAddConditionAmount(builder, conditionAmount): builder.PrependInt64Slot(1, conditionAmount, 0)
+    EventContentScenarioExcelAddClearedScenarioGroupId(builder, clearedScenarioGroupId)
+
+def EventContentScenarioExcelAddConditionAmount(builder, conditionAmount):
+    builder.PrependInt64Slot(1, conditionAmount, 0)
+
 def AddConditionAmount(builder, conditionAmount):
-    return EventContentScenarioExcelAddConditionAmount(builder, conditionAmount)
-def EventContentScenarioExcelAddConditionEventContentId(builder, conditionEventContentId): builder.PrependInt64Slot(2, conditionEventContentId, 0)
+    EventContentScenarioExcelAddConditionAmount(builder, conditionAmount)
+
+def EventContentScenarioExcelAddConditionEventContentId(builder, conditionEventContentId):
+    builder.PrependInt64Slot(2, conditionEventContentId, 0)
+
 def AddConditionEventContentId(builder, conditionEventContentId):
-    return EventContentScenarioExcelAddConditionEventContentId(builder, conditionEventContentId)
-def EventContentScenarioExcelAddCostAmount(builder, costAmount): builder.PrependInt32Slot(3, costAmount, 0)
+    EventContentScenarioExcelAddConditionEventContentId(builder, conditionEventContentId)
+
+def EventContentScenarioExcelAddCostAmount(builder, costAmount):
+    builder.PrependInt32Slot(3, costAmount, 0)
+
 def AddCostAmount(builder, costAmount):
-    return EventContentScenarioExcelAddCostAmount(builder, costAmount)
-def EventContentScenarioExcelAddCostId(builder, costId): builder.PrependInt64Slot(4, costId, 0)
+    EventContentScenarioExcelAddCostAmount(builder, costAmount)
+
+def EventContentScenarioExcelAddCostId(builder, costId):
+    builder.PrependInt64Slot(4, costId, 0)
+
 def AddCostId(builder, costId):
-    return EventContentScenarioExcelAddCostId(builder, costId)
-def EventContentScenarioExcelAddCostParcelType(builder, costParcelType): builder.PrependInt32Slot(5, costParcelType, 0)
+    EventContentScenarioExcelAddCostId(builder, costId)
+
+def EventContentScenarioExcelAddCostParcelType(builder, costParcelType):
+    builder.PrependInt32Slot(5, costParcelType, 0)
+
 def AddCostParcelType(builder, costParcelType):
-    return EventContentScenarioExcelAddCostParcelType(builder, costParcelType)
-def EventContentScenarioExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(6, eventContentId, 0)
+    EventContentScenarioExcelAddCostParcelType(builder, costParcelType)
+
+def EventContentScenarioExcelAddEventContentId(builder, eventContentId):
+    builder.PrependInt64Slot(6, eventContentId, 0)
+
 def AddEventContentId(builder, eventContentId):
-    return EventContentScenarioExcelAddEventContentId(builder, eventContentId)
-def EventContentScenarioExcelAddId(builder, id): builder.PrependInt64Slot(7, id, 0)
+    EventContentScenarioExcelAddEventContentId(builder, eventContentId)
+
+def EventContentScenarioExcelAddId(builder, id):
+    builder.PrependInt64Slot(7, id, 0)
+
 def AddId(builder, id):
-    return EventContentScenarioExcelAddId(builder, id)
-def EventContentScenarioExcelAddIsMeetup(builder, isMeetup): builder.PrependBoolSlot(8, isMeetup, 0)
+    EventContentScenarioExcelAddId(builder, id)
+
+def EventContentScenarioExcelAddIsMeetup(builder, isMeetup):
+    builder.PrependBoolSlot(8, isMeetup, 0)
+
 def AddIsMeetup(builder, isMeetup):
-    return EventContentScenarioExcelAddIsMeetup(builder, isMeetup)
-def EventContentScenarioExcelAddIsOmnibus(builder, isOmnibus): builder.PrependBoolSlot(9, isOmnibus, 0)
+    EventContentScenarioExcelAddIsMeetup(builder, isMeetup)
+
+def EventContentScenarioExcelAddIsOmnibus(builder, isOmnibus):
+    builder.PrependBoolSlot(9, isOmnibus, 0)
+
 def AddIsOmnibus(builder, isOmnibus):
-    return EventContentScenarioExcelAddIsOmnibus(builder, isOmnibus)
-def EventContentScenarioExcelAddIsRecollection(builder, isRecollection): builder.PrependBoolSlot(10, isRecollection, 0)
+    EventContentScenarioExcelAddIsOmnibus(builder, isOmnibus)
+
+def EventContentScenarioExcelAddIsRecollection(builder, isRecollection):
+    builder.PrependBoolSlot(10, isRecollection, 0)
+
 def AddIsRecollection(builder, isRecollection):
-    return EventContentScenarioExcelAddIsRecollection(builder, isRecollection)
-def EventContentScenarioExcelAddIsRecollectionHorizon(builder, isRecollectionHorizon): builder.PrependBoolSlot(11, isRecollectionHorizon, 0)
+    EventContentScenarioExcelAddIsRecollection(builder, isRecollection)
+
+def EventContentScenarioExcelAddIsRecollectionHorizon(builder, isRecollectionHorizon):
+    builder.PrependBoolSlot(11, isRecollectionHorizon, 0)
+
 def AddIsRecollectionHorizon(builder, isRecollectionHorizon):
-    return EventContentScenarioExcelAddIsRecollectionHorizon(builder, isRecollectionHorizon)
-def EventContentScenarioExcelAddOrder(builder, order): builder.PrependInt64Slot(12, order, 0)
+    EventContentScenarioExcelAddIsRecollectionHorizon(builder, isRecollectionHorizon)
+
+def EventContentScenarioExcelAddOrder(builder, order):
+    builder.PrependInt64Slot(12, order, 0)
+
 def AddOrder(builder, order):
-    return EventContentScenarioExcelAddOrder(builder, order)
-def EventContentScenarioExcelAddRecollectionNumber(builder, recollectionNumber): builder.PrependInt64Slot(13, recollectionNumber, 0)
+    EventContentScenarioExcelAddOrder(builder, order)
+
+def EventContentScenarioExcelAddRecollectionNumber(builder, recollectionNumber):
+    builder.PrependInt64Slot(13, recollectionNumber, 0)
+
 def AddRecollectionNumber(builder, recollectionNumber):
-    return EventContentScenarioExcelAddRecollectionNumber(builder, recollectionNumber)
-def EventContentScenarioExcelAddRecollectionResource(builder, recollectionResource): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(recollectionResource), 0)
+    EventContentScenarioExcelAddRecollectionNumber(builder, recollectionNumber)
+
+def EventContentScenarioExcelAddRecollectionResource(builder, recollectionResource):
+    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(recollectionResource), 0)
+
 def AddRecollectionResource(builder, recollectionResource):
-    return EventContentScenarioExcelAddRecollectionResource(builder, recollectionResource)
-def EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(builder, recollectionSummaryLocalizeScenarioId): builder.PrependUint32Slot(15, recollectionSummaryLocalizeScenarioId, 0)
+    EventContentScenarioExcelAddRecollectionResource(builder, recollectionResource)
+
+def EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(builder, recollectionSummaryLocalizeScenarioId):
+    builder.PrependUint32Slot(15, recollectionSummaryLocalizeScenarioId, 0)
+
 def AddRecollectionSummaryLocalizeScenarioId(builder, recollectionSummaryLocalizeScenarioId):
-    return EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(builder, recollectionSummaryLocalizeScenarioId)
-def EventContentScenarioExcelAddReplayDisplayGroup(builder, replayDisplayGroup): builder.PrependInt32Slot(16, replayDisplayGroup, 0)
+    EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(builder, recollectionSummaryLocalizeScenarioId)
+
+def EventContentScenarioExcelAddReplayDisplayGroup(builder, replayDisplayGroup):
+    builder.PrependInt32Slot(16, replayDisplayGroup, 0)
+
 def AddReplayDisplayGroup(builder, replayDisplayGroup):
-    return EventContentScenarioExcelAddReplayDisplayGroup(builder, replayDisplayGroup)
-def EventContentScenarioExcelAddRewardAmount(builder, rewardAmount): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
+    EventContentScenarioExcelAddReplayDisplayGroup(builder, replayDisplayGroup)
+
+def EventContentScenarioExcelAddRewardAmount(builder, rewardAmount):
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
+
 def AddRewardAmount(builder, rewardAmount):
-    return EventContentScenarioExcelAddRewardAmount(builder, rewardAmount)
-def EventContentScenarioExcelStartRewardAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentScenarioExcelAddRewardAmount(builder, rewardAmount)
+
+def EventContentScenarioExcelStartRewardAmountVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartRewardAmountVector(builder, numElems):
     return EventContentScenarioExcelStartRewardAmountVector(builder, numElems)
-def EventContentScenarioExcelAddRewardId(builder, rewardId): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(rewardId), 0)
+
+def EventContentScenarioExcelAddRewardId(builder, rewardId):
+    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(rewardId), 0)
+
 def AddRewardId(builder, rewardId):
-    return EventContentScenarioExcelAddRewardId(builder, rewardId)
-def EventContentScenarioExcelStartRewardIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EventContentScenarioExcelAddRewardId(builder, rewardId)
+
+def EventContentScenarioExcelStartRewardIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartRewardIdVector(builder, numElems):
     return EventContentScenarioExcelStartRewardIdVector(builder, numElems)
-def EventContentScenarioExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+
+def EventContentScenarioExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+
 def AddRewardParcelType(builder, rewardParcelType):
-    return EventContentScenarioExcelAddRewardParcelType(builder, rewardParcelType)
-def EventContentScenarioExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentScenarioExcelAddRewardParcelType(builder, rewardParcelType)
+
+def EventContentScenarioExcelStartRewardParcelTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartRewardParcelTypeVector(builder, numElems):
     return EventContentScenarioExcelStartRewardParcelTypeVector(builder, numElems)
-def EventContentScenarioExcelAddScenarioConditionType(builder, scenarioConditionType): builder.PrependInt32Slot(20, scenarioConditionType, 0)
+
+def EventContentScenarioExcelAddScenarioConditionType(builder, scenarioConditionType):
+    builder.PrependInt32Slot(20, scenarioConditionType, 0)
+
 def AddScenarioConditionType(builder, scenarioConditionType):
-    return EventContentScenarioExcelAddScenarioConditionType(builder, scenarioConditionType)
-def EventContentScenarioExcelAddScenarioGroupId(builder, scenarioGroupId): builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioGroupId), 0)
+    EventContentScenarioExcelAddScenarioConditionType(builder, scenarioConditionType)
+
+def EventContentScenarioExcelAddScenarioGroupId(builder, scenarioGroupId):
+    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioGroupId), 0)
+
 def AddScenarioGroupId(builder, scenarioGroupId):
-    return EventContentScenarioExcelAddScenarioGroupId(builder, scenarioGroupId)
-def EventContentScenarioExcelStartScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EventContentScenarioExcelAddScenarioGroupId(builder, scenarioGroupId)
+
+def EventContentScenarioExcelStartScenarioGroupIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartScenarioGroupIdVector(builder, numElems):
     return EventContentScenarioExcelStartScenarioGroupIdVector(builder, numElems)
-def EventContentScenarioExcelEnd(builder): return builder.EndObject()
+
+def EventContentScenarioExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentScenarioExcelEnd(builder)

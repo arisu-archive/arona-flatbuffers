@@ -58,21 +58,38 @@ class StringTestExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
-def StringTestExcelStart(builder): builder.StartObject(3)
+def StringTestExcelStart(builder):
+    builder.StartObject(3)
+
 def Start(builder):
-    return StringTestExcelStart(builder)
-def StringTestExcelAddScript(builder, script): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(script), 0)
+    StringTestExcelStart(builder)
+
+def StringTestExcelAddScript(builder, script):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(script), 0)
+
 def AddScript(builder, script):
-    return StringTestExcelAddScript(builder, script)
-def StringTestExcelAddSentence1(builder, sentence1): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(sentence1), 0)
+    StringTestExcelAddScript(builder, script)
+
+def StringTestExcelAddSentence1(builder, sentence1):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(sentence1), 0)
+
 def AddSentence1(builder, sentence1):
-    return StringTestExcelAddSentence1(builder, sentence1)
-def StringTestExcelAddString(builder, string): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(string), 0)
+    StringTestExcelAddSentence1(builder, sentence1)
+
+def StringTestExcelAddString(builder, string):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(string), 0)
+
 def AddString(builder, string):
-    return StringTestExcelAddString(builder, string)
-def StringTestExcelStartStringVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    StringTestExcelAddString(builder, string)
+
+def StringTestExcelStartStringVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartStringVector(builder, numElems):
     return StringTestExcelStartStringVector(builder, numElems)
-def StringTestExcelEnd(builder): return builder.EndObject()
+
+def StringTestExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return StringTestExcelEnd(builder)

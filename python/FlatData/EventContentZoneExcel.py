@@ -154,48 +154,92 @@ class EventContentZoneExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         return o == 0
 
-def EventContentZoneExcelStart(builder): builder.StartObject(10)
+def EventContentZoneExcelStart(builder):
+    builder.StartObject(10)
+
 def Start(builder):
-    return EventContentZoneExcelStart(builder)
-def EventContentZoneExcelAddEventPointForLocationRank(builder, eventPointForLocationRank): builder.PrependInt64Slot(0, eventPointForLocationRank, 0)
+    EventContentZoneExcelStart(builder)
+
+def EventContentZoneExcelAddEventPointForLocationRank(builder, eventPointForLocationRank):
+    builder.PrependInt64Slot(0, eventPointForLocationRank, 0)
+
 def AddEventPointForLocationRank(builder, eventPointForLocationRank):
-    return EventContentZoneExcelAddEventPointForLocationRank(builder, eventPointForLocationRank)
-def EventContentZoneExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+    EventContentZoneExcelAddEventPointForLocationRank(builder, eventPointForLocationRank)
+
+def EventContentZoneExcelAddId(builder, id):
+    builder.PrependInt64Slot(1, id, 0)
+
 def AddId(builder, id):
-    return EventContentZoneExcelAddId(builder, id)
-def EventContentZoneExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(2, localizeEtcId, 0)
+    EventContentZoneExcelAddId(builder, id)
+
+def EventContentZoneExcelAddLocalizeEtcId(builder, localizeEtcId):
+    builder.PrependUint32Slot(2, localizeEtcId, 0)
+
 def AddLocalizeEtcId(builder, localizeEtcId):
-    return EventContentZoneExcelAddLocalizeEtcId(builder, localizeEtcId)
-def EventContentZoneExcelAddLocationId(builder, locationId): builder.PrependInt64Slot(3, locationId, 0)
+    EventContentZoneExcelAddLocalizeEtcId(builder, localizeEtcId)
+
+def EventContentZoneExcelAddLocationId(builder, locationId):
+    builder.PrependInt64Slot(3, locationId, 0)
+
 def AddLocationId(builder, locationId):
-    return EventContentZoneExcelAddLocationId(builder, locationId)
-def EventContentZoneExcelAddLocationRank(builder, locationRank): builder.PrependInt64Slot(4, locationRank, 0)
+    EventContentZoneExcelAddLocationId(builder, locationId)
+
+def EventContentZoneExcelAddLocationRank(builder, locationRank):
+    builder.PrependInt64Slot(4, locationRank, 0)
+
 def AddLocationRank(builder, locationRank):
-    return EventContentZoneExcelAddLocationRank(builder, locationRank)
-def EventContentZoneExcelAddOriginalZoneId(builder, originalZoneId): builder.PrependInt64Slot(5, originalZoneId, 0)
+    EventContentZoneExcelAddLocationRank(builder, locationRank)
+
+def EventContentZoneExcelAddOriginalZoneId(builder, originalZoneId):
+    builder.PrependInt64Slot(5, originalZoneId, 0)
+
 def AddOriginalZoneId(builder, originalZoneId):
-    return EventContentZoneExcelAddOriginalZoneId(builder, originalZoneId)
-def EventContentZoneExcelAddRewardGroupId(builder, rewardGroupId): builder.PrependInt64Slot(6, rewardGroupId, 0)
+    EventContentZoneExcelAddOriginalZoneId(builder, originalZoneId)
+
+def EventContentZoneExcelAddRewardGroupId(builder, rewardGroupId):
+    builder.PrependInt64Slot(6, rewardGroupId, 0)
+
 def AddRewardGroupId(builder, rewardGroupId):
-    return EventContentZoneExcelAddRewardGroupId(builder, rewardGroupId)
-def EventContentZoneExcelAddStudentVisitProb(builder, studentVisitProb): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(studentVisitProb), 0)
+    EventContentZoneExcelAddRewardGroupId(builder, rewardGroupId)
+
+def EventContentZoneExcelAddStudentVisitProb(builder, studentVisitProb):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(studentVisitProb), 0)
+
 def AddStudentVisitProb(builder, studentVisitProb):
-    return EventContentZoneExcelAddStudentVisitProb(builder, studentVisitProb)
-def EventContentZoneExcelStartStudentVisitProbVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+    EventContentZoneExcelAddStudentVisitProb(builder, studentVisitProb)
+
+def EventContentZoneExcelStartStudentVisitProbVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
 def StartStudentVisitProbVector(builder, numElems):
     return EventContentZoneExcelStartStudentVisitProbVector(builder, numElems)
-def EventContentZoneExcelAddTags(builder, tags): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
+
+def EventContentZoneExcelAddTags(builder, tags):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
+
 def AddTags(builder, tags):
-    return EventContentZoneExcelAddTags(builder, tags)
-def EventContentZoneExcelStartTagsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentZoneExcelAddTags(builder, tags)
+
+def EventContentZoneExcelStartTagsVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartTagsVector(builder, numElems):
     return EventContentZoneExcelStartTagsVector(builder, numElems)
-def EventContentZoneExcelAddWhiteListTags(builder, whiteListTags): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(whiteListTags), 0)
+
+def EventContentZoneExcelAddWhiteListTags(builder, whiteListTags):
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(whiteListTags), 0)
+
 def AddWhiteListTags(builder, whiteListTags):
-    return EventContentZoneExcelAddWhiteListTags(builder, whiteListTags)
-def EventContentZoneExcelStartWhiteListTagsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentZoneExcelAddWhiteListTags(builder, whiteListTags)
+
+def EventContentZoneExcelStartWhiteListTagsVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartWhiteListTagsVector(builder, numElems):
     return EventContentZoneExcelStartWhiteListTagsVector(builder, numElems)
-def EventContentZoneExcelEnd(builder): return builder.EndObject()
+
+def EventContentZoneExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentZoneExcelEnd(builder)

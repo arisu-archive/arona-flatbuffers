@@ -17,11 +17,19 @@ func GetRootAsVideo_GlobalExcel(buf []byte, offset flatbuffers.UOffsetT) *Video_
 	return x
 }
 
+func FinishVideo_GlobalExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsVideo_GlobalExcel(buf []byte, offset flatbuffers.UOffsetT) *Video_GlobalExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &Video_GlobalExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedVideo_GlobalExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *Video_GlobalExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -141,7 +149,4 @@ func Video_GlobalExcelAddVideoTeenPathTw(builder *flatbuffers.Builder, videoTeen
 }
 func Video_GlobalExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*Video_GlobalExcel) Name() string {
-	return "Video_GlobalExcel"
 }

@@ -17,11 +17,19 @@ func GetRootAsEventContentExcelTable(buf []byte, offset flatbuffers.UOffsetT) *E
 	return x
 }
 
+func FinishEventContentExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsEventContentExcelTable(buf []byte, offset flatbuffers.UOffsetT) *EventContentExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedEventContentExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -64,7 +72,4 @@ func EventContentExcelTableStartDataListVector(builder *flatbuffers.Builder, num
 }
 func EventContentExcelTableEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
-}
-func (*EventContentExcelTable) Name() string {
-	return "EventContentExcelTable"
 }
