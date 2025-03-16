@@ -51,9 +51,9 @@ func (t *MinigameTBGEncounterRewardExcelDto) UnmarshalMessage(e *MinigameTBGEnco
 	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.TbgOptionSuccessType = TBGOptionSuccessType(int32(fbsutils.Convert(e.TbgOptionSuccessType(), t.FlatBuffer.TableKey)))
+	t.TbgOptionSuccessType = TBGOptionSuccessType(fbsutils.Convert(int32(e.TbgOptionSuccessType()), t.FlatBuffer.TableKey))
 	t.Paremeter = fbsutils.Convert(e.Paremeter(), t.FlatBuffer.TableKey)
-	t.ParcelType = ParcelType(int32(fbsutils.Convert(e.ParcelType(), t.FlatBuffer.TableKey)))
+	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
 	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
 	t.Amount = fbsutils.Convert(e.Amount(), t.FlatBuffer.TableKey)
 	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)

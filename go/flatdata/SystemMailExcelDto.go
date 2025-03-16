@@ -41,7 +41,7 @@ func (t *SystemMailExcelDto) UnmarshalMessage(e *SystemMailExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SystemMail"))
 	}
-	t.MailType = MailType(int32(fbsutils.Convert(e.MailType(), t.FlatBuffer.TableKey)))
+	t.MailType = MailType(fbsutils.Convert(int32(e.MailType()), t.FlatBuffer.TableKey))
 	t.ExpiredDay = fbsutils.Convert(e.ExpiredDay(), t.FlatBuffer.TableKey)
 	t.Sender = fbsutils.Convert(string(e.Sender()), t.FlatBuffer.TableKey)
 	t.Comment = fbsutils.Convert(string(e.Comment()), t.FlatBuffer.TableKey)

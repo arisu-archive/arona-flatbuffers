@@ -48,7 +48,7 @@ func (t *EventContentDiceRaceEffectExcelDto) UnmarshalMessage(e *EventContentDic
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceEffect"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EventContentDiceRaceResultType = EventContentDiceRaceResultType(int32(fbsutils.Convert(e.EventContentDiceRaceResultType(), t.FlatBuffer.TableKey)))
+	t.EventContentDiceRaceResultType = EventContentDiceRaceResultType(fbsutils.Convert(int32(e.EventContentDiceRaceResultType()), t.FlatBuffer.TableKey))
 	t.IsDiceResult = fbsutils.Convert(e.IsDiceResult(), t.FlatBuffer.TableKey)
 	t.AniClip = fbsutils.Convert(string(e.AniClip()), t.FlatBuffer.TableKey)
 	t.VoiceId = make([]uint32, e.VoiceIdLength())

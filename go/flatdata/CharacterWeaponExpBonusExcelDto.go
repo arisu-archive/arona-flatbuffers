@@ -43,7 +43,7 @@ func (t *CharacterWeaponExpBonusExcelDto) UnmarshalMessage(e *CharacterWeaponExp
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeaponExpBonus"))
 	}
-	t.WeaponType = WeaponType(int32(fbsutils.Convert(e.WeaponType(), t.FlatBuffer.TableKey)))
+	t.WeaponType = WeaponType(fbsutils.Convert(int32(e.WeaponType()), t.FlatBuffer.TableKey))
 	t.WeaponExpGrowthA = fbsutils.Convert(e.WeaponExpGrowthA(), t.FlatBuffer.TableKey)
 	t.WeaponExpGrowthB = fbsutils.Convert(e.WeaponExpGrowthB(), t.FlatBuffer.TableKey)
 	t.WeaponExpGrowthC = fbsutils.Convert(e.WeaponExpGrowthC(), t.FlatBuffer.TableKey)

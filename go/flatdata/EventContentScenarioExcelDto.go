@@ -105,19 +105,19 @@ func (t *EventContentScenarioExcelDto) UnmarshalMessage(e *EventContentScenarioE
 	for i := range e.ScenarioGroupIdLength() {
 		t.ScenarioGroupId[i] = e.ScenarioGroupId(i)
 	}
-	t.ScenarioConditionType = EventContentScenarioConditionType(int32(fbsutils.Convert(e.ScenarioConditionType(), t.FlatBuffer.TableKey)))
+	t.ScenarioConditionType = EventContentScenarioConditionType(fbsutils.Convert(int32(e.ScenarioConditionType()), t.FlatBuffer.TableKey))
 	t.ConditionAmount = fbsutils.Convert(e.ConditionAmount(), t.FlatBuffer.TableKey)
 	t.ConditionEventContentId = fbsutils.Convert(e.ConditionEventContentId(), t.FlatBuffer.TableKey)
 	t.ClearedScenarioGroupId = fbsutils.Convert(e.ClearedScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.RecollectionSummaryLocalizeScenarioId = fbsutils.Convert(e.RecollectionSummaryLocalizeScenarioId(), t.FlatBuffer.TableKey)
 	t.RecollectionResource = fbsutils.Convert(string(e.RecollectionResource()), t.FlatBuffer.TableKey)
 	t.IsRecollectionHorizon = fbsutils.Convert(e.IsRecollectionHorizon(), t.FlatBuffer.TableKey)
-	t.CostParcelType = ParcelType(int32(fbsutils.Convert(e.CostParcelType(), t.FlatBuffer.TableKey)))
+	t.CostParcelType = ParcelType(fbsutils.Convert(int32(e.CostParcelType()), t.FlatBuffer.TableKey))
 	t.CostId = fbsutils.Convert(e.CostId(), t.FlatBuffer.TableKey)
 	t.CostAmount = fbsutils.Convert(e.CostAmount(), t.FlatBuffer.TableKey)
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = e.RewardParcelType(i)
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardId = make([]int64, e.RewardIdLength())
 	for i := range e.RewardIdLength() {

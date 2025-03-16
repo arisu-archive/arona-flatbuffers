@@ -39,7 +39,7 @@ func (t *DefaultParcelExcelDto) UnmarshalMessage(e *DefaultParcelExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultParcel"))
 	}
-	t.ParcelType = ParcelType(int32(fbsutils.Convert(e.ParcelType(), t.FlatBuffer.TableKey)))
+	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
 	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
 	t.ParcelAmount = fbsutils.Convert(e.ParcelAmount(), t.FlatBuffer.TableKey)
 	return nil

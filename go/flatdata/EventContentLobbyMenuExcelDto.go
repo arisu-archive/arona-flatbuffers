@@ -50,7 +50,7 @@ func (t *EventContentLobbyMenuExcelDto) UnmarshalMessage(e *EventContentLobbyMen
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLobbyMenu"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EventContentType = EventContentType(int32(fbsutils.Convert(e.EventContentType(), t.FlatBuffer.TableKey)))
+	t.EventContentType = EventContentType(fbsutils.Convert(int32(e.EventContentType()), t.FlatBuffer.TableKey))
 	t.IconSpriteName = fbsutils.Convert(string(e.IconSpriteName()), t.FlatBuffer.TableKey)
 	t.ButtonText = fbsutils.Convert(string(e.ButtonText()), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)

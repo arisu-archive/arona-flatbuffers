@@ -104,7 +104,7 @@ func (t *MultiFloorRaidStageExcelDto) UnmarshalMessage(e *MultiFloorRaidStageExc
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MultiFloorRaidStage"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.EchelonExtensionType = EchelonExtensionType(int32(fbsutils.Convert(e.EchelonExtensionType(), t.FlatBuffer.TableKey)))
+	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
 	t.BossGroupId = fbsutils.Convert(string(e.BossGroupId()), t.FlatBuffer.TableKey)
 	t.AssistSlot = fbsutils.Convert(e.AssistSlot(), t.FlatBuffer.TableKey)
 	t.StageOpenCondition = fbsutils.Convert(e.StageOpenCondition(), t.FlatBuffer.TableKey)

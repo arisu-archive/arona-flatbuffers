@@ -92,7 +92,7 @@ func (t *ConstStrategyExcelDto) UnmarshalMessage(e *ConstStrategyExcel) error {
 	t.CameraZoomMax = fbsutils.Convert(e.CameraZoomMax(), t.FlatBuffer.TableKey)
 	t.CameraZoomMin = fbsutils.Convert(e.CameraZoomMin(), t.FlatBuffer.TableKey)
 	t.CameraZoomDefault = fbsutils.Convert(e.CameraZoomDefault(), t.FlatBuffer.TableKey)
-	t.HealCostType = CurrencyTypes(int32(fbsutils.Convert(e.HealCostType(), t.FlatBuffer.TableKey)))
+	t.HealCostType = CurrencyTypes(fbsutils.Convert(int32(e.HealCostType()), t.FlatBuffer.TableKey))
 	t.HealCostAmount = make([]int64, e.HealCostAmountLength())
 	for i := range e.HealCostAmountLength() {
 		t.HealCostAmount[i] = e.HealCostAmount(i)

@@ -37,7 +37,7 @@ func (t *ClearDeckRuleExcelDto) UnmarshalMessage(e *ClearDeckRuleExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClearDeckRule"))
 	}
-	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
+	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
 	t.SizeLimit = fbsutils.Convert(e.SizeLimit(), t.FlatBuffer.TableKey)
 	return nil
 }

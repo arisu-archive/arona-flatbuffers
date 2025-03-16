@@ -17,7 +17,7 @@ type FixedEchelonSettingExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *FixedEchelonSettingExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedEchelonSettingTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedEchelonSetting"))
 	}
 	FixedEchelonSettingExcelTableStart(b)
 	FixedEchelonSettingExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *FixedEchelonSettingExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *FixedEchelonSettingExcelTableDto) UnmarshalMessage(e *FixedEchelonSettingExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedEchelonSettingTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedEchelonSetting"))
 	}
 	t.DataList = make([]FixedEchelonSettingExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

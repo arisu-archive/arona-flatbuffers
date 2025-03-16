@@ -17,7 +17,7 @@ type SchoolDungeonStageExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SchoolDungeonStageExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SchoolDungeonStageTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SchoolDungeonStage"))
 	}
 	SchoolDungeonStageExcelTableStart(b)
 	SchoolDungeonStageExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *SchoolDungeonStageExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *SchoolDungeonStageExcelTableDto) UnmarshalMessage(e *SchoolDungeonStageExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SchoolDungeonStageTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SchoolDungeonStage"))
 	}
 	t.DataList = make([]SchoolDungeonStageExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

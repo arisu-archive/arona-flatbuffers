@@ -58,7 +58,7 @@ func (t *MiniGameDreamCollectionScenarioExcelDto) UnmarshalMessage(e *MiniGameDr
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.Parameter = make([]DreamMakerParameterType, e.ParameterLength())
 	for i := range e.ParameterLength() {
-		t.Parameter[i] = e.Parameter(i)
+		t.Parameter[i] = DreamMakerParameterType(fbsutils.Convert(int32(e.Parameter(i)), t.FlatBuffer.TableKey))
 	}
 	t.ParameterAmount = make([]int64, e.ParameterAmountLength())
 	for i := range e.ParameterAmountLength() {

@@ -69,13 +69,13 @@ func (t *ConquestMapExcelDto) UnmarshalMessage(e *ConquestMapExcel) error {
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
-	t.MapDifficulty = StageDifficulty(int32(fbsutils.Convert(e.MapDifficulty(), t.FlatBuffer.TableKey)))
+	t.MapDifficulty = StageDifficulty(fbsutils.Convert(int32(e.MapDifficulty()), t.FlatBuffer.TableKey))
 	t.StepIndex = fbsutils.Convert(e.StepIndex(), t.FlatBuffer.TableKey)
 	t.ConquestMap = fbsutils.Convert(string(e.ConquestMap()), t.FlatBuffer.TableKey)
 	t.StepEnterScenarioGroupId = fbsutils.Convert(e.StepEnterScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.StepOpenConditionType = make([]ConquestConditionType, e.StepOpenConditionTypeLength())
 	for i := range e.StepOpenConditionTypeLength() {
-		t.StepOpenConditionType[i] = e.StepOpenConditionType(i)
+		t.StepOpenConditionType[i] = ConquestConditionType(fbsutils.Convert(int32(e.StepOpenConditionType(i)), t.FlatBuffer.TableKey))
 	}
 	t.StepOpenConditionParameter = make([]string, e.StepOpenConditionParameterLength())
 	for i := range e.StepOpenConditionParameterLength() {

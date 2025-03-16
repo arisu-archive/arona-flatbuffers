@@ -57,8 +57,8 @@ func (t *EventContentBuffExcelDto) UnmarshalMessage(e *EventContentBuffExcel) er
 	}
 	t.EventContentBuffId = fbsutils.Convert(e.EventContentBuffId(), t.FlatBuffer.TableKey)
 	t.IsBuff = fbsutils.Convert(e.IsBuff(), t.FlatBuffer.TableKey)
-	t.CharacterTag = Tag(int32(fbsutils.Convert(e.CharacterTag(), t.FlatBuffer.TableKey)))
-	t.EnumType = EventContentBuffFindRule(int32(fbsutils.Convert(e.EnumType(), t.FlatBuffer.TableKey)))
+	t.CharacterTag = Tag(fbsutils.Convert(int32(e.CharacterTag()), t.FlatBuffer.TableKey))
+	t.EnumType = EventContentBuffFindRule(fbsutils.Convert(int32(e.EnumType()), t.FlatBuffer.TableKey))
 	t.EnumTypeValue = make([]string, e.EnumTypeValueLength())
 	for i := range e.EnumTypeValueLength() {
 		t.EnumTypeValue[i] = string(e.EnumTypeValue(i))

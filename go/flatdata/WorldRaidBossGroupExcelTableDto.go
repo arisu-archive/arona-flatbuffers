@@ -17,7 +17,7 @@ type WorldRaidBossGroupExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *WorldRaidBossGroupExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidBossGroupTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidBossGroup"))
 	}
 	WorldRaidBossGroupExcelTableStart(b)
 	WorldRaidBossGroupExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *WorldRaidBossGroupExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *WorldRaidBossGroupExcelTableDto) UnmarshalMessage(e *WorldRaidBossGroupExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidBossGroupTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidBossGroup"))
 	}
 	t.DataList = make([]WorldRaidBossGroupExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

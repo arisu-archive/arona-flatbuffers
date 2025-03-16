@@ -73,9 +73,9 @@ func (t *StickerPageContentExcelDto) UnmarshalMessage(e *StickerPageContentExcel
 	t.StickerGroupId = fbsutils.Convert(e.StickerGroupId(), t.FlatBuffer.TableKey)
 	t.StickerPageId = fbsutils.Convert(e.StickerPageId(), t.FlatBuffer.TableKey)
 	t.StickerSlot = fbsutils.Convert(e.StickerSlot(), t.FlatBuffer.TableKey)
-	t.StickerGetConditionType = StickerGetConditionType(int32(fbsutils.Convert(e.StickerGetConditionType(), t.FlatBuffer.TableKey)))
-	t.StickerCheckPassType = StickerCheckPassType(int32(fbsutils.Convert(e.StickerCheckPassType(), t.FlatBuffer.TableKey)))
-	t.GetStickerConditionType = GetStickerConditionType(int32(fbsutils.Convert(e.GetStickerConditionType(), t.FlatBuffer.TableKey)))
+	t.StickerGetConditionType = StickerGetConditionType(fbsutils.Convert(int32(e.StickerGetConditionType()), t.FlatBuffer.TableKey))
+	t.StickerCheckPassType = StickerCheckPassType(fbsutils.Convert(int32(e.StickerCheckPassType()), t.FlatBuffer.TableKey))
+	t.GetStickerConditionType = GetStickerConditionType(fbsutils.Convert(int32(e.GetStickerConditionType()), t.FlatBuffer.TableKey))
 	t.StickerGetConditionCount = fbsutils.Convert(e.StickerGetConditionCount(), t.FlatBuffer.TableKey)
 	t.StickerGetConditionParameter = make([]int64, e.StickerGetConditionParameterLength())
 	for i := range e.StickerGetConditionParameterLength() {
@@ -83,7 +83,7 @@ func (t *StickerPageContentExcelDto) UnmarshalMessage(e *StickerPageContentExcel
 	}
 	t.StickerGetConditionParameterTag = make([]Tag, e.StickerGetConditionParameterTagLength())
 	for i := range e.StickerGetConditionParameterTagLength() {
-		t.StickerGetConditionParameterTag[i] = e.StickerGetConditionParameterTag(i)
+		t.StickerGetConditionParameterTag[i] = Tag(fbsutils.Convert(int32(e.StickerGetConditionParameterTag(i)), t.FlatBuffer.TableKey))
 	}
 	t.PackedStickerIconLocalizeEtcId = fbsutils.Convert(e.PackedStickerIconLocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.PackedStickerIconPath = fbsutils.Convert(string(e.PackedStickerIconPath()), t.FlatBuffer.TableKey)

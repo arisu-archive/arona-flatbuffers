@@ -62,7 +62,7 @@ func (t *MultiFloorRaidStatChangeExcelDto) UnmarshalMessage(e *MultiFloorRaidSta
 	t.StatChangeId = fbsutils.Convert(e.StatChangeId(), t.FlatBuffer.TableKey)
 	t.StatType = make([]StatType, e.StatTypeLength())
 	for i := range e.StatTypeLength() {
-		t.StatType[i] = e.StatType(i)
+		t.StatType[i] = StatType(fbsutils.Convert(int32(e.StatType(i)), t.FlatBuffer.TableKey))
 	}
 	t.StatAdd = make([]int64, e.StatAddLength())
 	for i := range e.StatAddLength() {

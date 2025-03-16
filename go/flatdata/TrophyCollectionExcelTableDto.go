@@ -17,7 +17,7 @@ type TrophyCollectionExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TrophyCollectionExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TrophyCollectionTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TrophyCollection"))
 	}
 	TrophyCollectionExcelTableStart(b)
 	TrophyCollectionExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *TrophyCollectionExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TrophyCollectionExcelTableDto) UnmarshalMessage(e *TrophyCollectionExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TrophyCollectionTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TrophyCollection"))
 	}
 	t.DataList = make([]TrophyCollectionExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

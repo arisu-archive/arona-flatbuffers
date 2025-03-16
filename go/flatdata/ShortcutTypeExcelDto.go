@@ -47,7 +47,7 @@ func (t *ShortcutTypeExcelDto) UnmarshalMessage(e *ShortcutTypeExcel) error {
 	t.IsAscending = fbsutils.Convert(e.IsAscending(), t.FlatBuffer.TableKey)
 	t.ContentType = make([]ShortcutContentType, e.ContentTypeLength())
 	for i := range e.ContentTypeLength() {
-		t.ContentType[i] = e.ContentType(i)
+		t.ContentType[i] = ShortcutContentType(fbsutils.Convert(int32(e.ContentType(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

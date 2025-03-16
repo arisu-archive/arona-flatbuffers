@@ -96,13 +96,13 @@ func (t *WeekDungeonExcelDto) UnmarshalMessage(e *WeekDungeonExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WeekDungeon"))
 	}
 	t.StageId = fbsutils.Convert(e.StageId(), t.FlatBuffer.TableKey)
-	t.WeekDungeonType = WeekDungeonType(int32(fbsutils.Convert(e.WeekDungeonType(), t.FlatBuffer.TableKey)))
+	t.WeekDungeonType = WeekDungeonType(fbsutils.Convert(int32(e.WeekDungeonType()), t.FlatBuffer.TableKey))
 	t.Difficulty = fbsutils.Convert(e.Difficulty(), t.FlatBuffer.TableKey)
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.PrevStageId = fbsutils.Convert(e.PrevStageId(), t.FlatBuffer.TableKey)
 	t.StageEnterCostType = make([]ParcelType, e.StageEnterCostTypeLength())
 	for i := range e.StageEnterCostTypeLength() {
-		t.StageEnterCostType[i] = e.StageEnterCostType(i)
+		t.StageEnterCostType[i] = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType(i)), t.FlatBuffer.TableKey))
 	}
 	t.StageEnterCostId = make([]int64, e.StageEnterCostIdLength())
 	for i := range e.StageEnterCostIdLength() {
@@ -115,13 +115,13 @@ func (t *WeekDungeonExcelDto) UnmarshalMessage(e *WeekDungeonExcel) error {
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.StarGoal = make([]StarGoalType, e.StarGoalLength())
 	for i := range e.StarGoalLength() {
-		t.StarGoal[i] = e.StarGoal(i)
+		t.StarGoal[i] = StarGoalType(fbsutils.Convert(int32(e.StarGoal(i)), t.FlatBuffer.TableKey))
 	}
 	t.StarGoalAmount = make([]int32, e.StarGoalAmountLength())
 	for i := range e.StarGoalAmountLength() {
 		t.StarGoalAmount[i] = e.StarGoalAmount(i)
 	}
-	t.StageTopography = StageTopography(int32(fbsutils.Convert(e.StageTopography(), t.FlatBuffer.TableKey)))
+	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
 	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
 	t.StageRewardId = fbsutils.Convert(e.StageRewardId(), t.FlatBuffer.TableKey)
 	t.PlayTimeLimitInSeconds = fbsutils.Convert(e.PlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
@@ -131,7 +131,7 @@ func (t *WeekDungeonExcelDto) UnmarshalMessage(e *WeekDungeonExcel) error {
 	for i := range e.GroupBuffIdLength() {
 		t.GroupBuffId[i] = e.GroupBuffId(i)
 	}
-	t.EchelonExtensionType = EchelonExtensionType(int32(fbsutils.Convert(e.EchelonExtensionType(), t.FlatBuffer.TableKey)))
+	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

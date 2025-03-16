@@ -50,7 +50,7 @@ func (t *CharacterStatsDetailExcelDto) UnmarshalMessage(e *CharacterStatsDetailE
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.DetailShowStats = make([]StatType, e.DetailShowStatsLength())
 	for i := range e.DetailShowStatsLength() {
-		t.DetailShowStats[i] = e.DetailShowStats(i)
+		t.DetailShowStats[i] = StatType(fbsutils.Convert(int32(e.DetailShowStats(i)), t.FlatBuffer.TableKey))
 	}
 	t.IsStatsPercent = make([]bool, e.IsStatsPercentLength())
 	for i := range e.IsStatsPercentLength() {

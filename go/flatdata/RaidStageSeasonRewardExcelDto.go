@@ -62,7 +62,7 @@ func (t *RaidStageSeasonRewardExcelDto) UnmarshalMessage(e *RaidStageSeasonRewar
 	t.SeasonRewardId = fbsutils.Convert(e.SeasonRewardId(), t.FlatBuffer.TableKey)
 	t.SeasonRewardParcelType = make([]ParcelType, e.SeasonRewardParcelTypeLength())
 	for i := range e.SeasonRewardParcelTypeLength() {
-		t.SeasonRewardParcelType[i] = e.SeasonRewardParcelType(i)
+		t.SeasonRewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.SeasonRewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.SeasonRewardParcelUniqueId = make([]int64, e.SeasonRewardParcelUniqueIdLength())
 	for i := range e.SeasonRewardParcelUniqueIdLength() {

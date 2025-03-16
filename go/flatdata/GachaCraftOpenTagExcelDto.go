@@ -41,10 +41,10 @@ func (t *GachaCraftOpenTagExcelDto) UnmarshalMessage(e *GachaCraftOpenTagExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaCraftOpenTag"))
 	}
-	t.NodeTier = CraftNodeTier(int32(fbsutils.Convert(e.NodeTier(), t.FlatBuffer.TableKey)))
+	t.NodeTier = CraftNodeTier(fbsutils.Convert(int32(e.NodeTier()), t.FlatBuffer.TableKey))
 	t.Tag = make([]Tag, e.TagLength())
 	for i := range e.TagLength() {
-		t.Tag[i] = e.Tag(i)
+		t.Tag[i] = Tag(fbsutils.Convert(int32(e.Tag(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

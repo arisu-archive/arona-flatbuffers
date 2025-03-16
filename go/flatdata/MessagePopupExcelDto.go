@@ -80,8 +80,8 @@ func (t *MessagePopupExcelDto) UnmarshalMessage(e *MessagePopupExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MessagePopup"))
 	}
 	t.StringId = fbsutils.Convert(e.StringId(), t.FlatBuffer.TableKey)
-	t.MessagePopupLayout = MessagePopupLayout(int32(fbsutils.Convert(e.MessagePopupLayout(), t.FlatBuffer.TableKey)))
-	t.OrderType = MessagePopupImagePositionType(int32(fbsutils.Convert(e.OrderType(), t.FlatBuffer.TableKey)))
+	t.MessagePopupLayout = MessagePopupLayout(fbsutils.Convert(int32(e.MessagePopupLayout()), t.FlatBuffer.TableKey))
+	t.OrderType = MessagePopupImagePositionType(fbsutils.Convert(int32(e.OrderType()), t.FlatBuffer.TableKey))
 	t.Image = fbsutils.Convert(string(e.Image()), t.FlatBuffer.TableKey)
 	t.TitleText = fbsutils.Convert(e.TitleText(), t.FlatBuffer.TableKey)
 	t.SubTitleText = fbsutils.Convert(e.SubTitleText(), t.FlatBuffer.TableKey)
@@ -93,7 +93,7 @@ func (t *MessagePopupExcelDto) UnmarshalMessage(e *MessagePopupExcel) error {
 	t.DisplayXButton = fbsutils.Convert(e.DisplayXButton(), t.FlatBuffer.TableKey)
 	t.Button = make([]MessagePopupButtonType, e.ButtonLength())
 	for i := range e.ButtonLength() {
-		t.Button[i] = e.Button(i)
+		t.Button[i] = MessagePopupButtonType(fbsutils.Convert(int32(e.Button(i)), t.FlatBuffer.TableKey))
 	}
 	t.ButtonText = make([]uint32, e.ButtonTextLength())
 	for i := range e.ButtonTextLength() {

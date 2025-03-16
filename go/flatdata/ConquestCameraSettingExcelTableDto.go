@@ -17,7 +17,7 @@ type ConquestCameraSettingExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ConquestCameraSettingExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestCameraSettingTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestCameraSetting"))
 	}
 	ConquestCameraSettingExcelTableStart(b)
 	ConquestCameraSettingExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *ConquestCameraSettingExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ConquestCameraSettingExcelTableDto) UnmarshalMessage(e *ConquestCameraSettingExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestCameraSettingTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestCameraSetting"))
 	}
 	t.DataList = make([]ConquestCameraSettingExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

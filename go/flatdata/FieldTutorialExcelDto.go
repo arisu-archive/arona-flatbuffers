@@ -56,11 +56,11 @@ func (t *FieldTutorialExcelDto) UnmarshalMessage(e *FieldTutorialExcel) error {
 	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
 	t.TutorialType = make([]FieldTutorialType, e.TutorialTypeLength())
 	for i := range e.TutorialTypeLength() {
-		t.TutorialType[i] = e.TutorialType(i)
+		t.TutorialType[i] = FieldTutorialType(fbsutils.Convert(int32(e.TutorialType(i)), t.FlatBuffer.TableKey))
 	}
 	t.ConditionType = make([]FieldConditionType, e.ConditionTypeLength())
 	for i := range e.ConditionTypeLength() {
-		t.ConditionType[i] = e.ConditionType(i)
+		t.ConditionType[i] = FieldConditionType(fbsutils.Convert(int32(e.ConditionType(i)), t.FlatBuffer.TableKey))
 	}
 	t.ConditionId = make([]int64, e.ConditionIdLength())
 	for i := range e.ConditionIdLength() {

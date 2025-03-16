@@ -43,8 +43,8 @@ func (t *CafeInfoExcelDto) UnmarshalMessage(e *CafeInfoExcel) error {
 	}
 	t.CafeId = fbsutils.Convert(e.CafeId(), t.FlatBuffer.TableKey)
 	t.IsDefault = fbsutils.Convert(e.IsDefault(), t.FlatBuffer.TableKey)
-	t.OpenConditionCafeId = OpenConditionContent(int32(fbsutils.Convert(e.OpenConditionCafeId(), t.FlatBuffer.TableKey)))
-	t.OpenConditionCafeInvite = OpenConditionContent(int32(fbsutils.Convert(e.OpenConditionCafeInvite(), t.FlatBuffer.TableKey)))
+	t.OpenConditionCafeId = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionCafeId()), t.FlatBuffer.TableKey))
+	t.OpenConditionCafeInvite = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionCafeInvite()), t.FlatBuffer.TableKey))
 	return nil
 }
 

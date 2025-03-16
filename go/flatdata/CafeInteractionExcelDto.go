@@ -71,13 +71,13 @@ func (t *CafeInteractionExcelDto) UnmarshalMessage(e *CafeInteractionExcel) erro
 	t.IgnoreIfUnobtainedEndDate = fbsutils.Convert(string(e.IgnoreIfUnobtainedEndDate()), t.FlatBuffer.TableKey)
 	t.BubbleType = make([]BubbleType, e.BubbleTypeLength())
 	for i := range e.BubbleTypeLength() {
-		t.BubbleType[i] = e.BubbleType(i)
+		t.BubbleType[i] = BubbleType(fbsutils.Convert(int32(e.BubbleType(i)), t.FlatBuffer.TableKey))
 	}
 	t.BubbleDuration = make([]int64, e.BubbleDurationLength())
 	for i := range e.BubbleDurationLength() {
 		t.BubbleDuration[i] = e.BubbleDuration(i)
 	}
-	t.FavorEmoticonRewardParcelType = ParcelType(int32(fbsutils.Convert(e.FavorEmoticonRewardParcelType(), t.FlatBuffer.TableKey)))
+	t.FavorEmoticonRewardParcelType = ParcelType(fbsutils.Convert(int32(e.FavorEmoticonRewardParcelType()), t.FlatBuffer.TableKey))
 	t.FavorEmoticonRewardId = fbsutils.Convert(e.FavorEmoticonRewardId(), t.FlatBuffer.TableKey)
 	t.FavorEmoticonRewardAmount = fbsutils.Convert(e.FavorEmoticonRewardAmount(), t.FlatBuffer.TableKey)
 	t.CafeCharacterState = make([]string, e.CafeCharacterStateLength())

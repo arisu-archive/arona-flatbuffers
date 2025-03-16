@@ -90,7 +90,7 @@ func (t *TimeAttackDungeonGeasExcelDto) UnmarshalMessage(e *TimeAttackDungeonGea
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeonGeas"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.TimeAttackDungeonType = TimeAttackDungeonType(int32(fbsutils.Convert(e.TimeAttackDungeonType(), t.FlatBuffer.TableKey)))
+	t.TimeAttackDungeonType = TimeAttackDungeonType(fbsutils.Convert(int32(e.TimeAttackDungeonType()), t.FlatBuffer.TableKey))
 	t.LocalizeEtcKey = fbsutils.Convert(e.LocalizeEtcKey(), t.FlatBuffer.TableKey)
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.ClearDefaultPoint = fbsutils.Convert(e.ClearDefaultPoint(), t.FlatBuffer.TableKey)

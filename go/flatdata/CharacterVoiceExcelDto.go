@@ -84,12 +84,12 @@ func (t *CharacterVoiceExcelDto) UnmarshalMessage(e *CharacterVoiceExcel) error 
 	t.Priority = fbsutils.Convert(e.Priority(), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.CollectionVisible = fbsutils.Convert(e.CollectionVisible(), t.FlatBuffer.TableKey)
-	t.CvCollectionType = CVCollectionType(int32(fbsutils.Convert(e.CvCollectionType(), t.FlatBuffer.TableKey)))
+	t.CvCollectionType = CVCollectionType(fbsutils.Convert(int32(e.CvCollectionType()), t.FlatBuffer.TableKey))
 	t.UnlockFavorRank = fbsutils.Convert(e.UnlockFavorRank(), t.FlatBuffer.TableKey)
 	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
 	t.Nation = make([]Nation, e.NationLength())
 	for i := range e.NationLength() {
-		t.Nation[i] = e.Nation(i)
+		t.Nation[i] = Nation(fbsutils.Convert(int32(e.Nation(i)), t.FlatBuffer.TableKey))
 	}
 	t.Volume = make([]float32, e.VolumeLength())
 	for i := range e.VolumeLength() {

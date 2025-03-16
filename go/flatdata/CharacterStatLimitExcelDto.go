@@ -48,8 +48,8 @@ func (t *CharacterStatLimitExcelDto) UnmarshalMessage(e *CharacterStatLimitExcel
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatLimit"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.TacticEntityType = TacticEntityType(int32(fbsutils.Convert(e.TacticEntityType(), t.FlatBuffer.TableKey)))
-	t.StatType = StatType(int32(fbsutils.Convert(e.StatType(), t.FlatBuffer.TableKey)))
+	t.TacticEntityType = TacticEntityType(fbsutils.Convert(int32(e.TacticEntityType()), t.FlatBuffer.TableKey))
+	t.StatType = StatType(fbsutils.Convert(int32(e.StatType()), t.FlatBuffer.TableKey))
 	t.StatMinValue = fbsutils.Convert(e.StatMinValue(), t.FlatBuffer.TableKey)
 	t.StatMaxValue = fbsutils.Convert(e.StatMaxValue(), t.FlatBuffer.TableKey)
 	t.StatRatioMinValue = fbsutils.Convert(e.StatRatioMinValue(), t.FlatBuffer.TableKey)

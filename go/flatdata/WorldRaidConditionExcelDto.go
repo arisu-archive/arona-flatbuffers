@@ -82,7 +82,7 @@ func (t *WorldRaidConditionExcelDto) UnmarshalMessage(e *WorldRaidConditionExcel
 	for i := range e.CampaignStageIdLength() {
 		t.CampaignStageId[i] = e.CampaignStageId(i)
 	}
-	t.MultipleConditionCheckType = MultipleConditionCheckType(int32(fbsutils.Convert(e.MultipleConditionCheckType(), t.FlatBuffer.TableKey)))
+	t.MultipleConditionCheckType = MultipleConditionCheckType(fbsutils.Convert(int32(e.MultipleConditionCheckType()), t.FlatBuffer.TableKey))
 	t.AfterWhenDate = fbsutils.Convert(string(e.AfterWhenDate()), t.FlatBuffer.TableKey)
 	t.WorldRaidBossKill = make([]int64, e.WorldRaidBossKillLength())
 	for i := range e.WorldRaidBossKillLength() {

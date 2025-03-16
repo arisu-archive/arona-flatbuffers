@@ -55,10 +55,10 @@ func (t *FieldMasteryExcelDto) UnmarshalMessage(e *FieldMasteryExcel) error {
 	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
 	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	t.ExpAmount = fbsutils.Convert(e.ExpAmount(), t.FlatBuffer.TableKey)
-	t.TokenType = ParcelType(int32(fbsutils.Convert(e.TokenType(), t.FlatBuffer.TableKey)))
+	t.TokenType = ParcelType(fbsutils.Convert(int32(e.TokenType()), t.FlatBuffer.TableKey))
 	t.TokenId = fbsutils.Convert(e.TokenId(), t.FlatBuffer.TableKey)
 	t.TokenRequirement = fbsutils.Convert(e.TokenRequirement(), t.FlatBuffer.TableKey)
-	t.AccomplishmentConditionType = FieldConditionType(int32(fbsutils.Convert(e.AccomplishmentConditionType(), t.FlatBuffer.TableKey)))
+	t.AccomplishmentConditionType = FieldConditionType(fbsutils.Convert(int32(e.AccomplishmentConditionType()), t.FlatBuffer.TableKey))
 	t.AccomplishmentConditionId = fbsutils.Convert(e.AccomplishmentConditionId(), t.FlatBuffer.TableKey)
 	return nil
 }

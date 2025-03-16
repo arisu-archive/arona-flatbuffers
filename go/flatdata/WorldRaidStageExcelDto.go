@@ -139,7 +139,7 @@ func (t *WorldRaidStageExcelDto) UnmarshalMessage(e *WorldRaidStageExcel) error 
 		t.BossCharacterId[i] = e.BossCharacterId(i)
 	}
 	t.AssistCharacterLimitCount = fbsutils.Convert(e.AssistCharacterLimitCount(), t.FlatBuffer.TableKey)
-	t.WorldRaidDifficulty = WorldRaidDifficulty(int32(fbsutils.Convert(e.WorldRaidDifficulty(), t.FlatBuffer.TableKey)))
+	t.WorldRaidDifficulty = WorldRaidDifficulty(fbsutils.Convert(int32(e.WorldRaidDifficulty()), t.FlatBuffer.TableKey))
 	t.DifficultyOpenCondition = fbsutils.Convert(e.DifficultyOpenCondition(), t.FlatBuffer.TableKey)
 	t.RaidEnterAmount = fbsutils.Convert(e.RaidEnterAmount(), t.FlatBuffer.TableKey)
 	t.ReEnterAmount = fbsutils.Convert(e.ReEnterAmount(), t.FlatBuffer.TableKey)
@@ -179,7 +179,7 @@ func (t *WorldRaidStageExcelDto) UnmarshalMessage(e *WorldRaidStageExcel) error 
 		t.AllyPassiveSkillLevel[i] = e.AllyPassiveSkillLevel(i)
 	}
 	t.SaveCurrentLocalBossHp = fbsutils.Convert(e.SaveCurrentLocalBossHp(), t.FlatBuffer.TableKey)
-	t.EchelonExtensionType = EchelonExtensionType(int32(fbsutils.Convert(e.EchelonExtensionType(), t.FlatBuffer.TableKey)))
+	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

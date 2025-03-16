@@ -64,7 +64,7 @@ func (t *ConstEventCommonExcelDto) UnmarshalMessage(e *ConstEventCommonExcel) er
 	t.SubEventChangeLimitSeconds = fbsutils.Convert(e.SubEventChangeLimitSeconds(), t.FlatBuffer.TableKey)
 	t.SubEventInstantClear = fbsutils.Convert(e.SubEventInstantClear(), t.FlatBuffer.TableKey)
 	t.CardShopProbWeightCount = fbsutils.Convert(e.CardShopProbWeightCount(), t.FlatBuffer.TableKey)
-	t.CardShopProbWeightRarity = Rarity(int32(fbsutils.Convert(e.CardShopProbWeightRarity(), t.FlatBuffer.TableKey)))
+	t.CardShopProbWeightRarity = Rarity(fbsutils.Convert(int32(e.CardShopProbWeightRarity()), t.FlatBuffer.TableKey))
 	t.MeetupScenarioReplayResource = fbsutils.Convert(string(e.MeetupScenarioReplayResource()), t.FlatBuffer.TableKey)
 	t.MeetupScenarioReplayTitleLocalize = fbsutils.Convert(string(e.MeetupScenarioReplayTitleLocalize()), t.FlatBuffer.TableKey)
 	t.SpecialOperactionCollectionGroupId = fbsutils.Convert(e.SpecialOperactionCollectionGroupId(), t.FlatBuffer.TableKey)

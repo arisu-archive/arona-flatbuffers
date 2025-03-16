@@ -61,19 +61,19 @@ func (t *ScenarioExcelDto) UnmarshalMessage(e *ScenarioExcel) error {
 	}
 	t.None = make([]ScenarioBGType, e.NoneLength())
 	for i := range e.NoneLength() {
-		t.None[i] = e.None(i)
+		t.None[i] = ScenarioBGType(fbsutils.Convert(int32(e.None(i)), t.FlatBuffer.TableKey))
 	}
 	t.Idle = make([]ScenarioCharacterAction, e.IdleLength())
 	for i := range e.IdleLength() {
-		t.Idle[i] = e.Idle(i)
+		t.Idle[i] = ScenarioCharacterAction(fbsutils.Convert(int32(e.Idle(i)), t.FlatBuffer.TableKey))
 	}
-	t.Cafe = DialogCategory(int32(fbsutils.Convert(e.Cafe(), t.FlatBuffer.TableKey)))
-	t.Talk = DialogType(int32(fbsutils.Convert(e.Talk(), t.FlatBuffer.TableKey)))
-	t.Open = StoryCondition(int32(fbsutils.Convert(e.Open(), t.FlatBuffer.TableKey)))
-	t.EnterConver = EmojiEvent(int32(fbsutils.Convert(e.EnterConver(), t.FlatBuffer.TableKey)))
-	t.Center = ScenarioZoomAnchors(int32(fbsutils.Convert(e.Center(), t.FlatBuffer.TableKey)))
-	t.Instant = ScenarioZoomType(int32(fbsutils.Convert(e.Instant(), t.FlatBuffer.TableKey)))
-	t.Prologue = ScenarioContentType(int32(fbsutils.Convert(e.Prologue(), t.FlatBuffer.TableKey)))
+	t.Cafe = DialogCategory(fbsutils.Convert(int32(e.Cafe()), t.FlatBuffer.TableKey))
+	t.Talk = DialogType(fbsutils.Convert(int32(e.Talk()), t.FlatBuffer.TableKey))
+	t.Open = StoryCondition(fbsutils.Convert(int32(e.Open()), t.FlatBuffer.TableKey))
+	t.EnterConver = EmojiEvent(fbsutils.Convert(int32(e.EnterConver()), t.FlatBuffer.TableKey))
+	t.Center = ScenarioZoomAnchors(fbsutils.Convert(int32(e.Center()), t.FlatBuffer.TableKey))
+	t.Instant = ScenarioZoomType(fbsutils.Convert(int32(e.Instant()), t.FlatBuffer.TableKey))
+	t.Prologue = ScenarioContentType(fbsutils.Convert(int32(e.Prologue()), t.FlatBuffer.TableKey))
 	return nil
 }
 

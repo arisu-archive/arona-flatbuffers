@@ -76,7 +76,7 @@ func (t *MiniGameRhythmExcelDto) UnmarshalMessage(e *MiniGameRhythmExcel) error 
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.RhythmBgmId = fbsutils.Convert(e.RhythmBgmId(), t.FlatBuffer.TableKey)
 	t.PresetName = fbsutils.Convert(string(e.PresetName()), t.FlatBuffer.TableKey)
-	t.StageDifficulty = Difficulty(int32(fbsutils.Convert(e.StageDifficulty(), t.FlatBuffer.TableKey)))
+	t.StageDifficulty = Difficulty(fbsutils.Convert(int32(e.StageDifficulty()), t.FlatBuffer.TableKey))
 	t.IsSpecial = fbsutils.Convert(e.IsSpecial(), t.FlatBuffer.TableKey)
 	t.OpenStageScoreAmount = fbsutils.Convert(e.OpenStageScoreAmount(), t.FlatBuffer.TableKey)
 	t.MaxHp = fbsutils.Convert(e.MaxHp(), t.FlatBuffer.TableKey)

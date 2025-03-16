@@ -68,13 +68,13 @@ func (t *ArenaRewardExcelDto) UnmarshalMessage(e *ArenaRewardExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ArenaReward"))
 	}
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.ArenaRewardType = ArenaRewardType(int32(fbsutils.Convert(e.ArenaRewardType(), t.FlatBuffer.TableKey)))
+	t.ArenaRewardType = ArenaRewardType(fbsutils.Convert(int32(e.ArenaRewardType()), t.FlatBuffer.TableKey))
 	t.RankStart = fbsutils.Convert(e.RankStart(), t.FlatBuffer.TableKey)
 	t.RankEnd = fbsutils.Convert(e.RankEnd(), t.FlatBuffer.TableKey)
 	t.RankIconPath = fbsutils.Convert(string(e.RankIconPath()), t.FlatBuffer.TableKey)
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = e.RewardParcelType(i)
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardParcelUniqueId = make([]int64, e.RewardParcelUniqueIdLength())
 	for i := range e.RewardParcelUniqueIdLength() {

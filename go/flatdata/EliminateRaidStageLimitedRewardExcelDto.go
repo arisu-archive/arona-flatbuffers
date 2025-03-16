@@ -56,7 +56,7 @@ func (t *EliminateRaidStageLimitedRewardExcelDto) UnmarshalMessage(e *EliminateR
 	t.LimitedRewardId = fbsutils.Convert(e.LimitedRewardId(), t.FlatBuffer.TableKey)
 	t.LimitedRewardParcelType = make([]ParcelType, e.LimitedRewardParcelTypeLength())
 	for i := range e.LimitedRewardParcelTypeLength() {
-		t.LimitedRewardParcelType[i] = e.LimitedRewardParcelType(i)
+		t.LimitedRewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.LimitedRewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.LimitedRewardParcelUniqueId = make([]int64, e.LimitedRewardParcelUniqueIdLength())
 	for i := range e.LimitedRewardParcelUniqueIdLength() {

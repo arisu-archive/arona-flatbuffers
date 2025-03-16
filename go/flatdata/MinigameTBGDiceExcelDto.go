@@ -68,7 +68,7 @@ func (t *MinigameTBGDiceExcelDto) UnmarshalMessage(e *MinigameTBGDiceExcel) erro
 	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
 	t.ProbModifyCondition = make([]TBGProbModifyCondition, e.ProbModifyConditionLength())
 	for i := range e.ProbModifyConditionLength() {
-		t.ProbModifyCondition[i] = e.ProbModifyCondition(i)
+		t.ProbModifyCondition[i] = TBGProbModifyCondition(fbsutils.Convert(int32(e.ProbModifyCondition(i)), t.FlatBuffer.TableKey))
 	}
 	t.ProbModifyValue = make([]int32, e.ProbModifyValueLength())
 	for i := range e.ProbModifyValueLength() {

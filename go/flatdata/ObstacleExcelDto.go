@@ -102,7 +102,7 @@ func (t *ObstacleExcelDto) UnmarshalMessage(e *ObstacleExcel) error {
 	t.MaxHp = fbsutils.Convert(e.MaxHp(), t.FlatBuffer.TableKey)
 	t.BlockRate = fbsutils.Convert(e.BlockRate(), t.FlatBuffer.TableKey)
 	t.EvasionRate = fbsutils.Convert(e.EvasionRate(), t.FlatBuffer.TableKey)
-	t.DestroyType = ObstacleDestroyType(int32(fbsutils.Convert(e.DestroyType(), t.FlatBuffer.TableKey)))
+	t.DestroyType = ObstacleDestroyType(fbsutils.Convert(int32(e.DestroyType()), t.FlatBuffer.TableKey))
 	t.Point1Offeset = make([]float32, e.Point1OffesetLength())
 	for i := range e.Point1OffesetLength() {
 		t.Point1Offeset[i] = e.Point1Offeset(i)

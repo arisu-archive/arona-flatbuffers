@@ -45,7 +45,7 @@ func (t *MultiFloorRaidRewardExcelDto) UnmarshalMessage(e *MultiFloorRaidRewardE
 	}
 	t.RewardGroupId = fbsutils.Convert(e.RewardGroupId(), t.FlatBuffer.TableKey)
 	t.ClearStageRewardProb = fbsutils.Convert(e.ClearStageRewardProb(), t.FlatBuffer.TableKey)
-	t.ClearStageRewardParcelType = ParcelType(int32(fbsutils.Convert(e.ClearStageRewardParcelType(), t.FlatBuffer.TableKey)))
+	t.ClearStageRewardParcelType = ParcelType(fbsutils.Convert(int32(e.ClearStageRewardParcelType()), t.FlatBuffer.TableKey))
 	t.ClearStageRewardParcelUniqueId = fbsutils.Convert(e.ClearStageRewardParcelUniqueId(), t.FlatBuffer.TableKey)
 	t.ClearStageRewardAmount = fbsutils.Convert(e.ClearStageRewardAmount(), t.FlatBuffer.TableKey)
 	return nil

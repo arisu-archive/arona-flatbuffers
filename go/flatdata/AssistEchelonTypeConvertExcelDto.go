@@ -37,8 +37,8 @@ func (t *AssistEchelonTypeConvertExcelDto) UnmarshalMessage(e *AssistEchelonType
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AssistEchelonTypeConvert"))
 	}
-	t.Contents = EchelonType(int32(fbsutils.Convert(e.Contents(), t.FlatBuffer.TableKey)))
-	t.ConvertTo = EchelonType(int32(fbsutils.Convert(e.ConvertTo(), t.FlatBuffer.TableKey)))
+	t.Contents = EchelonType(fbsutils.Convert(int32(e.Contents()), t.FlatBuffer.TableKey))
+	t.ConvertTo = EchelonType(fbsutils.Convert(int32(e.ConvertTo()), t.FlatBuffer.TableKey))
 	return nil
 }
 

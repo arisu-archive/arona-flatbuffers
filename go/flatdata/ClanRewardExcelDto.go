@@ -43,9 +43,9 @@ func (t *ClanRewardExcelDto) UnmarshalMessage(e *ClanRewardExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ClanReward"))
 	}
-	t.ClanRewardType = ClanRewardType(int32(fbsutils.Convert(e.ClanRewardType(), t.FlatBuffer.TableKey)))
-	t.EchelonType = EchelonType(int32(fbsutils.Convert(e.EchelonType(), t.FlatBuffer.TableKey)))
-	t.RewardParcelType = ParcelType(int32(fbsutils.Convert(e.RewardParcelType(), t.FlatBuffer.TableKey)))
+	t.ClanRewardType = ClanRewardType(fbsutils.Convert(int32(e.ClanRewardType()), t.FlatBuffer.TableKey))
+	t.EchelonType = EchelonType(fbsutils.Convert(int32(e.EchelonType()), t.FlatBuffer.TableKey))
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
 	return nil

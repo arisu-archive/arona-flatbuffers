@@ -80,7 +80,7 @@ func (t *BGMExcelDto) UnmarshalMessage(e *BGMExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Nation = make([]Nation, e.NationLength())
 	for i := range e.NationLength() {
-		t.Nation[i] = e.Nation(i)
+		t.Nation[i] = Nation(fbsutils.Convert(int32(e.Nation(i)), t.FlatBuffer.TableKey))
 	}
 	t.Path = make([]string, e.PathLength())
 	for i := range e.PathLength() {

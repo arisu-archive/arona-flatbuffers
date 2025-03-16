@@ -50,7 +50,7 @@ func (t *EliminateRaidStageRewardExcelDto) UnmarshalMessage(e *EliminateRaidStag
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.IsClearStageRewardHideInfo = fbsutils.Convert(e.IsClearStageRewardHideInfo(), t.FlatBuffer.TableKey)
 	t.ClearStageRewardProb = fbsutils.Convert(e.ClearStageRewardProb(), t.FlatBuffer.TableKey)
-	t.ClearStageRewardParcelType = ParcelType(int32(fbsutils.Convert(e.ClearStageRewardParcelType(), t.FlatBuffer.TableKey)))
+	t.ClearStageRewardParcelType = ParcelType(fbsutils.Convert(int32(e.ClearStageRewardParcelType()), t.FlatBuffer.TableKey))
 	t.ClearStageRewardParcelUniqueId = fbsutils.Convert(e.ClearStageRewardParcelUniqueId(), t.FlatBuffer.TableKey)
 	t.ClearStageRewardParcelUniqueName = fbsutils.Convert(string(e.ClearStageRewardParcelUniqueName()), t.FlatBuffer.TableKey)
 	t.ClearStageRewardAmount = fbsutils.Convert(e.ClearStageRewardAmount(), t.FlatBuffer.TableKey)

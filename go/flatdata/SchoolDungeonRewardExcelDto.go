@@ -50,9 +50,9 @@ func (t *SchoolDungeonRewardExcelDto) UnmarshalMessage(e *SchoolDungeonRewardExc
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("SchoolDungeonReward"))
 	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.DungeonType = SchoolDungeonType(int32(fbsutils.Convert(e.DungeonType(), t.FlatBuffer.TableKey)))
-	t.RewardTag = RewardTag(int32(fbsutils.Convert(e.RewardTag(), t.FlatBuffer.TableKey)))
-	t.RewardParcelType = ParcelType(int32(fbsutils.Convert(e.RewardParcelType(), t.FlatBuffer.TableKey)))
+	t.DungeonType = SchoolDungeonType(fbsutils.Convert(int32(e.DungeonType()), t.FlatBuffer.TableKey))
+	t.RewardTag = RewardTag(fbsutils.Convert(int32(e.RewardTag()), t.FlatBuffer.TableKey))
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
 	t.RewardParcelProbability = fbsutils.Convert(e.RewardParcelProbability(), t.FlatBuffer.TableKey)

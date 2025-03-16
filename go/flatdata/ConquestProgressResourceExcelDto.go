@@ -51,7 +51,7 @@ func (t *ConquestProgressResourceExcelDto) UnmarshalMessage(e *ConquestProgressR
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.Group = ConquestProgressType(int32(fbsutils.Convert(e.Group(), t.FlatBuffer.TableKey)))
+	t.Group = ConquestProgressType(fbsutils.Convert(int32(e.Group()), t.FlatBuffer.TableKey))
 	t.ProgressResource = fbsutils.Convert(string(e.ProgressResource()), t.FlatBuffer.TableKey)
 	t.VoiceId = make([]uint32, e.VoiceIdLength())
 	for i := range e.VoiceIdLength() {

@@ -44,7 +44,7 @@ func (t *TimeAttackDungeonExcelDto) UnmarshalMessage(e *TimeAttackDungeonExcel) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TimeAttackDungeon"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.TimeAttackDungeonType = TimeAttackDungeonType(int32(fbsutils.Convert(e.TimeAttackDungeonType(), t.FlatBuffer.TableKey)))
+	t.TimeAttackDungeonType = TimeAttackDungeonType(fbsutils.Convert(int32(e.TimeAttackDungeonType()), t.FlatBuffer.TableKey))
 	t.LocalizeEtcKey = fbsutils.Convert(e.LocalizeEtcKey(), t.FlatBuffer.TableKey)
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
 	t.InformationGroupId = fbsutils.Convert(e.InformationGroupId(), t.FlatBuffer.TableKey)

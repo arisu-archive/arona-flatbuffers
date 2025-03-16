@@ -64,11 +64,11 @@ func (t *ShopRefreshExcelDto) UnmarshalMessage(e *ShopRefreshExcel) error {
 	t.IsBundle = fbsutils.Convert(e.IsBundle(), t.FlatBuffer.TableKey)
 	t.VisibleAmount = fbsutils.Convert(e.VisibleAmount(), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.CategoryType = ShopCategoryType(int32(fbsutils.Convert(e.CategoryType(), t.FlatBuffer.TableKey)))
+	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
 	t.RefreshGroup = fbsutils.Convert(e.RefreshGroup(), t.FlatBuffer.TableKey)
 	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
 	t.BuyReportEventName = fbsutils.Convert(string(e.BuyReportEventName()), t.FlatBuffer.TableKey)
-	t.DisplayTag = ProductDisplayTag(int32(fbsutils.Convert(e.DisplayTag(), t.FlatBuffer.TableKey)))
+	t.DisplayTag = ProductDisplayTag(fbsutils.Convert(int32(e.DisplayTag()), t.FlatBuffer.TableKey))
 	return nil
 }
 

@@ -81,7 +81,7 @@ func (t *OpenConditionExcelDto) UnmarshalMessage(e *OpenConditionExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("OpenCondition"))
 	}
-	t.OpenConditionContentType = OpenConditionContent(int32(fbsutils.Convert(e.OpenConditionContentType(), t.FlatBuffer.TableKey)))
+	t.OpenConditionContentType = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionContentType()), t.FlatBuffer.TableKey))
 	t.LockUi = make([]string, e.LockUiLength())
 	for i := range e.LockUiLength() {
 		t.LockUi[i] = string(e.LockUi(i))
@@ -97,10 +97,10 @@ func (t *OpenConditionExcelDto) UnmarshalMessage(e *OpenConditionExcel) error {
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
 	t.ScenarioModeId = fbsutils.Convert(e.ScenarioModeId(), t.FlatBuffer.TableKey)
 	t.CampaignStageId = fbsutils.Convert(e.CampaignStageId(), t.FlatBuffer.TableKey)
-	t.MultipleConditionCheckType = MultipleConditionCheckType(int32(fbsutils.Convert(e.MultipleConditionCheckType(), t.FlatBuffer.TableKey)))
-	t.OpenDayOfWeek = WeekDay(int32(fbsutils.Convert(e.OpenDayOfWeek(), t.FlatBuffer.TableKey)))
+	t.MultipleConditionCheckType = MultipleConditionCheckType(fbsutils.Convert(int32(e.MultipleConditionCheckType()), t.FlatBuffer.TableKey))
+	t.OpenDayOfWeek = WeekDay(fbsutils.Convert(int32(e.OpenDayOfWeek()), t.FlatBuffer.TableKey))
 	t.OpenHour = fbsutils.Convert(e.OpenHour(), t.FlatBuffer.TableKey)
-	t.CloseDayOfWeek = WeekDay(int32(fbsutils.Convert(e.CloseDayOfWeek(), t.FlatBuffer.TableKey)))
+	t.CloseDayOfWeek = WeekDay(fbsutils.Convert(int32(e.CloseDayOfWeek()), t.FlatBuffer.TableKey))
 	t.CloseHour = fbsutils.Convert(e.CloseHour(), t.FlatBuffer.TableKey)
 	t.OpenedCafeId = fbsutils.Convert(e.OpenedCafeId(), t.FlatBuffer.TableKey)
 	t.CafeIdforCafeRank = fbsutils.Convert(e.CafeIdforCafeRank(), t.FlatBuffer.TableKey)

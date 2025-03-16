@@ -43,7 +43,7 @@ func (t *VoiceCommonExcelDto) UnmarshalMessage(e *VoiceCommonExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceCommon"))
 	}
-	t.VoiceEvent = VoiceEvent(int32(fbsutils.Convert(e.VoiceEvent(), t.FlatBuffer.TableKey)))
+	t.VoiceEvent = VoiceEvent(fbsutils.Convert(int32(e.VoiceEvent()), t.FlatBuffer.TableKey))
 	t.Rate = fbsutils.Convert(e.Rate(), t.FlatBuffer.TableKey)
 	t.VoiceHash = make([]uint32, e.VoiceHashLength())
 	for i := range e.VoiceHashLength() {

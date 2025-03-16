@@ -96,13 +96,13 @@ func (t *FieldInteractionExcelDto) UnmarshalMessage(e *FieldInteractionExcel) er
 	t.FieldSeasonId = fbsutils.Convert(e.FieldSeasonId(), t.FlatBuffer.TableKey)
 	t.InteractionType = make([]FieldInteractionType, e.InteractionTypeLength())
 	for i := range e.InteractionTypeLength() {
-		t.InteractionType[i] = e.InteractionType(i)
+		t.InteractionType[i] = FieldInteractionType(fbsutils.Convert(int32(e.InteractionType(i)), t.FlatBuffer.TableKey))
 	}
 	t.InteractionId = make([]int64, e.InteractionIdLength())
 	for i := range e.InteractionIdLength() {
 		t.InteractionId[i] = e.InteractionId(i)
 	}
-	t.ConditionClass = FieldConditionClass(int32(fbsutils.Convert(e.ConditionClass(), t.FlatBuffer.TableKey)))
+	t.ConditionClass = FieldConditionClass(fbsutils.Convert(int32(e.ConditionClass()), t.FlatBuffer.TableKey))
 	t.ConditionClassParameters = make([]int64, e.ConditionClassParametersLength())
 	for i := range e.ConditionClassParametersLength() {
 		t.ConditionClassParameters[i] = e.ConditionClassParameters(i)
@@ -114,7 +114,7 @@ func (t *FieldInteractionExcelDto) UnmarshalMessage(e *FieldInteractionExcel) er
 	}
 	t.ConditionType = make([]FieldConditionType, e.ConditionTypeLength())
 	for i := range e.ConditionTypeLength() {
-		t.ConditionType[i] = e.ConditionType(i)
+		t.ConditionType[i] = FieldConditionType(fbsutils.Convert(int32(e.ConditionType(i)), t.FlatBuffer.TableKey))
 	}
 	t.ConditionId = make([]int64, e.ConditionIdLength())
 	for i := range e.ConditionIdLength() {

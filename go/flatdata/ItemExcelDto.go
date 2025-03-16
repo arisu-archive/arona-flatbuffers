@@ -107,28 +107,28 @@ func (t *ItemExcelDto) UnmarshalMessage(e *ItemExcel) error {
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.Rarity = Rarity(int32(fbsutils.Convert(e.Rarity(), t.FlatBuffer.TableKey)))
-	t.ProductionStep = ProductionStep(int32(fbsutils.Convert(e.ProductionStep(), t.FlatBuffer.TableKey)))
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
+	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.ItemCategory = ItemCategory(int32(fbsutils.Convert(e.ItemCategory(), t.FlatBuffer.TableKey)))
+	t.ItemCategory = ItemCategory(fbsutils.Convert(int32(e.ItemCategory()), t.FlatBuffer.TableKey))
 	t.Quality = fbsutils.Convert(e.Quality(), t.FlatBuffer.TableKey)
 	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
 	t.SpriteName = fbsutils.Convert(string(e.SpriteName()), t.FlatBuffer.TableKey)
 	t.StackableMax = fbsutils.Convert(e.StackableMax(), t.FlatBuffer.TableKey)
 	t.StackableFunction = fbsutils.Convert(e.StackableFunction(), t.FlatBuffer.TableKey)
 	t.ImmediateUse = fbsutils.Convert(e.ImmediateUse(), t.FlatBuffer.TableKey)
-	t.UsingResultParcelType = ParcelType(int32(fbsutils.Convert(e.UsingResultParcelType(), t.FlatBuffer.TableKey)))
+	t.UsingResultParcelType = ParcelType(fbsutils.Convert(int32(e.UsingResultParcelType()), t.FlatBuffer.TableKey))
 	t.UsingResultId = fbsutils.Convert(e.UsingResultId(), t.FlatBuffer.TableKey)
 	t.UsingResultAmount = fbsutils.Convert(e.UsingResultAmount(), t.FlatBuffer.TableKey)
-	t.MailType = MailType(int32(fbsutils.Convert(e.MailType(), t.FlatBuffer.TableKey)))
-	t.ExpiryChangeParcelType = ParcelType(int32(fbsutils.Convert(e.ExpiryChangeParcelType(), t.FlatBuffer.TableKey)))
+	t.MailType = MailType(fbsutils.Convert(int32(e.MailType()), t.FlatBuffer.TableKey))
+	t.ExpiryChangeParcelType = ParcelType(fbsutils.Convert(int32(e.ExpiryChangeParcelType()), t.FlatBuffer.TableKey))
 	t.ExpiryChangeId = fbsutils.Convert(e.ExpiryChangeId(), t.FlatBuffer.TableKey)
 	t.ExpiryChangeAmount = fbsutils.Convert(e.ExpiryChangeAmount(), t.FlatBuffer.TableKey)
 	t.CanTierUpgrade = fbsutils.Convert(e.CanTierUpgrade(), t.FlatBuffer.TableKey)
 	t.TierUpgradeRecipeCraftId = fbsutils.Convert(e.TierUpgradeRecipeCraftId(), t.FlatBuffer.TableKey)
 	t.Tags = make([]Tag, e.TagsLength())
 	for i := range e.TagsLength() {
-		t.Tags[i] = e.Tags(i)
+		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
 	}
 	t.CraftQualityTier0 = fbsutils.Convert(e.CraftQualityTier0(), t.FlatBuffer.TableKey)
 	t.CraftQualityTier1 = fbsutils.Convert(e.CraftQualityTier1(), t.FlatBuffer.TableKey)
@@ -137,12 +137,12 @@ func (t *ItemExcelDto) UnmarshalMessage(e *ItemExcel) error {
 	t.MaxGiftTags = fbsutils.Convert(e.MaxGiftTags(), t.FlatBuffer.TableKey)
 	t.ShopCategory = make([]ShopCategoryType, e.ShopCategoryLength())
 	for i := range e.ShopCategoryLength() {
-		t.ShopCategory[i] = e.ShopCategory(i)
+		t.ShopCategory[i] = ShopCategoryType(fbsutils.Convert(int32(e.ShopCategory(i)), t.FlatBuffer.TableKey))
 	}
 	t.ExpirationDateTime = fbsutils.Convert(string(e.ExpirationDateTime()), t.FlatBuffer.TableKey)
 	t.ExpirationNotifyDateIn = fbsutils.Convert(e.ExpirationNotifyDateIn(), t.FlatBuffer.TableKey)
 	t.ShortcutTypeId = fbsutils.Convert(e.ShortcutTypeId(), t.FlatBuffer.TableKey)
-	t.GachaTicket = GachaTicketType(int32(fbsutils.Convert(e.GachaTicket(), t.FlatBuffer.TableKey)))
+	t.GachaTicket = GachaTicketType(fbsutils.Convert(int32(e.GachaTicket()), t.FlatBuffer.TableKey))
 	return nil
 }
 

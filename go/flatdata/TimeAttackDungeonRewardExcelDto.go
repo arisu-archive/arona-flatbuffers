@@ -77,7 +77,7 @@ func (t *TimeAttackDungeonRewardExcelDto) UnmarshalMessage(e *TimeAttackDungeonR
 	t.RewardMaxPoint = fbsutils.Convert(e.RewardMaxPoint(), t.FlatBuffer.TableKey)
 	t.RewardType = make([]TimeAttackDungeonRewardType, e.RewardTypeLength())
 	for i := range e.RewardTypeLength() {
-		t.RewardType[i] = e.RewardType(i)
+		t.RewardType[i] = TimeAttackDungeonRewardType(fbsutils.Convert(int32(e.RewardType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardMinPoint = make([]int64, e.RewardMinPointLength())
 	for i := range e.RewardMinPointLength() {
@@ -85,7 +85,7 @@ func (t *TimeAttackDungeonRewardExcelDto) UnmarshalMessage(e *TimeAttackDungeonR
 	}
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = e.RewardParcelType(i)
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {

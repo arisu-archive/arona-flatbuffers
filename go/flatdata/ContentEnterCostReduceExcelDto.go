@@ -46,9 +46,9 @@ func (t *ContentEnterCostReduceExcelDto) UnmarshalMessage(e *ContentEnterCostRed
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentEnterCostReduce"))
 	}
 	t.EnterCostReduceGroupId = fbsutils.Convert(e.EnterCostReduceGroupId(), t.FlatBuffer.TableKey)
-	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
+	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
 	t.StageId = fbsutils.Convert(e.StageId(), t.FlatBuffer.TableKey)
-	t.ReduceEnterCostType = ParcelType(int32(fbsutils.Convert(e.ReduceEnterCostType(), t.FlatBuffer.TableKey)))
+	t.ReduceEnterCostType = ParcelType(fbsutils.Convert(int32(e.ReduceEnterCostType()), t.FlatBuffer.TableKey))
 	t.ReduceEnterCostId = fbsutils.Convert(e.ReduceEnterCostId(), t.FlatBuffer.TableKey)
 	t.ReduceAmount = fbsutils.Convert(e.ReduceAmount(), t.FlatBuffer.TableKey)
 	return nil

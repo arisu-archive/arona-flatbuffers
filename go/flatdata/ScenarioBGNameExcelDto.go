@@ -52,9 +52,9 @@ func (t *ScenarioBGNameExcelDto) UnmarshalMessage(e *ScenarioBGNameExcel) error 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioBGName"))
 	}
 	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
-	t.ProductionStep = ProductionStep(int32(fbsutils.Convert(e.ProductionStep(), t.FlatBuffer.TableKey)))
+	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
 	t.BgFileName = fbsutils.Convert(string(e.BgFileName()), t.FlatBuffer.TableKey)
-	t.BgType = ScenarioBGType(int32(fbsutils.Convert(e.BgType(), t.FlatBuffer.TableKey)))
+	t.BgType = ScenarioBGType(fbsutils.Convert(int32(e.BgType()), t.FlatBuffer.TableKey))
 	t.AnimationRoot = fbsutils.Convert(string(e.AnimationRoot()), t.FlatBuffer.TableKey)
 	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
 	t.SpineScale = fbsutils.Convert(e.SpineScale(), t.FlatBuffer.TableKey)

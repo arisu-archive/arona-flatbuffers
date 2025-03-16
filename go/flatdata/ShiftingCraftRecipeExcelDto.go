@@ -62,7 +62,7 @@ func (t *ShiftingCraftRecipeExcelDto) UnmarshalMessage(e *ShiftingCraftRecipeExc
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.NotificationId = fbsutils.Convert(e.NotificationId(), t.FlatBuffer.TableKey)
-	t.ResultParcel = ParcelType(int32(fbsutils.Convert(e.ResultParcel(), t.FlatBuffer.TableKey)))
+	t.ResultParcel = ParcelType(fbsutils.Convert(int32(e.ResultParcel()), t.FlatBuffer.TableKey))
 	t.ResultId = fbsutils.Convert(e.ResultId(), t.FlatBuffer.TableKey)
 	t.ResultAmount = fbsutils.Convert(e.ResultAmount(), t.FlatBuffer.TableKey)
 	t.RequireItemId = fbsutils.Convert(e.RequireItemId(), t.FlatBuffer.TableKey)
@@ -70,7 +70,7 @@ func (t *ShiftingCraftRecipeExcelDto) UnmarshalMessage(e *ShiftingCraftRecipeExc
 	t.RequireGold = fbsutils.Convert(e.RequireGold(), t.FlatBuffer.TableKey)
 	t.IngredientTag = make([]Tag, e.IngredientTagLength())
 	for i := range e.IngredientTagLength() {
-		t.IngredientTag[i] = e.IngredientTag(i)
+		t.IngredientTag[i] = Tag(fbsutils.Convert(int32(e.IngredientTag(i)), t.FlatBuffer.TableKey))
 	}
 	t.IngredientExp = fbsutils.Convert(e.IngredientExp(), t.FlatBuffer.TableKey)
 	return nil

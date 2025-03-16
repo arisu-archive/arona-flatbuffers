@@ -17,7 +17,7 @@ type NormalSkillTemplateExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *NormalSkillTemplateExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("NormalSkillTemplateTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("NormalSkillTemplate"))
 	}
 	NormalSkillTemplateExcelTableStart(b)
 	NormalSkillTemplateExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *NormalSkillTemplateExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *NormalSkillTemplateExcelTableDto) UnmarshalMessage(e *NormalSkillTemplateExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("NormalSkillTemplateTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("NormalSkillTemplate"))
 	}
 	t.DataList = make([]NormalSkillTemplateExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

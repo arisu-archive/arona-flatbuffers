@@ -43,8 +43,8 @@ func (t *ContentsFeverExcelDto) UnmarshalMessage(e *ContentsFeverExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentsFever"))
 	}
-	t.ConditionContent = FeverBattleType(int32(fbsutils.Convert(e.ConditionContent(), t.FlatBuffer.TableKey)))
-	t.SkillFeverCheckCondition = SkillPriorityCheckTarget(int32(fbsutils.Convert(e.SkillFeverCheckCondition(), t.FlatBuffer.TableKey)))
+	t.ConditionContent = FeverBattleType(fbsutils.Convert(int32(e.ConditionContent()), t.FlatBuffer.TableKey))
+	t.SkillFeverCheckCondition = SkillPriorityCheckTarget(fbsutils.Convert(int32(e.SkillFeverCheckCondition()), t.FlatBuffer.TableKey))
 	t.SkillCostFever = fbsutils.Convert(e.SkillCostFever(), t.FlatBuffer.TableKey)
 	t.FeverStartTime = fbsutils.Convert(e.FeverStartTime(), t.FlatBuffer.TableKey)
 	t.FeverDurationTime = fbsutils.Convert(e.FeverDurationTime(), t.FlatBuffer.TableKey)

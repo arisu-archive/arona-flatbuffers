@@ -44,7 +44,7 @@ func (t *MiniGameDefenseInfoExcelDto) UnmarshalMessage(e *MiniGameDefenseInfoExc
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseInfo"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.DefenseBattleParcelType = ParcelType(int32(fbsutils.Convert(e.DefenseBattleParcelType(), t.FlatBuffer.TableKey)))
+	t.DefenseBattleParcelType = ParcelType(fbsutils.Convert(int32(e.DefenseBattleParcelType()), t.FlatBuffer.TableKey))
 	t.DefenseBattleParcelId = fbsutils.Convert(e.DefenseBattleParcelId(), t.FlatBuffer.TableKey)
 	t.DefenseBattleMultiplierMax = fbsutils.Convert(e.DefenseBattleMultiplierMax(), t.FlatBuffer.TableKey)
 	t.DisableRootMotion = fbsutils.Convert(e.DisableRootMotion(), t.FlatBuffer.TableKey)

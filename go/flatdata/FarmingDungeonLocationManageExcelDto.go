@@ -54,9 +54,9 @@ func (t *FarmingDungeonLocationManageExcelDto) UnmarshalMessage(e *FarmingDungeo
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FarmingDungeonLocationManage"))
 	}
 	t.FarmingDungeonLocationId = fbsutils.Convert(e.FarmingDungeonLocationId(), t.FlatBuffer.TableKey)
-	t.ContentType = ContentType(int32(fbsutils.Convert(e.ContentType(), t.FlatBuffer.TableKey)))
-	t.WeekDungeonType = WeekDungeonType(int32(fbsutils.Convert(e.WeekDungeonType(), t.FlatBuffer.TableKey)))
-	t.SchoolDungeonType = SchoolDungeonType(int32(fbsutils.Convert(e.SchoolDungeonType(), t.FlatBuffer.TableKey)))
+	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
+	t.WeekDungeonType = WeekDungeonType(fbsutils.Convert(int32(e.WeekDungeonType()), t.FlatBuffer.TableKey))
+	t.SchoolDungeonType = SchoolDungeonType(fbsutils.Convert(int32(e.SchoolDungeonType()), t.FlatBuffer.TableKey))
 	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	t.OpenStartDateTime = fbsutils.Convert(string(e.OpenStartDateTime()), t.FlatBuffer.TableKey)
 	t.OpenEndDateTime = fbsutils.Convert(string(e.OpenEndDateTime()), t.FlatBuffer.TableKey)

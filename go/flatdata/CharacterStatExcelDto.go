@@ -266,9 +266,9 @@ func (t *CharacterStatExcelDto) UnmarshalMessage(e *CharacterStatExcel) error {
 	t.HealedMysticRate = fbsutils.Convert(e.HealedMysticRate(), t.FlatBuffer.TableKey)
 	t.HealedSonicRate = fbsutils.Convert(e.HealedSonicRate(), t.FlatBuffer.TableKey)
 	t.HealedNormalRate = fbsutils.Convert(e.HealedNormalRate(), t.FlatBuffer.TableKey)
-	t.StreetBattleAdaptation = TerrainAdaptationStat(int32(fbsutils.Convert(e.StreetBattleAdaptation(), t.FlatBuffer.TableKey)))
-	t.OutdoorBattleAdaptation = TerrainAdaptationStat(int32(fbsutils.Convert(e.OutdoorBattleAdaptation(), t.FlatBuffer.TableKey)))
-	t.IndoorBattleAdaptation = TerrainAdaptationStat(int32(fbsutils.Convert(e.IndoorBattleAdaptation(), t.FlatBuffer.TableKey)))
+	t.StreetBattleAdaptation = TerrainAdaptationStat(fbsutils.Convert(int32(e.StreetBattleAdaptation()), t.FlatBuffer.TableKey))
+	t.OutdoorBattleAdaptation = TerrainAdaptationStat(fbsutils.Convert(int32(e.OutdoorBattleAdaptation()), t.FlatBuffer.TableKey))
+	t.IndoorBattleAdaptation = TerrainAdaptationStat(fbsutils.Convert(int32(e.IndoorBattleAdaptation()), t.FlatBuffer.TableKey))
 	t.RegenCost = fbsutils.Convert(e.RegenCost(), t.FlatBuffer.TableKey)
 	return nil
 }

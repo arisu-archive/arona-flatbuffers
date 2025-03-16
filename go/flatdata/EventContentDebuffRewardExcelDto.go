@@ -43,7 +43,7 @@ func (t *EventContentDebuffRewardExcelDto) UnmarshalMessage(e *EventContentDebuf
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.EventStageId = fbsutils.Convert(e.EventStageId(), t.FlatBuffer.TableKey)
-	t.EventContentItemType = EventContentItemType(int32(fbsutils.Convert(e.EventContentItemType(), t.FlatBuffer.TableKey)))
+	t.EventContentItemType = EventContentItemType(fbsutils.Convert(int32(e.EventContentItemType()), t.FlatBuffer.TableKey))
 	t.RewardPercentage = fbsutils.Convert(e.RewardPercentage(), t.FlatBuffer.TableKey)
 	return nil
 }

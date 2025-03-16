@@ -50,7 +50,7 @@ func (t *CombatEmojiExcelDto) UnmarshalMessage(e *CombatEmojiExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CombatEmoji"))
 	}
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.EmojiEvent = EmojiEvent(int32(fbsutils.Convert(e.EmojiEvent(), t.FlatBuffer.TableKey)))
+	t.EmojiEvent = EmojiEvent(fbsutils.Convert(int32(e.EmojiEvent()), t.FlatBuffer.TableKey))
 	t.OrderOfPriority = fbsutils.Convert(e.OrderOfPriority(), t.FlatBuffer.TableKey)
 	t.EmojiDuration = fbsutils.Convert(e.EmojiDuration(), t.FlatBuffer.TableKey)
 	t.EmojiReversal = fbsutils.Convert(e.EmojiReversal(), t.FlatBuffer.TableKey)

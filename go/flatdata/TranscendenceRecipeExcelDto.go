@@ -61,11 +61,11 @@ func (t *TranscendenceRecipeExcelDto) UnmarshalMessage(e *TranscendenceRecipeExc
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
-	t.CostCurrencyType = CurrencyTypes(int32(fbsutils.Convert(e.CostCurrencyType(), t.FlatBuffer.TableKey)))
+	t.CostCurrencyType = CurrencyTypes(fbsutils.Convert(int32(e.CostCurrencyType()), t.FlatBuffer.TableKey))
 	t.CostCurrencyAmount = fbsutils.Convert(e.CostCurrencyAmount(), t.FlatBuffer.TableKey)
 	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
 	for i := range e.ParcelTypeLength() {
-		t.ParcelType[i] = e.ParcelType(i)
+		t.ParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {

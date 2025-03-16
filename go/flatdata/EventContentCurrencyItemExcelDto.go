@@ -40,7 +40,7 @@ func (t *EventContentCurrencyItemExcelDto) UnmarshalMessage(e *EventContentCurre
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCurrencyItem"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EventContentItemType = EventContentItemType(int32(fbsutils.Convert(e.EventContentItemType(), t.FlatBuffer.TableKey)))
+	t.EventContentItemType = EventContentItemType(fbsutils.Convert(int32(e.EventContentItemType()), t.FlatBuffer.TableKey))
 	t.ItemUniqueId = fbsutils.Convert(e.ItemUniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }

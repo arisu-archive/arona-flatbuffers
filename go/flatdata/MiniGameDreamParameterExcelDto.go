@@ -53,7 +53,7 @@ func (t *MiniGameDreamParameterExcelDto) UnmarshalMessage(e *MiniGameDreamParame
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.ParameterType = DreamMakerParameterType(int32(fbsutils.Convert(e.ParameterType(), t.FlatBuffer.TableKey)))
+	t.ParameterType = DreamMakerParameterType(fbsutils.Convert(int32(e.ParameterType()), t.FlatBuffer.TableKey))
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
 	t.ParameterBase = fbsutils.Convert(e.ParameterBase(), t.FlatBuffer.TableKey)

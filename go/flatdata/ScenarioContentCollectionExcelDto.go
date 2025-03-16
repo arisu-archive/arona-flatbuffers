@@ -65,12 +65,12 @@ func (t *ScenarioContentCollectionExcelDto) UnmarshalMessage(e *ScenarioContentC
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.UnlockConditionType = CollectionUnlockType(int32(fbsutils.Convert(e.UnlockConditionType(), t.FlatBuffer.TableKey)))
+	t.UnlockConditionType = CollectionUnlockType(fbsutils.Convert(int32(e.UnlockConditionType()), t.FlatBuffer.TableKey))
 	t.UnlockConditionParameter = make([]int64, e.UnlockConditionParameterLength())
 	for i := range e.UnlockConditionParameterLength() {
 		t.UnlockConditionParameter[i] = e.UnlockConditionParameter(i)
 	}
-	t.MultipleConditionCheckType = MultipleConditionCheckType(int32(fbsutils.Convert(e.MultipleConditionCheckType(), t.FlatBuffer.TableKey)))
+	t.MultipleConditionCheckType = MultipleConditionCheckType(fbsutils.Convert(int32(e.MultipleConditionCheckType()), t.FlatBuffer.TableKey))
 	t.UnlockConditionCount = fbsutils.Convert(e.UnlockConditionCount(), t.FlatBuffer.TableKey)
 	t.IsObject = fbsutils.Convert(e.IsObject(), t.FlatBuffer.TableKey)
 	t.IsHorizon = fbsutils.Convert(e.IsHorizon(), t.FlatBuffer.TableKey)

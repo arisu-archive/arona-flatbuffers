@@ -126,11 +126,11 @@ func (t *PresetCharacterGroupExcelDto) UnmarshalMessage(e *PresetCharacterGroupE
 	t.EquipCharacterGear = fbsutils.Convert(e.EquipCharacterGear(), t.FlatBuffer.TableKey)
 	t.EquipCharacterGearTier = fbsutils.Convert(e.EquipCharacterGearTier(), t.FlatBuffer.TableKey)
 	t.EquipCharacterGearLevel = fbsutils.Convert(e.EquipCharacterGearLevel(), t.FlatBuffer.TableKey)
-	t.PotentialType01 = PotentialStatBonusRateType(int32(fbsutils.Convert(e.PotentialType01(), t.FlatBuffer.TableKey)))
+	t.PotentialType01 = PotentialStatBonusRateType(fbsutils.Convert(int32(e.PotentialType01()), t.FlatBuffer.TableKey))
 	t.PotentialLevel01 = fbsutils.Convert(e.PotentialLevel01(), t.FlatBuffer.TableKey)
-	t.PotentialType02 = PotentialStatBonusRateType(int32(fbsutils.Convert(e.PotentialType02(), t.FlatBuffer.TableKey)))
+	t.PotentialType02 = PotentialStatBonusRateType(fbsutils.Convert(int32(e.PotentialType02()), t.FlatBuffer.TableKey))
 	t.PotentialLevel02 = fbsutils.Convert(e.PotentialLevel02(), t.FlatBuffer.TableKey)
-	t.PotentialType03 = PotentialStatBonusRateType(int32(fbsutils.Convert(e.PotentialType03(), t.FlatBuffer.TableKey)))
+	t.PotentialType03 = PotentialStatBonusRateType(fbsutils.Convert(int32(e.PotentialType03()), t.FlatBuffer.TableKey))
 	t.PotentialLevel03 = fbsutils.Convert(e.PotentialLevel03(), t.FlatBuffer.TableKey)
 	return nil
 }

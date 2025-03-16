@@ -42,7 +42,7 @@ func (t *EventContentChangeScenarioExcelDto) UnmarshalMessage(e *EventContentCha
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChangeScenario"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.ChangeType = EventChangeType(int32(fbsutils.Convert(e.ChangeType(), t.FlatBuffer.TableKey)))
+	t.ChangeType = EventChangeType(fbsutils.Convert(int32(e.ChangeType()), t.FlatBuffer.TableKey))
 	t.ChangeCount = fbsutils.Convert(e.ChangeCount(), t.FlatBuffer.TableKey)
 	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
 	return nil

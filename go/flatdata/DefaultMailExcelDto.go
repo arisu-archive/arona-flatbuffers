@@ -63,12 +63,12 @@ func (t *DefaultMailExcelDto) UnmarshalMessage(e *DefaultMailExcel) error {
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LocalizeCodeId = fbsutils.Convert(e.LocalizeCodeId(), t.FlatBuffer.TableKey)
-	t.MailType = MailType(int32(fbsutils.Convert(e.MailType(), t.FlatBuffer.TableKey)))
+	t.MailType = MailType(fbsutils.Convert(int32(e.MailType()), t.FlatBuffer.TableKey))
 	t.MailSendPeriodFrom = fbsutils.Convert(string(e.MailSendPeriodFrom()), t.FlatBuffer.TableKey)
 	t.MailSendPeriodTo = fbsutils.Convert(string(e.MailSendPeriodTo()), t.FlatBuffer.TableKey)
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = e.RewardParcelType(i)
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {

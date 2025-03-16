@@ -48,7 +48,7 @@ func (t *GroundModuleRewardExcelDto) UnmarshalMessage(e *GroundModuleRewardExcel
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GroundModuleReward"))
 	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(int32(fbsutils.Convert(e.RewardParcelType(), t.FlatBuffer.TableKey)))
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
 	t.RewardParcelProbability = fbsutils.Convert(e.RewardParcelProbability(), t.FlatBuffer.TableKey)

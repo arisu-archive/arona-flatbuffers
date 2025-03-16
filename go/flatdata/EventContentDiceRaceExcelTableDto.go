@@ -17,7 +17,7 @@ type EventContentDiceRaceExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentDiceRaceExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRace"))
 	}
 	EventContentDiceRaceExcelTableStart(b)
 	EventContentDiceRaceExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *EventContentDiceRaceExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentDiceRaceExcelTableDto) UnmarshalMessage(e *EventContentDiceRaceExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRace"))
 	}
 	t.DataList = make([]EventContentDiceRaceExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

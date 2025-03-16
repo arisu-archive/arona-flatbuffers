@@ -131,7 +131,7 @@ func (t *ConstArenaExcelDto) UnmarshalMessage(e *ConstArenaExcel) error {
 	t.TssStartCoolTime = fbsutils.Convert(e.TssStartCoolTime(), t.FlatBuffer.TableKey)
 	t.EndAlarm = fbsutils.Convert(e.EndAlarm(), t.FlatBuffer.TableKey)
 	t.TimeRewardMaxAmount = fbsutils.Convert(e.TimeRewardMaxAmount(), t.FlatBuffer.TableKey)
-	t.EnterCostType = ParcelType(int32(fbsutils.Convert(e.EnterCostType(), t.FlatBuffer.TableKey)))
+	t.EnterCostType = ParcelType(fbsutils.Convert(int32(e.EnterCostType()), t.FlatBuffer.TableKey))
 	t.EnterCostId = fbsutils.Convert(e.EnterCostId(), t.FlatBuffer.TableKey)
 	t.TicketCost = fbsutils.Convert(e.TicketCost(), t.FlatBuffer.TableKey)
 	t.DailyRewardResetTime = fbsutils.Convert(string(e.DailyRewardResetTime()), t.FlatBuffer.TableKey)
@@ -151,7 +151,7 @@ func (t *ConstArenaExcelDto) UnmarshalMessage(e *ConstArenaExcel) error {
 	}
 	t.ModifiedStatType = make([]StatType, e.ModifiedStatTypeLength())
 	for i := range e.ModifiedStatTypeLength() {
-		t.ModifiedStatType[i] = e.ModifiedStatType(i)
+		t.ModifiedStatType[i] = StatType(fbsutils.Convert(int32(e.ModifiedStatType(i)), t.FlatBuffer.TableKey))
 	}
 	t.StatMulFactor = make([]int64, e.StatMulFactorLength())
 	for i := range e.StatMulFactorLength() {

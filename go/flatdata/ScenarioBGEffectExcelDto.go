@@ -50,7 +50,7 @@ func (t *ScenarioBGEffectExcelDto) UnmarshalMessage(e *ScenarioBGEffectExcel) er
 	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
 	t.Effect = fbsutils.Convert(string(e.Effect()), t.FlatBuffer.TableKey)
 	t.Effect2 = fbsutils.Convert(string(e.Effect2()), t.FlatBuffer.TableKey)
-	t.Scroll = ScenarioBGScroll(int32(fbsutils.Convert(e.Scroll(), t.FlatBuffer.TableKey)))
+	t.Scroll = ScenarioBGScroll(fbsutils.Convert(int32(e.Scroll()), t.FlatBuffer.TableKey))
 	t.ScrollTime = fbsutils.Convert(e.ScrollTime(), t.FlatBuffer.TableKey)
 	t.ScrollFrom = fbsutils.Convert(e.ScrollFrom(), t.FlatBuffer.TableKey)
 	t.ScrollTo = fbsutils.Convert(e.ScrollTo(), t.FlatBuffer.TableKey)

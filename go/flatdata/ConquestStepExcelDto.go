@@ -62,11 +62,11 @@ func (t *ConquestStepExcelDto) UnmarshalMessage(e *ConquestStepExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestStep"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.MapDifficulty = StageDifficulty(int32(fbsutils.Convert(e.MapDifficulty(), t.FlatBuffer.TableKey)))
+	t.MapDifficulty = StageDifficulty(fbsutils.Convert(int32(e.MapDifficulty()), t.FlatBuffer.TableKey))
 	t.Step = fbsutils.Convert(e.Step(), t.FlatBuffer.TableKey)
 	t.StepGoalLocalize = fbsutils.Convert(string(e.StepGoalLocalize()), t.FlatBuffer.TableKey)
 	t.StepEnterScenarioGroupId = fbsutils.Convert(e.StepEnterScenarioGroupId(), t.FlatBuffer.TableKey)
-	t.StepEnterItemType = ParcelType(int32(fbsutils.Convert(e.StepEnterItemType(), t.FlatBuffer.TableKey)))
+	t.StepEnterItemType = ParcelType(fbsutils.Convert(int32(e.StepEnterItemType()), t.FlatBuffer.TableKey))
 	t.StepEnterItemUniqueId = fbsutils.Convert(e.StepEnterItemUniqueId(), t.FlatBuffer.TableKey)
 	t.StepEnterItemAmount = fbsutils.Convert(e.StepEnterItemAmount(), t.FlatBuffer.TableKey)
 	t.UnexpectedEventUnitId = make([]int64, e.UnexpectedEventUnitIdLength())

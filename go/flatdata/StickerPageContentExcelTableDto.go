@@ -17,7 +17,7 @@ type StickerPageContentExcelTableDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StickerPageContentExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StickerPageContentTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StickerPageContent"))
 	}
 	StickerPageContentExcelTableStart(b)
 	StickerPageContentExcelTableStartDataListVector(b, len(t.DataList))
@@ -39,7 +39,7 @@ func (t *StickerPageContentExcelTableDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StickerPageContentExcelTableDto) UnmarshalMessage(e *StickerPageContentExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StickerPageContentTable"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StickerPageContent"))
 	}
 	t.DataList = make([]StickerPageContentExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {

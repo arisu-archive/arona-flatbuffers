@@ -59,11 +59,11 @@ func (t *ConquestObjectExcelDto) UnmarshalMessage(e *ConquestObjectExcel) error 
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.ConquestObjectType = ConquestObjectType(int32(fbsutils.Convert(e.ConquestObjectType(), t.FlatBuffer.TableKey)))
+	t.ConquestObjectType = ConquestObjectType(fbsutils.Convert(int32(e.ConquestObjectType()), t.FlatBuffer.TableKey))
 	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
-	t.ConquestRewardParcelType = ParcelType(int32(fbsutils.Convert(e.ConquestRewardParcelType(), t.FlatBuffer.TableKey)))
+	t.ConquestRewardParcelType = ParcelType(fbsutils.Convert(int32(e.ConquestRewardParcelType()), t.FlatBuffer.TableKey))
 	t.ConquestRewardId = fbsutils.Convert(e.ConquestRewardId(), t.FlatBuffer.TableKey)
 	t.ConquestRewardAmount = fbsutils.Convert(e.ConquestRewardAmount(), t.FlatBuffer.TableKey)
 	t.Disposable = fbsutils.Convert(e.Disposable(), t.FlatBuffer.TableKey)

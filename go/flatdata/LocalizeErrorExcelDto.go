@@ -48,7 +48,7 @@ func (t *LocalizeErrorExcelDto) UnmarshalMessage(e *LocalizeErrorExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeError"))
 	}
 	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
-	t.ErrorLevel = WebAPIErrorLevel(int32(fbsutils.Convert(e.ErrorLevel(), t.FlatBuffer.TableKey)))
+	t.ErrorLevel = WebAPIErrorLevel(fbsutils.Convert(int32(e.ErrorLevel()), t.FlatBuffer.TableKey))
 	t.Kr = fbsutils.Convert(string(e.Kr()), t.FlatBuffer.TableKey)
 	t.Jp = fbsutils.Convert(string(e.Jp()), t.FlatBuffer.TableKey)
 	t.Th = fbsutils.Convert(string(e.Th()), t.FlatBuffer.TableKey)

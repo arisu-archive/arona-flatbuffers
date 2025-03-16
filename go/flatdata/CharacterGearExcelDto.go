@@ -81,7 +81,7 @@ func (t *CharacterGearExcelDto) UnmarshalMessage(e *CharacterGearExcel) error {
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
-	t.StatLevelUpType = StatLevelUpType(int32(fbsutils.Convert(e.StatLevelUpType(), t.FlatBuffer.TableKey)))
+	t.StatLevelUpType = StatLevelUpType(fbsutils.Convert(int32(e.StatLevelUpType()), t.FlatBuffer.TableKey))
 	t.Tier = fbsutils.Convert(e.Tier(), t.FlatBuffer.TableKey)
 	t.NextTierEquipment = fbsutils.Convert(e.NextTierEquipment(), t.FlatBuffer.TableKey)
 	t.RecipeId = fbsutils.Convert(e.RecipeId(), t.FlatBuffer.TableKey)
@@ -90,7 +90,7 @@ func (t *CharacterGearExcelDto) UnmarshalMessage(e *CharacterGearExcel) error {
 	t.LearnSkillSlot = fbsutils.Convert(string(e.LearnSkillSlot()), t.FlatBuffer.TableKey)
 	t.StatType = make([]EquipmentOptionType, e.StatTypeLength())
 	for i := range e.StatTypeLength() {
-		t.StatType[i] = e.StatType(i)
+		t.StatType[i] = EquipmentOptionType(fbsutils.Convert(int32(e.StatType(i)), t.FlatBuffer.TableKey))
 	}
 	t.MinStatValue = make([]int64, e.MinStatValueLength())
 	for i := range e.MinStatValueLength() {
@@ -104,7 +104,7 @@ func (t *CharacterGearExcelDto) UnmarshalMessage(e *CharacterGearExcel) error {
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.Tags = make([]Tag, e.TagsLength())
 	for i := range e.TagsLength() {
-		t.Tags[i] = e.Tags(i)
+		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

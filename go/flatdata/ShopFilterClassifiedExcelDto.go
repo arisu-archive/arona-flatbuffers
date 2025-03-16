@@ -46,10 +46,10 @@ func (t *ShopFilterClassifiedExcelDto) UnmarshalMessage(e *ShopFilterClassifiedE
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopFilterClassified"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.CategoryType = ShopCategoryType(int32(fbsutils.Convert(e.CategoryType(), t.FlatBuffer.TableKey)))
-	t.ConsumeParcelType = ParcelType(int32(fbsutils.Convert(e.ConsumeParcelType(), t.FlatBuffer.TableKey)))
+	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
+	t.ConsumeParcelType = ParcelType(fbsutils.Convert(int32(e.ConsumeParcelType()), t.FlatBuffer.TableKey))
 	t.ConsumeParcelId = fbsutils.Convert(e.ConsumeParcelId(), t.FlatBuffer.TableKey)
-	t.ShopFilterType = ShopFilterType(int32(fbsutils.Convert(e.ShopFilterType(), t.FlatBuffer.TableKey)))
+	t.ShopFilterType = ShopFilterType(fbsutils.Convert(int32(e.ShopFilterType()), t.FlatBuffer.TableKey))
 	t.GoodsId = fbsutils.Convert(e.GoodsId(), t.FlatBuffer.TableKey)
 	return nil
 }
