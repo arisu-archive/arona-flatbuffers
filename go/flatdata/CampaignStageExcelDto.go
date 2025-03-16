@@ -119,11 +119,11 @@ func (t *CampaignStageExcelDto) UnmarshalMessage(e *CampaignStageExcel) error {
 	t.StarConditionTurnCount = fbsutils.Convert(e.StarConditionTurnCount(), t.FlatBuffer.TableKey)
 	t.EnterScenarioGroupId = make([]int64, e.EnterScenarioGroupIdLength())
 	for i := range e.EnterScenarioGroupIdLength() {
-		t.EnterScenarioGroupId[i] = e.EnterScenarioGroupId(i)
+		t.EnterScenarioGroupId[i] = fbsutils.Convert(e.EnterScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())
 	for i := range e.ClearScenarioGroupIdLength() {
-		t.ClearScenarioGroupId[i] = e.ClearScenarioGroupId(i)
+		t.ClearScenarioGroupId[i] = fbsutils.Convert(e.ClearScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.StrategyMap = fbsutils.Convert(string(e.StrategyMap()), t.FlatBuffer.TableKey)
 	t.StrategyMapBg = fbsutils.Convert(string(e.StrategyMapBg()), t.FlatBuffer.TableKey)

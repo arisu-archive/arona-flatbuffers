@@ -84,7 +84,7 @@ func (t *RecipeCraftExcelDto) UnmarshalMessage(e *RecipeCraftExcel) error {
 	}
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {
-		t.ParcelId[i] = e.ParcelId(i)
+		t.ParcelId[i] = fbsutils.Convert(e.ParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.ParcelDevName = make([]string, e.ParcelDevNameLength())
 	for i := range e.ParcelDevNameLength() {
@@ -92,11 +92,11 @@ func (t *RecipeCraftExcelDto) UnmarshalMessage(e *RecipeCraftExcel) error {
 	}
 	t.ResultAmountMin = make([]int64, e.ResultAmountMinLength())
 	for i := range e.ResultAmountMinLength() {
-		t.ResultAmountMin[i] = e.ResultAmountMin(i)
+		t.ResultAmountMin[i] = fbsutils.Convert(e.ResultAmountMin(i), t.FlatBuffer.TableKey)
 	}
 	t.ResultAmountMax = make([]int64, e.ResultAmountMaxLength())
 	for i := range e.ResultAmountMaxLength() {
-		t.ResultAmountMax[i] = e.ResultAmountMax(i)
+		t.ResultAmountMax[i] = fbsutils.Convert(e.ResultAmountMax(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

@@ -106,11 +106,11 @@ func (t *WeekDungeonExcelDto) UnmarshalMessage(e *WeekDungeonExcel) error {
 	}
 	t.StageEnterCostId = make([]int64, e.StageEnterCostIdLength())
 	for i := range e.StageEnterCostIdLength() {
-		t.StageEnterCostId[i] = e.StageEnterCostId(i)
+		t.StageEnterCostId[i] = fbsutils.Convert(e.StageEnterCostId(i), t.FlatBuffer.TableKey)
 	}
 	t.StageEnterCostAmount = make([]int32, e.StageEnterCostAmountLength())
 	for i := range e.StageEnterCostAmountLength() {
-		t.StageEnterCostAmount[i] = e.StageEnterCostAmount(i)
+		t.StageEnterCostAmount[i] = fbsutils.Convert(e.StageEnterCostAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.StarGoal = make([]StarGoalType, e.StarGoalLength())
@@ -119,7 +119,7 @@ func (t *WeekDungeonExcelDto) UnmarshalMessage(e *WeekDungeonExcel) error {
 	}
 	t.StarGoalAmount = make([]int32, e.StarGoalAmountLength())
 	for i := range e.StarGoalAmountLength() {
-		t.StarGoalAmount[i] = e.StarGoalAmount(i)
+		t.StarGoalAmount[i] = fbsutils.Convert(e.StarGoalAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
 	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
@@ -129,7 +129,7 @@ func (t *WeekDungeonExcelDto) UnmarshalMessage(e *WeekDungeonExcel) error {
 	t.BattleRewardPlayerExp = fbsutils.Convert(e.BattleRewardPlayerExp(), t.FlatBuffer.TableKey)
 	t.GroupBuffId = make([]int64, e.GroupBuffIdLength())
 	for i := range e.GroupBuffIdLength() {
-		t.GroupBuffId[i] = e.GroupBuffId(i)
+		t.GroupBuffId[i] = fbsutils.Convert(e.GroupBuffId(i), t.FlatBuffer.TableKey)
 	}
 	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
 	return nil

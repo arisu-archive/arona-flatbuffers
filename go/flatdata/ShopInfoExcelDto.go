@@ -110,13 +110,13 @@ func (t *ShopInfoExcelDto) UnmarshalMessage(e *ShopInfoExcel) error {
 	}
 	t.CostParcelId = make([]int64, e.CostParcelIdLength())
 	for i := range e.CostParcelIdLength() {
-		t.CostParcelId[i] = e.CostParcelId(i)
+		t.CostParcelId[i] = fbsutils.Convert(e.CostParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.AutoRefreshCoolTime = fbsutils.Convert(e.AutoRefreshCoolTime(), t.FlatBuffer.TableKey)
 	t.RefreshAbleCount = fbsutils.Convert(e.RefreshAbleCount(), t.FlatBuffer.TableKey)
 	t.GoodsId = make([]int64, e.GoodsIdLength())
 	for i := range e.GoodsIdLength() {
-		t.GoodsId[i] = e.GoodsId(i)
+		t.GoodsId[i] = fbsutils.Convert(e.GoodsId(i), t.FlatBuffer.TableKey)
 	}
 	t.OpenPeriodFrom = fbsutils.Convert(string(e.OpenPeriodFrom()), t.FlatBuffer.TableKey)
 	t.OpenPeriodTo = fbsutils.Convert(string(e.OpenPeriodTo()), t.FlatBuffer.TableKey)

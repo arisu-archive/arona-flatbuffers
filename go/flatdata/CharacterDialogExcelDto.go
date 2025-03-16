@@ -119,7 +119,7 @@ func (t *CharacterDialogExcelDto) UnmarshalMessage(e *CharacterDialogExcel) erro
 	t.LocalizeEn = fbsutils.Convert(string(e.LocalizeEn()), t.FlatBuffer.TableKey)
 	t.VoiceId = make([]uint32, e.VoiceIdLength())
 	for i := range e.VoiceIdLength() {
-		t.VoiceId[i] = e.VoiceId(i)
+		t.VoiceId[i] = fbsutils.Convert(e.VoiceId(i), t.FlatBuffer.TableKey)
 	}
 	t.ApplyPosition = fbsutils.Convert(e.ApplyPosition(), t.FlatBuffer.TableKey)
 	t.PosX = fbsutils.Convert(e.PosX(), t.FlatBuffer.TableKey)

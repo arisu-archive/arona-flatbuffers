@@ -66,7 +66,7 @@ func (t *MiniGameDreamEndingExcelDto) UnmarshalMessage(e *MiniGameDreamEndingExc
 	}
 	t.EndingConditionValue = make([]int64, e.EndingConditionValueLength())
 	for i := range e.EndingConditionValueLength() {
-		t.EndingConditionValue[i] = e.EndingConditionValue(i)
+		t.EndingConditionValue[i] = fbsutils.Convert(e.EndingConditionValue(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

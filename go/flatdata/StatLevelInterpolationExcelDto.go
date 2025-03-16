@@ -44,7 +44,7 @@ func (t *StatLevelInterpolationExcelDto) UnmarshalMessage(e *StatLevelInterpolat
 	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.StatTypeIndex = make([]int64, e.StatTypeIndexLength())
 	for i := range e.StatTypeIndexLength() {
-		t.StatTypeIndex[i] = e.StatTypeIndex(i)
+		t.StatTypeIndex[i] = fbsutils.Convert(e.StatTypeIndex(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

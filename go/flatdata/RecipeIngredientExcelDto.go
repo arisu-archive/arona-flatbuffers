@@ -83,11 +83,11 @@ func (t *RecipeIngredientExcelDto) UnmarshalMessage(e *RecipeIngredientExcel) er
 	}
 	t.CostId = make([]int64, e.CostIdLength())
 	for i := range e.CostIdLength() {
-		t.CostId[i] = e.CostId(i)
+		t.CostId[i] = fbsutils.Convert(e.CostId(i), t.FlatBuffer.TableKey)
 	}
 	t.CostAmount = make([]int64, e.CostAmountLength())
 	for i := range e.CostAmountLength() {
-		t.CostAmount[i] = e.CostAmount(i)
+		t.CostAmount[i] = fbsutils.Convert(e.CostAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.IngredientParcelType = make([]ParcelType, e.IngredientParcelTypeLength())
 	for i := range e.IngredientParcelTypeLength() {
@@ -95,11 +95,11 @@ func (t *RecipeIngredientExcelDto) UnmarshalMessage(e *RecipeIngredientExcel) er
 	}
 	t.IngredientId = make([]int64, e.IngredientIdLength())
 	for i := range e.IngredientIdLength() {
-		t.IngredientId[i] = e.IngredientId(i)
+		t.IngredientId[i] = fbsutils.Convert(e.IngredientId(i), t.FlatBuffer.TableKey)
 	}
 	t.IngredientAmount = make([]int64, e.IngredientAmountLength())
 	for i := range e.IngredientAmountLength() {
-		t.IngredientAmount[i] = e.IngredientAmount(i)
+		t.IngredientAmount[i] = fbsutils.Convert(e.IngredientAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.CostTimeInSecond = fbsutils.Convert(e.CostTimeInSecond(), t.FlatBuffer.TableKey)
 	return nil

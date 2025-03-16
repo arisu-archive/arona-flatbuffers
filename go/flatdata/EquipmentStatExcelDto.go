@@ -81,11 +81,11 @@ func (t *EquipmentStatExcelDto) UnmarshalMessage(e *EquipmentStatExcel) error {
 	}
 	t.MinStat = make([]int64, e.MinStatLength())
 	for i := range e.MinStatLength() {
-		t.MinStat[i] = e.MinStat(i)
+		t.MinStat[i] = fbsutils.Convert(e.MinStat(i), t.FlatBuffer.TableKey)
 	}
 	t.MaxStat = make([]int64, e.MaxStatLength())
 	for i := range e.MaxStatLength() {
-		t.MaxStat[i] = e.MaxStat(i)
+		t.MaxStat[i] = fbsutils.Convert(e.MaxStat(i), t.FlatBuffer.TableKey)
 	}
 	t.LevelUpInsertLimit = fbsutils.Convert(e.LevelUpInsertLimit(), t.FlatBuffer.TableKey)
 	t.LevelUpFeedExp = fbsutils.Convert(e.LevelUpFeedExp(), t.FlatBuffer.TableKey)

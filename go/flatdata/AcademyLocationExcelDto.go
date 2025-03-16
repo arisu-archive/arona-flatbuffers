@@ -69,7 +69,7 @@ func (t *AcademyLocationExcelDto) UnmarshalMessage(e *AcademyLocationExcel) erro
 	}
 	t.OpenConditionCount = make([]int64, e.OpenConditionCountLength())
 	for i := range e.OpenConditionCountLength() {
-		t.OpenConditionCount[i] = e.OpenConditionCount(i)
+		t.OpenConditionCount[i] = fbsutils.Convert(e.OpenConditionCount(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)

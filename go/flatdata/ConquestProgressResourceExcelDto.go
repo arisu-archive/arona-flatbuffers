@@ -55,7 +55,7 @@ func (t *ConquestProgressResourceExcelDto) UnmarshalMessage(e *ConquestProgressR
 	t.ProgressResource = fbsutils.Convert(string(e.ProgressResource()), t.FlatBuffer.TableKey)
 	t.VoiceId = make([]uint32, e.VoiceIdLength())
 	for i := range e.VoiceIdLength() {
-		t.VoiceId[i] = e.VoiceId(i)
+		t.VoiceId[i] = fbsutils.Convert(e.VoiceId(i), t.FlatBuffer.TableKey)
 	}
 	t.ProgressLocalizeCode = fbsutils.Convert(string(e.ProgressLocalizeCode()), t.FlatBuffer.TableKey)
 	return nil

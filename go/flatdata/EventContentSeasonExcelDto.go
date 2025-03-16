@@ -134,7 +134,7 @@ func (t *EventContentSeasonExcelDto) UnmarshalMessage(e *EventContentSeasonExcel
 	t.MinigamePrologScenarioGroupId = fbsutils.Convert(e.MinigamePrologScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.BeforehandScenarioGroupId = make([]int64, e.BeforehandScenarioGroupIdLength())
 	for i := range e.BeforehandScenarioGroupIdLength() {
-		t.BeforehandScenarioGroupId[i] = e.BeforehandScenarioGroupId(i)
+		t.BeforehandScenarioGroupId[i] = fbsutils.Convert(e.BeforehandScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.MainBannerImagePath = fbsutils.Convert(string(e.MainBannerImagePath()), t.FlatBuffer.TableKey)
 	t.MainBgImagePath = fbsutils.Convert(string(e.MainBgImagePath()), t.FlatBuffer.TableKey)

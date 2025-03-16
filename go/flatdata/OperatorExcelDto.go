@@ -73,7 +73,7 @@ func (t *OperatorExcelDto) UnmarshalMessage(e *OperatorExcel) error {
 	t.TextLocalizeKey = fbsutils.Convert(string(e.TextLocalizeKey()), t.FlatBuffer.TableKey)
 	t.VoiceId = make([]uint32, e.VoiceIdLength())
 	for i := range e.VoiceIdLength() {
-		t.VoiceId[i] = e.VoiceId(i)
+		t.VoiceId[i] = fbsutils.Convert(e.VoiceId(i), t.FlatBuffer.TableKey)
 	}
 	t.OperatorWaitQueue = fbsutils.Convert(e.OperatorWaitQueue(), t.FlatBuffer.TableKey)
 	return nil

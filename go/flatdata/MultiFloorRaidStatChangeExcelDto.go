@@ -66,15 +66,15 @@ func (t *MultiFloorRaidStatChangeExcelDto) UnmarshalMessage(e *MultiFloorRaidSta
 	}
 	t.StatAdd = make([]int64, e.StatAddLength())
 	for i := range e.StatAddLength() {
-		t.StatAdd[i] = e.StatAdd(i)
+		t.StatAdd[i] = fbsutils.Convert(e.StatAdd(i), t.FlatBuffer.TableKey)
 	}
 	t.StatMultiply = make([]int64, e.StatMultiplyLength())
 	for i := range e.StatMultiplyLength() {
-		t.StatMultiply[i] = e.StatMultiply(i)
+		t.StatMultiply[i] = fbsutils.Convert(e.StatMultiply(i), t.FlatBuffer.TableKey)
 	}
 	t.ApplyCharacterId = make([]int64, e.ApplyCharacterIdLength())
 	for i := range e.ApplyCharacterIdLength() {
-		t.ApplyCharacterId[i] = e.ApplyCharacterId(i)
+		t.ApplyCharacterId[i] = fbsutils.Convert(e.ApplyCharacterId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

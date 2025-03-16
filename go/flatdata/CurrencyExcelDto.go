@@ -96,7 +96,7 @@ func (t *CurrencyExcelDto) UnmarshalMessage(e *CurrencyExcel) error {
 	t.DailyRefillAmount = fbsutils.Convert(e.DailyRefillAmount(), t.FlatBuffer.TableKey)
 	t.DailyRefillTime = make([]int64, e.DailyRefillTimeLength())
 	for i := range e.DailyRefillTimeLength() {
-		t.DailyRefillTime[i] = e.DailyRefillTime(i)
+		t.DailyRefillTime[i] = fbsutils.Convert(e.DailyRefillTime(i), t.FlatBuffer.TableKey)
 	}
 	t.ExpirationDateTime = fbsutils.Convert(string(e.ExpirationDateTime()), t.FlatBuffer.TableKey)
 	t.ExpirationNotifyDateIn = fbsutils.Convert(e.ExpirationNotifyDateIn(), t.FlatBuffer.TableKey)

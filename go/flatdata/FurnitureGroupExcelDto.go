@@ -56,11 +56,11 @@ func (t *FurnitureGroupExcelDto) UnmarshalMessage(e *FurnitureGroupExcel) error 
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.RequiredFurnitureCount = make([]int32, e.RequiredFurnitureCountLength())
 	for i := range e.RequiredFurnitureCountLength() {
-		t.RequiredFurnitureCount[i] = e.RequiredFurnitureCount(i)
+		t.RequiredFurnitureCount[i] = fbsutils.Convert(e.RequiredFurnitureCount(i), t.FlatBuffer.TableKey)
 	}
 	t.ComfortBonus = make([]int64, e.ComfortBonusLength())
 	for i := range e.ComfortBonusLength() {
-		t.ComfortBonus[i] = e.ComfortBonus(i)
+		t.ComfortBonus[i] = fbsutils.Convert(e.ComfortBonus(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

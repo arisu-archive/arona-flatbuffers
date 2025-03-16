@@ -52,7 +52,7 @@ func (t *VoiceLogicEffectExcelDto) UnmarshalMessage(e *VoiceLogicEffectExcel) er
 	t.Priority = fbsutils.Convert(e.Priority(), t.FlatBuffer.TableKey)
 	t.VoiceHash = make([]uint32, e.VoiceHashLength())
 	for i := range e.VoiceHashLength() {
-		t.VoiceHash[i] = e.VoiceHash(i)
+		t.VoiceHash[i] = fbsutils.Convert(e.VoiceHash(i), t.FlatBuffer.TableKey)
 	}
 	t.VoiceId = fbsutils.Convert(e.VoiceId(), t.FlatBuffer.TableKey)
 	return nil

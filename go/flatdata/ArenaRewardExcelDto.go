@@ -78,7 +78,7 @@ func (t *ArenaRewardExcelDto) UnmarshalMessage(e *ArenaRewardExcel) error {
 	}
 	t.RewardParcelUniqueId = make([]int64, e.RewardParcelUniqueIdLength())
 	for i := range e.RewardParcelUniqueIdLength() {
-		t.RewardParcelUniqueId[i] = e.RewardParcelUniqueId(i)
+		t.RewardParcelUniqueId[i] = fbsutils.Convert(e.RewardParcelUniqueId(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelUniqueName = make([]string, e.RewardParcelUniqueNameLength())
 	for i := range e.RewardParcelUniqueNameLength() {
@@ -86,7 +86,7 @@ func (t *ArenaRewardExcelDto) UnmarshalMessage(e *ArenaRewardExcel) error {
 	}
 	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
 	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
+		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

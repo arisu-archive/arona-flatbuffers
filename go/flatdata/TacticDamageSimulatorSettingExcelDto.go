@@ -89,7 +89,7 @@ func (t *TacticDamageSimulatorSettingExcelDto) UnmarshalMessage(e *TacticDamageS
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.FixedCharacter = make([]int64, e.FixedCharacterLength())
 	for i := range e.FixedCharacterLength() {
-		t.FixedCharacter[i] = e.FixedCharacter(i)
+		t.FixedCharacter[i] = fbsutils.Convert(e.FixedCharacter(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

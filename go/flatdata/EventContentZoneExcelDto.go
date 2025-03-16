@@ -73,7 +73,7 @@ func (t *EventContentZoneExcelDto) UnmarshalMessage(e *EventContentZoneExcel) er
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.StudentVisitProb = make([]int64, e.StudentVisitProbLength())
 	for i := range e.StudentVisitProbLength() {
-		t.StudentVisitProb[i] = e.StudentVisitProb(i)
+		t.StudentVisitProb[i] = fbsutils.Convert(e.StudentVisitProb(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardGroupId = fbsutils.Convert(e.RewardGroupId(), t.FlatBuffer.TableKey)
 	t.Tags = make([]Tag, e.TagsLength())

@@ -94,11 +94,11 @@ func (t *CharacterGearExcelDto) UnmarshalMessage(e *CharacterGearExcel) error {
 	}
 	t.MinStatValue = make([]int64, e.MinStatValueLength())
 	for i := range e.MinStatValueLength() {
-		t.MinStatValue[i] = e.MinStatValue(i)
+		t.MinStatValue[i] = fbsutils.Convert(e.MinStatValue(i), t.FlatBuffer.TableKey)
 	}
 	t.MaxStatValue = make([]int64, e.MaxStatValueLength())
 	for i := range e.MaxStatValueLength() {
-		t.MaxStatValue[i] = e.MaxStatValue(i)
+		t.MaxStatValue[i] = fbsutils.Convert(e.MaxStatValue(i), t.FlatBuffer.TableKey)
 	}
 	t.Icon = fbsutils.Convert(string(e.Icon()), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)

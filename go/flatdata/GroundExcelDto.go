@@ -226,7 +226,7 @@ func (t *GroundExcelDto) UnmarshalMessage(e *GroundExcel) error {
 	}
 	t.AllyPassiveSkillLevel = make([]int32, e.AllyPassiveSkillLevelLength())
 	for i := range e.AllyPassiveSkillLevelLength() {
-		t.AllyPassiveSkillLevel[i] = e.AllyPassiveSkillLevel(i)
+		t.AllyPassiveSkillLevel[i] = fbsutils.Convert(e.AllyPassiveSkillLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.EnemyPassiveSkillId = make([]string, e.EnemyPassiveSkillIdLength())
 	for i := range e.EnemyPassiveSkillIdLength() {
@@ -234,7 +234,7 @@ func (t *GroundExcelDto) UnmarshalMessage(e *GroundExcel) error {
 	}
 	t.EnemyPassiveSkillLevel = make([]int32, e.EnemyPassiveSkillLevelLength())
 	for i := range e.EnemyPassiveSkillLevelLength() {
-		t.EnemyPassiveSkillLevel[i] = e.EnemyPassiveSkillLevel(i)
+		t.EnemyPassiveSkillLevel[i] = fbsutils.Convert(e.EnemyPassiveSkillLevel(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

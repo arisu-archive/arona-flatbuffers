@@ -58,7 +58,7 @@ func (t *EventContentMeetupExcelDto) UnmarshalMessage(e *EventContentMeetupExcel
 	t.ConditionType = MeetupConditionType(fbsutils.Convert(int32(e.ConditionType()), t.FlatBuffer.TableKey))
 	t.ConditionParameter = make([]int64, e.ConditionParameterLength())
 	for i := range e.ConditionParameterLength() {
-		t.ConditionParameter[i] = e.ConditionParameter(i)
+		t.ConditionParameter[i] = fbsutils.Convert(e.ConditionParameter(i), t.FlatBuffer.TableKey)
 	}
 	t.ConditionPrintType = MeetupConditionPrintType(fbsutils.Convert(int32(e.ConditionPrintType()), t.FlatBuffer.TableKey))
 	return nil

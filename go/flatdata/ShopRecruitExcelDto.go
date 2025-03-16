@@ -106,12 +106,12 @@ func (t *ShopRecruitExcelDto) UnmarshalMessage(e *ShopRecruitExcel) error {
 	t.GachaBannerPath = fbsutils.Convert(string(e.GachaBannerPath()), t.FlatBuffer.TableKey)
 	t.VideoId = make([]int64, e.VideoIdLength())
 	for i := range e.VideoIdLength() {
-		t.VideoId[i] = e.VideoId(i)
+		t.VideoId[i] = fbsutils.Convert(e.VideoId(i), t.FlatBuffer.TableKey)
 	}
 	t.LinkedRobbyBannerId = fbsutils.Convert(e.LinkedRobbyBannerId(), t.FlatBuffer.TableKey)
 	t.InfoCharacterId = make([]int64, e.InfoCharacterIdLength())
 	for i := range e.InfoCharacterIdLength() {
-		t.InfoCharacterId[i] = e.InfoCharacterId(i)
+		t.InfoCharacterId[i] = fbsutils.Convert(e.InfoCharacterId(i), t.FlatBuffer.TableKey)
 	}
 	t.SalePeriodFrom = fbsutils.Convert(string(e.SalePeriodFrom()), t.FlatBuffer.TableKey)
 	t.SalePeriodTo = fbsutils.Convert(string(e.SalePeriodTo()), t.FlatBuffer.TableKey)

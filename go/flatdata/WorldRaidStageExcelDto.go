@@ -136,7 +136,7 @@ func (t *WorldRaidStageExcelDto) UnmarshalMessage(e *WorldRaidStageExcel) error 
 	t.RaidCharacterId = fbsutils.Convert(e.RaidCharacterId(), t.FlatBuffer.TableKey)
 	t.BossCharacterId = make([]int64, e.BossCharacterIdLength())
 	for i := range e.BossCharacterIdLength() {
-		t.BossCharacterId[i] = e.BossCharacterId(i)
+		t.BossCharacterId[i] = fbsutils.Convert(e.BossCharacterId(i), t.FlatBuffer.TableKey)
 	}
 	t.AssistCharacterLimitCount = fbsutils.Convert(e.AssistCharacterLimitCount(), t.FlatBuffer.TableKey)
 	t.WorldRaidDifficulty = WorldRaidDifficulty(fbsutils.Convert(int32(e.WorldRaidDifficulty()), t.FlatBuffer.TableKey))
@@ -153,11 +153,11 @@ func (t *WorldRaidStageExcelDto) UnmarshalMessage(e *WorldRaidStageExcel) error 
 	}
 	t.BattleReadyTimelinePhaseStart = make([]int32, e.BattleReadyTimelinePhaseStartLength())
 	for i := range e.BattleReadyTimelinePhaseStartLength() {
-		t.BattleReadyTimelinePhaseStart[i] = e.BattleReadyTimelinePhaseStart(i)
+		t.BattleReadyTimelinePhaseStart[i] = fbsutils.Convert(e.BattleReadyTimelinePhaseStart(i), t.FlatBuffer.TableKey)
 	}
 	t.BattleReadyTimelinePhaseEnd = make([]int32, e.BattleReadyTimelinePhaseEndLength())
 	for i := range e.BattleReadyTimelinePhaseEndLength() {
-		t.BattleReadyTimelinePhaseEnd[i] = e.BattleReadyTimelinePhaseEnd(i)
+		t.BattleReadyTimelinePhaseEnd[i] = fbsutils.Convert(e.BattleReadyTimelinePhaseEnd(i), t.FlatBuffer.TableKey)
 	}
 	t.VictoryTimelinePath = fbsutils.Convert(string(e.VictoryTimelinePath()), t.FlatBuffer.TableKey)
 	t.PhaseChangeTimelinePath = fbsutils.Convert(string(e.PhaseChangeTimelinePath()), t.FlatBuffer.TableKey)
@@ -176,7 +176,7 @@ func (t *WorldRaidStageExcelDto) UnmarshalMessage(e *WorldRaidStageExcel) error 
 	}
 	t.AllyPassiveSkillLevel = make([]int32, e.AllyPassiveSkillLevelLength())
 	for i := range e.AllyPassiveSkillLevelLength() {
-		t.AllyPassiveSkillLevel[i] = e.AllyPassiveSkillLevel(i)
+		t.AllyPassiveSkillLevel[i] = fbsutils.Convert(e.AllyPassiveSkillLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.SaveCurrentLocalBossHp = fbsutils.Convert(e.SaveCurrentLocalBossHp(), t.FlatBuffer.TableKey)
 	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))

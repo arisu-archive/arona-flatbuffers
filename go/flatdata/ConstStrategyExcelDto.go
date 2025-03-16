@@ -95,7 +95,7 @@ func (t *ConstStrategyExcelDto) UnmarshalMessage(e *ConstStrategyExcel) error {
 	t.HealCostType = CurrencyTypes(fbsutils.Convert(int32(e.HealCostType()), t.FlatBuffer.TableKey))
 	t.HealCostAmount = make([]int64, e.HealCostAmountLength())
 	for i := range e.HealCostAmountLength() {
-		t.HealCostAmount[i] = e.HealCostAmount(i)
+		t.HealCostAmount[i] = fbsutils.Convert(e.HealCostAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.CanHealHpRate = fbsutils.Convert(e.CanHealHpRate(), t.FlatBuffer.TableKey)
 	t.PlayTimeLimitInSeconds = fbsutils.Convert(e.PlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)

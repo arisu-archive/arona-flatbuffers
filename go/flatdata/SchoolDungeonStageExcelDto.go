@@ -102,15 +102,15 @@ func (t *SchoolDungeonStageExcelDto) UnmarshalMessage(e *SchoolDungeonStageExcel
 	}
 	t.StageEnterCostId = make([]int64, e.StageEnterCostIdLength())
 	for i := range e.StageEnterCostIdLength() {
-		t.StageEnterCostId[i] = e.StageEnterCostId(i)
+		t.StageEnterCostId[i] = fbsutils.Convert(e.StageEnterCostId(i), t.FlatBuffer.TableKey)
 	}
 	t.StageEnterCostAmount = make([]int64, e.StageEnterCostAmountLength())
 	for i := range e.StageEnterCostAmountLength() {
-		t.StageEnterCostAmount[i] = e.StageEnterCostAmount(i)
+		t.StageEnterCostAmount[i] = fbsutils.Convert(e.StageEnterCostAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.StageEnterCostMinimumAmount = make([]int64, e.StageEnterCostMinimumAmountLength())
 	for i := range e.StageEnterCostMinimumAmountLength() {
-		t.StageEnterCostMinimumAmount[i] = e.StageEnterCostMinimumAmount(i)
+		t.StageEnterCostMinimumAmount[i] = fbsutils.Convert(e.StageEnterCostMinimumAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.StarGoal = make([]StarGoalType, e.StarGoalLength())
@@ -119,7 +119,7 @@ func (t *SchoolDungeonStageExcelDto) UnmarshalMessage(e *SchoolDungeonStageExcel
 	}
 	t.StarGoalAmount = make([]int32, e.StarGoalAmountLength())
 	for i := range e.StarGoalAmountLength() {
-		t.StarGoalAmount[i] = e.StarGoalAmount(i)
+		t.StarGoalAmount[i] = fbsutils.Convert(e.StarGoalAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
 	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)

@@ -69,7 +69,7 @@ func (t *ConstMiniGameShootingExcelDto) UnmarshalMessage(e *ConstMiniGameShootin
 	t.FreeSectionCount = fbsutils.Convert(e.FreeSectionCount(), t.FlatBuffer.TableKey)
 	t.PlayerCharacterId = make([]int64, e.PlayerCharacterIdLength())
 	for i := range e.PlayerCharacterIdLength() {
-		t.PlayerCharacterId[i] = e.PlayerCharacterId(i)
+		t.PlayerCharacterId[i] = fbsutils.Convert(e.PlayerCharacterId(i), t.FlatBuffer.TableKey)
 	}
 	t.HiddenPlayerCharacterId = fbsutils.Convert(e.HiddenPlayerCharacterId(), t.FlatBuffer.TableKey)
 	t.CameraSmoothTime = fbsutils.Convert(e.CameraSmoothTime(), t.FlatBuffer.TableKey)

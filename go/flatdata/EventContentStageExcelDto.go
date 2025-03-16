@@ -155,11 +155,11 @@ func (t *EventContentStageExcelDto) UnmarshalMessage(e *EventContentStageExcel) 
 	t.StarConditionTurnCount = fbsutils.Convert(e.StarConditionTurnCount(), t.FlatBuffer.TableKey)
 	t.EnterScenarioGroupId = make([]int64, e.EnterScenarioGroupIdLength())
 	for i := range e.EnterScenarioGroupIdLength() {
-		t.EnterScenarioGroupId[i] = e.EnterScenarioGroupId(i)
+		t.EnterScenarioGroupId[i] = fbsutils.Convert(e.EnterScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())
 	for i := range e.ClearScenarioGroupIdLength() {
-		t.ClearScenarioGroupId[i] = e.ClearScenarioGroupId(i)
+		t.ClearScenarioGroupId[i] = fbsutils.Convert(e.ClearScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.StrategyMap = fbsutils.Convert(string(e.StrategyMap()), t.FlatBuffer.TableKey)
 	t.StrategyMapBg = fbsutils.Convert(string(e.StrategyMapBg()), t.FlatBuffer.TableKey)
@@ -182,7 +182,7 @@ func (t *EventContentStageExcelDto) UnmarshalMessage(e *EventContentStageExcel) 
 	}
 	t.StarGoalAmount = make([]int32, e.StarGoalAmountLength())
 	for i := range e.StarGoalAmountLength() {
-		t.StarGoalAmount[i] = e.StarGoalAmount(i)
+		t.StarGoalAmount[i] = fbsutils.Convert(e.StarGoalAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.IsDefeatBattle = fbsutils.Convert(e.IsDefeatBattle(), t.FlatBuffer.TableKey)
 	t.StageHint = fbsutils.Convert(e.StageHint(), t.FlatBuffer.TableKey)

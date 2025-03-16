@@ -88,7 +88,7 @@ func (t *MessagePopupExcelDto) UnmarshalMessage(e *MessagePopupExcel) error {
 	t.MessageText = fbsutils.Convert(e.MessageText(), t.FlatBuffer.TableKey)
 	t.ConditionText = make([]uint32, e.ConditionTextLength())
 	for i := range e.ConditionTextLength() {
-		t.ConditionText[i] = e.ConditionText(i)
+		t.ConditionText[i] = fbsutils.Convert(e.ConditionText(i), t.FlatBuffer.TableKey)
 	}
 	t.DisplayXButton = fbsutils.Convert(e.DisplayXButton(), t.FlatBuffer.TableKey)
 	t.Button = make([]MessagePopupButtonType, e.ButtonLength())
@@ -97,7 +97,7 @@ func (t *MessagePopupExcelDto) UnmarshalMessage(e *MessagePopupExcel) error {
 	}
 	t.ButtonText = make([]uint32, e.ButtonTextLength())
 	for i := range e.ButtonTextLength() {
-		t.ButtonText[i] = e.ButtonText(i)
+		t.ButtonText[i] = fbsutils.Convert(e.ButtonText(i), t.FlatBuffer.TableKey)
 	}
 	t.ButtonCommand = make([]string, e.ButtonCommandLength())
 	for i := range e.ButtonCommandLength() {

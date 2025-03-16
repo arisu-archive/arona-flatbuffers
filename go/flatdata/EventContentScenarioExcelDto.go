@@ -103,7 +103,7 @@ func (t *EventContentScenarioExcelDto) UnmarshalMessage(e *EventContentScenarioE
 	t.IsOmnibus = fbsutils.Convert(e.IsOmnibus(), t.FlatBuffer.TableKey)
 	t.ScenarioGroupId = make([]int64, e.ScenarioGroupIdLength())
 	for i := range e.ScenarioGroupIdLength() {
-		t.ScenarioGroupId[i] = e.ScenarioGroupId(i)
+		t.ScenarioGroupId[i] = fbsutils.Convert(e.ScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.ScenarioConditionType = EventContentScenarioConditionType(fbsutils.Convert(int32(e.ScenarioConditionType()), t.FlatBuffer.TableKey))
 	t.ConditionAmount = fbsutils.Convert(e.ConditionAmount(), t.FlatBuffer.TableKey)
@@ -121,11 +121,11 @@ func (t *EventContentScenarioExcelDto) UnmarshalMessage(e *EventContentScenarioE
 	}
 	t.RewardId = make([]int64, e.RewardIdLength())
 	for i := range e.RewardIdLength() {
-		t.RewardId[i] = e.RewardId(i)
+		t.RewardId[i] = fbsutils.Convert(e.RewardId(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardAmount = make([]int32, e.RewardAmountLength())
 	for i := range e.RewardAmountLength() {
-		t.RewardAmount[i] = e.RewardAmount(i)
+		t.RewardAmount[i] = fbsutils.Convert(e.RewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

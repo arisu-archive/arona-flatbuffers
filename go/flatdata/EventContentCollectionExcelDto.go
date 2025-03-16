@@ -73,7 +73,7 @@ func (t *EventContentCollectionExcelDto) UnmarshalMessage(e *EventContentCollect
 	t.UnlockConditionType = CollectionUnlockType(fbsutils.Convert(int32(e.UnlockConditionType()), t.FlatBuffer.TableKey))
 	t.UnlockConditionParameter = make([]int64, e.UnlockConditionParameterLength())
 	for i := range e.UnlockConditionParameterLength() {
-		t.UnlockConditionParameter[i] = e.UnlockConditionParameter(i)
+		t.UnlockConditionParameter[i] = fbsutils.Convert(e.UnlockConditionParameter(i), t.FlatBuffer.TableKey)
 	}
 	t.MultipleConditionCheckType = MultipleConditionCheckType(fbsutils.Convert(int32(e.MultipleConditionCheckType()), t.FlatBuffer.TableKey))
 	t.UnlockConditionCount = fbsutils.Convert(e.UnlockConditionCount(), t.FlatBuffer.TableKey)

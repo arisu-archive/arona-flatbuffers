@@ -76,11 +76,11 @@ func (t *CampaignUnitExcelDto) UnmarshalMessage(e *CampaignUnitExcel) error {
 	t.StrategyPrefabName = fbsutils.Convert(string(e.StrategyPrefabName()), t.FlatBuffer.TableKey)
 	t.EnterScenarioGroupId = make([]int64, e.EnterScenarioGroupIdLength())
 	for i := range e.EnterScenarioGroupIdLength() {
-		t.EnterScenarioGroupId[i] = e.EnterScenarioGroupId(i)
+		t.EnterScenarioGroupId[i] = fbsutils.Convert(e.EnterScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())
 	for i := range e.ClearScenarioGroupIdLength() {
-		t.ClearScenarioGroupId[i] = e.ClearScenarioGroupId(i)
+		t.ClearScenarioGroupId[i] = fbsutils.Convert(e.ClearScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.MoveRange = fbsutils.Convert(e.MoveRange(), t.FlatBuffer.TableKey)

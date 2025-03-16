@@ -63,11 +63,11 @@ func (t *CampaignChapterRewardExcelDto) UnmarshalMessage(e *CampaignChapterRewar
 	}
 	t.ChapterRewardId = make([]int64, e.ChapterRewardIdLength())
 	for i := range e.ChapterRewardIdLength() {
-		t.ChapterRewardId[i] = e.ChapterRewardId(i)
+		t.ChapterRewardId[i] = fbsutils.Convert(e.ChapterRewardId(i), t.FlatBuffer.TableKey)
 	}
 	t.ChapterRewardAmount = make([]int32, e.ChapterRewardAmountLength())
 	for i := range e.ChapterRewardAmountLength() {
-		t.ChapterRewardAmount[i] = e.ChapterRewardAmount(i)
+		t.ChapterRewardAmount[i] = fbsutils.Convert(e.ChapterRewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

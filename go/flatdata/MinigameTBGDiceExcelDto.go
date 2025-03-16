@@ -72,11 +72,11 @@ func (t *MinigameTBGDiceExcelDto) UnmarshalMessage(e *MinigameTBGDiceExcel) erro
 	}
 	t.ProbModifyValue = make([]int32, e.ProbModifyValueLength())
 	for i := range e.ProbModifyValueLength() {
-		t.ProbModifyValue[i] = e.ProbModifyValue(i)
+		t.ProbModifyValue[i] = fbsutils.Convert(e.ProbModifyValue(i), t.FlatBuffer.TableKey)
 	}
 	t.ProbModifyLimit = make([]int32, e.ProbModifyLimitLength())
 	for i := range e.ProbModifyLimitLength() {
-		t.ProbModifyLimit[i] = e.ProbModifyLimit(i)
+		t.ProbModifyLimit[i] = fbsutils.Convert(e.ProbModifyLimit(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

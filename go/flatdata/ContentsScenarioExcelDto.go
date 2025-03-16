@@ -53,7 +53,7 @@ func (t *ContentsScenarioExcelDto) UnmarshalMessage(e *ContentsScenarioExcel) er
 	t.ScenarioContentType = ScenarioContentType(fbsutils.Convert(int32(e.ScenarioContentType()), t.FlatBuffer.TableKey))
 	t.ScenarioGroupId = make([]int64, e.ScenarioGroupIdLength())
 	for i := range e.ScenarioGroupIdLength() {
-		t.ScenarioGroupId[i] = e.ScenarioGroupId(i)
+		t.ScenarioGroupId[i] = fbsutils.Convert(e.ScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

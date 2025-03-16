@@ -93,11 +93,11 @@ func (t *CharacterVoiceExcelDto) UnmarshalMessage(e *CharacterVoiceExcel) error 
 	}
 	t.Volume = make([]float32, e.VolumeLength())
 	for i := range e.VolumeLength() {
-		t.Volume[i] = e.Volume(i)
+		t.Volume[i] = fbsutils.Convert(e.Volume(i), t.FlatBuffer.TableKey)
 	}
 	t.Delay = make([]float32, e.DelayLength())
 	for i := range e.DelayLength() {
-		t.Delay[i] = e.Delay(i)
+		t.Delay[i] = fbsutils.Convert(e.Delay(i), t.FlatBuffer.TableKey)
 	}
 	t.Path = make([]string, e.PathLength())
 	for i := range e.PathLength() {

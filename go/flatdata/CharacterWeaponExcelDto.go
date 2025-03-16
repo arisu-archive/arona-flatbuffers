@@ -111,15 +111,15 @@ func (t *CharacterWeaponExcelDto) UnmarshalMessage(e *CharacterWeaponExcel) erro
 	}
 	t.Unlock = make([]bool, e.UnlockLength())
 	for i := range e.UnlockLength() {
-		t.Unlock[i] = e.Unlock(i)
+		t.Unlock[i] = fbsutils.Convert(e.Unlock(i), t.FlatBuffer.TableKey)
 	}
 	t.RecipeId = make([]int64, e.RecipeIdLength())
 	for i := range e.RecipeIdLength() {
-		t.RecipeId[i] = e.RecipeId(i)
+		t.RecipeId[i] = fbsutils.Convert(e.RecipeId(i), t.FlatBuffer.TableKey)
 	}
 	t.MaxLevel = make([]int32, e.MaxLevelLength())
 	for i := range e.MaxLevelLength() {
-		t.MaxLevel[i] = e.MaxLevel(i)
+		t.MaxLevel[i] = fbsutils.Convert(e.MaxLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.LearnSkillSlot = make([]string, e.LearnSkillSlotLength())
 	for i := range e.LearnSkillSlotLength() {
@@ -131,7 +131,7 @@ func (t *CharacterWeaponExcelDto) UnmarshalMessage(e *CharacterWeaponExcel) erro
 	}
 	t.StatValue = make([]int64, e.StatValueLength())
 	for i := range e.StatValueLength() {
-		t.StatValue[i] = e.StatValue(i)
+		t.StatValue[i] = fbsutils.Convert(e.StatValue(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

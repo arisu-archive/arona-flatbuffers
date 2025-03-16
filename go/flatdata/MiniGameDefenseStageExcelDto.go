@@ -119,11 +119,11 @@ func (t *MiniGameDefenseStageExcelDto) UnmarshalMessage(e *MiniGameDefenseStageE
 	t.EventContentStageRewardId = fbsutils.Convert(e.EventContentStageRewardId(), t.FlatBuffer.TableKey)
 	t.EnterScenarioGroupId = make([]int64, e.EnterScenarioGroupIdLength())
 	for i := range e.EnterScenarioGroupIdLength() {
-		t.EnterScenarioGroupId[i] = e.EnterScenarioGroupId(i)
+		t.EnterScenarioGroupId[i] = fbsutils.Convert(e.EnterScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())
 	for i := range e.ClearScenarioGroupIdLength() {
-		t.ClearScenarioGroupId[i] = e.ClearScenarioGroupId(i)
+		t.ClearScenarioGroupId[i] = fbsutils.Convert(e.ClearScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
 	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
@@ -135,7 +135,7 @@ func (t *MiniGameDefenseStageExcelDto) UnmarshalMessage(e *MiniGameDefenseStageE
 	}
 	t.StarGoalAmount = make([]int32, e.StarGoalAmountLength())
 	for i := range e.StarGoalAmountLength() {
-		t.StarGoalAmount[i] = e.StarGoalAmount(i)
+		t.StarGoalAmount[i] = fbsutils.Convert(e.StarGoalAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.DefenseFormationBgPrefab = fbsutils.Convert(string(e.DefenseFormationBgPrefab()), t.FlatBuffer.TableKey)
 	t.DefenseFormationBgPrefabScale = fbsutils.Convert(e.DefenseFormationBgPrefabScale(), t.FlatBuffer.TableKey)

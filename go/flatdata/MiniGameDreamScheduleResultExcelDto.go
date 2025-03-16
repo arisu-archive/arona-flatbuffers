@@ -82,7 +82,7 @@ func (t *MiniGameDreamScheduleResultExcelDto) UnmarshalMessage(e *MiniGameDreamS
 	}
 	t.RewardParameterAmount = make([]int64, e.RewardParameterAmountLength())
 	for i := range e.RewardParameterAmountLength() {
-		t.RewardParameterAmount[i] = e.RewardParameterAmount(i)
+		t.RewardParameterAmount[i] = fbsutils.Convert(e.RewardParameterAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
