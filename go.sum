@@ -1,2 +1,4 @@
+github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20250316064511-a0b66b7a2c07 h1:Ahf2GWKU2HEzGanyDKApBEMgkmgomf6a/mI8metVSQg=
+github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20250316064511-a0b66b7a2c07/go.mod h1:Fhl/31LrPUKkvdewx8+7NiP2CSwWNGkABqd2B5dUVSk=
 github.com/google/flatbuffers v24.3.25+incompatible h1:CX395cjN9Kke9mmalRoL3d81AtFUxJM+yDthflgJGkI=
 github.com/google/flatbuffers v24.3.25+incompatible/go.mod h1:1AeVuKshWv4vARoZatz6mlQ0JxURH0Kv5+zNeJKJCa8=

@@ -5,11 +5,9 @@ import (
 	"fmt"
 	"go/ast"
 	"go/parser"
-	"go/printer"
 	"go/token"
 	"os"
 	"path/filepath"
-	"sort"
 	"strings"
 	"text/template"
 )
@@ -18,13 +16,13 @@ var _ LanguageProcessor = (*GoProcessor)(nil)
 
 // GoProcessor handles post-processing of Go FlatBuffer files.
 type GoProcessor struct {
-	flatbuffers []string
+	flatbuffers map[string]string
 }
 
 // NewGoProcessor creates a new Go processor.
 func NewGoProcessor() *GoProcessor {
 	return &GoProcessor{
-		flatbuffers: []string{},
+		flatbuffers: map[string]string{},
 	}
 }
 
@@ -37,27 +35,47 @@ func (p *GoProcessor) ProcessFile(filePath string) error {
 		return fmt.Errorf("failed to parse file %s: %w", filePath, err)
 	}
 	// Check the imports for flatbuffers
-	if !p.isFlatBufferFile(tree) {
-		return ErrFlatBuffersNotImported
+	dtoName := p.dumpFlatDataModels(tree)
+	if dtoName == "" {
+		return fmt.Errorf("failed to dump flat data models: %w", err)
 	}
-	p.flatbuffers = append(p.flatbuffers, strings.TrimSuffix(filepath.Base(filePath), p.Extension()))
-
-	// Modify the AST to add a func (*{{.}}) Name() function
-	if patchErr := patchAST(fset, tree); patchErr != nil {
-		return fmt.Errorf("failed to patch AST: %w", patchErr)
-	}
-
-	f, err := os.Create(filePath)
-	if err != nil {
-		return fmt.Errorf("failed to create file: %w", err)
-	}
-	defer f.Close()
-	// Print the AST
-	if writeErr := printer.Fprint(f, fset, tree); writeErr != nil {
-		return fmt.Errorf("failed to print AST: %w", writeErr)
-	}
+	p.flatbuffers[strings.ToLower(strings.ReplaceAll(dtoName, "Dto", ""))] = dtoName
 
 	return nil
+}
+
+func (*GoProcessor) dumpFlatDataModels(tree *ast.File) string {
+	for _, decl := range tree.Decls {
+		genDecl, ok := decl.(*ast.GenDecl)
+		if !ok || genDecl.Tok != token.TYPE {
+			continue
+		}
+
+		for _, spec := range genDecl.Specs {
+			typeSpec, ok := spec.(*ast.TypeSpec)
+			if !ok {
+				continue
+			}
+
+			structType, ok := typeSpec.Type.(*ast.StructType)
+			if !ok {
+				continue
+			}
+			for _, field := range structType.Fields.List {
+				if field.Type == nil {
+					continue
+				}
+				selector, ok := field.Type.(*ast.SelectorExpr)
+				if !ok {
+					continue
+				}
+				if selector.X.(*ast.Ident).Name == "fbsutils" && selector.Sel.Name == "FlatBuffer" {
+					return typeSpec.Name.Name
+				}
+			}
+		}
+	}
+	return ""
 }
 
 // Extension returns the file extension for the language.
@@ -92,133 +110,9 @@ func (p *GoProcessor) PostProcess(_ context.Context, outputDir string) error {
 		return fmt.Errorf("failed to parse template: %w", err)
 	}
 	// Execute the template. Output the result to the file
-	sort.Strings(p.flatbuffers)
 	if executeErr := tmpl.Execute(f, p.flatbuffers); executeErr != nil {
 		return fmt.Errorf("failed to execute template: %w", executeErr)
 	}
-	return nil
-}
-
-func (*GoProcessor) isFlatBufferFile(file *ast.File) bool {
-	// First check if the file imports the flatbuffers package
-	if !hasFlatBuffersImport(file) {
-		return false
-	}
-	return usesFlatBuffersTable(file)
-}
-
-// hasFlatBuffersImport checks if the file imports the flatbuffers package.
-func hasFlatBuffersImport(file *ast.File) bool {
-	for _, imp := range file.Imports {
-		packagePath := strings.Trim(imp.Path.Value, `"`)
-		if packagePath == "github.com/google/flatbuffers/go" {
-			return true
-		}
-	}
-	return false
-}
-
-// usesFlatBuffersTable checks if the file uses the flatbuffers.Table type.
-func usesFlatBuffersTable(file *ast.File) bool {
-	result := false
-	ast.Inspect(file, func(n ast.Node) bool {
-		field, ok := n.(*ast.Field)
-		if !ok {
-			return true
-		}
-
-		sel, ok := field.Type.(*ast.SelectorExpr)
-		if !ok {
-			return true
-		}
-
-		x, ok := sel.X.(*ast.Ident)
-		if !ok {
-			return true
-		}
-
-		if x.Name == "flatbuffers" && sel.Sel.Name == "Table" {
-			result = true
-			return false
-		}
-
-		return true
-	})
-	return result
-}
-
-func hasNameMethod(tree *ast.File) bool {
-	methodFound := false
-	ast.Inspect(tree, func(n ast.Node) bool {
-		if n == nil {
-			return false
-		}
-
-		funcDecl, ok := n.(*ast.FuncDecl)
-		if !ok {
-			return true
-		}
-
-		if funcDecl.Name.Name == "Name" {
-			methodFound = true
-			return false
-		}
-
-		return false
-	})
-	return methodFound
-}
-
-func patchAST(fset *token.FileSet, tree *ast.File) error {
-	if hasNameMethod(tree) {
-		return nil
-	}
-
-	ast.Inspect(tree, func(n ast.Node) bool {
-		genDecl, ok := n.(*ast.GenDecl)
-		if !ok || genDecl.Tok != token.TYPE {
-			return true
-		}
-
-		for _, spec := range genDecl.Specs {
-			typeSpec, ok := spec.(*ast.TypeSpec)
-			if !ok {
-				continue
-			}
-
-			// Check if the type is a struct
-			if _, ok := typeSpec.Type.(*ast.StructType); !ok {
-				continue
-			}
-
-			// Create the new method
-			funcDecl := &ast.FuncDecl{
-				Recv: &ast.FieldList{
-					List: []*ast.Field{
-						{
-							Type: &ast.StarExpr{X: ast.NewIdent(typeSpec.Name.Name)},
-						},
-					},
-				},
-				Name: ast.NewIdent("Name"),
-				Type: &ast.FuncType{
-					Params:  &ast.FieldList{},
-					Results: &ast.FieldList{List: []*ast.Field{{Type: ast.NewIdent("string")}}},
-				},
-				Body: &ast.BlockStmt{
-					List: []ast.Stmt{
-						&ast.ReturnStmt{
-							Results: []ast.Expr{ast.NewIdent(fmt.Sprintf("\"%s\"", typeSpec.Name.Name))},
-						},
-					},
-				},
-			}
-
-			// Add the new method to the file
-			tree.Decls = append(tree.Decls, funcDecl)
-		}
-		return true
-	})
 	return nil
 }
 
@@ -227,23 +121,18 @@ const flatbufferCode = `package flatdata
 import (
 	"reflect"
 
-	flatbuffers "github.com/google/flatbuffers/go"
+	fbsutils "github.com/arisu-archive/bluearchive-fbs-utils"
 )
 
-type FlatData interface {
-	flatbuffers.FlatBuffer
-	Name() string
-}
-
 var fbs = map[string]reflect.Type{
-{{- range . }}
-	"{{ . | ToLower }}": reflect.TypeOf((*{{ . }})(nil)).Elem(),
+{{- range $key, $value := . }}
+	"{{ $key }}": reflect.TypeOf((*{{ $value }})(nil)).Elem(),
 {{- end }}
 }
 
-func GetFlatDataByName(name string) FlatData {
+func GetFlatDataByName(name string) fbsutils.FlatData {
 	if data, ok := fbs[name]; ok {
-		return reflect.New(data).Interface().(FlatData)
+		return reflect.New(data).Interface().(fbsutils.FlatData)
 	}
 	return nil
 }
