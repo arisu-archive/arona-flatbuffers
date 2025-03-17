@@ -177,19 +177,19 @@ func (t *FurnitureExcelDto) UnmarshalMessage(e *FurnitureExcel) error {
 	t.FurnitureBubbleOffsetY = fbsutils.Convert(e.FurnitureBubbleOffsetY(), t.FlatBuffer.TableKey)
 	t.CafeCharacterStateReq = make([]string, e.CafeCharacterStateReqLength())
 	for i := range e.CafeCharacterStateReqLength() {
-		t.CafeCharacterStateReq[i] = string(e.CafeCharacterStateReq(i))
+		t.CafeCharacterStateReq[i] = fbsutils.Convert(string(e.CafeCharacterStateReq(i)), t.FlatBuffer.TableKey)
 	}
 	t.CafeCharacterStateAdd = make([]string, e.CafeCharacterStateAddLength())
 	for i := range e.CafeCharacterStateAddLength() {
-		t.CafeCharacterStateAdd[i] = string(e.CafeCharacterStateAdd(i))
+		t.CafeCharacterStateAdd[i] = fbsutils.Convert(string(e.CafeCharacterStateAdd(i)), t.FlatBuffer.TableKey)
 	}
 	t.CafeCharacterStateMake = make([]string, e.CafeCharacterStateMakeLength())
 	for i := range e.CafeCharacterStateMakeLength() {
-		t.CafeCharacterStateMake[i] = string(e.CafeCharacterStateMake(i))
+		t.CafeCharacterStateMake[i] = fbsutils.Convert(string(e.CafeCharacterStateMake(i)), t.FlatBuffer.TableKey)
 	}
 	t.CafeCharacterStateOnly = make([]string, e.CafeCharacterStateOnlyLength())
 	for i := range e.CafeCharacterStateOnlyLength() {
-		t.CafeCharacterStateOnly[i] = string(e.CafeCharacterStateOnly(i))
+		t.CafeCharacterStateOnly[i] = fbsutils.Convert(string(e.CafeCharacterStateOnly(i)), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

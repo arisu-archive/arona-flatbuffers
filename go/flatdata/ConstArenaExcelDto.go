@@ -163,7 +163,7 @@ func (t *ConstArenaExcelDto) UnmarshalMessage(e *ConstArenaExcel) error {
 	}
 	t.NpcName = make([]string, e.NpcNameLength())
 	for i := range e.NpcNameLength() {
-		t.NpcName[i] = string(e.NpcName(i))
+		t.NpcName[i] = fbsutils.Convert(string(e.NpcName(i)), t.FlatBuffer.TableKey)
 	}
 	t.NpcMainCharacterCount = fbsutils.Convert(e.NpcMainCharacterCount(), t.FlatBuffer.TableKey)
 	t.NpcSupportCharacterCount = fbsutils.Convert(e.NpcSupportCharacterCount(), t.FlatBuffer.TableKey)

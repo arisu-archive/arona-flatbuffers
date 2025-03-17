@@ -74,7 +74,7 @@ func (t *MiniGameAudioAnimatorExcelDto) UnmarshalMessage(e *MiniGameAudioAnimato
 	t.AudioPriority = fbsutils.Convert(e.AudioPriority(), t.FlatBuffer.TableKey)
 	t.AudioClipPath = make([]string, e.AudioClipPathLength())
 	for i := range e.AudioClipPathLength() {
-		t.AudioClipPath[i] = string(e.AudioClipPath(i))
+		t.AudioClipPath[i] = fbsutils.Convert(string(e.AudioClipPath(i)), t.FlatBuffer.TableKey)
 	}
 	t.VoiceHash = make([]uint32, e.VoiceHashLength())
 	for i := range e.VoiceHashLength() {

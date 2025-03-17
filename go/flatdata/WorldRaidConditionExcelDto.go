@@ -70,7 +70,7 @@ func (t *WorldRaidConditionExcelDto) UnmarshalMessage(e *WorldRaidConditionExcel
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LockUi = make([]string, e.LockUiLength())
 	for i := range e.LockUiLength() {
-		t.LockUi[i] = string(e.LockUi(i))
+		t.LockUi[i] = fbsutils.Convert(string(e.LockUi(i)), t.FlatBuffer.TableKey)
 	}
 	t.HideWhenLocked = e.HideWhenLocked()
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)

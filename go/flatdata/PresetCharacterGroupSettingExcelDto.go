@@ -47,7 +47,7 @@ func (t *PresetCharacterGroupSettingExcelDto) UnmarshalMessage(e *PresetCharacte
 	t.ArenaSimulatorFixed = e.ArenaSimulatorFixed()
 	t.PresetType = make([]string, e.PresetTypeLength())
 	for i := range e.PresetTypeLength() {
-		t.PresetType[i] = string(e.PresetType(i))
+		t.PresetType[i] = fbsutils.Convert(string(e.PresetType(i)), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

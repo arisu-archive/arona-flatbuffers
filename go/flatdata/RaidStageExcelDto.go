@@ -148,7 +148,7 @@ func (t *RaidStageExcelDto) UnmarshalMessage(e *RaidStageExcel) error {
 	t.RaidRewardGroupId = fbsutils.Convert(e.RaidRewardGroupId(), t.FlatBuffer.TableKey)
 	t.BattleReadyTimelinePath = make([]string, e.BattleReadyTimelinePathLength())
 	for i := range e.BattleReadyTimelinePathLength() {
-		t.BattleReadyTimelinePath[i] = string(e.BattleReadyTimelinePath(i))
+		t.BattleReadyTimelinePath[i] = fbsutils.Convert(string(e.BattleReadyTimelinePath(i)), t.FlatBuffer.TableKey)
 	}
 	t.BattleReadyTimelinePhaseStart = make([]int32, e.BattleReadyTimelinePhaseStartLength())
 	for i := range e.BattleReadyTimelinePhaseStartLength() {

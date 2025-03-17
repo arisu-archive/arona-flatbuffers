@@ -79,7 +79,7 @@ func (t *ConquestMapExcelDto) UnmarshalMessage(e *ConquestMapExcel) error {
 	}
 	t.StepOpenConditionParameter = make([]string, e.StepOpenConditionParameterLength())
 	for i := range e.StepOpenConditionParameterLength() {
-		t.StepOpenConditionParameter[i] = string(e.StepOpenConditionParameter(i))
+		t.StepOpenConditionParameter[i] = fbsutils.Convert(string(e.StepOpenConditionParameter(i)), t.FlatBuffer.TableKey)
 	}
 	t.MapGoalLocalize = fbsutils.Convert(string(e.MapGoalLocalize()), t.FlatBuffer.TableKey)
 	t.StepGoalLocalize = fbsutils.Convert(string(e.StepGoalLocalize()), t.FlatBuffer.TableKey)

@@ -61,7 +61,7 @@ func (t *EventContentBuffExcelDto) UnmarshalMessage(e *EventContentBuffExcel) er
 	t.EnumType = EventContentBuffFindRule(fbsutils.Convert(int32(e.EnumType()), t.FlatBuffer.TableKey))
 	t.EnumTypeValue = make([]string, e.EnumTypeValueLength())
 	for i := range e.EnumTypeValueLength() {
-		t.EnumTypeValue[i] = string(e.EnumTypeValue(i))
+		t.EnumTypeValue[i] = fbsutils.Convert(string(e.EnumTypeValue(i)), t.FlatBuffer.TableKey)
 	}
 	t.SkillGroupId = fbsutils.Convert(string(e.SkillGroupId()), t.FlatBuffer.TableKey)
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)

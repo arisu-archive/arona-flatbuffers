@@ -87,7 +87,7 @@ func (t *WeekDungeonFindGiftRewardExcelDto) UnmarshalMessage(e *WeekDungeonFindG
 	}
 	t.DropItemModelPrefabPath = make([]string, e.DropItemModelPrefabPathLength())
 	for i := range e.DropItemModelPrefabPathLength() {
-		t.DropItemModelPrefabPath[i] = string(e.DropItemModelPrefabPath(i))
+		t.DropItemModelPrefabPath[i] = fbsutils.Convert(string(e.DropItemModelPrefabPath(i)), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

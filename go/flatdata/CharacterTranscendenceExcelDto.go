@@ -112,15 +112,15 @@ func (t *CharacterTranscendenceExcelDto) UnmarshalMessage(e *CharacterTranscende
 	}
 	t.SkillSlotA = make([]string, e.SkillSlotALength())
 	for i := range e.SkillSlotALength() {
-		t.SkillSlotA[i] = string(e.SkillSlotA(i))
+		t.SkillSlotA[i] = fbsutils.Convert(string(e.SkillSlotA(i)), t.FlatBuffer.TableKey)
 	}
 	t.SkillSlotB = make([]string, e.SkillSlotBLength())
 	for i := range e.SkillSlotBLength() {
-		t.SkillSlotB[i] = string(e.SkillSlotB(i))
+		t.SkillSlotB[i] = fbsutils.Convert(string(e.SkillSlotB(i)), t.FlatBuffer.TableKey)
 	}
 	t.SkillSlotC = make([]string, e.SkillSlotCLength())
 	for i := range e.SkillSlotCLength() {
-		t.SkillSlotC[i] = string(e.SkillSlotC(i))
+		t.SkillSlotC[i] = fbsutils.Convert(string(e.SkillSlotC(i)), t.FlatBuffer.TableKey)
 	}
 	t.MaxlevelStar = make([]int32, e.MaxlevelStarLength())
 	for i := range e.MaxlevelStarLength() {

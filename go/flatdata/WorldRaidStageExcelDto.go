@@ -149,7 +149,7 @@ func (t *WorldRaidStageExcelDto) UnmarshalMessage(e *WorldRaidStageExcel) error 
 	t.RaidRewardGroupId = fbsutils.Convert(e.RaidRewardGroupId(), t.FlatBuffer.TableKey)
 	t.BattleReadyTimelinePath = make([]string, e.BattleReadyTimelinePathLength())
 	for i := range e.BattleReadyTimelinePathLength() {
-		t.BattleReadyTimelinePath[i] = string(e.BattleReadyTimelinePath(i))
+		t.BattleReadyTimelinePath[i] = fbsutils.Convert(string(e.BattleReadyTimelinePath(i)), t.FlatBuffer.TableKey)
 	}
 	t.BattleReadyTimelinePhaseStart = make([]int32, e.BattleReadyTimelinePhaseStartLength())
 	for i := range e.BattleReadyTimelinePhaseStartLength() {
@@ -172,7 +172,7 @@ func (t *WorldRaidStageExcelDto) UnmarshalMessage(e *WorldRaidStageExcel) error 
 	t.DamageToWorldBoss = fbsutils.Convert(e.DamageToWorldBoss(), t.FlatBuffer.TableKey)
 	t.AllyPassiveSkill = make([]string, e.AllyPassiveSkillLength())
 	for i := range e.AllyPassiveSkillLength() {
-		t.AllyPassiveSkill[i] = string(e.AllyPassiveSkill(i))
+		t.AllyPassiveSkill[i] = fbsutils.Convert(string(e.AllyPassiveSkill(i)), t.FlatBuffer.TableKey)
 	}
 	t.AllyPassiveSkillLevel = make([]int32, e.AllyPassiveSkillLevelLength())
 	for i := range e.AllyPassiveSkillLevelLength() {

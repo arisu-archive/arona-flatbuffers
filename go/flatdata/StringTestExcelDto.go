@@ -45,7 +45,7 @@ func (t *StringTestExcelDto) UnmarshalMessage(e *StringTestExcel) error {
 	}
 	t.String = make([]string, e.StringLength())
 	for i := range e.StringLength() {
-		t.String[i] = string(e.String(i))
+		t.String[i] = fbsutils.Convert(string(e.String(i)), t.FlatBuffer.TableKey)
 	}
 	t.Sentence1 = fbsutils.Convert(string(e.Sentence1()), t.FlatBuffer.TableKey)
 	t.Script = fbsutils.Convert(string(e.Script()), t.FlatBuffer.TableKey)

@@ -112,7 +112,7 @@ func (t *EliminateRaidRankingRewardExcelDto) UnmarshalMessage(e *EliminateRaidRa
 	}
 	t.RewardParcelUniqueName = make([]string, e.RewardParcelUniqueNameLength())
 	for i := range e.RewardParcelUniqueNameLength() {
-		t.RewardParcelUniqueName[i] = string(e.RewardParcelUniqueName(i))
+		t.RewardParcelUniqueName[i] = fbsutils.Convert(string(e.RewardParcelUniqueName(i)), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
 	for i := range e.RewardParcelAmountLength() {

@@ -82,7 +82,7 @@ func (t *MiniGameShootingCharacterExcelDto) UnmarshalMessage(e *MiniGameShooting
 	t.NormalAttackSkillData = fbsutils.Convert(string(e.NormalAttackSkillData()), t.FlatBuffer.TableKey)
 	t.PublicSkillData = make([]string, e.PublicSkillDataLength())
 	for i := range e.PublicSkillDataLength() {
-		t.PublicSkillData[i] = string(e.PublicSkillData(i))
+		t.PublicSkillData[i] = fbsutils.Convert(string(e.PublicSkillData(i)), t.FlatBuffer.TableKey)
 	}
 	t.DeathSkillData = fbsutils.Convert(string(e.DeathSkillData()), t.FlatBuffer.TableKey)
 	t.MaxHp = fbsutils.Convert(e.MaxHp(), t.FlatBuffer.TableKey)

@@ -65,7 +65,7 @@ func (t *ConquestUnexpectedEventExcelDto) UnmarshalMessage(e *ConquestUnexpected
 	t.UnitCountPerStep = fbsutils.Convert(e.UnitCountPerStep(), t.FlatBuffer.TableKey)
 	t.UnexpectedEventPrefab = make([]string, e.UnexpectedEventPrefabLength())
 	for i := range e.UnexpectedEventPrefabLength() {
-		t.UnexpectedEventPrefab[i] = string(e.UnexpectedEventPrefab(i))
+		t.UnexpectedEventPrefab[i] = fbsutils.Convert(string(e.UnexpectedEventPrefab(i)), t.FlatBuffer.TableKey)
 	}
 	t.UnexpectedEventUnitId = make([]int64, e.UnexpectedEventUnitIdLength())
 	for i := range e.UnexpectedEventUnitIdLength() {

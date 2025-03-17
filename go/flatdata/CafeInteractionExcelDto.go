@@ -82,7 +82,7 @@ func (t *CafeInteractionExcelDto) UnmarshalMessage(e *CafeInteractionExcel) erro
 	t.FavorEmoticonRewardAmount = fbsutils.Convert(e.FavorEmoticonRewardAmount(), t.FlatBuffer.TableKey)
 	t.CafeCharacterState = make([]string, e.CafeCharacterStateLength())
 	for i := range e.CafeCharacterStateLength() {
-		t.CafeCharacterState[i] = string(e.CafeCharacterState(i))
+		t.CafeCharacterState[i] = fbsutils.Convert(string(e.CafeCharacterState(i)), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

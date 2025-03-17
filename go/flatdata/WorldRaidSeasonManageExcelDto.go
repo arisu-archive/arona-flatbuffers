@@ -121,11 +121,11 @@ func (t *WorldRaidSeasonManageExcelDto) UnmarshalMessage(e *WorldRaidSeasonManag
 	}
 	t.BossSpawnTime = make([]string, e.BossSpawnTimeLength())
 	for i := range e.BossSpawnTimeLength() {
-		t.BossSpawnTime[i] = string(e.BossSpawnTime(i))
+		t.BossSpawnTime[i] = fbsutils.Convert(string(e.BossSpawnTime(i)), t.FlatBuffer.TableKey)
 	}
 	t.EliminateTime = make([]string, e.EliminateTimeLength())
 	for i := range e.EliminateTimeLength() {
-		t.EliminateTime[i] = string(e.EliminateTime(i))
+		t.EliminateTime[i] = fbsutils.Convert(string(e.EliminateTime(i)), t.FlatBuffer.TableKey)
 	}
 	t.ScenarioOutputConditionId = make([]int64, e.ScenarioOutputConditionIdLength())
 	for i := range e.ScenarioOutputConditionIdLength() {

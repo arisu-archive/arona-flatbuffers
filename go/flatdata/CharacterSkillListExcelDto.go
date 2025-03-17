@@ -125,7 +125,7 @@ func (t *CharacterSkillListExcelDto) UnmarshalMessage(e *CharacterSkillListExcel
 	t.TsaInteractionId = fbsutils.Convert(e.TsaInteractionId(), t.FlatBuffer.TableKey)
 	t.NormalSkillGroupId = make([]string, e.NormalSkillGroupIdLength())
 	for i := range e.NormalSkillGroupIdLength() {
-		t.NormalSkillGroupId[i] = string(e.NormalSkillGroupId(i))
+		t.NormalSkillGroupId[i] = fbsutils.Convert(string(e.NormalSkillGroupId(i)), t.FlatBuffer.TableKey)
 	}
 	t.NormalSkillTimeLineIndex = make([]int32, e.NormalSkillTimeLineIndexLength())
 	for i := range e.NormalSkillTimeLineIndexLength() {
@@ -133,19 +133,19 @@ func (t *CharacterSkillListExcelDto) UnmarshalMessage(e *CharacterSkillListExcel
 	}
 	t.ExSkillGroupId = make([]string, e.ExSkillGroupIdLength())
 	for i := range e.ExSkillGroupIdLength() {
-		t.ExSkillGroupId[i] = string(e.ExSkillGroupId(i))
+		t.ExSkillGroupId[i] = fbsutils.Convert(string(e.ExSkillGroupId(i)), t.FlatBuffer.TableKey)
 	}
 	t.ExSkillCutInTimeLineIndex = make([]string, e.ExSkillCutInTimeLineIndexLength())
 	for i := range e.ExSkillCutInTimeLineIndexLength() {
-		t.ExSkillCutInTimeLineIndex[i] = string(e.ExSkillCutInTimeLineIndex(i))
+		t.ExSkillCutInTimeLineIndex[i] = fbsutils.Convert(string(e.ExSkillCutInTimeLineIndex(i)), t.FlatBuffer.TableKey)
 	}
 	t.ExSkillLevelTimeLineIndex = make([]string, e.ExSkillLevelTimeLineIndexLength())
 	for i := range e.ExSkillLevelTimeLineIndexLength() {
-		t.ExSkillLevelTimeLineIndex[i] = string(e.ExSkillLevelTimeLineIndex(i))
+		t.ExSkillLevelTimeLineIndex[i] = fbsutils.Convert(string(e.ExSkillLevelTimeLineIndex(i)), t.FlatBuffer.TableKey)
 	}
 	t.PublicSkillGroupId = make([]string, e.PublicSkillGroupIdLength())
 	for i := range e.PublicSkillGroupIdLength() {
-		t.PublicSkillGroupId[i] = string(e.PublicSkillGroupId(i))
+		t.PublicSkillGroupId[i] = fbsutils.Convert(string(e.PublicSkillGroupId(i)), t.FlatBuffer.TableKey)
 	}
 	t.PublicSkillTimeLineIndex = make([]int32, e.PublicSkillTimeLineIndexLength())
 	for i := range e.PublicSkillTimeLineIndexLength() {
@@ -153,19 +153,19 @@ func (t *CharacterSkillListExcelDto) UnmarshalMessage(e *CharacterSkillListExcel
 	}
 	t.PassiveSkillGroupId = make([]string, e.PassiveSkillGroupIdLength())
 	for i := range e.PassiveSkillGroupIdLength() {
-		t.PassiveSkillGroupId[i] = string(e.PassiveSkillGroupId(i))
+		t.PassiveSkillGroupId[i] = fbsutils.Convert(string(e.PassiveSkillGroupId(i)), t.FlatBuffer.TableKey)
 	}
 	t.LeaderSkillGroupId = make([]string, e.LeaderSkillGroupIdLength())
 	for i := range e.LeaderSkillGroupIdLength() {
-		t.LeaderSkillGroupId[i] = string(e.LeaderSkillGroupId(i))
+		t.LeaderSkillGroupId[i] = fbsutils.Convert(string(e.LeaderSkillGroupId(i)), t.FlatBuffer.TableKey)
 	}
 	t.ExtraPassiveSkillGroupId = make([]string, e.ExtraPassiveSkillGroupIdLength())
 	for i := range e.ExtraPassiveSkillGroupIdLength() {
-		t.ExtraPassiveSkillGroupId[i] = string(e.ExtraPassiveSkillGroupId(i))
+		t.ExtraPassiveSkillGroupId[i] = fbsutils.Convert(string(e.ExtraPassiveSkillGroupId(i)), t.FlatBuffer.TableKey)
 	}
 	t.HiddenPassiveSkillGroupId = make([]string, e.HiddenPassiveSkillGroupIdLength())
 	for i := range e.HiddenPassiveSkillGroupIdLength() {
-		t.HiddenPassiveSkillGroupId[i] = string(e.HiddenPassiveSkillGroupId(i))
+		t.HiddenPassiveSkillGroupId[i] = fbsutils.Convert(string(e.HiddenPassiveSkillGroupId(i)), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

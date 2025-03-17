@@ -120,7 +120,7 @@ func (t *CostumeExcelDto) UnmarshalMessage(e *CostumeExcel) error {
 	t.SpineResourceNameDiorama = fbsutils.Convert(string(e.SpineResourceNameDiorama()), t.FlatBuffer.TableKey)
 	t.SpineResourceNameDioramaForFormConversion = make([]string, e.SpineResourceNameDioramaForFormConversionLength())
 	for i := range e.SpineResourceNameDioramaForFormConversionLength() {
-		t.SpineResourceNameDioramaForFormConversion[i] = string(e.SpineResourceNameDioramaForFormConversion(i))
+		t.SpineResourceNameDioramaForFormConversion[i] = fbsutils.Convert(string(e.SpineResourceNameDioramaForFormConversion(i)), t.FlatBuffer.TableKey)
 	}
 	t.EntityMaterialType = EntityMaterialType(fbsutils.Convert(int32(e.EntityMaterialType()), t.FlatBuffer.TableKey))
 	t.ModelPrefabName = fbsutils.Convert(string(e.ModelPrefabName()), t.FlatBuffer.TableKey)
@@ -135,7 +135,7 @@ func (t *CostumeExcelDto) UnmarshalMessage(e *CostumeExcel) error {
 	t.TextureBoss = fbsutils.Convert(string(e.TextureBoss()), t.FlatBuffer.TableKey)
 	t.TextureSkillCard = make([]string, e.TextureSkillCardLength())
 	for i := range e.TextureSkillCardLength() {
-		t.TextureSkillCard[i] = string(e.TextureSkillCard(i))
+		t.TextureSkillCard[i] = fbsutils.Convert(string(e.TextureSkillCard(i)), t.FlatBuffer.TableKey)
 	}
 	t.InformationPacel = fbsutils.Convert(string(e.InformationPacel()), t.FlatBuffer.TableKey)
 	t.AnimationSsr = fbsutils.Convert(string(e.AnimationSsr()), t.FlatBuffer.TableKey)

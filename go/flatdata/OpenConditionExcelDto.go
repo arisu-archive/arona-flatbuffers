@@ -84,12 +84,12 @@ func (t *OpenConditionExcelDto) UnmarshalMessage(e *OpenConditionExcel) error {
 	t.OpenConditionContentType = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionContentType()), t.FlatBuffer.TableKey))
 	t.LockUi = make([]string, e.LockUiLength())
 	for i := range e.LockUiLength() {
-		t.LockUi[i] = string(e.LockUi(i))
+		t.LockUi[i] = fbsutils.Convert(string(e.LockUi(i)), t.FlatBuffer.TableKey)
 	}
 	t.ShortcutPopupPriority = fbsutils.Convert(e.ShortcutPopupPriority(), t.FlatBuffer.TableKey)
 	t.ShortcutUiName = make([]string, e.ShortcutUiNameLength())
 	for i := range e.ShortcutUiNameLength() {
-		t.ShortcutUiName[i] = string(e.ShortcutUiName(i))
+		t.ShortcutUiName[i] = fbsutils.Convert(string(e.ShortcutUiName(i)), t.FlatBuffer.TableKey)
 	}
 	t.ShortcutParam = fbsutils.Convert(e.ShortcutParam(), t.FlatBuffer.TableKey)
 	t.Scene = fbsutils.Convert(string(e.Scene()), t.FlatBuffer.TableKey)

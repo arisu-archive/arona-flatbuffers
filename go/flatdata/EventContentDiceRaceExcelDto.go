@@ -56,7 +56,7 @@ func (t *EventContentDiceRaceExcelDto) UnmarshalMessage(e *EventContentDiceRaceE
 	t.IsUsingFixedDice = e.IsUsingFixedDice()
 	t.DiceRaceEventType = make([]string, e.DiceRaceEventTypeLength())
 	for i := range e.DiceRaceEventTypeLength() {
-		t.DiceRaceEventType[i] = string(e.DiceRaceEventType(i))
+		t.DiceRaceEventType[i] = fbsutils.Convert(string(e.DiceRaceEventType(i)), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

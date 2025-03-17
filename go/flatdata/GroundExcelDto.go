@@ -168,7 +168,7 @@ func (t *GroundExcelDto) UnmarshalMessage(e *GroundExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.StageFileName = make([]string, e.StageFileNameLength())
 	for i := range e.StageFileNameLength() {
-		t.StageFileName[i] = string(e.StageFileName(i))
+		t.StageFileName[i] = fbsutils.Convert(string(e.StageFileName(i)), t.FlatBuffer.TableKey)
 	}
 	t.GroundSceneName = fbsutils.Convert(string(e.GroundSceneName()), t.FlatBuffer.TableKey)
 	t.FormationGroupId = fbsutils.Convert(e.FormationGroupId(), t.FlatBuffer.TableKey)
@@ -222,7 +222,7 @@ func (t *GroundExcelDto) UnmarshalMessage(e *GroundExcel) error {
 	t.UiSkillMainLogScale = fbsutils.Convert(e.UiSkillMainLogScale(), t.FlatBuffer.TableKey)
 	t.AllyPassiveSkillId = make([]string, e.AllyPassiveSkillIdLength())
 	for i := range e.AllyPassiveSkillIdLength() {
-		t.AllyPassiveSkillId[i] = string(e.AllyPassiveSkillId(i))
+		t.AllyPassiveSkillId[i] = fbsutils.Convert(string(e.AllyPassiveSkillId(i)), t.FlatBuffer.TableKey)
 	}
 	t.AllyPassiveSkillLevel = make([]int32, e.AllyPassiveSkillLevelLength())
 	for i := range e.AllyPassiveSkillLevelLength() {
@@ -230,7 +230,7 @@ func (t *GroundExcelDto) UnmarshalMessage(e *GroundExcel) error {
 	}
 	t.EnemyPassiveSkillId = make([]string, e.EnemyPassiveSkillIdLength())
 	for i := range e.EnemyPassiveSkillIdLength() {
-		t.EnemyPassiveSkillId[i] = string(e.EnemyPassiveSkillId(i))
+		t.EnemyPassiveSkillId[i] = fbsutils.Convert(string(e.EnemyPassiveSkillId(i)), t.FlatBuffer.TableKey)
 	}
 	t.EnemyPassiveSkillLevel = make([]int32, e.EnemyPassiveSkillLevelLength())
 	for i := range e.EnemyPassiveSkillLevelLength() {

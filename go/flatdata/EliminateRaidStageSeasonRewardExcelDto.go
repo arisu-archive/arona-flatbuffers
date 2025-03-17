@@ -70,7 +70,7 @@ func (t *EliminateRaidStageSeasonRewardExcelDto) UnmarshalMessage(e *EliminateRa
 	}
 	t.SeasonRewardParcelUniqueName = make([]string, e.SeasonRewardParcelUniqueNameLength())
 	for i := range e.SeasonRewardParcelUniqueNameLength() {
-		t.SeasonRewardParcelUniqueName[i] = string(e.SeasonRewardParcelUniqueName(i))
+		t.SeasonRewardParcelUniqueName[i] = fbsutils.Convert(string(e.SeasonRewardParcelUniqueName(i)), t.FlatBuffer.TableKey)
 	}
 	t.SeasonRewardAmount = make([]int64, e.SeasonRewardAmountLength())
 	for i := range e.SeasonRewardAmountLength() {

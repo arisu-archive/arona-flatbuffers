@@ -89,7 +89,7 @@ func (t *ConquestErosionExcelDto) UnmarshalMessage(e *ConquestErosionExcel) erro
 	}
 	t.PhaseStartConditionParameter = make([]string, e.PhaseStartConditionParameterLength())
 	for i := range e.PhaseStartConditionParameterLength() {
-		t.PhaseStartConditionParameter[i] = string(e.PhaseStartConditionParameter(i))
+		t.PhaseStartConditionParameter[i] = fbsutils.Convert(string(e.PhaseStartConditionParameter(i)), t.FlatBuffer.TableKey)
 	}
 	t.PhaseBeforeExposeConditionType = make([]ConquestConditionType, e.PhaseBeforeExposeConditionTypeLength())
 	for i := range e.PhaseBeforeExposeConditionTypeLength() {
@@ -97,7 +97,7 @@ func (t *ConquestErosionExcelDto) UnmarshalMessage(e *ConquestErosionExcel) erro
 	}
 	t.PhaseBeforeExposeConditionParameter = make([]string, e.PhaseBeforeExposeConditionParameterLength())
 	for i := range e.PhaseBeforeExposeConditionParameterLength() {
-		t.PhaseBeforeExposeConditionParameter[i] = string(e.PhaseBeforeExposeConditionParameter(i))
+		t.PhaseBeforeExposeConditionParameter[i] = fbsutils.Convert(string(e.PhaseBeforeExposeConditionParameter(i)), t.FlatBuffer.TableKey)
 	}
 	t.ErosionBattleConditionParcelType = ParcelType(fbsutils.Convert(int32(e.ErosionBattleConditionParcelType()), t.FlatBuffer.TableKey))
 	t.ErosionBattleConditionParcelUniqueId = fbsutils.Convert(e.ErosionBattleConditionParcelUniqueId(), t.FlatBuffer.TableKey)

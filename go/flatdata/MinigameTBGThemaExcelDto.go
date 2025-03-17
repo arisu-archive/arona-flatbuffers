@@ -83,7 +83,7 @@ func (t *MinigameTBGThemaExcelDto) UnmarshalMessage(e *MinigameTBGThemaExcel) er
 	}
 	t.PortalConditionParameter = make([]string, e.PortalConditionParameterLength())
 	for i := range e.PortalConditionParameterLength() {
-		t.PortalConditionParameter[i] = string(e.PortalConditionParameter(i))
+		t.PortalConditionParameter[i] = fbsutils.Convert(string(e.PortalConditionParameter(i)), t.FlatBuffer.TableKey)
 	}
 	t.ThemaNameLocalize = fbsutils.Convert(string(e.ThemaNameLocalize()), t.FlatBuffer.TableKey)
 	t.ThemaLoadingImage = fbsutils.Convert(string(e.ThemaLoadingImage()), t.FlatBuffer.TableKey)

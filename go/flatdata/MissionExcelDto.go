@@ -147,7 +147,7 @@ func (t *MissionExcelDto) UnmarshalMessage(e *MissionExcel) error {
 	}
 	t.ShortcutUi = make([]string, e.ShortcutUiLength())
 	for i := range e.ShortcutUiLength() {
-		t.ShortcutUi[i] = string(e.ShortcutUi(i))
+		t.ShortcutUi[i] = fbsutils.Convert(string(e.ShortcutUi(i)), t.FlatBuffer.TableKey)
 	}
 	t.ChallengeStageShortcut = fbsutils.Convert(e.ChallengeStageShortcut(), t.FlatBuffer.TableKey)
 	t.CompleteConditionType = MissionCompleteConditionType(fbsutils.Convert(int32(e.CompleteConditionType()), t.FlatBuffer.TableKey))

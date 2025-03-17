@@ -52,11 +52,11 @@ func (t *CheatCodeListExcelDto) UnmarshalMessage(e *CheatCodeListExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.CheatCode = make([]string, e.CheatCodeLength())
 	for i := range e.CheatCodeLength() {
-		t.CheatCode[i] = string(e.CheatCode(i))
+		t.CheatCode[i] = fbsutils.Convert(string(e.CheatCode(i)), t.FlatBuffer.TableKey)
 	}
 	t.InputTitle = make([]string, e.InputTitleLength())
 	for i := range e.InputTitleLength() {
-		t.InputTitle[i] = string(e.InputTitle(i))
+		t.InputTitle[i] = fbsutils.Convert(string(e.InputTitle(i)), t.FlatBuffer.TableKey)
 	}
 	t.Desc = fbsutils.Convert(string(e.Desc()), t.FlatBuffer.TableKey)
 	return nil

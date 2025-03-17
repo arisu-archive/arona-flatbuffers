@@ -123,7 +123,7 @@ func (t *CharacterWeaponExcelDto) UnmarshalMessage(e *CharacterWeaponExcel) erro
 	}
 	t.LearnSkillSlot = make([]string, e.LearnSkillSlotLength())
 	for i := range e.LearnSkillSlotLength() {
-		t.LearnSkillSlot[i] = string(e.LearnSkillSlot(i))
+		t.LearnSkillSlot[i] = fbsutils.Convert(string(e.LearnSkillSlot(i)), t.FlatBuffer.TableKey)
 	}
 	t.StatType = make([]EquipmentOptionType, e.StatTypeLength())
 	for i := range e.StatTypeLength() {

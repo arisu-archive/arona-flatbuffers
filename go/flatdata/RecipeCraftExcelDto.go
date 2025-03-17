@@ -88,7 +88,7 @@ func (t *RecipeCraftExcelDto) UnmarshalMessage(e *RecipeCraftExcel) error {
 	}
 	t.ParcelDevName = make([]string, e.ParcelDevNameLength())
 	for i := range e.ParcelDevNameLength() {
-		t.ParcelDevName[i] = string(e.ParcelDevName(i))
+		t.ParcelDevName[i] = fbsutils.Convert(string(e.ParcelDevName(i)), t.FlatBuffer.TableKey)
 	}
 	t.ResultAmountMin = make([]int64, e.ResultAmountMinLength())
 	for i := range e.ResultAmountMinLength() {

@@ -72,7 +72,7 @@ func (t *RaidSeasonManageExcelDto) UnmarshalMessage(e *RaidSeasonManageExcel) er
 	t.SettlementEndDate = fbsutils.Convert(string(e.SettlementEndDate()), t.FlatBuffer.TableKey)
 	t.OpenRaidBossGroup = make([]string, e.OpenRaidBossGroupLength())
 	for i := range e.OpenRaidBossGroupLength() {
-		t.OpenRaidBossGroup[i] = string(e.OpenRaidBossGroup(i))
+		t.OpenRaidBossGroup[i] = fbsutils.Convert(string(e.OpenRaidBossGroup(i)), t.FlatBuffer.TableKey)
 	}
 	t.RankingRewardGroupId = fbsutils.Convert(e.RankingRewardGroupId(), t.FlatBuffer.TableKey)
 	t.MaxSeasonRewardGauage = fbsutils.Convert(e.MaxSeasonRewardGauage(), t.FlatBuffer.TableKey)
