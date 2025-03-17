@@ -21,7 +21,7 @@ func (t *PersonalityExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	}
 	PersonalityExcelStart(b)
 	PersonalityExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	PersonalityExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	PersonalityExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	return PersonalityExcelEnd(b)
 }
 

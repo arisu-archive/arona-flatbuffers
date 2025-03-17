@@ -46,7 +46,7 @@ func (t *TimeAttackDungeonGeasExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	TimeAttackDungeonGeasExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	TimeAttackDungeonGeasExcelStartAllyPassiveSkillIdVector(b, len(t.AllyPassiveSkillId))
 	for i := range len(t.AllyPassiveSkillId) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.AllyPassiveSkillId[len(t.AllyPassiveSkillId)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.AllyPassiveSkillId[len(t.AllyPassiveSkillId)-i-1]))
 	}
 	TimeAttackDungeonGeasExcelAddAllyPassiveSkillId(b, b.EndVector(len(t.AllyPassiveSkillId)))
 	TimeAttackDungeonGeasExcelStartAllyPassiveSkillLevelVector(b, len(t.AllyPassiveSkillLevel))
@@ -56,7 +56,7 @@ func (t *TimeAttackDungeonGeasExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	TimeAttackDungeonGeasExcelAddAllyPassiveSkillLevel(b, b.EndVector(len(t.AllyPassiveSkillLevel)))
 	TimeAttackDungeonGeasExcelStartEnemyPassiveSkillIdVector(b, len(t.EnemyPassiveSkillId))
 	for i := range len(t.EnemyPassiveSkillId) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.EnemyPassiveSkillId[len(t.EnemyPassiveSkillId)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.EnemyPassiveSkillId[len(t.EnemyPassiveSkillId)-i-1]))
 	}
 	TimeAttackDungeonGeasExcelAddEnemyPassiveSkillId(b, b.EndVector(len(t.EnemyPassiveSkillId)))
 	TimeAttackDungeonGeasExcelStartEnemyPassiveSkillLevelVector(b, len(t.EnemyPassiveSkillLevel))
@@ -66,7 +66,7 @@ func (t *TimeAttackDungeonGeasExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	TimeAttackDungeonGeasExcelAddEnemyPassiveSkillLevel(b, b.EndVector(len(t.EnemyPassiveSkillLevel)))
 	TimeAttackDungeonGeasExcelStartGeasIconPathVector(b, len(t.GeasIconPath))
 	for i := range len(t.GeasIconPath) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.GeasIconPath[len(t.GeasIconPath)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.GeasIconPath[len(t.GeasIconPath)-i-1]))
 	}
 	TimeAttackDungeonGeasExcelAddGeasIconPath(b, b.EndVector(len(t.GeasIconPath)))
 	TimeAttackDungeonGeasExcelStartGeasLocalizeEtcKeyVector(b, len(t.GeasLocalizeEtcKey))

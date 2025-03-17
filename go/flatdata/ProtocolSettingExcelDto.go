@@ -23,11 +23,11 @@ func (t *ProtocolSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProtocolSetting"))
 	}
 	ProtocolSettingExcelStart(b)
-	ProtocolSettingExcelAddProtocol(b, fbsutils.Convert(b.CreateString(t.Protocol), t.FlatBuffer.TableKey))
+	ProtocolSettingExcelAddProtocol(b, b.CreateString(fbsutils.Convert(t.Protocol, t.FlatBuffer.TableKey)))
 	ProtocolSettingExcelAddOpenConditionContent(b, fbsutils.Convert(t.OpenConditionContent, t.FlatBuffer.TableKey))
-	ProtocolSettingExcelAddCurrency(b, fbsutils.Convert(t.Currency, t.FlatBuffer.TableKey))
-	ProtocolSettingExcelAddInventory(b, fbsutils.Convert(t.Inventory, t.FlatBuffer.TableKey))
-	ProtocolSettingExcelAddMail(b, fbsutils.Convert(t.Mail, t.FlatBuffer.TableKey))
+	ProtocolSettingExcelAddCurrency(b, t.Currency)
+	ProtocolSettingExcelAddInventory(b, t.Inventory)
+	ProtocolSettingExcelAddMail(b, t.Mail)
 	return ProtocolSettingExcelEnd(b)
 }
 
@@ -45,9 +45,9 @@ func (t *ProtocolSettingExcelDto) UnmarshalMessage(e *ProtocolSettingExcel) erro
 	}
 	t.Protocol = fbsutils.Convert(string(e.Protocol()), t.FlatBuffer.TableKey)
 	t.OpenConditionContent = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionContent()), t.FlatBuffer.TableKey))
-	t.Currency = fbsutils.Convert(e.Currency(), t.FlatBuffer.TableKey)
-	t.Inventory = fbsutils.Convert(e.Inventory(), t.FlatBuffer.TableKey)
-	t.Mail = fbsutils.Convert(e.Mail(), t.FlatBuffer.TableKey)
+	t.Currency = e.Currency()
+	t.Inventory = e.Inventory()
+	t.Mail = e.Mail()
 	return nil
 }
 

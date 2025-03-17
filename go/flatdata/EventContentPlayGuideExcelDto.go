@@ -27,9 +27,9 @@ func (t *EventContentPlayGuideExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	EventContentPlayGuideExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentPlayGuideExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentPlayGuideExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	EventContentPlayGuideExcelAddGuideTitle(b, fbsutils.Convert(b.CreateString(t.GuideTitle), t.FlatBuffer.TableKey))
-	EventContentPlayGuideExcelAddGuideImagePath(b, fbsutils.Convert(b.CreateString(t.GuideImagePath), t.FlatBuffer.TableKey))
-	EventContentPlayGuideExcelAddGuideText(b, fbsutils.Convert(b.CreateString(t.GuideText), t.FlatBuffer.TableKey))
+	EventContentPlayGuideExcelAddGuideTitle(b, b.CreateString(fbsutils.Convert(t.GuideTitle, t.FlatBuffer.TableKey)))
+	EventContentPlayGuideExcelAddGuideImagePath(b, b.CreateString(fbsutils.Convert(t.GuideImagePath, t.FlatBuffer.TableKey)))
+	EventContentPlayGuideExcelAddGuideText(b, b.CreateString(fbsutils.Convert(t.GuideText, t.FlatBuffer.TableKey)))
 	return EventContentPlayGuideExcelEnd(b)
 }
 

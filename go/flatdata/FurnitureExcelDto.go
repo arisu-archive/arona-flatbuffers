@@ -67,18 +67,18 @@ func (t *FurnitureExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	FurnitureExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	FurnitureExcelAddStarGradeInit(b, fbsutils.Convert(t.StarGradeInit, t.FlatBuffer.TableKey))
 	FurnitureExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
-	FurnitureExcelAddIcon(b, fbsutils.Convert(b.CreateString(t.Icon), t.FlatBuffer.TableKey))
+	FurnitureExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
 	FurnitureExcelAddSizeWidth(b, fbsutils.Convert(t.SizeWidth, t.FlatBuffer.TableKey))
 	FurnitureExcelAddSizeHeight(b, fbsutils.Convert(t.SizeHeight, t.FlatBuffer.TableKey))
 	FurnitureExcelAddOtherSize(b, fbsutils.Convert(t.OtherSize, t.FlatBuffer.TableKey))
 	FurnitureExcelAddExpandWidth(b, fbsutils.Convert(t.ExpandWidth, t.FlatBuffer.TableKey))
-	FurnitureExcelAddEnable(b, fbsutils.Convert(t.Enable, t.FlatBuffer.TableKey))
-	FurnitureExcelAddReverseRotation(b, fbsutils.Convert(t.ReverseRotation, t.FlatBuffer.TableKey))
-	FurnitureExcelAddPrefab(b, fbsutils.Convert(b.CreateString(t.Prefab), t.FlatBuffer.TableKey))
-	FurnitureExcelAddPrefabExpand(b, fbsutils.Convert(b.CreateString(t.PrefabExpand), t.FlatBuffer.TableKey))
-	FurnitureExcelAddSubPrefab(b, fbsutils.Convert(b.CreateString(t.SubPrefab), t.FlatBuffer.TableKey))
-	FurnitureExcelAddSubExpandPrefab(b, fbsutils.Convert(b.CreateString(t.SubExpandPrefab), t.FlatBuffer.TableKey))
-	FurnitureExcelAddCornerPrefab(b, fbsutils.Convert(b.CreateString(t.CornerPrefab), t.FlatBuffer.TableKey))
+	FurnitureExcelAddEnable(b, t.Enable)
+	FurnitureExcelAddReverseRotation(b, t.ReverseRotation)
+	FurnitureExcelAddPrefab(b, b.CreateString(fbsutils.Convert(t.Prefab, t.FlatBuffer.TableKey)))
+	FurnitureExcelAddPrefabExpand(b, b.CreateString(fbsutils.Convert(t.PrefabExpand, t.FlatBuffer.TableKey)))
+	FurnitureExcelAddSubPrefab(b, b.CreateString(fbsutils.Convert(t.SubPrefab, t.FlatBuffer.TableKey)))
+	FurnitureExcelAddSubExpandPrefab(b, b.CreateString(fbsutils.Convert(t.SubExpandPrefab, t.FlatBuffer.TableKey)))
+	FurnitureExcelAddCornerPrefab(b, b.CreateString(fbsutils.Convert(t.CornerPrefab, t.FlatBuffer.TableKey)))
 	FurnitureExcelAddStackableMax(b, fbsutils.Convert(t.StackableMax, t.FlatBuffer.TableKey))
 	FurnitureExcelAddRecipeCraftId(b, fbsutils.Convert(t.RecipeCraftId, t.FlatBuffer.TableKey))
 	FurnitureExcelAddSetGroudpId(b, fbsutils.Convert(t.SetGroudpId, t.FlatBuffer.TableKey))
@@ -87,7 +87,7 @@ func (t *FurnitureExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	FurnitureExcelAddVisitBonusOperationType(b, fbsutils.Convert(t.VisitBonusOperationType, t.FlatBuffer.TableKey))
 	FurnitureExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.Tags[len(t.Tags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	FurnitureExcelAddTags(b, b.EndVector(len(t.Tags)))
 	FurnitureExcelAddCraftQualityTier0(b, fbsutils.Convert(t.CraftQualityTier0, t.FlatBuffer.TableKey))
@@ -102,22 +102,22 @@ func (t *FurnitureExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	FurnitureExcelAddFurnitureBubbleOffsetY(b, fbsutils.Convert(t.FurnitureBubbleOffsetY, t.FlatBuffer.TableKey))
 	FurnitureExcelStartCafeCharacterStateReqVector(b, len(t.CafeCharacterStateReq))
 	for i := range len(t.CafeCharacterStateReq) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.CafeCharacterStateReq[len(t.CafeCharacterStateReq)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.CafeCharacterStateReq[len(t.CafeCharacterStateReq)-i-1]))
 	}
 	FurnitureExcelAddCafeCharacterStateReq(b, b.EndVector(len(t.CafeCharacterStateReq)))
 	FurnitureExcelStartCafeCharacterStateAddVector(b, len(t.CafeCharacterStateAdd))
 	for i := range len(t.CafeCharacterStateAdd) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.CafeCharacterStateAdd[len(t.CafeCharacterStateAdd)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.CafeCharacterStateAdd[len(t.CafeCharacterStateAdd)-i-1]))
 	}
 	FurnitureExcelAddCafeCharacterStateAdd(b, b.EndVector(len(t.CafeCharacterStateAdd)))
 	FurnitureExcelStartCafeCharacterStateMakeVector(b, len(t.CafeCharacterStateMake))
 	for i := range len(t.CafeCharacterStateMake) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.CafeCharacterStateMake[len(t.CafeCharacterStateMake)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.CafeCharacterStateMake[len(t.CafeCharacterStateMake)-i-1]))
 	}
 	FurnitureExcelAddCafeCharacterStateMake(b, b.EndVector(len(t.CafeCharacterStateMake)))
 	FurnitureExcelStartCafeCharacterStateOnlyVector(b, len(t.CafeCharacterStateOnly))
 	for i := range len(t.CafeCharacterStateOnly) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.CafeCharacterStateOnly[len(t.CafeCharacterStateOnly)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.CafeCharacterStateOnly[len(t.CafeCharacterStateOnly)-i-1]))
 	}
 	FurnitureExcelAddCafeCharacterStateOnly(b, b.EndVector(len(t.CafeCharacterStateOnly)))
 	return FurnitureExcelEnd(b)
@@ -148,8 +148,8 @@ func (t *FurnitureExcelDto) UnmarshalMessage(e *FurnitureExcel) error {
 	t.SizeHeight = fbsutils.Convert(e.SizeHeight(), t.FlatBuffer.TableKey)
 	t.OtherSize = fbsutils.Convert(e.OtherSize(), t.FlatBuffer.TableKey)
 	t.ExpandWidth = fbsutils.Convert(e.ExpandWidth(), t.FlatBuffer.TableKey)
-	t.Enable = fbsutils.Convert(e.Enable(), t.FlatBuffer.TableKey)
-	t.ReverseRotation = fbsutils.Convert(e.ReverseRotation(), t.FlatBuffer.TableKey)
+	t.Enable = e.Enable()
+	t.ReverseRotation = e.ReverseRotation()
 	t.Prefab = fbsutils.Convert(string(e.Prefab()), t.FlatBuffer.TableKey)
 	t.PrefabExpand = fbsutils.Convert(string(e.PrefabExpand()), t.FlatBuffer.TableKey)
 	t.SubPrefab = fbsutils.Convert(string(e.SubPrefab()), t.FlatBuffer.TableKey)

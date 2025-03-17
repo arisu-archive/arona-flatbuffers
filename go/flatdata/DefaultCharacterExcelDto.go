@@ -31,7 +31,7 @@ func (t *DefaultCharacterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	}
 	DefaultCharacterExcelStart(b)
 	DefaultCharacterExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
-	DefaultCharacterExcelAddFavoriteCharacter(b, fbsutils.Convert(t.FavoriteCharacter, t.FlatBuffer.TableKey))
+	DefaultCharacterExcelAddFavoriteCharacter(b, t.FavoriteCharacter)
 	DefaultCharacterExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	DefaultCharacterExcelAddExp(b, fbsutils.Convert(t.Exp, t.FlatBuffer.TableKey))
 	DefaultCharacterExcelAddFavorExp(b, fbsutils.Convert(t.FavorExp, t.FlatBuffer.TableKey))
@@ -58,7 +58,7 @@ func (t *DefaultCharacterExcelDto) UnmarshalMessage(e *DefaultCharacterExcel) er
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultCharacter"))
 	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
-	t.FavoriteCharacter = fbsutils.Convert(e.FavoriteCharacter(), t.FlatBuffer.TableKey)
+	t.FavoriteCharacter = e.FavoriteCharacter()
 	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.Exp = fbsutils.Convert(e.Exp(), t.FlatBuffer.TableKey)
 	t.FavorExp = fbsutils.Convert(e.FavorExp(), t.FlatBuffer.TableKey)

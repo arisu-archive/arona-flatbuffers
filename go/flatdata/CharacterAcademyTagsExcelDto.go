@@ -27,27 +27,27 @@ func (t *CharacterAcademyTagsExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	CharacterAcademyTagsExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CharacterAcademyTagsExcelStartFavorTagsVector(b, len(t.FavorTags))
 	for i := range len(t.FavorTags) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.FavorTags[len(t.FavorTags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.FavorTags[len(t.FavorTags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CharacterAcademyTagsExcelAddFavorTags(b, b.EndVector(len(t.FavorTags)))
 	CharacterAcademyTagsExcelStartFavorItemTagsVector(b, len(t.FavorItemTags))
 	for i := range len(t.FavorItemTags) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.FavorItemTags[len(t.FavorItemTags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.FavorItemTags[len(t.FavorItemTags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CharacterAcademyTagsExcelAddFavorItemTags(b, b.EndVector(len(t.FavorItemTags)))
 	CharacterAcademyTagsExcelStartFavorItemUniqueTagsVector(b, len(t.FavorItemUniqueTags))
 	for i := range len(t.FavorItemUniqueTags) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.FavorItemUniqueTags[len(t.FavorItemUniqueTags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.FavorItemUniqueTags[len(t.FavorItemUniqueTags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CharacterAcademyTagsExcelAddFavorItemUniqueTags(b, b.EndVector(len(t.FavorItemUniqueTags)))
 	CharacterAcademyTagsExcelStartForbiddenTagsVector(b, len(t.ForbiddenTags))
 	for i := range len(t.ForbiddenTags) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ForbiddenTags[len(t.ForbiddenTags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ForbiddenTags[len(t.ForbiddenTags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CharacterAcademyTagsExcelAddForbiddenTags(b, b.EndVector(len(t.ForbiddenTags)))
 	CharacterAcademyTagsExcelStartZoneWhiteListTagsVector(b, len(t.ZoneWhiteListTags))
 	for i := range len(t.ZoneWhiteListTags) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ZoneWhiteListTags[len(t.ZoneWhiteListTags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ZoneWhiteListTags[len(t.ZoneWhiteListTags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CharacterAcademyTagsExcelAddZoneWhiteListTags(b, b.EndVector(len(t.ZoneWhiteListTags)))
 	return CharacterAcademyTagsExcelEnd(b)

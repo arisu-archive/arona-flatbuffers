@@ -32,8 +32,8 @@ func (t *WeekDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	WeekDungeonRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
 	WeekDungeonRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
 	WeekDungeonRewardExcelAddRewardParcelProbability(b, fbsutils.Convert(t.RewardParcelProbability, t.FlatBuffer.TableKey))
-	WeekDungeonRewardExcelAddIsDisplayed(b, fbsutils.Convert(t.IsDisplayed, t.FlatBuffer.TableKey))
-	WeekDungeonRewardExcelAddDropItemModelPrefabPath(b, fbsutils.Convert(b.CreateString(t.DropItemModelPrefabPath), t.FlatBuffer.TableKey))
+	WeekDungeonRewardExcelAddIsDisplayed(b, t.IsDisplayed)
+	WeekDungeonRewardExcelAddDropItemModelPrefabPath(b, b.CreateString(fbsutils.Convert(t.DropItemModelPrefabPath, t.FlatBuffer.TableKey)))
 	return WeekDungeonRewardExcelEnd(b)
 }
 
@@ -55,7 +55,7 @@ func (t *WeekDungeonRewardExcelDto) UnmarshalMessage(e *WeekDungeonRewardExcel) 
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
 	t.RewardParcelProbability = fbsutils.Convert(e.RewardParcelProbability(), t.FlatBuffer.TableKey)
-	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)
+	t.IsDisplayed = e.IsDisplayed()
 	t.DropItemModelPrefabPath = fbsutils.Convert(string(e.DropItemModelPrefabPath()), t.FlatBuffer.TableKey)
 	return nil
 }

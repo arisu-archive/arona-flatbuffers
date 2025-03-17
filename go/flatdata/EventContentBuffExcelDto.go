@@ -28,18 +28,18 @@ func (t *EventContentBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	}
 	EventContentBuffExcelStart(b)
 	EventContentBuffExcelAddEventContentBuffId(b, fbsutils.Convert(t.EventContentBuffId, t.FlatBuffer.TableKey))
-	EventContentBuffExcelAddIsBuff(b, fbsutils.Convert(t.IsBuff, t.FlatBuffer.TableKey))
+	EventContentBuffExcelAddIsBuff(b, t.IsBuff)
 	EventContentBuffExcelAddCharacterTag(b, fbsutils.Convert(t.CharacterTag, t.FlatBuffer.TableKey))
 	EventContentBuffExcelAddEnumType(b, fbsutils.Convert(t.EnumType, t.FlatBuffer.TableKey))
 	EventContentBuffExcelStartEnumTypeValueVector(b, len(t.EnumTypeValue))
 	for i := range len(t.EnumTypeValue) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.EnumTypeValue[len(t.EnumTypeValue)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.EnumTypeValue[len(t.EnumTypeValue)-i-1]))
 	}
 	EventContentBuffExcelAddEnumTypeValue(b, b.EndVector(len(t.EnumTypeValue)))
-	EventContentBuffExcelAddSkillGroupId(b, fbsutils.Convert(b.CreateString(t.SkillGroupId), t.FlatBuffer.TableKey))
-	EventContentBuffExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
-	EventContentBuffExcelAddSpriteName(b, fbsutils.Convert(b.CreateString(t.SpriteName), t.FlatBuffer.TableKey))
-	EventContentBuffExcelAddBuffDescriptionLocalizeCodeId(b, fbsutils.Convert(b.CreateString(t.BuffDescriptionLocalizeCodeId), t.FlatBuffer.TableKey))
+	EventContentBuffExcelAddSkillGroupId(b, b.CreateString(fbsutils.Convert(t.SkillGroupId, t.FlatBuffer.TableKey)))
+	EventContentBuffExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	EventContentBuffExcelAddSpriteName(b, b.CreateString(fbsutils.Convert(t.SpriteName, t.FlatBuffer.TableKey)))
+	EventContentBuffExcelAddBuffDescriptionLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.BuffDescriptionLocalizeCodeId, t.FlatBuffer.TableKey)))
 	return EventContentBuffExcelEnd(b)
 }
 
@@ -56,7 +56,7 @@ func (t *EventContentBuffExcelDto) UnmarshalMessage(e *EventContentBuffExcel) er
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBuff"))
 	}
 	t.EventContentBuffId = fbsutils.Convert(e.EventContentBuffId(), t.FlatBuffer.TableKey)
-	t.IsBuff = fbsutils.Convert(e.IsBuff(), t.FlatBuffer.TableKey)
+	t.IsBuff = e.IsBuff()
 	t.CharacterTag = Tag(fbsutils.Convert(int32(e.CharacterTag()), t.FlatBuffer.TableKey))
 	t.EnumType = EventContentBuffFindRule(fbsutils.Convert(int32(e.EnumType()), t.FlatBuffer.TableKey))
 	t.EnumTypeValue = make([]string, e.EnumTypeValueLength())

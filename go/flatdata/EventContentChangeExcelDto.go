@@ -29,7 +29,7 @@ func (t *EventContentChangeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	EventContentChangeExcelStart(b)
 	EventContentChangeExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentChangeExcelAddChangeCount(b, fbsutils.Convert(t.ChangeCount, t.FlatBuffer.TableKey))
-	EventContentChangeExcelAddIsLast(b, fbsutils.Convert(t.IsLast, t.FlatBuffer.TableKey))
+	EventContentChangeExcelAddIsLast(b, t.IsLast)
 	EventContentChangeExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
 	EventContentChangeExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
 	EventContentChangeExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
@@ -53,7 +53,7 @@ func (t *EventContentChangeExcelDto) UnmarshalMessage(e *EventContentChangeExcel
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.ChangeCount = fbsutils.Convert(e.ChangeCount(), t.FlatBuffer.TableKey)
-	t.IsLast = fbsutils.Convert(e.IsLast(), t.FlatBuffer.TableKey)
+	t.IsLast = e.IsLast()
 	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
 	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)

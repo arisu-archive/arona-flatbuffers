@@ -36,7 +36,7 @@ func (t *CharacterWeaponExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	}
 	CharacterWeaponExcelStart(b)
 	CharacterWeaponExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CharacterWeaponExcelAddImagePath(b, fbsutils.Convert(b.CreateString(t.ImagePath), t.FlatBuffer.TableKey))
+	CharacterWeaponExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
 	CharacterWeaponExcelAddSetRecipe(b, fbsutils.Convert(t.SetRecipe, t.FlatBuffer.TableKey))
 	CharacterWeaponExcelAddStatLevelUpType(b, fbsutils.Convert(t.StatLevelUpType, t.FlatBuffer.TableKey))
 	CharacterWeaponExcelAddAttackPower(b, fbsutils.Convert(t.AttackPower, t.FlatBuffer.TableKey))
@@ -47,12 +47,12 @@ func (t *CharacterWeaponExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	CharacterWeaponExcelAddHealPower100(b, fbsutils.Convert(t.HealPower100, t.FlatBuffer.TableKey))
 	CharacterWeaponExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.Tags[len(t.Tags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CharacterWeaponExcelAddTags(b, b.EndVector(len(t.Tags)))
 	CharacterWeaponExcelStartUnlockVector(b, len(t.Unlock))
 	for i := range len(t.Unlock) {
-		b.PrependBool(fbsutils.Convert(t.Unlock[len(t.Unlock)-i-1], t.FlatBuffer.TableKey))
+		b.PrependBool(t.Unlock[len(t.Unlock)-i-1])
 	}
 	CharacterWeaponExcelAddUnlock(b, b.EndVector(len(t.Unlock)))
 	CharacterWeaponExcelStartRecipeIdVector(b, len(t.RecipeId))
@@ -67,12 +67,12 @@ func (t *CharacterWeaponExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	CharacterWeaponExcelAddMaxLevel(b, b.EndVector(len(t.MaxLevel)))
 	CharacterWeaponExcelStartLearnSkillSlotVector(b, len(t.LearnSkillSlot))
 	for i := range len(t.LearnSkillSlot) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.LearnSkillSlot[len(t.LearnSkillSlot)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.LearnSkillSlot[len(t.LearnSkillSlot)-i-1]))
 	}
 	CharacterWeaponExcelAddLearnSkillSlot(b, b.EndVector(len(t.LearnSkillSlot)))
 	CharacterWeaponExcelStartStatTypeVector(b, len(t.StatType))
 	for i := range len(t.StatType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.StatType[len(t.StatType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.StatType[len(t.StatType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CharacterWeaponExcelAddStatType(b, b.EndVector(len(t.StatType)))
 	CharacterWeaponExcelStartStatValueVector(b, len(t.StatValue))
@@ -111,7 +111,7 @@ func (t *CharacterWeaponExcelDto) UnmarshalMessage(e *CharacterWeaponExcel) erro
 	}
 	t.Unlock = make([]bool, e.UnlockLength())
 	for i := range e.UnlockLength() {
-		t.Unlock[i] = fbsutils.Convert(e.Unlock(i), t.FlatBuffer.TableKey)
+		t.Unlock[i] = e.Unlock(i)
 	}
 	t.RecipeId = make([]int64, e.RecipeIdLength())
 	for i := range e.RecipeIdLength() {

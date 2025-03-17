@@ -25,7 +25,7 @@ func (t *EliminateRaidStageLimitedRewardExcelDto) MarshalModel(b *flatbuffers.Bu
 	EliminateRaidStageLimitedRewardExcelAddLimitedRewardId(b, fbsutils.Convert(t.LimitedRewardId, t.FlatBuffer.TableKey))
 	EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelTypeVector(b, len(t.LimitedRewardParcelType))
 	for i := range len(t.LimitedRewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.LimitedRewardParcelType[len(t.LimitedRewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.LimitedRewardParcelType[len(t.LimitedRewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelType(b, b.EndVector(len(t.LimitedRewardParcelType)))
 	EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelUniqueIdVector(b, len(t.LimitedRewardParcelUniqueId))

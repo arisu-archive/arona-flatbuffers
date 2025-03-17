@@ -41,10 +41,10 @@ func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	GoodsExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	GoodsExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
 	GoodsExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
-	GoodsExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
+	GoodsExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
 	GoodsExcelStartConsumeParcelTypeVector(b, len(t.ConsumeParcelType))
 	for i := range len(t.ConsumeParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ConsumeParcelType[len(t.ConsumeParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ConsumeParcelType[len(t.ConsumeParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	GoodsExcelAddConsumeParcelType(b, b.EndVector(len(t.ConsumeParcelType)))
 	GoodsExcelStartConsumeParcelIdVector(b, len(t.ConsumeParcelId))
@@ -59,7 +59,7 @@ func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	GoodsExcelAddConsumeParcelAmount(b, b.EndVector(len(t.ConsumeParcelAmount)))
 	GoodsExcelStartConsumeConditionVector(b, len(t.ConsumeCondition))
 	for i := range len(t.ConsumeCondition) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ConsumeCondition[len(t.ConsumeCondition)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ConsumeCondition[len(t.ConsumeCondition)-i-1]), t.FlatBuffer.TableKey))
 	}
 	GoodsExcelAddConsumeCondition(b, b.EndVector(len(t.ConsumeCondition)))
 	GoodsExcelAddConsumeGachaTicketType(b, fbsutils.Convert(t.ConsumeGachaTicketType, t.FlatBuffer.TableKey))
@@ -81,7 +81,7 @@ func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	GoodsExcelAddState(b, fbsutils.Convert(t.State, t.FlatBuffer.TableKey))
 	GoodsExcelStartParcelTypeVector(b, len(t.ParcelType))
 	for i := range len(t.ParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ParcelType[len(t.ParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	GoodsExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
 	GoodsExcelStartParcelIdVector(b, len(t.ParcelId))

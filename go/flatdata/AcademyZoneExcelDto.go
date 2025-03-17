@@ -37,7 +37,7 @@ func (t *AcademyZoneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	AcademyZoneExcelAddRewardGroupId(b, fbsutils.Convert(t.RewardGroupId, t.FlatBuffer.TableKey))
 	AcademyZoneExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.Tags[len(t.Tags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	AcademyZoneExcelAddTags(b, b.EndVector(len(t.Tags)))
 	return AcademyZoneExcelEnd(b)

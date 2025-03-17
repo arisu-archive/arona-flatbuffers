@@ -31,8 +31,8 @@ func (t *FieldSceneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	FieldSceneExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	FieldSceneExcelAddDateId(b, fbsutils.Convert(t.DateId, t.FlatBuffer.TableKey))
 	FieldSceneExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	FieldSceneExcelAddArtLevelPath(b, fbsutils.Convert(b.CreateString(t.ArtLevelPath), t.FlatBuffer.TableKey))
-	FieldSceneExcelAddDesignLevelPath(b, fbsutils.Convert(b.CreateString(t.DesignLevelPath), t.FlatBuffer.TableKey))
+	FieldSceneExcelAddArtLevelPath(b, b.CreateString(fbsutils.Convert(t.ArtLevelPath, t.FlatBuffer.TableKey)))
+	FieldSceneExcelAddDesignLevelPath(b, b.CreateString(fbsutils.Convert(t.DesignLevelPath, t.FlatBuffer.TableKey)))
 	FieldSceneExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
 	FieldSceneExcelStartConditionalBgmQuestIdVector(b, len(t.ConditionalBgmQuestId))
 	for i := range len(t.ConditionalBgmQuestId) {

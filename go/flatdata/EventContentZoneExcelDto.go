@@ -42,12 +42,12 @@ func (t *EventContentZoneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	EventContentZoneExcelAddRewardGroupId(b, fbsutils.Convert(t.RewardGroupId, t.FlatBuffer.TableKey))
 	EventContentZoneExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.Tags[len(t.Tags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentZoneExcelAddTags(b, b.EndVector(len(t.Tags)))
 	EventContentZoneExcelStartWhiteListTagsVector(b, len(t.WhiteListTags))
 	for i := range len(t.WhiteListTags) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.WhiteListTags[len(t.WhiteListTags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.WhiteListTags[len(t.WhiteListTags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentZoneExcelAddWhiteListTags(b, b.EndVector(len(t.WhiteListTags)))
 	return EventContentZoneExcelEnd(b)

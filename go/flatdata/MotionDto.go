@@ -21,7 +21,7 @@ func (t *MotionDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Motion"))
 	}
 	MotionStart(b)
-	MotionAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	MotionAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	MotionStartPositionsVector(b, len(t.Positions))
 	for i := range len(t.Positions) {
 		// The array should be reversed.

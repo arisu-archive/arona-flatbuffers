@@ -30,7 +30,7 @@ func (t *TimeAttackDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	TimeAttackDungeonRewardExcelAddRewardMaxPoint(b, fbsutils.Convert(t.RewardMaxPoint, t.FlatBuffer.TableKey))
 	TimeAttackDungeonRewardExcelStartRewardTypeVector(b, len(t.RewardType))
 	for i := range len(t.RewardType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardType[len(t.RewardType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardType[len(t.RewardType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	TimeAttackDungeonRewardExcelAddRewardType(b, b.EndVector(len(t.RewardType)))
 	TimeAttackDungeonRewardExcelStartRewardMinPointVector(b, len(t.RewardMinPoint))
@@ -40,7 +40,7 @@ func (t *TimeAttackDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	TimeAttackDungeonRewardExcelAddRewardMinPoint(b, b.EndVector(len(t.RewardMinPoint)))
 	TimeAttackDungeonRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	TimeAttackDungeonRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	TimeAttackDungeonRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))

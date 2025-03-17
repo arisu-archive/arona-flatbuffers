@@ -41,13 +41,13 @@ func (t *CharacterSkillListExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	CharacterSkillListExcelAddMinimumGradeCharacterWeapon(b, fbsutils.Convert(t.MinimumGradeCharacterWeapon, t.FlatBuffer.TableKey))
 	CharacterSkillListExcelAddMinimumTierCharacterGear(b, fbsutils.Convert(t.MinimumTierCharacterGear, t.FlatBuffer.TableKey))
 	CharacterSkillListExcelAddFormIndex(b, fbsutils.Convert(t.FormIndex, t.FlatBuffer.TableKey))
-	CharacterSkillListExcelAddIsRootMotion(b, fbsutils.Convert(t.IsRootMotion, t.FlatBuffer.TableKey))
-	CharacterSkillListExcelAddIsMoveLeftRight(b, fbsutils.Convert(t.IsMoveLeftRight, t.FlatBuffer.TableKey))
-	CharacterSkillListExcelAddUseRandomExSkillTimeline(b, fbsutils.Convert(t.UseRandomExSkillTimeline, t.FlatBuffer.TableKey))
+	CharacterSkillListExcelAddIsRootMotion(b, t.IsRootMotion)
+	CharacterSkillListExcelAddIsMoveLeftRight(b, t.IsMoveLeftRight)
+	CharacterSkillListExcelAddUseRandomExSkillTimeline(b, t.UseRandomExSkillTimeline)
 	CharacterSkillListExcelAddTsaInteractionId(b, fbsutils.Convert(t.TsaInteractionId, t.FlatBuffer.TableKey))
 	CharacterSkillListExcelStartNormalSkillGroupIdVector(b, len(t.NormalSkillGroupId))
 	for i := range len(t.NormalSkillGroupId) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.NormalSkillGroupId[len(t.NormalSkillGroupId)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.NormalSkillGroupId[len(t.NormalSkillGroupId)-i-1]))
 	}
 	CharacterSkillListExcelAddNormalSkillGroupId(b, b.EndVector(len(t.NormalSkillGroupId)))
 	CharacterSkillListExcelStartNormalSkillTimeLineIndexVector(b, len(t.NormalSkillTimeLineIndex))
@@ -57,22 +57,22 @@ func (t *CharacterSkillListExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	CharacterSkillListExcelAddNormalSkillTimeLineIndex(b, b.EndVector(len(t.NormalSkillTimeLineIndex)))
 	CharacterSkillListExcelStartExSkillGroupIdVector(b, len(t.ExSkillGroupId))
 	for i := range len(t.ExSkillGroupId) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.ExSkillGroupId[len(t.ExSkillGroupId)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.ExSkillGroupId[len(t.ExSkillGroupId)-i-1]))
 	}
 	CharacterSkillListExcelAddExSkillGroupId(b, b.EndVector(len(t.ExSkillGroupId)))
 	CharacterSkillListExcelStartExSkillCutInTimeLineIndexVector(b, len(t.ExSkillCutInTimeLineIndex))
 	for i := range len(t.ExSkillCutInTimeLineIndex) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.ExSkillCutInTimeLineIndex[len(t.ExSkillCutInTimeLineIndex)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.ExSkillCutInTimeLineIndex[len(t.ExSkillCutInTimeLineIndex)-i-1]))
 	}
 	CharacterSkillListExcelAddExSkillCutInTimeLineIndex(b, b.EndVector(len(t.ExSkillCutInTimeLineIndex)))
 	CharacterSkillListExcelStartExSkillLevelTimeLineIndexVector(b, len(t.ExSkillLevelTimeLineIndex))
 	for i := range len(t.ExSkillLevelTimeLineIndex) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.ExSkillLevelTimeLineIndex[len(t.ExSkillLevelTimeLineIndex)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.ExSkillLevelTimeLineIndex[len(t.ExSkillLevelTimeLineIndex)-i-1]))
 	}
 	CharacterSkillListExcelAddExSkillLevelTimeLineIndex(b, b.EndVector(len(t.ExSkillLevelTimeLineIndex)))
 	CharacterSkillListExcelStartPublicSkillGroupIdVector(b, len(t.PublicSkillGroupId))
 	for i := range len(t.PublicSkillGroupId) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.PublicSkillGroupId[len(t.PublicSkillGroupId)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.PublicSkillGroupId[len(t.PublicSkillGroupId)-i-1]))
 	}
 	CharacterSkillListExcelAddPublicSkillGroupId(b, b.EndVector(len(t.PublicSkillGroupId)))
 	CharacterSkillListExcelStartPublicSkillTimeLineIndexVector(b, len(t.PublicSkillTimeLineIndex))
@@ -82,22 +82,22 @@ func (t *CharacterSkillListExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	CharacterSkillListExcelAddPublicSkillTimeLineIndex(b, b.EndVector(len(t.PublicSkillTimeLineIndex)))
 	CharacterSkillListExcelStartPassiveSkillGroupIdVector(b, len(t.PassiveSkillGroupId))
 	for i := range len(t.PassiveSkillGroupId) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.PassiveSkillGroupId[len(t.PassiveSkillGroupId)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.PassiveSkillGroupId[len(t.PassiveSkillGroupId)-i-1]))
 	}
 	CharacterSkillListExcelAddPassiveSkillGroupId(b, b.EndVector(len(t.PassiveSkillGroupId)))
 	CharacterSkillListExcelStartLeaderSkillGroupIdVector(b, len(t.LeaderSkillGroupId))
 	for i := range len(t.LeaderSkillGroupId) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.LeaderSkillGroupId[len(t.LeaderSkillGroupId)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.LeaderSkillGroupId[len(t.LeaderSkillGroupId)-i-1]))
 	}
 	CharacterSkillListExcelAddLeaderSkillGroupId(b, b.EndVector(len(t.LeaderSkillGroupId)))
 	CharacterSkillListExcelStartExtraPassiveSkillGroupIdVector(b, len(t.ExtraPassiveSkillGroupId))
 	for i := range len(t.ExtraPassiveSkillGroupId) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.ExtraPassiveSkillGroupId[len(t.ExtraPassiveSkillGroupId)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.ExtraPassiveSkillGroupId[len(t.ExtraPassiveSkillGroupId)-i-1]))
 	}
 	CharacterSkillListExcelAddExtraPassiveSkillGroupId(b, b.EndVector(len(t.ExtraPassiveSkillGroupId)))
 	CharacterSkillListExcelStartHiddenPassiveSkillGroupIdVector(b, len(t.HiddenPassiveSkillGroupId))
 	for i := range len(t.HiddenPassiveSkillGroupId) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.HiddenPassiveSkillGroupId[len(t.HiddenPassiveSkillGroupId)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.HiddenPassiveSkillGroupId[len(t.HiddenPassiveSkillGroupId)-i-1]))
 	}
 	CharacterSkillListExcelAddHiddenPassiveSkillGroupId(b, b.EndVector(len(t.HiddenPassiveSkillGroupId)))
 	return CharacterSkillListExcelEnd(b)
@@ -119,9 +119,9 @@ func (t *CharacterSkillListExcelDto) UnmarshalMessage(e *CharacterSkillListExcel
 	t.MinimumGradeCharacterWeapon = fbsutils.Convert(e.MinimumGradeCharacterWeapon(), t.FlatBuffer.TableKey)
 	t.MinimumTierCharacterGear = fbsutils.Convert(e.MinimumTierCharacterGear(), t.FlatBuffer.TableKey)
 	t.FormIndex = fbsutils.Convert(e.FormIndex(), t.FlatBuffer.TableKey)
-	t.IsRootMotion = fbsutils.Convert(e.IsRootMotion(), t.FlatBuffer.TableKey)
-	t.IsMoveLeftRight = fbsutils.Convert(e.IsMoveLeftRight(), t.FlatBuffer.TableKey)
-	t.UseRandomExSkillTimeline = fbsutils.Convert(e.UseRandomExSkillTimeline(), t.FlatBuffer.TableKey)
+	t.IsRootMotion = e.IsRootMotion()
+	t.IsMoveLeftRight = e.IsMoveLeftRight()
+	t.UseRandomExSkillTimeline = e.UseRandomExSkillTimeline()
 	t.TsaInteractionId = fbsutils.Convert(e.TsaInteractionId(), t.FlatBuffer.TableKey)
 	t.NormalSkillGroupId = make([]string, e.NormalSkillGroupIdLength())
 	for i := range e.NormalSkillGroupIdLength() {

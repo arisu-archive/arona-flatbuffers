@@ -23,11 +23,11 @@ func (t *StringTestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	StringTestExcelStart(b)
 	StringTestExcelStartStringVector(b, len(t.String))
 	for i := range len(t.String) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.String[len(t.String)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.String[len(t.String)-i-1]))
 	}
 	StringTestExcelAddString(b, b.EndVector(len(t.String)))
-	StringTestExcelAddSentence1(b, fbsutils.Convert(b.CreateString(t.Sentence1), t.FlatBuffer.TableKey))
-	StringTestExcelAddScript(b, fbsutils.Convert(b.CreateString(t.Script), t.FlatBuffer.TableKey))
+	StringTestExcelAddSentence1(b, b.CreateString(fbsutils.Convert(t.Sentence1, t.FlatBuffer.TableKey)))
+	StringTestExcelAddScript(b, b.CreateString(fbsutils.Convert(t.Script, t.FlatBuffer.TableKey)))
 	return StringTestExcelEnd(b)
 }
 

@@ -30,10 +30,10 @@ func (t *WorldRaidConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	WorldRaidConditionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	WorldRaidConditionExcelStartLockUiVector(b, len(t.LockUi))
 	for i := range len(t.LockUi) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.LockUi[len(t.LockUi)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.LockUi[len(t.LockUi)-i-1]))
 	}
 	WorldRaidConditionExcelAddLockUi(b, b.EndVector(len(t.LockUi)))
-	WorldRaidConditionExcelAddHideWhenLocked(b, fbsutils.Convert(t.HideWhenLocked, t.FlatBuffer.TableKey))
+	WorldRaidConditionExcelAddHideWhenLocked(b, t.HideWhenLocked)
 	WorldRaidConditionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
 	WorldRaidConditionExcelStartScenarioModeIdVector(b, len(t.ScenarioModeId))
 	for i := range len(t.ScenarioModeId) {
@@ -46,7 +46,7 @@ func (t *WorldRaidConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	}
 	WorldRaidConditionExcelAddCampaignStageId(b, b.EndVector(len(t.CampaignStageId)))
 	WorldRaidConditionExcelAddMultipleConditionCheckType(b, fbsutils.Convert(t.MultipleConditionCheckType, t.FlatBuffer.TableKey))
-	WorldRaidConditionExcelAddAfterWhenDate(b, fbsutils.Convert(b.CreateString(t.AfterWhenDate), t.FlatBuffer.TableKey))
+	WorldRaidConditionExcelAddAfterWhenDate(b, b.CreateString(fbsutils.Convert(t.AfterWhenDate, t.FlatBuffer.TableKey)))
 	WorldRaidConditionExcelStartWorldRaidBossKillVector(b, len(t.WorldRaidBossKill))
 	for i := range len(t.WorldRaidBossKill) {
 		b.PrependInt64(fbsutils.Convert(t.WorldRaidBossKill[len(t.WorldRaidBossKill)-i-1], t.FlatBuffer.TableKey))
@@ -72,7 +72,7 @@ func (t *WorldRaidConditionExcelDto) UnmarshalMessage(e *WorldRaidConditionExcel
 	for i := range e.LockUiLength() {
 		t.LockUi[i] = string(e.LockUi(i))
 	}
-	t.HideWhenLocked = fbsutils.Convert(e.HideWhenLocked(), t.FlatBuffer.TableKey)
+	t.HideWhenLocked = e.HideWhenLocked()
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
 	t.ScenarioModeId = make([]int64, e.ScenarioModeIdLength())
 	for i := range e.ScenarioModeIdLength() {

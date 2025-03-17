@@ -33,7 +33,7 @@ func (t *MinigameTBGDiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	MinigameTBGDiceExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
 	MinigameTBGDiceExcelStartProbModifyConditionVector(b, len(t.ProbModifyCondition))
 	for i := range len(t.ProbModifyCondition) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ProbModifyCondition[len(t.ProbModifyCondition)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ProbModifyCondition[len(t.ProbModifyCondition)-i-1]), t.FlatBuffer.TableKey))
 	}
 	MinigameTBGDiceExcelAddProbModifyCondition(b, b.EndVector(len(t.ProbModifyCondition)))
 	MinigameTBGDiceExcelStartProbModifyValueVector(b, len(t.ProbModifyValue))

@@ -25,7 +25,7 @@ func (t *NormalSkillTemplateExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	NormalSkillTemplateExcelAddIndex(b, fbsutils.Convert(t.Index, t.FlatBuffer.TableKey))
 	NormalSkillTemplateExcelAddFirstCoolTime(b, fbsutils.Convert(t.FirstCoolTime, t.FlatBuffer.TableKey))
 	NormalSkillTemplateExcelAddCoolTime(b, fbsutils.Convert(t.CoolTime, t.FlatBuffer.TableKey))
-	NormalSkillTemplateExcelAddMultiAni(b, fbsutils.Convert(t.MultiAni, t.FlatBuffer.TableKey))
+	NormalSkillTemplateExcelAddMultiAni(b, t.MultiAni)
 	return NormalSkillTemplateExcelEnd(b)
 }
 
@@ -44,7 +44,7 @@ func (t *NormalSkillTemplateExcelDto) UnmarshalMessage(e *NormalSkillTemplateExc
 	t.Index = fbsutils.Convert(e.Index(), t.FlatBuffer.TableKey)
 	t.FirstCoolTime = fbsutils.Convert(e.FirstCoolTime(), t.FlatBuffer.TableKey)
 	t.CoolTime = fbsutils.Convert(e.CoolTime(), t.FlatBuffer.TableKey)
-	t.MultiAni = fbsutils.Convert(e.MultiAni(), t.FlatBuffer.TableKey)
+	t.MultiAni = e.MultiAni()
 	return nil
 }
 

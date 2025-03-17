@@ -31,7 +31,7 @@ func (t *LimitedStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	LimitedStageRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
 	LimitedStageRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
 	LimitedStageRewardExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
-	LimitedStageRewardExcelAddIsDisplayed(b, fbsutils.Convert(t.IsDisplayed, t.FlatBuffer.TableKey))
+	LimitedStageRewardExcelAddIsDisplayed(b, t.IsDisplayed)
 	return LimitedStageRewardExcelEnd(b)
 }
 
@@ -53,7 +53,7 @@ func (t *LimitedStageRewardExcelDto) UnmarshalMessage(e *LimitedStageRewardExcel
 	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
 	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
-	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)
+	t.IsDisplayed = e.IsDisplayed()
 	return nil
 }
 

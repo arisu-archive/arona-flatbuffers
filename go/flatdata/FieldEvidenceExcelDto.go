@@ -24,10 +24,10 @@ func (t *FieldEvidenceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	}
 	FieldEvidenceExcelStart(b)
 	FieldEvidenceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	FieldEvidenceExcelAddNameLocalizeKey(b, fbsutils.Convert(b.CreateString(t.NameLocalizeKey), t.FlatBuffer.TableKey))
-	FieldEvidenceExcelAddDescriptionLocalizeKey(b, fbsutils.Convert(b.CreateString(t.DescriptionLocalizeKey), t.FlatBuffer.TableKey))
-	FieldEvidenceExcelAddDetailLocalizeKey(b, fbsutils.Convert(b.CreateString(t.DetailLocalizeKey), t.FlatBuffer.TableKey))
-	FieldEvidenceExcelAddImagePath(b, fbsutils.Convert(b.CreateString(t.ImagePath), t.FlatBuffer.TableKey))
+	FieldEvidenceExcelAddNameLocalizeKey(b, b.CreateString(fbsutils.Convert(t.NameLocalizeKey, t.FlatBuffer.TableKey)))
+	FieldEvidenceExcelAddDescriptionLocalizeKey(b, b.CreateString(fbsutils.Convert(t.DescriptionLocalizeKey, t.FlatBuffer.TableKey)))
+	FieldEvidenceExcelAddDetailLocalizeKey(b, b.CreateString(fbsutils.Convert(t.DetailLocalizeKey, t.FlatBuffer.TableKey)))
+	FieldEvidenceExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
 	return FieldEvidenceExcelEnd(b)
 }
 

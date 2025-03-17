@@ -23,9 +23,9 @@ func (t *FieldKeywordExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	}
 	FieldKeywordExcelStart(b)
 	FieldKeywordExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	FieldKeywordExcelAddNameLocalizeKey(b, fbsutils.Convert(b.CreateString(t.NameLocalizeKey), t.FlatBuffer.TableKey))
-	FieldKeywordExcelAddDescriptionLocalizeKey(b, fbsutils.Convert(b.CreateString(t.DescriptionLocalizeKey), t.FlatBuffer.TableKey))
-	FieldKeywordExcelAddImagePath(b, fbsutils.Convert(b.CreateString(t.ImagePath), t.FlatBuffer.TableKey))
+	FieldKeywordExcelAddNameLocalizeKey(b, b.CreateString(fbsutils.Convert(t.NameLocalizeKey, t.FlatBuffer.TableKey)))
+	FieldKeywordExcelAddDescriptionLocalizeKey(b, b.CreateString(fbsutils.Convert(t.DescriptionLocalizeKey, t.FlatBuffer.TableKey)))
+	FieldKeywordExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
 	return FieldKeywordExcelEnd(b)
 }
 

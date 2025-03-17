@@ -53,7 +53,7 @@ func (t *FixedEchelonSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	}
 	FixedEchelonSettingExcelStart(b)
 	FixedEchelonSettingExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
-	FixedEchelonSettingExcelAddEchelonSceneSkip(b, fbsutils.Convert(t.EchelonSceneSkip, t.FlatBuffer.TableKey))
+	FixedEchelonSettingExcelAddEchelonSceneSkip(b, t.EchelonSceneSkip)
 	FixedEchelonSettingExcelAddMainLeaderSlot(b, fbsutils.Convert(t.MainLeaderSlot, t.FlatBuffer.TableKey))
 	FixedEchelonSettingExcelStartMainCharacterIdVector(b, len(t.MainCharacterId))
 	for i := range len(t.MainCharacterId) {
@@ -222,7 +222,7 @@ func (t *FixedEchelonSettingExcelDto) UnmarshalMessage(e *FixedEchelonSettingExc
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedEchelonSetting"))
 	}
 	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
-	t.EchelonSceneSkip = fbsutils.Convert(e.EchelonSceneSkip(), t.FlatBuffer.TableKey)
+	t.EchelonSceneSkip = e.EchelonSceneSkip()
 	t.MainLeaderSlot = fbsutils.Convert(e.MainLeaderSlot(), t.FlatBuffer.TableKey)
 	t.MainCharacterId = make([]int64, e.MainCharacterIdLength())
 	for i := range e.MainCharacterIdLength() {

@@ -42,7 +42,7 @@ func (t *SchoolDungeonStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	SchoolDungeonStageExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageId, t.FlatBuffer.TableKey))
 	SchoolDungeonStageExcelStartStageEnterCostTypeVector(b, len(t.StageEnterCostType))
 	for i := range len(t.StageEnterCostType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.StageEnterCostType[len(t.StageEnterCostType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.StageEnterCostType[len(t.StageEnterCostType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	SchoolDungeonStageExcelAddStageEnterCostType(b, b.EndVector(len(t.StageEnterCostType)))
 	SchoolDungeonStageExcelStartStageEnterCostIdVector(b, len(t.StageEnterCostId))
@@ -63,7 +63,7 @@ func (t *SchoolDungeonStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	SchoolDungeonStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	SchoolDungeonStageExcelStartStarGoalVector(b, len(t.StarGoal))
 	for i := range len(t.StarGoal) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.StarGoal[len(t.StarGoal)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.StarGoal[len(t.StarGoal)-i-1]), t.FlatBuffer.TableKey))
 	}
 	SchoolDungeonStageExcelAddStarGoal(b, b.EndVector(len(t.StarGoal)))
 	SchoolDungeonStageExcelStartStarGoalAmountVector(b, len(t.StarGoalAmount))

@@ -32,13 +32,13 @@ func (t *ConquestGroupBonusExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	ConquestGroupBonusExcelAddConquestBonusId(b, fbsutils.Convert(t.ConquestBonusId, t.FlatBuffer.TableKey))
 	ConquestGroupBonusExcelStartSchoolVector(b, len(t.School))
 	for i := range len(t.School) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.School[len(t.School)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.School[len(t.School)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ConquestGroupBonusExcelAddSchool(b, b.EndVector(len(t.School)))
 	ConquestGroupBonusExcelAddRecommandLocalizeEtcId(b, fbsutils.Convert(t.RecommandLocalizeEtcId, t.FlatBuffer.TableKey))
 	ConquestGroupBonusExcelStartBonusParcelTypeVector(b, len(t.BonusParcelType))
 	for i := range len(t.BonusParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.BonusParcelType[len(t.BonusParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.BonusParcelType[len(t.BonusParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ConquestGroupBonusExcelAddBonusParcelType(b, b.EndVector(len(t.BonusParcelType)))
 	ConquestGroupBonusExcelStartBonusIdVector(b, len(t.BonusId))

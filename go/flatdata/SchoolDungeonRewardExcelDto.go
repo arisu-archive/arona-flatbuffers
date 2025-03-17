@@ -33,7 +33,7 @@ func (t *SchoolDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	SchoolDungeonRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
 	SchoolDungeonRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
 	SchoolDungeonRewardExcelAddRewardParcelProbability(b, fbsutils.Convert(t.RewardParcelProbability, t.FlatBuffer.TableKey))
-	SchoolDungeonRewardExcelAddIsDisplayed(b, fbsutils.Convert(t.IsDisplayed, t.FlatBuffer.TableKey))
+	SchoolDungeonRewardExcelAddIsDisplayed(b, t.IsDisplayed)
 	return SchoolDungeonRewardExcelEnd(b)
 }
 
@@ -56,7 +56,7 @@ func (t *SchoolDungeonRewardExcelDto) UnmarshalMessage(e *SchoolDungeonRewardExc
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
 	t.RewardParcelProbability = fbsutils.Convert(e.RewardParcelProbability(), t.FlatBuffer.TableKey)
-	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)
+	t.IsDisplayed = e.IsDisplayed()
 	return nil
 }
 

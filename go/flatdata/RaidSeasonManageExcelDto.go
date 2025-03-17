@@ -30,12 +30,12 @@ func (t *RaidSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	RaidSeasonManageExcelStart(b)
 	RaidSeasonManageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	RaidSeasonManageExcelAddSeasonDisplay(b, fbsutils.Convert(t.SeasonDisplay, t.FlatBuffer.TableKey))
-	RaidSeasonManageExcelAddSeasonStartData(b, fbsutils.Convert(b.CreateString(t.SeasonStartData), t.FlatBuffer.TableKey))
-	RaidSeasonManageExcelAddSeasonEndData(b, fbsutils.Convert(b.CreateString(t.SeasonEndData), t.FlatBuffer.TableKey))
-	RaidSeasonManageExcelAddSettlementEndDate(b, fbsutils.Convert(b.CreateString(t.SettlementEndDate), t.FlatBuffer.TableKey))
+	RaidSeasonManageExcelAddSeasonStartData(b, b.CreateString(fbsutils.Convert(t.SeasonStartData, t.FlatBuffer.TableKey)))
+	RaidSeasonManageExcelAddSeasonEndData(b, b.CreateString(fbsutils.Convert(t.SeasonEndData, t.FlatBuffer.TableKey)))
+	RaidSeasonManageExcelAddSettlementEndDate(b, b.CreateString(fbsutils.Convert(t.SettlementEndDate, t.FlatBuffer.TableKey)))
 	RaidSeasonManageExcelStartOpenRaidBossGroupVector(b, len(t.OpenRaidBossGroup))
 	for i := range len(t.OpenRaidBossGroup) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.OpenRaidBossGroup[len(t.OpenRaidBossGroup)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.OpenRaidBossGroup[len(t.OpenRaidBossGroup)-i-1]))
 	}
 	RaidSeasonManageExcelAddOpenRaidBossGroup(b, b.EndVector(len(t.OpenRaidBossGroup)))
 	RaidSeasonManageExcelAddRankingRewardGroupId(b, fbsutils.Convert(t.RankingRewardGroupId, t.FlatBuffer.TableKey))

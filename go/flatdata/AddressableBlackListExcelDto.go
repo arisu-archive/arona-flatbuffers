@@ -24,12 +24,12 @@ func (t *AddressableBlackListExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	AddressableBlackListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	AddressableBlackListExcelStartFolderPathVector(b, len(t.FolderPath))
 	for i := range len(t.FolderPath) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.FolderPath[len(t.FolderPath)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.FolderPath[len(t.FolderPath)-i-1]))
 	}
 	AddressableBlackListExcelAddFolderPath(b, b.EndVector(len(t.FolderPath)))
 	AddressableBlackListExcelStartResourcePathVector(b, len(t.ResourcePath))
 	for i := range len(t.ResourcePath) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.ResourcePath[len(t.ResourcePath)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.ResourcePath[len(t.ResourcePath)-i-1]))
 	}
 	AddressableBlackListExcelAddResourcePath(b, b.EndVector(len(t.ResourcePath)))
 	return AddressableBlackListExcelEnd(b)

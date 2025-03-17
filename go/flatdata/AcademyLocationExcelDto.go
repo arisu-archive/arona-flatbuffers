@@ -29,11 +29,11 @@ func (t *AcademyLocationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	AcademyLocationExcelStart(b)
 	AcademyLocationExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	AcademyLocationExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	AcademyLocationExcelAddPrefabPath(b, fbsutils.Convert(b.CreateString(t.PrefabPath), t.FlatBuffer.TableKey))
-	AcademyLocationExcelAddIconImagePath(b, fbsutils.Convert(b.CreateString(t.IconImagePath), t.FlatBuffer.TableKey))
+	AcademyLocationExcelAddPrefabPath(b, b.CreateString(fbsutils.Convert(t.PrefabPath, t.FlatBuffer.TableKey)))
+	AcademyLocationExcelAddIconImagePath(b, b.CreateString(fbsutils.Convert(t.IconImagePath, t.FlatBuffer.TableKey)))
 	AcademyLocationExcelStartOpenConditionVector(b, len(t.OpenCondition))
 	for i := range len(t.OpenCondition) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.OpenCondition[len(t.OpenCondition)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.OpenCondition[len(t.OpenCondition)-i-1]), t.FlatBuffer.TableKey))
 	}
 	AcademyLocationExcelAddOpenCondition(b, b.EndVector(len(t.OpenCondition)))
 	AcademyLocationExcelStartOpenConditionCountVector(b, len(t.OpenConditionCount))

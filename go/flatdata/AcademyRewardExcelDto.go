@@ -38,11 +38,11 @@ func (t *AcademyRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyReward"))
 	}
 	AcademyRewardExcelStart(b)
-	AcademyRewardExcelAddLocation(b, fbsutils.Convert(b.CreateString(t.Location), t.FlatBuffer.TableKey))
+	AcademyRewardExcelAddLocation(b, b.CreateString(fbsutils.Convert(t.Location, t.FlatBuffer.TableKey)))
 	AcademyRewardExcelAddScheduleGroupId(b, fbsutils.Convert(t.ScheduleGroupId, t.FlatBuffer.TableKey))
 	AcademyRewardExcelAddOrderInGroup(b, fbsutils.Convert(t.OrderInGroup, t.FlatBuffer.TableKey))
 	AcademyRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	AcademyRewardExcelAddProgressTexture(b, fbsutils.Convert(b.CreateString(t.ProgressTexture), t.FlatBuffer.TableKey))
+	AcademyRewardExcelAddProgressTexture(b, b.CreateString(fbsutils.Convert(t.ProgressTexture, t.FlatBuffer.TableKey)))
 	AcademyRewardExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	AcademyRewardExcelAddLocationRank(b, fbsutils.Convert(t.LocationRank, t.FlatBuffer.TableKey))
 	AcademyRewardExcelAddFavorExp(b, fbsutils.Convert(t.FavorExp, t.FlatBuffer.TableKey))
@@ -52,7 +52,7 @@ func (t *AcademyRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	AcademyRewardExcelAddExtraFavorExpProb(b, fbsutils.Convert(t.ExtraFavorExpProb, t.FlatBuffer.TableKey))
 	AcademyRewardExcelStartExtraRewardParcelTypeVector(b, len(t.ExtraRewardParcelType))
 	for i := range len(t.ExtraRewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ExtraRewardParcelType[len(t.ExtraRewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ExtraRewardParcelType[len(t.ExtraRewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	AcademyRewardExcelAddExtraRewardParcelType(b, b.EndVector(len(t.ExtraRewardParcelType)))
 	AcademyRewardExcelStartExtraRewardParcelIdVector(b, len(t.ExtraRewardParcelId))
@@ -72,12 +72,12 @@ func (t *AcademyRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	AcademyRewardExcelAddExtraRewardProb(b, b.EndVector(len(t.ExtraRewardProb)))
 	AcademyRewardExcelStartIsExtraRewardDisplayedVector(b, len(t.IsExtraRewardDisplayed))
 	for i := range len(t.IsExtraRewardDisplayed) {
-		b.PrependBool(fbsutils.Convert(t.IsExtraRewardDisplayed[len(t.IsExtraRewardDisplayed)-i-1], t.FlatBuffer.TableKey))
+		b.PrependBool(t.IsExtraRewardDisplayed[len(t.IsExtraRewardDisplayed)-i-1])
 	}
 	AcademyRewardExcelAddIsExtraRewardDisplayed(b, b.EndVector(len(t.IsExtraRewardDisplayed)))
 	AcademyRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	AcademyRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	AcademyRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
@@ -135,7 +135,7 @@ func (t *AcademyRewardExcelDto) UnmarshalMessage(e *AcademyRewardExcel) error {
 	}
 	t.IsExtraRewardDisplayed = make([]bool, e.IsExtraRewardDisplayedLength())
 	for i := range e.IsExtraRewardDisplayedLength() {
-		t.IsExtraRewardDisplayed[i] = fbsutils.Convert(e.IsExtraRewardDisplayed(i), t.FlatBuffer.TableKey)
+		t.IsExtraRewardDisplayed[i] = e.IsExtraRewardDisplayed(i)
 	}
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {

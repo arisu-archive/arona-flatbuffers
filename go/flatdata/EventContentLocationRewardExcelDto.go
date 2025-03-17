@@ -39,11 +39,11 @@ func (t *EventContentLocationRewardExcelDto) MarshalModel(b *flatbuffers.Builder
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLocationReward"))
 	}
 	EventContentLocationRewardExcelStart(b)
-	EventContentLocationRewardExcelAddLocation(b, fbsutils.Convert(b.CreateString(t.Location), t.FlatBuffer.TableKey))
+	EventContentLocationRewardExcelAddLocation(b, b.CreateString(fbsutils.Convert(t.Location, t.FlatBuffer.TableKey)))
 	EventContentLocationRewardExcelAddScheduleGroupId(b, fbsutils.Convert(t.ScheduleGroupId, t.FlatBuffer.TableKey))
 	EventContentLocationRewardExcelAddOrderInGroup(b, fbsutils.Convert(t.OrderInGroup, t.FlatBuffer.TableKey))
 	EventContentLocationRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentLocationRewardExcelAddProgressTexture(b, fbsutils.Convert(b.CreateString(t.ProgressTexture), t.FlatBuffer.TableKey))
+	EventContentLocationRewardExcelAddProgressTexture(b, b.CreateString(fbsutils.Convert(t.ProgressTexture, t.FlatBuffer.TableKey)))
 	EventContentLocationRewardExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))
@@ -58,7 +58,7 @@ func (t *EventContentLocationRewardExcelDto) MarshalModel(b *flatbuffers.Builder
 	EventContentLocationRewardExcelAddExtraFavorExpProb(b, fbsutils.Convert(t.ExtraFavorExpProb, t.FlatBuffer.TableKey))
 	EventContentLocationRewardExcelStartExtraRewardParcelTypeVector(b, len(t.ExtraRewardParcelType))
 	for i := range len(t.ExtraRewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ExtraRewardParcelType[len(t.ExtraRewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ExtraRewardParcelType[len(t.ExtraRewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentLocationRewardExcelAddExtraRewardParcelType(b, b.EndVector(len(t.ExtraRewardParcelType)))
 	EventContentLocationRewardExcelStartExtraRewardParcelIdVector(b, len(t.ExtraRewardParcelId))
@@ -78,12 +78,12 @@ func (t *EventContentLocationRewardExcelDto) MarshalModel(b *flatbuffers.Builder
 	EventContentLocationRewardExcelAddExtraRewardProb(b, b.EndVector(len(t.ExtraRewardProb)))
 	EventContentLocationRewardExcelStartIsExtraRewardDisplayedVector(b, len(t.IsExtraRewardDisplayed))
 	for i := range len(t.IsExtraRewardDisplayed) {
-		b.PrependBool(fbsutils.Convert(t.IsExtraRewardDisplayed[len(t.IsExtraRewardDisplayed)-i-1], t.FlatBuffer.TableKey))
+		b.PrependBool(t.IsExtraRewardDisplayed[len(t.IsExtraRewardDisplayed)-i-1])
 	}
 	EventContentLocationRewardExcelAddIsExtraRewardDisplayed(b, b.EndVector(len(t.IsExtraRewardDisplayed)))
 	EventContentLocationRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentLocationRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	EventContentLocationRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
@@ -145,7 +145,7 @@ func (t *EventContentLocationRewardExcelDto) UnmarshalMessage(e *EventContentLoc
 	}
 	t.IsExtraRewardDisplayed = make([]bool, e.IsExtraRewardDisplayedLength())
 	for i := range e.IsExtraRewardDisplayedLength() {
-		t.IsExtraRewardDisplayed[i] = fbsutils.Convert(e.IsExtraRewardDisplayed(i), t.FlatBuffer.TableKey)
+		t.IsExtraRewardDisplayed[i] = e.IsExtraRewardDisplayed(i)
 	}
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {

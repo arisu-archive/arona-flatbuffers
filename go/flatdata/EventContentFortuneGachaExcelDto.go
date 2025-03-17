@@ -23,7 +23,7 @@ func (t *EventContentFortuneGachaExcelDto) MarshalModel(b *flatbuffers.Builder) 
 	EventContentFortuneGachaExcelStart(b)
 	EventContentFortuneGachaExcelAddFortuneGachaGroupId(b, fbsutils.Convert(t.FortuneGachaGroupId, t.FlatBuffer.TableKey))
 	EventContentFortuneGachaExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	EventContentFortuneGachaExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
+	EventContentFortuneGachaExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
 	return EventContentFortuneGachaExcelEnd(b)
 }
 

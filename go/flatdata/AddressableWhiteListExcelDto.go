@@ -24,12 +24,12 @@ func (t *AddressableWhiteListExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	AddressableWhiteListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	AddressableWhiteListExcelStartFolderPathVector(b, len(t.FolderPath))
 	for i := range len(t.FolderPath) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.FolderPath[len(t.FolderPath)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.FolderPath[len(t.FolderPath)-i-1]))
 	}
 	AddressableWhiteListExcelAddFolderPath(b, b.EndVector(len(t.FolderPath)))
 	AddressableWhiteListExcelStartResourcePathVector(b, len(t.ResourcePath))
 	for i := range len(t.ResourcePath) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.ResourcePath[len(t.ResourcePath)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.ResourcePath[len(t.ResourcePath)-i-1]))
 	}
 	AddressableWhiteListExcelAddResourcePath(b, b.EndVector(len(t.ResourcePath)))
 	return AddressableWhiteListExcelEnd(b)

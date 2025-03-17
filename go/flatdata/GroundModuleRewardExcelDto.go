@@ -30,8 +30,8 @@ func (t *GroundModuleRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	GroundModuleRewardExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
 	GroundModuleRewardExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
 	GroundModuleRewardExcelAddRewardParcelProbability(b, fbsutils.Convert(t.RewardParcelProbability, t.FlatBuffer.TableKey))
-	GroundModuleRewardExcelAddIsDisplayed(b, fbsutils.Convert(t.IsDisplayed, t.FlatBuffer.TableKey))
-	GroundModuleRewardExcelAddDropItemModelPrefabPath(b, fbsutils.Convert(b.CreateString(t.DropItemModelPrefabPath), t.FlatBuffer.TableKey))
+	GroundModuleRewardExcelAddIsDisplayed(b, t.IsDisplayed)
+	GroundModuleRewardExcelAddDropItemModelPrefabPath(b, b.CreateString(fbsutils.Convert(t.DropItemModelPrefabPath, t.FlatBuffer.TableKey)))
 	return GroundModuleRewardExcelEnd(b)
 }
 
@@ -52,7 +52,7 @@ func (t *GroundModuleRewardExcelDto) UnmarshalMessage(e *GroundModuleRewardExcel
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
 	t.RewardParcelProbability = fbsutils.Convert(e.RewardParcelProbability(), t.FlatBuffer.TableKey)
-	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)
+	t.IsDisplayed = e.IsDisplayed()
 	t.DropItemModelPrefabPath = fbsutils.Convert(string(e.DropItemModelPrefabPath()), t.FlatBuffer.TableKey)
 	return nil
 }

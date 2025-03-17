@@ -24,7 +24,7 @@ func (t *FieldMasteryManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	FieldMasteryManageExcelStart(b)
 	FieldMasteryManageExcelAddFieldSeason(b, fbsutils.Convert(t.FieldSeason, t.FlatBuffer.TableKey))
 	FieldMasteryManageExcelAddLocalizeEtc(b, fbsutils.Convert(t.LocalizeEtc, t.FlatBuffer.TableKey))
-	FieldMasteryManageExcelAddImagePath(b, fbsutils.Convert(b.CreateString(t.ImagePath), t.FlatBuffer.TableKey))
+	FieldMasteryManageExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
 	FieldMasteryManageExcelAddLevelId(b, fbsutils.Convert(t.LevelId, t.FlatBuffer.TableKey))
 	return FieldMasteryManageExcelEnd(b)
 }

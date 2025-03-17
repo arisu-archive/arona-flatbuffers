@@ -34,14 +34,14 @@ func (t *AcademyFavorScheduleExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	AcademyFavorScheduleExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	AcademyFavorScheduleExcelAddScheduleGroupId(b, fbsutils.Convert(t.ScheduleGroupId, t.FlatBuffer.TableKey))
 	AcademyFavorScheduleExcelAddOrderInGroup(b, fbsutils.Convert(t.OrderInGroup, t.FlatBuffer.TableKey))
-	AcademyFavorScheduleExcelAddLocation(b, fbsutils.Convert(b.CreateString(t.Location), t.FlatBuffer.TableKey))
+	AcademyFavorScheduleExcelAddLocation(b, b.CreateString(fbsutils.Convert(t.Location, t.FlatBuffer.TableKey)))
 	AcademyFavorScheduleExcelAddLocalizeScenarioId(b, fbsutils.Convert(t.LocalizeScenarioId, t.FlatBuffer.TableKey))
 	AcademyFavorScheduleExcelAddFavorRank(b, fbsutils.Convert(t.FavorRank, t.FlatBuffer.TableKey))
 	AcademyFavorScheduleExcelAddSecretStoneAmount(b, fbsutils.Convert(t.SecretStoneAmount, t.FlatBuffer.TableKey))
 	AcademyFavorScheduleExcelAddScenarioSriptGroupId(b, fbsutils.Convert(t.ScenarioSriptGroupId, t.FlatBuffer.TableKey))
 	AcademyFavorScheduleExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	AcademyFavorScheduleExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	AcademyFavorScheduleExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))

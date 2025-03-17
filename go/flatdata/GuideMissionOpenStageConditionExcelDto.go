@@ -29,13 +29,13 @@ func (t *GuideMissionOpenStageConditionExcelDto) MarshalModel(b *flatbuffers.Bui
 	GuideMissionOpenStageConditionExcelStart(b)
 	GuideMissionOpenStageConditionExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	GuideMissionOpenStageConditionExcelAddOrderNumber(b, fbsutils.Convert(t.OrderNumber, t.FlatBuffer.TableKey))
-	GuideMissionOpenStageConditionExcelAddTabLocalizeCode(b, fbsutils.Convert(b.CreateString(t.TabLocalizeCode), t.FlatBuffer.TableKey))
+	GuideMissionOpenStageConditionExcelAddTabLocalizeCode(b, b.CreateString(fbsutils.Convert(t.TabLocalizeCode, t.FlatBuffer.TableKey)))
 	GuideMissionOpenStageConditionExcelAddClearScenarioModeId(b, fbsutils.Convert(t.ClearScenarioModeId, t.FlatBuffer.TableKey))
-	GuideMissionOpenStageConditionExcelAddLockScenarioTextLocailzeCode(b, fbsutils.Convert(b.CreateString(t.LockScenarioTextLocailzeCode), t.FlatBuffer.TableKey))
-	GuideMissionOpenStageConditionExcelAddShortcutScenarioUi(b, fbsutils.Convert(b.CreateString(t.ShortcutScenarioUi), t.FlatBuffer.TableKey))
+	GuideMissionOpenStageConditionExcelAddLockScenarioTextLocailzeCode(b, b.CreateString(fbsutils.Convert(t.LockScenarioTextLocailzeCode, t.FlatBuffer.TableKey)))
+	GuideMissionOpenStageConditionExcelAddShortcutScenarioUi(b, b.CreateString(fbsutils.Convert(t.ShortcutScenarioUi, t.FlatBuffer.TableKey)))
 	GuideMissionOpenStageConditionExcelAddClearStageId(b, fbsutils.Convert(t.ClearStageId, t.FlatBuffer.TableKey))
-	GuideMissionOpenStageConditionExcelAddLockStageTextLocailzeCode(b, fbsutils.Convert(b.CreateString(t.LockStageTextLocailzeCode), t.FlatBuffer.TableKey))
-	GuideMissionOpenStageConditionExcelAddShortcutStageUi(b, fbsutils.Convert(b.CreateString(t.ShortcutStageUi), t.FlatBuffer.TableKey))
+	GuideMissionOpenStageConditionExcelAddLockStageTextLocailzeCode(b, b.CreateString(fbsutils.Convert(t.LockStageTextLocailzeCode, t.FlatBuffer.TableKey)))
+	GuideMissionOpenStageConditionExcelAddShortcutStageUi(b, b.CreateString(fbsutils.Convert(t.ShortcutStageUi, t.FlatBuffer.TableKey)))
 	return GuideMissionOpenStageConditionExcelEnd(b)
 }
 

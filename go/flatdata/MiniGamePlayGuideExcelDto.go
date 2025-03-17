@@ -27,9 +27,9 @@ func (t *MiniGamePlayGuideExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	MiniGamePlayGuideExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MiniGamePlayGuideExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGamePlayGuideExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	MiniGamePlayGuideExcelAddGuideTitle(b, fbsutils.Convert(b.CreateString(t.GuideTitle), t.FlatBuffer.TableKey))
-	MiniGamePlayGuideExcelAddGuideImagePath(b, fbsutils.Convert(b.CreateString(t.GuideImagePath), t.FlatBuffer.TableKey))
-	MiniGamePlayGuideExcelAddGuideText(b, fbsutils.Convert(b.CreateString(t.GuideText), t.FlatBuffer.TableKey))
+	MiniGamePlayGuideExcelAddGuideTitle(b, b.CreateString(fbsutils.Convert(t.GuideTitle, t.FlatBuffer.TableKey)))
+	MiniGamePlayGuideExcelAddGuideImagePath(b, b.CreateString(fbsutils.Convert(t.GuideImagePath, t.FlatBuffer.TableKey)))
+	MiniGamePlayGuideExcelAddGuideText(b, b.CreateString(fbsutils.Convert(t.GuideText, t.FlatBuffer.TableKey)))
 	return MiniGamePlayGuideExcelEnd(b)
 }
 

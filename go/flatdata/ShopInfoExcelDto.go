@@ -47,11 +47,11 @@ func (t *ShopInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	}
 	ShopInfoExcelStart(b)
 	ShopInfoExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
-	ShopInfoExcelAddIsRefresh(b, fbsutils.Convert(t.IsRefresh, t.FlatBuffer.TableKey))
-	ShopInfoExcelAddIsSoldOutDimmed(b, fbsutils.Convert(t.IsSoldOutDimmed, t.FlatBuffer.TableKey))
+	ShopInfoExcelAddIsRefresh(b, t.IsRefresh)
+	ShopInfoExcelAddIsSoldOutDimmed(b, t.IsSoldOutDimmed)
 	ShopInfoExcelStartCostParcelTypeVector(b, len(t.CostParcelType))
 	for i := range len(t.CostParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.CostParcelType[len(t.CostParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.CostParcelType[len(t.CostParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ShopInfoExcelAddCostParcelType(b, b.EndVector(len(t.CostParcelType)))
 	ShopInfoExcelStartCostParcelIdVector(b, len(t.CostParcelId))
@@ -66,12 +66,12 @@ func (t *ShopInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 		b.PrependInt64(fbsutils.Convert(t.GoodsId[len(t.GoodsId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ShopInfoExcelAddGoodsId(b, b.EndVector(len(t.GoodsId)))
-	ShopInfoExcelAddOpenPeriodFrom(b, fbsutils.Convert(b.CreateString(t.OpenPeriodFrom), t.FlatBuffer.TableKey))
-	ShopInfoExcelAddOpenPeriodTo(b, fbsutils.Convert(b.CreateString(t.OpenPeriodTo), t.FlatBuffer.TableKey))
-	ShopInfoExcelAddShopProductUpdateTime(b, fbsutils.Convert(b.CreateString(t.ShopProductUpdateTime), t.FlatBuffer.TableKey))
+	ShopInfoExcelAddOpenPeriodFrom(b, b.CreateString(fbsutils.Convert(t.OpenPeriodFrom, t.FlatBuffer.TableKey)))
+	ShopInfoExcelAddOpenPeriodTo(b, b.CreateString(fbsutils.Convert(t.OpenPeriodTo, t.FlatBuffer.TableKey)))
+	ShopInfoExcelAddShopProductUpdateTime(b, b.CreateString(fbsutils.Convert(t.ShopProductUpdateTime, t.FlatBuffer.TableKey)))
 	ShopInfoExcelAddDisplayParcelType(b, fbsutils.Convert(t.DisplayParcelType, t.FlatBuffer.TableKey))
 	ShopInfoExcelAddDisplayParcelId(b, fbsutils.Convert(t.DisplayParcelId, t.FlatBuffer.TableKey))
-	ShopInfoExcelAddIsShopVisible(b, fbsutils.Convert(t.IsShopVisible, t.FlatBuffer.TableKey))
+	ShopInfoExcelAddIsShopVisible(b, t.IsShopVisible)
 	ShopInfoExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	ShopInfoExcelAddShopUpdateDate(b, fbsutils.Convert(t.ShopUpdateDate, t.FlatBuffer.TableKey))
 	ShopInfoExcelAddShopUpdateGroupId1(b, fbsutils.Convert(t.ShopUpdateGroupId1, t.FlatBuffer.TableKey))
@@ -102,8 +102,8 @@ func (t *ShopInfoExcelDto) UnmarshalMessage(e *ShopInfoExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopInfo"))
 	}
 	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
-	t.IsRefresh = fbsutils.Convert(e.IsRefresh(), t.FlatBuffer.TableKey)
-	t.IsSoldOutDimmed = fbsutils.Convert(e.IsSoldOutDimmed(), t.FlatBuffer.TableKey)
+	t.IsRefresh = e.IsRefresh()
+	t.IsSoldOutDimmed = e.IsSoldOutDimmed()
 	t.CostParcelType = make([]ParcelType, e.CostParcelTypeLength())
 	for i := range e.CostParcelTypeLength() {
 		t.CostParcelType[i] = ParcelType(fbsutils.Convert(int32(e.CostParcelType(i)), t.FlatBuffer.TableKey))
@@ -123,7 +123,7 @@ func (t *ShopInfoExcelDto) UnmarshalMessage(e *ShopInfoExcel) error {
 	t.ShopProductUpdateTime = fbsutils.Convert(string(e.ShopProductUpdateTime()), t.FlatBuffer.TableKey)
 	t.DisplayParcelType = ParcelType(fbsutils.Convert(int32(e.DisplayParcelType()), t.FlatBuffer.TableKey))
 	t.DisplayParcelId = fbsutils.Convert(e.DisplayParcelId(), t.FlatBuffer.TableKey)
-	t.IsShopVisible = fbsutils.Convert(e.IsShopVisible(), t.FlatBuffer.TableKey)
+	t.IsShopVisible = e.IsShopVisible()
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.ShopUpdateDate = fbsutils.Convert(e.ShopUpdateDate(), t.FlatBuffer.TableKey)
 	t.ShopUpdateGroupId1 = fbsutils.Convert(e.ShopUpdateGroupId1(), t.FlatBuffer.TableKey)

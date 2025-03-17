@@ -29,7 +29,7 @@ func (t *MiniGameShootingStageRewardExcelDto) MarshalModel(b *flatbuffers.Builde
 	MiniGameShootingStageRewardExcelAddClearSection(b, fbsutils.Convert(t.ClearSection, t.FlatBuffer.TableKey))
 	MiniGameShootingStageRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	MiniGameShootingStageRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	MiniGameShootingStageRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))

@@ -21,9 +21,9 @@ func (t *CharacterCombatSkinExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCombatSkin"))
 	}
 	CharacterCombatSkinExcelStart(b)
-	CharacterCombatSkinExcelAddGroupId(b, fbsutils.Convert(b.CreateString(t.GroupId), t.FlatBuffer.TableKey))
+	CharacterCombatSkinExcelAddGroupId(b, b.CreateString(fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey)))
 	CharacterCombatSkinExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	CharacterCombatSkinExcelAddResourcePath(b, fbsutils.Convert(b.CreateString(t.ResourcePath), t.FlatBuffer.TableKey))
+	CharacterCombatSkinExcelAddResourcePath(b, b.CreateString(fbsutils.Convert(t.ResourcePath, t.FlatBuffer.TableKey)))
 	return CharacterCombatSkinExcelEnd(b)
 }
 

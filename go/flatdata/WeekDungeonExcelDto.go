@@ -44,7 +44,7 @@ func (t *WeekDungeonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	WeekDungeonExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageId, t.FlatBuffer.TableKey))
 	WeekDungeonExcelStartStageEnterCostTypeVector(b, len(t.StageEnterCostType))
 	for i := range len(t.StageEnterCostType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.StageEnterCostType[len(t.StageEnterCostType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.StageEnterCostType[len(t.StageEnterCostType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	WeekDungeonExcelAddStageEnterCostType(b, b.EndVector(len(t.StageEnterCostType)))
 	WeekDungeonExcelStartStageEnterCostIdVector(b, len(t.StageEnterCostId))
@@ -60,7 +60,7 @@ func (t *WeekDungeonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	WeekDungeonExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	WeekDungeonExcelStartStarGoalVector(b, len(t.StarGoal))
 	for i := range len(t.StarGoal) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.StarGoal[len(t.StarGoal)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.StarGoal[len(t.StarGoal)-i-1]), t.FlatBuffer.TableKey))
 	}
 	WeekDungeonExcelAddStarGoal(b, b.EndVector(len(t.StarGoal)))
 	WeekDungeonExcelStartStarGoalAmountVector(b, len(t.StarGoalAmount))

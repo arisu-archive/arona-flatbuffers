@@ -34,7 +34,7 @@ func (t *ConquestUnexpectedEventExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	ConquestUnexpectedEventExcelAddUnitCountPerStep(b, fbsutils.Convert(t.UnitCountPerStep, t.FlatBuffer.TableKey))
 	ConquestUnexpectedEventExcelStartUnexpectedEventPrefabVector(b, len(t.UnexpectedEventPrefab))
 	for i := range len(t.UnexpectedEventPrefab) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.UnexpectedEventPrefab[len(t.UnexpectedEventPrefab)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.UnexpectedEventPrefab[len(t.UnexpectedEventPrefab)-i-1]))
 	}
 	ConquestUnexpectedEventExcelAddUnexpectedEventPrefab(b, b.EndVector(len(t.UnexpectedEventPrefab)))
 	ConquestUnexpectedEventExcelStartUnexpectedEventUnitIdVector(b, len(t.UnexpectedEventUnitId))

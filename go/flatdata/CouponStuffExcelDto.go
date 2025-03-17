@@ -27,7 +27,7 @@ func (t *CouponStuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	CouponStuffExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
 	CouponStuffExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
 	CouponStuffExcelAddLimitAmount(b, fbsutils.Convert(t.LimitAmount, t.FlatBuffer.TableKey))
-	CouponStuffExcelAddCouponStuffNameLocalizeKey(b, fbsutils.Convert(b.CreateString(t.CouponStuffNameLocalizeKey), t.FlatBuffer.TableKey))
+	CouponStuffExcelAddCouponStuffNameLocalizeKey(b, b.CreateString(fbsutils.Convert(t.CouponStuffNameLocalizeKey, t.FlatBuffer.TableKey)))
 	return CouponStuffExcelEnd(b)
 }
 

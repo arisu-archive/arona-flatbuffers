@@ -23,7 +23,7 @@ func (t *WeekDungeonOpenScheduleExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	WeekDungeonOpenScheduleExcelAddWeekDay(b, fbsutils.Convert(t.WeekDay, t.FlatBuffer.TableKey))
 	WeekDungeonOpenScheduleExcelStartOpenVector(b, len(t.Open))
 	for i := range len(t.Open) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.Open[len(t.Open)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.Open[len(t.Open)-i-1]), t.FlatBuffer.TableKey))
 	}
 	WeekDungeonOpenScheduleExcelAddOpen(b, b.EndVector(len(t.Open)))
 	return WeekDungeonOpenScheduleExcelEnd(b)

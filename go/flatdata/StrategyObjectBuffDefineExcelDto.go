@@ -25,9 +25,9 @@ func (t *StrategyObjectBuffDefineExcelDto) MarshalModel(b *flatbuffers.Builder) 
 	StrategyObjectBuffDefineExcelStart(b)
 	StrategyObjectBuffDefineExcelAddStrategyObjectBuffId(b, fbsutils.Convert(t.StrategyObjectBuffId, t.FlatBuffer.TableKey))
 	StrategyObjectBuffDefineExcelAddStrategyObjectTurn(b, fbsutils.Convert(t.StrategyObjectTurn, t.FlatBuffer.TableKey))
-	StrategyObjectBuffDefineExcelAddSkillGroupId(b, fbsutils.Convert(b.CreateString(t.SkillGroupId), t.FlatBuffer.TableKey))
+	StrategyObjectBuffDefineExcelAddSkillGroupId(b, b.CreateString(fbsutils.Convert(t.SkillGroupId, t.FlatBuffer.TableKey)))
 	StrategyObjectBuffDefineExcelAddLocalizeCodeId(b, fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
-	StrategyObjectBuffDefineExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
+	StrategyObjectBuffDefineExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
 	return StrategyObjectBuffDefineExcelEnd(b)
 }
 

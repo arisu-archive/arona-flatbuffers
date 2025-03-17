@@ -22,7 +22,7 @@ func (t *PropMotionDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropMotion"))
 	}
 	PropMotionStart(b)
-	PropMotionAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	PropMotionAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	PropMotionStartPositionsVector(b, len(t.Positions))
 	for i := range len(t.Positions) {
 		// The array should be reversed.

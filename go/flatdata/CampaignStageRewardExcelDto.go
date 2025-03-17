@@ -31,7 +31,7 @@ func (t *CampaignStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	CampaignStageRewardExcelAddStageRewardParcelType(b, fbsutils.Convert(t.StageRewardParcelType, t.FlatBuffer.TableKey))
 	CampaignStageRewardExcelAddStageRewardId(b, fbsutils.Convert(t.StageRewardId, t.FlatBuffer.TableKey))
 	CampaignStageRewardExcelAddStageRewardAmount(b, fbsutils.Convert(t.StageRewardAmount, t.FlatBuffer.TableKey))
-	CampaignStageRewardExcelAddIsDisplayed(b, fbsutils.Convert(t.IsDisplayed, t.FlatBuffer.TableKey))
+	CampaignStageRewardExcelAddIsDisplayed(b, t.IsDisplayed)
 	return CampaignStageRewardExcelEnd(b)
 }
 
@@ -53,7 +53,7 @@ func (t *CampaignStageRewardExcelDto) UnmarshalMessage(e *CampaignStageRewardExc
 	t.StageRewardParcelType = ParcelType(fbsutils.Convert(int32(e.StageRewardParcelType()), t.FlatBuffer.TableKey))
 	t.StageRewardId = fbsutils.Convert(e.StageRewardId(), t.FlatBuffer.TableKey)
 	t.StageRewardAmount = fbsutils.Convert(e.StageRewardAmount(), t.FlatBuffer.TableKey)
-	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)
+	t.IsDisplayed = e.IsDisplayed()
 	return nil
 }
 

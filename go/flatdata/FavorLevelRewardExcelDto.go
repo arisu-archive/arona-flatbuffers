@@ -29,7 +29,7 @@ func (t *FavorLevelRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	FavorLevelRewardExcelAddFavorLevel(b, fbsutils.Convert(t.FavorLevel, t.FlatBuffer.TableKey))
 	FavorLevelRewardExcelStartStatTypeVector(b, len(t.StatType))
 	for i := range len(t.StatType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.StatType[len(t.StatType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.StatType[len(t.StatType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	FavorLevelRewardExcelAddStatType(b, b.EndVector(len(t.StatType)))
 	FavorLevelRewardExcelStartStatValueVector(b, len(t.StatValue))
@@ -39,7 +39,7 @@ func (t *FavorLevelRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	FavorLevelRewardExcelAddStatValue(b, b.EndVector(len(t.StatValue)))
 	FavorLevelRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	FavorLevelRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	FavorLevelRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))

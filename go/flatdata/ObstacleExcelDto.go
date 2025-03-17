@@ -35,8 +35,8 @@ func (t *ObstacleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	}
 	ObstacleExcelStart(b)
 	ObstacleExcelAddIndex(b, fbsutils.Convert(t.Index, t.FlatBuffer.TableKey))
-	ObstacleExcelAddPrefabName(b, fbsutils.Convert(b.CreateString(t.PrefabName), t.FlatBuffer.TableKey))
-	ObstacleExcelAddJumpAble(b, fbsutils.Convert(t.JumpAble, t.FlatBuffer.TableKey))
+	ObstacleExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
+	ObstacleExcelAddJumpAble(b, t.JumpAble)
 	ObstacleExcelStartSubOffsetVector(b, len(t.SubOffset))
 	for i := range len(t.SubOffset) {
 		b.PrependFloat32(fbsutils.Convert(t.SubOffset[len(t.SubOffset)-i-1], t.FlatBuffer.TableKey))
@@ -91,7 +91,7 @@ func (t *ObstacleExcelDto) UnmarshalMessage(e *ObstacleExcel) error {
 	}
 	t.Index = fbsutils.Convert(e.Index(), t.FlatBuffer.TableKey)
 	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
-	t.JumpAble = fbsutils.Convert(e.JumpAble(), t.FlatBuffer.TableKey)
+	t.JumpAble = e.JumpAble()
 	t.SubOffset = make([]float32, e.SubOffsetLength())
 	for i := range e.SubOffsetLength() {
 		t.SubOffset[i] = fbsutils.Convert(e.SubOffset(i), t.FlatBuffer.TableKey)

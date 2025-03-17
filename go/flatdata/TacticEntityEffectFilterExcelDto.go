@@ -21,9 +21,9 @@ func (t *TacticEntityEffectFilterExcelDto) MarshalModel(b *flatbuffers.Builder) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticEntityEffectFilter"))
 	}
 	TacticEntityEffectFilterExcelStart(b)
-	TacticEntityEffectFilterExcelAddTargetEffectName(b, fbsutils.Convert(b.CreateString(t.TargetEffectName), t.FlatBuffer.TableKey))
-	TacticEntityEffectFilterExcelAddShowEffectToVehicle(b, fbsutils.Convert(t.ShowEffectToVehicle, t.FlatBuffer.TableKey))
-	TacticEntityEffectFilterExcelAddShowEffectToBoss(b, fbsutils.Convert(t.ShowEffectToBoss, t.FlatBuffer.TableKey))
+	TacticEntityEffectFilterExcelAddTargetEffectName(b, b.CreateString(fbsutils.Convert(t.TargetEffectName, t.FlatBuffer.TableKey)))
+	TacticEntityEffectFilterExcelAddShowEffectToVehicle(b, t.ShowEffectToVehicle)
+	TacticEntityEffectFilterExcelAddShowEffectToBoss(b, t.ShowEffectToBoss)
 	return TacticEntityEffectFilterExcelEnd(b)
 }
 
@@ -40,8 +40,8 @@ func (t *TacticEntityEffectFilterExcelDto) UnmarshalMessage(e *TacticEntityEffec
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticEntityEffectFilter"))
 	}
 	t.TargetEffectName = fbsutils.Convert(string(e.TargetEffectName()), t.FlatBuffer.TableKey)
-	t.ShowEffectToVehicle = fbsutils.Convert(e.ShowEffectToVehicle(), t.FlatBuffer.TableKey)
-	t.ShowEffectToBoss = fbsutils.Convert(e.ShowEffectToBoss(), t.FlatBuffer.TableKey)
+	t.ShowEffectToVehicle = e.ShowEffectToVehicle()
+	t.ShowEffectToBoss = e.ShowEffectToBoss()
 	return nil
 }
 

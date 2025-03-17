@@ -30,16 +30,16 @@ func (t *ProductExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 	}
 	ProductExcelStart(b)
 	ProductExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ProductExcelAddProductId(b, fbsutils.Convert(b.CreateString(t.ProductId), t.FlatBuffer.TableKey))
-	ProductExcelAddTeenProductId(b, fbsutils.Convert(b.CreateString(t.TeenProductId), t.FlatBuffer.TableKey))
+	ProductExcelAddProductId(b, b.CreateString(fbsutils.Convert(t.ProductId, t.FlatBuffer.TableKey)))
+	ProductExcelAddTeenProductId(b, b.CreateString(fbsutils.Convert(t.TeenProductId, t.FlatBuffer.TableKey)))
 	ProductExcelAddStoreType(b, fbsutils.Convert(t.StoreType, t.FlatBuffer.TableKey))
 	ProductExcelAddPrice(b, fbsutils.Convert(t.Price, t.FlatBuffer.TableKey))
-	ProductExcelAddPriceReference(b, fbsutils.Convert(b.CreateString(t.PriceReference), t.FlatBuffer.TableKey))
+	ProductExcelAddPriceReference(b, b.CreateString(fbsutils.Convert(t.PriceReference, t.FlatBuffer.TableKey)))
 	ProductExcelAddPurchasePeriodType(b, fbsutils.Convert(t.PurchasePeriodType, t.FlatBuffer.TableKey))
 	ProductExcelAddPurchasePeriodLimit(b, fbsutils.Convert(t.PurchasePeriodLimit, t.FlatBuffer.TableKey))
 	ProductExcelStartParcelTypeVector(b, len(t.ParcelType))
 	for i := range len(t.ParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ParcelType[len(t.ParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ProductExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
 	ProductExcelStartParcelIdVector(b, len(t.ParcelId))

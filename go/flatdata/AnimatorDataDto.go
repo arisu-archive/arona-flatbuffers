@@ -22,8 +22,8 @@ func (t *AnimatorDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AnimatorData"))
 	}
 	AnimatorDataStart(b)
-	AnimatorDataAddDefaultStateName(b, fbsutils.Convert(b.CreateString(t.DefaultStateName), t.FlatBuffer.TableKey))
-	AnimatorDataAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	AnimatorDataAddDefaultStateName(b, b.CreateString(fbsutils.Convert(t.DefaultStateName, t.FlatBuffer.TableKey)))
+	AnimatorDataAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	AnimatorDataStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
 		// The array should be reversed.

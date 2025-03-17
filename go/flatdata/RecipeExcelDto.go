@@ -32,7 +32,7 @@ func (t *RecipeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 	RecipeExcelAddRecipeSelectionGroupId(b, fbsutils.Convert(t.RecipeSelectionGroupId, t.FlatBuffer.TableKey))
 	RecipeExcelStartParcelTypeVector(b, len(t.ParcelType))
 	for i := range len(t.ParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ParcelType[len(t.ParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	RecipeExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
 	RecipeExcelStartParcelIdVector(b, len(t.ParcelId))

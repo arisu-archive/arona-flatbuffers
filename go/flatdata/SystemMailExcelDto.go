@@ -24,8 +24,8 @@ func (t *SystemMailExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	SystemMailExcelStart(b)
 	SystemMailExcelAddMailType(b, fbsutils.Convert(t.MailType, t.FlatBuffer.TableKey))
 	SystemMailExcelAddExpiredDay(b, fbsutils.Convert(t.ExpiredDay, t.FlatBuffer.TableKey))
-	SystemMailExcelAddSender(b, fbsutils.Convert(b.CreateString(t.Sender), t.FlatBuffer.TableKey))
-	SystemMailExcelAddComment(b, fbsutils.Convert(b.CreateString(t.Comment), t.FlatBuffer.TableKey))
+	SystemMailExcelAddSender(b, b.CreateString(fbsutils.Convert(t.Sender, t.FlatBuffer.TableKey)))
+	SystemMailExcelAddComment(b, b.CreateString(fbsutils.Convert(t.Comment, t.FlatBuffer.TableKey)))
 	return SystemMailExcelEnd(b)
 }
 

@@ -23,11 +23,11 @@ func (t *AniEventDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniEventData"))
 	}
 	AniEventDataStart(b)
-	AniEventDataAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	AniEventDataAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	AniEventDataAddTime(b, fbsutils.Convert(t.Time, t.FlatBuffer.TableKey))
 	AniEventDataAddIntParam(b, fbsutils.Convert(t.IntParam, t.FlatBuffer.TableKey))
 	AniEventDataAddFloatParam(b, fbsutils.Convert(t.FloatParam, t.FlatBuffer.TableKey))
-	AniEventDataAddStringParam(b, fbsutils.Convert(b.CreateString(t.StringParam), t.FlatBuffer.TableKey))
+	AniEventDataAddStringParam(b, b.CreateString(fbsutils.Convert(t.StringParam, t.FlatBuffer.TableKey)))
 	return AniEventDataEnd(b)
 }
 

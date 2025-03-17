@@ -40,7 +40,7 @@ func (t *FieldContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	FieldContentStageExcelAddAreaId(b, fbsutils.Convert(t.AreaId, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	FieldContentStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddStageEnterCostType(b, fbsutils.Convert(t.StageEnterCostType, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddStageEnterCostId(b, fbsutils.Convert(t.StageEnterCostId, t.FlatBuffer.TableKey))
@@ -49,9 +49,9 @@ func (t *FieldContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	FieldContentStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddInstantClear(b, fbsutils.Convert(t.InstantClear, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddInstantClear(b, t.InstantClear)
 	FieldContentStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
-	FieldContentStageExcelAddSkipFormationSettings(b, fbsutils.Convert(t.SkipFormationSettings, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddSkipFormationSettings(b, t.SkipFormationSettings)
 	return FieldContentStageExcelEnd(b)
 }
 
@@ -81,9 +81,9 @@ func (t *FieldContentStageExcelDto) UnmarshalMessage(e *FieldContentStageExcel) 
 	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
-	t.InstantClear = fbsutils.Convert(e.InstantClear(), t.FlatBuffer.TableKey)
+	t.InstantClear = e.InstantClear()
 	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
-	t.SkipFormationSettings = fbsutils.Convert(e.SkipFormationSettings(), t.FlatBuffer.TableKey)
+	t.SkipFormationSettings = e.SkipFormationSettings()
 	return nil
 }
 

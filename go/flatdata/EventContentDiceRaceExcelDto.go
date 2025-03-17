@@ -27,11 +27,11 @@ func (t *EventContentDiceRaceExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	EventContentDiceRaceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentDiceRaceExcelAddDiceCostGoodsId(b, fbsutils.Convert(t.DiceCostGoodsId, t.FlatBuffer.TableKey))
 	EventContentDiceRaceExcelAddSkipableLap(b, fbsutils.Convert(t.SkipableLap, t.FlatBuffer.TableKey))
-	EventContentDiceRaceExcelAddDiceRacePawnPrefab(b, fbsutils.Convert(b.CreateString(t.DiceRacePawnPrefab), t.FlatBuffer.TableKey))
-	EventContentDiceRaceExcelAddIsUsingFixedDice(b, fbsutils.Convert(t.IsUsingFixedDice, t.FlatBuffer.TableKey))
+	EventContentDiceRaceExcelAddDiceRacePawnPrefab(b, b.CreateString(fbsutils.Convert(t.DiceRacePawnPrefab, t.FlatBuffer.TableKey)))
+	EventContentDiceRaceExcelAddIsUsingFixedDice(b, t.IsUsingFixedDice)
 	EventContentDiceRaceExcelStartDiceRaceEventTypeVector(b, len(t.DiceRaceEventType))
 	for i := range len(t.DiceRaceEventType) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.DiceRaceEventType[len(t.DiceRaceEventType)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.DiceRaceEventType[len(t.DiceRaceEventType)-i-1]))
 	}
 	EventContentDiceRaceExcelAddDiceRaceEventType(b, b.EndVector(len(t.DiceRaceEventType)))
 	return EventContentDiceRaceExcelEnd(b)
@@ -53,7 +53,7 @@ func (t *EventContentDiceRaceExcelDto) UnmarshalMessage(e *EventContentDiceRaceE
 	t.DiceCostGoodsId = fbsutils.Convert(e.DiceCostGoodsId(), t.FlatBuffer.TableKey)
 	t.SkipableLap = fbsutils.Convert(e.SkipableLap(), t.FlatBuffer.TableKey)
 	t.DiceRacePawnPrefab = fbsutils.Convert(string(e.DiceRacePawnPrefab()), t.FlatBuffer.TableKey)
-	t.IsUsingFixedDice = fbsutils.Convert(e.IsUsingFixedDice(), t.FlatBuffer.TableKey)
+	t.IsUsingFixedDice = e.IsUsingFixedDice()
 	t.DiceRaceEventType = make([]string, e.DiceRaceEventTypeLength())
 	for i := range e.DiceRaceEventTypeLength() {
 		t.DiceRaceEventType[i] = string(e.DiceRaceEventType(i))

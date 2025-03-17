@@ -31,7 +31,7 @@ func (t *EventContentDiceRaceTotalRewardExcelDto) MarshalModel(b *flatbuffers.Bu
 	EventContentDiceRaceTotalRewardExcelAddDisplayLapFinishCount(b, fbsutils.Convert(t.DisplayLapFinishCount, t.FlatBuffer.TableKey))
 	EventContentDiceRaceTotalRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentDiceRaceTotalRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	EventContentDiceRaceTotalRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))

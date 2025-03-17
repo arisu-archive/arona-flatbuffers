@@ -32,12 +32,12 @@ func (t *MinigameTBGItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	MinigameTBGItemExcelAddItemType(b, fbsutils.Convert(t.ItemType, t.FlatBuffer.TableKey))
 	MinigameTBGItemExcelAddTbgItemEffectType(b, fbsutils.Convert(t.TbgItemEffectType, t.FlatBuffer.TableKey))
 	MinigameTBGItemExcelAddItemParameter(b, fbsutils.Convert(t.ItemParameter, t.FlatBuffer.TableKey))
-	MinigameTBGItemExcelAddLocalizeEtcId(b, fbsutils.Convert(b.CreateString(t.LocalizeEtcId), t.FlatBuffer.TableKey))
-	MinigameTBGItemExcelAddIcon(b, fbsutils.Convert(b.CreateString(t.Icon), t.FlatBuffer.TableKey))
-	MinigameTBGItemExcelAddBuffIcon(b, fbsutils.Convert(b.CreateString(t.BuffIcon), t.FlatBuffer.TableKey))
+	MinigameTBGItemExcelAddLocalizeEtcId(b, b.CreateString(fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey)))
+	MinigameTBGItemExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
+	MinigameTBGItemExcelAddBuffIcon(b, b.CreateString(fbsutils.Convert(t.BuffIcon, t.FlatBuffer.TableKey)))
 	MinigameTBGItemExcelAddEncounterCount(b, fbsutils.Convert(t.EncounterCount, t.FlatBuffer.TableKey))
-	MinigameTBGItemExcelAddDiceEffectAniClip(b, fbsutils.Convert(b.CreateString(t.DiceEffectAniClip), t.FlatBuffer.TableKey))
-	MinigameTBGItemExcelAddBuffIconHudVisible(b, fbsutils.Convert(t.BuffIconHudVisible, t.FlatBuffer.TableKey))
+	MinigameTBGItemExcelAddDiceEffectAniClip(b, b.CreateString(fbsutils.Convert(t.DiceEffectAniClip, t.FlatBuffer.TableKey)))
+	MinigameTBGItemExcelAddBuffIconHudVisible(b, t.BuffIconHudVisible)
 	return MinigameTBGItemExcelEnd(b)
 }
 
@@ -62,7 +62,7 @@ func (t *MinigameTBGItemExcelDto) UnmarshalMessage(e *MinigameTBGItemExcel) erro
 	t.BuffIcon = fbsutils.Convert(string(e.BuffIcon()), t.FlatBuffer.TableKey)
 	t.EncounterCount = fbsutils.Convert(e.EncounterCount(), t.FlatBuffer.TableKey)
 	t.DiceEffectAniClip = fbsutils.Convert(string(e.DiceEffectAniClip()), t.FlatBuffer.TableKey)
-	t.BuffIconHudVisible = fbsutils.Convert(e.BuffIconHudVisible(), t.FlatBuffer.TableKey)
+	t.BuffIconHudVisible = e.BuffIconHudVisible()
 	return nil
 }
 

@@ -24,8 +24,8 @@ func (t *InformationStrategyObjectExcelDto) MarshalModel(b *flatbuffers.Builder)
 	InformationStrategyObjectExcelStart(b)
 	InformationStrategyObjectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	InformationStrategyObjectExcelAddStageId(b, fbsutils.Convert(t.StageId, t.FlatBuffer.TableKey))
-	InformationStrategyObjectExcelAddPageName(b, fbsutils.Convert(b.CreateString(t.PageName), t.FlatBuffer.TableKey))
-	InformationStrategyObjectExcelAddLocalizeCodeId(b, fbsutils.Convert(b.CreateString(t.LocalizeCodeId), t.FlatBuffer.TableKey))
+	InformationStrategyObjectExcelAddPageName(b, b.CreateString(fbsutils.Convert(t.PageName, t.FlatBuffer.TableKey)))
+	InformationStrategyObjectExcelAddLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey)))
 	return InformationStrategyObjectExcelEnd(b)
 }
 

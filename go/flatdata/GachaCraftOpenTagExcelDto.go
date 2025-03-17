@@ -23,7 +23,7 @@ func (t *GachaCraftOpenTagExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	GachaCraftOpenTagExcelAddNodeTier(b, fbsutils.Convert(t.NodeTier, t.FlatBuffer.TableKey))
 	GachaCraftOpenTagExcelStartTagVector(b, len(t.Tag))
 	for i := range len(t.Tag) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.Tag[len(t.Tag)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.Tag[len(t.Tag)-i-1]), t.FlatBuffer.TableKey))
 	}
 	GachaCraftOpenTagExcelAddTag(b, b.EndVector(len(t.Tag)))
 	return GachaCraftOpenTagExcelEnd(b)

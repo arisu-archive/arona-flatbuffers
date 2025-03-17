@@ -31,11 +31,11 @@ func (t *FieldSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	FieldSeasonExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	FieldSeasonExcelAddEntryDateId(b, fbsutils.Convert(t.EntryDateId, t.FlatBuffer.TableKey))
 	FieldSeasonExcelAddInstantEntryDateId(b, fbsutils.Convert(t.InstantEntryDateId, t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddStartDate(b, fbsutils.Convert(b.CreateString(t.StartDate), t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
+	FieldSeasonExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
 	FieldSeasonExcelAddLobbyBgmChangeStageId(b, fbsutils.Convert(t.LobbyBgmChangeStageId, t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddCharacterIconPath(b, fbsutils.Convert(b.CreateString(t.CharacterIconPath), t.FlatBuffer.TableKey))
-	FieldSeasonExcelAddMasteryImagePath(b, fbsutils.Convert(b.CreateString(t.MasteryImagePath), t.FlatBuffer.TableKey))
+	FieldSeasonExcelAddCharacterIconPath(b, b.CreateString(fbsutils.Convert(t.CharacterIconPath, t.FlatBuffer.TableKey)))
+	FieldSeasonExcelAddMasteryImagePath(b, b.CreateString(fbsutils.Convert(t.MasteryImagePath, t.FlatBuffer.TableKey)))
 	return FieldSeasonExcelEnd(b)
 }
 

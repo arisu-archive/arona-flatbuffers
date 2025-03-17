@@ -28,12 +28,12 @@ func (t *EventContentLobbyMenuExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	EventContentLobbyMenuExcelStart(b)
 	EventContentLobbyMenuExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentLobbyMenuExcelAddEventContentType(b, fbsutils.Convert(t.EventContentType, t.FlatBuffer.TableKey))
-	EventContentLobbyMenuExcelAddIconSpriteName(b, fbsutils.Convert(b.CreateString(t.IconSpriteName), t.FlatBuffer.TableKey))
-	EventContentLobbyMenuExcelAddButtonText(b, fbsutils.Convert(b.CreateString(t.ButtonText), t.FlatBuffer.TableKey))
+	EventContentLobbyMenuExcelAddIconSpriteName(b, b.CreateString(fbsutils.Convert(t.IconSpriteName, t.FlatBuffer.TableKey)))
+	EventContentLobbyMenuExcelAddButtonText(b, b.CreateString(fbsutils.Convert(t.ButtonText, t.FlatBuffer.TableKey)))
 	EventContentLobbyMenuExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	EventContentLobbyMenuExcelAddIconOffsetX(b, fbsutils.Convert(t.IconOffsetX, t.FlatBuffer.TableKey))
 	EventContentLobbyMenuExcelAddIconOffsetY(b, fbsutils.Convert(t.IconOffsetY, t.FlatBuffer.TableKey))
-	EventContentLobbyMenuExcelAddReddotSpriteName(b, fbsutils.Convert(b.CreateString(t.ReddotSpriteName), t.FlatBuffer.TableKey))
+	EventContentLobbyMenuExcelAddReddotSpriteName(b, b.CreateString(fbsutils.Convert(t.ReddotSpriteName, t.FlatBuffer.TableKey)))
 	return EventContentLobbyMenuExcelEnd(b)
 }
 

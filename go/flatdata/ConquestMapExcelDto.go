@@ -32,25 +32,25 @@ func (t *ConquestMapExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	}
 	ConquestMapExcelStart(b)
 	ConquestMapExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	ConquestMapExcelAddDevName(b, fbsutils.Convert(b.CreateString(t.DevName), t.FlatBuffer.TableKey))
+	ConquestMapExcelAddDevName(b, b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey)))
 	ConquestMapExcelAddMapDifficulty(b, fbsutils.Convert(t.MapDifficulty, t.FlatBuffer.TableKey))
 	ConquestMapExcelAddStepIndex(b, fbsutils.Convert(t.StepIndex, t.FlatBuffer.TableKey))
-	ConquestMapExcelAddConquestMap(b, fbsutils.Convert(b.CreateString(t.ConquestMap), t.FlatBuffer.TableKey))
+	ConquestMapExcelAddConquestMap(b, b.CreateString(fbsutils.Convert(t.ConquestMap, t.FlatBuffer.TableKey)))
 	ConquestMapExcelAddStepEnterScenarioGroupId(b, fbsutils.Convert(t.StepEnterScenarioGroupId, t.FlatBuffer.TableKey))
 	ConquestMapExcelStartStepOpenConditionTypeVector(b, len(t.StepOpenConditionType))
 	for i := range len(t.StepOpenConditionType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.StepOpenConditionType[len(t.StepOpenConditionType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.StepOpenConditionType[len(t.StepOpenConditionType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ConquestMapExcelAddStepOpenConditionType(b, b.EndVector(len(t.StepOpenConditionType)))
 	ConquestMapExcelStartStepOpenConditionParameterVector(b, len(t.StepOpenConditionParameter))
 	for i := range len(t.StepOpenConditionParameter) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.StepOpenConditionParameter[len(t.StepOpenConditionParameter)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.StepOpenConditionParameter[len(t.StepOpenConditionParameter)-i-1]))
 	}
 	ConquestMapExcelAddStepOpenConditionParameter(b, b.EndVector(len(t.StepOpenConditionParameter)))
-	ConquestMapExcelAddMapGoalLocalize(b, fbsutils.Convert(b.CreateString(t.MapGoalLocalize), t.FlatBuffer.TableKey))
-	ConquestMapExcelAddStepGoalLocalize(b, fbsutils.Convert(b.CreateString(t.StepGoalLocalize), t.FlatBuffer.TableKey))
-	ConquestMapExcelAddStepNameLocalize(b, fbsutils.Convert(b.CreateString(t.StepNameLocalize), t.FlatBuffer.TableKey))
-	ConquestMapExcelAddConquestMapBg(b, fbsutils.Convert(b.CreateString(t.ConquestMapBg), t.FlatBuffer.TableKey))
+	ConquestMapExcelAddMapGoalLocalize(b, b.CreateString(fbsutils.Convert(t.MapGoalLocalize, t.FlatBuffer.TableKey)))
+	ConquestMapExcelAddStepGoalLocalize(b, b.CreateString(fbsutils.Convert(t.StepGoalLocalize, t.FlatBuffer.TableKey)))
+	ConquestMapExcelAddStepNameLocalize(b, b.CreateString(fbsutils.Convert(t.StepNameLocalize, t.FlatBuffer.TableKey)))
+	ConquestMapExcelAddConquestMapBg(b, b.CreateString(fbsutils.Convert(t.ConquestMapBg, t.FlatBuffer.TableKey)))
 	ConquestMapExcelAddCameraSettingId(b, fbsutils.Convert(t.CameraSettingId, t.FlatBuffer.TableKey))
 	return ConquestMapExcelEnd(b)
 }

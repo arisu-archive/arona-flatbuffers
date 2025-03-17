@@ -27,13 +27,13 @@ func (t *ConquestProgressResourceExcelDto) MarshalModel(b *flatbuffers.Builder) 
 	ConquestProgressResourceExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ConquestProgressResourceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ConquestProgressResourceExcelAddGroup(b, fbsutils.Convert(t.Group, t.FlatBuffer.TableKey))
-	ConquestProgressResourceExcelAddProgressResource(b, fbsutils.Convert(b.CreateString(t.ProgressResource), t.FlatBuffer.TableKey))
+	ConquestProgressResourceExcelAddProgressResource(b, b.CreateString(fbsutils.Convert(t.ProgressResource, t.FlatBuffer.TableKey)))
 	ConquestProgressResourceExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ConquestProgressResourceExcelAddVoiceId(b, b.EndVector(len(t.VoiceId)))
-	ConquestProgressResourceExcelAddProgressLocalizeCode(b, fbsutils.Convert(b.CreateString(t.ProgressLocalizeCode), t.FlatBuffer.TableKey))
+	ConquestProgressResourceExcelAddProgressLocalizeCode(b, b.CreateString(fbsutils.Convert(t.ProgressLocalizeCode, t.FlatBuffer.TableKey)))
 	return ConquestProgressResourceExcelEnd(b)
 }
 

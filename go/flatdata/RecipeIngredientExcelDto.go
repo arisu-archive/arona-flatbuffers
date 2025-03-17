@@ -31,7 +31,7 @@ func (t *RecipeIngredientExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	RecipeIngredientExcelAddRecipeType(b, fbsutils.Convert(t.RecipeType, t.FlatBuffer.TableKey))
 	RecipeIngredientExcelStartCostParcelTypeVector(b, len(t.CostParcelType))
 	for i := range len(t.CostParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.CostParcelType[len(t.CostParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.CostParcelType[len(t.CostParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	RecipeIngredientExcelAddCostParcelType(b, b.EndVector(len(t.CostParcelType)))
 	RecipeIngredientExcelStartCostIdVector(b, len(t.CostId))
@@ -46,7 +46,7 @@ func (t *RecipeIngredientExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	RecipeIngredientExcelAddCostAmount(b, b.EndVector(len(t.CostAmount)))
 	RecipeIngredientExcelStartIngredientParcelTypeVector(b, len(t.IngredientParcelType))
 	for i := range len(t.IngredientParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.IngredientParcelType[len(t.IngredientParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.IngredientParcelType[len(t.IngredientParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	RecipeIngredientExcelAddIngredientParcelType(b, b.EndVector(len(t.IngredientParcelType)))
 	RecipeIngredientExcelStartIngredientIdVector(b, len(t.IngredientId))

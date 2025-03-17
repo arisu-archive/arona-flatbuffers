@@ -54,7 +54,7 @@ func (t *EliminateRaidRankingRewardExcelDto) MarshalModel(b *flatbuffers.Builder
 	EliminateRaidRankingRewardExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
 	EliminateRaidRankingRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EliminateRaidRankingRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	EliminateRaidRankingRewardExcelStartRewardParcelUniqueIdVector(b, len(t.RewardParcelUniqueId))
@@ -64,7 +64,7 @@ func (t *EliminateRaidRankingRewardExcelDto) MarshalModel(b *flatbuffers.Builder
 	EliminateRaidRankingRewardExcelAddRewardParcelUniqueId(b, b.EndVector(len(t.RewardParcelUniqueId)))
 	EliminateRaidRankingRewardExcelStartRewardParcelUniqueNameVector(b, len(t.RewardParcelUniqueName))
 	for i := range len(t.RewardParcelUniqueName) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.RewardParcelUniqueName[len(t.RewardParcelUniqueName)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.RewardParcelUniqueName[len(t.RewardParcelUniqueName)-i-1]))
 	}
 	EliminateRaidRankingRewardExcelAddRewardParcelUniqueName(b, b.EndVector(len(t.RewardParcelUniqueName)))
 	EliminateRaidRankingRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))

@@ -36,26 +36,26 @@ func (t *ConquestErosionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	ConquestErosionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ConquestErosionExcelAddErosionType(b, fbsutils.Convert(t.ErosionType, t.FlatBuffer.TableKey))
 	ConquestErosionExcelAddPhase(b, fbsutils.Convert(t.Phase, t.FlatBuffer.TableKey))
-	ConquestErosionExcelAddPhaseAlarm(b, fbsutils.Convert(t.PhaseAlarm, t.FlatBuffer.TableKey))
+	ConquestErosionExcelAddPhaseAlarm(b, t.PhaseAlarm)
 	ConquestErosionExcelAddStepIndex(b, fbsutils.Convert(t.StepIndex, t.FlatBuffer.TableKey))
 	ConquestErosionExcelStartPhaseStartConditionTypeVector(b, len(t.PhaseStartConditionType))
 	for i := range len(t.PhaseStartConditionType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.PhaseStartConditionType[len(t.PhaseStartConditionType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.PhaseStartConditionType[len(t.PhaseStartConditionType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ConquestErosionExcelAddPhaseStartConditionType(b, b.EndVector(len(t.PhaseStartConditionType)))
 	ConquestErosionExcelStartPhaseStartConditionParameterVector(b, len(t.PhaseStartConditionParameter))
 	for i := range len(t.PhaseStartConditionParameter) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.PhaseStartConditionParameter[len(t.PhaseStartConditionParameter)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.PhaseStartConditionParameter[len(t.PhaseStartConditionParameter)-i-1]))
 	}
 	ConquestErosionExcelAddPhaseStartConditionParameter(b, b.EndVector(len(t.PhaseStartConditionParameter)))
 	ConquestErosionExcelStartPhaseBeforeExposeConditionTypeVector(b, len(t.PhaseBeforeExposeConditionType))
 	for i := range len(t.PhaseBeforeExposeConditionType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.PhaseBeforeExposeConditionType[len(t.PhaseBeforeExposeConditionType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.PhaseBeforeExposeConditionType[len(t.PhaseBeforeExposeConditionType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ConquestErosionExcelAddPhaseBeforeExposeConditionType(b, b.EndVector(len(t.PhaseBeforeExposeConditionType)))
 	ConquestErosionExcelStartPhaseBeforeExposeConditionParameterVector(b, len(t.PhaseBeforeExposeConditionParameter))
 	for i := range len(t.PhaseBeforeExposeConditionParameter) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.PhaseBeforeExposeConditionParameter[len(t.PhaseBeforeExposeConditionParameter)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.PhaseBeforeExposeConditionParameter[len(t.PhaseBeforeExposeConditionParameter)-i-1]))
 	}
 	ConquestErosionExcelAddPhaseBeforeExposeConditionParameter(b, b.EndVector(len(t.PhaseBeforeExposeConditionParameter)))
 	ConquestErosionExcelAddErosionBattleConditionParcelType(b, fbsutils.Convert(t.ErosionBattleConditionParcelType, t.FlatBuffer.TableKey))
@@ -81,7 +81,7 @@ func (t *ConquestErosionExcelDto) UnmarshalMessage(e *ConquestErosionExcel) erro
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ErosionType = ConquestErosionType(fbsutils.Convert(int32(e.ErosionType()), t.FlatBuffer.TableKey))
 	t.Phase = fbsutils.Convert(e.Phase(), t.FlatBuffer.TableKey)
-	t.PhaseAlarm = fbsutils.Convert(e.PhaseAlarm(), t.FlatBuffer.TableKey)
+	t.PhaseAlarm = e.PhaseAlarm()
 	t.StepIndex = fbsutils.Convert(e.StepIndex(), t.FlatBuffer.TableKey)
 	t.PhaseStartConditionType = make([]ConquestConditionType, e.PhaseStartConditionTypeLength())
 	for i := range e.PhaseStartConditionTypeLength() {

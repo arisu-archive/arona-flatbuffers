@@ -26,12 +26,12 @@ func (t *WebEventSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	}
 	WebEventSeasonExcelStart(b)
 	WebEventSeasonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	WebEventSeasonExcelAddEnabled(b, fbsutils.Convert(t.Enabled, t.FlatBuffer.TableKey))
-	WebEventSeasonExcelAddStartDate(b, fbsutils.Convert(b.CreateString(t.StartDate), t.FlatBuffer.TableKey))
-	WebEventSeasonExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
-	WebEventSeasonExcelAddLobbyBannerImage(b, fbsutils.Convert(b.CreateString(t.LobbyBannerImage), t.FlatBuffer.TableKey))
-	WebEventSeasonExcelAddPopupTitleLocalizeKey(b, fbsutils.Convert(b.CreateString(t.PopupTitleLocalizeKey), t.FlatBuffer.TableKey))
-	WebEventSeasonExcelAddEventUrl(b, fbsutils.Convert(b.CreateString(t.EventUrl), t.FlatBuffer.TableKey))
+	WebEventSeasonExcelAddEnabled(b, t.Enabled)
+	WebEventSeasonExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
+	WebEventSeasonExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
+	WebEventSeasonExcelAddLobbyBannerImage(b, b.CreateString(fbsutils.Convert(t.LobbyBannerImage, t.FlatBuffer.TableKey)))
+	WebEventSeasonExcelAddPopupTitleLocalizeKey(b, b.CreateString(fbsutils.Convert(t.PopupTitleLocalizeKey, t.FlatBuffer.TableKey)))
+	WebEventSeasonExcelAddEventUrl(b, b.CreateString(fbsutils.Convert(t.EventUrl, t.FlatBuffer.TableKey)))
 	return WebEventSeasonExcelEnd(b)
 }
 
@@ -48,7 +48,7 @@ func (t *WebEventSeasonExcelDto) UnmarshalMessage(e *WebEventSeasonExcel) error 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WebEventSeason"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Enabled = fbsutils.Convert(e.Enabled(), t.FlatBuffer.TableKey)
+	t.Enabled = e.Enabled()
 	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
 	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
 	t.LobbyBannerImage = fbsutils.Convert(string(e.LobbyBannerImage()), t.FlatBuffer.TableKey)

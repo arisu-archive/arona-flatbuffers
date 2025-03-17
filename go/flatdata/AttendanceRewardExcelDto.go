@@ -26,10 +26,10 @@ func (t *AttendanceRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	AttendanceRewardExcelStart(b)
 	AttendanceRewardExcelAddAttendanceId(b, fbsutils.Convert(t.AttendanceId, t.FlatBuffer.TableKey))
 	AttendanceRewardExcelAddDay(b, fbsutils.Convert(t.Day, t.FlatBuffer.TableKey))
-	AttendanceRewardExcelAddRewardIcon(b, fbsutils.Convert(b.CreateString(t.RewardIcon), t.FlatBuffer.TableKey))
+	AttendanceRewardExcelAddRewardIcon(b, b.CreateString(fbsutils.Convert(t.RewardIcon, t.FlatBuffer.TableKey)))
 	AttendanceRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	AttendanceRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	AttendanceRewardExcelStartRewardIdVector(b, len(t.RewardId))

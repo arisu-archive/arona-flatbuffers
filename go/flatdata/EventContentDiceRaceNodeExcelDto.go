@@ -31,7 +31,7 @@ func (t *EventContentDiceRaceNodeExcelDto) MarshalModel(b *flatbuffers.Builder) 
 	EventContentDiceRaceNodeExcelAddMoveForwardTypeArg(b, fbsutils.Convert(t.MoveForwardTypeArg, t.FlatBuffer.TableKey))
 	EventContentDiceRaceNodeExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentDiceRaceNodeExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	EventContentDiceRaceNodeExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))

@@ -27,7 +27,7 @@ func (t *EchelonConstraintExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	}
 	EchelonConstraintExcelStart(b)
 	EchelonConstraintExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	EchelonConstraintExcelAddIsWhiteList(b, fbsutils.Convert(t.IsWhiteList, t.FlatBuffer.TableKey))
+	EchelonConstraintExcelAddIsWhiteList(b, t.IsWhiteList)
 	EchelonConstraintExcelStartCharacterIdVector(b, len(t.CharacterId))
 	for i := range len(t.CharacterId) {
 		b.PrependInt64(fbsutils.Convert(t.CharacterId[len(t.CharacterId)-i-1], t.FlatBuffer.TableKey))
@@ -58,7 +58,7 @@ func (t *EchelonConstraintExcelDto) UnmarshalMessage(e *EchelonConstraintExcel) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EchelonConstraint"))
 	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.IsWhiteList = fbsutils.Convert(e.IsWhiteList(), t.FlatBuffer.TableKey)
+	t.IsWhiteList = e.IsWhiteList()
 	t.CharacterId = make([]int64, e.CharacterIdLength())
 	for i := range e.CharacterIdLength() {
 		t.CharacterId[i] = fbsutils.Convert(e.CharacterId(i), t.FlatBuffer.TableKey)

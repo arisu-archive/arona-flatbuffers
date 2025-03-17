@@ -25,7 +25,7 @@ func (t *EventContentBoxGachaManageExcelDto) MarshalModel(b *flatbuffers.Builder
 	EventContentBoxGachaManageExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentBoxGachaManageExcelAddRound(b, fbsutils.Convert(t.Round, t.FlatBuffer.TableKey))
 	EventContentBoxGachaManageExcelAddGoodsId(b, fbsutils.Convert(t.GoodsId, t.FlatBuffer.TableKey))
-	EventContentBoxGachaManageExcelAddIsLoop(b, fbsutils.Convert(t.IsLoop, t.FlatBuffer.TableKey))
+	EventContentBoxGachaManageExcelAddIsLoop(b, t.IsLoop)
 	return EventContentBoxGachaManageExcelEnd(b)
 }
 
@@ -44,7 +44,7 @@ func (t *EventContentBoxGachaManageExcelDto) UnmarshalMessage(e *EventContentBox
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.Round = fbsutils.Convert(e.Round(), t.FlatBuffer.TableKey)
 	t.GoodsId = fbsutils.Convert(e.GoodsId(), t.FlatBuffer.TableKey)
-	t.IsLoop = fbsutils.Convert(e.IsLoop(), t.FlatBuffer.TableKey)
+	t.IsLoop = e.IsLoop()
 	return nil
 }
 

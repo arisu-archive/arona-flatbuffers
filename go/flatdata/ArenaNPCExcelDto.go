@@ -36,7 +36,7 @@ func (t *ArenaNPCExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	ArenaNPCExcelAddNpcStarGrade(b, fbsutils.Convert(t.NpcStarGrade, t.FlatBuffer.TableKey))
 	ArenaNPCExcelStartExceptionCharacterRaritiesVector(b, len(t.ExceptionCharacterRarities))
 	for i := range len(t.ExceptionCharacterRarities) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ExceptionCharacterRarities[len(t.ExceptionCharacterRarities)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ExceptionCharacterRarities[len(t.ExceptionCharacterRarities)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ArenaNPCExcelAddExceptionCharacterRarities(b, b.EndVector(len(t.ExceptionCharacterRarities)))
 	ArenaNPCExcelStartExceptionMainCharacterIdsVector(b, len(t.ExceptionMainCharacterIds))

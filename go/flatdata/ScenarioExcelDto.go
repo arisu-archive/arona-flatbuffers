@@ -29,12 +29,12 @@ func (t *ScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	ScenarioExcelStart(b)
 	ScenarioExcelStartNoneVector(b, len(t.None))
 	for i := range len(t.None) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.None[len(t.None)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.None[len(t.None)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ScenarioExcelAddNone(b, b.EndVector(len(t.None)))
 	ScenarioExcelStartIdleVector(b, len(t.Idle))
 	for i := range len(t.Idle) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.Idle[len(t.Idle)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.Idle[len(t.Idle)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ScenarioExcelAddIdle(b, b.EndVector(len(t.Idle)))
 	ScenarioExcelAddCafe(b, fbsutils.Convert(t.Cafe, t.FlatBuffer.TableKey))

@@ -25,12 +25,12 @@ func (t *FieldTutorialExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	FieldTutorialExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	FieldTutorialExcelStartTutorialTypeVector(b, len(t.TutorialType))
 	for i := range len(t.TutorialType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.TutorialType[len(t.TutorialType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.TutorialType[len(t.TutorialType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	FieldTutorialExcelAddTutorialType(b, b.EndVector(len(t.TutorialType)))
 	FieldTutorialExcelStartConditionTypeVector(b, len(t.ConditionType))
 	for i := range len(t.ConditionType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ConditionType[len(t.ConditionType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ConditionType[len(t.ConditionType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	FieldTutorialExcelAddConditionType(b, b.EndVector(len(t.ConditionType)))
 	FieldTutorialExcelStartConditionIdVector(b, len(t.ConditionId))

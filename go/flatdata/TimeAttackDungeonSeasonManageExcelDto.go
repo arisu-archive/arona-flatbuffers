@@ -27,8 +27,8 @@ func (t *TimeAttackDungeonSeasonManageExcelDto) MarshalModel(b *flatbuffers.Buil
 	}
 	TimeAttackDungeonSeasonManageExcelStart(b)
 	TimeAttackDungeonSeasonManageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	TimeAttackDungeonSeasonManageExcelAddStartDate(b, fbsutils.Convert(b.CreateString(t.StartDate), t.FlatBuffer.TableKey))
-	TimeAttackDungeonSeasonManageExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
+	TimeAttackDungeonSeasonManageExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
+	TimeAttackDungeonSeasonManageExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
 	TimeAttackDungeonSeasonManageExcelAddUiSlot(b, fbsutils.Convert(t.UiSlot, t.FlatBuffer.TableKey))
 	TimeAttackDungeonSeasonManageExcelAddDungeonId(b, fbsutils.Convert(t.DungeonId, t.FlatBuffer.TableKey))
 	TimeAttackDungeonSeasonManageExcelStartDifficultyGeasVector(b, len(t.DifficultyGeas))
