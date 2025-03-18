@@ -12,6 +12,7 @@ type ShopCashExcelDto struct {
 	fbsutils.FlatBuffer
 	Id                      int64              `json:"id"`
 	CashProductId           int64              `json:"cash_product_id"`
+	PackageType             PurchaseSourceType `json:"package_type"`
 	LocalizeEtcId           uint32             `json:"localize_etc_id"`
 	IconPath                string             `json:"icon_path"`
 	DisplayOrder            int64              `json:"display_order"`
@@ -39,6 +40,7 @@ func (t *ShopCashExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	ShopCashExcelStart(b)
 	ShopCashExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ShopCashExcelAddCashProductId(b, fbsutils.Convert(t.CashProductId, t.FlatBuffer.TableKey))
+	ShopCashExcelAddPackageType(b, fbsutils.Convert(t.PackageType, t.FlatBuffer.TableKey))
 	ShopCashExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	ShopCashExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
 	ShopCashExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
@@ -73,6 +75,7 @@ func (t *ShopCashExcelDto) UnmarshalMessage(e *ShopCashExcel) error {
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.CashProductId = fbsutils.Convert(e.CashProductId(), t.FlatBuffer.TableKey)
+	t.PackageType = PurchaseSourceType(fbsutils.Convert(int32(e.PackageType()), t.FlatBuffer.TableKey))
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)

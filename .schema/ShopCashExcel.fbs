@@ -7,6 +7,7 @@ namespace FlatData;
 table ShopCashExcel {
     id: long;
     cash_product_id: long;
+    package_type: PurchaseSourceType;
     localize_etc_id: uint;
     icon_path: string;
     display_order: long;
