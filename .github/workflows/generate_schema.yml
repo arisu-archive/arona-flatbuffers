@@ -87,7 +87,9 @@ jobs:
         env:
           GOPRIVATE: github.com/arisu-archive
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: go run github.com/arisu-archive/arona-unflatd@latest d -i ./output/DiffableCs/BlueArchive -o ./.schema
+        run: |
+          go run github.com/arisu-archive/arona-unflatd@develop d -i ./output/DiffableCs/BlueArchive -o ./.schema/flatdata -n FlatData
+          go run github.com/arisu-archive/arona-unflatd@develop d -i ./output/DiffableCs/BlueArchive -o ./.schema/excel -n "MX.Data.Excel"
       - name: Install FlatBuffers compiler
         run: |
           sudo apt update

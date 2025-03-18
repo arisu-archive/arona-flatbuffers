@@ -15,11 +15,18 @@ func main() {
 
 	// Parse command line flags
 	dirFlag := flag.String("dir", "", "Directory containing generated FlatBuffer files")
-	langFlag := flag.String("lang", "", "Language to process (go, cpp, java, or all)")
+	langFlag := flag.String("lang", "", "Language to process (go)")
+	packageFlag := flag.String("p", "", "Package name")
 	flag.Parse()
 
 	if *dirFlag == "" {
 		logger.Error("Error: Missing required --dir flag")
+		flag.Usage()
+		os.Exit(1)
+	}
+
+	if *packageFlag == "" {
+		logger.Error("Error: Missing required --p flag")
 		flag.Usage()
 		os.Exit(1)
 	}
@@ -38,6 +45,7 @@ func main() {
 	opts := fbstools.ProcessorOptions{
 		Directory: *dirFlag,
 		Language:  lang,
+		Package:   *packageFlag,
 	}
 
 	// Create processor
