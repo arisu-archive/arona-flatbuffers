@@ -18,9 +18,6 @@ type MinigameDreamVoiceExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MinigameDreamVoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameDreamVoice"))
-	}
 	MinigameDreamVoiceExcelStart(b)
 	MinigameDreamVoiceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MinigameDreamVoiceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
@@ -38,9 +35,6 @@ func (t *MinigameDreamVoiceExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MinigameDreamVoiceExcelDto) UnmarshalMessage(e *MinigameDreamVoiceExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameDreamVoice"))
-	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.VoiceCondition = DreamMakerVoiceCondition(fbsutils.Convert(int32(e.VoiceCondition()), t.FlatBuffer.TableKey))

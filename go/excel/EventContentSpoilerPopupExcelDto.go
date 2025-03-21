@@ -19,9 +19,6 @@ type EventContentSpoilerPopupExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentSpoilerPopupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpoilerPopup"))
-	}
 	EventContentSpoilerPopupExcelStart(b)
 	EventContentSpoilerPopupExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentSpoilerPopupExcelAddSpoilerPopupTitle(b, b.CreateString(fbsutils.Convert(t.SpoilerPopupTitle, t.FlatBuffer.TableKey)))
@@ -40,9 +37,6 @@ func (t *EventContentSpoilerPopupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentSpoilerPopupExcelDto) UnmarshalMessage(e *EventContentSpoilerPopupExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpoilerPopup"))
-	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.SpoilerPopupTitle = fbsutils.Convert(string(e.SpoilerPopupTitle()), t.FlatBuffer.TableKey)
 	t.SpoilerPopupDescription = fbsutils.Convert(string(e.SpoilerPopupDescription()), t.FlatBuffer.TableKey)

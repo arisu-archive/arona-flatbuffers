@@ -25,9 +25,6 @@ type CameraExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CameraExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Camera"))
-	}
 	CameraExcelStart(b)
 	CameraExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	CameraExcelAddMinDistance(b, fbsutils.Convert(t.MinDistance, t.FlatBuffer.TableKey))
@@ -52,9 +49,6 @@ func (t *CameraExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CameraExcelDto) UnmarshalMessage(e *CameraExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Camera"))
-	}
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.MinDistance = fbsutils.Convert(e.MinDistance(), t.FlatBuffer.TableKey)
 	t.MaxDistance = fbsutils.Convert(e.MaxDistance(), t.FlatBuffer.TableKey)

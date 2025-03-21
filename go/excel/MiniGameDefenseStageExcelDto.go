@@ -41,9 +41,6 @@ type MiniGameDefenseStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDefenseStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseStage"))
-	}
 	MiniGameDefenseStageExcelStart(b)
 	MiniGameDefenseStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MiniGameDefenseStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
@@ -100,9 +97,6 @@ func (t *MiniGameDefenseStageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDefenseStageExcelDto) UnmarshalMessage(e *MiniGameDefenseStageExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseStage"))
-	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)

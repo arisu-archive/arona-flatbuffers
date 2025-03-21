@@ -21,9 +21,6 @@ type ScenarioCharacterSituationSetExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioCharacterSituationSetExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioCharacterSituationSet"))
-	}
 	ScenarioCharacterSituationSetExcelStart(b)
 	ScenarioCharacterSituationSetExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	ScenarioCharacterSituationSetExcelAddFace(b, b.CreateString(fbsutils.Convert(t.Face, t.FlatBuffer.TableKey)))
@@ -44,9 +41,6 @@ func (t *ScenarioCharacterSituationSetExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioCharacterSituationSetExcelDto) UnmarshalMessage(e *ScenarioCharacterSituationSetExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioCharacterSituationSet"))
-	}
 	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
 	t.Face = fbsutils.Convert(string(e.Face()), t.FlatBuffer.TableKey)
 	t.Behavior = fbsutils.Convert(string(e.Behavior()), t.FlatBuffer.TableKey)

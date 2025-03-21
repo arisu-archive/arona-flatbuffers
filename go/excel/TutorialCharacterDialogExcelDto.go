@@ -22,9 +22,6 @@ type TutorialCharacterDialogExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TutorialCharacterDialogExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TutorialCharacterDialog"))
-	}
 	TutorialCharacterDialogExcelStart(b)
 	TutorialCharacterDialogExcelAddTalkId(b, fbsutils.Convert(t.TalkId, t.FlatBuffer.TableKey))
 	TutorialCharacterDialogExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
@@ -46,9 +43,6 @@ func (t *TutorialCharacterDialogExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TutorialCharacterDialogExcelDto) UnmarshalMessage(e *TutorialCharacterDialogExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TutorialCharacterDialog"))
-	}
 	t.TalkId = fbsutils.Convert(e.TalkId(), t.FlatBuffer.TableKey)
 	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
 	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)

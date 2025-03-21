@@ -19,9 +19,6 @@ type EventContentTreasureExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EventContentTreasureExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentTreasure"))
-	}
 	EventContentTreasureExcelStart(b)
 	EventContentTreasureExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentTreasureExcelAddTitleLocalize(b, b.CreateString(fbsutils.Convert(t.TitleLocalize, t.FlatBuffer.TableKey)))
@@ -40,9 +37,6 @@ func (t *EventContentTreasureExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EventContentTreasureExcelDto) UnmarshalMessage(e *EventContentTreasureExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentTreasure"))
-	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.TitleLocalize = fbsutils.Convert(string(e.TitleLocalize()), t.FlatBuffer.TableKey)
 	t.LoopRound = fbsutils.Convert(e.LoopRound(), t.FlatBuffer.TableKey)

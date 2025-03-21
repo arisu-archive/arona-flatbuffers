@@ -21,9 +21,6 @@ type MiniGameDreamReplayScenarioExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamReplayScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamReplayScenario"))
-	}
 	MiniGameDreamReplayScenarioExcelStart(b)
 	MiniGameDreamReplayScenarioExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameDreamReplayScenarioExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
@@ -44,9 +41,6 @@ func (t *MiniGameDreamReplayScenarioExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamReplayScenarioExcelDto) UnmarshalMessage(e *MiniGameDreamReplayScenarioExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamReplayScenario"))
-	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)

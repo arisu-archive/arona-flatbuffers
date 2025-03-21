@@ -39,9 +39,6 @@ type MultiFloorRaidStageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MultiFloorRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MultiFloorRaidStage"))
-	}
 	MultiFloorRaidStageExcelStart(b)
 	MultiFloorRaidStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MultiFloorRaidStageExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
@@ -100,9 +97,6 @@ func (t *MultiFloorRaidStageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MultiFloorRaidStageExcelDto) UnmarshalMessage(e *MultiFloorRaidStageExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MultiFloorRaidStage"))
-	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
 	t.BossGroupId = fbsutils.Convert(string(e.BossGroupId()), t.FlatBuffer.TableKey)

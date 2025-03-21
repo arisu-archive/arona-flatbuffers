@@ -21,9 +21,6 @@ type ScenarioBGNameGlobalExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioBGNameGlobalExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioBGName_Global"))
-	}
 	ScenarioBGName_GlobalExcelStart(b)
 	ScenarioBGName_GlobalExcelAddGroupName(b, fbsutils.Convert(t.GroupName, t.FlatBuffer.TableKey))
 	ScenarioBGName_GlobalExcelAddNameKr(b, fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey))
@@ -44,9 +41,6 @@ func (t *ScenarioBGNameGlobalExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioBGNameGlobalExcelDto) UnmarshalMessage(e *ScenarioBGName_GlobalExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioBGName_Global"))
-	}
 	t.GroupName = fbsutils.Convert(e.GroupName(), t.FlatBuffer.TableKey)
 	t.NameKr = fbsutils.Convert(e.NameKr(), t.FlatBuffer.TableKey)
 	t.NameTw = fbsutils.Convert(e.NameTw(), t.FlatBuffer.TableKey)

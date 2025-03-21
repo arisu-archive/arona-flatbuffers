@@ -17,9 +17,6 @@ type BGMRaidExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BGMRaidExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BGMRaid"))
-	}
 	BGMRaidExcelStart(b)
 	BGMRaidExcelAddStageId(b, fbsutils.Convert(t.StageId, t.FlatBuffer.TableKey))
 	BGMRaidExcelAddPhaseIndex(b, fbsutils.Convert(t.PhaseIndex, t.FlatBuffer.TableKey))
@@ -36,9 +33,6 @@ func (t *BGMRaidExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BGMRaidExcelDto) UnmarshalMessage(e *BGMRaidExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BGMRaid"))
-	}
 	t.StageId = fbsutils.Convert(e.StageId(), t.FlatBuffer.TableKey)
 	t.PhaseIndex = fbsutils.Convert(e.PhaseIndex(), t.FlatBuffer.TableKey)
 	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)

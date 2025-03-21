@@ -25,9 +25,6 @@ type CharacterVoiceSubtitleExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterVoiceSubtitleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVoiceSubtitle"))
-	}
 	CharacterVoiceSubtitleExcelStart(b)
 	CharacterVoiceSubtitleExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
 	CharacterVoiceSubtitleExcelAddCharacterVoiceGroupId(b, fbsutils.Convert(t.CharacterVoiceGroupId, t.FlatBuffer.TableKey))
@@ -52,9 +49,6 @@ func (t *CharacterVoiceSubtitleExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterVoiceSubtitleExcelDto) UnmarshalMessage(e *CharacterVoiceSubtitleExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVoiceSubtitle"))
-	}
 	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
 	t.CharacterVoiceGroupId = fbsutils.Convert(e.CharacterVoiceGroupId(), t.FlatBuffer.TableKey)
 	t.Tlmid = fbsutils.Convert(string(e.Tlmid()), t.FlatBuffer.TableKey)

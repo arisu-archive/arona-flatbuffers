@@ -19,9 +19,6 @@ type VoiceTimelineExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceTimelineExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceTimeline"))
-	}
 	VoiceTimelineExcelStart(b)
 	VoiceTimelineExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	VoiceTimelineExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -52,9 +49,6 @@ func (t *VoiceTimelineExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VoiceTimelineExcelDto) UnmarshalMessage(e *VoiceTimelineExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceTimeline"))
-	}
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Nation = make([]Nation, e.NationLength())

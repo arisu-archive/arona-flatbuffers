@@ -44,9 +44,6 @@ type CharacterDialogExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialog"))
-	}
 	CharacterDialogExcelStart(b)
 	CharacterDialogExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	CharacterDialogExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
@@ -94,9 +91,6 @@ func (t *CharacterDialogExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterDialogExcelDto) UnmarshalMessage(e *CharacterDialogExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialog"))
-	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.CostumeUniqueId = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)

@@ -55,9 +55,6 @@ type ScenarioModeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioMode"))
-	}
 	ScenarioModeExcelStart(b)
 	ScenarioModeExcelAddModeId(b, fbsutils.Convert(t.ModeId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddModeType(b, fbsutils.Convert(t.ModeType, t.FlatBuffer.TableKey))
@@ -124,9 +121,6 @@ func (t *ScenarioModeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioModeExcelDto) UnmarshalMessage(e *ScenarioModeExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioMode"))
-	}
 	t.ModeId = fbsutils.Convert(e.ModeId(), t.FlatBuffer.TableKey)
 	t.ModeType = ScenarioModeTypes(fbsutils.Convert(int32(e.ModeType()), t.FlatBuffer.TableKey))
 	t.SubType = ScenarioModeSubTypes(fbsutils.Convert(int32(e.SubType()), t.FlatBuffer.TableKey))

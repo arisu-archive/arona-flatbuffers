@@ -25,9 +25,6 @@ type CharacterDialogSubtitleExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogSubtitleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogSubtitle"))
-	}
 	CharacterDialogSubtitleExcelStart(b)
 	CharacterDialogSubtitleExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
 	CharacterDialogSubtitleExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
@@ -52,9 +49,6 @@ func (t *CharacterDialogSubtitleExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterDialogSubtitleExcelDto) UnmarshalMessage(e *CharacterDialogSubtitleExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogSubtitle"))
-	}
 	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.Tlmid = fbsutils.Convert(string(e.Tlmid()), t.FlatBuffer.TableKey)

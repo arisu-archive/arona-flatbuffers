@@ -27,9 +27,6 @@ type MiniGameDreamInfoExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamInfo"))
-	}
 	MiniGameDreamInfoExcelStart(b)
 	MiniGameDreamInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameDreamInfoExcelAddDreamMakerMultiplierCondition(b, fbsutils.Convert(t.DreamMakerMultiplierCondition, t.FlatBuffer.TableKey))
@@ -56,9 +53,6 @@ func (t *MiniGameDreamInfoExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamInfoExcelDto) UnmarshalMessage(e *MiniGameDreamInfoExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamInfo"))
-	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.DreamMakerMultiplierCondition = DreamMakerMultiplierCondition(fbsutils.Convert(int32(e.DreamMakerMultiplierCondition()), t.FlatBuffer.TableKey))
 	t.DreamMakerMultiplierConditionValue = fbsutils.Convert(e.DreamMakerMultiplierConditionValue(), t.FlatBuffer.TableKey)

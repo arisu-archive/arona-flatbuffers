@@ -17,9 +17,6 @@ type ServiceActionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ServiceActionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ServiceAction"))
-	}
 	ServiceActionExcelStart(b)
 	ServiceActionExcelAddServiceActionType(b, fbsutils.Convert(t.ServiceActionType, t.FlatBuffer.TableKey))
 	ServiceActionExcelAddIsLegacy(b, t.IsLegacy)
@@ -36,9 +33,6 @@ func (t *ServiceActionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ServiceActionExcelDto) UnmarshalMessage(e *ServiceActionExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ServiceAction"))
-	}
 	t.ServiceActionType = ServiceActionType(fbsutils.Convert(int32(e.ServiceActionType()), t.FlatBuffer.TableKey))
 	t.IsLegacy = e.IsLegacy()
 	t.GoodsId = fbsutils.Convert(e.GoodsId(), t.FlatBuffer.TableKey)

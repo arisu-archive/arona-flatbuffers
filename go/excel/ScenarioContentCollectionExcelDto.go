@@ -27,9 +27,6 @@ type ScenarioContentCollectionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioContentCollectionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioContentCollection"))
-	}
 	ScenarioContentCollectionExcelStart(b)
 	ScenarioContentCollectionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ScenarioContentCollectionExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
@@ -60,9 +57,6 @@ func (t *ScenarioContentCollectionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioContentCollectionExcelDto) UnmarshalMessage(e *ScenarioContentCollectionExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioContentCollection"))
-	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.UnlockConditionType = CollectionUnlockType(fbsutils.Convert(int32(e.UnlockConditionType()), t.FlatBuffer.TableKey))

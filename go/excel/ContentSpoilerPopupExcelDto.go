@@ -19,9 +19,6 @@ type ContentSpoilerPopupExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ContentSpoilerPopupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentSpoilerPopup"))
-	}
 	ContentSpoilerPopupExcelStart(b)
 	ContentSpoilerPopupExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
 	ContentSpoilerPopupExcelAddSpoilerPopupTitle(b, b.CreateString(fbsutils.Convert(t.SpoilerPopupTitle, t.FlatBuffer.TableKey)))
@@ -40,9 +37,6 @@ func (t *ContentSpoilerPopupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ContentSpoilerPopupExcelDto) UnmarshalMessage(e *ContentSpoilerPopupExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentSpoilerPopup"))
-	}
 	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
 	t.SpoilerPopupTitle = fbsutils.Convert(string(e.SpoilerPopupTitle()), t.FlatBuffer.TableKey)
 	t.SpoilerPopupDescription = fbsutils.Convert(string(e.SpoilerPopupDescription()), t.FlatBuffer.TableKey)

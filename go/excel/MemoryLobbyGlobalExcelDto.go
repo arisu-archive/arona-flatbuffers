@@ -22,9 +22,6 @@ type MemoryLobbyGlobalExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MemoryLobbyGlobalExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MemoryLobby_Global"))
-	}
 	MemoryLobby_GlobalExcelStart(b)
 	MemoryLobby_GlobalExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MemoryLobby_GlobalExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
@@ -46,9 +43,6 @@ func (t *MemoryLobbyGlobalExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MemoryLobbyGlobalExcelDto) UnmarshalMessage(e *MemoryLobby_GlobalExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MemoryLobby_Global"))
-	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.PrefabNameKr = fbsutils.Convert(string(e.PrefabNameKr()), t.FlatBuffer.TableKey)

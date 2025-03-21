@@ -22,9 +22,6 @@ type MiniGameDreamEndingRewardExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamEndingRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamEndingReward"))
-	}
 	MiniGameDreamEndingRewardExcelStart(b)
 	MiniGameDreamEndingRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameDreamEndingRewardExcelAddEndingId(b, fbsutils.Convert(t.EndingId, t.FlatBuffer.TableKey))
@@ -58,9 +55,6 @@ func (t *MiniGameDreamEndingRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamEndingRewardExcelDto) UnmarshalMessage(e *MiniGameDreamEndingRewardExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamEndingReward"))
-	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.EndingId = fbsutils.Convert(e.EndingId(), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)

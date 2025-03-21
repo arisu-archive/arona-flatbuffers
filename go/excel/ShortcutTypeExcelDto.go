@@ -17,9 +17,6 @@ type ShortcutTypeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShortcutTypeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShortcutType"))
-	}
 	ShortcutTypeExcelStart(b)
 	ShortcutTypeExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ShortcutTypeExcelAddIsAscending(b, t.IsAscending)
@@ -40,9 +37,6 @@ func (t *ShortcutTypeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ShortcutTypeExcelDto) UnmarshalMessage(e *ShortcutTypeExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShortcutType"))
-	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.IsAscending = e.IsAscending()
 	t.ContentType = make([]ShortcutContentType, e.ContentTypeLength())

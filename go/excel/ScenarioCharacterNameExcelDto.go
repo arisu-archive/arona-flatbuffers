@@ -29,9 +29,6 @@ type ScenarioCharacterNameExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioCharacterNameExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioCharacterName"))
-	}
 	ScenarioCharacterNameExcelStart(b)
 	ScenarioCharacterNameExcelAddCharacterName(b, fbsutils.Convert(t.CharacterName, t.FlatBuffer.TableKey))
 	ScenarioCharacterNameExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
@@ -60,9 +57,6 @@ func (t *ScenarioCharacterNameExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioCharacterNameExcelDto) UnmarshalMessage(e *ScenarioCharacterNameExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioCharacterName"))
-	}
 	t.CharacterName = fbsutils.Convert(e.CharacterName(), t.FlatBuffer.TableKey)
 	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
 	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)

@@ -23,9 +23,6 @@ type MiniGameDreamParameterExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamParameterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamParameter"))
-	}
 	MiniGameDreamParameterExcelStart(b)
 	MiniGameDreamParameterExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MiniGameDreamParameterExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
@@ -48,9 +45,6 @@ func (t *MiniGameDreamParameterExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamParameterExcelDto) UnmarshalMessage(e *MiniGameDreamParameterExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDreamParameter"))
-	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.ParameterType = DreamMakerParameterType(fbsutils.Convert(int32(e.ParameterType()), t.FlatBuffer.TableKey))

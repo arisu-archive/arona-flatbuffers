@@ -28,9 +28,6 @@ type CharacterVoiceExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterVoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVoice"))
-	}
 	CharacterVoiceExcelStart(b)
 	CharacterVoiceExcelAddCharacterVoiceUniqueId(b, fbsutils.Convert(t.CharacterVoiceUniqueId, t.FlatBuffer.TableKey))
 	CharacterVoiceExcelAddCharacterVoiceGroupId(b, fbsutils.Convert(t.CharacterVoiceGroupId, t.FlatBuffer.TableKey))
@@ -74,9 +71,6 @@ func (t *CharacterVoiceExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterVoiceExcelDto) UnmarshalMessage(e *CharacterVoiceExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterVoice"))
-	}
 	t.CharacterVoiceUniqueId = fbsutils.Convert(e.CharacterVoiceUniqueId(), t.FlatBuffer.TableKey)
 	t.CharacterVoiceGroupId = fbsutils.Convert(e.CharacterVoiceGroupId(), t.FlatBuffer.TableKey)
 	t.VoiceHash = fbsutils.Convert(e.VoiceHash(), t.FlatBuffer.TableKey)

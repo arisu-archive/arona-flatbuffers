@@ -22,9 +22,6 @@ type IdCardBackgroundExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *IdCardBackgroundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("IdCardBackground"))
-	}
 	IdCardBackgroundExcelStart(b)
 	IdCardBackgroundExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	IdCardBackgroundExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
@@ -46,9 +43,6 @@ func (t *IdCardBackgroundExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *IdCardBackgroundExcelDto) UnmarshalMessage(e *IdCardBackgroundExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("IdCardBackground"))
-	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)

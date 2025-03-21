@@ -27,9 +27,6 @@ type ContentsShortcutExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ContentsShortcutExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentsShortcut"))
-	}
 	ContentsShortcutExcelStart(b)
 	ContentsShortcutExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	ContentsShortcutExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
@@ -60,9 +57,6 @@ func (t *ContentsShortcutExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ContentsShortcutExcelDto) UnmarshalMessage(e *ContentsShortcutExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ContentsShortcut"))
-	}
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)

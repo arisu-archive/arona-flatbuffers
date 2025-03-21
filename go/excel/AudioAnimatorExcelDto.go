@@ -27,9 +27,6 @@ type AudioAnimatorExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AudioAnimatorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AudioAnimator"))
-	}
 	AudioAnimatorExcelStart(b)
 	AudioAnimatorExcelAddControllerNameHash(b, fbsutils.Convert(t.ControllerNameHash, t.FlatBuffer.TableKey))
 	AudioAnimatorExcelAddVoiceNamePrefix(b, b.CreateString(fbsutils.Convert(t.VoiceNamePrefix, t.FlatBuffer.TableKey)))
@@ -64,9 +61,6 @@ func (t *AudioAnimatorExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AudioAnimatorExcelDto) UnmarshalMessage(e *AudioAnimatorExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AudioAnimator"))
-	}
 	t.ControllerNameHash = fbsutils.Convert(e.ControllerNameHash(), t.FlatBuffer.TableKey)
 	t.VoiceNamePrefix = fbsutils.Convert(string(e.VoiceNamePrefix()), t.FlatBuffer.TableKey)
 	t.StateNameHash = fbsutils.Convert(e.StateNameHash(), t.FlatBuffer.TableKey)

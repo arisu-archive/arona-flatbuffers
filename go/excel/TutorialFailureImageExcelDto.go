@@ -22,9 +22,6 @@ type TutorialFailureImageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TutorialFailureImageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TutorialFailureImage"))
-	}
 	TutorialFailureImageExcelStart(b)
 	TutorialFailureImageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	TutorialFailureImageExcelAddContents(b, fbsutils.Convert(t.Contents, t.FlatBuffer.TableKey))
@@ -46,9 +43,6 @@ func (t *TutorialFailureImageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TutorialFailureImageExcelDto) UnmarshalMessage(e *TutorialFailureImageExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TutorialFailureImage"))
-	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Contents = TutorialFailureContentType(fbsutils.Convert(int32(e.Contents()), t.FlatBuffer.TableKey))
 	t.Type = fbsutils.Convert(string(e.Type()), t.FlatBuffer.TableKey)

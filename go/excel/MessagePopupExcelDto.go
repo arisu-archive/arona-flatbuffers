@@ -27,9 +27,6 @@ type MessagePopupExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MessagePopupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MessagePopup"))
-	}
 	MessagePopupExcelStart(b)
 	MessagePopupExcelAddStringId(b, fbsutils.Convert(t.StringId, t.FlatBuffer.TableKey))
 	MessagePopupExcelAddMessagePopupLayout(b, fbsutils.Convert(t.MessagePopupLayout, t.FlatBuffer.TableKey))
@@ -76,9 +73,6 @@ func (t *MessagePopupExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MessagePopupExcelDto) UnmarshalMessage(e *MessagePopupExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MessagePopup"))
-	}
 	t.StringId = fbsutils.Convert(e.StringId(), t.FlatBuffer.TableKey)
 	t.MessagePopupLayout = MessagePopupLayout(fbsutils.Convert(int32(e.MessagePopupLayout()), t.FlatBuffer.TableKey))
 	t.OrderType = MessagePopupImagePositionType(fbsutils.Convert(int32(e.OrderType()), t.FlatBuffer.TableKey))

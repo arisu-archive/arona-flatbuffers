@@ -19,9 +19,6 @@ type MiniGameDefenseInfoExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDefenseInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseInfo"))
-	}
 	MiniGameDefenseInfoExcelStart(b)
 	MiniGameDefenseInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameDefenseInfoExcelAddDefenseBattleParcelType(b, fbsutils.Convert(t.DefenseBattleParcelType, t.FlatBuffer.TableKey))
@@ -40,9 +37,6 @@ func (t *MiniGameDefenseInfoExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDefenseInfoExcelDto) UnmarshalMessage(e *MiniGameDefenseInfoExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameDefenseInfo"))
-	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.DefenseBattleParcelType = ParcelType(fbsutils.Convert(int32(e.DefenseBattleParcelType()), t.FlatBuffer.TableKey))
 	t.DefenseBattleParcelId = fbsutils.Convert(e.DefenseBattleParcelId(), t.FlatBuffer.TableKey)

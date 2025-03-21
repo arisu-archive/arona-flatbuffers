@@ -24,9 +24,6 @@ type ScenarioResourceInfoExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioResourceInfo"))
-	}
 	ScenarioResourceInfoExcelStart(b)
 	ScenarioResourceInfoExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelAddScenarioModeId(b, fbsutils.Convert(t.ScenarioModeId, t.FlatBuffer.TableKey))
@@ -50,9 +47,6 @@ func (t *ScenarioResourceInfoExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioResourceInfoExcelDto) UnmarshalMessage(e *ScenarioResourceInfoExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioResourceInfo"))
-	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ScenarioModeId = fbsutils.Convert(e.ScenarioModeId(), t.FlatBuffer.TableKey)
 	t.VideoId = fbsutils.Convert(e.VideoId(), t.FlatBuffer.TableKey)

@@ -29,9 +29,6 @@ type ScenarioScriptExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioScriptExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioScript"))
-	}
 	ScenarioScriptExcelStart(b)
 	ScenarioScriptExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	ScenarioScriptExcelAddSelectionGroup(b, fbsutils.Convert(t.SelectionGroup, t.FlatBuffer.TableKey))
@@ -60,9 +57,6 @@ func (t *ScenarioScriptExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioScriptExcelDto) UnmarshalMessage(e *ScenarioScriptExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioScript"))
-	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.SelectionGroup = fbsutils.Convert(e.SelectionGroup(), t.FlatBuffer.TableKey)
 	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)

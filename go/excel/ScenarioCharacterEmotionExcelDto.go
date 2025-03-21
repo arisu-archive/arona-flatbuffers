@@ -16,9 +16,6 @@ type ScenarioCharacterEmotionExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioCharacterEmotionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioCharacterEmotion"))
-	}
 	ScenarioCharacterEmotionExcelStart(b)
 	ScenarioCharacterEmotionExcelAddEmoticonName(b, b.CreateString(fbsutils.Convert(t.EmoticonName, t.FlatBuffer.TableKey)))
 	ScenarioCharacterEmotionExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
@@ -34,9 +31,6 @@ func (t *ScenarioCharacterEmotionExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioCharacterEmotionExcelDto) UnmarshalMessage(e *ScenarioCharacterEmotionExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioCharacterEmotion"))
-	}
 	t.EmoticonName = fbsutils.Convert(string(e.EmoticonName()), t.FlatBuffer.TableKey)
 	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
 	return nil

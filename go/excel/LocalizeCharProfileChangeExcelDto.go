@@ -17,9 +17,6 @@ type LocalizeCharProfileChangeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeCharProfileChangeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCharProfileChange"))
-	}
 	LocalizeCharProfileChangeExcelStart(b)
 	LocalizeCharProfileChangeExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	LocalizeCharProfileChangeExcelAddScenarioModeId(b, fbsutils.Convert(t.ScenarioModeId, t.FlatBuffer.TableKey))
@@ -36,9 +33,6 @@ func (t *LocalizeCharProfileChangeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LocalizeCharProfileChangeExcelDto) UnmarshalMessage(e *LocalizeCharProfileChangeExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCharProfileChange"))
-	}
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.ScenarioModeId = fbsutils.Convert(e.ScenarioModeId(), t.FlatBuffer.TableKey)
 	t.ChangeCharacterId = fbsutils.Convert(e.ChangeCharacterId(), t.FlatBuffer.TableKey)

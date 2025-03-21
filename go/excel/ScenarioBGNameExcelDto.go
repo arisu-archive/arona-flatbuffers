@@ -23,9 +23,6 @@ type ScenarioBGNameExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioBGNameExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioBGName"))
-	}
 	ScenarioBGNameExcelStart(b)
 	ScenarioBGNameExcelAddName(b, fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	ScenarioBGNameExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
@@ -48,9 +45,6 @@ func (t *ScenarioBGNameExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioBGNameExcelDto) UnmarshalMessage(e *ScenarioBGNameExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ScenarioBGName"))
-	}
 	t.Name = fbsutils.Convert(e.Name(), t.FlatBuffer.TableKey)
 	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
 	t.BgFileName = fbsutils.Convert(string(e.BgFileName()), t.FlatBuffer.TableKey)

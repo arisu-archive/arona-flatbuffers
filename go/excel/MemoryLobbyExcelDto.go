@@ -28,9 +28,6 @@ type MemoryLobbyExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MemoryLobbyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MemoryLobby"))
-	}
 	MemoryLobbyExcelStart(b)
 	MemoryLobbyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MemoryLobbyExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
@@ -58,9 +55,6 @@ func (t *MemoryLobbyExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MemoryLobbyExcelDto) UnmarshalMessage(e *MemoryLobbyExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MemoryLobby"))
-	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)

@@ -17,9 +17,6 @@ type VoiceCommonExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceCommon"))
-	}
 	VoiceCommonExcelStart(b)
 	VoiceCommonExcelAddVoiceEvent(b, fbsutils.Convert(t.VoiceEvent, t.FlatBuffer.TableKey))
 	VoiceCommonExcelAddRate(b, fbsutils.Convert(t.Rate, t.FlatBuffer.TableKey))
@@ -40,9 +37,6 @@ func (t *VoiceCommonExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VoiceCommonExcelDto) UnmarshalMessage(e *VoiceCommonExcel) error {
-	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceCommon"))
-	}
 	t.VoiceEvent = VoiceEvent(fbsutils.Convert(int32(e.VoiceEvent()), t.FlatBuffer.TableKey))
 	t.Rate = fbsutils.Convert(e.Rate(), t.FlatBuffer.TableKey)
 	t.VoiceHash = make([]uint32, e.VoiceHashLength())
