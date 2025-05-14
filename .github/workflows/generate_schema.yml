@@ -93,6 +93,8 @@ jobs:
           sudo apt update
           sudo apt install flatbuffers-compiler
       - name: Compile the schema into code
+        env:
+          GOPRIVATE: github.com/arisu-archive
         run: |
           ./.scripts/compile.sh
           ./.scripts/process_flatbuffers.sh
