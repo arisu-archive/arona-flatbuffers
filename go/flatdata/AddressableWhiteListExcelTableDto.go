@@ -32,7 +32,7 @@ func (t *AddressableWhiteListExcelTableDto) MarshalModel(b *flatbuffers.Builder)
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *AddressableWhiteListExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishAddressableWhiteListExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

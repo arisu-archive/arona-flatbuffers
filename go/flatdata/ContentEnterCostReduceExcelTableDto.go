@@ -32,7 +32,7 @@ func (t *ContentEnterCostReduceExcelTableDto) MarshalModel(b *flatbuffers.Builde
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *ContentEnterCostReduceExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishContentEnterCostReduceExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 
