@@ -31,7 +31,7 @@ func (t *ConquestRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	ConquestRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
 	ConquestRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
 	ConquestRewardExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
-	ConquestRewardExcelAddIsDisplayed(b, fbsutils.Convert(t.IsDisplayed, t.FlatBuffer.TableKey))
+	ConquestRewardExcelAddIsDisplayed(b, t.IsDisplayed)
 	return ConquestRewardExcelEnd(b)
 }
 
@@ -53,7 +53,7 @@ func (t *ConquestRewardExcelDto) UnmarshalMessage(e *ConquestRewardExcel) error 
 	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
 	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
-	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)
+	t.IsDisplayed = e.IsDisplayed()
 	return nil
 }
 

@@ -17,19 +17,11 @@ func GetRootAsWebEventSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *WebE
 	return x
 }
 
-func FinishWebEventSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsWebEventSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *WebEventSeasonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &WebEventSeasonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedWebEventSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *WebEventSeasonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -97,7 +89,7 @@ func (rcv *WebEventSeasonExcel) PopupTitleLocalizeKey() []byte {
 	return nil
 }
 
-func (rcv *WebEventSeasonExcel) EventUrl() []byte {
+func (rcv *WebEventSeasonExcel) StageEventUrl() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -105,8 +97,16 @@ func (rcv *WebEventSeasonExcel) EventUrl() []byte {
 	return nil
 }
 
+func (rcv *WebEventSeasonExcel) LiveEventUrl() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func WebEventSeasonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(7)
+	builder.StartObject(8)
 }
 func WebEventSeasonExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -126,8 +126,11 @@ func WebEventSeasonExcelAddLobbyBannerImage(builder *flatbuffers.Builder, lobbyB
 func WebEventSeasonExcelAddPopupTitleLocalizeKey(builder *flatbuffers.Builder, popupTitleLocalizeKey flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(popupTitleLocalizeKey), 0)
 }
-func WebEventSeasonExcelAddEventUrl(builder *flatbuffers.Builder, eventUrl flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(eventUrl), 0)
+func WebEventSeasonExcelAddStageEventUrl(builder *flatbuffers.Builder, stageEventUrl flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(stageEventUrl), 0)
+}
+func WebEventSeasonExcelAddLiveEventUrl(builder *flatbuffers.Builder, liveEventUrl flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(liveEventUrl), 0)
 }
 func WebEventSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

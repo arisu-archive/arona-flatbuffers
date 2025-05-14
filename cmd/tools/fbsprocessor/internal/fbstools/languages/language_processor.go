@@ -15,4 +15,7 @@ type LanguageProcessor interface {
 
 	// PostProcess is called after the processing of the files starts
 	PostProcess(ctx context.Context, outputDir string) error
+
+	// SetPackageName sets the package name for the language processor
+	SetPackageName(packageName string)
 }

@@ -54,11 +54,11 @@ func (t *WorldRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	}
 	WorldRaidStageExcelStart(b)
 	WorldRaidStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	WorldRaidStageExcelAddUseBossIndex(b, fbsutils.Convert(t.UseBossIndex, t.FlatBuffer.TableKey))
-	WorldRaidStageExcelAddUseBossAiPhaseSync(b, fbsutils.Convert(t.UseBossAiPhaseSync, t.FlatBuffer.TableKey))
+	WorldRaidStageExcelAddUseBossIndex(b, t.UseBossIndex)
+	WorldRaidStageExcelAddUseBossAiPhaseSync(b, t.UseBossAiPhaseSync)
 	WorldRaidStageExcelAddWorldRaidBossGroupId(b, fbsutils.Convert(t.WorldRaidBossGroupId, t.FlatBuffer.TableKey))
-	WorldRaidStageExcelAddPortraitPath(b, fbsutils.Convert(b.CreateString(t.PortraitPath), t.FlatBuffer.TableKey))
-	WorldRaidStageExcelAddBgPath(b, fbsutils.Convert(b.CreateString(t.BgPath), t.FlatBuffer.TableKey))
+	WorldRaidStageExcelAddPortraitPath(b, b.CreateString(fbsutils.Convert(t.PortraitPath, t.FlatBuffer.TableKey)))
+	WorldRaidStageExcelAddBgPath(b, b.CreateString(fbsutils.Convert(t.BgPath, t.FlatBuffer.TableKey)))
 	WorldRaidStageExcelAddRaidCharacterId(b, fbsutils.Convert(t.RaidCharacterId, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelStartBossCharacterIdVector(b, len(t.BossCharacterId))
 	for i := range len(t.BossCharacterId) {
@@ -67,7 +67,7 @@ func (t *WorldRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	WorldRaidStageExcelAddBossCharacterId(b, b.EndVector(len(t.BossCharacterId)))
 	WorldRaidStageExcelAddAssistCharacterLimitCount(b, fbsutils.Convert(t.AssistCharacterLimitCount, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelAddWorldRaidDifficulty(b, fbsutils.Convert(t.WorldRaidDifficulty, t.FlatBuffer.TableKey))
-	WorldRaidStageExcelAddDifficultyOpenCondition(b, fbsutils.Convert(t.DifficultyOpenCondition, t.FlatBuffer.TableKey))
+	WorldRaidStageExcelAddDifficultyOpenCondition(b, t.DifficultyOpenCondition)
 	WorldRaidStageExcelAddRaidEnterAmount(b, fbsutils.Convert(t.RaidEnterAmount, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelAddReEnterAmount(b, fbsutils.Convert(t.ReEnterAmount, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
@@ -76,7 +76,7 @@ func (t *WorldRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	WorldRaidStageExcelAddRaidRewardGroupId(b, fbsutils.Convert(t.RaidRewardGroupId, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelStartBattleReadyTimelinePathVector(b, len(t.BattleReadyTimelinePath))
 	for i := range len(t.BattleReadyTimelinePath) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.BattleReadyTimelinePath[len(t.BattleReadyTimelinePath)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.BattleReadyTimelinePath[len(t.BattleReadyTimelinePath)-i-1]))
 	}
 	WorldRaidStageExcelAddBattleReadyTimelinePath(b, b.EndVector(len(t.BattleReadyTimelinePath)))
 	WorldRaidStageExcelStartBattleReadyTimelinePhaseStartVector(b, len(t.BattleReadyTimelinePhaseStart))
@@ -89,20 +89,20 @@ func (t *WorldRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		b.PrependInt32(fbsutils.Convert(t.BattleReadyTimelinePhaseEnd[len(t.BattleReadyTimelinePhaseEnd)-i-1], t.FlatBuffer.TableKey))
 	}
 	WorldRaidStageExcelAddBattleReadyTimelinePhaseEnd(b, b.EndVector(len(t.BattleReadyTimelinePhaseEnd)))
-	WorldRaidStageExcelAddVictoryTimelinePath(b, fbsutils.Convert(b.CreateString(t.VictoryTimelinePath), t.FlatBuffer.TableKey))
-	WorldRaidStageExcelAddPhaseChangeTimelinePath(b, fbsutils.Convert(b.CreateString(t.PhaseChangeTimelinePath), t.FlatBuffer.TableKey))
+	WorldRaidStageExcelAddVictoryTimelinePath(b, b.CreateString(fbsutils.Convert(t.VictoryTimelinePath, t.FlatBuffer.TableKey)))
+	WorldRaidStageExcelAddPhaseChangeTimelinePath(b, b.CreateString(fbsutils.Convert(t.PhaseChangeTimelinePath, t.FlatBuffer.TableKey)))
 	WorldRaidStageExcelAddTimeLinePhase(b, fbsutils.Convert(t.TimeLinePhase, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelAddEnterScenarioKey(b, fbsutils.Convert(t.EnterScenarioKey, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelAddClearScenarioKey(b, fbsutils.Convert(t.ClearScenarioKey, t.FlatBuffer.TableKey))
-	WorldRaidStageExcelAddUseFixedEchelon(b, fbsutils.Convert(t.UseFixedEchelon, t.FlatBuffer.TableKey))
+	WorldRaidStageExcelAddUseFixedEchelon(b, t.UseFixedEchelon)
 	WorldRaidStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
-	WorldRaidStageExcelAddIsRaidScenarioBattle(b, fbsutils.Convert(t.IsRaidScenarioBattle, t.FlatBuffer.TableKey))
-	WorldRaidStageExcelAddShowSkillCard(b, fbsutils.Convert(t.ShowSkillCard, t.FlatBuffer.TableKey))
+	WorldRaidStageExcelAddIsRaidScenarioBattle(b, t.IsRaidScenarioBattle)
+	WorldRaidStageExcelAddShowSkillCard(b, t.ShowSkillCard)
 	WorldRaidStageExcelAddBossBgInfoKey(b, fbsutils.Convert(t.BossBgInfoKey, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelAddDamageToWorldBoss(b, fbsutils.Convert(t.DamageToWorldBoss, t.FlatBuffer.TableKey))
 	WorldRaidStageExcelStartAllyPassiveSkillVector(b, len(t.AllyPassiveSkill))
 	for i := range len(t.AllyPassiveSkill) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.AllyPassiveSkill[len(t.AllyPassiveSkill)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.AllyPassiveSkill[len(t.AllyPassiveSkill)-i-1]))
 	}
 	WorldRaidStageExcelAddAllyPassiveSkill(b, b.EndVector(len(t.AllyPassiveSkill)))
 	WorldRaidStageExcelStartAllyPassiveSkillLevelVector(b, len(t.AllyPassiveSkillLevel))
@@ -110,7 +110,7 @@ func (t *WorldRaidStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		b.PrependInt32(fbsutils.Convert(t.AllyPassiveSkillLevel[len(t.AllyPassiveSkillLevel)-i-1], t.FlatBuffer.TableKey))
 	}
 	WorldRaidStageExcelAddAllyPassiveSkillLevel(b, b.EndVector(len(t.AllyPassiveSkillLevel)))
-	WorldRaidStageExcelAddSaveCurrentLocalBossHp(b, fbsutils.Convert(t.SaveCurrentLocalBossHp, t.FlatBuffer.TableKey))
+	WorldRaidStageExcelAddSaveCurrentLocalBossHp(b, t.SaveCurrentLocalBossHp)
 	WorldRaidStageExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
 	return WorldRaidStageExcelEnd(b)
 }
@@ -128,19 +128,19 @@ func (t *WorldRaidStageExcelDto) UnmarshalMessage(e *WorldRaidStageExcel) error 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidStage"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.UseBossIndex = fbsutils.Convert(e.UseBossIndex(), t.FlatBuffer.TableKey)
-	t.UseBossAiPhaseSync = fbsutils.Convert(e.UseBossAiPhaseSync(), t.FlatBuffer.TableKey)
+	t.UseBossIndex = e.UseBossIndex()
+	t.UseBossAiPhaseSync = e.UseBossAiPhaseSync()
 	t.WorldRaidBossGroupId = fbsutils.Convert(e.WorldRaidBossGroupId(), t.FlatBuffer.TableKey)
 	t.PortraitPath = fbsutils.Convert(string(e.PortraitPath()), t.FlatBuffer.TableKey)
 	t.BgPath = fbsutils.Convert(string(e.BgPath()), t.FlatBuffer.TableKey)
 	t.RaidCharacterId = fbsutils.Convert(e.RaidCharacterId(), t.FlatBuffer.TableKey)
 	t.BossCharacterId = make([]int64, e.BossCharacterIdLength())
 	for i := range e.BossCharacterIdLength() {
-		t.BossCharacterId[i] = e.BossCharacterId(i)
+		t.BossCharacterId[i] = fbsutils.Convert(e.BossCharacterId(i), t.FlatBuffer.TableKey)
 	}
 	t.AssistCharacterLimitCount = fbsutils.Convert(e.AssistCharacterLimitCount(), t.FlatBuffer.TableKey)
 	t.WorldRaidDifficulty = WorldRaidDifficulty(fbsutils.Convert(int32(e.WorldRaidDifficulty()), t.FlatBuffer.TableKey))
-	t.DifficultyOpenCondition = fbsutils.Convert(e.DifficultyOpenCondition(), t.FlatBuffer.TableKey)
+	t.DifficultyOpenCondition = e.DifficultyOpenCondition()
 	t.RaidEnterAmount = fbsutils.Convert(e.RaidEnterAmount(), t.FlatBuffer.TableKey)
 	t.ReEnterAmount = fbsutils.Convert(e.ReEnterAmount(), t.FlatBuffer.TableKey)
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
@@ -149,36 +149,36 @@ func (t *WorldRaidStageExcelDto) UnmarshalMessage(e *WorldRaidStageExcel) error 
 	t.RaidRewardGroupId = fbsutils.Convert(e.RaidRewardGroupId(), t.FlatBuffer.TableKey)
 	t.BattleReadyTimelinePath = make([]string, e.BattleReadyTimelinePathLength())
 	for i := range e.BattleReadyTimelinePathLength() {
-		t.BattleReadyTimelinePath[i] = string(e.BattleReadyTimelinePath(i))
+		t.BattleReadyTimelinePath[i] = fbsutils.Convert(string(e.BattleReadyTimelinePath(i)), t.FlatBuffer.TableKey)
 	}
 	t.BattleReadyTimelinePhaseStart = make([]int32, e.BattleReadyTimelinePhaseStartLength())
 	for i := range e.BattleReadyTimelinePhaseStartLength() {
-		t.BattleReadyTimelinePhaseStart[i] = e.BattleReadyTimelinePhaseStart(i)
+		t.BattleReadyTimelinePhaseStart[i] = fbsutils.Convert(e.BattleReadyTimelinePhaseStart(i), t.FlatBuffer.TableKey)
 	}
 	t.BattleReadyTimelinePhaseEnd = make([]int32, e.BattleReadyTimelinePhaseEndLength())
 	for i := range e.BattleReadyTimelinePhaseEndLength() {
-		t.BattleReadyTimelinePhaseEnd[i] = e.BattleReadyTimelinePhaseEnd(i)
+		t.BattleReadyTimelinePhaseEnd[i] = fbsutils.Convert(e.BattleReadyTimelinePhaseEnd(i), t.FlatBuffer.TableKey)
 	}
 	t.VictoryTimelinePath = fbsutils.Convert(string(e.VictoryTimelinePath()), t.FlatBuffer.TableKey)
 	t.PhaseChangeTimelinePath = fbsutils.Convert(string(e.PhaseChangeTimelinePath()), t.FlatBuffer.TableKey)
 	t.TimeLinePhase = fbsutils.Convert(e.TimeLinePhase(), t.FlatBuffer.TableKey)
 	t.EnterScenarioKey = fbsutils.Convert(e.EnterScenarioKey(), t.FlatBuffer.TableKey)
 	t.ClearScenarioKey = fbsutils.Convert(e.ClearScenarioKey(), t.FlatBuffer.TableKey)
-	t.UseFixedEchelon = fbsutils.Convert(e.UseFixedEchelon(), t.FlatBuffer.TableKey)
+	t.UseFixedEchelon = e.UseFixedEchelon()
 	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
-	t.IsRaidScenarioBattle = fbsutils.Convert(e.IsRaidScenarioBattle(), t.FlatBuffer.TableKey)
-	t.ShowSkillCard = fbsutils.Convert(e.ShowSkillCard(), t.FlatBuffer.TableKey)
+	t.IsRaidScenarioBattle = e.IsRaidScenarioBattle()
+	t.ShowSkillCard = e.ShowSkillCard()
 	t.BossBgInfoKey = fbsutils.Convert(e.BossBgInfoKey(), t.FlatBuffer.TableKey)
 	t.DamageToWorldBoss = fbsutils.Convert(e.DamageToWorldBoss(), t.FlatBuffer.TableKey)
 	t.AllyPassiveSkill = make([]string, e.AllyPassiveSkillLength())
 	for i := range e.AllyPassiveSkillLength() {
-		t.AllyPassiveSkill[i] = string(e.AllyPassiveSkill(i))
+		t.AllyPassiveSkill[i] = fbsutils.Convert(string(e.AllyPassiveSkill(i)), t.FlatBuffer.TableKey)
 	}
 	t.AllyPassiveSkillLevel = make([]int32, e.AllyPassiveSkillLevelLength())
 	for i := range e.AllyPassiveSkillLevelLength() {
-		t.AllyPassiveSkillLevel[i] = e.AllyPassiveSkillLevel(i)
+		t.AllyPassiveSkillLevel[i] = fbsutils.Convert(e.AllyPassiveSkillLevel(i), t.FlatBuffer.TableKey)
 	}
-	t.SaveCurrentLocalBossHp = fbsutils.Convert(e.SaveCurrentLocalBossHp(), t.FlatBuffer.TableKey)
+	t.SaveCurrentLocalBossHp = e.SaveCurrentLocalBossHp()
 	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
 	return nil
 }

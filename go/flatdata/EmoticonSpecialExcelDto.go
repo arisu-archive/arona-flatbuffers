@@ -23,7 +23,7 @@ func (t *EmoticonSpecialExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	EmoticonSpecialExcelStart(b)
 	EmoticonSpecialExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	EmoticonSpecialExcelAddCharacterUniqueId(b, fbsutils.Convert(t.CharacterUniqueId, t.FlatBuffer.TableKey))
-	EmoticonSpecialExcelAddRandom(b, fbsutils.Convert(b.CreateString(t.Random), t.FlatBuffer.TableKey))
+	EmoticonSpecialExcelAddRandom(b, b.CreateString(fbsutils.Convert(t.Random, t.FlatBuffer.TableKey)))
 	return EmoticonSpecialExcelEnd(b)
 }
 

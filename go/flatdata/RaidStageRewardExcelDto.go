@@ -26,11 +26,11 @@ func (t *RaidStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	}
 	RaidStageRewardExcelStart(b)
 	RaidStageRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	RaidStageRewardExcelAddIsClearStageRewardHideInfo(b, fbsutils.Convert(t.IsClearStageRewardHideInfo, t.FlatBuffer.TableKey))
+	RaidStageRewardExcelAddIsClearStageRewardHideInfo(b, t.IsClearStageRewardHideInfo)
 	RaidStageRewardExcelAddClearStageRewardProb(b, fbsutils.Convert(t.ClearStageRewardProb, t.FlatBuffer.TableKey))
 	RaidStageRewardExcelAddClearStageRewardParcelType(b, fbsutils.Convert(t.ClearStageRewardParcelType, t.FlatBuffer.TableKey))
 	RaidStageRewardExcelAddClearStageRewardParcelUniqueId(b, fbsutils.Convert(t.ClearStageRewardParcelUniqueId, t.FlatBuffer.TableKey))
-	RaidStageRewardExcelAddClearStageRewardParcelUniqueName(b, fbsutils.Convert(b.CreateString(t.ClearStageRewardParcelUniqueName), t.FlatBuffer.TableKey))
+	RaidStageRewardExcelAddClearStageRewardParcelUniqueName(b, b.CreateString(fbsutils.Convert(t.ClearStageRewardParcelUniqueName, t.FlatBuffer.TableKey)))
 	RaidStageRewardExcelAddClearStageRewardAmount(b, fbsutils.Convert(t.ClearStageRewardAmount, t.FlatBuffer.TableKey))
 	return RaidStageRewardExcelEnd(b)
 }
@@ -48,7 +48,7 @@ func (t *RaidStageRewardExcelDto) UnmarshalMessage(e *RaidStageRewardExcel) erro
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RaidStageReward"))
 	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.IsClearStageRewardHideInfo = fbsutils.Convert(e.IsClearStageRewardHideInfo(), t.FlatBuffer.TableKey)
+	t.IsClearStageRewardHideInfo = e.IsClearStageRewardHideInfo()
 	t.ClearStageRewardProb = fbsutils.Convert(e.ClearStageRewardProb(), t.FlatBuffer.TableKey)
 	t.ClearStageRewardParcelType = ParcelType(fbsutils.Convert(int32(e.ClearStageRewardParcelType()), t.FlatBuffer.TableKey))
 	t.ClearStageRewardParcelUniqueId = fbsutils.Convert(e.ClearStageRewardParcelUniqueId(), t.FlatBuffer.TableKey)

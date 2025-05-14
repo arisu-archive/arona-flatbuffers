@@ -49,26 +49,15 @@ class CharacterGearExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CharacterGearExcelTableStart(builder):
-    builder.StartObject(1)
-
+def CharacterGearExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    CharacterGearExcelTableStart(builder)
-
-def CharacterGearExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return CharacterGearExcelTableStart(builder)
+def CharacterGearExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    CharacterGearExcelTableAddDataList(builder, dataList)
-
-def CharacterGearExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CharacterGearExcelTableAddDataList(builder, dataList)
+def CharacterGearExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return CharacterGearExcelTableStartDataListVector(builder, numElems)
-
-def CharacterGearExcelTableEnd(builder):
-    return builder.EndObject()
-
+def CharacterGearExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterGearExcelTableEnd(builder)

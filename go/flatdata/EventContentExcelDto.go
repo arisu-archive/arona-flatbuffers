@@ -23,9 +23,9 @@ func (t *EventContentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	}
 	EventContentExcelStart(b)
 	EventContentExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentExcelAddDevName(b, fbsutils.Convert(b.CreateString(t.DevName), t.FlatBuffer.TableKey))
+	EventContentExcelAddDevName(b, b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey)))
 	EventContentExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentExcelAddBgImagePath(b, fbsutils.Convert(b.CreateString(t.BgImagePath), t.FlatBuffer.TableKey))
+	EventContentExcelAddBgImagePath(b, b.CreateString(fbsutils.Convert(t.BgImagePath, t.FlatBuffer.TableKey)))
 	return EventContentExcelEnd(b)
 }
 

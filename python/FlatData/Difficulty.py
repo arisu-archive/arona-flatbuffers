@@ -10,3 +10,4 @@ class Difficulty(object):
     Extreme = 4
     Insane = 5
     Torment = 6
+    Lunatic = 7

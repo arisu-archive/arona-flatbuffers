@@ -46,12 +46,12 @@ func (t *AcademyMessangerExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	AcademyMessangerExcelAddNextGroupId(b, fbsutils.Convert(t.NextGroupId, t.FlatBuffer.TableKey))
 	AcademyMessangerExcelAddFeedbackTimeMillisec(b, fbsutils.Convert(t.FeedbackTimeMillisec, t.FlatBuffer.TableKey))
 	AcademyMessangerExcelAddMessageType(b, fbsutils.Convert(t.MessageType, t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddImagePath(b, fbsutils.Convert(b.CreateString(t.ImagePath), t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddMessageKr(b, fbsutils.Convert(b.CreateString(t.MessageKr), t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddMessageJp(b, fbsutils.Convert(b.CreateString(t.MessageJp), t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddMessageTh(b, fbsutils.Convert(b.CreateString(t.MessageTh), t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddMessageTw(b, fbsutils.Convert(b.CreateString(t.MessageTw), t.FlatBuffer.TableKey))
-	AcademyMessangerExcelAddMessageEn(b, fbsutils.Convert(b.CreateString(t.MessageEn), t.FlatBuffer.TableKey))
+	AcademyMessangerExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
+	AcademyMessangerExcelAddMessageKr(b, b.CreateString(fbsutils.Convert(t.MessageKr, t.FlatBuffer.TableKey)))
+	AcademyMessangerExcelAddMessageJp(b, b.CreateString(fbsutils.Convert(t.MessageJp, t.FlatBuffer.TableKey)))
+	AcademyMessangerExcelAddMessageTh(b, b.CreateString(fbsutils.Convert(t.MessageTh, t.FlatBuffer.TableKey)))
+	AcademyMessangerExcelAddMessageTw(b, b.CreateString(fbsutils.Convert(t.MessageTw, t.FlatBuffer.TableKey)))
+	AcademyMessangerExcelAddMessageEn(b, b.CreateString(fbsutils.Convert(t.MessageEn, t.FlatBuffer.TableKey)))
 	return AcademyMessangerExcelEnd(b)
 }
 

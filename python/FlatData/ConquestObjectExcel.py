@@ -108,86 +108,45 @@ class ConquestObjectExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ConquestObjectExcelStart(builder):
-    builder.StartObject(12)
-
+def ConquestObjectExcelStart(builder): builder.StartObject(12)
 def Start(builder):
-    ConquestObjectExcelStart(builder)
-
-def ConquestObjectExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return ConquestObjectExcelStart(builder)
+def ConquestObjectExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    ConquestObjectExcelAddId(builder, id)
-
-def ConquestObjectExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(1, eventContentId, 0)
-
+    return ConquestObjectExcelAddId(builder, id)
+def ConquestObjectExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    ConquestObjectExcelAddEventContentId(builder, eventContentId)
-
-def ConquestObjectExcelAddConquestObjectType(builder, conquestObjectType):
-    builder.PrependInt32Slot(2, conquestObjectType, 0)
-
+    return ConquestObjectExcelAddEventContentId(builder, eventContentId)
+def ConquestObjectExcelAddConquestObjectType(builder, conquestObjectType): builder.PrependInt32Slot(2, conquestObjectType, 0)
 def AddConquestObjectType(builder, conquestObjectType):
-    ConquestObjectExcelAddConquestObjectType(builder, conquestObjectType)
-
-def ConquestObjectExcelAddKey(builder, key):
-    builder.PrependUint32Slot(3, key, 0)
-
+    return ConquestObjectExcelAddConquestObjectType(builder, conquestObjectType)
+def ConquestObjectExcelAddKey(builder, key): builder.PrependUint32Slot(3, key, 0)
 def AddKey(builder, key):
-    ConquestObjectExcelAddKey(builder, key)
-
-def ConquestObjectExcelAddName(builder, name):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
-
+    return ConquestObjectExcelAddKey(builder, key)
+def ConquestObjectExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
 def AddName(builder, name):
-    ConquestObjectExcelAddName(builder, name)
-
-def ConquestObjectExcelAddPrefabName(builder, prefabName):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
-
+    return ConquestObjectExcelAddName(builder, name)
+def ConquestObjectExcelAddPrefabName(builder, prefabName): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
 def AddPrefabName(builder, prefabName):
-    ConquestObjectExcelAddPrefabName(builder, prefabName)
-
-def ConquestObjectExcelAddConquestRewardParcelType(builder, conquestRewardParcelType):
-    builder.PrependInt32Slot(6, conquestRewardParcelType, 0)
-
+    return ConquestObjectExcelAddPrefabName(builder, prefabName)
+def ConquestObjectExcelAddConquestRewardParcelType(builder, conquestRewardParcelType): builder.PrependInt32Slot(6, conquestRewardParcelType, 0)
 def AddConquestRewardParcelType(builder, conquestRewardParcelType):
-    ConquestObjectExcelAddConquestRewardParcelType(builder, conquestRewardParcelType)
-
-def ConquestObjectExcelAddConquestRewardId(builder, conquestRewardId):
-    builder.PrependInt64Slot(7, conquestRewardId, 0)
-
+    return ConquestObjectExcelAddConquestRewardParcelType(builder, conquestRewardParcelType)
+def ConquestObjectExcelAddConquestRewardId(builder, conquestRewardId): builder.PrependInt64Slot(7, conquestRewardId, 0)
 def AddConquestRewardId(builder, conquestRewardId):
-    ConquestObjectExcelAddConquestRewardId(builder, conquestRewardId)
-
-def ConquestObjectExcelAddConquestRewardAmount(builder, conquestRewardAmount):
-    builder.PrependInt32Slot(8, conquestRewardAmount, 0)
-
+    return ConquestObjectExcelAddConquestRewardId(builder, conquestRewardId)
+def ConquestObjectExcelAddConquestRewardAmount(builder, conquestRewardAmount): builder.PrependInt32Slot(8, conquestRewardAmount, 0)
 def AddConquestRewardAmount(builder, conquestRewardAmount):
-    ConquestObjectExcelAddConquestRewardAmount(builder, conquestRewardAmount)
-
-def ConquestObjectExcelAddDisposable(builder, disposable):
-    builder.PrependBoolSlot(9, disposable, 0)
-
+    return ConquestObjectExcelAddConquestRewardAmount(builder, conquestRewardAmount)
+def ConquestObjectExcelAddDisposable(builder, disposable): builder.PrependBoolSlot(9, disposable, 0)
 def AddDisposable(builder, disposable):
-    ConquestObjectExcelAddDisposable(builder, disposable)
-
-def ConquestObjectExcelAddStepIndex(builder, stepIndex):
-    builder.PrependInt32Slot(10, stepIndex, 0)
-
+    return ConquestObjectExcelAddDisposable(builder, disposable)
+def ConquestObjectExcelAddStepIndex(builder, stepIndex): builder.PrependInt32Slot(10, stepIndex, 0)
 def AddStepIndex(builder, stepIndex):
-    ConquestObjectExcelAddStepIndex(builder, stepIndex)
-
-def ConquestObjectExcelAddStepObjectCount(builder, stepObjectCount):
-    builder.PrependInt32Slot(11, stepObjectCount, 0)
-
+    return ConquestObjectExcelAddStepIndex(builder, stepIndex)
+def ConquestObjectExcelAddStepObjectCount(builder, stepObjectCount): builder.PrependInt32Slot(11, stepObjectCount, 0)
 def AddStepObjectCount(builder, stepObjectCount):
-    ConquestObjectExcelAddStepObjectCount(builder, stepObjectCount)
-
-def ConquestObjectExcelEnd(builder):
-    return builder.EndObject()
-
+    return ConquestObjectExcelAddStepObjectCount(builder, stepObjectCount)
+def ConquestObjectExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ConquestObjectExcelEnd(builder)

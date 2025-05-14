@@ -127,80 +127,42 @@ class ScenarioExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ScenarioExcelStart(builder):
-    builder.StartObject(9)
-
+def ScenarioExcelStart(builder): builder.StartObject(9)
 def Start(builder):
-    ScenarioExcelStart(builder)
-
-def ScenarioExcelAddNone(builder, none):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(none), 0)
-
+    return ScenarioExcelStart(builder)
+def ScenarioExcelAddNone(builder, none): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(none), 0)
 def AddNone(builder, none):
-    ScenarioExcelAddNone(builder, none)
-
-def ScenarioExcelStartNoneVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ScenarioExcelAddNone(builder, none)
+def ScenarioExcelStartNoneVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartNoneVector(builder, numElems):
     return ScenarioExcelStartNoneVector(builder, numElems)
-
-def ScenarioExcelAddIdle(builder, idle):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(idle), 0)
-
+def ScenarioExcelAddIdle(builder, idle): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(idle), 0)
 def AddIdle(builder, idle):
-    ScenarioExcelAddIdle(builder, idle)
-
-def ScenarioExcelStartIdleVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ScenarioExcelAddIdle(builder, idle)
+def ScenarioExcelStartIdleVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartIdleVector(builder, numElems):
     return ScenarioExcelStartIdleVector(builder, numElems)
-
-def ScenarioExcelAddCafe(builder, cafe):
-    builder.PrependInt32Slot(2, cafe, 0)
-
+def ScenarioExcelAddCafe(builder, cafe): builder.PrependInt32Slot(2, cafe, 0)
 def AddCafe(builder, cafe):
-    ScenarioExcelAddCafe(builder, cafe)
-
-def ScenarioExcelAddTalk(builder, talk):
-    builder.PrependInt32Slot(3, talk, 0)
-
+    return ScenarioExcelAddCafe(builder, cafe)
+def ScenarioExcelAddTalk(builder, talk): builder.PrependInt32Slot(3, talk, 0)
 def AddTalk(builder, talk):
-    ScenarioExcelAddTalk(builder, talk)
-
-def ScenarioExcelAddOpen(builder, open):
-    builder.PrependInt32Slot(4, open, 0)
-
+    return ScenarioExcelAddTalk(builder, talk)
+def ScenarioExcelAddOpen(builder, open): builder.PrependInt32Slot(4, open, 0)
 def AddOpen(builder, open):
-    ScenarioExcelAddOpen(builder, open)
-
-def ScenarioExcelAddEnterConver(builder, enterConver):
-    builder.PrependInt32Slot(5, enterConver, 0)
-
+    return ScenarioExcelAddOpen(builder, open)
+def ScenarioExcelAddEnterConver(builder, enterConver): builder.PrependInt32Slot(5, enterConver, 0)
 def AddEnterConver(builder, enterConver):
-    ScenarioExcelAddEnterConver(builder, enterConver)
-
-def ScenarioExcelAddCenter(builder, center):
-    builder.PrependInt32Slot(6, center, 0)
-
+    return ScenarioExcelAddEnterConver(builder, enterConver)
+def ScenarioExcelAddCenter(builder, center): builder.PrependInt32Slot(6, center, 0)
 def AddCenter(builder, center):
-    ScenarioExcelAddCenter(builder, center)
-
-def ScenarioExcelAddInstant(builder, instant):
-    builder.PrependInt32Slot(7, instant, 0)
-
+    return ScenarioExcelAddCenter(builder, center)
+def ScenarioExcelAddInstant(builder, instant): builder.PrependInt32Slot(7, instant, 0)
 def AddInstant(builder, instant):
-    ScenarioExcelAddInstant(builder, instant)
-
-def ScenarioExcelAddPrologue(builder, prologue):
-    builder.PrependInt32Slot(8, prologue, 0)
-
+    return ScenarioExcelAddInstant(builder, instant)
+def ScenarioExcelAddPrologue(builder, prologue): builder.PrependInt32Slot(8, prologue, 0)
 def AddPrologue(builder, prologue):
-    ScenarioExcelAddPrologue(builder, prologue)
-
-def ScenarioExcelEnd(builder):
-    return builder.EndObject()
-
+    return ScenarioExcelAddPrologue(builder, prologue)
+def ScenarioExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ScenarioExcelEnd(builder)

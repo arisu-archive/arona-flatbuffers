@@ -25,8 +25,8 @@ func (t *LimitedStageSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	}
 	LimitedStageSeasonExcelStart(b)
 	LimitedStageSeasonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	LimitedStageSeasonExcelAddStartDate(b, fbsutils.Convert(b.CreateString(t.StartDate), t.FlatBuffer.TableKey))
-	LimitedStageSeasonExcelAddEndDate(b, fbsutils.Convert(b.CreateString(t.EndDate), t.FlatBuffer.TableKey))
+	LimitedStageSeasonExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
+	LimitedStageSeasonExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
 	LimitedStageSeasonExcelAddTypeACount(b, fbsutils.Convert(t.TypeACount, t.FlatBuffer.TableKey))
 	LimitedStageSeasonExcelAddTypeBCount(b, fbsutils.Convert(t.TypeBCount, t.FlatBuffer.TableKey))
 	LimitedStageSeasonExcelAddTypeCCount(b, fbsutils.Convert(t.TypeCCount, t.FlatBuffer.TableKey))

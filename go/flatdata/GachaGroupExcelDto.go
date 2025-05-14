@@ -23,8 +23,8 @@ func (t *GachaGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	}
 	GachaGroupExcelStart(b)
 	GachaGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	GachaGroupExcelAddNameKr(b, fbsutils.Convert(b.CreateString(t.NameKr), t.FlatBuffer.TableKey))
-	GachaGroupExcelAddIsRecursive(b, fbsutils.Convert(t.IsRecursive, t.FlatBuffer.TableKey))
+	GachaGroupExcelAddNameKr(b, b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey)))
+	GachaGroupExcelAddIsRecursive(b, t.IsRecursive)
 	GachaGroupExcelAddGroupType(b, fbsutils.Convert(t.GroupType, t.FlatBuffer.TableKey))
 	return GachaGroupExcelEnd(b)
 }
@@ -43,7 +43,7 @@ func (t *GachaGroupExcelDto) UnmarshalMessage(e *GachaGroupExcel) error {
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)
-	t.IsRecursive = fbsutils.Convert(e.IsRecursive(), t.FlatBuffer.TableKey)
+	t.IsRecursive = e.IsRecursive()
 	t.GroupType = GachaGroupType(fbsutils.Convert(int32(e.GroupType()), t.FlatBuffer.TableKey))
 	return nil
 }

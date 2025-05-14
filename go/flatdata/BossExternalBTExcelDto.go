@@ -30,10 +30,10 @@ func (t *BossExternalBTExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	BossExternalBTExcelAddAiPhase(b, fbsutils.Convert(t.AiPhase, t.FlatBuffer.TableKey))
 	BossExternalBTExcelAddExternalBtNodeType(b, fbsutils.Convert(t.ExternalBtNodeType, t.FlatBuffer.TableKey))
 	BossExternalBTExcelAddExternalBtTrigger(b, fbsutils.Convert(t.ExternalBtTrigger, t.FlatBuffer.TableKey))
-	BossExternalBTExcelAddTriggerArgument(b, fbsutils.Convert(b.CreateString(t.TriggerArgument), t.FlatBuffer.TableKey))
+	BossExternalBTExcelAddTriggerArgument(b, b.CreateString(fbsutils.Convert(t.TriggerArgument, t.FlatBuffer.TableKey)))
 	BossExternalBTExcelAddBehaviorRate(b, fbsutils.Convert(t.BehaviorRate, t.FlatBuffer.TableKey))
 	BossExternalBTExcelAddExternalBehavior(b, fbsutils.Convert(t.ExternalBehavior, t.FlatBuffer.TableKey))
-	BossExternalBTExcelAddBehaviorArgument(b, fbsutils.Convert(b.CreateString(t.BehaviorArgument), t.FlatBuffer.TableKey))
+	BossExternalBTExcelAddBehaviorArgument(b, b.CreateString(fbsutils.Convert(t.BehaviorArgument, t.FlatBuffer.TableKey)))
 	return BossExternalBTExcelEnd(b)
 }
 

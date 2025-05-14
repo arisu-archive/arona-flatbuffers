@@ -30,7 +30,7 @@ func (t *TimeAttackDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	TimeAttackDungeonRewardExcelAddRewardMaxPoint(b, fbsutils.Convert(t.RewardMaxPoint, t.FlatBuffer.TableKey))
 	TimeAttackDungeonRewardExcelStartRewardTypeVector(b, len(t.RewardType))
 	for i := range len(t.RewardType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardType[len(t.RewardType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardType[len(t.RewardType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	TimeAttackDungeonRewardExcelAddRewardType(b, b.EndVector(len(t.RewardType)))
 	TimeAttackDungeonRewardExcelStartRewardMinPointVector(b, len(t.RewardMinPoint))
@@ -40,7 +40,7 @@ func (t *TimeAttackDungeonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	TimeAttackDungeonRewardExcelAddRewardMinPoint(b, b.EndVector(len(t.RewardMinPoint)))
 	TimeAttackDungeonRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	TimeAttackDungeonRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	TimeAttackDungeonRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
@@ -81,7 +81,7 @@ func (t *TimeAttackDungeonRewardExcelDto) UnmarshalMessage(e *TimeAttackDungeonR
 	}
 	t.RewardMinPoint = make([]int64, e.RewardMinPointLength())
 	for i := range e.RewardMinPointLength() {
-		t.RewardMinPoint[i] = e.RewardMinPoint(i)
+		t.RewardMinPoint[i] = fbsutils.Convert(e.RewardMinPoint(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
@@ -89,15 +89,15 @@ func (t *TimeAttackDungeonRewardExcelDto) UnmarshalMessage(e *TimeAttackDungeonR
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
-		t.RewardParcelId[i] = e.RewardParcelId(i)
+		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelDefaultAmount = make([]int64, e.RewardParcelDefaultAmountLength())
 	for i := range e.RewardParcelDefaultAmountLength() {
-		t.RewardParcelDefaultAmount[i] = e.RewardParcelDefaultAmount(i)
+		t.RewardParcelDefaultAmount[i] = fbsutils.Convert(e.RewardParcelDefaultAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelMaxAmount = make([]int64, e.RewardParcelMaxAmountLength())
 	for i := range e.RewardParcelMaxAmountLength() {
-		t.RewardParcelMaxAmount[i] = e.RewardParcelMaxAmount(i)
+		t.RewardParcelMaxAmount[i] = fbsutils.Convert(e.RewardParcelMaxAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

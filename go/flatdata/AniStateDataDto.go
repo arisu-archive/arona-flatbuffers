@@ -31,17 +31,17 @@ func (t *AniStateDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AniStateData"))
 	}
 	AniStateDataStart(b)
-	AniStateDataAddStateName(b, fbsutils.Convert(b.CreateString(t.StateName), t.FlatBuffer.TableKey))
-	AniStateDataAddStatePrefix(b, fbsutils.Convert(b.CreateString(t.StatePrefix), t.FlatBuffer.TableKey))
-	AniStateDataAddStateNameWithPrefix(b, fbsutils.Convert(b.CreateString(t.StateNameWithPrefix), t.FlatBuffer.TableKey))
-	AniStateDataAddTag(b, fbsutils.Convert(b.CreateString(t.Tag), t.FlatBuffer.TableKey))
-	AniStateDataAddSpeedParameterName(b, fbsutils.Convert(b.CreateString(t.SpeedParameterName), t.FlatBuffer.TableKey))
+	AniStateDataAddStateName(b, b.CreateString(fbsutils.Convert(t.StateName, t.FlatBuffer.TableKey)))
+	AniStateDataAddStatePrefix(b, b.CreateString(fbsutils.Convert(t.StatePrefix, t.FlatBuffer.TableKey)))
+	AniStateDataAddStateNameWithPrefix(b, b.CreateString(fbsutils.Convert(t.StateNameWithPrefix, t.FlatBuffer.TableKey)))
+	AniStateDataAddTag(b, b.CreateString(fbsutils.Convert(t.Tag, t.FlatBuffer.TableKey)))
+	AniStateDataAddSpeedParameterName(b, b.CreateString(fbsutils.Convert(t.SpeedParameterName, t.FlatBuffer.TableKey)))
 	AniStateDataAddSpeedParamter(b, fbsutils.Convert(t.SpeedParamter, t.FlatBuffer.TableKey))
 	AniStateDataAddStateSpeed(b, fbsutils.Convert(t.StateSpeed, t.FlatBuffer.TableKey))
-	AniStateDataAddClipName(b, fbsutils.Convert(b.CreateString(t.ClipName), t.FlatBuffer.TableKey))
+	AniStateDataAddClipName(b, b.CreateString(fbsutils.Convert(t.ClipName, t.FlatBuffer.TableKey)))
 	AniStateDataAddLength(b, fbsutils.Convert(t.Length, t.FlatBuffer.TableKey))
 	AniStateDataAddFrameRate(b, fbsutils.Convert(t.FrameRate, t.FlatBuffer.TableKey))
-	AniStateDataAddIsLooping(b, fbsutils.Convert(t.IsLooping, t.FlatBuffer.TableKey))
+	AniStateDataAddIsLooping(b, t.IsLooping)
 	AniStateDataStartEventsVector(b, len(t.Events))
 	for i := range len(t.Events) {
 		// The array should be reversed.
@@ -73,7 +73,7 @@ func (t *AniStateDataDto) UnmarshalMessage(e *AniStateData) error {
 	t.ClipName = fbsutils.Convert(string(e.ClipName()), t.FlatBuffer.TableKey)
 	t.Length = fbsutils.Convert(e.Length(), t.FlatBuffer.TableKey)
 	t.FrameRate = fbsutils.Convert(e.FrameRate(), t.FlatBuffer.TableKey)
-	t.IsLooping = fbsutils.Convert(e.IsLooping(), t.FlatBuffer.TableKey)
+	t.IsLooping = e.IsLooping()
 	t.Events = make([]AniEventDataDto, e.EventsLength())
 	for i := range e.EventsLength() {
 		d := new(AniEventData)

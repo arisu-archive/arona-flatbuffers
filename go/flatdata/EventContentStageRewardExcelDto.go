@@ -31,7 +31,7 @@ func (t *EventContentStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	EventContentStageRewardExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
 	EventContentStageRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
 	EventContentStageRewardExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
-	EventContentStageRewardExcelAddIsDisplayed(b, fbsutils.Convert(t.IsDisplayed, t.FlatBuffer.TableKey))
+	EventContentStageRewardExcelAddIsDisplayed(b, t.IsDisplayed)
 	return EventContentStageRewardExcelEnd(b)
 }
 
@@ -53,7 +53,7 @@ func (t *EventContentStageRewardExcelDto) UnmarshalMessage(e *EventContentStageR
 	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
 	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
-	t.IsDisplayed = fbsutils.Convert(e.IsDisplayed(), t.FlatBuffer.TableKey)
+	t.IsDisplayed = e.IsDisplayed()
 	return nil
 }
 

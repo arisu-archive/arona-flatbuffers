@@ -87,68 +87,36 @@ class GuideMissionOpenStageConditionExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def GuideMissionOpenStageConditionExcelStart(builder):
-    builder.StartObject(9)
-
+def GuideMissionOpenStageConditionExcelStart(builder): builder.StartObject(9)
 def Start(builder):
-    GuideMissionOpenStageConditionExcelStart(builder)
-
-def GuideMissionOpenStageConditionExcelAddSeasonId(builder, seasonId):
-    builder.PrependInt64Slot(0, seasonId, 0)
-
+    return GuideMissionOpenStageConditionExcelStart(builder)
+def GuideMissionOpenStageConditionExcelAddSeasonId(builder, seasonId): builder.PrependInt64Slot(0, seasonId, 0)
 def AddSeasonId(builder, seasonId):
-    GuideMissionOpenStageConditionExcelAddSeasonId(builder, seasonId)
-
-def GuideMissionOpenStageConditionExcelAddOrderNumber(builder, orderNumber):
-    builder.PrependInt64Slot(1, orderNumber, 0)
-
+    return GuideMissionOpenStageConditionExcelAddSeasonId(builder, seasonId)
+def GuideMissionOpenStageConditionExcelAddOrderNumber(builder, orderNumber): builder.PrependInt64Slot(1, orderNumber, 0)
 def AddOrderNumber(builder, orderNumber):
-    GuideMissionOpenStageConditionExcelAddOrderNumber(builder, orderNumber)
-
-def GuideMissionOpenStageConditionExcelAddTabLocalizeCode(builder, tabLocalizeCode):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(tabLocalizeCode), 0)
-
+    return GuideMissionOpenStageConditionExcelAddOrderNumber(builder, orderNumber)
+def GuideMissionOpenStageConditionExcelAddTabLocalizeCode(builder, tabLocalizeCode): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(tabLocalizeCode), 0)
 def AddTabLocalizeCode(builder, tabLocalizeCode):
-    GuideMissionOpenStageConditionExcelAddTabLocalizeCode(builder, tabLocalizeCode)
-
-def GuideMissionOpenStageConditionExcelAddClearScenarioModeId(builder, clearScenarioModeId):
-    builder.PrependInt64Slot(3, clearScenarioModeId, 0)
-
+    return GuideMissionOpenStageConditionExcelAddTabLocalizeCode(builder, tabLocalizeCode)
+def GuideMissionOpenStageConditionExcelAddClearScenarioModeId(builder, clearScenarioModeId): builder.PrependInt64Slot(3, clearScenarioModeId, 0)
 def AddClearScenarioModeId(builder, clearScenarioModeId):
-    GuideMissionOpenStageConditionExcelAddClearScenarioModeId(builder, clearScenarioModeId)
-
-def GuideMissionOpenStageConditionExcelAddLockScenarioTextLocailzeCode(builder, lockScenarioTextLocailzeCode):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(lockScenarioTextLocailzeCode), 0)
-
+    return GuideMissionOpenStageConditionExcelAddClearScenarioModeId(builder, clearScenarioModeId)
+def GuideMissionOpenStageConditionExcelAddLockScenarioTextLocailzeCode(builder, lockScenarioTextLocailzeCode): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(lockScenarioTextLocailzeCode), 0)
 def AddLockScenarioTextLocailzeCode(builder, lockScenarioTextLocailzeCode):
-    GuideMissionOpenStageConditionExcelAddLockScenarioTextLocailzeCode(builder, lockScenarioTextLocailzeCode)
-
-def GuideMissionOpenStageConditionExcelAddShortcutScenarioUi(builder, shortcutScenarioUi):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutScenarioUi), 0)
-
+    return GuideMissionOpenStageConditionExcelAddLockScenarioTextLocailzeCode(builder, lockScenarioTextLocailzeCode)
+def GuideMissionOpenStageConditionExcelAddShortcutScenarioUi(builder, shortcutScenarioUi): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutScenarioUi), 0)
 def AddShortcutScenarioUi(builder, shortcutScenarioUi):
-    GuideMissionOpenStageConditionExcelAddShortcutScenarioUi(builder, shortcutScenarioUi)
-
-def GuideMissionOpenStageConditionExcelAddClearStageId(builder, clearStageId):
-    builder.PrependInt64Slot(6, clearStageId, 0)
-
+    return GuideMissionOpenStageConditionExcelAddShortcutScenarioUi(builder, shortcutScenarioUi)
+def GuideMissionOpenStageConditionExcelAddClearStageId(builder, clearStageId): builder.PrependInt64Slot(6, clearStageId, 0)
 def AddClearStageId(builder, clearStageId):
-    GuideMissionOpenStageConditionExcelAddClearStageId(builder, clearStageId)
-
-def GuideMissionOpenStageConditionExcelAddLockStageTextLocailzeCode(builder, lockStageTextLocailzeCode):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(lockStageTextLocailzeCode), 0)
-
+    return GuideMissionOpenStageConditionExcelAddClearStageId(builder, clearStageId)
+def GuideMissionOpenStageConditionExcelAddLockStageTextLocailzeCode(builder, lockStageTextLocailzeCode): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(lockStageTextLocailzeCode), 0)
 def AddLockStageTextLocailzeCode(builder, lockStageTextLocailzeCode):
-    GuideMissionOpenStageConditionExcelAddLockStageTextLocailzeCode(builder, lockStageTextLocailzeCode)
-
-def GuideMissionOpenStageConditionExcelAddShortcutStageUi(builder, shortcutStageUi):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutStageUi), 0)
-
+    return GuideMissionOpenStageConditionExcelAddLockStageTextLocailzeCode(builder, lockStageTextLocailzeCode)
+def GuideMissionOpenStageConditionExcelAddShortcutStageUi(builder, shortcutStageUi): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutStageUi), 0)
 def AddShortcutStageUi(builder, shortcutStageUi):
-    GuideMissionOpenStageConditionExcelAddShortcutStageUi(builder, shortcutStageUi)
-
-def GuideMissionOpenStageConditionExcelEnd(builder):
-    return builder.EndObject()
-
+    return GuideMissionOpenStageConditionExcelAddShortcutStageUi(builder, shortcutStageUi)
+def GuideMissionOpenStageConditionExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return GuideMissionOpenStageConditionExcelEnd(builder)

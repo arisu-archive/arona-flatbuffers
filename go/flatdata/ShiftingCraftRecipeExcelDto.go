@@ -40,7 +40,7 @@ func (t *ShiftingCraftRecipeExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	ShiftingCraftRecipeExcelAddRequireGold(b, fbsutils.Convert(t.RequireGold, t.FlatBuffer.TableKey))
 	ShiftingCraftRecipeExcelStartIngredientTagVector(b, len(t.IngredientTag))
 	for i := range len(t.IngredientTag) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.IngredientTag[len(t.IngredientTag)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.IngredientTag[len(t.IngredientTag)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ShiftingCraftRecipeExcelAddIngredientTag(b, b.EndVector(len(t.IngredientTag)))
 	ShiftingCraftRecipeExcelAddIngredientExp(b, fbsutils.Convert(t.IngredientExp, t.FlatBuffer.TableKey))

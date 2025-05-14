@@ -88,80 +88,65 @@ class FieldWorldMapZoneExcel(object):
         return 0
 
     # FieldWorldMapZoneExcel
-    def LocalizeCode(self):
+    def WorldMapButtonType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldWorldMapZoneExcel
+    def LocalizeCode(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
-def FieldWorldMapZoneExcelStart(builder):
-    builder.StartObject(10)
+    # FieldWorldMapZoneExcel
+    def NewTagDisplay(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
+def FieldWorldMapZoneExcelStart(builder): builder.StartObject(12)
 def Start(builder):
-    FieldWorldMapZoneExcelStart(builder)
-
-def FieldWorldMapZoneExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return FieldWorldMapZoneExcelStart(builder)
+def FieldWorldMapZoneExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    FieldWorldMapZoneExcelAddId(builder, id)
-
-def FieldWorldMapZoneExcelAddGroupId(builder, groupId):
-    builder.PrependInt32Slot(1, groupId, 0)
-
+    return FieldWorldMapZoneExcelAddId(builder, id)
+def FieldWorldMapZoneExcelAddGroupId(builder, groupId): builder.PrependInt32Slot(1, groupId, 0)
 def AddGroupId(builder, groupId):
-    FieldWorldMapZoneExcelAddGroupId(builder, groupId)
-
-def FieldWorldMapZoneExcelAddDate(builder, date):
-    builder.PrependInt32Slot(2, date, 0)
-
+    return FieldWorldMapZoneExcelAddGroupId(builder, groupId)
+def FieldWorldMapZoneExcelAddDate(builder, date): builder.PrependInt32Slot(2, date, 0)
 def AddDate(builder, date):
-    FieldWorldMapZoneExcelAddDate(builder, date)
-
-def FieldWorldMapZoneExcelAddOpenConditionType(builder, openConditionType):
-    builder.PrependInt32Slot(3, openConditionType, 0)
-
+    return FieldWorldMapZoneExcelAddDate(builder, date)
+def FieldWorldMapZoneExcelAddOpenConditionType(builder, openConditionType): builder.PrependInt32Slot(3, openConditionType, 0)
 def AddOpenConditionType(builder, openConditionType):
-    FieldWorldMapZoneExcelAddOpenConditionType(builder, openConditionType)
-
-def FieldWorldMapZoneExcelAddOpenConditionId(builder, openConditionId):
-    builder.PrependInt64Slot(4, openConditionId, 0)
-
+    return FieldWorldMapZoneExcelAddOpenConditionType(builder, openConditionType)
+def FieldWorldMapZoneExcelAddOpenConditionId(builder, openConditionId): builder.PrependInt64Slot(4, openConditionId, 0)
 def AddOpenConditionId(builder, openConditionId):
-    FieldWorldMapZoneExcelAddOpenConditionId(builder, openConditionId)
-
-def FieldWorldMapZoneExcelAddCloseConditionType(builder, closeConditionType):
-    builder.PrependInt32Slot(5, closeConditionType, 0)
-
+    return FieldWorldMapZoneExcelAddOpenConditionId(builder, openConditionId)
+def FieldWorldMapZoneExcelAddCloseConditionType(builder, closeConditionType): builder.PrependInt32Slot(5, closeConditionType, 0)
 def AddCloseConditionType(builder, closeConditionType):
-    FieldWorldMapZoneExcelAddCloseConditionType(builder, closeConditionType)
-
-def FieldWorldMapZoneExcelAddCloseConditionId(builder, closeConditionId):
-    builder.PrependInt64Slot(6, closeConditionId, 0)
-
+    return FieldWorldMapZoneExcelAddCloseConditionType(builder, closeConditionType)
+def FieldWorldMapZoneExcelAddCloseConditionId(builder, closeConditionId): builder.PrependInt64Slot(6, closeConditionId, 0)
 def AddCloseConditionId(builder, closeConditionId):
-    FieldWorldMapZoneExcelAddCloseConditionId(builder, closeConditionId)
-
-def FieldWorldMapZoneExcelAddResultFieldScene(builder, resultFieldScene):
-    builder.PrependInt64Slot(7, resultFieldScene, 0)
-
+    return FieldWorldMapZoneExcelAddCloseConditionId(builder, closeConditionId)
+def FieldWorldMapZoneExcelAddResultFieldScene(builder, resultFieldScene): builder.PrependInt64Slot(7, resultFieldScene, 0)
 def AddResultFieldScene(builder, resultFieldScene):
-    FieldWorldMapZoneExcelAddResultFieldScene(builder, resultFieldScene)
-
-def FieldWorldMapZoneExcelAddFieldStageInteractionId(builder, fieldStageInteractionId):
-    builder.PrependInt64Slot(8, fieldStageInteractionId, 0)
-
+    return FieldWorldMapZoneExcelAddResultFieldScene(builder, resultFieldScene)
+def FieldWorldMapZoneExcelAddFieldStageInteractionId(builder, fieldStageInteractionId): builder.PrependInt64Slot(8, fieldStageInteractionId, 0)
 def AddFieldStageInteractionId(builder, fieldStageInteractionId):
-    FieldWorldMapZoneExcelAddFieldStageInteractionId(builder, fieldStageInteractionId)
-
-def FieldWorldMapZoneExcelAddLocalizeCode(builder, localizeCode):
-    builder.PrependUint32Slot(9, localizeCode, 0)
-
+    return FieldWorldMapZoneExcelAddFieldStageInteractionId(builder, fieldStageInteractionId)
+def FieldWorldMapZoneExcelAddWorldMapButtonType(builder, worldMapButtonType): builder.PrependInt32Slot(9, worldMapButtonType, 0)
+def AddWorldMapButtonType(builder, worldMapButtonType):
+    return FieldWorldMapZoneExcelAddWorldMapButtonType(builder, worldMapButtonType)
+def FieldWorldMapZoneExcelAddLocalizeCode(builder, localizeCode): builder.PrependUint32Slot(10, localizeCode, 0)
 def AddLocalizeCode(builder, localizeCode):
-    FieldWorldMapZoneExcelAddLocalizeCode(builder, localizeCode)
-
-def FieldWorldMapZoneExcelEnd(builder):
-    return builder.EndObject()
-
+    return FieldWorldMapZoneExcelAddLocalizeCode(builder, localizeCode)
+def FieldWorldMapZoneExcelAddNewTagDisplay(builder, newTagDisplay): builder.PrependBoolSlot(11, newTagDisplay, 0)
+def AddNewTagDisplay(builder, newTagDisplay):
+    return FieldWorldMapZoneExcelAddNewTagDisplay(builder, newTagDisplay)
+def FieldWorldMapZoneExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return FieldWorldMapZoneExcelEnd(builder)

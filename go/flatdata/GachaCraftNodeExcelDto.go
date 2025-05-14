@@ -29,7 +29,7 @@ func (t *GachaCraftNodeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	GachaCraftNodeExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
 	GachaCraftNodeExcelAddQuickCraftNodeDisplayOrder(b, fbsutils.Convert(t.QuickCraftNodeDisplayOrder, t.FlatBuffer.TableKey))
 	GachaCraftNodeExcelAddNodeQuality(b, fbsutils.Convert(t.NodeQuality, t.FlatBuffer.TableKey))
-	GachaCraftNodeExcelAddIcon(b, fbsutils.Convert(b.CreateString(t.Icon), t.FlatBuffer.TableKey))
+	GachaCraftNodeExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
 	GachaCraftNodeExcelAddLocalizeKey(b, fbsutils.Convert(t.LocalizeKey, t.FlatBuffer.TableKey))
 	GachaCraftNodeExcelAddProperty(b, fbsutils.Convert(t.Property, t.FlatBuffer.TableKey))
 	return GachaCraftNodeExcelEnd(b)

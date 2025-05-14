@@ -43,7 +43,7 @@ func (t *ConstMiniGameShootingExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	ConstMiniGameShootingExcelAddPlayerCharacterId(b, b.EndVector(len(t.PlayerCharacterId)))
 	ConstMiniGameShootingExcelAddHiddenPlayerCharacterId(b, fbsutils.Convert(t.HiddenPlayerCharacterId, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelAddCameraSmoothTime(b, fbsutils.Convert(t.CameraSmoothTime, t.FlatBuffer.TableKey))
-	ConstMiniGameShootingExcelAddSpawnEffectPath(b, fbsutils.Convert(b.CreateString(t.SpawnEffectPath), t.FlatBuffer.TableKey))
+	ConstMiniGameShootingExcelAddSpawnEffectPath(b, b.CreateString(fbsutils.Convert(t.SpawnEffectPath, t.FlatBuffer.TableKey)))
 	ConstMiniGameShootingExcelAddWaitTimeAfterSpawn(b, fbsutils.Convert(t.WaitTimeAfterSpawn, t.FlatBuffer.TableKey))
 	ConstMiniGameShootingExcelAddFreeGearInterval(b, fbsutils.Convert(t.FreeGearInterval, t.FlatBuffer.TableKey))
 	return ConstMiniGameShootingExcelEnd(b)
@@ -69,7 +69,7 @@ func (t *ConstMiniGameShootingExcelDto) UnmarshalMessage(e *ConstMiniGameShootin
 	t.FreeSectionCount = fbsutils.Convert(e.FreeSectionCount(), t.FlatBuffer.TableKey)
 	t.PlayerCharacterId = make([]int64, e.PlayerCharacterIdLength())
 	for i := range e.PlayerCharacterIdLength() {
-		t.PlayerCharacterId[i] = e.PlayerCharacterId(i)
+		t.PlayerCharacterId[i] = fbsutils.Convert(e.PlayerCharacterId(i), t.FlatBuffer.TableKey)
 	}
 	t.HiddenPlayerCharacterId = fbsutils.Convert(e.HiddenPlayerCharacterId(), t.FlatBuffer.TableKey)
 	t.CameraSmoothTime = fbsutils.Convert(e.CameraSmoothTime(), t.FlatBuffer.TableKey)

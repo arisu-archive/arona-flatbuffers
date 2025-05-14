@@ -24,7 +24,7 @@ func (t *ShopFreeRecruitPeriodExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	ShopFreeRecruitPeriodExcelStart(b)
 	ShopFreeRecruitPeriodExcelAddShopFreeRecruitId(b, fbsutils.Convert(t.ShopFreeRecruitId, t.FlatBuffer.TableKey))
 	ShopFreeRecruitPeriodExcelAddShopFreeRecruitIntervalId(b, fbsutils.Convert(t.ShopFreeRecruitIntervalId, t.FlatBuffer.TableKey))
-	ShopFreeRecruitPeriodExcelAddIntervalDate(b, fbsutils.Convert(b.CreateString(t.IntervalDate), t.FlatBuffer.TableKey))
+	ShopFreeRecruitPeriodExcelAddIntervalDate(b, b.CreateString(fbsutils.Convert(t.IntervalDate, t.FlatBuffer.TableKey)))
 	ShopFreeRecruitPeriodExcelAddFreeRecruitCount(b, fbsutils.Convert(t.FreeRecruitCount, t.FlatBuffer.TableKey))
 	return ShopFreeRecruitPeriodExcelEnd(b)
 }

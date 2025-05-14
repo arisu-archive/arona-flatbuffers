@@ -25,15 +25,15 @@ func (t *CheatCodeListExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	CheatCodeListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CheatCodeListExcelStartCheatCodeVector(b, len(t.CheatCode))
 	for i := range len(t.CheatCode) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.CheatCode[len(t.CheatCode)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.CheatCode[len(t.CheatCode)-i-1]))
 	}
 	CheatCodeListExcelAddCheatCode(b, b.EndVector(len(t.CheatCode)))
 	CheatCodeListExcelStartInputTitleVector(b, len(t.InputTitle))
 	for i := range len(t.InputTitle) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.InputTitle[len(t.InputTitle)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.InputTitle[len(t.InputTitle)-i-1]))
 	}
 	CheatCodeListExcelAddInputTitle(b, b.EndVector(len(t.InputTitle)))
-	CheatCodeListExcelAddDesc(b, fbsutils.Convert(b.CreateString(t.Desc), t.FlatBuffer.TableKey))
+	CheatCodeListExcelAddDesc(b, b.CreateString(fbsutils.Convert(t.Desc, t.FlatBuffer.TableKey)))
 	return CheatCodeListExcelEnd(b)
 }
 
@@ -52,11 +52,11 @@ func (t *CheatCodeListExcelDto) UnmarshalMessage(e *CheatCodeListExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.CheatCode = make([]string, e.CheatCodeLength())
 	for i := range e.CheatCodeLength() {
-		t.CheatCode[i] = string(e.CheatCode(i))
+		t.CheatCode[i] = fbsutils.Convert(string(e.CheatCode(i)), t.FlatBuffer.TableKey)
 	}
 	t.InputTitle = make([]string, e.InputTitleLength())
 	for i := range e.InputTitleLength() {
-		t.InputTitle[i] = string(e.InputTitle(i))
+		t.InputTitle[i] = fbsutils.Convert(string(e.InputTitle(i)), t.FlatBuffer.TableKey)
 	}
 	t.Desc = fbsutils.Convert(string(e.Desc()), t.FlatBuffer.TableKey)
 	return nil

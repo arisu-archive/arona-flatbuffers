@@ -133,74 +133,39 @@ class TranscendenceRecipeExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         return o == 0
 
-def TranscendenceRecipeExcelStart(builder):
-    builder.StartObject(7)
-
+def TranscendenceRecipeExcelStart(builder): builder.StartObject(7)
 def Start(builder):
-    TranscendenceRecipeExcelStart(builder)
-
-def TranscendenceRecipeExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return TranscendenceRecipeExcelStart(builder)
+def TranscendenceRecipeExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    TranscendenceRecipeExcelAddId(builder, id)
-
-def TranscendenceRecipeExcelAddDevName(builder, devName):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
-
+    return TranscendenceRecipeExcelAddId(builder, id)
+def TranscendenceRecipeExcelAddDevName(builder, devName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
 def AddDevName(builder, devName):
-    TranscendenceRecipeExcelAddDevName(builder, devName)
-
-def TranscendenceRecipeExcelAddCostCurrencyType(builder, costCurrencyType):
-    builder.PrependInt32Slot(2, costCurrencyType, 0)
-
+    return TranscendenceRecipeExcelAddDevName(builder, devName)
+def TranscendenceRecipeExcelAddCostCurrencyType(builder, costCurrencyType): builder.PrependInt32Slot(2, costCurrencyType, 0)
 def AddCostCurrencyType(builder, costCurrencyType):
-    TranscendenceRecipeExcelAddCostCurrencyType(builder, costCurrencyType)
-
-def TranscendenceRecipeExcelAddCostCurrencyAmount(builder, costCurrencyAmount):
-    builder.PrependInt64Slot(3, costCurrencyAmount, 0)
-
+    return TranscendenceRecipeExcelAddCostCurrencyType(builder, costCurrencyType)
+def TranscendenceRecipeExcelAddCostCurrencyAmount(builder, costCurrencyAmount): builder.PrependInt64Slot(3, costCurrencyAmount, 0)
 def AddCostCurrencyAmount(builder, costCurrencyAmount):
-    TranscendenceRecipeExcelAddCostCurrencyAmount(builder, costCurrencyAmount)
-
-def TranscendenceRecipeExcelAddParcelType(builder, parcelType):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(parcelType), 0)
-
+    return TranscendenceRecipeExcelAddCostCurrencyAmount(builder, costCurrencyAmount)
+def TranscendenceRecipeExcelAddParcelType(builder, parcelType): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(parcelType), 0)
 def AddParcelType(builder, parcelType):
-    TranscendenceRecipeExcelAddParcelType(builder, parcelType)
-
-def TranscendenceRecipeExcelStartParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return TranscendenceRecipeExcelAddParcelType(builder, parcelType)
+def TranscendenceRecipeExcelStartParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartParcelTypeVector(builder, numElems):
     return TranscendenceRecipeExcelStartParcelTypeVector(builder, numElems)
-
-def TranscendenceRecipeExcelAddParcelId(builder, parcelId):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(parcelId), 0)
-
+def TranscendenceRecipeExcelAddParcelId(builder, parcelId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(parcelId), 0)
 def AddParcelId(builder, parcelId):
-    TranscendenceRecipeExcelAddParcelId(builder, parcelId)
-
-def TranscendenceRecipeExcelStartParcelIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return TranscendenceRecipeExcelAddParcelId(builder, parcelId)
+def TranscendenceRecipeExcelStartParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartParcelIdVector(builder, numElems):
     return TranscendenceRecipeExcelStartParcelIdVector(builder, numElems)
-
-def TranscendenceRecipeExcelAddParcelAmount(builder, parcelAmount):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(parcelAmount), 0)
-
+def TranscendenceRecipeExcelAddParcelAmount(builder, parcelAmount): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(parcelAmount), 0)
 def AddParcelAmount(builder, parcelAmount):
-    TranscendenceRecipeExcelAddParcelAmount(builder, parcelAmount)
-
-def TranscendenceRecipeExcelStartParcelAmountVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return TranscendenceRecipeExcelAddParcelAmount(builder, parcelAmount)
+def TranscendenceRecipeExcelStartParcelAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartParcelAmountVector(builder, numElems):
     return TranscendenceRecipeExcelStartParcelAmountVector(builder, numElems)
-
-def TranscendenceRecipeExcelEnd(builder):
-    return builder.EndObject()
-
+def TranscendenceRecipeExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return TranscendenceRecipeExcelEnd(builder)

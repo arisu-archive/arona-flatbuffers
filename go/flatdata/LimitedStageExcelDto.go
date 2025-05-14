@@ -51,10 +51,10 @@ func (t *LimitedStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	}
 	LimitedStageExcelStart(b)
 	LimitedStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	LimitedStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	LimitedStageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	LimitedStageExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddStageNumber(b, fbsutils.Convert(b.CreateString(t.StageNumber), t.FlatBuffer.TableKey))
+	LimitedStageExcelAddStageNumber(b, b.CreateString(fbsutils.Convert(t.StageNumber, t.FlatBuffer.TableKey)))
 	LimitedStageExcelAddStageDisplay(b, fbsutils.Convert(t.StageDisplay, t.FlatBuffer.TableKey))
 	LimitedStageExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageId, t.FlatBuffer.TableKey))
 	LimitedStageExcelAddOpenDate(b, fbsutils.Convert(t.OpenDate, t.FlatBuffer.TableKey))
@@ -76,20 +76,20 @@ func (t *LimitedStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		b.PrependInt64(fbsutils.Convert(t.ClearScenarioGroupId[len(t.ClearScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	LimitedStageExcelAddClearScenarioGroupId(b, b.EndVector(len(t.ClearScenarioGroupId)))
-	LimitedStageExcelAddStrategyMap(b, fbsutils.Convert(b.CreateString(t.StrategyMap), t.FlatBuffer.TableKey))
-	LimitedStageExcelAddStrategyMapBg(b, fbsutils.Convert(b.CreateString(t.StrategyMapBg), t.FlatBuffer.TableKey))
+	LimitedStageExcelAddStrategyMap(b, b.CreateString(fbsutils.Convert(t.StrategyMap, t.FlatBuffer.TableKey)))
+	LimitedStageExcelAddStrategyMapBg(b, b.CreateString(fbsutils.Convert(t.StrategyMapBg, t.FlatBuffer.TableKey)))
 	LimitedStageExcelAddStageRewardId(b, fbsutils.Convert(t.StageRewardId, t.FlatBuffer.TableKey))
 	LimitedStageExcelAddMaxTurn(b, fbsutils.Convert(t.MaxTurn, t.FlatBuffer.TableKey))
 	LimitedStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
 	LimitedStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddBgmId(b, fbsutils.Convert(b.CreateString(t.BgmId), t.FlatBuffer.TableKey))
+	LimitedStageExcelAddBgmId(b, b.CreateString(fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey)))
 	LimitedStageExcelAddStrategyEnvironment(b, fbsutils.Convert(t.StrategyEnvironment, t.FlatBuffer.TableKey))
 	LimitedStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	LimitedStageExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
 	LimitedStageExcelAddBgmIdC9738509(b, fbsutils.Convert(t.BgmIdC9738509, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddInstantClear(b, fbsutils.Convert(t.InstantClear, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddInstantClear(b, t.InstantClear)
 	LimitedStageExcelAddBuffContentId(b, fbsutils.Convert(t.BuffContentId, t.FlatBuffer.TableKey))
-	LimitedStageExcelAddChallengeDisplay(b, fbsutils.Convert(t.ChallengeDisplay, t.FlatBuffer.TableKey))
+	LimitedStageExcelAddChallengeDisplay(b, t.ChallengeDisplay)
 	return LimitedStageExcelEnd(b)
 }
 
@@ -123,11 +123,11 @@ func (t *LimitedStageExcelDto) UnmarshalMessage(e *LimitedStageExcel) error {
 	t.StarConditionTurnCount = fbsutils.Convert(e.StarConditionTurnCount(), t.FlatBuffer.TableKey)
 	t.EnterScenarioGroupId = make([]int64, e.EnterScenarioGroupIdLength())
 	for i := range e.EnterScenarioGroupIdLength() {
-		t.EnterScenarioGroupId[i] = e.EnterScenarioGroupId(i)
+		t.EnterScenarioGroupId[i] = fbsutils.Convert(e.EnterScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())
 	for i := range e.ClearScenarioGroupIdLength() {
-		t.ClearScenarioGroupId[i] = e.ClearScenarioGroupId(i)
+		t.ClearScenarioGroupId[i] = fbsutils.Convert(e.ClearScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.StrategyMap = fbsutils.Convert(string(e.StrategyMap()), t.FlatBuffer.TableKey)
 	t.StrategyMapBg = fbsutils.Convert(string(e.StrategyMapBg()), t.FlatBuffer.TableKey)
@@ -140,9 +140,9 @@ func (t *LimitedStageExcelDto) UnmarshalMessage(e *LimitedStageExcel) error {
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
 	t.BgmIdC9738509 = fbsutils.Convert(e.BgmIdC9738509(), t.FlatBuffer.TableKey)
-	t.InstantClear = fbsutils.Convert(e.InstantClear(), t.FlatBuffer.TableKey)
+	t.InstantClear = e.InstantClear()
 	t.BuffContentId = fbsutils.Convert(e.BuffContentId(), t.FlatBuffer.TableKey)
-	t.ChallengeDisplay = fbsutils.Convert(e.ChallengeDisplay(), t.FlatBuffer.TableKey)
+	t.ChallengeDisplay = e.ChallengeDisplay()
 	return nil
 }
 

@@ -17,6 +17,7 @@ var _ LanguageProcessor = (*GoProcessor)(nil)
 // GoProcessor handles post-processing of Go FlatBuffer files.
 type GoProcessor struct {
 	flatbuffers map[string]string
+	packageName string
 }
 
 // NewGoProcessor creates a new Go processor.
@@ -24,6 +25,11 @@ func NewGoProcessor() *GoProcessor {
 	return &GoProcessor{
 		flatbuffers: map[string]string{},
 	}
+}
+
+// SetPackageName sets the package name for the language processor.
+func (p *GoProcessor) SetPackageName(packageName string) {
+	p.packageName = packageName
 }
 
 // ProcessFile adds encryption to a Go FlatBuffer file.
@@ -102,21 +108,21 @@ func (p *GoProcessor) PostProcess(_ context.Context, outputDir string) error {
 	defer f.Close()
 
 	// Write the file
-	funcMap := template.FuncMap{
-		"ToLower": strings.ToLower,
-	}
-	tmpl, err := template.New("flatbufferCode").Funcs(funcMap).Parse(flatbufferCode)
+	tmpl, err := template.New("flatbufferCode").Parse(flatbufferCode)
 	if err != nil {
 		return fmt.Errorf("failed to parse template: %w", err)
 	}
 	// Execute the template. Output the result to the file
-	if executeErr := tmpl.Execute(f, p.flatbuffers); executeErr != nil {
+	if executeErr := tmpl.Execute(f, map[string]interface{}{
+		"Package":     p.packageName,
+		"Flatbuffers": p.flatbuffers,
+	}); executeErr != nil {
 		return fmt.Errorf("failed to execute template: %w", executeErr)
 	}
 	return nil
 }
 
-const flatbufferCode = `package flatdata
+const flatbufferCode = `package {{ .Package }}
 
 import (
 	"reflect"
@@ -125,7 +131,7 @@ import (
 )
 
 var fbs = map[string]reflect.Type{
-{{- range $key, $value := . }}
+{{- range $key, $value := .Flatbuffers }}
 	"{{ $key }}": reflect.TypeOf((*{{ $value }})(nil)).Elem(),
 {{- end }}
 }

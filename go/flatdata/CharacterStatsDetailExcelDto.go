@@ -24,12 +24,12 @@ func (t *CharacterStatsDetailExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	CharacterStatsDetailExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CharacterStatsDetailExcelStartDetailShowStatsVector(b, len(t.DetailShowStats))
 	for i := range len(t.DetailShowStats) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.DetailShowStats[len(t.DetailShowStats)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.DetailShowStats[len(t.DetailShowStats)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CharacterStatsDetailExcelAddDetailShowStats(b, b.EndVector(len(t.DetailShowStats)))
 	CharacterStatsDetailExcelStartIsStatsPercentVector(b, len(t.IsStatsPercent))
 	for i := range len(t.IsStatsPercent) {
-		b.PrependBool(fbsutils.Convert(t.IsStatsPercent[len(t.IsStatsPercent)-i-1], t.FlatBuffer.TableKey))
+		b.PrependBool(t.IsStatsPercent[len(t.IsStatsPercent)-i-1])
 	}
 	CharacterStatsDetailExcelAddIsStatsPercent(b, b.EndVector(len(t.IsStatsPercent)))
 	return CharacterStatsDetailExcelEnd(b)

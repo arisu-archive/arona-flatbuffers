@@ -26,10 +26,10 @@ func (t *AttendanceRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	AttendanceRewardExcelStart(b)
 	AttendanceRewardExcelAddAttendanceId(b, fbsutils.Convert(t.AttendanceId, t.FlatBuffer.TableKey))
 	AttendanceRewardExcelAddDay(b, fbsutils.Convert(t.Day, t.FlatBuffer.TableKey))
-	AttendanceRewardExcelAddRewardIcon(b, fbsutils.Convert(b.CreateString(t.RewardIcon), t.FlatBuffer.TableKey))
+	AttendanceRewardExcelAddRewardIcon(b, b.CreateString(fbsutils.Convert(t.RewardIcon, t.FlatBuffer.TableKey)))
 	AttendanceRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	AttendanceRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	AttendanceRewardExcelStartRewardIdVector(b, len(t.RewardId))
@@ -66,11 +66,11 @@ func (t *AttendanceRewardExcelDto) UnmarshalMessage(e *AttendanceRewardExcel) er
 	}
 	t.RewardId = make([]int64, e.RewardIdLength())
 	for i := range e.RewardIdLength() {
-		t.RewardId[i] = e.RewardId(i)
+		t.RewardId[i] = fbsutils.Convert(e.RewardId(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardAmount = make([]int64, e.RewardAmountLength())
 	for i := range e.RewardAmountLength() {
-		t.RewardAmount[i] = e.RewardAmount(i)
+		t.RewardAmount[i] = fbsutils.Convert(e.RewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

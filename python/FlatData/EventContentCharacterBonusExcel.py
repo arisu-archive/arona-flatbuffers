@@ -92,50 +92,27 @@ class EventContentCharacterBonusExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         return o == 0
 
-def EventContentCharacterBonusExcelStart(builder):
-    builder.StartObject(4)
-
+def EventContentCharacterBonusExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    EventContentCharacterBonusExcelStart(builder)
-
-def EventContentCharacterBonusExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return EventContentCharacterBonusExcelStart(builder)
+def EventContentCharacterBonusExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    EventContentCharacterBonusExcelAddEventContentId(builder, eventContentId)
-
-def EventContentCharacterBonusExcelAddCharacterId(builder, characterId):
-    builder.PrependInt64Slot(1, characterId, 0)
-
+    return EventContentCharacterBonusExcelAddEventContentId(builder, eventContentId)
+def EventContentCharacterBonusExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(1, characterId, 0)
 def AddCharacterId(builder, characterId):
-    EventContentCharacterBonusExcelAddCharacterId(builder, characterId)
-
-def EventContentCharacterBonusExcelAddEventContentItemType(builder, eventContentItemType):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(eventContentItemType), 0)
-
+    return EventContentCharacterBonusExcelAddCharacterId(builder, characterId)
+def EventContentCharacterBonusExcelAddEventContentItemType(builder, eventContentItemType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(eventContentItemType), 0)
 def AddEventContentItemType(builder, eventContentItemType):
-    EventContentCharacterBonusExcelAddEventContentItemType(builder, eventContentItemType)
-
-def EventContentCharacterBonusExcelStartEventContentItemTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentCharacterBonusExcelAddEventContentItemType(builder, eventContentItemType)
+def EventContentCharacterBonusExcelStartEventContentItemTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartEventContentItemTypeVector(builder, numElems):
     return EventContentCharacterBonusExcelStartEventContentItemTypeVector(builder, numElems)
-
-def EventContentCharacterBonusExcelAddBonusPercentage(builder, bonusPercentage):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(bonusPercentage), 0)
-
+def EventContentCharacterBonusExcelAddBonusPercentage(builder, bonusPercentage): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(bonusPercentage), 0)
 def AddBonusPercentage(builder, bonusPercentage):
-    EventContentCharacterBonusExcelAddBonusPercentage(builder, bonusPercentage)
-
-def EventContentCharacterBonusExcelStartBonusPercentageVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentCharacterBonusExcelAddBonusPercentage(builder, bonusPercentage)
+def EventContentCharacterBonusExcelStartBonusPercentageVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartBonusPercentageVector(builder, numElems):
     return EventContentCharacterBonusExcelStartBonusPercentageVector(builder, numElems)
-
-def EventContentCharacterBonusExcelEnd(builder):
-    return builder.EndObject()
-
+def EventContentCharacterBonusExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentCharacterBonusExcelEnd(builder)

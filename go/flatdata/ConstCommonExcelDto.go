@@ -178,6 +178,9 @@ type ConstCommonExcelDto struct {
 	AssistStrangerMinLevel                     int32            `json:"assist_stranger_min_level"`
 	AssistStrangerMaxLevel                     int32            `json:"assist_stranger_max_level"`
 	MaxBlockedUserCount                        int32            `json:"max_blocked_user_count"`
+	CafeRandomVisitMinComfortBonus             int64            `json:"cafe_random_visit_min_comfort_bonus"`
+	CafeRandomVisitMinLastLogin                int32            `json:"cafe_random_visit_min_last_login"`
+	CafeTravelSyncIntervalByMillisec           int32            `json:"cafe_travel_sync_interval_by_millisec"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -276,7 +279,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddPostExpiredDayAttendance(b, fbsutils.Convert(t.PostExpiredDayAttendance, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddPostExpiredDayInventoryOverflow(b, fbsutils.Convert(t.PostExpiredDayInventoryOverflow, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddPostExpiredDayGameManager(b, fbsutils.Convert(t.PostExpiredDayGameManager, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddUiLabelCharacterWrap(b, fbsutils.Convert(b.CreateString(t.UiLabelCharacterWrap), t.FlatBuffer.TableKey))
+	ConstCommonExcelAddUiLabelCharacterWrap(b, b.CreateString(fbsutils.Convert(t.UiLabelCharacterWrap, t.FlatBuffer.TableKey)))
 	ConstCommonExcelAddRequestTimeOut(b, fbsutils.Convert(t.RequestTimeOut, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddMailStorageSoftCap(b, fbsutils.Convert(t.MailStorageSoftCap, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddMailStorageHardCap(b, fbsutils.Convert(t.MailStorageHardCap, t.FlatBuffer.TableKey))
@@ -305,7 +308,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddRaidEnterCostType(b, fbsutils.Convert(t.RaidEnterCostType, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRaidEnterCostId(b, fbsutils.Convert(t.RaidEnterCostId, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRaidTicketCost(b, fbsutils.Convert(t.RaidTicketCost, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddTimeAttackDungeonScenarioId(b, fbsutils.Convert(b.CreateString(t.TimeAttackDungeonScenarioId), t.FlatBuffer.TableKey))
+	ConstCommonExcelAddTimeAttackDungeonScenarioId(b, b.CreateString(fbsutils.Convert(t.TimeAttackDungeonScenarioId, t.FlatBuffer.TableKey)))
 	ConstCommonExcelAddTimeAttackDungoenPlayCountPerTicket(b, fbsutils.Convert(t.TimeAttackDungoenPlayCountPerTicket, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddTimeAttackDungeonEnterCostType(b, fbsutils.Convert(t.TimeAttackDungeonEnterCostType, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddTimeAttackDungeonEnterCostId(b, fbsutils.Convert(t.TimeAttackDungeonEnterCostId, t.FlatBuffer.TableKey))
@@ -314,7 +317,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddMonthlyProductRepurchasePopupLimit(b, fbsutils.Convert(t.MonthlyProductRepurchasePopupLimit, t.FlatBuffer.TableKey))
 	ConstCommonExcelStartCommonFavorItemTagsVector(b, len(t.CommonFavorItemTags))
 	for i := range len(t.CommonFavorItemTags) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.CommonFavorItemTags[len(t.CommonFavorItemTags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.CommonFavorItemTags[len(t.CommonFavorItemTags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ConstCommonExcelAddCommonFavorItemTags(b, b.EndVector(len(t.CommonFavorItemTags)))
 	ConstCommonExcelAddMaxApMasterCoinPerWeek(b, fbsutils.Convert(t.MaxApMasterCoinPerWeek, t.FlatBuffer.TableKey))
@@ -356,7 +359,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddBeforehandGachaGroupId(b, fbsutils.Convert(t.BeforehandGachaGroupId, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRenewalDisplayOrderDay(b, fbsutils.Convert(t.RenewalDisplayOrderDay, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddEmblemDefaultId(b, fbsutils.Convert(t.EmblemDefaultId, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddBirthdayMailStartDate(b, fbsutils.Convert(b.CreateString(t.BirthdayMailStartDate), t.FlatBuffer.TableKey))
+	ConstCommonExcelAddBirthdayMailStartDate(b, b.CreateString(fbsutils.Convert(t.BirthdayMailStartDate, t.FlatBuffer.TableKey)))
 	ConstCommonExcelAddBirthdayMailRemainDate(b, fbsutils.Convert(t.BirthdayMailRemainDate, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddBirthdayMailParcelType(b, fbsutils.Convert(t.BirthdayMailParcelType, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddBirthdayMailParcelId(b, fbsutils.Convert(t.BirthdayMailParcelId, t.FlatBuffer.TableKey))
@@ -374,6 +377,9 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddAssistStrangerMinLevel(b, fbsutils.Convert(t.AssistStrangerMinLevel, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddAssistStrangerMaxLevel(b, fbsutils.Convert(t.AssistStrangerMaxLevel, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddMaxBlockedUserCount(b, fbsutils.Convert(t.MaxBlockedUserCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeRandomVisitMinComfortBonus(b, fbsutils.Convert(t.CafeRandomVisitMinComfortBonus, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeRandomVisitMinLastLogin(b, fbsutils.Convert(t.CafeRandomVisitMinLastLogin, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeTravelSyncIntervalByMillisec(b, fbsutils.Convert(t.CafeTravelSyncIntervalByMillisec, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -422,12 +428,12 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.NicknameLength = fbsutils.Convert(e.NicknameLength(), t.FlatBuffer.TableKey)
 	t.CraftDuration = make([]int32, e.CraftDurationLength())
 	for i := range e.CraftDurationLength() {
-		t.CraftDuration[i] = e.CraftDuration(i)
+		t.CraftDuration[i] = fbsutils.Convert(e.CraftDuration(i), t.FlatBuffer.TableKey)
 	}
 	t.CraftLimitTime = fbsutils.Convert(e.CraftLimitTime(), t.FlatBuffer.TableKey)
 	t.ShiftingCraftDuration = make([]int32, e.ShiftingCraftDurationLength())
 	for i := range e.ShiftingCraftDurationLength() {
-		t.ShiftingCraftDuration[i] = e.ShiftingCraftDuration(i)
+		t.ShiftingCraftDuration[i] = fbsutils.Convert(e.ShiftingCraftDuration(i), t.FlatBuffer.TableKey)
 	}
 	t.ShiftingCraftTicketConsumeAmount = fbsutils.Convert(e.ShiftingCraftTicketConsumeAmount(), t.FlatBuffer.TableKey)
 	t.ShiftingCraftSlotMaxCapacity = fbsutils.Convert(e.ShiftingCraftSlotMaxCapacity(), t.FlatBuffer.TableKey)
@@ -444,7 +450,7 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.TutorialGachaGoodsId = fbsutils.Convert(e.TutorialGachaGoodsId(), t.FlatBuffer.TableKey)
 	t.EquipmentSlotOpenLevel = make([]int32, e.EquipmentSlotOpenLevelLength())
 	for i := range e.EquipmentSlotOpenLevelLength() {
-		t.EquipmentSlotOpenLevel[i] = e.EquipmentSlotOpenLevel(i)
+		t.EquipmentSlotOpenLevel[i] = fbsutils.Convert(e.EquipmentSlotOpenLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.ScenarioAutoDelayMillisec = fbsutils.Convert(e.ScenarioAutoDelayMillisec(), t.FlatBuffer.TableKey)
 	t.JoinOrCreateClanCoolTimeFromHour = fbsutils.Convert(e.JoinOrCreateClanCoolTimeFromHour(), t.FlatBuffer.TableKey)
@@ -470,7 +476,7 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.RaidOpponentListAmount = fbsutils.Convert(e.RaidOpponentListAmount(), t.FlatBuffer.TableKey)
 	t.CraftBaseGoldRequired = make([]int64, e.CraftBaseGoldRequiredLength())
 	for i := range e.CraftBaseGoldRequiredLength() {
-		t.CraftBaseGoldRequired[i] = e.CraftBaseGoldRequired(i)
+		t.CraftBaseGoldRequired[i] = fbsutils.Convert(e.CraftBaseGoldRequired(i), t.FlatBuffer.TableKey)
 	}
 	t.PostExpiredDayAttendance = fbsutils.Convert(e.PostExpiredDayAttendance(), t.FlatBuffer.TableKey)
 	t.PostExpiredDayInventoryOverflow = fbsutils.Convert(e.PostExpiredDayInventoryOverflow(), t.FlatBuffer.TableKey)
@@ -572,6 +578,9 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.AssistStrangerMinLevel = fbsutils.Convert(e.AssistStrangerMinLevel(), t.FlatBuffer.TableKey)
 	t.AssistStrangerMaxLevel = fbsutils.Convert(e.AssistStrangerMaxLevel(), t.FlatBuffer.TableKey)
 	t.MaxBlockedUserCount = fbsutils.Convert(e.MaxBlockedUserCount(), t.FlatBuffer.TableKey)
+	t.CafeRandomVisitMinComfortBonus = fbsutils.Convert(e.CafeRandomVisitMinComfortBonus(), t.FlatBuffer.TableKey)
+	t.CafeRandomVisitMinLastLogin = fbsutils.Convert(e.CafeRandomVisitMinLastLogin(), t.FlatBuffer.TableKey)
+	t.CafeTravelSyncIntervalByMillisec = fbsutils.Convert(e.CafeTravelSyncIntervalByMillisec(), t.FlatBuffer.TableKey)
 	return nil
 }
 

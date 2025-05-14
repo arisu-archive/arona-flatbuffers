@@ -46,26 +46,15 @@ class Form(object):
             return obj
         return None
 
-def FormStart(builder):
-    builder.StartObject(2)
-
+def FormStart(builder): builder.StartObject(2)
 def Start(builder):
-    FormStart(builder)
-
-def FormAddMoveEnd(builder, moveEnd):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(moveEnd), 0)
-
+    return FormStart(builder)
+def FormAddMoveEnd(builder, moveEnd): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(moveEnd), 0)
 def AddMoveEnd(builder, moveEnd):
-    FormAddMoveEnd(builder, moveEnd)
-
-def FormAddPublicSkill(builder, publicSkill):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(publicSkill), 0)
-
+    return FormAddMoveEnd(builder, moveEnd)
+def FormAddPublicSkill(builder, publicSkill): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(publicSkill), 0)
 def AddPublicSkill(builder, publicSkill):
-    FormAddPublicSkill(builder, publicSkill)
-
-def FormEnd(builder):
-    return builder.EndObject()
-
+    return FormAddPublicSkill(builder, publicSkill)
+def FormEnd(builder): return builder.EndObject()
 def End(builder):
     return FormEnd(builder)

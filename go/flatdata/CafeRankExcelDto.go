@@ -71,11 +71,11 @@ func (t *CafeRankExcelDto) UnmarshalMessage(e *CafeRankExcel) error {
 	t.CafeVisitWeightBase = fbsutils.Convert(e.CafeVisitWeightBase(), t.FlatBuffer.TableKey)
 	t.CafeVisitWeightTagBonusStep = make([]int32, e.CafeVisitWeightTagBonusStepLength())
 	for i := range e.CafeVisitWeightTagBonusStepLength() {
-		t.CafeVisitWeightTagBonusStep[i] = e.CafeVisitWeightTagBonusStep(i)
+		t.CafeVisitWeightTagBonusStep[i] = fbsutils.Convert(e.CafeVisitWeightTagBonusStep(i), t.FlatBuffer.TableKey)
 	}
 	t.CafeVisitWeightTagBonus = make([]int32, e.CafeVisitWeightTagBonusLength())
 	for i := range e.CafeVisitWeightTagBonusLength() {
-		t.CafeVisitWeightTagBonus[i] = e.CafeVisitWeightTagBonus(i)
+		t.CafeVisitWeightTagBonus[i] = fbsutils.Convert(e.CafeVisitWeightTagBonus(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

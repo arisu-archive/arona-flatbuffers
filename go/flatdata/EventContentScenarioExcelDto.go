@@ -26,9 +26,6 @@ type EventContentScenarioExcelDto struct {
 	RecollectionSummaryLocalizeScenarioId uint32                            `json:"recollection_summary_localize_scenario_id"`
 	RecollectionResource                  string                            `json:"recollection_resource"`
 	IsRecollectionHorizon                 bool                              `json:"is_recollection_horizon"`
-	CostParcelType                        ParcelType                        `json:"cost_parcel_type"`
-	CostId                                int64                             `json:"cost_id"`
-	CostAmount                            int32                             `json:"cost_amount"`
 	RewardParcelType                      []ParcelType                      `json:"reward_parcel_type"`
 	RewardId                              []int64                           `json:"reward_id"`
 	RewardAmount                          []int32                           `json:"reward_amount"`
@@ -45,9 +42,9 @@ func (t *EventContentScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	EventContentScenarioExcelAddReplayDisplayGroup(b, fbsutils.Convert(t.ReplayDisplayGroup, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelAddRecollectionNumber(b, fbsutils.Convert(t.RecollectionNumber, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddIsRecollection(b, fbsutils.Convert(t.IsRecollection, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddIsMeetup(b, fbsutils.Convert(t.IsMeetup, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddIsOmnibus(b, fbsutils.Convert(t.IsOmnibus, t.FlatBuffer.TableKey))
+	EventContentScenarioExcelAddIsRecollection(b, t.IsRecollection)
+	EventContentScenarioExcelAddIsMeetup(b, t.IsMeetup)
+	EventContentScenarioExcelAddIsOmnibus(b, t.IsOmnibus)
 	EventContentScenarioExcelStartScenarioGroupIdVector(b, len(t.ScenarioGroupId))
 	for i := range len(t.ScenarioGroupId) {
 		b.PrependInt64(fbsutils.Convert(t.ScenarioGroupId[len(t.ScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
@@ -58,14 +55,11 @@ func (t *EventContentScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	EventContentScenarioExcelAddConditionEventContentId(b, fbsutils.Convert(t.ConditionEventContentId, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelAddClearedScenarioGroupId(b, fbsutils.Convert(t.ClearedScenarioGroupId, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(b, fbsutils.Convert(t.RecollectionSummaryLocalizeScenarioId, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddRecollectionResource(b, fbsutils.Convert(b.CreateString(t.RecollectionResource), t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddIsRecollectionHorizon(b, fbsutils.Convert(t.IsRecollectionHorizon, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddCostParcelType(b, fbsutils.Convert(t.CostParcelType, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddCostId(b, fbsutils.Convert(t.CostId, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddCostAmount(b, fbsutils.Convert(t.CostAmount, t.FlatBuffer.TableKey))
+	EventContentScenarioExcelAddRecollectionResource(b, b.CreateString(fbsutils.Convert(t.RecollectionResource, t.FlatBuffer.TableKey)))
+	EventContentScenarioExcelAddIsRecollectionHorizon(b, t.IsRecollectionHorizon)
 	EventContentScenarioExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentScenarioExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	EventContentScenarioExcelStartRewardIdVector(b, len(t.RewardId))
@@ -98,12 +92,12 @@ func (t *EventContentScenarioExcelDto) UnmarshalMessage(e *EventContentScenarioE
 	t.ReplayDisplayGroup = fbsutils.Convert(e.ReplayDisplayGroup(), t.FlatBuffer.TableKey)
 	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	t.RecollectionNumber = fbsutils.Convert(e.RecollectionNumber(), t.FlatBuffer.TableKey)
-	t.IsRecollection = fbsutils.Convert(e.IsRecollection(), t.FlatBuffer.TableKey)
-	t.IsMeetup = fbsutils.Convert(e.IsMeetup(), t.FlatBuffer.TableKey)
-	t.IsOmnibus = fbsutils.Convert(e.IsOmnibus(), t.FlatBuffer.TableKey)
+	t.IsRecollection = e.IsRecollection()
+	t.IsMeetup = e.IsMeetup()
+	t.IsOmnibus = e.IsOmnibus()
 	t.ScenarioGroupId = make([]int64, e.ScenarioGroupIdLength())
 	for i := range e.ScenarioGroupIdLength() {
-		t.ScenarioGroupId[i] = e.ScenarioGroupId(i)
+		t.ScenarioGroupId[i] = fbsutils.Convert(e.ScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.ScenarioConditionType = EventContentScenarioConditionType(fbsutils.Convert(int32(e.ScenarioConditionType()), t.FlatBuffer.TableKey))
 	t.ConditionAmount = fbsutils.Convert(e.ConditionAmount(), t.FlatBuffer.TableKey)
@@ -111,21 +105,18 @@ func (t *EventContentScenarioExcelDto) UnmarshalMessage(e *EventContentScenarioE
 	t.ClearedScenarioGroupId = fbsutils.Convert(e.ClearedScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.RecollectionSummaryLocalizeScenarioId = fbsutils.Convert(e.RecollectionSummaryLocalizeScenarioId(), t.FlatBuffer.TableKey)
 	t.RecollectionResource = fbsutils.Convert(string(e.RecollectionResource()), t.FlatBuffer.TableKey)
-	t.IsRecollectionHorizon = fbsutils.Convert(e.IsRecollectionHorizon(), t.FlatBuffer.TableKey)
-	t.CostParcelType = ParcelType(fbsutils.Convert(int32(e.CostParcelType()), t.FlatBuffer.TableKey))
-	t.CostId = fbsutils.Convert(e.CostId(), t.FlatBuffer.TableKey)
-	t.CostAmount = fbsutils.Convert(e.CostAmount(), t.FlatBuffer.TableKey)
+	t.IsRecollectionHorizon = e.IsRecollectionHorizon()
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
 		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.RewardId = make([]int64, e.RewardIdLength())
 	for i := range e.RewardIdLength() {
-		t.RewardId[i] = e.RewardId(i)
+		t.RewardId[i] = fbsutils.Convert(e.RewardId(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardAmount = make([]int32, e.RewardAmountLength())
 	for i := range e.RewardAmountLength() {
-		t.RewardAmount[i] = e.RewardAmount(i)
+		t.RewardAmount[i] = fbsutils.Convert(e.RewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

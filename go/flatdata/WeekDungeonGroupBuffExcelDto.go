@@ -27,7 +27,7 @@ func (t *WeekDungeonGroupBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	WeekDungeonGroupBuffExcelAddSchool(b, fbsutils.Convert(t.School, t.FlatBuffer.TableKey))
 	WeekDungeonGroupBuffExcelAddRecommandLocalizeEtcId(b, fbsutils.Convert(t.RecommandLocalizeEtcId, t.FlatBuffer.TableKey))
 	WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(b, fbsutils.Convert(t.FormationLocalizeEtcId, t.FlatBuffer.TableKey))
-	WeekDungeonGroupBuffExcelAddSkillGroupId(b, fbsutils.Convert(b.CreateString(t.SkillGroupId), t.FlatBuffer.TableKey))
+	WeekDungeonGroupBuffExcelAddSkillGroupId(b, b.CreateString(fbsutils.Convert(t.SkillGroupId, t.FlatBuffer.TableKey)))
 	return WeekDungeonGroupBuffExcelEnd(b)
 }
 

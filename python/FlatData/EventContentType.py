@@ -40,3 +40,5 @@ class EventContentType(object):
     SpecialMiniEvent = 34
     ScenarioCollection = 35
     ScenarioShortcut = 36
+    SeasonalEvent = 37
+    MiniShop = 38

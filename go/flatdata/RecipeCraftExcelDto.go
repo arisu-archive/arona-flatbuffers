@@ -29,13 +29,13 @@ func (t *RecipeCraftExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	}
 	RecipeCraftExcelStart(b)
 	RecipeCraftExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	RecipeCraftExcelAddDevName(b, fbsutils.Convert(b.CreateString(t.DevName), t.FlatBuffer.TableKey))
+	RecipeCraftExcelAddDevName(b, b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey)))
 	RecipeCraftExcelAddRecipeType(b, fbsutils.Convert(t.RecipeType, t.FlatBuffer.TableKey))
 	RecipeCraftExcelAddRecipeIngredientId(b, fbsutils.Convert(t.RecipeIngredientId, t.FlatBuffer.TableKey))
-	RecipeCraftExcelAddRecipeIngredientDevName(b, fbsutils.Convert(b.CreateString(t.RecipeIngredientDevName), t.FlatBuffer.TableKey))
+	RecipeCraftExcelAddRecipeIngredientDevName(b, b.CreateString(fbsutils.Convert(t.RecipeIngredientDevName, t.FlatBuffer.TableKey)))
 	RecipeCraftExcelStartParcelTypeVector(b, len(t.ParcelType))
 	for i := range len(t.ParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ParcelType[len(t.ParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	RecipeCraftExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
 	RecipeCraftExcelStartParcelIdVector(b, len(t.ParcelId))
@@ -45,7 +45,7 @@ func (t *RecipeCraftExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	RecipeCraftExcelAddParcelId(b, b.EndVector(len(t.ParcelId)))
 	RecipeCraftExcelStartParcelDevNameVector(b, len(t.ParcelDevName))
 	for i := range len(t.ParcelDevName) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.ParcelDevName[len(t.ParcelDevName)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.ParcelDevName[len(t.ParcelDevName)-i-1]))
 	}
 	RecipeCraftExcelAddParcelDevName(b, b.EndVector(len(t.ParcelDevName)))
 	RecipeCraftExcelStartResultAmountMinVector(b, len(t.ResultAmountMin))
@@ -84,19 +84,19 @@ func (t *RecipeCraftExcelDto) UnmarshalMessage(e *RecipeCraftExcel) error {
 	}
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {
-		t.ParcelId[i] = e.ParcelId(i)
+		t.ParcelId[i] = fbsutils.Convert(e.ParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.ParcelDevName = make([]string, e.ParcelDevNameLength())
 	for i := range e.ParcelDevNameLength() {
-		t.ParcelDevName[i] = string(e.ParcelDevName(i))
+		t.ParcelDevName[i] = fbsutils.Convert(string(e.ParcelDevName(i)), t.FlatBuffer.TableKey)
 	}
 	t.ResultAmountMin = make([]int64, e.ResultAmountMinLength())
 	for i := range e.ResultAmountMinLength() {
-		t.ResultAmountMin[i] = e.ResultAmountMin(i)
+		t.ResultAmountMin[i] = fbsutils.Convert(e.ResultAmountMin(i), t.FlatBuffer.TableKey)
 	}
 	t.ResultAmountMax = make([]int64, e.ResultAmountMaxLength())
 	for i := range e.ResultAmountMaxLength() {
-		t.ResultAmountMax[i] = e.ResultAmountMax(i)
+		t.ResultAmountMax[i] = fbsutils.Convert(e.ResultAmountMax(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

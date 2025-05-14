@@ -25,7 +25,7 @@ func (t *EliminateRaidStageLimitedRewardExcelDto) MarshalModel(b *flatbuffers.Bu
 	EliminateRaidStageLimitedRewardExcelAddLimitedRewardId(b, fbsutils.Convert(t.LimitedRewardId, t.FlatBuffer.TableKey))
 	EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelTypeVector(b, len(t.LimitedRewardParcelType))
 	for i := range len(t.LimitedRewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.LimitedRewardParcelType[len(t.LimitedRewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.LimitedRewardParcelType[len(t.LimitedRewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelType(b, b.EndVector(len(t.LimitedRewardParcelType)))
 	EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelUniqueIdVector(b, len(t.LimitedRewardParcelUniqueId))
@@ -60,11 +60,11 @@ func (t *EliminateRaidStageLimitedRewardExcelDto) UnmarshalMessage(e *EliminateR
 	}
 	t.LimitedRewardParcelUniqueId = make([]int64, e.LimitedRewardParcelUniqueIdLength())
 	for i := range e.LimitedRewardParcelUniqueIdLength() {
-		t.LimitedRewardParcelUniqueId[i] = e.LimitedRewardParcelUniqueId(i)
+		t.LimitedRewardParcelUniqueId[i] = fbsutils.Convert(e.LimitedRewardParcelUniqueId(i), t.FlatBuffer.TableKey)
 	}
 	t.LimitedRewardAmount = make([]int64, e.LimitedRewardAmountLength())
 	for i := range e.LimitedRewardAmountLength() {
-		t.LimitedRewardAmount[i] = e.LimitedRewardAmount(i)
+		t.LimitedRewardAmount[i] = fbsutils.Convert(e.LimitedRewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

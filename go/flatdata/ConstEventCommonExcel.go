@@ -17,19 +17,11 @@ func GetRootAsConstEventCommonExcel(buf []byte, offset flatbuffers.UOffsetT) *Co
 	return x
 }
 
-func FinishConstEventCommonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsConstEventCommonExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstEventCommonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstEventCommonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedConstEventCommonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstEventCommonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -189,8 +181,20 @@ func (rcv *ConstEventCommonExcel) MutateTreasureLimitVariationClearLoopCount(n i
 	return rcv._tab.MutateInt32Slot(28, n)
 }
 
+func (rcv *ConstEventCommonExcel) EventStoryReplayHideEventContentId() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstEventCommonExcel) MutateEventStoryReplayHideEventContentId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(30, n)
+}
+
 func ConstEventCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(13)
+	builder.StartObject(14)
 }
 func ConstEventCommonExcelAddEventContentHardStageCount(builder *flatbuffers.Builder, eventContentHardStageCount int32) {
 	builder.PrependInt32Slot(0, eventContentHardStageCount, 0)
@@ -230,6 +234,9 @@ func ConstEventCommonExcelAddTreasureLimitVariationLoopCount(builder *flatbuffer
 }
 func ConstEventCommonExcelAddTreasureLimitVariationClearLoopCount(builder *flatbuffers.Builder, treasureLimitVariationClearLoopCount int32) {
 	builder.PrependInt32Slot(12, treasureLimitVariationClearLoopCount, 0)
+}
+func ConstEventCommonExcelAddEventStoryReplayHideEventContentId(builder *flatbuffers.Builder, eventStoryReplayHideEventContentId int32) {
+	builder.PrependInt32Slot(13, eventStoryReplayHideEventContentId, 0)
 }
 func ConstEventCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

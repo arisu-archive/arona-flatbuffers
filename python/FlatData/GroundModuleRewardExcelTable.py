@@ -49,26 +49,15 @@ class GroundModuleRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def GroundModuleRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def GroundModuleRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    GroundModuleRewardExcelTableStart(builder)
-
-def GroundModuleRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return GroundModuleRewardExcelTableStart(builder)
+def GroundModuleRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    GroundModuleRewardExcelTableAddDataList(builder, dataList)
-
-def GroundModuleRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return GroundModuleRewardExcelTableAddDataList(builder, dataList)
+def GroundModuleRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return GroundModuleRewardExcelTableStartDataListVector(builder, numElems)
-
-def GroundModuleRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def GroundModuleRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return GroundModuleRewardExcelTableEnd(builder)

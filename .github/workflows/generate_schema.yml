@@ -67,14 +67,14 @@ jobs:
           ref: develop
           sparse-checkout-cone-mode: false
           fetch-depth: 0
-      - name: Setup access for private go modules
-        env:
-          ARONA_UNFLATD_PRIVATE_KEY: ${{secrets.ARONA_UNFLATD_PRIVATE_KEY}}
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: |
-          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-          echo "$ARONA_UNFLATD_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-          git config --global --add url."git@github.com:".insteadOf "https://github.com/"
+      - name: Setup SSH agent
+        uses: webfactory/ssh-agent@v0.9.1
+        with:
+          ssh-private-key: |
+            ${{secrets.ARONA_FBS_GENERATOR_PRIVATE_KEY}}
+            ${{secrets.ARONA_UNFLATD_PRIVATE_KEY}}
+            ${{secrets.ARONA_FBS_UTILS_PRIVATE_KEY}}
+            ${{secrets.ARONA_TREE_SITTER_FLATBUFFER}}
       - name: Download decompiled zip file
         run: curl -s https://ba.pokeguy.dev/com.nexon.bluearchive/decompiled/${{ needs.determine-version.outputs.version }}/decompiled.zip -o output.zip
       - name: Unzip the file
@@ -86,13 +86,17 @@ jobs:
       - name: Generate the schema
         env:
           GOPRIVATE: github.com/arisu-archive
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: go run github.com/arisu-archive/arona-unflatd@latest d -i ./output/DiffableCs/BlueArchive -o ./.schema
+        run: |
+          git config --global --add url."git@github.com:".insteadOf "https://github.com/"
+          go run github.com/arisu-archive/arona-unflatd@develop d -i ./output/DiffableCs/BlueArchive -o ./.schema/flatdata -n FlatData
+          go run github.com/arisu-archive/arona-unflatd@develop d -i ./output/DiffableCs/BlueArchive -o ./.schema/excel -n "MX.Data.Excel"
       - name: Install FlatBuffers compiler
         run: |
           sudo apt update
           sudo apt install flatbuffers-compiler
       - name: Compile the schema into code
+        env:
+          GOPRIVATE: github.com/arisu-archive
         run: |
           ./.scripts/compile.sh
           ./.scripts/process_flatbuffers.sh

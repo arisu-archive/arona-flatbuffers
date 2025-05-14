@@ -26,7 +26,7 @@ func (t *GroundNodeFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	GroundNodeFlatStart(b)
 	GroundNodeFlatAddX(b, fbsutils.Convert(t.X, t.FlatBuffer.TableKey))
 	GroundNodeFlatAddY(b, fbsutils.Convert(t.Y, t.FlatBuffer.TableKey))
-	GroundNodeFlatAddIsCanNotUseSkill(b, fbsutils.Convert(t.IsCanNotUseSkill, t.FlatBuffer.TableKey))
+	GroundNodeFlatAddIsCanNotUseSkill(b, t.IsCanNotUseSkill)
 	GroundNodeFlatAddPosition(b, t.Position.MarshalModel(b))
 	GroundNodeFlatAddNodeType(b, fbsutils.Convert(t.NodeType, t.FlatBuffer.TableKey))
 	GroundNodeFlatAddOriginalNodeType(b, fbsutils.Convert(t.OriginalNodeType, t.FlatBuffer.TableKey))
@@ -47,7 +47,7 @@ func (t *GroundNodeFlatDto) UnmarshalMessage(e *GroundNodeFlat) error {
 	}
 	t.X = fbsutils.Convert(e.X(), t.FlatBuffer.TableKey)
 	t.Y = fbsutils.Convert(e.Y(), t.FlatBuffer.TableKey)
-	t.IsCanNotUseSkill = fbsutils.Convert(e.IsCanNotUseSkill(), t.FlatBuffer.TableKey)
+	t.IsCanNotUseSkill = e.IsCanNotUseSkill()
 	t.Position.UnmarshalMessage(e.Position(nil))
 	t.NodeType = GroundNodeType(fbsutils.Convert(int32(e.NodeType()), t.FlatBuffer.TableKey))
 	t.OriginalNodeType = GroundNodeType(fbsutils.Convert(int32(e.OriginalNodeType()), t.FlatBuffer.TableKey))

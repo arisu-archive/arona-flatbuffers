@@ -1,8 +1,0 @@
-namespace FlatData;
-
-table StageFileRefreshSettingExcel {
-    ground_id: long;
-    force_save: bool;
-}
-
-root_type StageFileRefreshSettingExcel;

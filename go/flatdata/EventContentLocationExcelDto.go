@@ -32,7 +32,7 @@ func (t *EventContentLocationExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	EventContentLocationExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentLocationExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentLocationExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	EventContentLocationExcelAddPrefabPath(b, fbsutils.Convert(b.CreateString(t.PrefabPath), t.FlatBuffer.TableKey))
+	EventContentLocationExcelAddPrefabPath(b, b.CreateString(fbsutils.Convert(t.PrefabPath, t.FlatBuffer.TableKey)))
 	EventContentLocationExcelAddLocationResetScheduleCount(b, fbsutils.Convert(t.LocationResetScheduleCount, t.FlatBuffer.TableKey))
 	EventContentLocationExcelAddScheduleEventPointCostParcelType(b, fbsutils.Convert(t.ScheduleEventPointCostParcelType, t.FlatBuffer.TableKey))
 	EventContentLocationExcelAddScheduleEventPointCostParcelId(b, fbsutils.Convert(t.ScheduleEventPointCostParcelId, t.FlatBuffer.TableKey))

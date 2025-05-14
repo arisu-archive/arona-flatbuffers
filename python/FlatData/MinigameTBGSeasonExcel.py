@@ -227,188 +227,96 @@ class MinigameTBGSeasonExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def MinigameTBGSeasonExcelStart(builder):
-    builder.StartObject(29)
-
+def MinigameTBGSeasonExcelStart(builder): builder.StartObject(29)
 def Start(builder):
-    MinigameTBGSeasonExcelStart(builder)
-
-def MinigameTBGSeasonExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return MinigameTBGSeasonExcelStart(builder)
+def MinigameTBGSeasonExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    MinigameTBGSeasonExcelAddEventContentId(builder, eventContentId)
-
-def MinigameTBGSeasonExcelAddItemSlot(builder, itemSlot):
-    builder.PrependInt32Slot(1, itemSlot, 0)
-
+    return MinigameTBGSeasonExcelAddEventContentId(builder, eventContentId)
+def MinigameTBGSeasonExcelAddItemSlot(builder, itemSlot): builder.PrependInt32Slot(1, itemSlot, 0)
 def AddItemSlot(builder, itemSlot):
-    MinigameTBGSeasonExcelAddItemSlot(builder, itemSlot)
-
-def MinigameTBGSeasonExcelAddDefaultEchelonHp(builder, defaultEchelonHp):
-    builder.PrependInt32Slot(2, defaultEchelonHp, 0)
-
+    return MinigameTBGSeasonExcelAddItemSlot(builder, itemSlot)
+def MinigameTBGSeasonExcelAddDefaultEchelonHp(builder, defaultEchelonHp): builder.PrependInt32Slot(2, defaultEchelonHp, 0)
 def AddDefaultEchelonHp(builder, defaultEchelonHp):
-    MinigameTBGSeasonExcelAddDefaultEchelonHp(builder, defaultEchelonHp)
-
-def MinigameTBGSeasonExcelAddDefaultItemDiceId(builder, defaultItemDiceId):
-    builder.PrependInt64Slot(3, defaultItemDiceId, 0)
-
+    return MinigameTBGSeasonExcelAddDefaultEchelonHp(builder, defaultEchelonHp)
+def MinigameTBGSeasonExcelAddDefaultItemDiceId(builder, defaultItemDiceId): builder.PrependInt64Slot(3, defaultItemDiceId, 0)
 def AddDefaultItemDiceId(builder, defaultItemDiceId):
-    MinigameTBGSeasonExcelAddDefaultItemDiceId(builder, defaultItemDiceId)
-
-def MinigameTBGSeasonExcelAddEchelonSlot1CharacterId(builder, echelonSlot1CharacterId):
-    builder.PrependInt64Slot(4, echelonSlot1CharacterId, 0)
-
+    return MinigameTBGSeasonExcelAddDefaultItemDiceId(builder, defaultItemDiceId)
+def MinigameTBGSeasonExcelAddEchelonSlot1CharacterId(builder, echelonSlot1CharacterId): builder.PrependInt64Slot(4, echelonSlot1CharacterId, 0)
 def AddEchelonSlot1CharacterId(builder, echelonSlot1CharacterId):
-    MinigameTBGSeasonExcelAddEchelonSlot1CharacterId(builder, echelonSlot1CharacterId)
-
-def MinigameTBGSeasonExcelAddEchelonSlot2CharacterId(builder, echelonSlot2CharacterId):
-    builder.PrependInt64Slot(5, echelonSlot2CharacterId, 0)
-
+    return MinigameTBGSeasonExcelAddEchelonSlot1CharacterId(builder, echelonSlot1CharacterId)
+def MinigameTBGSeasonExcelAddEchelonSlot2CharacterId(builder, echelonSlot2CharacterId): builder.PrependInt64Slot(5, echelonSlot2CharacterId, 0)
 def AddEchelonSlot2CharacterId(builder, echelonSlot2CharacterId):
-    MinigameTBGSeasonExcelAddEchelonSlot2CharacterId(builder, echelonSlot2CharacterId)
-
-def MinigameTBGSeasonExcelAddEchelonSlot3CharacterId(builder, echelonSlot3CharacterId):
-    builder.PrependInt64Slot(6, echelonSlot3CharacterId, 0)
-
+    return MinigameTBGSeasonExcelAddEchelonSlot2CharacterId(builder, echelonSlot2CharacterId)
+def MinigameTBGSeasonExcelAddEchelonSlot3CharacterId(builder, echelonSlot3CharacterId): builder.PrependInt64Slot(6, echelonSlot3CharacterId, 0)
 def AddEchelonSlot3CharacterId(builder, echelonSlot3CharacterId):
-    MinigameTBGSeasonExcelAddEchelonSlot3CharacterId(builder, echelonSlot3CharacterId)
-
-def MinigameTBGSeasonExcelAddEchelonSlot4CharacterId(builder, echelonSlot4CharacterId):
-    builder.PrependInt64Slot(7, echelonSlot4CharacterId, 0)
-
+    return MinigameTBGSeasonExcelAddEchelonSlot3CharacterId(builder, echelonSlot3CharacterId)
+def MinigameTBGSeasonExcelAddEchelonSlot4CharacterId(builder, echelonSlot4CharacterId): builder.PrependInt64Slot(7, echelonSlot4CharacterId, 0)
 def AddEchelonSlot4CharacterId(builder, echelonSlot4CharacterId):
-    MinigameTBGSeasonExcelAddEchelonSlot4CharacterId(builder, echelonSlot4CharacterId)
-
-def MinigameTBGSeasonExcelAddEchelonSlot1Portrait(builder, echelonSlot1Portrait):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(echelonSlot1Portrait), 0)
-
+    return MinigameTBGSeasonExcelAddEchelonSlot4CharacterId(builder, echelonSlot4CharacterId)
+def MinigameTBGSeasonExcelAddEchelonSlot1Portrait(builder, echelonSlot1Portrait): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(echelonSlot1Portrait), 0)
 def AddEchelonSlot1Portrait(builder, echelonSlot1Portrait):
-    MinigameTBGSeasonExcelAddEchelonSlot1Portrait(builder, echelonSlot1Portrait)
-
-def MinigameTBGSeasonExcelAddEchelonSlot2Portrait(builder, echelonSlot2Portrait):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(echelonSlot2Portrait), 0)
-
+    return MinigameTBGSeasonExcelAddEchelonSlot1Portrait(builder, echelonSlot1Portrait)
+def MinigameTBGSeasonExcelAddEchelonSlot2Portrait(builder, echelonSlot2Portrait): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(echelonSlot2Portrait), 0)
 def AddEchelonSlot2Portrait(builder, echelonSlot2Portrait):
-    MinigameTBGSeasonExcelAddEchelonSlot2Portrait(builder, echelonSlot2Portrait)
-
-def MinigameTBGSeasonExcelAddEchelonSlot3Portrait(builder, echelonSlot3Portrait):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(echelonSlot3Portrait), 0)
-
+    return MinigameTBGSeasonExcelAddEchelonSlot2Portrait(builder, echelonSlot2Portrait)
+def MinigameTBGSeasonExcelAddEchelonSlot3Portrait(builder, echelonSlot3Portrait): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(echelonSlot3Portrait), 0)
 def AddEchelonSlot3Portrait(builder, echelonSlot3Portrait):
-    MinigameTBGSeasonExcelAddEchelonSlot3Portrait(builder, echelonSlot3Portrait)
-
-def MinigameTBGSeasonExcelAddEchelonSlot4Portrait(builder, echelonSlot4Portrait):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(echelonSlot4Portrait), 0)
-
+    return MinigameTBGSeasonExcelAddEchelonSlot3Portrait(builder, echelonSlot3Portrait)
+def MinigameTBGSeasonExcelAddEchelonSlot4Portrait(builder, echelonSlot4Portrait): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(echelonSlot4Portrait), 0)
 def AddEchelonSlot4Portrait(builder, echelonSlot4Portrait):
-    MinigameTBGSeasonExcelAddEchelonSlot4Portrait(builder, echelonSlot4Portrait)
-
-def MinigameTBGSeasonExcelAddEventUseCostType(builder, eventUseCostType):
-    builder.PrependInt32Slot(12, eventUseCostType, 0)
-
+    return MinigameTBGSeasonExcelAddEchelonSlot4Portrait(builder, echelonSlot4Portrait)
+def MinigameTBGSeasonExcelAddEventUseCostType(builder, eventUseCostType): builder.PrependInt32Slot(12, eventUseCostType, 0)
 def AddEventUseCostType(builder, eventUseCostType):
-    MinigameTBGSeasonExcelAddEventUseCostType(builder, eventUseCostType)
-
-def MinigameTBGSeasonExcelAddEventUseCostId(builder, eventUseCostId):
-    builder.PrependInt64Slot(13, eventUseCostId, 0)
-
+    return MinigameTBGSeasonExcelAddEventUseCostType(builder, eventUseCostType)
+def MinigameTBGSeasonExcelAddEventUseCostId(builder, eventUseCostId): builder.PrependInt64Slot(13, eventUseCostId, 0)
 def AddEventUseCostId(builder, eventUseCostId):
-    MinigameTBGSeasonExcelAddEventUseCostId(builder, eventUseCostId)
-
-def MinigameTBGSeasonExcelAddEchelonRevivalCostType(builder, echelonRevivalCostType):
-    builder.PrependInt32Slot(14, echelonRevivalCostType, 0)
-
+    return MinigameTBGSeasonExcelAddEventUseCostId(builder, eventUseCostId)
+def MinigameTBGSeasonExcelAddEchelonRevivalCostType(builder, echelonRevivalCostType): builder.PrependInt32Slot(14, echelonRevivalCostType, 0)
 def AddEchelonRevivalCostType(builder, echelonRevivalCostType):
-    MinigameTBGSeasonExcelAddEchelonRevivalCostType(builder, echelonRevivalCostType)
-
-def MinigameTBGSeasonExcelAddEchelonRevivalCostId(builder, echelonRevivalCostId):
-    builder.PrependInt64Slot(15, echelonRevivalCostId, 0)
-
+    return MinigameTBGSeasonExcelAddEchelonRevivalCostType(builder, echelonRevivalCostType)
+def MinigameTBGSeasonExcelAddEchelonRevivalCostId(builder, echelonRevivalCostId): builder.PrependInt64Slot(15, echelonRevivalCostId, 0)
 def AddEchelonRevivalCostId(builder, echelonRevivalCostId):
-    MinigameTBGSeasonExcelAddEchelonRevivalCostId(builder, echelonRevivalCostId)
-
-def MinigameTBGSeasonExcelAddEchelonRevivalCostAmount(builder, echelonRevivalCostAmount):
-    builder.PrependInt32Slot(16, echelonRevivalCostAmount, 0)
-
+    return MinigameTBGSeasonExcelAddEchelonRevivalCostId(builder, echelonRevivalCostId)
+def MinigameTBGSeasonExcelAddEchelonRevivalCostAmount(builder, echelonRevivalCostAmount): builder.PrependInt32Slot(16, echelonRevivalCostAmount, 0)
 def AddEchelonRevivalCostAmount(builder, echelonRevivalCostAmount):
-    MinigameTBGSeasonExcelAddEchelonRevivalCostAmount(builder, echelonRevivalCostAmount)
-
-def MinigameTBGSeasonExcelAddEnemyBossHp(builder, enemyBossHp):
-    builder.PrependInt32Slot(17, enemyBossHp, 0)
-
+    return MinigameTBGSeasonExcelAddEchelonRevivalCostAmount(builder, echelonRevivalCostAmount)
+def MinigameTBGSeasonExcelAddEnemyBossHp(builder, enemyBossHp): builder.PrependInt32Slot(17, enemyBossHp, 0)
 def AddEnemyBossHp(builder, enemyBossHp):
-    MinigameTBGSeasonExcelAddEnemyBossHp(builder, enemyBossHp)
-
-def MinigameTBGSeasonExcelAddEnemyMinionHp(builder, enemyMinionHp):
-    builder.PrependInt32Slot(18, enemyMinionHp, 0)
-
+    return MinigameTBGSeasonExcelAddEnemyBossHp(builder, enemyBossHp)
+def MinigameTBGSeasonExcelAddEnemyMinionHp(builder, enemyMinionHp): builder.PrependInt32Slot(18, enemyMinionHp, 0)
 def AddEnemyMinionHp(builder, enemyMinionHp):
-    MinigameTBGSeasonExcelAddEnemyMinionHp(builder, enemyMinionHp)
-
-def MinigameTBGSeasonExcelAddAttackDamage(builder, attackDamage):
-    builder.PrependInt32Slot(19, attackDamage, 0)
-
+    return MinigameTBGSeasonExcelAddEnemyMinionHp(builder, enemyMinionHp)
+def MinigameTBGSeasonExcelAddAttackDamage(builder, attackDamage): builder.PrependInt32Slot(19, attackDamage, 0)
 def AddAttackDamage(builder, attackDamage):
-    MinigameTBGSeasonExcelAddAttackDamage(builder, attackDamage)
-
-def MinigameTBGSeasonExcelAddCriticalAttackDamage(builder, criticalAttackDamage):
-    builder.PrependInt32Slot(20, criticalAttackDamage, 0)
-
+    return MinigameTBGSeasonExcelAddAttackDamage(builder, attackDamage)
+def MinigameTBGSeasonExcelAddCriticalAttackDamage(builder, criticalAttackDamage): builder.PrependInt32Slot(20, criticalAttackDamage, 0)
 def AddCriticalAttackDamage(builder, criticalAttackDamage):
-    MinigameTBGSeasonExcelAddCriticalAttackDamage(builder, criticalAttackDamage)
-
-def MinigameTBGSeasonExcelAddRoundItemSelectLimit(builder, roundItemSelectLimit):
-    builder.PrependInt32Slot(21, roundItemSelectLimit, 0)
-
+    return MinigameTBGSeasonExcelAddCriticalAttackDamage(builder, criticalAttackDamage)
+def MinigameTBGSeasonExcelAddRoundItemSelectLimit(builder, roundItemSelectLimit): builder.PrependInt32Slot(21, roundItemSelectLimit, 0)
 def AddRoundItemSelectLimit(builder, roundItemSelectLimit):
-    MinigameTBGSeasonExcelAddRoundItemSelectLimit(builder, roundItemSelectLimit)
-
-def MinigameTBGSeasonExcelAddInstantClearRound(builder, instantClearRound):
-    builder.PrependInt32Slot(22, instantClearRound, 0)
-
+    return MinigameTBGSeasonExcelAddRoundItemSelectLimit(builder, roundItemSelectLimit)
+def MinigameTBGSeasonExcelAddInstantClearRound(builder, instantClearRound): builder.PrependInt32Slot(22, instantClearRound, 0)
 def AddInstantClearRound(builder, instantClearRound):
-    MinigameTBGSeasonExcelAddInstantClearRound(builder, instantClearRound)
-
-def MinigameTBGSeasonExcelAddMaxHp(builder, maxHp):
-    builder.PrependInt32Slot(23, maxHp, 0)
-
+    return MinigameTBGSeasonExcelAddInstantClearRound(builder, instantClearRound)
+def MinigameTBGSeasonExcelAddMaxHp(builder, maxHp): builder.PrependInt32Slot(23, maxHp, 0)
 def AddMaxHp(builder, maxHp):
-    MinigameTBGSeasonExcelAddMaxHp(builder, maxHp)
-
-def MinigameTBGSeasonExcelAddMapImagePath(builder, mapImagePath):
-    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(mapImagePath), 0)
-
+    return MinigameTBGSeasonExcelAddMaxHp(builder, maxHp)
+def MinigameTBGSeasonExcelAddMapImagePath(builder, mapImagePath): builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(mapImagePath), 0)
 def AddMapImagePath(builder, mapImagePath):
-    MinigameTBGSeasonExcelAddMapImagePath(builder, mapImagePath)
-
-def MinigameTBGSeasonExcelAddMapNameLocalize(builder, mapNameLocalize):
-    builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(mapNameLocalize), 0)
-
+    return MinigameTBGSeasonExcelAddMapImagePath(builder, mapImagePath)
+def MinigameTBGSeasonExcelAddMapNameLocalize(builder, mapNameLocalize): builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(mapNameLocalize), 0)
 def AddMapNameLocalize(builder, mapNameLocalize):
-    MinigameTBGSeasonExcelAddMapNameLocalize(builder, mapNameLocalize)
-
-def MinigameTBGSeasonExcelAddStartThemaIndex(builder, startThemaIndex):
-    builder.PrependInt32Slot(26, startThemaIndex, 0)
-
+    return MinigameTBGSeasonExcelAddMapNameLocalize(builder, mapNameLocalize)
+def MinigameTBGSeasonExcelAddStartThemaIndex(builder, startThemaIndex): builder.PrependInt32Slot(26, startThemaIndex, 0)
 def AddStartThemaIndex(builder, startThemaIndex):
-    MinigameTBGSeasonExcelAddStartThemaIndex(builder, startThemaIndex)
-
-def MinigameTBGSeasonExcelAddLoopThemaIndex(builder, loopThemaIndex):
-    builder.PrependInt32Slot(27, loopThemaIndex, 0)
-
+    return MinigameTBGSeasonExcelAddStartThemaIndex(builder, startThemaIndex)
+def MinigameTBGSeasonExcelAddLoopThemaIndex(builder, loopThemaIndex): builder.PrependInt32Slot(27, loopThemaIndex, 0)
 def AddLoopThemaIndex(builder, loopThemaIndex):
-    MinigameTBGSeasonExcelAddLoopThemaIndex(builder, loopThemaIndex)
-
-def MinigameTBGSeasonExcelAddMaxDicePlus(builder, maxDicePlus):
-    builder.PrependInt32Slot(28, maxDicePlus, 0)
-
+    return MinigameTBGSeasonExcelAddLoopThemaIndex(builder, loopThemaIndex)
+def MinigameTBGSeasonExcelAddMaxDicePlus(builder, maxDicePlus): builder.PrependInt32Slot(28, maxDicePlus, 0)
 def AddMaxDicePlus(builder, maxDicePlus):
-    MinigameTBGSeasonExcelAddMaxDicePlus(builder, maxDicePlus)
-
-def MinigameTBGSeasonExcelEnd(builder):
-    return builder.EndObject()
-
+    return MinigameTBGSeasonExcelAddMaxDicePlus(builder, maxDicePlus)
+def MinigameTBGSeasonExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameTBGSeasonExcelEnd(builder)

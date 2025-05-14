@@ -26,7 +26,7 @@ func (t *RaidStageSeasonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	RaidStageSeasonRewardExcelAddSeasonRewardId(b, fbsutils.Convert(t.SeasonRewardId, t.FlatBuffer.TableKey))
 	RaidStageSeasonRewardExcelStartSeasonRewardParcelTypeVector(b, len(t.SeasonRewardParcelType))
 	for i := range len(t.SeasonRewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.SeasonRewardParcelType[len(t.SeasonRewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.SeasonRewardParcelType[len(t.SeasonRewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	RaidStageSeasonRewardExcelAddSeasonRewardParcelType(b, b.EndVector(len(t.SeasonRewardParcelType)))
 	RaidStageSeasonRewardExcelStartSeasonRewardParcelUniqueIdVector(b, len(t.SeasonRewardParcelUniqueId))
@@ -36,7 +36,7 @@ func (t *RaidStageSeasonRewardExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	RaidStageSeasonRewardExcelAddSeasonRewardParcelUniqueId(b, b.EndVector(len(t.SeasonRewardParcelUniqueId)))
 	RaidStageSeasonRewardExcelStartSeasonRewardParcelUniqueNameVector(b, len(t.SeasonRewardParcelUniqueName))
 	for i := range len(t.SeasonRewardParcelUniqueName) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.SeasonRewardParcelUniqueName[len(t.SeasonRewardParcelUniqueName)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.SeasonRewardParcelUniqueName[len(t.SeasonRewardParcelUniqueName)-i-1]))
 	}
 	RaidStageSeasonRewardExcelAddSeasonRewardParcelUniqueName(b, b.EndVector(len(t.SeasonRewardParcelUniqueName)))
 	RaidStageSeasonRewardExcelStartSeasonRewardAmountVector(b, len(t.SeasonRewardAmount))
@@ -66,15 +66,15 @@ func (t *RaidStageSeasonRewardExcelDto) UnmarshalMessage(e *RaidStageSeasonRewar
 	}
 	t.SeasonRewardParcelUniqueId = make([]int64, e.SeasonRewardParcelUniqueIdLength())
 	for i := range e.SeasonRewardParcelUniqueIdLength() {
-		t.SeasonRewardParcelUniqueId[i] = e.SeasonRewardParcelUniqueId(i)
+		t.SeasonRewardParcelUniqueId[i] = fbsutils.Convert(e.SeasonRewardParcelUniqueId(i), t.FlatBuffer.TableKey)
 	}
 	t.SeasonRewardParcelUniqueName = make([]string, e.SeasonRewardParcelUniqueNameLength())
 	for i := range e.SeasonRewardParcelUniqueNameLength() {
-		t.SeasonRewardParcelUniqueName[i] = string(e.SeasonRewardParcelUniqueName(i))
+		t.SeasonRewardParcelUniqueName[i] = fbsutils.Convert(string(e.SeasonRewardParcelUniqueName(i)), t.FlatBuffer.TableKey)
 	}
 	t.SeasonRewardAmount = make([]int64, e.SeasonRewardAmountLength())
 	for i := range e.SeasonRewardAmountLength() {
-		t.SeasonRewardAmount[i] = e.SeasonRewardAmount(i)
+		t.SeasonRewardAmount[i] = fbsutils.Convert(e.SeasonRewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

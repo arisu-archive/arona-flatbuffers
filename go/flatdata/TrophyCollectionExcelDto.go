@@ -47,7 +47,7 @@ func (t *TrophyCollectionExcelDto) UnmarshalMessage(e *TrophyCollectionExcel) er
 	t.LocalizeCodeId = fbsutils.Convert(e.LocalizeCodeId(), t.FlatBuffer.TableKey)
 	t.FurnitureId = make([]int64, e.FurnitureIdLength())
 	for i := range e.FurnitureIdLength() {
-		t.FurnitureId[i] = e.FurnitureId(i)
+		t.FurnitureId[i] = fbsutils.Convert(e.FurnitureId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

@@ -4,6 +4,7 @@ import "log/slog"
 
 type ProcessorOptions struct {
 	Directory string
+	Package   string
 	Language  Language
 	DryRun    bool
 }

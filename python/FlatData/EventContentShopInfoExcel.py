@@ -175,110 +175,57 @@ class EventContentShopInfoExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def EventContentShopInfoExcelStart(builder):
-    builder.StartObject(13)
-
+def EventContentShopInfoExcelStart(builder): builder.StartObject(13)
 def Start(builder):
-    EventContentShopInfoExcelStart(builder)
-
-def EventContentShopInfoExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return EventContentShopInfoExcelStart(builder)
+def EventContentShopInfoExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    EventContentShopInfoExcelAddEventContentId(builder, eventContentId)
-
-def EventContentShopInfoExcelAddCategoryType(builder, categoryType):
-    builder.PrependInt32Slot(1, categoryType, 0)
-
+    return EventContentShopInfoExcelAddEventContentId(builder, eventContentId)
+def EventContentShopInfoExcelAddCategoryType(builder, categoryType): builder.PrependInt32Slot(1, categoryType, 0)
 def AddCategoryType(builder, categoryType):
-    EventContentShopInfoExcelAddCategoryType(builder, categoryType)
-
-def EventContentShopInfoExcelAddLocalizeCode(builder, localizeCode):
-    builder.PrependUint32Slot(2, localizeCode, 0)
-
+    return EventContentShopInfoExcelAddCategoryType(builder, categoryType)
+def EventContentShopInfoExcelAddLocalizeCode(builder, localizeCode): builder.PrependUint32Slot(2, localizeCode, 0)
 def AddLocalizeCode(builder, localizeCode):
-    EventContentShopInfoExcelAddLocalizeCode(builder, localizeCode)
-
-def EventContentShopInfoExcelAddCostParcelType(builder, costParcelType):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(costParcelType), 0)
-
+    return EventContentShopInfoExcelAddLocalizeCode(builder, localizeCode)
+def EventContentShopInfoExcelAddCostParcelType(builder, costParcelType): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(costParcelType), 0)
 def AddCostParcelType(builder, costParcelType):
-    EventContentShopInfoExcelAddCostParcelType(builder, costParcelType)
-
-def EventContentShopInfoExcelStartCostParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentShopInfoExcelAddCostParcelType(builder, costParcelType)
+def EventContentShopInfoExcelStartCostParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartCostParcelTypeVector(builder, numElems):
     return EventContentShopInfoExcelStartCostParcelTypeVector(builder, numElems)
-
-def EventContentShopInfoExcelAddCostParcelId(builder, costParcelId):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(costParcelId), 0)
-
+def EventContentShopInfoExcelAddCostParcelId(builder, costParcelId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(costParcelId), 0)
 def AddCostParcelId(builder, costParcelId):
-    EventContentShopInfoExcelAddCostParcelId(builder, costParcelId)
-
-def EventContentShopInfoExcelStartCostParcelIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentShopInfoExcelAddCostParcelId(builder, costParcelId)
+def EventContentShopInfoExcelStartCostParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartCostParcelIdVector(builder, numElems):
     return EventContentShopInfoExcelStartCostParcelIdVector(builder, numElems)
-
-def EventContentShopInfoExcelAddIsRefresh(builder, isRefresh):
-    builder.PrependBoolSlot(5, isRefresh, 0)
-
+def EventContentShopInfoExcelAddIsRefresh(builder, isRefresh): builder.PrependBoolSlot(5, isRefresh, 0)
 def AddIsRefresh(builder, isRefresh):
-    EventContentShopInfoExcelAddIsRefresh(builder, isRefresh)
-
-def EventContentShopInfoExcelAddIsSoldOutDimmed(builder, isSoldOutDimmed):
-    builder.PrependBoolSlot(6, isSoldOutDimmed, 0)
-
+    return EventContentShopInfoExcelAddIsRefresh(builder, isRefresh)
+def EventContentShopInfoExcelAddIsSoldOutDimmed(builder, isSoldOutDimmed): builder.PrependBoolSlot(6, isSoldOutDimmed, 0)
 def AddIsSoldOutDimmed(builder, isSoldOutDimmed):
-    EventContentShopInfoExcelAddIsSoldOutDimmed(builder, isSoldOutDimmed)
-
-def EventContentShopInfoExcelAddAutoRefreshCoolTime(builder, autoRefreshCoolTime):
-    builder.PrependInt64Slot(7, autoRefreshCoolTime, 0)
-
+    return EventContentShopInfoExcelAddIsSoldOutDimmed(builder, isSoldOutDimmed)
+def EventContentShopInfoExcelAddAutoRefreshCoolTime(builder, autoRefreshCoolTime): builder.PrependInt64Slot(7, autoRefreshCoolTime, 0)
 def AddAutoRefreshCoolTime(builder, autoRefreshCoolTime):
-    EventContentShopInfoExcelAddAutoRefreshCoolTime(builder, autoRefreshCoolTime)
-
-def EventContentShopInfoExcelAddRefreshAbleCount(builder, refreshAbleCount):
-    builder.PrependInt64Slot(8, refreshAbleCount, 0)
-
+    return EventContentShopInfoExcelAddAutoRefreshCoolTime(builder, autoRefreshCoolTime)
+def EventContentShopInfoExcelAddRefreshAbleCount(builder, refreshAbleCount): builder.PrependInt64Slot(8, refreshAbleCount, 0)
 def AddRefreshAbleCount(builder, refreshAbleCount):
-    EventContentShopInfoExcelAddRefreshAbleCount(builder, refreshAbleCount)
-
-def EventContentShopInfoExcelAddGoodsId(builder, goodsId):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(goodsId), 0)
-
+    return EventContentShopInfoExcelAddRefreshAbleCount(builder, refreshAbleCount)
+def EventContentShopInfoExcelAddGoodsId(builder, goodsId): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(goodsId), 0)
 def AddGoodsId(builder, goodsId):
-    EventContentShopInfoExcelAddGoodsId(builder, goodsId)
-
-def EventContentShopInfoExcelStartGoodsIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentShopInfoExcelAddGoodsId(builder, goodsId)
+def EventContentShopInfoExcelStartGoodsIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartGoodsIdVector(builder, numElems):
     return EventContentShopInfoExcelStartGoodsIdVector(builder, numElems)
-
-def EventContentShopInfoExcelAddOpenPeriodFrom(builder, openPeriodFrom):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(openPeriodFrom), 0)
-
+def EventContentShopInfoExcelAddOpenPeriodFrom(builder, openPeriodFrom): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(openPeriodFrom), 0)
 def AddOpenPeriodFrom(builder, openPeriodFrom):
-    EventContentShopInfoExcelAddOpenPeriodFrom(builder, openPeriodFrom)
-
-def EventContentShopInfoExcelAddOpenPeriodTo(builder, openPeriodTo):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(openPeriodTo), 0)
-
+    return EventContentShopInfoExcelAddOpenPeriodFrom(builder, openPeriodFrom)
+def EventContentShopInfoExcelAddOpenPeriodTo(builder, openPeriodTo): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(openPeriodTo), 0)
 def AddOpenPeriodTo(builder, openPeriodTo):
-    EventContentShopInfoExcelAddOpenPeriodTo(builder, openPeriodTo)
-
-def EventContentShopInfoExcelAddShopProductUpdateDate(builder, shopProductUpdateDate):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(shopProductUpdateDate), 0)
-
+    return EventContentShopInfoExcelAddOpenPeriodTo(builder, openPeriodTo)
+def EventContentShopInfoExcelAddShopProductUpdateDate(builder, shopProductUpdateDate): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(shopProductUpdateDate), 0)
 def AddShopProductUpdateDate(builder, shopProductUpdateDate):
-    EventContentShopInfoExcelAddShopProductUpdateDate(builder, shopProductUpdateDate)
-
-def EventContentShopInfoExcelEnd(builder):
-    return builder.EndObject()
-
+    return EventContentShopInfoExcelAddShopProductUpdateDate(builder, shopProductUpdateDate)
+def EventContentShopInfoExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentShopInfoExcelEnd(builder)

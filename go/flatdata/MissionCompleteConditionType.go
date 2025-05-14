@@ -177,6 +177,8 @@ const (
 	MissionCompleteConditionTypeReset_ClearCharacterLimitDefense                      MissionCompleteConditionType = 167
 	MissionCompleteConditionTypeReset_ClearTimeLimitDefenseFromSecond                 MissionCompleteConditionType = 168
 	MissionCompleteConditionTypeReset_JoinMultiFloorRaidCount                         MissionCompleteConditionType = 169
+	MissionCompleteConditionTypeReset_GivePresentCharacterCount                       MissionCompleteConditionType = 170
+	MissionCompleteConditionTypeReset_CharacterInviteCount                            MissionCompleteConditionType = 171
 )
 
 var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]string{
@@ -350,6 +352,8 @@ var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]str
 	MissionCompleteConditionTypeReset_ClearCharacterLimitDefense:                      "Reset_ClearCharacterLimitDefense",
 	MissionCompleteConditionTypeReset_ClearTimeLimitDefenseFromSecond:                 "Reset_ClearTimeLimitDefenseFromSecond",
 	MissionCompleteConditionTypeReset_JoinMultiFloorRaidCount:                         "Reset_JoinMultiFloorRaidCount",
+	MissionCompleteConditionTypeReset_GivePresentCharacterCount:                       "Reset_GivePresentCharacterCount",
+	MissionCompleteConditionTypeReset_CharacterInviteCount:                            "Reset_CharacterInviteCount",
 }
 
 var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteConditionType{
@@ -523,6 +527,8 @@ var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteCondition
 	"Reset_ClearCharacterLimitDefense":                      MissionCompleteConditionTypeReset_ClearCharacterLimitDefense,
 	"Reset_ClearTimeLimitDefenseFromSecond":                 MissionCompleteConditionTypeReset_ClearTimeLimitDefenseFromSecond,
 	"Reset_JoinMultiFloorRaidCount":                         MissionCompleteConditionTypeReset_JoinMultiFloorRaidCount,
+	"Reset_GivePresentCharacterCount":                       MissionCompleteConditionTypeReset_GivePresentCharacterCount,
+	"Reset_CharacterInviteCount":                            MissionCompleteConditionTypeReset_CharacterInviteCount,
 }
 
 func (v MissionCompleteConditionType) String() string {

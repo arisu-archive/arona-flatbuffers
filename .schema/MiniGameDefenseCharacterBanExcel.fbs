@@ -1,8 +1,0 @@
-namespace FlatData;
-
-table MiniGameDefenseCharacterBanExcel {
-    event_content_id: long;
-    character_id: long;
-}
-
-root_type MiniGameDefenseCharacterBanExcel;

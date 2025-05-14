@@ -38,26 +38,15 @@ class Position(object):
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-def PositionStart(builder):
-    builder.StartObject(2)
-
+def PositionStart(builder): builder.StartObject(2)
 def Start(builder):
-    PositionStart(builder)
-
-def PositionAddX(builder, x):
-    builder.PrependFloat32Slot(0, x, 0.0)
-
+    return PositionStart(builder)
+def PositionAddX(builder, x): builder.PrependFloat32Slot(0, x, 0.0)
 def AddX(builder, x):
-    PositionAddX(builder, x)
-
-def PositionAddZ(builder, z):
-    builder.PrependFloat32Slot(1, z, 0.0)
-
+    return PositionAddX(builder, x)
+def PositionAddZ(builder, z): builder.PrependFloat32Slot(1, z, 0.0)
 def AddZ(builder, z):
-    PositionAddZ(builder, z)
-
-def PositionEnd(builder):
-    return builder.EndObject()
-
+    return PositionAddZ(builder, z)
+def PositionEnd(builder): return builder.EndObject()
 def End(builder):
     return PositionEnd(builder)

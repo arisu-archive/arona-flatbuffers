@@ -28,11 +28,11 @@ func (t *EventContentCardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	EventContentCardExcelAddCardGroupId(b, fbsutils.Convert(t.CardGroupId, t.FlatBuffer.TableKey))
 	EventContentCardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentCardExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	EventContentCardExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
-	EventContentCardExcelAddBackIconPath(b, fbsutils.Convert(b.CreateString(t.BackIconPath), t.FlatBuffer.TableKey))
+	EventContentCardExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	EventContentCardExcelAddBackIconPath(b, b.CreateString(fbsutils.Convert(t.BackIconPath, t.FlatBuffer.TableKey)))
 	EventContentCardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentCardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	EventContentCardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
@@ -66,7 +66,7 @@ func (t *EventContentCardExcelDto) UnmarshalMessage(e *EventContentCardExcel) er
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
-		t.RewardParcelId[i] = e.RewardParcelId(i)
+		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

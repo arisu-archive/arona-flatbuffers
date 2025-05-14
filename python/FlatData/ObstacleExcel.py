@@ -256,146 +256,75 @@ class ObstacleExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         return o == 0
 
-def ObstacleExcelStart(builder):
-    builder.StartObject(16)
-
+def ObstacleExcelStart(builder): builder.StartObject(16)
 def Start(builder):
-    ObstacleExcelStart(builder)
-
-def ObstacleExcelAddIndex(builder, index):
-    builder.PrependInt64Slot(0, index, 0)
-
+    return ObstacleExcelStart(builder)
+def ObstacleExcelAddIndex(builder, index): builder.PrependInt64Slot(0, index, 0)
 def AddIndex(builder, index):
-    ObstacleExcelAddIndex(builder, index)
-
-def ObstacleExcelAddPrefabName(builder, prefabName):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
-
+    return ObstacleExcelAddIndex(builder, index)
+def ObstacleExcelAddPrefabName(builder, prefabName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
 def AddPrefabName(builder, prefabName):
-    ObstacleExcelAddPrefabName(builder, prefabName)
-
-def ObstacleExcelAddJumpAble(builder, jumpAble):
-    builder.PrependBoolSlot(2, jumpAble, 0)
-
+    return ObstacleExcelAddPrefabName(builder, prefabName)
+def ObstacleExcelAddJumpAble(builder, jumpAble): builder.PrependBoolSlot(2, jumpAble, 0)
 def AddJumpAble(builder, jumpAble):
-    ObstacleExcelAddJumpAble(builder, jumpAble)
-
-def ObstacleExcelAddSubOffset(builder, subOffset):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(subOffset), 0)
-
+    return ObstacleExcelAddJumpAble(builder, jumpAble)
+def ObstacleExcelAddSubOffset(builder, subOffset): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(subOffset), 0)
 def AddSubOffset(builder, subOffset):
-    ObstacleExcelAddSubOffset(builder, subOffset)
-
-def ObstacleExcelStartSubOffsetVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ObstacleExcelAddSubOffset(builder, subOffset)
+def ObstacleExcelStartSubOffsetVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartSubOffsetVector(builder, numElems):
     return ObstacleExcelStartSubOffsetVector(builder, numElems)
-
-def ObstacleExcelAddX(builder, x):
-    builder.PrependFloat32Slot(4, x, 0.0)
-
+def ObstacleExcelAddX(builder, x): builder.PrependFloat32Slot(4, x, 0.0)
 def AddX(builder, x):
-    ObstacleExcelAddX(builder, x)
-
-def ObstacleExcelAddZ(builder, z):
-    builder.PrependFloat32Slot(5, z, 0.0)
-
+    return ObstacleExcelAddX(builder, x)
+def ObstacleExcelAddZ(builder, z): builder.PrependFloat32Slot(5, z, 0.0)
 def AddZ(builder, z):
-    ObstacleExcelAddZ(builder, z)
-
-def ObstacleExcelAddHp(builder, hp):
-    builder.PrependInt64Slot(6, hp, 0)
-
+    return ObstacleExcelAddZ(builder, z)
+def ObstacleExcelAddHp(builder, hp): builder.PrependInt64Slot(6, hp, 0)
 def AddHp(builder, hp):
-    ObstacleExcelAddHp(builder, hp)
-
-def ObstacleExcelAddMaxHp(builder, maxHp):
-    builder.PrependInt64Slot(7, maxHp, 0)
-
+    return ObstacleExcelAddHp(builder, hp)
+def ObstacleExcelAddMaxHp(builder, maxHp): builder.PrependInt64Slot(7, maxHp, 0)
 def AddMaxHp(builder, maxHp):
-    ObstacleExcelAddMaxHp(builder, maxHp)
-
-def ObstacleExcelAddBlockRate(builder, blockRate):
-    builder.PrependInt32Slot(8, blockRate, 0)
-
+    return ObstacleExcelAddMaxHp(builder, maxHp)
+def ObstacleExcelAddBlockRate(builder, blockRate): builder.PrependInt32Slot(8, blockRate, 0)
 def AddBlockRate(builder, blockRate):
-    ObstacleExcelAddBlockRate(builder, blockRate)
-
-def ObstacleExcelAddEvasionRate(builder, evasionRate):
-    builder.PrependInt32Slot(9, evasionRate, 0)
-
+    return ObstacleExcelAddBlockRate(builder, blockRate)
+def ObstacleExcelAddEvasionRate(builder, evasionRate): builder.PrependInt32Slot(9, evasionRate, 0)
 def AddEvasionRate(builder, evasionRate):
-    ObstacleExcelAddEvasionRate(builder, evasionRate)
-
-def ObstacleExcelAddDestroyType(builder, destroyType):
-    builder.PrependInt32Slot(10, destroyType, 0)
-
+    return ObstacleExcelAddEvasionRate(builder, evasionRate)
+def ObstacleExcelAddDestroyType(builder, destroyType): builder.PrependInt32Slot(10, destroyType, 0)
 def AddDestroyType(builder, destroyType):
-    ObstacleExcelAddDestroyType(builder, destroyType)
-
-def ObstacleExcelAddPoint1Offeset(builder, point1Offeset):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(point1Offeset), 0)
-
+    return ObstacleExcelAddDestroyType(builder, destroyType)
+def ObstacleExcelAddPoint1Offeset(builder, point1Offeset): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(point1Offeset), 0)
 def AddPoint1Offeset(builder, point1Offeset):
-    ObstacleExcelAddPoint1Offeset(builder, point1Offeset)
-
-def ObstacleExcelStartPoint1OffesetVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ObstacleExcelAddPoint1Offeset(builder, point1Offeset)
+def ObstacleExcelStartPoint1OffesetVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartPoint1OffesetVector(builder, numElems):
     return ObstacleExcelStartPoint1OffesetVector(builder, numElems)
-
-def ObstacleExcelAddEnemyPoint1Osset(builder, enemyPoint1Osset):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(enemyPoint1Osset), 0)
-
+def ObstacleExcelAddEnemyPoint1Osset(builder, enemyPoint1Osset): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(enemyPoint1Osset), 0)
 def AddEnemyPoint1Osset(builder, enemyPoint1Osset):
-    ObstacleExcelAddEnemyPoint1Osset(builder, enemyPoint1Osset)
-
-def ObstacleExcelStartEnemyPoint1OssetVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ObstacleExcelAddEnemyPoint1Osset(builder, enemyPoint1Osset)
+def ObstacleExcelStartEnemyPoint1OssetVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartEnemyPoint1OssetVector(builder, numElems):
     return ObstacleExcelStartEnemyPoint1OssetVector(builder, numElems)
-
-def ObstacleExcelAddPoint2Offeset(builder, point2Offeset):
-    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(point2Offeset), 0)
-
+def ObstacleExcelAddPoint2Offeset(builder, point2Offeset): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(point2Offeset), 0)
 def AddPoint2Offeset(builder, point2Offeset):
-    ObstacleExcelAddPoint2Offeset(builder, point2Offeset)
-
-def ObstacleExcelStartPoint2OffesetVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ObstacleExcelAddPoint2Offeset(builder, point2Offeset)
+def ObstacleExcelStartPoint2OffesetVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartPoint2OffesetVector(builder, numElems):
     return ObstacleExcelStartPoint2OffesetVector(builder, numElems)
-
-def ObstacleExcelAddEnemyPoint2Osset(builder, enemyPoint2Osset):
-    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(enemyPoint2Osset), 0)
-
+def ObstacleExcelAddEnemyPoint2Osset(builder, enemyPoint2Osset): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(enemyPoint2Osset), 0)
 def AddEnemyPoint2Osset(builder, enemyPoint2Osset):
-    ObstacleExcelAddEnemyPoint2Osset(builder, enemyPoint2Osset)
-
-def ObstacleExcelStartEnemyPoint2OssetVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ObstacleExcelAddEnemyPoint2Osset(builder, enemyPoint2Osset)
+def ObstacleExcelStartEnemyPoint2OssetVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartEnemyPoint2OssetVector(builder, numElems):
     return ObstacleExcelStartEnemyPoint2OssetVector(builder, numElems)
-
-def ObstacleExcelAddSubObstacleId(builder, subObstacleId):
-    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(subObstacleId), 0)
-
+def ObstacleExcelAddSubObstacleId(builder, subObstacleId): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(subObstacleId), 0)
 def AddSubObstacleId(builder, subObstacleId):
-    ObstacleExcelAddSubObstacleId(builder, subObstacleId)
-
-def ObstacleExcelStartSubObstacleIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return ObstacleExcelAddSubObstacleId(builder, subObstacleId)
+def ObstacleExcelStartSubObstacleIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartSubObstacleIdVector(builder, numElems):
     return ObstacleExcelStartSubObstacleIdVector(builder, numElems)
-
-def ObstacleExcelEnd(builder):
-    return builder.EndObject()
-
+def ObstacleExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ObstacleExcelEnd(builder)

@@ -37,7 +37,7 @@ func (t *AcademyZoneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	AcademyZoneExcelAddRewardGroupId(b, fbsutils.Convert(t.RewardGroupId, t.FlatBuffer.TableKey))
 	AcademyZoneExcelStartTagsVector(b, len(t.Tags))
 	for i := range len(t.Tags) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.Tags[len(t.Tags)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	AcademyZoneExcelAddTags(b, b.EndVector(len(t.Tags)))
 	return AcademyZoneExcelEnd(b)
@@ -61,7 +61,7 @@ func (t *AcademyZoneExcelDto) UnmarshalMessage(e *AcademyZoneExcel) error {
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.StudentVisitProb = make([]int64, e.StudentVisitProbLength())
 	for i := range e.StudentVisitProbLength() {
-		t.StudentVisitProb[i] = e.StudentVisitProb(i)
+		t.StudentVisitProb[i] = fbsutils.Convert(e.StudentVisitProb(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardGroupId = fbsutils.Convert(e.RewardGroupId(), t.FlatBuffer.TableKey)
 	t.Tags = make([]Tag, e.TagsLength())

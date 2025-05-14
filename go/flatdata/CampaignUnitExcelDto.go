@@ -34,9 +34,9 @@ func (t *CampaignUnitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	CampaignUnitExcelStart(b)
 	CampaignUnitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CampaignUnitExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	CampaignUnitExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
-	CampaignUnitExcelAddPrefabName(b, fbsutils.Convert(b.CreateString(t.PrefabName), t.FlatBuffer.TableKey))
-	CampaignUnitExcelAddStrategyPrefabName(b, fbsutils.Convert(b.CreateString(t.StrategyPrefabName), t.FlatBuffer.TableKey))
+	CampaignUnitExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	CampaignUnitExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
+	CampaignUnitExcelAddStrategyPrefabName(b, b.CreateString(fbsutils.Convert(t.StrategyPrefabName, t.FlatBuffer.TableKey)))
 	CampaignUnitExcelStartEnterScenarioGroupIdVector(b, len(t.EnterScenarioGroupId))
 	for i := range len(t.EnterScenarioGroupId) {
 		b.PrependInt64(fbsutils.Convert(t.EnterScenarioGroupId[len(t.EnterScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
@@ -53,7 +53,7 @@ func (t *CampaignUnitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	CampaignUnitExcelAddGrade(b, fbsutils.Convert(t.Grade, t.FlatBuffer.TableKey))
 	CampaignUnitExcelAddEnvironmentType(b, fbsutils.Convert(t.EnvironmentType, t.FlatBuffer.TableKey))
 	CampaignUnitExcelAddScale(b, fbsutils.Convert(t.Scale, t.FlatBuffer.TableKey))
-	CampaignUnitExcelAddIsTacticSkip(b, fbsutils.Convert(t.IsTacticSkip, t.FlatBuffer.TableKey))
+	CampaignUnitExcelAddIsTacticSkip(b, t.IsTacticSkip)
 	return CampaignUnitExcelEnd(b)
 }
 
@@ -76,11 +76,11 @@ func (t *CampaignUnitExcelDto) UnmarshalMessage(e *CampaignUnitExcel) error {
 	t.StrategyPrefabName = fbsutils.Convert(string(e.StrategyPrefabName()), t.FlatBuffer.TableKey)
 	t.EnterScenarioGroupId = make([]int64, e.EnterScenarioGroupIdLength())
 	for i := range e.EnterScenarioGroupIdLength() {
-		t.EnterScenarioGroupId[i] = e.EnterScenarioGroupId(i)
+		t.EnterScenarioGroupId[i] = fbsutils.Convert(e.EnterScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.ClearScenarioGroupId = make([]int64, e.ClearScenarioGroupIdLength())
 	for i := range e.ClearScenarioGroupIdLength() {
-		t.ClearScenarioGroupId[i] = e.ClearScenarioGroupId(i)
+		t.ClearScenarioGroupId[i] = fbsutils.Convert(e.ClearScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.MoveRange = fbsutils.Convert(e.MoveRange(), t.FlatBuffer.TableKey)
@@ -88,7 +88,7 @@ func (t *CampaignUnitExcelDto) UnmarshalMessage(e *CampaignUnitExcel) error {
 	t.Grade = HexaUnitGrade(fbsutils.Convert(int32(e.Grade()), t.FlatBuffer.TableKey))
 	t.EnvironmentType = TacticEnvironment(fbsutils.Convert(int32(e.EnvironmentType()), t.FlatBuffer.TableKey))
 	t.Scale = fbsutils.Convert(e.Scale(), t.FlatBuffer.TableKey)
-	t.IsTacticSkip = fbsutils.Convert(e.IsTacticSkip(), t.FlatBuffer.TableKey)
+	t.IsTacticSkip = e.IsTacticSkip()
 	return nil
 }
 

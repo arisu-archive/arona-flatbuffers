@@ -53,7 +53,7 @@ func (t *FixedEchelonSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	}
 	FixedEchelonSettingExcelStart(b)
 	FixedEchelonSettingExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
-	FixedEchelonSettingExcelAddEchelonSceneSkip(b, fbsutils.Convert(t.EchelonSceneSkip, t.FlatBuffer.TableKey))
+	FixedEchelonSettingExcelAddEchelonSceneSkip(b, t.EchelonSceneSkip)
 	FixedEchelonSettingExcelAddMainLeaderSlot(b, fbsutils.Convert(t.MainLeaderSlot, t.FlatBuffer.TableKey))
 	FixedEchelonSettingExcelStartMainCharacterIdVector(b, len(t.MainCharacterId))
 	for i := range len(t.MainCharacterId) {
@@ -222,127 +222,127 @@ func (t *FixedEchelonSettingExcelDto) UnmarshalMessage(e *FixedEchelonSettingExc
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FixedEchelonSetting"))
 	}
 	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
-	t.EchelonSceneSkip = fbsutils.Convert(e.EchelonSceneSkip(), t.FlatBuffer.TableKey)
+	t.EchelonSceneSkip = e.EchelonSceneSkip()
 	t.MainLeaderSlot = fbsutils.Convert(e.MainLeaderSlot(), t.FlatBuffer.TableKey)
 	t.MainCharacterId = make([]int64, e.MainCharacterIdLength())
 	for i := range e.MainCharacterIdLength() {
-		t.MainCharacterId[i] = e.MainCharacterId(i)
+		t.MainCharacterId[i] = fbsutils.Convert(e.MainCharacterId(i), t.FlatBuffer.TableKey)
 	}
 	t.MainLevel = make([]int32, e.MainLevelLength())
 	for i := range e.MainLevelLength() {
-		t.MainLevel[i] = e.MainLevel(i)
+		t.MainLevel[i] = fbsutils.Convert(e.MainLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.MainGrade = make([]int32, e.MainGradeLength())
 	for i := range e.MainGradeLength() {
-		t.MainGrade[i] = e.MainGrade(i)
+		t.MainGrade[i] = fbsutils.Convert(e.MainGrade(i), t.FlatBuffer.TableKey)
 	}
 	t.MainExSkillLevel = make([]int32, e.MainExSkillLevelLength())
 	for i := range e.MainExSkillLevelLength() {
-		t.MainExSkillLevel[i] = e.MainExSkillLevel(i)
+		t.MainExSkillLevel[i] = fbsutils.Convert(e.MainExSkillLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.MainNoneExSkillLevel = make([]int32, e.MainNoneExSkillLevelLength())
 	for i := range e.MainNoneExSkillLevelLength() {
-		t.MainNoneExSkillLevel[i] = e.MainNoneExSkillLevel(i)
+		t.MainNoneExSkillLevel[i] = fbsutils.Convert(e.MainNoneExSkillLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.MainEquipment1Tier = make([]int32, e.MainEquipment1TierLength())
 	for i := range e.MainEquipment1TierLength() {
-		t.MainEquipment1Tier[i] = e.MainEquipment1Tier(i)
+		t.MainEquipment1Tier[i] = fbsutils.Convert(e.MainEquipment1Tier(i), t.FlatBuffer.TableKey)
 	}
 	t.MainEquipment1Level = make([]int32, e.MainEquipment1LevelLength())
 	for i := range e.MainEquipment1LevelLength() {
-		t.MainEquipment1Level[i] = e.MainEquipment1Level(i)
+		t.MainEquipment1Level[i] = fbsutils.Convert(e.MainEquipment1Level(i), t.FlatBuffer.TableKey)
 	}
 	t.MainEquipment2Tier = make([]int32, e.MainEquipment2TierLength())
 	for i := range e.MainEquipment2TierLength() {
-		t.MainEquipment2Tier[i] = e.MainEquipment2Tier(i)
+		t.MainEquipment2Tier[i] = fbsutils.Convert(e.MainEquipment2Tier(i), t.FlatBuffer.TableKey)
 	}
 	t.MainEquipment2Level = make([]int32, e.MainEquipment2LevelLength())
 	for i := range e.MainEquipment2LevelLength() {
-		t.MainEquipment2Level[i] = e.MainEquipment2Level(i)
+		t.MainEquipment2Level[i] = fbsutils.Convert(e.MainEquipment2Level(i), t.FlatBuffer.TableKey)
 	}
 	t.MainEquipment3Tier = make([]int32, e.MainEquipment3TierLength())
 	for i := range e.MainEquipment3TierLength() {
-		t.MainEquipment3Tier[i] = e.MainEquipment3Tier(i)
+		t.MainEquipment3Tier[i] = fbsutils.Convert(e.MainEquipment3Tier(i), t.FlatBuffer.TableKey)
 	}
 	t.MainEquipment3Level = make([]int32, e.MainEquipment3LevelLength())
 	for i := range e.MainEquipment3LevelLength() {
-		t.MainEquipment3Level[i] = e.MainEquipment3Level(i)
+		t.MainEquipment3Level[i] = fbsutils.Convert(e.MainEquipment3Level(i), t.FlatBuffer.TableKey)
 	}
 	t.MainCharacterWeaponGrade = make([]int32, e.MainCharacterWeaponGradeLength())
 	for i := range e.MainCharacterWeaponGradeLength() {
-		t.MainCharacterWeaponGrade[i] = e.MainCharacterWeaponGrade(i)
+		t.MainCharacterWeaponGrade[i] = fbsutils.Convert(e.MainCharacterWeaponGrade(i), t.FlatBuffer.TableKey)
 	}
 	t.MainCharacterWeaponLevel = make([]int32, e.MainCharacterWeaponLevelLength())
 	for i := range e.MainCharacterWeaponLevelLength() {
-		t.MainCharacterWeaponLevel[i] = e.MainCharacterWeaponLevel(i)
+		t.MainCharacterWeaponLevel[i] = fbsutils.Convert(e.MainCharacterWeaponLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.MainCharacterGearTier = make([]int32, e.MainCharacterGearTierLength())
 	for i := range e.MainCharacterGearTierLength() {
-		t.MainCharacterGearTier[i] = e.MainCharacterGearTier(i)
+		t.MainCharacterGearTier[i] = fbsutils.Convert(e.MainCharacterGearTier(i), t.FlatBuffer.TableKey)
 	}
 	t.MainCharacterGearLevel = make([]int32, e.MainCharacterGearLevelLength())
 	for i := range e.MainCharacterGearLevelLength() {
-		t.MainCharacterGearLevel[i] = e.MainCharacterGearLevel(i)
+		t.MainCharacterGearLevel[i] = fbsutils.Convert(e.MainCharacterGearLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportCharacterId = make([]int64, e.SupportCharacterIdLength())
 	for i := range e.SupportCharacterIdLength() {
-		t.SupportCharacterId[i] = e.SupportCharacterId(i)
+		t.SupportCharacterId[i] = fbsutils.Convert(e.SupportCharacterId(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportLevel = make([]int32, e.SupportLevelLength())
 	for i := range e.SupportLevelLength() {
-		t.SupportLevel[i] = e.SupportLevel(i)
+		t.SupportLevel[i] = fbsutils.Convert(e.SupportLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportGrade = make([]int32, e.SupportGradeLength())
 	for i := range e.SupportGradeLength() {
-		t.SupportGrade[i] = e.SupportGrade(i)
+		t.SupportGrade[i] = fbsutils.Convert(e.SupportGrade(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportExSkillLevel = make([]int32, e.SupportExSkillLevelLength())
 	for i := range e.SupportExSkillLevelLength() {
-		t.SupportExSkillLevel[i] = e.SupportExSkillLevel(i)
+		t.SupportExSkillLevel[i] = fbsutils.Convert(e.SupportExSkillLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportNoneExSkillLevel = make([]int32, e.SupportNoneExSkillLevelLength())
 	for i := range e.SupportNoneExSkillLevelLength() {
-		t.SupportNoneExSkillLevel[i] = e.SupportNoneExSkillLevel(i)
+		t.SupportNoneExSkillLevel[i] = fbsutils.Convert(e.SupportNoneExSkillLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportEquipment1Tier = make([]int32, e.SupportEquipment1TierLength())
 	for i := range e.SupportEquipment1TierLength() {
-		t.SupportEquipment1Tier[i] = e.SupportEquipment1Tier(i)
+		t.SupportEquipment1Tier[i] = fbsutils.Convert(e.SupportEquipment1Tier(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportEquipment1Level = make([]int32, e.SupportEquipment1LevelLength())
 	for i := range e.SupportEquipment1LevelLength() {
-		t.SupportEquipment1Level[i] = e.SupportEquipment1Level(i)
+		t.SupportEquipment1Level[i] = fbsutils.Convert(e.SupportEquipment1Level(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportEquipment2Tier = make([]int32, e.SupportEquipment2TierLength())
 	for i := range e.SupportEquipment2TierLength() {
-		t.SupportEquipment2Tier[i] = e.SupportEquipment2Tier(i)
+		t.SupportEquipment2Tier[i] = fbsutils.Convert(e.SupportEquipment2Tier(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportEquipment2Level = make([]int32, e.SupportEquipment2LevelLength())
 	for i := range e.SupportEquipment2LevelLength() {
-		t.SupportEquipment2Level[i] = e.SupportEquipment2Level(i)
+		t.SupportEquipment2Level[i] = fbsutils.Convert(e.SupportEquipment2Level(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportEquipment3Tier = make([]int32, e.SupportEquipment3TierLength())
 	for i := range e.SupportEquipment3TierLength() {
-		t.SupportEquipment3Tier[i] = e.SupportEquipment3Tier(i)
+		t.SupportEquipment3Tier[i] = fbsutils.Convert(e.SupportEquipment3Tier(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportEquipment3Level = make([]int32, e.SupportEquipment3LevelLength())
 	for i := range e.SupportEquipment3LevelLength() {
-		t.SupportEquipment3Level[i] = e.SupportEquipment3Level(i)
+		t.SupportEquipment3Level[i] = fbsutils.Convert(e.SupportEquipment3Level(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportCharacterWeaponGrade = make([]int32, e.SupportCharacterWeaponGradeLength())
 	for i := range e.SupportCharacterWeaponGradeLength() {
-		t.SupportCharacterWeaponGrade[i] = e.SupportCharacterWeaponGrade(i)
+		t.SupportCharacterWeaponGrade[i] = fbsutils.Convert(e.SupportCharacterWeaponGrade(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportCharacterWeaponLevel = make([]int32, e.SupportCharacterWeaponLevelLength())
 	for i := range e.SupportCharacterWeaponLevelLength() {
-		t.SupportCharacterWeaponLevel[i] = e.SupportCharacterWeaponLevel(i)
+		t.SupportCharacterWeaponLevel[i] = fbsutils.Convert(e.SupportCharacterWeaponLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportCharacterGearTier = make([]int32, e.SupportCharacterGearTierLength())
 	for i := range e.SupportCharacterGearTierLength() {
-		t.SupportCharacterGearTier[i] = e.SupportCharacterGearTier(i)
+		t.SupportCharacterGearTier[i] = fbsutils.Convert(e.SupportCharacterGearTier(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportCharacterGearLevel = make([]int32, e.SupportCharacterGearLevelLength())
 	for i := range e.SupportCharacterGearLevelLength() {
-		t.SupportCharacterGearLevel[i] = e.SupportCharacterGearLevel(i)
+		t.SupportCharacterGearLevel[i] = fbsutils.Convert(e.SupportCharacterGearLevel(i), t.FlatBuffer.TableKey)
 	}
 	t.InteractionTsCharacterId = fbsutils.Convert(e.InteractionTsCharacterId(), t.FlatBuffer.TableKey)
 	return nil

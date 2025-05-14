@@ -23,7 +23,7 @@ func (t *CafeInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	}
 	CafeInfoExcelStart(b)
 	CafeInfoExcelAddCafeId(b, fbsutils.Convert(t.CafeId, t.FlatBuffer.TableKey))
-	CafeInfoExcelAddIsDefault(b, fbsutils.Convert(t.IsDefault, t.FlatBuffer.TableKey))
+	CafeInfoExcelAddIsDefault(b, t.IsDefault)
 	CafeInfoExcelAddOpenConditionCafeId(b, fbsutils.Convert(t.OpenConditionCafeId, t.FlatBuffer.TableKey))
 	CafeInfoExcelAddOpenConditionCafeInvite(b, fbsutils.Convert(t.OpenConditionCafeInvite, t.FlatBuffer.TableKey))
 	return CafeInfoExcelEnd(b)
@@ -42,7 +42,7 @@ func (t *CafeInfoExcelDto) UnmarshalMessage(e *CafeInfoExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeInfo"))
 	}
 	t.CafeId = fbsutils.Convert(e.CafeId(), t.FlatBuffer.TableKey)
-	t.IsDefault = fbsutils.Convert(e.IsDefault(), t.FlatBuffer.TableKey)
+	t.IsDefault = e.IsDefault()
 	t.OpenConditionCafeId = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionCafeId()), t.FlatBuffer.TableKey))
 	t.OpenConditionCafeInvite = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionCafeInvite()), t.FlatBuffer.TableKey))
 	return nil

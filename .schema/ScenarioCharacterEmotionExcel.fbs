@@ -1,8 +1,0 @@
-namespace FlatData;
-
-table ScenarioCharacterEmotionExcel {
-    emoticon_name: string;
-    name: uint;
-}
-
-root_type ScenarioCharacterEmotionExcel;

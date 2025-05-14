@@ -37,7 +37,7 @@ func (t *GroundGridFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 		b.PrependUOffsetT(t.Nodes[len(t.Nodes)-i-1].MarshalModel(b))
 	}
 	GroundGridFlatAddNodes(b, b.EndVector(len(t.Nodes)))
-	GroundGridFlatAddVersion(b, fbsutils.Convert(b.CreateString(t.Version), t.FlatBuffer.TableKey))
+	GroundGridFlatAddVersion(b, b.CreateString(fbsutils.Convert(t.Version, t.FlatBuffer.TableKey)))
 	return GroundGridFlatEnd(b)
 }
 

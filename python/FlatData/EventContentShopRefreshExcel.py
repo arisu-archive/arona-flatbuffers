@@ -94,74 +94,39 @@ class EventContentShopRefreshExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def EventContentShopRefreshExcelStart(builder):
-    builder.StartObject(10)
-
+def EventContentShopRefreshExcelStart(builder): builder.StartObject(10)
 def Start(builder):
-    EventContentShopRefreshExcelStart(builder)
-
-def EventContentShopRefreshExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return EventContentShopRefreshExcelStart(builder)
+def EventContentShopRefreshExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    EventContentShopRefreshExcelAddEventContentId(builder, eventContentId)
-
-def EventContentShopRefreshExcelAddId(builder, id):
-    builder.PrependInt64Slot(1, id, 0)
-
+    return EventContentShopRefreshExcelAddEventContentId(builder, eventContentId)
+def EventContentShopRefreshExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
 def AddId(builder, id):
-    EventContentShopRefreshExcelAddId(builder, id)
-
-def EventContentShopRefreshExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(2, localizeEtcId, 0)
-
+    return EventContentShopRefreshExcelAddId(builder, id)
+def EventContentShopRefreshExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(2, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
-    EventContentShopRefreshExcelAddLocalizeEtcId(builder, localizeEtcId)
-
-def EventContentShopRefreshExcelAddIsLegacy(builder, isLegacy):
-    builder.PrependBoolSlot(3, isLegacy, 0)
-
+    return EventContentShopRefreshExcelAddLocalizeEtcId(builder, localizeEtcId)
+def EventContentShopRefreshExcelAddIsLegacy(builder, isLegacy): builder.PrependBoolSlot(3, isLegacy, 0)
 def AddIsLegacy(builder, isLegacy):
-    EventContentShopRefreshExcelAddIsLegacy(builder, isLegacy)
-
-def EventContentShopRefreshExcelAddGoodsId(builder, goodsId):
-    builder.PrependInt64Slot(4, goodsId, 0)
-
+    return EventContentShopRefreshExcelAddIsLegacy(builder, isLegacy)
+def EventContentShopRefreshExcelAddGoodsId(builder, goodsId): builder.PrependInt64Slot(4, goodsId, 0)
 def AddGoodsId(builder, goodsId):
-    EventContentShopRefreshExcelAddGoodsId(builder, goodsId)
-
-def EventContentShopRefreshExcelAddDisplayOrder(builder, displayOrder):
-    builder.PrependInt64Slot(5, displayOrder, 0)
-
+    return EventContentShopRefreshExcelAddGoodsId(builder, goodsId)
+def EventContentShopRefreshExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(5, displayOrder, 0)
 def AddDisplayOrder(builder, displayOrder):
-    EventContentShopRefreshExcelAddDisplayOrder(builder, displayOrder)
-
-def EventContentShopRefreshExcelAddCategoryType(builder, categoryType):
-    builder.PrependInt32Slot(6, categoryType, 0)
-
+    return EventContentShopRefreshExcelAddDisplayOrder(builder, displayOrder)
+def EventContentShopRefreshExcelAddCategoryType(builder, categoryType): builder.PrependInt32Slot(6, categoryType, 0)
 def AddCategoryType(builder, categoryType):
-    EventContentShopRefreshExcelAddCategoryType(builder, categoryType)
-
-def EventContentShopRefreshExcelAddRefreshGroup(builder, refreshGroup):
-    builder.PrependInt32Slot(7, refreshGroup, 0)
-
+    return EventContentShopRefreshExcelAddCategoryType(builder, categoryType)
+def EventContentShopRefreshExcelAddRefreshGroup(builder, refreshGroup): builder.PrependInt32Slot(7, refreshGroup, 0)
 def AddRefreshGroup(builder, refreshGroup):
-    EventContentShopRefreshExcelAddRefreshGroup(builder, refreshGroup)
-
-def EventContentShopRefreshExcelAddProb(builder, prob):
-    builder.PrependInt32Slot(8, prob, 0)
-
+    return EventContentShopRefreshExcelAddRefreshGroup(builder, refreshGroup)
+def EventContentShopRefreshExcelAddProb(builder, prob): builder.PrependInt32Slot(8, prob, 0)
 def AddProb(builder, prob):
-    EventContentShopRefreshExcelAddProb(builder, prob)
-
-def EventContentShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(buyReportEventName), 0)
-
+    return EventContentShopRefreshExcelAddProb(builder, prob)
+def EventContentShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(buyReportEventName), 0)
 def AddBuyReportEventName(builder, buyReportEventName):
-    EventContentShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName)
-
-def EventContentShopRefreshExcelEnd(builder):
-    return builder.EndObject()
-
+    return EventContentShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName)
+def EventContentShopRefreshExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentShopRefreshExcelEnd(builder)

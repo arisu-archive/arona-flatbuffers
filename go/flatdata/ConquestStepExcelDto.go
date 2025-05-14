@@ -33,7 +33,7 @@ func (t *ConquestStepExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ConquestStepExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddMapDifficulty(b, fbsutils.Convert(t.MapDifficulty, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddStep(b, fbsutils.Convert(t.Step, t.FlatBuffer.TableKey))
-	ConquestStepExcelAddStepGoalLocalize(b, fbsutils.Convert(b.CreateString(t.StepGoalLocalize), t.FlatBuffer.TableKey))
+	ConquestStepExcelAddStepGoalLocalize(b, b.CreateString(fbsutils.Convert(t.StepGoalLocalize, t.FlatBuffer.TableKey)))
 	ConquestStepExcelAddStepEnterScenarioGroupId(b, fbsutils.Convert(t.StepEnterScenarioGroupId, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddStepEnterItemType(b, fbsutils.Convert(t.StepEnterItemType, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddStepEnterItemUniqueId(b, fbsutils.Convert(t.StepEnterItemUniqueId, t.FlatBuffer.TableKey))
@@ -43,7 +43,7 @@ func (t *ConquestStepExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		b.PrependInt64(fbsutils.Convert(t.UnexpectedEventUnitId[len(t.UnexpectedEventUnitId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ConquestStepExcelAddUnexpectedEventUnitId(b, b.EndVector(len(t.UnexpectedEventUnitId)))
-	ConquestStepExcelAddUnexpectedEventPrefab(b, fbsutils.Convert(b.CreateString(t.UnexpectedEventPrefab), t.FlatBuffer.TableKey))
+	ConquestStepExcelAddUnexpectedEventPrefab(b, b.CreateString(fbsutils.Convert(t.UnexpectedEventPrefab, t.FlatBuffer.TableKey)))
 	ConquestStepExcelAddTreasureBoxObjectId(b, fbsutils.Convert(t.TreasureBoxObjectId, t.FlatBuffer.TableKey))
 	ConquestStepExcelAddTreasureBoxCountPerStepOpen(b, fbsutils.Convert(t.TreasureBoxCountPerStepOpen, t.FlatBuffer.TableKey))
 	return ConquestStepExcelEnd(b)
@@ -71,7 +71,7 @@ func (t *ConquestStepExcelDto) UnmarshalMessage(e *ConquestStepExcel) error {
 	t.StepEnterItemAmount = fbsutils.Convert(e.StepEnterItemAmount(), t.FlatBuffer.TableKey)
 	t.UnexpectedEventUnitId = make([]int64, e.UnexpectedEventUnitIdLength())
 	for i := range e.UnexpectedEventUnitIdLength() {
-		t.UnexpectedEventUnitId[i] = e.UnexpectedEventUnitId(i)
+		t.UnexpectedEventUnitId[i] = fbsutils.Convert(e.UnexpectedEventUnitId(i), t.FlatBuffer.TableKey)
 	}
 	t.UnexpectedEventPrefab = fbsutils.Convert(string(e.UnexpectedEventPrefab()), t.FlatBuffer.TableKey)
 	t.TreasureBoxObjectId = fbsutils.Convert(e.TreasureBoxObjectId(), t.FlatBuffer.TableKey)

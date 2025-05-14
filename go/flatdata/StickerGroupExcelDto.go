@@ -30,16 +30,16 @@ func (t *StickerGroupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	}
 	StickerGroupExcelStart(b)
 	StickerGroupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	StickerGroupExcelAddLayout(b, fbsutils.Convert(b.CreateString(t.Layout), t.FlatBuffer.TableKey))
-	StickerGroupExcelAddUniqueLayoutPath(b, fbsutils.Convert(b.CreateString(t.UniqueLayoutPath), t.FlatBuffer.TableKey))
-	StickerGroupExcelAddStickerGroupIconpath(b, fbsutils.Convert(b.CreateString(t.StickerGroupIconpath), t.FlatBuffer.TableKey))
+	StickerGroupExcelAddLayout(b, b.CreateString(fbsutils.Convert(t.Layout, t.FlatBuffer.TableKey)))
+	StickerGroupExcelAddUniqueLayoutPath(b, b.CreateString(fbsutils.Convert(t.UniqueLayoutPath, t.FlatBuffer.TableKey)))
+	StickerGroupExcelAddStickerGroupIconpath(b, b.CreateString(fbsutils.Convert(t.StickerGroupIconpath, t.FlatBuffer.TableKey)))
 	StickerGroupExcelAddPageCompleteSlot(b, fbsutils.Convert(t.PageCompleteSlot, t.FlatBuffer.TableKey))
 	StickerGroupExcelAddPageCompleteRewardParcelType(b, fbsutils.Convert(t.PageCompleteRewardParcelType, t.FlatBuffer.TableKey))
 	StickerGroupExcelAddPageCompleteRewardParcelId(b, fbsutils.Convert(t.PageCompleteRewardParcelId, t.FlatBuffer.TableKey))
 	StickerGroupExcelAddPageCompleteRewardAmount(b, fbsutils.Convert(t.PageCompleteRewardAmount, t.FlatBuffer.TableKey))
 	StickerGroupExcelAddLocalizeTitle(b, fbsutils.Convert(t.LocalizeTitle, t.FlatBuffer.TableKey))
 	StickerGroupExcelAddLocalizeDescription(b, fbsutils.Convert(t.LocalizeDescription, t.FlatBuffer.TableKey))
-	StickerGroupExcelAddStickerGroupCoverpath(b, fbsutils.Convert(b.CreateString(t.StickerGroupCoverpath), t.FlatBuffer.TableKey))
+	StickerGroupExcelAddStickerGroupCoverpath(b, b.CreateString(fbsutils.Convert(t.StickerGroupCoverpath, t.FlatBuffer.TableKey)))
 	return StickerGroupExcelEnd(b)
 }
 

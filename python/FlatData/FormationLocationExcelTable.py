@@ -49,26 +49,15 @@ class FormationLocationExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FormationLocationExcelTableStart(builder):
-    builder.StartObject(1)
-
+def FormationLocationExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    FormationLocationExcelTableStart(builder)
-
-def FormationLocationExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return FormationLocationExcelTableStart(builder)
+def FormationLocationExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    FormationLocationExcelTableAddDataList(builder, dataList)
-
-def FormationLocationExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FormationLocationExcelTableAddDataList(builder, dataList)
+def FormationLocationExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return FormationLocationExcelTableStartDataListVector(builder, numElems)
-
-def FormationLocationExcelTableEnd(builder):
-    return builder.EndObject()
-
+def FormationLocationExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return FormationLocationExcelTableEnd(builder)

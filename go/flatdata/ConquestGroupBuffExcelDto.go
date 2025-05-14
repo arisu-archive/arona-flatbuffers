@@ -25,11 +25,11 @@ func (t *ConquestGroupBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	ConquestGroupBuffExcelAddConquestBuffId(b, fbsutils.Convert(t.ConquestBuffId, t.FlatBuffer.TableKey))
 	ConquestGroupBuffExcelStartSchoolVector(b, len(t.School))
 	for i := range len(t.School) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.School[len(t.School)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.School[len(t.School)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ConquestGroupBuffExcelAddSchool(b, b.EndVector(len(t.School)))
 	ConquestGroupBuffExcelAddRecommandLocalizeEtcId(b, fbsutils.Convert(t.RecommandLocalizeEtcId, t.FlatBuffer.TableKey))
-	ConquestGroupBuffExcelAddSkillGroupId(b, fbsutils.Convert(b.CreateString(t.SkillGroupId), t.FlatBuffer.TableKey))
+	ConquestGroupBuffExcelAddSkillGroupId(b, b.CreateString(fbsutils.Convert(t.SkillGroupId, t.FlatBuffer.TableKey)))
 	return ConquestGroupBuffExcelEnd(b)
 }
 

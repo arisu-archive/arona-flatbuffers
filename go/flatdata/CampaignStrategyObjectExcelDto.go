@@ -35,19 +35,19 @@ func (t *CampaignStrategyObjectExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 	CampaignStrategyObjectExcelStart(b)
 	CampaignStrategyObjectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CampaignStrategyObjectExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddPrefabName(b, fbsutils.Convert(b.CreateString(t.PrefabName), t.FlatBuffer.TableKey))
+	CampaignStrategyObjectExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	CampaignStrategyObjectExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
 	CampaignStrategyObjectExcelAddStrategyObjectType(b, fbsutils.Convert(t.StrategyObjectType, t.FlatBuffer.TableKey))
 	CampaignStrategyObjectExcelAddStrategyRewardParcelType(b, fbsutils.Convert(t.StrategyRewardParcelType, t.FlatBuffer.TableKey))
 	CampaignStrategyObjectExcelAddStrategyRewardId(b, fbsutils.Convert(t.StrategyRewardId, t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddStrategyRewardName(b, fbsutils.Convert(b.CreateString(t.StrategyRewardName), t.FlatBuffer.TableKey))
+	CampaignStrategyObjectExcelAddStrategyRewardName(b, b.CreateString(fbsutils.Convert(t.StrategyRewardName, t.FlatBuffer.TableKey)))
 	CampaignStrategyObjectExcelAddStrategyRewardAmount(b, fbsutils.Convert(t.StrategyRewardAmount, t.FlatBuffer.TableKey))
 	CampaignStrategyObjectExcelAddStrategySightRange(b, fbsutils.Convert(t.StrategySightRange, t.FlatBuffer.TableKey))
 	CampaignStrategyObjectExcelAddPortalId(b, fbsutils.Convert(t.PortalId, t.FlatBuffer.TableKey))
 	CampaignStrategyObjectExcelAddHealValue(b, fbsutils.Convert(t.HealValue, t.FlatBuffer.TableKey))
 	CampaignStrategyObjectExcelAddSwithId(b, fbsutils.Convert(t.SwithId, t.FlatBuffer.TableKey))
 	CampaignStrategyObjectExcelAddBuffId(b, fbsutils.Convert(t.BuffId, t.FlatBuffer.TableKey))
-	CampaignStrategyObjectExcelAddDisposable(b, fbsutils.Convert(t.Disposable, t.FlatBuffer.TableKey))
+	CampaignStrategyObjectExcelAddDisposable(b, t.Disposable)
 	return CampaignStrategyObjectExcelEnd(b)
 }
 
@@ -77,7 +77,7 @@ func (t *CampaignStrategyObjectExcelDto) UnmarshalMessage(e *CampaignStrategyObj
 	t.HealValue = fbsutils.Convert(e.HealValue(), t.FlatBuffer.TableKey)
 	t.SwithId = fbsutils.Convert(e.SwithId(), t.FlatBuffer.TableKey)
 	t.BuffId = fbsutils.Convert(e.BuffId(), t.FlatBuffer.TableKey)
-	t.Disposable = fbsutils.Convert(e.Disposable(), t.FlatBuffer.TableKey)
+	t.Disposable = e.Disposable()
 	return nil
 }
 

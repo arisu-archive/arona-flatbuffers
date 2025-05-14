@@ -241,200 +241,102 @@ class CharacterVictoryInteractionExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def CharacterVictoryInteractionExcelStart(builder):
-    builder.StartObject(31)
-
+def CharacterVictoryInteractionExcelStart(builder): builder.StartObject(31)
 def Start(builder):
-    CharacterVictoryInteractionExcelStart(builder)
-
-def CharacterVictoryInteractionExcelAddInteractionId(builder, interactionId):
-    builder.PrependInt64Slot(0, interactionId, 0)
-
+    return CharacterVictoryInteractionExcelStart(builder)
+def CharacterVictoryInteractionExcelAddInteractionId(builder, interactionId): builder.PrependInt64Slot(0, interactionId, 0)
 def AddInteractionId(builder, interactionId):
-    CharacterVictoryInteractionExcelAddInteractionId(builder, interactionId)
-
-def CharacterVictoryInteractionExcelAddCostumeId01(builder, costumeId01):
-    builder.PrependInt64Slot(1, costumeId01, 0)
-
+    return CharacterVictoryInteractionExcelAddInteractionId(builder, interactionId)
+def CharacterVictoryInteractionExcelAddCostumeId01(builder, costumeId01): builder.PrependInt64Slot(1, costumeId01, 0)
 def AddCostumeId01(builder, costumeId01):
-    CharacterVictoryInteractionExcelAddCostumeId01(builder, costumeId01)
-
-def CharacterVictoryInteractionExcelAddPositionIndex01(builder, positionIndex01):
-    builder.PrependInt32Slot(2, positionIndex01, 0)
-
+    return CharacterVictoryInteractionExcelAddCostumeId01(builder, costumeId01)
+def CharacterVictoryInteractionExcelAddPositionIndex01(builder, positionIndex01): builder.PrependInt32Slot(2, positionIndex01, 0)
 def AddPositionIndex01(builder, positionIndex01):
-    CharacterVictoryInteractionExcelAddPositionIndex01(builder, positionIndex01)
-
-def CharacterVictoryInteractionExcelAddVictoryStartAnimationPath01(builder, victoryStartAnimationPath01):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(victoryStartAnimationPath01), 0)
-
+    return CharacterVictoryInteractionExcelAddPositionIndex01(builder, positionIndex01)
+def CharacterVictoryInteractionExcelAddVictoryStartAnimationPath01(builder, victoryStartAnimationPath01): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(victoryStartAnimationPath01), 0)
 def AddVictoryStartAnimationPath01(builder, victoryStartAnimationPath01):
-    CharacterVictoryInteractionExcelAddVictoryStartAnimationPath01(builder, victoryStartAnimationPath01)
-
-def CharacterVictoryInteractionExcelAddVictoryEndAnimationPath01(builder, victoryEndAnimationPath01):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(victoryEndAnimationPath01), 0)
-
+    return CharacterVictoryInteractionExcelAddVictoryStartAnimationPath01(builder, victoryStartAnimationPath01)
+def CharacterVictoryInteractionExcelAddVictoryEndAnimationPath01(builder, victoryEndAnimationPath01): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(victoryEndAnimationPath01), 0)
 def AddVictoryEndAnimationPath01(builder, victoryEndAnimationPath01):
-    CharacterVictoryInteractionExcelAddVictoryEndAnimationPath01(builder, victoryEndAnimationPath01)
-
-def CharacterVictoryInteractionExcelAddVoiceEvent01(builder, voiceEvent01):
-    builder.PrependInt32Slot(5, voiceEvent01, 0)
-
+    return CharacterVictoryInteractionExcelAddVictoryEndAnimationPath01(builder, victoryEndAnimationPath01)
+def CharacterVictoryInteractionExcelAddVoiceEvent01(builder, voiceEvent01): builder.PrependInt32Slot(5, voiceEvent01, 0)
 def AddVoiceEvent01(builder, voiceEvent01):
-    CharacterVictoryInteractionExcelAddVoiceEvent01(builder, voiceEvent01)
-
-def CharacterVictoryInteractionExcelAddCostumeId02(builder, costumeId02):
-    builder.PrependInt64Slot(6, costumeId02, 0)
-
+    return CharacterVictoryInteractionExcelAddVoiceEvent01(builder, voiceEvent01)
+def CharacterVictoryInteractionExcelAddCostumeId02(builder, costumeId02): builder.PrependInt64Slot(6, costumeId02, 0)
 def AddCostumeId02(builder, costumeId02):
-    CharacterVictoryInteractionExcelAddCostumeId02(builder, costumeId02)
-
-def CharacterVictoryInteractionExcelAddPositionIndex02(builder, positionIndex02):
-    builder.PrependInt32Slot(7, positionIndex02, 0)
-
+    return CharacterVictoryInteractionExcelAddCostumeId02(builder, costumeId02)
+def CharacterVictoryInteractionExcelAddPositionIndex02(builder, positionIndex02): builder.PrependInt32Slot(7, positionIndex02, 0)
 def AddPositionIndex02(builder, positionIndex02):
-    CharacterVictoryInteractionExcelAddPositionIndex02(builder, positionIndex02)
-
-def CharacterVictoryInteractionExcelAddVictoryStartAnimationPath02(builder, victoryStartAnimationPath02):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(victoryStartAnimationPath02), 0)
-
+    return CharacterVictoryInteractionExcelAddPositionIndex02(builder, positionIndex02)
+def CharacterVictoryInteractionExcelAddVictoryStartAnimationPath02(builder, victoryStartAnimationPath02): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(victoryStartAnimationPath02), 0)
 def AddVictoryStartAnimationPath02(builder, victoryStartAnimationPath02):
-    CharacterVictoryInteractionExcelAddVictoryStartAnimationPath02(builder, victoryStartAnimationPath02)
-
-def CharacterVictoryInteractionExcelAddVictoryEndAnimationPath02(builder, victoryEndAnimationPath02):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(victoryEndAnimationPath02), 0)
-
+    return CharacterVictoryInteractionExcelAddVictoryStartAnimationPath02(builder, victoryStartAnimationPath02)
+def CharacterVictoryInteractionExcelAddVictoryEndAnimationPath02(builder, victoryEndAnimationPath02): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(victoryEndAnimationPath02), 0)
 def AddVictoryEndAnimationPath02(builder, victoryEndAnimationPath02):
-    CharacterVictoryInteractionExcelAddVictoryEndAnimationPath02(builder, victoryEndAnimationPath02)
-
-def CharacterVictoryInteractionExcelAddVoiceEvent02(builder, voiceEvent02):
-    builder.PrependInt32Slot(10, voiceEvent02, 0)
-
+    return CharacterVictoryInteractionExcelAddVictoryEndAnimationPath02(builder, victoryEndAnimationPath02)
+def CharacterVictoryInteractionExcelAddVoiceEvent02(builder, voiceEvent02): builder.PrependInt32Slot(10, voiceEvent02, 0)
 def AddVoiceEvent02(builder, voiceEvent02):
-    CharacterVictoryInteractionExcelAddVoiceEvent02(builder, voiceEvent02)
-
-def CharacterVictoryInteractionExcelAddCostumeId03(builder, costumeId03):
-    builder.PrependInt64Slot(11, costumeId03, 0)
-
+    return CharacterVictoryInteractionExcelAddVoiceEvent02(builder, voiceEvent02)
+def CharacterVictoryInteractionExcelAddCostumeId03(builder, costumeId03): builder.PrependInt64Slot(11, costumeId03, 0)
 def AddCostumeId03(builder, costumeId03):
-    CharacterVictoryInteractionExcelAddCostumeId03(builder, costumeId03)
-
-def CharacterVictoryInteractionExcelAddPositionIndex03(builder, positionIndex03):
-    builder.PrependInt32Slot(12, positionIndex03, 0)
-
+    return CharacterVictoryInteractionExcelAddCostumeId03(builder, costumeId03)
+def CharacterVictoryInteractionExcelAddPositionIndex03(builder, positionIndex03): builder.PrependInt32Slot(12, positionIndex03, 0)
 def AddPositionIndex03(builder, positionIndex03):
-    CharacterVictoryInteractionExcelAddPositionIndex03(builder, positionIndex03)
-
-def CharacterVictoryInteractionExcelAddVictoryStartAnimationPath03(builder, victoryStartAnimationPath03):
-    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(victoryStartAnimationPath03), 0)
-
+    return CharacterVictoryInteractionExcelAddPositionIndex03(builder, positionIndex03)
+def CharacterVictoryInteractionExcelAddVictoryStartAnimationPath03(builder, victoryStartAnimationPath03): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(victoryStartAnimationPath03), 0)
 def AddVictoryStartAnimationPath03(builder, victoryStartAnimationPath03):
-    CharacterVictoryInteractionExcelAddVictoryStartAnimationPath03(builder, victoryStartAnimationPath03)
-
-def CharacterVictoryInteractionExcelAddVictoryEndAnimationPath03(builder, victoryEndAnimationPath03):
-    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(victoryEndAnimationPath03), 0)
-
+    return CharacterVictoryInteractionExcelAddVictoryStartAnimationPath03(builder, victoryStartAnimationPath03)
+def CharacterVictoryInteractionExcelAddVictoryEndAnimationPath03(builder, victoryEndAnimationPath03): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(victoryEndAnimationPath03), 0)
 def AddVictoryEndAnimationPath03(builder, victoryEndAnimationPath03):
-    CharacterVictoryInteractionExcelAddVictoryEndAnimationPath03(builder, victoryEndAnimationPath03)
-
-def CharacterVictoryInteractionExcelAddVoiceEvent03(builder, voiceEvent03):
-    builder.PrependInt32Slot(15, voiceEvent03, 0)
-
+    return CharacterVictoryInteractionExcelAddVictoryEndAnimationPath03(builder, victoryEndAnimationPath03)
+def CharacterVictoryInteractionExcelAddVoiceEvent03(builder, voiceEvent03): builder.PrependInt32Slot(15, voiceEvent03, 0)
 def AddVoiceEvent03(builder, voiceEvent03):
-    CharacterVictoryInteractionExcelAddVoiceEvent03(builder, voiceEvent03)
-
-def CharacterVictoryInteractionExcelAddCostumeId04(builder, costumeId04):
-    builder.PrependInt64Slot(16, costumeId04, 0)
-
+    return CharacterVictoryInteractionExcelAddVoiceEvent03(builder, voiceEvent03)
+def CharacterVictoryInteractionExcelAddCostumeId04(builder, costumeId04): builder.PrependInt64Slot(16, costumeId04, 0)
 def AddCostumeId04(builder, costumeId04):
-    CharacterVictoryInteractionExcelAddCostumeId04(builder, costumeId04)
-
-def CharacterVictoryInteractionExcelAddPositionIndex04(builder, positionIndex04):
-    builder.PrependInt32Slot(17, positionIndex04, 0)
-
+    return CharacterVictoryInteractionExcelAddCostumeId04(builder, costumeId04)
+def CharacterVictoryInteractionExcelAddPositionIndex04(builder, positionIndex04): builder.PrependInt32Slot(17, positionIndex04, 0)
 def AddPositionIndex04(builder, positionIndex04):
-    CharacterVictoryInteractionExcelAddPositionIndex04(builder, positionIndex04)
-
-def CharacterVictoryInteractionExcelAddVictoryStartAnimationPath04(builder, victoryStartAnimationPath04):
-    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(victoryStartAnimationPath04), 0)
-
+    return CharacterVictoryInteractionExcelAddPositionIndex04(builder, positionIndex04)
+def CharacterVictoryInteractionExcelAddVictoryStartAnimationPath04(builder, victoryStartAnimationPath04): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(victoryStartAnimationPath04), 0)
 def AddVictoryStartAnimationPath04(builder, victoryStartAnimationPath04):
-    CharacterVictoryInteractionExcelAddVictoryStartAnimationPath04(builder, victoryStartAnimationPath04)
-
-def CharacterVictoryInteractionExcelAddVictoryEndAnimationPath04(builder, victoryEndAnimationPath04):
-    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(victoryEndAnimationPath04), 0)
-
+    return CharacterVictoryInteractionExcelAddVictoryStartAnimationPath04(builder, victoryStartAnimationPath04)
+def CharacterVictoryInteractionExcelAddVictoryEndAnimationPath04(builder, victoryEndAnimationPath04): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(victoryEndAnimationPath04), 0)
 def AddVictoryEndAnimationPath04(builder, victoryEndAnimationPath04):
-    CharacterVictoryInteractionExcelAddVictoryEndAnimationPath04(builder, victoryEndAnimationPath04)
-
-def CharacterVictoryInteractionExcelAddVoiceEvent04(builder, voiceEvent04):
-    builder.PrependInt32Slot(20, voiceEvent04, 0)
-
+    return CharacterVictoryInteractionExcelAddVictoryEndAnimationPath04(builder, victoryEndAnimationPath04)
+def CharacterVictoryInteractionExcelAddVoiceEvent04(builder, voiceEvent04): builder.PrependInt32Slot(20, voiceEvent04, 0)
 def AddVoiceEvent04(builder, voiceEvent04):
-    CharacterVictoryInteractionExcelAddVoiceEvent04(builder, voiceEvent04)
-
-def CharacterVictoryInteractionExcelAddCostumeId05(builder, costumeId05):
-    builder.PrependInt64Slot(21, costumeId05, 0)
-
+    return CharacterVictoryInteractionExcelAddVoiceEvent04(builder, voiceEvent04)
+def CharacterVictoryInteractionExcelAddCostumeId05(builder, costumeId05): builder.PrependInt64Slot(21, costumeId05, 0)
 def AddCostumeId05(builder, costumeId05):
-    CharacterVictoryInteractionExcelAddCostumeId05(builder, costumeId05)
-
-def CharacterVictoryInteractionExcelAddPositionIndex05(builder, positionIndex05):
-    builder.PrependInt32Slot(22, positionIndex05, 0)
-
+    return CharacterVictoryInteractionExcelAddCostumeId05(builder, costumeId05)
+def CharacterVictoryInteractionExcelAddPositionIndex05(builder, positionIndex05): builder.PrependInt32Slot(22, positionIndex05, 0)
 def AddPositionIndex05(builder, positionIndex05):
-    CharacterVictoryInteractionExcelAddPositionIndex05(builder, positionIndex05)
-
-def CharacterVictoryInteractionExcelAddVictoryStartAnimationPath05(builder, victoryStartAnimationPath05):
-    builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(victoryStartAnimationPath05), 0)
-
+    return CharacterVictoryInteractionExcelAddPositionIndex05(builder, positionIndex05)
+def CharacterVictoryInteractionExcelAddVictoryStartAnimationPath05(builder, victoryStartAnimationPath05): builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(victoryStartAnimationPath05), 0)
 def AddVictoryStartAnimationPath05(builder, victoryStartAnimationPath05):
-    CharacterVictoryInteractionExcelAddVictoryStartAnimationPath05(builder, victoryStartAnimationPath05)
-
-def CharacterVictoryInteractionExcelAddVictoryEndAnimationPath05(builder, victoryEndAnimationPath05):
-    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(victoryEndAnimationPath05), 0)
-
+    return CharacterVictoryInteractionExcelAddVictoryStartAnimationPath05(builder, victoryStartAnimationPath05)
+def CharacterVictoryInteractionExcelAddVictoryEndAnimationPath05(builder, victoryEndAnimationPath05): builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(victoryEndAnimationPath05), 0)
 def AddVictoryEndAnimationPath05(builder, victoryEndAnimationPath05):
-    CharacterVictoryInteractionExcelAddVictoryEndAnimationPath05(builder, victoryEndAnimationPath05)
-
-def CharacterVictoryInteractionExcelAddVoiceEvent05(builder, voiceEvent05):
-    builder.PrependInt32Slot(25, voiceEvent05, 0)
-
+    return CharacterVictoryInteractionExcelAddVictoryEndAnimationPath05(builder, victoryEndAnimationPath05)
+def CharacterVictoryInteractionExcelAddVoiceEvent05(builder, voiceEvent05): builder.PrependInt32Slot(25, voiceEvent05, 0)
 def AddVoiceEvent05(builder, voiceEvent05):
-    CharacterVictoryInteractionExcelAddVoiceEvent05(builder, voiceEvent05)
-
-def CharacterVictoryInteractionExcelAddCostumeId06(builder, costumeId06):
-    builder.PrependInt64Slot(26, costumeId06, 0)
-
+    return CharacterVictoryInteractionExcelAddVoiceEvent05(builder, voiceEvent05)
+def CharacterVictoryInteractionExcelAddCostumeId06(builder, costumeId06): builder.PrependInt64Slot(26, costumeId06, 0)
 def AddCostumeId06(builder, costumeId06):
-    CharacterVictoryInteractionExcelAddCostumeId06(builder, costumeId06)
-
-def CharacterVictoryInteractionExcelAddPositionIndex06(builder, positionIndex06):
-    builder.PrependInt32Slot(27, positionIndex06, 0)
-
+    return CharacterVictoryInteractionExcelAddCostumeId06(builder, costumeId06)
+def CharacterVictoryInteractionExcelAddPositionIndex06(builder, positionIndex06): builder.PrependInt32Slot(27, positionIndex06, 0)
 def AddPositionIndex06(builder, positionIndex06):
-    CharacterVictoryInteractionExcelAddPositionIndex06(builder, positionIndex06)
-
-def CharacterVictoryInteractionExcelAddVictoryStartAnimationPath06(builder, victoryStartAnimationPath06):
-    builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(victoryStartAnimationPath06), 0)
-
+    return CharacterVictoryInteractionExcelAddPositionIndex06(builder, positionIndex06)
+def CharacterVictoryInteractionExcelAddVictoryStartAnimationPath06(builder, victoryStartAnimationPath06): builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(victoryStartAnimationPath06), 0)
 def AddVictoryStartAnimationPath06(builder, victoryStartAnimationPath06):
-    CharacterVictoryInteractionExcelAddVictoryStartAnimationPath06(builder, victoryStartAnimationPath06)
-
-def CharacterVictoryInteractionExcelAddVictoryEndAnimationPath06(builder, victoryEndAnimationPath06):
-    builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(victoryEndAnimationPath06), 0)
-
+    return CharacterVictoryInteractionExcelAddVictoryStartAnimationPath06(builder, victoryStartAnimationPath06)
+def CharacterVictoryInteractionExcelAddVictoryEndAnimationPath06(builder, victoryEndAnimationPath06): builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(victoryEndAnimationPath06), 0)
 def AddVictoryEndAnimationPath06(builder, victoryEndAnimationPath06):
-    CharacterVictoryInteractionExcelAddVictoryEndAnimationPath06(builder, victoryEndAnimationPath06)
-
-def CharacterVictoryInteractionExcelAddVoiceEvent06(builder, voiceEvent06):
-    builder.PrependInt32Slot(30, voiceEvent06, 0)
-
+    return CharacterVictoryInteractionExcelAddVictoryEndAnimationPath06(builder, victoryEndAnimationPath06)
+def CharacterVictoryInteractionExcelAddVoiceEvent06(builder, voiceEvent06): builder.PrependInt32Slot(30, voiceEvent06, 0)
 def AddVoiceEvent06(builder, voiceEvent06):
-    CharacterVictoryInteractionExcelAddVoiceEvent06(builder, voiceEvent06)
-
-def CharacterVictoryInteractionExcelEnd(builder):
-    return builder.EndObject()
-
+    return CharacterVictoryInteractionExcelAddVoiceEvent06(builder, voiceEvent06)
+def CharacterVictoryInteractionExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterVictoryInteractionExcelEnd(builder)

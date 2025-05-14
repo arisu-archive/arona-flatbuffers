@@ -25,10 +25,10 @@ func (t *ShopFreeRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	}
 	ShopFreeRecruitExcelStart(b)
 	ShopFreeRecruitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ShopFreeRecruitExcelAddFreeRecruitPeriodFrom(b, fbsutils.Convert(b.CreateString(t.FreeRecruitPeriodFrom), t.FlatBuffer.TableKey))
-	ShopFreeRecruitExcelAddFreeRecruitPeriodTo(b, fbsutils.Convert(b.CreateString(t.FreeRecruitPeriodTo), t.FlatBuffer.TableKey))
+	ShopFreeRecruitExcelAddFreeRecruitPeriodFrom(b, b.CreateString(fbsutils.Convert(t.FreeRecruitPeriodFrom, t.FlatBuffer.TableKey)))
+	ShopFreeRecruitExcelAddFreeRecruitPeriodTo(b, b.CreateString(fbsutils.Convert(t.FreeRecruitPeriodTo, t.FlatBuffer.TableKey)))
 	ShopFreeRecruitExcelAddFreeRecruitType(b, fbsutils.Convert(t.FreeRecruitType, t.FlatBuffer.TableKey))
-	ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(b, fbsutils.Convert(b.CreateString(t.FreeRecruitDecorationImagePath), t.FlatBuffer.TableKey))
+	ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(b, b.CreateString(fbsutils.Convert(t.FreeRecruitDecorationImagePath, t.FlatBuffer.TableKey)))
 	ShopFreeRecruitExcelStartShopRecruitIdVector(b, len(t.ShopRecruitId))
 	for i := range len(t.ShopRecruitId) {
 		b.PrependInt64(fbsutils.Convert(t.ShopRecruitId[len(t.ShopRecruitId)-i-1], t.FlatBuffer.TableKey))
@@ -56,7 +56,7 @@ func (t *ShopFreeRecruitExcelDto) UnmarshalMessage(e *ShopFreeRecruitExcel) erro
 	t.FreeRecruitDecorationImagePath = fbsutils.Convert(string(e.FreeRecruitDecorationImagePath()), t.FlatBuffer.TableKey)
 	t.ShopRecruitId = make([]int64, e.ShopRecruitIdLength())
 	for i := range e.ShopRecruitIdLength() {
-		t.ShopRecruitId[i] = e.ShopRecruitId(i)
+		t.ShopRecruitId[i] = fbsutils.Convert(e.ShopRecruitId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

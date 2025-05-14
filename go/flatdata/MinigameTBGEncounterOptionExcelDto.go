@@ -33,15 +33,15 @@ func (t *MinigameTBGEncounterOptionExcelDto) MarshalModel(b *flatbuffers.Builder
 	MinigameTBGEncounterOptionExcelAddOptionGroupId(b, fbsutils.Convert(t.OptionGroupId, t.FlatBuffer.TableKey))
 	MinigameTBGEncounterOptionExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	MinigameTBGEncounterOptionExcelAddSlotIndex(b, fbsutils.Convert(t.SlotIndex, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterOptionExcelAddOptionTitleLocalize(b, fbsutils.Convert(b.CreateString(t.OptionTitleLocalize), t.FlatBuffer.TableKey))
-	MinigameTBGEncounterOptionExcelAddOptionSuccessLocalize(b, fbsutils.Convert(b.CreateString(t.OptionSuccessLocalize), t.FlatBuffer.TableKey))
+	MinigameTBGEncounterOptionExcelAddOptionTitleLocalize(b, b.CreateString(fbsutils.Convert(t.OptionTitleLocalize, t.FlatBuffer.TableKey)))
+	MinigameTBGEncounterOptionExcelAddOptionSuccessLocalize(b, b.CreateString(fbsutils.Convert(t.OptionSuccessLocalize, t.FlatBuffer.TableKey)))
 	MinigameTBGEncounterOptionExcelAddOptionSuccessRewardGroupId(b, fbsutils.Convert(t.OptionSuccessRewardGroupId, t.FlatBuffer.TableKey))
 	MinigameTBGEncounterOptionExcelAddOptionSuccessOrHigherDiceCount(b, fbsutils.Convert(t.OptionSuccessOrHigherDiceCount, t.FlatBuffer.TableKey))
 	MinigameTBGEncounterOptionExcelAddOptionGreatSuccessOrHigherDiceCount(b, fbsutils.Convert(t.OptionGreatSuccessOrHigherDiceCount, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterOptionExcelAddOptionFailLocalize(b, fbsutils.Convert(b.CreateString(t.OptionFailLocalize), t.FlatBuffer.TableKey))
+	MinigameTBGEncounterOptionExcelAddOptionFailLocalize(b, b.CreateString(fbsutils.Convert(t.OptionFailLocalize, t.FlatBuffer.TableKey)))
 	MinigameTBGEncounterOptionExcelAddOptionFailLessDiceCount(b, fbsutils.Convert(t.OptionFailLessDiceCount, t.FlatBuffer.TableKey))
 	MinigameTBGEncounterOptionExcelAddRunawayOrHigherDiceCount(b, fbsutils.Convert(t.RunawayOrHigherDiceCount, t.FlatBuffer.TableKey))
-	MinigameTBGEncounterOptionExcelAddRewardHide(b, fbsutils.Convert(t.RewardHide, t.FlatBuffer.TableKey))
+	MinigameTBGEncounterOptionExcelAddRewardHide(b, t.RewardHide)
 	return MinigameTBGEncounterOptionExcelEnd(b)
 }
 
@@ -68,7 +68,7 @@ func (t *MinigameTBGEncounterOptionExcelDto) UnmarshalMessage(e *MinigameTBGEnco
 	t.OptionFailLocalize = fbsutils.Convert(string(e.OptionFailLocalize()), t.FlatBuffer.TableKey)
 	t.OptionFailLessDiceCount = fbsutils.Convert(e.OptionFailLessDiceCount(), t.FlatBuffer.TableKey)
 	t.RunawayOrHigherDiceCount = fbsutils.Convert(e.RunawayOrHigherDiceCount(), t.FlatBuffer.TableKey)
-	t.RewardHide = fbsutils.Convert(e.RewardHide(), t.FlatBuffer.TableKey)
+	t.RewardHide = e.RewardHide()
 	return nil
 }
 

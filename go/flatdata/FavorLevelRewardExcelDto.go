@@ -29,7 +29,7 @@ func (t *FavorLevelRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	FavorLevelRewardExcelAddFavorLevel(b, fbsutils.Convert(t.FavorLevel, t.FlatBuffer.TableKey))
 	FavorLevelRewardExcelStartStatTypeVector(b, len(t.StatType))
 	for i := range len(t.StatType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.StatType[len(t.StatType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.StatType[len(t.StatType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	FavorLevelRewardExcelAddStatType(b, b.EndVector(len(t.StatType)))
 	FavorLevelRewardExcelStartStatValueVector(b, len(t.StatValue))
@@ -39,7 +39,7 @@ func (t *FavorLevelRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	FavorLevelRewardExcelAddStatValue(b, b.EndVector(len(t.StatValue)))
 	FavorLevelRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	FavorLevelRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	FavorLevelRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
@@ -75,7 +75,7 @@ func (t *FavorLevelRewardExcelDto) UnmarshalMessage(e *FavorLevelRewardExcel) er
 	}
 	t.StatValue = make([]int64, e.StatValueLength())
 	for i := range e.StatValueLength() {
-		t.StatValue[i] = e.StatValue(i)
+		t.StatValue[i] = fbsutils.Convert(e.StatValue(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
@@ -83,11 +83,11 @@ func (t *FavorLevelRewardExcelDto) UnmarshalMessage(e *FavorLevelRewardExcel) er
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
-		t.RewardParcelId[i] = e.RewardParcelId(i)
+		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardAmount = make([]int64, e.RewardAmountLength())
 	for i := range e.RewardAmountLength() {
-		t.RewardAmount[i] = e.RewardAmount(i)
+		t.RewardAmount[i] = fbsutils.Convert(e.RewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

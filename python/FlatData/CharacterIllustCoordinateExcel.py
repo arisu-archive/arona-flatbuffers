@@ -66,50 +66,27 @@ class CharacterIllustCoordinateExcel(object):
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-def CharacterIllustCoordinateExcelStart(builder):
-    builder.StartObject(6)
-
+def CharacterIllustCoordinateExcelStart(builder): builder.StartObject(6)
 def Start(builder):
-    CharacterIllustCoordinateExcelStart(builder)
-
-def CharacterIllustCoordinateExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return CharacterIllustCoordinateExcelStart(builder)
+def CharacterIllustCoordinateExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    CharacterIllustCoordinateExcelAddId(builder, id)
-
-def CharacterIllustCoordinateExcelAddCharacterBodyCenterX(builder, characterBodyCenterX):
-    builder.PrependFloat32Slot(1, characterBodyCenterX, 0.0)
-
+    return CharacterIllustCoordinateExcelAddId(builder, id)
+def CharacterIllustCoordinateExcelAddCharacterBodyCenterX(builder, characterBodyCenterX): builder.PrependFloat32Slot(1, characterBodyCenterX, 0.0)
 def AddCharacterBodyCenterX(builder, characterBodyCenterX):
-    CharacterIllustCoordinateExcelAddCharacterBodyCenterX(builder, characterBodyCenterX)
-
-def CharacterIllustCoordinateExcelAddCharacterBodyCenterY(builder, characterBodyCenterY):
-    builder.PrependFloat32Slot(2, characterBodyCenterY, 0.0)
-
+    return CharacterIllustCoordinateExcelAddCharacterBodyCenterX(builder, characterBodyCenterX)
+def CharacterIllustCoordinateExcelAddCharacterBodyCenterY(builder, characterBodyCenterY): builder.PrependFloat32Slot(2, characterBodyCenterY, 0.0)
 def AddCharacterBodyCenterY(builder, characterBodyCenterY):
-    CharacterIllustCoordinateExcelAddCharacterBodyCenterY(builder, characterBodyCenterY)
-
-def CharacterIllustCoordinateExcelAddDefaultScale(builder, defaultScale):
-    builder.PrependFloat32Slot(3, defaultScale, 0.0)
-
+    return CharacterIllustCoordinateExcelAddCharacterBodyCenterY(builder, characterBodyCenterY)
+def CharacterIllustCoordinateExcelAddDefaultScale(builder, defaultScale): builder.PrependFloat32Slot(3, defaultScale, 0.0)
 def AddDefaultScale(builder, defaultScale):
-    CharacterIllustCoordinateExcelAddDefaultScale(builder, defaultScale)
-
-def CharacterIllustCoordinateExcelAddMinScale(builder, minScale):
-    builder.PrependFloat32Slot(4, minScale, 0.0)
-
+    return CharacterIllustCoordinateExcelAddDefaultScale(builder, defaultScale)
+def CharacterIllustCoordinateExcelAddMinScale(builder, minScale): builder.PrependFloat32Slot(4, minScale, 0.0)
 def AddMinScale(builder, minScale):
-    CharacterIllustCoordinateExcelAddMinScale(builder, minScale)
-
-def CharacterIllustCoordinateExcelAddMaxScale(builder, maxScale):
-    builder.PrependFloat32Slot(5, maxScale, 0.0)
-
+    return CharacterIllustCoordinateExcelAddMinScale(builder, minScale)
+def CharacterIllustCoordinateExcelAddMaxScale(builder, maxScale): builder.PrependFloat32Slot(5, maxScale, 0.0)
 def AddMaxScale(builder, maxScale):
-    CharacterIllustCoordinateExcelAddMaxScale(builder, maxScale)
-
-def CharacterIllustCoordinateExcelEnd(builder):
-    return builder.EndObject()
-
+    return CharacterIllustCoordinateExcelAddMaxScale(builder, maxScale)
+def CharacterIllustCoordinateExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterIllustCoordinateExcelEnd(builder)

@@ -47,13 +47,13 @@ func (t *StickerPageContentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	StickerPageContentExcelAddStickerGetConditionParameter(b, b.EndVector(len(t.StickerGetConditionParameter)))
 	StickerPageContentExcelStartStickerGetConditionParameterTagVector(b, len(t.StickerGetConditionParameterTag))
 	for i := range len(t.StickerGetConditionParameterTag) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.StickerGetConditionParameterTag[len(t.StickerGetConditionParameterTag)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.StickerGetConditionParameterTag[len(t.StickerGetConditionParameterTag)-i-1]), t.FlatBuffer.TableKey))
 	}
 	StickerPageContentExcelAddStickerGetConditionParameterTag(b, b.EndVector(len(t.StickerGetConditionParameterTag)))
 	StickerPageContentExcelAddPackedStickerIconLocalizeEtcId(b, fbsutils.Convert(t.PackedStickerIconLocalizeEtcId, t.FlatBuffer.TableKey))
-	StickerPageContentExcelAddPackedStickerIconPath(b, fbsutils.Convert(b.CreateString(t.PackedStickerIconPath), t.FlatBuffer.TableKey))
-	StickerPageContentExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
-	StickerPageContentExcelAddStickerDetailPath(b, fbsutils.Convert(b.CreateString(t.StickerDetailPath), t.FlatBuffer.TableKey))
+	StickerPageContentExcelAddPackedStickerIconPath(b, b.CreateString(fbsutils.Convert(t.PackedStickerIconPath, t.FlatBuffer.TableKey)))
+	StickerPageContentExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	StickerPageContentExcelAddStickerDetailPath(b, b.CreateString(fbsutils.Convert(t.StickerDetailPath, t.FlatBuffer.TableKey)))
 	return StickerPageContentExcelEnd(b)
 }
 
@@ -79,7 +79,7 @@ func (t *StickerPageContentExcelDto) UnmarshalMessage(e *StickerPageContentExcel
 	t.StickerGetConditionCount = fbsutils.Convert(e.StickerGetConditionCount(), t.FlatBuffer.TableKey)
 	t.StickerGetConditionParameter = make([]int64, e.StickerGetConditionParameterLength())
 	for i := range e.StickerGetConditionParameterLength() {
-		t.StickerGetConditionParameter[i] = e.StickerGetConditionParameter(i)
+		t.StickerGetConditionParameter[i] = fbsutils.Convert(e.StickerGetConditionParameter(i), t.FlatBuffer.TableKey)
 	}
 	t.StickerGetConditionParameterTag = make([]Tag, e.StickerGetConditionParameterTagLength())
 	for i := range e.StickerGetConditionParameterTagLength() {

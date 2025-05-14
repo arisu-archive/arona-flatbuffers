@@ -26,11 +26,11 @@ func (t *EliminateRaidStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) 
 	}
 	EliminateRaidStageRewardExcelStart(b)
 	EliminateRaidStageRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	EliminateRaidStageRewardExcelAddIsClearStageRewardHideInfo(b, fbsutils.Convert(t.IsClearStageRewardHideInfo, t.FlatBuffer.TableKey))
+	EliminateRaidStageRewardExcelAddIsClearStageRewardHideInfo(b, t.IsClearStageRewardHideInfo)
 	EliminateRaidStageRewardExcelAddClearStageRewardProb(b, fbsutils.Convert(t.ClearStageRewardProb, t.FlatBuffer.TableKey))
 	EliminateRaidStageRewardExcelAddClearStageRewardParcelType(b, fbsutils.Convert(t.ClearStageRewardParcelType, t.FlatBuffer.TableKey))
 	EliminateRaidStageRewardExcelAddClearStageRewardParcelUniqueId(b, fbsutils.Convert(t.ClearStageRewardParcelUniqueId, t.FlatBuffer.TableKey))
-	EliminateRaidStageRewardExcelAddClearStageRewardParcelUniqueName(b, fbsutils.Convert(b.CreateString(t.ClearStageRewardParcelUniqueName), t.FlatBuffer.TableKey))
+	EliminateRaidStageRewardExcelAddClearStageRewardParcelUniqueName(b, b.CreateString(fbsutils.Convert(t.ClearStageRewardParcelUniqueName, t.FlatBuffer.TableKey)))
 	EliminateRaidStageRewardExcelAddClearStageRewardAmount(b, fbsutils.Convert(t.ClearStageRewardAmount, t.FlatBuffer.TableKey))
 	return EliminateRaidStageRewardExcelEnd(b)
 }
@@ -48,7 +48,7 @@ func (t *EliminateRaidStageRewardExcelDto) UnmarshalMessage(e *EliminateRaidStag
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidStageReward"))
 	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.IsClearStageRewardHideInfo = fbsutils.Convert(e.IsClearStageRewardHideInfo(), t.FlatBuffer.TableKey)
+	t.IsClearStageRewardHideInfo = e.IsClearStageRewardHideInfo()
 	t.ClearStageRewardProb = fbsutils.Convert(e.ClearStageRewardProb(), t.FlatBuffer.TableKey)
 	t.ClearStageRewardParcelType = ParcelType(fbsutils.Convert(int32(e.ClearStageRewardParcelType()), t.FlatBuffer.TableKey))
 	t.ClearStageRewardParcelUniqueId = fbsutils.Convert(e.ClearStageRewardParcelUniqueId(), t.FlatBuffer.TableKey)

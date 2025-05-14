@@ -27,7 +27,7 @@ func (t *AccountLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	AccountLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	AccountLevelExcelAddExp(b, fbsutils.Convert(t.Exp, t.FlatBuffer.TableKey))
 	AccountLevelExcelAddApAutoChargeMax(b, fbsutils.Convert(t.ApAutoChargeMax, t.FlatBuffer.TableKey))
-	AccountLevelExcelAddNeedReportEvent(b, fbsutils.Convert(t.NeedReportEvent, t.FlatBuffer.TableKey))
+	AccountLevelExcelAddNeedReportEvent(b, t.NeedReportEvent)
 	return AccountLevelExcelEnd(b)
 }
 
@@ -47,7 +47,7 @@ func (t *AccountLevelExcelDto) UnmarshalMessage(e *AccountLevelExcel) error {
 	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.Exp = fbsutils.Convert(e.Exp(), t.FlatBuffer.TableKey)
 	t.ApAutoChargeMax = fbsutils.Convert(e.ApAutoChargeMax(), t.FlatBuffer.TableKey)
-	t.NeedReportEvent = fbsutils.Convert(e.NeedReportEvent(), t.FlatBuffer.TableKey)
+	t.NeedReportEvent = e.NeedReportEvent()
 	return nil
 }
 

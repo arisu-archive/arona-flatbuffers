@@ -59,44 +59,24 @@ class AniEventData(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def AniEventDataStart(builder):
-    builder.StartObject(5)
-
+def AniEventDataStart(builder): builder.StartObject(5)
 def Start(builder):
-    AniEventDataStart(builder)
-
-def AniEventDataAddName(builder, name):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
-
+    return AniEventDataStart(builder)
+def AniEventDataAddName(builder, name): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
 def AddName(builder, name):
-    AniEventDataAddName(builder, name)
-
-def AniEventDataAddTime(builder, time):
-    builder.PrependFloat32Slot(1, time, 0.0)
-
+    return AniEventDataAddName(builder, name)
+def AniEventDataAddTime(builder, time): builder.PrependFloat32Slot(1, time, 0.0)
 def AddTime(builder, time):
-    AniEventDataAddTime(builder, time)
-
-def AniEventDataAddIntParam(builder, intParam):
-    builder.PrependInt32Slot(2, intParam, 0)
-
+    return AniEventDataAddTime(builder, time)
+def AniEventDataAddIntParam(builder, intParam): builder.PrependInt32Slot(2, intParam, 0)
 def AddIntParam(builder, intParam):
-    AniEventDataAddIntParam(builder, intParam)
-
-def AniEventDataAddFloatParam(builder, floatParam):
-    builder.PrependFloat32Slot(3, floatParam, 0.0)
-
+    return AniEventDataAddIntParam(builder, intParam)
+def AniEventDataAddFloatParam(builder, floatParam): builder.PrependFloat32Slot(3, floatParam, 0.0)
 def AddFloatParam(builder, floatParam):
-    AniEventDataAddFloatParam(builder, floatParam)
-
-def AniEventDataAddStringParam(builder, stringParam):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(stringParam), 0)
-
+    return AniEventDataAddFloatParam(builder, floatParam)
+def AniEventDataAddStringParam(builder, stringParam): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(stringParam), 0)
 def AddStringParam(builder, stringParam):
-    AniEventDataAddStringParam(builder, stringParam)
-
-def AniEventDataEnd(builder):
-    return builder.EndObject()
-
+    return AniEventDataAddStringParam(builder, stringParam)
+def AniEventDataEnd(builder): return builder.EndObject()
 def End(builder):
     return AniEventDataEnd(builder)

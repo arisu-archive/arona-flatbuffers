@@ -49,26 +49,15 @@ class CurrencyExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CurrencyExcelTableStart(builder):
-    builder.StartObject(1)
-
+def CurrencyExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    CurrencyExcelTableStart(builder)
-
-def CurrencyExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return CurrencyExcelTableStart(builder)
+def CurrencyExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    CurrencyExcelTableAddDataList(builder, dataList)
-
-def CurrencyExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CurrencyExcelTableAddDataList(builder, dataList)
+def CurrencyExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return CurrencyExcelTableStartDataListVector(builder, numElems)
-
-def CurrencyExcelTableEnd(builder):
-    return builder.EndObject()
-
+def CurrencyExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return CurrencyExcelTableEnd(builder)

@@ -87,68 +87,36 @@ class EventContentChangeExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def EventContentChangeExcelStart(builder):
-    builder.StartObject(9)
-
+def EventContentChangeExcelStart(builder): builder.StartObject(9)
 def Start(builder):
-    EventContentChangeExcelStart(builder)
-
-def EventContentChangeExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return EventContentChangeExcelStart(builder)
+def EventContentChangeExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    EventContentChangeExcelAddEventContentId(builder, eventContentId)
-
-def EventContentChangeExcelAddChangeCount(builder, changeCount):
-    builder.PrependInt64Slot(1, changeCount, 0)
-
+    return EventContentChangeExcelAddEventContentId(builder, eventContentId)
+def EventContentChangeExcelAddChangeCount(builder, changeCount): builder.PrependInt64Slot(1, changeCount, 0)
 def AddChangeCount(builder, changeCount):
-    EventContentChangeExcelAddChangeCount(builder, changeCount)
-
-def EventContentChangeExcelAddIsLast(builder, isLast):
-    builder.PrependBoolSlot(2, isLast, 0)
-
+    return EventContentChangeExcelAddChangeCount(builder, changeCount)
+def EventContentChangeExcelAddIsLast(builder, isLast): builder.PrependBoolSlot(2, isLast, 0)
 def AddIsLast(builder, isLast):
-    EventContentChangeExcelAddIsLast(builder, isLast)
-
-def EventContentChangeExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependInt32Slot(3, rewardParcelType, 0)
-
+    return EventContentChangeExcelAddIsLast(builder, isLast)
+def EventContentChangeExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(3, rewardParcelType, 0)
 def AddRewardParcelType(builder, rewardParcelType):
-    EventContentChangeExcelAddRewardParcelType(builder, rewardParcelType)
-
-def EventContentChangeExcelAddRewardId(builder, rewardId):
-    builder.PrependInt64Slot(4, rewardId, 0)
-
+    return EventContentChangeExcelAddRewardParcelType(builder, rewardParcelType)
+def EventContentChangeExcelAddRewardId(builder, rewardId): builder.PrependInt64Slot(4, rewardId, 0)
 def AddRewardId(builder, rewardId):
-    EventContentChangeExcelAddRewardId(builder, rewardId)
-
-def EventContentChangeExcelAddRewardAmount(builder, rewardAmount):
-    builder.PrependInt32Slot(5, rewardAmount, 0)
-
+    return EventContentChangeExcelAddRewardId(builder, rewardId)
+def EventContentChangeExcelAddRewardAmount(builder, rewardAmount): builder.PrependInt32Slot(5, rewardAmount, 0)
 def AddRewardAmount(builder, rewardAmount):
-    EventContentChangeExcelAddRewardAmount(builder, rewardAmount)
-
-def EventContentChangeExcelAddChangeCostType(builder, changeCostType):
-    builder.PrependInt32Slot(6, changeCostType, 0)
-
+    return EventContentChangeExcelAddRewardAmount(builder, rewardAmount)
+def EventContentChangeExcelAddChangeCostType(builder, changeCostType): builder.PrependInt32Slot(6, changeCostType, 0)
 def AddChangeCostType(builder, changeCostType):
-    EventContentChangeExcelAddChangeCostType(builder, changeCostType)
-
-def EventContentChangeExcelAddChangeCostId(builder, changeCostId):
-    builder.PrependInt64Slot(7, changeCostId, 0)
-
+    return EventContentChangeExcelAddChangeCostType(builder, changeCostType)
+def EventContentChangeExcelAddChangeCostId(builder, changeCostId): builder.PrependInt64Slot(7, changeCostId, 0)
 def AddChangeCostId(builder, changeCostId):
-    EventContentChangeExcelAddChangeCostId(builder, changeCostId)
-
-def EventContentChangeExcelAddChangeCostAmount(builder, changeCostAmount):
-    builder.PrependInt32Slot(8, changeCostAmount, 0)
-
+    return EventContentChangeExcelAddChangeCostId(builder, changeCostId)
+def EventContentChangeExcelAddChangeCostAmount(builder, changeCostAmount): builder.PrependInt32Slot(8, changeCostAmount, 0)
 def AddChangeCostAmount(builder, changeCostAmount):
-    EventContentChangeExcelAddChangeCostAmount(builder, changeCostAmount)
-
-def EventContentChangeExcelEnd(builder):
-    return builder.EndObject()
-
+    return EventContentChangeExcelAddChangeCostAmount(builder, changeCostAmount)
+def EventContentChangeExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentChangeExcelEnd(builder)

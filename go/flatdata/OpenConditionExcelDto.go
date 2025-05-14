@@ -41,18 +41,18 @@ func (t *OpenConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	OpenConditionExcelAddOpenConditionContentType(b, fbsutils.Convert(t.OpenConditionContentType, t.FlatBuffer.TableKey))
 	OpenConditionExcelStartLockUiVector(b, len(t.LockUi))
 	for i := range len(t.LockUi) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.LockUi[len(t.LockUi)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.LockUi[len(t.LockUi)-i-1]))
 	}
 	OpenConditionExcelAddLockUi(b, b.EndVector(len(t.LockUi)))
 	OpenConditionExcelAddShortcutPopupPriority(b, fbsutils.Convert(t.ShortcutPopupPriority, t.FlatBuffer.TableKey))
 	OpenConditionExcelStartShortcutUiNameVector(b, len(t.ShortcutUiName))
 	for i := range len(t.ShortcutUiName) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.ShortcutUiName[len(t.ShortcutUiName)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.ShortcutUiName[len(t.ShortcutUiName)-i-1]))
 	}
 	OpenConditionExcelAddShortcutUiName(b, b.EndVector(len(t.ShortcutUiName)))
 	OpenConditionExcelAddShortcutParam(b, fbsutils.Convert(t.ShortcutParam, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddScene(b, fbsutils.Convert(b.CreateString(t.Scene), t.FlatBuffer.TableKey))
-	OpenConditionExcelAddHideWhenLocked(b, fbsutils.Convert(t.HideWhenLocked, t.FlatBuffer.TableKey))
+	OpenConditionExcelAddScene(b, b.CreateString(fbsutils.Convert(t.Scene, t.FlatBuffer.TableKey)))
+	OpenConditionExcelAddHideWhenLocked(b, t.HideWhenLocked)
 	OpenConditionExcelAddAccountLevel(b, fbsutils.Convert(t.AccountLevel, t.FlatBuffer.TableKey))
 	OpenConditionExcelAddScenarioModeId(b, fbsutils.Convert(t.ScenarioModeId, t.FlatBuffer.TableKey))
 	OpenConditionExcelAddCampaignStageId(b, fbsutils.Convert(t.CampaignStageId, t.FlatBuffer.TableKey))
@@ -64,8 +64,8 @@ func (t *OpenConditionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	OpenConditionExcelAddOpenedCafeId(b, fbsutils.Convert(t.OpenedCafeId, t.FlatBuffer.TableKey))
 	OpenConditionExcelAddCafeIdforCafeRank(b, fbsutils.Convert(t.CafeIdforCafeRank, t.FlatBuffer.TableKey))
 	OpenConditionExcelAddCafeRank(b, fbsutils.Convert(t.CafeRank, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddContentsOpenShow(b, fbsutils.Convert(t.ContentsOpenShow, t.FlatBuffer.TableKey))
-	OpenConditionExcelAddContentsOpenShortcutUi(b, fbsutils.Convert(b.CreateString(t.ContentsOpenShortcutUi), t.FlatBuffer.TableKey))
+	OpenConditionExcelAddContentsOpenShow(b, t.ContentsOpenShow)
+	OpenConditionExcelAddContentsOpenShortcutUi(b, b.CreateString(fbsutils.Convert(t.ContentsOpenShortcutUi, t.FlatBuffer.TableKey)))
 	return OpenConditionExcelEnd(b)
 }
 
@@ -84,16 +84,16 @@ func (t *OpenConditionExcelDto) UnmarshalMessage(e *OpenConditionExcel) error {
 	t.OpenConditionContentType = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionContentType()), t.FlatBuffer.TableKey))
 	t.LockUi = make([]string, e.LockUiLength())
 	for i := range e.LockUiLength() {
-		t.LockUi[i] = string(e.LockUi(i))
+		t.LockUi[i] = fbsutils.Convert(string(e.LockUi(i)), t.FlatBuffer.TableKey)
 	}
 	t.ShortcutPopupPriority = fbsutils.Convert(e.ShortcutPopupPriority(), t.FlatBuffer.TableKey)
 	t.ShortcutUiName = make([]string, e.ShortcutUiNameLength())
 	for i := range e.ShortcutUiNameLength() {
-		t.ShortcutUiName[i] = string(e.ShortcutUiName(i))
+		t.ShortcutUiName[i] = fbsutils.Convert(string(e.ShortcutUiName(i)), t.FlatBuffer.TableKey)
 	}
 	t.ShortcutParam = fbsutils.Convert(e.ShortcutParam(), t.FlatBuffer.TableKey)
 	t.Scene = fbsutils.Convert(string(e.Scene()), t.FlatBuffer.TableKey)
-	t.HideWhenLocked = fbsutils.Convert(e.HideWhenLocked(), t.FlatBuffer.TableKey)
+	t.HideWhenLocked = e.HideWhenLocked()
 	t.AccountLevel = fbsutils.Convert(e.AccountLevel(), t.FlatBuffer.TableKey)
 	t.ScenarioModeId = fbsutils.Convert(e.ScenarioModeId(), t.FlatBuffer.TableKey)
 	t.CampaignStageId = fbsutils.Convert(e.CampaignStageId(), t.FlatBuffer.TableKey)
@@ -105,7 +105,7 @@ func (t *OpenConditionExcelDto) UnmarshalMessage(e *OpenConditionExcel) error {
 	t.OpenedCafeId = fbsutils.Convert(e.OpenedCafeId(), t.FlatBuffer.TableKey)
 	t.CafeIdforCafeRank = fbsutils.Convert(e.CafeIdforCafeRank(), t.FlatBuffer.TableKey)
 	t.CafeRank = fbsutils.Convert(e.CafeRank(), t.FlatBuffer.TableKey)
-	t.ContentsOpenShow = fbsutils.Convert(e.ContentsOpenShow(), t.FlatBuffer.TableKey)
+	t.ContentsOpenShow = e.ContentsOpenShow()
 	t.ContentsOpenShortcutUi = fbsutils.Convert(string(e.ContentsOpenShortcutUi()), t.FlatBuffer.TableKey)
 	return nil
 }

@@ -39,7 +39,7 @@ func (t *GuideMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	GuideMissionExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	GuideMissionExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	GuideMissionExcelAddCategory(b, fbsutils.Convert(t.Category, t.FlatBuffer.TableKey))
-	GuideMissionExcelAddIsLegacy(b, fbsutils.Convert(t.IsLegacy, t.FlatBuffer.TableKey))
+	GuideMissionExcelAddIsLegacy(b, t.IsLegacy)
 	GuideMissionExcelAddTabNumber(b, fbsutils.Convert(t.TabNumber, t.FlatBuffer.TableKey))
 	GuideMissionExcelStartPreMissionIdVector(b, len(t.PreMissionId))
 	for i := range len(t.PreMissionId) {
@@ -48,10 +48,10 @@ func (t *GuideMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	GuideMissionExcelAddPreMissionId(b, b.EndVector(len(t.PreMissionId)))
 	GuideMissionExcelAddDescription(b, fbsutils.Convert(t.Description, t.FlatBuffer.TableKey))
 	GuideMissionExcelAddToastDisplayType(b, fbsutils.Convert(t.ToastDisplayType, t.FlatBuffer.TableKey))
-	GuideMissionExcelAddToastImagePath(b, fbsutils.Convert(b.CreateString(t.ToastImagePath), t.FlatBuffer.TableKey))
+	GuideMissionExcelAddToastImagePath(b, b.CreateString(fbsutils.Convert(t.ToastImagePath, t.FlatBuffer.TableKey)))
 	GuideMissionExcelStartShortcutUiVector(b, len(t.ShortcutUi))
 	for i := range len(t.ShortcutUi) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.ShortcutUi[len(t.ShortcutUi)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.ShortcutUi[len(t.ShortcutUi)-i-1]))
 	}
 	GuideMissionExcelAddShortcutUi(b, b.EndVector(len(t.ShortcutUi)))
 	GuideMissionExcelAddCompleteConditionType(b, fbsutils.Convert(t.CompleteConditionType, t.FlatBuffer.TableKey))
@@ -63,13 +63,13 @@ func (t *GuideMissionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	GuideMissionExcelAddCompleteConditionParameter(b, b.EndVector(len(t.CompleteConditionParameter)))
 	GuideMissionExcelStartCompleteConditionParameterTagVector(b, len(t.CompleteConditionParameterTag))
 	for i := range len(t.CompleteConditionParameterTag) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.CompleteConditionParameterTag[len(t.CompleteConditionParameterTag)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.CompleteConditionParameterTag[len(t.CompleteConditionParameterTag)-i-1]), t.FlatBuffer.TableKey))
 	}
 	GuideMissionExcelAddCompleteConditionParameterTag(b, b.EndVector(len(t.CompleteConditionParameterTag)))
-	GuideMissionExcelAddIsAutoClearForScenario(b, fbsutils.Convert(t.IsAutoClearForScenario, t.FlatBuffer.TableKey))
+	GuideMissionExcelAddIsAutoClearForScenario(b, t.IsAutoClearForScenario)
 	GuideMissionExcelStartMissionRewardParcelTypeVector(b, len(t.MissionRewardParcelType))
 	for i := range len(t.MissionRewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.MissionRewardParcelType[len(t.MissionRewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.MissionRewardParcelType[len(t.MissionRewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	GuideMissionExcelAddMissionRewardParcelType(b, b.EndVector(len(t.MissionRewardParcelType)))
 	GuideMissionExcelStartMissionRewardParcelIdVector(b, len(t.MissionRewardParcelId))
@@ -100,41 +100,41 @@ func (t *GuideMissionExcelDto) UnmarshalMessage(e *GuideMissionExcel) error {
 	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Category = MissionCategory(fbsutils.Convert(int32(e.Category()), t.FlatBuffer.TableKey))
-	t.IsLegacy = fbsutils.Convert(e.IsLegacy(), t.FlatBuffer.TableKey)
+	t.IsLegacy = e.IsLegacy()
 	t.TabNumber = fbsutils.Convert(e.TabNumber(), t.FlatBuffer.TableKey)
 	t.PreMissionId = make([]int64, e.PreMissionIdLength())
 	for i := range e.PreMissionIdLength() {
-		t.PreMissionId[i] = e.PreMissionId(i)
+		t.PreMissionId[i] = fbsutils.Convert(e.PreMissionId(i), t.FlatBuffer.TableKey)
 	}
 	t.Description = fbsutils.Convert(e.Description(), t.FlatBuffer.TableKey)
 	t.ToastDisplayType = MissionToastDisplayConditionType(fbsutils.Convert(int32(e.ToastDisplayType()), t.FlatBuffer.TableKey))
 	t.ToastImagePath = fbsutils.Convert(string(e.ToastImagePath()), t.FlatBuffer.TableKey)
 	t.ShortcutUi = make([]string, e.ShortcutUiLength())
 	for i := range e.ShortcutUiLength() {
-		t.ShortcutUi[i] = string(e.ShortcutUi(i))
+		t.ShortcutUi[i] = fbsutils.Convert(string(e.ShortcutUi(i)), t.FlatBuffer.TableKey)
 	}
 	t.CompleteConditionType = MissionCompleteConditionType(fbsutils.Convert(int32(e.CompleteConditionType()), t.FlatBuffer.TableKey))
 	t.CompleteConditionCount = fbsutils.Convert(e.CompleteConditionCount(), t.FlatBuffer.TableKey)
 	t.CompleteConditionParameter = make([]int64, e.CompleteConditionParameterLength())
 	for i := range e.CompleteConditionParameterLength() {
-		t.CompleteConditionParameter[i] = e.CompleteConditionParameter(i)
+		t.CompleteConditionParameter[i] = fbsutils.Convert(e.CompleteConditionParameter(i), t.FlatBuffer.TableKey)
 	}
 	t.CompleteConditionParameterTag = make([]Tag, e.CompleteConditionParameterTagLength())
 	for i := range e.CompleteConditionParameterTagLength() {
 		t.CompleteConditionParameterTag[i] = Tag(fbsutils.Convert(int32(e.CompleteConditionParameterTag(i)), t.FlatBuffer.TableKey))
 	}
-	t.IsAutoClearForScenario = fbsutils.Convert(e.IsAutoClearForScenario(), t.FlatBuffer.TableKey)
+	t.IsAutoClearForScenario = e.IsAutoClearForScenario()
 	t.MissionRewardParcelType = make([]ParcelType, e.MissionRewardParcelTypeLength())
 	for i := range e.MissionRewardParcelTypeLength() {
 		t.MissionRewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.MissionRewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.MissionRewardParcelId = make([]int64, e.MissionRewardParcelIdLength())
 	for i := range e.MissionRewardParcelIdLength() {
-		t.MissionRewardParcelId[i] = e.MissionRewardParcelId(i)
+		t.MissionRewardParcelId[i] = fbsutils.Convert(e.MissionRewardParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.MissionRewardAmount = make([]int32, e.MissionRewardAmountLength())
 	for i := range e.MissionRewardAmountLength() {
-		t.MissionRewardAmount[i] = e.MissionRewardAmount(i)
+		t.MissionRewardAmount[i] = fbsutils.Convert(e.MissionRewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

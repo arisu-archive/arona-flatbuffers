@@ -397,3 +397,4 @@ $RECYCLE.BIN/
 
 # Ignore tmp folder
 tmp/
+output/

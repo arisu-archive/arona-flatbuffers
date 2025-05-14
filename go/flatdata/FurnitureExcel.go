@@ -17,19 +17,11 @@ func GetRootAsFurnitureExcel(buf []byte, offset flatbuffers.UOffsetT) *Furniture
 	return x
 }
 
-func FinishFurnitureExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFurnitureExcel(buf []byte, offset flatbuffers.UOffsetT) *FurnitureExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FurnitureExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFurnitureExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FurnitureExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -415,16 +407,30 @@ func (rcv *FurnitureExcel) MutateFurnitureFunctionType(n FurnitureFunctionType) 
 	return rcv._tab.MutateInt32Slot(66, int32(n))
 }
 
-func (rcv *FurnitureExcel) FurnitureFunctionParameter() int64 {
+func (rcv *FurnitureExcel) FurnitureFunctionParameter(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateFurnitureFunctionParameter(n int64) bool {
-	return rcv._tab.MutateInt64Slot(68, n)
+func (rcv *FurnitureExcel) FurnitureFunctionParameterLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FurnitureExcel) MutateFurnitureFunctionParameter(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
 }
 
 func (rcv *FurnitureExcel) VideoId() int64 {
@@ -645,8 +651,11 @@ func FurnitureExcelAddShiftingCraftQuality(builder *flatbuffers.Builder, shiftin
 func FurnitureExcelAddFurnitureFunctionType(builder *flatbuffers.Builder, furnitureFunctionType FurnitureFunctionType) {
 	builder.PrependInt32Slot(31, int32(furnitureFunctionType), 0)
 }
-func FurnitureExcelAddFurnitureFunctionParameter(builder *flatbuffers.Builder, furnitureFunctionParameter int64) {
-	builder.PrependInt64Slot(32, furnitureFunctionParameter, 0)
+func FurnitureExcelAddFurnitureFunctionParameter(builder *flatbuffers.Builder, furnitureFunctionParameter flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(32, flatbuffers.UOffsetT(furnitureFunctionParameter), 0)
+}
+func FurnitureExcelStartFurnitureFunctionParameterVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func FurnitureExcelAddVideoId(builder *flatbuffers.Builder, videoId int64) {
 	builder.PrependInt64Slot(33, videoId, 0)

@@ -32,21 +32,21 @@ func (t *LogicEffectCommonVisualExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	}
 	LogicEffectCommonVisualExcelStart(b)
 	LogicEffectCommonVisualExcelAddStringId(b, fbsutils.Convert(t.StringId, t.FlatBuffer.TableKey))
-	LogicEffectCommonVisualExcelAddIconSpriteName(b, fbsutils.Convert(b.CreateString(t.IconSpriteName), t.FlatBuffer.TableKey))
+	LogicEffectCommonVisualExcelAddIconSpriteName(b, b.CreateString(fbsutils.Convert(t.IconSpriteName, t.FlatBuffer.TableKey)))
 	LogicEffectCommonVisualExcelStartIconDispelColorVector(b, len(t.IconDispelColor))
 	for i := range len(t.IconDispelColor) {
 		b.PrependFloat32(fbsutils.Convert(t.IconDispelColor[len(t.IconDispelColor)-i-1], t.FlatBuffer.TableKey))
 	}
 	LogicEffectCommonVisualExcelAddIconDispelColor(b, b.EndVector(len(t.IconDispelColor)))
-	LogicEffectCommonVisualExcelAddParticleEnterPath(b, fbsutils.Convert(b.CreateString(t.ParticleEnterPath), t.FlatBuffer.TableKey))
+	LogicEffectCommonVisualExcelAddParticleEnterPath(b, b.CreateString(fbsutils.Convert(t.ParticleEnterPath, t.FlatBuffer.TableKey)))
 	LogicEffectCommonVisualExcelAddParticleEnterSocket(b, fbsutils.Convert(t.ParticleEnterSocket, t.FlatBuffer.TableKey))
-	LogicEffectCommonVisualExcelAddParticleLoopPath(b, fbsutils.Convert(b.CreateString(t.ParticleLoopPath), t.FlatBuffer.TableKey))
+	LogicEffectCommonVisualExcelAddParticleLoopPath(b, b.CreateString(fbsutils.Convert(t.ParticleLoopPath, t.FlatBuffer.TableKey)))
 	LogicEffectCommonVisualExcelAddParticleLoopSocket(b, fbsutils.Convert(t.ParticleLoopSocket, t.FlatBuffer.TableKey))
-	LogicEffectCommonVisualExcelAddParticleEndPath(b, fbsutils.Convert(b.CreateString(t.ParticleEndPath), t.FlatBuffer.TableKey))
+	LogicEffectCommonVisualExcelAddParticleEndPath(b, b.CreateString(fbsutils.Convert(t.ParticleEndPath, t.FlatBuffer.TableKey)))
 	LogicEffectCommonVisualExcelAddParticleEndSocket(b, fbsutils.Convert(t.ParticleEndSocket, t.FlatBuffer.TableKey))
-	LogicEffectCommonVisualExcelAddParticleApplyPath(b, fbsutils.Convert(b.CreateString(t.ParticleApplyPath), t.FlatBuffer.TableKey))
+	LogicEffectCommonVisualExcelAddParticleApplyPath(b, b.CreateString(fbsutils.Convert(t.ParticleApplyPath, t.FlatBuffer.TableKey)))
 	LogicEffectCommonVisualExcelAddParticleApplySocket(b, fbsutils.Convert(t.ParticleApplySocket, t.FlatBuffer.TableKey))
-	LogicEffectCommonVisualExcelAddParticleRemovedPath(b, fbsutils.Convert(b.CreateString(t.ParticleRemovedPath), t.FlatBuffer.TableKey))
+	LogicEffectCommonVisualExcelAddParticleRemovedPath(b, b.CreateString(fbsutils.Convert(t.ParticleRemovedPath, t.FlatBuffer.TableKey)))
 	LogicEffectCommonVisualExcelAddParticleRemovedSocket(b, fbsutils.Convert(t.ParticleRemovedSocket, t.FlatBuffer.TableKey))
 	return LogicEffectCommonVisualExcelEnd(b)
 }
@@ -67,7 +67,7 @@ func (t *LogicEffectCommonVisualExcelDto) UnmarshalMessage(e *LogicEffectCommonV
 	t.IconSpriteName = fbsutils.Convert(string(e.IconSpriteName()), t.FlatBuffer.TableKey)
 	t.IconDispelColor = make([]float32, e.IconDispelColorLength())
 	for i := range e.IconDispelColorLength() {
-		t.IconDispelColor[i] = e.IconDispelColor(i)
+		t.IconDispelColor[i] = fbsutils.Convert(e.IconDispelColor(i), t.FlatBuffer.TableKey)
 	}
 	t.ParticleEnterPath = fbsutils.Convert(string(e.ParticleEnterPath()), t.FlatBuffer.TableKey)
 	t.ParticleEnterSocket = EffectBone(fbsutils.Convert(int32(e.ParticleEnterSocket()), t.FlatBuffer.TableKey))

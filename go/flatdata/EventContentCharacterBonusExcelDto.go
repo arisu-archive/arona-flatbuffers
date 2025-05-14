@@ -26,7 +26,7 @@ func (t *EventContentCharacterBonusExcelDto) MarshalModel(b *flatbuffers.Builder
 	EventContentCharacterBonusExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	EventContentCharacterBonusExcelStartEventContentItemTypeVector(b, len(t.EventContentItemType))
 	for i := range len(t.EventContentItemType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.EventContentItemType[len(t.EventContentItemType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.EventContentItemType[len(t.EventContentItemType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentCharacterBonusExcelAddEventContentItemType(b, b.EndVector(len(t.EventContentItemType)))
 	EventContentCharacterBonusExcelStartBonusPercentageVector(b, len(t.BonusPercentage))
@@ -57,7 +57,7 @@ func (t *EventContentCharacterBonusExcelDto) UnmarshalMessage(e *EventContentCha
 	}
 	t.BonusPercentage = make([]int64, e.BonusPercentageLength())
 	for i := range e.BonusPercentageLength() {
-		t.BonusPercentage[i] = e.BonusPercentage(i)
+		t.BonusPercentage[i] = fbsutils.Convert(e.BonusPercentage(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

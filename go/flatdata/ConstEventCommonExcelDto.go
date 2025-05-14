@@ -23,6 +23,7 @@ type ConstEventCommonExcelDto struct {
 	TreasureLoopVariationAmount          int32  `json:"treasure_loop_variation_amount"`
 	TreasureLimitVariationLoopCount      int32  `json:"treasure_limit_variation_loop_count"`
 	TreasureLimitVariationClearLoopCount int32  `json:"treasure_limit_variation_clear_loop_count"`
+	EventStoryReplayHideEventContentId   int32  `json:"event_story_replay_hide_event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -34,16 +35,17 @@ func (t *ConstEventCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	ConstEventCommonExcelAddEventContentHardStageCount(b, fbsutils.Convert(t.EventContentHardStageCount, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddEventStrategyPlayTimeLimitInSeconds(b, fbsutils.Convert(t.EventStrategyPlayTimeLimitInSeconds, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddSubEventChangeLimitSeconds(b, fbsutils.Convert(t.SubEventChangeLimitSeconds, t.FlatBuffer.TableKey))
-	ConstEventCommonExcelAddSubEventInstantClear(b, fbsutils.Convert(t.SubEventInstantClear, t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddSubEventInstantClear(b, t.SubEventInstantClear)
 	ConstEventCommonExcelAddCardShopProbWeightCount(b, fbsutils.Convert(t.CardShopProbWeightCount, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddCardShopProbWeightRarity(b, fbsutils.Convert(t.CardShopProbWeightRarity, t.FlatBuffer.TableKey))
-	ConstEventCommonExcelAddMeetupScenarioReplayResource(b, fbsutils.Convert(b.CreateString(t.MeetupScenarioReplayResource), t.FlatBuffer.TableKey))
-	ConstEventCommonExcelAddMeetupScenarioReplayTitleLocalize(b, fbsutils.Convert(b.CreateString(t.MeetupScenarioReplayTitleLocalize), t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddMeetupScenarioReplayResource(b, b.CreateString(fbsutils.Convert(t.MeetupScenarioReplayResource, t.FlatBuffer.TableKey)))
+	ConstEventCommonExcelAddMeetupScenarioReplayTitleLocalize(b, b.CreateString(fbsutils.Convert(t.MeetupScenarioReplayTitleLocalize, t.FlatBuffer.TableKey)))
 	ConstEventCommonExcelAddSpecialOperactionCollectionGroupId(b, fbsutils.Convert(t.SpecialOperactionCollectionGroupId, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddTreasureNormalVariationAmount(b, fbsutils.Convert(t.TreasureNormalVariationAmount, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddTreasureLoopVariationAmount(b, fbsutils.Convert(t.TreasureLoopVariationAmount, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddTreasureLimitVariationLoopCount(b, fbsutils.Convert(t.TreasureLimitVariationLoopCount, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddTreasureLimitVariationClearLoopCount(b, fbsutils.Convert(t.TreasureLimitVariationClearLoopCount, t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddEventStoryReplayHideEventContentId(b, fbsutils.Convert(t.EventStoryReplayHideEventContentId, t.FlatBuffer.TableKey))
 	return ConstEventCommonExcelEnd(b)
 }
 
@@ -62,7 +64,7 @@ func (t *ConstEventCommonExcelDto) UnmarshalMessage(e *ConstEventCommonExcel) er
 	t.EventContentHardStageCount = fbsutils.Convert(e.EventContentHardStageCount(), t.FlatBuffer.TableKey)
 	t.EventStrategyPlayTimeLimitInSeconds = fbsutils.Convert(e.EventStrategyPlayTimeLimitInSeconds(), t.FlatBuffer.TableKey)
 	t.SubEventChangeLimitSeconds = fbsutils.Convert(e.SubEventChangeLimitSeconds(), t.FlatBuffer.TableKey)
-	t.SubEventInstantClear = fbsutils.Convert(e.SubEventInstantClear(), t.FlatBuffer.TableKey)
+	t.SubEventInstantClear = e.SubEventInstantClear()
 	t.CardShopProbWeightCount = fbsutils.Convert(e.CardShopProbWeightCount(), t.FlatBuffer.TableKey)
 	t.CardShopProbWeightRarity = Rarity(fbsutils.Convert(int32(e.CardShopProbWeightRarity()), t.FlatBuffer.TableKey))
 	t.MeetupScenarioReplayResource = fbsutils.Convert(string(e.MeetupScenarioReplayResource()), t.FlatBuffer.TableKey)
@@ -72,6 +74,7 @@ func (t *ConstEventCommonExcelDto) UnmarshalMessage(e *ConstEventCommonExcel) er
 	t.TreasureLoopVariationAmount = fbsutils.Convert(e.TreasureLoopVariationAmount(), t.FlatBuffer.TableKey)
 	t.TreasureLimitVariationLoopCount = fbsutils.Convert(e.TreasureLimitVariationLoopCount(), t.FlatBuffer.TableKey)
 	t.TreasureLimitVariationClearLoopCount = fbsutils.Convert(e.TreasureLimitVariationClearLoopCount(), t.FlatBuffer.TableKey)
+	t.EventStoryReplayHideEventContentId = fbsutils.Convert(e.EventStoryReplayHideEventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

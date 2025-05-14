@@ -30,14 +30,14 @@ func (t *FieldStoryStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	FieldStoryStageExcelStart(b)
 	FieldStoryStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	FieldStoryStageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
-	FieldStoryStageExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	FieldStoryStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
 	FieldStoryStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
 	FieldStoryStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
 	FieldStoryStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	FieldStoryStageExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
 	FieldStoryStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
-	FieldStoryStageExcelAddSkipFormationSettings(b, fbsutils.Convert(t.SkipFormationSettings, t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddSkipFormationSettings(b, t.SkipFormationSettings)
 	return FieldStoryStageExcelEnd(b)
 }
 
@@ -62,7 +62,7 @@ func (t *FieldStoryStageExcelDto) UnmarshalMessage(e *FieldStoryStageExcel) erro
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
 	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
-	t.SkipFormationSettings = fbsutils.Convert(e.SkipFormationSettings(), t.FlatBuffer.TableKey)
+	t.SkipFormationSettings = e.SkipFormationSettings()
 	return nil
 }
 

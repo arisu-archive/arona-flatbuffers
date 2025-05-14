@@ -36,7 +36,7 @@ func (t *EquipmentStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	EquipmentStatExcelAddStatLevelUpType(b, fbsutils.Convert(t.StatLevelUpType, t.FlatBuffer.TableKey))
 	EquipmentStatExcelStartStatTypeVector(b, len(t.StatType))
 	for i := range len(t.StatType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.StatType[len(t.StatType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.StatType[len(t.StatType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EquipmentStatExcelAddStatType(b, b.EndVector(len(t.StatType)))
 	EquipmentStatExcelStartMinStatVector(b, len(t.MinStat))
@@ -57,7 +57,7 @@ func (t *EquipmentStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	EquipmentStatExcelAddLevelUpFeedAddExp(b, fbsutils.Convert(t.LevelUpFeedAddExp, t.FlatBuffer.TableKey))
 	EquipmentStatExcelAddDefaultMaxLevel(b, fbsutils.Convert(t.DefaultMaxLevel, t.FlatBuffer.TableKey))
 	EquipmentStatExcelAddTranscendenceMax(b, fbsutils.Convert(t.TranscendenceMax, t.FlatBuffer.TableKey))
-	EquipmentStatExcelAddDamageFactorGroupId(b, fbsutils.Convert(b.CreateString(t.DamageFactorGroupId), t.FlatBuffer.TableKey))
+	EquipmentStatExcelAddDamageFactorGroupId(b, b.CreateString(fbsutils.Convert(t.DamageFactorGroupId, t.FlatBuffer.TableKey)))
 	return EquipmentStatExcelEnd(b)
 }
 
@@ -81,11 +81,11 @@ func (t *EquipmentStatExcelDto) UnmarshalMessage(e *EquipmentStatExcel) error {
 	}
 	t.MinStat = make([]int64, e.MinStatLength())
 	for i := range e.MinStatLength() {
-		t.MinStat[i] = e.MinStat(i)
+		t.MinStat[i] = fbsutils.Convert(e.MinStat(i), t.FlatBuffer.TableKey)
 	}
 	t.MaxStat = make([]int64, e.MaxStatLength())
 	for i := range e.MaxStatLength() {
-		t.MaxStat[i] = e.MaxStat(i)
+		t.MaxStat[i] = fbsutils.Convert(e.MaxStat(i), t.FlatBuffer.TableKey)
 	}
 	t.LevelUpInsertLimit = fbsutils.Convert(e.LevelUpInsertLimit(), t.FlatBuffer.TableKey)
 	t.LevelUpFeedExp = fbsutils.Convert(e.LevelUpFeedExp(), t.FlatBuffer.TableKey)

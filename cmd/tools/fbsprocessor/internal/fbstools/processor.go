@@ -34,6 +34,7 @@ func NewProcessor(opts ProcessorOptions, optsFuncs ...func(*Processor)) *Process
 	if !ok {
 		panic(fmt.Sprintf("language %s not supported", opts.Language))
 	}
+	handler.(languages.LanguageProcessor).SetPackageName(opts.Package)
 	p := &Processor{
 		opts:    opts,
 		handler: handler.(languages.LanguageProcessor), //nolint:errcheck // processor must be language processor.

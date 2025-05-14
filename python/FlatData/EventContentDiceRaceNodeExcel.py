@@ -133,74 +133,39 @@ class EventContentDiceRaceNodeExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         return o == 0
 
-def EventContentDiceRaceNodeExcelStart(builder):
-    builder.StartObject(7)
-
+def EventContentDiceRaceNodeExcelStart(builder): builder.StartObject(7)
 def Start(builder):
-    EventContentDiceRaceNodeExcelStart(builder)
-
-def EventContentDiceRaceNodeExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return EventContentDiceRaceNodeExcelStart(builder)
+def EventContentDiceRaceNodeExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    EventContentDiceRaceNodeExcelAddEventContentId(builder, eventContentId)
-
-def EventContentDiceRaceNodeExcelAddNodeId(builder, nodeId):
-    builder.PrependInt64Slot(1, nodeId, 0)
-
+    return EventContentDiceRaceNodeExcelAddEventContentId(builder, eventContentId)
+def EventContentDiceRaceNodeExcelAddNodeId(builder, nodeId): builder.PrependInt64Slot(1, nodeId, 0)
 def AddNodeId(builder, nodeId):
-    EventContentDiceRaceNodeExcelAddNodeId(builder, nodeId)
-
-def EventContentDiceRaceNodeExcelAddEventContentDiceRaceNodeType(builder, eventContentDiceRaceNodeType):
-    builder.PrependInt32Slot(2, eventContentDiceRaceNodeType, 0)
-
+    return EventContentDiceRaceNodeExcelAddNodeId(builder, nodeId)
+def EventContentDiceRaceNodeExcelAddEventContentDiceRaceNodeType(builder, eventContentDiceRaceNodeType): builder.PrependInt32Slot(2, eventContentDiceRaceNodeType, 0)
 def AddEventContentDiceRaceNodeType(builder, eventContentDiceRaceNodeType):
-    EventContentDiceRaceNodeExcelAddEventContentDiceRaceNodeType(builder, eventContentDiceRaceNodeType)
-
-def EventContentDiceRaceNodeExcelAddMoveForwardTypeArg(builder, moveForwardTypeArg):
-    builder.PrependInt32Slot(3, moveForwardTypeArg, 0)
-
+    return EventContentDiceRaceNodeExcelAddEventContentDiceRaceNodeType(builder, eventContentDiceRaceNodeType)
+def EventContentDiceRaceNodeExcelAddMoveForwardTypeArg(builder, moveForwardTypeArg): builder.PrependInt32Slot(3, moveForwardTypeArg, 0)
 def AddMoveForwardTypeArg(builder, moveForwardTypeArg):
-    EventContentDiceRaceNodeExcelAddMoveForwardTypeArg(builder, moveForwardTypeArg)
-
-def EventContentDiceRaceNodeExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
-
+    return EventContentDiceRaceNodeExcelAddMoveForwardTypeArg(builder, moveForwardTypeArg)
+def EventContentDiceRaceNodeExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
 def AddRewardParcelType(builder, rewardParcelType):
-    EventContentDiceRaceNodeExcelAddRewardParcelType(builder, rewardParcelType)
-
-def EventContentDiceRaceNodeExcelStartRewardParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentDiceRaceNodeExcelAddRewardParcelType(builder, rewardParcelType)
+def EventContentDiceRaceNodeExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelTypeVector(builder, numElems):
     return EventContentDiceRaceNodeExcelStartRewardParcelTypeVector(builder, numElems)
-
-def EventContentDiceRaceNodeExcelAddRewardParcelId(builder, rewardParcelId):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
-
+def EventContentDiceRaceNodeExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
 def AddRewardParcelId(builder, rewardParcelId):
-    EventContentDiceRaceNodeExcelAddRewardParcelId(builder, rewardParcelId)
-
-def EventContentDiceRaceNodeExcelStartRewardParcelIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentDiceRaceNodeExcelAddRewardParcelId(builder, rewardParcelId)
+def EventContentDiceRaceNodeExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelIdVector(builder, numElems):
     return EventContentDiceRaceNodeExcelStartRewardParcelIdVector(builder, numElems)
-
-def EventContentDiceRaceNodeExcelAddRewardAmount(builder, rewardAmount):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
-
+def EventContentDiceRaceNodeExcelAddRewardAmount(builder, rewardAmount): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
 def AddRewardAmount(builder, rewardAmount):
-    EventContentDiceRaceNodeExcelAddRewardAmount(builder, rewardAmount)
-
-def EventContentDiceRaceNodeExcelStartRewardAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentDiceRaceNodeExcelAddRewardAmount(builder, rewardAmount)
+def EventContentDiceRaceNodeExcelStartRewardAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardAmountVector(builder, numElems):
     return EventContentDiceRaceNodeExcelStartRewardAmountVector(builder, numElems)
-
-def EventContentDiceRaceNodeExcelEnd(builder):
-    return builder.EndObject()
-
+def EventContentDiceRaceNodeExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentDiceRaceNodeExcelEnd(builder)

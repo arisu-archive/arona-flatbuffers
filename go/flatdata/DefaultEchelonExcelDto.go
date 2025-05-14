@@ -55,11 +55,11 @@ func (t *DefaultEchelonExcelDto) UnmarshalMessage(e *DefaultEchelonExcel) error 
 	t.LeaderId = fbsutils.Convert(e.LeaderId(), t.FlatBuffer.TableKey)
 	t.MainId = make([]int64, e.MainIdLength())
 	for i := range e.MainIdLength() {
-		t.MainId[i] = e.MainId(i)
+		t.MainId[i] = fbsutils.Convert(e.MainId(i), t.FlatBuffer.TableKey)
 	}
 	t.SupportId = make([]int64, e.SupportIdLength())
 	for i := range e.SupportIdLength() {
-		t.SupportId[i] = e.SupportId(i)
+		t.SupportId[i] = fbsutils.Convert(e.SupportId(i), t.FlatBuffer.TableKey)
 	}
 	t.TssId = fbsutils.Convert(e.TssId(), t.FlatBuffer.TableKey)
 	return nil

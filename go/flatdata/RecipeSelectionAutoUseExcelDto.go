@@ -50,7 +50,7 @@ func (t *RecipeSelectionAutoUseExcelDto) UnmarshalMessage(e *RecipeSelectionAuto
 	t.TargetItemId = fbsutils.Convert(e.TargetItemId(), t.FlatBuffer.TableKey)
 	t.Priority = make([]int64, e.PriorityLength())
 	for i := range e.PriorityLength() {
-		t.Priority[i] = e.Priority(i)
+		t.Priority[i] = fbsutils.Convert(e.Priority(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

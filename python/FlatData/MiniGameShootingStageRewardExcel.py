@@ -126,68 +126,36 @@ class MiniGameShootingStageRewardExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         return o == 0
 
-def MiniGameShootingStageRewardExcelStart(builder):
-    builder.StartObject(6)
-
+def MiniGameShootingStageRewardExcelStart(builder): builder.StartObject(6)
 def Start(builder):
-    MiniGameShootingStageRewardExcelStart(builder)
-
-def MiniGameShootingStageRewardExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(0, groupId, 0)
-
+    return MiniGameShootingStageRewardExcelStart(builder)
+def MiniGameShootingStageRewardExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
 def AddGroupId(builder, groupId):
-    MiniGameShootingStageRewardExcelAddGroupId(builder, groupId)
-
-def MiniGameShootingStageRewardExcelAddRewardId(builder, rewardId):
-    builder.PrependInt64Slot(1, rewardId, 0)
-
+    return MiniGameShootingStageRewardExcelAddGroupId(builder, groupId)
+def MiniGameShootingStageRewardExcelAddRewardId(builder, rewardId): builder.PrependInt64Slot(1, rewardId, 0)
 def AddRewardId(builder, rewardId):
-    MiniGameShootingStageRewardExcelAddRewardId(builder, rewardId)
-
-def MiniGameShootingStageRewardExcelAddClearSection(builder, clearSection):
-    builder.PrependInt64Slot(2, clearSection, 0)
-
+    return MiniGameShootingStageRewardExcelAddRewardId(builder, rewardId)
+def MiniGameShootingStageRewardExcelAddClearSection(builder, clearSection): builder.PrependInt64Slot(2, clearSection, 0)
 def AddClearSection(builder, clearSection):
-    MiniGameShootingStageRewardExcelAddClearSection(builder, clearSection)
-
-def MiniGameShootingStageRewardExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
-
+    return MiniGameShootingStageRewardExcelAddClearSection(builder, clearSection)
+def MiniGameShootingStageRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
 def AddRewardParcelType(builder, rewardParcelType):
-    MiniGameShootingStageRewardExcelAddRewardParcelType(builder, rewardParcelType)
-
-def MiniGameShootingStageRewardExcelStartRewardParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MiniGameShootingStageRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def MiniGameShootingStageRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelTypeVector(builder, numElems):
     return MiniGameShootingStageRewardExcelStartRewardParcelTypeVector(builder, numElems)
-
-def MiniGameShootingStageRewardExcelAddRewardParcelId(builder, rewardParcelId):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
-
+def MiniGameShootingStageRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
 def AddRewardParcelId(builder, rewardParcelId):
-    MiniGameShootingStageRewardExcelAddRewardParcelId(builder, rewardParcelId)
-
-def MiniGameShootingStageRewardExcelStartRewardParcelIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return MiniGameShootingStageRewardExcelAddRewardParcelId(builder, rewardParcelId)
+def MiniGameShootingStageRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelIdVector(builder, numElems):
     return MiniGameShootingStageRewardExcelStartRewardParcelIdVector(builder, numElems)
-
-def MiniGameShootingStageRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
-
+def MiniGameShootingStageRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
 def AddRewardParcelAmount(builder, rewardParcelAmount):
-    MiniGameShootingStageRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-
-def MiniGameShootingStageRewardExcelStartRewardParcelAmountVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MiniGameShootingStageRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def MiniGameShootingStageRewardExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelAmountVector(builder, numElems):
     return MiniGameShootingStageRewardExcelStartRewardParcelAmountVector(builder, numElems)
-
-def MiniGameShootingStageRewardExcelEnd(builder):
-    return builder.EndObject()
-
+def MiniGameShootingStageRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameShootingStageRewardExcelEnd(builder)

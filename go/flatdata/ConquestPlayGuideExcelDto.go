@@ -27,9 +27,9 @@ func (t *ConquestPlayGuideExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	ConquestPlayGuideExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ConquestPlayGuideExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ConquestPlayGuideExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	ConquestPlayGuideExcelAddGuideTitle(b, fbsutils.Convert(b.CreateString(t.GuideTitle), t.FlatBuffer.TableKey))
-	ConquestPlayGuideExcelAddGuideImagePath(b, fbsutils.Convert(b.CreateString(t.GuideImagePath), t.FlatBuffer.TableKey))
-	ConquestPlayGuideExcelAddGuideText(b, fbsutils.Convert(b.CreateString(t.GuideText), t.FlatBuffer.TableKey))
+	ConquestPlayGuideExcelAddGuideTitle(b, b.CreateString(fbsutils.Convert(t.GuideTitle, t.FlatBuffer.TableKey)))
+	ConquestPlayGuideExcelAddGuideImagePath(b, b.CreateString(fbsutils.Convert(t.GuideImagePath, t.FlatBuffer.TableKey)))
+	ConquestPlayGuideExcelAddGuideText(b, b.CreateString(fbsutils.Convert(t.GuideText, t.FlatBuffer.TableKey)))
 	return ConquestPlayGuideExcelEnd(b)
 }
 

@@ -108,86 +108,45 @@ class ShopRefreshExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ShopRefreshExcelStart(builder):
-    builder.StartObject(12)
-
+def ShopRefreshExcelStart(builder): builder.StartObject(12)
 def Start(builder):
-    ShopRefreshExcelStart(builder)
-
-def ShopRefreshExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return ShopRefreshExcelStart(builder)
+def ShopRefreshExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    ShopRefreshExcelAddId(builder, id)
-
-def ShopRefreshExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(1, localizeEtcId, 0)
-
+    return ShopRefreshExcelAddId(builder, id)
+def ShopRefreshExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(1, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
-    ShopRefreshExcelAddLocalizeEtcId(builder, localizeEtcId)
-
-def ShopRefreshExcelAddIsLegacy(builder, isLegacy):
-    builder.PrependBoolSlot(2, isLegacy, 0)
-
+    return ShopRefreshExcelAddLocalizeEtcId(builder, localizeEtcId)
+def ShopRefreshExcelAddIsLegacy(builder, isLegacy): builder.PrependBoolSlot(2, isLegacy, 0)
 def AddIsLegacy(builder, isLegacy):
-    ShopRefreshExcelAddIsLegacy(builder, isLegacy)
-
-def ShopRefreshExcelAddGoodsId(builder, goodsId):
-    builder.PrependInt64Slot(3, goodsId, 0)
-
+    return ShopRefreshExcelAddIsLegacy(builder, isLegacy)
+def ShopRefreshExcelAddGoodsId(builder, goodsId): builder.PrependInt64Slot(3, goodsId, 0)
 def AddGoodsId(builder, goodsId):
-    ShopRefreshExcelAddGoodsId(builder, goodsId)
-
-def ShopRefreshExcelAddIsBundle(builder, isBundle):
-    builder.PrependBoolSlot(4, isBundle, 0)
-
+    return ShopRefreshExcelAddGoodsId(builder, goodsId)
+def ShopRefreshExcelAddIsBundle(builder, isBundle): builder.PrependBoolSlot(4, isBundle, 0)
 def AddIsBundle(builder, isBundle):
-    ShopRefreshExcelAddIsBundle(builder, isBundle)
-
-def ShopRefreshExcelAddVisibleAmount(builder, visibleAmount):
-    builder.PrependInt64Slot(5, visibleAmount, 0)
-
+    return ShopRefreshExcelAddIsBundle(builder, isBundle)
+def ShopRefreshExcelAddVisibleAmount(builder, visibleAmount): builder.PrependInt64Slot(5, visibleAmount, 0)
 def AddVisibleAmount(builder, visibleAmount):
-    ShopRefreshExcelAddVisibleAmount(builder, visibleAmount)
-
-def ShopRefreshExcelAddDisplayOrder(builder, displayOrder):
-    builder.PrependInt64Slot(6, displayOrder, 0)
-
+    return ShopRefreshExcelAddVisibleAmount(builder, visibleAmount)
+def ShopRefreshExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(6, displayOrder, 0)
 def AddDisplayOrder(builder, displayOrder):
-    ShopRefreshExcelAddDisplayOrder(builder, displayOrder)
-
-def ShopRefreshExcelAddCategoryType(builder, categoryType):
-    builder.PrependInt32Slot(7, categoryType, 0)
-
+    return ShopRefreshExcelAddDisplayOrder(builder, displayOrder)
+def ShopRefreshExcelAddCategoryType(builder, categoryType): builder.PrependInt32Slot(7, categoryType, 0)
 def AddCategoryType(builder, categoryType):
-    ShopRefreshExcelAddCategoryType(builder, categoryType)
-
-def ShopRefreshExcelAddRefreshGroup(builder, refreshGroup):
-    builder.PrependInt32Slot(8, refreshGroup, 0)
-
+    return ShopRefreshExcelAddCategoryType(builder, categoryType)
+def ShopRefreshExcelAddRefreshGroup(builder, refreshGroup): builder.PrependInt32Slot(8, refreshGroup, 0)
 def AddRefreshGroup(builder, refreshGroup):
-    ShopRefreshExcelAddRefreshGroup(builder, refreshGroup)
-
-def ShopRefreshExcelAddProb(builder, prob):
-    builder.PrependInt32Slot(9, prob, 0)
-
+    return ShopRefreshExcelAddRefreshGroup(builder, refreshGroup)
+def ShopRefreshExcelAddProb(builder, prob): builder.PrependInt32Slot(9, prob, 0)
 def AddProb(builder, prob):
-    ShopRefreshExcelAddProb(builder, prob)
-
-def ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(buyReportEventName), 0)
-
+    return ShopRefreshExcelAddProb(builder, prob)
+def ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(buyReportEventName), 0)
 def AddBuyReportEventName(builder, buyReportEventName):
-    ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName)
-
-def ShopRefreshExcelAddDisplayTag(builder, displayTag):
-    builder.PrependInt32Slot(11, displayTag, 0)
-
+    return ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName)
+def ShopRefreshExcelAddDisplayTag(builder, displayTag): builder.PrependInt32Slot(11, displayTag, 0)
 def AddDisplayTag(builder, displayTag):
-    ShopRefreshExcelAddDisplayTag(builder, displayTag)
-
-def ShopRefreshExcelEnd(builder):
-    return builder.EndObject()
-
+    return ShopRefreshExcelAddDisplayTag(builder, displayTag)
+def ShopRefreshExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ShopRefreshExcelEnd(builder)

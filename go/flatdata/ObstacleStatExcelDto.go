@@ -34,7 +34,7 @@ func (t *ObstacleStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	}
 	ObstacleStatExcelStart(b)
 	ObstacleStatExcelAddStringId(b, fbsutils.Convert(t.StringId, t.FlatBuffer.TableKey))
-	ObstacleStatExcelAddName(b, fbsutils.Convert(b.CreateString(t.Name), t.FlatBuffer.TableKey))
+	ObstacleStatExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	ObstacleStatExcelAddMaxHp1(b, fbsutils.Convert(t.MaxHp1, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddMaxHp100(b, fbsutils.Convert(t.MaxHp100, t.FlatBuffer.TableKey))
 	ObstacleStatExcelAddBlockRate(b, fbsutils.Convert(t.BlockRate, t.FlatBuffer.TableKey))

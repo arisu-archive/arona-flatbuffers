@@ -37,11 +37,11 @@ func (t *MiniGameShootingStageExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	MiniGameShootingStageExcelAddBgmId(b, b.EndVector(len(t.BgmId)))
 	MiniGameShootingStageExcelAddCostGoodsId(b, fbsutils.Convert(t.CostGoodsId, t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelAddDifficulty(b, fbsutils.Convert(t.Difficulty, t.FlatBuffer.TableKey))
-	MiniGameShootingStageExcelAddDesignLevel(b, fbsutils.Convert(b.CreateString(t.DesignLevel), t.FlatBuffer.TableKey))
-	MiniGameShootingStageExcelAddArtLevel(b, fbsutils.Convert(b.CreateString(t.ArtLevel), t.FlatBuffer.TableKey))
+	MiniGameShootingStageExcelAddDesignLevel(b, b.CreateString(fbsutils.Convert(t.DesignLevel, t.FlatBuffer.TableKey)))
+	MiniGameShootingStageExcelAddArtLevel(b, b.CreateString(fbsutils.Convert(t.ArtLevel, t.FlatBuffer.TableKey)))
 	MiniGameShootingStageExcelAddStartBattleDuration(b, fbsutils.Convert(t.StartBattleDuration, t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelAddDefaultBattleDuration(b, fbsutils.Convert(t.DefaultBattleDuration, t.FlatBuffer.TableKey))
-	MiniGameShootingStageExcelAddDefaultLogicEffect(b, fbsutils.Convert(b.CreateString(t.DefaultLogicEffect), t.FlatBuffer.TableKey))
+	MiniGameShootingStageExcelAddDefaultLogicEffect(b, b.CreateString(fbsutils.Convert(t.DefaultLogicEffect, t.FlatBuffer.TableKey)))
 	MiniGameShootingStageExcelAddCameraSizeRate(b, fbsutils.Convert(t.CameraSizeRate, t.FlatBuffer.TableKey))
 	MiniGameShootingStageExcelAddEventContentStageRewardId(b, fbsutils.Convert(t.EventContentStageRewardId, t.FlatBuffer.TableKey))
 	return MiniGameShootingStageExcelEnd(b)
@@ -62,7 +62,7 @@ func (t *MiniGameShootingStageExcelDto) UnmarshalMessage(e *MiniGameShootingStag
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.BgmId = make([]int64, e.BgmIdLength())
 	for i := range e.BgmIdLength() {
-		t.BgmId[i] = e.BgmId(i)
+		t.BgmId[i] = fbsutils.Convert(e.BgmId(i), t.FlatBuffer.TableKey)
 	}
 	t.CostGoodsId = fbsutils.Convert(e.CostGoodsId(), t.FlatBuffer.TableKey)
 	t.Difficulty = Difficulty(fbsutils.Convert(int32(e.Difficulty()), t.FlatBuffer.TableKey))

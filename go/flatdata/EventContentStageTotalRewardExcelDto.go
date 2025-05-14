@@ -29,7 +29,7 @@ func (t *EventContentStageTotalRewardExcelDto) MarshalModel(b *flatbuffers.Build
 	EventContentStageTotalRewardExcelAddRequiredEventItemAmount(b, fbsutils.Convert(t.RequiredEventItemAmount, t.FlatBuffer.TableKey))
 	EventContentStageTotalRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.RewardParcelType[len(t.RewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentStageTotalRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	EventContentStageTotalRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
@@ -66,11 +66,11 @@ func (t *EventContentStageTotalRewardExcelDto) UnmarshalMessage(e *EventContentS
 	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
-		t.RewardParcelId[i] = e.RewardParcelId(i)
+		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
 	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = e.RewardParcelAmount(i)
+		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

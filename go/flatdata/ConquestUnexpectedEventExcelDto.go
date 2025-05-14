@@ -34,7 +34,7 @@ func (t *ConquestUnexpectedEventExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	ConquestUnexpectedEventExcelAddUnitCountPerStep(b, fbsutils.Convert(t.UnitCountPerStep, t.FlatBuffer.TableKey))
 	ConquestUnexpectedEventExcelStartUnexpectedEventPrefabVector(b, len(t.UnexpectedEventPrefab))
 	for i := range len(t.UnexpectedEventPrefab) {
-		b.PrependUOffsetT(fbsutils.Convert(b.CreateString(t.UnexpectedEventPrefab[len(t.UnexpectedEventPrefab)-i-1]), t.FlatBuffer.TableKey))
+		b.PrependUOffsetT(b.CreateString(t.UnexpectedEventPrefab[len(t.UnexpectedEventPrefab)-i-1]))
 	}
 	ConquestUnexpectedEventExcelAddUnexpectedEventPrefab(b, b.EndVector(len(t.UnexpectedEventPrefab)))
 	ConquestUnexpectedEventExcelStartUnexpectedEventUnitIdVector(b, len(t.UnexpectedEventUnitId))
@@ -65,11 +65,11 @@ func (t *ConquestUnexpectedEventExcelDto) UnmarshalMessage(e *ConquestUnexpected
 	t.UnitCountPerStep = fbsutils.Convert(e.UnitCountPerStep(), t.FlatBuffer.TableKey)
 	t.UnexpectedEventPrefab = make([]string, e.UnexpectedEventPrefabLength())
 	for i := range e.UnexpectedEventPrefabLength() {
-		t.UnexpectedEventPrefab[i] = string(e.UnexpectedEventPrefab(i))
+		t.UnexpectedEventPrefab[i] = fbsutils.Convert(string(e.UnexpectedEventPrefab(i)), t.FlatBuffer.TableKey)
 	}
 	t.UnexpectedEventUnitId = make([]int64, e.UnexpectedEventUnitIdLength())
 	for i := range e.UnexpectedEventUnitIdLength() {
-		t.UnexpectedEventUnitId[i] = e.UnexpectedEventUnitId(i)
+		t.UnexpectedEventUnitId[i] = fbsutils.Convert(e.UnexpectedEventUnitId(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

@@ -44,7 +44,7 @@ func (t *FavorLevelExcelDto) UnmarshalMessage(e *FavorLevelExcel) error {
 	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.ExpType = make([]int64, e.ExpTypeLength())
 	for i := range e.ExpTypeLength() {
-		t.ExpType[i] = e.ExpType(i)
+		t.ExpType[i] = fbsutils.Convert(e.ExpType(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

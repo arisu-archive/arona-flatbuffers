@@ -24,10 +24,10 @@ func (t *ConstNewbieContentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstNewbieContent"))
 	}
 	ConstNewbieContentExcelStart(b)
-	ConstNewbieContentExcelAddNewbieGachaReleaseDate(b, fbsutils.Convert(b.CreateString(t.NewbieGachaReleaseDate), t.FlatBuffer.TableKey))
+	ConstNewbieContentExcelAddNewbieGachaReleaseDate(b, b.CreateString(fbsutils.Convert(t.NewbieGachaReleaseDate, t.FlatBuffer.TableKey)))
 	ConstNewbieContentExcelAddNewbieGachaCheckDays(b, fbsutils.Convert(t.NewbieGachaCheckDays, t.FlatBuffer.TableKey))
 	ConstNewbieContentExcelAddNewbieGachaTokenGraceTime(b, fbsutils.Convert(t.NewbieGachaTokenGraceTime, t.FlatBuffer.TableKey))
-	ConstNewbieContentExcelAddNewbieAttendanceReleaseDate(b, fbsutils.Convert(b.CreateString(t.NewbieAttendanceReleaseDate), t.FlatBuffer.TableKey))
+	ConstNewbieContentExcelAddNewbieAttendanceReleaseDate(b, b.CreateString(fbsutils.Convert(t.NewbieAttendanceReleaseDate, t.FlatBuffer.TableKey)))
 	ConstNewbieContentExcelAddNewbieAttendanceStartableEndDay(b, fbsutils.Convert(t.NewbieAttendanceStartableEndDay, t.FlatBuffer.TableKey))
 	ConstNewbieContentExcelAddNewbieAttendanceEndDay(b, fbsutils.Convert(t.NewbieAttendanceEndDay, t.FlatBuffer.TableKey))
 	return ConstNewbieContentExcelEnd(b)

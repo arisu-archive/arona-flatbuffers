@@ -26,11 +26,11 @@ func (t *WorldRaidStageRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	}
 	WorldRaidStageRewardExcelStart(b)
 	WorldRaidStageRewardExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	WorldRaidStageRewardExcelAddIsClearStageRewardHideInfo(b, fbsutils.Convert(t.IsClearStageRewardHideInfo, t.FlatBuffer.TableKey))
+	WorldRaidStageRewardExcelAddIsClearStageRewardHideInfo(b, t.IsClearStageRewardHideInfo)
 	WorldRaidStageRewardExcelAddClearStageRewardProb(b, fbsutils.Convert(t.ClearStageRewardProb, t.FlatBuffer.TableKey))
 	WorldRaidStageRewardExcelAddClearStageRewardParcelType(b, fbsutils.Convert(t.ClearStageRewardParcelType, t.FlatBuffer.TableKey))
 	WorldRaidStageRewardExcelAddClearStageRewardParcelUniqueId(b, fbsutils.Convert(t.ClearStageRewardParcelUniqueId, t.FlatBuffer.TableKey))
-	WorldRaidStageRewardExcelAddClearStageRewardParcelUniqueName(b, fbsutils.Convert(b.CreateString(t.ClearStageRewardParcelUniqueName), t.FlatBuffer.TableKey))
+	WorldRaidStageRewardExcelAddClearStageRewardParcelUniqueName(b, b.CreateString(fbsutils.Convert(t.ClearStageRewardParcelUniqueName, t.FlatBuffer.TableKey)))
 	WorldRaidStageRewardExcelAddClearStageRewardAmount(b, fbsutils.Convert(t.ClearStageRewardAmount, t.FlatBuffer.TableKey))
 	return WorldRaidStageRewardExcelEnd(b)
 }
@@ -48,7 +48,7 @@ func (t *WorldRaidStageRewardExcelDto) UnmarshalMessage(e *WorldRaidStageRewardE
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WorldRaidStageReward"))
 	}
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.IsClearStageRewardHideInfo = fbsutils.Convert(e.IsClearStageRewardHideInfo(), t.FlatBuffer.TableKey)
+	t.IsClearStageRewardHideInfo = e.IsClearStageRewardHideInfo()
 	t.ClearStageRewardProb = fbsutils.Convert(e.ClearStageRewardProb(), t.FlatBuffer.TableKey)
 	t.ClearStageRewardParcelType = ParcelType(fbsutils.Convert(int32(e.ClearStageRewardParcelType()), t.FlatBuffer.TableKey))
 	t.ClearStageRewardParcelUniqueId = fbsutils.Convert(e.ClearStageRewardParcelUniqueId(), t.FlatBuffer.TableKey)

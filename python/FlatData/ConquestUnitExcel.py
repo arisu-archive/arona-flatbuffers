@@ -288,218 +288,111 @@ class ConquestUnitExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ConquestUnitExcelStart(builder):
-    builder.StartObject(32)
-
+def ConquestUnitExcelStart(builder): builder.StartObject(32)
 def Start(builder):
-    ConquestUnitExcelStart(builder)
-
-def ConquestUnitExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return ConquestUnitExcelStart(builder)
+def ConquestUnitExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    ConquestUnitExcelAddId(builder, id)
-
-def ConquestUnitExcelAddKey(builder, key):
-    builder.PrependUint32Slot(1, key, 0)
-
+    return ConquestUnitExcelAddId(builder, id)
+def ConquestUnitExcelAddKey(builder, key): builder.PrependUint32Slot(1, key, 0)
 def AddKey(builder, key):
-    ConquestUnitExcelAddKey(builder, key)
-
-def ConquestUnitExcelAddName(builder, name):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
-
+    return ConquestUnitExcelAddKey(builder, key)
+def ConquestUnitExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
 def AddName(builder, name):
-    ConquestUnitExcelAddName(builder, name)
-
-def ConquestUnitExcelAddPrefabName(builder, prefabName):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
-
+    return ConquestUnitExcelAddName(builder, name)
+def ConquestUnitExcelAddPrefabName(builder, prefabName): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(prefabName), 0)
 def AddPrefabName(builder, prefabName):
-    ConquestUnitExcelAddPrefabName(builder, prefabName)
-
-def ConquestUnitExcelAddStrategyPrefabName(builder, strategyPrefabName):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(strategyPrefabName), 0)
-
+    return ConquestUnitExcelAddPrefabName(builder, prefabName)
+def ConquestUnitExcelAddStrategyPrefabName(builder, strategyPrefabName): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(strategyPrefabName), 0)
 def AddStrategyPrefabName(builder, strategyPrefabName):
-    ConquestUnitExcelAddStrategyPrefabName(builder, strategyPrefabName)
-
-def ConquestUnitExcelAddScale(builder, scale):
-    builder.PrependFloat32Slot(5, scale, 0.0)
-
+    return ConquestUnitExcelAddStrategyPrefabName(builder, strategyPrefabName)
+def ConquestUnitExcelAddScale(builder, scale): builder.PrependFloat32Slot(5, scale, 0.0)
 def AddScale(builder, scale):
-    ConquestUnitExcelAddScale(builder, scale)
-
-def ConquestUnitExcelAddShieldEffectScale(builder, shieldEffectScale):
-    builder.PrependFloat32Slot(6, shieldEffectScale, 0.0)
-
+    return ConquestUnitExcelAddScale(builder, scale)
+def ConquestUnitExcelAddShieldEffectScale(builder, shieldEffectScale): builder.PrependFloat32Slot(6, shieldEffectScale, 0.0)
 def AddShieldEffectScale(builder, shieldEffectScale):
-    ConquestUnitExcelAddShieldEffectScale(builder, shieldEffectScale)
-
-def ConquestUnitExcelAddUnitFxPrefabName(builder, unitFxPrefabName):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(unitFxPrefabName), 0)
-
+    return ConquestUnitExcelAddShieldEffectScale(builder, shieldEffectScale)
+def ConquestUnitExcelAddUnitFxPrefabName(builder, unitFxPrefabName): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(unitFxPrefabName), 0)
 def AddUnitFxPrefabName(builder, unitFxPrefabName):
-    ConquestUnitExcelAddUnitFxPrefabName(builder, unitFxPrefabName)
-
-def ConquestUnitExcelAddPointAnimation(builder, pointAnimation):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(pointAnimation), 0)
-
+    return ConquestUnitExcelAddUnitFxPrefabName(builder, unitFxPrefabName)
+def ConquestUnitExcelAddPointAnimation(builder, pointAnimation): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(pointAnimation), 0)
 def AddPointAnimation(builder, pointAnimation):
-    ConquestUnitExcelAddPointAnimation(builder, pointAnimation)
-
-def ConquestUnitExcelAddEnemyType(builder, enemyType):
-    builder.PrependInt32Slot(9, enemyType, 0)
-
+    return ConquestUnitExcelAddPointAnimation(builder, pointAnimation)
+def ConquestUnitExcelAddEnemyType(builder, enemyType): builder.PrependInt32Slot(9, enemyType, 0)
 def AddEnemyType(builder, enemyType):
-    ConquestUnitExcelAddEnemyType(builder, enemyType)
-
-def ConquestUnitExcelAddTeam(builder, team):
-    builder.PrependInt32Slot(10, team, 0)
-
+    return ConquestUnitExcelAddEnemyType(builder, enemyType)
+def ConquestUnitExcelAddTeam(builder, team): builder.PrependInt32Slot(10, team, 0)
 def AddTeam(builder, team):
-    ConquestUnitExcelAddTeam(builder, team)
-
-def ConquestUnitExcelAddUnitGroup(builder, unitGroup):
-    builder.PrependInt64Slot(11, unitGroup, 0)
-
+    return ConquestUnitExcelAddTeam(builder, team)
+def ConquestUnitExcelAddUnitGroup(builder, unitGroup): builder.PrependInt64Slot(11, unitGroup, 0)
 def AddUnitGroup(builder, unitGroup):
-    ConquestUnitExcelAddUnitGroup(builder, unitGroup)
-
-def ConquestUnitExcelAddPrevUnitGroup(builder, prevUnitGroup):
-    builder.PrependInt64Slot(12, prevUnitGroup, 0)
-
+    return ConquestUnitExcelAddUnitGroup(builder, unitGroup)
+def ConquestUnitExcelAddPrevUnitGroup(builder, prevUnitGroup): builder.PrependInt64Slot(12, prevUnitGroup, 0)
 def AddPrevUnitGroup(builder, prevUnitGroup):
-    ConquestUnitExcelAddPrevUnitGroup(builder, prevUnitGroup)
-
-def ConquestUnitExcelAddBattleDuration(builder, battleDuration):
-    builder.PrependInt64Slot(13, battleDuration, 0)
-
+    return ConquestUnitExcelAddPrevUnitGroup(builder, prevUnitGroup)
+def ConquestUnitExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(13, battleDuration, 0)
 def AddBattleDuration(builder, battleDuration):
-    ConquestUnitExcelAddBattleDuration(builder, battleDuration)
-
-def ConquestUnitExcelAddGroundId(builder, groundId):
-    builder.PrependInt64Slot(14, groundId, 0)
-
+    return ConquestUnitExcelAddBattleDuration(builder, battleDuration)
+def ConquestUnitExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(14, groundId, 0)
 def AddGroundId(builder, groundId):
-    ConquestUnitExcelAddGroundId(builder, groundId)
-
-def ConquestUnitExcelAddStarGoal(builder, starGoal):
-    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(starGoal), 0)
-
+    return ConquestUnitExcelAddGroundId(builder, groundId)
+def ConquestUnitExcelAddStarGoal(builder, starGoal): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(starGoal), 0)
 def AddStarGoal(builder, starGoal):
-    ConquestUnitExcelAddStarGoal(builder, starGoal)
-
-def ConquestUnitExcelStartStarGoalVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ConquestUnitExcelAddStarGoal(builder, starGoal)
+def ConquestUnitExcelStartStarGoalVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStarGoalVector(builder, numElems):
     return ConquestUnitExcelStartStarGoalVector(builder, numElems)
-
-def ConquestUnitExcelAddStarGoalAmount(builder, starGoalAmount):
-    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(starGoalAmount), 0)
-
+def ConquestUnitExcelAddStarGoalAmount(builder, starGoalAmount): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(starGoalAmount), 0)
 def AddStarGoalAmount(builder, starGoalAmount):
-    ConquestUnitExcelAddStarGoalAmount(builder, starGoalAmount)
-
-def ConquestUnitExcelStartStarGoalAmountVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ConquestUnitExcelAddStarGoalAmount(builder, starGoalAmount)
+def ConquestUnitExcelStartStarGoalAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStarGoalAmountVector(builder, numElems):
     return ConquestUnitExcelStartStarGoalAmountVector(builder, numElems)
-
-def ConquestUnitExcelAddGroupBuffId(builder, groupBuffId):
-    builder.PrependInt64Slot(17, groupBuffId, 0)
-
+def ConquestUnitExcelAddGroupBuffId(builder, groupBuffId): builder.PrependInt64Slot(17, groupBuffId, 0)
 def AddGroupBuffId(builder, groupBuffId):
-    ConquestUnitExcelAddGroupBuffId(builder, groupBuffId)
-
-def ConquestUnitExcelAddStageEnterCostType(builder, stageEnterCostType):
-    builder.PrependInt32Slot(18, stageEnterCostType, 0)
-
+    return ConquestUnitExcelAddGroupBuffId(builder, groupBuffId)
+def ConquestUnitExcelAddStageEnterCostType(builder, stageEnterCostType): builder.PrependInt32Slot(18, stageEnterCostType, 0)
 def AddStageEnterCostType(builder, stageEnterCostType):
-    ConquestUnitExcelAddStageEnterCostType(builder, stageEnterCostType)
-
-def ConquestUnitExcelAddStageEnterCostId(builder, stageEnterCostId):
-    builder.PrependInt64Slot(19, stageEnterCostId, 0)
-
+    return ConquestUnitExcelAddStageEnterCostType(builder, stageEnterCostType)
+def ConquestUnitExcelAddStageEnterCostId(builder, stageEnterCostId): builder.PrependInt64Slot(19, stageEnterCostId, 0)
 def AddStageEnterCostId(builder, stageEnterCostId):
-    ConquestUnitExcelAddStageEnterCostId(builder, stageEnterCostId)
-
-def ConquestUnitExcelAddStageEnterCostAmount(builder, stageEnterCostAmount):
-    builder.PrependInt32Slot(20, stageEnterCostAmount, 0)
-
+    return ConquestUnitExcelAddStageEnterCostId(builder, stageEnterCostId)
+def ConquestUnitExcelAddStageEnterCostAmount(builder, stageEnterCostAmount): builder.PrependInt32Slot(20, stageEnterCostAmount, 0)
 def AddStageEnterCostAmount(builder, stageEnterCostAmount):
-    ConquestUnitExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
-
-def ConquestUnitExcelAddManageEchelonStageEnterCostType(builder, manageEchelonStageEnterCostType):
-    builder.PrependInt32Slot(21, manageEchelonStageEnterCostType, 0)
-
+    return ConquestUnitExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
+def ConquestUnitExcelAddManageEchelonStageEnterCostType(builder, manageEchelonStageEnterCostType): builder.PrependInt32Slot(21, manageEchelonStageEnterCostType, 0)
 def AddManageEchelonStageEnterCostType(builder, manageEchelonStageEnterCostType):
-    ConquestUnitExcelAddManageEchelonStageEnterCostType(builder, manageEchelonStageEnterCostType)
-
-def ConquestUnitExcelAddManageEchelonStageEnterCostId(builder, manageEchelonStageEnterCostId):
-    builder.PrependInt64Slot(22, manageEchelonStageEnterCostId, 0)
-
+    return ConquestUnitExcelAddManageEchelonStageEnterCostType(builder, manageEchelonStageEnterCostType)
+def ConquestUnitExcelAddManageEchelonStageEnterCostId(builder, manageEchelonStageEnterCostId): builder.PrependInt64Slot(22, manageEchelonStageEnterCostId, 0)
 def AddManageEchelonStageEnterCostId(builder, manageEchelonStageEnterCostId):
-    ConquestUnitExcelAddManageEchelonStageEnterCostId(builder, manageEchelonStageEnterCostId)
-
-def ConquestUnitExcelAddManageEchelonStageEnterCostAmount(builder, manageEchelonStageEnterCostAmount):
-    builder.PrependInt32Slot(23, manageEchelonStageEnterCostAmount, 0)
-
+    return ConquestUnitExcelAddManageEchelonStageEnterCostId(builder, manageEchelonStageEnterCostId)
+def ConquestUnitExcelAddManageEchelonStageEnterCostAmount(builder, manageEchelonStageEnterCostAmount): builder.PrependInt32Slot(23, manageEchelonStageEnterCostAmount, 0)
 def AddManageEchelonStageEnterCostAmount(builder, manageEchelonStageEnterCostAmount):
-    ConquestUnitExcelAddManageEchelonStageEnterCostAmount(builder, manageEchelonStageEnterCostAmount)
-
-def ConquestUnitExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId):
-    builder.PrependInt64Slot(24, enterScenarioGroupId, 0)
-
+    return ConquestUnitExcelAddManageEchelonStageEnterCostAmount(builder, manageEchelonStageEnterCostAmount)
+def ConquestUnitExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId): builder.PrependInt64Slot(24, enterScenarioGroupId, 0)
 def AddEnterScenarioGroupId(builder, enterScenarioGroupId):
-    ConquestUnitExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId)
-
-def ConquestUnitExcelAddClearScenarioGroupId(builder, clearScenarioGroupId):
-    builder.PrependInt64Slot(25, clearScenarioGroupId, 0)
-
+    return ConquestUnitExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId)
+def ConquestUnitExcelAddClearScenarioGroupId(builder, clearScenarioGroupId): builder.PrependInt64Slot(25, clearScenarioGroupId, 0)
 def AddClearScenarioGroupId(builder, clearScenarioGroupId):
-    ConquestUnitExcelAddClearScenarioGroupId(builder, clearScenarioGroupId)
-
-def ConquestUnitExcelAddConquestRewardId(builder, conquestRewardId):
-    builder.PrependInt64Slot(26, conquestRewardId, 0)
-
+    return ConquestUnitExcelAddClearScenarioGroupId(builder, clearScenarioGroupId)
+def ConquestUnitExcelAddConquestRewardId(builder, conquestRewardId): builder.PrependInt64Slot(26, conquestRewardId, 0)
 def AddConquestRewardId(builder, conquestRewardId):
-    ConquestUnitExcelAddConquestRewardId(builder, conquestRewardId)
-
-def ConquestUnitExcelAddStageTopography(builder, stageTopography):
-    builder.PrependInt32Slot(27, stageTopography, 0)
-
+    return ConquestUnitExcelAddConquestRewardId(builder, conquestRewardId)
+def ConquestUnitExcelAddStageTopography(builder, stageTopography): builder.PrependInt32Slot(27, stageTopography, 0)
 def AddStageTopography(builder, stageTopography):
-    ConquestUnitExcelAddStageTopography(builder, stageTopography)
-
-def ConquestUnitExcelAddRecommandLevel(builder, recommandLevel):
-    builder.PrependInt32Slot(28, recommandLevel, 0)
-
+    return ConquestUnitExcelAddStageTopography(builder, stageTopography)
+def ConquestUnitExcelAddRecommandLevel(builder, recommandLevel): builder.PrependInt32Slot(28, recommandLevel, 0)
 def AddRecommandLevel(builder, recommandLevel):
-    ConquestUnitExcelAddRecommandLevel(builder, recommandLevel)
-
-def ConquestUnitExcelAddTacticRewardExp(builder, tacticRewardExp):
-    builder.PrependInt64Slot(29, tacticRewardExp, 0)
-
+    return ConquestUnitExcelAddRecommandLevel(builder, recommandLevel)
+def ConquestUnitExcelAddTacticRewardExp(builder, tacticRewardExp): builder.PrependInt64Slot(29, tacticRewardExp, 0)
 def AddTacticRewardExp(builder, tacticRewardExp):
-    ConquestUnitExcelAddTacticRewardExp(builder, tacticRewardExp)
-
-def ConquestUnitExcelAddFixedEchelonId(builder, fixedEchelonId):
-    builder.PrependInt64Slot(30, fixedEchelonId, 0)
-
+    return ConquestUnitExcelAddTacticRewardExp(builder, tacticRewardExp)
+def ConquestUnitExcelAddFixedEchelonId(builder, fixedEchelonId): builder.PrependInt64Slot(30, fixedEchelonId, 0)
 def AddFixedEchelonId(builder, fixedEchelonId):
-    ConquestUnitExcelAddFixedEchelonId(builder, fixedEchelonId)
-
-def ConquestUnitExcelAddEchelonExtensionType(builder, echelonExtensionType):
-    builder.PrependInt32Slot(31, echelonExtensionType, 0)
-
+    return ConquestUnitExcelAddFixedEchelonId(builder, fixedEchelonId)
+def ConquestUnitExcelAddEchelonExtensionType(builder, echelonExtensionType): builder.PrependInt32Slot(31, echelonExtensionType, 0)
 def AddEchelonExtensionType(builder, echelonExtensionType):
-    ConquestUnitExcelAddEchelonExtensionType(builder, echelonExtensionType)
-
-def ConquestUnitExcelEnd(builder):
-    return builder.EndObject()
-
+    return ConquestUnitExcelAddEchelonExtensionType(builder, echelonExtensionType)
+def ConquestUnitExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ConquestUnitExcelEnd(builder)

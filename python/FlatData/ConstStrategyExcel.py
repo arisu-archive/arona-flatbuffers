@@ -219,170 +219,87 @@ class ConstStrategyExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ConstStrategyExcelStart(builder):
-    builder.StartObject(25)
-
+def ConstStrategyExcelStart(builder): builder.StartObject(25)
 def Start(builder):
-    ConstStrategyExcelStart(builder)
-
-def ConstStrategyExcelAddHexaMapBoundaryOffset(builder, hexaMapBoundaryOffset):
-    builder.PrependFloat32Slot(0, hexaMapBoundaryOffset, 0.0)
-
+    return ConstStrategyExcelStart(builder)
+def ConstStrategyExcelAddHexaMapBoundaryOffset(builder, hexaMapBoundaryOffset): builder.PrependFloat32Slot(0, hexaMapBoundaryOffset, 0.0)
 def AddHexaMapBoundaryOffset(builder, hexaMapBoundaryOffset):
-    ConstStrategyExcelAddHexaMapBoundaryOffset(builder, hexaMapBoundaryOffset)
-
-def ConstStrategyExcelAddHexaMapStartCameraOffset(builder, hexaMapStartCameraOffset):
-    builder.PrependFloat32Slot(1, hexaMapStartCameraOffset, 0.0)
-
+    return ConstStrategyExcelAddHexaMapBoundaryOffset(builder, hexaMapBoundaryOffset)
+def ConstStrategyExcelAddHexaMapStartCameraOffset(builder, hexaMapStartCameraOffset): builder.PrependFloat32Slot(1, hexaMapStartCameraOffset, 0.0)
 def AddHexaMapStartCameraOffset(builder, hexaMapStartCameraOffset):
-    ConstStrategyExcelAddHexaMapStartCameraOffset(builder, hexaMapStartCameraOffset)
-
-def ConstStrategyExcelAddCameraZoomMax(builder, cameraZoomMax):
-    builder.PrependFloat32Slot(2, cameraZoomMax, 0.0)
-
+    return ConstStrategyExcelAddHexaMapStartCameraOffset(builder, hexaMapStartCameraOffset)
+def ConstStrategyExcelAddCameraZoomMax(builder, cameraZoomMax): builder.PrependFloat32Slot(2, cameraZoomMax, 0.0)
 def AddCameraZoomMax(builder, cameraZoomMax):
-    ConstStrategyExcelAddCameraZoomMax(builder, cameraZoomMax)
-
-def ConstStrategyExcelAddCameraZoomMin(builder, cameraZoomMin):
-    builder.PrependFloat32Slot(3, cameraZoomMin, 0.0)
-
+    return ConstStrategyExcelAddCameraZoomMax(builder, cameraZoomMax)
+def ConstStrategyExcelAddCameraZoomMin(builder, cameraZoomMin): builder.PrependFloat32Slot(3, cameraZoomMin, 0.0)
 def AddCameraZoomMin(builder, cameraZoomMin):
-    ConstStrategyExcelAddCameraZoomMin(builder, cameraZoomMin)
-
-def ConstStrategyExcelAddCameraZoomDefault(builder, cameraZoomDefault):
-    builder.PrependFloat32Slot(4, cameraZoomDefault, 0.0)
-
+    return ConstStrategyExcelAddCameraZoomMin(builder, cameraZoomMin)
+def ConstStrategyExcelAddCameraZoomDefault(builder, cameraZoomDefault): builder.PrependFloat32Slot(4, cameraZoomDefault, 0.0)
 def AddCameraZoomDefault(builder, cameraZoomDefault):
-    ConstStrategyExcelAddCameraZoomDefault(builder, cameraZoomDefault)
-
-def ConstStrategyExcelAddHealCostType(builder, healCostType):
-    builder.PrependInt32Slot(5, healCostType, 0)
-
+    return ConstStrategyExcelAddCameraZoomDefault(builder, cameraZoomDefault)
+def ConstStrategyExcelAddHealCostType(builder, healCostType): builder.PrependInt32Slot(5, healCostType, 0)
 def AddHealCostType(builder, healCostType):
-    ConstStrategyExcelAddHealCostType(builder, healCostType)
-
-def ConstStrategyExcelAddHealCostAmount(builder, healCostAmount):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(healCostAmount), 0)
-
+    return ConstStrategyExcelAddHealCostType(builder, healCostType)
+def ConstStrategyExcelAddHealCostAmount(builder, healCostAmount): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(healCostAmount), 0)
 def AddHealCostAmount(builder, healCostAmount):
-    ConstStrategyExcelAddHealCostAmount(builder, healCostAmount)
-
-def ConstStrategyExcelStartHealCostAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return ConstStrategyExcelAddHealCostAmount(builder, healCostAmount)
+def ConstStrategyExcelStartHealCostAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartHealCostAmountVector(builder, numElems):
     return ConstStrategyExcelStartHealCostAmountVector(builder, numElems)
-
-def ConstStrategyExcelAddCanHealHpRate(builder, canHealHpRate):
-    builder.PrependInt32Slot(7, canHealHpRate, 0)
-
+def ConstStrategyExcelAddCanHealHpRate(builder, canHealHpRate): builder.PrependInt32Slot(7, canHealHpRate, 0)
 def AddCanHealHpRate(builder, canHealHpRate):
-    ConstStrategyExcelAddCanHealHpRate(builder, canHealHpRate)
-
-def ConstStrategyExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds):
-    builder.PrependInt64Slot(8, playTimeLimitInSeconds, 0)
-
+    return ConstStrategyExcelAddCanHealHpRate(builder, canHealHpRate)
+def ConstStrategyExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds): builder.PrependInt64Slot(8, playTimeLimitInSeconds, 0)
 def AddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds):
-    ConstStrategyExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds)
-
-def ConstStrategyExcelAddAdventureEchelonCount(builder, adventureEchelonCount):
-    builder.PrependInt32Slot(9, adventureEchelonCount, 0)
-
+    return ConstStrategyExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds)
+def ConstStrategyExcelAddAdventureEchelonCount(builder, adventureEchelonCount): builder.PrependInt32Slot(9, adventureEchelonCount, 0)
 def AddAdventureEchelonCount(builder, adventureEchelonCount):
-    ConstStrategyExcelAddAdventureEchelonCount(builder, adventureEchelonCount)
-
-def ConstStrategyExcelAddRaidEchelonCount(builder, raidEchelonCount):
-    builder.PrependInt32Slot(10, raidEchelonCount, 0)
-
+    return ConstStrategyExcelAddAdventureEchelonCount(builder, adventureEchelonCount)
+def ConstStrategyExcelAddRaidEchelonCount(builder, raidEchelonCount): builder.PrependInt32Slot(10, raidEchelonCount, 0)
 def AddRaidEchelonCount(builder, raidEchelonCount):
-    ConstStrategyExcelAddRaidEchelonCount(builder, raidEchelonCount)
-
-def ConstStrategyExcelAddDefaultEchelonCount(builder, defaultEchelonCount):
-    builder.PrependInt32Slot(11, defaultEchelonCount, 0)
-
+    return ConstStrategyExcelAddRaidEchelonCount(builder, raidEchelonCount)
+def ConstStrategyExcelAddDefaultEchelonCount(builder, defaultEchelonCount): builder.PrependInt32Slot(11, defaultEchelonCount, 0)
 def AddDefaultEchelonCount(builder, defaultEchelonCount):
-    ConstStrategyExcelAddDefaultEchelonCount(builder, defaultEchelonCount)
-
-def ConstStrategyExcelAddEventContentEchelonCount(builder, eventContentEchelonCount):
-    builder.PrependInt32Slot(12, eventContentEchelonCount, 0)
-
+    return ConstStrategyExcelAddDefaultEchelonCount(builder, defaultEchelonCount)
+def ConstStrategyExcelAddEventContentEchelonCount(builder, eventContentEchelonCount): builder.PrependInt32Slot(12, eventContentEchelonCount, 0)
 def AddEventContentEchelonCount(builder, eventContentEchelonCount):
-    ConstStrategyExcelAddEventContentEchelonCount(builder, eventContentEchelonCount)
-
-def ConstStrategyExcelAddTimeAttackDungeonEchelonCount(builder, timeAttackDungeonEchelonCount):
-    builder.PrependInt32Slot(13, timeAttackDungeonEchelonCount, 0)
-
+    return ConstStrategyExcelAddEventContentEchelonCount(builder, eventContentEchelonCount)
+def ConstStrategyExcelAddTimeAttackDungeonEchelonCount(builder, timeAttackDungeonEchelonCount): builder.PrependInt32Slot(13, timeAttackDungeonEchelonCount, 0)
 def AddTimeAttackDungeonEchelonCount(builder, timeAttackDungeonEchelonCount):
-    ConstStrategyExcelAddTimeAttackDungeonEchelonCount(builder, timeAttackDungeonEchelonCount)
-
-def ConstStrategyExcelAddWorldRaidEchelonCount(builder, worldRaidEchelonCount):
-    builder.PrependInt32Slot(14, worldRaidEchelonCount, 0)
-
+    return ConstStrategyExcelAddTimeAttackDungeonEchelonCount(builder, timeAttackDungeonEchelonCount)
+def ConstStrategyExcelAddWorldRaidEchelonCount(builder, worldRaidEchelonCount): builder.PrependInt32Slot(14, worldRaidEchelonCount, 0)
 def AddWorldRaidEchelonCount(builder, worldRaidEchelonCount):
-    ConstStrategyExcelAddWorldRaidEchelonCount(builder, worldRaidEchelonCount)
-
-def ConstStrategyExcelAddTacticSkipClearTimeSeconds(builder, tacticSkipClearTimeSeconds):
-    builder.PrependInt32Slot(15, tacticSkipClearTimeSeconds, 0)
-
+    return ConstStrategyExcelAddWorldRaidEchelonCount(builder, worldRaidEchelonCount)
+def ConstStrategyExcelAddTacticSkipClearTimeSeconds(builder, tacticSkipClearTimeSeconds): builder.PrependInt32Slot(15, tacticSkipClearTimeSeconds, 0)
 def AddTacticSkipClearTimeSeconds(builder, tacticSkipClearTimeSeconds):
-    ConstStrategyExcelAddTacticSkipClearTimeSeconds(builder, tacticSkipClearTimeSeconds)
-
-def ConstStrategyExcelAddTacticSkipFramePerSecond(builder, tacticSkipFramePerSecond):
-    builder.PrependInt32Slot(16, tacticSkipFramePerSecond, 0)
-
+    return ConstStrategyExcelAddTacticSkipClearTimeSeconds(builder, tacticSkipClearTimeSeconds)
+def ConstStrategyExcelAddTacticSkipFramePerSecond(builder, tacticSkipFramePerSecond): builder.PrependInt32Slot(16, tacticSkipFramePerSecond, 0)
 def AddTacticSkipFramePerSecond(builder, tacticSkipFramePerSecond):
-    ConstStrategyExcelAddTacticSkipFramePerSecond(builder, tacticSkipFramePerSecond)
-
-def ConstStrategyExcelAddConquestEchelonCount(builder, conquestEchelonCount):
-    builder.PrependInt32Slot(17, conquestEchelonCount, 0)
-
+    return ConstStrategyExcelAddTacticSkipFramePerSecond(builder, tacticSkipFramePerSecond)
+def ConstStrategyExcelAddConquestEchelonCount(builder, conquestEchelonCount): builder.PrependInt32Slot(17, conquestEchelonCount, 0)
 def AddConquestEchelonCount(builder, conquestEchelonCount):
-    ConstStrategyExcelAddConquestEchelonCount(builder, conquestEchelonCount)
-
-def ConstStrategyExcelAddStoryEchelonCount(builder, storyEchelonCount):
-    builder.PrependInt32Slot(18, storyEchelonCount, 0)
-
+    return ConstStrategyExcelAddConquestEchelonCount(builder, conquestEchelonCount)
+def ConstStrategyExcelAddStoryEchelonCount(builder, storyEchelonCount): builder.PrependInt32Slot(18, storyEchelonCount, 0)
 def AddStoryEchelonCount(builder, storyEchelonCount):
-    ConstStrategyExcelAddStoryEchelonCount(builder, storyEchelonCount)
-
-def ConstStrategyExcelAddMultiSweepPresetCount(builder, multiSweepPresetCount):
-    builder.PrependInt32Slot(19, multiSweepPresetCount, 0)
-
+    return ConstStrategyExcelAddStoryEchelonCount(builder, storyEchelonCount)
+def ConstStrategyExcelAddMultiSweepPresetCount(builder, multiSweepPresetCount): builder.PrependInt32Slot(19, multiSweepPresetCount, 0)
 def AddMultiSweepPresetCount(builder, multiSweepPresetCount):
-    ConstStrategyExcelAddMultiSweepPresetCount(builder, multiSweepPresetCount)
-
-def ConstStrategyExcelAddMultiSweepPresetNameMaxLength(builder, multiSweepPresetNameMaxLength):
-    builder.PrependInt32Slot(20, multiSweepPresetNameMaxLength, 0)
-
+    return ConstStrategyExcelAddMultiSweepPresetCount(builder, multiSweepPresetCount)
+def ConstStrategyExcelAddMultiSweepPresetNameMaxLength(builder, multiSweepPresetNameMaxLength): builder.PrependInt32Slot(20, multiSweepPresetNameMaxLength, 0)
 def AddMultiSweepPresetNameMaxLength(builder, multiSweepPresetNameMaxLength):
-    ConstStrategyExcelAddMultiSweepPresetNameMaxLength(builder, multiSweepPresetNameMaxLength)
-
-def ConstStrategyExcelAddMultiSweepPresetNameMaxLengthKr(builder, multiSweepPresetNameMaxLengthKr):
-    builder.PrependInt32Slot(21, multiSweepPresetNameMaxLengthKr, 0)
-
+    return ConstStrategyExcelAddMultiSweepPresetNameMaxLength(builder, multiSweepPresetNameMaxLength)
+def ConstStrategyExcelAddMultiSweepPresetNameMaxLengthKr(builder, multiSweepPresetNameMaxLengthKr): builder.PrependInt32Slot(21, multiSweepPresetNameMaxLengthKr, 0)
 def AddMultiSweepPresetNameMaxLengthKr(builder, multiSweepPresetNameMaxLengthKr):
-    ConstStrategyExcelAddMultiSweepPresetNameMaxLengthKr(builder, multiSweepPresetNameMaxLengthKr)
-
-def ConstStrategyExcelAddMultiSweepPresetSelectStageMaxCount(builder, multiSweepPresetSelectStageMaxCount):
-    builder.PrependInt32Slot(22, multiSweepPresetSelectStageMaxCount, 0)
-
+    return ConstStrategyExcelAddMultiSweepPresetNameMaxLengthKr(builder, multiSweepPresetNameMaxLengthKr)
+def ConstStrategyExcelAddMultiSweepPresetSelectStageMaxCount(builder, multiSweepPresetSelectStageMaxCount): builder.PrependInt32Slot(22, multiSweepPresetSelectStageMaxCount, 0)
 def AddMultiSweepPresetSelectStageMaxCount(builder, multiSweepPresetSelectStageMaxCount):
-    ConstStrategyExcelAddMultiSweepPresetSelectStageMaxCount(builder, multiSweepPresetSelectStageMaxCount)
-
-def ConstStrategyExcelAddMultiSweepPresetMaxSweepCount(builder, multiSweepPresetMaxSweepCount):
-    builder.PrependInt32Slot(23, multiSweepPresetMaxSweepCount, 0)
-
+    return ConstStrategyExcelAddMultiSweepPresetSelectStageMaxCount(builder, multiSweepPresetSelectStageMaxCount)
+def ConstStrategyExcelAddMultiSweepPresetMaxSweepCount(builder, multiSweepPresetMaxSweepCount): builder.PrependInt32Slot(23, multiSweepPresetMaxSweepCount, 0)
 def AddMultiSweepPresetMaxSweepCount(builder, multiSweepPresetMaxSweepCount):
-    ConstStrategyExcelAddMultiSweepPresetMaxSweepCount(builder, multiSweepPresetMaxSweepCount)
-
-def ConstStrategyExcelAddMultiSweepPresetSelectParcelMaxCount(builder, multiSweepPresetSelectParcelMaxCount):
-    builder.PrependInt32Slot(24, multiSweepPresetSelectParcelMaxCount, 0)
-
+    return ConstStrategyExcelAddMultiSweepPresetMaxSweepCount(builder, multiSweepPresetMaxSweepCount)
+def ConstStrategyExcelAddMultiSweepPresetSelectParcelMaxCount(builder, multiSweepPresetSelectParcelMaxCount): builder.PrependInt32Slot(24, multiSweepPresetSelectParcelMaxCount, 0)
 def AddMultiSweepPresetSelectParcelMaxCount(builder, multiSweepPresetSelectParcelMaxCount):
-    ConstStrategyExcelAddMultiSweepPresetSelectParcelMaxCount(builder, multiSweepPresetSelectParcelMaxCount)
-
-def ConstStrategyExcelEnd(builder):
-    return builder.EndObject()
-
+    return ConstStrategyExcelAddMultiSweepPresetSelectParcelMaxCount(builder, multiSweepPresetSelectParcelMaxCount)
+def ConstStrategyExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ConstStrategyExcelEnd(builder)

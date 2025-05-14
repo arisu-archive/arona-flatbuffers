@@ -24,6 +24,7 @@ type GoodsExcelDto struct {
 	ProductIdiOs                 int64              `json:"product_idi_os"`
 	ProductIdOne                 int64              `json:"product_id_one"`
 	ProductIdSgs                 int64              `json:"product_id_sgs"`
+	ProductIdSteam               int64              `json:"product_id_steam"`
 	ConsumeExtraStep             []int64            `json:"consume_extra_step"`
 	ConsumeExtraAmount           []int64            `json:"consume_extra_amount"`
 	State                        int32              `json:"state"`
@@ -41,10 +42,10 @@ func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	GoodsExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	GoodsExcelAddType(b, fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
 	GoodsExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
-	GoodsExcelAddIconPath(b, fbsutils.Convert(b.CreateString(t.IconPath), t.FlatBuffer.TableKey))
+	GoodsExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
 	GoodsExcelStartConsumeParcelTypeVector(b, len(t.ConsumeParcelType))
 	for i := range len(t.ConsumeParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ConsumeParcelType[len(t.ConsumeParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ConsumeParcelType[len(t.ConsumeParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	GoodsExcelAddConsumeParcelType(b, b.EndVector(len(t.ConsumeParcelType)))
 	GoodsExcelStartConsumeParcelIdVector(b, len(t.ConsumeParcelId))
@@ -59,7 +60,7 @@ func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	GoodsExcelAddConsumeParcelAmount(b, b.EndVector(len(t.ConsumeParcelAmount)))
 	GoodsExcelStartConsumeConditionVector(b, len(t.ConsumeCondition))
 	for i := range len(t.ConsumeCondition) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ConsumeCondition[len(t.ConsumeCondition)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ConsumeCondition[len(t.ConsumeCondition)-i-1]), t.FlatBuffer.TableKey))
 	}
 	GoodsExcelAddConsumeCondition(b, b.EndVector(len(t.ConsumeCondition)))
 	GoodsExcelAddConsumeGachaTicketType(b, fbsutils.Convert(t.ConsumeGachaTicketType, t.FlatBuffer.TableKey))
@@ -68,6 +69,7 @@ func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	GoodsExcelAddProductIdiOs(b, fbsutils.Convert(t.ProductIdiOs, t.FlatBuffer.TableKey))
 	GoodsExcelAddProductIdOne(b, fbsutils.Convert(t.ProductIdOne, t.FlatBuffer.TableKey))
 	GoodsExcelAddProductIdSgs(b, fbsutils.Convert(t.ProductIdSgs, t.FlatBuffer.TableKey))
+	GoodsExcelAddProductIdSteam(b, fbsutils.Convert(t.ProductIdSteam, t.FlatBuffer.TableKey))
 	GoodsExcelStartConsumeExtraStepVector(b, len(t.ConsumeExtraStep))
 	for i := range len(t.ConsumeExtraStep) {
 		b.PrependInt64(fbsutils.Convert(t.ConsumeExtraStep[len(t.ConsumeExtraStep)-i-1], t.FlatBuffer.TableKey))
@@ -81,7 +83,7 @@ func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	GoodsExcelAddState(b, fbsutils.Convert(t.State, t.FlatBuffer.TableKey))
 	GoodsExcelStartParcelTypeVector(b, len(t.ParcelType))
 	for i := range len(t.ParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ParcelType[len(t.ParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	GoodsExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
 	GoodsExcelStartParcelIdVector(b, len(t.ParcelId))
@@ -119,11 +121,11 @@ func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
 	}
 	t.ConsumeParcelId = make([]int64, e.ConsumeParcelIdLength())
 	for i := range e.ConsumeParcelIdLength() {
-		t.ConsumeParcelId[i] = e.ConsumeParcelId(i)
+		t.ConsumeParcelId[i] = fbsutils.Convert(e.ConsumeParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.ConsumeParcelAmount = make([]int64, e.ConsumeParcelAmountLength())
 	for i := range e.ConsumeParcelAmountLength() {
-		t.ConsumeParcelAmount[i] = e.ConsumeParcelAmount(i)
+		t.ConsumeParcelAmount[i] = fbsutils.Convert(e.ConsumeParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.ConsumeCondition = make([]ConsumeCondition, e.ConsumeConditionLength())
 	for i := range e.ConsumeConditionLength() {
@@ -135,13 +137,14 @@ func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
 	t.ProductIdiOs = fbsutils.Convert(e.ProductIdiOs(), t.FlatBuffer.TableKey)
 	t.ProductIdOne = fbsutils.Convert(e.ProductIdOne(), t.FlatBuffer.TableKey)
 	t.ProductIdSgs = fbsutils.Convert(e.ProductIdSgs(), t.FlatBuffer.TableKey)
+	t.ProductIdSteam = fbsutils.Convert(e.ProductIdSteam(), t.FlatBuffer.TableKey)
 	t.ConsumeExtraStep = make([]int64, e.ConsumeExtraStepLength())
 	for i := range e.ConsumeExtraStepLength() {
-		t.ConsumeExtraStep[i] = e.ConsumeExtraStep(i)
+		t.ConsumeExtraStep[i] = fbsutils.Convert(e.ConsumeExtraStep(i), t.FlatBuffer.TableKey)
 	}
 	t.ConsumeExtraAmount = make([]int64, e.ConsumeExtraAmountLength())
 	for i := range e.ConsumeExtraAmountLength() {
-		t.ConsumeExtraAmount[i] = e.ConsumeExtraAmount(i)
+		t.ConsumeExtraAmount[i] = fbsutils.Convert(e.ConsumeExtraAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.State = fbsutils.Convert(e.State(), t.FlatBuffer.TableKey)
 	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
@@ -150,11 +153,11 @@ func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
 	}
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {
-		t.ParcelId[i] = e.ParcelId(i)
+		t.ParcelId[i] = fbsutils.Convert(e.ParcelId(i), t.FlatBuffer.TableKey)
 	}
 	t.ParcelAmount = make([]int64, e.ParcelAmountLength())
 	for i := range e.ParcelAmountLength() {
-		t.ParcelAmount[i] = e.ParcelAmount(i)
+		t.ParcelAmount[i] = fbsutils.Convert(e.ParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

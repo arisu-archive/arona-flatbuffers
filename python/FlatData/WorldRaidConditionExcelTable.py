@@ -49,26 +49,15 @@ class WorldRaidConditionExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def WorldRaidConditionExcelTableStart(builder):
-    builder.StartObject(1)
-
+def WorldRaidConditionExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    WorldRaidConditionExcelTableStart(builder)
-
-def WorldRaidConditionExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return WorldRaidConditionExcelTableStart(builder)
+def WorldRaidConditionExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    WorldRaidConditionExcelTableAddDataList(builder, dataList)
-
-def WorldRaidConditionExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return WorldRaidConditionExcelTableAddDataList(builder, dataList)
+def WorldRaidConditionExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return WorldRaidConditionExcelTableStartDataListVector(builder, numElems)
-
-def WorldRaidConditionExcelTableEnd(builder):
-    return builder.EndObject()
-
+def WorldRaidConditionExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return WorldRaidConditionExcelTableEnd(builder)

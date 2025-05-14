@@ -373,230 +373,117 @@ class MissionExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         return o == 0
 
-def MissionExcelStart(builder):
-    builder.StartObject(28)
-
+def MissionExcelStart(builder): builder.StartObject(28)
 def Start(builder):
-    MissionExcelStart(builder)
-
-def MissionExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return MissionExcelStart(builder)
+def MissionExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    MissionExcelAddId(builder, id)
-
-def MissionExcelAddCategory(builder, category):
-    builder.PrependInt32Slot(1, category, 0)
-
+    return MissionExcelAddId(builder, id)
+def MissionExcelAddCategory(builder, category): builder.PrependInt32Slot(1, category, 0)
 def AddCategory(builder, category):
-    MissionExcelAddCategory(builder, category)
-
-def MissionExcelAddDescription(builder, description):
-    builder.PrependUint32Slot(2, description, 0)
-
+    return MissionExcelAddCategory(builder, category)
+def MissionExcelAddDescription(builder, description): builder.PrependUint32Slot(2, description, 0)
 def AddDescription(builder, description):
-    MissionExcelAddDescription(builder, description)
-
-def MissionExcelAddResetType(builder, resetType):
-    builder.PrependInt32Slot(3, resetType, 0)
-
+    return MissionExcelAddDescription(builder, description)
+def MissionExcelAddResetType(builder, resetType): builder.PrependInt32Slot(3, resetType, 0)
 def AddResetType(builder, resetType):
-    MissionExcelAddResetType(builder, resetType)
-
-def MissionExcelAddToastDisplayType(builder, toastDisplayType):
-    builder.PrependInt32Slot(4, toastDisplayType, 0)
-
+    return MissionExcelAddResetType(builder, resetType)
+def MissionExcelAddToastDisplayType(builder, toastDisplayType): builder.PrependInt32Slot(4, toastDisplayType, 0)
 def AddToastDisplayType(builder, toastDisplayType):
-    MissionExcelAddToastDisplayType(builder, toastDisplayType)
-
-def MissionExcelAddToastImagePath(builder, toastImagePath):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(toastImagePath), 0)
-
+    return MissionExcelAddToastDisplayType(builder, toastDisplayType)
+def MissionExcelAddToastImagePath(builder, toastImagePath): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(toastImagePath), 0)
 def AddToastImagePath(builder, toastImagePath):
-    MissionExcelAddToastImagePath(builder, toastImagePath)
-
-def MissionExcelAddViewFlag(builder, viewFlag):
-    builder.PrependBoolSlot(6, viewFlag, 0)
-
+    return MissionExcelAddToastImagePath(builder, toastImagePath)
+def MissionExcelAddViewFlag(builder, viewFlag): builder.PrependBoolSlot(6, viewFlag, 0)
 def AddViewFlag(builder, viewFlag):
-    MissionExcelAddViewFlag(builder, viewFlag)
-
-def MissionExcelAddLimit(builder, limit):
-    builder.PrependBoolSlot(7, limit, 0)
-
+    return MissionExcelAddViewFlag(builder, viewFlag)
+def MissionExcelAddLimit(builder, limit): builder.PrependBoolSlot(7, limit, 0)
 def AddLimit(builder, limit):
-    MissionExcelAddLimit(builder, limit)
-
-def MissionExcelAddStartDate(builder, startDate):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
-
+    return MissionExcelAddLimit(builder, limit)
+def MissionExcelAddStartDate(builder, startDate): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
 def AddStartDate(builder, startDate):
-    MissionExcelAddStartDate(builder, startDate)
-
-def MissionExcelAddEndDate(builder, endDate):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
-
+    return MissionExcelAddStartDate(builder, startDate)
+def MissionExcelAddEndDate(builder, endDate): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
 def AddEndDate(builder, endDate):
-    MissionExcelAddEndDate(builder, endDate)
-
-def MissionExcelAddEndDay(builder, endDay):
-    builder.PrependInt64Slot(10, endDay, 0)
-
+    return MissionExcelAddEndDate(builder, endDate)
+def MissionExcelAddEndDay(builder, endDay): builder.PrependInt64Slot(10, endDay, 0)
 def AddEndDay(builder, endDay):
-    MissionExcelAddEndDay(builder, endDay)
-
-def MissionExcelAddStartableEndDate(builder, startableEndDate):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(startableEndDate), 0)
-
+    return MissionExcelAddEndDay(builder, endDay)
+def MissionExcelAddStartableEndDate(builder, startableEndDate): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(startableEndDate), 0)
 def AddStartableEndDate(builder, startableEndDate):
-    MissionExcelAddStartableEndDate(builder, startableEndDate)
-
-def MissionExcelAddDateAutoRefer(builder, dateAutoRefer):
-    builder.PrependInt32Slot(12, dateAutoRefer, 0)
-
+    return MissionExcelAddStartableEndDate(builder, startableEndDate)
+def MissionExcelAddDateAutoRefer(builder, dateAutoRefer): builder.PrependInt32Slot(12, dateAutoRefer, 0)
 def AddDateAutoRefer(builder, dateAutoRefer):
-    MissionExcelAddDateAutoRefer(builder, dateAutoRefer)
-
-def MissionExcelAddDisplayOrder(builder, displayOrder):
-    builder.PrependInt64Slot(13, displayOrder, 0)
-
+    return MissionExcelAddDateAutoRefer(builder, dateAutoRefer)
+def MissionExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(13, displayOrder, 0)
 def AddDisplayOrder(builder, displayOrder):
-    MissionExcelAddDisplayOrder(builder, displayOrder)
-
-def MissionExcelAddPreMissionId(builder, preMissionId):
-    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(preMissionId), 0)
-
+    return MissionExcelAddDisplayOrder(builder, displayOrder)
+def MissionExcelAddPreMissionId(builder, preMissionId): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(preMissionId), 0)
 def AddPreMissionId(builder, preMissionId):
-    MissionExcelAddPreMissionId(builder, preMissionId)
-
-def MissionExcelStartPreMissionIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return MissionExcelAddPreMissionId(builder, preMissionId)
+def MissionExcelStartPreMissionIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartPreMissionIdVector(builder, numElems):
     return MissionExcelStartPreMissionIdVector(builder, numElems)
-
-def MissionExcelAddAccountType(builder, accountType):
-    builder.PrependInt32Slot(15, accountType, 0)
-
+def MissionExcelAddAccountType(builder, accountType): builder.PrependInt32Slot(15, accountType, 0)
 def AddAccountType(builder, accountType):
-    MissionExcelAddAccountType(builder, accountType)
-
-def MissionExcelAddAccountLevel(builder, accountLevel):
-    builder.PrependInt64Slot(16, accountLevel, 0)
-
+    return MissionExcelAddAccountType(builder, accountType)
+def MissionExcelAddAccountLevel(builder, accountLevel): builder.PrependInt64Slot(16, accountLevel, 0)
 def AddAccountLevel(builder, accountLevel):
-    MissionExcelAddAccountLevel(builder, accountLevel)
-
-def MissionExcelAddContentTags(builder, contentTags):
-    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(contentTags), 0)
-
+    return MissionExcelAddAccountLevel(builder, accountLevel)
+def MissionExcelAddContentTags(builder, contentTags): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(contentTags), 0)
 def AddContentTags(builder, contentTags):
-    MissionExcelAddContentTags(builder, contentTags)
-
-def MissionExcelStartContentTagsVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MissionExcelAddContentTags(builder, contentTags)
+def MissionExcelStartContentTagsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartContentTagsVector(builder, numElems):
     return MissionExcelStartContentTagsVector(builder, numElems)
-
-def MissionExcelAddShortcutUi(builder, shortcutUi):
-    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutUi), 0)
-
+def MissionExcelAddShortcutUi(builder, shortcutUi): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutUi), 0)
 def AddShortcutUi(builder, shortcutUi):
-    MissionExcelAddShortcutUi(builder, shortcutUi)
-
-def MissionExcelStartShortcutUiVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MissionExcelAddShortcutUi(builder, shortcutUi)
+def MissionExcelStartShortcutUiVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartShortcutUiVector(builder, numElems):
     return MissionExcelStartShortcutUiVector(builder, numElems)
-
-def MissionExcelAddChallengeStageShortcut(builder, challengeStageShortcut):
-    builder.PrependInt64Slot(19, challengeStageShortcut, 0)
-
+def MissionExcelAddChallengeStageShortcut(builder, challengeStageShortcut): builder.PrependInt64Slot(19, challengeStageShortcut, 0)
 def AddChallengeStageShortcut(builder, challengeStageShortcut):
-    MissionExcelAddChallengeStageShortcut(builder, challengeStageShortcut)
-
-def MissionExcelAddCompleteConditionType(builder, completeConditionType):
-    builder.PrependInt32Slot(20, completeConditionType, 0)
-
+    return MissionExcelAddChallengeStageShortcut(builder, challengeStageShortcut)
+def MissionExcelAddCompleteConditionType(builder, completeConditionType): builder.PrependInt32Slot(20, completeConditionType, 0)
 def AddCompleteConditionType(builder, completeConditionType):
-    MissionExcelAddCompleteConditionType(builder, completeConditionType)
-
-def MissionExcelAddCompleteConditionCount(builder, completeConditionCount):
-    builder.PrependInt64Slot(21, completeConditionCount, 0)
-
+    return MissionExcelAddCompleteConditionType(builder, completeConditionType)
+def MissionExcelAddCompleteConditionCount(builder, completeConditionCount): builder.PrependInt64Slot(21, completeConditionCount, 0)
 def AddCompleteConditionCount(builder, completeConditionCount):
-    MissionExcelAddCompleteConditionCount(builder, completeConditionCount)
-
-def MissionExcelAddCompleteConditionParameter(builder, completeConditionParameter):
-    builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameter), 0)
-
+    return MissionExcelAddCompleteConditionCount(builder, completeConditionCount)
+def MissionExcelAddCompleteConditionParameter(builder, completeConditionParameter): builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameter), 0)
 def AddCompleteConditionParameter(builder, completeConditionParameter):
-    MissionExcelAddCompleteConditionParameter(builder, completeConditionParameter)
-
-def MissionExcelStartCompleteConditionParameterVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return MissionExcelAddCompleteConditionParameter(builder, completeConditionParameter)
+def MissionExcelStartCompleteConditionParameterVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartCompleteConditionParameterVector(builder, numElems):
     return MissionExcelStartCompleteConditionParameterVector(builder, numElems)
-
-def MissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag):
-    builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameterTag), 0)
-
+def MissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag): builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameterTag), 0)
 def AddCompleteConditionParameterTag(builder, completeConditionParameterTag):
-    MissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag)
-
-def MissionExcelStartCompleteConditionParameterTagVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag)
+def MissionExcelStartCompleteConditionParameterTagVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartCompleteConditionParameterTagVector(builder, numElems):
     return MissionExcelStartCompleteConditionParameterTagVector(builder, numElems)
-
-def MissionExcelAddRewardIcon(builder, rewardIcon):
-    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(rewardIcon), 0)
-
+def MissionExcelAddRewardIcon(builder, rewardIcon): builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(rewardIcon), 0)
 def AddRewardIcon(builder, rewardIcon):
-    MissionExcelAddRewardIcon(builder, rewardIcon)
-
-def MissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardParcelType), 0)
-
+    return MissionExcelAddRewardIcon(builder, rewardIcon)
+def MissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType): builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardParcelType), 0)
 def AddMissionRewardParcelType(builder, missionRewardParcelType):
-    MissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType)
-
-def MissionExcelStartMissionRewardParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType)
+def MissionExcelStartMissionRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartMissionRewardParcelTypeVector(builder, numElems):
     return MissionExcelStartMissionRewardParcelTypeVector(builder, numElems)
-
-def MissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId):
-    builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardParcelId), 0)
-
+def MissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId): builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardParcelId), 0)
 def AddMissionRewardParcelId(builder, missionRewardParcelId):
-    MissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId)
-
-def MissionExcelStartMissionRewardParcelIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return MissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId)
+def MissionExcelStartMissionRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartMissionRewardParcelIdVector(builder, numElems):
     return MissionExcelStartMissionRewardParcelIdVector(builder, numElems)
-
-def MissionExcelAddMissionRewardAmount(builder, missionRewardAmount):
-    builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardAmount), 0)
-
+def MissionExcelAddMissionRewardAmount(builder, missionRewardAmount): builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardAmount), 0)
 def AddMissionRewardAmount(builder, missionRewardAmount):
-    MissionExcelAddMissionRewardAmount(builder, missionRewardAmount)
-
-def MissionExcelStartMissionRewardAmountVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MissionExcelAddMissionRewardAmount(builder, missionRewardAmount)
+def MissionExcelStartMissionRewardAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartMissionRewardAmountVector(builder, numElems):
     return MissionExcelStartMissionRewardAmountVector(builder, numElems)
-
-def MissionExcelEnd(builder):
-    return builder.EndObject()
-
+def MissionExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MissionExcelEnd(builder)

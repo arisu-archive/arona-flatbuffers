@@ -30,8 +30,8 @@ func (t *EventContentBoxGachaShopExcelDto) MarshalModel(b *flatbuffers.Builder) 
 	EventContentBoxGachaShopExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	EventContentBoxGachaShopExcelAddGroupElementAmount(b, fbsutils.Convert(t.GroupElementAmount, t.FlatBuffer.TableKey))
 	EventContentBoxGachaShopExcelAddRound(b, fbsutils.Convert(t.Round, t.FlatBuffer.TableKey))
-	EventContentBoxGachaShopExcelAddIsLegacy(b, fbsutils.Convert(t.IsLegacy, t.FlatBuffer.TableKey))
-	EventContentBoxGachaShopExcelAddIsPrize(b, fbsutils.Convert(t.IsPrize, t.FlatBuffer.TableKey))
+	EventContentBoxGachaShopExcelAddIsLegacy(b, t.IsLegacy)
+	EventContentBoxGachaShopExcelAddIsPrize(b, t.IsPrize)
 	EventContentBoxGachaShopExcelStartGoodsIdVector(b, len(t.GoodsId))
 	for i := range len(t.GoodsId) {
 		b.PrependInt64(fbsutils.Convert(t.GoodsId[len(t.GoodsId)-i-1], t.FlatBuffer.TableKey))
@@ -57,11 +57,11 @@ func (t *EventContentBoxGachaShopExcelDto) UnmarshalMessage(e *EventContentBoxGa
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.GroupElementAmount = fbsutils.Convert(e.GroupElementAmount(), t.FlatBuffer.TableKey)
 	t.Round = fbsutils.Convert(e.Round(), t.FlatBuffer.TableKey)
-	t.IsLegacy = fbsutils.Convert(e.IsLegacy(), t.FlatBuffer.TableKey)
-	t.IsPrize = fbsutils.Convert(e.IsPrize(), t.FlatBuffer.TableKey)
+	t.IsLegacy = e.IsLegacy()
+	t.IsPrize = e.IsPrize()
 	t.GoodsId = make([]int64, e.GoodsIdLength())
 	for i := range e.GoodsIdLength() {
-		t.GoodsId[i] = e.GoodsId(i)
+		t.GoodsId[i] = fbsutils.Convert(e.GoodsId(i), t.FlatBuffer.TableKey)
 	}
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	return nil

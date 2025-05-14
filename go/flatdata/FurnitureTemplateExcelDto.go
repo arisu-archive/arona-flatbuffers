@@ -24,8 +24,8 @@ func (t *FurnitureTemplateExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	FurnitureTemplateExcelStart(b)
 	FurnitureTemplateExcelAddFurnitureTemplateId(b, fbsutils.Convert(t.FurnitureTemplateId, t.FlatBuffer.TableKey))
 	FurnitureTemplateExcelAddFunitureTemplateTitle(b, fbsutils.Convert(t.FunitureTemplateTitle, t.FlatBuffer.TableKey))
-	FurnitureTemplateExcelAddThumbnailImagePath(b, fbsutils.Convert(b.CreateString(t.ThumbnailImagePath), t.FlatBuffer.TableKey))
-	FurnitureTemplateExcelAddImagePath(b, fbsutils.Convert(b.CreateString(t.ImagePath), t.FlatBuffer.TableKey))
+	FurnitureTemplateExcelAddThumbnailImagePath(b, b.CreateString(fbsutils.Convert(t.ThumbnailImagePath, t.FlatBuffer.TableKey)))
+	FurnitureTemplateExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
 	return FurnitureTemplateExcelEnd(b)
 }
 

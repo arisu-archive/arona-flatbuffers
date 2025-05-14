@@ -122,98 +122,51 @@ class EventContentBuffGroupExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EventContentBuffGroupExcelStart(builder):
-    builder.StartObject(14)
-
+def EventContentBuffGroupExcelStart(builder): builder.StartObject(14)
 def Start(builder):
-    EventContentBuffGroupExcelStart(builder)
-
-def EventContentBuffGroupExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return EventContentBuffGroupExcelStart(builder)
+def EventContentBuffGroupExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    EventContentBuffGroupExcelAddEventContentId(builder, eventContentId)
-
-def EventContentBuffGroupExcelAddBuffContentId(builder, buffContentId):
-    builder.PrependInt64Slot(1, buffContentId, 0)
-
+    return EventContentBuffGroupExcelAddEventContentId(builder, eventContentId)
+def EventContentBuffGroupExcelAddBuffContentId(builder, buffContentId): builder.PrependInt64Slot(1, buffContentId, 0)
 def AddBuffContentId(builder, buffContentId):
-    EventContentBuffGroupExcelAddBuffContentId(builder, buffContentId)
-
-def EventContentBuffGroupExcelAddBuffGroupId(builder, buffGroupId):
-    builder.PrependInt64Slot(2, buffGroupId, 0)
-
+    return EventContentBuffGroupExcelAddBuffContentId(builder, buffContentId)
+def EventContentBuffGroupExcelAddBuffGroupId(builder, buffGroupId): builder.PrependInt64Slot(2, buffGroupId, 0)
 def AddBuffGroupId(builder, buffGroupId):
-    EventContentBuffGroupExcelAddBuffGroupId(builder, buffGroupId)
-
-def EventContentBuffGroupExcelAddBuffGroupNameLocalizeCodeId(builder, buffGroupNameLocalizeCodeId):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(buffGroupNameLocalizeCodeId), 0)
-
+    return EventContentBuffGroupExcelAddBuffGroupId(builder, buffGroupId)
+def EventContentBuffGroupExcelAddBuffGroupNameLocalizeCodeId(builder, buffGroupNameLocalizeCodeId): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(buffGroupNameLocalizeCodeId), 0)
 def AddBuffGroupNameLocalizeCodeId(builder, buffGroupNameLocalizeCodeId):
-    EventContentBuffGroupExcelAddBuffGroupNameLocalizeCodeId(builder, buffGroupNameLocalizeCodeId)
-
-def EventContentBuffGroupExcelAddEventContentBuffId1(builder, eventContentBuffId1):
-    builder.PrependInt64Slot(4, eventContentBuffId1, 0)
-
+    return EventContentBuffGroupExcelAddBuffGroupNameLocalizeCodeId(builder, buffGroupNameLocalizeCodeId)
+def EventContentBuffGroupExcelAddEventContentBuffId1(builder, eventContentBuffId1): builder.PrependInt64Slot(4, eventContentBuffId1, 0)
 def AddEventContentBuffId1(builder, eventContentBuffId1):
-    EventContentBuffGroupExcelAddEventContentBuffId1(builder, eventContentBuffId1)
-
-def EventContentBuffGroupExcelAddBuffNameLocalizeCodeId1(builder, buffNameLocalizeCodeId1):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(buffNameLocalizeCodeId1), 0)
-
+    return EventContentBuffGroupExcelAddEventContentBuffId1(builder, eventContentBuffId1)
+def EventContentBuffGroupExcelAddBuffNameLocalizeCodeId1(builder, buffNameLocalizeCodeId1): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(buffNameLocalizeCodeId1), 0)
 def AddBuffNameLocalizeCodeId1(builder, buffNameLocalizeCodeId1):
-    EventContentBuffGroupExcelAddBuffNameLocalizeCodeId1(builder, buffNameLocalizeCodeId1)
-
-def EventContentBuffGroupExcelAddBuffDescriptionIconPath1(builder, buffDescriptionIconPath1):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(buffDescriptionIconPath1), 0)
-
+    return EventContentBuffGroupExcelAddBuffNameLocalizeCodeId1(builder, buffNameLocalizeCodeId1)
+def EventContentBuffGroupExcelAddBuffDescriptionIconPath1(builder, buffDescriptionIconPath1): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(buffDescriptionIconPath1), 0)
 def AddBuffDescriptionIconPath1(builder, buffDescriptionIconPath1):
-    EventContentBuffGroupExcelAddBuffDescriptionIconPath1(builder, buffDescriptionIconPath1)
-
-def EventContentBuffGroupExcelAddEventContentBuffId2(builder, eventContentBuffId2):
-    builder.PrependInt64Slot(7, eventContentBuffId2, 0)
-
+    return EventContentBuffGroupExcelAddBuffDescriptionIconPath1(builder, buffDescriptionIconPath1)
+def EventContentBuffGroupExcelAddEventContentBuffId2(builder, eventContentBuffId2): builder.PrependInt64Slot(7, eventContentBuffId2, 0)
 def AddEventContentBuffId2(builder, eventContentBuffId2):
-    EventContentBuffGroupExcelAddEventContentBuffId2(builder, eventContentBuffId2)
-
-def EventContentBuffGroupExcelAddBuffNameLocalizeCodeId2(builder, buffNameLocalizeCodeId2):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(buffNameLocalizeCodeId2), 0)
-
+    return EventContentBuffGroupExcelAddEventContentBuffId2(builder, eventContentBuffId2)
+def EventContentBuffGroupExcelAddBuffNameLocalizeCodeId2(builder, buffNameLocalizeCodeId2): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(buffNameLocalizeCodeId2), 0)
 def AddBuffNameLocalizeCodeId2(builder, buffNameLocalizeCodeId2):
-    EventContentBuffGroupExcelAddBuffNameLocalizeCodeId2(builder, buffNameLocalizeCodeId2)
-
-def EventContentBuffGroupExcelAddBuffDescriptionIconPath2(builder, buffDescriptionIconPath2):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(buffDescriptionIconPath2), 0)
-
+    return EventContentBuffGroupExcelAddBuffNameLocalizeCodeId2(builder, buffNameLocalizeCodeId2)
+def EventContentBuffGroupExcelAddBuffDescriptionIconPath2(builder, buffDescriptionIconPath2): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(buffDescriptionIconPath2), 0)
 def AddBuffDescriptionIconPath2(builder, buffDescriptionIconPath2):
-    EventContentBuffGroupExcelAddBuffDescriptionIconPath2(builder, buffDescriptionIconPath2)
-
-def EventContentBuffGroupExcelAddEventContentDebuffId(builder, eventContentDebuffId):
-    builder.PrependInt64Slot(10, eventContentDebuffId, 0)
-
+    return EventContentBuffGroupExcelAddBuffDescriptionIconPath2(builder, buffDescriptionIconPath2)
+def EventContentBuffGroupExcelAddEventContentDebuffId(builder, eventContentDebuffId): builder.PrependInt64Slot(10, eventContentDebuffId, 0)
 def AddEventContentDebuffId(builder, eventContentDebuffId):
-    EventContentBuffGroupExcelAddEventContentDebuffId(builder, eventContentDebuffId)
-
-def EventContentBuffGroupExcelAddDebuffNameLocalizeCodeId(builder, debuffNameLocalizeCodeId):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(debuffNameLocalizeCodeId), 0)
-
+    return EventContentBuffGroupExcelAddEventContentDebuffId(builder, eventContentDebuffId)
+def EventContentBuffGroupExcelAddDebuffNameLocalizeCodeId(builder, debuffNameLocalizeCodeId): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(debuffNameLocalizeCodeId), 0)
 def AddDebuffNameLocalizeCodeId(builder, debuffNameLocalizeCodeId):
-    EventContentBuffGroupExcelAddDebuffNameLocalizeCodeId(builder, debuffNameLocalizeCodeId)
-
-def EventContentBuffGroupExcelAddDeBuffDescriptionIconPath(builder, deBuffDescriptionIconPath):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(deBuffDescriptionIconPath), 0)
-
+    return EventContentBuffGroupExcelAddDebuffNameLocalizeCodeId(builder, debuffNameLocalizeCodeId)
+def EventContentBuffGroupExcelAddDeBuffDescriptionIconPath(builder, deBuffDescriptionIconPath): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(deBuffDescriptionIconPath), 0)
 def AddDeBuffDescriptionIconPath(builder, deBuffDescriptionIconPath):
-    EventContentBuffGroupExcelAddDeBuffDescriptionIconPath(builder, deBuffDescriptionIconPath)
-
-def EventContentBuffGroupExcelAddBuffGroupProb(builder, buffGroupProb):
-    builder.PrependInt64Slot(13, buffGroupProb, 0)
-
+    return EventContentBuffGroupExcelAddDeBuffDescriptionIconPath(builder, deBuffDescriptionIconPath)
+def EventContentBuffGroupExcelAddBuffGroupProb(builder, buffGroupProb): builder.PrependInt64Slot(13, buffGroupProb, 0)
 def AddBuffGroupProb(builder, buffGroupProb):
-    EventContentBuffGroupExcelAddBuffGroupProb(builder, buffGroupProb)
-
-def EventContentBuffGroupExcelEnd(builder):
-    return builder.EndObject()
-
+    return EventContentBuffGroupExcelAddBuffGroupProb(builder, buffGroupProb)
+def EventContentBuffGroupExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentBuffGroupExcelEnd(builder)

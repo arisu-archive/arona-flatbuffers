@@ -10,8 +10,8 @@ import (
 // FieldQuestExcelDto represents a FlatBuffers table
 type FieldQuestExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId      int64  `json:"unique_id"`
 	FieldSeasonId int64  `json:"field_season_id"`
+	UniqueId      int64  `json:"unique_id"`
 	IsDaily       bool   `json:"is_daily"`
 	FieldDateId   int64  `json:"field_date_id"`
 	Opendate      int64  `json:"opendate"`
@@ -28,12 +28,12 @@ func (t *FieldQuestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldQuest"))
 	}
 	FieldQuestExcelStart(b)
-	FieldQuestExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddFieldSeasonId(b, fbsutils.Convert(t.FieldSeasonId, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddIsDaily(b, fbsutils.Convert(t.IsDaily, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddIsDaily(b, t.IsDaily)
 	FieldQuestExcelAddFieldDateId(b, fbsutils.Convert(t.FieldDateId, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddOpendate(b, fbsutils.Convert(t.Opendate, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddAssetPath(b, fbsutils.Convert(b.CreateString(t.AssetPath), t.FlatBuffer.TableKey))
+	FieldQuestExcelAddAssetPath(b, b.CreateString(fbsutils.Convert(t.AssetPath, t.FlatBuffer.TableKey)))
 	FieldQuestExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddQuestNamKey(b, fbsutils.Convert(t.QuestNamKey, t.FlatBuffer.TableKey))
@@ -53,9 +53,9 @@ func (t *FieldQuestExcelDto) UnmarshalMessage(e *FieldQuestExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldQuest"))
 	}
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.FieldSeasonId = fbsutils.Convert(e.FieldSeasonId(), t.FlatBuffer.TableKey)
-	t.IsDaily = fbsutils.Convert(e.IsDaily(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.IsDaily = e.IsDaily()
 	t.FieldDateId = fbsutils.Convert(e.FieldDateId(), t.FlatBuffer.TableKey)
 	t.Opendate = fbsutils.Convert(e.Opendate(), t.FlatBuffer.TableKey)
 	t.AssetPath = fbsutils.Convert(string(e.AssetPath()), t.FlatBuffer.TableKey)

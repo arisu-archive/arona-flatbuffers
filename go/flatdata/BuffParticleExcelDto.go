@@ -24,10 +24,10 @@ func (t *BuffParticleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	}
 	BuffParticleExcelStart(b)
 	BuffParticleExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	BuffParticleExcelAddUniqueName(b, fbsutils.Convert(b.CreateString(t.UniqueName), t.FlatBuffer.TableKey))
-	BuffParticleExcelAddBuffType(b, fbsutils.Convert(b.CreateString(t.BuffType), t.FlatBuffer.TableKey))
-	BuffParticleExcelAddBuffName(b, fbsutils.Convert(b.CreateString(t.BuffName), t.FlatBuffer.TableKey))
-	BuffParticleExcelAddResourcePath(b, fbsutils.Convert(b.CreateString(t.ResourcePath), t.FlatBuffer.TableKey))
+	BuffParticleExcelAddUniqueName(b, b.CreateString(fbsutils.Convert(t.UniqueName, t.FlatBuffer.TableKey)))
+	BuffParticleExcelAddBuffType(b, b.CreateString(fbsutils.Convert(t.BuffType, t.FlatBuffer.TableKey)))
+	BuffParticleExcelAddBuffName(b, b.CreateString(fbsutils.Convert(t.BuffName, t.FlatBuffer.TableKey)))
+	BuffParticleExcelAddResourcePath(b, b.CreateString(fbsutils.Convert(t.ResourcePath, t.FlatBuffer.TableKey)))
 	return BuffParticleExcelEnd(b)
 }
 

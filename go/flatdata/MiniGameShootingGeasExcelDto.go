@@ -28,12 +28,12 @@ func (t *MiniGameShootingGeasExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	MiniGameShootingGeasExcelStart(b)
 	MiniGameShootingGeasExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	MiniGameShootingGeasExcelAddGeasType(b, fbsutils.Convert(t.GeasType, t.FlatBuffer.TableKey))
-	MiniGameShootingGeasExcelAddIcon(b, fbsutils.Convert(b.CreateString(t.Icon), t.FlatBuffer.TableKey))
+	MiniGameShootingGeasExcelAddIcon(b, b.CreateString(fbsutils.Convert(t.Icon, t.FlatBuffer.TableKey)))
 	MiniGameShootingGeasExcelAddProbability(b, fbsutils.Convert(t.Probability, t.FlatBuffer.TableKey))
 	MiniGameShootingGeasExcelAddMaxOverlapCount(b, fbsutils.Convert(t.MaxOverlapCount, t.FlatBuffer.TableKey))
-	MiniGameShootingGeasExcelAddGeasData(b, fbsutils.Convert(b.CreateString(t.GeasData), t.FlatBuffer.TableKey))
+	MiniGameShootingGeasExcelAddGeasData(b, b.CreateString(fbsutils.Convert(t.GeasData, t.FlatBuffer.TableKey)))
 	MiniGameShootingGeasExcelAddNeedGeasId(b, fbsutils.Convert(t.NeedGeasId, t.FlatBuffer.TableKey))
-	MiniGameShootingGeasExcelAddHideInPausePopup(b, fbsutils.Convert(t.HideInPausePopup, t.FlatBuffer.TableKey))
+	MiniGameShootingGeasExcelAddHideInPausePopup(b, t.HideInPausePopup)
 	return MiniGameShootingGeasExcelEnd(b)
 }
 
@@ -56,7 +56,7 @@ func (t *MiniGameShootingGeasExcelDto) UnmarshalMessage(e *MiniGameShootingGeasE
 	t.MaxOverlapCount = fbsutils.Convert(e.MaxOverlapCount(), t.FlatBuffer.TableKey)
 	t.GeasData = fbsutils.Convert(string(e.GeasData()), t.FlatBuffer.TableKey)
 	t.NeedGeasId = fbsutils.Convert(e.NeedGeasId(), t.FlatBuffer.TableKey)
-	t.HideInPausePopup = fbsutils.Convert(e.HideInPausePopup(), t.FlatBuffer.TableKey)
+	t.HideInPausePopup = e.HideInPausePopup()
 	return nil
 }
 

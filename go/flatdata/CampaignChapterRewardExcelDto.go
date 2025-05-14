@@ -27,7 +27,7 @@ func (t *CampaignChapterRewardExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	CampaignChapterRewardExcelAddCampaignChapterStar(b, fbsutils.Convert(t.CampaignChapterStar, t.FlatBuffer.TableKey))
 	CampaignChapterRewardExcelStartChapterRewardParcelTypeVector(b, len(t.ChapterRewardParcelType))
 	for i := range len(t.ChapterRewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ChapterRewardParcelType[len(t.ChapterRewardParcelType)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ChapterRewardParcelType[len(t.ChapterRewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CampaignChapterRewardExcelAddChapterRewardParcelType(b, b.EndVector(len(t.ChapterRewardParcelType)))
 	CampaignChapterRewardExcelStartChapterRewardIdVector(b, len(t.ChapterRewardId))
@@ -63,11 +63,11 @@ func (t *CampaignChapterRewardExcelDto) UnmarshalMessage(e *CampaignChapterRewar
 	}
 	t.ChapterRewardId = make([]int64, e.ChapterRewardIdLength())
 	for i := range e.ChapterRewardIdLength() {
-		t.ChapterRewardId[i] = e.ChapterRewardId(i)
+		t.ChapterRewardId[i] = fbsutils.Convert(e.ChapterRewardId(i), t.FlatBuffer.TableKey)
 	}
 	t.ChapterRewardAmount = make([]int32, e.ChapterRewardAmountLength())
 	for i := range e.ChapterRewardAmountLength() {
-		t.ChapterRewardAmount[i] = e.ChapterRewardAmount(i)
+		t.ChapterRewardAmount[i] = fbsutils.Convert(e.ChapterRewardAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

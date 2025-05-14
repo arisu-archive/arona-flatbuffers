@@ -197,140 +197,72 @@ class EquipmentExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def EquipmentExcelStart(builder):
-    builder.StartObject(19)
-
+def EquipmentExcelStart(builder): builder.StartObject(19)
 def Start(builder):
-    EquipmentExcelStart(builder)
-
-def EquipmentExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return EquipmentExcelStart(builder)
+def EquipmentExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    EquipmentExcelAddId(builder, id)
-
-def EquipmentExcelAddEquipmentCategory(builder, equipmentCategory):
-    builder.PrependInt32Slot(1, equipmentCategory, 0)
-
+    return EquipmentExcelAddId(builder, id)
+def EquipmentExcelAddEquipmentCategory(builder, equipmentCategory): builder.PrependInt32Slot(1, equipmentCategory, 0)
 def AddEquipmentCategory(builder, equipmentCategory):
-    EquipmentExcelAddEquipmentCategory(builder, equipmentCategory)
-
-def EquipmentExcelAddRarity(builder, rarity):
-    builder.PrependInt32Slot(2, rarity, 0)
-
+    return EquipmentExcelAddEquipmentCategory(builder, equipmentCategory)
+def EquipmentExcelAddRarity(builder, rarity): builder.PrependInt32Slot(2, rarity, 0)
 def AddRarity(builder, rarity):
-    EquipmentExcelAddRarity(builder, rarity)
-
-def EquipmentExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(3, localizeEtcId, 0)
-
+    return EquipmentExcelAddRarity(builder, rarity)
+def EquipmentExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(3, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
-    EquipmentExcelAddLocalizeEtcId(builder, localizeEtcId)
-
-def EquipmentExcelAddWear(builder, wear):
-    builder.PrependBoolSlot(4, wear, 0)
-
+    return EquipmentExcelAddLocalizeEtcId(builder, localizeEtcId)
+def EquipmentExcelAddWear(builder, wear): builder.PrependBoolSlot(4, wear, 0)
 def AddWear(builder, wear):
-    EquipmentExcelAddWear(builder, wear)
-
-def EquipmentExcelAddMaxLevel(builder, maxLevel):
-    builder.PrependInt32Slot(5, maxLevel, 0)
-
+    return EquipmentExcelAddWear(builder, wear)
+def EquipmentExcelAddMaxLevel(builder, maxLevel): builder.PrependInt32Slot(5, maxLevel, 0)
 def AddMaxLevel(builder, maxLevel):
-    EquipmentExcelAddMaxLevel(builder, maxLevel)
-
-def EquipmentExcelAddRecipeId(builder, recipeId):
-    builder.PrependInt32Slot(6, recipeId, 0)
-
+    return EquipmentExcelAddMaxLevel(builder, maxLevel)
+def EquipmentExcelAddRecipeId(builder, recipeId): builder.PrependInt32Slot(6, recipeId, 0)
 def AddRecipeId(builder, recipeId):
-    EquipmentExcelAddRecipeId(builder, recipeId)
-
-def EquipmentExcelAddTierInit(builder, tierInit):
-    builder.PrependInt64Slot(7, tierInit, 0)
-
+    return EquipmentExcelAddRecipeId(builder, recipeId)
+def EquipmentExcelAddTierInit(builder, tierInit): builder.PrependInt64Slot(7, tierInit, 0)
 def AddTierInit(builder, tierInit):
-    EquipmentExcelAddTierInit(builder, tierInit)
-
-def EquipmentExcelAddNextTierEquipment(builder, nextTierEquipment):
-    builder.PrependInt64Slot(8, nextTierEquipment, 0)
-
+    return EquipmentExcelAddTierInit(builder, tierInit)
+def EquipmentExcelAddNextTierEquipment(builder, nextTierEquipment): builder.PrependInt64Slot(8, nextTierEquipment, 0)
 def AddNextTierEquipment(builder, nextTierEquipment):
-    EquipmentExcelAddNextTierEquipment(builder, nextTierEquipment)
-
-def EquipmentExcelAddStackableMax(builder, stackableMax):
-    builder.PrependInt32Slot(9, stackableMax, 0)
-
+    return EquipmentExcelAddNextTierEquipment(builder, nextTierEquipment)
+def EquipmentExcelAddStackableMax(builder, stackableMax): builder.PrependInt32Slot(9, stackableMax, 0)
 def AddStackableMax(builder, stackableMax):
-    EquipmentExcelAddStackableMax(builder, stackableMax)
-
-def EquipmentExcelAddIcon(builder, icon):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
-
+    return EquipmentExcelAddStackableMax(builder, stackableMax)
+def EquipmentExcelAddIcon(builder, icon): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
 def AddIcon(builder, icon):
-    EquipmentExcelAddIcon(builder, icon)
-
-def EquipmentExcelAddImageName(builder, imageName):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(imageName), 0)
-
+    return EquipmentExcelAddIcon(builder, icon)
+def EquipmentExcelAddImageName(builder, imageName): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(imageName), 0)
 def AddImageName(builder, imageName):
-    EquipmentExcelAddImageName(builder, imageName)
-
-def EquipmentExcelAddTags(builder, tags):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
-
+    return EquipmentExcelAddImageName(builder, imageName)
+def EquipmentExcelAddTags(builder, tags): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
 def AddTags(builder, tags):
-    EquipmentExcelAddTags(builder, tags)
-
-def EquipmentExcelStartTagsVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EquipmentExcelAddTags(builder, tags)
+def EquipmentExcelStartTagsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartTagsVector(builder, numElems):
     return EquipmentExcelStartTagsVector(builder, numElems)
-
-def EquipmentExcelAddCraftQualityTier0(builder, craftQualityTier0):
-    builder.PrependInt64Slot(13, craftQualityTier0, 0)
-
+def EquipmentExcelAddCraftQualityTier0(builder, craftQualityTier0): builder.PrependInt64Slot(13, craftQualityTier0, 0)
 def AddCraftQualityTier0(builder, craftQualityTier0):
-    EquipmentExcelAddCraftQualityTier0(builder, craftQualityTier0)
-
-def EquipmentExcelAddCraftQualityTier1(builder, craftQualityTier1):
-    builder.PrependInt64Slot(14, craftQualityTier1, 0)
-
+    return EquipmentExcelAddCraftQualityTier0(builder, craftQualityTier0)
+def EquipmentExcelAddCraftQualityTier1(builder, craftQualityTier1): builder.PrependInt64Slot(14, craftQualityTier1, 0)
 def AddCraftQualityTier1(builder, craftQualityTier1):
-    EquipmentExcelAddCraftQualityTier1(builder, craftQualityTier1)
-
-def EquipmentExcelAddCraftQualityTier2(builder, craftQualityTier2):
-    builder.PrependInt64Slot(15, craftQualityTier2, 0)
-
+    return EquipmentExcelAddCraftQualityTier1(builder, craftQualityTier1)
+def EquipmentExcelAddCraftQualityTier2(builder, craftQualityTier2): builder.PrependInt64Slot(15, craftQualityTier2, 0)
 def AddCraftQualityTier2(builder, craftQualityTier2):
-    EquipmentExcelAddCraftQualityTier2(builder, craftQualityTier2)
-
-def EquipmentExcelAddShiftingCraftQuality(builder, shiftingCraftQuality):
-    builder.PrependInt64Slot(16, shiftingCraftQuality, 0)
-
+    return EquipmentExcelAddCraftQualityTier2(builder, craftQualityTier2)
+def EquipmentExcelAddShiftingCraftQuality(builder, shiftingCraftQuality): builder.PrependInt64Slot(16, shiftingCraftQuality, 0)
 def AddShiftingCraftQuality(builder, shiftingCraftQuality):
-    EquipmentExcelAddShiftingCraftQuality(builder, shiftingCraftQuality)
-
-def EquipmentExcelAddShopCategory(builder, shopCategory):
-    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(shopCategory), 0)
-
+    return EquipmentExcelAddShiftingCraftQuality(builder, shiftingCraftQuality)
+def EquipmentExcelAddShopCategory(builder, shopCategory): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(shopCategory), 0)
 def AddShopCategory(builder, shopCategory):
-    EquipmentExcelAddShopCategory(builder, shopCategory)
-
-def EquipmentExcelStartShopCategoryVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EquipmentExcelAddShopCategory(builder, shopCategory)
+def EquipmentExcelStartShopCategoryVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartShopCategoryVector(builder, numElems):
     return EquipmentExcelStartShopCategoryVector(builder, numElems)
-
-def EquipmentExcelAddShortcutTypeId(builder, shortcutTypeId):
-    builder.PrependInt64Slot(18, shortcutTypeId, 0)
-
+def EquipmentExcelAddShortcutTypeId(builder, shortcutTypeId): builder.PrependInt64Slot(18, shortcutTypeId, 0)
 def AddShortcutTypeId(builder, shortcutTypeId):
-    EquipmentExcelAddShortcutTypeId(builder, shortcutTypeId)
-
-def EquipmentExcelEnd(builder):
-    return builder.EndObject()
-
+    return EquipmentExcelAddShortcutTypeId(builder, shortcutTypeId)
+def EquipmentExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EquipmentExcelEnd(builder)

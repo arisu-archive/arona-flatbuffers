@@ -28,14 +28,14 @@ func (t *MinigameTBGObjectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	}
 	MinigameTBGObjectExcelStart(b)
 	MinigameTBGObjectExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MinigameTBGObjectExcelAddKey(b, fbsutils.Convert(b.CreateString(t.Key), t.FlatBuffer.TableKey))
-	MinigameTBGObjectExcelAddPrefabName(b, fbsutils.Convert(b.CreateString(t.PrefabName), t.FlatBuffer.TableKey))
+	MinigameTBGObjectExcelAddKey(b, b.CreateString(fbsutils.Convert(t.Key, t.FlatBuffer.TableKey)))
+	MinigameTBGObjectExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
 	MinigameTBGObjectExcelAddObjectType(b, fbsutils.Convert(t.ObjectType, t.FlatBuffer.TableKey))
 	MinigameTBGObjectExcelAddObjectCostType(b, fbsutils.Convert(t.ObjectCostType, t.FlatBuffer.TableKey))
 	MinigameTBGObjectExcelAddObjectCostId(b, fbsutils.Convert(t.ObjectCostId, t.FlatBuffer.TableKey))
 	MinigameTBGObjectExcelAddObjectCostAmount(b, fbsutils.Convert(t.ObjectCostAmount, t.FlatBuffer.TableKey))
-	MinigameTBGObjectExcelAddDisposable(b, fbsutils.Convert(t.Disposable, t.FlatBuffer.TableKey))
-	MinigameTBGObjectExcelAddReEncounterCost(b, fbsutils.Convert(t.ReEncounterCost, t.FlatBuffer.TableKey))
+	MinigameTBGObjectExcelAddDisposable(b, t.Disposable)
+	MinigameTBGObjectExcelAddReEncounterCost(b, t.ReEncounterCost)
 	return MinigameTBGObjectExcelEnd(b)
 }
 
@@ -58,8 +58,8 @@ func (t *MinigameTBGObjectExcelDto) UnmarshalMessage(e *MinigameTBGObjectExcel) 
 	t.ObjectCostType = ParcelType(fbsutils.Convert(int32(e.ObjectCostType()), t.FlatBuffer.TableKey))
 	t.ObjectCostId = fbsutils.Convert(e.ObjectCostId(), t.FlatBuffer.TableKey)
 	t.ObjectCostAmount = fbsutils.Convert(e.ObjectCostAmount(), t.FlatBuffer.TableKey)
-	t.Disposable = fbsutils.Convert(e.Disposable(), t.FlatBuffer.TableKey)
-	t.ReEncounterCost = fbsutils.Convert(e.ReEncounterCost(), t.FlatBuffer.TableKey)
+	t.Disposable = e.Disposable()
+	t.ReEncounterCost = e.ReEncounterCost()
 	return nil
 }
 

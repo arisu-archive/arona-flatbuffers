@@ -33,7 +33,7 @@ func (t *MinigameTBGDiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	MinigameTBGDiceExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
 	MinigameTBGDiceExcelStartProbModifyConditionVector(b, len(t.ProbModifyCondition))
 	for i := range len(t.ProbModifyCondition) {
-		b.PrependInt32(fbsutils.Convert(int32(fbsutils.Convert(t.ProbModifyCondition[len(t.ProbModifyCondition)-i-1], t.FlatBuffer.TableKey)), t.FlatBuffer.TableKey))
+		b.PrependInt32(fbsutils.Convert(int32(t.ProbModifyCondition[len(t.ProbModifyCondition)-i-1]), t.FlatBuffer.TableKey))
 	}
 	MinigameTBGDiceExcelAddProbModifyCondition(b, b.EndVector(len(t.ProbModifyCondition)))
 	MinigameTBGDiceExcelStartProbModifyValueVector(b, len(t.ProbModifyValue))
@@ -72,11 +72,11 @@ func (t *MinigameTBGDiceExcelDto) UnmarshalMessage(e *MinigameTBGDiceExcel) erro
 	}
 	t.ProbModifyValue = make([]int32, e.ProbModifyValueLength())
 	for i := range e.ProbModifyValueLength() {
-		t.ProbModifyValue[i] = e.ProbModifyValue(i)
+		t.ProbModifyValue[i] = fbsutils.Convert(e.ProbModifyValue(i), t.FlatBuffer.TableKey)
 	}
 	t.ProbModifyLimit = make([]int32, e.ProbModifyLimitLength())
 	for i := range e.ProbModifyLimitLength() {
-		t.ProbModifyLimit[i] = e.ProbModifyLimit(i)
+		t.ProbModifyLimit[i] = fbsutils.Convert(e.ProbModifyLimit(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }
