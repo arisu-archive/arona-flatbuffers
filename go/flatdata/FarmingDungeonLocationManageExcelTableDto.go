@@ -32,7 +32,7 @@ func (t *FarmingDungeonLocationManageExcelTableDto) MarshalModel(b *flatbuffers.
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *FarmingDungeonLocationManageExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishFarmingDungeonLocationManageExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 

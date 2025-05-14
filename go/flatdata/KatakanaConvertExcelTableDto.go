@@ -32,7 +32,7 @@ func (t *KatakanaConvertExcelTableDto) MarshalModel(b *flatbuffers.Builder) flat
 // Marshal marshals the struct into a FlatBuffers buffer
 func (t *KatakanaConvertExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
-	FinishKatakanaConvertExcelTableBuffer(b, t.MarshalModel(b))
+	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 
