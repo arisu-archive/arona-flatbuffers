@@ -17,19 +17,11 @@ func GetRootAsEventContentPlayGuideExcel(buf []byte, offset flatbuffers.UOffsetT
 	return x
 }
 
-func FinishEventContentPlayGuideExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentPlayGuideExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentPlayGuideExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentPlayGuideExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentPlayGuideExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentPlayGuideExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -65,8 +57,20 @@ func (rcv *EventContentPlayGuideExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentPlayGuideExcel) DisplayOrder() int32 {
+func (rcv *EventContentPlayGuideExcel) IsPcBuild() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *EventContentPlayGuideExcel) MutateIsPcBuild(n bool) bool {
+	return rcv._tab.MutateBoolSlot(8, n)
+}
+
+func (rcv *EventContentPlayGuideExcel) DisplayOrder() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -74,18 +78,10 @@ func (rcv *EventContentPlayGuideExcel) DisplayOrder() int32 {
 }
 
 func (rcv *EventContentPlayGuideExcel) MutateDisplayOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
+	return rcv._tab.MutateInt32Slot(10, n)
 }
 
 func (rcv *EventContentPlayGuideExcel) GuideTitle() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentPlayGuideExcel) GuideImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -93,7 +89,7 @@ func (rcv *EventContentPlayGuideExcel) GuideImagePath() []byte {
 	return nil
 }
 
-func (rcv *EventContentPlayGuideExcel) GuideText() []byte {
+func (rcv *EventContentPlayGuideExcel) GuideImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -101,8 +97,16 @@ func (rcv *EventContentPlayGuideExcel) GuideText() []byte {
 	return nil
 }
 
+func (rcv *EventContentPlayGuideExcel) GuideText() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func EventContentPlayGuideExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(6)
+	builder.StartObject(7)
 }
 func EventContentPlayGuideExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -110,17 +114,20 @@ func EventContentPlayGuideExcelAddId(builder *flatbuffers.Builder, id int64) {
 func EventContentPlayGuideExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(1, eventContentId, 0)
 }
+func EventContentPlayGuideExcelAddIsPcBuild(builder *flatbuffers.Builder, isPcBuild bool) {
+	builder.PrependBoolSlot(2, isPcBuild, false)
+}
 func EventContentPlayGuideExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int32) {
-	builder.PrependInt32Slot(2, displayOrder, 0)
+	builder.PrependInt32Slot(3, displayOrder, 0)
 }
 func EventContentPlayGuideExcelAddGuideTitle(builder *flatbuffers.Builder, guideTitle flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(guideTitle), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(guideTitle), 0)
 }
 func EventContentPlayGuideExcelAddGuideImagePath(builder *flatbuffers.Builder, guideImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(guideImagePath), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(guideImagePath), 0)
 }
 func EventContentPlayGuideExcelAddGuideText(builder *flatbuffers.Builder, guideText flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(guideText), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(guideText), 0)
 }
 func EventContentPlayGuideExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

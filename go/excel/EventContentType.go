@@ -44,6 +44,8 @@ const (
 	EventContentTypeSpecialMiniEvent        EventContentType = 34
 	EventContentTypeScenarioCollection      EventContentType = 35
 	EventContentTypeScenarioShortcut        EventContentType = 36
+	EventContentTypeSeasonalEvent           EventContentType = 37
+	EventContentTypeMiniShop                EventContentType = 38
 )
 
 var EnumNamesEventContentType = map[EventContentType]string{
@@ -84,6 +86,8 @@ var EnumNamesEventContentType = map[EventContentType]string{
 	EventContentTypeSpecialMiniEvent:        "SpecialMiniEvent",
 	EventContentTypeScenarioCollection:      "ScenarioCollection",
 	EventContentTypeScenarioShortcut:        "ScenarioShortcut",
+	EventContentTypeSeasonalEvent:           "SeasonalEvent",
+	EventContentTypeMiniShop:                "MiniShop",
 }
 
 var EnumValuesEventContentType = map[string]EventContentType{
@@ -124,6 +128,8 @@ var EnumValuesEventContentType = map[string]EventContentType{
 	"SpecialMiniEvent":        EventContentTypeSpecialMiniEvent,
 	"ScenarioCollection":      EventContentTypeScenarioCollection,
 	"ScenarioShortcut":        EventContentTypeScenarioShortcut,
+	"SeasonalEvent":           EventContentTypeSeasonalEvent,
+	"MiniShop":                EventContentTypeMiniShop,
 }
 
 func (v EventContentType) String() string {

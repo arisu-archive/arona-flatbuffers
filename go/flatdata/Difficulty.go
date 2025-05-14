@@ -14,6 +14,7 @@ const (
 	DifficultyExtreme  Difficulty = 4
 	DifficultyInsane   Difficulty = 5
 	DifficultyTorment  Difficulty = 6
+	DifficultyLunatic  Difficulty = 7
 )
 
 var EnumNamesDifficulty = map[Difficulty]string{
@@ -24,6 +25,7 @@ var EnumNamesDifficulty = map[Difficulty]string{
 	DifficultyExtreme:  "Extreme",
 	DifficultyInsane:   "Insane",
 	DifficultyTorment:  "Torment",
+	DifficultyLunatic:  "Lunatic",
 }
 
 var EnumValuesDifficulty = map[string]Difficulty{
@@ -34,6 +36,7 @@ var EnumValuesDifficulty = map[string]Difficulty{
 	"Extreme":  DifficultyExtreme,
 	"Insane":   DifficultyInsane,
 	"Torment":  DifficultyTorment,
+	"Lunatic":  DifficultyLunatic,
 }
 
 func (v Difficulty) String() string {

@@ -26,9 +26,6 @@ type EventContentScenarioExcelDto struct {
 	RecollectionSummaryLocalizeScenarioId uint32                            `json:"recollection_summary_localize_scenario_id"`
 	RecollectionResource                  string                            `json:"recollection_resource"`
 	IsRecollectionHorizon                 bool                              `json:"is_recollection_horizon"`
-	CostParcelType                        ParcelType                        `json:"cost_parcel_type"`
-	CostId                                int64                             `json:"cost_id"`
-	CostAmount                            int32                             `json:"cost_amount"`
 	RewardParcelType                      []ParcelType                      `json:"reward_parcel_type"`
 	RewardId                              []int64                           `json:"reward_id"`
 	RewardAmount                          []int32                           `json:"reward_amount"`
@@ -60,9 +57,6 @@ func (t *EventContentScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(b, fbsutils.Convert(t.RecollectionSummaryLocalizeScenarioId, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelAddRecollectionResource(b, b.CreateString(fbsutils.Convert(t.RecollectionResource, t.FlatBuffer.TableKey)))
 	EventContentScenarioExcelAddIsRecollectionHorizon(b, t.IsRecollectionHorizon)
-	EventContentScenarioExcelAddCostParcelType(b, fbsutils.Convert(t.CostParcelType, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddCostId(b, fbsutils.Convert(t.CostId, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddCostAmount(b, fbsutils.Convert(t.CostAmount, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
@@ -112,9 +106,6 @@ func (t *EventContentScenarioExcelDto) UnmarshalMessage(e *EventContentScenarioE
 	t.RecollectionSummaryLocalizeScenarioId = fbsutils.Convert(e.RecollectionSummaryLocalizeScenarioId(), t.FlatBuffer.TableKey)
 	t.RecollectionResource = fbsutils.Convert(string(e.RecollectionResource()), t.FlatBuffer.TableKey)
 	t.IsRecollectionHorizon = e.IsRecollectionHorizon()
-	t.CostParcelType = ParcelType(fbsutils.Convert(int32(e.CostParcelType()), t.FlatBuffer.TableKey))
-	t.CostId = fbsutils.Convert(e.CostId(), t.FlatBuffer.TableKey)
-	t.CostAmount = fbsutils.Convert(e.CostAmount(), t.FlatBuffer.TableKey)
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
 		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))

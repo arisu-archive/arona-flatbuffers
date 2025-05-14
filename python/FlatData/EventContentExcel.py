@@ -52,38 +52,21 @@ class EventContentExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def EventContentExcelStart(builder):
-    builder.StartObject(4)
-
+def EventContentExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    EventContentExcelStart(builder)
-
-def EventContentExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return EventContentExcelStart(builder)
+def EventContentExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    EventContentExcelAddId(builder, id)
-
-def EventContentExcelAddDevName(builder, devName):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
-
+    return EventContentExcelAddId(builder, id)
+def EventContentExcelAddDevName(builder, devName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
 def AddDevName(builder, devName):
-    EventContentExcelAddDevName(builder, devName)
-
-def EventContentExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(2, eventContentId, 0)
-
+    return EventContentExcelAddDevName(builder, devName)
+def EventContentExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(2, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    EventContentExcelAddEventContentId(builder, eventContentId)
-
-def EventContentExcelAddBgImagePath(builder, bgImagePath):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(bgImagePath), 0)
-
+    return EventContentExcelAddEventContentId(builder, eventContentId)
+def EventContentExcelAddBgImagePath(builder, bgImagePath): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(bgImagePath), 0)
 def AddBgImagePath(builder, bgImagePath):
-    EventContentExcelAddBgImagePath(builder, bgImagePath)
-
-def EventContentExcelEnd(builder):
-    return builder.EndObject()
-
+    return EventContentExcelAddBgImagePath(builder, bgImagePath)
+def EventContentExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentExcelEnd(builder)

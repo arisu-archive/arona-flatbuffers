@@ -20,6 +20,7 @@ type EventContentTreasureRewardExcelDto struct {
 	RewardParcelAmount     []int64      `json:"reward_parcel_amount"`
 	CellUnderImagePath     string       `json:"cell_under_image_path"`
 	TreasureSmallImagePath string       `json:"treasure_small_image_path"`
+	TreasureSizeIconPath   string       `json:"treasure_size_icon_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -47,6 +48,7 @@ func (t *EventContentTreasureRewardExcelDto) MarshalModel(b *flatbuffers.Builder
 	EventContentTreasureRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
 	EventContentTreasureRewardExcelAddCellUnderImagePath(b, b.CreateString(fbsutils.Convert(t.CellUnderImagePath, t.FlatBuffer.TableKey)))
 	EventContentTreasureRewardExcelAddTreasureSmallImagePath(b, b.CreateString(fbsutils.Convert(t.TreasureSmallImagePath, t.FlatBuffer.TableKey)))
+	EventContentTreasureRewardExcelAddTreasureSizeIconPath(b, b.CreateString(fbsutils.Convert(t.TreasureSizeIconPath, t.FlatBuffer.TableKey)))
 	return EventContentTreasureRewardExcelEnd(b)
 }
 
@@ -78,6 +80,7 @@ func (t *EventContentTreasureRewardExcelDto) UnmarshalMessage(e *EventContentTre
 	}
 	t.CellUnderImagePath = fbsutils.Convert(string(e.CellUnderImagePath()), t.FlatBuffer.TableKey)
 	t.TreasureSmallImagePath = fbsutils.Convert(string(e.TreasureSmallImagePath()), t.FlatBuffer.TableKey)
+	t.TreasureSizeIconPath = fbsutils.Convert(string(e.TreasureSizeIconPath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

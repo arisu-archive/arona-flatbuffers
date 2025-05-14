@@ -49,26 +49,15 @@ class ClanRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def ClanRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def ClanRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    ClanRewardExcelTableStart(builder)
-
-def ClanRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return ClanRewardExcelTableStart(builder)
+def ClanRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    ClanRewardExcelTableAddDataList(builder, dataList)
-
-def ClanRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ClanRewardExcelTableAddDataList(builder, dataList)
+def ClanRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return ClanRewardExcelTableStartDataListVector(builder, numElems)
-
-def ClanRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def ClanRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return ClanRewardExcelTableEnd(builder)

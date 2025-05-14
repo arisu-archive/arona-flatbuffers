@@ -66,50 +66,27 @@ class FloaterCommonExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def FloaterCommonExcelStart(builder):
-    builder.StartObject(6)
-
+def FloaterCommonExcelStart(builder): builder.StartObject(6)
 def Start(builder):
-    FloaterCommonExcelStart(builder)
-
-def FloaterCommonExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return FloaterCommonExcelStart(builder)
+def FloaterCommonExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    FloaterCommonExcelAddId(builder, id)
-
-def FloaterCommonExcelAddTacticEntityType(builder, tacticEntityType):
-    builder.PrependInt32Slot(1, tacticEntityType, 0)
-
+    return FloaterCommonExcelAddId(builder, id)
+def FloaterCommonExcelAddTacticEntityType(builder, tacticEntityType): builder.PrependInt32Slot(1, tacticEntityType, 0)
 def AddTacticEntityType(builder, tacticEntityType):
-    FloaterCommonExcelAddTacticEntityType(builder, tacticEntityType)
-
-def FloaterCommonExcelAddFloaterOffsetPosX(builder, floaterOffsetPosX):
-    builder.PrependInt32Slot(2, floaterOffsetPosX, 0)
-
+    return FloaterCommonExcelAddTacticEntityType(builder, tacticEntityType)
+def FloaterCommonExcelAddFloaterOffsetPosX(builder, floaterOffsetPosX): builder.PrependInt32Slot(2, floaterOffsetPosX, 0)
 def AddFloaterOffsetPosX(builder, floaterOffsetPosX):
-    FloaterCommonExcelAddFloaterOffsetPosX(builder, floaterOffsetPosX)
-
-def FloaterCommonExcelAddFloaterOffsetPosY(builder, floaterOffsetPosY):
-    builder.PrependInt32Slot(3, floaterOffsetPosY, 0)
-
+    return FloaterCommonExcelAddFloaterOffsetPosX(builder, floaterOffsetPosX)
+def FloaterCommonExcelAddFloaterOffsetPosY(builder, floaterOffsetPosY): builder.PrependInt32Slot(3, floaterOffsetPosY, 0)
 def AddFloaterOffsetPosY(builder, floaterOffsetPosY):
-    FloaterCommonExcelAddFloaterOffsetPosY(builder, floaterOffsetPosY)
-
-def FloaterCommonExcelAddFloaterRandomPosRangeX(builder, floaterRandomPosRangeX):
-    builder.PrependInt32Slot(4, floaterRandomPosRangeX, 0)
-
+    return FloaterCommonExcelAddFloaterOffsetPosY(builder, floaterOffsetPosY)
+def FloaterCommonExcelAddFloaterRandomPosRangeX(builder, floaterRandomPosRangeX): builder.PrependInt32Slot(4, floaterRandomPosRangeX, 0)
 def AddFloaterRandomPosRangeX(builder, floaterRandomPosRangeX):
-    FloaterCommonExcelAddFloaterRandomPosRangeX(builder, floaterRandomPosRangeX)
-
-def FloaterCommonExcelAddFloaterRandomPosRangeY(builder, floaterRandomPosRangeY):
-    builder.PrependInt32Slot(5, floaterRandomPosRangeY, 0)
-
+    return FloaterCommonExcelAddFloaterRandomPosRangeX(builder, floaterRandomPosRangeX)
+def FloaterCommonExcelAddFloaterRandomPosRangeY(builder, floaterRandomPosRangeY): builder.PrependInt32Slot(5, floaterRandomPosRangeY, 0)
 def AddFloaterRandomPosRangeY(builder, floaterRandomPosRangeY):
-    FloaterCommonExcelAddFloaterRandomPosRangeY(builder, floaterRandomPosRangeY)
-
-def FloaterCommonExcelEnd(builder):
-    return builder.EndObject()
-
+    return FloaterCommonExcelAddFloaterRandomPosRangeY(builder, floaterRandomPosRangeY)
+def FloaterCommonExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return FloaterCommonExcelEnd(builder)

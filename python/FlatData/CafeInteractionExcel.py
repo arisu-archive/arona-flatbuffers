@@ -147,92 +147,48 @@ class CafeInteractionExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         return o == 0
 
-def CafeInteractionExcelStart(builder):
-    builder.StartObject(10)
-
+def CafeInteractionExcelStart(builder): builder.StartObject(10)
 def Start(builder):
-    CafeInteractionExcelStart(builder)
-
-def CafeInteractionExcelAddCharacterId(builder, characterId):
-    builder.PrependInt64Slot(0, characterId, 0)
-
+    return CafeInteractionExcelStart(builder)
+def CafeInteractionExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(0, characterId, 0)
 def AddCharacterId(builder, characterId):
-    CafeInteractionExcelAddCharacterId(builder, characterId)
-
-def CafeInteractionExcelAddIgnoreIfUnobtained(builder, ignoreIfUnobtained):
-    builder.PrependBoolSlot(1, ignoreIfUnobtained, 0)
-
+    return CafeInteractionExcelAddCharacterId(builder, characterId)
+def CafeInteractionExcelAddIgnoreIfUnobtained(builder, ignoreIfUnobtained): builder.PrependBoolSlot(1, ignoreIfUnobtained, 0)
 def AddIgnoreIfUnobtained(builder, ignoreIfUnobtained):
-    CafeInteractionExcelAddIgnoreIfUnobtained(builder, ignoreIfUnobtained)
-
-def CafeInteractionExcelAddIgnoreIfUnobtainedStartDate(builder, ignoreIfUnobtainedStartDate):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(ignoreIfUnobtainedStartDate), 0)
-
+    return CafeInteractionExcelAddIgnoreIfUnobtained(builder, ignoreIfUnobtained)
+def CafeInteractionExcelAddIgnoreIfUnobtainedStartDate(builder, ignoreIfUnobtainedStartDate): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(ignoreIfUnobtainedStartDate), 0)
 def AddIgnoreIfUnobtainedStartDate(builder, ignoreIfUnobtainedStartDate):
-    CafeInteractionExcelAddIgnoreIfUnobtainedStartDate(builder, ignoreIfUnobtainedStartDate)
-
-def CafeInteractionExcelAddIgnoreIfUnobtainedEndDate(builder, ignoreIfUnobtainedEndDate):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(ignoreIfUnobtainedEndDate), 0)
-
+    return CafeInteractionExcelAddIgnoreIfUnobtainedStartDate(builder, ignoreIfUnobtainedStartDate)
+def CafeInteractionExcelAddIgnoreIfUnobtainedEndDate(builder, ignoreIfUnobtainedEndDate): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(ignoreIfUnobtainedEndDate), 0)
 def AddIgnoreIfUnobtainedEndDate(builder, ignoreIfUnobtainedEndDate):
-    CafeInteractionExcelAddIgnoreIfUnobtainedEndDate(builder, ignoreIfUnobtainedEndDate)
-
-def CafeInteractionExcelAddBubbleType(builder, bubbleType):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(bubbleType), 0)
-
+    return CafeInteractionExcelAddIgnoreIfUnobtainedEndDate(builder, ignoreIfUnobtainedEndDate)
+def CafeInteractionExcelAddBubbleType(builder, bubbleType): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(bubbleType), 0)
 def AddBubbleType(builder, bubbleType):
-    CafeInteractionExcelAddBubbleType(builder, bubbleType)
-
-def CafeInteractionExcelStartBubbleTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CafeInteractionExcelAddBubbleType(builder, bubbleType)
+def CafeInteractionExcelStartBubbleTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartBubbleTypeVector(builder, numElems):
     return CafeInteractionExcelStartBubbleTypeVector(builder, numElems)
-
-def CafeInteractionExcelAddBubbleDuration(builder, bubbleDuration):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(bubbleDuration), 0)
-
+def CafeInteractionExcelAddBubbleDuration(builder, bubbleDuration): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(bubbleDuration), 0)
 def AddBubbleDuration(builder, bubbleDuration):
-    CafeInteractionExcelAddBubbleDuration(builder, bubbleDuration)
-
-def CafeInteractionExcelStartBubbleDurationVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return CafeInteractionExcelAddBubbleDuration(builder, bubbleDuration)
+def CafeInteractionExcelStartBubbleDurationVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartBubbleDurationVector(builder, numElems):
     return CafeInteractionExcelStartBubbleDurationVector(builder, numElems)
-
-def CafeInteractionExcelAddFavorEmoticonRewardParcelType(builder, favorEmoticonRewardParcelType):
-    builder.PrependInt32Slot(6, favorEmoticonRewardParcelType, 0)
-
+def CafeInteractionExcelAddFavorEmoticonRewardParcelType(builder, favorEmoticonRewardParcelType): builder.PrependInt32Slot(6, favorEmoticonRewardParcelType, 0)
 def AddFavorEmoticonRewardParcelType(builder, favorEmoticonRewardParcelType):
-    CafeInteractionExcelAddFavorEmoticonRewardParcelType(builder, favorEmoticonRewardParcelType)
-
-def CafeInteractionExcelAddFavorEmoticonRewardId(builder, favorEmoticonRewardId):
-    builder.PrependInt64Slot(7, favorEmoticonRewardId, 0)
-
+    return CafeInteractionExcelAddFavorEmoticonRewardParcelType(builder, favorEmoticonRewardParcelType)
+def CafeInteractionExcelAddFavorEmoticonRewardId(builder, favorEmoticonRewardId): builder.PrependInt64Slot(7, favorEmoticonRewardId, 0)
 def AddFavorEmoticonRewardId(builder, favorEmoticonRewardId):
-    CafeInteractionExcelAddFavorEmoticonRewardId(builder, favorEmoticonRewardId)
-
-def CafeInteractionExcelAddFavorEmoticonRewardAmount(builder, favorEmoticonRewardAmount):
-    builder.PrependInt64Slot(8, favorEmoticonRewardAmount, 0)
-
+    return CafeInteractionExcelAddFavorEmoticonRewardId(builder, favorEmoticonRewardId)
+def CafeInteractionExcelAddFavorEmoticonRewardAmount(builder, favorEmoticonRewardAmount): builder.PrependInt64Slot(8, favorEmoticonRewardAmount, 0)
 def AddFavorEmoticonRewardAmount(builder, favorEmoticonRewardAmount):
-    CafeInteractionExcelAddFavorEmoticonRewardAmount(builder, favorEmoticonRewardAmount)
-
-def CafeInteractionExcelAddCafeCharacterState(builder, cafeCharacterState):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterState), 0)
-
+    return CafeInteractionExcelAddFavorEmoticonRewardAmount(builder, favorEmoticonRewardAmount)
+def CafeInteractionExcelAddCafeCharacterState(builder, cafeCharacterState): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterState), 0)
 def AddCafeCharacterState(builder, cafeCharacterState):
-    CafeInteractionExcelAddCafeCharacterState(builder, cafeCharacterState)
-
-def CafeInteractionExcelStartCafeCharacterStateVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CafeInteractionExcelAddCafeCharacterState(builder, cafeCharacterState)
+def CafeInteractionExcelStartCafeCharacterStateVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartCafeCharacterStateVector(builder, numElems):
     return CafeInteractionExcelStartCafeCharacterStateVector(builder, numElems)
-
-def CafeInteractionExcelEnd(builder):
-    return builder.EndObject()
-
+def CafeInteractionExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CafeInteractionExcelEnd(builder)

@@ -49,26 +49,15 @@ class AssistEchelonTypeConvertExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def AssistEchelonTypeConvertExcelTableStart(builder):
-    builder.StartObject(1)
-
+def AssistEchelonTypeConvertExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    AssistEchelonTypeConvertExcelTableStart(builder)
-
-def AssistEchelonTypeConvertExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return AssistEchelonTypeConvertExcelTableStart(builder)
+def AssistEchelonTypeConvertExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    AssistEchelonTypeConvertExcelTableAddDataList(builder, dataList)
-
-def AssistEchelonTypeConvertExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return AssistEchelonTypeConvertExcelTableAddDataList(builder, dataList)
+def AssistEchelonTypeConvertExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return AssistEchelonTypeConvertExcelTableStartDataListVector(builder, numElems)
-
-def AssistEchelonTypeConvertExcelTableEnd(builder):
-    return builder.EndObject()
-
+def AssistEchelonTypeConvertExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return AssistEchelonTypeConvertExcelTableEnd(builder)

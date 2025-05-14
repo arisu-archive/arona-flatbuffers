@@ -17,19 +17,11 @@ func GetRootAsFieldSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldSe
 	return x
 }
 
-func FinishFieldSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFieldSeasonExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldSeasonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldSeasonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFieldSeasonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldSeasonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -117,16 +109,48 @@ func (rcv *FieldSeasonExcel) MutateLobbyBgmChangeStageId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(16, n)
 }
 
-func (rcv *FieldSeasonExcel) CharacterIconPath() []byte {
+func (rcv *FieldSeasonExcel) FieldPrefabControlId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldSeasonExcel) MutateFieldPrefabControlId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
+func (rcv *FieldSeasonExcel) FieldGetKeywordCallDialogEnum() FieldDialogType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return FieldDialogType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *FieldSeasonExcel) MutateFieldGetKeywordCallDialogEnum(n FieldDialogType) bool {
+	return rcv._tab.MutateInt32Slot(20, int32(n))
+}
+
+func (rcv *FieldSeasonExcel) MasteryImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *FieldSeasonExcel) MasteryImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+func (rcv *FieldSeasonExcel) FieldLobbyTitleImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *FieldSeasonExcel) KeywordLogoImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -134,7 +158,7 @@ func (rcv *FieldSeasonExcel) MasteryImagePath() []byte {
 }
 
 func FieldSeasonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(9)
+	builder.StartObject(12)
 }
 func FieldSeasonExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 	builder.PrependInt64Slot(0, uniqueId, 0)
@@ -157,11 +181,20 @@ func FieldSeasonExcelAddEndDate(builder *flatbuffers.Builder, endDate flatbuffer
 func FieldSeasonExcelAddLobbyBgmChangeStageId(builder *flatbuffers.Builder, lobbyBgmChangeStageId int64) {
 	builder.PrependInt64Slot(6, lobbyBgmChangeStageId, 0)
 }
-func FieldSeasonExcelAddCharacterIconPath(builder *flatbuffers.Builder, characterIconPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(characterIconPath), 0)
+func FieldSeasonExcelAddFieldPrefabControlId(builder *flatbuffers.Builder, fieldPrefabControlId int64) {
+	builder.PrependInt64Slot(7, fieldPrefabControlId, 0)
+}
+func FieldSeasonExcelAddFieldGetKeywordCallDialogEnum(builder *flatbuffers.Builder, fieldGetKeywordCallDialogEnum FieldDialogType) {
+	builder.PrependInt32Slot(8, int32(fieldGetKeywordCallDialogEnum), 0)
 }
 func FieldSeasonExcelAddMasteryImagePath(builder *flatbuffers.Builder, masteryImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(masteryImagePath), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(masteryImagePath), 0)
+}
+func FieldSeasonExcelAddFieldLobbyTitleImagePath(builder *flatbuffers.Builder, fieldLobbyTitleImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(fieldLobbyTitleImagePath), 0)
+}
+func FieldSeasonExcelAddKeywordLogoImagePath(builder *flatbuffers.Builder, keywordLogoImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(keywordLogoImagePath), 0)
 }
 func FieldSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

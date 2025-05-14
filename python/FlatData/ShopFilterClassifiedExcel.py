@@ -66,50 +66,27 @@ class ShopFilterClassifiedExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ShopFilterClassifiedExcelStart(builder):
-    builder.StartObject(6)
-
+def ShopFilterClassifiedExcelStart(builder): builder.StartObject(6)
 def Start(builder):
-    ShopFilterClassifiedExcelStart(builder)
-
-def ShopFilterClassifiedExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return ShopFilterClassifiedExcelStart(builder)
+def ShopFilterClassifiedExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    ShopFilterClassifiedExcelAddId(builder, id)
-
-def ShopFilterClassifiedExcelAddCategoryType(builder, categoryType):
-    builder.PrependInt32Slot(1, categoryType, 0)
-
+    return ShopFilterClassifiedExcelAddId(builder, id)
+def ShopFilterClassifiedExcelAddCategoryType(builder, categoryType): builder.PrependInt32Slot(1, categoryType, 0)
 def AddCategoryType(builder, categoryType):
-    ShopFilterClassifiedExcelAddCategoryType(builder, categoryType)
-
-def ShopFilterClassifiedExcelAddConsumeParcelType(builder, consumeParcelType):
-    builder.PrependInt32Slot(2, consumeParcelType, 0)
-
+    return ShopFilterClassifiedExcelAddCategoryType(builder, categoryType)
+def ShopFilterClassifiedExcelAddConsumeParcelType(builder, consumeParcelType): builder.PrependInt32Slot(2, consumeParcelType, 0)
 def AddConsumeParcelType(builder, consumeParcelType):
-    ShopFilterClassifiedExcelAddConsumeParcelType(builder, consumeParcelType)
-
-def ShopFilterClassifiedExcelAddConsumeParcelId(builder, consumeParcelId):
-    builder.PrependInt64Slot(3, consumeParcelId, 0)
-
+    return ShopFilterClassifiedExcelAddConsumeParcelType(builder, consumeParcelType)
+def ShopFilterClassifiedExcelAddConsumeParcelId(builder, consumeParcelId): builder.PrependInt64Slot(3, consumeParcelId, 0)
 def AddConsumeParcelId(builder, consumeParcelId):
-    ShopFilterClassifiedExcelAddConsumeParcelId(builder, consumeParcelId)
-
-def ShopFilterClassifiedExcelAddShopFilterType(builder, shopFilterType):
-    builder.PrependInt32Slot(4, shopFilterType, 0)
-
+    return ShopFilterClassifiedExcelAddConsumeParcelId(builder, consumeParcelId)
+def ShopFilterClassifiedExcelAddShopFilterType(builder, shopFilterType): builder.PrependInt32Slot(4, shopFilterType, 0)
 def AddShopFilterType(builder, shopFilterType):
-    ShopFilterClassifiedExcelAddShopFilterType(builder, shopFilterType)
-
-def ShopFilterClassifiedExcelAddGoodsId(builder, goodsId):
-    builder.PrependInt64Slot(5, goodsId, 0)
-
+    return ShopFilterClassifiedExcelAddShopFilterType(builder, shopFilterType)
+def ShopFilterClassifiedExcelAddGoodsId(builder, goodsId): builder.PrependInt64Slot(5, goodsId, 0)
 def AddGoodsId(builder, goodsId):
-    ShopFilterClassifiedExcelAddGoodsId(builder, goodsId)
-
-def ShopFilterClassifiedExcelEnd(builder):
-    return builder.EndObject()
-
+    return ShopFilterClassifiedExcelAddGoodsId(builder, goodsId)
+def ShopFilterClassifiedExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ShopFilterClassifiedExcelEnd(builder)

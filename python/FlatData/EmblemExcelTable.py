@@ -49,26 +49,15 @@ class EmblemExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EmblemExcelTableStart(builder):
-    builder.StartObject(1)
-
+def EmblemExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    EmblemExcelTableStart(builder)
-
-def EmblemExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return EmblemExcelTableStart(builder)
+def EmblemExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    EmblemExcelTableAddDataList(builder, dataList)
-
-def EmblemExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EmblemExcelTableAddDataList(builder, dataList)
+def EmblemExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return EmblemExcelTableStartDataListVector(builder, numElems)
-
-def EmblemExcelTableEnd(builder):
-    return builder.EndObject()
-
+def EmblemExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return EmblemExcelTableEnd(builder)

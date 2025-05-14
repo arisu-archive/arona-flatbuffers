@@ -17,19 +17,11 @@ func GetRootAsFieldDateExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldDate
 	return x
 }
 
-func FinishFieldDateExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFieldDateExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldDateExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldDateExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFieldDateExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldDateExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -41,7 +33,7 @@ func (rcv *FieldDateExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FieldDateExcel) UniqueId() int64 {
+func (rcv *FieldDateExcel) SeasonId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -49,11 +41,11 @@ func (rcv *FieldDateExcel) UniqueId() int64 {
 	return 0
 }
 
-func (rcv *FieldDateExcel) MutateUniqueId(n int64) bool {
+func (rcv *FieldDateExcel) MutateSeasonId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *FieldDateExcel) SeasonId() int64 {
+func (rcv *FieldDateExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -61,7 +53,7 @@ func (rcv *FieldDateExcel) SeasonId() int64 {
 	return 0
 }
 
-func (rcv *FieldDateExcel) MutateSeasonId(n int64) bool {
+func (rcv *FieldDateExcel) MutateUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
@@ -145,8 +137,32 @@ func (rcv *FieldDateExcel) MutateEndConditionId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(20, n)
 }
 
-func (rcv *FieldDateExcel) OpenConditionStage() int64 {
+func (rcv *FieldDateExcel) EndReadyConditionType() FieldConditionType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return FieldConditionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *FieldDateExcel) MutateEndReadyConditionType(n FieldConditionType) bool {
+	return rcv._tab.MutateInt32Slot(22, int32(n))
+}
+
+func (rcv *FieldDateExcel) EndReadyConditionId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldDateExcel) MutateEndReadyConditionId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
+}
+
+func (rcv *FieldDateExcel) OpenConditionStage() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -154,11 +170,27 @@ func (rcv *FieldDateExcel) OpenConditionStage() int64 {
 }
 
 func (rcv *FieldDateExcel) MutateOpenConditionStage(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
+	return rcv._tab.MutateInt64Slot(26, n)
+}
+
+func (rcv *FieldDateExcel) CharacterIconPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *FieldDateExcel) DateResultBgPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *FieldDateExcel) DateResultSpinePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -166,7 +198,7 @@ func (rcv *FieldDateExcel) DateResultSpinePath() []byte {
 }
 
 func (rcv *FieldDateExcel) DateResultSpineOffsetX() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -174,17 +206,17 @@ func (rcv *FieldDateExcel) DateResultSpineOffsetX() float32 {
 }
 
 func (rcv *FieldDateExcel) MutateDateResultSpineOffsetX(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(26, n)
+	return rcv._tab.MutateFloat32Slot(34, n)
 }
 
 func FieldDateExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(12)
-}
-func FieldDateExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
+	builder.StartObject(16)
 }
 func FieldDateExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
-	builder.PrependInt64Slot(1, seasonId, 0)
+	builder.PrependInt64Slot(0, seasonId, 0)
+}
+func FieldDateExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(1, uniqueId, 0)
 }
 func FieldDateExcelAddOpenDate(builder *flatbuffers.Builder, openDate int64) {
 	builder.PrependInt64Slot(2, openDate, 0)
@@ -207,14 +239,26 @@ func FieldDateExcelAddEndConditionType(builder *flatbuffers.Builder, endConditio
 func FieldDateExcelAddEndConditionId(builder *flatbuffers.Builder, endConditionId int64) {
 	builder.PrependInt64Slot(8, endConditionId, 0)
 }
+func FieldDateExcelAddEndReadyConditionType(builder *flatbuffers.Builder, endReadyConditionType FieldConditionType) {
+	builder.PrependInt32Slot(9, int32(endReadyConditionType), 0)
+}
+func FieldDateExcelAddEndReadyConditionId(builder *flatbuffers.Builder, endReadyConditionId int64) {
+	builder.PrependInt64Slot(10, endReadyConditionId, 0)
+}
 func FieldDateExcelAddOpenConditionStage(builder *flatbuffers.Builder, openConditionStage int64) {
-	builder.PrependInt64Slot(9, openConditionStage, 0)
+	builder.PrependInt64Slot(11, openConditionStage, 0)
+}
+func FieldDateExcelAddCharacterIconPath(builder *flatbuffers.Builder, characterIconPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(characterIconPath), 0)
+}
+func FieldDateExcelAddDateResultBgPath(builder *flatbuffers.Builder, dateResultBgPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(dateResultBgPath), 0)
 }
 func FieldDateExcelAddDateResultSpinePath(builder *flatbuffers.Builder, dateResultSpinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(dateResultSpinePath), 0)
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(dateResultSpinePath), 0)
 }
 func FieldDateExcelAddDateResultSpineOffsetX(builder *flatbuffers.Builder, dateResultSpineOffsetX float32) {
-	builder.PrependFloat32Slot(11, dateResultSpineOffsetX, 0.0)
+	builder.PrependFloat32Slot(15, dateResultSpineOffsetX, 0.0)
 }
 func FieldDateExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

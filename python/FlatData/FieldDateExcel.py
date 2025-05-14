@@ -25,14 +25,14 @@ class FieldDateExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # FieldDateExcel
-    def UniqueId(self):
+    def SeasonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FieldDateExcel
-    def SeasonId(self):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -88,106 +88,105 @@ class FieldDateExcel(object):
         return 0
 
     # FieldDateExcel
-    def OpenConditionStage(self):
+    def EndReadyConditionType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldDateExcel
+    def EndReadyConditionId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FieldDateExcel
+    def OpenConditionStage(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldDateExcel
+    def CharacterIconPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # FieldDateExcel
+    def DateResultBgPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # FieldDateExcel
     def DateResultSpinePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # FieldDateExcel
     def DateResultSpineOffsetX(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-def FieldDateExcelStart(builder):
-    builder.StartObject(12)
-
+def FieldDateExcelStart(builder): builder.StartObject(16)
 def Start(builder):
-    FieldDateExcelStart(builder)
-
-def FieldDateExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(0, uniqueId, 0)
-
-def AddUniqueId(builder, uniqueId):
-    FieldDateExcelAddUniqueId(builder, uniqueId)
-
-def FieldDateExcelAddSeasonId(builder, seasonId):
-    builder.PrependInt64Slot(1, seasonId, 0)
-
+    return FieldDateExcelStart(builder)
+def FieldDateExcelAddSeasonId(builder, seasonId): builder.PrependInt64Slot(0, seasonId, 0)
 def AddSeasonId(builder, seasonId):
-    FieldDateExcelAddSeasonId(builder, seasonId)
-
-def FieldDateExcelAddOpenDate(builder, openDate):
-    builder.PrependInt64Slot(2, openDate, 0)
-
+    return FieldDateExcelAddSeasonId(builder, seasonId)
+def FieldDateExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
+def AddUniqueId(builder, uniqueId):
+    return FieldDateExcelAddUniqueId(builder, uniqueId)
+def FieldDateExcelAddOpenDate(builder, openDate): builder.PrependInt64Slot(2, openDate, 0)
 def AddOpenDate(builder, openDate):
-    FieldDateExcelAddOpenDate(builder, openDate)
-
-def FieldDateExcelAddDateLocalizeKey(builder, dateLocalizeKey):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(dateLocalizeKey), 0)
-
+    return FieldDateExcelAddOpenDate(builder, openDate)
+def FieldDateExcelAddDateLocalizeKey(builder, dateLocalizeKey): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(dateLocalizeKey), 0)
 def AddDateLocalizeKey(builder, dateLocalizeKey):
-    FieldDateExcelAddDateLocalizeKey(builder, dateLocalizeKey)
-
-def FieldDateExcelAddEntrySceneId(builder, entrySceneId):
-    builder.PrependInt64Slot(4, entrySceneId, 0)
-
+    return FieldDateExcelAddDateLocalizeKey(builder, dateLocalizeKey)
+def FieldDateExcelAddEntrySceneId(builder, entrySceneId): builder.PrependInt64Slot(4, entrySceneId, 0)
 def AddEntrySceneId(builder, entrySceneId):
-    FieldDateExcelAddEntrySceneId(builder, entrySceneId)
-
-def FieldDateExcelAddStartConditionType(builder, startConditionType):
-    builder.PrependInt32Slot(5, startConditionType, 0)
-
+    return FieldDateExcelAddEntrySceneId(builder, entrySceneId)
+def FieldDateExcelAddStartConditionType(builder, startConditionType): builder.PrependInt32Slot(5, startConditionType, 0)
 def AddStartConditionType(builder, startConditionType):
-    FieldDateExcelAddStartConditionType(builder, startConditionType)
-
-def FieldDateExcelAddStartConditionId(builder, startConditionId):
-    builder.PrependInt64Slot(6, startConditionId, 0)
-
+    return FieldDateExcelAddStartConditionType(builder, startConditionType)
+def FieldDateExcelAddStartConditionId(builder, startConditionId): builder.PrependInt64Slot(6, startConditionId, 0)
 def AddStartConditionId(builder, startConditionId):
-    FieldDateExcelAddStartConditionId(builder, startConditionId)
-
-def FieldDateExcelAddEndConditionType(builder, endConditionType):
-    builder.PrependInt32Slot(7, endConditionType, 0)
-
+    return FieldDateExcelAddStartConditionId(builder, startConditionId)
+def FieldDateExcelAddEndConditionType(builder, endConditionType): builder.PrependInt32Slot(7, endConditionType, 0)
 def AddEndConditionType(builder, endConditionType):
-    FieldDateExcelAddEndConditionType(builder, endConditionType)
-
-def FieldDateExcelAddEndConditionId(builder, endConditionId):
-    builder.PrependInt64Slot(8, endConditionId, 0)
-
+    return FieldDateExcelAddEndConditionType(builder, endConditionType)
+def FieldDateExcelAddEndConditionId(builder, endConditionId): builder.PrependInt64Slot(8, endConditionId, 0)
 def AddEndConditionId(builder, endConditionId):
-    FieldDateExcelAddEndConditionId(builder, endConditionId)
-
-def FieldDateExcelAddOpenConditionStage(builder, openConditionStage):
-    builder.PrependInt64Slot(9, openConditionStage, 0)
-
+    return FieldDateExcelAddEndConditionId(builder, endConditionId)
+def FieldDateExcelAddEndReadyConditionType(builder, endReadyConditionType): builder.PrependInt32Slot(9, endReadyConditionType, 0)
+def AddEndReadyConditionType(builder, endReadyConditionType):
+    return FieldDateExcelAddEndReadyConditionType(builder, endReadyConditionType)
+def FieldDateExcelAddEndReadyConditionId(builder, endReadyConditionId): builder.PrependInt64Slot(10, endReadyConditionId, 0)
+def AddEndReadyConditionId(builder, endReadyConditionId):
+    return FieldDateExcelAddEndReadyConditionId(builder, endReadyConditionId)
+def FieldDateExcelAddOpenConditionStage(builder, openConditionStage): builder.PrependInt64Slot(11, openConditionStage, 0)
 def AddOpenConditionStage(builder, openConditionStage):
-    FieldDateExcelAddOpenConditionStage(builder, openConditionStage)
-
-def FieldDateExcelAddDateResultSpinePath(builder, dateResultSpinePath):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(dateResultSpinePath), 0)
-
+    return FieldDateExcelAddOpenConditionStage(builder, openConditionStage)
+def FieldDateExcelAddCharacterIconPath(builder, characterIconPath): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(characterIconPath), 0)
+def AddCharacterIconPath(builder, characterIconPath):
+    return FieldDateExcelAddCharacterIconPath(builder, characterIconPath)
+def FieldDateExcelAddDateResultBgPath(builder, dateResultBgPath): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(dateResultBgPath), 0)
+def AddDateResultBgPath(builder, dateResultBgPath):
+    return FieldDateExcelAddDateResultBgPath(builder, dateResultBgPath)
+def FieldDateExcelAddDateResultSpinePath(builder, dateResultSpinePath): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(dateResultSpinePath), 0)
 def AddDateResultSpinePath(builder, dateResultSpinePath):
-    FieldDateExcelAddDateResultSpinePath(builder, dateResultSpinePath)
-
-def FieldDateExcelAddDateResultSpineOffsetX(builder, dateResultSpineOffsetX):
-    builder.PrependFloat32Slot(11, dateResultSpineOffsetX, 0.0)
-
+    return FieldDateExcelAddDateResultSpinePath(builder, dateResultSpinePath)
+def FieldDateExcelAddDateResultSpineOffsetX(builder, dateResultSpineOffsetX): builder.PrependFloat32Slot(15, dateResultSpineOffsetX, 0.0)
 def AddDateResultSpineOffsetX(builder, dateResultSpineOffsetX):
-    FieldDateExcelAddDateResultSpineOffsetX(builder, dateResultSpineOffsetX)
-
-def FieldDateExcelEnd(builder):
-    return builder.EndObject()
-
+    return FieldDateExcelAddDateResultSpineOffsetX(builder, dateResultSpineOffsetX)
+def FieldDateExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return FieldDateExcelEnd(builder)

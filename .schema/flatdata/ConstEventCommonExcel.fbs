@@ -16,4 +16,5 @@ table ConstEventCommonExcel {
     treasure_loop_variation_amount: int;
     treasure_limit_variation_loop_count: int;
     treasure_limit_variation_clear_loop_count: int;
+    event_story_replay_hide_event_content_id: int;
 }

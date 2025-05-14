@@ -115,92 +115,48 @@ class CharacterDialogFieldExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def CharacterDialogFieldExcelStart(builder):
-    builder.StartObject(13)
-
+def CharacterDialogFieldExcelStart(builder): builder.StartObject(13)
 def Start(builder):
-    CharacterDialogFieldExcelStart(builder)
-
-def CharacterDialogFieldExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(0, groupId, 0)
-
+    return CharacterDialogFieldExcelStart(builder)
+def CharacterDialogFieldExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
 def AddGroupId(builder, groupId):
-    CharacterDialogFieldExcelAddGroupId(builder, groupId)
-
-def CharacterDialogFieldExcelAddPhase(builder, phase):
-    builder.PrependInt32Slot(1, phase, 0)
-
+    return CharacterDialogFieldExcelAddGroupId(builder, groupId)
+def CharacterDialogFieldExcelAddPhase(builder, phase): builder.PrependInt32Slot(1, phase, 0)
 def AddPhase(builder, phase):
-    CharacterDialogFieldExcelAddPhase(builder, phase)
-
-def CharacterDialogFieldExcelAddTargetIndex(builder, targetIndex):
-    builder.PrependInt32Slot(2, targetIndex, 0)
-
+    return CharacterDialogFieldExcelAddPhase(builder, phase)
+def CharacterDialogFieldExcelAddTargetIndex(builder, targetIndex): builder.PrependInt32Slot(2, targetIndex, 0)
 def AddTargetIndex(builder, targetIndex):
-    CharacterDialogFieldExcelAddTargetIndex(builder, targetIndex)
-
-def CharacterDialogFieldExcelAddDialogType(builder, dialogType):
-    builder.PrependInt32Slot(3, dialogType, 0)
-
+    return CharacterDialogFieldExcelAddTargetIndex(builder, targetIndex)
+def CharacterDialogFieldExcelAddDialogType(builder, dialogType): builder.PrependInt32Slot(3, dialogType, 0)
 def AddDialogType(builder, dialogType):
-    CharacterDialogFieldExcelAddDialogType(builder, dialogType)
-
-def CharacterDialogFieldExcelAddDuration(builder, duration):
-    builder.PrependInt64Slot(4, duration, 0)
-
+    return CharacterDialogFieldExcelAddDialogType(builder, dialogType)
+def CharacterDialogFieldExcelAddDuration(builder, duration): builder.PrependInt64Slot(4, duration, 0)
 def AddDuration(builder, duration):
-    CharacterDialogFieldExcelAddDuration(builder, duration)
-
-def CharacterDialogFieldExcelAddMotionName(builder, motionName):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(motionName), 0)
-
+    return CharacterDialogFieldExcelAddDuration(builder, duration)
+def CharacterDialogFieldExcelAddMotionName(builder, motionName): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(motionName), 0)
 def AddMotionName(builder, motionName):
-    CharacterDialogFieldExcelAddMotionName(builder, motionName)
-
-def CharacterDialogFieldExcelAddIsInteractionDialog(builder, isInteractionDialog):
-    builder.PrependBoolSlot(6, isInteractionDialog, 0)
-
+    return CharacterDialogFieldExcelAddMotionName(builder, motionName)
+def CharacterDialogFieldExcelAddIsInteractionDialog(builder, isInteractionDialog): builder.PrependBoolSlot(6, isInteractionDialog, 0)
 def AddIsInteractionDialog(builder, isInteractionDialog):
-    CharacterDialogFieldExcelAddIsInteractionDialog(builder, isInteractionDialog)
-
-def CharacterDialogFieldExcelAddHideUi(builder, hideUi):
-    builder.PrependBoolSlot(7, hideUi, 0)
-
+    return CharacterDialogFieldExcelAddIsInteractionDialog(builder, isInteractionDialog)
+def CharacterDialogFieldExcelAddHideUi(builder, hideUi): builder.PrependBoolSlot(7, hideUi, 0)
 def AddHideUi(builder, hideUi):
-    CharacterDialogFieldExcelAddHideUi(builder, hideUi)
-
-def CharacterDialogFieldExcelAddLocalizeKr(builder, localizeKr):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(localizeKr), 0)
-
+    return CharacterDialogFieldExcelAddHideUi(builder, hideUi)
+def CharacterDialogFieldExcelAddLocalizeKr(builder, localizeKr): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(localizeKr), 0)
 def AddLocalizeKr(builder, localizeKr):
-    CharacterDialogFieldExcelAddLocalizeKr(builder, localizeKr)
-
-def CharacterDialogFieldExcelAddLocalizeJp(builder, localizeJp):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(localizeJp), 0)
-
+    return CharacterDialogFieldExcelAddLocalizeKr(builder, localizeKr)
+def CharacterDialogFieldExcelAddLocalizeJp(builder, localizeJp): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(localizeJp), 0)
 def AddLocalizeJp(builder, localizeJp):
-    CharacterDialogFieldExcelAddLocalizeJp(builder, localizeJp)
-
-def CharacterDialogFieldExcelAddLocalizeTh(builder, localizeTh):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTh), 0)
-
+    return CharacterDialogFieldExcelAddLocalizeJp(builder, localizeJp)
+def CharacterDialogFieldExcelAddLocalizeTh(builder, localizeTh): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTh), 0)
 def AddLocalizeTh(builder, localizeTh):
-    CharacterDialogFieldExcelAddLocalizeTh(builder, localizeTh)
-
-def CharacterDialogFieldExcelAddLocalizeTw(builder, localizeTw):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTw), 0)
-
+    return CharacterDialogFieldExcelAddLocalizeTh(builder, localizeTh)
+def CharacterDialogFieldExcelAddLocalizeTw(builder, localizeTw): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTw), 0)
 def AddLocalizeTw(builder, localizeTw):
-    CharacterDialogFieldExcelAddLocalizeTw(builder, localizeTw)
-
-def CharacterDialogFieldExcelAddLocalizeEn(builder, localizeEn):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(localizeEn), 0)
-
+    return CharacterDialogFieldExcelAddLocalizeTw(builder, localizeTw)
+def CharacterDialogFieldExcelAddLocalizeEn(builder, localizeEn): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(localizeEn), 0)
 def AddLocalizeEn(builder, localizeEn):
-    CharacterDialogFieldExcelAddLocalizeEn(builder, localizeEn)
-
-def CharacterDialogFieldExcelEnd(builder):
-    return builder.EndObject()
-
+    return CharacterDialogFieldExcelAddLocalizeEn(builder, localizeEn)
+def CharacterDialogFieldExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterDialogFieldExcelEnd(builder)

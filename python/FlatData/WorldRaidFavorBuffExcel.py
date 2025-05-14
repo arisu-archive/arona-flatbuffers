@@ -38,26 +38,15 @@ class WorldRaidFavorBuffExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def WorldRaidFavorBuffExcelStart(builder):
-    builder.StartObject(2)
-
+def WorldRaidFavorBuffExcelStart(builder): builder.StartObject(2)
 def Start(builder):
-    WorldRaidFavorBuffExcelStart(builder)
-
-def WorldRaidFavorBuffExcelAddWorldRaidFavorRank(builder, worldRaidFavorRank):
-    builder.PrependInt64Slot(0, worldRaidFavorRank, 0)
-
+    return WorldRaidFavorBuffExcelStart(builder)
+def WorldRaidFavorBuffExcelAddWorldRaidFavorRank(builder, worldRaidFavorRank): builder.PrependInt64Slot(0, worldRaidFavorRank, 0)
 def AddWorldRaidFavorRank(builder, worldRaidFavorRank):
-    WorldRaidFavorBuffExcelAddWorldRaidFavorRank(builder, worldRaidFavorRank)
-
-def WorldRaidFavorBuffExcelAddWorldRaidFavorRankBonus(builder, worldRaidFavorRankBonus):
-    builder.PrependInt64Slot(1, worldRaidFavorRankBonus, 0)
-
+    return WorldRaidFavorBuffExcelAddWorldRaidFavorRank(builder, worldRaidFavorRank)
+def WorldRaidFavorBuffExcelAddWorldRaidFavorRankBonus(builder, worldRaidFavorRankBonus): builder.PrependInt64Slot(1, worldRaidFavorRankBonus, 0)
 def AddWorldRaidFavorRankBonus(builder, worldRaidFavorRankBonus):
-    WorldRaidFavorBuffExcelAddWorldRaidFavorRankBonus(builder, worldRaidFavorRankBonus)
-
-def WorldRaidFavorBuffExcelEnd(builder):
-    return builder.EndObject()
-
+    return WorldRaidFavorBuffExcelAddWorldRaidFavorRankBonus(builder, worldRaidFavorRankBonus)
+def WorldRaidFavorBuffExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return WorldRaidFavorBuffExcelEnd(builder)

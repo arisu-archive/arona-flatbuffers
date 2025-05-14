@@ -17,19 +17,11 @@ func GetRootAsConstArenaExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstAre
 	return x
 }
 
-func FinishConstArenaExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsConstArenaExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstArenaExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstArenaExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedConstArenaExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstArenaExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -494,8 +486,20 @@ func (rcv *ConstArenaExcel) MutateShowSeasonId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(66, n)
 }
 
+func (rcv *ConstArenaExcel) ArenaHistoryQueryLimitDays() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstArenaExcel) MutateArenaHistoryQueryLimitDays(n int32) bool {
+	return rcv._tab.MutateInt32Slot(68, n)
+}
+
 func ConstArenaExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(32)
+	builder.StartObject(33)
 }
 func ConstArenaExcelAddAttackCoolTime(builder *flatbuffers.Builder, attackCoolTime int64) {
 	builder.PrependInt64Slot(0, attackCoolTime, 0)
@@ -613,6 +617,9 @@ func ConstArenaExcelAddShowSeasonChangeInfoEndTime(builder *flatbuffers.Builder,
 }
 func ConstArenaExcelAddShowSeasonId(builder *flatbuffers.Builder, showSeasonId int64) {
 	builder.PrependInt64Slot(31, showSeasonId, 0)
+}
+func ConstArenaExcelAddArenaHistoryQueryLimitDays(builder *flatbuffers.Builder, arenaHistoryQueryLimitDays int32) {
+	builder.PrependInt32Slot(32, arenaHistoryQueryLimitDays, 0)
 }
 func ConstArenaExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

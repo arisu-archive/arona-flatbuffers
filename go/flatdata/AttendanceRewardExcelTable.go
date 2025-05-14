@@ -17,19 +17,11 @@ func GetRootAsAttendanceRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT
 	return x
 }
 
-func FinishAttendanceRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsAttendanceRewardExcelTable(buf []byte, offset flatbuffers.UOffsetT) *AttendanceRewardExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AttendanceRewardExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedAttendanceRewardExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AttendanceRewardExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

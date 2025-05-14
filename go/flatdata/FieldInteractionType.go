@@ -7,45 +7,48 @@ import "strconv"
 type FieldInteractionType int32
 
 const (
-	FieldInteractionTypeNone          FieldInteractionType = 0
-	FieldInteractionTypeScenario      FieldInteractionType = 1
-	FieldInteractionTypeReward        FieldInteractionType = 2
-	FieldInteractionTypeDialog        FieldInteractionType = 3
-	FieldInteractionTypeStage         FieldInteractionType = 4
-	FieldInteractionTypeKeywordFound  FieldInteractionType = 5
-	FieldInteractionTypeEvidenceFound FieldInteractionType = 6
-	FieldInteractionTypeSceneChange   FieldInteractionType = 7
-	FieldInteractionTypeTimeline      FieldInteractionType = 8
-	FieldInteractionTypeActionTrigger FieldInteractionType = 9
-	FieldInteractionTypeInterplay     FieldInteractionType = 10
+	FieldInteractionTypeNone            FieldInteractionType = 0
+	FieldInteractionTypeScenario        FieldInteractionType = 1
+	FieldInteractionTypeReward          FieldInteractionType = 2
+	FieldInteractionTypeDialog          FieldInteractionType = 3
+	FieldInteractionTypeStage           FieldInteractionType = 4
+	FieldInteractionTypeKeywordFound    FieldInteractionType = 5
+	FieldInteractionTypeEvidenceFound   FieldInteractionType = 6
+	FieldInteractionTypeSceneChange     FieldInteractionType = 7
+	FieldInteractionTypeTimeline        FieldInteractionType = 8
+	FieldInteractionTypeActionTrigger   FieldInteractionType = 9
+	FieldInteractionTypeInterplay       FieldInteractionType = 10
+	FieldInteractionTypeUnderCoverStage FieldInteractionType = 11
 )
 
 var EnumNamesFieldInteractionType = map[FieldInteractionType]string{
-	FieldInteractionTypeNone:          "None",
-	FieldInteractionTypeScenario:      "Scenario",
-	FieldInteractionTypeReward:        "Reward",
-	FieldInteractionTypeDialog:        "Dialog",
-	FieldInteractionTypeStage:         "Stage",
-	FieldInteractionTypeKeywordFound:  "KeywordFound",
-	FieldInteractionTypeEvidenceFound: "EvidenceFound",
-	FieldInteractionTypeSceneChange:   "SceneChange",
-	FieldInteractionTypeTimeline:      "Timeline",
-	FieldInteractionTypeActionTrigger: "ActionTrigger",
-	FieldInteractionTypeInterplay:     "Interplay",
+	FieldInteractionTypeNone:            "None",
+	FieldInteractionTypeScenario:        "Scenario",
+	FieldInteractionTypeReward:          "Reward",
+	FieldInteractionTypeDialog:          "Dialog",
+	FieldInteractionTypeStage:           "Stage",
+	FieldInteractionTypeKeywordFound:    "KeywordFound",
+	FieldInteractionTypeEvidenceFound:   "EvidenceFound",
+	FieldInteractionTypeSceneChange:     "SceneChange",
+	FieldInteractionTypeTimeline:        "Timeline",
+	FieldInteractionTypeActionTrigger:   "ActionTrigger",
+	FieldInteractionTypeInterplay:       "Interplay",
+	FieldInteractionTypeUnderCoverStage: "UnderCoverStage",
 }
 
 var EnumValuesFieldInteractionType = map[string]FieldInteractionType{
-	"None":          FieldInteractionTypeNone,
-	"Scenario":      FieldInteractionTypeScenario,
-	"Reward":        FieldInteractionTypeReward,
-	"Dialog":        FieldInteractionTypeDialog,
-	"Stage":         FieldInteractionTypeStage,
-	"KeywordFound":  FieldInteractionTypeKeywordFound,
-	"EvidenceFound": FieldInteractionTypeEvidenceFound,
-	"SceneChange":   FieldInteractionTypeSceneChange,
-	"Timeline":      FieldInteractionTypeTimeline,
-	"ActionTrigger": FieldInteractionTypeActionTrigger,
-	"Interplay":     FieldInteractionTypeInterplay,
+	"None":            FieldInteractionTypeNone,
+	"Scenario":        FieldInteractionTypeScenario,
+	"Reward":          FieldInteractionTypeReward,
+	"Dialog":          FieldInteractionTypeDialog,
+	"Stage":           FieldInteractionTypeStage,
+	"KeywordFound":    FieldInteractionTypeKeywordFound,
+	"EvidenceFound":   FieldInteractionTypeEvidenceFound,
+	"SceneChange":     FieldInteractionTypeSceneChange,
+	"Timeline":        FieldInteractionTypeTimeline,
+	"ActionTrigger":   FieldInteractionTypeActionTrigger,
+	"Interplay":       FieldInteractionTypeInterplay,
+	"UnderCoverStage": FieldInteractionTypeUnderCoverStage,
 }
 
 func (v FieldInteractionType) String() string {

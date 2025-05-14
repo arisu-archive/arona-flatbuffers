@@ -80,62 +80,33 @@ class BossExternalBTExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def BossExternalBTExcelStart(builder):
-    builder.StartObject(8)
-
+def BossExternalBTExcelStart(builder): builder.StartObject(8)
 def Start(builder):
-    BossExternalBTExcelStart(builder)
-
-def BossExternalBTExcelAddExternalBtId(builder, externalBtId):
-    builder.PrependInt64Slot(0, externalBtId, 0)
-
+    return BossExternalBTExcelStart(builder)
+def BossExternalBTExcelAddExternalBtId(builder, externalBtId): builder.PrependInt64Slot(0, externalBtId, 0)
 def AddExternalBtId(builder, externalBtId):
-    BossExternalBTExcelAddExternalBtId(builder, externalBtId)
-
-def BossExternalBTExcelAddAiPhase(builder, aiPhase):
-    builder.PrependInt64Slot(1, aiPhase, 0)
-
+    return BossExternalBTExcelAddExternalBtId(builder, externalBtId)
+def BossExternalBTExcelAddAiPhase(builder, aiPhase): builder.PrependInt64Slot(1, aiPhase, 0)
 def AddAiPhase(builder, aiPhase):
-    BossExternalBTExcelAddAiPhase(builder, aiPhase)
-
-def BossExternalBTExcelAddExternalBtNodeType(builder, externalBtNodeType):
-    builder.PrependInt32Slot(2, externalBtNodeType, 0)
-
+    return BossExternalBTExcelAddAiPhase(builder, aiPhase)
+def BossExternalBTExcelAddExternalBtNodeType(builder, externalBtNodeType): builder.PrependInt32Slot(2, externalBtNodeType, 0)
 def AddExternalBtNodeType(builder, externalBtNodeType):
-    BossExternalBTExcelAddExternalBtNodeType(builder, externalBtNodeType)
-
-def BossExternalBTExcelAddExternalBtTrigger(builder, externalBtTrigger):
-    builder.PrependInt32Slot(3, externalBtTrigger, 0)
-
+    return BossExternalBTExcelAddExternalBtNodeType(builder, externalBtNodeType)
+def BossExternalBTExcelAddExternalBtTrigger(builder, externalBtTrigger): builder.PrependInt32Slot(3, externalBtTrigger, 0)
 def AddExternalBtTrigger(builder, externalBtTrigger):
-    BossExternalBTExcelAddExternalBtTrigger(builder, externalBtTrigger)
-
-def BossExternalBTExcelAddTriggerArgument(builder, triggerArgument):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(triggerArgument), 0)
-
+    return BossExternalBTExcelAddExternalBtTrigger(builder, externalBtTrigger)
+def BossExternalBTExcelAddTriggerArgument(builder, triggerArgument): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(triggerArgument), 0)
 def AddTriggerArgument(builder, triggerArgument):
-    BossExternalBTExcelAddTriggerArgument(builder, triggerArgument)
-
-def BossExternalBTExcelAddBehaviorRate(builder, behaviorRate):
-    builder.PrependInt64Slot(5, behaviorRate, 0)
-
+    return BossExternalBTExcelAddTriggerArgument(builder, triggerArgument)
+def BossExternalBTExcelAddBehaviorRate(builder, behaviorRate): builder.PrependInt64Slot(5, behaviorRate, 0)
 def AddBehaviorRate(builder, behaviorRate):
-    BossExternalBTExcelAddBehaviorRate(builder, behaviorRate)
-
-def BossExternalBTExcelAddExternalBehavior(builder, externalBehavior):
-    builder.PrependInt32Slot(6, externalBehavior, 0)
-
+    return BossExternalBTExcelAddBehaviorRate(builder, behaviorRate)
+def BossExternalBTExcelAddExternalBehavior(builder, externalBehavior): builder.PrependInt32Slot(6, externalBehavior, 0)
 def AddExternalBehavior(builder, externalBehavior):
-    BossExternalBTExcelAddExternalBehavior(builder, externalBehavior)
-
-def BossExternalBTExcelAddBehaviorArgument(builder, behaviorArgument):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(behaviorArgument), 0)
-
+    return BossExternalBTExcelAddExternalBehavior(builder, externalBehavior)
+def BossExternalBTExcelAddBehaviorArgument(builder, behaviorArgument): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(behaviorArgument), 0)
 def AddBehaviorArgument(builder, behaviorArgument):
-    BossExternalBTExcelAddBehaviorArgument(builder, behaviorArgument)
-
-def BossExternalBTExcelEnd(builder):
-    return builder.EndObject()
-
+    return BossExternalBTExcelAddBehaviorArgument(builder, behaviorArgument)
+def BossExternalBTExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return BossExternalBTExcelEnd(builder)

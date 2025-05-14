@@ -49,26 +49,15 @@ class FavorLevelRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def FavorLevelRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def FavorLevelRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    FavorLevelRewardExcelTableStart(builder)
-
-def FavorLevelRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return FavorLevelRewardExcelTableStart(builder)
+def FavorLevelRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    FavorLevelRewardExcelTableAddDataList(builder, dataList)
-
-def FavorLevelRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FavorLevelRewardExcelTableAddDataList(builder, dataList)
+def FavorLevelRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return FavorLevelRewardExcelTableStartDataListVector(builder, numElems)
-
-def FavorLevelRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def FavorLevelRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return FavorLevelRewardExcelTableEnd(builder)

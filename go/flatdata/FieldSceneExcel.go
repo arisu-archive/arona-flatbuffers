@@ -17,19 +17,11 @@ func GetRootAsFieldSceneExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldSce
 	return x
 }
 
-func FinishFieldSceneExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFieldSceneExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldSceneExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldSceneExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFieldSceneExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldSceneExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -157,8 +149,34 @@ func (rcv *FieldSceneExcel) MutateBeginConditionalBgmScenarioGroupId(j int, n in
 	return false
 }
 
-func (rcv *FieldSceneExcel) EndConditionalBgmScenarioGroupId(j int) int64 {
+func (rcv *FieldSceneExcel) BeginConditionalBgmInteractionId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *FieldSceneExcel) BeginConditionalBgmInteractionIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FieldSceneExcel) MutateBeginConditionalBgmInteractionId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *FieldSceneExcel) EndConditionalBgmScenarioGroupId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -167,7 +185,7 @@ func (rcv *FieldSceneExcel) EndConditionalBgmScenarioGroupId(j int) int64 {
 }
 
 func (rcv *FieldSceneExcel) EndConditionalBgmScenarioGroupIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -175,7 +193,33 @@ func (rcv *FieldSceneExcel) EndConditionalBgmScenarioGroupIdLength() int {
 }
 
 func (rcv *FieldSceneExcel) MutateEndConditionalBgmScenarioGroupId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *FieldSceneExcel) EndConditionalBgmInteractionId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *FieldSceneExcel) EndConditionalBgmInteractionIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FieldSceneExcel) MutateEndConditionalBgmInteractionId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -184,7 +228,7 @@ func (rcv *FieldSceneExcel) MutateEndConditionalBgmScenarioGroupId(j int, n int6
 }
 
 func (rcv *FieldSceneExcel) ConditionalBgmId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -193,7 +237,7 @@ func (rcv *FieldSceneExcel) ConditionalBgmId(j int) int64 {
 }
 
 func (rcv *FieldSceneExcel) ConditionalBgmIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -201,7 +245,7 @@ func (rcv *FieldSceneExcel) ConditionalBgmIdLength() int {
 }
 
 func (rcv *FieldSceneExcel) MutateConditionalBgmId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -210,7 +254,7 @@ func (rcv *FieldSceneExcel) MutateConditionalBgmId(j int, n int64) bool {
 }
 
 func FieldSceneExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(10)
+	builder.StartObject(12)
 }
 func FieldSceneExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 	builder.PrependInt64Slot(0, uniqueId, 0)
@@ -242,14 +286,26 @@ func FieldSceneExcelAddBeginConditionalBgmScenarioGroupId(builder *flatbuffers.B
 func FieldSceneExcelStartBeginConditionalBgmScenarioGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
+func FieldSceneExcelAddBeginConditionalBgmInteractionId(builder *flatbuffers.Builder, beginConditionalBgmInteractionId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(beginConditionalBgmInteractionId), 0)
+}
+func FieldSceneExcelStartBeginConditionalBgmInteractionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
 func FieldSceneExcelAddEndConditionalBgmScenarioGroupId(builder *flatbuffers.Builder, endConditionalBgmScenarioGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(endConditionalBgmScenarioGroupId), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(endConditionalBgmScenarioGroupId), 0)
 }
 func FieldSceneExcelStartEndConditionalBgmScenarioGroupIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
+func FieldSceneExcelAddEndConditionalBgmInteractionId(builder *flatbuffers.Builder, endConditionalBgmInteractionId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(endConditionalBgmInteractionId), 0)
+}
+func FieldSceneExcelStartEndConditionalBgmInteractionIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
 func FieldSceneExcelAddConditionalBgmId(builder *flatbuffers.Builder, conditionalBgmId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(conditionalBgmId), 0)
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(conditionalBgmId), 0)
 }
 func FieldSceneExcelStartConditionalBgmIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)

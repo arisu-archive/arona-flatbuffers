@@ -17,19 +17,11 @@ func GetRootAsCharacterCalculationLimitExcel(buf []byte, offset flatbuffers.UOff
 	return x
 }
 
-func FinishCharacterCalculationLimitExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterCalculationLimitExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterCalculationLimitExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterCalculationLimitExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterCalculationLimitExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterCalculationLimitExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -101,8 +93,60 @@ func (rcv *CharacterCalculationLimitExcel) MutateMaxValue(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
+func (rcv *CharacterCalculationLimitExcel) LimitStartValue(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *CharacterCalculationLimitExcel) LimitStartValueLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CharacterCalculationLimitExcel) MutateLimitStartValue(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *CharacterCalculationLimitExcel) DecreaseRate(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *CharacterCalculationLimitExcel) DecreaseRateLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CharacterCalculationLimitExcel) MutateDecreaseRate(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
 func CharacterCalculationLimitExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(5)
+	builder.StartObject(7)
 }
 func CharacterCalculationLimitExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -118,6 +162,18 @@ func CharacterCalculationLimitExcelAddMinValue(builder *flatbuffers.Builder, min
 }
 func CharacterCalculationLimitExcelAddMaxValue(builder *flatbuffers.Builder, maxValue int64) {
 	builder.PrependInt64Slot(4, maxValue, 0)
+}
+func CharacterCalculationLimitExcelAddLimitStartValue(builder *flatbuffers.Builder, limitStartValue flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(limitStartValue), 0)
+}
+func CharacterCalculationLimitExcelStartLimitStartValueVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func CharacterCalculationLimitExcelAddDecreaseRate(builder *flatbuffers.Builder, decreaseRate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(decreaseRate), 0)
+}
+func CharacterCalculationLimitExcelStartDecreaseRateVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func CharacterCalculationLimitExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

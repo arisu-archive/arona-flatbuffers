@@ -87,68 +87,36 @@ class Video_GlobalExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def Video_GlobalExcelStart(builder):
-    builder.StartObject(9)
-
+def Video_GlobalExcelStart(builder): builder.StartObject(9)
 def Start(builder):
-    Video_GlobalExcelStart(builder)
-
-def Video_GlobalExcelAddVideoId(builder, videoId):
-    builder.PrependInt64Slot(0, videoId, 0)
-
+    return Video_GlobalExcelStart(builder)
+def Video_GlobalExcelAddVideoId(builder, videoId): builder.PrependInt64Slot(0, videoId, 0)
 def AddVideoId(builder, videoId):
-    Video_GlobalExcelAddVideoId(builder, videoId)
-
-def Video_GlobalExcelAddVideoPathKr(builder, videoPathKr):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(videoPathKr), 0)
-
+    return Video_GlobalExcelAddVideoId(builder, videoId)
+def Video_GlobalExcelAddVideoPathKr(builder, videoPathKr): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(videoPathKr), 0)
 def AddVideoPathKr(builder, videoPathKr):
-    Video_GlobalExcelAddVideoPathKr(builder, videoPathKr)
-
-def Video_GlobalExcelAddVideoTeenPathKr(builder, videoTeenPathKr):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(videoTeenPathKr), 0)
-
+    return Video_GlobalExcelAddVideoPathKr(builder, videoPathKr)
+def Video_GlobalExcelAddVideoTeenPathKr(builder, videoTeenPathKr): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(videoTeenPathKr), 0)
 def AddVideoTeenPathKr(builder, videoTeenPathKr):
-    Video_GlobalExcelAddVideoTeenPathKr(builder, videoTeenPathKr)
-
-def Video_GlobalExcelAddVideoPathTh(builder, videoPathTh):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(videoPathTh), 0)
-
+    return Video_GlobalExcelAddVideoTeenPathKr(builder, videoTeenPathKr)
+def Video_GlobalExcelAddVideoPathTh(builder, videoPathTh): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(videoPathTh), 0)
 def AddVideoPathTh(builder, videoPathTh):
-    Video_GlobalExcelAddVideoPathTh(builder, videoPathTh)
-
-def Video_GlobalExcelAddVideoTeenPathTh(builder, videoTeenPathTh):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(videoTeenPathTh), 0)
-
+    return Video_GlobalExcelAddVideoPathTh(builder, videoPathTh)
+def Video_GlobalExcelAddVideoTeenPathTh(builder, videoTeenPathTh): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(videoTeenPathTh), 0)
 def AddVideoTeenPathTh(builder, videoTeenPathTh):
-    Video_GlobalExcelAddVideoTeenPathTh(builder, videoTeenPathTh)
-
-def Video_GlobalExcelAddVideoPathTw(builder, videoPathTw):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(videoPathTw), 0)
-
+    return Video_GlobalExcelAddVideoTeenPathTh(builder, videoTeenPathTh)
+def Video_GlobalExcelAddVideoPathTw(builder, videoPathTw): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(videoPathTw), 0)
 def AddVideoPathTw(builder, videoPathTw):
-    Video_GlobalExcelAddVideoPathTw(builder, videoPathTw)
-
-def Video_GlobalExcelAddVideoTeenPathTw(builder, videoTeenPathTw):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(videoTeenPathTw), 0)
-
+    return Video_GlobalExcelAddVideoPathTw(builder, videoPathTw)
+def Video_GlobalExcelAddVideoTeenPathTw(builder, videoTeenPathTw): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(videoTeenPathTw), 0)
 def AddVideoTeenPathTw(builder, videoTeenPathTw):
-    Video_GlobalExcelAddVideoTeenPathTw(builder, videoTeenPathTw)
-
-def Video_GlobalExcelAddVideoPathEn(builder, videoPathEn):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(videoPathEn), 0)
-
+    return Video_GlobalExcelAddVideoTeenPathTw(builder, videoTeenPathTw)
+def Video_GlobalExcelAddVideoPathEn(builder, videoPathEn): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(videoPathEn), 0)
 def AddVideoPathEn(builder, videoPathEn):
-    Video_GlobalExcelAddVideoPathEn(builder, videoPathEn)
-
-def Video_GlobalExcelAddVideoTeenPathEn(builder, videoTeenPathEn):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(videoTeenPathEn), 0)
-
+    return Video_GlobalExcelAddVideoPathEn(builder, videoPathEn)
+def Video_GlobalExcelAddVideoTeenPathEn(builder, videoTeenPathEn): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(videoTeenPathEn), 0)
 def AddVideoTeenPathEn(builder, videoTeenPathEn):
-    Video_GlobalExcelAddVideoTeenPathEn(builder, videoTeenPathEn)
-
-def Video_GlobalExcelEnd(builder):
-    return builder.EndObject()
-
+    return Video_GlobalExcelAddVideoTeenPathEn(builder, videoTeenPathEn)
+def Video_GlobalExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return Video_GlobalExcelEnd(builder)

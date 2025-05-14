@@ -52,38 +52,21 @@ class ConquestCalculateExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ConquestCalculateExcelStart(builder):
-    builder.StartObject(4)
-
+def ConquestCalculateExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    ConquestCalculateExcelStart(builder)
-
-def ConquestCalculateExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return ConquestCalculateExcelStart(builder)
+def ConquestCalculateExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    ConquestCalculateExcelAddEventContentId(builder, eventContentId)
-
-def ConquestCalculateExcelAddCalculateConditionParcelType(builder, calculateConditionParcelType):
-    builder.PrependInt32Slot(1, calculateConditionParcelType, 0)
-
+    return ConquestCalculateExcelAddEventContentId(builder, eventContentId)
+def ConquestCalculateExcelAddCalculateConditionParcelType(builder, calculateConditionParcelType): builder.PrependInt32Slot(1, calculateConditionParcelType, 0)
 def AddCalculateConditionParcelType(builder, calculateConditionParcelType):
-    ConquestCalculateExcelAddCalculateConditionParcelType(builder, calculateConditionParcelType)
-
-def ConquestCalculateExcelAddCalculateConditionParcelUniqueId(builder, calculateConditionParcelUniqueId):
-    builder.PrependInt64Slot(2, calculateConditionParcelUniqueId, 0)
-
+    return ConquestCalculateExcelAddCalculateConditionParcelType(builder, calculateConditionParcelType)
+def ConquestCalculateExcelAddCalculateConditionParcelUniqueId(builder, calculateConditionParcelUniqueId): builder.PrependInt64Slot(2, calculateConditionParcelUniqueId, 0)
 def AddCalculateConditionParcelUniqueId(builder, calculateConditionParcelUniqueId):
-    ConquestCalculateExcelAddCalculateConditionParcelUniqueId(builder, calculateConditionParcelUniqueId)
-
-def ConquestCalculateExcelAddCalculateConditionParcelAmount(builder, calculateConditionParcelAmount):
-    builder.PrependInt64Slot(3, calculateConditionParcelAmount, 0)
-
+    return ConquestCalculateExcelAddCalculateConditionParcelUniqueId(builder, calculateConditionParcelUniqueId)
+def ConquestCalculateExcelAddCalculateConditionParcelAmount(builder, calculateConditionParcelAmount): builder.PrependInt64Slot(3, calculateConditionParcelAmount, 0)
 def AddCalculateConditionParcelAmount(builder, calculateConditionParcelAmount):
-    ConquestCalculateExcelAddCalculateConditionParcelAmount(builder, calculateConditionParcelAmount)
-
-def ConquestCalculateExcelEnd(builder):
-    return builder.EndObject()
-
+    return ConquestCalculateExcelAddCalculateConditionParcelAmount(builder, calculateConditionParcelAmount)
+def ConquestCalculateExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ConquestCalculateExcelEnd(builder)

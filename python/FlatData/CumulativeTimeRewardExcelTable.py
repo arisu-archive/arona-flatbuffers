@@ -49,26 +49,15 @@ class CumulativeTimeRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CumulativeTimeRewardExcelTableStart(builder):
-    builder.StartObject(1)
-
+def CumulativeTimeRewardExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    CumulativeTimeRewardExcelTableStart(builder)
-
-def CumulativeTimeRewardExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return CumulativeTimeRewardExcelTableStart(builder)
+def CumulativeTimeRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    CumulativeTimeRewardExcelTableAddDataList(builder, dataList)
-
-def CumulativeTimeRewardExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CumulativeTimeRewardExcelTableAddDataList(builder, dataList)
+def CumulativeTimeRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return CumulativeTimeRewardExcelTableStartDataListVector(builder, numElems)
-
-def CumulativeTimeRewardExcelTableEnd(builder):
-    return builder.EndObject()
-
+def CumulativeTimeRewardExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return CumulativeTimeRewardExcelTableEnd(builder)

@@ -52,38 +52,21 @@ class ObstacleFireLineCheckExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def ObstacleFireLineCheckExcelStart(builder):
-    builder.StartObject(4)
-
+def ObstacleFireLineCheckExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    ObstacleFireLineCheckExcelStart(builder)
-
-def ObstacleFireLineCheckExcelAddMyObstacleFireLineCheck(builder, myObstacleFireLineCheck):
-    builder.PrependBoolSlot(0, myObstacleFireLineCheck, 0)
-
+    return ObstacleFireLineCheckExcelStart(builder)
+def ObstacleFireLineCheckExcelAddMyObstacleFireLineCheck(builder, myObstacleFireLineCheck): builder.PrependBoolSlot(0, myObstacleFireLineCheck, 0)
 def AddMyObstacleFireLineCheck(builder, myObstacleFireLineCheck):
-    ObstacleFireLineCheckExcelAddMyObstacleFireLineCheck(builder, myObstacleFireLineCheck)
-
-def ObstacleFireLineCheckExcelAddAllyObstacleFireLineCheck(builder, allyObstacleFireLineCheck):
-    builder.PrependBoolSlot(1, allyObstacleFireLineCheck, 0)
-
+    return ObstacleFireLineCheckExcelAddMyObstacleFireLineCheck(builder, myObstacleFireLineCheck)
+def ObstacleFireLineCheckExcelAddAllyObstacleFireLineCheck(builder, allyObstacleFireLineCheck): builder.PrependBoolSlot(1, allyObstacleFireLineCheck, 0)
 def AddAllyObstacleFireLineCheck(builder, allyObstacleFireLineCheck):
-    ObstacleFireLineCheckExcelAddAllyObstacleFireLineCheck(builder, allyObstacleFireLineCheck)
-
-def ObstacleFireLineCheckExcelAddEnemyObstacleFireLineCheck(builder, enemyObstacleFireLineCheck):
-    builder.PrependBoolSlot(2, enemyObstacleFireLineCheck, 0)
-
+    return ObstacleFireLineCheckExcelAddAllyObstacleFireLineCheck(builder, allyObstacleFireLineCheck)
+def ObstacleFireLineCheckExcelAddEnemyObstacleFireLineCheck(builder, enemyObstacleFireLineCheck): builder.PrependBoolSlot(2, enemyObstacleFireLineCheck, 0)
 def AddEnemyObstacleFireLineCheck(builder, enemyObstacleFireLineCheck):
-    ObstacleFireLineCheckExcelAddEnemyObstacleFireLineCheck(builder, enemyObstacleFireLineCheck)
-
-def ObstacleFireLineCheckExcelAddEmptyObstacleFireLineCheck(builder, emptyObstacleFireLineCheck):
-    builder.PrependBoolSlot(3, emptyObstacleFireLineCheck, 0)
-
+    return ObstacleFireLineCheckExcelAddEnemyObstacleFireLineCheck(builder, enemyObstacleFireLineCheck)
+def ObstacleFireLineCheckExcelAddEmptyObstacleFireLineCheck(builder, emptyObstacleFireLineCheck): builder.PrependBoolSlot(3, emptyObstacleFireLineCheck, 0)
 def AddEmptyObstacleFireLineCheck(builder, emptyObstacleFireLineCheck):
-    ObstacleFireLineCheckExcelAddEmptyObstacleFireLineCheck(builder, emptyObstacleFireLineCheck)
-
-def ObstacleFireLineCheckExcelEnd(builder):
-    return builder.EndObject()
-
+    return ObstacleFireLineCheckExcelAddEmptyObstacleFireLineCheck(builder, emptyObstacleFireLineCheck)
+def ObstacleFireLineCheckExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ObstacleFireLineCheckExcelEnd(builder)

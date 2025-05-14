@@ -2,7 +2,5 @@ namespace FlatData;
 
 table TacticSimulatorSettingExcel {
     ground_id: long;
-    get_exp: long;
-    get_star_grade: long;
-    equipment: long;
+    fixed_echelon_id: long;
 }

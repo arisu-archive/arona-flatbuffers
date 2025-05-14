@@ -45,32 +45,18 @@ class TacticEntityEffectFilterExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def TacticEntityEffectFilterExcelStart(builder):
-    builder.StartObject(3)
-
+def TacticEntityEffectFilterExcelStart(builder): builder.StartObject(3)
 def Start(builder):
-    TacticEntityEffectFilterExcelStart(builder)
-
-def TacticEntityEffectFilterExcelAddTargetEffectName(builder, targetEffectName):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(targetEffectName), 0)
-
+    return TacticEntityEffectFilterExcelStart(builder)
+def TacticEntityEffectFilterExcelAddTargetEffectName(builder, targetEffectName): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(targetEffectName), 0)
 def AddTargetEffectName(builder, targetEffectName):
-    TacticEntityEffectFilterExcelAddTargetEffectName(builder, targetEffectName)
-
-def TacticEntityEffectFilterExcelAddShowEffectToVehicle(builder, showEffectToVehicle):
-    builder.PrependBoolSlot(1, showEffectToVehicle, 0)
-
+    return TacticEntityEffectFilterExcelAddTargetEffectName(builder, targetEffectName)
+def TacticEntityEffectFilterExcelAddShowEffectToVehicle(builder, showEffectToVehicle): builder.PrependBoolSlot(1, showEffectToVehicle, 0)
 def AddShowEffectToVehicle(builder, showEffectToVehicle):
-    TacticEntityEffectFilterExcelAddShowEffectToVehicle(builder, showEffectToVehicle)
-
-def TacticEntityEffectFilterExcelAddShowEffectToBoss(builder, showEffectToBoss):
-    builder.PrependBoolSlot(2, showEffectToBoss, 0)
-
+    return TacticEntityEffectFilterExcelAddShowEffectToVehicle(builder, showEffectToVehicle)
+def TacticEntityEffectFilterExcelAddShowEffectToBoss(builder, showEffectToBoss): builder.PrependBoolSlot(2, showEffectToBoss, 0)
 def AddShowEffectToBoss(builder, showEffectToBoss):
-    TacticEntityEffectFilterExcelAddShowEffectToBoss(builder, showEffectToBoss)
-
-def TacticEntityEffectFilterExcelEnd(builder):
-    return builder.EndObject()
-
+    return TacticEntityEffectFilterExcelAddShowEffectToBoss(builder, showEffectToBoss)
+def TacticEntityEffectFilterExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return TacticEntityEffectFilterExcelEnd(builder)

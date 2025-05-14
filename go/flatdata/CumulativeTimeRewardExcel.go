@@ -17,19 +17,11 @@ func GetRootAsCumulativeTimeRewardExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
-func FinishCumulativeTimeRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCumulativeTimeRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *CumulativeTimeRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CumulativeTimeRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCumulativeTimeRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CumulativeTimeRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {

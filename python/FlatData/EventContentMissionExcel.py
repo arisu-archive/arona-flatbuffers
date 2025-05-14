@@ -447,260 +447,132 @@ class EventContentMissionExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         return o == 0
 
-def EventContentMissionExcelStart(builder):
-    builder.StartObject(30)
-
+def EventContentMissionExcelStart(builder): builder.StartObject(30)
 def Start(builder):
-    EventContentMissionExcelStart(builder)
-
-def EventContentMissionExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return EventContentMissionExcelStart(builder)
+def EventContentMissionExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    EventContentMissionExcelAddId(builder, id)
-
-def EventContentMissionExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(1, eventContentId, 0)
-
+    return EventContentMissionExcelAddId(builder, id)
+def EventContentMissionExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    EventContentMissionExcelAddEventContentId(builder, eventContentId)
-
-def EventContentMissionExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(2, groupId, 0)
-
+    return EventContentMissionExcelAddEventContentId(builder, eventContentId)
+def EventContentMissionExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(2, groupId, 0)
 def AddGroupId(builder, groupId):
-    EventContentMissionExcelAddGroupId(builder, groupId)
-
-def EventContentMissionExcelAddGroupName(builder, groupName):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(groupName), 0)
-
+    return EventContentMissionExcelAddGroupId(builder, groupId)
+def EventContentMissionExcelAddGroupName(builder, groupName): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(groupName), 0)
 def AddGroupName(builder, groupName):
-    EventContentMissionExcelAddGroupName(builder, groupName)
-
-def EventContentMissionExcelAddCategory(builder, category):
-    builder.PrependInt32Slot(4, category, 0)
-
+    return EventContentMissionExcelAddGroupName(builder, groupName)
+def EventContentMissionExcelAddCategory(builder, category): builder.PrependInt32Slot(4, category, 0)
 def AddCategory(builder, category):
-    EventContentMissionExcelAddCategory(builder, category)
-
-def EventContentMissionExcelAddDescription(builder, description):
-    builder.PrependUint32Slot(5, description, 0)
-
+    return EventContentMissionExcelAddCategory(builder, category)
+def EventContentMissionExcelAddDescription(builder, description): builder.PrependUint32Slot(5, description, 0)
 def AddDescription(builder, description):
-    EventContentMissionExcelAddDescription(builder, description)
-
-def EventContentMissionExcelAddResetType(builder, resetType):
-    builder.PrependInt32Slot(6, resetType, 0)
-
+    return EventContentMissionExcelAddDescription(builder, description)
+def EventContentMissionExcelAddResetType(builder, resetType): builder.PrependInt32Slot(6, resetType, 0)
 def AddResetType(builder, resetType):
-    EventContentMissionExcelAddResetType(builder, resetType)
-
-def EventContentMissionExcelAddToastDisplayType(builder, toastDisplayType):
-    builder.PrependInt32Slot(7, toastDisplayType, 0)
-
+    return EventContentMissionExcelAddResetType(builder, resetType)
+def EventContentMissionExcelAddToastDisplayType(builder, toastDisplayType): builder.PrependInt32Slot(7, toastDisplayType, 0)
 def AddToastDisplayType(builder, toastDisplayType):
-    EventContentMissionExcelAddToastDisplayType(builder, toastDisplayType)
-
-def EventContentMissionExcelAddToastImagePath(builder, toastImagePath):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(toastImagePath), 0)
-
+    return EventContentMissionExcelAddToastDisplayType(builder, toastDisplayType)
+def EventContentMissionExcelAddToastImagePath(builder, toastImagePath): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(toastImagePath), 0)
 def AddToastImagePath(builder, toastImagePath):
-    EventContentMissionExcelAddToastImagePath(builder, toastImagePath)
-
-def EventContentMissionExcelAddViewFlag(builder, viewFlag):
-    builder.PrependBoolSlot(9, viewFlag, 0)
-
+    return EventContentMissionExcelAddToastImagePath(builder, toastImagePath)
+def EventContentMissionExcelAddViewFlag(builder, viewFlag): builder.PrependBoolSlot(9, viewFlag, 0)
 def AddViewFlag(builder, viewFlag):
-    EventContentMissionExcelAddViewFlag(builder, viewFlag)
-
-def EventContentMissionExcelAddDisplayOrder(builder, displayOrder):
-    builder.PrependInt64Slot(10, displayOrder, 0)
-
+    return EventContentMissionExcelAddViewFlag(builder, viewFlag)
+def EventContentMissionExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(10, displayOrder, 0)
 def AddDisplayOrder(builder, displayOrder):
-    EventContentMissionExcelAddDisplayOrder(builder, displayOrder)
-
-def EventContentMissionExcelAddPreMissionId(builder, preMissionId):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(preMissionId), 0)
-
+    return EventContentMissionExcelAddDisplayOrder(builder, displayOrder)
+def EventContentMissionExcelAddPreMissionId(builder, preMissionId): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(preMissionId), 0)
 def AddPreMissionId(builder, preMissionId):
-    EventContentMissionExcelAddPreMissionId(builder, preMissionId)
-
-def EventContentMissionExcelStartPreMissionIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentMissionExcelAddPreMissionId(builder, preMissionId)
+def EventContentMissionExcelStartPreMissionIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartPreMissionIdVector(builder, numElems):
     return EventContentMissionExcelStartPreMissionIdVector(builder, numElems)
-
-def EventContentMissionExcelAddAccountType(builder, accountType):
-    builder.PrependInt32Slot(12, accountType, 0)
-
+def EventContentMissionExcelAddAccountType(builder, accountType): builder.PrependInt32Slot(12, accountType, 0)
 def AddAccountType(builder, accountType):
-    EventContentMissionExcelAddAccountType(builder, accountType)
-
-def EventContentMissionExcelAddAccountLevel(builder, accountLevel):
-    builder.PrependInt64Slot(13, accountLevel, 0)
-
+    return EventContentMissionExcelAddAccountType(builder, accountType)
+def EventContentMissionExcelAddAccountLevel(builder, accountLevel): builder.PrependInt64Slot(13, accountLevel, 0)
 def AddAccountLevel(builder, accountLevel):
-    EventContentMissionExcelAddAccountLevel(builder, accountLevel)
-
-def EventContentMissionExcelAddShortcutUi(builder, shortcutUi):
-    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutUi), 0)
-
+    return EventContentMissionExcelAddAccountLevel(builder, accountLevel)
+def EventContentMissionExcelAddShortcutUi(builder, shortcutUi): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutUi), 0)
 def AddShortcutUi(builder, shortcutUi):
-    EventContentMissionExcelAddShortcutUi(builder, shortcutUi)
-
-def EventContentMissionExcelStartShortcutUiVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentMissionExcelAddShortcutUi(builder, shortcutUi)
+def EventContentMissionExcelStartShortcutUiVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartShortcutUiVector(builder, numElems):
     return EventContentMissionExcelStartShortcutUiVector(builder, numElems)
-
-def EventContentMissionExcelAddChallengeStageShortcut(builder, challengeStageShortcut):
-    builder.PrependInt64Slot(15, challengeStageShortcut, 0)
-
+def EventContentMissionExcelAddChallengeStageShortcut(builder, challengeStageShortcut): builder.PrependInt64Slot(15, challengeStageShortcut, 0)
 def AddChallengeStageShortcut(builder, challengeStageShortcut):
-    EventContentMissionExcelAddChallengeStageShortcut(builder, challengeStageShortcut)
-
-def EventContentMissionExcelAddCompleteConditionType(builder, completeConditionType):
-    builder.PrependInt32Slot(16, completeConditionType, 0)
-
+    return EventContentMissionExcelAddChallengeStageShortcut(builder, challengeStageShortcut)
+def EventContentMissionExcelAddCompleteConditionType(builder, completeConditionType): builder.PrependInt32Slot(16, completeConditionType, 0)
 def AddCompleteConditionType(builder, completeConditionType):
-    EventContentMissionExcelAddCompleteConditionType(builder, completeConditionType)
-
-def EventContentMissionExcelAddIsCompleteExtensionTime(builder, isCompleteExtensionTime):
-    builder.PrependBoolSlot(17, isCompleteExtensionTime, 0)
-
+    return EventContentMissionExcelAddCompleteConditionType(builder, completeConditionType)
+def EventContentMissionExcelAddIsCompleteExtensionTime(builder, isCompleteExtensionTime): builder.PrependBoolSlot(17, isCompleteExtensionTime, 0)
 def AddIsCompleteExtensionTime(builder, isCompleteExtensionTime):
-    EventContentMissionExcelAddIsCompleteExtensionTime(builder, isCompleteExtensionTime)
-
-def EventContentMissionExcelAddCompleteConditionCount(builder, completeConditionCount):
-    builder.PrependInt64Slot(18, completeConditionCount, 0)
-
+    return EventContentMissionExcelAddIsCompleteExtensionTime(builder, isCompleteExtensionTime)
+def EventContentMissionExcelAddCompleteConditionCount(builder, completeConditionCount): builder.PrependInt64Slot(18, completeConditionCount, 0)
 def AddCompleteConditionCount(builder, completeConditionCount):
-    EventContentMissionExcelAddCompleteConditionCount(builder, completeConditionCount)
-
-def EventContentMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter):
-    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameter), 0)
-
+    return EventContentMissionExcelAddCompleteConditionCount(builder, completeConditionCount)
+def EventContentMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameter), 0)
 def AddCompleteConditionParameter(builder, completeConditionParameter):
-    EventContentMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter)
-
-def EventContentMissionExcelStartCompleteConditionParameterVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter)
+def EventContentMissionExcelStartCompleteConditionParameterVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartCompleteConditionParameterVector(builder, numElems):
     return EventContentMissionExcelStartCompleteConditionParameterVector(builder, numElems)
-
-def EventContentMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag):
-    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameterTag), 0)
-
+def EventContentMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag): builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionParameterTag), 0)
 def AddCompleteConditionParameterTag(builder, completeConditionParameterTag):
-    EventContentMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag)
-
-def EventContentMissionExcelStartCompleteConditionParameterTagVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag)
+def EventContentMissionExcelStartCompleteConditionParameterTagVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartCompleteConditionParameterTagVector(builder, numElems):
     return EventContentMissionExcelStartCompleteConditionParameterTagVector(builder, numElems)
-
-def EventContentMissionExcelAddRewardIcon(builder, rewardIcon):
-    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(rewardIcon), 0)
-
+def EventContentMissionExcelAddRewardIcon(builder, rewardIcon): builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(rewardIcon), 0)
 def AddRewardIcon(builder, rewardIcon):
-    EventContentMissionExcelAddRewardIcon(builder, rewardIcon)
-
-def EventContentMissionExcelAddCompleteConditionMissionId(builder, completeConditionMissionId):
-    builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionMissionId), 0)
-
+    return EventContentMissionExcelAddRewardIcon(builder, rewardIcon)
+def EventContentMissionExcelAddCompleteConditionMissionId(builder, completeConditionMissionId): builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(completeConditionMissionId), 0)
 def AddCompleteConditionMissionId(builder, completeConditionMissionId):
-    EventContentMissionExcelAddCompleteConditionMissionId(builder, completeConditionMissionId)
-
-def EventContentMissionExcelStartCompleteConditionMissionIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentMissionExcelAddCompleteConditionMissionId(builder, completeConditionMissionId)
+def EventContentMissionExcelStartCompleteConditionMissionIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartCompleteConditionMissionIdVector(builder, numElems):
     return EventContentMissionExcelStartCompleteConditionMissionIdVector(builder, numElems)
-
-def EventContentMissionExcelAddCompleteConditionMissionCount(builder, completeConditionMissionCount):
-    builder.PrependInt64Slot(23, completeConditionMissionCount, 0)
-
+def EventContentMissionExcelAddCompleteConditionMissionCount(builder, completeConditionMissionCount): builder.PrependInt64Slot(23, completeConditionMissionCount, 0)
 def AddCompleteConditionMissionCount(builder, completeConditionMissionCount):
-    EventContentMissionExcelAddCompleteConditionMissionCount(builder, completeConditionMissionCount)
-
-def EventContentMissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardParcelType), 0)
-
+    return EventContentMissionExcelAddCompleteConditionMissionCount(builder, completeConditionMissionCount)
+def EventContentMissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType): builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardParcelType), 0)
 def AddMissionRewardParcelType(builder, missionRewardParcelType):
-    EventContentMissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType)
-
-def EventContentMissionExcelStartMissionRewardParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentMissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType)
+def EventContentMissionExcelStartMissionRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartMissionRewardParcelTypeVector(builder, numElems):
     return EventContentMissionExcelStartMissionRewardParcelTypeVector(builder, numElems)
-
-def EventContentMissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId):
-    builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardParcelId), 0)
-
+def EventContentMissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId): builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardParcelId), 0)
 def AddMissionRewardParcelId(builder, missionRewardParcelId):
-    EventContentMissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId)
-
-def EventContentMissionExcelStartMissionRewardParcelIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentMissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId)
+def EventContentMissionExcelStartMissionRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartMissionRewardParcelIdVector(builder, numElems):
     return EventContentMissionExcelStartMissionRewardParcelIdVector(builder, numElems)
-
-def EventContentMissionExcelAddMissionRewardAmount(builder, missionRewardAmount):
-    builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardAmount), 0)
-
+def EventContentMissionExcelAddMissionRewardAmount(builder, missionRewardAmount): builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(missionRewardAmount), 0)
 def AddMissionRewardAmount(builder, missionRewardAmount):
-    EventContentMissionExcelAddMissionRewardAmount(builder, missionRewardAmount)
-
-def EventContentMissionExcelStartMissionRewardAmountVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentMissionExcelAddMissionRewardAmount(builder, missionRewardAmount)
+def EventContentMissionExcelStartMissionRewardAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartMissionRewardAmountVector(builder, numElems):
     return EventContentMissionExcelStartMissionRewardAmountVector(builder, numElems)
-
-def EventContentMissionExcelAddConditionRewardParcelType(builder, conditionRewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(conditionRewardParcelType), 0)
-
+def EventContentMissionExcelAddConditionRewardParcelType(builder, conditionRewardParcelType): builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(conditionRewardParcelType), 0)
 def AddConditionRewardParcelType(builder, conditionRewardParcelType):
-    EventContentMissionExcelAddConditionRewardParcelType(builder, conditionRewardParcelType)
-
-def EventContentMissionExcelStartConditionRewardParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentMissionExcelAddConditionRewardParcelType(builder, conditionRewardParcelType)
+def EventContentMissionExcelStartConditionRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartConditionRewardParcelTypeVector(builder, numElems):
     return EventContentMissionExcelStartConditionRewardParcelTypeVector(builder, numElems)
-
-def EventContentMissionExcelAddConditionRewardParcelId(builder, conditionRewardParcelId):
-    builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(conditionRewardParcelId), 0)
-
+def EventContentMissionExcelAddConditionRewardParcelId(builder, conditionRewardParcelId): builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(conditionRewardParcelId), 0)
 def AddConditionRewardParcelId(builder, conditionRewardParcelId):
-    EventContentMissionExcelAddConditionRewardParcelId(builder, conditionRewardParcelId)
-
-def EventContentMissionExcelStartConditionRewardParcelIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentMissionExcelAddConditionRewardParcelId(builder, conditionRewardParcelId)
+def EventContentMissionExcelStartConditionRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartConditionRewardParcelIdVector(builder, numElems):
     return EventContentMissionExcelStartConditionRewardParcelIdVector(builder, numElems)
-
-def EventContentMissionExcelAddConditionRewardAmount(builder, conditionRewardAmount):
-    builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(conditionRewardAmount), 0)
-
+def EventContentMissionExcelAddConditionRewardAmount(builder, conditionRewardAmount): builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(conditionRewardAmount), 0)
 def AddConditionRewardAmount(builder, conditionRewardAmount):
-    EventContentMissionExcelAddConditionRewardAmount(builder, conditionRewardAmount)
-
-def EventContentMissionExcelStartConditionRewardAmountVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentMissionExcelAddConditionRewardAmount(builder, conditionRewardAmount)
+def EventContentMissionExcelStartConditionRewardAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartConditionRewardAmountVector(builder, numElems):
     return EventContentMissionExcelStartConditionRewardAmountVector(builder, numElems)
-
-def EventContentMissionExcelEnd(builder):
-    return builder.EndObject()
-
+def EventContentMissionExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentMissionExcelEnd(builder)

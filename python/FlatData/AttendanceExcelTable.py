@@ -49,26 +49,15 @@ class AttendanceExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def AttendanceExcelTableStart(builder):
-    builder.StartObject(1)
-
+def AttendanceExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    AttendanceExcelTableStart(builder)
-
-def AttendanceExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return AttendanceExcelTableStart(builder)
+def AttendanceExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    AttendanceExcelTableAddDataList(builder, dataList)
-
-def AttendanceExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return AttendanceExcelTableAddDataList(builder, dataList)
+def AttendanceExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return AttendanceExcelTableStartDataListVector(builder, numElems)
-
-def AttendanceExcelTableEnd(builder):
-    return builder.EndObject()
-
+def AttendanceExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return AttendanceExcelTableEnd(builder)

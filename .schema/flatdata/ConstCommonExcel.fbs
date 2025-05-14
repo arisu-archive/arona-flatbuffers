@@ -173,4 +173,7 @@ table ConstCommonExcel {
     assist_stranger_min_level: int;
     assist_stranger_max_level: int;
     max_blocked_user_count: int;
+    cafe_random_visit_min_comfort_bonus: long;
+    cafe_random_visit_min_last_login: int;
+    cafe_travel_sync_interval_by_millisec: int;
 }

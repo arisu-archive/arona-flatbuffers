@@ -73,56 +73,30 @@ class CafeProductionExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def CafeProductionExcelStart(builder):
-    builder.StartObject(7)
-
+def CafeProductionExcelStart(builder): builder.StartObject(7)
 def Start(builder):
-    CafeProductionExcelStart(builder)
-
-def CafeProductionExcelAddCafeId(builder, cafeId):
-    builder.PrependInt64Slot(0, cafeId, 0)
-
+    return CafeProductionExcelStart(builder)
+def CafeProductionExcelAddCafeId(builder, cafeId): builder.PrependInt64Slot(0, cafeId, 0)
 def AddCafeId(builder, cafeId):
-    CafeProductionExcelAddCafeId(builder, cafeId)
-
-def CafeProductionExcelAddRank(builder, rank):
-    builder.PrependInt64Slot(1, rank, 0)
-
+    return CafeProductionExcelAddCafeId(builder, cafeId)
+def CafeProductionExcelAddRank(builder, rank): builder.PrependInt64Slot(1, rank, 0)
 def AddRank(builder, rank):
-    CafeProductionExcelAddRank(builder, rank)
-
-def CafeProductionExcelAddCafeProductionParcelType(builder, cafeProductionParcelType):
-    builder.PrependInt32Slot(2, cafeProductionParcelType, 0)
-
+    return CafeProductionExcelAddRank(builder, rank)
+def CafeProductionExcelAddCafeProductionParcelType(builder, cafeProductionParcelType): builder.PrependInt32Slot(2, cafeProductionParcelType, 0)
 def AddCafeProductionParcelType(builder, cafeProductionParcelType):
-    CafeProductionExcelAddCafeProductionParcelType(builder, cafeProductionParcelType)
-
-def CafeProductionExcelAddCafeProductionParcelId(builder, cafeProductionParcelId):
-    builder.PrependInt64Slot(3, cafeProductionParcelId, 0)
-
+    return CafeProductionExcelAddCafeProductionParcelType(builder, cafeProductionParcelType)
+def CafeProductionExcelAddCafeProductionParcelId(builder, cafeProductionParcelId): builder.PrependInt64Slot(3, cafeProductionParcelId, 0)
 def AddCafeProductionParcelId(builder, cafeProductionParcelId):
-    CafeProductionExcelAddCafeProductionParcelId(builder, cafeProductionParcelId)
-
-def CafeProductionExcelAddParcelProductionCoefficient(builder, parcelProductionCoefficient):
-    builder.PrependInt64Slot(4, parcelProductionCoefficient, 0)
-
+    return CafeProductionExcelAddCafeProductionParcelId(builder, cafeProductionParcelId)
+def CafeProductionExcelAddParcelProductionCoefficient(builder, parcelProductionCoefficient): builder.PrependInt64Slot(4, parcelProductionCoefficient, 0)
 def AddParcelProductionCoefficient(builder, parcelProductionCoefficient):
-    CafeProductionExcelAddParcelProductionCoefficient(builder, parcelProductionCoefficient)
-
-def CafeProductionExcelAddParcelProductionCorrectionValue(builder, parcelProductionCorrectionValue):
-    builder.PrependInt64Slot(5, parcelProductionCorrectionValue, 0)
-
+    return CafeProductionExcelAddParcelProductionCoefficient(builder, parcelProductionCoefficient)
+def CafeProductionExcelAddParcelProductionCorrectionValue(builder, parcelProductionCorrectionValue): builder.PrependInt64Slot(5, parcelProductionCorrectionValue, 0)
 def AddParcelProductionCorrectionValue(builder, parcelProductionCorrectionValue):
-    CafeProductionExcelAddParcelProductionCorrectionValue(builder, parcelProductionCorrectionValue)
-
-def CafeProductionExcelAddParcelStorageMax(builder, parcelStorageMax):
-    builder.PrependInt64Slot(6, parcelStorageMax, 0)
-
+    return CafeProductionExcelAddParcelProductionCorrectionValue(builder, parcelProductionCorrectionValue)
+def CafeProductionExcelAddParcelStorageMax(builder, parcelStorageMax): builder.PrependInt64Slot(6, parcelStorageMax, 0)
 def AddParcelStorageMax(builder, parcelStorageMax):
-    CafeProductionExcelAddParcelStorageMax(builder, parcelStorageMax)
-
-def CafeProductionExcelEnd(builder):
-    return builder.EndObject()
-
+    return CafeProductionExcelAddParcelStorageMax(builder, parcelStorageMax)
+def CafeProductionExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CafeProductionExcelEnd(builder)

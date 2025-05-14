@@ -52,38 +52,21 @@ class SystemMailExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def SystemMailExcelStart(builder):
-    builder.StartObject(4)
-
+def SystemMailExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    SystemMailExcelStart(builder)
-
-def SystemMailExcelAddMailType(builder, mailType):
-    builder.PrependInt32Slot(0, mailType, 0)
-
+    return SystemMailExcelStart(builder)
+def SystemMailExcelAddMailType(builder, mailType): builder.PrependInt32Slot(0, mailType, 0)
 def AddMailType(builder, mailType):
-    SystemMailExcelAddMailType(builder, mailType)
-
-def SystemMailExcelAddExpiredDay(builder, expiredDay):
-    builder.PrependInt64Slot(1, expiredDay, 0)
-
+    return SystemMailExcelAddMailType(builder, mailType)
+def SystemMailExcelAddExpiredDay(builder, expiredDay): builder.PrependInt64Slot(1, expiredDay, 0)
 def AddExpiredDay(builder, expiredDay):
-    SystemMailExcelAddExpiredDay(builder, expiredDay)
-
-def SystemMailExcelAddSender(builder, sender):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(sender), 0)
-
+    return SystemMailExcelAddExpiredDay(builder, expiredDay)
+def SystemMailExcelAddSender(builder, sender): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(sender), 0)
 def AddSender(builder, sender):
-    SystemMailExcelAddSender(builder, sender)
-
-def SystemMailExcelAddComment(builder, comment):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(comment), 0)
-
+    return SystemMailExcelAddSender(builder, sender)
+def SystemMailExcelAddComment(builder, comment): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(comment), 0)
 def AddComment(builder, comment):
-    SystemMailExcelAddComment(builder, comment)
-
-def SystemMailExcelEnd(builder):
-    return builder.EndObject()
-
+    return SystemMailExcelAddComment(builder, comment)
+def SystemMailExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return SystemMailExcelEnd(builder)

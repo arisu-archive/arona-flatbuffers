@@ -52,38 +52,21 @@ class CharacterStatsTransExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def CharacterStatsTransExcelStart(builder):
-    builder.StartObject(4)
-
+def CharacterStatsTransExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    CharacterStatsTransExcelStart(builder)
-
-def CharacterStatsTransExcelAddTransSupportStats(builder, transSupportStats):
-    builder.PrependInt32Slot(0, transSupportStats, 0)
-
+    return CharacterStatsTransExcelStart(builder)
+def CharacterStatsTransExcelAddTransSupportStats(builder, transSupportStats): builder.PrependInt32Slot(0, transSupportStats, 0)
 def AddTransSupportStats(builder, transSupportStats):
-    CharacterStatsTransExcelAddTransSupportStats(builder, transSupportStats)
-
-def CharacterStatsTransExcelAddEchelonExtensionType(builder, echelonExtensionType):
-    builder.PrependInt32Slot(1, echelonExtensionType, 0)
-
+    return CharacterStatsTransExcelAddTransSupportStats(builder, transSupportStats)
+def CharacterStatsTransExcelAddEchelonExtensionType(builder, echelonExtensionType): builder.PrependInt32Slot(1, echelonExtensionType, 0)
 def AddEchelonExtensionType(builder, echelonExtensionType):
-    CharacterStatsTransExcelAddEchelonExtensionType(builder, echelonExtensionType)
-
-def CharacterStatsTransExcelAddTransSupportStatsFactor(builder, transSupportStatsFactor):
-    builder.PrependInt32Slot(2, transSupportStatsFactor, 0)
-
+    return CharacterStatsTransExcelAddEchelonExtensionType(builder, echelonExtensionType)
+def CharacterStatsTransExcelAddTransSupportStatsFactor(builder, transSupportStatsFactor): builder.PrependInt32Slot(2, transSupportStatsFactor, 0)
 def AddTransSupportStatsFactor(builder, transSupportStatsFactor):
-    CharacterStatsTransExcelAddTransSupportStatsFactor(builder, transSupportStatsFactor)
-
-def CharacterStatsTransExcelAddStatTransType(builder, statTransType):
-    builder.PrependInt32Slot(3, statTransType, 0)
-
+    return CharacterStatsTransExcelAddTransSupportStatsFactor(builder, transSupportStatsFactor)
+def CharacterStatsTransExcelAddStatTransType(builder, statTransType): builder.PrependInt32Slot(3, statTransType, 0)
 def AddStatTransType(builder, statTransType):
-    CharacterStatsTransExcelAddStatTransType(builder, statTransType)
-
-def CharacterStatsTransExcelEnd(builder):
-    return builder.EndObject()
-
+    return CharacterStatsTransExcelAddStatTransType(builder, statTransType)
+def CharacterStatsTransExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterStatsTransExcelEnd(builder)

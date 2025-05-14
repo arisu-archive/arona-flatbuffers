@@ -10,11 +10,11 @@ import (
 // FieldInteractionExcelDto represents a FlatBuffers table
 type FieldInteractionExcelDto struct {
 	fbsutils.FlatBuffer
+	FieldSeasonId            int64                  `json:"field_season_id"`
 	UniqueId                 int64                  `json:"unique_id"`
 	FieldDateId              int64                  `json:"field_date_id"`
 	ShowEmoji                bool                   `json:"show_emoji"`
 	KeywordLocalize          string                 `json:"keyword_localize"`
-	FieldSeasonId            int64                  `json:"field_season_id"`
 	InteractionType          []FieldInteractionType `json:"interaction_type"`
 	InteractionId            []int64                `json:"interaction_id"`
 	ConditionClass           FieldConditionClass    `json:"condition_class"`
@@ -32,11 +32,11 @@ func (t *FieldInteractionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldInteraction"))
 	}
 	FieldInteractionExcelStart(b)
+	FieldInteractionExcelAddFieldSeasonId(b, fbsutils.Convert(t.FieldSeasonId, t.FlatBuffer.TableKey))
 	FieldInteractionExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	FieldInteractionExcelAddFieldDateId(b, fbsutils.Convert(t.FieldDateId, t.FlatBuffer.TableKey))
 	FieldInteractionExcelAddShowEmoji(b, t.ShowEmoji)
 	FieldInteractionExcelAddKeywordLocalize(b, b.CreateString(fbsutils.Convert(t.KeywordLocalize, t.FlatBuffer.TableKey)))
-	FieldInteractionExcelAddFieldSeasonId(b, fbsutils.Convert(t.FieldSeasonId, t.FlatBuffer.TableKey))
 	FieldInteractionExcelStartInteractionTypeVector(b, len(t.InteractionType))
 	for i := range len(t.InteractionType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.InteractionType[len(t.InteractionType)-i-1]), t.FlatBuffer.TableKey))
@@ -89,11 +89,11 @@ func (t *FieldInteractionExcelDto) UnmarshalMessage(e *FieldInteractionExcel) er
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldInteraction"))
 	}
+	t.FieldSeasonId = fbsutils.Convert(e.FieldSeasonId(), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.FieldDateId = fbsutils.Convert(e.FieldDateId(), t.FlatBuffer.TableKey)
 	t.ShowEmoji = e.ShowEmoji()
 	t.KeywordLocalize = fbsutils.Convert(string(e.KeywordLocalize()), t.FlatBuffer.TableKey)
-	t.FieldSeasonId = fbsutils.Convert(e.FieldSeasonId(), t.FlatBuffer.TableKey)
 	t.InteractionType = make([]FieldInteractionType, e.InteractionTypeLength())
 	for i := range e.InteractionTypeLength() {
 		t.InteractionType[i] = FieldInteractionType(fbsutils.Convert(int32(e.InteractionType(i)), t.FlatBuffer.TableKey))

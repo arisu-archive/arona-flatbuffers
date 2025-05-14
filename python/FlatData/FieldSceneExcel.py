@@ -121,8 +121,35 @@ class FieldSceneExcel(object):
         return o == 0
 
     # FieldSceneExcel
-    def EndConditionalBgmScenarioGroupId(self, j):
+    def BeginConditionalBgmInteractionId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # FieldSceneExcel
+    def BeginConditionalBgmInteractionIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # FieldSceneExcel
+    def BeginConditionalBgmInteractionIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FieldSceneExcel
+    def BeginConditionalBgmInteractionIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        return o == 0
+
+    # FieldSceneExcel
+    def EndConditionalBgmScenarioGroupId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -130,26 +157,53 @@ class FieldSceneExcel(object):
 
     # FieldSceneExcel
     def EndConditionalBgmScenarioGroupIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # FieldSceneExcel
     def EndConditionalBgmScenarioGroupIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FieldSceneExcel
     def EndConditionalBgmScenarioGroupIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        return o == 0
+
+    # FieldSceneExcel
+    def EndConditionalBgmInteractionId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # FieldSceneExcel
+    def EndConditionalBgmInteractionIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # FieldSceneExcel
+    def EndConditionalBgmInteractionIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FieldSceneExcel
+    def EndConditionalBgmInteractionIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         return o == 0
 
     # FieldSceneExcel
     def ConditionalBgmId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -157,115 +211,80 @@ class FieldSceneExcel(object):
 
     # FieldSceneExcel
     def ConditionalBgmIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # FieldSceneExcel
     def ConditionalBgmIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FieldSceneExcel
     def ConditionalBgmIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         return o == 0
 
-def FieldSceneExcelStart(builder):
-    builder.StartObject(10)
-
+def FieldSceneExcelStart(builder): builder.StartObject(12)
 def Start(builder):
-    FieldSceneExcelStart(builder)
-
-def FieldSceneExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(0, uniqueId, 0)
-
+    return FieldSceneExcelStart(builder)
+def FieldSceneExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(0, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
-    FieldSceneExcelAddUniqueId(builder, uniqueId)
-
-def FieldSceneExcelAddDateId(builder, dateId):
-    builder.PrependInt64Slot(1, dateId, 0)
-
+    return FieldSceneExcelAddUniqueId(builder, uniqueId)
+def FieldSceneExcelAddDateId(builder, dateId): builder.PrependInt64Slot(1, dateId, 0)
 def AddDateId(builder, dateId):
-    FieldSceneExcelAddDateId(builder, dateId)
-
-def FieldSceneExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(2, groupId, 0)
-
+    return FieldSceneExcelAddDateId(builder, dateId)
+def FieldSceneExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(2, groupId, 0)
 def AddGroupId(builder, groupId):
-    FieldSceneExcelAddGroupId(builder, groupId)
-
-def FieldSceneExcelAddArtLevelPath(builder, artLevelPath):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(artLevelPath), 0)
-
+    return FieldSceneExcelAddGroupId(builder, groupId)
+def FieldSceneExcelAddArtLevelPath(builder, artLevelPath): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(artLevelPath), 0)
 def AddArtLevelPath(builder, artLevelPath):
-    FieldSceneExcelAddArtLevelPath(builder, artLevelPath)
-
-def FieldSceneExcelAddDesignLevelPath(builder, designLevelPath):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(designLevelPath), 0)
-
+    return FieldSceneExcelAddArtLevelPath(builder, artLevelPath)
+def FieldSceneExcelAddDesignLevelPath(builder, designLevelPath): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(designLevelPath), 0)
 def AddDesignLevelPath(builder, designLevelPath):
-    FieldSceneExcelAddDesignLevelPath(builder, designLevelPath)
-
-def FieldSceneExcelAddBgmId(builder, bgmId):
-    builder.PrependInt64Slot(5, bgmId, 0)
-
+    return FieldSceneExcelAddDesignLevelPath(builder, designLevelPath)
+def FieldSceneExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(5, bgmId, 0)
 def AddBgmId(builder, bgmId):
-    FieldSceneExcelAddBgmId(builder, bgmId)
-
-def FieldSceneExcelAddConditionalBgmQuestId(builder, conditionalBgmQuestId):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(conditionalBgmQuestId), 0)
-
+    return FieldSceneExcelAddBgmId(builder, bgmId)
+def FieldSceneExcelAddConditionalBgmQuestId(builder, conditionalBgmQuestId): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(conditionalBgmQuestId), 0)
 def AddConditionalBgmQuestId(builder, conditionalBgmQuestId):
-    FieldSceneExcelAddConditionalBgmQuestId(builder, conditionalBgmQuestId)
-
-def FieldSceneExcelStartConditionalBgmQuestIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return FieldSceneExcelAddConditionalBgmQuestId(builder, conditionalBgmQuestId)
+def FieldSceneExcelStartConditionalBgmQuestIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartConditionalBgmQuestIdVector(builder, numElems):
     return FieldSceneExcelStartConditionalBgmQuestIdVector(builder, numElems)
-
-def FieldSceneExcelAddBeginConditionalBgmScenarioGroupId(builder, beginConditionalBgmScenarioGroupId):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(beginConditionalBgmScenarioGroupId), 0)
-
+def FieldSceneExcelAddBeginConditionalBgmScenarioGroupId(builder, beginConditionalBgmScenarioGroupId): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(beginConditionalBgmScenarioGroupId), 0)
 def AddBeginConditionalBgmScenarioGroupId(builder, beginConditionalBgmScenarioGroupId):
-    FieldSceneExcelAddBeginConditionalBgmScenarioGroupId(builder, beginConditionalBgmScenarioGroupId)
-
-def FieldSceneExcelStartBeginConditionalBgmScenarioGroupIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return FieldSceneExcelAddBeginConditionalBgmScenarioGroupId(builder, beginConditionalBgmScenarioGroupId)
+def FieldSceneExcelStartBeginConditionalBgmScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartBeginConditionalBgmScenarioGroupIdVector(builder, numElems):
     return FieldSceneExcelStartBeginConditionalBgmScenarioGroupIdVector(builder, numElems)
-
-def FieldSceneExcelAddEndConditionalBgmScenarioGroupId(builder, endConditionalBgmScenarioGroupId):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(endConditionalBgmScenarioGroupId), 0)
-
+def FieldSceneExcelAddBeginConditionalBgmInteractionId(builder, beginConditionalBgmInteractionId): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(beginConditionalBgmInteractionId), 0)
+def AddBeginConditionalBgmInteractionId(builder, beginConditionalBgmInteractionId):
+    return FieldSceneExcelAddBeginConditionalBgmInteractionId(builder, beginConditionalBgmInteractionId)
+def FieldSceneExcelStartBeginConditionalBgmInteractionIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartBeginConditionalBgmInteractionIdVector(builder, numElems):
+    return FieldSceneExcelStartBeginConditionalBgmInteractionIdVector(builder, numElems)
+def FieldSceneExcelAddEndConditionalBgmScenarioGroupId(builder, endConditionalBgmScenarioGroupId): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(endConditionalBgmScenarioGroupId), 0)
 def AddEndConditionalBgmScenarioGroupId(builder, endConditionalBgmScenarioGroupId):
-    FieldSceneExcelAddEndConditionalBgmScenarioGroupId(builder, endConditionalBgmScenarioGroupId)
-
-def FieldSceneExcelStartEndConditionalBgmScenarioGroupIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return FieldSceneExcelAddEndConditionalBgmScenarioGroupId(builder, endConditionalBgmScenarioGroupId)
+def FieldSceneExcelStartEndConditionalBgmScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartEndConditionalBgmScenarioGroupIdVector(builder, numElems):
     return FieldSceneExcelStartEndConditionalBgmScenarioGroupIdVector(builder, numElems)
-
-def FieldSceneExcelAddConditionalBgmId(builder, conditionalBgmId):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(conditionalBgmId), 0)
-
+def FieldSceneExcelAddEndConditionalBgmInteractionId(builder, endConditionalBgmInteractionId): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(endConditionalBgmInteractionId), 0)
+def AddEndConditionalBgmInteractionId(builder, endConditionalBgmInteractionId):
+    return FieldSceneExcelAddEndConditionalBgmInteractionId(builder, endConditionalBgmInteractionId)
+def FieldSceneExcelStartEndConditionalBgmInteractionIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartEndConditionalBgmInteractionIdVector(builder, numElems):
+    return FieldSceneExcelStartEndConditionalBgmInteractionIdVector(builder, numElems)
+def FieldSceneExcelAddConditionalBgmId(builder, conditionalBgmId): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(conditionalBgmId), 0)
 def AddConditionalBgmId(builder, conditionalBgmId):
-    FieldSceneExcelAddConditionalBgmId(builder, conditionalBgmId)
-
-def FieldSceneExcelStartConditionalBgmIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return FieldSceneExcelAddConditionalBgmId(builder, conditionalBgmId)
+def FieldSceneExcelStartConditionalBgmIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartConditionalBgmIdVector(builder, numElems):
     return FieldSceneExcelStartConditionalBgmIdVector(builder, numElems)
-
-def FieldSceneExcelEnd(builder):
-    return builder.EndObject()
-
+def FieldSceneExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return FieldSceneExcelEnd(builder)

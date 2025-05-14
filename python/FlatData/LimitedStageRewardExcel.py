@@ -73,56 +73,30 @@ class LimitedStageRewardExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def LimitedStageRewardExcelStart(builder):
-    builder.StartObject(7)
-
+def LimitedStageRewardExcelStart(builder): builder.StartObject(7)
 def Start(builder):
-    LimitedStageRewardExcelStart(builder)
-
-def LimitedStageRewardExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(0, groupId, 0)
-
+    return LimitedStageRewardExcelStart(builder)
+def LimitedStageRewardExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
 def AddGroupId(builder, groupId):
-    LimitedStageRewardExcelAddGroupId(builder, groupId)
-
-def LimitedStageRewardExcelAddRewardTag(builder, rewardTag):
-    builder.PrependInt32Slot(1, rewardTag, 0)
-
+    return LimitedStageRewardExcelAddGroupId(builder, groupId)
+def LimitedStageRewardExcelAddRewardTag(builder, rewardTag): builder.PrependInt32Slot(1, rewardTag, 0)
 def AddRewardTag(builder, rewardTag):
-    LimitedStageRewardExcelAddRewardTag(builder, rewardTag)
-
-def LimitedStageRewardExcelAddRewardProb(builder, rewardProb):
-    builder.PrependInt32Slot(2, rewardProb, 0)
-
+    return LimitedStageRewardExcelAddRewardTag(builder, rewardTag)
+def LimitedStageRewardExcelAddRewardProb(builder, rewardProb): builder.PrependInt32Slot(2, rewardProb, 0)
 def AddRewardProb(builder, rewardProb):
-    LimitedStageRewardExcelAddRewardProb(builder, rewardProb)
-
-def LimitedStageRewardExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependInt32Slot(3, rewardParcelType, 0)
-
+    return LimitedStageRewardExcelAddRewardProb(builder, rewardProb)
+def LimitedStageRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(3, rewardParcelType, 0)
 def AddRewardParcelType(builder, rewardParcelType):
-    LimitedStageRewardExcelAddRewardParcelType(builder, rewardParcelType)
-
-def LimitedStageRewardExcelAddRewardId(builder, rewardId):
-    builder.PrependInt64Slot(4, rewardId, 0)
-
+    return LimitedStageRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def LimitedStageRewardExcelAddRewardId(builder, rewardId): builder.PrependInt64Slot(4, rewardId, 0)
 def AddRewardId(builder, rewardId):
-    LimitedStageRewardExcelAddRewardId(builder, rewardId)
-
-def LimitedStageRewardExcelAddRewardAmount(builder, rewardAmount):
-    builder.PrependInt32Slot(5, rewardAmount, 0)
-
+    return LimitedStageRewardExcelAddRewardId(builder, rewardId)
+def LimitedStageRewardExcelAddRewardAmount(builder, rewardAmount): builder.PrependInt32Slot(5, rewardAmount, 0)
 def AddRewardAmount(builder, rewardAmount):
-    LimitedStageRewardExcelAddRewardAmount(builder, rewardAmount)
-
-def LimitedStageRewardExcelAddIsDisplayed(builder, isDisplayed):
-    builder.PrependBoolSlot(6, isDisplayed, 0)
-
+    return LimitedStageRewardExcelAddRewardAmount(builder, rewardAmount)
+def LimitedStageRewardExcelAddIsDisplayed(builder, isDisplayed): builder.PrependBoolSlot(6, isDisplayed, 0)
 def AddIsDisplayed(builder, isDisplayed):
-    LimitedStageRewardExcelAddIsDisplayed(builder, isDisplayed)
-
-def LimitedStageRewardExcelEnd(builder):
-    return builder.EndObject()
-
+    return LimitedStageRewardExcelAddIsDisplayed(builder, isDisplayed)
+def LimitedStageRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return LimitedStageRewardExcelEnd(builder)

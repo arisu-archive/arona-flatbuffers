@@ -15,6 +15,8 @@ type CharacterCalculationLimitExcelDto struct {
 	CalculationValue BattleCalculationStat `json:"calculation_value"`
 	MinValue         int64                 `json:"min_value"`
 	MaxValue         int64                 `json:"max_value"`
+	LimitStartValue  []int64               `json:"limit_start_value"`
+	DecreaseRate     []int64               `json:"decrease_rate"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -28,6 +30,16 @@ func (t *CharacterCalculationLimitExcelDto) MarshalModel(b *flatbuffers.Builder)
 	CharacterCalculationLimitExcelAddCalculationValue(b, fbsutils.Convert(t.CalculationValue, t.FlatBuffer.TableKey))
 	CharacterCalculationLimitExcelAddMinValue(b, fbsutils.Convert(t.MinValue, t.FlatBuffer.TableKey))
 	CharacterCalculationLimitExcelAddMaxValue(b, fbsutils.Convert(t.MaxValue, t.FlatBuffer.TableKey))
+	CharacterCalculationLimitExcelStartLimitStartValueVector(b, len(t.LimitStartValue))
+	for i := range len(t.LimitStartValue) {
+		b.PrependInt64(fbsutils.Convert(t.LimitStartValue[len(t.LimitStartValue)-i-1], t.FlatBuffer.TableKey))
+	}
+	CharacterCalculationLimitExcelAddLimitStartValue(b, b.EndVector(len(t.LimitStartValue)))
+	CharacterCalculationLimitExcelStartDecreaseRateVector(b, len(t.DecreaseRate))
+	for i := range len(t.DecreaseRate) {
+		b.PrependInt64(fbsutils.Convert(t.DecreaseRate[len(t.DecreaseRate)-i-1], t.FlatBuffer.TableKey))
+	}
+	CharacterCalculationLimitExcelAddDecreaseRate(b, b.EndVector(len(t.DecreaseRate)))
 	return CharacterCalculationLimitExcelEnd(b)
 }
 
@@ -48,6 +60,14 @@ func (t *CharacterCalculationLimitExcelDto) UnmarshalMessage(e *CharacterCalcula
 	t.CalculationValue = BattleCalculationStat(fbsutils.Convert(int32(e.CalculationValue()), t.FlatBuffer.TableKey))
 	t.MinValue = fbsutils.Convert(e.MinValue(), t.FlatBuffer.TableKey)
 	t.MaxValue = fbsutils.Convert(e.MaxValue(), t.FlatBuffer.TableKey)
+	t.LimitStartValue = make([]int64, e.LimitStartValueLength())
+	for i := range e.LimitStartValueLength() {
+		t.LimitStartValue[i] = fbsutils.Convert(e.LimitStartValue(i), t.FlatBuffer.TableKey)
+	}
+	t.DecreaseRate = make([]int64, e.DecreaseRateLength())
+	for i := range e.DecreaseRateLength() {
+		t.DecreaseRate[i] = fbsutils.Convert(e.DecreaseRate(i), t.FlatBuffer.TableKey)
+	}
 	return nil
 }
 

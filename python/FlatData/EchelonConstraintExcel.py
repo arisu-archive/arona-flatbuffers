@@ -120,74 +120,39 @@ class EchelonConstraintExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def EchelonConstraintExcelStart(builder):
-    builder.StartObject(8)
-
+def EchelonConstraintExcelStart(builder): builder.StartObject(8)
 def Start(builder):
-    EchelonConstraintExcelStart(builder)
-
-def EchelonConstraintExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(0, groupId, 0)
-
+    return EchelonConstraintExcelStart(builder)
+def EchelonConstraintExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
 def AddGroupId(builder, groupId):
-    EchelonConstraintExcelAddGroupId(builder, groupId)
-
-def EchelonConstraintExcelAddIsWhiteList(builder, isWhiteList):
-    builder.PrependBoolSlot(1, isWhiteList, 0)
-
+    return EchelonConstraintExcelAddGroupId(builder, groupId)
+def EchelonConstraintExcelAddIsWhiteList(builder, isWhiteList): builder.PrependBoolSlot(1, isWhiteList, 0)
 def AddIsWhiteList(builder, isWhiteList):
-    EchelonConstraintExcelAddIsWhiteList(builder, isWhiteList)
-
-def EchelonConstraintExcelAddCharacterId(builder, characterId):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(characterId), 0)
-
+    return EchelonConstraintExcelAddIsWhiteList(builder, isWhiteList)
+def EchelonConstraintExcelAddCharacterId(builder, characterId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(characterId), 0)
 def AddCharacterId(builder, characterId):
-    EchelonConstraintExcelAddCharacterId(builder, characterId)
-
-def EchelonConstraintExcelStartCharacterIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EchelonConstraintExcelAddCharacterId(builder, characterId)
+def EchelonConstraintExcelStartCharacterIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartCharacterIdVector(builder, numElems):
     return EchelonConstraintExcelStartCharacterIdVector(builder, numElems)
-
-def EchelonConstraintExcelAddPersonalityId(builder, personalityId):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(personalityId), 0)
-
+def EchelonConstraintExcelAddPersonalityId(builder, personalityId): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(personalityId), 0)
 def AddPersonalityId(builder, personalityId):
-    EchelonConstraintExcelAddPersonalityId(builder, personalityId)
-
-def EchelonConstraintExcelStartPersonalityIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EchelonConstraintExcelAddPersonalityId(builder, personalityId)
+def EchelonConstraintExcelStartPersonalityIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartPersonalityIdVector(builder, numElems):
     return EchelonConstraintExcelStartPersonalityIdVector(builder, numElems)
-
-def EchelonConstraintExcelAddWeaponType(builder, weaponType):
-    builder.PrependInt32Slot(4, weaponType, 0)
-
+def EchelonConstraintExcelAddWeaponType(builder, weaponType): builder.PrependInt32Slot(4, weaponType, 0)
 def AddWeaponType(builder, weaponType):
-    EchelonConstraintExcelAddWeaponType(builder, weaponType)
-
-def EchelonConstraintExcelAddSchool(builder, school):
-    builder.PrependInt32Slot(5, school, 0)
-
+    return EchelonConstraintExcelAddWeaponType(builder, weaponType)
+def EchelonConstraintExcelAddSchool(builder, school): builder.PrependInt32Slot(5, school, 0)
 def AddSchool(builder, school):
-    EchelonConstraintExcelAddSchool(builder, school)
-
-def EchelonConstraintExcelAddClub(builder, club):
-    builder.PrependInt32Slot(6, club, 0)
-
+    return EchelonConstraintExcelAddSchool(builder, school)
+def EchelonConstraintExcelAddClub(builder, club): builder.PrependInt32Slot(6, club, 0)
 def AddClub(builder, club):
-    EchelonConstraintExcelAddClub(builder, club)
-
-def EchelonConstraintExcelAddRole(builder, role):
-    builder.PrependInt32Slot(7, role, 0)
-
+    return EchelonConstraintExcelAddClub(builder, club)
+def EchelonConstraintExcelAddRole(builder, role): builder.PrependInt32Slot(7, role, 0)
 def AddRole(builder, role):
-    EchelonConstraintExcelAddRole(builder, role)
-
-def EchelonConstraintExcelEnd(builder):
-    return builder.EndObject()
-
+    return EchelonConstraintExcelAddRole(builder, role)
+def EchelonConstraintExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EchelonConstraintExcelEnd(builder)

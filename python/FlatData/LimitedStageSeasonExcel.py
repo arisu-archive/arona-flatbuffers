@@ -66,50 +66,27 @@ class LimitedStageSeasonExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def LimitedStageSeasonExcelStart(builder):
-    builder.StartObject(6)
-
+def LimitedStageSeasonExcelStart(builder): builder.StartObject(6)
 def Start(builder):
-    LimitedStageSeasonExcelStart(builder)
-
-def LimitedStageSeasonExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return LimitedStageSeasonExcelStart(builder)
+def LimitedStageSeasonExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    LimitedStageSeasonExcelAddId(builder, id)
-
-def LimitedStageSeasonExcelAddStartDate(builder, startDate):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
-
+    return LimitedStageSeasonExcelAddId(builder, id)
+def LimitedStageSeasonExcelAddStartDate(builder, startDate): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
 def AddStartDate(builder, startDate):
-    LimitedStageSeasonExcelAddStartDate(builder, startDate)
-
-def LimitedStageSeasonExcelAddEndDate(builder, endDate):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
-
+    return LimitedStageSeasonExcelAddStartDate(builder, startDate)
+def LimitedStageSeasonExcelAddEndDate(builder, endDate): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
 def AddEndDate(builder, endDate):
-    LimitedStageSeasonExcelAddEndDate(builder, endDate)
-
-def LimitedStageSeasonExcelAddTypeACount(builder, typeACount):
-    builder.PrependInt64Slot(3, typeACount, 0)
-
+    return LimitedStageSeasonExcelAddEndDate(builder, endDate)
+def LimitedStageSeasonExcelAddTypeACount(builder, typeACount): builder.PrependInt64Slot(3, typeACount, 0)
 def AddTypeACount(builder, typeACount):
-    LimitedStageSeasonExcelAddTypeACount(builder, typeACount)
-
-def LimitedStageSeasonExcelAddTypeBCount(builder, typeBCount):
-    builder.PrependInt64Slot(4, typeBCount, 0)
-
+    return LimitedStageSeasonExcelAddTypeACount(builder, typeACount)
+def LimitedStageSeasonExcelAddTypeBCount(builder, typeBCount): builder.PrependInt64Slot(4, typeBCount, 0)
 def AddTypeBCount(builder, typeBCount):
-    LimitedStageSeasonExcelAddTypeBCount(builder, typeBCount)
-
-def LimitedStageSeasonExcelAddTypeCCount(builder, typeCCount):
-    builder.PrependInt64Slot(5, typeCCount, 0)
-
+    return LimitedStageSeasonExcelAddTypeBCount(builder, typeBCount)
+def LimitedStageSeasonExcelAddTypeCCount(builder, typeCCount): builder.PrependInt64Slot(5, typeCCount, 0)
 def AddTypeCCount(builder, typeCCount):
-    LimitedStageSeasonExcelAddTypeCCount(builder, typeCCount)
-
-def LimitedStageSeasonExcelEnd(builder):
-    return builder.EndObject()
-
+    return LimitedStageSeasonExcelAddTypeCCount(builder, typeCCount)
+def LimitedStageSeasonExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return LimitedStageSeasonExcelEnd(builder)

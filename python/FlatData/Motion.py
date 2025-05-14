@@ -56,32 +56,18 @@ class Motion(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         return o == 0
 
-def MotionStart(builder):
-    builder.StartObject(2)
-
+def MotionStart(builder): builder.StartObject(2)
 def Start(builder):
-    MotionStart(builder)
-
-def MotionAddName(builder, name):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
-
+    return MotionStart(builder)
+def MotionAddName(builder, name): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
 def AddName(builder, name):
-    MotionAddName(builder, name)
-
-def MotionAddPositions(builder, positions):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(positions), 0)
-
+    return MotionAddName(builder, name)
+def MotionAddPositions(builder, positions): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(positions), 0)
 def AddPositions(builder, positions):
-    MotionAddPositions(builder, positions)
-
-def MotionStartPositionsVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return MotionAddPositions(builder, positions)
+def MotionStartPositionsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartPositionsVector(builder, numElems):
     return MotionStartPositionsVector(builder, numElems)
-
-def MotionEnd(builder):
-    return builder.EndObject()
-
+def MotionEnd(builder): return builder.EndObject()
 def End(builder):
     return MotionEnd(builder)

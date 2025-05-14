@@ -36,4 +36,5 @@ table ConstArenaExcel {
     show_season_change_info_start_time: string;
     show_season_change_info_end_time: string;
     show_season_id: long;
+    arena_history_query_limit_days: int;
 }

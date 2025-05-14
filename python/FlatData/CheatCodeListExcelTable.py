@@ -49,26 +49,15 @@ class CheatCodeListExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CheatCodeListExcelTableStart(builder):
-    builder.StartObject(1)
-
+def CheatCodeListExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    CheatCodeListExcelTableStart(builder)
-
-def CheatCodeListExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return CheatCodeListExcelTableStart(builder)
+def CheatCodeListExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    CheatCodeListExcelTableAddDataList(builder, dataList)
-
-def CheatCodeListExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CheatCodeListExcelTableAddDataList(builder, dataList)
+def CheatCodeListExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return CheatCodeListExcelTableStartDataListVector(builder, numElems)
-
-def CheatCodeListExcelTableEnd(builder):
-    return builder.EndObject()
-
+def CheatCodeListExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return CheatCodeListExcelTableEnd(builder)

@@ -73,56 +73,30 @@ class CharacterStatLimitExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def CharacterStatLimitExcelStart(builder):
-    builder.StartObject(7)
-
+def CharacterStatLimitExcelStart(builder): builder.StartObject(7)
 def Start(builder):
-    CharacterStatLimitExcelStart(builder)
-
-def CharacterStatLimitExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return CharacterStatLimitExcelStart(builder)
+def CharacterStatLimitExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    CharacterStatLimitExcelAddId(builder, id)
-
-def CharacterStatLimitExcelAddTacticEntityType(builder, tacticEntityType):
-    builder.PrependInt32Slot(1, tacticEntityType, 0)
-
+    return CharacterStatLimitExcelAddId(builder, id)
+def CharacterStatLimitExcelAddTacticEntityType(builder, tacticEntityType): builder.PrependInt32Slot(1, tacticEntityType, 0)
 def AddTacticEntityType(builder, tacticEntityType):
-    CharacterStatLimitExcelAddTacticEntityType(builder, tacticEntityType)
-
-def CharacterStatLimitExcelAddStatType(builder, statType):
-    builder.PrependInt32Slot(2, statType, 0)
-
+    return CharacterStatLimitExcelAddTacticEntityType(builder, tacticEntityType)
+def CharacterStatLimitExcelAddStatType(builder, statType): builder.PrependInt32Slot(2, statType, 0)
 def AddStatType(builder, statType):
-    CharacterStatLimitExcelAddStatType(builder, statType)
-
-def CharacterStatLimitExcelAddStatMinValue(builder, statMinValue):
-    builder.PrependInt64Slot(3, statMinValue, 0)
-
+    return CharacterStatLimitExcelAddStatType(builder, statType)
+def CharacterStatLimitExcelAddStatMinValue(builder, statMinValue): builder.PrependInt64Slot(3, statMinValue, 0)
 def AddStatMinValue(builder, statMinValue):
-    CharacterStatLimitExcelAddStatMinValue(builder, statMinValue)
-
-def CharacterStatLimitExcelAddStatMaxValue(builder, statMaxValue):
-    builder.PrependInt64Slot(4, statMaxValue, 0)
-
+    return CharacterStatLimitExcelAddStatMinValue(builder, statMinValue)
+def CharacterStatLimitExcelAddStatMaxValue(builder, statMaxValue): builder.PrependInt64Slot(4, statMaxValue, 0)
 def AddStatMaxValue(builder, statMaxValue):
-    CharacterStatLimitExcelAddStatMaxValue(builder, statMaxValue)
-
-def CharacterStatLimitExcelAddStatRatioMinValue(builder, statRatioMinValue):
-    builder.PrependInt64Slot(5, statRatioMinValue, 0)
-
+    return CharacterStatLimitExcelAddStatMaxValue(builder, statMaxValue)
+def CharacterStatLimitExcelAddStatRatioMinValue(builder, statRatioMinValue): builder.PrependInt64Slot(5, statRatioMinValue, 0)
 def AddStatRatioMinValue(builder, statRatioMinValue):
-    CharacterStatLimitExcelAddStatRatioMinValue(builder, statRatioMinValue)
-
-def CharacterStatLimitExcelAddStatRatioMaxValue(builder, statRatioMaxValue):
-    builder.PrependInt64Slot(6, statRatioMaxValue, 0)
-
+    return CharacterStatLimitExcelAddStatRatioMinValue(builder, statRatioMinValue)
+def CharacterStatLimitExcelAddStatRatioMaxValue(builder, statRatioMaxValue): builder.PrependInt64Slot(6, statRatioMaxValue, 0)
 def AddStatRatioMaxValue(builder, statRatioMaxValue):
-    CharacterStatLimitExcelAddStatRatioMaxValue(builder, statRatioMaxValue)
-
-def CharacterStatLimitExcelEnd(builder):
-    return builder.EndObject()
-
+    return CharacterStatLimitExcelAddStatRatioMaxValue(builder, statRatioMaxValue)
+def CharacterStatLimitExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterStatLimitExcelEnd(builder)

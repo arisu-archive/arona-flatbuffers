@@ -52,38 +52,21 @@ class PresetParcelsExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def PresetParcelsExcelStart(builder):
-    builder.StartObject(4)
-
+def PresetParcelsExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    PresetParcelsExcelStart(builder)
-
-def PresetParcelsExcelAddParcelType(builder, parcelType):
-    builder.PrependInt32Slot(0, parcelType, 0)
-
+    return PresetParcelsExcelStart(builder)
+def PresetParcelsExcelAddParcelType(builder, parcelType): builder.PrependInt32Slot(0, parcelType, 0)
 def AddParcelType(builder, parcelType):
-    PresetParcelsExcelAddParcelType(builder, parcelType)
-
-def PresetParcelsExcelAddParcelId(builder, parcelId):
-    builder.PrependInt64Slot(1, parcelId, 0)
-
+    return PresetParcelsExcelAddParcelType(builder, parcelType)
+def PresetParcelsExcelAddParcelId(builder, parcelId): builder.PrependInt64Slot(1, parcelId, 0)
 def AddParcelId(builder, parcelId):
-    PresetParcelsExcelAddParcelId(builder, parcelId)
-
-def PresetParcelsExcelAddPresetGroupId(builder, presetGroupId):
-    builder.PrependInt64Slot(2, presetGroupId, 0)
-
+    return PresetParcelsExcelAddParcelId(builder, parcelId)
+def PresetParcelsExcelAddPresetGroupId(builder, presetGroupId): builder.PrependInt64Slot(2, presetGroupId, 0)
 def AddPresetGroupId(builder, presetGroupId):
-    PresetParcelsExcelAddPresetGroupId(builder, presetGroupId)
-
-def PresetParcelsExcelAddParcelAmount(builder, parcelAmount):
-    builder.PrependInt64Slot(3, parcelAmount, 0)
-
+    return PresetParcelsExcelAddPresetGroupId(builder, presetGroupId)
+def PresetParcelsExcelAddParcelAmount(builder, parcelAmount): builder.PrependInt64Slot(3, parcelAmount, 0)
 def AddParcelAmount(builder, parcelAmount):
-    PresetParcelsExcelAddParcelAmount(builder, parcelAmount)
-
-def PresetParcelsExcelEnd(builder):
-    return builder.EndObject()
-
+    return PresetParcelsExcelAddParcelAmount(builder, parcelAmount)
+def PresetParcelsExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return PresetParcelsExcelEnd(builder)

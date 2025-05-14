@@ -52,38 +52,21 @@ class FieldMasteryManageExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def FieldMasteryManageExcelStart(builder):
-    builder.StartObject(4)
-
+def FieldMasteryManageExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    FieldMasteryManageExcelStart(builder)
-
-def FieldMasteryManageExcelAddFieldSeason(builder, fieldSeason):
-    builder.PrependInt64Slot(0, fieldSeason, 0)
-
+    return FieldMasteryManageExcelStart(builder)
+def FieldMasteryManageExcelAddFieldSeason(builder, fieldSeason): builder.PrependInt64Slot(0, fieldSeason, 0)
 def AddFieldSeason(builder, fieldSeason):
-    FieldMasteryManageExcelAddFieldSeason(builder, fieldSeason)
-
-def FieldMasteryManageExcelAddLocalizeEtc(builder, localizeEtc):
-    builder.PrependUint32Slot(1, localizeEtc, 0)
-
+    return FieldMasteryManageExcelAddFieldSeason(builder, fieldSeason)
+def FieldMasteryManageExcelAddLocalizeEtc(builder, localizeEtc): builder.PrependUint32Slot(1, localizeEtc, 0)
 def AddLocalizeEtc(builder, localizeEtc):
-    FieldMasteryManageExcelAddLocalizeEtc(builder, localizeEtc)
-
-def FieldMasteryManageExcelAddImagePath(builder, imagePath):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(imagePath), 0)
-
+    return FieldMasteryManageExcelAddLocalizeEtc(builder, localizeEtc)
+def FieldMasteryManageExcelAddImagePath(builder, imagePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(imagePath), 0)
 def AddImagePath(builder, imagePath):
-    FieldMasteryManageExcelAddImagePath(builder, imagePath)
-
-def FieldMasteryManageExcelAddLevelId(builder, levelId):
-    builder.PrependInt64Slot(3, levelId, 0)
-
+    return FieldMasteryManageExcelAddImagePath(builder, imagePath)
+def FieldMasteryManageExcelAddLevelId(builder, levelId): builder.PrependInt64Slot(3, levelId, 0)
 def AddLevelId(builder, levelId):
-    FieldMasteryManageExcelAddLevelId(builder, levelId)
-
-def FieldMasteryManageExcelEnd(builder):
-    return builder.EndObject()
-
+    return FieldMasteryManageExcelAddLevelId(builder, levelId)
+def FieldMasteryManageExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return FieldMasteryManageExcelEnd(builder)

@@ -40,7 +40,7 @@ table FurnitureExcel {
     craft_quality_tier2: long;
     shifting_craft_quality: long;
     furniture_function_type: FurnitureFunctionType;
-    furniture_function_parameter: long;
+    furniture_function_parameter: [long];
     video_id: long;
     event_collection_id: long;
     furniture_bubble_offset_x: long;

@@ -149,110 +149,57 @@ class EventContentCollectionExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def EventContentCollectionExcelStart(builder):
-    builder.StartObject(15)
-
+def EventContentCollectionExcelStart(builder): builder.StartObject(15)
 def Start(builder):
-    EventContentCollectionExcelStart(builder)
-
-def EventContentCollectionExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return EventContentCollectionExcelStart(builder)
+def EventContentCollectionExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    EventContentCollectionExcelAddId(builder, id)
-
-def EventContentCollectionExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(1, eventContentId, 0)
-
+    return EventContentCollectionExcelAddId(builder, id)
+def EventContentCollectionExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    EventContentCollectionExcelAddEventContentId(builder, eventContentId)
-
-def EventContentCollectionExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(2, groupId, 0)
-
+    return EventContentCollectionExcelAddEventContentId(builder, eventContentId)
+def EventContentCollectionExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(2, groupId, 0)
 def AddGroupId(builder, groupId):
-    EventContentCollectionExcelAddGroupId(builder, groupId)
-
-def EventContentCollectionExcelAddUnlockConditionType(builder, unlockConditionType):
-    builder.PrependInt32Slot(3, unlockConditionType, 0)
-
+    return EventContentCollectionExcelAddGroupId(builder, groupId)
+def EventContentCollectionExcelAddUnlockConditionType(builder, unlockConditionType): builder.PrependInt32Slot(3, unlockConditionType, 0)
 def AddUnlockConditionType(builder, unlockConditionType):
-    EventContentCollectionExcelAddUnlockConditionType(builder, unlockConditionType)
-
-def EventContentCollectionExcelAddUnlockConditionParameter(builder, unlockConditionParameter):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(unlockConditionParameter), 0)
-
+    return EventContentCollectionExcelAddUnlockConditionType(builder, unlockConditionType)
+def EventContentCollectionExcelAddUnlockConditionParameter(builder, unlockConditionParameter): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(unlockConditionParameter), 0)
 def AddUnlockConditionParameter(builder, unlockConditionParameter):
-    EventContentCollectionExcelAddUnlockConditionParameter(builder, unlockConditionParameter)
-
-def EventContentCollectionExcelStartUnlockConditionParameterVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentCollectionExcelAddUnlockConditionParameter(builder, unlockConditionParameter)
+def EventContentCollectionExcelStartUnlockConditionParameterVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartUnlockConditionParameterVector(builder, numElems):
     return EventContentCollectionExcelStartUnlockConditionParameterVector(builder, numElems)
-
-def EventContentCollectionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType):
-    builder.PrependInt32Slot(5, multipleConditionCheckType, 0)
-
+def EventContentCollectionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType): builder.PrependInt32Slot(5, multipleConditionCheckType, 0)
 def AddMultipleConditionCheckType(builder, multipleConditionCheckType):
-    EventContentCollectionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType)
-
-def EventContentCollectionExcelAddUnlockConditionCount(builder, unlockConditionCount):
-    builder.PrependInt64Slot(6, unlockConditionCount, 0)
-
+    return EventContentCollectionExcelAddMultipleConditionCheckType(builder, multipleConditionCheckType)
+def EventContentCollectionExcelAddUnlockConditionCount(builder, unlockConditionCount): builder.PrependInt64Slot(6, unlockConditionCount, 0)
 def AddUnlockConditionCount(builder, unlockConditionCount):
-    EventContentCollectionExcelAddUnlockConditionCount(builder, unlockConditionCount)
-
-def EventContentCollectionExcelAddIsObject(builder, isObject):
-    builder.PrependBoolSlot(7, isObject, 0)
-
+    return EventContentCollectionExcelAddUnlockConditionCount(builder, unlockConditionCount)
+def EventContentCollectionExcelAddIsObject(builder, isObject): builder.PrependBoolSlot(7, isObject, 0)
 def AddIsObject(builder, isObject):
-    EventContentCollectionExcelAddIsObject(builder, isObject)
-
-def EventContentCollectionExcelAddIsObjectOnFullResource(builder, isObjectOnFullResource):
-    builder.PrependBoolSlot(8, isObjectOnFullResource, 0)
-
+    return EventContentCollectionExcelAddIsObject(builder, isObject)
+def EventContentCollectionExcelAddIsObjectOnFullResource(builder, isObjectOnFullResource): builder.PrependBoolSlot(8, isObjectOnFullResource, 0)
 def AddIsObjectOnFullResource(builder, isObjectOnFullResource):
-    EventContentCollectionExcelAddIsObjectOnFullResource(builder, isObjectOnFullResource)
-
-def EventContentCollectionExcelAddIsHorizon(builder, isHorizon):
-    builder.PrependBoolSlot(9, isHorizon, 0)
-
+    return EventContentCollectionExcelAddIsObjectOnFullResource(builder, isObjectOnFullResource)
+def EventContentCollectionExcelAddIsHorizon(builder, isHorizon): builder.PrependBoolSlot(9, isHorizon, 0)
 def AddIsHorizon(builder, isHorizon):
-    EventContentCollectionExcelAddIsHorizon(builder, isHorizon)
-
-def EventContentCollectionExcelAddEmblemResource(builder, emblemResource):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(emblemResource), 0)
-
+    return EventContentCollectionExcelAddIsHorizon(builder, isHorizon)
+def EventContentCollectionExcelAddEmblemResource(builder, emblemResource): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(emblemResource), 0)
 def AddEmblemResource(builder, emblemResource):
-    EventContentCollectionExcelAddEmblemResource(builder, emblemResource)
-
-def EventContentCollectionExcelAddThumbResource(builder, thumbResource):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(thumbResource), 0)
-
+    return EventContentCollectionExcelAddEmblemResource(builder, emblemResource)
+def EventContentCollectionExcelAddThumbResource(builder, thumbResource): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(thumbResource), 0)
 def AddThumbResource(builder, thumbResource):
-    EventContentCollectionExcelAddThumbResource(builder, thumbResource)
-
-def EventContentCollectionExcelAddFullResource(builder, fullResource):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(fullResource), 0)
-
+    return EventContentCollectionExcelAddThumbResource(builder, thumbResource)
+def EventContentCollectionExcelAddFullResource(builder, fullResource): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(fullResource), 0)
 def AddFullResource(builder, fullResource):
-    EventContentCollectionExcelAddFullResource(builder, fullResource)
-
-def EventContentCollectionExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(13, localizeEtcId, 0)
-
+    return EventContentCollectionExcelAddFullResource(builder, fullResource)
+def EventContentCollectionExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(13, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
-    EventContentCollectionExcelAddLocalizeEtcId(builder, localizeEtcId)
-
-def EventContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId):
-    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(subNameLocalizeCodeId), 0)
-
+    return EventContentCollectionExcelAddLocalizeEtcId(builder, localizeEtcId)
+def EventContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(subNameLocalizeCodeId), 0)
 def AddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId):
-    EventContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId)
-
-def EventContentCollectionExcelEnd(builder):
-    return builder.EndObject()
-
+    return EventContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId)
+def EventContentCollectionExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentCollectionExcelEnd(builder)

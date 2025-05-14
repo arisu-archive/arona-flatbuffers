@@ -24,6 +24,7 @@ type GoodsExcelDto struct {
 	ProductIdiOs                 int64              `json:"product_idi_os"`
 	ProductIdOne                 int64              `json:"product_id_one"`
 	ProductIdSgs                 int64              `json:"product_id_sgs"`
+	ProductIdSteam               int64              `json:"product_id_steam"`
 	ConsumeExtraStep             []int64            `json:"consume_extra_step"`
 	ConsumeExtraAmount           []int64            `json:"consume_extra_amount"`
 	State                        int32              `json:"state"`
@@ -68,6 +69,7 @@ func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	GoodsExcelAddProductIdiOs(b, fbsutils.Convert(t.ProductIdiOs, t.FlatBuffer.TableKey))
 	GoodsExcelAddProductIdOne(b, fbsutils.Convert(t.ProductIdOne, t.FlatBuffer.TableKey))
 	GoodsExcelAddProductIdSgs(b, fbsutils.Convert(t.ProductIdSgs, t.FlatBuffer.TableKey))
+	GoodsExcelAddProductIdSteam(b, fbsutils.Convert(t.ProductIdSteam, t.FlatBuffer.TableKey))
 	GoodsExcelStartConsumeExtraStepVector(b, len(t.ConsumeExtraStep))
 	for i := range len(t.ConsumeExtraStep) {
 		b.PrependInt64(fbsutils.Convert(t.ConsumeExtraStep[len(t.ConsumeExtraStep)-i-1], t.FlatBuffer.TableKey))
@@ -135,6 +137,7 @@ func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
 	t.ProductIdiOs = fbsutils.Convert(e.ProductIdiOs(), t.FlatBuffer.TableKey)
 	t.ProductIdOne = fbsutils.Convert(e.ProductIdOne(), t.FlatBuffer.TableKey)
 	t.ProductIdSgs = fbsutils.Convert(e.ProductIdSgs(), t.FlatBuffer.TableKey)
+	t.ProductIdSteam = fbsutils.Convert(e.ProductIdSteam(), t.FlatBuffer.TableKey)
 	t.ConsumeExtraStep = make([]int64, e.ConsumeExtraStepLength())
 	for i := range e.ConsumeExtraStepLength() {
 		t.ConsumeExtraStep[i] = fbsutils.Convert(e.ConsumeExtraStep(i), t.FlatBuffer.TableKey)

@@ -23,6 +23,7 @@ type ConstEventCommonExcelDto struct {
 	TreasureLoopVariationAmount          int32  `json:"treasure_loop_variation_amount"`
 	TreasureLimitVariationLoopCount      int32  `json:"treasure_limit_variation_loop_count"`
 	TreasureLimitVariationClearLoopCount int32  `json:"treasure_limit_variation_clear_loop_count"`
+	EventStoryReplayHideEventContentId   int32  `json:"event_story_replay_hide_event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -44,6 +45,7 @@ func (t *ConstEventCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	ConstEventCommonExcelAddTreasureLoopVariationAmount(b, fbsutils.Convert(t.TreasureLoopVariationAmount, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddTreasureLimitVariationLoopCount(b, fbsutils.Convert(t.TreasureLimitVariationLoopCount, t.FlatBuffer.TableKey))
 	ConstEventCommonExcelAddTreasureLimitVariationClearLoopCount(b, fbsutils.Convert(t.TreasureLimitVariationClearLoopCount, t.FlatBuffer.TableKey))
+	ConstEventCommonExcelAddEventStoryReplayHideEventContentId(b, fbsutils.Convert(t.EventStoryReplayHideEventContentId, t.FlatBuffer.TableKey))
 	return ConstEventCommonExcelEnd(b)
 }
 
@@ -72,6 +74,7 @@ func (t *ConstEventCommonExcelDto) UnmarshalMessage(e *ConstEventCommonExcel) er
 	t.TreasureLoopVariationAmount = fbsutils.Convert(e.TreasureLoopVariationAmount(), t.FlatBuffer.TableKey)
 	t.TreasureLimitVariationLoopCount = fbsutils.Convert(e.TreasureLimitVariationLoopCount(), t.FlatBuffer.TableKey)
 	t.TreasureLimitVariationClearLoopCount = fbsutils.Convert(e.TreasureLimitVariationClearLoopCount(), t.FlatBuffer.TableKey)
+	t.EventStoryReplayHideEventContentId = fbsutils.Convert(e.EventStoryReplayHideEventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -14,3 +14,4 @@ class FieldInteractionType(object):
     Timeline = 8
     ActionTrigger = 9
     Interplay = 10
+    UnderCoverStage = 11

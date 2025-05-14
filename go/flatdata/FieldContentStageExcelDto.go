@@ -15,6 +15,7 @@ type FieldContentStageExcelDto struct {
 	AreaId                int64           `json:"area_id"`
 	GroupId               int64           `json:"group_id"`
 	StageDifficulty       StageDifficulty `json:"stage_difficulty"`
+	PrevStageId           int64           `json:"prev_stage_id"`
 	Name                  string          `json:"name"`
 	BattleDuration        int64           `json:"battle_duration"`
 	StageEnterCostType    ParcelType      `json:"stage_enter_cost_type"`
@@ -27,6 +28,9 @@ type FieldContentStageExcelDto struct {
 	InstantClear          bool            `json:"instant_clear"`
 	FixedEchelonId        int64           `json:"fixed_echelon_id"`
 	SkipFormationSettings bool            `json:"skip_formation_settings"`
+	DailyLastPlay         bool            `json:"daily_last_play"`
+	StarGoal              []StarGoalType  `json:"star_goal"`
+	StarGoalAmount        []int32         `json:"star_goal_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -40,6 +44,7 @@ func (t *FieldContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	FieldContentStageExcelAddAreaId(b, fbsutils.Convert(t.AreaId, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
+	FieldContentStageExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageId, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	FieldContentStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddStageEnterCostType(b, fbsutils.Convert(t.StageEnterCostType, t.FlatBuffer.TableKey))
@@ -52,6 +57,17 @@ func (t *FieldContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	FieldContentStageExcelAddInstantClear(b, t.InstantClear)
 	FieldContentStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
 	FieldContentStageExcelAddSkipFormationSettings(b, t.SkipFormationSettings)
+	FieldContentStageExcelAddDailyLastPlay(b, t.DailyLastPlay)
+	FieldContentStageExcelStartStarGoalVector(b, len(t.StarGoal))
+	for i := range len(t.StarGoal) {
+		b.PrependInt32(fbsutils.Convert(int32(t.StarGoal[len(t.StarGoal)-i-1]), t.FlatBuffer.TableKey))
+	}
+	FieldContentStageExcelAddStarGoal(b, b.EndVector(len(t.StarGoal)))
+	FieldContentStageExcelStartStarGoalAmountVector(b, len(t.StarGoalAmount))
+	for i := range len(t.StarGoalAmount) {
+		b.PrependInt32(fbsutils.Convert(t.StarGoalAmount[len(t.StarGoalAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	FieldContentStageExcelAddStarGoalAmount(b, b.EndVector(len(t.StarGoalAmount)))
 	return FieldContentStageExcelEnd(b)
 }
 
@@ -72,6 +88,7 @@ func (t *FieldContentStageExcelDto) UnmarshalMessage(e *FieldContentStageExcel) 
 	t.AreaId = fbsutils.Convert(e.AreaId(), t.FlatBuffer.TableKey)
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.StageDifficulty = StageDifficulty(fbsutils.Convert(int32(e.StageDifficulty()), t.FlatBuffer.TableKey))
+	t.PrevStageId = fbsutils.Convert(e.PrevStageId(), t.FlatBuffer.TableKey)
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
 	t.StageEnterCostType = ParcelType(fbsutils.Convert(int32(e.StageEnterCostType()), t.FlatBuffer.TableKey))
@@ -84,6 +101,15 @@ func (t *FieldContentStageExcelDto) UnmarshalMessage(e *FieldContentStageExcel) 
 	t.InstantClear = e.InstantClear()
 	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
 	t.SkipFormationSettings = e.SkipFormationSettings()
+	t.DailyLastPlay = e.DailyLastPlay()
+	t.StarGoal = make([]StarGoalType, e.StarGoalLength())
+	for i := range e.StarGoalLength() {
+		t.StarGoal[i] = StarGoalType(fbsutils.Convert(int32(e.StarGoal(i)), t.FlatBuffer.TableKey))
+	}
+	t.StarGoalAmount = make([]int32, e.StarGoalAmountLength())
+	for i := range e.StarGoalAmountLength() {
+		t.StarGoalAmount[i] = fbsutils.Convert(e.StarGoalAmount(i), t.FlatBuffer.TableKey)
+	}
 	return nil
 }
 
