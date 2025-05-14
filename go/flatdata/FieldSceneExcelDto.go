@@ -18,7 +18,9 @@ type FieldSceneExcelDto struct {
 	BgmId                              int64   `json:"bgm_id"`
 	ConditionalBgmQuestId              []int64 `json:"conditional_bgm_quest_id"`
 	BeginConditionalBgmScenarioGroupId []int64 `json:"begin_conditional_bgm_scenario_group_id"`
+	BeginConditionalBgmInteractionId   []int64 `json:"begin_conditional_bgm_interaction_id"`
 	EndConditionalBgmScenarioGroupId   []int64 `json:"end_conditional_bgm_scenario_group_id"`
+	EndConditionalBgmInteractionId     []int64 `json:"end_conditional_bgm_interaction_id"`
 	ConditionalBgmId                   []int64 `json:"conditional_bgm_id"`
 }
 
@@ -44,11 +46,21 @@ func (t *FieldSceneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		b.PrependInt64(fbsutils.Convert(t.BeginConditionalBgmScenarioGroupId[len(t.BeginConditionalBgmScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	FieldSceneExcelAddBeginConditionalBgmScenarioGroupId(b, b.EndVector(len(t.BeginConditionalBgmScenarioGroupId)))
+	FieldSceneExcelStartBeginConditionalBgmInteractionIdVector(b, len(t.BeginConditionalBgmInteractionId))
+	for i := range len(t.BeginConditionalBgmInteractionId) {
+		b.PrependInt64(fbsutils.Convert(t.BeginConditionalBgmInteractionId[len(t.BeginConditionalBgmInteractionId)-i-1], t.FlatBuffer.TableKey))
+	}
+	FieldSceneExcelAddBeginConditionalBgmInteractionId(b, b.EndVector(len(t.BeginConditionalBgmInteractionId)))
 	FieldSceneExcelStartEndConditionalBgmScenarioGroupIdVector(b, len(t.EndConditionalBgmScenarioGroupId))
 	for i := range len(t.EndConditionalBgmScenarioGroupId) {
 		b.PrependInt64(fbsutils.Convert(t.EndConditionalBgmScenarioGroupId[len(t.EndConditionalBgmScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	FieldSceneExcelAddEndConditionalBgmScenarioGroupId(b, b.EndVector(len(t.EndConditionalBgmScenarioGroupId)))
+	FieldSceneExcelStartEndConditionalBgmInteractionIdVector(b, len(t.EndConditionalBgmInteractionId))
+	for i := range len(t.EndConditionalBgmInteractionId) {
+		b.PrependInt64(fbsutils.Convert(t.EndConditionalBgmInteractionId[len(t.EndConditionalBgmInteractionId)-i-1], t.FlatBuffer.TableKey))
+	}
+	FieldSceneExcelAddEndConditionalBgmInteractionId(b, b.EndVector(len(t.EndConditionalBgmInteractionId)))
 	FieldSceneExcelStartConditionalBgmIdVector(b, len(t.ConditionalBgmId))
 	for i := range len(t.ConditionalBgmId) {
 		b.PrependInt64(fbsutils.Convert(t.ConditionalBgmId[len(t.ConditionalBgmId)-i-1], t.FlatBuffer.TableKey))
@@ -83,9 +95,17 @@ func (t *FieldSceneExcelDto) UnmarshalMessage(e *FieldSceneExcel) error {
 	for i := range e.BeginConditionalBgmScenarioGroupIdLength() {
 		t.BeginConditionalBgmScenarioGroupId[i] = fbsutils.Convert(e.BeginConditionalBgmScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
+	t.BeginConditionalBgmInteractionId = make([]int64, e.BeginConditionalBgmInteractionIdLength())
+	for i := range e.BeginConditionalBgmInteractionIdLength() {
+		t.BeginConditionalBgmInteractionId[i] = fbsutils.Convert(e.BeginConditionalBgmInteractionId(i), t.FlatBuffer.TableKey)
+	}
 	t.EndConditionalBgmScenarioGroupId = make([]int64, e.EndConditionalBgmScenarioGroupIdLength())
 	for i := range e.EndConditionalBgmScenarioGroupIdLength() {
 		t.EndConditionalBgmScenarioGroupId[i] = fbsutils.Convert(e.EndConditionalBgmScenarioGroupId(i), t.FlatBuffer.TableKey)
+	}
+	t.EndConditionalBgmInteractionId = make([]int64, e.EndConditionalBgmInteractionIdLength())
+	for i := range e.EndConditionalBgmInteractionIdLength() {
+		t.EndConditionalBgmInteractionId[i] = fbsutils.Convert(e.EndConditionalBgmInteractionId(i), t.FlatBuffer.TableKey)
 	}
 	t.ConditionalBgmId = make([]int64, e.ConditionalBgmIdLength())
 	for i := range e.ConditionalBgmIdLength() {

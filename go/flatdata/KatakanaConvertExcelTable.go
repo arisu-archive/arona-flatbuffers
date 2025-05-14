@@ -17,19 +17,11 @@ func GetRootAsKatakanaConvertExcelTable(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
-func FinishKatakanaConvertExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsKatakanaConvertExcelTable(buf []byte, offset flatbuffers.UOffsetT) *KatakanaConvertExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &KatakanaConvertExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedKatakanaConvertExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *KatakanaConvertExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

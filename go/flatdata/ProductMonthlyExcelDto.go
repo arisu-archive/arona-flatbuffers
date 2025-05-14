@@ -19,6 +19,7 @@ type ProductMonthlyExcelDto struct {
 	ProductTagType         ProductTagType `json:"product_tag_type"`
 	MonthlyDays            int64          `json:"monthly_days"`
 	UseMonthlyProductCheck bool           `json:"use_monthly_product_check"`
+	PurchaseCountLimit     int64          `json:"purchase_count_limit"`
 	ParcelType             []ParcelType   `json:"parcel_type"`
 	ParcelId               []int64        `json:"parcel_id"`
 	ParcelAmount           []int64        `json:"parcel_amount"`
@@ -43,6 +44,7 @@ func (t *ProductMonthlyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	ProductMonthlyExcelAddProductTagType(b, fbsutils.Convert(t.ProductTagType, t.FlatBuffer.TableKey))
 	ProductMonthlyExcelAddMonthlyDays(b, fbsutils.Convert(t.MonthlyDays, t.FlatBuffer.TableKey))
 	ProductMonthlyExcelAddUseMonthlyProductCheck(b, t.UseMonthlyProductCheck)
+	ProductMonthlyExcelAddPurchaseCountLimit(b, fbsutils.Convert(t.PurchaseCountLimit, t.FlatBuffer.TableKey))
 	ProductMonthlyExcelStartParcelTypeVector(b, len(t.ParcelType))
 	for i := range len(t.ParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
@@ -98,6 +100,7 @@ func (t *ProductMonthlyExcelDto) UnmarshalMessage(e *ProductMonthlyExcel) error 
 	t.ProductTagType = ProductTagType(fbsutils.Convert(int32(e.ProductTagType()), t.FlatBuffer.TableKey))
 	t.MonthlyDays = fbsutils.Convert(e.MonthlyDays(), t.FlatBuffer.TableKey)
 	t.UseMonthlyProductCheck = e.UseMonthlyProductCheck()
+	t.PurchaseCountLimit = fbsutils.Convert(e.PurchaseCountLimit(), t.FlatBuffer.TableKey)
 	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
 	for i := range e.ParcelTypeLength() {
 		t.ParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ParcelType(i)), t.FlatBuffer.TableKey))

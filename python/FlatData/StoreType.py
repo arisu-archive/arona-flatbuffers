@@ -9,3 +9,4 @@ class StoreType(object):
     OneStore = 3
     MicrosoftStore = 4
     GalaxyStore = 5
+    STEAM = 6

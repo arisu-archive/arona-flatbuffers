@@ -52,38 +52,21 @@ class CafeInfoExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def CafeInfoExcelStart(builder):
-    builder.StartObject(4)
-
+def CafeInfoExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    CafeInfoExcelStart(builder)
-
-def CafeInfoExcelAddCafeId(builder, cafeId):
-    builder.PrependInt64Slot(0, cafeId, 0)
-
+    return CafeInfoExcelStart(builder)
+def CafeInfoExcelAddCafeId(builder, cafeId): builder.PrependInt64Slot(0, cafeId, 0)
 def AddCafeId(builder, cafeId):
-    CafeInfoExcelAddCafeId(builder, cafeId)
-
-def CafeInfoExcelAddIsDefault(builder, isDefault):
-    builder.PrependBoolSlot(1, isDefault, 0)
-
+    return CafeInfoExcelAddCafeId(builder, cafeId)
+def CafeInfoExcelAddIsDefault(builder, isDefault): builder.PrependBoolSlot(1, isDefault, 0)
 def AddIsDefault(builder, isDefault):
-    CafeInfoExcelAddIsDefault(builder, isDefault)
-
-def CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId):
-    builder.PrependInt32Slot(2, openConditionCafeId, 0)
-
+    return CafeInfoExcelAddIsDefault(builder, isDefault)
+def CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId): builder.PrependInt32Slot(2, openConditionCafeId, 0)
 def AddOpenConditionCafeId(builder, openConditionCafeId):
-    CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId)
-
-def CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite):
-    builder.PrependInt32Slot(3, openConditionCafeInvite, 0)
-
+    return CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId)
+def CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite): builder.PrependInt32Slot(3, openConditionCafeInvite, 0)
 def AddOpenConditionCafeInvite(builder, openConditionCafeInvite):
-    CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite)
-
-def CafeInfoExcelEnd(builder):
-    return builder.EndObject()
-
+    return CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite)
+def CafeInfoExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CafeInfoExcelEnd(builder)

@@ -17,19 +17,11 @@ func GetRootAsConstCommonExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstCo
 	return x
 }
 
-func FinishConstCommonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsConstCommonExcel(buf []byte, offset flatbuffers.UOffsetT) *ConstCommonExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstCommonExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedConstCommonExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstCommonExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -2115,8 +2107,44 @@ func (rcv *ConstCommonExcel) MutateMaxBlockedUserCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(338, n)
 }
 
+func (rcv *ConstCommonExcel) CafeRandomVisitMinComfortBonus() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(340))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateCafeRandomVisitMinComfortBonus(n int64) bool {
+	return rcv._tab.MutateInt64Slot(340, n)
+}
+
+func (rcv *ConstCommonExcel) CafeRandomVisitMinLastLogin() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(342))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateCafeRandomVisitMinLastLogin(n int32) bool {
+	return rcv._tab.MutateInt32Slot(342, n)
+}
+
+func (rcv *ConstCommonExcel) CafeTravelSyncIntervalByMillisec() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(344))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateCafeTravelSyncIntervalByMillisec(n int32) bool {
+	return rcv._tab.MutateInt32Slot(344, n)
+}
+
 func ConstCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(168)
+	builder.StartObject(171)
 }
 func ConstCommonExcelAddCampaignMainStageMaxRank(builder *flatbuffers.Builder, campaignMainStageMaxRank int32) {
 	builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -2636,6 +2664,15 @@ func ConstCommonExcelAddAssistStrangerMaxLevel(builder *flatbuffers.Builder, ass
 }
 func ConstCommonExcelAddMaxBlockedUserCount(builder *flatbuffers.Builder, maxBlockedUserCount int32) {
 	builder.PrependInt32Slot(167, maxBlockedUserCount, 0)
+}
+func ConstCommonExcelAddCafeRandomVisitMinComfortBonus(builder *flatbuffers.Builder, cafeRandomVisitMinComfortBonus int64) {
+	builder.PrependInt64Slot(168, cafeRandomVisitMinComfortBonus, 0)
+}
+func ConstCommonExcelAddCafeRandomVisitMinLastLogin(builder *flatbuffers.Builder, cafeRandomVisitMinLastLogin int32) {
+	builder.PrependInt32Slot(169, cafeRandomVisitMinLastLogin, 0)
+}
+func ConstCommonExcelAddCafeTravelSyncIntervalByMillisec(builder *flatbuffers.Builder, cafeTravelSyncIntervalByMillisec int32) {
+	builder.PrependInt32Slot(170, cafeTravelSyncIntervalByMillisec, 0)
 }
 func ConstCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -72,44 +72,24 @@ class BossPhaseExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         return o == 0
 
-def BossPhaseExcelStart(builder):
-    builder.StartObject(4)
-
+def BossPhaseExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    BossPhaseExcelStart(builder)
-
-def BossPhaseExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return BossPhaseExcelStart(builder)
+def BossPhaseExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    BossPhaseExcelAddId(builder, id)
-
-def BossPhaseExcelAddAiPhase(builder, aiPhase):
-    builder.PrependInt64Slot(1, aiPhase, 0)
-
+    return BossPhaseExcelAddId(builder, id)
+def BossPhaseExcelAddAiPhase(builder, aiPhase): builder.PrependInt64Slot(1, aiPhase, 0)
 def AddAiPhase(builder, aiPhase):
-    BossPhaseExcelAddAiPhase(builder, aiPhase)
-
-def BossPhaseExcelAddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(normalAttackSkillUniqueName), 0)
-
+    return BossPhaseExcelAddAiPhase(builder, aiPhase)
+def BossPhaseExcelAddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(normalAttackSkillUniqueName), 0)
 def AddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName):
-    BossPhaseExcelAddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName)
-
-def BossPhaseExcelAddUseExSkill(builder, useExSkill):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(useExSkill), 0)
-
+    return BossPhaseExcelAddNormalAttackSkillUniqueName(builder, normalAttackSkillUniqueName)
+def BossPhaseExcelAddUseExSkill(builder, useExSkill): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(useExSkill), 0)
 def AddUseExSkill(builder, useExSkill):
-    BossPhaseExcelAddUseExSkill(builder, useExSkill)
-
-def BossPhaseExcelStartUseExSkillVector(builder, numElems):
-    return builder.StartVector(1, numElems, 1)
-
+    return BossPhaseExcelAddUseExSkill(builder, useExSkill)
+def BossPhaseExcelStartUseExSkillVector(builder, numElems): return builder.StartVector(1, numElems, 1)
 def StartUseExSkillVector(builder, numElems):
     return BossPhaseExcelStartUseExSkillVector(builder, numElems)
-
-def BossPhaseExcelEnd(builder):
-    return builder.EndObject()
-
+def BossPhaseExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return BossPhaseExcelEnd(builder)

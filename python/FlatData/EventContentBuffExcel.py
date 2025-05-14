@@ -100,74 +100,39 @@ class EventContentBuffExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def EventContentBuffExcelStart(builder):
-    builder.StartObject(9)
-
+def EventContentBuffExcelStart(builder): builder.StartObject(9)
 def Start(builder):
-    EventContentBuffExcelStart(builder)
-
-def EventContentBuffExcelAddEventContentBuffId(builder, eventContentBuffId):
-    builder.PrependInt64Slot(0, eventContentBuffId, 0)
-
+    return EventContentBuffExcelStart(builder)
+def EventContentBuffExcelAddEventContentBuffId(builder, eventContentBuffId): builder.PrependInt64Slot(0, eventContentBuffId, 0)
 def AddEventContentBuffId(builder, eventContentBuffId):
-    EventContentBuffExcelAddEventContentBuffId(builder, eventContentBuffId)
-
-def EventContentBuffExcelAddIsBuff(builder, isBuff):
-    builder.PrependBoolSlot(1, isBuff, 0)
-
+    return EventContentBuffExcelAddEventContentBuffId(builder, eventContentBuffId)
+def EventContentBuffExcelAddIsBuff(builder, isBuff): builder.PrependBoolSlot(1, isBuff, 0)
 def AddIsBuff(builder, isBuff):
-    EventContentBuffExcelAddIsBuff(builder, isBuff)
-
-def EventContentBuffExcelAddCharacterTag(builder, characterTag):
-    builder.PrependInt32Slot(2, characterTag, 0)
-
+    return EventContentBuffExcelAddIsBuff(builder, isBuff)
+def EventContentBuffExcelAddCharacterTag(builder, characterTag): builder.PrependInt32Slot(2, characterTag, 0)
 def AddCharacterTag(builder, characterTag):
-    EventContentBuffExcelAddCharacterTag(builder, characterTag)
-
-def EventContentBuffExcelAddEnumType(builder, enumType):
-    builder.PrependInt32Slot(3, enumType, 0)
-
+    return EventContentBuffExcelAddCharacterTag(builder, characterTag)
+def EventContentBuffExcelAddEnumType(builder, enumType): builder.PrependInt32Slot(3, enumType, 0)
 def AddEnumType(builder, enumType):
-    EventContentBuffExcelAddEnumType(builder, enumType)
-
-def EventContentBuffExcelAddEnumTypeValue(builder, enumTypeValue):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(enumTypeValue), 0)
-
+    return EventContentBuffExcelAddEnumType(builder, enumType)
+def EventContentBuffExcelAddEnumTypeValue(builder, enumTypeValue): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(enumTypeValue), 0)
 def AddEnumTypeValue(builder, enumTypeValue):
-    EventContentBuffExcelAddEnumTypeValue(builder, enumTypeValue)
-
-def EventContentBuffExcelStartEnumTypeValueVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentBuffExcelAddEnumTypeValue(builder, enumTypeValue)
+def EventContentBuffExcelStartEnumTypeValueVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartEnumTypeValueVector(builder, numElems):
     return EventContentBuffExcelStartEnumTypeValueVector(builder, numElems)
-
-def EventContentBuffExcelAddSkillGroupId(builder, skillGroupId):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(skillGroupId), 0)
-
+def EventContentBuffExcelAddSkillGroupId(builder, skillGroupId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(skillGroupId), 0)
 def AddSkillGroupId(builder, skillGroupId):
-    EventContentBuffExcelAddSkillGroupId(builder, skillGroupId)
-
-def EventContentBuffExcelAddIconPath(builder, iconPath):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
-
+    return EventContentBuffExcelAddSkillGroupId(builder, skillGroupId)
+def EventContentBuffExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
 def AddIconPath(builder, iconPath):
-    EventContentBuffExcelAddIconPath(builder, iconPath)
-
-def EventContentBuffExcelAddSpriteName(builder, spriteName):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(spriteName), 0)
-
+    return EventContentBuffExcelAddIconPath(builder, iconPath)
+def EventContentBuffExcelAddSpriteName(builder, spriteName): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(spriteName), 0)
 def AddSpriteName(builder, spriteName):
-    EventContentBuffExcelAddSpriteName(builder, spriteName)
-
-def EventContentBuffExcelAddBuffDescriptionLocalizeCodeId(builder, buffDescriptionLocalizeCodeId):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(buffDescriptionLocalizeCodeId), 0)
-
+    return EventContentBuffExcelAddSpriteName(builder, spriteName)
+def EventContentBuffExcelAddBuffDescriptionLocalizeCodeId(builder, buffDescriptionLocalizeCodeId): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(buffDescriptionLocalizeCodeId), 0)
 def AddBuffDescriptionLocalizeCodeId(builder, buffDescriptionLocalizeCodeId):
-    EventContentBuffExcelAddBuffDescriptionLocalizeCodeId(builder, buffDescriptionLocalizeCodeId)
-
-def EventContentBuffExcelEnd(builder):
-    return builder.EndObject()
-
+    return EventContentBuffExcelAddBuffDescriptionLocalizeCodeId(builder, buffDescriptionLocalizeCodeId)
+def EventContentBuffExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentBuffExcelEnd(builder)

@@ -1,6 +1,7 @@
 include "ParcelType.fbs";
 include "StageDifficulty.fbs";
 include "StageTopography.fbs";
+include "StarGoalType.fbs";
 
 namespace FlatData;
 
@@ -10,6 +11,7 @@ table FieldContentStageExcel {
     area_id: long;
     group_id: long;
     stage_difficulty: StageDifficulty;
+    prev_stage_id: long;
     name: string;
     battle_duration: long;
     stage_enter_cost_type: ParcelType;
@@ -22,4 +24,7 @@ table FieldContentStageExcel {
     instant_clear: bool;
     fixed_echelon_id: long;
     skip_formation_settings: bool;
+    daily_last_play: bool;
+    star_goal: [StarGoalType];
+    star_goal_amount: [int];
 }

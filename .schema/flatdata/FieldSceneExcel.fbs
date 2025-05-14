@@ -9,6 +9,8 @@ table FieldSceneExcel {
     bgm_id: long;
     conditional_bgm_quest_id: [long];
     begin_conditional_bgm_scenario_group_id: [long];
+    begin_conditional_bgm_interaction_id: [long];
     end_conditional_bgm_scenario_group_id: [long];
+    end_conditional_bgm_interaction_id: [long];
     conditional_bgm_id: [long];
 }

@@ -206,196 +206,120 @@ class CharacterDialogEventExcel(object):
         return 0
 
     # CharacterDialogEventExcel
-    def UnlockEventSeason(self):
+    def CvUnlockScenarioType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterDialogEventExcel
-    def ScenarioGroupId(self):
+    def UnlockEventSeason(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterDialogEventExcel
-    def LocalizeCvGroup(self):
+    def ScenarioGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterDialogEventExcel
+    def LocalizeCvGroup(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def CharacterDialogEventExcelStart(builder):
-    builder.StartObject(26)
-
+def CharacterDialogEventExcelStart(builder): builder.StartObject(27)
 def Start(builder):
-    CharacterDialogEventExcelStart(builder)
-
-def CharacterDialogEventExcelAddCostumeUniqueId(builder, costumeUniqueId):
-    builder.PrependInt64Slot(0, costumeUniqueId, 0)
-
+    return CharacterDialogEventExcelStart(builder)
+def CharacterDialogEventExcelAddCostumeUniqueId(builder, costumeUniqueId): builder.PrependInt64Slot(0, costumeUniqueId, 0)
 def AddCostumeUniqueId(builder, costumeUniqueId):
-    CharacterDialogEventExcelAddCostumeUniqueId(builder, costumeUniqueId)
-
-def CharacterDialogEventExcelAddOriginalCharacterId(builder, originalCharacterId):
-    builder.PrependInt64Slot(1, originalCharacterId, 0)
-
+    return CharacterDialogEventExcelAddCostumeUniqueId(builder, costumeUniqueId)
+def CharacterDialogEventExcelAddOriginalCharacterId(builder, originalCharacterId): builder.PrependInt64Slot(1, originalCharacterId, 0)
 def AddOriginalCharacterId(builder, originalCharacterId):
-    CharacterDialogEventExcelAddOriginalCharacterId(builder, originalCharacterId)
-
-def CharacterDialogEventExcelAddDisplayOrder(builder, displayOrder):
-    builder.PrependInt64Slot(2, displayOrder, 0)
-
+    return CharacterDialogEventExcelAddOriginalCharacterId(builder, originalCharacterId)
+def CharacterDialogEventExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt64Slot(2, displayOrder, 0)
 def AddDisplayOrder(builder, displayOrder):
-    CharacterDialogEventExcelAddDisplayOrder(builder, displayOrder)
-
-def CharacterDialogEventExcelAddEventId(builder, eventId):
-    builder.PrependInt64Slot(3, eventId, 0)
-
+    return CharacterDialogEventExcelAddDisplayOrder(builder, displayOrder)
+def CharacterDialogEventExcelAddEventId(builder, eventId): builder.PrependInt64Slot(3, eventId, 0)
 def AddEventId(builder, eventId):
-    CharacterDialogEventExcelAddEventId(builder, eventId)
-
-def CharacterDialogEventExcelAddProductionStep(builder, productionStep):
-    builder.PrependInt32Slot(4, productionStep, 0)
-
+    return CharacterDialogEventExcelAddEventId(builder, eventId)
+def CharacterDialogEventExcelAddProductionStep(builder, productionStep): builder.PrependInt32Slot(4, productionStep, 0)
 def AddProductionStep(builder, productionStep):
-    CharacterDialogEventExcelAddProductionStep(builder, productionStep)
-
-def CharacterDialogEventExcelAddDialogCategory(builder, dialogCategory):
-    builder.PrependInt32Slot(5, dialogCategory, 0)
-
+    return CharacterDialogEventExcelAddProductionStep(builder, productionStep)
+def CharacterDialogEventExcelAddDialogCategory(builder, dialogCategory): builder.PrependInt32Slot(5, dialogCategory, 0)
 def AddDialogCategory(builder, dialogCategory):
-    CharacterDialogEventExcelAddDialogCategory(builder, dialogCategory)
-
-def CharacterDialogEventExcelAddDialogCondition(builder, dialogCondition):
-    builder.PrependInt32Slot(6, dialogCondition, 0)
-
+    return CharacterDialogEventExcelAddDialogCategory(builder, dialogCategory)
+def CharacterDialogEventExcelAddDialogCondition(builder, dialogCondition): builder.PrependInt32Slot(6, dialogCondition, 0)
 def AddDialogCondition(builder, dialogCondition):
-    CharacterDialogEventExcelAddDialogCondition(builder, dialogCondition)
-
-def CharacterDialogEventExcelAddDialogConditionDetail(builder, dialogConditionDetail):
-    builder.PrependInt32Slot(7, dialogConditionDetail, 0)
-
+    return CharacterDialogEventExcelAddDialogCondition(builder, dialogCondition)
+def CharacterDialogEventExcelAddDialogConditionDetail(builder, dialogConditionDetail): builder.PrependInt32Slot(7, dialogConditionDetail, 0)
 def AddDialogConditionDetail(builder, dialogConditionDetail):
-    CharacterDialogEventExcelAddDialogConditionDetail(builder, dialogConditionDetail)
-
-def CharacterDialogEventExcelAddDialogConditionDetailValue(builder, dialogConditionDetailValue):
-    builder.PrependInt64Slot(8, dialogConditionDetailValue, 0)
-
+    return CharacterDialogEventExcelAddDialogConditionDetail(builder, dialogConditionDetail)
+def CharacterDialogEventExcelAddDialogConditionDetailValue(builder, dialogConditionDetailValue): builder.PrependInt64Slot(8, dialogConditionDetailValue, 0)
 def AddDialogConditionDetailValue(builder, dialogConditionDetailValue):
-    CharacterDialogEventExcelAddDialogConditionDetailValue(builder, dialogConditionDetailValue)
-
-def CharacterDialogEventExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(9, groupId, 0)
-
+    return CharacterDialogEventExcelAddDialogConditionDetailValue(builder, dialogConditionDetailValue)
+def CharacterDialogEventExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(9, groupId, 0)
 def AddGroupId(builder, groupId):
-    CharacterDialogEventExcelAddGroupId(builder, groupId)
-
-def CharacterDialogEventExcelAddDialogType(builder, dialogType):
-    builder.PrependInt32Slot(10, dialogType, 0)
-
+    return CharacterDialogEventExcelAddGroupId(builder, groupId)
+def CharacterDialogEventExcelAddDialogType(builder, dialogType): builder.PrependInt32Slot(10, dialogType, 0)
 def AddDialogType(builder, dialogType):
-    CharacterDialogEventExcelAddDialogType(builder, dialogType)
-
-def CharacterDialogEventExcelAddActionName(builder, actionName):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(actionName), 0)
-
+    return CharacterDialogEventExcelAddDialogType(builder, dialogType)
+def CharacterDialogEventExcelAddActionName(builder, actionName): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(actionName), 0)
 def AddActionName(builder, actionName):
-    CharacterDialogEventExcelAddActionName(builder, actionName)
-
-def CharacterDialogEventExcelAddDuration(builder, duration):
-    builder.PrependInt64Slot(12, duration, 0)
-
+    return CharacterDialogEventExcelAddActionName(builder, actionName)
+def CharacterDialogEventExcelAddDuration(builder, duration): builder.PrependInt64Slot(12, duration, 0)
 def AddDuration(builder, duration):
-    CharacterDialogEventExcelAddDuration(builder, duration)
-
-def CharacterDialogEventExcelAddDurationKr(builder, durationKr):
-    builder.PrependInt64Slot(13, durationKr, 0)
-
+    return CharacterDialogEventExcelAddDuration(builder, duration)
+def CharacterDialogEventExcelAddDurationKr(builder, durationKr): builder.PrependInt64Slot(13, durationKr, 0)
 def AddDurationKr(builder, durationKr):
-    CharacterDialogEventExcelAddDurationKr(builder, durationKr)
-
-def CharacterDialogEventExcelAddAnimationName(builder, animationName):
-    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(animationName), 0)
-
+    return CharacterDialogEventExcelAddDurationKr(builder, durationKr)
+def CharacterDialogEventExcelAddAnimationName(builder, animationName): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(animationName), 0)
 def AddAnimationName(builder, animationName):
-    CharacterDialogEventExcelAddAnimationName(builder, animationName)
-
-def CharacterDialogEventExcelAddLocalizeKr(builder, localizeKr):
-    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(localizeKr), 0)
-
+    return CharacterDialogEventExcelAddAnimationName(builder, animationName)
+def CharacterDialogEventExcelAddLocalizeKr(builder, localizeKr): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(localizeKr), 0)
 def AddLocalizeKr(builder, localizeKr):
-    CharacterDialogEventExcelAddLocalizeKr(builder, localizeKr)
-
-def CharacterDialogEventExcelAddLocalizeJp(builder, localizeJp):
-    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(localizeJp), 0)
-
+    return CharacterDialogEventExcelAddLocalizeKr(builder, localizeKr)
+def CharacterDialogEventExcelAddLocalizeJp(builder, localizeJp): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(localizeJp), 0)
 def AddLocalizeJp(builder, localizeJp):
-    CharacterDialogEventExcelAddLocalizeJp(builder, localizeJp)
-
-def CharacterDialogEventExcelAddLocalizeTh(builder, localizeTh):
-    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTh), 0)
-
+    return CharacterDialogEventExcelAddLocalizeJp(builder, localizeJp)
+def CharacterDialogEventExcelAddLocalizeTh(builder, localizeTh): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTh), 0)
 def AddLocalizeTh(builder, localizeTh):
-    CharacterDialogEventExcelAddLocalizeTh(builder, localizeTh)
-
-def CharacterDialogEventExcelAddLocalizeTw(builder, localizeTw):
-    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTw), 0)
-
+    return CharacterDialogEventExcelAddLocalizeTh(builder, localizeTh)
+def CharacterDialogEventExcelAddLocalizeTw(builder, localizeTw): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTw), 0)
 def AddLocalizeTw(builder, localizeTw):
-    CharacterDialogEventExcelAddLocalizeTw(builder, localizeTw)
-
-def CharacterDialogEventExcelAddLocalizeEn(builder, localizeEn):
-    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(localizeEn), 0)
-
+    return CharacterDialogEventExcelAddLocalizeTw(builder, localizeTw)
+def CharacterDialogEventExcelAddLocalizeEn(builder, localizeEn): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(localizeEn), 0)
 def AddLocalizeEn(builder, localizeEn):
-    CharacterDialogEventExcelAddLocalizeEn(builder, localizeEn)
-
-def CharacterDialogEventExcelAddVoiceId(builder, voiceId):
-    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(voiceId), 0)
-
+    return CharacterDialogEventExcelAddLocalizeEn(builder, localizeEn)
+def CharacterDialogEventExcelAddVoiceId(builder, voiceId): builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(voiceId), 0)
 def AddVoiceId(builder, voiceId):
-    CharacterDialogEventExcelAddVoiceId(builder, voiceId)
-
-def CharacterDialogEventExcelStartVoiceIdVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CharacterDialogEventExcelAddVoiceId(builder, voiceId)
+def CharacterDialogEventExcelStartVoiceIdVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartVoiceIdVector(builder, numElems):
     return CharacterDialogEventExcelStartVoiceIdVector(builder, numElems)
-
-def CharacterDialogEventExcelAddCollectionVisible(builder, collectionVisible):
-    builder.PrependBoolSlot(21, collectionVisible, 0)
-
+def CharacterDialogEventExcelAddCollectionVisible(builder, collectionVisible): builder.PrependBoolSlot(21, collectionVisible, 0)
 def AddCollectionVisible(builder, collectionVisible):
-    CharacterDialogEventExcelAddCollectionVisible(builder, collectionVisible)
-
-def CharacterDialogEventExcelAddCvCollectionType(builder, cvCollectionType):
-    builder.PrependInt32Slot(22, cvCollectionType, 0)
-
+    return CharacterDialogEventExcelAddCollectionVisible(builder, collectionVisible)
+def CharacterDialogEventExcelAddCvCollectionType(builder, cvCollectionType): builder.PrependInt32Slot(22, cvCollectionType, 0)
 def AddCvCollectionType(builder, cvCollectionType):
-    CharacterDialogEventExcelAddCvCollectionType(builder, cvCollectionType)
-
-def CharacterDialogEventExcelAddUnlockEventSeason(builder, unlockEventSeason):
-    builder.PrependInt64Slot(23, unlockEventSeason, 0)
-
+    return CharacterDialogEventExcelAddCvCollectionType(builder, cvCollectionType)
+def CharacterDialogEventExcelAddCvUnlockScenarioType(builder, cvUnlockScenarioType): builder.PrependInt32Slot(23, cvUnlockScenarioType, 0)
+def AddCvUnlockScenarioType(builder, cvUnlockScenarioType):
+    return CharacterDialogEventExcelAddCvUnlockScenarioType(builder, cvUnlockScenarioType)
+def CharacterDialogEventExcelAddUnlockEventSeason(builder, unlockEventSeason): builder.PrependInt64Slot(24, unlockEventSeason, 0)
 def AddUnlockEventSeason(builder, unlockEventSeason):
-    CharacterDialogEventExcelAddUnlockEventSeason(builder, unlockEventSeason)
-
-def CharacterDialogEventExcelAddScenarioGroupId(builder, scenarioGroupId):
-    builder.PrependInt64Slot(24, scenarioGroupId, 0)
-
+    return CharacterDialogEventExcelAddUnlockEventSeason(builder, unlockEventSeason)
+def CharacterDialogEventExcelAddScenarioGroupId(builder, scenarioGroupId): builder.PrependInt64Slot(25, scenarioGroupId, 0)
 def AddScenarioGroupId(builder, scenarioGroupId):
-    CharacterDialogEventExcelAddScenarioGroupId(builder, scenarioGroupId)
-
-def CharacterDialogEventExcelAddLocalizeCvGroup(builder, localizeCvGroup):
-    builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCvGroup), 0)
-
+    return CharacterDialogEventExcelAddScenarioGroupId(builder, scenarioGroupId)
+def CharacterDialogEventExcelAddLocalizeCvGroup(builder, localizeCvGroup): builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCvGroup), 0)
 def AddLocalizeCvGroup(builder, localizeCvGroup):
-    CharacterDialogEventExcelAddLocalizeCvGroup(builder, localizeCvGroup)
-
-def CharacterDialogEventExcelEnd(builder):
-    return builder.EndObject()
-
+    return CharacterDialogEventExcelAddLocalizeCvGroup(builder, localizeCvGroup)
+def CharacterDialogEventExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterDialogEventExcelEnd(builder)

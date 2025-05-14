@@ -52,38 +52,21 @@ class FieldCurtainCallFreeModeExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def FieldCurtainCallFreeModeExcelStart(builder):
-    builder.StartObject(4)
-
+def FieldCurtainCallFreeModeExcelStart(builder): builder.StartObject(4)
 def Start(builder):
-    FieldCurtainCallFreeModeExcelStart(builder)
-
-def FieldCurtainCallFreeModeExcelAddUniqueId(builder, uniqueId):
-    builder.PrependInt64Slot(0, uniqueId, 0)
-
+    return FieldCurtainCallFreeModeExcelStart(builder)
+def FieldCurtainCallFreeModeExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(0, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
-    FieldCurtainCallFreeModeExcelAddUniqueId(builder, uniqueId)
-
-def FieldCurtainCallFreeModeExcelAddOpenDate(builder, openDate):
-    builder.PrependInt64Slot(1, openDate, 0)
-
+    return FieldCurtainCallFreeModeExcelAddUniqueId(builder, uniqueId)
+def FieldCurtainCallFreeModeExcelAddOpenDate(builder, openDate): builder.PrependInt64Slot(1, openDate, 0)
 def AddOpenDate(builder, openDate):
-    FieldCurtainCallFreeModeExcelAddOpenDate(builder, openDate)
-
-def FieldCurtainCallFreeModeExcelAddSetFieldDateId(builder, setFieldDateId):
-    builder.PrependInt64Slot(2, setFieldDateId, 0)
-
+    return FieldCurtainCallFreeModeExcelAddOpenDate(builder, openDate)
+def FieldCurtainCallFreeModeExcelAddSetFieldDateId(builder, setFieldDateId): builder.PrependInt64Slot(2, setFieldDateId, 0)
 def AddSetFieldDateId(builder, setFieldDateId):
-    FieldCurtainCallFreeModeExcelAddSetFieldDateId(builder, setFieldDateId)
-
-def FieldCurtainCallFreeModeExcelAddSetFieldQuestOpenDate(builder, setFieldQuestOpenDate):
-    builder.PrependInt64Slot(3, setFieldQuestOpenDate, 0)
-
+    return FieldCurtainCallFreeModeExcelAddSetFieldDateId(builder, setFieldDateId)
+def FieldCurtainCallFreeModeExcelAddSetFieldQuestOpenDate(builder, setFieldQuestOpenDate): builder.PrependInt64Slot(3, setFieldQuestOpenDate, 0)
 def AddSetFieldQuestOpenDate(builder, setFieldQuestOpenDate):
-    FieldCurtainCallFreeModeExcelAddSetFieldQuestOpenDate(builder, setFieldQuestOpenDate)
-
-def FieldCurtainCallFreeModeExcelEnd(builder):
-    return builder.EndObject()
-
+    return FieldCurtainCallFreeModeExcelAddSetFieldQuestOpenDate(builder, setFieldQuestOpenDate)
+def FieldCurtainCallFreeModeExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return FieldCurtainCallFreeModeExcelEnd(builder)

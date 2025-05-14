@@ -17,19 +17,11 @@ func GetRootAsContentEnterCostReduceExcelTable(buf []byte, offset flatbuffers.UO
 	return x
 }
 
-func FinishContentEnterCostReduceExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsContentEnterCostReduceExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ContentEnterCostReduceExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ContentEnterCostReduceExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedContentEnterCostReduceExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ContentEnterCostReduceExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

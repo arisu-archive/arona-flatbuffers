@@ -276,158 +276,81 @@ class CharacterWeaponExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         return o == 0
 
-def CharacterWeaponExcelStart(builder):
-    builder.StartObject(17)
-
+def CharacterWeaponExcelStart(builder): builder.StartObject(17)
 def Start(builder):
-    CharacterWeaponExcelStart(builder)
-
-def CharacterWeaponExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return CharacterWeaponExcelStart(builder)
+def CharacterWeaponExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    CharacterWeaponExcelAddId(builder, id)
-
-def CharacterWeaponExcelAddImagePath(builder, imagePath):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(imagePath), 0)
-
+    return CharacterWeaponExcelAddId(builder, id)
+def CharacterWeaponExcelAddImagePath(builder, imagePath): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(imagePath), 0)
 def AddImagePath(builder, imagePath):
-    CharacterWeaponExcelAddImagePath(builder, imagePath)
-
-def CharacterWeaponExcelAddSetRecipe(builder, setRecipe):
-    builder.PrependInt64Slot(2, setRecipe, 0)
-
+    return CharacterWeaponExcelAddImagePath(builder, imagePath)
+def CharacterWeaponExcelAddSetRecipe(builder, setRecipe): builder.PrependInt64Slot(2, setRecipe, 0)
 def AddSetRecipe(builder, setRecipe):
-    CharacterWeaponExcelAddSetRecipe(builder, setRecipe)
-
-def CharacterWeaponExcelAddStatLevelUpType(builder, statLevelUpType):
-    builder.PrependInt32Slot(3, statLevelUpType, 0)
-
+    return CharacterWeaponExcelAddSetRecipe(builder, setRecipe)
+def CharacterWeaponExcelAddStatLevelUpType(builder, statLevelUpType): builder.PrependInt32Slot(3, statLevelUpType, 0)
 def AddStatLevelUpType(builder, statLevelUpType):
-    CharacterWeaponExcelAddStatLevelUpType(builder, statLevelUpType)
-
-def CharacterWeaponExcelAddAttackPower(builder, attackPower):
-    builder.PrependInt64Slot(4, attackPower, 0)
-
+    return CharacterWeaponExcelAddStatLevelUpType(builder, statLevelUpType)
+def CharacterWeaponExcelAddAttackPower(builder, attackPower): builder.PrependInt64Slot(4, attackPower, 0)
 def AddAttackPower(builder, attackPower):
-    CharacterWeaponExcelAddAttackPower(builder, attackPower)
-
-def CharacterWeaponExcelAddAttackPower100(builder, attackPower100):
-    builder.PrependInt64Slot(5, attackPower100, 0)
-
+    return CharacterWeaponExcelAddAttackPower(builder, attackPower)
+def CharacterWeaponExcelAddAttackPower100(builder, attackPower100): builder.PrependInt64Slot(5, attackPower100, 0)
 def AddAttackPower100(builder, attackPower100):
-    CharacterWeaponExcelAddAttackPower100(builder, attackPower100)
-
-def CharacterWeaponExcelAddMaxHp(builder, maxHp):
-    builder.PrependInt64Slot(6, maxHp, 0)
-
+    return CharacterWeaponExcelAddAttackPower100(builder, attackPower100)
+def CharacterWeaponExcelAddMaxHp(builder, maxHp): builder.PrependInt64Slot(6, maxHp, 0)
 def AddMaxHp(builder, maxHp):
-    CharacterWeaponExcelAddMaxHp(builder, maxHp)
-
-def CharacterWeaponExcelAddMaxHp100(builder, maxHp100):
-    builder.PrependInt64Slot(7, maxHp100, 0)
-
+    return CharacterWeaponExcelAddMaxHp(builder, maxHp)
+def CharacterWeaponExcelAddMaxHp100(builder, maxHp100): builder.PrependInt64Slot(7, maxHp100, 0)
 def AddMaxHp100(builder, maxHp100):
-    CharacterWeaponExcelAddMaxHp100(builder, maxHp100)
-
-def CharacterWeaponExcelAddHealPower(builder, healPower):
-    builder.PrependInt64Slot(8, healPower, 0)
-
+    return CharacterWeaponExcelAddMaxHp100(builder, maxHp100)
+def CharacterWeaponExcelAddHealPower(builder, healPower): builder.PrependInt64Slot(8, healPower, 0)
 def AddHealPower(builder, healPower):
-    CharacterWeaponExcelAddHealPower(builder, healPower)
-
-def CharacterWeaponExcelAddHealPower100(builder, healPower100):
-    builder.PrependInt64Slot(9, healPower100, 0)
-
+    return CharacterWeaponExcelAddHealPower(builder, healPower)
+def CharacterWeaponExcelAddHealPower100(builder, healPower100): builder.PrependInt64Slot(9, healPower100, 0)
 def AddHealPower100(builder, healPower100):
-    CharacterWeaponExcelAddHealPower100(builder, healPower100)
-
-def CharacterWeaponExcelAddTags(builder, tags):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
-
+    return CharacterWeaponExcelAddHealPower100(builder, healPower100)
+def CharacterWeaponExcelAddTags(builder, tags): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
 def AddTags(builder, tags):
-    CharacterWeaponExcelAddTags(builder, tags)
-
-def CharacterWeaponExcelStartTagsVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CharacterWeaponExcelAddTags(builder, tags)
+def CharacterWeaponExcelStartTagsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartTagsVector(builder, numElems):
     return CharacterWeaponExcelStartTagsVector(builder, numElems)
-
-def CharacterWeaponExcelAddUnlock(builder, unlock):
-    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(unlock), 0)
-
+def CharacterWeaponExcelAddUnlock(builder, unlock): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(unlock), 0)
 def AddUnlock(builder, unlock):
-    CharacterWeaponExcelAddUnlock(builder, unlock)
-
-def CharacterWeaponExcelStartUnlockVector(builder, numElems):
-    return builder.StartVector(1, numElems, 1)
-
+    return CharacterWeaponExcelAddUnlock(builder, unlock)
+def CharacterWeaponExcelStartUnlockVector(builder, numElems): return builder.StartVector(1, numElems, 1)
 def StartUnlockVector(builder, numElems):
     return CharacterWeaponExcelStartUnlockVector(builder, numElems)
-
-def CharacterWeaponExcelAddRecipeId(builder, recipeId):
-    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(recipeId), 0)
-
+def CharacterWeaponExcelAddRecipeId(builder, recipeId): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(recipeId), 0)
 def AddRecipeId(builder, recipeId):
-    CharacterWeaponExcelAddRecipeId(builder, recipeId)
-
-def CharacterWeaponExcelStartRecipeIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return CharacterWeaponExcelAddRecipeId(builder, recipeId)
+def CharacterWeaponExcelStartRecipeIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRecipeIdVector(builder, numElems):
     return CharacterWeaponExcelStartRecipeIdVector(builder, numElems)
-
-def CharacterWeaponExcelAddMaxLevel(builder, maxLevel):
-    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(maxLevel), 0)
-
+def CharacterWeaponExcelAddMaxLevel(builder, maxLevel): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(maxLevel), 0)
 def AddMaxLevel(builder, maxLevel):
-    CharacterWeaponExcelAddMaxLevel(builder, maxLevel)
-
-def CharacterWeaponExcelStartMaxLevelVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CharacterWeaponExcelAddMaxLevel(builder, maxLevel)
+def CharacterWeaponExcelStartMaxLevelVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartMaxLevelVector(builder, numElems):
     return CharacterWeaponExcelStartMaxLevelVector(builder, numElems)
-
-def CharacterWeaponExcelAddLearnSkillSlot(builder, learnSkillSlot):
-    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(learnSkillSlot), 0)
-
+def CharacterWeaponExcelAddLearnSkillSlot(builder, learnSkillSlot): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(learnSkillSlot), 0)
 def AddLearnSkillSlot(builder, learnSkillSlot):
-    CharacterWeaponExcelAddLearnSkillSlot(builder, learnSkillSlot)
-
-def CharacterWeaponExcelStartLearnSkillSlotVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CharacterWeaponExcelAddLearnSkillSlot(builder, learnSkillSlot)
+def CharacterWeaponExcelStartLearnSkillSlotVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartLearnSkillSlotVector(builder, numElems):
     return CharacterWeaponExcelStartLearnSkillSlotVector(builder, numElems)
-
-def CharacterWeaponExcelAddStatType(builder, statType):
-    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(statType), 0)
-
+def CharacterWeaponExcelAddStatType(builder, statType): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(statType), 0)
 def AddStatType(builder, statType):
-    CharacterWeaponExcelAddStatType(builder, statType)
-
-def CharacterWeaponExcelStartStatTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CharacterWeaponExcelAddStatType(builder, statType)
+def CharacterWeaponExcelStartStatTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStatTypeVector(builder, numElems):
     return CharacterWeaponExcelStartStatTypeVector(builder, numElems)
-
-def CharacterWeaponExcelAddStatValue(builder, statValue):
-    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(statValue), 0)
-
+def CharacterWeaponExcelAddStatValue(builder, statValue): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(statValue), 0)
 def AddStatValue(builder, statValue):
-    CharacterWeaponExcelAddStatValue(builder, statValue)
-
-def CharacterWeaponExcelStartStatValueVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return CharacterWeaponExcelAddStatValue(builder, statValue)
+def CharacterWeaponExcelStartStatValueVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartStatValueVector(builder, numElems):
     return CharacterWeaponExcelStartStatValueVector(builder, numElems)
-
-def CharacterWeaponExcelEnd(builder):
-    return builder.EndObject()
-
+def CharacterWeaponExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterWeaponExcelEnd(builder)

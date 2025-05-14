@@ -49,26 +49,15 @@ class KatakanaConvertExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def KatakanaConvertExcelTableStart(builder):
-    builder.StartObject(1)
-
+def KatakanaConvertExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    KatakanaConvertExcelTableStart(builder)
-
-def KatakanaConvertExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return KatakanaConvertExcelTableStart(builder)
+def KatakanaConvertExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    KatakanaConvertExcelTableAddDataList(builder, dataList)
-
-def KatakanaConvertExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return KatakanaConvertExcelTableAddDataList(builder, dataList)
+def KatakanaConvertExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return KatakanaConvertExcelTableStartDataListVector(builder, numElems)
-
-def KatakanaConvertExcelTableEnd(builder):
-    return builder.EndObject()
-
+def KatakanaConvertExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return KatakanaConvertExcelTableEnd(builder)

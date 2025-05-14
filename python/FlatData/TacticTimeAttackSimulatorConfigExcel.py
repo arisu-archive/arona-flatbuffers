@@ -66,50 +66,27 @@ class TacticTimeAttackSimulatorConfigExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def TacticTimeAttackSimulatorConfigExcelStart(builder):
-    builder.StartObject(6)
-
+def TacticTimeAttackSimulatorConfigExcelStart(builder): builder.StartObject(6)
 def Start(builder):
-    TacticTimeAttackSimulatorConfigExcelStart(builder)
-
-def TacticTimeAttackSimulatorConfigExcelAddOrder(builder, order):
-    builder.PrependInt64Slot(0, order, 0)
-
+    return TacticTimeAttackSimulatorConfigExcelStart(builder)
+def TacticTimeAttackSimulatorConfigExcelAddOrder(builder, order): builder.PrependInt64Slot(0, order, 0)
 def AddOrder(builder, order):
-    TacticTimeAttackSimulatorConfigExcelAddOrder(builder, order)
-
-def TacticTimeAttackSimulatorConfigExcelAddRepeat(builder, repeat):
-    builder.PrependInt64Slot(1, repeat, 0)
-
+    return TacticTimeAttackSimulatorConfigExcelAddOrder(builder, order)
+def TacticTimeAttackSimulatorConfigExcelAddRepeat(builder, repeat): builder.PrependInt64Slot(1, repeat, 0)
 def AddRepeat(builder, repeat):
-    TacticTimeAttackSimulatorConfigExcelAddRepeat(builder, repeat)
-
-def TacticTimeAttackSimulatorConfigExcelAddPresetGroupId(builder, presetGroupId):
-    builder.PrependInt64Slot(2, presetGroupId, 0)
-
+    return TacticTimeAttackSimulatorConfigExcelAddRepeat(builder, repeat)
+def TacticTimeAttackSimulatorConfigExcelAddPresetGroupId(builder, presetGroupId): builder.PrependInt64Slot(2, presetGroupId, 0)
 def AddPresetGroupId(builder, presetGroupId):
-    TacticTimeAttackSimulatorConfigExcelAddPresetGroupId(builder, presetGroupId)
-
-def TacticTimeAttackSimulatorConfigExcelAddAttackStrikerNum(builder, attackStrikerNum):
-    builder.PrependInt64Slot(3, attackStrikerNum, 0)
-
+    return TacticTimeAttackSimulatorConfigExcelAddPresetGroupId(builder, presetGroupId)
+def TacticTimeAttackSimulatorConfigExcelAddAttackStrikerNum(builder, attackStrikerNum): builder.PrependInt64Slot(3, attackStrikerNum, 0)
 def AddAttackStrikerNum(builder, attackStrikerNum):
-    TacticTimeAttackSimulatorConfigExcelAddAttackStrikerNum(builder, attackStrikerNum)
-
-def TacticTimeAttackSimulatorConfigExcelAddAttackSpecialNum(builder, attackSpecialNum):
-    builder.PrependInt64Slot(4, attackSpecialNum, 0)
-
+    return TacticTimeAttackSimulatorConfigExcelAddAttackStrikerNum(builder, attackStrikerNum)
+def TacticTimeAttackSimulatorConfigExcelAddAttackSpecialNum(builder, attackSpecialNum): builder.PrependInt64Slot(4, attackSpecialNum, 0)
 def AddAttackSpecialNum(builder, attackSpecialNum):
-    TacticTimeAttackSimulatorConfigExcelAddAttackSpecialNum(builder, attackSpecialNum)
-
-def TacticTimeAttackSimulatorConfigExcelAddGeasId(builder, geasId):
-    builder.PrependInt64Slot(5, geasId, 0)
-
+    return TacticTimeAttackSimulatorConfigExcelAddAttackSpecialNum(builder, attackSpecialNum)
+def TacticTimeAttackSimulatorConfigExcelAddGeasId(builder, geasId): builder.PrependInt64Slot(5, geasId, 0)
 def AddGeasId(builder, geasId):
-    TacticTimeAttackSimulatorConfigExcelAddGeasId(builder, geasId)
-
-def TacticTimeAttackSimulatorConfigExcelEnd(builder):
-    return builder.EndObject()
-
+    return TacticTimeAttackSimulatorConfigExcelAddGeasId(builder, geasId)
+def TacticTimeAttackSimulatorConfigExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return TacticTimeAttackSimulatorConfigExcelEnd(builder)

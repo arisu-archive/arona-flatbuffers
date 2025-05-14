@@ -59,44 +59,24 @@ class ProtocolSettingExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def ProtocolSettingExcelStart(builder):
-    builder.StartObject(5)
-
+def ProtocolSettingExcelStart(builder): builder.StartObject(5)
 def Start(builder):
-    ProtocolSettingExcelStart(builder)
-
-def ProtocolSettingExcelAddProtocol(builder, protocol):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(protocol), 0)
-
+    return ProtocolSettingExcelStart(builder)
+def ProtocolSettingExcelAddProtocol(builder, protocol): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(protocol), 0)
 def AddProtocol(builder, protocol):
-    ProtocolSettingExcelAddProtocol(builder, protocol)
-
-def ProtocolSettingExcelAddOpenConditionContent(builder, openConditionContent):
-    builder.PrependInt32Slot(1, openConditionContent, 0)
-
+    return ProtocolSettingExcelAddProtocol(builder, protocol)
+def ProtocolSettingExcelAddOpenConditionContent(builder, openConditionContent): builder.PrependInt32Slot(1, openConditionContent, 0)
 def AddOpenConditionContent(builder, openConditionContent):
-    ProtocolSettingExcelAddOpenConditionContent(builder, openConditionContent)
-
-def ProtocolSettingExcelAddCurrency(builder, currency):
-    builder.PrependBoolSlot(2, currency, 0)
-
+    return ProtocolSettingExcelAddOpenConditionContent(builder, openConditionContent)
+def ProtocolSettingExcelAddCurrency(builder, currency): builder.PrependBoolSlot(2, currency, 0)
 def AddCurrency(builder, currency):
-    ProtocolSettingExcelAddCurrency(builder, currency)
-
-def ProtocolSettingExcelAddInventory(builder, inventory):
-    builder.PrependBoolSlot(3, inventory, 0)
-
+    return ProtocolSettingExcelAddCurrency(builder, currency)
+def ProtocolSettingExcelAddInventory(builder, inventory): builder.PrependBoolSlot(3, inventory, 0)
 def AddInventory(builder, inventory):
-    ProtocolSettingExcelAddInventory(builder, inventory)
-
-def ProtocolSettingExcelAddMail(builder, mail):
-    builder.PrependBoolSlot(4, mail, 0)
-
+    return ProtocolSettingExcelAddInventory(builder, inventory)
+def ProtocolSettingExcelAddMail(builder, mail): builder.PrependBoolSlot(4, mail, 0)
 def AddMail(builder, mail):
-    ProtocolSettingExcelAddMail(builder, mail)
-
-def ProtocolSettingExcelEnd(builder):
-    return builder.EndObject()
-
+    return ProtocolSettingExcelAddMail(builder, mail)
+def ProtocolSettingExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ProtocolSettingExcelEnd(builder)

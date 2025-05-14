@@ -178,6 +178,9 @@ type ConstCommonExcelDto struct {
 	AssistStrangerMinLevel                     int32            `json:"assist_stranger_min_level"`
 	AssistStrangerMaxLevel                     int32            `json:"assist_stranger_max_level"`
 	MaxBlockedUserCount                        int32            `json:"max_blocked_user_count"`
+	CafeRandomVisitMinComfortBonus             int64            `json:"cafe_random_visit_min_comfort_bonus"`
+	CafeRandomVisitMinLastLogin                int32            `json:"cafe_random_visit_min_last_login"`
+	CafeTravelSyncIntervalByMillisec           int32            `json:"cafe_travel_sync_interval_by_millisec"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -374,6 +377,9 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddAssistStrangerMinLevel(b, fbsutils.Convert(t.AssistStrangerMinLevel, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddAssistStrangerMaxLevel(b, fbsutils.Convert(t.AssistStrangerMaxLevel, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddMaxBlockedUserCount(b, fbsutils.Convert(t.MaxBlockedUserCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeRandomVisitMinComfortBonus(b, fbsutils.Convert(t.CafeRandomVisitMinComfortBonus, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeRandomVisitMinLastLogin(b, fbsutils.Convert(t.CafeRandomVisitMinLastLogin, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeTravelSyncIntervalByMillisec(b, fbsutils.Convert(t.CafeTravelSyncIntervalByMillisec, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -572,6 +578,9 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.AssistStrangerMinLevel = fbsutils.Convert(e.AssistStrangerMinLevel(), t.FlatBuffer.TableKey)
 	t.AssistStrangerMaxLevel = fbsutils.Convert(e.AssistStrangerMaxLevel(), t.FlatBuffer.TableKey)
 	t.MaxBlockedUserCount = fbsutils.Convert(e.MaxBlockedUserCount(), t.FlatBuffer.TableKey)
+	t.CafeRandomVisitMinComfortBonus = fbsutils.Convert(e.CafeRandomVisitMinComfortBonus(), t.FlatBuffer.TableKey)
+	t.CafeRandomVisitMinLastLogin = fbsutils.Convert(e.CafeRandomVisitMinLastLogin(), t.FlatBuffer.TableKey)
+	t.CafeTravelSyncIntervalByMillisec = fbsutils.Convert(e.CafeTravelSyncIntervalByMillisec(), t.FlatBuffer.TableKey)
 	return nil
 }
 

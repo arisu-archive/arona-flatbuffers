@@ -80,62 +80,33 @@ class MemoryLobby_GlobalExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def MemoryLobby_GlobalExcelStart(builder):
-    builder.StartObject(8)
-
+def MemoryLobby_GlobalExcelStart(builder): builder.StartObject(8)
 def Start(builder):
-    MemoryLobby_GlobalExcelStart(builder)
-
-def MemoryLobby_GlobalExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return MemoryLobby_GlobalExcelStart(builder)
+def MemoryLobby_GlobalExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    MemoryLobby_GlobalExcelAddId(builder, id)
-
-def MemoryLobby_GlobalExcelAddCharacterId(builder, characterId):
-    builder.PrependInt64Slot(1, characterId, 0)
-
+    return MemoryLobby_GlobalExcelAddId(builder, id)
+def MemoryLobby_GlobalExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(1, characterId, 0)
 def AddCharacterId(builder, characterId):
-    MemoryLobby_GlobalExcelAddCharacterId(builder, characterId)
-
-def MemoryLobby_GlobalExcelAddPrefabNameKr(builder, prefabNameKr):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(prefabNameKr), 0)
-
+    return MemoryLobby_GlobalExcelAddCharacterId(builder, characterId)
+def MemoryLobby_GlobalExcelAddPrefabNameKr(builder, prefabNameKr): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(prefabNameKr), 0)
 def AddPrefabNameKr(builder, prefabNameKr):
-    MemoryLobby_GlobalExcelAddPrefabNameKr(builder, prefabNameKr)
-
-def MemoryLobby_GlobalExcelAddPrefabNameTw(builder, prefabNameTw):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(prefabNameTw), 0)
-
+    return MemoryLobby_GlobalExcelAddPrefabNameKr(builder, prefabNameKr)
+def MemoryLobby_GlobalExcelAddPrefabNameTw(builder, prefabNameTw): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(prefabNameTw), 0)
 def AddPrefabNameTw(builder, prefabNameTw):
-    MemoryLobby_GlobalExcelAddPrefabNameTw(builder, prefabNameTw)
-
-def MemoryLobby_GlobalExcelAddPrefabNameAsia(builder, prefabNameAsia):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(prefabNameAsia), 0)
-
+    return MemoryLobby_GlobalExcelAddPrefabNameTw(builder, prefabNameTw)
+def MemoryLobby_GlobalExcelAddPrefabNameAsia(builder, prefabNameAsia): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(prefabNameAsia), 0)
 def AddPrefabNameAsia(builder, prefabNameAsia):
-    MemoryLobby_GlobalExcelAddPrefabNameAsia(builder, prefabNameAsia)
-
-def MemoryLobby_GlobalExcelAddPrefabNameNa(builder, prefabNameNa):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(prefabNameNa), 0)
-
+    return MemoryLobby_GlobalExcelAddPrefabNameAsia(builder, prefabNameAsia)
+def MemoryLobby_GlobalExcelAddPrefabNameNa(builder, prefabNameNa): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(prefabNameNa), 0)
 def AddPrefabNameNa(builder, prefabNameNa):
-    MemoryLobby_GlobalExcelAddPrefabNameNa(builder, prefabNameNa)
-
-def MemoryLobby_GlobalExcelAddPrefabNameGlobal(builder, prefabNameGlobal):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(prefabNameGlobal), 0)
-
+    return MemoryLobby_GlobalExcelAddPrefabNameNa(builder, prefabNameNa)
+def MemoryLobby_GlobalExcelAddPrefabNameGlobal(builder, prefabNameGlobal): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(prefabNameGlobal), 0)
 def AddPrefabNameGlobal(builder, prefabNameGlobal):
-    MemoryLobby_GlobalExcelAddPrefabNameGlobal(builder, prefabNameGlobal)
-
-def MemoryLobby_GlobalExcelAddPrefabNameTeen(builder, prefabNameTeen):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(prefabNameTeen), 0)
-
+    return MemoryLobby_GlobalExcelAddPrefabNameGlobal(builder, prefabNameGlobal)
+def MemoryLobby_GlobalExcelAddPrefabNameTeen(builder, prefabNameTeen): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(prefabNameTeen), 0)
 def AddPrefabNameTeen(builder, prefabNameTeen):
-    MemoryLobby_GlobalExcelAddPrefabNameTeen(builder, prefabNameTeen)
-
-def MemoryLobby_GlobalExcelEnd(builder):
-    return builder.EndObject()
-
+    return MemoryLobby_GlobalExcelAddPrefabNameTeen(builder, prefabNameTeen)
+def MemoryLobby_GlobalExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MemoryLobby_GlobalExcelEnd(builder)

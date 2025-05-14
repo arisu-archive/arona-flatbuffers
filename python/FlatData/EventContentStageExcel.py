@@ -398,290 +398,147 @@ class EventContentStageExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def EventContentStageExcelStart(builder):
-    builder.StartObject(42)
-
+def EventContentStageExcelStart(builder): builder.StartObject(42)
 def Start(builder):
-    EventContentStageExcelStart(builder)
-
-def EventContentStageExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return EventContentStageExcelStart(builder)
+def EventContentStageExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    EventContentStageExcelAddId(builder, id)
-
-def EventContentStageExcelAddName(builder, name):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
-
+    return EventContentStageExcelAddId(builder, id)
+def EventContentStageExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
 def AddName(builder, name):
-    EventContentStageExcelAddName(builder, name)
-
-def EventContentStageExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(2, eventContentId, 0)
-
+    return EventContentStageExcelAddName(builder, name)
+def EventContentStageExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(2, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    EventContentStageExcelAddEventContentId(builder, eventContentId)
-
-def EventContentStageExcelAddStageDifficulty(builder, stageDifficulty):
-    builder.PrependInt32Slot(3, stageDifficulty, 0)
-
+    return EventContentStageExcelAddEventContentId(builder, eventContentId)
+def EventContentStageExcelAddStageDifficulty(builder, stageDifficulty): builder.PrependInt32Slot(3, stageDifficulty, 0)
 def AddStageDifficulty(builder, stageDifficulty):
-    EventContentStageExcelAddStageDifficulty(builder, stageDifficulty)
-
-def EventContentStageExcelAddStageNumber(builder, stageNumber):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(stageNumber), 0)
-
+    return EventContentStageExcelAddStageDifficulty(builder, stageDifficulty)
+def EventContentStageExcelAddStageNumber(builder, stageNumber): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(stageNumber), 0)
 def AddStageNumber(builder, stageNumber):
-    EventContentStageExcelAddStageNumber(builder, stageNumber)
-
-def EventContentStageExcelAddStageDisplay(builder, stageDisplay):
-    builder.PrependInt32Slot(5, stageDisplay, 0)
-
+    return EventContentStageExcelAddStageNumber(builder, stageNumber)
+def EventContentStageExcelAddStageDisplay(builder, stageDisplay): builder.PrependInt32Slot(5, stageDisplay, 0)
 def AddStageDisplay(builder, stageDisplay):
-    EventContentStageExcelAddStageDisplay(builder, stageDisplay)
-
-def EventContentStageExcelAddPrevStageId(builder, prevStageId):
-    builder.PrependInt64Slot(6, prevStageId, 0)
-
+    return EventContentStageExcelAddStageDisplay(builder, stageDisplay)
+def EventContentStageExcelAddPrevStageId(builder, prevStageId): builder.PrependInt64Slot(6, prevStageId, 0)
 def AddPrevStageId(builder, prevStageId):
-    EventContentStageExcelAddPrevStageId(builder, prevStageId)
-
-def EventContentStageExcelAddOpenDate(builder, openDate):
-    builder.PrependInt64Slot(7, openDate, 0)
-
+    return EventContentStageExcelAddPrevStageId(builder, prevStageId)
+def EventContentStageExcelAddOpenDate(builder, openDate): builder.PrependInt64Slot(7, openDate, 0)
 def AddOpenDate(builder, openDate):
-    EventContentStageExcelAddOpenDate(builder, openDate)
-
-def EventContentStageExcelAddOpenEventPoint(builder, openEventPoint):
-    builder.PrependInt64Slot(8, openEventPoint, 0)
-
+    return EventContentStageExcelAddOpenDate(builder, openDate)
+def EventContentStageExcelAddOpenEventPoint(builder, openEventPoint): builder.PrependInt64Slot(8, openEventPoint, 0)
 def AddOpenEventPoint(builder, openEventPoint):
-    EventContentStageExcelAddOpenEventPoint(builder, openEventPoint)
-
-def EventContentStageExcelAddPrevStageSubEventId(builder, prevStageSubEventId):
-    builder.PrependInt64Slot(9, prevStageSubEventId, 0)
-
+    return EventContentStageExcelAddOpenEventPoint(builder, openEventPoint)
+def EventContentStageExcelAddPrevStageSubEventId(builder, prevStageSubEventId): builder.PrependInt64Slot(9, prevStageSubEventId, 0)
 def AddPrevStageSubEventId(builder, prevStageSubEventId):
-    EventContentStageExcelAddPrevStageSubEventId(builder, prevStageSubEventId)
-
-def EventContentStageExcelAddOpenConditionScenarioId(builder, openConditionScenarioId):
-    builder.PrependInt64Slot(10, openConditionScenarioId, 0)
-
+    return EventContentStageExcelAddPrevStageSubEventId(builder, prevStageSubEventId)
+def EventContentStageExcelAddOpenConditionScenarioId(builder, openConditionScenarioId): builder.PrependInt64Slot(10, openConditionScenarioId, 0)
 def AddOpenConditionScenarioId(builder, openConditionScenarioId):
-    EventContentStageExcelAddOpenConditionScenarioId(builder, openConditionScenarioId)
-
-def EventContentStageExcelAddOpenConditionContentType(builder, openConditionContentType):
-    builder.PrependInt32Slot(11, openConditionContentType, 0)
-
+    return EventContentStageExcelAddOpenConditionScenarioId(builder, openConditionScenarioId)
+def EventContentStageExcelAddOpenConditionContentType(builder, openConditionContentType): builder.PrependInt32Slot(11, openConditionContentType, 0)
 def AddOpenConditionContentType(builder, openConditionContentType):
-    EventContentStageExcelAddOpenConditionContentType(builder, openConditionContentType)
-
-def EventContentStageExcelAddOpenConditionContentId(builder, openConditionContentId):
-    builder.PrependInt64Slot(12, openConditionContentId, 0)
-
+    return EventContentStageExcelAddOpenConditionContentType(builder, openConditionContentType)
+def EventContentStageExcelAddOpenConditionContentId(builder, openConditionContentId): builder.PrependInt64Slot(12, openConditionContentId, 0)
 def AddOpenConditionContentId(builder, openConditionContentId):
-    EventContentStageExcelAddOpenConditionContentId(builder, openConditionContentId)
-
-def EventContentStageExcelAddBattleDuration(builder, battleDuration):
-    builder.PrependInt64Slot(13, battleDuration, 0)
-
+    return EventContentStageExcelAddOpenConditionContentId(builder, openConditionContentId)
+def EventContentStageExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(13, battleDuration, 0)
 def AddBattleDuration(builder, battleDuration):
-    EventContentStageExcelAddBattleDuration(builder, battleDuration)
-
-def EventContentStageExcelAddStageEnterCostType(builder, stageEnterCostType):
-    builder.PrependInt32Slot(14, stageEnterCostType, 0)
-
+    return EventContentStageExcelAddBattleDuration(builder, battleDuration)
+def EventContentStageExcelAddStageEnterCostType(builder, stageEnterCostType): builder.PrependInt32Slot(14, stageEnterCostType, 0)
 def AddStageEnterCostType(builder, stageEnterCostType):
-    EventContentStageExcelAddStageEnterCostType(builder, stageEnterCostType)
-
-def EventContentStageExcelAddStageEnterCostId(builder, stageEnterCostId):
-    builder.PrependInt64Slot(15, stageEnterCostId, 0)
-
+    return EventContentStageExcelAddStageEnterCostType(builder, stageEnterCostType)
+def EventContentStageExcelAddStageEnterCostId(builder, stageEnterCostId): builder.PrependInt64Slot(15, stageEnterCostId, 0)
 def AddStageEnterCostId(builder, stageEnterCostId):
-    EventContentStageExcelAddStageEnterCostId(builder, stageEnterCostId)
-
-def EventContentStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount):
-    builder.PrependInt32Slot(16, stageEnterCostAmount, 0)
-
+    return EventContentStageExcelAddStageEnterCostId(builder, stageEnterCostId)
+def EventContentStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount): builder.PrependInt32Slot(16, stageEnterCostAmount, 0)
 def AddStageEnterCostAmount(builder, stageEnterCostAmount):
-    EventContentStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
-
-def EventContentStageExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount):
-    builder.PrependInt32Slot(17, stageEnterEchelonCount, 0)
-
+    return EventContentStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
+def EventContentStageExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount): builder.PrependInt32Slot(17, stageEnterEchelonCount, 0)
 def AddStageEnterEchelonCount(builder, stageEnterEchelonCount):
-    EventContentStageExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount)
-
-def EventContentStageExcelAddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount):
-    builder.PrependInt64Slot(18, starConditionTacticRankSCount, 0)
-
+    return EventContentStageExcelAddStageEnterEchelonCount(builder, stageEnterEchelonCount)
+def EventContentStageExcelAddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount): builder.PrependInt64Slot(18, starConditionTacticRankSCount, 0)
 def AddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount):
-    EventContentStageExcelAddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount)
-
-def EventContentStageExcelAddStarConditionTurnCount(builder, starConditionTurnCount):
-    builder.PrependInt64Slot(19, starConditionTurnCount, 0)
-
+    return EventContentStageExcelAddStarConditionTacticRankSCount(builder, starConditionTacticRankSCount)
+def EventContentStageExcelAddStarConditionTurnCount(builder, starConditionTurnCount): builder.PrependInt64Slot(19, starConditionTurnCount, 0)
 def AddStarConditionTurnCount(builder, starConditionTurnCount):
-    EventContentStageExcelAddStarConditionTurnCount(builder, starConditionTurnCount)
-
-def EventContentStageExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId):
-    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(enterScenarioGroupId), 0)
-
+    return EventContentStageExcelAddStarConditionTurnCount(builder, starConditionTurnCount)
+def EventContentStageExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId): builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(enterScenarioGroupId), 0)
 def AddEnterScenarioGroupId(builder, enterScenarioGroupId):
-    EventContentStageExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId)
-
-def EventContentStageExcelStartEnterScenarioGroupIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentStageExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId)
+def EventContentStageExcelStartEnterScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartEnterScenarioGroupIdVector(builder, numElems):
     return EventContentStageExcelStartEnterScenarioGroupIdVector(builder, numElems)
-
-def EventContentStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId):
-    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(clearScenarioGroupId), 0)
-
+def EventContentStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId): builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(clearScenarioGroupId), 0)
 def AddClearScenarioGroupId(builder, clearScenarioGroupId):
-    EventContentStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId)
-
-def EventContentStageExcelStartClearScenarioGroupIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId)
+def EventContentStageExcelStartClearScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartClearScenarioGroupIdVector(builder, numElems):
     return EventContentStageExcelStartClearScenarioGroupIdVector(builder, numElems)
-
-def EventContentStageExcelAddStrategyMap(builder, strategyMap):
-    builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMap), 0)
-
+def EventContentStageExcelAddStrategyMap(builder, strategyMap): builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMap), 0)
 def AddStrategyMap(builder, strategyMap):
-    EventContentStageExcelAddStrategyMap(builder, strategyMap)
-
-def EventContentStageExcelAddStrategyMapBg(builder, strategyMapBg):
-    builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMapBg), 0)
-
+    return EventContentStageExcelAddStrategyMap(builder, strategyMap)
+def EventContentStageExcelAddStrategyMapBg(builder, strategyMapBg): builder.PrependUOffsetTRelativeSlot(23, flatbuffers.number_types.UOffsetTFlags.py_type(strategyMapBg), 0)
 def AddStrategyMapBg(builder, strategyMapBg):
-    EventContentStageExcelAddStrategyMapBg(builder, strategyMapBg)
-
-def EventContentStageExcelAddEventContentStageRewardId(builder, eventContentStageRewardId):
-    builder.PrependInt64Slot(24, eventContentStageRewardId, 0)
-
+    return EventContentStageExcelAddStrategyMapBg(builder, strategyMapBg)
+def EventContentStageExcelAddEventContentStageRewardId(builder, eventContentStageRewardId): builder.PrependInt64Slot(24, eventContentStageRewardId, 0)
 def AddEventContentStageRewardId(builder, eventContentStageRewardId):
-    EventContentStageExcelAddEventContentStageRewardId(builder, eventContentStageRewardId)
-
-def EventContentStageExcelAddMaxTurn(builder, maxTurn):
-    builder.PrependInt32Slot(25, maxTurn, 0)
-
+    return EventContentStageExcelAddEventContentStageRewardId(builder, eventContentStageRewardId)
+def EventContentStageExcelAddMaxTurn(builder, maxTurn): builder.PrependInt32Slot(25, maxTurn, 0)
 def AddMaxTurn(builder, maxTurn):
-    EventContentStageExcelAddMaxTurn(builder, maxTurn)
-
-def EventContentStageExcelAddStageTopography(builder, stageTopography):
-    builder.PrependInt32Slot(26, stageTopography, 0)
-
+    return EventContentStageExcelAddMaxTurn(builder, maxTurn)
+def EventContentStageExcelAddStageTopography(builder, stageTopography): builder.PrependInt32Slot(26, stageTopography, 0)
 def AddStageTopography(builder, stageTopography):
-    EventContentStageExcelAddStageTopography(builder, stageTopography)
-
-def EventContentStageExcelAddRecommandLevel(builder, recommandLevel):
-    builder.PrependInt32Slot(27, recommandLevel, 0)
-
+    return EventContentStageExcelAddStageTopography(builder, stageTopography)
+def EventContentStageExcelAddRecommandLevel(builder, recommandLevel): builder.PrependInt32Slot(27, recommandLevel, 0)
 def AddRecommandLevel(builder, recommandLevel):
-    EventContentStageExcelAddRecommandLevel(builder, recommandLevel)
-
-def EventContentStageExcelAddBgmId(builder, bgmId):
-    builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(bgmId), 0)
-
+    return EventContentStageExcelAddRecommandLevel(builder, recommandLevel)
+def EventContentStageExcelAddBgmId(builder, bgmId): builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(bgmId), 0)
 def AddBgmId(builder, bgmId):
-    EventContentStageExcelAddBgmId(builder, bgmId)
-
-def EventContentStageExcelAddStrategyEnvironment(builder, strategyEnvironment):
-    builder.PrependInt32Slot(29, strategyEnvironment, 0)
-
+    return EventContentStageExcelAddBgmId(builder, bgmId)
+def EventContentStageExcelAddStrategyEnvironment(builder, strategyEnvironment): builder.PrependInt32Slot(29, strategyEnvironment, 0)
 def AddStrategyEnvironment(builder, strategyEnvironment):
-    EventContentStageExcelAddStrategyEnvironment(builder, strategyEnvironment)
-
-def EventContentStageExcelAddGroundId(builder, groundId):
-    builder.PrependInt64Slot(30, groundId, 0)
-
+    return EventContentStageExcelAddStrategyEnvironment(builder, strategyEnvironment)
+def EventContentStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(30, groundId, 0)
 def AddGroundId(builder, groundId):
-    EventContentStageExcelAddGroundId(builder, groundId)
-
-def EventContentStageExcelAddContentType(builder, contentType):
-    builder.PrependInt32Slot(31, contentType, 0)
-
+    return EventContentStageExcelAddGroundId(builder, groundId)
+def EventContentStageExcelAddContentType(builder, contentType): builder.PrependInt32Slot(31, contentType, 0)
 def AddContentType(builder, contentType):
-    EventContentStageExcelAddContentType(builder, contentType)
-
-def EventContentStageExcelAddBgmIdC9738509(builder, bgmIdC9738509):
-    builder.PrependInt64Slot(32, bgmIdC9738509, 0)
-
+    return EventContentStageExcelAddContentType(builder, contentType)
+def EventContentStageExcelAddBgmIdC9738509(builder, bgmIdC9738509): builder.PrependInt64Slot(32, bgmIdC9738509, 0)
 def AddBgmIdC9738509(builder, bgmIdC9738509):
-    EventContentStageExcelAddBgmIdC9738509(builder, bgmIdC9738509)
-
-def EventContentStageExcelAddInstantClear(builder, instantClear):
-    builder.PrependBoolSlot(33, instantClear, 0)
-
+    return EventContentStageExcelAddBgmIdC9738509(builder, bgmIdC9738509)
+def EventContentStageExcelAddInstantClear(builder, instantClear): builder.PrependBoolSlot(33, instantClear, 0)
 def AddInstantClear(builder, instantClear):
-    EventContentStageExcelAddInstantClear(builder, instantClear)
-
-def EventContentStageExcelAddBuffContentId(builder, buffContentId):
-    builder.PrependInt64Slot(34, buffContentId, 0)
-
+    return EventContentStageExcelAddInstantClear(builder, instantClear)
+def EventContentStageExcelAddBuffContentId(builder, buffContentId): builder.PrependInt64Slot(34, buffContentId, 0)
 def AddBuffContentId(builder, buffContentId):
-    EventContentStageExcelAddBuffContentId(builder, buffContentId)
-
-def EventContentStageExcelAddFixedEchelonId(builder, fixedEchelonId):
-    builder.PrependInt64Slot(35, fixedEchelonId, 0)
-
+    return EventContentStageExcelAddBuffContentId(builder, buffContentId)
+def EventContentStageExcelAddFixedEchelonId(builder, fixedEchelonId): builder.PrependInt64Slot(35, fixedEchelonId, 0)
 def AddFixedEchelonId(builder, fixedEchelonId):
-    EventContentStageExcelAddFixedEchelonId(builder, fixedEchelonId)
-
-def EventContentStageExcelAddChallengeDisplay(builder, challengeDisplay):
-    builder.PrependBoolSlot(36, challengeDisplay, 0)
-
+    return EventContentStageExcelAddFixedEchelonId(builder, fixedEchelonId)
+def EventContentStageExcelAddChallengeDisplay(builder, challengeDisplay): builder.PrependBoolSlot(36, challengeDisplay, 0)
 def AddChallengeDisplay(builder, challengeDisplay):
-    EventContentStageExcelAddChallengeDisplay(builder, challengeDisplay)
-
-def EventContentStageExcelAddStarGoal(builder, starGoal):
-    builder.PrependUOffsetTRelativeSlot(37, flatbuffers.number_types.UOffsetTFlags.py_type(starGoal), 0)
-
+    return EventContentStageExcelAddChallengeDisplay(builder, challengeDisplay)
+def EventContentStageExcelAddStarGoal(builder, starGoal): builder.PrependUOffsetTRelativeSlot(37, flatbuffers.number_types.UOffsetTFlags.py_type(starGoal), 0)
 def AddStarGoal(builder, starGoal):
-    EventContentStageExcelAddStarGoal(builder, starGoal)
-
-def EventContentStageExcelStartStarGoalVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentStageExcelAddStarGoal(builder, starGoal)
+def EventContentStageExcelStartStarGoalVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStarGoalVector(builder, numElems):
     return EventContentStageExcelStartStarGoalVector(builder, numElems)
-
-def EventContentStageExcelAddStarGoalAmount(builder, starGoalAmount):
-    builder.PrependUOffsetTRelativeSlot(38, flatbuffers.number_types.UOffsetTFlags.py_type(starGoalAmount), 0)
-
+def EventContentStageExcelAddStarGoalAmount(builder, starGoalAmount): builder.PrependUOffsetTRelativeSlot(38, flatbuffers.number_types.UOffsetTFlags.py_type(starGoalAmount), 0)
 def AddStarGoalAmount(builder, starGoalAmount):
-    EventContentStageExcelAddStarGoalAmount(builder, starGoalAmount)
-
-def EventContentStageExcelStartStarGoalAmountVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentStageExcelAddStarGoalAmount(builder, starGoalAmount)
+def EventContentStageExcelStartStarGoalAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStarGoalAmountVector(builder, numElems):
     return EventContentStageExcelStartStarGoalAmountVector(builder, numElems)
-
-def EventContentStageExcelAddIsDefeatBattle(builder, isDefeatBattle):
-    builder.PrependBoolSlot(39, isDefeatBattle, 0)
-
+def EventContentStageExcelAddIsDefeatBattle(builder, isDefeatBattle): builder.PrependBoolSlot(39, isDefeatBattle, 0)
 def AddIsDefeatBattle(builder, isDefeatBattle):
-    EventContentStageExcelAddIsDefeatBattle(builder, isDefeatBattle)
-
-def EventContentStageExcelAddStageHint(builder, stageHint):
-    builder.PrependUint32Slot(40, stageHint, 0)
-
+    return EventContentStageExcelAddIsDefeatBattle(builder, isDefeatBattle)
+def EventContentStageExcelAddStageHint(builder, stageHint): builder.PrependUint32Slot(40, stageHint, 0)
 def AddStageHint(builder, stageHint):
-    EventContentStageExcelAddStageHint(builder, stageHint)
-
-def EventContentStageExcelAddEchelonExtensionType(builder, echelonExtensionType):
-    builder.PrependInt32Slot(41, echelonExtensionType, 0)
-
+    return EventContentStageExcelAddStageHint(builder, stageHint)
+def EventContentStageExcelAddEchelonExtensionType(builder, echelonExtensionType): builder.PrependInt32Slot(41, echelonExtensionType, 0)
 def AddEchelonExtensionType(builder, echelonExtensionType):
-    EventContentStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
-
-def EventContentStageExcelEnd(builder):
-    return builder.EndObject()
-
+    return EventContentStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
+def EventContentStageExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentStageExcelEnd(builder)

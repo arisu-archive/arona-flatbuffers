@@ -32,58 +32,21 @@ class TacticSimulatorSettingExcel(object):
         return 0
 
     # TacticSimulatorSettingExcel
-    def GetExp(self):
+    def FixedEchelonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-    # TacticSimulatorSettingExcel
-    def GetStarGrade(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # TacticSimulatorSettingExcel
-    def Equipment(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-def TacticSimulatorSettingExcelStart(builder):
-    builder.StartObject(4)
-
+def TacticSimulatorSettingExcelStart(builder): builder.StartObject(2)
 def Start(builder):
-    TacticSimulatorSettingExcelStart(builder)
-
-def TacticSimulatorSettingExcelAddGroundId(builder, groundId):
-    builder.PrependInt64Slot(0, groundId, 0)
-
+    return TacticSimulatorSettingExcelStart(builder)
+def TacticSimulatorSettingExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(0, groundId, 0)
 def AddGroundId(builder, groundId):
-    TacticSimulatorSettingExcelAddGroundId(builder, groundId)
-
-def TacticSimulatorSettingExcelAddGetExp(builder, getExp):
-    builder.PrependInt64Slot(1, getExp, 0)
-
-def AddGetExp(builder, getExp):
-    TacticSimulatorSettingExcelAddGetExp(builder, getExp)
-
-def TacticSimulatorSettingExcelAddGetStarGrade(builder, getStarGrade):
-    builder.PrependInt64Slot(2, getStarGrade, 0)
-
-def AddGetStarGrade(builder, getStarGrade):
-    TacticSimulatorSettingExcelAddGetStarGrade(builder, getStarGrade)
-
-def TacticSimulatorSettingExcelAddEquipment(builder, equipment):
-    builder.PrependInt64Slot(3, equipment, 0)
-
-def AddEquipment(builder, equipment):
-    TacticSimulatorSettingExcelAddEquipment(builder, equipment)
-
-def TacticSimulatorSettingExcelEnd(builder):
-    return builder.EndObject()
-
+    return TacticSimulatorSettingExcelAddGroundId(builder, groundId)
+def TacticSimulatorSettingExcelAddFixedEchelonId(builder, fixedEchelonId): builder.PrependInt64Slot(1, fixedEchelonId, 0)
+def AddFixedEchelonId(builder, fixedEchelonId):
+    return TacticSimulatorSettingExcelAddFixedEchelonId(builder, fixedEchelonId)
+def TacticSimulatorSettingExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return TacticSimulatorSettingExcelEnd(builder)

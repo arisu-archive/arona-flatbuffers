@@ -45,32 +45,18 @@ class KnockBackExcel(object):
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
-def KnockBackExcelStart(builder):
-    builder.StartObject(3)
-
+def KnockBackExcelStart(builder): builder.StartObject(3)
 def Start(builder):
-    KnockBackExcelStart(builder)
-
-def KnockBackExcelAddIndex(builder, index):
-    builder.PrependInt64Slot(0, index, 0)
-
+    return KnockBackExcelStart(builder)
+def KnockBackExcelAddIndex(builder, index): builder.PrependInt64Slot(0, index, 0)
 def AddIndex(builder, index):
-    KnockBackExcelAddIndex(builder, index)
-
-def KnockBackExcelAddDist(builder, dist):
-    builder.PrependFloat32Slot(1, dist, 0.0)
-
+    return KnockBackExcelAddIndex(builder, index)
+def KnockBackExcelAddDist(builder, dist): builder.PrependFloat32Slot(1, dist, 0.0)
 def AddDist(builder, dist):
-    KnockBackExcelAddDist(builder, dist)
-
-def KnockBackExcelAddSpeed(builder, speed):
-    builder.PrependFloat32Slot(2, speed, 0.0)
-
+    return KnockBackExcelAddDist(builder, dist)
+def KnockBackExcelAddSpeed(builder, speed): builder.PrependFloat32Slot(2, speed, 0.0)
 def AddSpeed(builder, speed):
-    KnockBackExcelAddSpeed(builder, speed)
-
-def KnockBackExcelEnd(builder):
-    return builder.EndObject()
-
+    return KnockBackExcelAddSpeed(builder, speed)
+def KnockBackExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return KnockBackExcelEnd(builder)

@@ -113,74 +113,39 @@ class ConquestUnexpectedEventExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         return o == 0
 
-def ConquestUnexpectedEventExcelStart(builder):
-    builder.StartObject(8)
-
+def ConquestUnexpectedEventExcelStart(builder): builder.StartObject(8)
 def Start(builder):
-    ConquestUnexpectedEventExcelStart(builder)
-
-def ConquestUnexpectedEventExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(0, eventContentId, 0)
-
+    return ConquestUnexpectedEventExcelStart(builder)
+def ConquestUnexpectedEventExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
-    ConquestUnexpectedEventExcelAddEventContentId(builder, eventContentId)
-
-def ConquestUnexpectedEventExcelAddUnexpectedEventConditionType(builder, unexpectedEventConditionType):
-    builder.PrependInt32Slot(1, unexpectedEventConditionType, 0)
-
+    return ConquestUnexpectedEventExcelAddEventContentId(builder, eventContentId)
+def ConquestUnexpectedEventExcelAddUnexpectedEventConditionType(builder, unexpectedEventConditionType): builder.PrependInt32Slot(1, unexpectedEventConditionType, 0)
 def AddUnexpectedEventConditionType(builder, unexpectedEventConditionType):
-    ConquestUnexpectedEventExcelAddUnexpectedEventConditionType(builder, unexpectedEventConditionType)
-
-def ConquestUnexpectedEventExcelAddUnexpectedEventConditionUniqueId(builder, unexpectedEventConditionUniqueId):
-    builder.PrependInt64Slot(2, unexpectedEventConditionUniqueId, 0)
-
+    return ConquestUnexpectedEventExcelAddUnexpectedEventConditionType(builder, unexpectedEventConditionType)
+def ConquestUnexpectedEventExcelAddUnexpectedEventConditionUniqueId(builder, unexpectedEventConditionUniqueId): builder.PrependInt64Slot(2, unexpectedEventConditionUniqueId, 0)
 def AddUnexpectedEventConditionUniqueId(builder, unexpectedEventConditionUniqueId):
-    ConquestUnexpectedEventExcelAddUnexpectedEventConditionUniqueId(builder, unexpectedEventConditionUniqueId)
-
-def ConquestUnexpectedEventExcelAddUnexpectedEventConditionAmount(builder, unexpectedEventConditionAmount):
-    builder.PrependInt64Slot(3, unexpectedEventConditionAmount, 0)
-
+    return ConquestUnexpectedEventExcelAddUnexpectedEventConditionUniqueId(builder, unexpectedEventConditionUniqueId)
+def ConquestUnexpectedEventExcelAddUnexpectedEventConditionAmount(builder, unexpectedEventConditionAmount): builder.PrependInt64Slot(3, unexpectedEventConditionAmount, 0)
 def AddUnexpectedEventConditionAmount(builder, unexpectedEventConditionAmount):
-    ConquestUnexpectedEventExcelAddUnexpectedEventConditionAmount(builder, unexpectedEventConditionAmount)
-
-def ConquestUnexpectedEventExcelAddUnexpectedEventOccurDailyLimitCount(builder, unexpectedEventOccurDailyLimitCount):
-    builder.PrependInt32Slot(4, unexpectedEventOccurDailyLimitCount, 0)
-
+    return ConquestUnexpectedEventExcelAddUnexpectedEventConditionAmount(builder, unexpectedEventConditionAmount)
+def ConquestUnexpectedEventExcelAddUnexpectedEventOccurDailyLimitCount(builder, unexpectedEventOccurDailyLimitCount): builder.PrependInt32Slot(4, unexpectedEventOccurDailyLimitCount, 0)
 def AddUnexpectedEventOccurDailyLimitCount(builder, unexpectedEventOccurDailyLimitCount):
-    ConquestUnexpectedEventExcelAddUnexpectedEventOccurDailyLimitCount(builder, unexpectedEventOccurDailyLimitCount)
-
-def ConquestUnexpectedEventExcelAddUnitCountPerStep(builder, unitCountPerStep):
-    builder.PrependInt32Slot(5, unitCountPerStep, 0)
-
+    return ConquestUnexpectedEventExcelAddUnexpectedEventOccurDailyLimitCount(builder, unexpectedEventOccurDailyLimitCount)
+def ConquestUnexpectedEventExcelAddUnitCountPerStep(builder, unitCountPerStep): builder.PrependInt32Slot(5, unitCountPerStep, 0)
 def AddUnitCountPerStep(builder, unitCountPerStep):
-    ConquestUnexpectedEventExcelAddUnitCountPerStep(builder, unitCountPerStep)
-
-def ConquestUnexpectedEventExcelAddUnexpectedEventPrefab(builder, unexpectedEventPrefab):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(unexpectedEventPrefab), 0)
-
+    return ConquestUnexpectedEventExcelAddUnitCountPerStep(builder, unitCountPerStep)
+def ConquestUnexpectedEventExcelAddUnexpectedEventPrefab(builder, unexpectedEventPrefab): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(unexpectedEventPrefab), 0)
 def AddUnexpectedEventPrefab(builder, unexpectedEventPrefab):
-    ConquestUnexpectedEventExcelAddUnexpectedEventPrefab(builder, unexpectedEventPrefab)
-
-def ConquestUnexpectedEventExcelStartUnexpectedEventPrefabVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ConquestUnexpectedEventExcelAddUnexpectedEventPrefab(builder, unexpectedEventPrefab)
+def ConquestUnexpectedEventExcelStartUnexpectedEventPrefabVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartUnexpectedEventPrefabVector(builder, numElems):
     return ConquestUnexpectedEventExcelStartUnexpectedEventPrefabVector(builder, numElems)
-
-def ConquestUnexpectedEventExcelAddUnexpectedEventUnitId(builder, unexpectedEventUnitId):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(unexpectedEventUnitId), 0)
-
+def ConquestUnexpectedEventExcelAddUnexpectedEventUnitId(builder, unexpectedEventUnitId): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(unexpectedEventUnitId), 0)
 def AddUnexpectedEventUnitId(builder, unexpectedEventUnitId):
-    ConquestUnexpectedEventExcelAddUnexpectedEventUnitId(builder, unexpectedEventUnitId)
-
-def ConquestUnexpectedEventExcelStartUnexpectedEventUnitIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return ConquestUnexpectedEventExcelAddUnexpectedEventUnitId(builder, unexpectedEventUnitId)
+def ConquestUnexpectedEventExcelStartUnexpectedEventUnitIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartUnexpectedEventUnitIdVector(builder, numElems):
     return ConquestUnexpectedEventExcelStartUnexpectedEventUnitIdVector(builder, numElems)
-
-def ConquestUnexpectedEventExcelEnd(builder):
-    return builder.EndObject()
-
+def ConquestUnexpectedEventExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ConquestUnexpectedEventExcelEnd(builder)

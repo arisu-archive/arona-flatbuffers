@@ -12,6 +12,7 @@ type MiniGamePlayGuideExcelDto struct {
 	fbsutils.FlatBuffer
 	Id             int64  `json:"id"`
 	EventContentId int64  `json:"event_content_id"`
+	IsPcBuild      bool   `json:"is_pc_build"`
 	DisplayOrder   int32  `json:"display_order"`
 	GuideTitle     string `json:"guide_title"`
 	GuideImagePath string `json:"guide_image_path"`
@@ -26,6 +27,7 @@ func (t *MiniGamePlayGuideExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	MiniGamePlayGuideExcelStart(b)
 	MiniGamePlayGuideExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MiniGamePlayGuideExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	MiniGamePlayGuideExcelAddIsPcBuild(b, t.IsPcBuild)
 	MiniGamePlayGuideExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	MiniGamePlayGuideExcelAddGuideTitle(b, b.CreateString(fbsutils.Convert(t.GuideTitle, t.FlatBuffer.TableKey)))
 	MiniGamePlayGuideExcelAddGuideImagePath(b, b.CreateString(fbsutils.Convert(t.GuideImagePath, t.FlatBuffer.TableKey)))
@@ -47,6 +49,7 @@ func (t *MiniGamePlayGuideExcelDto) UnmarshalMessage(e *MiniGamePlayGuideExcel) 
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.IsPcBuild = e.IsPcBuild()
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.GuideTitle = fbsutils.Convert(string(e.GuideTitle()), t.FlatBuffer.TableKey)
 	t.GuideImagePath = fbsutils.Convert(string(e.GuideImagePath()), t.FlatBuffer.TableKey)

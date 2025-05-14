@@ -17,19 +17,11 @@ func GetRootAsCharacterDialogEventExcel(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
-func FinishCharacterDialogEventExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsCharacterDialogEventExcel(buf []byte, offset flatbuffers.UOffsetT) *CharacterDialogEventExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &CharacterDialogEventExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedCharacterDialogEventExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *CharacterDialogEventExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -303,19 +295,19 @@ func (rcv *CharacterDialogEventExcel) MutateCvCollectionType(n CVCollectionType)
 	return rcv._tab.MutateInt32Slot(48, int32(n))
 }
 
-func (rcv *CharacterDialogEventExcel) UnlockEventSeason() int64 {
+func (rcv *CharacterDialogEventExcel) CvUnlockScenarioType() CVUnlockScenarioType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return CVUnlockScenarioType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *CharacterDialogEventExcel) MutateUnlockEventSeason(n int64) bool {
-	return rcv._tab.MutateInt64Slot(50, n)
+func (rcv *CharacterDialogEventExcel) MutateCvUnlockScenarioType(n CVUnlockScenarioType) bool {
+	return rcv._tab.MutateInt32Slot(50, int32(n))
 }
 
-func (rcv *CharacterDialogEventExcel) ScenarioGroupId() int64 {
+func (rcv *CharacterDialogEventExcel) UnlockEventSeason() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -323,12 +315,24 @@ func (rcv *CharacterDialogEventExcel) ScenarioGroupId() int64 {
 	return 0
 }
 
-func (rcv *CharacterDialogEventExcel) MutateScenarioGroupId(n int64) bool {
+func (rcv *CharacterDialogEventExcel) MutateUnlockEventSeason(n int64) bool {
 	return rcv._tab.MutateInt64Slot(52, n)
 }
 
-func (rcv *CharacterDialogEventExcel) LocalizeCvGroup() []byte {
+func (rcv *CharacterDialogEventExcel) ScenarioGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterDialogEventExcel) MutateScenarioGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(54, n)
+}
+
+func (rcv *CharacterDialogEventExcel) LocalizeCvGroup() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -336,7 +340,7 @@ func (rcv *CharacterDialogEventExcel) LocalizeCvGroup() []byte {
 }
 
 func CharacterDialogEventExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(26)
+	builder.StartObject(27)
 }
 func CharacterDialogEventExcelAddCostumeUniqueId(builder *flatbuffers.Builder, costumeUniqueId int64) {
 	builder.PrependInt64Slot(0, costumeUniqueId, 0)
@@ -410,14 +414,17 @@ func CharacterDialogEventExcelAddCollectionVisible(builder *flatbuffers.Builder,
 func CharacterDialogEventExcelAddCvCollectionType(builder *flatbuffers.Builder, cvCollectionType CVCollectionType) {
 	builder.PrependInt32Slot(22, int32(cvCollectionType), 0)
 }
+func CharacterDialogEventExcelAddCvUnlockScenarioType(builder *flatbuffers.Builder, cvUnlockScenarioType CVUnlockScenarioType) {
+	builder.PrependInt32Slot(23, int32(cvUnlockScenarioType), 0)
+}
 func CharacterDialogEventExcelAddUnlockEventSeason(builder *flatbuffers.Builder, unlockEventSeason int64) {
-	builder.PrependInt64Slot(23, unlockEventSeason, 0)
+	builder.PrependInt64Slot(24, unlockEventSeason, 0)
 }
 func CharacterDialogEventExcelAddScenarioGroupId(builder *flatbuffers.Builder, scenarioGroupId int64) {
-	builder.PrependInt64Slot(24, scenarioGroupId, 0)
+	builder.PrependInt64Slot(25, scenarioGroupId, 0)
 }
 func CharacterDialogEventExcelAddLocalizeCvGroup(builder *flatbuffers.Builder, localizeCvGroup flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(25, flatbuffers.UOffsetT(localizeCvGroup), 0)
+	builder.PrependUOffsetTSlot(26, flatbuffers.UOffsetT(localizeCvGroup), 0)
 }
 func CharacterDialogEventExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

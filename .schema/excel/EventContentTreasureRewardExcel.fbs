@@ -13,6 +13,7 @@ table EventContentTreasureRewardExcel {
     reward_parcel_amount: [long];
     cell_under_image_path: string;
     treasure_small_image_path: string;
+    treasure_size_icon_path: string;
 }
 
 root_type EventContentTreasureRewardExcel;

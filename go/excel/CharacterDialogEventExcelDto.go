@@ -33,6 +33,7 @@ type CharacterDialogEventExcelDto struct {
 	VoiceId                    []uint32              `json:"voice_id"`
 	CollectionVisible          bool                  `json:"collection_visible"`
 	CvCollectionType           CVCollectionType      `json:"cv_collection_type"`
+	CvUnlockScenarioType       CVUnlockScenarioType  `json:"cv_unlock_scenario_type"`
 	UnlockEventSeason          int64                 `json:"unlock_event_season"`
 	ScenarioGroupId            int64                 `json:"scenario_group_id"`
 	LocalizeCvGroup            string                `json:"localize_cv_group"`
@@ -68,6 +69,7 @@ func (t *CharacterDialogEventExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	CharacterDialogEventExcelAddVoiceId(b, b.EndVector(len(t.VoiceId)))
 	CharacterDialogEventExcelAddCollectionVisible(b, t.CollectionVisible)
 	CharacterDialogEventExcelAddCvCollectionType(b, fbsutils.Convert(t.CvCollectionType, t.FlatBuffer.TableKey))
+	CharacterDialogEventExcelAddCvUnlockScenarioType(b, fbsutils.Convert(t.CvUnlockScenarioType, t.FlatBuffer.TableKey))
 	CharacterDialogEventExcelAddUnlockEventSeason(b, fbsutils.Convert(t.UnlockEventSeason, t.FlatBuffer.TableKey))
 	CharacterDialogEventExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
 	CharacterDialogEventExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
@@ -109,6 +111,7 @@ func (t *CharacterDialogEventExcelDto) UnmarshalMessage(e *CharacterDialogEventE
 	}
 	t.CollectionVisible = e.CollectionVisible()
 	t.CvCollectionType = CVCollectionType(fbsutils.Convert(int32(e.CvCollectionType()), t.FlatBuffer.TableKey))
+	t.CvUnlockScenarioType = CVUnlockScenarioType(fbsutils.Convert(int32(e.CvUnlockScenarioType()), t.FlatBuffer.TableKey))
 	t.UnlockEventSeason = fbsutils.Convert(e.UnlockEventSeason(), t.FlatBuffer.TableKey)
 	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)

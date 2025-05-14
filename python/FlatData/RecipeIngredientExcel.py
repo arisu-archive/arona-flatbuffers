@@ -207,104 +207,54 @@ class RecipeIngredientExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def RecipeIngredientExcelStart(builder):
-    builder.StartObject(9)
-
+def RecipeIngredientExcelStart(builder): builder.StartObject(9)
 def Start(builder):
-    RecipeIngredientExcelStart(builder)
-
-def RecipeIngredientExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return RecipeIngredientExcelStart(builder)
+def RecipeIngredientExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    RecipeIngredientExcelAddId(builder, id)
-
-def RecipeIngredientExcelAddRecipeType(builder, recipeType):
-    builder.PrependInt32Slot(1, recipeType, 0)
-
+    return RecipeIngredientExcelAddId(builder, id)
+def RecipeIngredientExcelAddRecipeType(builder, recipeType): builder.PrependInt32Slot(1, recipeType, 0)
 def AddRecipeType(builder, recipeType):
-    RecipeIngredientExcelAddRecipeType(builder, recipeType)
-
-def RecipeIngredientExcelAddCostParcelType(builder, costParcelType):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(costParcelType), 0)
-
+    return RecipeIngredientExcelAddRecipeType(builder, recipeType)
+def RecipeIngredientExcelAddCostParcelType(builder, costParcelType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(costParcelType), 0)
 def AddCostParcelType(builder, costParcelType):
-    RecipeIngredientExcelAddCostParcelType(builder, costParcelType)
-
-def RecipeIngredientExcelStartCostParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return RecipeIngredientExcelAddCostParcelType(builder, costParcelType)
+def RecipeIngredientExcelStartCostParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartCostParcelTypeVector(builder, numElems):
     return RecipeIngredientExcelStartCostParcelTypeVector(builder, numElems)
-
-def RecipeIngredientExcelAddCostId(builder, costId):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(costId), 0)
-
+def RecipeIngredientExcelAddCostId(builder, costId): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(costId), 0)
 def AddCostId(builder, costId):
-    RecipeIngredientExcelAddCostId(builder, costId)
-
-def RecipeIngredientExcelStartCostIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return RecipeIngredientExcelAddCostId(builder, costId)
+def RecipeIngredientExcelStartCostIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartCostIdVector(builder, numElems):
     return RecipeIngredientExcelStartCostIdVector(builder, numElems)
-
-def RecipeIngredientExcelAddCostAmount(builder, costAmount):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(costAmount), 0)
-
+def RecipeIngredientExcelAddCostAmount(builder, costAmount): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(costAmount), 0)
 def AddCostAmount(builder, costAmount):
-    RecipeIngredientExcelAddCostAmount(builder, costAmount)
-
-def RecipeIngredientExcelStartCostAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return RecipeIngredientExcelAddCostAmount(builder, costAmount)
+def RecipeIngredientExcelStartCostAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartCostAmountVector(builder, numElems):
     return RecipeIngredientExcelStartCostAmountVector(builder, numElems)
-
-def RecipeIngredientExcelAddIngredientParcelType(builder, ingredientParcelType):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(ingredientParcelType), 0)
-
+def RecipeIngredientExcelAddIngredientParcelType(builder, ingredientParcelType): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(ingredientParcelType), 0)
 def AddIngredientParcelType(builder, ingredientParcelType):
-    RecipeIngredientExcelAddIngredientParcelType(builder, ingredientParcelType)
-
-def RecipeIngredientExcelStartIngredientParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return RecipeIngredientExcelAddIngredientParcelType(builder, ingredientParcelType)
+def RecipeIngredientExcelStartIngredientParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartIngredientParcelTypeVector(builder, numElems):
     return RecipeIngredientExcelStartIngredientParcelTypeVector(builder, numElems)
-
-def RecipeIngredientExcelAddIngredientId(builder, ingredientId):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(ingredientId), 0)
-
+def RecipeIngredientExcelAddIngredientId(builder, ingredientId): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(ingredientId), 0)
 def AddIngredientId(builder, ingredientId):
-    RecipeIngredientExcelAddIngredientId(builder, ingredientId)
-
-def RecipeIngredientExcelStartIngredientIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return RecipeIngredientExcelAddIngredientId(builder, ingredientId)
+def RecipeIngredientExcelStartIngredientIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartIngredientIdVector(builder, numElems):
     return RecipeIngredientExcelStartIngredientIdVector(builder, numElems)
-
-def RecipeIngredientExcelAddIngredientAmount(builder, ingredientAmount):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(ingredientAmount), 0)
-
+def RecipeIngredientExcelAddIngredientAmount(builder, ingredientAmount): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(ingredientAmount), 0)
 def AddIngredientAmount(builder, ingredientAmount):
-    RecipeIngredientExcelAddIngredientAmount(builder, ingredientAmount)
-
-def RecipeIngredientExcelStartIngredientAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return RecipeIngredientExcelAddIngredientAmount(builder, ingredientAmount)
+def RecipeIngredientExcelStartIngredientAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartIngredientAmountVector(builder, numElems):
     return RecipeIngredientExcelStartIngredientAmountVector(builder, numElems)
-
-def RecipeIngredientExcelAddCostTimeInSecond(builder, costTimeInSecond):
-    builder.PrependInt64Slot(8, costTimeInSecond, 0)
-
+def RecipeIngredientExcelAddCostTimeInSecond(builder, costTimeInSecond): builder.PrependInt64Slot(8, costTimeInSecond, 0)
 def AddCostTimeInSecond(builder, costTimeInSecond):
-    RecipeIngredientExcelAddCostTimeInSecond(builder, costTimeInSecond)
-
-def RecipeIngredientExcelEnd(builder):
-    return builder.EndObject()
-
+    return RecipeIngredientExcelAddCostTimeInSecond(builder, costTimeInSecond)
+def RecipeIngredientExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return RecipeIngredientExcelEnd(builder)

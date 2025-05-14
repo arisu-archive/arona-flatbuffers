@@ -42,7 +42,7 @@ type FurnitureExcelDto struct {
 	CraftQualityTier2          int64                 `json:"craft_quality_tier2"`
 	ShiftingCraftQuality       int64                 `json:"shifting_craft_quality"`
 	FurnitureFunctionType      FurnitureFunctionType `json:"furniture_function_type"`
-	FurnitureFunctionParameter int64                 `json:"furniture_function_parameter"`
+	FurnitureFunctionParameter []int64               `json:"furniture_function_parameter"`
 	VideoId                    int64                 `json:"video_id"`
 	EventCollectionId          int64                 `json:"event_collection_id"`
 	FurnitureBubbleOffsetX     int64                 `json:"furniture_bubble_offset_x"`
@@ -95,7 +95,11 @@ func (t *FurnitureExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	FurnitureExcelAddCraftQualityTier2(b, fbsutils.Convert(t.CraftQualityTier2, t.FlatBuffer.TableKey))
 	FurnitureExcelAddShiftingCraftQuality(b, fbsutils.Convert(t.ShiftingCraftQuality, t.FlatBuffer.TableKey))
 	FurnitureExcelAddFurnitureFunctionType(b, fbsutils.Convert(t.FurnitureFunctionType, t.FlatBuffer.TableKey))
-	FurnitureExcelAddFurnitureFunctionParameter(b, fbsutils.Convert(t.FurnitureFunctionParameter, t.FlatBuffer.TableKey))
+	FurnitureExcelStartFurnitureFunctionParameterVector(b, len(t.FurnitureFunctionParameter))
+	for i := range len(t.FurnitureFunctionParameter) {
+		b.PrependInt64(fbsutils.Convert(t.FurnitureFunctionParameter[len(t.FurnitureFunctionParameter)-i-1], t.FlatBuffer.TableKey))
+	}
+	FurnitureExcelAddFurnitureFunctionParameter(b, b.EndVector(len(t.FurnitureFunctionParameter)))
 	FurnitureExcelAddVideoId(b, fbsutils.Convert(t.VideoId, t.FlatBuffer.TableKey))
 	FurnitureExcelAddEventCollectionId(b, fbsutils.Convert(t.EventCollectionId, t.FlatBuffer.TableKey))
 	FurnitureExcelAddFurnitureBubbleOffsetX(b, fbsutils.Convert(t.FurnitureBubbleOffsetX, t.FlatBuffer.TableKey))
@@ -170,7 +174,10 @@ func (t *FurnitureExcelDto) UnmarshalMessage(e *FurnitureExcel) error {
 	t.CraftQualityTier2 = fbsutils.Convert(e.CraftQualityTier2(), t.FlatBuffer.TableKey)
 	t.ShiftingCraftQuality = fbsutils.Convert(e.ShiftingCraftQuality(), t.FlatBuffer.TableKey)
 	t.FurnitureFunctionType = FurnitureFunctionType(fbsutils.Convert(int32(e.FurnitureFunctionType()), t.FlatBuffer.TableKey))
-	t.FurnitureFunctionParameter = fbsutils.Convert(e.FurnitureFunctionParameter(), t.FlatBuffer.TableKey)
+	t.FurnitureFunctionParameter = make([]int64, e.FurnitureFunctionParameterLength())
+	for i := range e.FurnitureFunctionParameterLength() {
+		t.FurnitureFunctionParameter[i] = fbsutils.Convert(e.FurnitureFunctionParameter(i), t.FlatBuffer.TableKey)
+	}
 	t.VideoId = fbsutils.Convert(e.VideoId(), t.FlatBuffer.TableKey)
 	t.EventCollectionId = fbsutils.Convert(e.EventCollectionId(), t.FlatBuffer.TableKey)
 	t.FurnitureBubbleOffsetX = fbsutils.Convert(e.FurnitureBubbleOffsetX(), t.FlatBuffer.TableKey)

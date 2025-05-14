@@ -269,11 +269,31 @@ class FurnitureExcel(object):
         return 0
 
     # FurnitureExcel
-    def FurnitureFunctionParameter(self):
+    def FurnitureFunctionParameter(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
+
+    # FurnitureExcel
+    def FurnitureFunctionParameterAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # FurnitureExcel
+    def FurnitureFunctionParameterLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FurnitureExcel
+    def FurnitureFunctionParameterIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        return o == 0
 
     # FurnitureExcel
     def VideoId(self):
@@ -383,290 +403,150 @@ class FurnitureExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
         return o == 0
 
-def FurnitureExcelStart(builder):
-    builder.StartObject(41)
-
+def FurnitureExcelStart(builder): builder.StartObject(41)
 def Start(builder):
-    FurnitureExcelStart(builder)
-
-def FurnitureExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return FurnitureExcelStart(builder)
+def FurnitureExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    FurnitureExcelAddId(builder, id)
-
-def FurnitureExcelAddProductionStep(builder, productionStep):
-    builder.PrependInt32Slot(1, productionStep, 0)
-
+    return FurnitureExcelAddId(builder, id)
+def FurnitureExcelAddProductionStep(builder, productionStep): builder.PrependInt32Slot(1, productionStep, 0)
 def AddProductionStep(builder, productionStep):
-    FurnitureExcelAddProductionStep(builder, productionStep)
-
-def FurnitureExcelAddRarity(builder, rarity):
-    builder.PrependInt32Slot(2, rarity, 0)
-
+    return FurnitureExcelAddProductionStep(builder, productionStep)
+def FurnitureExcelAddRarity(builder, rarity): builder.PrependInt32Slot(2, rarity, 0)
 def AddRarity(builder, rarity):
-    FurnitureExcelAddRarity(builder, rarity)
-
-def FurnitureExcelAddCategory(builder, category):
-    builder.PrependInt32Slot(3, category, 0)
-
+    return FurnitureExcelAddRarity(builder, rarity)
+def FurnitureExcelAddCategory(builder, category): builder.PrependInt32Slot(3, category, 0)
 def AddCategory(builder, category):
-    FurnitureExcelAddCategory(builder, category)
-
-def FurnitureExcelAddSubCategory(builder, subCategory):
-    builder.PrependInt32Slot(4, subCategory, 0)
-
+    return FurnitureExcelAddCategory(builder, category)
+def FurnitureExcelAddSubCategory(builder, subCategory): builder.PrependInt32Slot(4, subCategory, 0)
 def AddSubCategory(builder, subCategory):
-    FurnitureExcelAddSubCategory(builder, subCategory)
-
-def FurnitureExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(5, localizeEtcId, 0)
-
+    return FurnitureExcelAddSubCategory(builder, subCategory)
+def FurnitureExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(5, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
-    FurnitureExcelAddLocalizeEtcId(builder, localizeEtcId)
-
-def FurnitureExcelAddStarGradeInit(builder, starGradeInit):
-    builder.PrependInt32Slot(6, starGradeInit, 0)
-
+    return FurnitureExcelAddLocalizeEtcId(builder, localizeEtcId)
+def FurnitureExcelAddStarGradeInit(builder, starGradeInit): builder.PrependInt32Slot(6, starGradeInit, 0)
 def AddStarGradeInit(builder, starGradeInit):
-    FurnitureExcelAddStarGradeInit(builder, starGradeInit)
-
-def FurnitureExcelAddTier(builder, tier):
-    builder.PrependInt64Slot(7, tier, 0)
-
+    return FurnitureExcelAddStarGradeInit(builder, starGradeInit)
+def FurnitureExcelAddTier(builder, tier): builder.PrependInt64Slot(7, tier, 0)
 def AddTier(builder, tier):
-    FurnitureExcelAddTier(builder, tier)
-
-def FurnitureExcelAddIcon(builder, icon):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
-
+    return FurnitureExcelAddTier(builder, tier)
+def FurnitureExcelAddIcon(builder, icon): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
 def AddIcon(builder, icon):
-    FurnitureExcelAddIcon(builder, icon)
-
-def FurnitureExcelAddSizeWidth(builder, sizeWidth):
-    builder.PrependInt32Slot(9, sizeWidth, 0)
-
+    return FurnitureExcelAddIcon(builder, icon)
+def FurnitureExcelAddSizeWidth(builder, sizeWidth): builder.PrependInt32Slot(9, sizeWidth, 0)
 def AddSizeWidth(builder, sizeWidth):
-    FurnitureExcelAddSizeWidth(builder, sizeWidth)
-
-def FurnitureExcelAddSizeHeight(builder, sizeHeight):
-    builder.PrependInt32Slot(10, sizeHeight, 0)
-
+    return FurnitureExcelAddSizeWidth(builder, sizeWidth)
+def FurnitureExcelAddSizeHeight(builder, sizeHeight): builder.PrependInt32Slot(10, sizeHeight, 0)
 def AddSizeHeight(builder, sizeHeight):
-    FurnitureExcelAddSizeHeight(builder, sizeHeight)
-
-def FurnitureExcelAddOtherSize(builder, otherSize):
-    builder.PrependInt32Slot(11, otherSize, 0)
-
+    return FurnitureExcelAddSizeHeight(builder, sizeHeight)
+def FurnitureExcelAddOtherSize(builder, otherSize): builder.PrependInt32Slot(11, otherSize, 0)
 def AddOtherSize(builder, otherSize):
-    FurnitureExcelAddOtherSize(builder, otherSize)
-
-def FurnitureExcelAddExpandWidth(builder, expandWidth):
-    builder.PrependInt32Slot(12, expandWidth, 0)
-
+    return FurnitureExcelAddOtherSize(builder, otherSize)
+def FurnitureExcelAddExpandWidth(builder, expandWidth): builder.PrependInt32Slot(12, expandWidth, 0)
 def AddExpandWidth(builder, expandWidth):
-    FurnitureExcelAddExpandWidth(builder, expandWidth)
-
-def FurnitureExcelAddEnable(builder, enable):
-    builder.PrependBoolSlot(13, enable, 0)
-
+    return FurnitureExcelAddExpandWidth(builder, expandWidth)
+def FurnitureExcelAddEnable(builder, enable): builder.PrependBoolSlot(13, enable, 0)
 def AddEnable(builder, enable):
-    FurnitureExcelAddEnable(builder, enable)
-
-def FurnitureExcelAddReverseRotation(builder, reverseRotation):
-    builder.PrependBoolSlot(14, reverseRotation, 0)
-
+    return FurnitureExcelAddEnable(builder, enable)
+def FurnitureExcelAddReverseRotation(builder, reverseRotation): builder.PrependBoolSlot(14, reverseRotation, 0)
 def AddReverseRotation(builder, reverseRotation):
-    FurnitureExcelAddReverseRotation(builder, reverseRotation)
-
-def FurnitureExcelAddPrefab(builder, prefab):
-    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(prefab), 0)
-
+    return FurnitureExcelAddReverseRotation(builder, reverseRotation)
+def FurnitureExcelAddPrefab(builder, prefab): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(prefab), 0)
 def AddPrefab(builder, prefab):
-    FurnitureExcelAddPrefab(builder, prefab)
-
-def FurnitureExcelAddPrefabExpand(builder, prefabExpand):
-    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(prefabExpand), 0)
-
+    return FurnitureExcelAddPrefab(builder, prefab)
+def FurnitureExcelAddPrefabExpand(builder, prefabExpand): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(prefabExpand), 0)
 def AddPrefabExpand(builder, prefabExpand):
-    FurnitureExcelAddPrefabExpand(builder, prefabExpand)
-
-def FurnitureExcelAddSubPrefab(builder, subPrefab):
-    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(subPrefab), 0)
-
+    return FurnitureExcelAddPrefabExpand(builder, prefabExpand)
+def FurnitureExcelAddSubPrefab(builder, subPrefab): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(subPrefab), 0)
 def AddSubPrefab(builder, subPrefab):
-    FurnitureExcelAddSubPrefab(builder, subPrefab)
-
-def FurnitureExcelAddSubExpandPrefab(builder, subExpandPrefab):
-    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(subExpandPrefab), 0)
-
+    return FurnitureExcelAddSubPrefab(builder, subPrefab)
+def FurnitureExcelAddSubExpandPrefab(builder, subExpandPrefab): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(subExpandPrefab), 0)
 def AddSubExpandPrefab(builder, subExpandPrefab):
-    FurnitureExcelAddSubExpandPrefab(builder, subExpandPrefab)
-
-def FurnitureExcelAddCornerPrefab(builder, cornerPrefab):
-    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(cornerPrefab), 0)
-
+    return FurnitureExcelAddSubExpandPrefab(builder, subExpandPrefab)
+def FurnitureExcelAddCornerPrefab(builder, cornerPrefab): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(cornerPrefab), 0)
 def AddCornerPrefab(builder, cornerPrefab):
-    FurnitureExcelAddCornerPrefab(builder, cornerPrefab)
-
-def FurnitureExcelAddStackableMax(builder, stackableMax):
-    builder.PrependInt64Slot(20, stackableMax, 0)
-
+    return FurnitureExcelAddCornerPrefab(builder, cornerPrefab)
+def FurnitureExcelAddStackableMax(builder, stackableMax): builder.PrependInt64Slot(20, stackableMax, 0)
 def AddStackableMax(builder, stackableMax):
-    FurnitureExcelAddStackableMax(builder, stackableMax)
-
-def FurnitureExcelAddRecipeCraftId(builder, recipeCraftId):
-    builder.PrependInt64Slot(21, recipeCraftId, 0)
-
+    return FurnitureExcelAddStackableMax(builder, stackableMax)
+def FurnitureExcelAddRecipeCraftId(builder, recipeCraftId): builder.PrependInt64Slot(21, recipeCraftId, 0)
 def AddRecipeCraftId(builder, recipeCraftId):
-    FurnitureExcelAddRecipeCraftId(builder, recipeCraftId)
-
-def FurnitureExcelAddSetGroudpId(builder, setGroudpId):
-    builder.PrependInt64Slot(22, setGroudpId, 0)
-
+    return FurnitureExcelAddRecipeCraftId(builder, recipeCraftId)
+def FurnitureExcelAddSetGroudpId(builder, setGroudpId): builder.PrependInt64Slot(22, setGroudpId, 0)
 def AddSetGroudpId(builder, setGroudpId):
-    FurnitureExcelAddSetGroudpId(builder, setGroudpId)
-
-def FurnitureExcelAddComfortBonus(builder, comfortBonus):
-    builder.PrependInt64Slot(23, comfortBonus, 0)
-
+    return FurnitureExcelAddSetGroudpId(builder, setGroudpId)
+def FurnitureExcelAddComfortBonus(builder, comfortBonus): builder.PrependInt64Slot(23, comfortBonus, 0)
 def AddComfortBonus(builder, comfortBonus):
-    FurnitureExcelAddComfortBonus(builder, comfortBonus)
-
-def FurnitureExcelAddVisitOperationType(builder, visitOperationType):
-    builder.PrependInt64Slot(24, visitOperationType, 0)
-
+    return FurnitureExcelAddComfortBonus(builder, comfortBonus)
+def FurnitureExcelAddVisitOperationType(builder, visitOperationType): builder.PrependInt64Slot(24, visitOperationType, 0)
 def AddVisitOperationType(builder, visitOperationType):
-    FurnitureExcelAddVisitOperationType(builder, visitOperationType)
-
-def FurnitureExcelAddVisitBonusOperationType(builder, visitBonusOperationType):
-    builder.PrependInt64Slot(25, visitBonusOperationType, 0)
-
+    return FurnitureExcelAddVisitOperationType(builder, visitOperationType)
+def FurnitureExcelAddVisitBonusOperationType(builder, visitBonusOperationType): builder.PrependInt64Slot(25, visitBonusOperationType, 0)
 def AddVisitBonusOperationType(builder, visitBonusOperationType):
-    FurnitureExcelAddVisitBonusOperationType(builder, visitBonusOperationType)
-
-def FurnitureExcelAddTags(builder, tags):
-    builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
-
+    return FurnitureExcelAddVisitBonusOperationType(builder, visitBonusOperationType)
+def FurnitureExcelAddTags(builder, tags): builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
 def AddTags(builder, tags):
-    FurnitureExcelAddTags(builder, tags)
-
-def FurnitureExcelStartTagsVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FurnitureExcelAddTags(builder, tags)
+def FurnitureExcelStartTagsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartTagsVector(builder, numElems):
     return FurnitureExcelStartTagsVector(builder, numElems)
-
-def FurnitureExcelAddCraftQualityTier0(builder, craftQualityTier0):
-    builder.PrependInt64Slot(27, craftQualityTier0, 0)
-
+def FurnitureExcelAddCraftQualityTier0(builder, craftQualityTier0): builder.PrependInt64Slot(27, craftQualityTier0, 0)
 def AddCraftQualityTier0(builder, craftQualityTier0):
-    FurnitureExcelAddCraftQualityTier0(builder, craftQualityTier0)
-
-def FurnitureExcelAddCraftQualityTier1(builder, craftQualityTier1):
-    builder.PrependInt64Slot(28, craftQualityTier1, 0)
-
+    return FurnitureExcelAddCraftQualityTier0(builder, craftQualityTier0)
+def FurnitureExcelAddCraftQualityTier1(builder, craftQualityTier1): builder.PrependInt64Slot(28, craftQualityTier1, 0)
 def AddCraftQualityTier1(builder, craftQualityTier1):
-    FurnitureExcelAddCraftQualityTier1(builder, craftQualityTier1)
-
-def FurnitureExcelAddCraftQualityTier2(builder, craftQualityTier2):
-    builder.PrependInt64Slot(29, craftQualityTier2, 0)
-
+    return FurnitureExcelAddCraftQualityTier1(builder, craftQualityTier1)
+def FurnitureExcelAddCraftQualityTier2(builder, craftQualityTier2): builder.PrependInt64Slot(29, craftQualityTier2, 0)
 def AddCraftQualityTier2(builder, craftQualityTier2):
-    FurnitureExcelAddCraftQualityTier2(builder, craftQualityTier2)
-
-def FurnitureExcelAddShiftingCraftQuality(builder, shiftingCraftQuality):
-    builder.PrependInt64Slot(30, shiftingCraftQuality, 0)
-
+    return FurnitureExcelAddCraftQualityTier2(builder, craftQualityTier2)
+def FurnitureExcelAddShiftingCraftQuality(builder, shiftingCraftQuality): builder.PrependInt64Slot(30, shiftingCraftQuality, 0)
 def AddShiftingCraftQuality(builder, shiftingCraftQuality):
-    FurnitureExcelAddShiftingCraftQuality(builder, shiftingCraftQuality)
-
-def FurnitureExcelAddFurnitureFunctionType(builder, furnitureFunctionType):
-    builder.PrependInt32Slot(31, furnitureFunctionType, 0)
-
+    return FurnitureExcelAddShiftingCraftQuality(builder, shiftingCraftQuality)
+def FurnitureExcelAddFurnitureFunctionType(builder, furnitureFunctionType): builder.PrependInt32Slot(31, furnitureFunctionType, 0)
 def AddFurnitureFunctionType(builder, furnitureFunctionType):
-    FurnitureExcelAddFurnitureFunctionType(builder, furnitureFunctionType)
-
-def FurnitureExcelAddFurnitureFunctionParameter(builder, furnitureFunctionParameter):
-    builder.PrependInt64Slot(32, furnitureFunctionParameter, 0)
-
+    return FurnitureExcelAddFurnitureFunctionType(builder, furnitureFunctionType)
+def FurnitureExcelAddFurnitureFunctionParameter(builder, furnitureFunctionParameter): builder.PrependUOffsetTRelativeSlot(32, flatbuffers.number_types.UOffsetTFlags.py_type(furnitureFunctionParameter), 0)
 def AddFurnitureFunctionParameter(builder, furnitureFunctionParameter):
-    FurnitureExcelAddFurnitureFunctionParameter(builder, furnitureFunctionParameter)
-
-def FurnitureExcelAddVideoId(builder, videoId):
-    builder.PrependInt64Slot(33, videoId, 0)
-
+    return FurnitureExcelAddFurnitureFunctionParameter(builder, furnitureFunctionParameter)
+def FurnitureExcelStartFurnitureFunctionParameterVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartFurnitureFunctionParameterVector(builder, numElems):
+    return FurnitureExcelStartFurnitureFunctionParameterVector(builder, numElems)
+def FurnitureExcelAddVideoId(builder, videoId): builder.PrependInt64Slot(33, videoId, 0)
 def AddVideoId(builder, videoId):
-    FurnitureExcelAddVideoId(builder, videoId)
-
-def FurnitureExcelAddEventCollectionId(builder, eventCollectionId):
-    builder.PrependInt64Slot(34, eventCollectionId, 0)
-
+    return FurnitureExcelAddVideoId(builder, videoId)
+def FurnitureExcelAddEventCollectionId(builder, eventCollectionId): builder.PrependInt64Slot(34, eventCollectionId, 0)
 def AddEventCollectionId(builder, eventCollectionId):
-    FurnitureExcelAddEventCollectionId(builder, eventCollectionId)
-
-def FurnitureExcelAddFurnitureBubbleOffsetX(builder, furnitureBubbleOffsetX):
-    builder.PrependInt64Slot(35, furnitureBubbleOffsetX, 0)
-
+    return FurnitureExcelAddEventCollectionId(builder, eventCollectionId)
+def FurnitureExcelAddFurnitureBubbleOffsetX(builder, furnitureBubbleOffsetX): builder.PrependInt64Slot(35, furnitureBubbleOffsetX, 0)
 def AddFurnitureBubbleOffsetX(builder, furnitureBubbleOffsetX):
-    FurnitureExcelAddFurnitureBubbleOffsetX(builder, furnitureBubbleOffsetX)
-
-def FurnitureExcelAddFurnitureBubbleOffsetY(builder, furnitureBubbleOffsetY):
-    builder.PrependInt64Slot(36, furnitureBubbleOffsetY, 0)
-
+    return FurnitureExcelAddFurnitureBubbleOffsetX(builder, furnitureBubbleOffsetX)
+def FurnitureExcelAddFurnitureBubbleOffsetY(builder, furnitureBubbleOffsetY): builder.PrependInt64Slot(36, furnitureBubbleOffsetY, 0)
 def AddFurnitureBubbleOffsetY(builder, furnitureBubbleOffsetY):
-    FurnitureExcelAddFurnitureBubbleOffsetY(builder, furnitureBubbleOffsetY)
-
-def FurnitureExcelAddCafeCharacterStateReq(builder, cafeCharacterStateReq):
-    builder.PrependUOffsetTRelativeSlot(37, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateReq), 0)
-
+    return FurnitureExcelAddFurnitureBubbleOffsetY(builder, furnitureBubbleOffsetY)
+def FurnitureExcelAddCafeCharacterStateReq(builder, cafeCharacterStateReq): builder.PrependUOffsetTRelativeSlot(37, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateReq), 0)
 def AddCafeCharacterStateReq(builder, cafeCharacterStateReq):
-    FurnitureExcelAddCafeCharacterStateReq(builder, cafeCharacterStateReq)
-
-def FurnitureExcelStartCafeCharacterStateReqVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FurnitureExcelAddCafeCharacterStateReq(builder, cafeCharacterStateReq)
+def FurnitureExcelStartCafeCharacterStateReqVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartCafeCharacterStateReqVector(builder, numElems):
     return FurnitureExcelStartCafeCharacterStateReqVector(builder, numElems)
-
-def FurnitureExcelAddCafeCharacterStateAdd(builder, cafeCharacterStateAdd):
-    builder.PrependUOffsetTRelativeSlot(38, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateAdd), 0)
-
+def FurnitureExcelAddCafeCharacterStateAdd(builder, cafeCharacterStateAdd): builder.PrependUOffsetTRelativeSlot(38, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateAdd), 0)
 def AddCafeCharacterStateAdd(builder, cafeCharacterStateAdd):
-    FurnitureExcelAddCafeCharacterStateAdd(builder, cafeCharacterStateAdd)
-
-def FurnitureExcelStartCafeCharacterStateAddVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FurnitureExcelAddCafeCharacterStateAdd(builder, cafeCharacterStateAdd)
+def FurnitureExcelStartCafeCharacterStateAddVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartCafeCharacterStateAddVector(builder, numElems):
     return FurnitureExcelStartCafeCharacterStateAddVector(builder, numElems)
-
-def FurnitureExcelAddCafeCharacterStateMake(builder, cafeCharacterStateMake):
-    builder.PrependUOffsetTRelativeSlot(39, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateMake), 0)
-
+def FurnitureExcelAddCafeCharacterStateMake(builder, cafeCharacterStateMake): builder.PrependUOffsetTRelativeSlot(39, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateMake), 0)
 def AddCafeCharacterStateMake(builder, cafeCharacterStateMake):
-    FurnitureExcelAddCafeCharacterStateMake(builder, cafeCharacterStateMake)
-
-def FurnitureExcelStartCafeCharacterStateMakeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FurnitureExcelAddCafeCharacterStateMake(builder, cafeCharacterStateMake)
+def FurnitureExcelStartCafeCharacterStateMakeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartCafeCharacterStateMakeVector(builder, numElems):
     return FurnitureExcelStartCafeCharacterStateMakeVector(builder, numElems)
-
-def FurnitureExcelAddCafeCharacterStateOnly(builder, cafeCharacterStateOnly):
-    builder.PrependUOffsetTRelativeSlot(40, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateOnly), 0)
-
+def FurnitureExcelAddCafeCharacterStateOnly(builder, cafeCharacterStateOnly): builder.PrependUOffsetTRelativeSlot(40, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateOnly), 0)
 def AddCafeCharacterStateOnly(builder, cafeCharacterStateOnly):
-    FurnitureExcelAddCafeCharacterStateOnly(builder, cafeCharacterStateOnly)
-
-def FurnitureExcelStartCafeCharacterStateOnlyVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return FurnitureExcelAddCafeCharacterStateOnly(builder, cafeCharacterStateOnly)
+def FurnitureExcelStartCafeCharacterStateOnlyVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartCafeCharacterStateOnlyVector(builder, numElems):
     return FurnitureExcelStartCafeCharacterStateOnlyVector(builder, numElems)
-
-def FurnitureExcelEnd(builder):
-    return builder.EndObject()
-
+def FurnitureExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return FurnitureExcelEnd(builder)

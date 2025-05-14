@@ -14,6 +14,7 @@ table ProductMonthlyExcel {
     product_tag_type: ProductTagType;
     monthly_days: long;
     use_monthly_product_check: bool;
+    purchase_count_limit: long;
     parcel_type: [ParcelType];
     parcel_id: [long];
     parcel_amount: [long];

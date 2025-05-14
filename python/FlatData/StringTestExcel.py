@@ -58,38 +58,21 @@ class StringTestExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def StringTestExcelStart(builder):
-    builder.StartObject(3)
-
+def StringTestExcelStart(builder): builder.StartObject(3)
 def Start(builder):
-    StringTestExcelStart(builder)
-
-def StringTestExcelAddString(builder, string):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(string), 0)
-
+    return StringTestExcelStart(builder)
+def StringTestExcelAddString(builder, string): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(string), 0)
 def AddString(builder, string):
-    StringTestExcelAddString(builder, string)
-
-def StringTestExcelStartStringVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return StringTestExcelAddString(builder, string)
+def StringTestExcelStartStringVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStringVector(builder, numElems):
     return StringTestExcelStartStringVector(builder, numElems)
-
-def StringTestExcelAddSentence1(builder, sentence1):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(sentence1), 0)
-
+def StringTestExcelAddSentence1(builder, sentence1): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(sentence1), 0)
 def AddSentence1(builder, sentence1):
-    StringTestExcelAddSentence1(builder, sentence1)
-
-def StringTestExcelAddScript(builder, script):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(script), 0)
-
+    return StringTestExcelAddSentence1(builder, sentence1)
+def StringTestExcelAddScript(builder, script): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(script), 0)
 def AddScript(builder, script):
-    StringTestExcelAddScript(builder, script)
-
-def StringTestExcelEnd(builder):
-    return builder.EndObject()
-
+    return StringTestExcelAddScript(builder, script)
+def StringTestExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return StringTestExcelEnd(builder)

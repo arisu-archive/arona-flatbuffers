@@ -351,194 +351,99 @@ class EventContentLocationRewardExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         return o == 0
 
-def EventContentLocationRewardExcelStart(builder):
-    builder.StartObject(21)
-
+def EventContentLocationRewardExcelStart(builder): builder.StartObject(21)
 def Start(builder):
-    EventContentLocationRewardExcelStart(builder)
-
-def EventContentLocationRewardExcelAddLocation(builder, location):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(location), 0)
-
+    return EventContentLocationRewardExcelStart(builder)
+def EventContentLocationRewardExcelAddLocation(builder, location): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(location), 0)
 def AddLocation(builder, location):
-    EventContentLocationRewardExcelAddLocation(builder, location)
-
-def EventContentLocationRewardExcelAddScheduleGroupId(builder, scheduleGroupId):
-    builder.PrependInt64Slot(1, scheduleGroupId, 0)
-
+    return EventContentLocationRewardExcelAddLocation(builder, location)
+def EventContentLocationRewardExcelAddScheduleGroupId(builder, scheduleGroupId): builder.PrependInt64Slot(1, scheduleGroupId, 0)
 def AddScheduleGroupId(builder, scheduleGroupId):
-    EventContentLocationRewardExcelAddScheduleGroupId(builder, scheduleGroupId)
-
-def EventContentLocationRewardExcelAddOrderInGroup(builder, orderInGroup):
-    builder.PrependInt64Slot(2, orderInGroup, 0)
-
+    return EventContentLocationRewardExcelAddScheduleGroupId(builder, scheduleGroupId)
+def EventContentLocationRewardExcelAddOrderInGroup(builder, orderInGroup): builder.PrependInt64Slot(2, orderInGroup, 0)
 def AddOrderInGroup(builder, orderInGroup):
-    EventContentLocationRewardExcelAddOrderInGroup(builder, orderInGroup)
-
-def EventContentLocationRewardExcelAddId(builder, id):
-    builder.PrependInt64Slot(3, id, 0)
-
+    return EventContentLocationRewardExcelAddOrderInGroup(builder, orderInGroup)
+def EventContentLocationRewardExcelAddId(builder, id): builder.PrependInt64Slot(3, id, 0)
 def AddId(builder, id):
-    EventContentLocationRewardExcelAddId(builder, id)
-
-def EventContentLocationRewardExcelAddProgressTexture(builder, progressTexture):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(progressTexture), 0)
-
+    return EventContentLocationRewardExcelAddId(builder, id)
+def EventContentLocationRewardExcelAddProgressTexture(builder, progressTexture): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(progressTexture), 0)
 def AddProgressTexture(builder, progressTexture):
-    EventContentLocationRewardExcelAddProgressTexture(builder, progressTexture)
-
-def EventContentLocationRewardExcelAddVoiceId(builder, voiceId):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(voiceId), 0)
-
+    return EventContentLocationRewardExcelAddProgressTexture(builder, progressTexture)
+def EventContentLocationRewardExcelAddVoiceId(builder, voiceId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(voiceId), 0)
 def AddVoiceId(builder, voiceId):
-    EventContentLocationRewardExcelAddVoiceId(builder, voiceId)
-
-def EventContentLocationRewardExcelStartVoiceIdVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentLocationRewardExcelAddVoiceId(builder, voiceId)
+def EventContentLocationRewardExcelStartVoiceIdVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartVoiceIdVector(builder, numElems):
     return EventContentLocationRewardExcelStartVoiceIdVector(builder, numElems)
-
-def EventContentLocationRewardExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(6, localizeEtcId, 0)
-
+def EventContentLocationRewardExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(6, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
-    EventContentLocationRewardExcelAddLocalizeEtcId(builder, localizeEtcId)
-
-def EventContentLocationRewardExcelAddLocationRank(builder, locationRank):
-    builder.PrependInt64Slot(7, locationRank, 0)
-
+    return EventContentLocationRewardExcelAddLocalizeEtcId(builder, localizeEtcId)
+def EventContentLocationRewardExcelAddLocationRank(builder, locationRank): builder.PrependInt64Slot(7, locationRank, 0)
 def AddLocationRank(builder, locationRank):
-    EventContentLocationRewardExcelAddLocationRank(builder, locationRank)
-
-def EventContentLocationRewardExcelAddFavorExp(builder, favorExp):
-    builder.PrependInt64Slot(8, favorExp, 0)
-
+    return EventContentLocationRewardExcelAddLocationRank(builder, locationRank)
+def EventContentLocationRewardExcelAddFavorExp(builder, favorExp): builder.PrependInt64Slot(8, favorExp, 0)
 def AddFavorExp(builder, favorExp):
-    EventContentLocationRewardExcelAddFavorExp(builder, favorExp)
-
-def EventContentLocationRewardExcelAddSecretStoneAmount(builder, secretStoneAmount):
-    builder.PrependInt64Slot(9, secretStoneAmount, 0)
-
+    return EventContentLocationRewardExcelAddFavorExp(builder, favorExp)
+def EventContentLocationRewardExcelAddSecretStoneAmount(builder, secretStoneAmount): builder.PrependInt64Slot(9, secretStoneAmount, 0)
 def AddSecretStoneAmount(builder, secretStoneAmount):
-    EventContentLocationRewardExcelAddSecretStoneAmount(builder, secretStoneAmount)
-
-def EventContentLocationRewardExcelAddSecretStoneProb(builder, secretStoneProb):
-    builder.PrependInt64Slot(10, secretStoneProb, 0)
-
+    return EventContentLocationRewardExcelAddSecretStoneAmount(builder, secretStoneAmount)
+def EventContentLocationRewardExcelAddSecretStoneProb(builder, secretStoneProb): builder.PrependInt64Slot(10, secretStoneProb, 0)
 def AddSecretStoneProb(builder, secretStoneProb):
-    EventContentLocationRewardExcelAddSecretStoneProb(builder, secretStoneProb)
-
-def EventContentLocationRewardExcelAddExtraFavorExp(builder, extraFavorExp):
-    builder.PrependInt64Slot(11, extraFavorExp, 0)
-
+    return EventContentLocationRewardExcelAddSecretStoneProb(builder, secretStoneProb)
+def EventContentLocationRewardExcelAddExtraFavorExp(builder, extraFavorExp): builder.PrependInt64Slot(11, extraFavorExp, 0)
 def AddExtraFavorExp(builder, extraFavorExp):
-    EventContentLocationRewardExcelAddExtraFavorExp(builder, extraFavorExp)
-
-def EventContentLocationRewardExcelAddExtraFavorExpProb(builder, extraFavorExpProb):
-    builder.PrependInt64Slot(12, extraFavorExpProb, 0)
-
+    return EventContentLocationRewardExcelAddExtraFavorExp(builder, extraFavorExp)
+def EventContentLocationRewardExcelAddExtraFavorExpProb(builder, extraFavorExpProb): builder.PrependInt64Slot(12, extraFavorExpProb, 0)
 def AddExtraFavorExpProb(builder, extraFavorExpProb):
-    EventContentLocationRewardExcelAddExtraFavorExpProb(builder, extraFavorExpProb)
-
-def EventContentLocationRewardExcelAddExtraRewardParcelType(builder, extraRewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(extraRewardParcelType), 0)
-
+    return EventContentLocationRewardExcelAddExtraFavorExpProb(builder, extraFavorExpProb)
+def EventContentLocationRewardExcelAddExtraRewardParcelType(builder, extraRewardParcelType): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(extraRewardParcelType), 0)
 def AddExtraRewardParcelType(builder, extraRewardParcelType):
-    EventContentLocationRewardExcelAddExtraRewardParcelType(builder, extraRewardParcelType)
-
-def EventContentLocationRewardExcelStartExtraRewardParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentLocationRewardExcelAddExtraRewardParcelType(builder, extraRewardParcelType)
+def EventContentLocationRewardExcelStartExtraRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartExtraRewardParcelTypeVector(builder, numElems):
     return EventContentLocationRewardExcelStartExtraRewardParcelTypeVector(builder, numElems)
-
-def EventContentLocationRewardExcelAddExtraRewardParcelId(builder, extraRewardParcelId):
-    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(extraRewardParcelId), 0)
-
+def EventContentLocationRewardExcelAddExtraRewardParcelId(builder, extraRewardParcelId): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(extraRewardParcelId), 0)
 def AddExtraRewardParcelId(builder, extraRewardParcelId):
-    EventContentLocationRewardExcelAddExtraRewardParcelId(builder, extraRewardParcelId)
-
-def EventContentLocationRewardExcelStartExtraRewardParcelIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentLocationRewardExcelAddExtraRewardParcelId(builder, extraRewardParcelId)
+def EventContentLocationRewardExcelStartExtraRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartExtraRewardParcelIdVector(builder, numElems):
     return EventContentLocationRewardExcelStartExtraRewardParcelIdVector(builder, numElems)
-
-def EventContentLocationRewardExcelAddExtraRewardAmount(builder, extraRewardAmount):
-    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(extraRewardAmount), 0)
-
+def EventContentLocationRewardExcelAddExtraRewardAmount(builder, extraRewardAmount): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(extraRewardAmount), 0)
 def AddExtraRewardAmount(builder, extraRewardAmount):
-    EventContentLocationRewardExcelAddExtraRewardAmount(builder, extraRewardAmount)
-
-def EventContentLocationRewardExcelStartExtraRewardAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentLocationRewardExcelAddExtraRewardAmount(builder, extraRewardAmount)
+def EventContentLocationRewardExcelStartExtraRewardAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartExtraRewardAmountVector(builder, numElems):
     return EventContentLocationRewardExcelStartExtraRewardAmountVector(builder, numElems)
-
-def EventContentLocationRewardExcelAddExtraRewardProb(builder, extraRewardProb):
-    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(extraRewardProb), 0)
-
+def EventContentLocationRewardExcelAddExtraRewardProb(builder, extraRewardProb): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(extraRewardProb), 0)
 def AddExtraRewardProb(builder, extraRewardProb):
-    EventContentLocationRewardExcelAddExtraRewardProb(builder, extraRewardProb)
-
-def EventContentLocationRewardExcelStartExtraRewardProbVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentLocationRewardExcelAddExtraRewardProb(builder, extraRewardProb)
+def EventContentLocationRewardExcelStartExtraRewardProbVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartExtraRewardProbVector(builder, numElems):
     return EventContentLocationRewardExcelStartExtraRewardProbVector(builder, numElems)
-
-def EventContentLocationRewardExcelAddIsExtraRewardDisplayed(builder, isExtraRewardDisplayed):
-    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(isExtraRewardDisplayed), 0)
-
+def EventContentLocationRewardExcelAddIsExtraRewardDisplayed(builder, isExtraRewardDisplayed): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(isExtraRewardDisplayed), 0)
 def AddIsExtraRewardDisplayed(builder, isExtraRewardDisplayed):
-    EventContentLocationRewardExcelAddIsExtraRewardDisplayed(builder, isExtraRewardDisplayed)
-
-def EventContentLocationRewardExcelStartIsExtraRewardDisplayedVector(builder, numElems):
-    return builder.StartVector(1, numElems, 1)
-
+    return EventContentLocationRewardExcelAddIsExtraRewardDisplayed(builder, isExtraRewardDisplayed)
+def EventContentLocationRewardExcelStartIsExtraRewardDisplayedVector(builder, numElems): return builder.StartVector(1, numElems, 1)
 def StartIsExtraRewardDisplayedVector(builder, numElems):
     return EventContentLocationRewardExcelStartIsExtraRewardDisplayedVector(builder, numElems)
-
-def EventContentLocationRewardExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
-
+def EventContentLocationRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
 def AddRewardParcelType(builder, rewardParcelType):
-    EventContentLocationRewardExcelAddRewardParcelType(builder, rewardParcelType)
-
-def EventContentLocationRewardExcelStartRewardParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return EventContentLocationRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def EventContentLocationRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelTypeVector(builder, numElems):
     return EventContentLocationRewardExcelStartRewardParcelTypeVector(builder, numElems)
-
-def EventContentLocationRewardExcelAddRewardParcelId(builder, rewardParcelId):
-    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
-
+def EventContentLocationRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
 def AddRewardParcelId(builder, rewardParcelId):
-    EventContentLocationRewardExcelAddRewardParcelId(builder, rewardParcelId)
-
-def EventContentLocationRewardExcelStartRewardParcelIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentLocationRewardExcelAddRewardParcelId(builder, rewardParcelId)
+def EventContentLocationRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelIdVector(builder, numElems):
     return EventContentLocationRewardExcelStartRewardParcelIdVector(builder, numElems)
-
-def EventContentLocationRewardExcelAddRewardAmount(builder, rewardAmount):
-    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
-
+def EventContentLocationRewardExcelAddRewardAmount(builder, rewardAmount): builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
 def AddRewardAmount(builder, rewardAmount):
-    EventContentLocationRewardExcelAddRewardAmount(builder, rewardAmount)
-
-def EventContentLocationRewardExcelStartRewardAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return EventContentLocationRewardExcelAddRewardAmount(builder, rewardAmount)
+def EventContentLocationRewardExcelStartRewardAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardAmountVector(builder, numElems):
     return EventContentLocationRewardExcelStartRewardAmountVector(builder, numElems)
-
-def EventContentLocationRewardExcelEnd(builder):
-    return builder.EndObject()
-
+def EventContentLocationRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentLocationRewardExcelEnd(builder)

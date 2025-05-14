@@ -108,86 +108,45 @@ class CharacterAIExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
-def CharacterAIExcelStart(builder):
-    builder.StartObject(12)
-
+def CharacterAIExcelStart(builder): builder.StartObject(12)
 def Start(builder):
-    CharacterAIExcelStart(builder)
-
-def CharacterAIExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return CharacterAIExcelStart(builder)
+def CharacterAIExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    CharacterAIExcelAddId(builder, id)
-
-def CharacterAIExcelAddEngageType(builder, engageType):
-    builder.PrependInt32Slot(1, engageType, 0)
-
+    return CharacterAIExcelAddId(builder, id)
+def CharacterAIExcelAddEngageType(builder, engageType): builder.PrependInt32Slot(1, engageType, 0)
 def AddEngageType(builder, engageType):
-    CharacterAIExcelAddEngageType(builder, engageType)
-
-def CharacterAIExcelAddPositioning(builder, positioning):
-    builder.PrependInt32Slot(2, positioning, 0)
-
+    return CharacterAIExcelAddEngageType(builder, engageType)
+def CharacterAIExcelAddPositioning(builder, positioning): builder.PrependInt32Slot(2, positioning, 0)
 def AddPositioning(builder, positioning):
-    CharacterAIExcelAddPositioning(builder, positioning)
-
-def CharacterAIExcelAddCheckCanUseAutoSkill(builder, checkCanUseAutoSkill):
-    builder.PrependBoolSlot(3, checkCanUseAutoSkill, 0)
-
+    return CharacterAIExcelAddPositioning(builder, positioning)
+def CharacterAIExcelAddCheckCanUseAutoSkill(builder, checkCanUseAutoSkill): builder.PrependBoolSlot(3, checkCanUseAutoSkill, 0)
 def AddCheckCanUseAutoSkill(builder, checkCanUseAutoSkill):
-    CharacterAIExcelAddCheckCanUseAutoSkill(builder, checkCanUseAutoSkill)
-
-def CharacterAIExcelAddDistanceReduceRatioObstaclePath(builder, distanceReduceRatioObstaclePath):
-    builder.PrependInt64Slot(4, distanceReduceRatioObstaclePath, 0)
-
+    return CharacterAIExcelAddCheckCanUseAutoSkill(builder, checkCanUseAutoSkill)
+def CharacterAIExcelAddDistanceReduceRatioObstaclePath(builder, distanceReduceRatioObstaclePath): builder.PrependInt64Slot(4, distanceReduceRatioObstaclePath, 0)
 def AddDistanceReduceRatioObstaclePath(builder, distanceReduceRatioObstaclePath):
-    CharacterAIExcelAddDistanceReduceRatioObstaclePath(builder, distanceReduceRatioObstaclePath)
-
-def CharacterAIExcelAddDistanceReduceObstaclePath(builder, distanceReduceObstaclePath):
-    builder.PrependInt64Slot(5, distanceReduceObstaclePath, 0)
-
+    return CharacterAIExcelAddDistanceReduceRatioObstaclePath(builder, distanceReduceRatioObstaclePath)
+def CharacterAIExcelAddDistanceReduceObstaclePath(builder, distanceReduceObstaclePath): builder.PrependInt64Slot(5, distanceReduceObstaclePath, 0)
 def AddDistanceReduceObstaclePath(builder, distanceReduceObstaclePath):
-    CharacterAIExcelAddDistanceReduceObstaclePath(builder, distanceReduceObstaclePath)
-
-def CharacterAIExcelAddDistanceReduceRatioFormationPath(builder, distanceReduceRatioFormationPath):
-    builder.PrependInt64Slot(6, distanceReduceRatioFormationPath, 0)
-
+    return CharacterAIExcelAddDistanceReduceObstaclePath(builder, distanceReduceObstaclePath)
+def CharacterAIExcelAddDistanceReduceRatioFormationPath(builder, distanceReduceRatioFormationPath): builder.PrependInt64Slot(6, distanceReduceRatioFormationPath, 0)
 def AddDistanceReduceRatioFormationPath(builder, distanceReduceRatioFormationPath):
-    CharacterAIExcelAddDistanceReduceRatioFormationPath(builder, distanceReduceRatioFormationPath)
-
-def CharacterAIExcelAddDistanceReduceFormationPath(builder, distanceReduceFormationPath):
-    builder.PrependInt64Slot(7, distanceReduceFormationPath, 0)
-
+    return CharacterAIExcelAddDistanceReduceRatioFormationPath(builder, distanceReduceRatioFormationPath)
+def CharacterAIExcelAddDistanceReduceFormationPath(builder, distanceReduceFormationPath): builder.PrependInt64Slot(7, distanceReduceFormationPath, 0)
 def AddDistanceReduceFormationPath(builder, distanceReduceFormationPath):
-    CharacterAIExcelAddDistanceReduceFormationPath(builder, distanceReduceFormationPath)
-
-def CharacterAIExcelAddMinimumPositionGap(builder, minimumPositionGap):
-    builder.PrependInt64Slot(8, minimumPositionGap, 0)
-
+    return CharacterAIExcelAddDistanceReduceFormationPath(builder, distanceReduceFormationPath)
+def CharacterAIExcelAddMinimumPositionGap(builder, minimumPositionGap): builder.PrependInt64Slot(8, minimumPositionGap, 0)
 def AddMinimumPositionGap(builder, minimumPositionGap):
-    CharacterAIExcelAddMinimumPositionGap(builder, minimumPositionGap)
-
-def CharacterAIExcelAddCanUseObstacleOfKneelMotion(builder, canUseObstacleOfKneelMotion):
-    builder.PrependBoolSlot(9, canUseObstacleOfKneelMotion, 0)
-
+    return CharacterAIExcelAddMinimumPositionGap(builder, minimumPositionGap)
+def CharacterAIExcelAddCanUseObstacleOfKneelMotion(builder, canUseObstacleOfKneelMotion): builder.PrependBoolSlot(9, canUseObstacleOfKneelMotion, 0)
 def AddCanUseObstacleOfKneelMotion(builder, canUseObstacleOfKneelMotion):
-    CharacterAIExcelAddCanUseObstacleOfKneelMotion(builder, canUseObstacleOfKneelMotion)
-
-def CharacterAIExcelAddCanUseObstacleOfStandMotion(builder, canUseObstacleOfStandMotion):
-    builder.PrependBoolSlot(10, canUseObstacleOfStandMotion, 0)
-
+    return CharacterAIExcelAddCanUseObstacleOfKneelMotion(builder, canUseObstacleOfKneelMotion)
+def CharacterAIExcelAddCanUseObstacleOfStandMotion(builder, canUseObstacleOfStandMotion): builder.PrependBoolSlot(10, canUseObstacleOfStandMotion, 0)
 def AddCanUseObstacleOfStandMotion(builder, canUseObstacleOfStandMotion):
-    CharacterAIExcelAddCanUseObstacleOfStandMotion(builder, canUseObstacleOfStandMotion)
-
-def CharacterAIExcelAddHasTargetSwitchingMotion(builder, hasTargetSwitchingMotion):
-    builder.PrependBoolSlot(11, hasTargetSwitchingMotion, 0)
-
+    return CharacterAIExcelAddCanUseObstacleOfStandMotion(builder, canUseObstacleOfStandMotion)
+def CharacterAIExcelAddHasTargetSwitchingMotion(builder, hasTargetSwitchingMotion): builder.PrependBoolSlot(11, hasTargetSwitchingMotion, 0)
 def AddHasTargetSwitchingMotion(builder, hasTargetSwitchingMotion):
-    CharacterAIExcelAddHasTargetSwitchingMotion(builder, hasTargetSwitchingMotion)
-
-def CharacterAIExcelEnd(builder):
-    return builder.EndObject()
-
+    return CharacterAIExcelAddHasTargetSwitchingMotion(builder, hasTargetSwitchingMotion)
+def CharacterAIExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterAIExcelEnd(builder)

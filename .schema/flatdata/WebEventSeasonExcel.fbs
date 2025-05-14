@@ -7,5 +7,6 @@ table WebEventSeasonExcel {
     end_date: string;
     lobby_banner_image: string;
     popup_title_localize_key: string;
-    event_url: string;
+    stage_event_url: string;
+    live_event_url: string;
 }

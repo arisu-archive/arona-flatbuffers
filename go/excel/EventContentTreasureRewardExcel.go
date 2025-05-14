@@ -17,19 +17,11 @@ func GetRootAsEventContentTreasureRewardExcel(buf []byte, offset flatbuffers.UOf
 	return x
 }
 
-func FinishEventContentTreasureRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsEventContentTreasureRewardExcel(buf []byte, offset flatbuffers.UOffsetT) *EventContentTreasureRewardExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &EventContentTreasureRewardExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedEventContentTreasureRewardExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *EventContentTreasureRewardExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -191,8 +183,16 @@ func (rcv *EventContentTreasureRewardExcel) TreasureSmallImagePath() []byte {
 	return nil
 }
 
+func (rcv *EventContentTreasureRewardExcel) TreasureSizeIconPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func EventContentTreasureRewardExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(10)
+	builder.StartObject(11)
 }
 func EventContentTreasureRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -232,6 +232,9 @@ func EventContentTreasureRewardExcelAddCellUnderImagePath(builder *flatbuffers.B
 }
 func EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder *flatbuffers.Builder, treasureSmallImagePath flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(treasureSmallImagePath), 0)
+}
+func EventContentTreasureRewardExcelAddTreasureSizeIconPath(builder *flatbuffers.Builder, treasureSizeIconPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(treasureSizeIconPath), 0)
 }
 func EventContentTreasureRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

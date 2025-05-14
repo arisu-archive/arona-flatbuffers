@@ -49,26 +49,15 @@ class StatLevelInterpolationExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def StatLevelInterpolationExcelTableStart(builder):
-    builder.StartObject(1)
-
+def StatLevelInterpolationExcelTableStart(builder): builder.StartObject(1)
 def Start(builder):
-    StatLevelInterpolationExcelTableStart(builder)
-
-def StatLevelInterpolationExcelTableAddDataList(builder, dataList):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
-
+    return StatLevelInterpolationExcelTableStart(builder)
+def StatLevelInterpolationExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
-    StatLevelInterpolationExcelTableAddDataList(builder, dataList)
-
-def StatLevelInterpolationExcelTableStartDataListVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return StatLevelInterpolationExcelTableAddDataList(builder, dataList)
+def StatLevelInterpolationExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return StatLevelInterpolationExcelTableStartDataListVector(builder, numElems)
-
-def StatLevelInterpolationExcelTableEnd(builder):
-    return builder.EndObject()
-
+def StatLevelInterpolationExcelTableEnd(builder): return builder.EndObject()
 def End(builder):
     return StatLevelInterpolationExcelTableEnd(builder)

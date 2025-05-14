@@ -20,9 +20,6 @@ table EventContentScenarioExcel {
     recollection_summary_localize_scenario_id: uint;
     recollection_resource: string;
     is_recollection_horizon: bool;
-    cost_parcel_type: ParcelType;
-    cost_id: long;
-    cost_amount: int;
     reward_parcel_type: [ParcelType];
     reward_id: [long];
     reward_amount: [int];

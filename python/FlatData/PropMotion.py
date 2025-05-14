@@ -81,44 +81,24 @@ class PropMotion(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
-def PropMotionStart(builder):
-    builder.StartObject(3)
-
+def PropMotionStart(builder): builder.StartObject(3)
 def Start(builder):
-    PropMotionStart(builder)
-
-def PropMotionAddName(builder, name):
-    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
-
+    return PropMotionStart(builder)
+def PropMotionAddName(builder, name): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
 def AddName(builder, name):
-    PropMotionAddName(builder, name)
-
-def PropMotionAddPositions(builder, positions):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(positions), 0)
-
+    return PropMotionAddName(builder, name)
+def PropMotionAddPositions(builder, positions): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(positions), 0)
 def AddPositions(builder, positions):
-    PropMotionAddPositions(builder, positions)
-
-def PropMotionStartPositionsVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return PropMotionAddPositions(builder, positions)
+def PropMotionStartPositionsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartPositionsVector(builder, numElems):
     return PropMotionStartPositionsVector(builder, numElems)
-
-def PropMotionAddRotations(builder, rotations):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(rotations), 0)
-
+def PropMotionAddRotations(builder, rotations): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(rotations), 0)
 def AddRotations(builder, rotations):
-    PropMotionAddRotations(builder, rotations)
-
-def PropMotionStartRotationsVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return PropMotionAddRotations(builder, rotations)
+def PropMotionStartRotationsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRotationsVector(builder, numElems):
     return PropMotionStartRotationsVector(builder, numElems)
-
-def PropMotionEnd(builder):
-    return builder.EndObject()
-
+def PropMotionEnd(builder): return builder.EndObject()
 def End(builder):
     return PropMotionEnd(builder)

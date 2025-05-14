@@ -73,56 +73,30 @@ class RaidStageRewardExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def RaidStageRewardExcelStart(builder):
-    builder.StartObject(7)
-
+def RaidStageRewardExcelStart(builder): builder.StartObject(7)
 def Start(builder):
-    RaidStageRewardExcelStart(builder)
-
-def RaidStageRewardExcelAddGroupId(builder, groupId):
-    builder.PrependInt64Slot(0, groupId, 0)
-
+    return RaidStageRewardExcelStart(builder)
+def RaidStageRewardExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
 def AddGroupId(builder, groupId):
-    RaidStageRewardExcelAddGroupId(builder, groupId)
-
-def RaidStageRewardExcelAddIsClearStageRewardHideInfo(builder, isClearStageRewardHideInfo):
-    builder.PrependBoolSlot(1, isClearStageRewardHideInfo, 0)
-
+    return RaidStageRewardExcelAddGroupId(builder, groupId)
+def RaidStageRewardExcelAddIsClearStageRewardHideInfo(builder, isClearStageRewardHideInfo): builder.PrependBoolSlot(1, isClearStageRewardHideInfo, 0)
 def AddIsClearStageRewardHideInfo(builder, isClearStageRewardHideInfo):
-    RaidStageRewardExcelAddIsClearStageRewardHideInfo(builder, isClearStageRewardHideInfo)
-
-def RaidStageRewardExcelAddClearStageRewardProb(builder, clearStageRewardProb):
-    builder.PrependInt64Slot(2, clearStageRewardProb, 0)
-
+    return RaidStageRewardExcelAddIsClearStageRewardHideInfo(builder, isClearStageRewardHideInfo)
+def RaidStageRewardExcelAddClearStageRewardProb(builder, clearStageRewardProb): builder.PrependInt64Slot(2, clearStageRewardProb, 0)
 def AddClearStageRewardProb(builder, clearStageRewardProb):
-    RaidStageRewardExcelAddClearStageRewardProb(builder, clearStageRewardProb)
-
-def RaidStageRewardExcelAddClearStageRewardParcelType(builder, clearStageRewardParcelType):
-    builder.PrependInt32Slot(3, clearStageRewardParcelType, 0)
-
+    return RaidStageRewardExcelAddClearStageRewardProb(builder, clearStageRewardProb)
+def RaidStageRewardExcelAddClearStageRewardParcelType(builder, clearStageRewardParcelType): builder.PrependInt32Slot(3, clearStageRewardParcelType, 0)
 def AddClearStageRewardParcelType(builder, clearStageRewardParcelType):
-    RaidStageRewardExcelAddClearStageRewardParcelType(builder, clearStageRewardParcelType)
-
-def RaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId):
-    builder.PrependInt64Slot(4, clearStageRewardParcelUniqueId, 0)
-
+    return RaidStageRewardExcelAddClearStageRewardParcelType(builder, clearStageRewardParcelType)
+def RaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId): builder.PrependInt64Slot(4, clearStageRewardParcelUniqueId, 0)
 def AddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId):
-    RaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId)
-
-def RaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(clearStageRewardParcelUniqueName), 0)
-
+    return RaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder, clearStageRewardParcelUniqueId)
+def RaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(clearStageRewardParcelUniqueName), 0)
 def AddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName):
-    RaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName)
-
-def RaidStageRewardExcelAddClearStageRewardAmount(builder, clearStageRewardAmount):
-    builder.PrependInt64Slot(6, clearStageRewardAmount, 0)
-
+    return RaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder, clearStageRewardParcelUniqueName)
+def RaidStageRewardExcelAddClearStageRewardAmount(builder, clearStageRewardAmount): builder.PrependInt64Slot(6, clearStageRewardAmount, 0)
 def AddClearStageRewardAmount(builder, clearStageRewardAmount):
-    RaidStageRewardExcelAddClearStageRewardAmount(builder, clearStageRewardAmount)
-
-def RaidStageRewardExcelEnd(builder):
-    return builder.EndObject()
-
+    return RaidStageRewardExcelAddClearStageRewardAmount(builder, clearStageRewardAmount)
+def RaidStageRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return RaidStageRewardExcelEnd(builder)

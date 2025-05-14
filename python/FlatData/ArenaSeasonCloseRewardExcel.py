@@ -146,80 +146,42 @@ class ArenaSeasonCloseRewardExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         return o == 0
 
-def ArenaSeasonCloseRewardExcelStart(builder):
-    builder.StartObject(7)
-
+def ArenaSeasonCloseRewardExcelStart(builder): builder.StartObject(7)
 def Start(builder):
-    ArenaSeasonCloseRewardExcelStart(builder)
-
-def ArenaSeasonCloseRewardExcelAddSeasonId(builder, seasonId):
-    builder.PrependInt64Slot(0, seasonId, 0)
-
+    return ArenaSeasonCloseRewardExcelStart(builder)
+def ArenaSeasonCloseRewardExcelAddSeasonId(builder, seasonId): builder.PrependInt64Slot(0, seasonId, 0)
 def AddSeasonId(builder, seasonId):
-    ArenaSeasonCloseRewardExcelAddSeasonId(builder, seasonId)
-
-def ArenaSeasonCloseRewardExcelAddRankStart(builder, rankStart):
-    builder.PrependInt64Slot(1, rankStart, 0)
-
+    return ArenaSeasonCloseRewardExcelAddSeasonId(builder, seasonId)
+def ArenaSeasonCloseRewardExcelAddRankStart(builder, rankStart): builder.PrependInt64Slot(1, rankStart, 0)
 def AddRankStart(builder, rankStart):
-    ArenaSeasonCloseRewardExcelAddRankStart(builder, rankStart)
-
-def ArenaSeasonCloseRewardExcelAddRankEnd(builder, rankEnd):
-    builder.PrependInt64Slot(2, rankEnd, 0)
-
+    return ArenaSeasonCloseRewardExcelAddRankStart(builder, rankStart)
+def ArenaSeasonCloseRewardExcelAddRankEnd(builder, rankEnd): builder.PrependInt64Slot(2, rankEnd, 0)
 def AddRankEnd(builder, rankEnd):
-    ArenaSeasonCloseRewardExcelAddRankEnd(builder, rankEnd)
-
-def ArenaSeasonCloseRewardExcelAddRewardParcelType(builder, rewardParcelType):
-    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
-
+    return ArenaSeasonCloseRewardExcelAddRankEnd(builder, rankEnd)
+def ArenaSeasonCloseRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
 def AddRewardParcelType(builder, rewardParcelType):
-    ArenaSeasonCloseRewardExcelAddRewardParcelType(builder, rewardParcelType)
-
-def ArenaSeasonCloseRewardExcelStartRewardParcelTypeVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ArenaSeasonCloseRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def ArenaSeasonCloseRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelTypeVector(builder, numElems):
     return ArenaSeasonCloseRewardExcelStartRewardParcelTypeVector(builder, numElems)
-
-def ArenaSeasonCloseRewardExcelAddRewardParcelUniqueId(builder, rewardParcelUniqueId):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelUniqueId), 0)
-
+def ArenaSeasonCloseRewardExcelAddRewardParcelUniqueId(builder, rewardParcelUniqueId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelUniqueId), 0)
 def AddRewardParcelUniqueId(builder, rewardParcelUniqueId):
-    ArenaSeasonCloseRewardExcelAddRewardParcelUniqueId(builder, rewardParcelUniqueId)
-
-def ArenaSeasonCloseRewardExcelStartRewardParcelUniqueIdVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return ArenaSeasonCloseRewardExcelAddRewardParcelUniqueId(builder, rewardParcelUniqueId)
+def ArenaSeasonCloseRewardExcelStartRewardParcelUniqueIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelUniqueIdVector(builder, numElems):
     return ArenaSeasonCloseRewardExcelStartRewardParcelUniqueIdVector(builder, numElems)
-
-def ArenaSeasonCloseRewardExcelAddRewardParcelUniqueName(builder, rewardParcelUniqueName):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelUniqueName), 0)
-
+def ArenaSeasonCloseRewardExcelAddRewardParcelUniqueName(builder, rewardParcelUniqueName): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelUniqueName), 0)
 def AddRewardParcelUniqueName(builder, rewardParcelUniqueName):
-    ArenaSeasonCloseRewardExcelAddRewardParcelUniqueName(builder, rewardParcelUniqueName)
-
-def ArenaSeasonCloseRewardExcelStartRewardParcelUniqueNameVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return ArenaSeasonCloseRewardExcelAddRewardParcelUniqueName(builder, rewardParcelUniqueName)
+def ArenaSeasonCloseRewardExcelStartRewardParcelUniqueNameVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelUniqueNameVector(builder, numElems):
     return ArenaSeasonCloseRewardExcelStartRewardParcelUniqueNameVector(builder, numElems)
-
-def ArenaSeasonCloseRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
-
+def ArenaSeasonCloseRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
 def AddRewardParcelAmount(builder, rewardParcelAmount):
-    ArenaSeasonCloseRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-
-def ArenaSeasonCloseRewardExcelStartRewardParcelAmountVector(builder, numElems):
-    return builder.StartVector(8, numElems, 8)
-
+    return ArenaSeasonCloseRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def ArenaSeasonCloseRewardExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelAmountVector(builder, numElems):
     return ArenaSeasonCloseRewardExcelStartRewardParcelAmountVector(builder, numElems)
-
-def ArenaSeasonCloseRewardExcelEnd(builder):
-    return builder.EndObject()
-
+def ArenaSeasonCloseRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ArenaSeasonCloseRewardExcelEnd(builder)

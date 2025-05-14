@@ -17,19 +17,11 @@ func GetRootAsFieldContentStageExcel(buf []byte, offset flatbuffers.UOffsetT) *F
 	return x
 }
 
-func FinishFieldContentStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFieldContentStageExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldContentStageExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldContentStageExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFieldContentStageExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldContentStageExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -101,8 +93,20 @@ func (rcv *FieldContentStageExcel) MutateStageDifficulty(n StageDifficulty) bool
 	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
-func (rcv *FieldContentStageExcel) Name() []byte {
+func (rcv *FieldContentStageExcel) PrevStageId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldContentStageExcel) MutatePrevStageId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *FieldContentStageExcel) Name() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -110,7 +114,7 @@ func (rcv *FieldContentStageExcel) Name() []byte {
 }
 
 func (rcv *FieldContentStageExcel) BattleDuration() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -118,11 +122,11 @@ func (rcv *FieldContentStageExcel) BattleDuration() int64 {
 }
 
 func (rcv *FieldContentStageExcel) MutateBattleDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
+	return rcv._tab.MutateInt64Slot(18, n)
 }
 
 func (rcv *FieldContentStageExcel) StageEnterCostType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -130,11 +134,11 @@ func (rcv *FieldContentStageExcel) StageEnterCostType() ParcelType {
 }
 
 func (rcv *FieldContentStageExcel) MutateStageEnterCostType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(18, int32(n))
+	return rcv._tab.MutateInt32Slot(20, int32(n))
 }
 
 func (rcv *FieldContentStageExcel) StageEnterCostId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -142,11 +146,11 @@ func (rcv *FieldContentStageExcel) StageEnterCostId() int64 {
 }
 
 func (rcv *FieldContentStageExcel) MutateStageEnterCostId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
+	return rcv._tab.MutateInt64Slot(22, n)
 }
 
 func (rcv *FieldContentStageExcel) StageEnterCostAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -154,11 +158,11 @@ func (rcv *FieldContentStageExcel) StageEnterCostAmount() int32 {
 }
 
 func (rcv *FieldContentStageExcel) MutateStageEnterCostAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(22, n)
+	return rcv._tab.MutateInt32Slot(24, n)
 }
 
 func (rcv *FieldContentStageExcel) StageTopography() StageTopography {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -166,11 +170,11 @@ func (rcv *FieldContentStageExcel) StageTopography() StageTopography {
 }
 
 func (rcv *FieldContentStageExcel) MutateStageTopography(n StageTopography) bool {
-	return rcv._tab.MutateInt32Slot(24, int32(n))
+	return rcv._tab.MutateInt32Slot(26, int32(n))
 }
 
 func (rcv *FieldContentStageExcel) RecommandLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -178,22 +182,10 @@ func (rcv *FieldContentStageExcel) RecommandLevel() int32 {
 }
 
 func (rcv *FieldContentStageExcel) MutateRecommandLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(26, n)
+	return rcv._tab.MutateInt32Slot(28, n)
 }
 
 func (rcv *FieldContentStageExcel) GroundId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldContentStageExcel) MutateGroundId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(28, n)
-}
-
-func (rcv *FieldContentStageExcel) BgmId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -201,12 +193,24 @@ func (rcv *FieldContentStageExcel) BgmId() int64 {
 	return 0
 }
 
-func (rcv *FieldContentStageExcel) MutateBgmId(n int64) bool {
+func (rcv *FieldContentStageExcel) MutateGroundId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(30, n)
 }
 
-func (rcv *FieldContentStageExcel) InstantClear() bool {
+func (rcv *FieldContentStageExcel) BgmId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldContentStageExcel) MutateBgmId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(32, n)
+}
+
+func (rcv *FieldContentStageExcel) InstantClear() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -214,11 +218,11 @@ func (rcv *FieldContentStageExcel) InstantClear() bool {
 }
 
 func (rcv *FieldContentStageExcel) MutateInstantClear(n bool) bool {
-	return rcv._tab.MutateBoolSlot(32, n)
+	return rcv._tab.MutateBoolSlot(34, n)
 }
 
 func (rcv *FieldContentStageExcel) FixedEchelonId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -226,11 +230,11 @@ func (rcv *FieldContentStageExcel) FixedEchelonId() int64 {
 }
 
 func (rcv *FieldContentStageExcel) MutateFixedEchelonId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(34, n)
+	return rcv._tab.MutateInt64Slot(36, n)
 }
 
 func (rcv *FieldContentStageExcel) SkipFormationSettings() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -238,11 +242,75 @@ func (rcv *FieldContentStageExcel) SkipFormationSettings() bool {
 }
 
 func (rcv *FieldContentStageExcel) MutateSkipFormationSettings(n bool) bool {
-	return rcv._tab.MutateBoolSlot(36, n)
+	return rcv._tab.MutateBoolSlot(38, n)
+}
+
+func (rcv *FieldContentStageExcel) DailyLastPlay() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *FieldContentStageExcel) MutateDailyLastPlay(n bool) bool {
+	return rcv._tab.MutateBoolSlot(40, n)
+}
+
+func (rcv *FieldContentStageExcel) StarGoal(j int) StarGoalType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return StarGoalType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *FieldContentStageExcel) StarGoalLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FieldContentStageExcel) MutateStarGoal(j int, n StarGoalType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *FieldContentStageExcel) StarGoalAmount(j int) int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *FieldContentStageExcel) StarGoalAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FieldContentStageExcel) MutateStarGoalAmount(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
 }
 
 func FieldContentStageExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(17)
+	builder.StartObject(21)
 }
 func FieldContentStageExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -259,41 +327,59 @@ func FieldContentStageExcelAddGroupId(builder *flatbuffers.Builder, groupId int6
 func FieldContentStageExcelAddStageDifficulty(builder *flatbuffers.Builder, stageDifficulty StageDifficulty) {
 	builder.PrependInt32Slot(4, int32(stageDifficulty), 0)
 }
+func FieldContentStageExcelAddPrevStageId(builder *flatbuffers.Builder, prevStageId int64) {
+	builder.PrependInt64Slot(5, prevStageId, 0)
+}
 func FieldContentStageExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(name), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(name), 0)
 }
 func FieldContentStageExcelAddBattleDuration(builder *flatbuffers.Builder, battleDuration int64) {
-	builder.PrependInt64Slot(6, battleDuration, 0)
+	builder.PrependInt64Slot(7, battleDuration, 0)
 }
 func FieldContentStageExcelAddStageEnterCostType(builder *flatbuffers.Builder, stageEnterCostType ParcelType) {
-	builder.PrependInt32Slot(7, int32(stageEnterCostType), 0)
+	builder.PrependInt32Slot(8, int32(stageEnterCostType), 0)
 }
 func FieldContentStageExcelAddStageEnterCostId(builder *flatbuffers.Builder, stageEnterCostId int64) {
-	builder.PrependInt64Slot(8, stageEnterCostId, 0)
+	builder.PrependInt64Slot(9, stageEnterCostId, 0)
 }
 func FieldContentStageExcelAddStageEnterCostAmount(builder *flatbuffers.Builder, stageEnterCostAmount int32) {
-	builder.PrependInt32Slot(9, stageEnterCostAmount, 0)
+	builder.PrependInt32Slot(10, stageEnterCostAmount, 0)
 }
 func FieldContentStageExcelAddStageTopography(builder *flatbuffers.Builder, stageTopography StageTopography) {
-	builder.PrependInt32Slot(10, int32(stageTopography), 0)
+	builder.PrependInt32Slot(11, int32(stageTopography), 0)
 }
 func FieldContentStageExcelAddRecommandLevel(builder *flatbuffers.Builder, recommandLevel int32) {
-	builder.PrependInt32Slot(11, recommandLevel, 0)
+	builder.PrependInt32Slot(12, recommandLevel, 0)
 }
 func FieldContentStageExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
-	builder.PrependInt64Slot(12, groundId, 0)
+	builder.PrependInt64Slot(13, groundId, 0)
 }
 func FieldContentStageExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
-	builder.PrependInt64Slot(13, bgmId, 0)
+	builder.PrependInt64Slot(14, bgmId, 0)
 }
 func FieldContentStageExcelAddInstantClear(builder *flatbuffers.Builder, instantClear bool) {
-	builder.PrependBoolSlot(14, instantClear, false)
+	builder.PrependBoolSlot(15, instantClear, false)
 }
 func FieldContentStageExcelAddFixedEchelonId(builder *flatbuffers.Builder, fixedEchelonId int64) {
-	builder.PrependInt64Slot(15, fixedEchelonId, 0)
+	builder.PrependInt64Slot(16, fixedEchelonId, 0)
 }
 func FieldContentStageExcelAddSkipFormationSettings(builder *flatbuffers.Builder, skipFormationSettings bool) {
-	builder.PrependBoolSlot(16, skipFormationSettings, false)
+	builder.PrependBoolSlot(17, skipFormationSettings, false)
+}
+func FieldContentStageExcelAddDailyLastPlay(builder *flatbuffers.Builder, dailyLastPlay bool) {
+	builder.PrependBoolSlot(18, dailyLastPlay, false)
+}
+func FieldContentStageExcelAddStarGoal(builder *flatbuffers.Builder, starGoal flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(starGoal), 0)
+}
+func FieldContentStageExcelStartStarGoalVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func FieldContentStageExcelAddStarGoalAmount(builder *flatbuffers.Builder, starGoalAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(starGoalAmount), 0)
+}
+func FieldContentStageExcelStartStarGoalAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func FieldContentStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

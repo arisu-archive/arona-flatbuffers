@@ -59,44 +59,24 @@ class ContentsFeverExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ContentsFeverExcelStart(builder):
-    builder.StartObject(5)
-
+def ContentsFeverExcelStart(builder): builder.StartObject(5)
 def Start(builder):
-    ContentsFeverExcelStart(builder)
-
-def ContentsFeverExcelAddConditionContent(builder, conditionContent):
-    builder.PrependInt32Slot(0, conditionContent, 0)
-
+    return ContentsFeverExcelStart(builder)
+def ContentsFeverExcelAddConditionContent(builder, conditionContent): builder.PrependInt32Slot(0, conditionContent, 0)
 def AddConditionContent(builder, conditionContent):
-    ContentsFeverExcelAddConditionContent(builder, conditionContent)
-
-def ContentsFeverExcelAddSkillFeverCheckCondition(builder, skillFeverCheckCondition):
-    builder.PrependInt32Slot(1, skillFeverCheckCondition, 0)
-
+    return ContentsFeverExcelAddConditionContent(builder, conditionContent)
+def ContentsFeverExcelAddSkillFeverCheckCondition(builder, skillFeverCheckCondition): builder.PrependInt32Slot(1, skillFeverCheckCondition, 0)
 def AddSkillFeverCheckCondition(builder, skillFeverCheckCondition):
-    ContentsFeverExcelAddSkillFeverCheckCondition(builder, skillFeverCheckCondition)
-
-def ContentsFeverExcelAddSkillCostFever(builder, skillCostFever):
-    builder.PrependInt64Slot(2, skillCostFever, 0)
-
+    return ContentsFeverExcelAddSkillFeverCheckCondition(builder, skillFeverCheckCondition)
+def ContentsFeverExcelAddSkillCostFever(builder, skillCostFever): builder.PrependInt64Slot(2, skillCostFever, 0)
 def AddSkillCostFever(builder, skillCostFever):
-    ContentsFeverExcelAddSkillCostFever(builder, skillCostFever)
-
-def ContentsFeverExcelAddFeverStartTime(builder, feverStartTime):
-    builder.PrependInt64Slot(3, feverStartTime, 0)
-
+    return ContentsFeverExcelAddSkillCostFever(builder, skillCostFever)
+def ContentsFeverExcelAddFeverStartTime(builder, feverStartTime): builder.PrependInt64Slot(3, feverStartTime, 0)
 def AddFeverStartTime(builder, feverStartTime):
-    ContentsFeverExcelAddFeverStartTime(builder, feverStartTime)
-
-def ContentsFeverExcelAddFeverDurationTime(builder, feverDurationTime):
-    builder.PrependInt64Slot(4, feverDurationTime, 0)
-
+    return ContentsFeverExcelAddFeverStartTime(builder, feverStartTime)
+def ContentsFeverExcelAddFeverDurationTime(builder, feverDurationTime): builder.PrependInt64Slot(4, feverDurationTime, 0)
 def AddFeverDurationTime(builder, feverDurationTime):
-    ContentsFeverExcelAddFeverDurationTime(builder, feverDurationTime)
-
-def ContentsFeverExcelEnd(builder):
-    return builder.EndObject()
-
+    return ContentsFeverExcelAddFeverDurationTime(builder, feverDurationTime)
+def ContentsFeverExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ContentsFeverExcelEnd(builder)

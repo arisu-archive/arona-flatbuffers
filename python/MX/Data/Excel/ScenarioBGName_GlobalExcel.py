@@ -73,56 +73,30 @@ class ScenarioBGName_GlobalExcel(object):
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
-def ScenarioBGName_GlobalExcelStart(builder):
-    builder.StartObject(7)
-
+def ScenarioBGName_GlobalExcelStart(builder): builder.StartObject(7)
 def Start(builder):
-    ScenarioBGName_GlobalExcelStart(builder)
-
-def ScenarioBGName_GlobalExcelAddGroupName(builder, groupName):
-    builder.PrependUint32Slot(0, groupName, 0)
-
+    return ScenarioBGName_GlobalExcelStart(builder)
+def ScenarioBGName_GlobalExcelAddGroupName(builder, groupName): builder.PrependUint32Slot(0, groupName, 0)
 def AddGroupName(builder, groupName):
-    ScenarioBGName_GlobalExcelAddGroupName(builder, groupName)
-
-def ScenarioBGName_GlobalExcelAddNameKr(builder, nameKr):
-    builder.PrependUint32Slot(1, nameKr, 0)
-
+    return ScenarioBGName_GlobalExcelAddGroupName(builder, groupName)
+def ScenarioBGName_GlobalExcelAddNameKr(builder, nameKr): builder.PrependUint32Slot(1, nameKr, 0)
 def AddNameKr(builder, nameKr):
-    ScenarioBGName_GlobalExcelAddNameKr(builder, nameKr)
-
-def ScenarioBGName_GlobalExcelAddNameTw(builder, nameTw):
-    builder.PrependUint32Slot(2, nameTw, 0)
-
+    return ScenarioBGName_GlobalExcelAddNameKr(builder, nameKr)
+def ScenarioBGName_GlobalExcelAddNameTw(builder, nameTw): builder.PrependUint32Slot(2, nameTw, 0)
 def AddNameTw(builder, nameTw):
-    ScenarioBGName_GlobalExcelAddNameTw(builder, nameTw)
-
-def ScenarioBGName_GlobalExcelAddNameAsia(builder, nameAsia):
-    builder.PrependUint32Slot(3, nameAsia, 0)
-
+    return ScenarioBGName_GlobalExcelAddNameTw(builder, nameTw)
+def ScenarioBGName_GlobalExcelAddNameAsia(builder, nameAsia): builder.PrependUint32Slot(3, nameAsia, 0)
 def AddNameAsia(builder, nameAsia):
-    ScenarioBGName_GlobalExcelAddNameAsia(builder, nameAsia)
-
-def ScenarioBGName_GlobalExcelAddNameNa(builder, nameNa):
-    builder.PrependUint32Slot(4, nameNa, 0)
-
+    return ScenarioBGName_GlobalExcelAddNameAsia(builder, nameAsia)
+def ScenarioBGName_GlobalExcelAddNameNa(builder, nameNa): builder.PrependUint32Slot(4, nameNa, 0)
 def AddNameNa(builder, nameNa):
-    ScenarioBGName_GlobalExcelAddNameNa(builder, nameNa)
-
-def ScenarioBGName_GlobalExcelAddNameGlobal(builder, nameGlobal):
-    builder.PrependUint32Slot(5, nameGlobal, 0)
-
+    return ScenarioBGName_GlobalExcelAddNameNa(builder, nameNa)
+def ScenarioBGName_GlobalExcelAddNameGlobal(builder, nameGlobal): builder.PrependUint32Slot(5, nameGlobal, 0)
 def AddNameGlobal(builder, nameGlobal):
-    ScenarioBGName_GlobalExcelAddNameGlobal(builder, nameGlobal)
-
-def ScenarioBGName_GlobalExcelAddNameTeen(builder, nameTeen):
-    builder.PrependUint32Slot(6, nameTeen, 0)
-
+    return ScenarioBGName_GlobalExcelAddNameGlobal(builder, nameGlobal)
+def ScenarioBGName_GlobalExcelAddNameTeen(builder, nameTeen): builder.PrependUint32Slot(6, nameTeen, 0)
 def AddNameTeen(builder, nameTeen):
-    ScenarioBGName_GlobalExcelAddNameTeen(builder, nameTeen)
-
-def ScenarioBGName_GlobalExcelEnd(builder):
-    return builder.EndObject()
-
+    return ScenarioBGName_GlobalExcelAddNameTeen(builder, nameTeen)
+def ScenarioBGName_GlobalExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ScenarioBGName_GlobalExcelEnd(builder)

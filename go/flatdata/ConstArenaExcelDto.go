@@ -42,6 +42,7 @@ type ConstArenaExcelDto struct {
 	ShowSeasonChangeInfoStartTime      string     `json:"show_season_change_info_start_time"`
 	ShowSeasonChangeInfoEndTime        string     `json:"show_season_change_info_end_time"`
 	ShowSeasonId                       int64      `json:"show_season_id"`
+	ArenaHistoryQueryLimitDays         int32      `json:"arena_history_query_limit_days"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -110,6 +111,7 @@ func (t *ConstArenaExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	ConstArenaExcelAddShowSeasonChangeInfoStartTime(b, b.CreateString(fbsutils.Convert(t.ShowSeasonChangeInfoStartTime, t.FlatBuffer.TableKey)))
 	ConstArenaExcelAddShowSeasonChangeInfoEndTime(b, b.CreateString(fbsutils.Convert(t.ShowSeasonChangeInfoEndTime, t.FlatBuffer.TableKey)))
 	ConstArenaExcelAddShowSeasonId(b, fbsutils.Convert(t.ShowSeasonId, t.FlatBuffer.TableKey))
+	ConstArenaExcelAddArenaHistoryQueryLimitDays(b, fbsutils.Convert(t.ArenaHistoryQueryLimitDays, t.FlatBuffer.TableKey))
 	return ConstArenaExcelEnd(b)
 }
 
@@ -178,6 +180,7 @@ func (t *ConstArenaExcelDto) UnmarshalMessage(e *ConstArenaExcel) error {
 	t.ShowSeasonChangeInfoStartTime = fbsutils.Convert(string(e.ShowSeasonChangeInfoStartTime()), t.FlatBuffer.TableKey)
 	t.ShowSeasonChangeInfoEndTime = fbsutils.Convert(string(e.ShowSeasonChangeInfoEndTime()), t.FlatBuffer.TableKey)
 	t.ShowSeasonId = fbsutils.Convert(e.ShowSeasonId(), t.FlatBuffer.TableKey)
+	t.ArenaHistoryQueryLimitDays = fbsutils.Convert(e.ArenaHistoryQueryLimitDays(), t.FlatBuffer.TableKey)
 	return nil
 }
 

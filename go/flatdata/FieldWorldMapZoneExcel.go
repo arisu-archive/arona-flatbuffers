@@ -17,19 +17,11 @@ func GetRootAsFieldWorldMapZoneExcel(buf []byte, offset flatbuffers.UOffsetT) *F
 	return x
 }
 
-func FinishFieldWorldMapZoneExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.Finish(offset)
-}
-
 func GetSizePrefixedRootAsFieldWorldMapZoneExcel(buf []byte, offset flatbuffers.UOffsetT) *FieldWorldMapZoneExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &FieldWorldMapZoneExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
-}
-
-func FinishSizePrefixedFieldWorldMapZoneExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
-	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *FieldWorldMapZoneExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -149,8 +141,20 @@ func (rcv *FieldWorldMapZoneExcel) MutateFieldStageInteractionId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(20, n)
 }
 
-func (rcv *FieldWorldMapZoneExcel) LocalizeCode() uint32 {
+func (rcv *FieldWorldMapZoneExcel) WorldMapButtonType() FieldWorldMapButtonType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return FieldWorldMapButtonType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *FieldWorldMapZoneExcel) MutateWorldMapButtonType(n FieldWorldMapButtonType) bool {
+	return rcv._tab.MutateInt32Slot(22, int32(n))
+}
+
+func (rcv *FieldWorldMapZoneExcel) LocalizeCode() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -158,11 +162,23 @@ func (rcv *FieldWorldMapZoneExcel) LocalizeCode() uint32 {
 }
 
 func (rcv *FieldWorldMapZoneExcel) MutateLocalizeCode(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(22, n)
+	return rcv._tab.MutateUint32Slot(24, n)
+}
+
+func (rcv *FieldWorldMapZoneExcel) NewTagDisplay() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *FieldWorldMapZoneExcel) MutateNewTagDisplay(n bool) bool {
+	return rcv._tab.MutateBoolSlot(26, n)
 }
 
 func FieldWorldMapZoneExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(10)
+	builder.StartObject(12)
 }
 func FieldWorldMapZoneExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -191,8 +207,14 @@ func FieldWorldMapZoneExcelAddResultFieldScene(builder *flatbuffers.Builder, res
 func FieldWorldMapZoneExcelAddFieldStageInteractionId(builder *flatbuffers.Builder, fieldStageInteractionId int64) {
 	builder.PrependInt64Slot(8, fieldStageInteractionId, 0)
 }
+func FieldWorldMapZoneExcelAddWorldMapButtonType(builder *flatbuffers.Builder, worldMapButtonType FieldWorldMapButtonType) {
+	builder.PrependInt32Slot(9, int32(worldMapButtonType), 0)
+}
 func FieldWorldMapZoneExcelAddLocalizeCode(builder *flatbuffers.Builder, localizeCode uint32) {
-	builder.PrependUint32Slot(9, localizeCode, 0)
+	builder.PrependUint32Slot(10, localizeCode, 0)
+}
+func FieldWorldMapZoneExcelAddNewTagDisplay(builder *flatbuffers.Builder, newTagDisplay bool) {
+	builder.PrependBoolSlot(11, newTagDisplay, false)
 }
 func FieldWorldMapZoneExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

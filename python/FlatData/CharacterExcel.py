@@ -512,410 +512,207 @@ class CharacterExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def CharacterExcelStart(builder):
-    builder.StartObject(64)
-
+def CharacterExcelStart(builder): builder.StartObject(64)
 def Start(builder):
-    CharacterExcelStart(builder)
-
-def CharacterExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return CharacterExcelStart(builder)
+def CharacterExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    CharacterExcelAddId(builder, id)
-
-def CharacterExcelAddDevName(builder, devName):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
-
+    return CharacterExcelAddId(builder, id)
+def CharacterExcelAddDevName(builder, devName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(devName), 0)
 def AddDevName(builder, devName):
-    CharacterExcelAddDevName(builder, devName)
-
-def CharacterExcelAddCostumeGroupId(builder, costumeGroupId):
-    builder.PrependInt64Slot(2, costumeGroupId, 0)
-
+    return CharacterExcelAddDevName(builder, devName)
+def CharacterExcelAddCostumeGroupId(builder, costumeGroupId): builder.PrependInt64Slot(2, costumeGroupId, 0)
 def AddCostumeGroupId(builder, costumeGroupId):
-    CharacterExcelAddCostumeGroupId(builder, costumeGroupId)
-
-def CharacterExcelAddIsPlayable(builder, isPlayable):
-    builder.PrependBoolSlot(3, isPlayable, 0)
-
+    return CharacterExcelAddCostumeGroupId(builder, costumeGroupId)
+def CharacterExcelAddIsPlayable(builder, isPlayable): builder.PrependBoolSlot(3, isPlayable, 0)
 def AddIsPlayable(builder, isPlayable):
-    CharacterExcelAddIsPlayable(builder, isPlayable)
-
-def CharacterExcelAddProductionStep(builder, productionStep):
-    builder.PrependInt32Slot(4, productionStep, 0)
-
+    return CharacterExcelAddIsPlayable(builder, isPlayable)
+def CharacterExcelAddProductionStep(builder, productionStep): builder.PrependInt32Slot(4, productionStep, 0)
 def AddProductionStep(builder, productionStep):
-    CharacterExcelAddProductionStep(builder, productionStep)
-
-def CharacterExcelAddCollectionVisible(builder, collectionVisible):
-    builder.PrependBoolSlot(5, collectionVisible, 0)
-
+    return CharacterExcelAddProductionStep(builder, productionStep)
+def CharacterExcelAddCollectionVisible(builder, collectionVisible): builder.PrependBoolSlot(5, collectionVisible, 0)
 def AddCollectionVisible(builder, collectionVisible):
-    CharacterExcelAddCollectionVisible(builder, collectionVisible)
-
-def CharacterExcelAddReleaseDate(builder, releaseDate):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(releaseDate), 0)
-
+    return CharacterExcelAddCollectionVisible(builder, collectionVisible)
+def CharacterExcelAddReleaseDate(builder, releaseDate): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(releaseDate), 0)
 def AddReleaseDate(builder, releaseDate):
-    CharacterExcelAddReleaseDate(builder, releaseDate)
-
-def CharacterExcelAddCollectionVisibleStartDate(builder, collectionVisibleStartDate):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(collectionVisibleStartDate), 0)
-
+    return CharacterExcelAddReleaseDate(builder, releaseDate)
+def CharacterExcelAddCollectionVisibleStartDate(builder, collectionVisibleStartDate): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(collectionVisibleStartDate), 0)
 def AddCollectionVisibleStartDate(builder, collectionVisibleStartDate):
-    CharacterExcelAddCollectionVisibleStartDate(builder, collectionVisibleStartDate)
-
-def CharacterExcelAddCollectionVisibleEndDate(builder, collectionVisibleEndDate):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(collectionVisibleEndDate), 0)
-
+    return CharacterExcelAddCollectionVisibleStartDate(builder, collectionVisibleStartDate)
+def CharacterExcelAddCollectionVisibleEndDate(builder, collectionVisibleEndDate): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(collectionVisibleEndDate), 0)
 def AddCollectionVisibleEndDate(builder, collectionVisibleEndDate):
-    CharacterExcelAddCollectionVisibleEndDate(builder, collectionVisibleEndDate)
-
-def CharacterExcelAddIsPlayableCharacter(builder, isPlayableCharacter):
-    builder.PrependBoolSlot(9, isPlayableCharacter, 0)
-
+    return CharacterExcelAddCollectionVisibleEndDate(builder, collectionVisibleEndDate)
+def CharacterExcelAddIsPlayableCharacter(builder, isPlayableCharacter): builder.PrependBoolSlot(9, isPlayableCharacter, 0)
 def AddIsPlayableCharacter(builder, isPlayableCharacter):
-    CharacterExcelAddIsPlayableCharacter(builder, isPlayableCharacter)
-
-def CharacterExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(10, localizeEtcId, 0)
-
+    return CharacterExcelAddIsPlayableCharacter(builder, isPlayableCharacter)
+def CharacterExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(10, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
-    CharacterExcelAddLocalizeEtcId(builder, localizeEtcId)
-
-def CharacterExcelAddRarity(builder, rarity):
-    builder.PrependInt32Slot(11, rarity, 0)
-
+    return CharacterExcelAddLocalizeEtcId(builder, localizeEtcId)
+def CharacterExcelAddRarity(builder, rarity): builder.PrependInt32Slot(11, rarity, 0)
 def AddRarity(builder, rarity):
-    CharacterExcelAddRarity(builder, rarity)
-
-def CharacterExcelAddIsNpc(builder, isNpc):
-    builder.PrependBoolSlot(12, isNpc, 0)
-
+    return CharacterExcelAddRarity(builder, rarity)
+def CharacterExcelAddIsNpc(builder, isNpc): builder.PrependBoolSlot(12, isNpc, 0)
 def AddIsNpc(builder, isNpc):
-    CharacterExcelAddIsNpc(builder, isNpc)
-
-def CharacterExcelAddTacticEntityType(builder, tacticEntityType):
-    builder.PrependInt32Slot(13, tacticEntityType, 0)
-
+    return CharacterExcelAddIsNpc(builder, isNpc)
+def CharacterExcelAddTacticEntityType(builder, tacticEntityType): builder.PrependInt32Slot(13, tacticEntityType, 0)
 def AddTacticEntityType(builder, tacticEntityType):
-    CharacterExcelAddTacticEntityType(builder, tacticEntityType)
-
-def CharacterExcelAddCanSurvive(builder, canSurvive):
-    builder.PrependBoolSlot(14, canSurvive, 0)
-
+    return CharacterExcelAddTacticEntityType(builder, tacticEntityType)
+def CharacterExcelAddCanSurvive(builder, canSurvive): builder.PrependBoolSlot(14, canSurvive, 0)
 def AddCanSurvive(builder, canSurvive):
-    CharacterExcelAddCanSurvive(builder, canSurvive)
-
-def CharacterExcelAddIsDummy(builder, isDummy):
-    builder.PrependBoolSlot(15, isDummy, 0)
-
+    return CharacterExcelAddCanSurvive(builder, canSurvive)
+def CharacterExcelAddIsDummy(builder, isDummy): builder.PrependBoolSlot(15, isDummy, 0)
 def AddIsDummy(builder, isDummy):
-    CharacterExcelAddIsDummy(builder, isDummy)
-
-def CharacterExcelAddSubPartsCount(builder, subPartsCount):
-    builder.PrependInt32Slot(16, subPartsCount, 0)
-
+    return CharacterExcelAddIsDummy(builder, isDummy)
+def CharacterExcelAddSubPartsCount(builder, subPartsCount): builder.PrependInt32Slot(16, subPartsCount, 0)
 def AddSubPartsCount(builder, subPartsCount):
-    CharacterExcelAddSubPartsCount(builder, subPartsCount)
-
-def CharacterExcelAddTacticRole(builder, tacticRole):
-    builder.PrependInt32Slot(17, tacticRole, 0)
-
+    return CharacterExcelAddSubPartsCount(builder, subPartsCount)
+def CharacterExcelAddTacticRole(builder, tacticRole): builder.PrependInt32Slot(17, tacticRole, 0)
 def AddTacticRole(builder, tacticRole):
-    CharacterExcelAddTacticRole(builder, tacticRole)
-
-def CharacterExcelAddWeaponType(builder, weaponType):
-    builder.PrependInt32Slot(18, weaponType, 0)
-
+    return CharacterExcelAddTacticRole(builder, tacticRole)
+def CharacterExcelAddWeaponType(builder, weaponType): builder.PrependInt32Slot(18, weaponType, 0)
 def AddWeaponType(builder, weaponType):
-    CharacterExcelAddWeaponType(builder, weaponType)
-
-def CharacterExcelAddTacticRange(builder, tacticRange):
-    builder.PrependInt32Slot(19, tacticRange, 0)
-
+    return CharacterExcelAddWeaponType(builder, weaponType)
+def CharacterExcelAddTacticRange(builder, tacticRange): builder.PrependInt32Slot(19, tacticRange, 0)
 def AddTacticRange(builder, tacticRange):
-    CharacterExcelAddTacticRange(builder, tacticRange)
-
-def CharacterExcelAddBulletType(builder, bulletType):
-    builder.PrependInt32Slot(20, bulletType, 0)
-
+    return CharacterExcelAddTacticRange(builder, tacticRange)
+def CharacterExcelAddBulletType(builder, bulletType): builder.PrependInt32Slot(20, bulletType, 0)
 def AddBulletType(builder, bulletType):
-    CharacterExcelAddBulletType(builder, bulletType)
-
-def CharacterExcelAddArmorType(builder, armorType):
-    builder.PrependInt32Slot(21, armorType, 0)
-
+    return CharacterExcelAddBulletType(builder, bulletType)
+def CharacterExcelAddArmorType(builder, armorType): builder.PrependInt32Slot(21, armorType, 0)
 def AddArmorType(builder, armorType):
-    CharacterExcelAddArmorType(builder, armorType)
-
-def CharacterExcelAddAimIkType(builder, aimIkType):
-    builder.PrependInt32Slot(22, aimIkType, 0)
-
+    return CharacterExcelAddArmorType(builder, armorType)
+def CharacterExcelAddAimIkType(builder, aimIkType): builder.PrependInt32Slot(22, aimIkType, 0)
 def AddAimIkType(builder, aimIkType):
-    CharacterExcelAddAimIkType(builder, aimIkType)
-
-def CharacterExcelAddSchool(builder, school):
-    builder.PrependInt32Slot(23, school, 0)
-
+    return CharacterExcelAddAimIkType(builder, aimIkType)
+def CharacterExcelAddSchool(builder, school): builder.PrependInt32Slot(23, school, 0)
 def AddSchool(builder, school):
-    CharacterExcelAddSchool(builder, school)
-
-def CharacterExcelAddClub(builder, club):
-    builder.PrependInt32Slot(24, club, 0)
-
+    return CharacterExcelAddSchool(builder, school)
+def CharacterExcelAddClub(builder, club): builder.PrependInt32Slot(24, club, 0)
 def AddClub(builder, club):
-    CharacterExcelAddClub(builder, club)
-
-def CharacterExcelAddDefaultStarGrade(builder, defaultStarGrade):
-    builder.PrependInt32Slot(25, defaultStarGrade, 0)
-
+    return CharacterExcelAddClub(builder, club)
+def CharacterExcelAddDefaultStarGrade(builder, defaultStarGrade): builder.PrependInt32Slot(25, defaultStarGrade, 0)
 def AddDefaultStarGrade(builder, defaultStarGrade):
-    CharacterExcelAddDefaultStarGrade(builder, defaultStarGrade)
-
-def CharacterExcelAddMaxStarGrade(builder, maxStarGrade):
-    builder.PrependInt32Slot(26, maxStarGrade, 0)
-
+    return CharacterExcelAddDefaultStarGrade(builder, defaultStarGrade)
+def CharacterExcelAddMaxStarGrade(builder, maxStarGrade): builder.PrependInt32Slot(26, maxStarGrade, 0)
 def AddMaxStarGrade(builder, maxStarGrade):
-    CharacterExcelAddMaxStarGrade(builder, maxStarGrade)
-
-def CharacterExcelAddStatLevelUpType(builder, statLevelUpType):
-    builder.PrependInt32Slot(27, statLevelUpType, 0)
-
+    return CharacterExcelAddMaxStarGrade(builder, maxStarGrade)
+def CharacterExcelAddStatLevelUpType(builder, statLevelUpType): builder.PrependInt32Slot(27, statLevelUpType, 0)
 def AddStatLevelUpType(builder, statLevelUpType):
-    CharacterExcelAddStatLevelUpType(builder, statLevelUpType)
-
-def CharacterExcelAddSquadType(builder, squadType):
-    builder.PrependInt32Slot(28, squadType, 0)
-
+    return CharacterExcelAddStatLevelUpType(builder, statLevelUpType)
+def CharacterExcelAddSquadType(builder, squadType): builder.PrependInt32Slot(28, squadType, 0)
 def AddSquadType(builder, squadType):
-    CharacterExcelAddSquadType(builder, squadType)
-
-def CharacterExcelAddJumpable(builder, jumpable):
-    builder.PrependBoolSlot(29, jumpable, 0)
-
+    return CharacterExcelAddSquadType(builder, squadType)
+def CharacterExcelAddJumpable(builder, jumpable): builder.PrependBoolSlot(29, jumpable, 0)
 def AddJumpable(builder, jumpable):
-    CharacterExcelAddJumpable(builder, jumpable)
-
-def CharacterExcelAddPersonalityId(builder, personalityId):
-    builder.PrependInt64Slot(30, personalityId, 0)
-
+    return CharacterExcelAddJumpable(builder, jumpable)
+def CharacterExcelAddPersonalityId(builder, personalityId): builder.PrependInt64Slot(30, personalityId, 0)
 def AddPersonalityId(builder, personalityId):
-    CharacterExcelAddPersonalityId(builder, personalityId)
-
-def CharacterExcelAddCharacterAiId(builder, characterAiId):
-    builder.PrependInt64Slot(31, characterAiId, 0)
-
+    return CharacterExcelAddPersonalityId(builder, personalityId)
+def CharacterExcelAddCharacterAiId(builder, characterAiId): builder.PrependInt64Slot(31, characterAiId, 0)
 def AddCharacterAiId(builder, characterAiId):
-    CharacterExcelAddCharacterAiId(builder, characterAiId)
-
-def CharacterExcelAddExternalBtId(builder, externalBtId):
-    builder.PrependInt64Slot(32, externalBtId, 0)
-
+    return CharacterExcelAddCharacterAiId(builder, characterAiId)
+def CharacterExcelAddExternalBtId(builder, externalBtId): builder.PrependInt64Slot(32, externalBtId, 0)
 def AddExternalBtId(builder, externalBtId):
-    CharacterExcelAddExternalBtId(builder, externalBtId)
-
-def CharacterExcelAddMainCombatStyleId(builder, mainCombatStyleId):
-    builder.PrependInt64Slot(33, mainCombatStyleId, 0)
-
+    return CharacterExcelAddExternalBtId(builder, externalBtId)
+def CharacterExcelAddMainCombatStyleId(builder, mainCombatStyleId): builder.PrependInt64Slot(33, mainCombatStyleId, 0)
 def AddMainCombatStyleId(builder, mainCombatStyleId):
-    CharacterExcelAddMainCombatStyleId(builder, mainCombatStyleId)
-
-def CharacterExcelAddCombatStyleIndex(builder, combatStyleIndex):
-    builder.PrependInt32Slot(34, combatStyleIndex, 0)
-
+    return CharacterExcelAddMainCombatStyleId(builder, mainCombatStyleId)
+def CharacterExcelAddCombatStyleIndex(builder, combatStyleIndex): builder.PrependInt32Slot(34, combatStyleIndex, 0)
 def AddCombatStyleIndex(builder, combatStyleIndex):
-    CharacterExcelAddCombatStyleIndex(builder, combatStyleIndex)
-
-def CharacterExcelAddScenarioCharacter(builder, scenarioCharacter):
-    builder.PrependUOffsetTRelativeSlot(35, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioCharacter), 0)
-
+    return CharacterExcelAddCombatStyleIndex(builder, combatStyleIndex)
+def CharacterExcelAddScenarioCharacter(builder, scenarioCharacter): builder.PrependUOffsetTRelativeSlot(35, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioCharacter), 0)
 def AddScenarioCharacter(builder, scenarioCharacter):
-    CharacterExcelAddScenarioCharacter(builder, scenarioCharacter)
-
-def CharacterExcelAddSpawnTemplateId(builder, spawnTemplateId):
-    builder.PrependUint32Slot(36, spawnTemplateId, 0)
-
+    return CharacterExcelAddScenarioCharacter(builder, scenarioCharacter)
+def CharacterExcelAddSpawnTemplateId(builder, spawnTemplateId): builder.PrependUint32Slot(36, spawnTemplateId, 0)
 def AddSpawnTemplateId(builder, spawnTemplateId):
-    CharacterExcelAddSpawnTemplateId(builder, spawnTemplateId)
-
-def CharacterExcelAddFavorLevelupType(builder, favorLevelupType):
-    builder.PrependInt32Slot(37, favorLevelupType, 0)
-
+    return CharacterExcelAddSpawnTemplateId(builder, spawnTemplateId)
+def CharacterExcelAddFavorLevelupType(builder, favorLevelupType): builder.PrependInt32Slot(37, favorLevelupType, 0)
 def AddFavorLevelupType(builder, favorLevelupType):
-    CharacterExcelAddFavorLevelupType(builder, favorLevelupType)
-
-def CharacterExcelAddEquipmentSlot(builder, equipmentSlot):
-    builder.PrependUOffsetTRelativeSlot(38, flatbuffers.number_types.UOffsetTFlags.py_type(equipmentSlot), 0)
-
+    return CharacterExcelAddFavorLevelupType(builder, favorLevelupType)
+def CharacterExcelAddEquipmentSlot(builder, equipmentSlot): builder.PrependUOffsetTRelativeSlot(38, flatbuffers.number_types.UOffsetTFlags.py_type(equipmentSlot), 0)
 def AddEquipmentSlot(builder, equipmentSlot):
-    CharacterExcelAddEquipmentSlot(builder, equipmentSlot)
-
-def CharacterExcelStartEquipmentSlotVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CharacterExcelAddEquipmentSlot(builder, equipmentSlot)
+def CharacterExcelStartEquipmentSlotVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartEquipmentSlotVector(builder, numElems):
     return CharacterExcelStartEquipmentSlotVector(builder, numElems)
-
-def CharacterExcelAddWeaponLocalizeId(builder, weaponLocalizeId):
-    builder.PrependUint32Slot(39, weaponLocalizeId, 0)
-
+def CharacterExcelAddWeaponLocalizeId(builder, weaponLocalizeId): builder.PrependUint32Slot(39, weaponLocalizeId, 0)
 def AddWeaponLocalizeId(builder, weaponLocalizeId):
-    CharacterExcelAddWeaponLocalizeId(builder, weaponLocalizeId)
-
-def CharacterExcelAddDisplayEnemyInfo(builder, displayEnemyInfo):
-    builder.PrependBoolSlot(40, displayEnemyInfo, 0)
-
+    return CharacterExcelAddWeaponLocalizeId(builder, weaponLocalizeId)
+def CharacterExcelAddDisplayEnemyInfo(builder, displayEnemyInfo): builder.PrependBoolSlot(40, displayEnemyInfo, 0)
 def AddDisplayEnemyInfo(builder, displayEnemyInfo):
-    CharacterExcelAddDisplayEnemyInfo(builder, displayEnemyInfo)
-
-def CharacterExcelAddBodyRadius(builder, bodyRadius):
-    builder.PrependInt64Slot(41, bodyRadius, 0)
-
+    return CharacterExcelAddDisplayEnemyInfo(builder, displayEnemyInfo)
+def CharacterExcelAddBodyRadius(builder, bodyRadius): builder.PrependInt64Slot(41, bodyRadius, 0)
 def AddBodyRadius(builder, bodyRadius):
-    CharacterExcelAddBodyRadius(builder, bodyRadius)
-
-def CharacterExcelAddRandomEffectRadius(builder, randomEffectRadius):
-    builder.PrependInt64Slot(42, randomEffectRadius, 0)
-
+    return CharacterExcelAddBodyRadius(builder, bodyRadius)
+def CharacterExcelAddRandomEffectRadius(builder, randomEffectRadius): builder.PrependInt64Slot(42, randomEffectRadius, 0)
 def AddRandomEffectRadius(builder, randomEffectRadius):
-    CharacterExcelAddRandomEffectRadius(builder, randomEffectRadius)
-
-def CharacterExcelAddHpBarHide(builder, hpBarHide):
-    builder.PrependBoolSlot(43, hpBarHide, 0)
-
+    return CharacterExcelAddRandomEffectRadius(builder, randomEffectRadius)
+def CharacterExcelAddHpBarHide(builder, hpBarHide): builder.PrependBoolSlot(43, hpBarHide, 0)
 def AddHpBarHide(builder, hpBarHide):
-    CharacterExcelAddHpBarHide(builder, hpBarHide)
-
-def CharacterExcelAddHpBarHeight(builder, hpBarHeight):
-    builder.PrependFloat32Slot(44, hpBarHeight, 0.0)
-
+    return CharacterExcelAddHpBarHide(builder, hpBarHide)
+def CharacterExcelAddHpBarHeight(builder, hpBarHeight): builder.PrependFloat32Slot(44, hpBarHeight, 0.0)
 def AddHpBarHeight(builder, hpBarHeight):
-    CharacterExcelAddHpBarHeight(builder, hpBarHeight)
-
-def CharacterExcelAddHighlightFloaterHeight(builder, highlightFloaterHeight):
-    builder.PrependFloat32Slot(45, highlightFloaterHeight, 0.0)
-
+    return CharacterExcelAddHpBarHeight(builder, hpBarHeight)
+def CharacterExcelAddHighlightFloaterHeight(builder, highlightFloaterHeight): builder.PrependFloat32Slot(45, highlightFloaterHeight, 0.0)
 def AddHighlightFloaterHeight(builder, highlightFloaterHeight):
-    CharacterExcelAddHighlightFloaterHeight(builder, highlightFloaterHeight)
-
-def CharacterExcelAddEmojiOffsetX(builder, emojiOffsetX):
-    builder.PrependFloat32Slot(46, emojiOffsetX, 0.0)
-
+    return CharacterExcelAddHighlightFloaterHeight(builder, highlightFloaterHeight)
+def CharacterExcelAddEmojiOffsetX(builder, emojiOffsetX): builder.PrependFloat32Slot(46, emojiOffsetX, 0.0)
 def AddEmojiOffsetX(builder, emojiOffsetX):
-    CharacterExcelAddEmojiOffsetX(builder, emojiOffsetX)
-
-def CharacterExcelAddEmojiOffsetY(builder, emojiOffsetY):
-    builder.PrependFloat32Slot(47, emojiOffsetY, 0.0)
-
+    return CharacterExcelAddEmojiOffsetX(builder, emojiOffsetX)
+def CharacterExcelAddEmojiOffsetY(builder, emojiOffsetY): builder.PrependFloat32Slot(47, emojiOffsetY, 0.0)
 def AddEmojiOffsetY(builder, emojiOffsetY):
-    CharacterExcelAddEmojiOffsetY(builder, emojiOffsetY)
-
-def CharacterExcelAddMoveStartFrame(builder, moveStartFrame):
-    builder.PrependInt32Slot(48, moveStartFrame, 0)
-
+    return CharacterExcelAddEmojiOffsetY(builder, emojiOffsetY)
+def CharacterExcelAddMoveStartFrame(builder, moveStartFrame): builder.PrependInt32Slot(48, moveStartFrame, 0)
 def AddMoveStartFrame(builder, moveStartFrame):
-    CharacterExcelAddMoveStartFrame(builder, moveStartFrame)
-
-def CharacterExcelAddMoveEndFrame(builder, moveEndFrame):
-    builder.PrependInt32Slot(49, moveEndFrame, 0)
-
+    return CharacterExcelAddMoveStartFrame(builder, moveStartFrame)
+def CharacterExcelAddMoveEndFrame(builder, moveEndFrame): builder.PrependInt32Slot(49, moveEndFrame, 0)
 def AddMoveEndFrame(builder, moveEndFrame):
-    CharacterExcelAddMoveEndFrame(builder, moveEndFrame)
-
-def CharacterExcelAddJumpMotionFrame(builder, jumpMotionFrame):
-    builder.PrependInt32Slot(50, jumpMotionFrame, 0)
-
+    return CharacterExcelAddMoveEndFrame(builder, moveEndFrame)
+def CharacterExcelAddJumpMotionFrame(builder, jumpMotionFrame): builder.PrependInt32Slot(50, jumpMotionFrame, 0)
 def AddJumpMotionFrame(builder, jumpMotionFrame):
-    CharacterExcelAddJumpMotionFrame(builder, jumpMotionFrame)
-
-def CharacterExcelAddAppearFrame(builder, appearFrame):
-    builder.PrependInt32Slot(51, appearFrame, 0)
-
+    return CharacterExcelAddJumpMotionFrame(builder, jumpMotionFrame)
+def CharacterExcelAddAppearFrame(builder, appearFrame): builder.PrependInt32Slot(51, appearFrame, 0)
 def AddAppearFrame(builder, appearFrame):
-    CharacterExcelAddAppearFrame(builder, appearFrame)
-
-def CharacterExcelAddCanMove(builder, canMove):
-    builder.PrependBoolSlot(52, canMove, 0)
-
+    return CharacterExcelAddAppearFrame(builder, appearFrame)
+def CharacterExcelAddCanMove(builder, canMove): builder.PrependBoolSlot(52, canMove, 0)
 def AddCanMove(builder, canMove):
-    CharacterExcelAddCanMove(builder, canMove)
-
-def CharacterExcelAddCanFix(builder, canFix):
-    builder.PrependBoolSlot(53, canFix, 0)
-
+    return CharacterExcelAddCanMove(builder, canMove)
+def CharacterExcelAddCanFix(builder, canFix): builder.PrependBoolSlot(53, canFix, 0)
 def AddCanFix(builder, canFix):
-    CharacterExcelAddCanFix(builder, canFix)
-
-def CharacterExcelAddCanCrowdControl(builder, canCrowdControl):
-    builder.PrependBoolSlot(54, canCrowdControl, 0)
-
+    return CharacterExcelAddCanFix(builder, canFix)
+def CharacterExcelAddCanCrowdControl(builder, canCrowdControl): builder.PrependBoolSlot(54, canCrowdControl, 0)
 def AddCanCrowdControl(builder, canCrowdControl):
-    CharacterExcelAddCanCrowdControl(builder, canCrowdControl)
-
-def CharacterExcelAddCanBattleItemMove(builder, canBattleItemMove):
-    builder.PrependBoolSlot(55, canBattleItemMove, 0)
-
+    return CharacterExcelAddCanCrowdControl(builder, canCrowdControl)
+def CharacterExcelAddCanBattleItemMove(builder, canBattleItemMove): builder.PrependBoolSlot(55, canBattleItemMove, 0)
 def AddCanBattleItemMove(builder, canBattleItemMove):
-    CharacterExcelAddCanBattleItemMove(builder, canBattleItemMove)
-
-def CharacterExcelAddIsAirUnit(builder, isAirUnit):
-    builder.PrependBoolSlot(56, isAirUnit, 0)
-
+    return CharacterExcelAddCanBattleItemMove(builder, canBattleItemMove)
+def CharacterExcelAddIsAirUnit(builder, isAirUnit): builder.PrependBoolSlot(56, isAirUnit, 0)
 def AddIsAirUnit(builder, isAirUnit):
-    CharacterExcelAddIsAirUnit(builder, isAirUnit)
-
-def CharacterExcelAddAirUnitHeight(builder, airUnitHeight):
-    builder.PrependInt64Slot(57, airUnitHeight, 0)
-
+    return CharacterExcelAddIsAirUnit(builder, isAirUnit)
+def CharacterExcelAddAirUnitHeight(builder, airUnitHeight): builder.PrependInt64Slot(57, airUnitHeight, 0)
 def AddAirUnitHeight(builder, airUnitHeight):
-    CharacterExcelAddAirUnitHeight(builder, airUnitHeight)
-
-def CharacterExcelAddTags(builder, tags):
-    builder.PrependUOffsetTRelativeSlot(58, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
-
+    return CharacterExcelAddAirUnitHeight(builder, airUnitHeight)
+def CharacterExcelAddTags(builder, tags): builder.PrependUOffsetTRelativeSlot(58, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
 def AddTags(builder, tags):
-    CharacterExcelAddTags(builder, tags)
-
-def CharacterExcelStartTagsVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CharacterExcelAddTags(builder, tags)
+def CharacterExcelStartTagsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartTagsVector(builder, numElems):
     return CharacterExcelStartTagsVector(builder, numElems)
-
-def CharacterExcelAddSecretStoneItemId(builder, secretStoneItemId):
-    builder.PrependInt64Slot(59, secretStoneItemId, 0)
-
+def CharacterExcelAddSecretStoneItemId(builder, secretStoneItemId): builder.PrependInt64Slot(59, secretStoneItemId, 0)
 def AddSecretStoneItemId(builder, secretStoneItemId):
-    CharacterExcelAddSecretStoneItemId(builder, secretStoneItemId)
-
-def CharacterExcelAddSecretStoneItemAmount(builder, secretStoneItemAmount):
-    builder.PrependInt32Slot(60, secretStoneItemAmount, 0)
-
+    return CharacterExcelAddSecretStoneItemId(builder, secretStoneItemId)
+def CharacterExcelAddSecretStoneItemAmount(builder, secretStoneItemAmount): builder.PrependInt32Slot(60, secretStoneItemAmount, 0)
 def AddSecretStoneItemAmount(builder, secretStoneItemAmount):
-    CharacterExcelAddSecretStoneItemAmount(builder, secretStoneItemAmount)
-
-def CharacterExcelAddCharacterPieceItemId(builder, characterPieceItemId):
-    builder.PrependInt64Slot(61, characterPieceItemId, 0)
-
+    return CharacterExcelAddSecretStoneItemAmount(builder, secretStoneItemAmount)
+def CharacterExcelAddCharacterPieceItemId(builder, characterPieceItemId): builder.PrependInt64Slot(61, characterPieceItemId, 0)
 def AddCharacterPieceItemId(builder, characterPieceItemId):
-    CharacterExcelAddCharacterPieceItemId(builder, characterPieceItemId)
-
-def CharacterExcelAddCharacterPieceItemAmount(builder, characterPieceItemAmount):
-    builder.PrependInt32Slot(62, characterPieceItemAmount, 0)
-
+    return CharacterExcelAddCharacterPieceItemId(builder, characterPieceItemId)
+def CharacterExcelAddCharacterPieceItemAmount(builder, characterPieceItemAmount): builder.PrependInt32Slot(62, characterPieceItemAmount, 0)
 def AddCharacterPieceItemAmount(builder, characterPieceItemAmount):
-    CharacterExcelAddCharacterPieceItemAmount(builder, characterPieceItemAmount)
-
-def CharacterExcelAddCombineRecipeId(builder, combineRecipeId):
-    builder.PrependInt64Slot(63, combineRecipeId, 0)
-
+    return CharacterExcelAddCharacterPieceItemAmount(builder, characterPieceItemAmount)
+def CharacterExcelAddCombineRecipeId(builder, combineRecipeId): builder.PrependInt64Slot(63, combineRecipeId, 0)
 def AddCombineRecipeId(builder, combineRecipeId):
-    CharacterExcelAddCombineRecipeId(builder, combineRecipeId)
-
-def CharacterExcelEnd(builder):
-    return builder.EndObject()
-
+    return CharacterExcelAddCombineRecipeId(builder, combineRecipeId)
+def CharacterExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterExcelEnd(builder)

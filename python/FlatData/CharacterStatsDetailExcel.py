@@ -85,44 +85,24 @@ class CharacterStatsDetailExcel(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
-def CharacterStatsDetailExcelStart(builder):
-    builder.StartObject(3)
-
+def CharacterStatsDetailExcelStart(builder): builder.StartObject(3)
 def Start(builder):
-    CharacterStatsDetailExcelStart(builder)
-
-def CharacterStatsDetailExcelAddId(builder, id):
-    builder.PrependInt64Slot(0, id, 0)
-
+    return CharacterStatsDetailExcelStart(builder)
+def CharacterStatsDetailExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
-    CharacterStatsDetailExcelAddId(builder, id)
-
-def CharacterStatsDetailExcelAddDetailShowStats(builder, detailShowStats):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(detailShowStats), 0)
-
+    return CharacterStatsDetailExcelAddId(builder, id)
+def CharacterStatsDetailExcelAddDetailShowStats(builder, detailShowStats): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(detailShowStats), 0)
 def AddDetailShowStats(builder, detailShowStats):
-    CharacterStatsDetailExcelAddDetailShowStats(builder, detailShowStats)
-
-def CharacterStatsDetailExcelStartDetailShowStatsVector(builder, numElems):
-    return builder.StartVector(4, numElems, 4)
-
+    return CharacterStatsDetailExcelAddDetailShowStats(builder, detailShowStats)
+def CharacterStatsDetailExcelStartDetailShowStatsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDetailShowStatsVector(builder, numElems):
     return CharacterStatsDetailExcelStartDetailShowStatsVector(builder, numElems)
-
-def CharacterStatsDetailExcelAddIsStatsPercent(builder, isStatsPercent):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(isStatsPercent), 0)
-
+def CharacterStatsDetailExcelAddIsStatsPercent(builder, isStatsPercent): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(isStatsPercent), 0)
 def AddIsStatsPercent(builder, isStatsPercent):
-    CharacterStatsDetailExcelAddIsStatsPercent(builder, isStatsPercent)
-
-def CharacterStatsDetailExcelStartIsStatsPercentVector(builder, numElems):
-    return builder.StartVector(1, numElems, 1)
-
+    return CharacterStatsDetailExcelAddIsStatsPercent(builder, isStatsPercent)
+def CharacterStatsDetailExcelStartIsStatsPercentVector(builder, numElems): return builder.StartVector(1, numElems, 1)
 def StartIsStatsPercentVector(builder, numElems):
     return CharacterStatsDetailExcelStartIsStatsPercentVector(builder, numElems)
-
-def CharacterStatsDetailExcelEnd(builder):
-    return builder.EndObject()
-
+def CharacterStatsDetailExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterStatsDetailExcelEnd(builder)
