@@ -2,7 +2,7 @@ module github.com/arisu-archive/arona-flatbuffers
 
 go 1.23.0
 
-toolchain go1.24.3
+toolchain go1.24.4
 
 require (
 	github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20250519175016-2dbe82043f5f
