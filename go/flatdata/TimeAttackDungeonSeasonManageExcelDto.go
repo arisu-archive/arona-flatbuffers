@@ -12,6 +12,7 @@ type TimeAttackDungeonSeasonManageExcelDto struct {
 	fbsutils.FlatBuffer
 	Id                        int64   `json:"id"`
 	StartDate                 string  `json:"start_date"`
+	EndNoteLabelStartDate     string  `json:"end_note_label_start_date"`
 	EndDate                   string  `json:"end_date"`
 	UiSlot                    int64   `json:"ui_slot"`
 	DungeonId                 int64   `json:"dungeon_id"`
@@ -28,6 +29,7 @@ func (t *TimeAttackDungeonSeasonManageExcelDto) MarshalModel(b *flatbuffers.Buil
 	TimeAttackDungeonSeasonManageExcelStart(b)
 	TimeAttackDungeonSeasonManageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	TimeAttackDungeonSeasonManageExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
+	TimeAttackDungeonSeasonManageExcelAddEndNoteLabelStartDate(b, b.CreateString(fbsutils.Convert(t.EndNoteLabelStartDate, t.FlatBuffer.TableKey)))
 	TimeAttackDungeonSeasonManageExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
 	TimeAttackDungeonSeasonManageExcelAddUiSlot(b, fbsutils.Convert(t.UiSlot, t.FlatBuffer.TableKey))
 	TimeAttackDungeonSeasonManageExcelAddDungeonId(b, fbsutils.Convert(t.DungeonId, t.FlatBuffer.TableKey))
@@ -55,6 +57,7 @@ func (t *TimeAttackDungeonSeasonManageExcelDto) UnmarshalMessage(e *TimeAttackDu
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
+	t.EndNoteLabelStartDate = fbsutils.Convert(string(e.EndNoteLabelStartDate()), t.FlatBuffer.TableKey)
 	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
 	t.UiSlot = fbsutils.Convert(e.UiSlot(), t.FlatBuffer.TableKey)
 	t.DungeonId = fbsutils.Convert(e.DungeonId(), t.FlatBuffer.TableKey)

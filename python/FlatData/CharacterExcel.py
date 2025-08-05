@@ -437,22 +437,29 @@ class CharacterExcel(object):
         return False
 
     # CharacterExcel
-    def IsAirUnit(self):
+    def IgnoreObstacle(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(116))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # CharacterExcel
-    def AirUnitHeight(self):
+    def IsAirUnit(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(118))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # CharacterExcel
+    def AirUnitHeight(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(120))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
     def Tags(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(120))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(122))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -460,59 +467,59 @@ class CharacterExcel(object):
 
     # CharacterExcel
     def TagsAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(120))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(122))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # CharacterExcel
     def TagsLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(120))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(122))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterExcel
     def TagsIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(120))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(122))
         return o == 0
 
     # CharacterExcel
     def SecretStoneItemId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(122))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(124))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
     def SecretStoneItemAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(124))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(126))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
     def CharacterPieceItemId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(126))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(128))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
     def CharacterPieceItemAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(128))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(130))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterExcel
     def CombineRecipeId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(130))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(132))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def CharacterExcelStart(builder): builder.StartObject(64)
+def CharacterExcelStart(builder): builder.StartObject(65)
 def Start(builder):
     return CharacterExcelStart(builder)
 def CharacterExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
@@ -686,31 +693,34 @@ def AddCanCrowdControl(builder, canCrowdControl):
 def CharacterExcelAddCanBattleItemMove(builder, canBattleItemMove): builder.PrependBoolSlot(55, canBattleItemMove, 0)
 def AddCanBattleItemMove(builder, canBattleItemMove):
     return CharacterExcelAddCanBattleItemMove(builder, canBattleItemMove)
-def CharacterExcelAddIsAirUnit(builder, isAirUnit): builder.PrependBoolSlot(56, isAirUnit, 0)
+def CharacterExcelAddIgnoreObstacle(builder, ignoreObstacle): builder.PrependBoolSlot(56, ignoreObstacle, 0)
+def AddIgnoreObstacle(builder, ignoreObstacle):
+    return CharacterExcelAddIgnoreObstacle(builder, ignoreObstacle)
+def CharacterExcelAddIsAirUnit(builder, isAirUnit): builder.PrependBoolSlot(57, isAirUnit, 0)
 def AddIsAirUnit(builder, isAirUnit):
     return CharacterExcelAddIsAirUnit(builder, isAirUnit)
-def CharacterExcelAddAirUnitHeight(builder, airUnitHeight): builder.PrependInt64Slot(57, airUnitHeight, 0)
+def CharacterExcelAddAirUnitHeight(builder, airUnitHeight): builder.PrependInt64Slot(58, airUnitHeight, 0)
 def AddAirUnitHeight(builder, airUnitHeight):
     return CharacterExcelAddAirUnitHeight(builder, airUnitHeight)
-def CharacterExcelAddTags(builder, tags): builder.PrependUOffsetTRelativeSlot(58, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
+def CharacterExcelAddTags(builder, tags): builder.PrependUOffsetTRelativeSlot(59, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
 def AddTags(builder, tags):
     return CharacterExcelAddTags(builder, tags)
 def CharacterExcelStartTagsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartTagsVector(builder, numElems):
     return CharacterExcelStartTagsVector(builder, numElems)
-def CharacterExcelAddSecretStoneItemId(builder, secretStoneItemId): builder.PrependInt64Slot(59, secretStoneItemId, 0)
+def CharacterExcelAddSecretStoneItemId(builder, secretStoneItemId): builder.PrependInt64Slot(60, secretStoneItemId, 0)
 def AddSecretStoneItemId(builder, secretStoneItemId):
     return CharacterExcelAddSecretStoneItemId(builder, secretStoneItemId)
-def CharacterExcelAddSecretStoneItemAmount(builder, secretStoneItemAmount): builder.PrependInt32Slot(60, secretStoneItemAmount, 0)
+def CharacterExcelAddSecretStoneItemAmount(builder, secretStoneItemAmount): builder.PrependInt32Slot(61, secretStoneItemAmount, 0)
 def AddSecretStoneItemAmount(builder, secretStoneItemAmount):
     return CharacterExcelAddSecretStoneItemAmount(builder, secretStoneItemAmount)
-def CharacterExcelAddCharacterPieceItemId(builder, characterPieceItemId): builder.PrependInt64Slot(61, characterPieceItemId, 0)
+def CharacterExcelAddCharacterPieceItemId(builder, characterPieceItemId): builder.PrependInt64Slot(62, characterPieceItemId, 0)
 def AddCharacterPieceItemId(builder, characterPieceItemId):
     return CharacterExcelAddCharacterPieceItemId(builder, characterPieceItemId)
-def CharacterExcelAddCharacterPieceItemAmount(builder, characterPieceItemAmount): builder.PrependInt32Slot(62, characterPieceItemAmount, 0)
+def CharacterExcelAddCharacterPieceItemAmount(builder, characterPieceItemAmount): builder.PrependInt32Slot(63, characterPieceItemAmount, 0)
 def AddCharacterPieceItemAmount(builder, characterPieceItemAmount):
     return CharacterExcelAddCharacterPieceItemAmount(builder, characterPieceItemAmount)
-def CharacterExcelAddCombineRecipeId(builder, combineRecipeId): builder.PrependInt64Slot(63, combineRecipeId, 0)
+def CharacterExcelAddCombineRecipeId(builder, combineRecipeId): builder.PrependInt64Slot(64, combineRecipeId, 0)
 def AddCombineRecipeId(builder, combineRecipeId):
     return CharacterExcelAddCombineRecipeId(builder, combineRecipeId)
 def CharacterExcelEnd(builder): return builder.EndObject()

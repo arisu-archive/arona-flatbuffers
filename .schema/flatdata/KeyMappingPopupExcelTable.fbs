@@ -1,0 +1,9 @@
+include "KeyMappingPopupExcel.fbs";
+
+namespace FlatData;
+
+table KeyMappingPopupExcelTable {
+    data_list: [KeyMappingPopupExcel];
+}
+
+root_type KeyMappingPopupExcelTable;

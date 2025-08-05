@@ -77,7 +77,7 @@ func (rcv *MultiFloorRaidSeasonManageExcel) SeasonStartDate() []byte {
 	return nil
 }
 
-func (rcv *MultiFloorRaidSeasonManageExcel) SeasonEndDate() []byte {
+func (rcv *MultiFloorRaidSeasonManageExcel) EndNoteLabelStartDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -85,7 +85,7 @@ func (rcv *MultiFloorRaidSeasonManageExcel) SeasonEndDate() []byte {
 	return nil
 }
 
-func (rcv *MultiFloorRaidSeasonManageExcel) SettlementEndDate() []byte {
+func (rcv *MultiFloorRaidSeasonManageExcel) SeasonEndDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -93,7 +93,7 @@ func (rcv *MultiFloorRaidSeasonManageExcel) SettlementEndDate() []byte {
 	return nil
 }
 
-func (rcv *MultiFloorRaidSeasonManageExcel) OpenRaidBossGroupId() []byte {
+func (rcv *MultiFloorRaidSeasonManageExcel) SettlementEndDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -101,8 +101,16 @@ func (rcv *MultiFloorRaidSeasonManageExcel) OpenRaidBossGroupId() []byte {
 	return nil
 }
 
-func (rcv *MultiFloorRaidSeasonManageExcel) EnterScenarioKey() uint32 {
+func (rcv *MultiFloorRaidSeasonManageExcel) OpenRaidBossGroupId() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MultiFloorRaidSeasonManageExcel) EnterScenarioKey() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -110,18 +118,10 @@ func (rcv *MultiFloorRaidSeasonManageExcel) EnterScenarioKey() uint32 {
 }
 
 func (rcv *MultiFloorRaidSeasonManageExcel) MutateEnterScenarioKey(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(18, n)
+	return rcv._tab.MutateUint32Slot(20, n)
 }
 
 func (rcv *MultiFloorRaidSeasonManageExcel) LobbyImgPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MultiFloorRaidSeasonManageExcel) LevelImgPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -129,7 +129,7 @@ func (rcv *MultiFloorRaidSeasonManageExcel) LevelImgPath() []byte {
 	return nil
 }
 
-func (rcv *MultiFloorRaidSeasonManageExcel) PlayTip() []byte {
+func (rcv *MultiFloorRaidSeasonManageExcel) LevelImgPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -137,8 +137,16 @@ func (rcv *MultiFloorRaidSeasonManageExcel) PlayTip() []byte {
 	return nil
 }
 
+func (rcv *MultiFloorRaidSeasonManageExcel) PlayTip() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func MultiFloorRaidSeasonManageExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(11)
+	builder.StartObject(12)
 }
 func MultiFloorRaidSeasonManageExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
 	builder.PrependInt64Slot(0, seasonId, 0)
@@ -152,26 +160,29 @@ func MultiFloorRaidSeasonManageExcelAddShowLobbyBanner(builder *flatbuffers.Buil
 func MultiFloorRaidSeasonManageExcelAddSeasonStartDate(builder *flatbuffers.Builder, seasonStartDate flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(seasonStartDate), 0)
 }
+func MultiFloorRaidSeasonManageExcelAddEndNoteLabelStartDate(builder *flatbuffers.Builder, endNoteLabelStartDate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(endNoteLabelStartDate), 0)
+}
 func MultiFloorRaidSeasonManageExcelAddSeasonEndDate(builder *flatbuffers.Builder, seasonEndDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(seasonEndDate), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(seasonEndDate), 0)
 }
 func MultiFloorRaidSeasonManageExcelAddSettlementEndDate(builder *flatbuffers.Builder, settlementEndDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(settlementEndDate), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(settlementEndDate), 0)
 }
 func MultiFloorRaidSeasonManageExcelAddOpenRaidBossGroupId(builder *flatbuffers.Builder, openRaidBossGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(openRaidBossGroupId), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(openRaidBossGroupId), 0)
 }
 func MultiFloorRaidSeasonManageExcelAddEnterScenarioKey(builder *flatbuffers.Builder, enterScenarioKey uint32) {
-	builder.PrependUint32Slot(7, enterScenarioKey, 0)
+	builder.PrependUint32Slot(8, enterScenarioKey, 0)
 }
 func MultiFloorRaidSeasonManageExcelAddLobbyImgPath(builder *flatbuffers.Builder, lobbyImgPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(lobbyImgPath), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(lobbyImgPath), 0)
 }
 func MultiFloorRaidSeasonManageExcelAddLevelImgPath(builder *flatbuffers.Builder, levelImgPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(levelImgPath), 0)
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(levelImgPath), 0)
 }
 func MultiFloorRaidSeasonManageExcelAddPlayTip(builder *flatbuffers.Builder, playTip flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(playTip), 0)
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(playTip), 0)
 }
 func MultiFloorRaidSeasonManageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

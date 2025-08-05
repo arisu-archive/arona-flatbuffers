@@ -13,6 +13,7 @@ type RaidSeasonManageExcelDto struct {
 	SeasonId                 int64    `json:"season_id"`
 	SeasonDisplay            int64    `json:"season_display"`
 	SeasonStartData          string   `json:"season_start_data"`
+	EndNoteLabelStartDate    string   `json:"end_note_label_start_date"`
 	SeasonEndData            string   `json:"season_end_data"`
 	SettlementEndDate        string   `json:"settlement_end_date"`
 	OpenRaidBossGroup        []string `json:"open_raid_boss_group"`
@@ -31,6 +32,7 @@ func (t *RaidSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 	RaidSeasonManageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	RaidSeasonManageExcelAddSeasonDisplay(b, fbsutils.Convert(t.SeasonDisplay, t.FlatBuffer.TableKey))
 	RaidSeasonManageExcelAddSeasonStartData(b, b.CreateString(fbsutils.Convert(t.SeasonStartData, t.FlatBuffer.TableKey)))
+	RaidSeasonManageExcelAddEndNoteLabelStartDate(b, b.CreateString(fbsutils.Convert(t.EndNoteLabelStartDate, t.FlatBuffer.TableKey)))
 	RaidSeasonManageExcelAddSeasonEndData(b, b.CreateString(fbsutils.Convert(t.SeasonEndData, t.FlatBuffer.TableKey)))
 	RaidSeasonManageExcelAddSettlementEndDate(b, b.CreateString(fbsutils.Convert(t.SettlementEndDate, t.FlatBuffer.TableKey)))
 	RaidSeasonManageExcelStartOpenRaidBossGroupVector(b, len(t.OpenRaidBossGroup))
@@ -68,6 +70,7 @@ func (t *RaidSeasonManageExcelDto) UnmarshalMessage(e *RaidSeasonManageExcel) er
 	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
 	t.SeasonDisplay = fbsutils.Convert(e.SeasonDisplay(), t.FlatBuffer.TableKey)
 	t.SeasonStartData = fbsutils.Convert(string(e.SeasonStartData()), t.FlatBuffer.TableKey)
+	t.EndNoteLabelStartDate = fbsutils.Convert(string(e.EndNoteLabelStartDate()), t.FlatBuffer.TableKey)
 	t.SeasonEndData = fbsutils.Convert(string(e.SeasonEndData()), t.FlatBuffer.TableKey)
 	t.SettlementEndDate = fbsutils.Convert(string(e.SettlementEndDate()), t.FlatBuffer.TableKey)
 	t.OpenRaidBossGroup = make([]string, e.OpenRaidBossGroupLength())

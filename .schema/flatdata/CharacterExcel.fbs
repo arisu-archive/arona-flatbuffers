@@ -73,6 +73,7 @@ table CharacterExcel {
     can_fix: bool;
     can_crowd_control: bool;
     can_battle_item_move: bool;
+    ignore_obstacle: bool;
     is_air_unit: bool;
     air_unit_height: long;
     tags: [Tag];

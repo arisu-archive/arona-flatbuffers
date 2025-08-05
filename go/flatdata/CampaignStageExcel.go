@@ -285,16 +285,8 @@ func (rcv *CampaignStageExcel) MutateRecommandLevel(n int32) bool {
 	return rcv._tab.MutateInt32Slot(42, n)
 }
 
-func (rcv *CampaignStageExcel) BgmId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *CampaignStageExcel) StrategyEnvironment() StrategyEnvironment {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		return StrategyEnvironment(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -302,11 +294,11 @@ func (rcv *CampaignStageExcel) StrategyEnvironment() StrategyEnvironment {
 }
 
 func (rcv *CampaignStageExcel) MutateStrategyEnvironment(n StrategyEnvironment) bool {
-	return rcv._tab.MutateInt32Slot(46, int32(n))
+	return rcv._tab.MutateInt32Slot(44, int32(n))
 }
 
 func (rcv *CampaignStageExcel) GroundId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -314,11 +306,11 @@ func (rcv *CampaignStageExcel) GroundId() int64 {
 }
 
 func (rcv *CampaignStageExcel) MutateGroundId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(48, n)
+	return rcv._tab.MutateInt64Slot(46, n)
 }
 
 func (rcv *CampaignStageExcel) StrategySkipGroundId() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -326,11 +318,11 @@ func (rcv *CampaignStageExcel) StrategySkipGroundId() int32 {
 }
 
 func (rcv *CampaignStageExcel) MutateStrategySkipGroundId(n int32) bool {
-	return rcv._tab.MutateInt32Slot(50, n)
+	return rcv._tab.MutateInt32Slot(48, n)
 }
 
 func (rcv *CampaignStageExcel) ContentType() ContentType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		return ContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -338,7 +330,15 @@ func (rcv *CampaignStageExcel) ContentType() ContentType {
 }
 
 func (rcv *CampaignStageExcel) MutateContentType(n ContentType) bool {
-	return rcv._tab.MutateInt32Slot(52, int32(n))
+	return rcv._tab.MutateInt32Slot(50, int32(n))
+}
+
+func (rcv *CampaignStageExcel) BgmId() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *CampaignStageExcel) BgmIdC9738509() int64 {
@@ -482,20 +482,20 @@ func CampaignStageExcelAddStageTopography(builder *flatbuffers.Builder, stageTop
 func CampaignStageExcelAddRecommandLevel(builder *flatbuffers.Builder, recommandLevel int32) {
 	builder.PrependInt32Slot(19, recommandLevel, 0)
 }
-func CampaignStageExcelAddBgmId(builder *flatbuffers.Builder, bgmId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(bgmId), 0)
-}
 func CampaignStageExcelAddStrategyEnvironment(builder *flatbuffers.Builder, strategyEnvironment StrategyEnvironment) {
-	builder.PrependInt32Slot(21, int32(strategyEnvironment), 0)
+	builder.PrependInt32Slot(20, int32(strategyEnvironment), 0)
 }
 func CampaignStageExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
-	builder.PrependInt64Slot(22, groundId, 0)
+	builder.PrependInt64Slot(21, groundId, 0)
 }
 func CampaignStageExcelAddStrategySkipGroundId(builder *flatbuffers.Builder, strategySkipGroundId int32) {
-	builder.PrependInt32Slot(23, strategySkipGroundId, 0)
+	builder.PrependInt32Slot(22, strategySkipGroundId, 0)
 }
 func CampaignStageExcelAddContentType(builder *flatbuffers.Builder, contentType ContentType) {
-	builder.PrependInt32Slot(24, int32(contentType), 0)
+	builder.PrependInt32Slot(23, int32(contentType), 0)
+}
+func CampaignStageExcelAddBgmId(builder *flatbuffers.Builder, bgmId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(bgmId), 0)
 }
 func CampaignStageExcelAddBgmIdC9738509(builder *flatbuffers.Builder, bgmIdC9738509 int64) {
 	builder.PrependInt64Slot(25, bgmIdC9738509, 0)

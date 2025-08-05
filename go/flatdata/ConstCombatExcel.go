@@ -1137,8 +1137,32 @@ func (rcv *ConstCombatExcel) MutateCheckCheaterMaxUseCostMultiFloorRaid(n int32)
 	return rcv._tab.MutateInt32Slot(192, n)
 }
 
+func (rcv *ConstCombatExcel) ExcessiveTouchCheckTime() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(194))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstCombatExcel) MutateExcessiveTouchCheckTime(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(194, n)
+}
+
+func (rcv *ConstCombatExcel) ExcessiveTouchCheckCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(196))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateExcessiveTouchCheckCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(196, n)
+}
+
 func ConstCombatExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(95)
+	builder.StartObject(97)
 }
 func ConstCombatExcelAddSkillHandCount(builder *flatbuffers.Builder, skillHandCount int32) {
 	builder.PrependInt32Slot(0, skillHandCount, 0)
@@ -1424,6 +1448,12 @@ func ConstCombatExcelAddEchelonExtensionCostRegenRatio(builder *flatbuffers.Buil
 }
 func ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(builder *flatbuffers.Builder, checkCheaterMaxUseCostMultiFloorRaid int32) {
 	builder.PrependInt32Slot(94, checkCheaterMaxUseCostMultiFloorRaid, 0)
+}
+func ConstCombatExcelAddExcessiveTouchCheckTime(builder *flatbuffers.Builder, excessiveTouchCheckTime float32) {
+	builder.PrependFloat32Slot(95, excessiveTouchCheckTime, 0.0)
+}
+func ConstCombatExcelAddExcessiveTouchCheckCount(builder *flatbuffers.Builder, excessiveTouchCheckCount int32) {
+	builder.PrependInt32Slot(96, excessiveTouchCheckCount, 0)
 }
 func ConstCombatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

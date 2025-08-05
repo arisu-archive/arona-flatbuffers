@@ -699,7 +699,7 @@ func (rcv *CharacterExcel) MutateCanBattleItemMove(n bool) bool {
 	return rcv._tab.MutateBoolSlot(114, n)
 }
 
-func (rcv *CharacterExcel) IsAirUnit() bool {
+func (rcv *CharacterExcel) IgnoreObstacle() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -707,12 +707,24 @@ func (rcv *CharacterExcel) IsAirUnit() bool {
 	return false
 }
 
-func (rcv *CharacterExcel) MutateIsAirUnit(n bool) bool {
+func (rcv *CharacterExcel) MutateIgnoreObstacle(n bool) bool {
 	return rcv._tab.MutateBoolSlot(116, n)
 }
 
-func (rcv *CharacterExcel) AirUnitHeight() int64 {
+func (rcv *CharacterExcel) IsAirUnit() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *CharacterExcel) MutateIsAirUnit(n bool) bool {
+	return rcv._tab.MutateBoolSlot(118, n)
+}
+
+func (rcv *CharacterExcel) AirUnitHeight() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -720,11 +732,11 @@ func (rcv *CharacterExcel) AirUnitHeight() int64 {
 }
 
 func (rcv *CharacterExcel) MutateAirUnitHeight(n int64) bool {
-	return rcv._tab.MutateInt64Slot(118, n)
+	return rcv._tab.MutateInt64Slot(120, n)
 }
 
 func (rcv *CharacterExcel) Tags(j int) Tag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(122))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -733,7 +745,7 @@ func (rcv *CharacterExcel) Tags(j int) Tag {
 }
 
 func (rcv *CharacterExcel) TagsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(122))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -741,7 +753,7 @@ func (rcv *CharacterExcel) TagsLength() int {
 }
 
 func (rcv *CharacterExcel) MutateTags(j int, n Tag) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(122))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -750,7 +762,7 @@ func (rcv *CharacterExcel) MutateTags(j int, n Tag) bool {
 }
 
 func (rcv *CharacterExcel) SecretStoneItemId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(122))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(124))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -758,11 +770,11 @@ func (rcv *CharacterExcel) SecretStoneItemId() int64 {
 }
 
 func (rcv *CharacterExcel) MutateSecretStoneItemId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(122, n)
+	return rcv._tab.MutateInt64Slot(124, n)
 }
 
 func (rcv *CharacterExcel) SecretStoneItemAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(124))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(126))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -770,11 +782,11 @@ func (rcv *CharacterExcel) SecretStoneItemAmount() int32 {
 }
 
 func (rcv *CharacterExcel) MutateSecretStoneItemAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(124, n)
+	return rcv._tab.MutateInt32Slot(126, n)
 }
 
 func (rcv *CharacterExcel) CharacterPieceItemId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(126))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(128))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -782,11 +794,11 @@ func (rcv *CharacterExcel) CharacterPieceItemId() int64 {
 }
 
 func (rcv *CharacterExcel) MutateCharacterPieceItemId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(126, n)
+	return rcv._tab.MutateInt64Slot(128, n)
 }
 
 func (rcv *CharacterExcel) CharacterPieceItemAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(128))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(130))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -794,11 +806,11 @@ func (rcv *CharacterExcel) CharacterPieceItemAmount() int32 {
 }
 
 func (rcv *CharacterExcel) MutateCharacterPieceItemAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(128, n)
+	return rcv._tab.MutateInt32Slot(130, n)
 }
 
 func (rcv *CharacterExcel) CombineRecipeId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(130))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(132))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -806,11 +818,11 @@ func (rcv *CharacterExcel) CombineRecipeId() int64 {
 }
 
 func (rcv *CharacterExcel) MutateCombineRecipeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(130, n)
+	return rcv._tab.MutateInt64Slot(132, n)
 }
 
 func CharacterExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(64)
+	builder.StartObject(65)
 }
 func CharacterExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -983,32 +995,35 @@ func CharacterExcelAddCanCrowdControl(builder *flatbuffers.Builder, canCrowdCont
 func CharacterExcelAddCanBattleItemMove(builder *flatbuffers.Builder, canBattleItemMove bool) {
 	builder.PrependBoolSlot(55, canBattleItemMove, false)
 }
+func CharacterExcelAddIgnoreObstacle(builder *flatbuffers.Builder, ignoreObstacle bool) {
+	builder.PrependBoolSlot(56, ignoreObstacle, false)
+}
 func CharacterExcelAddIsAirUnit(builder *flatbuffers.Builder, isAirUnit bool) {
-	builder.PrependBoolSlot(56, isAirUnit, false)
+	builder.PrependBoolSlot(57, isAirUnit, false)
 }
 func CharacterExcelAddAirUnitHeight(builder *flatbuffers.Builder, airUnitHeight int64) {
-	builder.PrependInt64Slot(57, airUnitHeight, 0)
+	builder.PrependInt64Slot(58, airUnitHeight, 0)
 }
 func CharacterExcelAddTags(builder *flatbuffers.Builder, tags flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(58, flatbuffers.UOffsetT(tags), 0)
+	builder.PrependUOffsetTSlot(59, flatbuffers.UOffsetT(tags), 0)
 }
 func CharacterExcelStartTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CharacterExcelAddSecretStoneItemId(builder *flatbuffers.Builder, secretStoneItemId int64) {
-	builder.PrependInt64Slot(59, secretStoneItemId, 0)
+	builder.PrependInt64Slot(60, secretStoneItemId, 0)
 }
 func CharacterExcelAddSecretStoneItemAmount(builder *flatbuffers.Builder, secretStoneItemAmount int32) {
-	builder.PrependInt32Slot(60, secretStoneItemAmount, 0)
+	builder.PrependInt32Slot(61, secretStoneItemAmount, 0)
 }
 func CharacterExcelAddCharacterPieceItemId(builder *flatbuffers.Builder, characterPieceItemId int64) {
-	builder.PrependInt64Slot(61, characterPieceItemId, 0)
+	builder.PrependInt64Slot(62, characterPieceItemId, 0)
 }
 func CharacterExcelAddCharacterPieceItemAmount(builder *flatbuffers.Builder, characterPieceItemAmount int32) {
-	builder.PrependInt32Slot(62, characterPieceItemAmount, 0)
+	builder.PrependInt32Slot(63, characterPieceItemAmount, 0)
 }
 func CharacterExcelAddCombineRecipeId(builder *flatbuffers.Builder, combineRecipeId int64) {
-	builder.PrependInt64Slot(63, combineRecipeId, 0)
+	builder.PrependInt64Slot(64, combineRecipeId, 0)
 }
 func CharacterExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

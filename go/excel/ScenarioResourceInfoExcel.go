@@ -57,7 +57,7 @@ func (rcv *ScenarioResourceInfoExcel) MutateScenarioModeId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *ScenarioResourceInfoExcel) VideoId() int64 {
+func (rcv *ScenarioResourceInfoExcel) PriorityOrder() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *ScenarioResourceInfoExcel) VideoId() int64 {
 	return 0
 }
 
-func (rcv *ScenarioResourceInfoExcel) MutateVideoId(n int64) bool {
+func (rcv *ScenarioResourceInfoExcel) MutatePriorityOrder(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *ScenarioResourceInfoExcel) BgmId() int64 {
+func (rcv *ScenarioResourceInfoExcel) PvDisplayOrder() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,12 +77,36 @@ func (rcv *ScenarioResourceInfoExcel) BgmId() int64 {
 	return 0
 }
 
-func (rcv *ScenarioResourceInfoExcel) MutateBgmId(n int64) bool {
+func (rcv *ScenarioResourceInfoExcel) MutatePvDisplayOrder(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *ScenarioResourceInfoExcel) AudioName() []byte {
+func (rcv *ScenarioResourceInfoExcel) VideoId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ScenarioResourceInfoExcel) MutateVideoId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *ScenarioResourceInfoExcel) BgmId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ScenarioResourceInfoExcel) MutateBgmId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *ScenarioResourceInfoExcel) AudioName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -90,26 +114,6 @@ func (rcv *ScenarioResourceInfoExcel) AudioName() []byte {
 }
 
 func (rcv *ScenarioResourceInfoExcel) SpinePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ScenarioResourceInfoExcel) Ratio() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ScenarioResourceInfoExcel) MutateRatio(n int32) bool {
-	return rcv._tab.MutateInt32Slot(16, n)
-}
-
-func (rcv *ScenarioResourceInfoExcel) LobbyAniPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -117,8 +121,28 @@ func (rcv *ScenarioResourceInfoExcel) LobbyAniPath() []byte {
 	return nil
 }
 
-func (rcv *ScenarioResourceInfoExcel) MovieCgPath() []byte {
+func (rcv *ScenarioResourceInfoExcel) Ratio() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ScenarioResourceInfoExcel) MutateRatio(n int32) bool {
+	return rcv._tab.MutateInt32Slot(20, n)
+}
+
+func (rcv *ScenarioResourceInfoExcel) LobbyAniPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ScenarioResourceInfoExcel) MovieCgPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -126,7 +150,7 @@ func (rcv *ScenarioResourceInfoExcel) MovieCgPath() []byte {
 }
 
 func (rcv *ScenarioResourceInfoExcel) LocalizeId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -134,11 +158,11 @@ func (rcv *ScenarioResourceInfoExcel) LocalizeId() uint32 {
 }
 
 func (rcv *ScenarioResourceInfoExcel) MutateLocalizeId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(22, n)
+	return rcv._tab.MutateUint32Slot(26, n)
 }
 
 func ScenarioResourceInfoExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(10)
+	builder.StartObject(12)
 }
 func ScenarioResourceInfoExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -146,29 +170,35 @@ func ScenarioResourceInfoExcelAddId(builder *flatbuffers.Builder, id int64) {
 func ScenarioResourceInfoExcelAddScenarioModeId(builder *flatbuffers.Builder, scenarioModeId int64) {
 	builder.PrependInt64Slot(1, scenarioModeId, 0)
 }
+func ScenarioResourceInfoExcelAddPriorityOrder(builder *flatbuffers.Builder, priorityOrder int64) {
+	builder.PrependInt64Slot(2, priorityOrder, 0)
+}
+func ScenarioResourceInfoExcelAddPvDisplayOrder(builder *flatbuffers.Builder, pvDisplayOrder int64) {
+	builder.PrependInt64Slot(3, pvDisplayOrder, 0)
+}
 func ScenarioResourceInfoExcelAddVideoId(builder *flatbuffers.Builder, videoId int64) {
-	builder.PrependInt64Slot(2, videoId, 0)
+	builder.PrependInt64Slot(4, videoId, 0)
 }
 func ScenarioResourceInfoExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
-	builder.PrependInt64Slot(3, bgmId, 0)
+	builder.PrependInt64Slot(5, bgmId, 0)
 }
 func ScenarioResourceInfoExcelAddAudioName(builder *flatbuffers.Builder, audioName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(audioName), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(audioName), 0)
 }
 func ScenarioResourceInfoExcelAddSpinePath(builder *flatbuffers.Builder, spinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(spinePath), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(spinePath), 0)
 }
 func ScenarioResourceInfoExcelAddRatio(builder *flatbuffers.Builder, ratio int32) {
-	builder.PrependInt32Slot(6, ratio, 0)
+	builder.PrependInt32Slot(8, ratio, 0)
 }
 func ScenarioResourceInfoExcelAddLobbyAniPath(builder *flatbuffers.Builder, lobbyAniPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(lobbyAniPath), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(lobbyAniPath), 0)
 }
 func ScenarioResourceInfoExcelAddMovieCgPath(builder *flatbuffers.Builder, movieCgPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(movieCgPath), 0)
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(movieCgPath), 0)
 }
 func ScenarioResourceInfoExcelAddLocalizeId(builder *flatbuffers.Builder, localizeId uint32) {
-	builder.PrependUint32Slot(9, localizeId, 0)
+	builder.PrependUint32Slot(11, localizeId, 0)
 }
 func ScenarioResourceInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

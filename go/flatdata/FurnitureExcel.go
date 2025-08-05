@@ -93,8 +93,20 @@ func (rcv *FurnitureExcel) MutateSubCategory(n FurnitureSubCategory) bool {
 	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
-func (rcv *FurnitureExcel) LocalizeEtcId() uint32 {
+func (rcv *FurnitureExcel) CheckFloorDecoration() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *FurnitureExcel) MutateCheckFloorDecoration(n bool) bool {
+	return rcv._tab.MutateBoolSlot(14, n)
+}
+
+func (rcv *FurnitureExcel) LocalizeEtcId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -102,11 +114,11 @@ func (rcv *FurnitureExcel) LocalizeEtcId() uint32 {
 }
 
 func (rcv *FurnitureExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(14, n)
+	return rcv._tab.MutateUint32Slot(16, n)
 }
 
 func (rcv *FurnitureExcel) StarGradeInit() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -114,11 +126,11 @@ func (rcv *FurnitureExcel) StarGradeInit() int32 {
 }
 
 func (rcv *FurnitureExcel) MutateStarGradeInit(n int32) bool {
-	return rcv._tab.MutateInt32Slot(16, n)
+	return rcv._tab.MutateInt32Slot(18, n)
 }
 
 func (rcv *FurnitureExcel) Tier() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -126,11 +138,11 @@ func (rcv *FurnitureExcel) Tier() int64 {
 }
 
 func (rcv *FurnitureExcel) MutateTier(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func (rcv *FurnitureExcel) Icon() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -138,18 +150,6 @@ func (rcv *FurnitureExcel) Icon() []byte {
 }
 
 func (rcv *FurnitureExcel) SizeWidth() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FurnitureExcel) MutateSizeWidth(n int32) bool {
-	return rcv._tab.MutateInt32Slot(22, n)
-}
-
-func (rcv *FurnitureExcel) SizeHeight() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -157,11 +157,11 @@ func (rcv *FurnitureExcel) SizeHeight() int32 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateSizeHeight(n int32) bool {
+func (rcv *FurnitureExcel) MutateSizeWidth(n int32) bool {
 	return rcv._tab.MutateInt32Slot(24, n)
 }
 
-func (rcv *FurnitureExcel) OtherSize() int32 {
+func (rcv *FurnitureExcel) SizeHeight() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -169,11 +169,11 @@ func (rcv *FurnitureExcel) OtherSize() int32 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateOtherSize(n int32) bool {
+func (rcv *FurnitureExcel) MutateSizeHeight(n int32) bool {
 	return rcv._tab.MutateInt32Slot(26, n)
 }
 
-func (rcv *FurnitureExcel) ExpandWidth() int32 {
+func (rcv *FurnitureExcel) OtherSize() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -181,23 +181,23 @@ func (rcv *FurnitureExcel) ExpandWidth() int32 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateExpandWidth(n int32) bool {
+func (rcv *FurnitureExcel) MutateOtherSize(n int32) bool {
 	return rcv._tab.MutateInt32Slot(28, n)
 }
 
-func (rcv *FurnitureExcel) Enable() bool {
+func (rcv *FurnitureExcel) ExpandWidth() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *FurnitureExcel) MutateEnable(n bool) bool {
-	return rcv._tab.MutateBoolSlot(30, n)
+func (rcv *FurnitureExcel) MutateExpandWidth(n int32) bool {
+	return rcv._tab.MutateInt32Slot(30, n)
 }
 
-func (rcv *FurnitureExcel) ReverseRotation() bool {
+func (rcv *FurnitureExcel) Enable() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -205,19 +205,23 @@ func (rcv *FurnitureExcel) ReverseRotation() bool {
 	return false
 }
 
-func (rcv *FurnitureExcel) MutateReverseRotation(n bool) bool {
+func (rcv *FurnitureExcel) MutateEnable(n bool) bool {
 	return rcv._tab.MutateBoolSlot(32, n)
 }
 
-func (rcv *FurnitureExcel) Prefab() []byte {
+func (rcv *FurnitureExcel) ReverseRotation() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return nil
+	return false
 }
 
-func (rcv *FurnitureExcel) PrefabExpand() []byte {
+func (rcv *FurnitureExcel) MutateReverseRotation(n bool) bool {
+	return rcv._tab.MutateBoolSlot(34, n)
+}
+
+func (rcv *FurnitureExcel) Prefab() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -225,7 +229,7 @@ func (rcv *FurnitureExcel) PrefabExpand() []byte {
 	return nil
 }
 
-func (rcv *FurnitureExcel) SubPrefab() []byte {
+func (rcv *FurnitureExcel) PrefabExpand() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -233,7 +237,7 @@ func (rcv *FurnitureExcel) SubPrefab() []byte {
 	return nil
 }
 
-func (rcv *FurnitureExcel) SubExpandPrefab() []byte {
+func (rcv *FurnitureExcel) SubPrefab() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -241,7 +245,7 @@ func (rcv *FurnitureExcel) SubExpandPrefab() []byte {
 	return nil
 }
 
-func (rcv *FurnitureExcel) CornerPrefab() []byte {
+func (rcv *FurnitureExcel) SubExpandPrefab() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -249,19 +253,15 @@ func (rcv *FurnitureExcel) CornerPrefab() []byte {
 	return nil
 }
 
-func (rcv *FurnitureExcel) StackableMax() int64 {
+func (rcv *FurnitureExcel) CornerPrefab() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *FurnitureExcel) MutateStackableMax(n int64) bool {
-	return rcv._tab.MutateInt64Slot(44, n)
-}
-
-func (rcv *FurnitureExcel) RecipeCraftId() int64 {
+func (rcv *FurnitureExcel) StackableMax() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -269,11 +269,11 @@ func (rcv *FurnitureExcel) RecipeCraftId() int64 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateRecipeCraftId(n int64) bool {
+func (rcv *FurnitureExcel) MutateStackableMax(n int64) bool {
 	return rcv._tab.MutateInt64Slot(46, n)
 }
 
-func (rcv *FurnitureExcel) SetGroudpId() int64 {
+func (rcv *FurnitureExcel) RecipeCraftId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -281,11 +281,11 @@ func (rcv *FurnitureExcel) SetGroudpId() int64 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateSetGroudpId(n int64) bool {
+func (rcv *FurnitureExcel) MutateRecipeCraftId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(48, n)
 }
 
-func (rcv *FurnitureExcel) ComfortBonus() int64 {
+func (rcv *FurnitureExcel) SetGroudpId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -293,11 +293,11 @@ func (rcv *FurnitureExcel) ComfortBonus() int64 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateComfortBonus(n int64) bool {
+func (rcv *FurnitureExcel) MutateSetGroudpId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(50, n)
 }
 
-func (rcv *FurnitureExcel) VisitOperationType() int64 {
+func (rcv *FurnitureExcel) ComfortBonus() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -305,11 +305,11 @@ func (rcv *FurnitureExcel) VisitOperationType() int64 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateVisitOperationType(n int64) bool {
+func (rcv *FurnitureExcel) MutateComfortBonus(n int64) bool {
 	return rcv._tab.MutateInt64Slot(52, n)
 }
 
-func (rcv *FurnitureExcel) VisitBonusOperationType() int64 {
+func (rcv *FurnitureExcel) VisitOperationType() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -317,12 +317,24 @@ func (rcv *FurnitureExcel) VisitBonusOperationType() int64 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateVisitBonusOperationType(n int64) bool {
+func (rcv *FurnitureExcel) MutateVisitOperationType(n int64) bool {
 	return rcv._tab.MutateInt64Slot(54, n)
 }
 
-func (rcv *FurnitureExcel) Tags(j int) Tag {
+func (rcv *FurnitureExcel) VisitBonusOperationType() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FurnitureExcel) MutateVisitBonusOperationType(n int64) bool {
+	return rcv._tab.MutateInt64Slot(56, n)
+}
+
+func (rcv *FurnitureExcel) Tags(j int) Tag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -331,7 +343,7 @@ func (rcv *FurnitureExcel) Tags(j int) Tag {
 }
 
 func (rcv *FurnitureExcel) TagsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -339,7 +351,7 @@ func (rcv *FurnitureExcel) TagsLength() int {
 }
 
 func (rcv *FurnitureExcel) MutateTags(j int, n Tag) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -348,18 +360,6 @@ func (rcv *FurnitureExcel) MutateTags(j int, n Tag) bool {
 }
 
 func (rcv *FurnitureExcel) CraftQualityTier0() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FurnitureExcel) MutateCraftQualityTier0(n int64) bool {
-	return rcv._tab.MutateInt64Slot(58, n)
-}
-
-func (rcv *FurnitureExcel) CraftQualityTier1() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -367,11 +367,11 @@ func (rcv *FurnitureExcel) CraftQualityTier1() int64 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateCraftQualityTier1(n int64) bool {
+func (rcv *FurnitureExcel) MutateCraftQualityTier0(n int64) bool {
 	return rcv._tab.MutateInt64Slot(60, n)
 }
 
-func (rcv *FurnitureExcel) CraftQualityTier2() int64 {
+func (rcv *FurnitureExcel) CraftQualityTier1() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -379,11 +379,11 @@ func (rcv *FurnitureExcel) CraftQualityTier2() int64 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateCraftQualityTier2(n int64) bool {
+func (rcv *FurnitureExcel) MutateCraftQualityTier1(n int64) bool {
 	return rcv._tab.MutateInt64Slot(62, n)
 }
 
-func (rcv *FurnitureExcel) ShiftingCraftQuality() int64 {
+func (rcv *FurnitureExcel) CraftQualityTier2() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -391,12 +391,24 @@ func (rcv *FurnitureExcel) ShiftingCraftQuality() int64 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateShiftingCraftQuality(n int64) bool {
+func (rcv *FurnitureExcel) MutateCraftQualityTier2(n int64) bool {
 	return rcv._tab.MutateInt64Slot(64, n)
 }
 
-func (rcv *FurnitureExcel) FurnitureFunctionType() FurnitureFunctionType {
+func (rcv *FurnitureExcel) ShiftingCraftQuality() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FurnitureExcel) MutateShiftingCraftQuality(n int64) bool {
+	return rcv._tab.MutateInt64Slot(66, n)
+}
+
+func (rcv *FurnitureExcel) FurnitureFunctionType() FurnitureFunctionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
 		return FurnitureFunctionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -404,11 +416,11 @@ func (rcv *FurnitureExcel) FurnitureFunctionType() FurnitureFunctionType {
 }
 
 func (rcv *FurnitureExcel) MutateFurnitureFunctionType(n FurnitureFunctionType) bool {
-	return rcv._tab.MutateInt32Slot(66, int32(n))
+	return rcv._tab.MutateInt32Slot(68, int32(n))
 }
 
 func (rcv *FurnitureExcel) FurnitureFunctionParameter(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -417,7 +429,7 @@ func (rcv *FurnitureExcel) FurnitureFunctionParameter(j int) int64 {
 }
 
 func (rcv *FurnitureExcel) FurnitureFunctionParameterLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -425,7 +437,7 @@ func (rcv *FurnitureExcel) FurnitureFunctionParameterLength() int {
 }
 
 func (rcv *FurnitureExcel) MutateFurnitureFunctionParameter(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -434,18 +446,6 @@ func (rcv *FurnitureExcel) MutateFurnitureFunctionParameter(j int, n int64) bool
 }
 
 func (rcv *FurnitureExcel) VideoId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FurnitureExcel) MutateVideoId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(70, n)
-}
-
-func (rcv *FurnitureExcel) EventCollectionId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -453,11 +453,11 @@ func (rcv *FurnitureExcel) EventCollectionId() int64 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateEventCollectionId(n int64) bool {
+func (rcv *FurnitureExcel) MutateVideoId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(72, n)
 }
 
-func (rcv *FurnitureExcel) FurnitureBubbleOffsetX() int64 {
+func (rcv *FurnitureExcel) EventCollectionId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(74))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -465,11 +465,11 @@ func (rcv *FurnitureExcel) FurnitureBubbleOffsetX() int64 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateFurnitureBubbleOffsetX(n int64) bool {
+func (rcv *FurnitureExcel) MutateEventCollectionId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(74, n)
 }
 
-func (rcv *FurnitureExcel) FurnitureBubbleOffsetY() int64 {
+func (rcv *FurnitureExcel) FurnitureBubbleOffsetX() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(76))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -477,12 +477,24 @@ func (rcv *FurnitureExcel) FurnitureBubbleOffsetY() int64 {
 	return 0
 }
 
-func (rcv *FurnitureExcel) MutateFurnitureBubbleOffsetY(n int64) bool {
+func (rcv *FurnitureExcel) MutateFurnitureBubbleOffsetX(n int64) bool {
 	return rcv._tab.MutateInt64Slot(76, n)
 }
 
-func (rcv *FurnitureExcel) CafeCharacterStateReq(j int) []byte {
+func (rcv *FurnitureExcel) FurnitureBubbleOffsetY() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(78))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FurnitureExcel) MutateFurnitureBubbleOffsetY(n int64) bool {
+	return rcv._tab.MutateInt64Slot(78, n)
+}
+
+func (rcv *FurnitureExcel) CafeCharacterStateReq(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(80))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -491,7 +503,7 @@ func (rcv *FurnitureExcel) CafeCharacterStateReq(j int) []byte {
 }
 
 func (rcv *FurnitureExcel) CafeCharacterStateReqLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(78))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(80))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -499,7 +511,7 @@ func (rcv *FurnitureExcel) CafeCharacterStateReqLength() int {
 }
 
 func (rcv *FurnitureExcel) CafeCharacterStateAdd(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(80))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(82))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -508,7 +520,7 @@ func (rcv *FurnitureExcel) CafeCharacterStateAdd(j int) []byte {
 }
 
 func (rcv *FurnitureExcel) CafeCharacterStateAddLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(80))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(82))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -516,7 +528,7 @@ func (rcv *FurnitureExcel) CafeCharacterStateAddLength() int {
 }
 
 func (rcv *FurnitureExcel) CafeCharacterStateMake(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(82))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(84))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -525,7 +537,7 @@ func (rcv *FurnitureExcel) CafeCharacterStateMake(j int) []byte {
 }
 
 func (rcv *FurnitureExcel) CafeCharacterStateMakeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(82))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(84))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -533,7 +545,7 @@ func (rcv *FurnitureExcel) CafeCharacterStateMakeLength() int {
 }
 
 func (rcv *FurnitureExcel) CafeCharacterStateOnly(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(84))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(86))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -542,7 +554,7 @@ func (rcv *FurnitureExcel) CafeCharacterStateOnly(j int) []byte {
 }
 
 func (rcv *FurnitureExcel) CafeCharacterStateOnlyLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(84))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(86))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -550,7 +562,7 @@ func (rcv *FurnitureExcel) CafeCharacterStateOnlyLength() int {
 }
 
 func FurnitureExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(41)
+	builder.StartObject(42)
 }
 func FurnitureExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -567,128 +579,131 @@ func FurnitureExcelAddCategory(builder *flatbuffers.Builder, category FurnitureC
 func FurnitureExcelAddSubCategory(builder *flatbuffers.Builder, subCategory FurnitureSubCategory) {
 	builder.PrependInt32Slot(4, int32(subCategory), 0)
 }
+func FurnitureExcelAddCheckFloorDecoration(builder *flatbuffers.Builder, checkFloorDecoration bool) {
+	builder.PrependBoolSlot(5, checkFloorDecoration, false)
+}
 func FurnitureExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(5, localizeEtcId, 0)
+	builder.PrependUint32Slot(6, localizeEtcId, 0)
 }
 func FurnitureExcelAddStarGradeInit(builder *flatbuffers.Builder, starGradeInit int32) {
-	builder.PrependInt32Slot(6, starGradeInit, 0)
+	builder.PrependInt32Slot(7, starGradeInit, 0)
 }
 func FurnitureExcelAddTier(builder *flatbuffers.Builder, tier int64) {
-	builder.PrependInt64Slot(7, tier, 0)
+	builder.PrependInt64Slot(8, tier, 0)
 }
 func FurnitureExcelAddIcon(builder *flatbuffers.Builder, icon flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(icon), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(icon), 0)
 }
 func FurnitureExcelAddSizeWidth(builder *flatbuffers.Builder, sizeWidth int32) {
-	builder.PrependInt32Slot(9, sizeWidth, 0)
+	builder.PrependInt32Slot(10, sizeWidth, 0)
 }
 func FurnitureExcelAddSizeHeight(builder *flatbuffers.Builder, sizeHeight int32) {
-	builder.PrependInt32Slot(10, sizeHeight, 0)
+	builder.PrependInt32Slot(11, sizeHeight, 0)
 }
 func FurnitureExcelAddOtherSize(builder *flatbuffers.Builder, otherSize int32) {
-	builder.PrependInt32Slot(11, otherSize, 0)
+	builder.PrependInt32Slot(12, otherSize, 0)
 }
 func FurnitureExcelAddExpandWidth(builder *flatbuffers.Builder, expandWidth int32) {
-	builder.PrependInt32Slot(12, expandWidth, 0)
+	builder.PrependInt32Slot(13, expandWidth, 0)
 }
 func FurnitureExcelAddEnable(builder *flatbuffers.Builder, enable bool) {
-	builder.PrependBoolSlot(13, enable, false)
+	builder.PrependBoolSlot(14, enable, false)
 }
 func FurnitureExcelAddReverseRotation(builder *flatbuffers.Builder, reverseRotation bool) {
-	builder.PrependBoolSlot(14, reverseRotation, false)
+	builder.PrependBoolSlot(15, reverseRotation, false)
 }
 func FurnitureExcelAddPrefab(builder *flatbuffers.Builder, prefab flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(prefab), 0)
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(prefab), 0)
 }
 func FurnitureExcelAddPrefabExpand(builder *flatbuffers.Builder, prefabExpand flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(prefabExpand), 0)
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(prefabExpand), 0)
 }
 func FurnitureExcelAddSubPrefab(builder *flatbuffers.Builder, subPrefab flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(subPrefab), 0)
+	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(subPrefab), 0)
 }
 func FurnitureExcelAddSubExpandPrefab(builder *flatbuffers.Builder, subExpandPrefab flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(subExpandPrefab), 0)
+	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(subExpandPrefab), 0)
 }
 func FurnitureExcelAddCornerPrefab(builder *flatbuffers.Builder, cornerPrefab flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(cornerPrefab), 0)
+	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(cornerPrefab), 0)
 }
 func FurnitureExcelAddStackableMax(builder *flatbuffers.Builder, stackableMax int64) {
-	builder.PrependInt64Slot(20, stackableMax, 0)
+	builder.PrependInt64Slot(21, stackableMax, 0)
 }
 func FurnitureExcelAddRecipeCraftId(builder *flatbuffers.Builder, recipeCraftId int64) {
-	builder.PrependInt64Slot(21, recipeCraftId, 0)
+	builder.PrependInt64Slot(22, recipeCraftId, 0)
 }
 func FurnitureExcelAddSetGroudpId(builder *flatbuffers.Builder, setGroudpId int64) {
-	builder.PrependInt64Slot(22, setGroudpId, 0)
+	builder.PrependInt64Slot(23, setGroudpId, 0)
 }
 func FurnitureExcelAddComfortBonus(builder *flatbuffers.Builder, comfortBonus int64) {
-	builder.PrependInt64Slot(23, comfortBonus, 0)
+	builder.PrependInt64Slot(24, comfortBonus, 0)
 }
 func FurnitureExcelAddVisitOperationType(builder *flatbuffers.Builder, visitOperationType int64) {
-	builder.PrependInt64Slot(24, visitOperationType, 0)
+	builder.PrependInt64Slot(25, visitOperationType, 0)
 }
 func FurnitureExcelAddVisitBonusOperationType(builder *flatbuffers.Builder, visitBonusOperationType int64) {
-	builder.PrependInt64Slot(25, visitBonusOperationType, 0)
+	builder.PrependInt64Slot(26, visitBonusOperationType, 0)
 }
 func FurnitureExcelAddTags(builder *flatbuffers.Builder, tags flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(26, flatbuffers.UOffsetT(tags), 0)
+	builder.PrependUOffsetTSlot(27, flatbuffers.UOffsetT(tags), 0)
 }
 func FurnitureExcelStartTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func FurnitureExcelAddCraftQualityTier0(builder *flatbuffers.Builder, craftQualityTier0 int64) {
-	builder.PrependInt64Slot(27, craftQualityTier0, 0)
+	builder.PrependInt64Slot(28, craftQualityTier0, 0)
 }
 func FurnitureExcelAddCraftQualityTier1(builder *flatbuffers.Builder, craftQualityTier1 int64) {
-	builder.PrependInt64Slot(28, craftQualityTier1, 0)
+	builder.PrependInt64Slot(29, craftQualityTier1, 0)
 }
 func FurnitureExcelAddCraftQualityTier2(builder *flatbuffers.Builder, craftQualityTier2 int64) {
-	builder.PrependInt64Slot(29, craftQualityTier2, 0)
+	builder.PrependInt64Slot(30, craftQualityTier2, 0)
 }
 func FurnitureExcelAddShiftingCraftQuality(builder *flatbuffers.Builder, shiftingCraftQuality int64) {
-	builder.PrependInt64Slot(30, shiftingCraftQuality, 0)
+	builder.PrependInt64Slot(31, shiftingCraftQuality, 0)
 }
 func FurnitureExcelAddFurnitureFunctionType(builder *flatbuffers.Builder, furnitureFunctionType FurnitureFunctionType) {
-	builder.PrependInt32Slot(31, int32(furnitureFunctionType), 0)
+	builder.PrependInt32Slot(32, int32(furnitureFunctionType), 0)
 }
 func FurnitureExcelAddFurnitureFunctionParameter(builder *flatbuffers.Builder, furnitureFunctionParameter flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(32, flatbuffers.UOffsetT(furnitureFunctionParameter), 0)
+	builder.PrependUOffsetTSlot(33, flatbuffers.UOffsetT(furnitureFunctionParameter), 0)
 }
 func FurnitureExcelStartFurnitureFunctionParameterVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func FurnitureExcelAddVideoId(builder *flatbuffers.Builder, videoId int64) {
-	builder.PrependInt64Slot(33, videoId, 0)
+	builder.PrependInt64Slot(34, videoId, 0)
 }
 func FurnitureExcelAddEventCollectionId(builder *flatbuffers.Builder, eventCollectionId int64) {
-	builder.PrependInt64Slot(34, eventCollectionId, 0)
+	builder.PrependInt64Slot(35, eventCollectionId, 0)
 }
 func FurnitureExcelAddFurnitureBubbleOffsetX(builder *flatbuffers.Builder, furnitureBubbleOffsetX int64) {
-	builder.PrependInt64Slot(35, furnitureBubbleOffsetX, 0)
+	builder.PrependInt64Slot(36, furnitureBubbleOffsetX, 0)
 }
 func FurnitureExcelAddFurnitureBubbleOffsetY(builder *flatbuffers.Builder, furnitureBubbleOffsetY int64) {
-	builder.PrependInt64Slot(36, furnitureBubbleOffsetY, 0)
+	builder.PrependInt64Slot(37, furnitureBubbleOffsetY, 0)
 }
 func FurnitureExcelAddCafeCharacterStateReq(builder *flatbuffers.Builder, cafeCharacterStateReq flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(37, flatbuffers.UOffsetT(cafeCharacterStateReq), 0)
+	builder.PrependUOffsetTSlot(38, flatbuffers.UOffsetT(cafeCharacterStateReq), 0)
 }
 func FurnitureExcelStartCafeCharacterStateReqVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func FurnitureExcelAddCafeCharacterStateAdd(builder *flatbuffers.Builder, cafeCharacterStateAdd flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(38, flatbuffers.UOffsetT(cafeCharacterStateAdd), 0)
+	builder.PrependUOffsetTSlot(39, flatbuffers.UOffsetT(cafeCharacterStateAdd), 0)
 }
 func FurnitureExcelStartCafeCharacterStateAddVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func FurnitureExcelAddCafeCharacterStateMake(builder *flatbuffers.Builder, cafeCharacterStateMake flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(39, flatbuffers.UOffsetT(cafeCharacterStateMake), 0)
+	builder.PrependUOffsetTSlot(40, flatbuffers.UOffsetT(cafeCharacterStateMake), 0)
 }
 func FurnitureExcelStartCafeCharacterStateMakeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func FurnitureExcelAddCafeCharacterStateOnly(builder *flatbuffers.Builder, cafeCharacterStateOnly flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(40, flatbuffers.UOffsetT(cafeCharacterStateOnly), 0)
+	builder.PrependUOffsetTSlot(41, flatbuffers.UOffsetT(cafeCharacterStateOnly), 0)
 }
 func FurnitureExcelStartCafeCharacterStateOnlyVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)

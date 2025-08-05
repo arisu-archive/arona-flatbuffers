@@ -689,7 +689,21 @@ class ConstCombatExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def ConstCombatExcelStart(builder): builder.StartObject(95)
+    # ConstCombatExcel
+    def ExcessiveTouchCheckTime(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(194))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # ConstCombatExcel
+    def ExcessiveTouchCheckCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(196))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+def ConstCombatExcelStart(builder): builder.StartObject(97)
 def Start(builder):
     return ConstCombatExcelStart(builder)
 def ConstCombatExcelAddSkillHandCount(builder, skillHandCount): builder.PrependInt32Slot(0, skillHandCount, 0)
@@ -977,6 +991,12 @@ def AddEchelonExtensionCostRegenRatio(builder, echelonExtensionCostRegenRatio):
 def ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(builder, checkCheaterMaxUseCostMultiFloorRaid): builder.PrependInt32Slot(94, checkCheaterMaxUseCostMultiFloorRaid, 0)
 def AddCheckCheaterMaxUseCostMultiFloorRaid(builder, checkCheaterMaxUseCostMultiFloorRaid):
     return ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(builder, checkCheaterMaxUseCostMultiFloorRaid)
+def ConstCombatExcelAddExcessiveTouchCheckTime(builder, excessiveTouchCheckTime): builder.PrependFloat32Slot(95, excessiveTouchCheckTime, 0.0)
+def AddExcessiveTouchCheckTime(builder, excessiveTouchCheckTime):
+    return ConstCombatExcelAddExcessiveTouchCheckTime(builder, excessiveTouchCheckTime)
+def ConstCombatExcelAddExcessiveTouchCheckCount(builder, excessiveTouchCheckCount): builder.PrependInt32Slot(96, excessiveTouchCheckCount, 0)
+def AddExcessiveTouchCheckCount(builder, excessiveTouchCheckCount):
+    return ConstCombatExcelAddExcessiveTouchCheckCount(builder, excessiveTouchCheckCount)
 def ConstCombatExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ConstCombatExcelEnd(builder)
