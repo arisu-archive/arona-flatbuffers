@@ -10,12 +10,12 @@ import (
 // EventContentMeetupExcelDto represents a FlatBuffers table
 type EventContentMeetupExcelDto struct {
 	fbsutils.FlatBuffer
-	CharacterId              int64                    `json:"character_id"`
-	EventContentId           int64                    `json:"event_content_id"`
-	ConditionParameter       []int64                  `json:"condition_parameter"`
-	ConditionType            MeetupConditionType      `json:"condition_type"`
-	ConditionScenarioGroupId int64                    `json:"condition_scenario_group_id"`
 	Id                       int64                    `json:"id"`
+	EventContentId           int64                    `json:"event_content_id"`
+	CharacterId              int64                    `json:"character_id"`
+	ConditionScenarioGroupId int64                    `json:"condition_scenario_group_id"`
+	ConditionType            MeetupConditionType      `json:"condition_type"`
+	ConditionParameter       []int64                  `json:"condition_parameter"`
 	ConditionPrintType       MeetupConditionPrintType `json:"condition_print_type"`
 }
 
@@ -25,16 +25,16 @@ func (t *EventContentMeetupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMeetup"))
 	}
 	EventContentMeetupExcelStart(b)
-	EventContentMeetupExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
+	EventContentMeetupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentMeetupExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentMeetupExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
+	EventContentMeetupExcelAddConditionScenarioGroupId(b, fbsutils.Convert(t.ConditionScenarioGroupId, t.FlatBuffer.TableKey))
+	EventContentMeetupExcelAddConditionType(b, fbsutils.Convert(t.ConditionType, t.FlatBuffer.TableKey))
 	EventContentMeetupExcelStartConditionParameterVector(b, len(t.ConditionParameter))
 	for i := range len(t.ConditionParameter) {
 		b.PrependInt64(fbsutils.Convert(t.ConditionParameter[len(t.ConditionParameter)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentMeetupExcelAddConditionParameter(b, b.EndVector(len(t.ConditionParameter)))
-	EventContentMeetupExcelAddConditionType(b, fbsutils.Convert(t.ConditionType, t.FlatBuffer.TableKey))
-	EventContentMeetupExcelAddConditionScenarioGroupId(b, fbsutils.Convert(t.ConditionScenarioGroupId, t.FlatBuffer.TableKey))
-	EventContentMeetupExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentMeetupExcelAddConditionPrintType(b, fbsutils.Convert(t.ConditionPrintType, t.FlatBuffer.TableKey))
 	return EventContentMeetupExcelEnd(b)
 }
@@ -51,15 +51,15 @@ func (t *EventContentMeetupExcelDto) UnmarshalMessage(e *EventContentMeetupExcel
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMeetup"))
 	}
-	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
+	t.ConditionScenarioGroupId = fbsutils.Convert(e.ConditionScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.ConditionType = MeetupConditionType(fbsutils.Convert(int32(e.ConditionType()), t.FlatBuffer.TableKey))
 	t.ConditionParameter = make([]int64, e.ConditionParameterLength())
 	for i := range e.ConditionParameterLength() {
 		t.ConditionParameter[i] = fbsutils.Convert(e.ConditionParameter(i), t.FlatBuffer.TableKey)
 	}
-	t.ConditionType = MeetupConditionType(fbsutils.Convert(int32(e.ConditionType()), t.FlatBuffer.TableKey))
-	t.ConditionScenarioGroupId = fbsutils.Convert(e.ConditionScenarioGroupId(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ConditionPrintType = MeetupConditionPrintType(fbsutils.Convert(int32(e.ConditionPrintType()), t.FlatBuffer.TableKey))
 	return nil
 }

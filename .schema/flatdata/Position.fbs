@@ -1,6 +1,6 @@
 namespace FlatData;
 
 table Position {
-    z: float;
     x: float;
+    z: float;
 }

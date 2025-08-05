@@ -45,16 +45,16 @@ func (rcv *CombatEmojiExcel) MutateUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *CombatEmojiExcel) EmojiReversal() bool {
+func (rcv *CombatEmojiExcel) EmojiEvent() EmojiEvent {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return EmojiEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return false
+	return 0
 }
 
-func (rcv *CombatEmojiExcel) MutateEmojiReversal(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
+func (rcv *CombatEmojiExcel) MutateEmojiEvent(n EmojiEvent) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
 func (rcv *CombatEmojiExcel) OrderOfPriority() int32 {
@@ -69,28 +69,28 @@ func (rcv *CombatEmojiExcel) MutateOrderOfPriority(n int32) bool {
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *CombatEmojiExcel) ShowEmojiDelay() int32 {
+func (rcv *CombatEmojiExcel) EmojiDuration() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *CombatEmojiExcel) MutateShowEmojiDelay(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
+func (rcv *CombatEmojiExcel) MutateEmojiDuration(n bool) bool {
+	return rcv._tab.MutateBoolSlot(10, n)
 }
 
-func (rcv *CombatEmojiExcel) EmojiEvent() EmojiEvent {
+func (rcv *CombatEmojiExcel) EmojiReversal() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return EmojiEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *CombatEmojiExcel) MutateEmojiEvent(n EmojiEvent) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
+func (rcv *CombatEmojiExcel) MutateEmojiReversal(n bool) bool {
+	return rcv._tab.MutateBoolSlot(12, n)
 }
 
 func (rcv *CombatEmojiExcel) EmojiTurnOn() bool {
@@ -105,19 +105,19 @@ func (rcv *CombatEmojiExcel) MutateEmojiTurnOn(n bool) bool {
 	return rcv._tab.MutateBoolSlot(14, n)
 }
 
-func (rcv *CombatEmojiExcel) ShowDefaultBg() bool {
+func (rcv *CombatEmojiExcel) ShowEmojiDelay() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *CombatEmojiExcel) MutateShowDefaultBg(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
+func (rcv *CombatEmojiExcel) MutateShowEmojiDelay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
 }
 
-func (rcv *CombatEmojiExcel) EmojiDuration() bool {
+func (rcv *CombatEmojiExcel) ShowDefaultBg() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -125,7 +125,7 @@ func (rcv *CombatEmojiExcel) EmojiDuration() bool {
 	return false
 }
 
-func (rcv *CombatEmojiExcel) MutateEmojiDuration(n bool) bool {
+func (rcv *CombatEmojiExcel) MutateShowDefaultBg(n bool) bool {
 	return rcv._tab.MutateBoolSlot(18, n)
 }
 
@@ -135,26 +135,26 @@ func CombatEmojiExcelStart(builder *flatbuffers.Builder) {
 func CombatEmojiExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 	builder.PrependInt64Slot(0, uniqueId, 0)
 }
-func CombatEmojiExcelAddEmojiReversal(builder *flatbuffers.Builder, emojiReversal bool) {
-	builder.PrependBoolSlot(1, emojiReversal, false)
+func CombatEmojiExcelAddEmojiEvent(builder *flatbuffers.Builder, emojiEvent EmojiEvent) {
+	builder.PrependInt32Slot(1, int32(emojiEvent), 0)
 }
 func CombatEmojiExcelAddOrderOfPriority(builder *flatbuffers.Builder, orderOfPriority int32) {
 	builder.PrependInt32Slot(2, orderOfPriority, 0)
 }
-func CombatEmojiExcelAddShowEmojiDelay(builder *flatbuffers.Builder, showEmojiDelay int32) {
-	builder.PrependInt32Slot(3, showEmojiDelay, 0)
+func CombatEmojiExcelAddEmojiDuration(builder *flatbuffers.Builder, emojiDuration bool) {
+	builder.PrependBoolSlot(3, emojiDuration, false)
 }
-func CombatEmojiExcelAddEmojiEvent(builder *flatbuffers.Builder, emojiEvent EmojiEvent) {
-	builder.PrependInt32Slot(4, int32(emojiEvent), 0)
+func CombatEmojiExcelAddEmojiReversal(builder *flatbuffers.Builder, emojiReversal bool) {
+	builder.PrependBoolSlot(4, emojiReversal, false)
 }
 func CombatEmojiExcelAddEmojiTurnOn(builder *flatbuffers.Builder, emojiTurnOn bool) {
 	builder.PrependBoolSlot(5, emojiTurnOn, false)
 }
-func CombatEmojiExcelAddShowDefaultBg(builder *flatbuffers.Builder, showDefaultBg bool) {
-	builder.PrependBoolSlot(6, showDefaultBg, false)
+func CombatEmojiExcelAddShowEmojiDelay(builder *flatbuffers.Builder, showEmojiDelay int32) {
+	builder.PrependInt32Slot(6, showEmojiDelay, 0)
 }
-func CombatEmojiExcelAddEmojiDuration(builder *flatbuffers.Builder, emojiDuration bool) {
-	builder.PrependBoolSlot(7, emojiDuration, false)
+func CombatEmojiExcelAddShowDefaultBg(builder *flatbuffers.Builder, showDefaultBg bool) {
+	builder.PrependBoolSlot(7, showDefaultBg, false)
 }
 func CombatEmojiExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

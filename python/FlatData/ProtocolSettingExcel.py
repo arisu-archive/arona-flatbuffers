@@ -25,11 +25,11 @@ class ProtocolSettingExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ProtocolSettingExcel
-    def Currency(self):
+    def Protocol(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # ProtocolSettingExcel
     def OpenConditionContent(self):
@@ -39,44 +39,44 @@ class ProtocolSettingExcel(object):
         return 0
 
     # ProtocolSettingExcel
-    def Inventory(self):
+    def Currency(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # ProtocolSettingExcel
-    def Mail(self):
+    def Inventory(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # ProtocolSettingExcel
-    def Protocol(self):
+    def Mail(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
 def ProtocolSettingExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return ProtocolSettingExcelStart(builder)
-def ProtocolSettingExcelAddCurrency(builder, currency): builder.PrependBoolSlot(0, currency, 0)
-def AddCurrency(builder, currency):
-    return ProtocolSettingExcelAddCurrency(builder, currency)
+def ProtocolSettingExcelAddProtocol(builder, protocol): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(protocol), 0)
+def AddProtocol(builder, protocol):
+    return ProtocolSettingExcelAddProtocol(builder, protocol)
 def ProtocolSettingExcelAddOpenConditionContent(builder, openConditionContent): builder.PrependInt32Slot(1, openConditionContent, 0)
 def AddOpenConditionContent(builder, openConditionContent):
     return ProtocolSettingExcelAddOpenConditionContent(builder, openConditionContent)
-def ProtocolSettingExcelAddInventory(builder, inventory): builder.PrependBoolSlot(2, inventory, 0)
+def ProtocolSettingExcelAddCurrency(builder, currency): builder.PrependBoolSlot(2, currency, 0)
+def AddCurrency(builder, currency):
+    return ProtocolSettingExcelAddCurrency(builder, currency)
+def ProtocolSettingExcelAddInventory(builder, inventory): builder.PrependBoolSlot(3, inventory, 0)
 def AddInventory(builder, inventory):
     return ProtocolSettingExcelAddInventory(builder, inventory)
-def ProtocolSettingExcelAddMail(builder, mail): builder.PrependBoolSlot(3, mail, 0)
+def ProtocolSettingExcelAddMail(builder, mail): builder.PrependBoolSlot(4, mail, 0)
 def AddMail(builder, mail):
     return ProtocolSettingExcelAddMail(builder, mail)
-def ProtocolSettingExcelAddProtocol(builder, protocol): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(protocol), 0)
-def AddProtocol(builder, protocol):
-    return ProtocolSettingExcelAddProtocol(builder, protocol)
 def ProtocolSettingExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ProtocolSettingExcelEnd(builder)

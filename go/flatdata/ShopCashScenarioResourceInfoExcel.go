@@ -45,16 +45,8 @@ func (rcv *ShopCashScenarioResourceInfoExcel) MutateScenarioResrouceInfoId(n int
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *ShopCashScenarioResourceInfoExcel) IconPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *ShopCashScenarioResourceInfoExcel) ShopCashId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -62,7 +54,15 @@ func (rcv *ShopCashScenarioResourceInfoExcel) ShopCashId() int64 {
 }
 
 func (rcv *ShopCashScenarioResourceInfoExcel) MutateShopCashId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *ShopCashScenarioResourceInfoExcel) IconPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func ShopCashScenarioResourceInfoExcelStart(builder *flatbuffers.Builder) {
@@ -71,11 +71,11 @@ func ShopCashScenarioResourceInfoExcelStart(builder *flatbuffers.Builder) {
 func ShopCashScenarioResourceInfoExcelAddScenarioResrouceInfoId(builder *flatbuffers.Builder, scenarioResrouceInfoId int64) {
 	builder.PrependInt64Slot(0, scenarioResrouceInfoId, 0)
 }
-func ShopCashScenarioResourceInfoExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(iconPath), 0)
-}
 func ShopCashScenarioResourceInfoExcelAddShopCashId(builder *flatbuffers.Builder, shopCashId int64) {
-	builder.PrependInt64Slot(2, shopCashId, 0)
+	builder.PrependInt64Slot(1, shopCashId, 0)
+}
+func ShopCashScenarioResourceInfoExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(iconPath), 0)
 }
 func ShopCashScenarioResourceInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

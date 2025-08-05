@@ -39,21 +39,21 @@ class BuffParticleExcel(object):
         return None
 
     # BuffParticleExcel
-    def ResourcePath(self):
+    def BuffType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # BuffParticleExcel
-    def BuffType(self):
+    def BuffName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # BuffParticleExcel
-    def BuffName(self):
+    def ResourcePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -68,15 +68,15 @@ def AddUniqueId(builder, uniqueId):
 def BuffParticleExcelAddUniqueName(builder, uniqueName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(uniqueName), 0)
 def AddUniqueName(builder, uniqueName):
     return BuffParticleExcelAddUniqueName(builder, uniqueName)
-def BuffParticleExcelAddResourcePath(builder, resourcePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(resourcePath), 0)
-def AddResourcePath(builder, resourcePath):
-    return BuffParticleExcelAddResourcePath(builder, resourcePath)
-def BuffParticleExcelAddBuffType(builder, buffType): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(buffType), 0)
+def BuffParticleExcelAddBuffType(builder, buffType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(buffType), 0)
 def AddBuffType(builder, buffType):
     return BuffParticleExcelAddBuffType(builder, buffType)
-def BuffParticleExcelAddBuffName(builder, buffName): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(buffName), 0)
+def BuffParticleExcelAddBuffName(builder, buffName): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(buffName), 0)
 def AddBuffName(builder, buffName):
     return BuffParticleExcelAddBuffName(builder, buffName)
+def BuffParticleExcelAddResourcePath(builder, resourcePath): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(resourcePath), 0)
+def AddResourcePath(builder, resourcePath):
+    return BuffParticleExcelAddResourcePath(builder, resourcePath)
 def BuffParticleExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return BuffParticleExcelEnd(builder)

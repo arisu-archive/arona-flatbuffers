@@ -33,7 +33,7 @@ func (rcv *GroundNodeFlat) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *GroundNodeFlat) Y() int32 {
+func (rcv *GroundNodeFlat) X() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -41,48 +41,36 @@ func (rcv *GroundNodeFlat) Y() int32 {
 	return 0
 }
 
-func (rcv *GroundNodeFlat) MutateY(n int32) bool {
+func (rcv *GroundNodeFlat) MutateX(n int32) bool {
 	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *GroundNodeFlat) OriginalNodeType() GroundNodeType {
+func (rcv *GroundNodeFlat) Y() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return GroundNodeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *GroundNodeFlat) MutateOriginalNodeType(n GroundNodeType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *GroundNodeFlat) X() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *GroundNodeFlat) MutateX(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
+func (rcv *GroundNodeFlat) MutateY(n int32) bool {
+	return rcv._tab.MutateInt32Slot(6, n)
 }
 
-func (rcv *GroundNodeFlat) NodeType() GroundNodeType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *GroundNodeFlat) IsCanNotUseSkill() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return GroundNodeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *GroundNodeFlat) MutateNodeType(n GroundNodeType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
+func (rcv *GroundNodeFlat) MutateIsCanNotUseSkill(n bool) bool {
+	return rcv._tab.MutateBoolSlot(8, n)
 }
 
 func (rcv *GroundNodeFlat) Position(obj *GroundVector3) *GroundVector3 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		x := rcv._tab.Indirect(o + rcv._tab.Pos)
 		if obj == nil {
@@ -94,38 +82,50 @@ func (rcv *GroundNodeFlat) Position(obj *GroundVector3) *GroundVector3 {
 	return nil
 }
 
-func (rcv *GroundNodeFlat) IsCanNotUseSkill() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+func (rcv *GroundNodeFlat) NodeType() GroundNodeType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return GroundNodeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return false
+	return 0
 }
 
-func (rcv *GroundNodeFlat) MutateIsCanNotUseSkill(n bool) bool {
-	return rcv._tab.MutateBoolSlot(14, n)
+func (rcv *GroundNodeFlat) MutateNodeType(n GroundNodeType) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
+}
+
+func (rcv *GroundNodeFlat) OriginalNodeType() GroundNodeType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return GroundNodeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *GroundNodeFlat) MutateOriginalNodeType(n GroundNodeType) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
 }
 
 func GroundNodeFlatStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func GroundNodeFlatAddY(builder *flatbuffers.Builder, y int32) {
-	builder.PrependInt32Slot(0, y, 0)
-}
-func GroundNodeFlatAddOriginalNodeType(builder *flatbuffers.Builder, originalNodeType GroundNodeType) {
-	builder.PrependInt32Slot(1, int32(originalNodeType), 0)
-}
 func GroundNodeFlatAddX(builder *flatbuffers.Builder, x int32) {
-	builder.PrependInt32Slot(2, x, 0)
+	builder.PrependInt32Slot(0, x, 0)
 }
-func GroundNodeFlatAddNodeType(builder *flatbuffers.Builder, nodeType GroundNodeType) {
-	builder.PrependInt32Slot(3, int32(nodeType), 0)
-}
-func GroundNodeFlatAddPosition(builder *flatbuffers.Builder, position flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(position), 0)
+func GroundNodeFlatAddY(builder *flatbuffers.Builder, y int32) {
+	builder.PrependInt32Slot(1, y, 0)
 }
 func GroundNodeFlatAddIsCanNotUseSkill(builder *flatbuffers.Builder, isCanNotUseSkill bool) {
-	builder.PrependBoolSlot(5, isCanNotUseSkill, false)
+	builder.PrependBoolSlot(2, isCanNotUseSkill, false)
+}
+func GroundNodeFlatAddPosition(builder *flatbuffers.Builder, position flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(position), 0)
+}
+func GroundNodeFlatAddNodeType(builder *flatbuffers.Builder, nodeType GroundNodeType) {
+	builder.PrependInt32Slot(4, int32(nodeType), 0)
+}
+func GroundNodeFlatAddOriginalNodeType(builder *flatbuffers.Builder, originalNodeType GroundNodeType) {
+	builder.PrependInt32Slot(5, int32(originalNodeType), 0)
 }
 func GroundNodeFlatEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

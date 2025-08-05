@@ -33,32 +33,8 @@ func (rcv *ContentsScenarioExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ContentsScenarioExcel) ScenarioContentType() ScenarioContentType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return ScenarioContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ContentsScenarioExcel) MutateScenarioContentType(n ScenarioContentType) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
-}
-
-func (rcv *ContentsScenarioExcel) DisplayOrder() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ContentsScenarioExcel) MutateDisplayOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
-}
-
 func (rcv *ContentsScenarioExcel) Id() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -66,11 +42,11 @@ func (rcv *ContentsScenarioExcel) Id() uint32 {
 }
 
 func (rcv *ContentsScenarioExcel) MutateId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(8, n)
+	return rcv._tab.MutateUint32Slot(4, n)
 }
 
 func (rcv *ContentsScenarioExcel) LocalizeId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -78,7 +54,31 @@ func (rcv *ContentsScenarioExcel) LocalizeId() uint32 {
 }
 
 func (rcv *ContentsScenarioExcel) MutateLocalizeId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
+	return rcv._tab.MutateUint32Slot(6, n)
+}
+
+func (rcv *ContentsScenarioExcel) DisplayOrder() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ContentsScenarioExcel) MutateDisplayOrder(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *ContentsScenarioExcel) ScenarioContentType() ScenarioContentType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return ScenarioContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ContentsScenarioExcel) MutateScenarioContentType(n ScenarioContentType) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
 func (rcv *ContentsScenarioExcel) ScenarioGroupId(j int) int64 {
@@ -110,17 +110,17 @@ func (rcv *ContentsScenarioExcel) MutateScenarioGroupId(j int, n int64) bool {
 func ContentsScenarioExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func ContentsScenarioExcelAddScenarioContentType(builder *flatbuffers.Builder, scenarioContentType ScenarioContentType) {
-	builder.PrependInt32Slot(0, int32(scenarioContentType), 0)
-}
-func ContentsScenarioExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int32) {
-	builder.PrependInt32Slot(1, displayOrder, 0)
-}
 func ContentsScenarioExcelAddId(builder *flatbuffers.Builder, id uint32) {
-	builder.PrependUint32Slot(2, id, 0)
+	builder.PrependUint32Slot(0, id, 0)
 }
 func ContentsScenarioExcelAddLocalizeId(builder *flatbuffers.Builder, localizeId uint32) {
-	builder.PrependUint32Slot(3, localizeId, 0)
+	builder.PrependUint32Slot(1, localizeId, 0)
+}
+func ContentsScenarioExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int32) {
+	builder.PrependInt32Slot(2, displayOrder, 0)
+}
+func ContentsScenarioExcelAddScenarioContentType(builder *flatbuffers.Builder, scenarioContentType ScenarioContentType) {
+	builder.PrependInt32Slot(3, int32(scenarioContentType), 0)
 }
 func ContentsScenarioExcelAddScenarioGroupId(builder *flatbuffers.Builder, scenarioGroupId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(scenarioGroupId), 0)

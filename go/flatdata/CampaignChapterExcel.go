@@ -33,8 +33,56 @@ func (rcv *CampaignChapterExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CampaignChapterExcel) PreChapterId(j int) int64 {
+func (rcv *CampaignChapterExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CampaignChapterExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *CampaignChapterExcel) Name() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CampaignChapterExcel) NormalImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CampaignChapterExcel) HardImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CampaignChapterExcel) Order() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CampaignChapterExcel) MutateOrder(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *CampaignChapterExcel) PreChapterId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -43,7 +91,7 @@ func (rcv *CampaignChapterExcel) PreChapterId(j int) int64 {
 }
 
 func (rcv *CampaignChapterExcel) PreChapterIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -51,7 +99,7 @@ func (rcv *CampaignChapterExcel) PreChapterIdLength() int {
 }
 
 func (rcv *CampaignChapterExcel) MutatePreChapterId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -59,68 +107,44 @@ func (rcv *CampaignChapterExcel) MutatePreChapterId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *CampaignChapterExcel) VeryHardCampaignStageId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+func (rcv *CampaignChapterExcel) ChapterRewardId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CampaignChapterExcel) VeryHardCampaignStageIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+func (rcv *CampaignChapterExcel) MutateChapterRewardId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *CampaignChapterExcel) ChapterHardRewardId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CampaignChapterExcel) MutateVeryHardCampaignStageId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+func (rcv *CampaignChapterExcel) MutateChapterHardRewardId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
 }
 
-func (rcv *CampaignChapterExcel) Name() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+func (rcv *CampaignChapterExcel) ChapterVeryHardRewardId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CampaignChapterExcel) HardCampaignStageId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CampaignChapterExcel) HardCampaignStageIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CampaignChapterExcel) MutateHardCampaignStageId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+func (rcv *CampaignChapterExcel) MutateChapterVeryHardRewardId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func (rcv *CampaignChapterExcel) NormalCampaignStageId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -129,7 +153,7 @@ func (rcv *CampaignChapterExcel) NormalCampaignStageId(j int) int64 {
 }
 
 func (rcv *CampaignChapterExcel) NormalCampaignStageIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -137,7 +161,7 @@ func (rcv *CampaignChapterExcel) NormalCampaignStageIdLength() int {
 }
 
 func (rcv *CampaignChapterExcel) MutateNormalCampaignStageId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -145,72 +169,8 @@ func (rcv *CampaignChapterExcel) MutateNormalCampaignStageId(j int, n int64) boo
 	return false
 }
 
-func (rcv *CampaignChapterExcel) Order() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CampaignChapterExcel) MutateOrder(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
-func (rcv *CampaignChapterExcel) NormalImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CampaignChapterExcel) ChapterRewardId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CampaignChapterExcel) MutateChapterRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *CampaignChapterExcel) HardImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CampaignChapterExcel) ChapterVeryHardRewardId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CampaignChapterExcel) MutateChapterVeryHardRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
-}
-
-func (rcv *CampaignChapterExcel) IsTacticSkip() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *CampaignChapterExcel) MutateIsTacticSkip(n bool) bool {
-	return rcv._tab.MutateBoolSlot(24, n)
-}
-
 func (rcv *CampaignChapterExcel) NormalExtraStageId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -219,7 +179,7 @@ func (rcv *CampaignChapterExcel) NormalExtraStageId(j int) int64 {
 }
 
 func (rcv *CampaignChapterExcel) NormalExtraStageIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -227,6 +187,32 @@ func (rcv *CampaignChapterExcel) NormalExtraStageIdLength() int {
 }
 
 func (rcv *CampaignChapterExcel) MutateNormalExtraStageId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *CampaignChapterExcel) HardCampaignStageId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *CampaignChapterExcel) HardCampaignStageIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CampaignChapterExcel) MutateHardCampaignStageId(j int, n int64) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
@@ -235,89 +221,103 @@ func (rcv *CampaignChapterExcel) MutateNormalExtraStageId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *CampaignChapterExcel) Id() int64 {
+func (rcv *CampaignChapterExcel) VeryHardCampaignStageId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *CampaignChapterExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(28, n)
+func (rcv *CampaignChapterExcel) VeryHardCampaignStageIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *CampaignChapterExcel) ChapterHardRewardId() int64 {
+func (rcv *CampaignChapterExcel) MutateVeryHardCampaignStageId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *CampaignChapterExcel) IsTacticSkip() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *CampaignChapterExcel) MutateChapterHardRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
+func (rcv *CampaignChapterExcel) MutateIsTacticSkip(n bool) bool {
+	return rcv._tab.MutateBoolSlot(30, n)
 }
 
 func CampaignChapterExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(14)
 }
+func CampaignChapterExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(0, id, 0)
+}
+func CampaignChapterExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(name), 0)
+}
+func CampaignChapterExcelAddNormalImagePath(builder *flatbuffers.Builder, normalImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(normalImagePath), 0)
+}
+func CampaignChapterExcelAddHardImagePath(builder *flatbuffers.Builder, hardImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(hardImagePath), 0)
+}
+func CampaignChapterExcelAddOrder(builder *flatbuffers.Builder, order int64) {
+	builder.PrependInt64Slot(4, order, 0)
+}
 func CampaignChapterExcelAddPreChapterId(builder *flatbuffers.Builder, preChapterId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(preChapterId), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(preChapterId), 0)
 }
 func CampaignChapterExcelStartPreChapterIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func CampaignChapterExcelAddVeryHardCampaignStageId(builder *flatbuffers.Builder, veryHardCampaignStageId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(veryHardCampaignStageId), 0)
+func CampaignChapterExcelAddChapterRewardId(builder *flatbuffers.Builder, chapterRewardId int64) {
+	builder.PrependInt64Slot(6, chapterRewardId, 0)
 }
-func CampaignChapterExcelStartVeryHardCampaignStageIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func CampaignChapterExcelAddChapterHardRewardId(builder *flatbuffers.Builder, chapterHardRewardId int64) {
+	builder.PrependInt64Slot(7, chapterHardRewardId, 0)
 }
-func CampaignChapterExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(name), 0)
-}
-func CampaignChapterExcelAddHardCampaignStageId(builder *flatbuffers.Builder, hardCampaignStageId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(hardCampaignStageId), 0)
-}
-func CampaignChapterExcelStartHardCampaignStageIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func CampaignChapterExcelAddChapterVeryHardRewardId(builder *flatbuffers.Builder, chapterVeryHardRewardId int64) {
+	builder.PrependInt64Slot(8, chapterVeryHardRewardId, 0)
 }
 func CampaignChapterExcelAddNormalCampaignStageId(builder *flatbuffers.Builder, normalCampaignStageId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(normalCampaignStageId), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(normalCampaignStageId), 0)
 }
 func CampaignChapterExcelStartNormalCampaignStageIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func CampaignChapterExcelAddOrder(builder *flatbuffers.Builder, order int64) {
-	builder.PrependInt64Slot(5, order, 0)
-}
-func CampaignChapterExcelAddNormalImagePath(builder *flatbuffers.Builder, normalImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(normalImagePath), 0)
-}
-func CampaignChapterExcelAddChapterRewardId(builder *flatbuffers.Builder, chapterRewardId int64) {
-	builder.PrependInt64Slot(7, chapterRewardId, 0)
-}
-func CampaignChapterExcelAddHardImagePath(builder *flatbuffers.Builder, hardImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(hardImagePath), 0)
-}
-func CampaignChapterExcelAddChapterVeryHardRewardId(builder *flatbuffers.Builder, chapterVeryHardRewardId int64) {
-	builder.PrependInt64Slot(9, chapterVeryHardRewardId, 0)
-}
-func CampaignChapterExcelAddIsTacticSkip(builder *flatbuffers.Builder, isTacticSkip bool) {
-	builder.PrependBoolSlot(10, isTacticSkip, false)
-}
 func CampaignChapterExcelAddNormalExtraStageId(builder *flatbuffers.Builder, normalExtraStageId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(normalExtraStageId), 0)
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(normalExtraStageId), 0)
 }
 func CampaignChapterExcelStartNormalExtraStageIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func CampaignChapterExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(12, id, 0)
+func CampaignChapterExcelAddHardCampaignStageId(builder *flatbuffers.Builder, hardCampaignStageId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(hardCampaignStageId), 0)
 }
-func CampaignChapterExcelAddChapterHardRewardId(builder *flatbuffers.Builder, chapterHardRewardId int64) {
-	builder.PrependInt64Slot(13, chapterHardRewardId, 0)
+func CampaignChapterExcelStartHardCampaignStageIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func CampaignChapterExcelAddVeryHardCampaignStageId(builder *flatbuffers.Builder, veryHardCampaignStageId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(veryHardCampaignStageId), 0)
+}
+func CampaignChapterExcelStartVeryHardCampaignStageIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func CampaignChapterExcelAddIsTacticSkip(builder *flatbuffers.Builder, isTacticSkip bool) {
+	builder.PrependBoolSlot(13, isTacticSkip, false)
 }
 func CampaignChapterExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

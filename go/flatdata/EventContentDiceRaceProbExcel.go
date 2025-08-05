@@ -33,44 +33,8 @@ func (rcv *EventContentDiceRaceProbExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentDiceRaceProbExcel) CostItemAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentDiceRaceProbExcel) MutateCostItemAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
-}
-
-func (rcv *EventContentDiceRaceProbExcel) DiceResult() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentDiceRaceProbExcel) MutateDiceResult(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
-}
-
-func (rcv *EventContentDiceRaceProbExcel) EventContentDiceRaceResultType() EventContentDiceRaceResultType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return EventContentDiceRaceResultType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EventContentDiceRaceProbExcel) MutateEventContentDiceRaceResultType(n EventContentDiceRaceResultType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
 func (rcv *EventContentDiceRaceProbExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -78,11 +42,23 @@ func (rcv *EventContentDiceRaceProbExcel) EventContentId() int64 {
 }
 
 func (rcv *EventContentDiceRaceProbExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *EventContentDiceRaceProbExcel) EventContentDiceRaceResultType() EventContentDiceRaceResultType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return EventContentDiceRaceResultType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EventContentDiceRaceProbExcel) MutateEventContentDiceRaceResultType(n EventContentDiceRaceResultType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
 func (rcv *EventContentDiceRaceProbExcel) CostItemId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -90,7 +66,31 @@ func (rcv *EventContentDiceRaceProbExcel) CostItemId() int64 {
 }
 
 func (rcv *EventContentDiceRaceProbExcel) MutateCostItemId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *EventContentDiceRaceProbExcel) CostItemAmount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentDiceRaceProbExcel) MutateCostItemAmount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
+}
+
+func (rcv *EventContentDiceRaceProbExcel) DiceResult() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentDiceRaceProbExcel) MutateDiceResult(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
 }
 
 func (rcv *EventContentDiceRaceProbExcel) Prob() int32 {
@@ -108,20 +108,20 @@ func (rcv *EventContentDiceRaceProbExcel) MutateProb(n int32) bool {
 func EventContentDiceRaceProbExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func EventContentDiceRaceProbExcelAddCostItemAmount(builder *flatbuffers.Builder, costItemAmount int32) {
-	builder.PrependInt32Slot(0, costItemAmount, 0)
-}
-func EventContentDiceRaceProbExcelAddDiceResult(builder *flatbuffers.Builder, diceResult int32) {
-	builder.PrependInt32Slot(1, diceResult, 0)
+func EventContentDiceRaceProbExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(0, eventContentId, 0)
 }
 func EventContentDiceRaceProbExcelAddEventContentDiceRaceResultType(builder *flatbuffers.Builder, eventContentDiceRaceResultType EventContentDiceRaceResultType) {
-	builder.PrependInt32Slot(2, int32(eventContentDiceRaceResultType), 0)
-}
-func EventContentDiceRaceProbExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(3, eventContentId, 0)
+	builder.PrependInt32Slot(1, int32(eventContentDiceRaceResultType), 0)
 }
 func EventContentDiceRaceProbExcelAddCostItemId(builder *flatbuffers.Builder, costItemId int64) {
-	builder.PrependInt64Slot(4, costItemId, 0)
+	builder.PrependInt64Slot(2, costItemId, 0)
+}
+func EventContentDiceRaceProbExcelAddCostItemAmount(builder *flatbuffers.Builder, costItemAmount int32) {
+	builder.PrependInt32Slot(3, costItemAmount, 0)
+}
+func EventContentDiceRaceProbExcelAddDiceResult(builder *flatbuffers.Builder, diceResult int32) {
+	builder.PrependInt32Slot(4, diceResult, 0)
 }
 func EventContentDiceRaceProbExcelAddProb(builder *flatbuffers.Builder, prob int32) {
 	builder.PrependInt32Slot(5, prob, 0)

@@ -4,16 +4,16 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table ConquestObjectExcel {
-    conquest_object_type: ConquestObjectType;
-    step_object_count: int;
-    conquest_reward_amount: int;
-    step_index: int;
-    key: uint;
-    conquest_reward_id: long;
-    conquest_reward_parcel_type: ParcelType;
-    event_content_id: long;
-    name: string;
-    disposable: bool;
     id: long;
+    event_content_id: long;
+    conquest_object_type: ConquestObjectType;
+    key: uint;
+    name: string;
     prefab_name: string;
+    conquest_reward_parcel_type: ParcelType;
+    conquest_reward_id: long;
+    conquest_reward_amount: int;
+    disposable: bool;
+    step_index: int;
+    step_object_count: int;
 }

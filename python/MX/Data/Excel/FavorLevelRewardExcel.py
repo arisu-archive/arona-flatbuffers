@@ -32,34 +32,14 @@ class FavorLevelRewardExcel(object):
         return 0
 
     # FavorLevelRewardExcel
-    def RewardParcelId(self, j):
+    def FavorLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FavorLevelRewardExcel
-    def RewardParcelIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # FavorLevelRewardExcel
-    def RewardParcelIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # FavorLevelRewardExcel
-    def RewardParcelIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        return o == 0
-
-    # FavorLevelRewardExcel
-    def RewardParcelType(self, j):
+    def StatType(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             a = self._tab.Vector(o)
@@ -67,21 +47,21 @@ class FavorLevelRewardExcel(object):
         return 0
 
     # FavorLevelRewardExcel
-    def RewardParcelTypeAsNumpy(self):
+    def StatTypeAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FavorLevelRewardExcel
-    def RewardParcelTypeLength(self):
+    def StatTypeLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FavorLevelRewardExcel
-    def RewardParcelTypeIsNone(self):
+    def StatTypeIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         return o == 0
 
@@ -113,7 +93,7 @@ class FavorLevelRewardExcel(object):
         return o == 0
 
     # FavorLevelRewardExcel
-    def StatType(self, j):
+    def RewardParcelType(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             a = self._tab.Vector(o)
@@ -121,30 +101,50 @@ class FavorLevelRewardExcel(object):
         return 0
 
     # FavorLevelRewardExcel
-    def StatTypeAsNumpy(self):
+    def RewardParcelTypeAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FavorLevelRewardExcel
-    def StatTypeLength(self):
+    def RewardParcelTypeLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FavorLevelRewardExcel
-    def StatTypeIsNone(self):
+    def RewardParcelTypeIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         return o == 0
 
     # FavorLevelRewardExcel
-    def FavorLevel(self):
+    def RewardParcelId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
+
+    # FavorLevelRewardExcel
+    def RewardParcelIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # FavorLevelRewardExcel
+    def RewardParcelIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # FavorLevelRewardExcel
+    def RewardParcelIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        return o == 0
 
     # FavorLevelRewardExcel
     def RewardAmount(self, j):
@@ -179,33 +179,33 @@ def Start(builder):
 def FavorLevelRewardExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(0, characterId, 0)
 def AddCharacterId(builder, characterId):
     return FavorLevelRewardExcelAddCharacterId(builder, characterId)
-def FavorLevelRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
-def AddRewardParcelId(builder, rewardParcelId):
-    return FavorLevelRewardExcelAddRewardParcelId(builder, rewardParcelId)
-def FavorLevelRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRewardParcelIdVector(builder, numElems):
-    return FavorLevelRewardExcelStartRewardParcelIdVector(builder, numElems)
-def FavorLevelRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
-def AddRewardParcelType(builder, rewardParcelType):
-    return FavorLevelRewardExcelAddRewardParcelType(builder, rewardParcelType)
-def FavorLevelRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartRewardParcelTypeVector(builder, numElems):
-    return FavorLevelRewardExcelStartRewardParcelTypeVector(builder, numElems)
+def FavorLevelRewardExcelAddFavorLevel(builder, favorLevel): builder.PrependInt64Slot(1, favorLevel, 0)
+def AddFavorLevel(builder, favorLevel):
+    return FavorLevelRewardExcelAddFavorLevel(builder, favorLevel)
+def FavorLevelRewardExcelAddStatType(builder, statType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(statType), 0)
+def AddStatType(builder, statType):
+    return FavorLevelRewardExcelAddStatType(builder, statType)
+def FavorLevelRewardExcelStartStatTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartStatTypeVector(builder, numElems):
+    return FavorLevelRewardExcelStartStatTypeVector(builder, numElems)
 def FavorLevelRewardExcelAddStatValue(builder, statValue): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(statValue), 0)
 def AddStatValue(builder, statValue):
     return FavorLevelRewardExcelAddStatValue(builder, statValue)
 def FavorLevelRewardExcelStartStatValueVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartStatValueVector(builder, numElems):
     return FavorLevelRewardExcelStartStatValueVector(builder, numElems)
-def FavorLevelRewardExcelAddStatType(builder, statType): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(statType), 0)
-def AddStatType(builder, statType):
-    return FavorLevelRewardExcelAddStatType(builder, statType)
-def FavorLevelRewardExcelStartStatTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartStatTypeVector(builder, numElems):
-    return FavorLevelRewardExcelStartStatTypeVector(builder, numElems)
-def FavorLevelRewardExcelAddFavorLevel(builder, favorLevel): builder.PrependInt64Slot(5, favorLevel, 0)
-def AddFavorLevel(builder, favorLevel):
-    return FavorLevelRewardExcelAddFavorLevel(builder, favorLevel)
+def FavorLevelRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+def AddRewardParcelType(builder, rewardParcelType):
+    return FavorLevelRewardExcelAddRewardParcelType(builder, rewardParcelType)
+def FavorLevelRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartRewardParcelTypeVector(builder, numElems):
+    return FavorLevelRewardExcelStartRewardParcelTypeVector(builder, numElems)
+def FavorLevelRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
+def AddRewardParcelId(builder, rewardParcelId):
+    return FavorLevelRewardExcelAddRewardParcelId(builder, rewardParcelId)
+def FavorLevelRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRewardParcelIdVector(builder, numElems):
+    return FavorLevelRewardExcelStartRewardParcelIdVector(builder, numElems)
 def FavorLevelRewardExcelAddRewardAmount(builder, rewardAmount): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
 def AddRewardAmount(builder, rewardAmount):
     return FavorLevelRewardExcelAddRewardAmount(builder, rewardAmount)

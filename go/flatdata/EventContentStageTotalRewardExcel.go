@@ -45,7 +45,7 @@ func (rcv *EventContentStageTotalRewardExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EventContentStageTotalRewardExcel) RequiredEventItemAmount() int64 {
+func (rcv *EventContentStageTotalRewardExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *EventContentStageTotalRewardExcel) RequiredEventItemAmount() int64 {
 	return 0
 }
 
-func (rcv *EventContentStageTotalRewardExcel) MutateRequiredEventItemAmount(n int64) bool {
+func (rcv *EventContentStageTotalRewardExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentStageTotalRewardExcel) EventContentId() int64 {
+func (rcv *EventContentStageTotalRewardExcel) RequiredEventItemAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,7 +65,7 @@ func (rcv *EventContentStageTotalRewardExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentStageTotalRewardExcel) MutateEventContentId(n int64) bool {
+func (rcv *EventContentStageTotalRewardExcel) MutateRequiredEventItemAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
@@ -95,34 +95,8 @@ func (rcv *EventContentStageTotalRewardExcel) MutateRewardParcelType(j int, n Pa
 	return false
 }
 
-func (rcv *EventContentStageTotalRewardExcel) RewardParcelAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *EventContentStageTotalRewardExcel) RewardParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *EventContentStageTotalRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
 func (rcv *EventContentStageTotalRewardExcel) RewardParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -131,7 +105,7 @@ func (rcv *EventContentStageTotalRewardExcel) RewardParcelId(j int) int64 {
 }
 
 func (rcv *EventContentStageTotalRewardExcel) RewardParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -139,6 +113,32 @@ func (rcv *EventContentStageTotalRewardExcel) RewardParcelIdLength() int {
 }
 
 func (rcv *EventContentStageTotalRewardExcel) MutateRewardParcelId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *EventContentStageTotalRewardExcel) RewardParcelAmount(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *EventContentStageTotalRewardExcel) RewardParcelAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EventContentStageTotalRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
@@ -153,11 +153,11 @@ func EventContentStageTotalRewardExcelStart(builder *flatbuffers.Builder) {
 func EventContentStageTotalRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
 }
-func EventContentStageTotalRewardExcelAddRequiredEventItemAmount(builder *flatbuffers.Builder, requiredEventItemAmount int64) {
-	builder.PrependInt64Slot(1, requiredEventItemAmount, 0)
-}
 func EventContentStageTotalRewardExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(2, eventContentId, 0)
+	builder.PrependInt64Slot(1, eventContentId, 0)
+}
+func EventContentStageTotalRewardExcelAddRequiredEventItemAmount(builder *flatbuffers.Builder, requiredEventItemAmount int64) {
+	builder.PrependInt64Slot(2, requiredEventItemAmount, 0)
 }
 func EventContentStageTotalRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(rewardParcelType), 0)
@@ -165,16 +165,16 @@ func EventContentStageTotalRewardExcelAddRewardParcelType(builder *flatbuffers.B
 func EventContentStageTotalRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func EventContentStageTotalRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardParcelAmount), 0)
-}
-func EventContentStageTotalRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
 func EventContentStageTotalRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelId), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardParcelId), 0)
 }
 func EventContentStageTotalRewardExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func EventContentStageTotalRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+}
+func EventContentStageTotalRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func EventContentStageTotalRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {

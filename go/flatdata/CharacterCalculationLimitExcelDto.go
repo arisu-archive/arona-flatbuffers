@@ -10,11 +10,11 @@ import (
 // CharacterCalculationLimitExcelDto represents a FlatBuffers table
 type CharacterCalculationLimitExcelDto struct {
 	fbsutils.FlatBuffer
-	TacticEntityType TacticEntityType      `json:"tactic_entity_type"`
 	Id               int64                 `json:"id"`
+	TacticEntityType TacticEntityType      `json:"tactic_entity_type"`
 	CalculationValue BattleCalculationStat `json:"calculation_value"`
-	MaxValue         int64                 `json:"max_value"`
 	MinValue         int64                 `json:"min_value"`
+	MaxValue         int64                 `json:"max_value"`
 	LimitStartValue  []int64               `json:"limit_start_value"`
 	DecreaseRate     []int64               `json:"decrease_rate"`
 }
@@ -25,11 +25,11 @@ func (t *CharacterCalculationLimitExcelDto) MarshalModel(b *flatbuffers.Builder)
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCalculationLimit"))
 	}
 	CharacterCalculationLimitExcelStart(b)
-	CharacterCalculationLimitExcelAddTacticEntityType(b, fbsutils.Convert(t.TacticEntityType, t.FlatBuffer.TableKey))
 	CharacterCalculationLimitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	CharacterCalculationLimitExcelAddTacticEntityType(b, fbsutils.Convert(t.TacticEntityType, t.FlatBuffer.TableKey))
 	CharacterCalculationLimitExcelAddCalculationValue(b, fbsutils.Convert(t.CalculationValue, t.FlatBuffer.TableKey))
-	CharacterCalculationLimitExcelAddMaxValue(b, fbsutils.Convert(t.MaxValue, t.FlatBuffer.TableKey))
 	CharacterCalculationLimitExcelAddMinValue(b, fbsutils.Convert(t.MinValue, t.FlatBuffer.TableKey))
+	CharacterCalculationLimitExcelAddMaxValue(b, fbsutils.Convert(t.MaxValue, t.FlatBuffer.TableKey))
 	CharacterCalculationLimitExcelStartLimitStartValueVector(b, len(t.LimitStartValue))
 	for i := range len(t.LimitStartValue) {
 		b.PrependInt64(fbsutils.Convert(t.LimitStartValue[len(t.LimitStartValue)-i-1], t.FlatBuffer.TableKey))
@@ -55,11 +55,11 @@ func (t *CharacterCalculationLimitExcelDto) UnmarshalMessage(e *CharacterCalcula
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCalculationLimit"))
 	}
-	t.TacticEntityType = TacticEntityType(fbsutils.Convert(int32(e.TacticEntityType()), t.FlatBuffer.TableKey))
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.TacticEntityType = TacticEntityType(fbsutils.Convert(int32(e.TacticEntityType()), t.FlatBuffer.TableKey))
 	t.CalculationValue = BattleCalculationStat(fbsutils.Convert(int32(e.CalculationValue()), t.FlatBuffer.TableKey))
-	t.MaxValue = fbsutils.Convert(e.MaxValue(), t.FlatBuffer.TableKey)
 	t.MinValue = fbsutils.Convert(e.MinValue(), t.FlatBuffer.TableKey)
+	t.MaxValue = fbsutils.Convert(e.MaxValue(), t.FlatBuffer.TableKey)
 	t.LimitStartValue = make([]int64, e.LimitStartValueLength())
 	for i := range e.LimitStartValueLength() {
 		t.LimitStartValue[i] = fbsutils.Convert(e.LimitStartValue(i), t.FlatBuffer.TableKey)

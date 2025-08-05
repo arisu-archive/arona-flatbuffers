@@ -1,9 +1,9 @@
 namespace FlatData;
 
 table ConstKeyMappingExcel {
-    scroll_wheel_factor: float;
     drag_sensitivity: float;
+    pc_information_group_id: long;
+    scroll_wheel_factor: float;
     remove_keycode_word: string;
     tutorial_dialog_touch_key: string;
-    pc_information_group_id: long;
 }

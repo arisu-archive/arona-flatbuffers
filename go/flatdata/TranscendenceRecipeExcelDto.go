@@ -10,13 +10,13 @@ import (
 // TranscendenceRecipeExcelDto represents a FlatBuffers table
 type TranscendenceRecipeExcelDto struct {
 	fbsutils.FlatBuffer
+	Id                 int64         `json:"id"`
+	DevName            string        `json:"dev_name"`
+	CostCurrencyType   CurrencyTypes `json:"cost_currency_type"`
+	CostCurrencyAmount int64         `json:"cost_currency_amount"`
+	ParcelType         []ParcelType  `json:"parcel_type"`
 	ParcelId           []int64       `json:"parcel_id"`
 	ParcelAmount       []int32       `json:"parcel_amount"`
-	CostCurrencyAmount int64         `json:"cost_currency_amount"`
-	CostCurrencyType   CurrencyTypes `json:"cost_currency_type"`
-	ParcelType         []ParcelType  `json:"parcel_type"`
-	DevName            string        `json:"dev_name"`
-	Id                 int64         `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,6 +25,15 @@ func (t *TranscendenceRecipeExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TranscendenceRecipe"))
 	}
 	TranscendenceRecipeExcelStart(b)
+	TranscendenceRecipeExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	TranscendenceRecipeExcelAddDevName(b, b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey)))
+	TranscendenceRecipeExcelAddCostCurrencyType(b, fbsutils.Convert(t.CostCurrencyType, t.FlatBuffer.TableKey))
+	TranscendenceRecipeExcelAddCostCurrencyAmount(b, fbsutils.Convert(t.CostCurrencyAmount, t.FlatBuffer.TableKey))
+	TranscendenceRecipeExcelStartParcelTypeVector(b, len(t.ParcelType))
+	for i := range len(t.ParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	TranscendenceRecipeExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
 	TranscendenceRecipeExcelStartParcelIdVector(b, len(t.ParcelId))
 	for i := range len(t.ParcelId) {
 		b.PrependInt64(fbsutils.Convert(t.ParcelId[len(t.ParcelId)-i-1], t.FlatBuffer.TableKey))
@@ -35,15 +44,6 @@ func (t *TranscendenceRecipeExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		b.PrependInt32(fbsutils.Convert(t.ParcelAmount[len(t.ParcelAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	TranscendenceRecipeExcelAddParcelAmount(b, b.EndVector(len(t.ParcelAmount)))
-	TranscendenceRecipeExcelAddCostCurrencyAmount(b, fbsutils.Convert(t.CostCurrencyAmount, t.FlatBuffer.TableKey))
-	TranscendenceRecipeExcelAddCostCurrencyType(b, fbsutils.Convert(t.CostCurrencyType, t.FlatBuffer.TableKey))
-	TranscendenceRecipeExcelStartParcelTypeVector(b, len(t.ParcelType))
-	for i := range len(t.ParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	TranscendenceRecipeExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
-	TranscendenceRecipeExcelAddDevName(b, b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey)))
-	TranscendenceRecipeExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return TranscendenceRecipeExcelEnd(b)
 }
 
@@ -59,6 +59,14 @@ func (t *TranscendenceRecipeExcelDto) UnmarshalMessage(e *TranscendenceRecipeExc
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TranscendenceRecipe"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
+	t.CostCurrencyType = CurrencyTypes(fbsutils.Convert(int32(e.CostCurrencyType()), t.FlatBuffer.TableKey))
+	t.CostCurrencyAmount = fbsutils.Convert(e.CostCurrencyAmount(), t.FlatBuffer.TableKey)
+	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
+	for i := range e.ParcelTypeLength() {
+		t.ParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ParcelType(i)), t.FlatBuffer.TableKey))
+	}
 	t.ParcelId = make([]int64, e.ParcelIdLength())
 	for i := range e.ParcelIdLength() {
 		t.ParcelId[i] = fbsutils.Convert(e.ParcelId(i), t.FlatBuffer.TableKey)
@@ -67,14 +75,6 @@ func (t *TranscendenceRecipeExcelDto) UnmarshalMessage(e *TranscendenceRecipeExc
 	for i := range e.ParcelAmountLength() {
 		t.ParcelAmount[i] = fbsutils.Convert(e.ParcelAmount(i), t.FlatBuffer.TableKey)
 	}
-	t.CostCurrencyAmount = fbsutils.Convert(e.CostCurrencyAmount(), t.FlatBuffer.TableKey)
-	t.CostCurrencyType = CurrencyTypes(fbsutils.Convert(int32(e.CostCurrencyType()), t.FlatBuffer.TableKey))
-	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
-	for i := range e.ParcelTypeLength() {
-		t.ParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ParcelType(i)), t.FlatBuffer.TableKey))
-	}
-	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

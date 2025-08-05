@@ -6,18 +6,18 @@ include "StatLevelUpType.fbs";
 namespace FlatData;
 
 table EquipmentStatExcel {
-    level_up_feed_cost_amount: long;
-    stat_type: [EquipmentOptionType];
-    level_up_insert_limit: int;
-    level_up_feed_cost_currency: CurrencyTypes;
-    level_up_feed_add_exp: long;
-    max_stat: [long];
-    stat_level_up_type: StatLevelUpType;
-    transcendence_max: int;
-    level_up_feed_exp: long;
-    damage_factor_group_id: string;
     equipment_id: long;
-    default_max_level: int;
-    equipment_category: EquipmentCategory;
+    stat_level_up_type: StatLevelUpType;
+    stat_type: [EquipmentOptionType];
     min_stat: [long];
+    max_stat: [long];
+    level_up_insert_limit: int;
+    level_up_feed_exp: long;
+    level_up_feed_cost_currency: CurrencyTypes;
+    level_up_feed_cost_amount: long;
+    equipment_category: EquipmentCategory;
+    level_up_feed_add_exp: long;
+    default_max_level: int;
+    transcendence_max: int;
+    damage_factor_group_id: string;
 }

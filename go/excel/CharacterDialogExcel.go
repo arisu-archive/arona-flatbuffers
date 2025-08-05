@@ -33,260 +33,8 @@ func (rcv *CharacterDialogExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterDialogExcel) ActionName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterDialogExcel) DialogCondition() DialogCondition {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return DialogCondition(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CharacterDialogExcel) MutateDialogCondition(n DialogCondition) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *CharacterDialogExcel) ApplyPosition() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *CharacterDialogExcel) MutateApplyPosition(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
-}
-
-func (rcv *CharacterDialogExcel) DisplayOrder() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterDialogExcel) MutateDisplayOrder(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *CharacterDialogExcel) StartDate() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterDialogExcel) CvCollectionType() CVCollectionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return CVCollectionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CharacterDialogExcel) MutateCvCollectionType(n CVCollectionType) bool {
-	return rcv._tab.MutateInt32Slot(14, int32(n))
-}
-
-func (rcv *CharacterDialogExcel) CollectionVisible() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *CharacterDialogExcel) MutateCollectionVisible(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
-}
-
-func (rcv *CharacterDialogExcel) GroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterDialogExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *CharacterDialogExcel) PosX() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *CharacterDialogExcel) MutatePosX(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(20, n)
-}
-
-func (rcv *CharacterDialogExcel) LocalizeTw() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterDialogExcel) UnlockFavorRank() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterDialogExcel) MutateUnlockFavorRank(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
-}
-
-func (rcv *CharacterDialogExcel) DialogCategory() DialogCategory {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return DialogCategory(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CharacterDialogExcel) MutateDialogCategory(n DialogCategory) bool {
-	return rcv._tab.MutateInt32Slot(26, int32(n))
-}
-
-func (rcv *CharacterDialogExcel) PosY() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *CharacterDialogExcel) MutatePosY(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(28, n)
-}
-
-func (rcv *CharacterDialogExcel) CostumeUniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterDialogExcel) MutateCostumeUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
-}
-
-func (rcv *CharacterDialogExcel) ProductionStep() ProductionStep {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return ProductionStep(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CharacterDialogExcel) MutateProductionStep(n ProductionStep) bool {
-	return rcv._tab.MutateInt32Slot(32, int32(n))
-}
-
-func (rcv *CharacterDialogExcel) Duration() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterDialogExcel) MutateDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(34, n)
-}
-
-func (rcv *CharacterDialogExcel) LocalizeEn() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterDialogExcel) LocalizeJp() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterDialogExcel) DurationKr() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterDialogExcel) MutateDurationKr(n int64) bool {
-	return rcv._tab.MutateInt64Slot(40, n)
-}
-
-func (rcv *CharacterDialogExcel) LocalizeKr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterDialogExcel) TeenMode() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *CharacterDialogExcel) MutateTeenMode(n bool) bool {
-	return rcv._tab.MutateBoolSlot(44, n)
-}
-
-func (rcv *CharacterDialogExcel) EndDate() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterDialogExcel) LocalizeTh() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterDialogExcel) AnimationName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *CharacterDialogExcel) CharacterId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -294,19 +42,71 @@ func (rcv *CharacterDialogExcel) CharacterId() int64 {
 }
 
 func (rcv *CharacterDialogExcel) MutateCharacterId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(52, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *CharacterDialogExcel) LocalizeCvGroup() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+func (rcv *CharacterDialogExcel) CostumeUniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *CharacterDialogExcel) MutateCostumeUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *CharacterDialogExcel) DisplayOrder() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterDialogExcel) MutateDisplayOrder(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *CharacterDialogExcel) ProductionStep() ProductionStep {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return ProductionStep(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterDialogExcel) MutateProductionStep(n ProductionStep) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
+}
+
+func (rcv *CharacterDialogExcel) DialogCategory() DialogCategory {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return DialogCategory(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterDialogExcel) MutateDialogCategory(n DialogCategory) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
+}
+
+func (rcv *CharacterDialogExcel) DialogCondition() DialogCondition {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return DialogCondition(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterDialogExcel) MutateDialogCondition(n DialogCondition) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
 }
 
 func (rcv *CharacterDialogExcel) Anniversary() Anniversary {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return Anniversary(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -314,11 +114,131 @@ func (rcv *CharacterDialogExcel) Anniversary() Anniversary {
 }
 
 func (rcv *CharacterDialogExcel) MutateAnniversary(n Anniversary) bool {
-	return rcv._tab.MutateInt32Slot(56, int32(n))
+	return rcv._tab.MutateInt32Slot(16, int32(n))
+}
+
+func (rcv *CharacterDialogExcel) StartDate() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterDialogExcel) EndDate() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterDialogExcel) GroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterDialogExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
+}
+
+func (rcv *CharacterDialogExcel) DialogType() DialogType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return DialogType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterDialogExcel) MutateDialogType(n DialogType) bool {
+	return rcv._tab.MutateInt32Slot(24, int32(n))
+}
+
+func (rcv *CharacterDialogExcel) ActionName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterDialogExcel) Duration() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterDialogExcel) MutateDuration(n int64) bool {
+	return rcv._tab.MutateInt64Slot(28, n)
+}
+
+func (rcv *CharacterDialogExcel) DurationKr() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterDialogExcel) MutateDurationKr(n int64) bool {
+	return rcv._tab.MutateInt64Slot(30, n)
+}
+
+func (rcv *CharacterDialogExcel) AnimationName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterDialogExcel) LocalizeKr() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterDialogExcel) LocalizeJp() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterDialogExcel) LocalizeTh() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterDialogExcel) LocalizeTw() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterDialogExcel) LocalizeEn() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *CharacterDialogExcel) VoiceId(j int) uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
@@ -327,7 +247,7 @@ func (rcv *CharacterDialogExcel) VoiceId(j int) uint32 {
 }
 
 func (rcv *CharacterDialogExcel) VoiceIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -335,7 +255,7 @@ func (rcv *CharacterDialogExcel) VoiceIdLength() int {
 }
 
 func (rcv *CharacterDialogExcel) MutateVoiceId(j int, n uint32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
@@ -343,20 +263,80 @@ func (rcv *CharacterDialogExcel) MutateVoiceId(j int, n uint32) bool {
 	return false
 }
 
-func (rcv *CharacterDialogExcel) DialogType() DialogType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
+func (rcv *CharacterDialogExcel) ApplyPosition() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
-		return DialogType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *CharacterDialogExcel) MutateApplyPosition(n bool) bool {
+	return rcv._tab.MutateBoolSlot(46, n)
+}
+
+func (rcv *CharacterDialogExcel) PosX() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *CharacterDialogExcel) MutatePosX(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(48, n)
+}
+
+func (rcv *CharacterDialogExcel) PosY() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *CharacterDialogExcel) MutatePosY(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(50, n)
+}
+
+func (rcv *CharacterDialogExcel) CollectionVisible() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *CharacterDialogExcel) MutateCollectionVisible(n bool) bool {
+	return rcv._tab.MutateBoolSlot(52, n)
+}
+
+func (rcv *CharacterDialogExcel) CvCollectionType() CVCollectionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	if o != 0 {
+		return CVCollectionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *CharacterDialogExcel) MutateDialogType(n DialogType) bool {
-	return rcv._tab.MutateInt32Slot(60, int32(n))
+func (rcv *CharacterDialogExcel) MutateCvCollectionType(n CVCollectionType) bool {
+	return rcv._tab.MutateInt32Slot(54, int32(n))
+}
+
+func (rcv *CharacterDialogExcel) UnlockFavorRank() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterDialogExcel) MutateUnlockFavorRank(n int64) bool {
+	return rcv._tab.MutateInt64Slot(56, n)
 }
 
 func (rcv *CharacterDialogExcel) UnlockEquipWeapon() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -364,104 +344,124 @@ func (rcv *CharacterDialogExcel) UnlockEquipWeapon() bool {
 }
 
 func (rcv *CharacterDialogExcel) MutateUnlockEquipWeapon(n bool) bool {
+	return rcv._tab.MutateBoolSlot(58, n)
+}
+
+func (rcv *CharacterDialogExcel) LocalizeCvGroup() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterDialogExcel) TeenMode() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *CharacterDialogExcel) MutateTeenMode(n bool) bool {
 	return rcv._tab.MutateBoolSlot(62, n)
 }
 
 func CharacterDialogExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(30)
 }
-func CharacterDialogExcelAddActionName(builder *flatbuffers.Builder, actionName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(actionName), 0)
-}
-func CharacterDialogExcelAddDialogCondition(builder *flatbuffers.Builder, dialogCondition DialogCondition) {
-	builder.PrependInt32Slot(1, int32(dialogCondition), 0)
-}
-func CharacterDialogExcelAddApplyPosition(builder *flatbuffers.Builder, applyPosition bool) {
-	builder.PrependBoolSlot(2, applyPosition, false)
-}
-func CharacterDialogExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
-	builder.PrependInt64Slot(3, displayOrder, 0)
-}
-func CharacterDialogExcelAddStartDate(builder *flatbuffers.Builder, startDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(startDate), 0)
-}
-func CharacterDialogExcelAddCvCollectionType(builder *flatbuffers.Builder, cvCollectionType CVCollectionType) {
-	builder.PrependInt32Slot(5, int32(cvCollectionType), 0)
-}
-func CharacterDialogExcelAddCollectionVisible(builder *flatbuffers.Builder, collectionVisible bool) {
-	builder.PrependBoolSlot(6, collectionVisible, false)
-}
-func CharacterDialogExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(7, groupId, 0)
-}
-func CharacterDialogExcelAddPosX(builder *flatbuffers.Builder, posX float32) {
-	builder.PrependFloat32Slot(8, posX, 0.0)
-}
-func CharacterDialogExcelAddLocalizeTw(builder *flatbuffers.Builder, localizeTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(localizeTw), 0)
-}
-func CharacterDialogExcelAddUnlockFavorRank(builder *flatbuffers.Builder, unlockFavorRank int64) {
-	builder.PrependInt64Slot(10, unlockFavorRank, 0)
-}
-func CharacterDialogExcelAddDialogCategory(builder *flatbuffers.Builder, dialogCategory DialogCategory) {
-	builder.PrependInt32Slot(11, int32(dialogCategory), 0)
-}
-func CharacterDialogExcelAddPosY(builder *flatbuffers.Builder, posY float32) {
-	builder.PrependFloat32Slot(12, posY, 0.0)
+func CharacterDialogExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
+	builder.PrependInt64Slot(0, characterId, 0)
 }
 func CharacterDialogExcelAddCostumeUniqueId(builder *flatbuffers.Builder, costumeUniqueId int64) {
-	builder.PrependInt64Slot(13, costumeUniqueId, 0)
+	builder.PrependInt64Slot(1, costumeUniqueId, 0)
+}
+func CharacterDialogExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
+	builder.PrependInt64Slot(2, displayOrder, 0)
 }
 func CharacterDialogExcelAddProductionStep(builder *flatbuffers.Builder, productionStep ProductionStep) {
-	builder.PrependInt32Slot(14, int32(productionStep), 0)
+	builder.PrependInt32Slot(3, int32(productionStep), 0)
 }
-func CharacterDialogExcelAddDuration(builder *flatbuffers.Builder, duration int64) {
-	builder.PrependInt64Slot(15, duration, 0)
+func CharacterDialogExcelAddDialogCategory(builder *flatbuffers.Builder, dialogCategory DialogCategory) {
+	builder.PrependInt32Slot(4, int32(dialogCategory), 0)
 }
-func CharacterDialogExcelAddLocalizeEn(builder *flatbuffers.Builder, localizeEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(localizeEn), 0)
-}
-func CharacterDialogExcelAddLocalizeJp(builder *flatbuffers.Builder, localizeJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(localizeJp), 0)
-}
-func CharacterDialogExcelAddDurationKr(builder *flatbuffers.Builder, durationKr int64) {
-	builder.PrependInt64Slot(18, durationKr, 0)
-}
-func CharacterDialogExcelAddLocalizeKr(builder *flatbuffers.Builder, localizeKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(localizeKr), 0)
-}
-func CharacterDialogExcelAddTeenMode(builder *flatbuffers.Builder, teenMode bool) {
-	builder.PrependBoolSlot(20, teenMode, false)
-}
-func CharacterDialogExcelAddEndDate(builder *flatbuffers.Builder, endDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(21, flatbuffers.UOffsetT(endDate), 0)
-}
-func CharacterDialogExcelAddLocalizeTh(builder *flatbuffers.Builder, localizeTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(localizeTh), 0)
-}
-func CharacterDialogExcelAddAnimationName(builder *flatbuffers.Builder, animationName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(animationName), 0)
-}
-func CharacterDialogExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(24, characterId, 0)
-}
-func CharacterDialogExcelAddLocalizeCvGroup(builder *flatbuffers.Builder, localizeCvGroup flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(25, flatbuffers.UOffsetT(localizeCvGroup), 0)
+func CharacterDialogExcelAddDialogCondition(builder *flatbuffers.Builder, dialogCondition DialogCondition) {
+	builder.PrependInt32Slot(5, int32(dialogCondition), 0)
 }
 func CharacterDialogExcelAddAnniversary(builder *flatbuffers.Builder, anniversary Anniversary) {
-	builder.PrependInt32Slot(26, int32(anniversary), 0)
+	builder.PrependInt32Slot(6, int32(anniversary), 0)
+}
+func CharacterDialogExcelAddStartDate(builder *flatbuffers.Builder, startDate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(startDate), 0)
+}
+func CharacterDialogExcelAddEndDate(builder *flatbuffers.Builder, endDate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(endDate), 0)
+}
+func CharacterDialogExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(9, groupId, 0)
+}
+func CharacterDialogExcelAddDialogType(builder *flatbuffers.Builder, dialogType DialogType) {
+	builder.PrependInt32Slot(10, int32(dialogType), 0)
+}
+func CharacterDialogExcelAddActionName(builder *flatbuffers.Builder, actionName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(actionName), 0)
+}
+func CharacterDialogExcelAddDuration(builder *flatbuffers.Builder, duration int64) {
+	builder.PrependInt64Slot(12, duration, 0)
+}
+func CharacterDialogExcelAddDurationKr(builder *flatbuffers.Builder, durationKr int64) {
+	builder.PrependInt64Slot(13, durationKr, 0)
+}
+func CharacterDialogExcelAddAnimationName(builder *flatbuffers.Builder, animationName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(animationName), 0)
+}
+func CharacterDialogExcelAddLocalizeKr(builder *flatbuffers.Builder, localizeKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(localizeKr), 0)
+}
+func CharacterDialogExcelAddLocalizeJp(builder *flatbuffers.Builder, localizeJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(localizeJp), 0)
+}
+func CharacterDialogExcelAddLocalizeTh(builder *flatbuffers.Builder, localizeTh flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(localizeTh), 0)
+}
+func CharacterDialogExcelAddLocalizeTw(builder *flatbuffers.Builder, localizeTw flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(localizeTw), 0)
+}
+func CharacterDialogExcelAddLocalizeEn(builder *flatbuffers.Builder, localizeEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(localizeEn), 0)
 }
 func CharacterDialogExcelAddVoiceId(builder *flatbuffers.Builder, voiceId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(27, flatbuffers.UOffsetT(voiceId), 0)
+	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(voiceId), 0)
 }
 func CharacterDialogExcelStartVoiceIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func CharacterDialogExcelAddDialogType(builder *flatbuffers.Builder, dialogType DialogType) {
-	builder.PrependInt32Slot(28, int32(dialogType), 0)
+func CharacterDialogExcelAddApplyPosition(builder *flatbuffers.Builder, applyPosition bool) {
+	builder.PrependBoolSlot(21, applyPosition, false)
+}
+func CharacterDialogExcelAddPosX(builder *flatbuffers.Builder, posX float32) {
+	builder.PrependFloat32Slot(22, posX, 0.0)
+}
+func CharacterDialogExcelAddPosY(builder *flatbuffers.Builder, posY float32) {
+	builder.PrependFloat32Slot(23, posY, 0.0)
+}
+func CharacterDialogExcelAddCollectionVisible(builder *flatbuffers.Builder, collectionVisible bool) {
+	builder.PrependBoolSlot(24, collectionVisible, false)
+}
+func CharacterDialogExcelAddCvCollectionType(builder *flatbuffers.Builder, cvCollectionType CVCollectionType) {
+	builder.PrependInt32Slot(25, int32(cvCollectionType), 0)
+}
+func CharacterDialogExcelAddUnlockFavorRank(builder *flatbuffers.Builder, unlockFavorRank int64) {
+	builder.PrependInt64Slot(26, unlockFavorRank, 0)
 }
 func CharacterDialogExcelAddUnlockEquipWeapon(builder *flatbuffers.Builder, unlockEquipWeapon bool) {
-	builder.PrependBoolSlot(29, unlockEquipWeapon, false)
+	builder.PrependBoolSlot(27, unlockEquipWeapon, false)
+}
+func CharacterDialogExcelAddLocalizeCvGroup(builder *flatbuffers.Builder, localizeCvGroup flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(localizeCvGroup), 0)
+}
+func CharacterDialogExcelAddTeenMode(builder *flatbuffers.Builder, teenMode bool) {
+	builder.PrependBoolSlot(29, teenMode, false)
 }
 func CharacterDialogExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

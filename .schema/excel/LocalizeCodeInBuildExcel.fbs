@@ -2,11 +2,11 @@ namespace MX.Data.Excel;
 
 table LocalizeCodeInBuildExcel {
     key: uint;
-    th: string;
-    en: string;
-    jp: string;
-    tw: string;
     kr: string;
+    jp: string;
+    th: string;
+    tw: string;
+    en: string;
 }
 
 root_type LocalizeCodeInBuildExcel;

@@ -1,7 +1,7 @@
 namespace FlatData;
 
 table TacticEntityEffectFilterExcel {
-    show_effect_to_vehicle: bool;
     target_effect_name: string;
+    show_effect_to_vehicle: bool;
     show_effect_to_boss: bool;
 }

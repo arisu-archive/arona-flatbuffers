@@ -10,18 +10,18 @@ import (
 // CharacterAIExcelDto represents a FlatBuffers table
 type CharacterAIExcelDto struct {
 	fbsutils.FlatBuffer
-	CheckCanUseAutoSkill             bool            `json:"check_can_use_auto_skill"`
-	DistanceReduceRatioObstaclePath  int64           `json:"distance_reduce_ratio_obstacle_path"`
-	DistanceReduceFormationPath      int64           `json:"distance_reduce_formation_path"`
-	CanUseObstacleOfStandMotion      bool            `json:"can_use_obstacle_of_stand_motion"`
-	DistanceReduceRatioFormationPath int64           `json:"distance_reduce_ratio_formation_path"`
-	Positioning                      PositioningType `json:"positioning"`
-	DistanceReduceObstaclePath       int64           `json:"distance_reduce_obstacle_path"`
-	HasTargetSwitchingMotion         bool            `json:"has_target_switching_motion"`
-	MinimumPositionGap               int64           `json:"minimum_position_gap"`
 	Id                               int64           `json:"id"`
 	EngageType                       EngageType      `json:"engage_type"`
+	Positioning                      PositioningType `json:"positioning"`
+	CheckCanUseAutoSkill             bool            `json:"check_can_use_auto_skill"`
+	DistanceReduceRatioObstaclePath  int64           `json:"distance_reduce_ratio_obstacle_path"`
+	DistanceReduceObstaclePath       int64           `json:"distance_reduce_obstacle_path"`
+	DistanceReduceRatioFormationPath int64           `json:"distance_reduce_ratio_formation_path"`
+	DistanceReduceFormationPath      int64           `json:"distance_reduce_formation_path"`
+	MinimumPositionGap               int64           `json:"minimum_position_gap"`
 	CanUseObstacleOfKneelMotion      bool            `json:"can_use_obstacle_of_kneel_motion"`
+	CanUseObstacleOfStandMotion      bool            `json:"can_use_obstacle_of_stand_motion"`
+	HasTargetSwitchingMotion         bool            `json:"has_target_switching_motion"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -30,18 +30,18 @@ func (t *CharacterAIExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAI"))
 	}
 	CharacterAIExcelStart(b)
-	CharacterAIExcelAddCheckCanUseAutoSkill(b, t.CheckCanUseAutoSkill)
-	CharacterAIExcelAddDistanceReduceRatioObstaclePath(b, fbsutils.Convert(t.DistanceReduceRatioObstaclePath, t.FlatBuffer.TableKey))
-	CharacterAIExcelAddDistanceReduceFormationPath(b, fbsutils.Convert(t.DistanceReduceFormationPath, t.FlatBuffer.TableKey))
-	CharacterAIExcelAddCanUseObstacleOfStandMotion(b, t.CanUseObstacleOfStandMotion)
-	CharacterAIExcelAddDistanceReduceRatioFormationPath(b, fbsutils.Convert(t.DistanceReduceRatioFormationPath, t.FlatBuffer.TableKey))
-	CharacterAIExcelAddPositioning(b, fbsutils.Convert(t.Positioning, t.FlatBuffer.TableKey))
-	CharacterAIExcelAddDistanceReduceObstaclePath(b, fbsutils.Convert(t.DistanceReduceObstaclePath, t.FlatBuffer.TableKey))
-	CharacterAIExcelAddHasTargetSwitchingMotion(b, t.HasTargetSwitchingMotion)
-	CharacterAIExcelAddMinimumPositionGap(b, fbsutils.Convert(t.MinimumPositionGap, t.FlatBuffer.TableKey))
 	CharacterAIExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CharacterAIExcelAddEngageType(b, fbsutils.Convert(t.EngageType, t.FlatBuffer.TableKey))
+	CharacterAIExcelAddPositioning(b, fbsutils.Convert(t.Positioning, t.FlatBuffer.TableKey))
+	CharacterAIExcelAddCheckCanUseAutoSkill(b, t.CheckCanUseAutoSkill)
+	CharacterAIExcelAddDistanceReduceRatioObstaclePath(b, fbsutils.Convert(t.DistanceReduceRatioObstaclePath, t.FlatBuffer.TableKey))
+	CharacterAIExcelAddDistanceReduceObstaclePath(b, fbsutils.Convert(t.DistanceReduceObstaclePath, t.FlatBuffer.TableKey))
+	CharacterAIExcelAddDistanceReduceRatioFormationPath(b, fbsutils.Convert(t.DistanceReduceRatioFormationPath, t.FlatBuffer.TableKey))
+	CharacterAIExcelAddDistanceReduceFormationPath(b, fbsutils.Convert(t.DistanceReduceFormationPath, t.FlatBuffer.TableKey))
+	CharacterAIExcelAddMinimumPositionGap(b, fbsutils.Convert(t.MinimumPositionGap, t.FlatBuffer.TableKey))
 	CharacterAIExcelAddCanUseObstacleOfKneelMotion(b, t.CanUseObstacleOfKneelMotion)
+	CharacterAIExcelAddCanUseObstacleOfStandMotion(b, t.CanUseObstacleOfStandMotion)
+	CharacterAIExcelAddHasTargetSwitchingMotion(b, t.HasTargetSwitchingMotion)
 	return CharacterAIExcelEnd(b)
 }
 
@@ -57,18 +57,18 @@ func (t *CharacterAIExcelDto) UnmarshalMessage(e *CharacterAIExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterAI"))
 	}
-	t.CheckCanUseAutoSkill = e.CheckCanUseAutoSkill()
-	t.DistanceReduceRatioObstaclePath = fbsutils.Convert(e.DistanceReduceRatioObstaclePath(), t.FlatBuffer.TableKey)
-	t.DistanceReduceFormationPath = fbsutils.Convert(e.DistanceReduceFormationPath(), t.FlatBuffer.TableKey)
-	t.CanUseObstacleOfStandMotion = e.CanUseObstacleOfStandMotion()
-	t.DistanceReduceRatioFormationPath = fbsutils.Convert(e.DistanceReduceRatioFormationPath(), t.FlatBuffer.TableKey)
-	t.Positioning = PositioningType(fbsutils.Convert(int32(e.Positioning()), t.FlatBuffer.TableKey))
-	t.DistanceReduceObstaclePath = fbsutils.Convert(e.DistanceReduceObstaclePath(), t.FlatBuffer.TableKey)
-	t.HasTargetSwitchingMotion = e.HasTargetSwitchingMotion()
-	t.MinimumPositionGap = fbsutils.Convert(e.MinimumPositionGap(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.EngageType = EngageType(fbsutils.Convert(int32(e.EngageType()), t.FlatBuffer.TableKey))
+	t.Positioning = PositioningType(fbsutils.Convert(int32(e.Positioning()), t.FlatBuffer.TableKey))
+	t.CheckCanUseAutoSkill = e.CheckCanUseAutoSkill()
+	t.DistanceReduceRatioObstaclePath = fbsutils.Convert(e.DistanceReduceRatioObstaclePath(), t.FlatBuffer.TableKey)
+	t.DistanceReduceObstaclePath = fbsutils.Convert(e.DistanceReduceObstaclePath(), t.FlatBuffer.TableKey)
+	t.DistanceReduceRatioFormationPath = fbsutils.Convert(e.DistanceReduceRatioFormationPath(), t.FlatBuffer.TableKey)
+	t.DistanceReduceFormationPath = fbsutils.Convert(e.DistanceReduceFormationPath(), t.FlatBuffer.TableKey)
+	t.MinimumPositionGap = fbsutils.Convert(e.MinimumPositionGap(), t.FlatBuffer.TableKey)
 	t.CanUseObstacleOfKneelMotion = e.CanUseObstacleOfKneelMotion()
+	t.CanUseObstacleOfStandMotion = e.CanUseObstacleOfStandMotion()
+	t.HasTargetSwitchingMotion = e.HasTargetSwitchingMotion()
 	return nil
 }
 

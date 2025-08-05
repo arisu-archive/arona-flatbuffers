@@ -10,17 +10,17 @@ import (
 // MiniGameAudioAnimatorExcelDto represents a FlatBuffers table
 type MiniGameAudioAnimatorExcelDto struct {
 	fbsutils.FlatBuffer
-	StateNameHash        uint32   `json:"state_name_hash"`
-	IgnoreInterruptDelay bool     `json:"ignore_interrupt_delay"`
-	VoiceNamePrefix      string   `json:"voice_name_prefix"`
-	VoiceHash            []uint32 `json:"voice_hash"`
-	IgnoreInterruptPlay  bool     `json:"ignore_interrupt_play"`
-	AudioClipPath        []string `json:"audio_clip_path"`
-	AudioPriority        int32    `json:"audio_priority"`
-	StateName            string   `json:"state_name"`
-	Delay                float32  `json:"delay"`
 	ControllerNameHash   uint32   `json:"controller_name_hash"`
+	VoiceNamePrefix      string   `json:"voice_name_prefix"`
+	StateNameHash        uint32   `json:"state_name_hash"`
+	StateName            string   `json:"state_name"`
+	IgnoreInterruptDelay bool     `json:"ignore_interrupt_delay"`
+	IgnoreInterruptPlay  bool     `json:"ignore_interrupt_play"`
 	Volume               float32  `json:"volume"`
+	Delay                float32  `json:"delay"`
+	AudioPriority        int32    `json:"audio_priority"`
+	AudioClipPath        []string `json:"audio_clip_path"`
+	VoiceHash            []uint32 `json:"voice_hash"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -29,25 +29,25 @@ func (t *MiniGameAudioAnimatorExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameAudioAnimator"))
 	}
 	MiniGameAudioAnimatorExcelStart(b)
-	MiniGameAudioAnimatorExcelAddStateNameHash(b, fbsutils.Convert(t.StateNameHash, t.FlatBuffer.TableKey))
-	MiniGameAudioAnimatorExcelAddIgnoreInterruptDelay(b, t.IgnoreInterruptDelay)
+	MiniGameAudioAnimatorExcelAddControllerNameHash(b, fbsutils.Convert(t.ControllerNameHash, t.FlatBuffer.TableKey))
 	MiniGameAudioAnimatorExcelAddVoiceNamePrefix(b, b.CreateString(fbsutils.Convert(t.VoiceNamePrefix, t.FlatBuffer.TableKey)))
-	MiniGameAudioAnimatorExcelStartVoiceHashVector(b, len(t.VoiceHash))
-	for i := range len(t.VoiceHash) {
-		b.PrependUint32(fbsutils.Convert(t.VoiceHash[len(t.VoiceHash)-i-1], t.FlatBuffer.TableKey))
-	}
-	MiniGameAudioAnimatorExcelAddVoiceHash(b, b.EndVector(len(t.VoiceHash)))
+	MiniGameAudioAnimatorExcelAddStateNameHash(b, fbsutils.Convert(t.StateNameHash, t.FlatBuffer.TableKey))
+	MiniGameAudioAnimatorExcelAddStateName(b, b.CreateString(fbsutils.Convert(t.StateName, t.FlatBuffer.TableKey)))
+	MiniGameAudioAnimatorExcelAddIgnoreInterruptDelay(b, t.IgnoreInterruptDelay)
 	MiniGameAudioAnimatorExcelAddIgnoreInterruptPlay(b, t.IgnoreInterruptPlay)
+	MiniGameAudioAnimatorExcelAddVolume(b, fbsutils.Convert(t.Volume, t.FlatBuffer.TableKey))
+	MiniGameAudioAnimatorExcelAddDelay(b, fbsutils.Convert(t.Delay, t.FlatBuffer.TableKey))
+	MiniGameAudioAnimatorExcelAddAudioPriority(b, fbsutils.Convert(t.AudioPriority, t.FlatBuffer.TableKey))
 	MiniGameAudioAnimatorExcelStartAudioClipPathVector(b, len(t.AudioClipPath))
 	for i := range len(t.AudioClipPath) {
 		b.PrependUOffsetT(b.CreateString(t.AudioClipPath[len(t.AudioClipPath)-i-1]))
 	}
 	MiniGameAudioAnimatorExcelAddAudioClipPath(b, b.EndVector(len(t.AudioClipPath)))
-	MiniGameAudioAnimatorExcelAddAudioPriority(b, fbsutils.Convert(t.AudioPriority, t.FlatBuffer.TableKey))
-	MiniGameAudioAnimatorExcelAddStateName(b, b.CreateString(fbsutils.Convert(t.StateName, t.FlatBuffer.TableKey)))
-	MiniGameAudioAnimatorExcelAddDelay(b, fbsutils.Convert(t.Delay, t.FlatBuffer.TableKey))
-	MiniGameAudioAnimatorExcelAddControllerNameHash(b, fbsutils.Convert(t.ControllerNameHash, t.FlatBuffer.TableKey))
-	MiniGameAudioAnimatorExcelAddVolume(b, fbsutils.Convert(t.Volume, t.FlatBuffer.TableKey))
+	MiniGameAudioAnimatorExcelStartVoiceHashVector(b, len(t.VoiceHash))
+	for i := range len(t.VoiceHash) {
+		b.PrependUint32(fbsutils.Convert(t.VoiceHash[len(t.VoiceHash)-i-1], t.FlatBuffer.TableKey))
+	}
+	MiniGameAudioAnimatorExcelAddVoiceHash(b, b.EndVector(len(t.VoiceHash)))
 	return MiniGameAudioAnimatorExcelEnd(b)
 }
 
@@ -63,23 +63,23 @@ func (t *MiniGameAudioAnimatorExcelDto) UnmarshalMessage(e *MiniGameAudioAnimato
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MiniGameAudioAnimator"))
 	}
-	t.StateNameHash = fbsutils.Convert(e.StateNameHash(), t.FlatBuffer.TableKey)
-	t.IgnoreInterruptDelay = e.IgnoreInterruptDelay()
+	t.ControllerNameHash = fbsutils.Convert(e.ControllerNameHash(), t.FlatBuffer.TableKey)
 	t.VoiceNamePrefix = fbsutils.Convert(string(e.VoiceNamePrefix()), t.FlatBuffer.TableKey)
-	t.VoiceHash = make([]uint32, e.VoiceHashLength())
-	for i := range e.VoiceHashLength() {
-		t.VoiceHash[i] = fbsutils.Convert(e.VoiceHash(i), t.FlatBuffer.TableKey)
-	}
+	t.StateNameHash = fbsutils.Convert(e.StateNameHash(), t.FlatBuffer.TableKey)
+	t.StateName = fbsutils.Convert(string(e.StateName()), t.FlatBuffer.TableKey)
+	t.IgnoreInterruptDelay = e.IgnoreInterruptDelay()
 	t.IgnoreInterruptPlay = e.IgnoreInterruptPlay()
+	t.Volume = fbsutils.Convert(e.Volume(), t.FlatBuffer.TableKey)
+	t.Delay = fbsutils.Convert(e.Delay(), t.FlatBuffer.TableKey)
+	t.AudioPriority = fbsutils.Convert(e.AudioPriority(), t.FlatBuffer.TableKey)
 	t.AudioClipPath = make([]string, e.AudioClipPathLength())
 	for i := range e.AudioClipPathLength() {
 		t.AudioClipPath[i] = fbsutils.Convert(string(e.AudioClipPath(i)), t.FlatBuffer.TableKey)
 	}
-	t.AudioPriority = fbsutils.Convert(e.AudioPriority(), t.FlatBuffer.TableKey)
-	t.StateName = fbsutils.Convert(string(e.StateName()), t.FlatBuffer.TableKey)
-	t.Delay = fbsutils.Convert(e.Delay(), t.FlatBuffer.TableKey)
-	t.ControllerNameHash = fbsutils.Convert(e.ControllerNameHash(), t.FlatBuffer.TableKey)
-	t.Volume = fbsutils.Convert(e.Volume(), t.FlatBuffer.TableKey)
+	t.VoiceHash = make([]uint32, e.VoiceHashLength())
+	for i := range e.VoiceHashLength() {
+		t.VoiceHash[i] = fbsutils.Convert(e.VoiceHash(i), t.FlatBuffer.TableKey)
+	}
 	return nil
 }
 

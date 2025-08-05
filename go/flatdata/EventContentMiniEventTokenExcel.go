@@ -33,7 +33,7 @@ func (rcv *EventContentMiniEventTokenExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentMiniEventTokenExcel) ItemUniqueId() int64 {
+func (rcv *EventContentMiniEventTokenExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *EventContentMiniEventTokenExcel) ItemUniqueId() int64 {
 	return 0
 }
 
-func (rcv *EventContentMiniEventTokenExcel) MutateItemUniqueId(n int64) bool {
+func (rcv *EventContentMiniEventTokenExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EventContentMiniEventTokenExcel) EventContentId() int64 {
+func (rcv *EventContentMiniEventTokenExcel) ItemUniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,7 +53,7 @@ func (rcv *EventContentMiniEventTokenExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentMiniEventTokenExcel) MutateEventContentId(n int64) bool {
+func (rcv *EventContentMiniEventTokenExcel) MutateItemUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
@@ -72,11 +72,11 @@ func (rcv *EventContentMiniEventTokenExcel) MutateMaximumAmount(n int64) bool {
 func EventContentMiniEventTokenExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func EventContentMiniEventTokenExcelAddItemUniqueId(builder *flatbuffers.Builder, itemUniqueId int64) {
-	builder.PrependInt64Slot(0, itemUniqueId, 0)
-}
 func EventContentMiniEventTokenExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(1, eventContentId, 0)
+	builder.PrependInt64Slot(0, eventContentId, 0)
+}
+func EventContentMiniEventTokenExcelAddItemUniqueId(builder *flatbuffers.Builder, itemUniqueId int64) {
+	builder.PrependInt64Slot(1, itemUniqueId, 0)
 }
 func EventContentMiniEventTokenExcelAddMaximumAmount(builder *flatbuffers.Builder, maximumAmount int64) {
 	builder.PrependInt64Slot(2, maximumAmount, 0)

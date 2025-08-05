@@ -10,26 +10,26 @@ import (
 // TutorialFailureImageExcelDto represents a FlatBuffers table
 type TutorialFailureImageExcelDto struct {
 	fbsutils.FlatBuffer
-	ImagePathJp string                     `json:"image_path_jp"`
-	ImagePathTw string                     `json:"image_path_tw"`
+	Id          int64                      `json:"id"`
+	Contents    TutorialFailureContentType `json:"contents"`
 	Type        string                     `json:"type"`
 	ImagePathKr string                     `json:"image_path_kr"`
-	Contents    TutorialFailureContentType `json:"contents"`
+	ImagePathJp string                     `json:"image_path_jp"`
 	ImagePathTh string                     `json:"image_path_th"`
-	Id          int64                      `json:"id"`
+	ImagePathTw string                     `json:"image_path_tw"`
 	ImagePathEn string                     `json:"image_path_en"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TutorialFailureImageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	TutorialFailureImageExcelStart(b)
-	TutorialFailureImageExcelAddImagePathJp(b, b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey)))
-	TutorialFailureImageExcelAddImagePathTw(b, b.CreateString(fbsutils.Convert(t.ImagePathTw, t.FlatBuffer.TableKey)))
+	TutorialFailureImageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	TutorialFailureImageExcelAddContents(b, fbsutils.Convert(t.Contents, t.FlatBuffer.TableKey))
 	TutorialFailureImageExcelAddType(b, b.CreateString(fbsutils.Convert(t.Type, t.FlatBuffer.TableKey)))
 	TutorialFailureImageExcelAddImagePathKr(b, b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey)))
-	TutorialFailureImageExcelAddContents(b, fbsutils.Convert(t.Contents, t.FlatBuffer.TableKey))
+	TutorialFailureImageExcelAddImagePathJp(b, b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey)))
 	TutorialFailureImageExcelAddImagePathTh(b, b.CreateString(fbsutils.Convert(t.ImagePathTh, t.FlatBuffer.TableKey)))
-	TutorialFailureImageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	TutorialFailureImageExcelAddImagePathTw(b, b.CreateString(fbsutils.Convert(t.ImagePathTw, t.FlatBuffer.TableKey)))
 	TutorialFailureImageExcelAddImagePathEn(b, b.CreateString(fbsutils.Convert(t.ImagePathEn, t.FlatBuffer.TableKey)))
 	return TutorialFailureImageExcelEnd(b)
 }
@@ -43,13 +43,13 @@ func (t *TutorialFailureImageExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TutorialFailureImageExcelDto) UnmarshalMessage(e *TutorialFailureImageExcel) error {
-	t.ImagePathJp = fbsutils.Convert(string(e.ImagePathJp()), t.FlatBuffer.TableKey)
-	t.ImagePathTw = fbsutils.Convert(string(e.ImagePathTw()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.Contents = TutorialFailureContentType(fbsutils.Convert(int32(e.Contents()), t.FlatBuffer.TableKey))
 	t.Type = fbsutils.Convert(string(e.Type()), t.FlatBuffer.TableKey)
 	t.ImagePathKr = fbsutils.Convert(string(e.ImagePathKr()), t.FlatBuffer.TableKey)
-	t.Contents = TutorialFailureContentType(fbsutils.Convert(int32(e.Contents()), t.FlatBuffer.TableKey))
+	t.ImagePathJp = fbsutils.Convert(string(e.ImagePathJp()), t.FlatBuffer.TableKey)
 	t.ImagePathTh = fbsutils.Convert(string(e.ImagePathTh()), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.ImagePathTw = fbsutils.Convert(string(e.ImagePathTw()), t.FlatBuffer.TableKey)
 	t.ImagePathEn = fbsutils.Convert(string(e.ImagePathEn()), t.FlatBuffer.TableKey)
 	return nil
 }

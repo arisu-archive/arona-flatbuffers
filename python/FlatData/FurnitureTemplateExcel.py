@@ -25,11 +25,11 @@ class FurnitureTemplateExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # FurnitureTemplateExcel
-    def ThumbnailImagePath(self):
+    def FurnitureTemplateId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # FurnitureTemplateExcel
     def FunitureTemplateTitle(self):
@@ -39,34 +39,34 @@ class FurnitureTemplateExcel(object):
         return 0
 
     # FurnitureTemplateExcel
-    def ImagePath(self):
+    def ThumbnailImagePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # FurnitureTemplateExcel
-    def FurnitureTemplateId(self):
+    def ImagePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def FurnitureTemplateExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return FurnitureTemplateExcelStart(builder)
-def FurnitureTemplateExcelAddThumbnailImagePath(builder, thumbnailImagePath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(thumbnailImagePath), 0)
-def AddThumbnailImagePath(builder, thumbnailImagePath):
-    return FurnitureTemplateExcelAddThumbnailImagePath(builder, thumbnailImagePath)
+def FurnitureTemplateExcelAddFurnitureTemplateId(builder, furnitureTemplateId): builder.PrependInt64Slot(0, furnitureTemplateId, 0)
+def AddFurnitureTemplateId(builder, furnitureTemplateId):
+    return FurnitureTemplateExcelAddFurnitureTemplateId(builder, furnitureTemplateId)
 def FurnitureTemplateExcelAddFunitureTemplateTitle(builder, funitureTemplateTitle): builder.PrependUint32Slot(1, funitureTemplateTitle, 0)
 def AddFunitureTemplateTitle(builder, funitureTemplateTitle):
     return FurnitureTemplateExcelAddFunitureTemplateTitle(builder, funitureTemplateTitle)
-def FurnitureTemplateExcelAddImagePath(builder, imagePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(imagePath), 0)
+def FurnitureTemplateExcelAddThumbnailImagePath(builder, thumbnailImagePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(thumbnailImagePath), 0)
+def AddThumbnailImagePath(builder, thumbnailImagePath):
+    return FurnitureTemplateExcelAddThumbnailImagePath(builder, thumbnailImagePath)
+def FurnitureTemplateExcelAddImagePath(builder, imagePath): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(imagePath), 0)
 def AddImagePath(builder, imagePath):
     return FurnitureTemplateExcelAddImagePath(builder, imagePath)
-def FurnitureTemplateExcelAddFurnitureTemplateId(builder, furnitureTemplateId): builder.PrependInt64Slot(3, furnitureTemplateId, 0)
-def AddFurnitureTemplateId(builder, furnitureTemplateId):
-    return FurnitureTemplateExcelAddFurnitureTemplateId(builder, furnitureTemplateId)
 def FurnitureTemplateExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return FurnitureTemplateExcelEnd(builder)

@@ -1,12 +1,12 @@
 namespace MX.Data.Excel;
 
 table BGM_GlobalExcel {
+    group_bgm_id: long;
+    bgm_id_kr: long;
+    bgm_id_jp: long;
     bgm_id_th: long;
     bgm_id_tw: long;
-    bgm_id_kr: long;
     bgm_id_en: long;
-    group_bgm_id: long;
-    bgm_id_jp: long;
 }
 
 root_type BGM_GlobalExcel;

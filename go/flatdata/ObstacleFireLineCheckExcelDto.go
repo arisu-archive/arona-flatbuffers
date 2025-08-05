@@ -10,10 +10,10 @@ import (
 // ObstacleFireLineCheckExcelDto represents a FlatBuffers table
 type ObstacleFireLineCheckExcelDto struct {
 	fbsutils.FlatBuffer
+	MyObstacleFireLineCheck    bool `json:"my_obstacle_fire_line_check"`
 	AllyObstacleFireLineCheck  bool `json:"ally_obstacle_fire_line_check"`
 	EnemyObstacleFireLineCheck bool `json:"enemy_obstacle_fire_line_check"`
 	EmptyObstacleFireLineCheck bool `json:"empty_obstacle_fire_line_check"`
-	MyObstacleFireLineCheck    bool `json:"my_obstacle_fire_line_check"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *ObstacleFireLineCheckExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ObstacleFireLineCheck"))
 	}
 	ObstacleFireLineCheckExcelStart(b)
+	ObstacleFireLineCheckExcelAddMyObstacleFireLineCheck(b, t.MyObstacleFireLineCheck)
 	ObstacleFireLineCheckExcelAddAllyObstacleFireLineCheck(b, t.AllyObstacleFireLineCheck)
 	ObstacleFireLineCheckExcelAddEnemyObstacleFireLineCheck(b, t.EnemyObstacleFireLineCheck)
 	ObstacleFireLineCheckExcelAddEmptyObstacleFireLineCheck(b, t.EmptyObstacleFireLineCheck)
-	ObstacleFireLineCheckExcelAddMyObstacleFireLineCheck(b, t.MyObstacleFireLineCheck)
 	return ObstacleFireLineCheckExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *ObstacleFireLineCheckExcelDto) UnmarshalMessage(e *ObstacleFireLineChec
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ObstacleFireLineCheck"))
 	}
+	t.MyObstacleFireLineCheck = e.MyObstacleFireLineCheck()
 	t.AllyObstacleFireLineCheck = e.AllyObstacleFireLineCheck()
 	t.EnemyObstacleFireLineCheck = e.EnemyObstacleFireLineCheck()
 	t.EmptyObstacleFireLineCheck = e.EmptyObstacleFireLineCheck()
-	t.MyObstacleFireLineCheck = e.MyObstacleFireLineCheck()
 	return nil
 }
 

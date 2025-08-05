@@ -10,11 +10,11 @@ import (
 // EventContentDiceRaceEffectExcelDto represents a FlatBuffers table
 type EventContentDiceRaceEffectExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentDiceRaceResultType EventContentDiceRaceResultType `json:"event_content_dice_race_result_type"`
 	EventContentId                 int64                          `json:"event_content_id"`
+	EventContentDiceRaceResultType EventContentDiceRaceResultType `json:"event_content_dice_race_result_type"`
+	IsDiceResult                   bool                           `json:"is_dice_result"`
 	AniClip                        string                         `json:"ani_clip"`
 	VoiceId                        []uint32                       `json:"voice_id"`
-	IsDiceResult                   bool                           `json:"is_dice_result"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,15 +23,15 @@ func (t *EventContentDiceRaceEffectExcelDto) MarshalModel(b *flatbuffers.Builder
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceEffect"))
 	}
 	EventContentDiceRaceEffectExcelStart(b)
-	EventContentDiceRaceEffectExcelAddEventContentDiceRaceResultType(b, fbsutils.Convert(t.EventContentDiceRaceResultType, t.FlatBuffer.TableKey))
 	EventContentDiceRaceEffectExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentDiceRaceEffectExcelAddEventContentDiceRaceResultType(b, fbsutils.Convert(t.EventContentDiceRaceResultType, t.FlatBuffer.TableKey))
+	EventContentDiceRaceEffectExcelAddIsDiceResult(b, t.IsDiceResult)
 	EventContentDiceRaceEffectExcelAddAniClip(b, b.CreateString(fbsutils.Convert(t.AniClip, t.FlatBuffer.TableKey)))
 	EventContentDiceRaceEffectExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentDiceRaceEffectExcelAddVoiceId(b, b.EndVector(len(t.VoiceId)))
-	EventContentDiceRaceEffectExcelAddIsDiceResult(b, t.IsDiceResult)
 	return EventContentDiceRaceEffectExcelEnd(b)
 }
 
@@ -47,14 +47,14 @@ func (t *EventContentDiceRaceEffectExcelDto) UnmarshalMessage(e *EventContentDic
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceEffect"))
 	}
-	t.EventContentDiceRaceResultType = EventContentDiceRaceResultType(fbsutils.Convert(int32(e.EventContentDiceRaceResultType()), t.FlatBuffer.TableKey))
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.EventContentDiceRaceResultType = EventContentDiceRaceResultType(fbsutils.Convert(int32(e.EventContentDiceRaceResultType()), t.FlatBuffer.TableKey))
+	t.IsDiceResult = e.IsDiceResult()
 	t.AniClip = fbsutils.Convert(string(e.AniClip()), t.FlatBuffer.TableKey)
 	t.VoiceId = make([]uint32, e.VoiceIdLength())
 	for i := range e.VoiceIdLength() {
 		t.VoiceId[i] = fbsutils.Convert(e.VoiceId(i), t.FlatBuffer.TableKey)
 	}
-	t.IsDiceResult = e.IsDiceResult()
 	return nil
 }
 

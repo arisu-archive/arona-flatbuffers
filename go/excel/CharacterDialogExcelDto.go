@@ -10,75 +10,75 @@ import (
 // CharacterDialogExcelDto represents a FlatBuffers table
 type CharacterDialogExcelDto struct {
 	fbsutils.FlatBuffer
-	ActionName        string           `json:"action_name"`
-	DialogCondition   DialogCondition  `json:"dialog_condition"`
-	ApplyPosition     bool             `json:"apply_position"`
-	DisplayOrder      int64            `json:"display_order"`
-	StartDate         string           `json:"start_date"`
-	CvCollectionType  CVCollectionType `json:"cv_collection_type"`
-	CollectionVisible bool             `json:"collection_visible"`
-	GroupId           int64            `json:"group_id"`
-	PosX              float32          `json:"pos_x"`
-	LocalizeTw        string           `json:"localize_tw"`
-	UnlockFavorRank   int64            `json:"unlock_favor_rank"`
-	DialogCategory    DialogCategory   `json:"dialog_category"`
-	PosY              float32          `json:"pos_y"`
-	CostumeUniqueId   int64            `json:"costume_unique_id"`
-	ProductionStep    ProductionStep   `json:"production_step"`
-	Duration          int64            `json:"duration"`
-	LocalizeEn        string           `json:"localize_en"`
-	LocalizeJp        string           `json:"localize_jp"`
-	DurationKr        int64            `json:"duration_kr"`
-	LocalizeKr        string           `json:"localize_kr"`
-	TeenMode          bool             `json:"teen_mode"`
-	EndDate           string           `json:"end_date"`
-	LocalizeTh        string           `json:"localize_th"`
-	AnimationName     string           `json:"animation_name"`
 	CharacterId       int64            `json:"character_id"`
-	LocalizeCvGroup   string           `json:"localize_cv_group"`
+	CostumeUniqueId   int64            `json:"costume_unique_id"`
+	DisplayOrder      int64            `json:"display_order"`
+	ProductionStep    ProductionStep   `json:"production_step"`
+	DialogCategory    DialogCategory   `json:"dialog_category"`
+	DialogCondition   DialogCondition  `json:"dialog_condition"`
 	Anniversary       Anniversary      `json:"anniversary"`
-	VoiceId           []uint32         `json:"voice_id"`
+	StartDate         string           `json:"start_date"`
+	EndDate           string           `json:"end_date"`
+	GroupId           int64            `json:"group_id"`
 	DialogType        DialogType       `json:"dialog_type"`
+	ActionName        string           `json:"action_name"`
+	Duration          int64            `json:"duration"`
+	DurationKr        int64            `json:"duration_kr"`
+	AnimationName     string           `json:"animation_name"`
+	LocalizeKr        string           `json:"localize_kr"`
+	LocalizeJp        string           `json:"localize_jp"`
+	LocalizeTh        string           `json:"localize_th"`
+	LocalizeTw        string           `json:"localize_tw"`
+	LocalizeEn        string           `json:"localize_en"`
+	VoiceId           []uint32         `json:"voice_id"`
+	ApplyPosition     bool             `json:"apply_position"`
+	PosX              float32          `json:"pos_x"`
+	PosY              float32          `json:"pos_y"`
+	CollectionVisible bool             `json:"collection_visible"`
+	CvCollectionType  CVCollectionType `json:"cv_collection_type"`
+	UnlockFavorRank   int64            `json:"unlock_favor_rank"`
 	UnlockEquipWeapon bool             `json:"unlock_equip_weapon"`
+	LocalizeCvGroup   string           `json:"localize_cv_group"`
+	TeenMode          bool             `json:"teen_mode"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CharacterDialogExcelStart(b)
-	CharacterDialogExcelAddActionName(b, b.CreateString(fbsutils.Convert(t.ActionName, t.FlatBuffer.TableKey)))
-	CharacterDialogExcelAddDialogCondition(b, fbsutils.Convert(t.DialogCondition, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddApplyPosition(b, t.ApplyPosition)
-	CharacterDialogExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
-	CharacterDialogExcelAddCvCollectionType(b, fbsutils.Convert(t.CvCollectionType, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddCollectionVisible(b, t.CollectionVisible)
-	CharacterDialogExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddPosX(b, fbsutils.Convert(t.PosX, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddLocalizeTw(b, b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey)))
-	CharacterDialogExcelAddUnlockFavorRank(b, fbsutils.Convert(t.UnlockFavorRank, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddDialogCategory(b, fbsutils.Convert(t.DialogCategory, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddPosY(b, fbsutils.Convert(t.PosY, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddLocalizeEn(b, b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey)))
-	CharacterDialogExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
-	CharacterDialogExcelAddDurationKr(b, fbsutils.Convert(t.DurationKr, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
-	CharacterDialogExcelAddTeenMode(b, t.TeenMode)
-	CharacterDialogExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
-	CharacterDialogExcelAddLocalizeTh(b, b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey)))
-	CharacterDialogExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
 	CharacterDialogExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
-	CharacterDialogExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
+	CharacterDialogExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	CharacterDialogExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
+	CharacterDialogExcelAddDialogCategory(b, fbsutils.Convert(t.DialogCategory, t.FlatBuffer.TableKey))
+	CharacterDialogExcelAddDialogCondition(b, fbsutils.Convert(t.DialogCondition, t.FlatBuffer.TableKey))
 	CharacterDialogExcelAddAnniversary(b, fbsutils.Convert(t.Anniversary, t.FlatBuffer.TableKey))
+	CharacterDialogExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	CharacterDialogExcelAddDialogType(b, fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey))
+	CharacterDialogExcelAddActionName(b, b.CreateString(fbsutils.Convert(t.ActionName, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
+	CharacterDialogExcelAddDurationKr(b, fbsutils.Convert(t.DurationKr, t.FlatBuffer.TableKey))
+	CharacterDialogExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddLocalizeTh(b, b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddLocalizeTw(b, b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddLocalizeEn(b, b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey)))
 	CharacterDialogExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))
 	}
 	CharacterDialogExcelAddVoiceId(b, b.EndVector(len(t.VoiceId)))
-	CharacterDialogExcelAddDialogType(b, fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey))
+	CharacterDialogExcelAddApplyPosition(b, t.ApplyPosition)
+	CharacterDialogExcelAddPosX(b, fbsutils.Convert(t.PosX, t.FlatBuffer.TableKey))
+	CharacterDialogExcelAddPosY(b, fbsutils.Convert(t.PosY, t.FlatBuffer.TableKey))
+	CharacterDialogExcelAddCollectionVisible(b, t.CollectionVisible)
+	CharacterDialogExcelAddCvCollectionType(b, fbsutils.Convert(t.CvCollectionType, t.FlatBuffer.TableKey))
+	CharacterDialogExcelAddUnlockFavorRank(b, fbsutils.Convert(t.UnlockFavorRank, t.FlatBuffer.TableKey))
 	CharacterDialogExcelAddUnlockEquipWeapon(b, t.UnlockEquipWeapon)
+	CharacterDialogExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
+	CharacterDialogExcelAddTeenMode(b, t.TeenMode)
 	return CharacterDialogExcelEnd(b)
 }
 
@@ -91,39 +91,39 @@ func (t *CharacterDialogExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterDialogExcelDto) UnmarshalMessage(e *CharacterDialogExcel) error {
-	t.ActionName = fbsutils.Convert(string(e.ActionName()), t.FlatBuffer.TableKey)
-	t.DialogCondition = DialogCondition(fbsutils.Convert(int32(e.DialogCondition()), t.FlatBuffer.TableKey))
-	t.ApplyPosition = e.ApplyPosition()
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
-	t.CvCollectionType = CVCollectionType(fbsutils.Convert(int32(e.CvCollectionType()), t.FlatBuffer.TableKey))
-	t.CollectionVisible = e.CollectionVisible()
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.PosX = fbsutils.Convert(e.PosX(), t.FlatBuffer.TableKey)
-	t.LocalizeTw = fbsutils.Convert(string(e.LocalizeTw()), t.FlatBuffer.TableKey)
-	t.UnlockFavorRank = fbsutils.Convert(e.UnlockFavorRank(), t.FlatBuffer.TableKey)
-	t.DialogCategory = DialogCategory(fbsutils.Convert(int32(e.DialogCategory()), t.FlatBuffer.TableKey))
-	t.PosY = fbsutils.Convert(e.PosY(), t.FlatBuffer.TableKey)
-	t.CostumeUniqueId = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
-	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
-	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
-	t.LocalizeEn = fbsutils.Convert(string(e.LocalizeEn()), t.FlatBuffer.TableKey)
-	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
-	t.DurationKr = fbsutils.Convert(e.DurationKr(), t.FlatBuffer.TableKey)
-	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
-	t.TeenMode = e.TeenMode()
-	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
-	t.LocalizeTh = fbsutils.Convert(string(e.LocalizeTh()), t.FlatBuffer.TableKey)
-	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
-	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
+	t.CostumeUniqueId = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
+	t.DialogCategory = DialogCategory(fbsutils.Convert(int32(e.DialogCategory()), t.FlatBuffer.TableKey))
+	t.DialogCondition = DialogCondition(fbsutils.Convert(int32(e.DialogCondition()), t.FlatBuffer.TableKey))
 	t.Anniversary = Anniversary(fbsutils.Convert(int32(e.Anniversary()), t.FlatBuffer.TableKey))
+	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
+	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.DialogType = DialogType(fbsutils.Convert(int32(e.DialogType()), t.FlatBuffer.TableKey))
+	t.ActionName = fbsutils.Convert(string(e.ActionName()), t.FlatBuffer.TableKey)
+	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
+	t.DurationKr = fbsutils.Convert(e.DurationKr(), t.FlatBuffer.TableKey)
+	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
+	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
+	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
+	t.LocalizeTh = fbsutils.Convert(string(e.LocalizeTh()), t.FlatBuffer.TableKey)
+	t.LocalizeTw = fbsutils.Convert(string(e.LocalizeTw()), t.FlatBuffer.TableKey)
+	t.LocalizeEn = fbsutils.Convert(string(e.LocalizeEn()), t.FlatBuffer.TableKey)
 	t.VoiceId = make([]uint32, e.VoiceIdLength())
 	for i := range e.VoiceIdLength() {
 		t.VoiceId[i] = fbsutils.Convert(e.VoiceId(i), t.FlatBuffer.TableKey)
 	}
-	t.DialogType = DialogType(fbsutils.Convert(int32(e.DialogType()), t.FlatBuffer.TableKey))
+	t.ApplyPosition = e.ApplyPosition()
+	t.PosX = fbsutils.Convert(e.PosX(), t.FlatBuffer.TableKey)
+	t.PosY = fbsutils.Convert(e.PosY(), t.FlatBuffer.TableKey)
+	t.CollectionVisible = e.CollectionVisible()
+	t.CvCollectionType = CVCollectionType(fbsutils.Convert(int32(e.CvCollectionType()), t.FlatBuffer.TableKey))
+	t.UnlockFavorRank = fbsutils.Convert(e.UnlockFavorRank(), t.FlatBuffer.TableKey)
 	t.UnlockEquipWeapon = e.UnlockEquipWeapon()
+	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
+	t.TeenMode = e.TeenMode()
 	return nil
 }
 

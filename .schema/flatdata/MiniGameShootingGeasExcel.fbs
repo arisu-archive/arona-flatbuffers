@@ -3,12 +3,12 @@ include "Geas.fbs";
 namespace FlatData;
 
 table MiniGameShootingGeasExcel {
+    unique_id: long;
     geas_type: Geas;
     icon: string;
-    need_geas_id: long;
-    max_overlap_count: int;
-    hide_in_pause_popup: bool;
-    geas_data: string;
-    unique_id: long;
     probability: long;
+    max_overlap_count: int;
+    geas_data: string;
+    need_geas_id: long;
+    hide_in_pause_popup: bool;
 }

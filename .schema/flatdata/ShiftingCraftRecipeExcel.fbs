@@ -4,15 +4,15 @@ include "Tag.fbs";
 namespace FlatData;
 
 table ShiftingCraftRecipeExcel {
-    result_parcel: ParcelType;
-    ingredient_tag: [Tag];
-    require_item_id: long;
-    require_gold: long;
-    ingredient_exp: long;
-    result_id: long;
-    notification_id: int;
-    result_amount: long;
     id: long;
     display_order: long;
+    notification_id: int;
+    result_parcel: ParcelType;
+    result_id: long;
+    result_amount: long;
+    require_item_id: long;
     require_item_amount: long;
+    require_gold: long;
+    ingredient_tag: [Tag];
+    ingredient_exp: long;
 }

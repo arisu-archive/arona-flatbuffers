@@ -12,8 +12,8 @@ import (
 type PropMotionDto struct {
 	fbsutils.FlatBuffer
 	Name      string           `json:"name"`
-	Rotations []PropVector3Dto `json:"rotations"`
 	Positions []PropVector3Dto `json:"positions"`
+	Rotations []PropVector3Dto `json:"rotations"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,18 +23,18 @@ func (t *PropMotionDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	}
 	PropMotionStart(b)
 	PropMotionAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
-	PropMotionStartRotationsVector(b, len(t.Rotations))
-	for i := range len(t.Rotations) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.Rotations[len(t.Rotations)-i-1].MarshalModel(b))
-	}
-	PropMotionAddRotations(b, b.EndVector(len(t.Rotations)))
 	PropMotionStartPositionsVector(b, len(t.Positions))
 	for i := range len(t.Positions) {
 		// The array should be reversed.
 		b.PrependUOffsetT(t.Positions[len(t.Positions)-i-1].MarshalModel(b))
 	}
 	PropMotionAddPositions(b, b.EndVector(len(t.Positions)))
+	PropMotionStartRotationsVector(b, len(t.Rotations))
+	for i := range len(t.Rotations) {
+		// The array should be reversed.
+		b.PrependUOffsetT(t.Rotations[len(t.Rotations)-i-1].MarshalModel(b))
+	}
+	PropMotionAddRotations(b, b.EndVector(len(t.Rotations)))
 	return PropMotionEnd(b)
 }
 
@@ -51,14 +51,6 @@ func (t *PropMotionDto) UnmarshalMessage(e *PropMotion) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropMotion"))
 	}
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.Rotations = make([]PropVector3Dto, e.RotationsLength())
-	for i := range e.RotationsLength() {
-		d := new(PropVector3)
-		if !e.Rotations(d, i) {
-			return errors.New("failed to unmarshal data")
-		}
-		t.Rotations[i].UnmarshalMessage(d)
-	}
 	t.Positions = make([]PropVector3Dto, e.PositionsLength())
 	for i := range e.PositionsLength() {
 		d := new(PropVector3)
@@ -66,6 +58,14 @@ func (t *PropMotionDto) UnmarshalMessage(e *PropMotion) error {
 			return errors.New("failed to unmarshal data")
 		}
 		t.Positions[i].UnmarshalMessage(d)
+	}
+	t.Rotations = make([]PropVector3Dto, e.RotationsLength())
+	for i := range e.RotationsLength() {
+		d := new(PropVector3)
+		if !e.Rotations(d, i) {
+			return errors.New("failed to unmarshal data")
+		}
+		t.Rotations[i].UnmarshalMessage(d)
 	}
 	return nil
 }

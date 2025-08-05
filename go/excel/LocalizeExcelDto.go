@@ -10,23 +10,23 @@ import (
 // LocalizeExcelDto represents a FlatBuffers table
 type LocalizeExcelDto struct {
 	fbsutils.FlatBuffer
+	Key uint32 `json:"key"`
+	Kr  string `json:"kr"`
 	Jp  string `json:"jp"`
 	Th  string `json:"th"`
-	En  string `json:"en"`
-	Key uint32 `json:"key"`
 	Tw  string `json:"tw"`
-	Kr  string `json:"kr"`
+	En  string `json:"en"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	LocalizeExcelStart(b)
+	LocalizeExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
+	LocalizeExcelAddKr(b, b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey)))
 	LocalizeExcelAddJp(b, b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey)))
 	LocalizeExcelAddTh(b, b.CreateString(fbsutils.Convert(t.Th, t.FlatBuffer.TableKey)))
-	LocalizeExcelAddEn(b, b.CreateString(fbsutils.Convert(t.En, t.FlatBuffer.TableKey)))
-	LocalizeExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
 	LocalizeExcelAddTw(b, b.CreateString(fbsutils.Convert(t.Tw, t.FlatBuffer.TableKey)))
-	LocalizeExcelAddKr(b, b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey)))
+	LocalizeExcelAddEn(b, b.CreateString(fbsutils.Convert(t.En, t.FlatBuffer.TableKey)))
 	return LocalizeExcelEnd(b)
 }
 
@@ -39,12 +39,12 @@ func (t *LocalizeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LocalizeExcelDto) UnmarshalMessage(e *LocalizeExcel) error {
+	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
+	t.Kr = fbsutils.Convert(string(e.Kr()), t.FlatBuffer.TableKey)
 	t.Jp = fbsutils.Convert(string(e.Jp()), t.FlatBuffer.TableKey)
 	t.Th = fbsutils.Convert(string(e.Th()), t.FlatBuffer.TableKey)
-	t.En = fbsutils.Convert(string(e.En()), t.FlatBuffer.TableKey)
-	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
 	t.Tw = fbsutils.Convert(string(e.Tw()), t.FlatBuffer.TableKey)
-	t.Kr = fbsutils.Convert(string(e.Kr()), t.FlatBuffer.TableKey)
+	t.En = fbsutils.Convert(string(e.En()), t.FlatBuffer.TableKey)
 	return nil
 }
 

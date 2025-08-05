@@ -11,9 +11,9 @@ import (
 // AnimatorDataDto represents a FlatBuffers table
 type AnimatorDataDto struct {
 	fbsutils.FlatBuffer
+	DefaultStateName string            `json:"default_state_name"`
 	Name             string            `json:"name"`
 	DataList         []AniStateDataDto `json:"data_list"`
-	DefaultStateName string            `json:"default_state_name"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,6 +22,7 @@ func (t *AnimatorDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AnimatorData"))
 	}
 	AnimatorDataStart(b)
+	AnimatorDataAddDefaultStateName(b, b.CreateString(fbsutils.Convert(t.DefaultStateName, t.FlatBuffer.TableKey)))
 	AnimatorDataAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	AnimatorDataStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
@@ -29,7 +30,6 @@ func (t *AnimatorDataDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 		b.PrependUOffsetT(t.DataList[len(t.DataList)-i-1].MarshalModel(b))
 	}
 	AnimatorDataAddDataList(b, b.EndVector(len(t.DataList)))
-	AnimatorDataAddDefaultStateName(b, b.CreateString(fbsutils.Convert(t.DefaultStateName, t.FlatBuffer.TableKey)))
 	return AnimatorDataEnd(b)
 }
 
@@ -45,6 +45,7 @@ func (t *AnimatorDataDto) UnmarshalMessage(e *AnimatorData) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AnimatorData"))
 	}
+	t.DefaultStateName = fbsutils.Convert(string(e.DefaultStateName()), t.FlatBuffer.TableKey)
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.DataList = make([]AniStateDataDto, e.DataListLength())
 	for i := range e.DataListLength() {
@@ -54,7 +55,6 @@ func (t *AnimatorDataDto) UnmarshalMessage(e *AnimatorData) error {
 		}
 		t.DataList[i].UnmarshalMessage(d)
 	}
-	t.DefaultStateName = fbsutils.Convert(string(e.DefaultStateName()), t.FlatBuffer.TableKey)
 	return nil
 }
 

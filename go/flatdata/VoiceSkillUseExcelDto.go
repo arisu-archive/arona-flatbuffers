@@ -10,8 +10,8 @@ import (
 // VoiceSkillUseExcelDto represents a FlatBuffers table
 type VoiceSkillUseExcelDto struct {
 	fbsutils.FlatBuffer
-	VoiceHash []uint32 `json:"voice_hash"`
 	Name      string   `json:"name"`
+	VoiceHash []uint32 `json:"voice_hash"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -20,12 +20,12 @@ func (t *VoiceSkillUseExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceSkillUse"))
 	}
 	VoiceSkillUseExcelStart(b)
+	VoiceSkillUseExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	VoiceSkillUseExcelStartVoiceHashVector(b, len(t.VoiceHash))
 	for i := range len(t.VoiceHash) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceHash[len(t.VoiceHash)-i-1], t.FlatBuffer.TableKey))
 	}
 	VoiceSkillUseExcelAddVoiceHash(b, b.EndVector(len(t.VoiceHash)))
-	VoiceSkillUseExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	return VoiceSkillUseExcelEnd(b)
 }
 
@@ -41,11 +41,11 @@ func (t *VoiceSkillUseExcelDto) UnmarshalMessage(e *VoiceSkillUseExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceSkillUse"))
 	}
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.VoiceHash = make([]uint32, e.VoiceHashLength())
 	for i := range e.VoiceHashLength() {
 		t.VoiceHash[i] = fbsutils.Convert(e.VoiceHash(i), t.FlatBuffer.TableKey)
 	}
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	return nil
 }
 

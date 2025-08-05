@@ -32,45 +32,45 @@ class GachaCraftNodeExcel(object):
         return 0
 
     # GachaCraftNodeExcel
-    def NodeQuality(self):
+    def Tier(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GachaCraftNodeExcel
-    def Icon(self):
+    def QuickCraftNodeDisplayOrder(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # GachaCraftNodeExcel
-    def Tier(self):
+    def NodeQuality(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GachaCraftNodeExcel
-    def LocalizeKey(self):
+    def Icon(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # GachaCraftNodeExcel
+    def LocalizeKey(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # GachaCraftNodeExcel
     def Property(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GachaCraftNodeExcel
-    def QuickCraftNodeDisplayOrder(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def GachaCraftNodeExcelStart(builder): builder.StartObject(7)
@@ -79,24 +79,24 @@ def Start(builder):
 def GachaCraftNodeExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
     return GachaCraftNodeExcelAddId(builder, id)
-def GachaCraftNodeExcelAddNodeQuality(builder, nodeQuality): builder.PrependInt64Slot(1, nodeQuality, 0)
-def AddNodeQuality(builder, nodeQuality):
-    return GachaCraftNodeExcelAddNodeQuality(builder, nodeQuality)
-def GachaCraftNodeExcelAddIcon(builder, icon): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
-def AddIcon(builder, icon):
-    return GachaCraftNodeExcelAddIcon(builder, icon)
-def GachaCraftNodeExcelAddTier(builder, tier): builder.PrependInt64Slot(3, tier, 0)
+def GachaCraftNodeExcelAddTier(builder, tier): builder.PrependInt64Slot(1, tier, 0)
 def AddTier(builder, tier):
     return GachaCraftNodeExcelAddTier(builder, tier)
-def GachaCraftNodeExcelAddLocalizeKey(builder, localizeKey): builder.PrependUint32Slot(4, localizeKey, 0)
-def AddLocalizeKey(builder, localizeKey):
-    return GachaCraftNodeExcelAddLocalizeKey(builder, localizeKey)
-def GachaCraftNodeExcelAddProperty(builder, property): builder.PrependInt64Slot(5, property, 0)
-def AddProperty(builder, property):
-    return GachaCraftNodeExcelAddProperty(builder, property)
-def GachaCraftNodeExcelAddQuickCraftNodeDisplayOrder(builder, quickCraftNodeDisplayOrder): builder.PrependInt32Slot(6, quickCraftNodeDisplayOrder, 0)
+def GachaCraftNodeExcelAddQuickCraftNodeDisplayOrder(builder, quickCraftNodeDisplayOrder): builder.PrependInt32Slot(2, quickCraftNodeDisplayOrder, 0)
 def AddQuickCraftNodeDisplayOrder(builder, quickCraftNodeDisplayOrder):
     return GachaCraftNodeExcelAddQuickCraftNodeDisplayOrder(builder, quickCraftNodeDisplayOrder)
+def GachaCraftNodeExcelAddNodeQuality(builder, nodeQuality): builder.PrependInt64Slot(3, nodeQuality, 0)
+def AddNodeQuality(builder, nodeQuality):
+    return GachaCraftNodeExcelAddNodeQuality(builder, nodeQuality)
+def GachaCraftNodeExcelAddIcon(builder, icon): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
+def AddIcon(builder, icon):
+    return GachaCraftNodeExcelAddIcon(builder, icon)
+def GachaCraftNodeExcelAddLocalizeKey(builder, localizeKey): builder.PrependUint32Slot(5, localizeKey, 0)
+def AddLocalizeKey(builder, localizeKey):
+    return GachaCraftNodeExcelAddLocalizeKey(builder, localizeKey)
+def GachaCraftNodeExcelAddProperty(builder, property): builder.PrependInt64Slot(6, property, 0)
+def AddProperty(builder, property):
+    return GachaCraftNodeExcelAddProperty(builder, property)
 def GachaCraftNodeExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return GachaCraftNodeExcelEnd(builder)

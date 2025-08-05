@@ -4,12 +4,12 @@ include "WeekDungeonType.fbs";
 namespace FlatData;
 
 table WeekDungeonRewardExcel {
-    is_displayed: bool;
-    reward_parcel_probability: long;
-    reward_parcel_amount: long;
     group_id: long;
-    drop_item_model_prefab_path: string;
-    reward_parcel_type: ParcelType;
     dungeon_type: WeekDungeonType;
+    reward_parcel_type: ParcelType;
     reward_parcel_id: long;
+    reward_parcel_amount: long;
+    reward_parcel_probability: long;
+    is_displayed: bool;
+    drop_item_model_prefab_path: string;
 }

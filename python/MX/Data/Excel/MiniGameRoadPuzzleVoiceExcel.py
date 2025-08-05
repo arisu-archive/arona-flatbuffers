@@ -25,10 +25,10 @@ class MiniGameRoadPuzzleVoiceExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MiniGameRoadPuzzleVoiceExcel
-    def VoiceClip(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameRoadPuzzleVoiceExcel
@@ -46,27 +46,27 @@ class MiniGameRoadPuzzleVoiceExcel(object):
         return 0
 
     # MiniGameRoadPuzzleVoiceExcel
-    def EventContentId(self):
+    def VoiceClip(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
 def MiniGameRoadPuzzleVoiceExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return MiniGameRoadPuzzleVoiceExcelStart(builder)
-def MiniGameRoadPuzzleVoiceExcelAddVoiceClip(builder, voiceClip): builder.PrependUint32Slot(0, voiceClip, 0)
-def AddVoiceClip(builder, voiceClip):
-    return MiniGameRoadPuzzleVoiceExcelAddVoiceClip(builder, voiceClip)
+def MiniGameRoadPuzzleVoiceExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return MiniGameRoadPuzzleVoiceExcelAddEventContentId(builder, eventContentId)
 def MiniGameRoadPuzzleVoiceExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
     return MiniGameRoadPuzzleVoiceExcelAddUniqueId(builder, uniqueId)
 def MiniGameRoadPuzzleVoiceExcelAddVoiceCondition(builder, voiceCondition): builder.PrependInt32Slot(2, voiceCondition, 0)
 def AddVoiceCondition(builder, voiceCondition):
     return MiniGameRoadPuzzleVoiceExcelAddVoiceCondition(builder, voiceCondition)
-def MiniGameRoadPuzzleVoiceExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(3, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return MiniGameRoadPuzzleVoiceExcelAddEventContentId(builder, eventContentId)
+def MiniGameRoadPuzzleVoiceExcelAddVoiceClip(builder, voiceClip): builder.PrependUint32Slot(3, voiceClip, 0)
+def AddVoiceClip(builder, voiceClip):
+    return MiniGameRoadPuzzleVoiceExcelAddVoiceClip(builder, voiceClip)
 def MiniGameRoadPuzzleVoiceExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameRoadPuzzleVoiceExcelEnd(builder)

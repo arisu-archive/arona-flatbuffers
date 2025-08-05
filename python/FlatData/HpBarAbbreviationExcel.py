@@ -25,7 +25,7 @@ class HpBarAbbreviationExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # HpBarAbbreviationExcel
-    def RaidBossHpBar(self):
+    def MonsterLv(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -39,7 +39,7 @@ class HpBarAbbreviationExcel(object):
         return 0
 
     # HpBarAbbreviationExcel
-    def MonsterLv(self):
+    def RaidBossHpBar(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -48,15 +48,15 @@ class HpBarAbbreviationExcel(object):
 def HpBarAbbreviationExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return HpBarAbbreviationExcelStart(builder)
-def HpBarAbbreviationExcelAddRaidBossHpBar(builder, raidBossHpBar): builder.PrependInt32Slot(0, raidBossHpBar, 0)
-def AddRaidBossHpBar(builder, raidBossHpBar):
-    return HpBarAbbreviationExcelAddRaidBossHpBar(builder, raidBossHpBar)
+def HpBarAbbreviationExcelAddMonsterLv(builder, monsterLv): builder.PrependInt32Slot(0, monsterLv, 0)
+def AddMonsterLv(builder, monsterLv):
+    return HpBarAbbreviationExcelAddMonsterLv(builder, monsterLv)
 def HpBarAbbreviationExcelAddStandardHpBar(builder, standardHpBar): builder.PrependInt32Slot(1, standardHpBar, 0)
 def AddStandardHpBar(builder, standardHpBar):
     return HpBarAbbreviationExcelAddStandardHpBar(builder, standardHpBar)
-def HpBarAbbreviationExcelAddMonsterLv(builder, monsterLv): builder.PrependInt32Slot(2, monsterLv, 0)
-def AddMonsterLv(builder, monsterLv):
-    return HpBarAbbreviationExcelAddMonsterLv(builder, monsterLv)
+def HpBarAbbreviationExcelAddRaidBossHpBar(builder, raidBossHpBar): builder.PrependInt32Slot(2, raidBossHpBar, 0)
+def AddRaidBossHpBar(builder, raidBossHpBar):
+    return HpBarAbbreviationExcelAddRaidBossHpBar(builder, raidBossHpBar)
 def HpBarAbbreviationExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return HpBarAbbreviationExcelEnd(builder)

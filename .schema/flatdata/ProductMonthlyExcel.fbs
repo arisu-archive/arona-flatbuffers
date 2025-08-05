@@ -5,21 +5,21 @@ include "StoreType.fbs";
 namespace FlatData;
 
 table ProductMonthlyExcel {
-    price: long;
-    parcel_amount: [long];
-    enter_cost_reduce_group_id: long;
-    monthly_days: long;
-    product_tag_type: ProductTagType;
-    price_reference: string;
-    purchase_count_limit: long;
-    daily_parcel_amount: [long];
     id: long;
-    parcel_id: [long];
-    daily_parcel_type: [ParcelType];
     product_id: string;
-    daily_parcel_id: [long];
     teen_product_id: string;
     store_type: StoreType;
+    price: long;
+    price_reference: string;
+    product_tag_type: ProductTagType;
+    monthly_days: long;
     use_monthly_product_check: bool;
+    purchase_count_limit: long;
     parcel_type: [ParcelType];
+    parcel_id: [long];
+    parcel_amount: [long];
+    enter_cost_reduce_group_id: long;
+    daily_parcel_type: [ParcelType];
+    daily_parcel_id: [long];
+    daily_parcel_amount: [long];
 }

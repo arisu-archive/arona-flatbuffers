@@ -25,7 +25,7 @@ class RecipeSelectionAutoUseExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # RecipeSelectionAutoUseExcel
-    def TargetItemId(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -39,7 +39,7 @@ class RecipeSelectionAutoUseExcel(object):
         return 0
 
     # RecipeSelectionAutoUseExcel
-    def Id(self):
+    def TargetItemId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -75,15 +75,15 @@ class RecipeSelectionAutoUseExcel(object):
 def RecipeSelectionAutoUseExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return RecipeSelectionAutoUseExcelStart(builder)
-def RecipeSelectionAutoUseExcelAddTargetItemId(builder, targetItemId): builder.PrependInt64Slot(0, targetItemId, 0)
-def AddTargetItemId(builder, targetItemId):
-    return RecipeSelectionAutoUseExcelAddTargetItemId(builder, targetItemId)
+def RecipeSelectionAutoUseExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+def AddId(builder, id):
+    return RecipeSelectionAutoUseExcelAddId(builder, id)
 def RecipeSelectionAutoUseExcelAddParcelType(builder, parcelType): builder.PrependInt32Slot(1, parcelType, 0)
 def AddParcelType(builder, parcelType):
     return RecipeSelectionAutoUseExcelAddParcelType(builder, parcelType)
-def RecipeSelectionAutoUseExcelAddId(builder, id): builder.PrependInt64Slot(2, id, 0)
-def AddId(builder, id):
-    return RecipeSelectionAutoUseExcelAddId(builder, id)
+def RecipeSelectionAutoUseExcelAddTargetItemId(builder, targetItemId): builder.PrependInt64Slot(2, targetItemId, 0)
+def AddTargetItemId(builder, targetItemId):
+    return RecipeSelectionAutoUseExcelAddTargetItemId(builder, targetItemId)
 def RecipeSelectionAutoUseExcelAddPriority(builder, priority): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(priority), 0)
 def AddPriority(builder, priority):
     return RecipeSelectionAutoUseExcelAddPriority(builder, priority)

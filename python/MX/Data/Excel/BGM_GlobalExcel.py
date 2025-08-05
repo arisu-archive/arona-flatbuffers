@@ -25,42 +25,42 @@ class BGM_GlobalExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # BGM_GlobalExcel
-    def BgmIdTh(self):
+    def GroupBgmId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # BGM_GlobalExcel
-    def BgmIdTw(self):
+    def BgmIdKr(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # BGM_GlobalExcel
-    def BgmIdKr(self):
+    def BgmIdJp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # BGM_GlobalExcel
-    def BgmIdEn(self):
+    def BgmIdTh(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # BGM_GlobalExcel
-    def GroupBgmId(self):
+    def BgmIdTw(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # BGM_GlobalExcel
-    def BgmIdJp(self):
+    def BgmIdEn(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -69,24 +69,24 @@ class BGM_GlobalExcel(object):
 def BGM_GlobalExcelStart(builder): builder.StartObject(6)
 def Start(builder):
     return BGM_GlobalExcelStart(builder)
-def BGM_GlobalExcelAddBgmIdTh(builder, bgmIdTh): builder.PrependInt64Slot(0, bgmIdTh, 0)
-def AddBgmIdTh(builder, bgmIdTh):
-    return BGM_GlobalExcelAddBgmIdTh(builder, bgmIdTh)
-def BGM_GlobalExcelAddBgmIdTw(builder, bgmIdTw): builder.PrependInt64Slot(1, bgmIdTw, 0)
-def AddBgmIdTw(builder, bgmIdTw):
-    return BGM_GlobalExcelAddBgmIdTw(builder, bgmIdTw)
-def BGM_GlobalExcelAddBgmIdKr(builder, bgmIdKr): builder.PrependInt64Slot(2, bgmIdKr, 0)
-def AddBgmIdKr(builder, bgmIdKr):
-    return BGM_GlobalExcelAddBgmIdKr(builder, bgmIdKr)
-def BGM_GlobalExcelAddBgmIdEn(builder, bgmIdEn): builder.PrependInt64Slot(3, bgmIdEn, 0)
-def AddBgmIdEn(builder, bgmIdEn):
-    return BGM_GlobalExcelAddBgmIdEn(builder, bgmIdEn)
-def BGM_GlobalExcelAddGroupBgmId(builder, groupBgmId): builder.PrependInt64Slot(4, groupBgmId, 0)
+def BGM_GlobalExcelAddGroupBgmId(builder, groupBgmId): builder.PrependInt64Slot(0, groupBgmId, 0)
 def AddGroupBgmId(builder, groupBgmId):
     return BGM_GlobalExcelAddGroupBgmId(builder, groupBgmId)
-def BGM_GlobalExcelAddBgmIdJp(builder, bgmIdJp): builder.PrependInt64Slot(5, bgmIdJp, 0)
+def BGM_GlobalExcelAddBgmIdKr(builder, bgmIdKr): builder.PrependInt64Slot(1, bgmIdKr, 0)
+def AddBgmIdKr(builder, bgmIdKr):
+    return BGM_GlobalExcelAddBgmIdKr(builder, bgmIdKr)
+def BGM_GlobalExcelAddBgmIdJp(builder, bgmIdJp): builder.PrependInt64Slot(2, bgmIdJp, 0)
 def AddBgmIdJp(builder, bgmIdJp):
     return BGM_GlobalExcelAddBgmIdJp(builder, bgmIdJp)
+def BGM_GlobalExcelAddBgmIdTh(builder, bgmIdTh): builder.PrependInt64Slot(3, bgmIdTh, 0)
+def AddBgmIdTh(builder, bgmIdTh):
+    return BGM_GlobalExcelAddBgmIdTh(builder, bgmIdTh)
+def BGM_GlobalExcelAddBgmIdTw(builder, bgmIdTw): builder.PrependInt64Slot(4, bgmIdTw, 0)
+def AddBgmIdTw(builder, bgmIdTw):
+    return BGM_GlobalExcelAddBgmIdTw(builder, bgmIdTw)
+def BGM_GlobalExcelAddBgmIdEn(builder, bgmIdEn): builder.PrependInt64Slot(5, bgmIdEn, 0)
+def AddBgmIdEn(builder, bgmIdEn):
+    return BGM_GlobalExcelAddBgmIdEn(builder, bgmIdEn)
 def BGM_GlobalExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return BGM_GlobalExcelEnd(builder)

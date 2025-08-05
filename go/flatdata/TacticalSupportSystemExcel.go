@@ -33,7 +33,7 @@ func (rcv *TacticalSupportSystemExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *TacticalSupportSystemExcel) SummonedTime() int64 {
+func (rcv *TacticalSupportSystemExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *TacticalSupportSystemExcel) SummonedTime() int64 {
 	return 0
 }
 
-func (rcv *TacticalSupportSystemExcel) MutateSummonedTime(n int64) bool {
+func (rcv *TacticalSupportSystemExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *TacticalSupportSystemExcel) ObstacleCoverRange() int64 {
+func (rcv *TacticalSupportSystemExcel) SummonedTime() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,196 +53,12 @@ func (rcv *TacticalSupportSystemExcel) ObstacleCoverRange() int64 {
 	return 0
 }
 
-func (rcv *TacticalSupportSystemExcel) MutateObstacleCoverRange(n int64) bool {
+func (rcv *TacticalSupportSystemExcel) MutateSummonedTime(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *TacticalSupportSystemExcel) CanTargeting() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *TacticalSupportSystemExcel) MutateCanTargeting(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
-}
-
-func (rcv *TacticalSupportSystemExcel) CanCover() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *TacticalSupportSystemExcel) MutateCanCover(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
-}
-
-func (rcv *TacticalSupportSystemExcel) InventoryOffsetX() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *TacticalSupportSystemExcel) MutateInventoryOffsetX(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(12, n)
-}
-
-func (rcv *TacticalSupportSystemExcel) GetOnEndEffectPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *TacticalSupportSystemExcel) RetreatFrame() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticalSupportSystemExcel) MutateRetreatFrame(n int32) bool {
-	return rcv._tab.MutateInt32Slot(16, n)
-}
-
-func (rcv *TacticalSupportSystemExcel) ObstacleUniqueName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *TacticalSupportSystemExcel) InteractionFrame() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticalSupportSystemExcel) MutateInteractionFrame(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
-}
-
-func (rcv *TacticalSupportSystemExcel) SummonSkilllGroupId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *TacticalSupportSystemExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticalSupportSystemExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
-}
-
-func (rcv *TacticalSupportSystemExcel) DestroyFrame() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticalSupportSystemExcel) MutateDestroyFrame(n int32) bool {
-	return rcv._tab.MutateInt32Slot(26, n)
-}
-
-func (rcv *TacticalSupportSystemExcel) GetOnStartEffectPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *TacticalSupportSystemExcel) CharacterInteractionStartDelay() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticalSupportSystemExcel) MutateCharacterInteractionStartDelay(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
-}
-
-func (rcv *TacticalSupportSystemExcel) IsTssBlockedNodeCheck() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *TacticalSupportSystemExcel) MutateIsTssBlockedNodeCheck(n bool) bool {
-	return rcv._tab.MutateBoolSlot(32, n)
-}
-
-func (rcv *TacticalSupportSystemExcel) CrashObstacleObbWidth() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticalSupportSystemExcel) MutateCrashObstacleObbWidth(n int64) bool {
-	return rcv._tab.MutateInt64Slot(34, n)
-}
-
-func (rcv *TacticalSupportSystemExcel) InteractionStudentExSkillGroupId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *TacticalSupportSystemExcel) InteractionChar() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticalSupportSystemExcel) MutateInteractionChar(n int64) bool {
-	return rcv._tab.MutateInt64Slot(38, n)
-}
-
-func (rcv *TacticalSupportSystemExcel) TsaInteractionAddDuration() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticalSupportSystemExcel) MutateTsaInteractionAddDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(40, n)
-}
-
 func (rcv *TacticalSupportSystemExcel) DefaultPersonalityId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -250,11 +66,75 @@ func (rcv *TacticalSupportSystemExcel) DefaultPersonalityId() int64 {
 }
 
 func (rcv *TacticalSupportSystemExcel) MutateDefaultPersonalityId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(42, n)
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *TacticalSupportSystemExcel) CanTargeting() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *TacticalSupportSystemExcel) MutateCanTargeting(n bool) bool {
+	return rcv._tab.MutateBoolSlot(10, n)
+}
+
+func (rcv *TacticalSupportSystemExcel) CanCover() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *TacticalSupportSystemExcel) MutateCanCover(n bool) bool {
+	return rcv._tab.MutateBoolSlot(12, n)
+}
+
+func (rcv *TacticalSupportSystemExcel) ObstacleUniqueName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *TacticalSupportSystemExcel) ObstacleCoverRange() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticalSupportSystemExcel) MutateObstacleCoverRange(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *TacticalSupportSystemExcel) SummonSkilllGroupId() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *TacticalSupportSystemExcel) CrashObstacleObbWidth() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticalSupportSystemExcel) MutateCrashObstacleObbWidth(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func (rcv *TacticalSupportSystemExcel) CrashObstacleObbHeight() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -262,35 +142,47 @@ func (rcv *TacticalSupportSystemExcel) CrashObstacleObbHeight() int64 {
 }
 
 func (rcv *TacticalSupportSystemExcel) MutateCrashObstacleObbHeight(n int64) bool {
-	return rcv._tab.MutateInt64Slot(44, n)
+	return rcv._tab.MutateInt64Slot(22, n)
 }
 
-func (rcv *TacticalSupportSystemExcel) SummonerCharacterId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+func (rcv *TacticalSupportSystemExcel) IsTssBlockedNodeCheck() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *TacticalSupportSystemExcel) MutateIsTssBlockedNodeCheck(n bool) bool {
+	return rcv._tab.MutateBoolSlot(24, n)
+}
+
+func (rcv *TacticalSupportSystemExcel) NumberOfUses() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *TacticalSupportSystemExcel) MutateSummonerCharacterId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(46, n)
+func (rcv *TacticalSupportSystemExcel) MutateNumberOfUses(n int32) bool {
+	return rcv._tab.MutateInt32Slot(26, n)
 }
 
-func (rcv *TacticalSupportSystemExcel) InventoryOffsetZ() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+func (rcv *TacticalSupportSystemExcel) InventoryOffsetX() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
 	return 0.0
 }
 
-func (rcv *TacticalSupportSystemExcel) MutateInventoryOffsetZ(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(48, n)
+func (rcv *TacticalSupportSystemExcel) MutateInventoryOffsetX(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(28, n)
 }
 
 func (rcv *TacticalSupportSystemExcel) InventoryOffsetY() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -298,7 +190,111 @@ func (rcv *TacticalSupportSystemExcel) InventoryOffsetY() float32 {
 }
 
 func (rcv *TacticalSupportSystemExcel) MutateInventoryOffsetY(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(50, n)
+	return rcv._tab.MutateFloat32Slot(30, n)
+}
+
+func (rcv *TacticalSupportSystemExcel) InventoryOffsetZ() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *TacticalSupportSystemExcel) MutateInventoryOffsetZ(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(32, n)
+}
+
+func (rcv *TacticalSupportSystemExcel) InteractionChar() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticalSupportSystemExcel) MutateInteractionChar(n int64) bool {
+	return rcv._tab.MutateInt64Slot(34, n)
+}
+
+func (rcv *TacticalSupportSystemExcel) CharacterInteractionStartDelay() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticalSupportSystemExcel) MutateCharacterInteractionStartDelay(n int64) bool {
+	return rcv._tab.MutateInt64Slot(36, n)
+}
+
+func (rcv *TacticalSupportSystemExcel) GetOnStartEffectPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *TacticalSupportSystemExcel) GetOnEndEffectPath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *TacticalSupportSystemExcel) SummonerCharacterId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticalSupportSystemExcel) MutateSummonerCharacterId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(42, n)
+}
+
+func (rcv *TacticalSupportSystemExcel) InteractionFrame() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticalSupportSystemExcel) MutateInteractionFrame(n int32) bool {
+	return rcv._tab.MutateInt32Slot(44, n)
+}
+
+func (rcv *TacticalSupportSystemExcel) TsaInteractionAddDuration() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticalSupportSystemExcel) MutateTsaInteractionAddDuration(n int64) bool {
+	return rcv._tab.MutateInt64Slot(46, n)
+}
+
+func (rcv *TacticalSupportSystemExcel) InteractionStudentExSkillGroupId() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *TacticalSupportSystemExcel) InteractionSkillCardTexture() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *TacticalSupportSystemExcel) InteractionSkillSpine() []byte {
@@ -309,7 +305,7 @@ func (rcv *TacticalSupportSystemExcel) InteractionSkillSpine() []byte {
 	return nil
 }
 
-func (rcv *TacticalSupportSystemExcel) NumberOfUses() int32 {
+func (rcv *TacticalSupportSystemExcel) RetreatFrame() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -317,101 +313,105 @@ func (rcv *TacticalSupportSystemExcel) NumberOfUses() int32 {
 	return 0
 }
 
-func (rcv *TacticalSupportSystemExcel) MutateNumberOfUses(n int32) bool {
+func (rcv *TacticalSupportSystemExcel) MutateRetreatFrame(n int32) bool {
 	return rcv._tab.MutateInt32Slot(54, n)
 }
 
-func (rcv *TacticalSupportSystemExcel) InteractionSkillCardTexture() []byte {
+func (rcv *TacticalSupportSystemExcel) DestroyFrame() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *TacticalSupportSystemExcel) MutateDestroyFrame(n int32) bool {
+	return rcv._tab.MutateInt32Slot(56, n)
 }
 
 func TacticalSupportSystemExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(27)
 }
-func TacticalSupportSystemExcelAddSummonedTime(builder *flatbuffers.Builder, summonedTime int64) {
-	builder.PrependInt64Slot(0, summonedTime, 0)
-}
-func TacticalSupportSystemExcelAddObstacleCoverRange(builder *flatbuffers.Builder, obstacleCoverRange int64) {
-	builder.PrependInt64Slot(1, obstacleCoverRange, 0)
-}
-func TacticalSupportSystemExcelAddCanTargeting(builder *flatbuffers.Builder, canTargeting bool) {
-	builder.PrependBoolSlot(2, canTargeting, false)
-}
-func TacticalSupportSystemExcelAddCanCover(builder *flatbuffers.Builder, canCover bool) {
-	builder.PrependBoolSlot(3, canCover, false)
-}
-func TacticalSupportSystemExcelAddInventoryOffsetX(builder *flatbuffers.Builder, inventoryOffsetX float32) {
-	builder.PrependFloat32Slot(4, inventoryOffsetX, 0.0)
-}
-func TacticalSupportSystemExcelAddGetOnEndEffectPath(builder *flatbuffers.Builder, getOnEndEffectPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(getOnEndEffectPath), 0)
-}
-func TacticalSupportSystemExcelAddRetreatFrame(builder *flatbuffers.Builder, retreatFrame int32) {
-	builder.PrependInt32Slot(6, retreatFrame, 0)
-}
-func TacticalSupportSystemExcelAddObstacleUniqueName(builder *flatbuffers.Builder, obstacleUniqueName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(obstacleUniqueName), 0)
-}
-func TacticalSupportSystemExcelAddInteractionFrame(builder *flatbuffers.Builder, interactionFrame int32) {
-	builder.PrependInt32Slot(8, interactionFrame, 0)
-}
-func TacticalSupportSystemExcelAddSummonSkilllGroupId(builder *flatbuffers.Builder, summonSkilllGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(summonSkilllGroupId), 0)
-}
 func TacticalSupportSystemExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(10, id, 0)
+	builder.PrependInt64Slot(0, id, 0)
 }
-func TacticalSupportSystemExcelAddDestroyFrame(builder *flatbuffers.Builder, destroyFrame int32) {
-	builder.PrependInt32Slot(11, destroyFrame, 0)
-}
-func TacticalSupportSystemExcelAddGetOnStartEffectPath(builder *flatbuffers.Builder, getOnStartEffectPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(getOnStartEffectPath), 0)
-}
-func TacticalSupportSystemExcelAddCharacterInteractionStartDelay(builder *flatbuffers.Builder, characterInteractionStartDelay int64) {
-	builder.PrependInt64Slot(13, characterInteractionStartDelay, 0)
-}
-func TacticalSupportSystemExcelAddIsTssBlockedNodeCheck(builder *flatbuffers.Builder, isTssBlockedNodeCheck bool) {
-	builder.PrependBoolSlot(14, isTssBlockedNodeCheck, false)
-}
-func TacticalSupportSystemExcelAddCrashObstacleObbWidth(builder *flatbuffers.Builder, crashObstacleObbWidth int64) {
-	builder.PrependInt64Slot(15, crashObstacleObbWidth, 0)
-}
-func TacticalSupportSystemExcelAddInteractionStudentExSkillGroupId(builder *flatbuffers.Builder, interactionStudentExSkillGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(interactionStudentExSkillGroupId), 0)
-}
-func TacticalSupportSystemExcelAddInteractionChar(builder *flatbuffers.Builder, interactionChar int64) {
-	builder.PrependInt64Slot(17, interactionChar, 0)
-}
-func TacticalSupportSystemExcelAddTsaInteractionAddDuration(builder *flatbuffers.Builder, tsaInteractionAddDuration int64) {
-	builder.PrependInt64Slot(18, tsaInteractionAddDuration, 0)
+func TacticalSupportSystemExcelAddSummonedTime(builder *flatbuffers.Builder, summonedTime int64) {
+	builder.PrependInt64Slot(1, summonedTime, 0)
 }
 func TacticalSupportSystemExcelAddDefaultPersonalityId(builder *flatbuffers.Builder, defaultPersonalityId int64) {
-	builder.PrependInt64Slot(19, defaultPersonalityId, 0)
+	builder.PrependInt64Slot(2, defaultPersonalityId, 0)
+}
+func TacticalSupportSystemExcelAddCanTargeting(builder *flatbuffers.Builder, canTargeting bool) {
+	builder.PrependBoolSlot(3, canTargeting, false)
+}
+func TacticalSupportSystemExcelAddCanCover(builder *flatbuffers.Builder, canCover bool) {
+	builder.PrependBoolSlot(4, canCover, false)
+}
+func TacticalSupportSystemExcelAddObstacleUniqueName(builder *flatbuffers.Builder, obstacleUniqueName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(obstacleUniqueName), 0)
+}
+func TacticalSupportSystemExcelAddObstacleCoverRange(builder *flatbuffers.Builder, obstacleCoverRange int64) {
+	builder.PrependInt64Slot(6, obstacleCoverRange, 0)
+}
+func TacticalSupportSystemExcelAddSummonSkilllGroupId(builder *flatbuffers.Builder, summonSkilllGroupId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(summonSkilllGroupId), 0)
+}
+func TacticalSupportSystemExcelAddCrashObstacleObbWidth(builder *flatbuffers.Builder, crashObstacleObbWidth int64) {
+	builder.PrependInt64Slot(8, crashObstacleObbWidth, 0)
 }
 func TacticalSupportSystemExcelAddCrashObstacleObbHeight(builder *flatbuffers.Builder, crashObstacleObbHeight int64) {
-	builder.PrependInt64Slot(20, crashObstacleObbHeight, 0)
+	builder.PrependInt64Slot(9, crashObstacleObbHeight, 0)
 }
-func TacticalSupportSystemExcelAddSummonerCharacterId(builder *flatbuffers.Builder, summonerCharacterId int64) {
-	builder.PrependInt64Slot(21, summonerCharacterId, 0)
+func TacticalSupportSystemExcelAddIsTssBlockedNodeCheck(builder *flatbuffers.Builder, isTssBlockedNodeCheck bool) {
+	builder.PrependBoolSlot(10, isTssBlockedNodeCheck, false)
 }
-func TacticalSupportSystemExcelAddInventoryOffsetZ(builder *flatbuffers.Builder, inventoryOffsetZ float32) {
-	builder.PrependFloat32Slot(22, inventoryOffsetZ, 0.0)
+func TacticalSupportSystemExcelAddNumberOfUses(builder *flatbuffers.Builder, numberOfUses int32) {
+	builder.PrependInt32Slot(11, numberOfUses, 0)
+}
+func TacticalSupportSystemExcelAddInventoryOffsetX(builder *flatbuffers.Builder, inventoryOffsetX float32) {
+	builder.PrependFloat32Slot(12, inventoryOffsetX, 0.0)
 }
 func TacticalSupportSystemExcelAddInventoryOffsetY(builder *flatbuffers.Builder, inventoryOffsetY float32) {
-	builder.PrependFloat32Slot(23, inventoryOffsetY, 0.0)
+	builder.PrependFloat32Slot(13, inventoryOffsetY, 0.0)
+}
+func TacticalSupportSystemExcelAddInventoryOffsetZ(builder *flatbuffers.Builder, inventoryOffsetZ float32) {
+	builder.PrependFloat32Slot(14, inventoryOffsetZ, 0.0)
+}
+func TacticalSupportSystemExcelAddInteractionChar(builder *flatbuffers.Builder, interactionChar int64) {
+	builder.PrependInt64Slot(15, interactionChar, 0)
+}
+func TacticalSupportSystemExcelAddCharacterInteractionStartDelay(builder *flatbuffers.Builder, characterInteractionStartDelay int64) {
+	builder.PrependInt64Slot(16, characterInteractionStartDelay, 0)
+}
+func TacticalSupportSystemExcelAddGetOnStartEffectPath(builder *flatbuffers.Builder, getOnStartEffectPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(getOnStartEffectPath), 0)
+}
+func TacticalSupportSystemExcelAddGetOnEndEffectPath(builder *flatbuffers.Builder, getOnEndEffectPath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(getOnEndEffectPath), 0)
+}
+func TacticalSupportSystemExcelAddSummonerCharacterId(builder *flatbuffers.Builder, summonerCharacterId int64) {
+	builder.PrependInt64Slot(19, summonerCharacterId, 0)
+}
+func TacticalSupportSystemExcelAddInteractionFrame(builder *flatbuffers.Builder, interactionFrame int32) {
+	builder.PrependInt32Slot(20, interactionFrame, 0)
+}
+func TacticalSupportSystemExcelAddTsaInteractionAddDuration(builder *flatbuffers.Builder, tsaInteractionAddDuration int64) {
+	builder.PrependInt64Slot(21, tsaInteractionAddDuration, 0)
+}
+func TacticalSupportSystemExcelAddInteractionStudentExSkillGroupId(builder *flatbuffers.Builder, interactionStudentExSkillGroupId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(interactionStudentExSkillGroupId), 0)
+}
+func TacticalSupportSystemExcelAddInteractionSkillCardTexture(builder *flatbuffers.Builder, interactionSkillCardTexture flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(interactionSkillCardTexture), 0)
 }
 func TacticalSupportSystemExcelAddInteractionSkillSpine(builder *flatbuffers.Builder, interactionSkillSpine flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(interactionSkillSpine), 0)
 }
-func TacticalSupportSystemExcelAddNumberOfUses(builder *flatbuffers.Builder, numberOfUses int32) {
-	builder.PrependInt32Slot(25, numberOfUses, 0)
+func TacticalSupportSystemExcelAddRetreatFrame(builder *flatbuffers.Builder, retreatFrame int32) {
+	builder.PrependInt32Slot(25, retreatFrame, 0)
 }
-func TacticalSupportSystemExcelAddInteractionSkillCardTexture(builder *flatbuffers.Builder, interactionSkillCardTexture flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(26, flatbuffers.UOffsetT(interactionSkillCardTexture), 0)
+func TacticalSupportSystemExcelAddDestroyFrame(builder *flatbuffers.Builder, destroyFrame int32) {
+	builder.PrependInt32Slot(26, destroyFrame, 0)
 }
 func TacticalSupportSystemExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

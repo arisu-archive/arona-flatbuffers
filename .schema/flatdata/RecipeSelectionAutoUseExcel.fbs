@@ -3,8 +3,8 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table RecipeSelectionAutoUseExcel {
-    target_item_id: long;
-    parcel_type: ParcelType;
     id: long;
+    parcel_type: ParcelType;
+    target_item_id: long;
     priority: [long];
 }

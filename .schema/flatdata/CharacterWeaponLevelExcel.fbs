@@ -1,7 +1,7 @@
 namespace FlatData;
 
 table CharacterWeaponLevelExcel {
-    exp: long;
     level: int;
+    exp: long;
     total_exp: long;
 }

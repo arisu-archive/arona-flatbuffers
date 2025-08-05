@@ -10,16 +10,16 @@ import (
 // CafeRankExcelDto represents a FlatBuffers table
 type CafeRankExcelDto struct {
 	fbsutils.FlatBuffer
-	CharacterVisitMin           int32   `json:"character_visit_min"`
-	CafeVisitWeightBase         int32   `json:"cafe_visit_weight_base"`
-	CharacterVisitMax           int32   `json:"character_visit_max"`
-	CafeVisitWeightTagBonusStep []int32 `json:"cafe_visit_weight_tag_bonus_step"`
-	TagCountMax                 int64   `json:"tag_count_max"`
 	CafeId                      int64   `json:"cafe_id"`
-	ComfortMax                  int64   `json:"comfort_max"`
-	CafeVisitWeightTagBonus     []int32 `json:"cafe_visit_weight_tag_bonus"`
-	RecipeId                    int64   `json:"recipe_id"`
 	Rank                        int64   `json:"rank"`
+	RecipeId                    int64   `json:"recipe_id"`
+	ComfortMax                  int64   `json:"comfort_max"`
+	TagCountMax                 int64   `json:"tag_count_max"`
+	CharacterVisitMin           int32   `json:"character_visit_min"`
+	CharacterVisitMax           int32   `json:"character_visit_max"`
+	CafeVisitWeightBase         int32   `json:"cafe_visit_weight_base"`
+	CafeVisitWeightTagBonusStep []int32 `json:"cafe_visit_weight_tag_bonus_step"`
+	CafeVisitWeightTagBonus     []int32 `json:"cafe_visit_weight_tag_bonus"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -28,24 +28,24 @@ func (t *CafeRankExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeRank"))
 	}
 	CafeRankExcelStart(b)
+	CafeRankExcelAddCafeId(b, fbsutils.Convert(t.CafeId, t.FlatBuffer.TableKey))
+	CafeRankExcelAddRank(b, fbsutils.Convert(t.Rank, t.FlatBuffer.TableKey))
+	CafeRankExcelAddRecipeId(b, fbsutils.Convert(t.RecipeId, t.FlatBuffer.TableKey))
+	CafeRankExcelAddComfortMax(b, fbsutils.Convert(t.ComfortMax, t.FlatBuffer.TableKey))
+	CafeRankExcelAddTagCountMax(b, fbsutils.Convert(t.TagCountMax, t.FlatBuffer.TableKey))
 	CafeRankExcelAddCharacterVisitMin(b, fbsutils.Convert(t.CharacterVisitMin, t.FlatBuffer.TableKey))
-	CafeRankExcelAddCafeVisitWeightBase(b, fbsutils.Convert(t.CafeVisitWeightBase, t.FlatBuffer.TableKey))
 	CafeRankExcelAddCharacterVisitMax(b, fbsutils.Convert(t.CharacterVisitMax, t.FlatBuffer.TableKey))
+	CafeRankExcelAddCafeVisitWeightBase(b, fbsutils.Convert(t.CafeVisitWeightBase, t.FlatBuffer.TableKey))
 	CafeRankExcelStartCafeVisitWeightTagBonusStepVector(b, len(t.CafeVisitWeightTagBonusStep))
 	for i := range len(t.CafeVisitWeightTagBonusStep) {
 		b.PrependInt32(fbsutils.Convert(t.CafeVisitWeightTagBonusStep[len(t.CafeVisitWeightTagBonusStep)-i-1], t.FlatBuffer.TableKey))
 	}
 	CafeRankExcelAddCafeVisitWeightTagBonusStep(b, b.EndVector(len(t.CafeVisitWeightTagBonusStep)))
-	CafeRankExcelAddTagCountMax(b, fbsutils.Convert(t.TagCountMax, t.FlatBuffer.TableKey))
-	CafeRankExcelAddCafeId(b, fbsutils.Convert(t.CafeId, t.FlatBuffer.TableKey))
-	CafeRankExcelAddComfortMax(b, fbsutils.Convert(t.ComfortMax, t.FlatBuffer.TableKey))
 	CafeRankExcelStartCafeVisitWeightTagBonusVector(b, len(t.CafeVisitWeightTagBonus))
 	for i := range len(t.CafeVisitWeightTagBonus) {
 		b.PrependInt32(fbsutils.Convert(t.CafeVisitWeightTagBonus[len(t.CafeVisitWeightTagBonus)-i-1], t.FlatBuffer.TableKey))
 	}
 	CafeRankExcelAddCafeVisitWeightTagBonus(b, b.EndVector(len(t.CafeVisitWeightTagBonus)))
-	CafeRankExcelAddRecipeId(b, fbsutils.Convert(t.RecipeId, t.FlatBuffer.TableKey))
-	CafeRankExcelAddRank(b, fbsutils.Convert(t.Rank, t.FlatBuffer.TableKey))
 	return CafeRankExcelEnd(b)
 }
 
@@ -61,22 +61,22 @@ func (t *CafeRankExcelDto) UnmarshalMessage(e *CafeRankExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeRank"))
 	}
+	t.CafeId = fbsutils.Convert(e.CafeId(), t.FlatBuffer.TableKey)
+	t.Rank = fbsutils.Convert(e.Rank(), t.FlatBuffer.TableKey)
+	t.RecipeId = fbsutils.Convert(e.RecipeId(), t.FlatBuffer.TableKey)
+	t.ComfortMax = fbsutils.Convert(e.ComfortMax(), t.FlatBuffer.TableKey)
+	t.TagCountMax = fbsutils.Convert(e.TagCountMax(), t.FlatBuffer.TableKey)
 	t.CharacterVisitMin = fbsutils.Convert(e.CharacterVisitMin(), t.FlatBuffer.TableKey)
-	t.CafeVisitWeightBase = fbsutils.Convert(e.CafeVisitWeightBase(), t.FlatBuffer.TableKey)
 	t.CharacterVisitMax = fbsutils.Convert(e.CharacterVisitMax(), t.FlatBuffer.TableKey)
+	t.CafeVisitWeightBase = fbsutils.Convert(e.CafeVisitWeightBase(), t.FlatBuffer.TableKey)
 	t.CafeVisitWeightTagBonusStep = make([]int32, e.CafeVisitWeightTagBonusStepLength())
 	for i := range e.CafeVisitWeightTagBonusStepLength() {
 		t.CafeVisitWeightTagBonusStep[i] = fbsutils.Convert(e.CafeVisitWeightTagBonusStep(i), t.FlatBuffer.TableKey)
 	}
-	t.TagCountMax = fbsutils.Convert(e.TagCountMax(), t.FlatBuffer.TableKey)
-	t.CafeId = fbsutils.Convert(e.CafeId(), t.FlatBuffer.TableKey)
-	t.ComfortMax = fbsutils.Convert(e.ComfortMax(), t.FlatBuffer.TableKey)
 	t.CafeVisitWeightTagBonus = make([]int32, e.CafeVisitWeightTagBonusLength())
 	for i := range e.CafeVisitWeightTagBonusLength() {
 		t.CafeVisitWeightTagBonus[i] = fbsutils.Convert(e.CafeVisitWeightTagBonus(i), t.FlatBuffer.TableKey)
 	}
-	t.RecipeId = fbsutils.Convert(e.RecipeId(), t.FlatBuffer.TableKey)
-	t.Rank = fbsutils.Convert(e.Rank(), t.FlatBuffer.TableKey)
 	return nil
 }
 

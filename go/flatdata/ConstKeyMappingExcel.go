@@ -33,7 +33,7 @@ func (rcv *ConstKeyMappingExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConstKeyMappingExcel) ScrollWheelFactor() float32 {
+func (rcv *ConstKeyMappingExcel) DragSensitivity() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -41,40 +41,12 @@ func (rcv *ConstKeyMappingExcel) ScrollWheelFactor() float32 {
 	return 0.0
 }
 
-func (rcv *ConstKeyMappingExcel) MutateScrollWheelFactor(n float32) bool {
+func (rcv *ConstKeyMappingExcel) MutateDragSensitivity(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(4, n)
 }
 
-func (rcv *ConstKeyMappingExcel) DragSensitivity() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstKeyMappingExcel) MutateDragSensitivity(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(6, n)
-}
-
-func (rcv *ConstKeyMappingExcel) RemoveKeycodeWord() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ConstKeyMappingExcel) TutorialDialogTouchKey() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *ConstKeyMappingExcel) PcInformationGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -82,26 +54,54 @@ func (rcv *ConstKeyMappingExcel) PcInformationGroupId() int64 {
 }
 
 func (rcv *ConstKeyMappingExcel) MutatePcInformationGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *ConstKeyMappingExcel) ScrollWheelFactor() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstKeyMappingExcel) MutateScrollWheelFactor(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(8, n)
+}
+
+func (rcv *ConstKeyMappingExcel) RemoveKeycodeWord() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConstKeyMappingExcel) TutorialDialogTouchKey() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func ConstKeyMappingExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func ConstKeyMappingExcelAddScrollWheelFactor(builder *flatbuffers.Builder, scrollWheelFactor float32) {
-	builder.PrependFloat32Slot(0, scrollWheelFactor, 0.0)
-}
 func ConstKeyMappingExcelAddDragSensitivity(builder *flatbuffers.Builder, dragSensitivity float32) {
-	builder.PrependFloat32Slot(1, dragSensitivity, 0.0)
-}
-func ConstKeyMappingExcelAddRemoveKeycodeWord(builder *flatbuffers.Builder, removeKeycodeWord flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(removeKeycodeWord), 0)
-}
-func ConstKeyMappingExcelAddTutorialDialogTouchKey(builder *flatbuffers.Builder, tutorialDialogTouchKey flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(tutorialDialogTouchKey), 0)
+	builder.PrependFloat32Slot(0, dragSensitivity, 0.0)
 }
 func ConstKeyMappingExcelAddPcInformationGroupId(builder *flatbuffers.Builder, pcInformationGroupId int64) {
-	builder.PrependInt64Slot(4, pcInformationGroupId, 0)
+	builder.PrependInt64Slot(1, pcInformationGroupId, 0)
+}
+func ConstKeyMappingExcelAddScrollWheelFactor(builder *flatbuffers.Builder, scrollWheelFactor float32) {
+	builder.PrependFloat32Slot(2, scrollWheelFactor, 0.0)
+}
+func ConstKeyMappingExcelAddRemoveKeycodeWord(builder *flatbuffers.Builder, removeKeycodeWord flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(removeKeycodeWord), 0)
+}
+func ConstKeyMappingExcelAddTutorialDialogTouchKey(builder *flatbuffers.Builder, tutorialDialogTouchKey flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(tutorialDialogTouchKey), 0)
 }
 func ConstKeyMappingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

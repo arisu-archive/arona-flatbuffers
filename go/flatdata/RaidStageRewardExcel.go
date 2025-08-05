@@ -33,28 +33,8 @@ func (rcv *RaidStageRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *RaidStageRewardExcel) ClearStageRewardParcelUniqueName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *RaidStageRewardExcel) ClearStageRewardAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *RaidStageRewardExcel) MutateClearStageRewardAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
 func (rcv *RaidStageRewardExcel) GroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -62,35 +42,11 @@ func (rcv *RaidStageRewardExcel) GroupId() int64 {
 }
 
 func (rcv *RaidStageRewardExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *RaidStageRewardExcel) ClearStageRewardParcelUniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *RaidStageRewardExcel) MutateClearStageRewardParcelUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *RaidStageRewardExcel) ClearStageRewardParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *RaidStageRewardExcel) MutateClearStageRewardParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *RaidStageRewardExcel) IsClearStageRewardHideInfo() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -98,11 +54,11 @@ func (rcv *RaidStageRewardExcel) IsClearStageRewardHideInfo() bool {
 }
 
 func (rcv *RaidStageRewardExcel) MutateIsClearStageRewardHideInfo(n bool) bool {
-	return rcv._tab.MutateBoolSlot(14, n)
+	return rcv._tab.MutateBoolSlot(6, n)
 }
 
 func (rcv *RaidStageRewardExcel) ClearStageRewardProb() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -110,32 +66,76 @@ func (rcv *RaidStageRewardExcel) ClearStageRewardProb() int64 {
 }
 
 func (rcv *RaidStageRewardExcel) MutateClearStageRewardProb(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *RaidStageRewardExcel) ClearStageRewardParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *RaidStageRewardExcel) MutateClearStageRewardParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
+}
+
+func (rcv *RaidStageRewardExcel) ClearStageRewardParcelUniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *RaidStageRewardExcel) MutateClearStageRewardParcelUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *RaidStageRewardExcel) ClearStageRewardParcelUniqueName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *RaidStageRewardExcel) ClearStageRewardAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *RaidStageRewardExcel) MutateClearStageRewardAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func RaidStageRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func RaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder *flatbuffers.Builder, clearStageRewardParcelUniqueName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(clearStageRewardParcelUniqueName), 0)
-}
-func RaidStageRewardExcelAddClearStageRewardAmount(builder *flatbuffers.Builder, clearStageRewardAmount int64) {
-	builder.PrependInt64Slot(1, clearStageRewardAmount, 0)
-}
 func RaidStageRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(2, groupId, 0)
-}
-func RaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder *flatbuffers.Builder, clearStageRewardParcelUniqueId int64) {
-	builder.PrependInt64Slot(3, clearStageRewardParcelUniqueId, 0)
-}
-func RaidStageRewardExcelAddClearStageRewardParcelType(builder *flatbuffers.Builder, clearStageRewardParcelType ParcelType) {
-	builder.PrependInt32Slot(4, int32(clearStageRewardParcelType), 0)
+	builder.PrependInt64Slot(0, groupId, 0)
 }
 func RaidStageRewardExcelAddIsClearStageRewardHideInfo(builder *flatbuffers.Builder, isClearStageRewardHideInfo bool) {
-	builder.PrependBoolSlot(5, isClearStageRewardHideInfo, false)
+	builder.PrependBoolSlot(1, isClearStageRewardHideInfo, false)
 }
 func RaidStageRewardExcelAddClearStageRewardProb(builder *flatbuffers.Builder, clearStageRewardProb int64) {
-	builder.PrependInt64Slot(6, clearStageRewardProb, 0)
+	builder.PrependInt64Slot(2, clearStageRewardProb, 0)
+}
+func RaidStageRewardExcelAddClearStageRewardParcelType(builder *flatbuffers.Builder, clearStageRewardParcelType ParcelType) {
+	builder.PrependInt32Slot(3, int32(clearStageRewardParcelType), 0)
+}
+func RaidStageRewardExcelAddClearStageRewardParcelUniqueId(builder *flatbuffers.Builder, clearStageRewardParcelUniqueId int64) {
+	builder.PrependInt64Slot(4, clearStageRewardParcelUniqueId, 0)
+}
+func RaidStageRewardExcelAddClearStageRewardParcelUniqueName(builder *flatbuffers.Builder, clearStageRewardParcelUniqueName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(clearStageRewardParcelUniqueName), 0)
+}
+func RaidStageRewardExcelAddClearStageRewardAmount(builder *flatbuffers.Builder, clearStageRewardAmount int64) {
+	builder.PrependInt64Slot(6, clearStageRewardAmount, 0)
 }
 func RaidStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

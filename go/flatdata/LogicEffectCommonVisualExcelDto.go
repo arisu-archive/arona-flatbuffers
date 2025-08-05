@@ -10,19 +10,19 @@ import (
 // LogicEffectCommonVisualExcelDto represents a FlatBuffers table
 type LogicEffectCommonVisualExcelDto struct {
 	fbsutils.FlatBuffer
-	ParticleRemovedPath   string     `json:"particle_removed_path"`
-	ParticleEnterPath     string     `json:"particle_enter_path"`
-	ParticleLoopPath      string     `json:"particle_loop_path"`
-	ParticleRemovedSocket EffectBone `json:"particle_removed_socket"`
-	ParticleApplySocket   EffectBone `json:"particle_apply_socket"`
-	ParticleEnterSocket   EffectBone `json:"particle_enter_socket"`
-	ParticleEndSocket     EffectBone `json:"particle_end_socket"`
 	StringId              uint32     `json:"string_id"`
-	ParticleEndPath       string     `json:"particle_end_path"`
-	ParticleApplyPath     string     `json:"particle_apply_path"`
 	IconSpriteName        string     `json:"icon_sprite_name"`
-	ParticleLoopSocket    EffectBone `json:"particle_loop_socket"`
 	IconDispelColor       []float32  `json:"icon_dispel_color"`
+	ParticleEnterPath     string     `json:"particle_enter_path"`
+	ParticleEnterSocket   EffectBone `json:"particle_enter_socket"`
+	ParticleLoopPath      string     `json:"particle_loop_path"`
+	ParticleLoopSocket    EffectBone `json:"particle_loop_socket"`
+	ParticleEndPath       string     `json:"particle_end_path"`
+	ParticleEndSocket     EffectBone `json:"particle_end_socket"`
+	ParticleApplyPath     string     `json:"particle_apply_path"`
+	ParticleApplySocket   EffectBone `json:"particle_apply_socket"`
+	ParticleRemovedPath   string     `json:"particle_removed_path"`
+	ParticleRemovedSocket EffectBone `json:"particle_removed_socket"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -31,23 +31,23 @@ func (t *LogicEffectCommonVisualExcelDto) MarshalModel(b *flatbuffers.Builder) f
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LogicEffectCommonVisual"))
 	}
 	LogicEffectCommonVisualExcelStart(b)
-	LogicEffectCommonVisualExcelAddParticleRemovedPath(b, b.CreateString(fbsutils.Convert(t.ParticleRemovedPath, t.FlatBuffer.TableKey)))
-	LogicEffectCommonVisualExcelAddParticleEnterPath(b, b.CreateString(fbsutils.Convert(t.ParticleEnterPath, t.FlatBuffer.TableKey)))
-	LogicEffectCommonVisualExcelAddParticleLoopPath(b, b.CreateString(fbsutils.Convert(t.ParticleLoopPath, t.FlatBuffer.TableKey)))
-	LogicEffectCommonVisualExcelAddParticleRemovedSocket(b, fbsutils.Convert(t.ParticleRemovedSocket, t.FlatBuffer.TableKey))
-	LogicEffectCommonVisualExcelAddParticleApplySocket(b, fbsutils.Convert(t.ParticleApplySocket, t.FlatBuffer.TableKey))
-	LogicEffectCommonVisualExcelAddParticleEnterSocket(b, fbsutils.Convert(t.ParticleEnterSocket, t.FlatBuffer.TableKey))
-	LogicEffectCommonVisualExcelAddParticleEndSocket(b, fbsutils.Convert(t.ParticleEndSocket, t.FlatBuffer.TableKey))
 	LogicEffectCommonVisualExcelAddStringId(b, fbsutils.Convert(t.StringId, t.FlatBuffer.TableKey))
-	LogicEffectCommonVisualExcelAddParticleEndPath(b, b.CreateString(fbsutils.Convert(t.ParticleEndPath, t.FlatBuffer.TableKey)))
-	LogicEffectCommonVisualExcelAddParticleApplyPath(b, b.CreateString(fbsutils.Convert(t.ParticleApplyPath, t.FlatBuffer.TableKey)))
 	LogicEffectCommonVisualExcelAddIconSpriteName(b, b.CreateString(fbsutils.Convert(t.IconSpriteName, t.FlatBuffer.TableKey)))
-	LogicEffectCommonVisualExcelAddParticleLoopSocket(b, fbsutils.Convert(t.ParticleLoopSocket, t.FlatBuffer.TableKey))
 	LogicEffectCommonVisualExcelStartIconDispelColorVector(b, len(t.IconDispelColor))
 	for i := range len(t.IconDispelColor) {
 		b.PrependFloat32(fbsutils.Convert(t.IconDispelColor[len(t.IconDispelColor)-i-1], t.FlatBuffer.TableKey))
 	}
 	LogicEffectCommonVisualExcelAddIconDispelColor(b, b.EndVector(len(t.IconDispelColor)))
+	LogicEffectCommonVisualExcelAddParticleEnterPath(b, b.CreateString(fbsutils.Convert(t.ParticleEnterPath, t.FlatBuffer.TableKey)))
+	LogicEffectCommonVisualExcelAddParticleEnterSocket(b, fbsutils.Convert(t.ParticleEnterSocket, t.FlatBuffer.TableKey))
+	LogicEffectCommonVisualExcelAddParticleLoopPath(b, b.CreateString(fbsutils.Convert(t.ParticleLoopPath, t.FlatBuffer.TableKey)))
+	LogicEffectCommonVisualExcelAddParticleLoopSocket(b, fbsutils.Convert(t.ParticleLoopSocket, t.FlatBuffer.TableKey))
+	LogicEffectCommonVisualExcelAddParticleEndPath(b, b.CreateString(fbsutils.Convert(t.ParticleEndPath, t.FlatBuffer.TableKey)))
+	LogicEffectCommonVisualExcelAddParticleEndSocket(b, fbsutils.Convert(t.ParticleEndSocket, t.FlatBuffer.TableKey))
+	LogicEffectCommonVisualExcelAddParticleApplyPath(b, b.CreateString(fbsutils.Convert(t.ParticleApplyPath, t.FlatBuffer.TableKey)))
+	LogicEffectCommonVisualExcelAddParticleApplySocket(b, fbsutils.Convert(t.ParticleApplySocket, t.FlatBuffer.TableKey))
+	LogicEffectCommonVisualExcelAddParticleRemovedPath(b, b.CreateString(fbsutils.Convert(t.ParticleRemovedPath, t.FlatBuffer.TableKey)))
+	LogicEffectCommonVisualExcelAddParticleRemovedSocket(b, fbsutils.Convert(t.ParticleRemovedSocket, t.FlatBuffer.TableKey))
 	return LogicEffectCommonVisualExcelEnd(b)
 }
 
@@ -63,22 +63,22 @@ func (t *LogicEffectCommonVisualExcelDto) UnmarshalMessage(e *LogicEffectCommonV
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LogicEffectCommonVisual"))
 	}
-	t.ParticleRemovedPath = fbsutils.Convert(string(e.ParticleRemovedPath()), t.FlatBuffer.TableKey)
-	t.ParticleEnterPath = fbsutils.Convert(string(e.ParticleEnterPath()), t.FlatBuffer.TableKey)
-	t.ParticleLoopPath = fbsutils.Convert(string(e.ParticleLoopPath()), t.FlatBuffer.TableKey)
-	t.ParticleRemovedSocket = EffectBone(fbsutils.Convert(int32(e.ParticleRemovedSocket()), t.FlatBuffer.TableKey))
-	t.ParticleApplySocket = EffectBone(fbsutils.Convert(int32(e.ParticleApplySocket()), t.FlatBuffer.TableKey))
-	t.ParticleEnterSocket = EffectBone(fbsutils.Convert(int32(e.ParticleEnterSocket()), t.FlatBuffer.TableKey))
-	t.ParticleEndSocket = EffectBone(fbsutils.Convert(int32(e.ParticleEndSocket()), t.FlatBuffer.TableKey))
 	t.StringId = fbsutils.Convert(e.StringId(), t.FlatBuffer.TableKey)
-	t.ParticleEndPath = fbsutils.Convert(string(e.ParticleEndPath()), t.FlatBuffer.TableKey)
-	t.ParticleApplyPath = fbsutils.Convert(string(e.ParticleApplyPath()), t.FlatBuffer.TableKey)
 	t.IconSpriteName = fbsutils.Convert(string(e.IconSpriteName()), t.FlatBuffer.TableKey)
-	t.ParticleLoopSocket = EffectBone(fbsutils.Convert(int32(e.ParticleLoopSocket()), t.FlatBuffer.TableKey))
 	t.IconDispelColor = make([]float32, e.IconDispelColorLength())
 	for i := range e.IconDispelColorLength() {
 		t.IconDispelColor[i] = fbsutils.Convert(e.IconDispelColor(i), t.FlatBuffer.TableKey)
 	}
+	t.ParticleEnterPath = fbsutils.Convert(string(e.ParticleEnterPath()), t.FlatBuffer.TableKey)
+	t.ParticleEnterSocket = EffectBone(fbsutils.Convert(int32(e.ParticleEnterSocket()), t.FlatBuffer.TableKey))
+	t.ParticleLoopPath = fbsutils.Convert(string(e.ParticleLoopPath()), t.FlatBuffer.TableKey)
+	t.ParticleLoopSocket = EffectBone(fbsutils.Convert(int32(e.ParticleLoopSocket()), t.FlatBuffer.TableKey))
+	t.ParticleEndPath = fbsutils.Convert(string(e.ParticleEndPath()), t.FlatBuffer.TableKey)
+	t.ParticleEndSocket = EffectBone(fbsutils.Convert(int32(e.ParticleEndSocket()), t.FlatBuffer.TableKey))
+	t.ParticleApplyPath = fbsutils.Convert(string(e.ParticleApplyPath()), t.FlatBuffer.TableKey)
+	t.ParticleApplySocket = EffectBone(fbsutils.Convert(int32(e.ParticleApplySocket()), t.FlatBuffer.TableKey))
+	t.ParticleRemovedPath = fbsutils.Convert(string(e.ParticleRemovedPath()), t.FlatBuffer.TableKey)
+	t.ParticleRemovedSocket = EffectBone(fbsutils.Convert(int32(e.ParticleRemovedSocket()), t.FlatBuffer.TableKey))
 	return nil
 }
 

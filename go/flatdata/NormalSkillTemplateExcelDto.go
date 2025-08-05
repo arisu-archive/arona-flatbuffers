@@ -11,9 +11,9 @@ import (
 type NormalSkillTemplateExcelDto struct {
 	fbsutils.FlatBuffer
 	Index         int64   `json:"index"`
-	MultiAni      bool    `json:"multi_ani"`
 	FirstCoolTime float32 `json:"first_cool_time"`
 	CoolTime      float32 `json:"cool_time"`
+	MultiAni      bool    `json:"multi_ani"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,9 +23,9 @@ func (t *NormalSkillTemplateExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	}
 	NormalSkillTemplateExcelStart(b)
 	NormalSkillTemplateExcelAddIndex(b, fbsutils.Convert(t.Index, t.FlatBuffer.TableKey))
-	NormalSkillTemplateExcelAddMultiAni(b, t.MultiAni)
 	NormalSkillTemplateExcelAddFirstCoolTime(b, fbsutils.Convert(t.FirstCoolTime, t.FlatBuffer.TableKey))
 	NormalSkillTemplateExcelAddCoolTime(b, fbsutils.Convert(t.CoolTime, t.FlatBuffer.TableKey))
+	NormalSkillTemplateExcelAddMultiAni(b, t.MultiAni)
 	return NormalSkillTemplateExcelEnd(b)
 }
 
@@ -42,9 +42,9 @@ func (t *NormalSkillTemplateExcelDto) UnmarshalMessage(e *NormalSkillTemplateExc
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("NormalSkillTemplate"))
 	}
 	t.Index = fbsutils.Convert(e.Index(), t.FlatBuffer.TableKey)
-	t.MultiAni = e.MultiAni()
 	t.FirstCoolTime = fbsutils.Convert(e.FirstCoolTime(), t.FlatBuffer.TableKey)
 	t.CoolTime = fbsutils.Convert(e.CoolTime(), t.FlatBuffer.TableKey)
+	t.MultiAni = e.MultiAni()
 	return nil
 }
 

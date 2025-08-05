@@ -2,8 +2,8 @@ namespace FlatData;
 
 table FieldKeywordExcel {
     unique_id: long;
-    name_localize_key: string;
-    image_path: string;
-    description_localize_key: string;
     season_id: long;
+    name_localize_key: string;
+    description_localize_key: string;
+    image_path: string;
 }

@@ -33,76 +33,8 @@ func (rcv *MemoryLobbyExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MemoryLobbyExcel) MemoryLobbyCategory() MemoryLobbyCategory {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return MemoryLobbyCategory(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MemoryLobbyExcel) MutateMemoryLobbyCategory(n MemoryLobbyCategory) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
-}
-
-func (rcv *MemoryLobbyExcel) SlotTextureName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MemoryLobbyExcel) AudioClipJp() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MemoryLobbyExcel) ProductionStep() ProductionStep {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return ProductionStep(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MemoryLobbyExcel) MutateProductionStep(n ProductionStep) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
-}
-
-func (rcv *MemoryLobbyExcel) AudioClipKr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MemoryLobbyExcel) PrefabName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MemoryLobbyExcel) CharacterId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MemoryLobbyExcel) MutateCharacterId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
 func (rcv *MemoryLobbyExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -110,35 +42,23 @@ func (rcv *MemoryLobbyExcel) Id() int64 {
 }
 
 func (rcv *MemoryLobbyExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MemoryLobbyExcel) AudioClipTw() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+func (rcv *MemoryLobbyExcel) ProductionStep() ProductionStep {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return ProductionStep(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
 }
 
-func (rcv *MemoryLobbyExcel) AudioClipTh() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MemoryLobbyExcel) RewardTextureName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+func (rcv *MemoryLobbyExcel) MutateProductionStep(n ProductionStep) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
 func (rcv *MemoryLobbyExcel) LocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -146,11 +66,51 @@ func (rcv *MemoryLobbyExcel) LocalizeEtcId() uint32 {
 }
 
 func (rcv *MemoryLobbyExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(26, n)
+	return rcv._tab.MutateUint32Slot(8, n)
 }
 
-func (rcv *MemoryLobbyExcel) AudioClipEn() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+func (rcv *MemoryLobbyExcel) CharacterId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MemoryLobbyExcel) MutateCharacterId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *MemoryLobbyExcel) PrefabName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MemoryLobbyExcel) MemoryLobbyCategory() MemoryLobbyCategory {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return MemoryLobbyCategory(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MemoryLobbyExcel) MutateMemoryLobbyCategory(n MemoryLobbyCategory) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
+}
+
+func (rcv *MemoryLobbyExcel) SlotTextureName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MemoryLobbyExcel) RewardTextureName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -158,7 +118,7 @@ func (rcv *MemoryLobbyExcel) AudioClipEn() []byte {
 }
 
 func (rcv *MemoryLobbyExcel) BgmId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -166,53 +126,93 @@ func (rcv *MemoryLobbyExcel) BgmId() int64 {
 }
 
 func (rcv *MemoryLobbyExcel) MutateBgmId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *MemoryLobbyExcel) AudioClipJp() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MemoryLobbyExcel) AudioClipKr() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MemoryLobbyExcel) AudioClipTh() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MemoryLobbyExcel) AudioClipTw() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MemoryLobbyExcel) AudioClipEn() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func MemoryLobbyExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(14)
 }
-func MemoryLobbyExcelAddMemoryLobbyCategory(builder *flatbuffers.Builder, memoryLobbyCategory MemoryLobbyCategory) {
-	builder.PrependInt32Slot(0, int32(memoryLobbyCategory), 0)
-}
-func MemoryLobbyExcelAddSlotTextureName(builder *flatbuffers.Builder, slotTextureName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(slotTextureName), 0)
-}
-func MemoryLobbyExcelAddAudioClipJp(builder *flatbuffers.Builder, audioClipJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(audioClipJp), 0)
+func MemoryLobbyExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(0, id, 0)
 }
 func MemoryLobbyExcelAddProductionStep(builder *flatbuffers.Builder, productionStep ProductionStep) {
-	builder.PrependInt32Slot(3, int32(productionStep), 0)
-}
-func MemoryLobbyExcelAddAudioClipKr(builder *flatbuffers.Builder, audioClipKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(audioClipKr), 0)
-}
-func MemoryLobbyExcelAddPrefabName(builder *flatbuffers.Builder, prefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(prefabName), 0)
-}
-func MemoryLobbyExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(6, characterId, 0)
-}
-func MemoryLobbyExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(7, id, 0)
-}
-func MemoryLobbyExcelAddAudioClipTw(builder *flatbuffers.Builder, audioClipTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(audioClipTw), 0)
-}
-func MemoryLobbyExcelAddAudioClipTh(builder *flatbuffers.Builder, audioClipTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(audioClipTh), 0)
-}
-func MemoryLobbyExcelAddRewardTextureName(builder *flatbuffers.Builder, rewardTextureName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(rewardTextureName), 0)
+	builder.PrependInt32Slot(1, int32(productionStep), 0)
 }
 func MemoryLobbyExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(11, localizeEtcId, 0)
+	builder.PrependUint32Slot(2, localizeEtcId, 0)
 }
-func MemoryLobbyExcelAddAudioClipEn(builder *flatbuffers.Builder, audioClipEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(audioClipEn), 0)
+func MemoryLobbyExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
+	builder.PrependInt64Slot(3, characterId, 0)
+}
+func MemoryLobbyExcelAddPrefabName(builder *flatbuffers.Builder, prefabName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(prefabName), 0)
+}
+func MemoryLobbyExcelAddMemoryLobbyCategory(builder *flatbuffers.Builder, memoryLobbyCategory MemoryLobbyCategory) {
+	builder.PrependInt32Slot(5, int32(memoryLobbyCategory), 0)
+}
+func MemoryLobbyExcelAddSlotTextureName(builder *flatbuffers.Builder, slotTextureName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(slotTextureName), 0)
+}
+func MemoryLobbyExcelAddRewardTextureName(builder *flatbuffers.Builder, rewardTextureName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(rewardTextureName), 0)
 }
 func MemoryLobbyExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
-	builder.PrependInt64Slot(13, bgmId, 0)
+	builder.PrependInt64Slot(8, bgmId, 0)
+}
+func MemoryLobbyExcelAddAudioClipJp(builder *flatbuffers.Builder, audioClipJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(audioClipJp), 0)
+}
+func MemoryLobbyExcelAddAudioClipKr(builder *flatbuffers.Builder, audioClipKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(audioClipKr), 0)
+}
+func MemoryLobbyExcelAddAudioClipTh(builder *flatbuffers.Builder, audioClipTh flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(audioClipTh), 0)
+}
+func MemoryLobbyExcelAddAudioClipTw(builder *flatbuffers.Builder, audioClipTw flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(audioClipTw), 0)
+}
+func MemoryLobbyExcelAddAudioClipEn(builder *flatbuffers.Builder, audioClipEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(audioClipEn), 0)
 }
 func MemoryLobbyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -33,42 +33,8 @@ func (rcv *DefaultMailExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *DefaultMailExcel) MailSendPeriodTo() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *DefaultMailExcel) RewardParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *DefaultMailExcel) RewardParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *DefaultMailExcel) MutateRewardParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
 func (rcv *DefaultMailExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -76,11 +42,11 @@ func (rcv *DefaultMailExcel) Id() int64 {
 }
 
 func (rcv *DefaultMailExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *DefaultMailExcel) LocalizeCodeId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -88,33 +54,35 @@ func (rcv *DefaultMailExcel) LocalizeCodeId() uint32 {
 }
 
 func (rcv *DefaultMailExcel) MutateLocalizeCodeId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
+	return rcv._tab.MutateUint32Slot(6, n)
 }
 
-func (rcv *DefaultMailExcel) RewardParcelAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+func (rcv *DefaultMailExcel) MailType() MailType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return MailType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *DefaultMailExcel) RewardParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
+func (rcv *DefaultMailExcel) MutateMailType(n MailType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *DefaultMailExcel) MutateRewardParcelAmount(j int, n int64) bool {
+func (rcv *DefaultMailExcel) MailSendPeriodFrom() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *DefaultMailExcel) MailSendPeriodTo() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
+	return nil
 }
 
 func (rcv *DefaultMailExcel) RewardParcelType(j int) ParcelType {
@@ -143,49 +111,75 @@ func (rcv *DefaultMailExcel) MutateRewardParcelType(j int, n ParcelType) bool {
 	return false
 }
 
-func (rcv *DefaultMailExcel) MailType() MailType {
+func (rcv *DefaultMailExcel) RewardParcelId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return MailType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *DefaultMailExcel) MutateMailType(n MailType) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
+func (rcv *DefaultMailExcel) RewardParcelIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *DefaultMailExcel) MailSendPeriodFrom() []byte {
+func (rcv *DefaultMailExcel) MutateRewardParcelId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *DefaultMailExcel) RewardParcelAmount(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
-	return nil
+	return 0
+}
+
+func (rcv *DefaultMailExcel) RewardParcelAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *DefaultMailExcel) MutateRewardParcelAmount(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
 }
 
 func DefaultMailExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(8)
 }
-func DefaultMailExcelAddMailSendPeriodTo(builder *flatbuffers.Builder, mailSendPeriodTo flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(mailSendPeriodTo), 0)
-}
-func DefaultMailExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(rewardParcelId), 0)
-}
-func DefaultMailExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
 func DefaultMailExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(2, id, 0)
+	builder.PrependInt64Slot(0, id, 0)
 }
 func DefaultMailExcelAddLocalizeCodeId(builder *flatbuffers.Builder, localizeCodeId uint32) {
-	builder.PrependUint32Slot(3, localizeCodeId, 0)
+	builder.PrependUint32Slot(1, localizeCodeId, 0)
 }
-func DefaultMailExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+func DefaultMailExcelAddMailType(builder *flatbuffers.Builder, mailType MailType) {
+	builder.PrependInt32Slot(2, int32(mailType), 0)
 }
-func DefaultMailExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func DefaultMailExcelAddMailSendPeriodFrom(builder *flatbuffers.Builder, mailSendPeriodFrom flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(mailSendPeriodFrom), 0)
+}
+func DefaultMailExcelAddMailSendPeriodTo(builder *flatbuffers.Builder, mailSendPeriodTo flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(mailSendPeriodTo), 0)
 }
 func DefaultMailExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelType), 0)
@@ -193,11 +187,17 @@ func DefaultMailExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardPar
 func DefaultMailExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func DefaultMailExcelAddMailType(builder *flatbuffers.Builder, mailType MailType) {
-	builder.PrependInt32Slot(6, int32(mailType), 0)
+func DefaultMailExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardParcelId), 0)
 }
-func DefaultMailExcelAddMailSendPeriodFrom(builder *flatbuffers.Builder, mailSendPeriodFrom flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(mailSendPeriodFrom), 0)
+func DefaultMailExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func DefaultMailExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+}
+func DefaultMailExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func DefaultMailExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

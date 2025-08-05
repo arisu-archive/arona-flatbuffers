@@ -33,7 +33,7 @@ func (rcv *ObstacleFireLineCheckExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ObstacleFireLineCheckExcel) AllyObstacleFireLineCheck() bool {
+func (rcv *ObstacleFireLineCheckExcel) MyObstacleFireLineCheck() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *ObstacleFireLineCheckExcel) AllyObstacleFireLineCheck() bool {
 	return false
 }
 
-func (rcv *ObstacleFireLineCheckExcel) MutateAllyObstacleFireLineCheck(n bool) bool {
+func (rcv *ObstacleFireLineCheckExcel) MutateMyObstacleFireLineCheck(n bool) bool {
 	return rcv._tab.MutateBoolSlot(4, n)
 }
 
-func (rcv *ObstacleFireLineCheckExcel) EnemyObstacleFireLineCheck() bool {
+func (rcv *ObstacleFireLineCheckExcel) AllyObstacleFireLineCheck() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *ObstacleFireLineCheckExcel) EnemyObstacleFireLineCheck() bool {
 	return false
 }
 
-func (rcv *ObstacleFireLineCheckExcel) MutateEnemyObstacleFireLineCheck(n bool) bool {
+func (rcv *ObstacleFireLineCheckExcel) MutateAllyObstacleFireLineCheck(n bool) bool {
 	return rcv._tab.MutateBoolSlot(6, n)
 }
 
-func (rcv *ObstacleFireLineCheckExcel) EmptyObstacleFireLineCheck() bool {
+func (rcv *ObstacleFireLineCheckExcel) EnemyObstacleFireLineCheck() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *ObstacleFireLineCheckExcel) EmptyObstacleFireLineCheck() bool {
 	return false
 }
 
-func (rcv *ObstacleFireLineCheckExcel) MutateEmptyObstacleFireLineCheck(n bool) bool {
+func (rcv *ObstacleFireLineCheckExcel) MutateEnemyObstacleFireLineCheck(n bool) bool {
 	return rcv._tab.MutateBoolSlot(8, n)
 }
 
-func (rcv *ObstacleFireLineCheckExcel) MyObstacleFireLineCheck() bool {
+func (rcv *ObstacleFireLineCheckExcel) EmptyObstacleFireLineCheck() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -77,24 +77,24 @@ func (rcv *ObstacleFireLineCheckExcel) MyObstacleFireLineCheck() bool {
 	return false
 }
 
-func (rcv *ObstacleFireLineCheckExcel) MutateMyObstacleFireLineCheck(n bool) bool {
+func (rcv *ObstacleFireLineCheckExcel) MutateEmptyObstacleFireLineCheck(n bool) bool {
 	return rcv._tab.MutateBoolSlot(10, n)
 }
 
 func ObstacleFireLineCheckExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
+func ObstacleFireLineCheckExcelAddMyObstacleFireLineCheck(builder *flatbuffers.Builder, myObstacleFireLineCheck bool) {
+	builder.PrependBoolSlot(0, myObstacleFireLineCheck, false)
+}
 func ObstacleFireLineCheckExcelAddAllyObstacleFireLineCheck(builder *flatbuffers.Builder, allyObstacleFireLineCheck bool) {
-	builder.PrependBoolSlot(0, allyObstacleFireLineCheck, false)
+	builder.PrependBoolSlot(1, allyObstacleFireLineCheck, false)
 }
 func ObstacleFireLineCheckExcelAddEnemyObstacleFireLineCheck(builder *flatbuffers.Builder, enemyObstacleFireLineCheck bool) {
-	builder.PrependBoolSlot(1, enemyObstacleFireLineCheck, false)
+	builder.PrependBoolSlot(2, enemyObstacleFireLineCheck, false)
 }
 func ObstacleFireLineCheckExcelAddEmptyObstacleFireLineCheck(builder *flatbuffers.Builder, emptyObstacleFireLineCheck bool) {
-	builder.PrependBoolSlot(2, emptyObstacleFireLineCheck, false)
-}
-func ObstacleFireLineCheckExcelAddMyObstacleFireLineCheck(builder *flatbuffers.Builder, myObstacleFireLineCheck bool) {
-	builder.PrependBoolSlot(3, myObstacleFireLineCheck, false)
+	builder.PrependBoolSlot(3, emptyObstacleFireLineCheck, false)
 }
 func ObstacleFireLineCheckExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

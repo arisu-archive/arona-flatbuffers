@@ -10,11 +10,11 @@ import (
 // ConstFieldExcelDto represents a FlatBuffers table
 type ConstFieldExcelDto struct {
 	fbsutils.FlatBuffer
-	TalkDialogDurationDefault  int32 `json:"talk_dialog_duration_default"`
-	IdleThinkDelayMax          int32 `json:"idle_think_delay_max"`
-	IdleThinkDelayMin          int32 `json:"idle_think_delay_min"`
 	DialogSmoothTime           int32 `json:"dialog_smooth_time"`
+	TalkDialogDurationDefault  int32 `json:"talk_dialog_duration_default"`
 	ThinkDialogDurationDefault int32 `json:"think_dialog_duration_default"`
+	IdleThinkDelayMin          int32 `json:"idle_think_delay_min"`
+	IdleThinkDelayMax          int32 `json:"idle_think_delay_max"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,11 +23,11 @@ func (t *ConstFieldExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstField"))
 	}
 	ConstFieldExcelStart(b)
-	ConstFieldExcelAddTalkDialogDurationDefault(b, fbsutils.Convert(t.TalkDialogDurationDefault, t.FlatBuffer.TableKey))
-	ConstFieldExcelAddIdleThinkDelayMax(b, fbsutils.Convert(t.IdleThinkDelayMax, t.FlatBuffer.TableKey))
-	ConstFieldExcelAddIdleThinkDelayMin(b, fbsutils.Convert(t.IdleThinkDelayMin, t.FlatBuffer.TableKey))
 	ConstFieldExcelAddDialogSmoothTime(b, fbsutils.Convert(t.DialogSmoothTime, t.FlatBuffer.TableKey))
+	ConstFieldExcelAddTalkDialogDurationDefault(b, fbsutils.Convert(t.TalkDialogDurationDefault, t.FlatBuffer.TableKey))
 	ConstFieldExcelAddThinkDialogDurationDefault(b, fbsutils.Convert(t.ThinkDialogDurationDefault, t.FlatBuffer.TableKey))
+	ConstFieldExcelAddIdleThinkDelayMin(b, fbsutils.Convert(t.IdleThinkDelayMin, t.FlatBuffer.TableKey))
+	ConstFieldExcelAddIdleThinkDelayMax(b, fbsutils.Convert(t.IdleThinkDelayMax, t.FlatBuffer.TableKey))
 	return ConstFieldExcelEnd(b)
 }
 
@@ -43,11 +43,11 @@ func (t *ConstFieldExcelDto) UnmarshalMessage(e *ConstFieldExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstField"))
 	}
-	t.TalkDialogDurationDefault = fbsutils.Convert(e.TalkDialogDurationDefault(), t.FlatBuffer.TableKey)
-	t.IdleThinkDelayMax = fbsutils.Convert(e.IdleThinkDelayMax(), t.FlatBuffer.TableKey)
-	t.IdleThinkDelayMin = fbsutils.Convert(e.IdleThinkDelayMin(), t.FlatBuffer.TableKey)
 	t.DialogSmoothTime = fbsutils.Convert(e.DialogSmoothTime(), t.FlatBuffer.TableKey)
+	t.TalkDialogDurationDefault = fbsutils.Convert(e.TalkDialogDurationDefault(), t.FlatBuffer.TableKey)
 	t.ThinkDialogDurationDefault = fbsutils.Convert(e.ThinkDialogDurationDefault(), t.FlatBuffer.TableKey)
+	t.IdleThinkDelayMin = fbsutils.Convert(e.IdleThinkDelayMin(), t.FlatBuffer.TableKey)
+	t.IdleThinkDelayMax = fbsutils.Convert(e.IdleThinkDelayMax(), t.FlatBuffer.TableKey)
 	return nil
 }
 

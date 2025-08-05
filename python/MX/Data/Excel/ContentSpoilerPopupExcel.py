@@ -25,58 +25,58 @@ class ContentSpoilerPopupExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ContentSpoilerPopupExcel
-    def SpoilerPopupDescription(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ContentSpoilerPopupExcel
-    def ConditionScenarioModeId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ContentSpoilerPopupExcel
     def ContentType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ContentSpoilerPopupExcel
     def SpoilerPopupTitle(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ContentSpoilerPopupExcel
+    def SpoilerPopupDescription(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ContentSpoilerPopupExcel
     def IsWarningPopUp(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
+    # ContentSpoilerPopupExcel
+    def ConditionScenarioModeId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
 def ContentSpoilerPopupExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return ContentSpoilerPopupExcelStart(builder)
-def ContentSpoilerPopupExcelAddSpoilerPopupDescription(builder, spoilerPopupDescription): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(spoilerPopupDescription), 0)
-def AddSpoilerPopupDescription(builder, spoilerPopupDescription):
-    return ContentSpoilerPopupExcelAddSpoilerPopupDescription(builder, spoilerPopupDescription)
-def ContentSpoilerPopupExcelAddConditionScenarioModeId(builder, conditionScenarioModeId): builder.PrependInt64Slot(1, conditionScenarioModeId, 0)
-def AddConditionScenarioModeId(builder, conditionScenarioModeId):
-    return ContentSpoilerPopupExcelAddConditionScenarioModeId(builder, conditionScenarioModeId)
-def ContentSpoilerPopupExcelAddContentType(builder, contentType): builder.PrependInt32Slot(2, contentType, 0)
+def ContentSpoilerPopupExcelAddContentType(builder, contentType): builder.PrependInt32Slot(0, contentType, 0)
 def AddContentType(builder, contentType):
     return ContentSpoilerPopupExcelAddContentType(builder, contentType)
-def ContentSpoilerPopupExcelAddSpoilerPopupTitle(builder, spoilerPopupTitle): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(spoilerPopupTitle), 0)
+def ContentSpoilerPopupExcelAddSpoilerPopupTitle(builder, spoilerPopupTitle): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(spoilerPopupTitle), 0)
 def AddSpoilerPopupTitle(builder, spoilerPopupTitle):
     return ContentSpoilerPopupExcelAddSpoilerPopupTitle(builder, spoilerPopupTitle)
-def ContentSpoilerPopupExcelAddIsWarningPopUp(builder, isWarningPopUp): builder.PrependBoolSlot(4, isWarningPopUp, 0)
+def ContentSpoilerPopupExcelAddSpoilerPopupDescription(builder, spoilerPopupDescription): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(spoilerPopupDescription), 0)
+def AddSpoilerPopupDescription(builder, spoilerPopupDescription):
+    return ContentSpoilerPopupExcelAddSpoilerPopupDescription(builder, spoilerPopupDescription)
+def ContentSpoilerPopupExcelAddIsWarningPopUp(builder, isWarningPopUp): builder.PrependBoolSlot(3, isWarningPopUp, 0)
 def AddIsWarningPopUp(builder, isWarningPopUp):
     return ContentSpoilerPopupExcelAddIsWarningPopUp(builder, isWarningPopUp)
+def ContentSpoilerPopupExcelAddConditionScenarioModeId(builder, conditionScenarioModeId): builder.PrependInt64Slot(4, conditionScenarioModeId, 0)
+def AddConditionScenarioModeId(builder, conditionScenarioModeId):
+    return ContentSpoilerPopupExcelAddConditionScenarioModeId(builder, conditionScenarioModeId)
 def ContentSpoilerPopupExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ContentSpoilerPopupExcelEnd(builder)

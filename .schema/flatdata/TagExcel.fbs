@@ -4,6 +4,6 @@ include "Tag.fbs";
 namespace FlatData;
 
 table TagExcel {
-    none: Club;
     furniture: Tag;
+    none: Club;
 }

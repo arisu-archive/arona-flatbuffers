@@ -1,14 +1,14 @@
 namespace MX.Data.Excel;
 
 table TutorialCharacterDialogExcel {
-    localize_th: string;
-    localize_tw: string;
     talk_id: long;
-    voice_id: uint;
-    localize_jp: string;
     animation_name: string;
     localize_kr: string;
+    localize_jp: string;
+    localize_th: string;
+    localize_tw: string;
     localize_en: string;
+    voice_id: uint;
 }
 
 root_type TutorialCharacterDialogExcel;

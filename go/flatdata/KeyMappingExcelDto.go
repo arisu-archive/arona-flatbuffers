@@ -10,15 +10,15 @@ import (
 // KeyMappingExcelDto represents a FlatBuffers table
 type KeyMappingExcelDto struct {
 	fbsutils.FlatBuffer
-	IconScaleX     float32 `json:"icon_scale_x"`
 	Id             string  `json:"id"`
-	IconPositionY  float32 `json:"icon_position_y"`
-	IsUsed         bool    `json:"is_used"`
 	TargetKeyCode  string  `json:"target_key_code"`
-	IconPositionX  float32 `json:"icon_position_x"`
-	IsLongPress    bool    `json:"is_long_press"`
 	IsDisplay      bool    `json:"is_display"`
+	IsUsed         bool    `json:"is_used"`
+	IsLongPress    bool    `json:"is_long_press"`
 	IgnorePosCheck bool    `json:"ignore_pos_check"`
+	IconPositionX  float32 `json:"icon_position_x"`
+	IconPositionY  float32 `json:"icon_position_y"`
+	IconScaleX     float32 `json:"icon_scale_x"`
 	IconScaleY     float32 `json:"icon_scale_y"`
 }
 
@@ -28,15 +28,15 @@ func (t *KeyMappingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KeyMapping"))
 	}
 	KeyMappingExcelStart(b)
-	KeyMappingExcelAddIconScaleX(b, fbsutils.Convert(t.IconScaleX, t.FlatBuffer.TableKey))
 	KeyMappingExcelAddId(b, b.CreateString(fbsutils.Convert(t.Id, t.FlatBuffer.TableKey)))
-	KeyMappingExcelAddIconPositionY(b, fbsutils.Convert(t.IconPositionY, t.FlatBuffer.TableKey))
-	KeyMappingExcelAddIsUsed(b, t.IsUsed)
 	KeyMappingExcelAddTargetKeyCode(b, b.CreateString(fbsutils.Convert(t.TargetKeyCode, t.FlatBuffer.TableKey)))
-	KeyMappingExcelAddIconPositionX(b, fbsutils.Convert(t.IconPositionX, t.FlatBuffer.TableKey))
-	KeyMappingExcelAddIsLongPress(b, t.IsLongPress)
 	KeyMappingExcelAddIsDisplay(b, t.IsDisplay)
+	KeyMappingExcelAddIsUsed(b, t.IsUsed)
+	KeyMappingExcelAddIsLongPress(b, t.IsLongPress)
 	KeyMappingExcelAddIgnorePosCheck(b, t.IgnorePosCheck)
+	KeyMappingExcelAddIconPositionX(b, fbsutils.Convert(t.IconPositionX, t.FlatBuffer.TableKey))
+	KeyMappingExcelAddIconPositionY(b, fbsutils.Convert(t.IconPositionY, t.FlatBuffer.TableKey))
+	KeyMappingExcelAddIconScaleX(b, fbsutils.Convert(t.IconScaleX, t.FlatBuffer.TableKey))
 	KeyMappingExcelAddIconScaleY(b, fbsutils.Convert(t.IconScaleY, t.FlatBuffer.TableKey))
 	return KeyMappingExcelEnd(b)
 }
@@ -53,15 +53,15 @@ func (t *KeyMappingExcelDto) UnmarshalMessage(e *KeyMappingExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KeyMapping"))
 	}
-	t.IconScaleX = fbsutils.Convert(e.IconScaleX(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(string(e.Id()), t.FlatBuffer.TableKey)
-	t.IconPositionY = fbsutils.Convert(e.IconPositionY(), t.FlatBuffer.TableKey)
-	t.IsUsed = e.IsUsed()
 	t.TargetKeyCode = fbsutils.Convert(string(e.TargetKeyCode()), t.FlatBuffer.TableKey)
-	t.IconPositionX = fbsutils.Convert(e.IconPositionX(), t.FlatBuffer.TableKey)
-	t.IsLongPress = e.IsLongPress()
 	t.IsDisplay = e.IsDisplay()
+	t.IsUsed = e.IsUsed()
+	t.IsLongPress = e.IsLongPress()
 	t.IgnorePosCheck = e.IgnorePosCheck()
+	t.IconPositionX = fbsutils.Convert(e.IconPositionX(), t.FlatBuffer.TableKey)
+	t.IconPositionY = fbsutils.Convert(e.IconPositionY(), t.FlatBuffer.TableKey)
+	t.IconScaleX = fbsutils.Convert(e.IconScaleX(), t.FlatBuffer.TableKey)
 	t.IconScaleY = fbsutils.Convert(e.IconScaleY(), t.FlatBuffer.TableKey)
 	return nil
 }

@@ -10,9 +10,9 @@ import (
 // EventContentExcelDto represents a FlatBuffers table
 type EventContentExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId int64  `json:"event_content_id"`
 	Id             int64  `json:"id"`
 	DevName        string `json:"dev_name"`
+	EventContentId int64  `json:"event_content_id"`
 	BgImagePath    string `json:"bg_image_path"`
 }
 
@@ -22,9 +22,9 @@ func (t *EventContentExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContent"))
 	}
 	EventContentExcelStart(b)
-	EventContentExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentExcelAddDevName(b, b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey)))
+	EventContentExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentExcelAddBgImagePath(b, b.CreateString(fbsutils.Convert(t.BgImagePath, t.FlatBuffer.TableKey)))
 	return EventContentExcelEnd(b)
 }
@@ -41,9 +41,9 @@ func (t *EventContentExcelDto) UnmarshalMessage(e *EventContentExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContent"))
 	}
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.BgImagePath = fbsutils.Convert(string(e.BgImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }

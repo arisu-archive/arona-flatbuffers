@@ -10,8 +10,8 @@ import (
 // BattleLevelFactorExcelDto represents a FlatBuffers table
 type BattleLevelFactorExcelDto struct {
 	fbsutils.FlatBuffer
-	DamageRate int64 `json:"damage_rate"`
 	LevelDiff  int32 `json:"level_diff"`
+	DamageRate int64 `json:"damage_rate"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -20,8 +20,8 @@ func (t *BattleLevelFactorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BattleLevelFactor"))
 	}
 	BattleLevelFactorExcelStart(b)
-	BattleLevelFactorExcelAddDamageRate(b, fbsutils.Convert(t.DamageRate, t.FlatBuffer.TableKey))
 	BattleLevelFactorExcelAddLevelDiff(b, fbsutils.Convert(t.LevelDiff, t.FlatBuffer.TableKey))
+	BattleLevelFactorExcelAddDamageRate(b, fbsutils.Convert(t.DamageRate, t.FlatBuffer.TableKey))
 	return BattleLevelFactorExcelEnd(b)
 }
 
@@ -37,8 +37,8 @@ func (t *BattleLevelFactorExcelDto) UnmarshalMessage(e *BattleLevelFactorExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BattleLevelFactor"))
 	}
-	t.DamageRate = fbsutils.Convert(e.DamageRate(), t.FlatBuffer.TableKey)
 	t.LevelDiff = fbsutils.Convert(e.LevelDiff(), t.FlatBuffer.TableKey)
+	t.DamageRate = fbsutils.Convert(e.DamageRate(), t.FlatBuffer.TableKey)
 	return nil
 }
 

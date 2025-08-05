@@ -33,7 +33,7 @@ func (rcv *ClanAssistSlotExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ClanAssistSlotExcel) AssistRentRewardDailyMaxCount() int64 {
+func (rcv *ClanAssistSlotExcel) SlotId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,23 +41,23 @@ func (rcv *ClanAssistSlotExcel) AssistRentRewardDailyMaxCount() int64 {
 	return 0
 }
 
-func (rcv *ClanAssistSlotExcel) MutateAssistRentRewardDailyMaxCount(n int64) bool {
+func (rcv *ClanAssistSlotExcel) MutateSlotId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *ClanAssistSlotExcel) AssistRentalFeeAmountStranger() int64 {
+func (rcv *ClanAssistSlotExcel) EchelonType() EchelonType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return EchelonType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *ClanAssistSlotExcel) MutateAssistRentalFeeAmountStranger(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+func (rcv *ClanAssistSlotExcel) MutateEchelonType(n EchelonType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
-func (rcv *ClanAssistSlotExcel) AssistTermRewardPeriodFromSec() int64 {
+func (rcv *ClanAssistSlotExcel) SlotNumber() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *ClanAssistSlotExcel) AssistTermRewardPeriodFromSec() int64 {
 	return 0
 }
 
-func (rcv *ClanAssistSlotExcel) MutateAssistTermRewardPeriodFromSec(n int64) bool {
+func (rcv *ClanAssistSlotExcel) MutateSlotNumber(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *ClanAssistSlotExcel) SlotId() int64 {
+func (rcv *ClanAssistSlotExcel) AssistTermRewardPeriodFromSec() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,7 +77,7 @@ func (rcv *ClanAssistSlotExcel) SlotId() int64 {
 	return 0
 }
 
-func (rcv *ClanAssistSlotExcel) MutateSlotId(n int64) bool {
+func (rcv *ClanAssistSlotExcel) MutateAssistTermRewardPeriodFromSec(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
@@ -93,7 +93,7 @@ func (rcv *ClanAssistSlotExcel) MutateAssistRewardLimit(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *ClanAssistSlotExcel) AssistRentalFeeAmount() int64 {
+func (rcv *ClanAssistSlotExcel) AssistRentRewardDailyMaxCount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,23 +101,23 @@ func (rcv *ClanAssistSlotExcel) AssistRentalFeeAmount() int64 {
 	return 0
 }
 
-func (rcv *ClanAssistSlotExcel) MutateAssistRentalFeeAmount(n int64) bool {
+func (rcv *ClanAssistSlotExcel) MutateAssistRentRewardDailyMaxCount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
-func (rcv *ClanAssistSlotExcel) EchelonType() EchelonType {
+func (rcv *ClanAssistSlotExcel) AssistRentalFeeAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return EchelonType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ClanAssistSlotExcel) MutateEchelonType(n EchelonType) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
+func (rcv *ClanAssistSlotExcel) MutateAssistRentalFeeAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
-func (rcv *ClanAssistSlotExcel) SlotNumber() int64 {
+func (rcv *ClanAssistSlotExcel) AssistRentalFeeAmountStranger() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -125,36 +125,36 @@ func (rcv *ClanAssistSlotExcel) SlotNumber() int64 {
 	return 0
 }
 
-func (rcv *ClanAssistSlotExcel) MutateSlotNumber(n int64) bool {
+func (rcv *ClanAssistSlotExcel) MutateAssistRentalFeeAmountStranger(n int64) bool {
 	return rcv._tab.MutateInt64Slot(18, n)
 }
 
 func ClanAssistSlotExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(8)
 }
-func ClanAssistSlotExcelAddAssistRentRewardDailyMaxCount(builder *flatbuffers.Builder, assistRentRewardDailyMaxCount int64) {
-	builder.PrependInt64Slot(0, assistRentRewardDailyMaxCount, 0)
+func ClanAssistSlotExcelAddSlotId(builder *flatbuffers.Builder, slotId int64) {
+	builder.PrependInt64Slot(0, slotId, 0)
 }
-func ClanAssistSlotExcelAddAssistRentalFeeAmountStranger(builder *flatbuffers.Builder, assistRentalFeeAmountStranger int64) {
-	builder.PrependInt64Slot(1, assistRentalFeeAmountStranger, 0)
+func ClanAssistSlotExcelAddEchelonType(builder *flatbuffers.Builder, echelonType EchelonType) {
+	builder.PrependInt32Slot(1, int32(echelonType), 0)
+}
+func ClanAssistSlotExcelAddSlotNumber(builder *flatbuffers.Builder, slotNumber int64) {
+	builder.PrependInt64Slot(2, slotNumber, 0)
 }
 func ClanAssistSlotExcelAddAssistTermRewardPeriodFromSec(builder *flatbuffers.Builder, assistTermRewardPeriodFromSec int64) {
-	builder.PrependInt64Slot(2, assistTermRewardPeriodFromSec, 0)
-}
-func ClanAssistSlotExcelAddSlotId(builder *flatbuffers.Builder, slotId int64) {
-	builder.PrependInt64Slot(3, slotId, 0)
+	builder.PrependInt64Slot(3, assistTermRewardPeriodFromSec, 0)
 }
 func ClanAssistSlotExcelAddAssistRewardLimit(builder *flatbuffers.Builder, assistRewardLimit int64) {
 	builder.PrependInt64Slot(4, assistRewardLimit, 0)
 }
+func ClanAssistSlotExcelAddAssistRentRewardDailyMaxCount(builder *flatbuffers.Builder, assistRentRewardDailyMaxCount int64) {
+	builder.PrependInt64Slot(5, assistRentRewardDailyMaxCount, 0)
+}
 func ClanAssistSlotExcelAddAssistRentalFeeAmount(builder *flatbuffers.Builder, assistRentalFeeAmount int64) {
-	builder.PrependInt64Slot(5, assistRentalFeeAmount, 0)
+	builder.PrependInt64Slot(6, assistRentalFeeAmount, 0)
 }
-func ClanAssistSlotExcelAddEchelonType(builder *flatbuffers.Builder, echelonType EchelonType) {
-	builder.PrependInt32Slot(6, int32(echelonType), 0)
-}
-func ClanAssistSlotExcelAddSlotNumber(builder *flatbuffers.Builder, slotNumber int64) {
-	builder.PrependInt64Slot(7, slotNumber, 0)
+func ClanAssistSlotExcelAddAssistRentalFeeAmountStranger(builder *flatbuffers.Builder, assistRentalFeeAmountStranger int64) {
+	builder.PrependInt64Slot(7, assistRentalFeeAmountStranger, 0)
 }
 func ClanAssistSlotExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

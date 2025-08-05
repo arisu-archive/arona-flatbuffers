@@ -10,19 +10,25 @@ import (
 // AttendanceRewardExcelDto represents a FlatBuffers table
 type AttendanceRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	RewardIcon       string       `json:"reward_icon"`
 	AttendanceId     int64        `json:"attendance_id"`
+	Day              int64        `json:"day"`
+	RewardIcon       string       `json:"reward_icon"`
+	RewardParcelType []ParcelType `json:"reward_parcel_type"`
 	RewardId         []int64      `json:"reward_id"`
 	RewardAmount     []int64      `json:"reward_amount"`
-	RewardParcelType []ParcelType `json:"reward_parcel_type"`
-	Day              int64        `json:"day"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AttendanceRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	AttendanceRewardExcelStart(b)
-	AttendanceRewardExcelAddRewardIcon(b, b.CreateString(fbsutils.Convert(t.RewardIcon, t.FlatBuffer.TableKey)))
 	AttendanceRewardExcelAddAttendanceId(b, fbsutils.Convert(t.AttendanceId, t.FlatBuffer.TableKey))
+	AttendanceRewardExcelAddDay(b, fbsutils.Convert(t.Day, t.FlatBuffer.TableKey))
+	AttendanceRewardExcelAddRewardIcon(b, b.CreateString(fbsutils.Convert(t.RewardIcon, t.FlatBuffer.TableKey)))
+	AttendanceRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
+	for i := range len(t.RewardParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	AttendanceRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	AttendanceRewardExcelStartRewardIdVector(b, len(t.RewardId))
 	for i := range len(t.RewardId) {
 		b.PrependInt64(fbsutils.Convert(t.RewardId[len(t.RewardId)-i-1], t.FlatBuffer.TableKey))
@@ -33,12 +39,6 @@ func (t *AttendanceRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		b.PrependInt64(fbsutils.Convert(t.RewardAmount[len(t.RewardAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	AttendanceRewardExcelAddRewardAmount(b, b.EndVector(len(t.RewardAmount)))
-	AttendanceRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
-	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	AttendanceRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
-	AttendanceRewardExcelAddDay(b, fbsutils.Convert(t.Day, t.FlatBuffer.TableKey))
 	return AttendanceRewardExcelEnd(b)
 }
 
@@ -51,8 +51,13 @@ func (t *AttendanceRewardExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AttendanceRewardExcelDto) UnmarshalMessage(e *AttendanceRewardExcel) error {
-	t.RewardIcon = fbsutils.Convert(string(e.RewardIcon()), t.FlatBuffer.TableKey)
 	t.AttendanceId = fbsutils.Convert(e.AttendanceId(), t.FlatBuffer.TableKey)
+	t.Day = fbsutils.Convert(e.Day(), t.FlatBuffer.TableKey)
+	t.RewardIcon = fbsutils.Convert(string(e.RewardIcon()), t.FlatBuffer.TableKey)
+	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
+	for i := range e.RewardParcelTypeLength() {
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
+	}
 	t.RewardId = make([]int64, e.RewardIdLength())
 	for i := range e.RewardIdLength() {
 		t.RewardId[i] = fbsutils.Convert(e.RewardId(i), t.FlatBuffer.TableKey)
@@ -61,11 +66,6 @@ func (t *AttendanceRewardExcelDto) UnmarshalMessage(e *AttendanceRewardExcel) er
 	for i := range e.RewardAmountLength() {
 		t.RewardAmount[i] = fbsutils.Convert(e.RewardAmount(i), t.FlatBuffer.TableKey)
 	}
-	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
-	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
-	}
-	t.Day = fbsutils.Convert(e.Day(), t.FlatBuffer.TableKey)
 	return nil
 }
 

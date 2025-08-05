@@ -10,17 +10,17 @@ import (
 // ConquestGroupBonusExcelDto represents a FlatBuffers table
 type ConquestGroupBonusExcelDto struct {
 	fbsutils.FlatBuffer
-	BonusPercentage2       []int64      `json:"bonus_percentage2"`
-	BonusId                []int64      `json:"bonus_id"`
-	BonusCharacterCount3   []int32      `json:"bonus_character_count3"`
-	BonusParcelType        []ParcelType `json:"bonus_parcel_type"`
-	BonusPercentage1       []int64      `json:"bonus_percentage1"`
-	BonusCharacterCount2   []int32      `json:"bonus_character_count2"`
-	BonusCharacterCount1   []int32      `json:"bonus_character_count1"`
-	RecommandLocalizeEtcId uint32       `json:"recommand_localize_etc_id"`
-	BonusPercentage3       []int64      `json:"bonus_percentage3"`
 	ConquestBonusId        int64        `json:"conquest_bonus_id"`
 	School                 []School     `json:"school"`
+	RecommandLocalizeEtcId uint32       `json:"recommand_localize_etc_id"`
+	BonusParcelType        []ParcelType `json:"bonus_parcel_type"`
+	BonusId                []int64      `json:"bonus_id"`
+	BonusCharacterCount1   []int32      `json:"bonus_character_count1"`
+	BonusPercentage1       []int64      `json:"bonus_percentage1"`
+	BonusCharacterCount2   []int32      `json:"bonus_character_count2"`
+	BonusPercentage2       []int64      `json:"bonus_percentage2"`
+	BonusCharacterCount3   []int32      `json:"bonus_character_count3"`
+	BonusPercentage3       []int64      `json:"bonus_percentage3"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -29,26 +29,28 @@ func (t *ConquestGroupBonusExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestGroupBonus"))
 	}
 	ConquestGroupBonusExcelStart(b)
-	ConquestGroupBonusExcelStartBonusPercentage2Vector(b, len(t.BonusPercentage2))
-	for i := range len(t.BonusPercentage2) {
-		b.PrependInt64(fbsutils.Convert(t.BonusPercentage2[len(t.BonusPercentage2)-i-1], t.FlatBuffer.TableKey))
+	ConquestGroupBonusExcelAddConquestBonusId(b, fbsutils.Convert(t.ConquestBonusId, t.FlatBuffer.TableKey))
+	ConquestGroupBonusExcelStartSchoolVector(b, len(t.School))
+	for i := range len(t.School) {
+		b.PrependInt32(fbsutils.Convert(int32(t.School[len(t.School)-i-1]), t.FlatBuffer.TableKey))
 	}
-	ConquestGroupBonusExcelAddBonusPercentage2(b, b.EndVector(len(t.BonusPercentage2)))
-	ConquestGroupBonusExcelStartBonusIdVector(b, len(t.BonusId))
-	for i := range len(t.BonusId) {
-		b.PrependInt64(fbsutils.Convert(t.BonusId[len(t.BonusId)-i-1], t.FlatBuffer.TableKey))
-	}
-	ConquestGroupBonusExcelAddBonusId(b, b.EndVector(len(t.BonusId)))
-	ConquestGroupBonusExcelStartBonusCharacterCount3Vector(b, len(t.BonusCharacterCount3))
-	for i := range len(t.BonusCharacterCount3) {
-		b.PrependInt32(fbsutils.Convert(t.BonusCharacterCount3[len(t.BonusCharacterCount3)-i-1], t.FlatBuffer.TableKey))
-	}
-	ConquestGroupBonusExcelAddBonusCharacterCount3(b, b.EndVector(len(t.BonusCharacterCount3)))
+	ConquestGroupBonusExcelAddSchool(b, b.EndVector(len(t.School)))
+	ConquestGroupBonusExcelAddRecommandLocalizeEtcId(b, fbsutils.Convert(t.RecommandLocalizeEtcId, t.FlatBuffer.TableKey))
 	ConquestGroupBonusExcelStartBonusParcelTypeVector(b, len(t.BonusParcelType))
 	for i := range len(t.BonusParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.BonusParcelType[len(t.BonusParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ConquestGroupBonusExcelAddBonusParcelType(b, b.EndVector(len(t.BonusParcelType)))
+	ConquestGroupBonusExcelStartBonusIdVector(b, len(t.BonusId))
+	for i := range len(t.BonusId) {
+		b.PrependInt64(fbsutils.Convert(t.BonusId[len(t.BonusId)-i-1], t.FlatBuffer.TableKey))
+	}
+	ConquestGroupBonusExcelAddBonusId(b, b.EndVector(len(t.BonusId)))
+	ConquestGroupBonusExcelStartBonusCharacterCount1Vector(b, len(t.BonusCharacterCount1))
+	for i := range len(t.BonusCharacterCount1) {
+		b.PrependInt32(fbsutils.Convert(t.BonusCharacterCount1[len(t.BonusCharacterCount1)-i-1], t.FlatBuffer.TableKey))
+	}
+	ConquestGroupBonusExcelAddBonusCharacterCount1(b, b.EndVector(len(t.BonusCharacterCount1)))
 	ConquestGroupBonusExcelStartBonusPercentage1Vector(b, len(t.BonusPercentage1))
 	for i := range len(t.BonusPercentage1) {
 		b.PrependInt64(fbsutils.Convert(t.BonusPercentage1[len(t.BonusPercentage1)-i-1], t.FlatBuffer.TableKey))
@@ -59,23 +61,21 @@ func (t *ConquestGroupBonusExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		b.PrependInt32(fbsutils.Convert(t.BonusCharacterCount2[len(t.BonusCharacterCount2)-i-1], t.FlatBuffer.TableKey))
 	}
 	ConquestGroupBonusExcelAddBonusCharacterCount2(b, b.EndVector(len(t.BonusCharacterCount2)))
-	ConquestGroupBonusExcelStartBonusCharacterCount1Vector(b, len(t.BonusCharacterCount1))
-	for i := range len(t.BonusCharacterCount1) {
-		b.PrependInt32(fbsutils.Convert(t.BonusCharacterCount1[len(t.BonusCharacterCount1)-i-1], t.FlatBuffer.TableKey))
+	ConquestGroupBonusExcelStartBonusPercentage2Vector(b, len(t.BonusPercentage2))
+	for i := range len(t.BonusPercentage2) {
+		b.PrependInt64(fbsutils.Convert(t.BonusPercentage2[len(t.BonusPercentage2)-i-1], t.FlatBuffer.TableKey))
 	}
-	ConquestGroupBonusExcelAddBonusCharacterCount1(b, b.EndVector(len(t.BonusCharacterCount1)))
-	ConquestGroupBonusExcelAddRecommandLocalizeEtcId(b, fbsutils.Convert(t.RecommandLocalizeEtcId, t.FlatBuffer.TableKey))
+	ConquestGroupBonusExcelAddBonusPercentage2(b, b.EndVector(len(t.BonusPercentage2)))
+	ConquestGroupBonusExcelStartBonusCharacterCount3Vector(b, len(t.BonusCharacterCount3))
+	for i := range len(t.BonusCharacterCount3) {
+		b.PrependInt32(fbsutils.Convert(t.BonusCharacterCount3[len(t.BonusCharacterCount3)-i-1], t.FlatBuffer.TableKey))
+	}
+	ConquestGroupBonusExcelAddBonusCharacterCount3(b, b.EndVector(len(t.BonusCharacterCount3)))
 	ConquestGroupBonusExcelStartBonusPercentage3Vector(b, len(t.BonusPercentage3))
 	for i := range len(t.BonusPercentage3) {
 		b.PrependInt64(fbsutils.Convert(t.BonusPercentage3[len(t.BonusPercentage3)-i-1], t.FlatBuffer.TableKey))
 	}
 	ConquestGroupBonusExcelAddBonusPercentage3(b, b.EndVector(len(t.BonusPercentage3)))
-	ConquestGroupBonusExcelAddConquestBonusId(b, fbsutils.Convert(t.ConquestBonusId, t.FlatBuffer.TableKey))
-	ConquestGroupBonusExcelStartSchoolVector(b, len(t.School))
-	for i := range len(t.School) {
-		b.PrependInt32(fbsutils.Convert(int32(t.School[len(t.School)-i-1]), t.FlatBuffer.TableKey))
-	}
-	ConquestGroupBonusExcelAddSchool(b, b.EndVector(len(t.School)))
 	return ConquestGroupBonusExcelEnd(b)
 }
 
@@ -91,21 +91,23 @@ func (t *ConquestGroupBonusExcelDto) UnmarshalMessage(e *ConquestGroupBonusExcel
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestGroupBonus"))
 	}
-	t.BonusPercentage2 = make([]int64, e.BonusPercentage2Length())
-	for i := range e.BonusPercentage2Length() {
-		t.BonusPercentage2[i] = fbsutils.Convert(e.BonusPercentage2(i), t.FlatBuffer.TableKey)
+	t.ConquestBonusId = fbsutils.Convert(e.ConquestBonusId(), t.FlatBuffer.TableKey)
+	t.School = make([]School, e.SchoolLength())
+	for i := range e.SchoolLength() {
+		t.School[i] = School(fbsutils.Convert(int32(e.School(i)), t.FlatBuffer.TableKey))
+	}
+	t.RecommandLocalizeEtcId = fbsutils.Convert(e.RecommandLocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.BonusParcelType = make([]ParcelType, e.BonusParcelTypeLength())
+	for i := range e.BonusParcelTypeLength() {
+		t.BonusParcelType[i] = ParcelType(fbsutils.Convert(int32(e.BonusParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	t.BonusId = make([]int64, e.BonusIdLength())
 	for i := range e.BonusIdLength() {
 		t.BonusId[i] = fbsutils.Convert(e.BonusId(i), t.FlatBuffer.TableKey)
 	}
-	t.BonusCharacterCount3 = make([]int32, e.BonusCharacterCount3Length())
-	for i := range e.BonusCharacterCount3Length() {
-		t.BonusCharacterCount3[i] = fbsutils.Convert(e.BonusCharacterCount3(i), t.FlatBuffer.TableKey)
-	}
-	t.BonusParcelType = make([]ParcelType, e.BonusParcelTypeLength())
-	for i := range e.BonusParcelTypeLength() {
-		t.BonusParcelType[i] = ParcelType(fbsutils.Convert(int32(e.BonusParcelType(i)), t.FlatBuffer.TableKey))
+	t.BonusCharacterCount1 = make([]int32, e.BonusCharacterCount1Length())
+	for i := range e.BonusCharacterCount1Length() {
+		t.BonusCharacterCount1[i] = fbsutils.Convert(e.BonusCharacterCount1(i), t.FlatBuffer.TableKey)
 	}
 	t.BonusPercentage1 = make([]int64, e.BonusPercentage1Length())
 	for i := range e.BonusPercentage1Length() {
@@ -115,19 +117,17 @@ func (t *ConquestGroupBonusExcelDto) UnmarshalMessage(e *ConquestGroupBonusExcel
 	for i := range e.BonusCharacterCount2Length() {
 		t.BonusCharacterCount2[i] = fbsutils.Convert(e.BonusCharacterCount2(i), t.FlatBuffer.TableKey)
 	}
-	t.BonusCharacterCount1 = make([]int32, e.BonusCharacterCount1Length())
-	for i := range e.BonusCharacterCount1Length() {
-		t.BonusCharacterCount1[i] = fbsutils.Convert(e.BonusCharacterCount1(i), t.FlatBuffer.TableKey)
+	t.BonusPercentage2 = make([]int64, e.BonusPercentage2Length())
+	for i := range e.BonusPercentage2Length() {
+		t.BonusPercentage2[i] = fbsutils.Convert(e.BonusPercentage2(i), t.FlatBuffer.TableKey)
 	}
-	t.RecommandLocalizeEtcId = fbsutils.Convert(e.RecommandLocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.BonusCharacterCount3 = make([]int32, e.BonusCharacterCount3Length())
+	for i := range e.BonusCharacterCount3Length() {
+		t.BonusCharacterCount3[i] = fbsutils.Convert(e.BonusCharacterCount3(i), t.FlatBuffer.TableKey)
+	}
 	t.BonusPercentage3 = make([]int64, e.BonusPercentage3Length())
 	for i := range e.BonusPercentage3Length() {
 		t.BonusPercentage3[i] = fbsutils.Convert(e.BonusPercentage3(i), t.FlatBuffer.TableKey)
-	}
-	t.ConquestBonusId = fbsutils.Convert(e.ConquestBonusId(), t.FlatBuffer.TableKey)
-	t.School = make([]School, e.SchoolLength())
-	for i := range e.SchoolLength() {
-		t.School[i] = School(fbsutils.Convert(int32(e.School(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

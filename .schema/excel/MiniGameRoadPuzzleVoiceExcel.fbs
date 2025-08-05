@@ -3,10 +3,10 @@ include "RoadPuzzleVoiceCondition.fbs";
 namespace MX.Data.Excel;
 
 table MiniGameRoadPuzzleVoiceExcel {
-    voice_clip: uint;
+    event_content_id: long;
     unique_id: long;
     voice_condition: RoadPuzzleVoiceCondition;
-    event_content_id: long;
+    voice_clip: uint;
 }
 
 root_type MiniGameRoadPuzzleVoiceExcel;

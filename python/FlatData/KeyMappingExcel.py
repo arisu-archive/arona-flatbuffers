@@ -25,25 +25,25 @@ class KeyMappingExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # KeyMappingExcel
-    def IconScaleX(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # KeyMappingExcel
-    def Id(self):
+    def TargetKeyCode(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # KeyMappingExcel
-    def IconPositionY(self):
+    def IsDisplay(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # KeyMappingExcel
     def IsUsed(self):
@@ -53,39 +53,39 @@ class KeyMappingExcel(object):
         return False
 
     # KeyMappingExcel
-    def TargetKeyCode(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # KeyMappingExcel
-    def IconPositionX(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # KeyMappingExcel
     def IsLongPress(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # KeyMappingExcel
-    def IsDisplay(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # KeyMappingExcel
     def IgnorePosCheck(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
+
+    # KeyMappingExcel
+    def IconPositionX(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # KeyMappingExcel
+    def IconPositionY(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # KeyMappingExcel
+    def IconScaleX(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
 
     # KeyMappingExcel
     def IconScaleY(self):
@@ -97,33 +97,33 @@ class KeyMappingExcel(object):
 def KeyMappingExcelStart(builder): builder.StartObject(10)
 def Start(builder):
     return KeyMappingExcelStart(builder)
-def KeyMappingExcelAddIconScaleX(builder, iconScaleX): builder.PrependFloat32Slot(0, iconScaleX, 0.0)
-def AddIconScaleX(builder, iconScaleX):
-    return KeyMappingExcelAddIconScaleX(builder, iconScaleX)
-def KeyMappingExcelAddId(builder, id): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(id), 0)
+def KeyMappingExcelAddId(builder, id): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(id), 0)
 def AddId(builder, id):
     return KeyMappingExcelAddId(builder, id)
-def KeyMappingExcelAddIconPositionY(builder, iconPositionY): builder.PrependFloat32Slot(2, iconPositionY, 0.0)
-def AddIconPositionY(builder, iconPositionY):
-    return KeyMappingExcelAddIconPositionY(builder, iconPositionY)
+def KeyMappingExcelAddTargetKeyCode(builder, targetKeyCode): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(targetKeyCode), 0)
+def AddTargetKeyCode(builder, targetKeyCode):
+    return KeyMappingExcelAddTargetKeyCode(builder, targetKeyCode)
+def KeyMappingExcelAddIsDisplay(builder, isDisplay): builder.PrependBoolSlot(2, isDisplay, 0)
+def AddIsDisplay(builder, isDisplay):
+    return KeyMappingExcelAddIsDisplay(builder, isDisplay)
 def KeyMappingExcelAddIsUsed(builder, isUsed): builder.PrependBoolSlot(3, isUsed, 0)
 def AddIsUsed(builder, isUsed):
     return KeyMappingExcelAddIsUsed(builder, isUsed)
-def KeyMappingExcelAddTargetKeyCode(builder, targetKeyCode): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(targetKeyCode), 0)
-def AddTargetKeyCode(builder, targetKeyCode):
-    return KeyMappingExcelAddTargetKeyCode(builder, targetKeyCode)
-def KeyMappingExcelAddIconPositionX(builder, iconPositionX): builder.PrependFloat32Slot(5, iconPositionX, 0.0)
-def AddIconPositionX(builder, iconPositionX):
-    return KeyMappingExcelAddIconPositionX(builder, iconPositionX)
-def KeyMappingExcelAddIsLongPress(builder, isLongPress): builder.PrependBoolSlot(6, isLongPress, 0)
+def KeyMappingExcelAddIsLongPress(builder, isLongPress): builder.PrependBoolSlot(4, isLongPress, 0)
 def AddIsLongPress(builder, isLongPress):
     return KeyMappingExcelAddIsLongPress(builder, isLongPress)
-def KeyMappingExcelAddIsDisplay(builder, isDisplay): builder.PrependBoolSlot(7, isDisplay, 0)
-def AddIsDisplay(builder, isDisplay):
-    return KeyMappingExcelAddIsDisplay(builder, isDisplay)
-def KeyMappingExcelAddIgnorePosCheck(builder, ignorePosCheck): builder.PrependBoolSlot(8, ignorePosCheck, 0)
+def KeyMappingExcelAddIgnorePosCheck(builder, ignorePosCheck): builder.PrependBoolSlot(5, ignorePosCheck, 0)
 def AddIgnorePosCheck(builder, ignorePosCheck):
     return KeyMappingExcelAddIgnorePosCheck(builder, ignorePosCheck)
+def KeyMappingExcelAddIconPositionX(builder, iconPositionX): builder.PrependFloat32Slot(6, iconPositionX, 0.0)
+def AddIconPositionX(builder, iconPositionX):
+    return KeyMappingExcelAddIconPositionX(builder, iconPositionX)
+def KeyMappingExcelAddIconPositionY(builder, iconPositionY): builder.PrependFloat32Slot(7, iconPositionY, 0.0)
+def AddIconPositionY(builder, iconPositionY):
+    return KeyMappingExcelAddIconPositionY(builder, iconPositionY)
+def KeyMappingExcelAddIconScaleX(builder, iconScaleX): builder.PrependFloat32Slot(8, iconScaleX, 0.0)
+def AddIconScaleX(builder, iconScaleX):
+    return KeyMappingExcelAddIconScaleX(builder, iconScaleX)
 def KeyMappingExcelAddIconScaleY(builder, iconScaleY): builder.PrependFloat32Slot(9, iconScaleY, 0.0)
 def AddIconScaleY(builder, iconScaleY):
     return KeyMappingExcelAddIconScaleY(builder, iconScaleY)

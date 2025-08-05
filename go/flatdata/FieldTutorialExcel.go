@@ -33,8 +33,20 @@ func (rcv *FieldTutorialExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FieldTutorialExcel) TutorialType(j int) FieldTutorialType {
+func (rcv *FieldTutorialExcel) SeasonId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldTutorialExcel) MutateSeasonId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *FieldTutorialExcel) TutorialType(j int) FieldTutorialType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return FieldTutorialType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -43,7 +55,7 @@ func (rcv *FieldTutorialExcel) TutorialType(j int) FieldTutorialType {
 }
 
 func (rcv *FieldTutorialExcel) TutorialTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -51,24 +63,12 @@ func (rcv *FieldTutorialExcel) TutorialTypeLength() int {
 }
 
 func (rcv *FieldTutorialExcel) MutateTutorialType(j int, n FieldTutorialType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
-}
-
-func (rcv *FieldTutorialExcel) SeasonId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldTutorialExcel) MutateSeasonId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *FieldTutorialExcel) ConditionType(j int) FieldConditionType {
@@ -126,14 +126,14 @@ func (rcv *FieldTutorialExcel) MutateConditionId(j int, n int64) bool {
 func FieldTutorialExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
+func FieldTutorialExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
+	builder.PrependInt64Slot(0, seasonId, 0)
+}
 func FieldTutorialExcelAddTutorialType(builder *flatbuffers.Builder, tutorialType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(tutorialType), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(tutorialType), 0)
 }
 func FieldTutorialExcelStartTutorialTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
-}
-func FieldTutorialExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
-	builder.PrependInt64Slot(1, seasonId, 0)
 }
 func FieldTutorialExcelAddConditionType(builder *flatbuffers.Builder, conditionType flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(conditionType), 0)

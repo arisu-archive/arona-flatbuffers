@@ -4,13 +4,13 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table ArenaRewardExcel {
-    reward_parcel_unique_name: [string];
-    rank_icon_path: string;
     unique_id: long;
-    reward_parcel_type: [ParcelType];
-    reward_parcel_amount: [long];
+    arena_reward_type: ArenaRewardType;
     rank_start: long;
     rank_end: long;
+    rank_icon_path: string;
+    reward_parcel_type: [ParcelType];
     reward_parcel_unique_id: [long];
-    arena_reward_type: ArenaRewardType;
+    reward_parcel_unique_name: [string];
+    reward_parcel_amount: [long];
 }

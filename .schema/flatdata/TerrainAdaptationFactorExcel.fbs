@@ -4,11 +4,11 @@ include "TerrainAdaptationStat.fbs";
 namespace FlatData;
 
 table TerrainAdaptationFactorExcel {
-    accuracy_factor: long;
     terrain_adaptation: StageTopography;
-    block_factor: long;
     terrain_adaptation_stat: TerrainAdaptationStat;
-    attack_power_factor: long;
     shot_factor: long;
+    block_factor: long;
+    accuracy_factor: long;
     dodge_factor: long;
+    attack_power_factor: long;
 }

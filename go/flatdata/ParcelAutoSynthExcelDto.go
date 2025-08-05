@@ -10,15 +10,15 @@ import (
 // ParcelAutoSynthExcelDto represents a FlatBuffers table
 type ParcelAutoSynthExcelDto struct {
 	fbsutils.FlatBuffer
-	ResultParcelAmount  int64      `json:"result_parcel_amount"`
-	ResultParcelId      int64      `json:"result_parcel_id"`
-	ResultParcelType    ParcelType `json:"result_parcel_type"`
-	SynthEndAmount      int64      `json:"synth_end_amount"`
-	RequireParcelAmount int64      `json:"require_parcel_amount"`
-	SynthMaxItem        bool       `json:"synth_max_item"`
-	SynthStartAmount    int64      `json:"synth_start_amount"`
 	RequireParcelType   ParcelType `json:"require_parcel_type"`
 	RequireParcelId     int64      `json:"require_parcel_id"`
+	RequireParcelAmount int64      `json:"require_parcel_amount"`
+	SynthStartAmount    int64      `json:"synth_start_amount"`
+	SynthEndAmount      int64      `json:"synth_end_amount"`
+	SynthMaxItem        bool       `json:"synth_max_item"`
+	ResultParcelType    ParcelType `json:"result_parcel_type"`
+	ResultParcelId      int64      `json:"result_parcel_id"`
+	ResultParcelAmount  int64      `json:"result_parcel_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,15 +27,15 @@ func (t *ParcelAutoSynthExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ParcelAutoSynth"))
 	}
 	ParcelAutoSynthExcelStart(b)
-	ParcelAutoSynthExcelAddResultParcelAmount(b, fbsutils.Convert(t.ResultParcelAmount, t.FlatBuffer.TableKey))
-	ParcelAutoSynthExcelAddResultParcelId(b, fbsutils.Convert(t.ResultParcelId, t.FlatBuffer.TableKey))
-	ParcelAutoSynthExcelAddResultParcelType(b, fbsutils.Convert(t.ResultParcelType, t.FlatBuffer.TableKey))
-	ParcelAutoSynthExcelAddSynthEndAmount(b, fbsutils.Convert(t.SynthEndAmount, t.FlatBuffer.TableKey))
-	ParcelAutoSynthExcelAddRequireParcelAmount(b, fbsutils.Convert(t.RequireParcelAmount, t.FlatBuffer.TableKey))
-	ParcelAutoSynthExcelAddSynthMaxItem(b, t.SynthMaxItem)
-	ParcelAutoSynthExcelAddSynthStartAmount(b, fbsutils.Convert(t.SynthStartAmount, t.FlatBuffer.TableKey))
 	ParcelAutoSynthExcelAddRequireParcelType(b, fbsutils.Convert(t.RequireParcelType, t.FlatBuffer.TableKey))
 	ParcelAutoSynthExcelAddRequireParcelId(b, fbsutils.Convert(t.RequireParcelId, t.FlatBuffer.TableKey))
+	ParcelAutoSynthExcelAddRequireParcelAmount(b, fbsutils.Convert(t.RequireParcelAmount, t.FlatBuffer.TableKey))
+	ParcelAutoSynthExcelAddSynthStartAmount(b, fbsutils.Convert(t.SynthStartAmount, t.FlatBuffer.TableKey))
+	ParcelAutoSynthExcelAddSynthEndAmount(b, fbsutils.Convert(t.SynthEndAmount, t.FlatBuffer.TableKey))
+	ParcelAutoSynthExcelAddSynthMaxItem(b, t.SynthMaxItem)
+	ParcelAutoSynthExcelAddResultParcelType(b, fbsutils.Convert(t.ResultParcelType, t.FlatBuffer.TableKey))
+	ParcelAutoSynthExcelAddResultParcelId(b, fbsutils.Convert(t.ResultParcelId, t.FlatBuffer.TableKey))
+	ParcelAutoSynthExcelAddResultParcelAmount(b, fbsutils.Convert(t.ResultParcelAmount, t.FlatBuffer.TableKey))
 	return ParcelAutoSynthExcelEnd(b)
 }
 
@@ -51,15 +51,15 @@ func (t *ParcelAutoSynthExcelDto) UnmarshalMessage(e *ParcelAutoSynthExcel) erro
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ParcelAutoSynth"))
 	}
-	t.ResultParcelAmount = fbsutils.Convert(e.ResultParcelAmount(), t.FlatBuffer.TableKey)
-	t.ResultParcelId = fbsutils.Convert(e.ResultParcelId(), t.FlatBuffer.TableKey)
-	t.ResultParcelType = ParcelType(fbsutils.Convert(int32(e.ResultParcelType()), t.FlatBuffer.TableKey))
-	t.SynthEndAmount = fbsutils.Convert(e.SynthEndAmount(), t.FlatBuffer.TableKey)
-	t.RequireParcelAmount = fbsutils.Convert(e.RequireParcelAmount(), t.FlatBuffer.TableKey)
-	t.SynthMaxItem = e.SynthMaxItem()
-	t.SynthStartAmount = fbsutils.Convert(e.SynthStartAmount(), t.FlatBuffer.TableKey)
 	t.RequireParcelType = ParcelType(fbsutils.Convert(int32(e.RequireParcelType()), t.FlatBuffer.TableKey))
 	t.RequireParcelId = fbsutils.Convert(e.RequireParcelId(), t.FlatBuffer.TableKey)
+	t.RequireParcelAmount = fbsutils.Convert(e.RequireParcelAmount(), t.FlatBuffer.TableKey)
+	t.SynthStartAmount = fbsutils.Convert(e.SynthStartAmount(), t.FlatBuffer.TableKey)
+	t.SynthEndAmount = fbsutils.Convert(e.SynthEndAmount(), t.FlatBuffer.TableKey)
+	t.SynthMaxItem = e.SynthMaxItem()
+	t.ResultParcelType = ParcelType(fbsutils.Convert(int32(e.ResultParcelType()), t.FlatBuffer.TableKey))
+	t.ResultParcelId = fbsutils.Convert(e.ResultParcelId(), t.FlatBuffer.TableKey)
+	t.ResultParcelAmount = fbsutils.Convert(e.ResultParcelAmount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

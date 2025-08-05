@@ -33,60 +33,8 @@ func (rcv *CharacterAcademyTagsExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterAcademyTagsExcel) ForbiddenTags(j int) Tag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *CharacterAcademyTagsExcel) ForbiddenTagsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CharacterAcademyTagsExcel) MutateForbiddenTags(j int, n Tag) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *CharacterAcademyTagsExcel) FavorItemTags(j int) Tag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *CharacterAcademyTagsExcel) FavorItemTagsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CharacterAcademyTagsExcel) MutateFavorItemTags(j int, n Tag) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
 func (rcv *CharacterAcademyTagsExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -94,63 +42,11 @@ func (rcv *CharacterAcademyTagsExcel) Id() int64 {
 }
 
 func (rcv *CharacterAcademyTagsExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *CharacterAcademyTagsExcel) ZoneWhiteListTags(j int) Tag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *CharacterAcademyTagsExcel) ZoneWhiteListTagsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CharacterAcademyTagsExcel) MutateZoneWhiteListTags(j int, n Tag) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *CharacterAcademyTagsExcel) FavorItemUniqueTags(j int) Tag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *CharacterAcademyTagsExcel) FavorItemUniqueTagsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CharacterAcademyTagsExcel) MutateFavorItemUniqueTags(j int, n Tag) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *CharacterAcademyTagsExcel) FavorTags(j int) Tag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -159,7 +55,7 @@ func (rcv *CharacterAcademyTagsExcel) FavorTags(j int) Tag {
 }
 
 func (rcv *CharacterAcademyTagsExcel) FavorTagsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -167,6 +63,110 @@ func (rcv *CharacterAcademyTagsExcel) FavorTagsLength() int {
 }
 
 func (rcv *CharacterAcademyTagsExcel) MutateFavorTags(j int, n Tag) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *CharacterAcademyTagsExcel) FavorItemTags(j int) Tag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *CharacterAcademyTagsExcel) FavorItemTagsLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CharacterAcademyTagsExcel) MutateFavorItemTags(j int, n Tag) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *CharacterAcademyTagsExcel) FavorItemUniqueTags(j int) Tag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *CharacterAcademyTagsExcel) FavorItemUniqueTagsLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CharacterAcademyTagsExcel) MutateFavorItemUniqueTags(j int, n Tag) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *CharacterAcademyTagsExcel) ForbiddenTags(j int) Tag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *CharacterAcademyTagsExcel) ForbiddenTagsLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CharacterAcademyTagsExcel) MutateForbiddenTags(j int, n Tag) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *CharacterAcademyTagsExcel) ZoneWhiteListTags(j int) Tag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *CharacterAcademyTagsExcel) ZoneWhiteListTagsLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CharacterAcademyTagsExcel) MutateZoneWhiteListTags(j int, n Tag) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
@@ -178,37 +178,37 @@ func (rcv *CharacterAcademyTagsExcel) MutateFavorTags(j int, n Tag) bool {
 func CharacterAcademyTagsExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func CharacterAcademyTagsExcelAddForbiddenTags(builder *flatbuffers.Builder, forbiddenTags flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(forbiddenTags), 0)
+func CharacterAcademyTagsExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(0, id, 0)
 }
-func CharacterAcademyTagsExcelStartForbiddenTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func CharacterAcademyTagsExcelAddFavorTags(builder *flatbuffers.Builder, favorTags flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(favorTags), 0)
+}
+func CharacterAcademyTagsExcelStartFavorTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CharacterAcademyTagsExcelAddFavorItemTags(builder *flatbuffers.Builder, favorItemTags flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(favorItemTags), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(favorItemTags), 0)
 }
 func CharacterAcademyTagsExcelStartFavorItemTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func CharacterAcademyTagsExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(2, id, 0)
-}
-func CharacterAcademyTagsExcelAddZoneWhiteListTags(builder *flatbuffers.Builder, zoneWhiteListTags flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(zoneWhiteListTags), 0)
-}
-func CharacterAcademyTagsExcelStartZoneWhiteListTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
 func CharacterAcademyTagsExcelAddFavorItemUniqueTags(builder *flatbuffers.Builder, favorItemUniqueTags flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(favorItemUniqueTags), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(favorItemUniqueTags), 0)
 }
 func CharacterAcademyTagsExcelStartFavorItemUniqueTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func CharacterAcademyTagsExcelAddFavorTags(builder *flatbuffers.Builder, favorTags flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(favorTags), 0)
+func CharacterAcademyTagsExcelAddForbiddenTags(builder *flatbuffers.Builder, forbiddenTags flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(forbiddenTags), 0)
 }
-func CharacterAcademyTagsExcelStartFavorTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func CharacterAcademyTagsExcelStartForbiddenTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func CharacterAcademyTagsExcelAddZoneWhiteListTags(builder *flatbuffers.Builder, zoneWhiteListTags flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(zoneWhiteListTags), 0)
+}
+func CharacterAcademyTagsExcelStartZoneWhiteListTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func CharacterAcademyTagsExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {

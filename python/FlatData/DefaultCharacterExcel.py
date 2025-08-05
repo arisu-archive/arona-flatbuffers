@@ -25,84 +25,84 @@ class DefaultCharacterExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # DefaultCharacterExcel
-    def Exp(self):
+    def CharacterId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # DefaultCharacterExcel
-    def StarGrade(self):
+    def FavoriteCharacter(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # DefaultCharacterExcel
-    def FavorExp(self):
+    def Level(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # DefaultCharacterExcel
-    def FavoriteCharacter(self):
+    def Exp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # DefaultCharacterExcel
-    def PassiveSkillLevel(self):
+    def FavorExp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # DefaultCharacterExcel
-    def LeaderSkillLevel(self):
+    def FavorRank(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # DefaultCharacterExcel
-    def Level(self):
+    def StarGrade(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # DefaultCharacterExcel
-    def FavorRank(self):
+    def ExSkillLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # DefaultCharacterExcel
-    def CommonSkillLevel(self):
+    def PassiveSkillLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # DefaultCharacterExcel
-    def CharacterId(self):
+    def ExtraPassiveSkillLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # DefaultCharacterExcel
-    def ExtraPassiveSkillLevel(self):
+    def CommonSkillLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # DefaultCharacterExcel
-    def ExSkillLevel(self):
+    def LeaderSkillLevel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -111,42 +111,42 @@ class DefaultCharacterExcel(object):
 def DefaultCharacterExcelStart(builder): builder.StartObject(12)
 def Start(builder):
     return DefaultCharacterExcelStart(builder)
-def DefaultCharacterExcelAddExp(builder, exp): builder.PrependInt32Slot(0, exp, 0)
-def AddExp(builder, exp):
-    return DefaultCharacterExcelAddExp(builder, exp)
-def DefaultCharacterExcelAddStarGrade(builder, starGrade): builder.PrependInt32Slot(1, starGrade, 0)
-def AddStarGrade(builder, starGrade):
-    return DefaultCharacterExcelAddStarGrade(builder, starGrade)
-def DefaultCharacterExcelAddFavorExp(builder, favorExp): builder.PrependInt32Slot(2, favorExp, 0)
-def AddFavorExp(builder, favorExp):
-    return DefaultCharacterExcelAddFavorExp(builder, favorExp)
-def DefaultCharacterExcelAddFavoriteCharacter(builder, favoriteCharacter): builder.PrependBoolSlot(3, favoriteCharacter, 0)
-def AddFavoriteCharacter(builder, favoriteCharacter):
-    return DefaultCharacterExcelAddFavoriteCharacter(builder, favoriteCharacter)
-def DefaultCharacterExcelAddPassiveSkillLevel(builder, passiveSkillLevel): builder.PrependInt32Slot(4, passiveSkillLevel, 0)
-def AddPassiveSkillLevel(builder, passiveSkillLevel):
-    return DefaultCharacterExcelAddPassiveSkillLevel(builder, passiveSkillLevel)
-def DefaultCharacterExcelAddLeaderSkillLevel(builder, leaderSkillLevel): builder.PrependInt32Slot(5, leaderSkillLevel, 0)
-def AddLeaderSkillLevel(builder, leaderSkillLevel):
-    return DefaultCharacterExcelAddLeaderSkillLevel(builder, leaderSkillLevel)
-def DefaultCharacterExcelAddLevel(builder, level): builder.PrependInt32Slot(6, level, 0)
-def AddLevel(builder, level):
-    return DefaultCharacterExcelAddLevel(builder, level)
-def DefaultCharacterExcelAddFavorRank(builder, favorRank): builder.PrependInt32Slot(7, favorRank, 0)
-def AddFavorRank(builder, favorRank):
-    return DefaultCharacterExcelAddFavorRank(builder, favorRank)
-def DefaultCharacterExcelAddCommonSkillLevel(builder, commonSkillLevel): builder.PrependInt32Slot(8, commonSkillLevel, 0)
-def AddCommonSkillLevel(builder, commonSkillLevel):
-    return DefaultCharacterExcelAddCommonSkillLevel(builder, commonSkillLevel)
-def DefaultCharacterExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(9, characterId, 0)
+def DefaultCharacterExcelAddCharacterId(builder, characterId): builder.PrependInt64Slot(0, characterId, 0)
 def AddCharacterId(builder, characterId):
     return DefaultCharacterExcelAddCharacterId(builder, characterId)
-def DefaultCharacterExcelAddExtraPassiveSkillLevel(builder, extraPassiveSkillLevel): builder.PrependInt32Slot(10, extraPassiveSkillLevel, 0)
-def AddExtraPassiveSkillLevel(builder, extraPassiveSkillLevel):
-    return DefaultCharacterExcelAddExtraPassiveSkillLevel(builder, extraPassiveSkillLevel)
-def DefaultCharacterExcelAddExSkillLevel(builder, exSkillLevel): builder.PrependInt32Slot(11, exSkillLevel, 0)
+def DefaultCharacterExcelAddFavoriteCharacter(builder, favoriteCharacter): builder.PrependBoolSlot(1, favoriteCharacter, 0)
+def AddFavoriteCharacter(builder, favoriteCharacter):
+    return DefaultCharacterExcelAddFavoriteCharacter(builder, favoriteCharacter)
+def DefaultCharacterExcelAddLevel(builder, level): builder.PrependInt32Slot(2, level, 0)
+def AddLevel(builder, level):
+    return DefaultCharacterExcelAddLevel(builder, level)
+def DefaultCharacterExcelAddExp(builder, exp): builder.PrependInt32Slot(3, exp, 0)
+def AddExp(builder, exp):
+    return DefaultCharacterExcelAddExp(builder, exp)
+def DefaultCharacterExcelAddFavorExp(builder, favorExp): builder.PrependInt32Slot(4, favorExp, 0)
+def AddFavorExp(builder, favorExp):
+    return DefaultCharacterExcelAddFavorExp(builder, favorExp)
+def DefaultCharacterExcelAddFavorRank(builder, favorRank): builder.PrependInt32Slot(5, favorRank, 0)
+def AddFavorRank(builder, favorRank):
+    return DefaultCharacterExcelAddFavorRank(builder, favorRank)
+def DefaultCharacterExcelAddStarGrade(builder, starGrade): builder.PrependInt32Slot(6, starGrade, 0)
+def AddStarGrade(builder, starGrade):
+    return DefaultCharacterExcelAddStarGrade(builder, starGrade)
+def DefaultCharacterExcelAddExSkillLevel(builder, exSkillLevel): builder.PrependInt32Slot(7, exSkillLevel, 0)
 def AddExSkillLevel(builder, exSkillLevel):
     return DefaultCharacterExcelAddExSkillLevel(builder, exSkillLevel)
+def DefaultCharacterExcelAddPassiveSkillLevel(builder, passiveSkillLevel): builder.PrependInt32Slot(8, passiveSkillLevel, 0)
+def AddPassiveSkillLevel(builder, passiveSkillLevel):
+    return DefaultCharacterExcelAddPassiveSkillLevel(builder, passiveSkillLevel)
+def DefaultCharacterExcelAddExtraPassiveSkillLevel(builder, extraPassiveSkillLevel): builder.PrependInt32Slot(9, extraPassiveSkillLevel, 0)
+def AddExtraPassiveSkillLevel(builder, extraPassiveSkillLevel):
+    return DefaultCharacterExcelAddExtraPassiveSkillLevel(builder, extraPassiveSkillLevel)
+def DefaultCharacterExcelAddCommonSkillLevel(builder, commonSkillLevel): builder.PrependInt32Slot(10, commonSkillLevel, 0)
+def AddCommonSkillLevel(builder, commonSkillLevel):
+    return DefaultCharacterExcelAddCommonSkillLevel(builder, commonSkillLevel)
+def DefaultCharacterExcelAddLeaderSkillLevel(builder, leaderSkillLevel): builder.PrependInt32Slot(11, leaderSkillLevel, 0)
+def AddLeaderSkillLevel(builder, leaderSkillLevel):
+    return DefaultCharacterExcelAddLeaderSkillLevel(builder, leaderSkillLevel)
 def DefaultCharacterExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return DefaultCharacterExcelEnd(builder)
