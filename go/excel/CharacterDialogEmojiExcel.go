@@ -33,31 +33,23 @@ func (rcv *CharacterDialogEmojiExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterDialogEmojiExcel) GroupId() int64 {
+func (rcv *CharacterDialogEmojiExcel) LocalizeJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *CharacterDialogEmojiExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *CharacterDialogEmojiExcel) TargetIndex() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterDialogEmojiExcel) MutateTargetIndex(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
+	return nil
 }
 
 func (rcv *CharacterDialogEmojiExcel) DialogType() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterDialogEmojiExcel) LocalizeEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -65,16 +57,12 @@ func (rcv *CharacterDialogEmojiExcel) DialogType() []byte {
 	return nil
 }
 
-func (rcv *CharacterDialogEmojiExcel) Duration() int64 {
+func (rcv *CharacterDialogEmojiExcel) LocalizeKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *CharacterDialogEmojiExcel) MutateDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+	return nil
 }
 
 func (rcv *CharacterDialogEmojiExcel) DurationKr() int64 {
@@ -89,8 +77,32 @@ func (rcv *CharacterDialogEmojiExcel) MutateDurationKr(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *CharacterDialogEmojiExcel) HideUi() bool {
+func (rcv *CharacterDialogEmojiExcel) TargetIndex() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterDialogEmojiExcel) MutateTargetIndex(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *CharacterDialogEmojiExcel) GroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterDialogEmojiExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *CharacterDialogEmojiExcel) HideUi() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -98,23 +110,7 @@ func (rcv *CharacterDialogEmojiExcel) HideUi() bool {
 }
 
 func (rcv *CharacterDialogEmojiExcel) MutateHideUi(n bool) bool {
-	return rcv._tab.MutateBoolSlot(14, n)
-}
-
-func (rcv *CharacterDialogEmojiExcel) LocalizeKr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterDialogEmojiExcel) LocalizeJp() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+	return rcv._tab.MutateBoolSlot(18, n)
 }
 
 func (rcv *CharacterDialogEmojiExcel) LocalizeTh() []byte {
@@ -125,15 +121,19 @@ func (rcv *CharacterDialogEmojiExcel) LocalizeTh() []byte {
 	return nil
 }
 
-func (rcv *CharacterDialogEmojiExcel) LocalizeTw() []byte {
+func (rcv *CharacterDialogEmojiExcel) Duration() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *CharacterDialogEmojiExcel) LocalizeEn() []byte {
+func (rcv *CharacterDialogEmojiExcel) MutateDuration(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
+}
+
+func (rcv *CharacterDialogEmojiExcel) LocalizeTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -144,38 +144,38 @@ func (rcv *CharacterDialogEmojiExcel) LocalizeEn() []byte {
 func CharacterDialogEmojiExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(11)
 }
-func CharacterDialogEmojiExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
-}
-func CharacterDialogEmojiExcelAddTargetIndex(builder *flatbuffers.Builder, targetIndex int32) {
-	builder.PrependInt32Slot(1, targetIndex, 0)
+func CharacterDialogEmojiExcelAddLocalizeJp(builder *flatbuffers.Builder, localizeJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(localizeJp), 0)
 }
 func CharacterDialogEmojiExcelAddDialogType(builder *flatbuffers.Builder, dialogType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(dialogType), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(dialogType), 0)
 }
-func CharacterDialogEmojiExcelAddDuration(builder *flatbuffers.Builder, duration int64) {
-	builder.PrependInt64Slot(3, duration, 0)
+func CharacterDialogEmojiExcelAddLocalizeEn(builder *flatbuffers.Builder, localizeEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(localizeEn), 0)
+}
+func CharacterDialogEmojiExcelAddLocalizeKr(builder *flatbuffers.Builder, localizeKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(localizeKr), 0)
 }
 func CharacterDialogEmojiExcelAddDurationKr(builder *flatbuffers.Builder, durationKr int64) {
 	builder.PrependInt64Slot(4, durationKr, 0)
 }
+func CharacterDialogEmojiExcelAddTargetIndex(builder *flatbuffers.Builder, targetIndex int32) {
+	builder.PrependInt32Slot(5, targetIndex, 0)
+}
+func CharacterDialogEmojiExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(6, groupId, 0)
+}
 func CharacterDialogEmojiExcelAddHideUi(builder *flatbuffers.Builder, hideUi bool) {
-	builder.PrependBoolSlot(5, hideUi, false)
-}
-func CharacterDialogEmojiExcelAddLocalizeKr(builder *flatbuffers.Builder, localizeKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(localizeKr), 0)
-}
-func CharacterDialogEmojiExcelAddLocalizeJp(builder *flatbuffers.Builder, localizeJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(localizeJp), 0)
+	builder.PrependBoolSlot(7, hideUi, false)
 }
 func CharacterDialogEmojiExcelAddLocalizeTh(builder *flatbuffers.Builder, localizeTh flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(localizeTh), 0)
 }
-func CharacterDialogEmojiExcelAddLocalizeTw(builder *flatbuffers.Builder, localizeTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(localizeTw), 0)
+func CharacterDialogEmojiExcelAddDuration(builder *flatbuffers.Builder, duration int64) {
+	builder.PrependInt64Slot(9, duration, 0)
 }
-func CharacterDialogEmojiExcelAddLocalizeEn(builder *flatbuffers.Builder, localizeEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(localizeEn), 0)
+func CharacterDialogEmojiExcelAddLocalizeTw(builder *flatbuffers.Builder, localizeTw flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(localizeTw), 0)
 }
 func CharacterDialogEmojiExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -10,25 +10,25 @@ import (
 // EliminateRaidRankingRewardExcelDto represents a FlatBuffers table
 type EliminateRaidRankingRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	RankingRewardGroupId   int64        `json:"ranking_reward_group_id"`
-	Id                     int64        `json:"id"`
-	RankStart              int64        `json:"rank_start"`
-	RankEnd                int64        `json:"rank_end"`
 	RankStartTw            int64        `json:"rank_start_tw"`
 	RankEndTw              int64        `json:"rank_end_tw"`
-	RankStartAsia          int64        `json:"rank_start_asia"`
-	RankEndAsia            int64        `json:"rank_end_asia"`
-	RankStartNa            int64        `json:"rank_start_na"`
-	RankEndNa              int64        `json:"rank_end_na"`
 	RankStartGlobal        int64        `json:"rank_start_global"`
+	RankEnd                int64        `json:"rank_end"`
 	RankEndGlobal          int64        `json:"rank_end_global"`
-	PercentRankStart       int64        `json:"percent_rank_start"`
 	PercentRankEnd         int64        `json:"percent_rank_end"`
-	Tier                   int32        `json:"tier"`
+	Id                     int64        `json:"id"`
+	RankStartAsia          int64        `json:"rank_start_asia"`
+	RankingRewardGroupId   int64        `json:"ranking_reward_group_id"`
+	RankEndAsia            int64        `json:"rank_end_asia"`
 	RewardParcelType       []ParcelType `json:"reward_parcel_type"`
-	RewardParcelUniqueId   []int64      `json:"reward_parcel_unique_id"`
-	RewardParcelUniqueName []string     `json:"reward_parcel_unique_name"`
 	RewardParcelAmount     []int64      `json:"reward_parcel_amount"`
+	RewardParcelUniqueName []string     `json:"reward_parcel_unique_name"`
+	RankEndNa              int64        `json:"rank_end_na"`
+	PercentRankStart       int64        `json:"percent_rank_start"`
+	RewardParcelUniqueId   []int64      `json:"reward_parcel_unique_id"`
+	RankStartNa            int64        `json:"rank_start_na"`
+	RankStart              int64        `json:"rank_start"`
+	Tier                   int32        `json:"tier"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -37,41 +37,41 @@ func (t *EliminateRaidRankingRewardExcelDto) MarshalModel(b *flatbuffers.Builder
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidRankingReward"))
 	}
 	EliminateRaidRankingRewardExcelStart(b)
-	EliminateRaidRankingRewardExcelAddRankingRewardGroupId(b, fbsutils.Convert(t.RankingRewardGroupId, t.FlatBuffer.TableKey))
-	EliminateRaidRankingRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EliminateRaidRankingRewardExcelAddRankStart(b, fbsutils.Convert(t.RankStart, t.FlatBuffer.TableKey))
-	EliminateRaidRankingRewardExcelAddRankEnd(b, fbsutils.Convert(t.RankEnd, t.FlatBuffer.TableKey))
 	EliminateRaidRankingRewardExcelAddRankStartTw(b, fbsutils.Convert(t.RankStartTw, t.FlatBuffer.TableKey))
 	EliminateRaidRankingRewardExcelAddRankEndTw(b, fbsutils.Convert(t.RankEndTw, t.FlatBuffer.TableKey))
-	EliminateRaidRankingRewardExcelAddRankStartAsia(b, fbsutils.Convert(t.RankStartAsia, t.FlatBuffer.TableKey))
-	EliminateRaidRankingRewardExcelAddRankEndAsia(b, fbsutils.Convert(t.RankEndAsia, t.FlatBuffer.TableKey))
-	EliminateRaidRankingRewardExcelAddRankStartNa(b, fbsutils.Convert(t.RankStartNa, t.FlatBuffer.TableKey))
-	EliminateRaidRankingRewardExcelAddRankEndNa(b, fbsutils.Convert(t.RankEndNa, t.FlatBuffer.TableKey))
 	EliminateRaidRankingRewardExcelAddRankStartGlobal(b, fbsutils.Convert(t.RankStartGlobal, t.FlatBuffer.TableKey))
+	EliminateRaidRankingRewardExcelAddRankEnd(b, fbsutils.Convert(t.RankEnd, t.FlatBuffer.TableKey))
 	EliminateRaidRankingRewardExcelAddRankEndGlobal(b, fbsutils.Convert(t.RankEndGlobal, t.FlatBuffer.TableKey))
-	EliminateRaidRankingRewardExcelAddPercentRankStart(b, fbsutils.Convert(t.PercentRankStart, t.FlatBuffer.TableKey))
 	EliminateRaidRankingRewardExcelAddPercentRankEnd(b, fbsutils.Convert(t.PercentRankEnd, t.FlatBuffer.TableKey))
-	EliminateRaidRankingRewardExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
+	EliminateRaidRankingRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	EliminateRaidRankingRewardExcelAddRankStartAsia(b, fbsutils.Convert(t.RankStartAsia, t.FlatBuffer.TableKey))
+	EliminateRaidRankingRewardExcelAddRankingRewardGroupId(b, fbsutils.Convert(t.RankingRewardGroupId, t.FlatBuffer.TableKey))
+	EliminateRaidRankingRewardExcelAddRankEndAsia(b, fbsutils.Convert(t.RankEndAsia, t.FlatBuffer.TableKey))
 	EliminateRaidRankingRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EliminateRaidRankingRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
-	EliminateRaidRankingRewardExcelStartRewardParcelUniqueIdVector(b, len(t.RewardParcelUniqueId))
-	for i := range len(t.RewardParcelUniqueId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelUniqueId[len(t.RewardParcelUniqueId)-i-1], t.FlatBuffer.TableKey))
-	}
-	EliminateRaidRankingRewardExcelAddRewardParcelUniqueId(b, b.EndVector(len(t.RewardParcelUniqueId)))
-	EliminateRaidRankingRewardExcelStartRewardParcelUniqueNameVector(b, len(t.RewardParcelUniqueName))
-	for i := range len(t.RewardParcelUniqueName) {
-		b.PrependUOffsetT(b.CreateString(t.RewardParcelUniqueName[len(t.RewardParcelUniqueName)-i-1]))
-	}
-	EliminateRaidRankingRewardExcelAddRewardParcelUniqueName(b, b.EndVector(len(t.RewardParcelUniqueName)))
 	EliminateRaidRankingRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
 	for i := range len(t.RewardParcelAmount) {
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	EliminateRaidRankingRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
+	EliminateRaidRankingRewardExcelStartRewardParcelUniqueNameVector(b, len(t.RewardParcelUniqueName))
+	for i := range len(t.RewardParcelUniqueName) {
+		b.PrependUOffsetT(b.CreateString(t.RewardParcelUniqueName[len(t.RewardParcelUniqueName)-i-1]))
+	}
+	EliminateRaidRankingRewardExcelAddRewardParcelUniqueName(b, b.EndVector(len(t.RewardParcelUniqueName)))
+	EliminateRaidRankingRewardExcelAddRankEndNa(b, fbsutils.Convert(t.RankEndNa, t.FlatBuffer.TableKey))
+	EliminateRaidRankingRewardExcelAddPercentRankStart(b, fbsutils.Convert(t.PercentRankStart, t.FlatBuffer.TableKey))
+	EliminateRaidRankingRewardExcelStartRewardParcelUniqueIdVector(b, len(t.RewardParcelUniqueId))
+	for i := range len(t.RewardParcelUniqueId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelUniqueId[len(t.RewardParcelUniqueId)-i-1], t.FlatBuffer.TableKey))
+	}
+	EliminateRaidRankingRewardExcelAddRewardParcelUniqueId(b, b.EndVector(len(t.RewardParcelUniqueId)))
+	EliminateRaidRankingRewardExcelAddRankStartNa(b, fbsutils.Convert(t.RankStartNa, t.FlatBuffer.TableKey))
+	EliminateRaidRankingRewardExcelAddRankStart(b, fbsutils.Convert(t.RankStart, t.FlatBuffer.TableKey))
+	EliminateRaidRankingRewardExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
 	return EliminateRaidRankingRewardExcelEnd(b)
 }
 
@@ -87,37 +87,37 @@ func (t *EliminateRaidRankingRewardExcelDto) UnmarshalMessage(e *EliminateRaidRa
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EliminateRaidRankingReward"))
 	}
-	t.RankingRewardGroupId = fbsutils.Convert(e.RankingRewardGroupId(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.RankStart = fbsutils.Convert(e.RankStart(), t.FlatBuffer.TableKey)
-	t.RankEnd = fbsutils.Convert(e.RankEnd(), t.FlatBuffer.TableKey)
 	t.RankStartTw = fbsutils.Convert(e.RankStartTw(), t.FlatBuffer.TableKey)
 	t.RankEndTw = fbsutils.Convert(e.RankEndTw(), t.FlatBuffer.TableKey)
-	t.RankStartAsia = fbsutils.Convert(e.RankStartAsia(), t.FlatBuffer.TableKey)
-	t.RankEndAsia = fbsutils.Convert(e.RankEndAsia(), t.FlatBuffer.TableKey)
-	t.RankStartNa = fbsutils.Convert(e.RankStartNa(), t.FlatBuffer.TableKey)
-	t.RankEndNa = fbsutils.Convert(e.RankEndNa(), t.FlatBuffer.TableKey)
 	t.RankStartGlobal = fbsutils.Convert(e.RankStartGlobal(), t.FlatBuffer.TableKey)
+	t.RankEnd = fbsutils.Convert(e.RankEnd(), t.FlatBuffer.TableKey)
 	t.RankEndGlobal = fbsutils.Convert(e.RankEndGlobal(), t.FlatBuffer.TableKey)
-	t.PercentRankStart = fbsutils.Convert(e.PercentRankStart(), t.FlatBuffer.TableKey)
 	t.PercentRankEnd = fbsutils.Convert(e.PercentRankEnd(), t.FlatBuffer.TableKey)
-	t.Tier = fbsutils.Convert(e.Tier(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.RankStartAsia = fbsutils.Convert(e.RankStartAsia(), t.FlatBuffer.TableKey)
+	t.RankingRewardGroupId = fbsutils.Convert(e.RankingRewardGroupId(), t.FlatBuffer.TableKey)
+	t.RankEndAsia = fbsutils.Convert(e.RankEndAsia(), t.FlatBuffer.TableKey)
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
 		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
-	}
-	t.RewardParcelUniqueId = make([]int64, e.RewardParcelUniqueIdLength())
-	for i := range e.RewardParcelUniqueIdLength() {
-		t.RewardParcelUniqueId[i] = fbsutils.Convert(e.RewardParcelUniqueId(i), t.FlatBuffer.TableKey)
-	}
-	t.RewardParcelUniqueName = make([]string, e.RewardParcelUniqueNameLength())
-	for i := range e.RewardParcelUniqueNameLength() {
-		t.RewardParcelUniqueName[i] = fbsutils.Convert(string(e.RewardParcelUniqueName(i)), t.FlatBuffer.TableKey)
 	}
 	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
 	for i := range e.RewardParcelAmountLength() {
 		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
 	}
+	t.RewardParcelUniqueName = make([]string, e.RewardParcelUniqueNameLength())
+	for i := range e.RewardParcelUniqueNameLength() {
+		t.RewardParcelUniqueName[i] = fbsutils.Convert(string(e.RewardParcelUniqueName(i)), t.FlatBuffer.TableKey)
+	}
+	t.RankEndNa = fbsutils.Convert(e.RankEndNa(), t.FlatBuffer.TableKey)
+	t.PercentRankStart = fbsutils.Convert(e.PercentRankStart(), t.FlatBuffer.TableKey)
+	t.RewardParcelUniqueId = make([]int64, e.RewardParcelUniqueIdLength())
+	for i := range e.RewardParcelUniqueIdLength() {
+		t.RewardParcelUniqueId[i] = fbsutils.Convert(e.RewardParcelUniqueId(i), t.FlatBuffer.TableKey)
+	}
+	t.RankStartNa = fbsutils.Convert(e.RankStartNa(), t.FlatBuffer.TableKey)
+	t.RankStart = fbsutils.Convert(e.RankStart(), t.FlatBuffer.TableKey)
+	t.Tier = fbsutils.Convert(e.Tier(), t.FlatBuffer.TableKey)
 	return nil
 }
 

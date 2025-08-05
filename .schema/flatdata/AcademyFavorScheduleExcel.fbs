@@ -3,16 +3,16 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table AcademyFavorScheduleExcel {
-    id: long;
-    character_id: long;
-    schedule_group_id: long;
-    order_in_group: long;
     location: string;
-    localize_scenario_id: uint;
+    character_id: long;
+    id: long;
+    reward_parcel_type: [ParcelType];
+    schedule_group_id: long;
     favor_rank: long;
+    reward_amount: [long];
+    localize_scenario_id: uint;
     secret_stone_amount: long;
     scenario_sript_group_id: long;
-    reward_parcel_type: [ParcelType];
     reward_parcel_id: [long];
-    reward_amount: [long];
+    order_in_group: long;
 }

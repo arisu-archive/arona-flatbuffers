@@ -33,20 +33,8 @@ func (rcv *ServiceActionExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ServiceActionExcel) ServiceActionType() ServiceActionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return ServiceActionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ServiceActionExcel) MutateServiceActionType(n ServiceActionType) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
-}
-
 func (rcv *ServiceActionExcel) IsLegacy() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -54,11 +42,11 @@ func (rcv *ServiceActionExcel) IsLegacy() bool {
 }
 
 func (rcv *ServiceActionExcel) MutateIsLegacy(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
+	return rcv._tab.MutateBoolSlot(4, n)
 }
 
 func (rcv *ServiceActionExcel) GoodsId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -66,20 +54,32 @@ func (rcv *ServiceActionExcel) GoodsId() int64 {
 }
 
 func (rcv *ServiceActionExcel) MutateGoodsId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *ServiceActionExcel) ServiceActionType() ServiceActionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return ServiceActionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ServiceActionExcel) MutateServiceActionType(n ServiceActionType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
 func ServiceActionExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func ServiceActionExcelAddServiceActionType(builder *flatbuffers.Builder, serviceActionType ServiceActionType) {
-	builder.PrependInt32Slot(0, int32(serviceActionType), 0)
-}
 func ServiceActionExcelAddIsLegacy(builder *flatbuffers.Builder, isLegacy bool) {
-	builder.PrependBoolSlot(1, isLegacy, false)
+	builder.PrependBoolSlot(0, isLegacy, false)
 }
 func ServiceActionExcelAddGoodsId(builder *flatbuffers.Builder, goodsId int64) {
-	builder.PrependInt64Slot(2, goodsId, 0)
+	builder.PrependInt64Slot(1, goodsId, 0)
+}
+func ServiceActionExcelAddServiceActionType(builder *flatbuffers.Builder, serviceActionType ServiceActionType) {
+	builder.PrependInt32Slot(2, int32(serviceActionType), 0)
 }
 func ServiceActionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

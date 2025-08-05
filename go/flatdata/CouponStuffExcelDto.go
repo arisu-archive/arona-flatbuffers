@@ -10,10 +10,10 @@ import (
 // CouponStuffExcelDto represents a FlatBuffers table
 type CouponStuffExcelDto struct {
 	fbsutils.FlatBuffer
-	StuffId                    int64      `json:"stuff_id"`
-	ParcelType                 ParcelType `json:"parcel_type"`
 	ParcelId                   int64      `json:"parcel_id"`
 	LimitAmount                int32      `json:"limit_amount"`
+	StuffId                    int64      `json:"stuff_id"`
+	ParcelType                 ParcelType `json:"parcel_type"`
 	CouponStuffNameLocalizeKey string     `json:"coupon_stuff_name_localize_key"`
 }
 
@@ -23,10 +23,10 @@ func (t *CouponStuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CouponStuff"))
 	}
 	CouponStuffExcelStart(b)
-	CouponStuffExcelAddStuffId(b, fbsutils.Convert(t.StuffId, t.FlatBuffer.TableKey))
-	CouponStuffExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
 	CouponStuffExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
 	CouponStuffExcelAddLimitAmount(b, fbsutils.Convert(t.LimitAmount, t.FlatBuffer.TableKey))
+	CouponStuffExcelAddStuffId(b, fbsutils.Convert(t.StuffId, t.FlatBuffer.TableKey))
+	CouponStuffExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
 	CouponStuffExcelAddCouponStuffNameLocalizeKey(b, b.CreateString(fbsutils.Convert(t.CouponStuffNameLocalizeKey, t.FlatBuffer.TableKey)))
 	return CouponStuffExcelEnd(b)
 }
@@ -43,10 +43,10 @@ func (t *CouponStuffExcelDto) UnmarshalMessage(e *CouponStuffExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CouponStuff"))
 	}
-	t.StuffId = fbsutils.Convert(e.StuffId(), t.FlatBuffer.TableKey)
-	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
 	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
 	t.LimitAmount = fbsutils.Convert(e.LimitAmount(), t.FlatBuffer.TableKey)
+	t.StuffId = fbsutils.Convert(e.StuffId(), t.FlatBuffer.TableKey)
+	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
 	t.CouponStuffNameLocalizeKey = fbsutils.Convert(string(e.CouponStuffNameLocalizeKey()), t.FlatBuffer.TableKey)
 	return nil
 }

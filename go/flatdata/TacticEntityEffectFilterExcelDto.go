@@ -10,8 +10,8 @@ import (
 // TacticEntityEffectFilterExcelDto represents a FlatBuffers table
 type TacticEntityEffectFilterExcelDto struct {
 	fbsutils.FlatBuffer
-	TargetEffectName    string `json:"target_effect_name"`
 	ShowEffectToVehicle bool   `json:"show_effect_to_vehicle"`
+	TargetEffectName    string `json:"target_effect_name"`
 	ShowEffectToBoss    bool   `json:"show_effect_to_boss"`
 }
 
@@ -21,8 +21,8 @@ func (t *TacticEntityEffectFilterExcelDto) MarshalModel(b *flatbuffers.Builder) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticEntityEffectFilter"))
 	}
 	TacticEntityEffectFilterExcelStart(b)
-	TacticEntityEffectFilterExcelAddTargetEffectName(b, b.CreateString(fbsutils.Convert(t.TargetEffectName, t.FlatBuffer.TableKey)))
 	TacticEntityEffectFilterExcelAddShowEffectToVehicle(b, t.ShowEffectToVehicle)
+	TacticEntityEffectFilterExcelAddTargetEffectName(b, b.CreateString(fbsutils.Convert(t.TargetEffectName, t.FlatBuffer.TableKey)))
 	TacticEntityEffectFilterExcelAddShowEffectToBoss(b, t.ShowEffectToBoss)
 	return TacticEntityEffectFilterExcelEnd(b)
 }
@@ -39,8 +39,8 @@ func (t *TacticEntityEffectFilterExcelDto) UnmarshalMessage(e *TacticEntityEffec
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticEntityEffectFilter"))
 	}
-	t.TargetEffectName = fbsutils.Convert(string(e.TargetEffectName()), t.FlatBuffer.TableKey)
 	t.ShowEffectToVehicle = e.ShowEffectToVehicle()
+	t.TargetEffectName = fbsutils.Convert(string(e.TargetEffectName()), t.FlatBuffer.TableKey)
 	t.ShowEffectToBoss = e.ShowEffectToBoss()
 	return nil
 }

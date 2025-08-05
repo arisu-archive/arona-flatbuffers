@@ -10,12 +10,12 @@ import (
 // ConquestPlayGuideExcelDto represents a FlatBuffers table
 type ConquestPlayGuideExcelDto struct {
 	fbsutils.FlatBuffer
+	GuideImagePath string `json:"guide_image_path"`
 	Id             int64  `json:"id"`
+	GuideText      string `json:"guide_text"`
 	EventContentId int64  `json:"event_content_id"`
 	DisplayOrder   int32  `json:"display_order"`
 	GuideTitle     string `json:"guide_title"`
-	GuideImagePath string `json:"guide_image_path"`
-	GuideText      string `json:"guide_text"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,12 +24,12 @@ func (t *ConquestPlayGuideExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestPlayGuide"))
 	}
 	ConquestPlayGuideExcelStart(b)
+	ConquestPlayGuideExcelAddGuideImagePath(b, b.CreateString(fbsutils.Convert(t.GuideImagePath, t.FlatBuffer.TableKey)))
 	ConquestPlayGuideExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	ConquestPlayGuideExcelAddGuideText(b, b.CreateString(fbsutils.Convert(t.GuideText, t.FlatBuffer.TableKey)))
 	ConquestPlayGuideExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ConquestPlayGuideExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	ConquestPlayGuideExcelAddGuideTitle(b, b.CreateString(fbsutils.Convert(t.GuideTitle, t.FlatBuffer.TableKey)))
-	ConquestPlayGuideExcelAddGuideImagePath(b, b.CreateString(fbsutils.Convert(t.GuideImagePath, t.FlatBuffer.TableKey)))
-	ConquestPlayGuideExcelAddGuideText(b, b.CreateString(fbsutils.Convert(t.GuideText, t.FlatBuffer.TableKey)))
 	return ConquestPlayGuideExcelEnd(b)
 }
 
@@ -45,12 +45,12 @@ func (t *ConquestPlayGuideExcelDto) UnmarshalMessage(e *ConquestPlayGuideExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestPlayGuide"))
 	}
+	t.GuideImagePath = fbsutils.Convert(string(e.GuideImagePath()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.GuideText = fbsutils.Convert(string(e.GuideText()), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.GuideTitle = fbsutils.Convert(string(e.GuideTitle()), t.FlatBuffer.TableKey)
-	t.GuideImagePath = fbsutils.Convert(string(e.GuideImagePath()), t.FlatBuffer.TableKey)
-	t.GuideText = fbsutils.Convert(string(e.GuideText()), t.FlatBuffer.TableKey)
 	return nil
 }
 

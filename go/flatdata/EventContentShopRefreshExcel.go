@@ -33,80 +33,8 @@ func (rcv *EventContentShopRefreshExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentShopRefreshExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentShopRefreshExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *EventContentShopRefreshExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentShopRefreshExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *EventContentShopRefreshExcel) LocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentShopRefreshExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(8, n)
-}
-
-func (rcv *EventContentShopRefreshExcel) IsLegacy() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *EventContentShopRefreshExcel) MutateIsLegacy(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
-}
-
-func (rcv *EventContentShopRefreshExcel) GoodsId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentShopRefreshExcel) MutateGoodsId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
-func (rcv *EventContentShopRefreshExcel) DisplayOrder() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentShopRefreshExcel) MutateDisplayOrder(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
 func (rcv *EventContentShopRefreshExcel) CategoryType() ShopCategoryType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return ShopCategoryType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -114,11 +42,19 @@ func (rcv *EventContentShopRefreshExcel) CategoryType() ShopCategoryType {
 }
 
 func (rcv *EventContentShopRefreshExcel) MutateCategoryType(n ShopCategoryType) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
+	return rcv._tab.MutateInt32Slot(4, int32(n))
+}
+
+func (rcv *EventContentShopRefreshExcel) BuyReportEventName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *EventContentShopRefreshExcel) RefreshGroup() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -126,11 +62,59 @@ func (rcv *EventContentShopRefreshExcel) RefreshGroup() int32 {
 }
 
 func (rcv *EventContentShopRefreshExcel) MutateRefreshGroup(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *EventContentShopRefreshExcel) LocalizeEtcId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentShopRefreshExcel) MutateLocalizeEtcId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(10, n)
+}
+
+func (rcv *EventContentShopRefreshExcel) DisplayOrder() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentShopRefreshExcel) MutateDisplayOrder(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *EventContentShopRefreshExcel) IsLegacy() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *EventContentShopRefreshExcel) MutateIsLegacy(n bool) bool {
+	return rcv._tab.MutateBoolSlot(14, n)
+}
+
+func (rcv *EventContentShopRefreshExcel) GoodsId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentShopRefreshExcel) MutateGoodsId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func (rcv *EventContentShopRefreshExcel) Prob() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -138,49 +122,65 @@ func (rcv *EventContentShopRefreshExcel) Prob() int32 {
 }
 
 func (rcv *EventContentShopRefreshExcel) MutateProb(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
+	return rcv._tab.MutateInt32Slot(18, n)
 }
 
-func (rcv *EventContentShopRefreshExcel) BuyReportEventName() []byte {
+func (rcv *EventContentShopRefreshExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentShopRefreshExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *EventContentShopRefreshExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *EventContentShopRefreshExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
 }
 
 func EventContentShopRefreshExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(10)
 }
-func EventContentShopRefreshExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
-func EventContentShopRefreshExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(1, id, 0)
-}
-func EventContentShopRefreshExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(2, localizeEtcId, 0)
-}
-func EventContentShopRefreshExcelAddIsLegacy(builder *flatbuffers.Builder, isLegacy bool) {
-	builder.PrependBoolSlot(3, isLegacy, false)
-}
-func EventContentShopRefreshExcelAddGoodsId(builder *flatbuffers.Builder, goodsId int64) {
-	builder.PrependInt64Slot(4, goodsId, 0)
-}
-func EventContentShopRefreshExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
-	builder.PrependInt64Slot(5, displayOrder, 0)
-}
 func EventContentShopRefreshExcelAddCategoryType(builder *flatbuffers.Builder, categoryType ShopCategoryType) {
-	builder.PrependInt32Slot(6, int32(categoryType), 0)
-}
-func EventContentShopRefreshExcelAddRefreshGroup(builder *flatbuffers.Builder, refreshGroup int32) {
-	builder.PrependInt32Slot(7, refreshGroup, 0)
-}
-func EventContentShopRefreshExcelAddProb(builder *flatbuffers.Builder, prob int32) {
-	builder.PrependInt32Slot(8, prob, 0)
+	builder.PrependInt32Slot(0, int32(categoryType), 0)
 }
 func EventContentShopRefreshExcelAddBuyReportEventName(builder *flatbuffers.Builder, buyReportEventName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(buyReportEventName), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(buyReportEventName), 0)
+}
+func EventContentShopRefreshExcelAddRefreshGroup(builder *flatbuffers.Builder, refreshGroup int32) {
+	builder.PrependInt32Slot(2, refreshGroup, 0)
+}
+func EventContentShopRefreshExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
+	builder.PrependUint32Slot(3, localizeEtcId, 0)
+}
+func EventContentShopRefreshExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
+	builder.PrependInt64Slot(4, displayOrder, 0)
+}
+func EventContentShopRefreshExcelAddIsLegacy(builder *flatbuffers.Builder, isLegacy bool) {
+	builder.PrependBoolSlot(5, isLegacy, false)
+}
+func EventContentShopRefreshExcelAddGoodsId(builder *flatbuffers.Builder, goodsId int64) {
+	builder.PrependInt64Slot(6, goodsId, 0)
+}
+func EventContentShopRefreshExcelAddProb(builder *flatbuffers.Builder, prob int32) {
+	builder.PrependInt32Slot(7, prob, 0)
+}
+func EventContentShopRefreshExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(8, eventContentId, 0)
+}
+func EventContentShopRefreshExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(9, id, 0)
 }
 func EventContentShopRefreshExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

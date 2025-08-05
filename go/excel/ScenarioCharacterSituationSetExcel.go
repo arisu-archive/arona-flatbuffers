@@ -33,8 +33,16 @@ func (rcv *ScenarioCharacterSituationSetExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ScenarioCharacterSituationSetExcel) Name() uint32 {
+func (rcv *ScenarioCharacterSituationSetExcel) Action() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ScenarioCharacterSituationSetExcel) Name() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -42,18 +50,10 @@ func (rcv *ScenarioCharacterSituationSetExcel) Name() uint32 {
 }
 
 func (rcv *ScenarioCharacterSituationSetExcel) MutateName(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(4, n)
+	return rcv._tab.MutateUint32Slot(6, n)
 }
 
-func (rcv *ScenarioCharacterSituationSetExcel) Face() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ScenarioCharacterSituationSetExcel) Behavior() []byte {
+func (rcv *ScenarioCharacterSituationSetExcel) Shape() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -61,7 +61,7 @@ func (rcv *ScenarioCharacterSituationSetExcel) Behavior() []byte {
 	return nil
 }
 
-func (rcv *ScenarioCharacterSituationSetExcel) Action() []byte {
+func (rcv *ScenarioCharacterSituationSetExcel) Face() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -69,28 +69,8 @@ func (rcv *ScenarioCharacterSituationSetExcel) Action() []byte {
 	return nil
 }
 
-func (rcv *ScenarioCharacterSituationSetExcel) Shape() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ScenarioCharacterSituationSetExcel) Effect() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ScenarioCharacterSituationSetExcel) MutateEffect(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(14, n)
-}
-
 func (rcv *ScenarioCharacterSituationSetExcel) Emotion() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -98,32 +78,52 @@ func (rcv *ScenarioCharacterSituationSetExcel) Emotion() uint32 {
 }
 
 func (rcv *ScenarioCharacterSituationSetExcel) MutateEmotion(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(12, n)
+}
+
+func (rcv *ScenarioCharacterSituationSetExcel) Behavior() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ScenarioCharacterSituationSetExcel) Effect() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ScenarioCharacterSituationSetExcel) MutateEffect(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(16, n)
 }
 
 func ScenarioCharacterSituationSetExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func ScenarioCharacterSituationSetExcelAddName(builder *flatbuffers.Builder, name uint32) {
-	builder.PrependUint32Slot(0, name, 0)
-}
-func ScenarioCharacterSituationSetExcelAddFace(builder *flatbuffers.Builder, face flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(face), 0)
-}
-func ScenarioCharacterSituationSetExcelAddBehavior(builder *flatbuffers.Builder, behavior flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(behavior), 0)
-}
 func ScenarioCharacterSituationSetExcelAddAction(builder *flatbuffers.Builder, action flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(action), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(action), 0)
+}
+func ScenarioCharacterSituationSetExcelAddName(builder *flatbuffers.Builder, name uint32) {
+	builder.PrependUint32Slot(1, name, 0)
 }
 func ScenarioCharacterSituationSetExcelAddShape(builder *flatbuffers.Builder, shape flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(shape), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(shape), 0)
 }
-func ScenarioCharacterSituationSetExcelAddEffect(builder *flatbuffers.Builder, effect uint32) {
-	builder.PrependUint32Slot(5, effect, 0)
+func ScenarioCharacterSituationSetExcelAddFace(builder *flatbuffers.Builder, face flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(face), 0)
 }
 func ScenarioCharacterSituationSetExcelAddEmotion(builder *flatbuffers.Builder, emotion uint32) {
-	builder.PrependUint32Slot(6, emotion, 0)
+	builder.PrependUint32Slot(4, emotion, 0)
+}
+func ScenarioCharacterSituationSetExcelAddBehavior(builder *flatbuffers.Builder, behavior flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(behavior), 0)
+}
+func ScenarioCharacterSituationSetExcelAddEffect(builder *flatbuffers.Builder, effect uint32) {
+	builder.PrependUint32Slot(6, effect, 0)
 }
 func ScenarioCharacterSituationSetExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

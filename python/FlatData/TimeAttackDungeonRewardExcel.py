@@ -32,41 +32,41 @@ class TimeAttackDungeonRewardExcel(object):
         return 0
 
     # TimeAttackDungeonRewardExcel
-    def RewardMaxPoint(self):
+    def RewardParcelId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # TimeAttackDungeonRewardExcel
-    def RewardType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
             a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # TimeAttackDungeonRewardExcel
-    def RewardTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+    def RewardParcelIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # TimeAttackDungeonRewardExcel
-    def RewardTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+    def RewardParcelIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # TimeAttackDungeonRewardExcel
-    def RewardTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+    def RewardParcelIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         return o == 0
 
     # TimeAttackDungeonRewardExcel
-    def RewardMinPoint(self, j):
+    def RewardMaxPoint(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # TimeAttackDungeonRewardExcel
+    def RewardParcelDefaultAmount(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             a = self._tab.Vector(o)
@@ -74,21 +74,21 @@ class TimeAttackDungeonRewardExcel(object):
         return 0
 
     # TimeAttackDungeonRewardExcel
-    def RewardMinPointAsNumpy(self):
+    def RewardParcelDefaultAmountAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # TimeAttackDungeonRewardExcel
-    def RewardMinPointLength(self):
+    def RewardParcelDefaultAmountLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # TimeAttackDungeonRewardExcel
-    def RewardMinPointIsNone(self):
+    def RewardParcelDefaultAmountIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         return o == 0
 
@@ -120,62 +120,35 @@ class TimeAttackDungeonRewardExcel(object):
         return o == 0
 
     # TimeAttackDungeonRewardExcel
-    def RewardParcelId(self, j):
+    def RewardType(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
 
     # TimeAttackDungeonRewardExcel
-    def RewardParcelIdAsNumpy(self):
+    def RewardTypeAsNumpy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # TimeAttackDungeonRewardExcel
-    def RewardParcelIdLength(self):
+    def RewardTypeLength(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # TimeAttackDungeonRewardExcel
-    def RewardParcelIdIsNone(self):
+    def RewardTypeIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        return o == 0
-
-    # TimeAttackDungeonRewardExcel
-    def RewardParcelDefaultAmount(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # TimeAttackDungeonRewardExcel
-    def RewardParcelDefaultAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # TimeAttackDungeonRewardExcel
-    def RewardParcelDefaultAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # TimeAttackDungeonRewardExcel
-    def RewardParcelDefaultAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         return o == 0
 
     # TimeAttackDungeonRewardExcel
     def RewardParcelMaxAmount(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -183,20 +156,47 @@ class TimeAttackDungeonRewardExcel(object):
 
     # TimeAttackDungeonRewardExcel
     def RewardParcelMaxAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # TimeAttackDungeonRewardExcel
     def RewardParcelMaxAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # TimeAttackDungeonRewardExcel
     def RewardParcelMaxAmountIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        return o == 0
+
+    # TimeAttackDungeonRewardExcel
+    def RewardMinPoint(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # TimeAttackDungeonRewardExcel
+    def RewardMinPointAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # TimeAttackDungeonRewardExcel
+    def RewardMinPointLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # TimeAttackDungeonRewardExcel
+    def RewardMinPointIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         return o == 0
 
@@ -206,45 +206,45 @@ def Start(builder):
 def TimeAttackDungeonRewardExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
     return TimeAttackDungeonRewardExcelAddId(builder, id)
-def TimeAttackDungeonRewardExcelAddRewardMaxPoint(builder, rewardMaxPoint): builder.PrependInt64Slot(1, rewardMaxPoint, 0)
+def TimeAttackDungeonRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
+def AddRewardParcelId(builder, rewardParcelId):
+    return TimeAttackDungeonRewardExcelAddRewardParcelId(builder, rewardParcelId)
+def TimeAttackDungeonRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRewardParcelIdVector(builder, numElems):
+    return TimeAttackDungeonRewardExcelStartRewardParcelIdVector(builder, numElems)
+def TimeAttackDungeonRewardExcelAddRewardMaxPoint(builder, rewardMaxPoint): builder.PrependInt64Slot(2, rewardMaxPoint, 0)
 def AddRewardMaxPoint(builder, rewardMaxPoint):
     return TimeAttackDungeonRewardExcelAddRewardMaxPoint(builder, rewardMaxPoint)
-def TimeAttackDungeonRewardExcelAddRewardType(builder, rewardType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(rewardType), 0)
-def AddRewardType(builder, rewardType):
-    return TimeAttackDungeonRewardExcelAddRewardType(builder, rewardType)
-def TimeAttackDungeonRewardExcelStartRewardTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartRewardTypeVector(builder, numElems):
-    return TimeAttackDungeonRewardExcelStartRewardTypeVector(builder, numElems)
-def TimeAttackDungeonRewardExcelAddRewardMinPoint(builder, rewardMinPoint): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardMinPoint), 0)
-def AddRewardMinPoint(builder, rewardMinPoint):
-    return TimeAttackDungeonRewardExcelAddRewardMinPoint(builder, rewardMinPoint)
-def TimeAttackDungeonRewardExcelStartRewardMinPointVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRewardMinPointVector(builder, numElems):
-    return TimeAttackDungeonRewardExcelStartRewardMinPointVector(builder, numElems)
+def TimeAttackDungeonRewardExcelAddRewardParcelDefaultAmount(builder, rewardParcelDefaultAmount): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelDefaultAmount), 0)
+def AddRewardParcelDefaultAmount(builder, rewardParcelDefaultAmount):
+    return TimeAttackDungeonRewardExcelAddRewardParcelDefaultAmount(builder, rewardParcelDefaultAmount)
+def TimeAttackDungeonRewardExcelStartRewardParcelDefaultAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRewardParcelDefaultAmountVector(builder, numElems):
+    return TimeAttackDungeonRewardExcelStartRewardParcelDefaultAmountVector(builder, numElems)
 def TimeAttackDungeonRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
 def AddRewardParcelType(builder, rewardParcelType):
     return TimeAttackDungeonRewardExcelAddRewardParcelType(builder, rewardParcelType)
 def TimeAttackDungeonRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelTypeVector(builder, numElems):
     return TimeAttackDungeonRewardExcelStartRewardParcelTypeVector(builder, numElems)
-def TimeAttackDungeonRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
-def AddRewardParcelId(builder, rewardParcelId):
-    return TimeAttackDungeonRewardExcelAddRewardParcelId(builder, rewardParcelId)
-def TimeAttackDungeonRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRewardParcelIdVector(builder, numElems):
-    return TimeAttackDungeonRewardExcelStartRewardParcelIdVector(builder, numElems)
-def TimeAttackDungeonRewardExcelAddRewardParcelDefaultAmount(builder, rewardParcelDefaultAmount): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelDefaultAmount), 0)
-def AddRewardParcelDefaultAmount(builder, rewardParcelDefaultAmount):
-    return TimeAttackDungeonRewardExcelAddRewardParcelDefaultAmount(builder, rewardParcelDefaultAmount)
-def TimeAttackDungeonRewardExcelStartRewardParcelDefaultAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRewardParcelDefaultAmountVector(builder, numElems):
-    return TimeAttackDungeonRewardExcelStartRewardParcelDefaultAmountVector(builder, numElems)
-def TimeAttackDungeonRewardExcelAddRewardParcelMaxAmount(builder, rewardParcelMaxAmount): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelMaxAmount), 0)
+def TimeAttackDungeonRewardExcelAddRewardType(builder, rewardType): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardType), 0)
+def AddRewardType(builder, rewardType):
+    return TimeAttackDungeonRewardExcelAddRewardType(builder, rewardType)
+def TimeAttackDungeonRewardExcelStartRewardTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartRewardTypeVector(builder, numElems):
+    return TimeAttackDungeonRewardExcelStartRewardTypeVector(builder, numElems)
+def TimeAttackDungeonRewardExcelAddRewardParcelMaxAmount(builder, rewardParcelMaxAmount): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelMaxAmount), 0)
 def AddRewardParcelMaxAmount(builder, rewardParcelMaxAmount):
     return TimeAttackDungeonRewardExcelAddRewardParcelMaxAmount(builder, rewardParcelMaxAmount)
 def TimeAttackDungeonRewardExcelStartRewardParcelMaxAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelMaxAmountVector(builder, numElems):
     return TimeAttackDungeonRewardExcelStartRewardParcelMaxAmountVector(builder, numElems)
+def TimeAttackDungeonRewardExcelAddRewardMinPoint(builder, rewardMinPoint): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(rewardMinPoint), 0)
+def AddRewardMinPoint(builder, rewardMinPoint):
+    return TimeAttackDungeonRewardExcelAddRewardMinPoint(builder, rewardMinPoint)
+def TimeAttackDungeonRewardExcelStartRewardMinPointVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRewardMinPointVector(builder, numElems):
+    return TimeAttackDungeonRewardExcelStartRewardMinPointVector(builder, numElems)
 def TimeAttackDungeonRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return TimeAttackDungeonRewardExcelEnd(builder)

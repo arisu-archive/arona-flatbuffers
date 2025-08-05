@@ -25,38 +25,38 @@ class FloaterCommonExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # FloaterCommonExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FloaterCommonExcel
-    def TacticEntityType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # FloaterCommonExcel
-    def FloaterOffsetPosX(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # FloaterCommonExcel
     def FloaterOffsetPosY(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FloaterCommonExcel
     def FloaterRandomPosRangeX(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # FloaterCommonExcel
+    def TacticEntityType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # FloaterCommonExcel
+    def FloaterOffsetPosX(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # FloaterCommonExcel
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FloaterCommonExcel
@@ -69,21 +69,21 @@ class FloaterCommonExcel(object):
 def FloaterCommonExcelStart(builder): builder.StartObject(6)
 def Start(builder):
     return FloaterCommonExcelStart(builder)
-def FloaterCommonExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return FloaterCommonExcelAddId(builder, id)
-def FloaterCommonExcelAddTacticEntityType(builder, tacticEntityType): builder.PrependInt32Slot(1, tacticEntityType, 0)
-def AddTacticEntityType(builder, tacticEntityType):
-    return FloaterCommonExcelAddTacticEntityType(builder, tacticEntityType)
-def FloaterCommonExcelAddFloaterOffsetPosX(builder, floaterOffsetPosX): builder.PrependInt32Slot(2, floaterOffsetPosX, 0)
-def AddFloaterOffsetPosX(builder, floaterOffsetPosX):
-    return FloaterCommonExcelAddFloaterOffsetPosX(builder, floaterOffsetPosX)
-def FloaterCommonExcelAddFloaterOffsetPosY(builder, floaterOffsetPosY): builder.PrependInt32Slot(3, floaterOffsetPosY, 0)
+def FloaterCommonExcelAddFloaterOffsetPosY(builder, floaterOffsetPosY): builder.PrependInt32Slot(0, floaterOffsetPosY, 0)
 def AddFloaterOffsetPosY(builder, floaterOffsetPosY):
     return FloaterCommonExcelAddFloaterOffsetPosY(builder, floaterOffsetPosY)
-def FloaterCommonExcelAddFloaterRandomPosRangeX(builder, floaterRandomPosRangeX): builder.PrependInt32Slot(4, floaterRandomPosRangeX, 0)
+def FloaterCommonExcelAddFloaterRandomPosRangeX(builder, floaterRandomPosRangeX): builder.PrependInt32Slot(1, floaterRandomPosRangeX, 0)
 def AddFloaterRandomPosRangeX(builder, floaterRandomPosRangeX):
     return FloaterCommonExcelAddFloaterRandomPosRangeX(builder, floaterRandomPosRangeX)
+def FloaterCommonExcelAddTacticEntityType(builder, tacticEntityType): builder.PrependInt32Slot(2, tacticEntityType, 0)
+def AddTacticEntityType(builder, tacticEntityType):
+    return FloaterCommonExcelAddTacticEntityType(builder, tacticEntityType)
+def FloaterCommonExcelAddFloaterOffsetPosX(builder, floaterOffsetPosX): builder.PrependInt32Slot(3, floaterOffsetPosX, 0)
+def AddFloaterOffsetPosX(builder, floaterOffsetPosX):
+    return FloaterCommonExcelAddFloaterOffsetPosX(builder, floaterOffsetPosX)
+def FloaterCommonExcelAddId(builder, id): builder.PrependInt64Slot(4, id, 0)
+def AddId(builder, id):
+    return FloaterCommonExcelAddId(builder, id)
 def FloaterCommonExcelAddFloaterRandomPosRangeY(builder, floaterRandomPosRangeY): builder.PrependInt32Slot(5, floaterRandomPosRangeY, 0)
 def AddFloaterRandomPosRangeY(builder, floaterRandomPosRangeY):
     return FloaterCommonExcelAddFloaterRandomPosRangeY(builder, floaterRandomPosRangeY)

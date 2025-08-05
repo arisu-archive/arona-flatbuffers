@@ -32,18 +32,18 @@ class ShopCashScenarioResourceInfoExcel(object):
         return 0
 
     # ShopCashScenarioResourceInfoExcel
-    def ShopCashId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ShopCashScenarioResourceInfoExcel
     def IconPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
+
+    # ShopCashScenarioResourceInfoExcel
+    def ShopCashId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def ShopCashScenarioResourceInfoExcelStart(builder): builder.StartObject(3)
 def Start(builder):
@@ -51,12 +51,12 @@ def Start(builder):
 def ShopCashScenarioResourceInfoExcelAddScenarioResrouceInfoId(builder, scenarioResrouceInfoId): builder.PrependInt64Slot(0, scenarioResrouceInfoId, 0)
 def AddScenarioResrouceInfoId(builder, scenarioResrouceInfoId):
     return ShopCashScenarioResourceInfoExcelAddScenarioResrouceInfoId(builder, scenarioResrouceInfoId)
-def ShopCashScenarioResourceInfoExcelAddShopCashId(builder, shopCashId): builder.PrependInt64Slot(1, shopCashId, 0)
-def AddShopCashId(builder, shopCashId):
-    return ShopCashScenarioResourceInfoExcelAddShopCashId(builder, shopCashId)
-def ShopCashScenarioResourceInfoExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+def ShopCashScenarioResourceInfoExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
 def AddIconPath(builder, iconPath):
     return ShopCashScenarioResourceInfoExcelAddIconPath(builder, iconPath)
+def ShopCashScenarioResourceInfoExcelAddShopCashId(builder, shopCashId): builder.PrependInt64Slot(2, shopCashId, 0)
+def AddShopCashId(builder, shopCashId):
+    return ShopCashScenarioResourceInfoExcelAddShopCashId(builder, shopCashId)
 def ShopCashScenarioResourceInfoExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ShopCashScenarioResourceInfoExcelEnd(builder)

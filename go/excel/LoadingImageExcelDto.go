@@ -12,11 +12,11 @@ type LoadingImageExcelDto struct {
 	fbsutils.FlatBuffer
 	Id            int64  `json:"id"`
 	ImagePathKr   string `json:"image_path_kr"`
-	ImagePathJp   string `json:"image_path_jp"`
 	DisplayWeight int32  `json:"display_weight"`
-	ImagePathTh   string `json:"image_path_th"`
-	ImagePathTw   string `json:"image_path_tw"`
 	ImagePathEn   string `json:"image_path_en"`
+	ImagePathJp   string `json:"image_path_jp"`
+	ImagePathTw   string `json:"image_path_tw"`
+	ImagePathTh   string `json:"image_path_th"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,11 +24,11 @@ func (t *LoadingImageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	LoadingImageExcelStart(b)
 	LoadingImageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	LoadingImageExcelAddImagePathKr(b, b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey)))
-	LoadingImageExcelAddImagePathJp(b, b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey)))
 	LoadingImageExcelAddDisplayWeight(b, fbsutils.Convert(t.DisplayWeight, t.FlatBuffer.TableKey))
-	LoadingImageExcelAddImagePathTh(b, b.CreateString(fbsutils.Convert(t.ImagePathTh, t.FlatBuffer.TableKey)))
-	LoadingImageExcelAddImagePathTw(b, b.CreateString(fbsutils.Convert(t.ImagePathTw, t.FlatBuffer.TableKey)))
 	LoadingImageExcelAddImagePathEn(b, b.CreateString(fbsutils.Convert(t.ImagePathEn, t.FlatBuffer.TableKey)))
+	LoadingImageExcelAddImagePathJp(b, b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey)))
+	LoadingImageExcelAddImagePathTw(b, b.CreateString(fbsutils.Convert(t.ImagePathTw, t.FlatBuffer.TableKey)))
+	LoadingImageExcelAddImagePathTh(b, b.CreateString(fbsutils.Convert(t.ImagePathTh, t.FlatBuffer.TableKey)))
 	return LoadingImageExcelEnd(b)
 }
 
@@ -43,11 +43,11 @@ func (t *LoadingImageExcelDto) Marshal() ([]byte, error) {
 func (t *LoadingImageExcelDto) UnmarshalMessage(e *LoadingImageExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ImagePathKr = fbsutils.Convert(string(e.ImagePathKr()), t.FlatBuffer.TableKey)
-	t.ImagePathJp = fbsutils.Convert(string(e.ImagePathJp()), t.FlatBuffer.TableKey)
 	t.DisplayWeight = fbsutils.Convert(e.DisplayWeight(), t.FlatBuffer.TableKey)
-	t.ImagePathTh = fbsutils.Convert(string(e.ImagePathTh()), t.FlatBuffer.TableKey)
-	t.ImagePathTw = fbsutils.Convert(string(e.ImagePathTw()), t.FlatBuffer.TableKey)
 	t.ImagePathEn = fbsutils.Convert(string(e.ImagePathEn()), t.FlatBuffer.TableKey)
+	t.ImagePathJp = fbsutils.Convert(string(e.ImagePathJp()), t.FlatBuffer.TableKey)
+	t.ImagePathTw = fbsutils.Convert(string(e.ImagePathTw()), t.FlatBuffer.TableKey)
+	t.ImagePathTh = fbsutils.Convert(string(e.ImagePathTh()), t.FlatBuffer.TableKey)
 	return nil
 }
 

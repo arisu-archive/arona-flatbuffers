@@ -45,7 +45,7 @@ func (rcv *BGMUIExcel) MutateUiPrefab(n uint32) bool {
 	return rcv._tab.MutateUint32Slot(4, n)
 }
 
-func (rcv *BGMUIExcel) BgmId() int64 {
+func (rcv *BGMUIExcel) BgmId3rd() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *BGMUIExcel) BgmId() int64 {
 	return 0
 }
 
-func (rcv *BGMUIExcel) MutateBgmId(n int64) bool {
+func (rcv *BGMUIExcel) MutateBgmId3rd(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *BGMUIExcel) BgmId2nd() int64 {
+func (rcv *BGMUIExcel) BgmId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *BGMUIExcel) BgmId2nd() int64 {
 	return 0
 }
 
-func (rcv *BGMUIExcel) MutateBgmId2nd(n int64) bool {
+func (rcv *BGMUIExcel) MutateBgmId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *BGMUIExcel) BgmId3rd() int64 {
+func (rcv *BGMUIExcel) BgmId2nd() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,7 +77,7 @@ func (rcv *BGMUIExcel) BgmId3rd() int64 {
 	return 0
 }
 
-func (rcv *BGMUIExcel) MutateBgmId3rd(n int64) bool {
+func (rcv *BGMUIExcel) MutateBgmId2nd(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
@@ -99,14 +99,14 @@ func BGMUIExcelStart(builder *flatbuffers.Builder) {
 func BGMUIExcelAddUiPrefab(builder *flatbuffers.Builder, uiPrefab uint32) {
 	builder.PrependUint32Slot(0, uiPrefab, 0)
 }
+func BGMUIExcelAddBgmId3rd(builder *flatbuffers.Builder, bgmId3rd int64) {
+	builder.PrependInt64Slot(1, bgmId3rd, 0)
+}
 func BGMUIExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
-	builder.PrependInt64Slot(1, bgmId, 0)
+	builder.PrependInt64Slot(2, bgmId, 0)
 }
 func BGMUIExcelAddBgmId2nd(builder *flatbuffers.Builder, bgmId2nd int64) {
-	builder.PrependInt64Slot(2, bgmId2nd, 0)
-}
-func BGMUIExcelAddBgmId3rd(builder *flatbuffers.Builder, bgmId3rd int64) {
-	builder.PrependInt64Slot(3, bgmId3rd, 0)
+	builder.PrependInt64Slot(3, bgmId2nd, 0)
 }
 func BGMUIExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(4, eventContentId, 0)

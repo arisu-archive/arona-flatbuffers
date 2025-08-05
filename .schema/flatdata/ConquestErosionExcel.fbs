@@ -5,18 +5,18 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table ConquestErosionExcel {
-    event_content_id: long;
-    id: long;
-    erosion_type: ConquestErosionType;
-    phase: int;
-    phase_alarm: bool;
+    phase_before_expose_condition_type: [ConquestConditionType];
+    conquest_reward_id: long;
+    erosion_battle_condition_parcel_amount: long;
     step_index: int;
+    phase_before_expose_condition_parameter: [string];
+    event_content_id: long;
+    phase_alarm: bool;
+    phase: int;
     phase_start_condition_type: [ConquestConditionType];
     phase_start_condition_parameter: [string];
-    phase_before_expose_condition_type: [ConquestConditionType];
-    phase_before_expose_condition_parameter: [string];
+    erosion_type: ConquestErosionType;
     erosion_battle_condition_parcel_type: ParcelType;
+    id: long;
     erosion_battle_condition_parcel_unique_id: long;
-    erosion_battle_condition_parcel_amount: long;
-    conquest_reward_id: long;
 }

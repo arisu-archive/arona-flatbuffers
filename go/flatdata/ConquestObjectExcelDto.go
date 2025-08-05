@@ -10,18 +10,18 @@ import (
 // ConquestObjectExcelDto represents a FlatBuffers table
 type ConquestObjectExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                       int64              `json:"id"`
-	EventContentId           int64              `json:"event_content_id"`
 	ConquestObjectType       ConquestObjectType `json:"conquest_object_type"`
-	Key                      uint32             `json:"key"`
-	Name                     string             `json:"name"`
-	PrefabName               string             `json:"prefab_name"`
-	ConquestRewardParcelType ParcelType         `json:"conquest_reward_parcel_type"`
-	ConquestRewardId         int64              `json:"conquest_reward_id"`
-	ConquestRewardAmount     int32              `json:"conquest_reward_amount"`
-	Disposable               bool               `json:"disposable"`
-	StepIndex                int32              `json:"step_index"`
 	StepObjectCount          int32              `json:"step_object_count"`
+	ConquestRewardAmount     int32              `json:"conquest_reward_amount"`
+	StepIndex                int32              `json:"step_index"`
+	Key                      uint32             `json:"key"`
+	ConquestRewardId         int64              `json:"conquest_reward_id"`
+	ConquestRewardParcelType ParcelType         `json:"conquest_reward_parcel_type"`
+	EventContentId           int64              `json:"event_content_id"`
+	Name                     string             `json:"name"`
+	Disposable               bool               `json:"disposable"`
+	Id                       int64              `json:"id"`
+	PrefabName               string             `json:"prefab_name"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -30,18 +30,18 @@ func (t *ConquestObjectExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestObject"))
 	}
 	ConquestObjectExcelStart(b)
-	ConquestObjectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ConquestObjectExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	ConquestObjectExcelAddConquestObjectType(b, fbsutils.Convert(t.ConquestObjectType, t.FlatBuffer.TableKey))
-	ConquestObjectExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	ConquestObjectExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
-	ConquestObjectExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
-	ConquestObjectExcelAddConquestRewardParcelType(b, fbsutils.Convert(t.ConquestRewardParcelType, t.FlatBuffer.TableKey))
-	ConquestObjectExcelAddConquestRewardId(b, fbsutils.Convert(t.ConquestRewardId, t.FlatBuffer.TableKey))
-	ConquestObjectExcelAddConquestRewardAmount(b, fbsutils.Convert(t.ConquestRewardAmount, t.FlatBuffer.TableKey))
-	ConquestObjectExcelAddDisposable(b, t.Disposable)
-	ConquestObjectExcelAddStepIndex(b, fbsutils.Convert(t.StepIndex, t.FlatBuffer.TableKey))
 	ConquestObjectExcelAddStepObjectCount(b, fbsutils.Convert(t.StepObjectCount, t.FlatBuffer.TableKey))
+	ConquestObjectExcelAddConquestRewardAmount(b, fbsutils.Convert(t.ConquestRewardAmount, t.FlatBuffer.TableKey))
+	ConquestObjectExcelAddStepIndex(b, fbsutils.Convert(t.StepIndex, t.FlatBuffer.TableKey))
+	ConquestObjectExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
+	ConquestObjectExcelAddConquestRewardId(b, fbsutils.Convert(t.ConquestRewardId, t.FlatBuffer.TableKey))
+	ConquestObjectExcelAddConquestRewardParcelType(b, fbsutils.Convert(t.ConquestRewardParcelType, t.FlatBuffer.TableKey))
+	ConquestObjectExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	ConquestObjectExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	ConquestObjectExcelAddDisposable(b, t.Disposable)
+	ConquestObjectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	ConquestObjectExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
 	return ConquestObjectExcelEnd(b)
 }
 
@@ -57,18 +57,18 @@ func (t *ConquestObjectExcelDto) UnmarshalMessage(e *ConquestObjectExcel) error 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestObject"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.ConquestObjectType = ConquestObjectType(fbsutils.Convert(int32(e.ConquestObjectType()), t.FlatBuffer.TableKey))
-	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
-	t.ConquestRewardParcelType = ParcelType(fbsutils.Convert(int32(e.ConquestRewardParcelType()), t.FlatBuffer.TableKey))
-	t.ConquestRewardId = fbsutils.Convert(e.ConquestRewardId(), t.FlatBuffer.TableKey)
-	t.ConquestRewardAmount = fbsutils.Convert(e.ConquestRewardAmount(), t.FlatBuffer.TableKey)
-	t.Disposable = e.Disposable()
-	t.StepIndex = fbsutils.Convert(e.StepIndex(), t.FlatBuffer.TableKey)
 	t.StepObjectCount = fbsutils.Convert(e.StepObjectCount(), t.FlatBuffer.TableKey)
+	t.ConquestRewardAmount = fbsutils.Convert(e.ConquestRewardAmount(), t.FlatBuffer.TableKey)
+	t.StepIndex = fbsutils.Convert(e.StepIndex(), t.FlatBuffer.TableKey)
+	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
+	t.ConquestRewardId = fbsutils.Convert(e.ConquestRewardId(), t.FlatBuffer.TableKey)
+	t.ConquestRewardParcelType = ParcelType(fbsutils.Convert(int32(e.ConquestRewardParcelType()), t.FlatBuffer.TableKey))
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
+	t.Disposable = e.Disposable()
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
 	return nil
 }
 

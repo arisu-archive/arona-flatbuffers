@@ -11,9 +11,9 @@ import (
 // RootMotionFlatDto represents a FlatBuffers table
 type RootMotionFlatDto struct {
 	fbsutils.FlatBuffer
-	Forms     []FormDto   `json:"forms"`
 	ExSkills  []MotionDto `json:"ex_skills"`
 	MoveLeft  MotionDto   `json:"move_left"`
+	Forms     []FormDto   `json:"forms"`
 	MoveRight MotionDto   `json:"move_right"`
 }
 
@@ -23,12 +23,6 @@ func (t *RootMotionFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RootMotionFlat"))
 	}
 	RootMotionFlatStart(b)
-	RootMotionFlatStartFormsVector(b, len(t.Forms))
-	for i := range len(t.Forms) {
-		// The array should be reversed.
-		b.PrependUOffsetT(t.Forms[len(t.Forms)-i-1].MarshalModel(b))
-	}
-	RootMotionFlatAddForms(b, b.EndVector(len(t.Forms)))
 	RootMotionFlatStartExSkillsVector(b, len(t.ExSkills))
 	for i := range len(t.ExSkills) {
 		// The array should be reversed.
@@ -36,6 +30,12 @@ func (t *RootMotionFlatDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	}
 	RootMotionFlatAddExSkills(b, b.EndVector(len(t.ExSkills)))
 	RootMotionFlatAddMoveLeft(b, t.MoveLeft.MarshalModel(b))
+	RootMotionFlatStartFormsVector(b, len(t.Forms))
+	for i := range len(t.Forms) {
+		// The array should be reversed.
+		b.PrependUOffsetT(t.Forms[len(t.Forms)-i-1].MarshalModel(b))
+	}
+	RootMotionFlatAddForms(b, b.EndVector(len(t.Forms)))
 	RootMotionFlatAddMoveRight(b, t.MoveRight.MarshalModel(b))
 	return RootMotionFlatEnd(b)
 }
@@ -52,14 +52,6 @@ func (t *RootMotionFlatDto) UnmarshalMessage(e *RootMotionFlat) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("RootMotionFlat"))
 	}
-	t.Forms = make([]FormDto, e.FormsLength())
-	for i := range e.FormsLength() {
-		d := new(Form)
-		if !e.Forms(d, i) {
-			return errors.New("failed to unmarshal data")
-		}
-		t.Forms[i].UnmarshalMessage(d)
-	}
 	t.ExSkills = make([]MotionDto, e.ExSkillsLength())
 	for i := range e.ExSkillsLength() {
 		d := new(Motion)
@@ -69,6 +61,14 @@ func (t *RootMotionFlatDto) UnmarshalMessage(e *RootMotionFlat) error {
 		t.ExSkills[i].UnmarshalMessage(d)
 	}
 	t.MoveLeft.UnmarshalMessage(e.MoveLeft(nil))
+	t.Forms = make([]FormDto, e.FormsLength())
+	for i := range e.FormsLength() {
+		d := new(Form)
+		if !e.Forms(d, i) {
+			return errors.New("failed to unmarshal data")
+		}
+		t.Forms[i].UnmarshalMessage(d)
+	}
 	t.MoveRight.UnmarshalMessage(e.MoveRight(nil))
 	return nil
 }

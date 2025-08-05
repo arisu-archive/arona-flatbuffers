@@ -10,9 +10,9 @@ import (
 // VoiceExcelDto represents a FlatBuffers table
 type VoiceExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId int64     `json:"unique_id"`
 	Id       uint32    `json:"id"`
 	Nation   []Nation  `json:"nation"`
+	UniqueId int64     `json:"unique_id"`
 	Path     []string  `json:"path"`
 	Volume   []float32 `json:"volume"`
 }
@@ -20,13 +20,13 @@ type VoiceExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	VoiceExcelStart(b)
-	VoiceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	VoiceExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	VoiceExcelStartNationVector(b, len(t.Nation))
 	for i := range len(t.Nation) {
 		b.PrependInt32(fbsutils.Convert(int32(t.Nation[len(t.Nation)-i-1]), t.FlatBuffer.TableKey))
 	}
 	VoiceExcelAddNation(b, b.EndVector(len(t.Nation)))
+	VoiceExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	VoiceExcelStartPathVector(b, len(t.Path))
 	for i := range len(t.Path) {
 		b.PrependUOffsetT(b.CreateString(t.Path[len(t.Path)-i-1]))
@@ -49,12 +49,12 @@ func (t *VoiceExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VoiceExcelDto) UnmarshalMessage(e *VoiceExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Nation = make([]Nation, e.NationLength())
 	for i := range e.NationLength() {
 		t.Nation[i] = Nation(fbsutils.Convert(int32(e.Nation(i)), t.FlatBuffer.TableKey))
 	}
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.Path = make([]string, e.PathLength())
 	for i := range e.PathLength() {
 		t.Path[i] = fbsutils.Convert(string(e.Path(i)), t.FlatBuffer.TableKey)

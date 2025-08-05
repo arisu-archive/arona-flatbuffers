@@ -10,29 +10,29 @@ import (
 // VideoGlobalExcelDto represents a FlatBuffers table
 type VideoGlobalExcelDto struct {
 	fbsutils.FlatBuffer
-	VideoId         int64  `json:"video_id"`
-	VideoPathKr     string `json:"video_path_kr"`
 	VideoTeenPathKr string `json:"video_teen_path_kr"`
-	VideoPathTh     string `json:"video_path_th"`
-	VideoTeenPathTh string `json:"video_teen_path_th"`
-	VideoPathTw     string `json:"video_path_tw"`
-	VideoTeenPathTw string `json:"video_teen_path_tw"`
-	VideoPathEn     string `json:"video_path_en"`
 	VideoTeenPathEn string `json:"video_teen_path_en"`
+	VideoPathTw     string `json:"video_path_tw"`
+	VideoPathTh     string `json:"video_path_th"`
+	VideoTeenPathTw string `json:"video_teen_path_tw"`
+	VideoId         int64  `json:"video_id"`
+	VideoPathEn     string `json:"video_path_en"`
+	VideoTeenPathTh string `json:"video_teen_path_th"`
+	VideoPathKr     string `json:"video_path_kr"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VideoGlobalExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	Video_GlobalExcelStart(b)
-	Video_GlobalExcelAddVideoId(b, fbsutils.Convert(t.VideoId, t.FlatBuffer.TableKey))
-	Video_GlobalExcelAddVideoPathKr(b, b.CreateString(fbsutils.Convert(t.VideoPathKr, t.FlatBuffer.TableKey)))
 	Video_GlobalExcelAddVideoTeenPathKr(b, b.CreateString(fbsutils.Convert(t.VideoTeenPathKr, t.FlatBuffer.TableKey)))
-	Video_GlobalExcelAddVideoPathTh(b, b.CreateString(fbsutils.Convert(t.VideoPathTh, t.FlatBuffer.TableKey)))
-	Video_GlobalExcelAddVideoTeenPathTh(b, b.CreateString(fbsutils.Convert(t.VideoTeenPathTh, t.FlatBuffer.TableKey)))
-	Video_GlobalExcelAddVideoPathTw(b, b.CreateString(fbsutils.Convert(t.VideoPathTw, t.FlatBuffer.TableKey)))
-	Video_GlobalExcelAddVideoTeenPathTw(b, b.CreateString(fbsutils.Convert(t.VideoTeenPathTw, t.FlatBuffer.TableKey)))
-	Video_GlobalExcelAddVideoPathEn(b, b.CreateString(fbsutils.Convert(t.VideoPathEn, t.FlatBuffer.TableKey)))
 	Video_GlobalExcelAddVideoTeenPathEn(b, b.CreateString(fbsutils.Convert(t.VideoTeenPathEn, t.FlatBuffer.TableKey)))
+	Video_GlobalExcelAddVideoPathTw(b, b.CreateString(fbsutils.Convert(t.VideoPathTw, t.FlatBuffer.TableKey)))
+	Video_GlobalExcelAddVideoPathTh(b, b.CreateString(fbsutils.Convert(t.VideoPathTh, t.FlatBuffer.TableKey)))
+	Video_GlobalExcelAddVideoTeenPathTw(b, b.CreateString(fbsutils.Convert(t.VideoTeenPathTw, t.FlatBuffer.TableKey)))
+	Video_GlobalExcelAddVideoId(b, fbsutils.Convert(t.VideoId, t.FlatBuffer.TableKey))
+	Video_GlobalExcelAddVideoPathEn(b, b.CreateString(fbsutils.Convert(t.VideoPathEn, t.FlatBuffer.TableKey)))
+	Video_GlobalExcelAddVideoTeenPathTh(b, b.CreateString(fbsutils.Convert(t.VideoTeenPathTh, t.FlatBuffer.TableKey)))
+	Video_GlobalExcelAddVideoPathKr(b, b.CreateString(fbsutils.Convert(t.VideoPathKr, t.FlatBuffer.TableKey)))
 	return Video_GlobalExcelEnd(b)
 }
 
@@ -45,15 +45,15 @@ func (t *VideoGlobalExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VideoGlobalExcelDto) UnmarshalMessage(e *Video_GlobalExcel) error {
-	t.VideoId = fbsutils.Convert(e.VideoId(), t.FlatBuffer.TableKey)
-	t.VideoPathKr = fbsutils.Convert(string(e.VideoPathKr()), t.FlatBuffer.TableKey)
 	t.VideoTeenPathKr = fbsutils.Convert(string(e.VideoTeenPathKr()), t.FlatBuffer.TableKey)
-	t.VideoPathTh = fbsutils.Convert(string(e.VideoPathTh()), t.FlatBuffer.TableKey)
-	t.VideoTeenPathTh = fbsutils.Convert(string(e.VideoTeenPathTh()), t.FlatBuffer.TableKey)
-	t.VideoPathTw = fbsutils.Convert(string(e.VideoPathTw()), t.FlatBuffer.TableKey)
-	t.VideoTeenPathTw = fbsutils.Convert(string(e.VideoTeenPathTw()), t.FlatBuffer.TableKey)
-	t.VideoPathEn = fbsutils.Convert(string(e.VideoPathEn()), t.FlatBuffer.TableKey)
 	t.VideoTeenPathEn = fbsutils.Convert(string(e.VideoTeenPathEn()), t.FlatBuffer.TableKey)
+	t.VideoPathTw = fbsutils.Convert(string(e.VideoPathTw()), t.FlatBuffer.TableKey)
+	t.VideoPathTh = fbsutils.Convert(string(e.VideoPathTh()), t.FlatBuffer.TableKey)
+	t.VideoTeenPathTw = fbsutils.Convert(string(e.VideoTeenPathTw()), t.FlatBuffer.TableKey)
+	t.VideoId = fbsutils.Convert(e.VideoId(), t.FlatBuffer.TableKey)
+	t.VideoPathEn = fbsutils.Convert(string(e.VideoPathEn()), t.FlatBuffer.TableKey)
+	t.VideoTeenPathTh = fbsutils.Convert(string(e.VideoTeenPathTh()), t.FlatBuffer.TableKey)
+	t.VideoPathKr = fbsutils.Convert(string(e.VideoPathKr()), t.FlatBuffer.TableKey)
 	return nil
 }
 

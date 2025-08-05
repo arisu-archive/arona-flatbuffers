@@ -33,7 +33,7 @@ func (rcv *EventContentChangeExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentChangeExcel) EventContentId() int64 {
+func (rcv *EventContentChangeExcel) RewardId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *EventContentChangeExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentChangeExcel) MutateEventContentId(n int64) bool {
+func (rcv *EventContentChangeExcel) MutateRewardId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EventContentChangeExcel) ChangeCount() int64 {
+func (rcv *EventContentChangeExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,12 +53,24 @@ func (rcv *EventContentChangeExcel) ChangeCount() int64 {
 	return 0
 }
 
-func (rcv *EventContentChangeExcel) MutateChangeCount(n int64) bool {
+func (rcv *EventContentChangeExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentChangeExcel) IsLast() bool {
+func (rcv *EventContentChangeExcel) ChangeCostAmount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentChangeExcel) MutateChangeCostAmount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *EventContentChangeExcel) IsLast() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -66,11 +78,11 @@ func (rcv *EventContentChangeExcel) IsLast() bool {
 }
 
 func (rcv *EventContentChangeExcel) MutateIsLast(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
+	return rcv._tab.MutateBoolSlot(10, n)
 }
 
 func (rcv *EventContentChangeExcel) RewardParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -78,19 +90,7 @@ func (rcv *EventContentChangeExcel) RewardParcelType() ParcelType {
 }
 
 func (rcv *EventContentChangeExcel) MutateRewardParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
-}
-
-func (rcv *EventContentChangeExcel) RewardId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentChangeExcel) MutateRewardId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
 func (rcv *EventContentChangeExcel) RewardAmount() int32 {
@@ -105,20 +105,8 @@ func (rcv *EventContentChangeExcel) MutateRewardAmount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(14, n)
 }
 
-func (rcv *EventContentChangeExcel) ChangeCostType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EventContentChangeExcel) MutateChangeCostType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
-}
-
 func (rcv *EventContentChangeExcel) ChangeCostId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -126,50 +114,62 @@ func (rcv *EventContentChangeExcel) ChangeCostId() int64 {
 }
 
 func (rcv *EventContentChangeExcel) MutateChangeCostId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
-func (rcv *EventContentChangeExcel) ChangeCostAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+func (rcv *EventContentChangeExcel) ChangeCostType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *EventContentChangeExcel) MutateChangeCostAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
+func (rcv *EventContentChangeExcel) MutateChangeCostType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(18, int32(n))
+}
+
+func (rcv *EventContentChangeExcel) ChangeCount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentChangeExcel) MutateChangeCount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func EventContentChangeExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(9)
 }
-func EventContentChangeExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
+func EventContentChangeExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
+	builder.PrependInt64Slot(0, rewardId, 0)
 }
-func EventContentChangeExcelAddChangeCount(builder *flatbuffers.Builder, changeCount int64) {
-	builder.PrependInt64Slot(1, changeCount, 0)
+func EventContentChangeExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(1, eventContentId, 0)
+}
+func EventContentChangeExcelAddChangeCostAmount(builder *flatbuffers.Builder, changeCostAmount int32) {
+	builder.PrependInt32Slot(2, changeCostAmount, 0)
 }
 func EventContentChangeExcelAddIsLast(builder *flatbuffers.Builder, isLast bool) {
-	builder.PrependBoolSlot(2, isLast, false)
+	builder.PrependBoolSlot(3, isLast, false)
 }
 func EventContentChangeExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
-	builder.PrependInt32Slot(3, int32(rewardParcelType), 0)
-}
-func EventContentChangeExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
-	builder.PrependInt64Slot(4, rewardId, 0)
+	builder.PrependInt32Slot(4, int32(rewardParcelType), 0)
 }
 func EventContentChangeExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount int32) {
 	builder.PrependInt32Slot(5, rewardAmount, 0)
 }
-func EventContentChangeExcelAddChangeCostType(builder *flatbuffers.Builder, changeCostType ParcelType) {
-	builder.PrependInt32Slot(6, int32(changeCostType), 0)
-}
 func EventContentChangeExcelAddChangeCostId(builder *flatbuffers.Builder, changeCostId int64) {
-	builder.PrependInt64Slot(7, changeCostId, 0)
+	builder.PrependInt64Slot(6, changeCostId, 0)
 }
-func EventContentChangeExcelAddChangeCostAmount(builder *flatbuffers.Builder, changeCostAmount int32) {
-	builder.PrependInt32Slot(8, changeCostAmount, 0)
+func EventContentChangeExcelAddChangeCostType(builder *flatbuffers.Builder, changeCostType ParcelType) {
+	builder.PrependInt32Slot(7, int32(changeCostType), 0)
+}
+func EventContentChangeExcelAddChangeCount(builder *flatbuffers.Builder, changeCount int64) {
+	builder.PrependInt64Slot(8, changeCount, 0)
 }
 func EventContentChangeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

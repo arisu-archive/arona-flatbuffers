@@ -19,3 +19,4 @@ class School(object):
     ETC = 13
     Tokiwadai = 14
     Sakugawa = 15
+    Highlander = 16

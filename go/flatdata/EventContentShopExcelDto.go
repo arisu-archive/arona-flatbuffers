@@ -10,20 +10,20 @@ import (
 // EventContentShopExcelDto represents a FlatBuffers table
 type EventContentShopExcelDto struct {
 	fbsutils.FlatBuffer
+	CategoryType                 ShopCategoryType       `json:"category_type"`
 	EventContentId               int64                  `json:"event_content_id"`
+	PurchaseCountLimit           int64                  `json:"purchase_count_limit"`
+	BuyReportEventName           string                 `json:"buy_report_event_name"`
 	Id                           int64                  `json:"id"`
 	LocalizeEtcId                uint32                 `json:"localize_etc_id"`
-	CategoryType                 ShopCategoryType       `json:"category_type"`
-	IsLegacy                     bool                   `json:"is_legacy"`
-	GoodsId                      []int64                `json:"goods_id"`
 	DisplayOrder                 int64                  `json:"display_order"`
-	SalePeriodFrom               string                 `json:"sale_period_from"`
+	IsLegacy                     bool                   `json:"is_legacy"`
 	SalePeriodTo                 string                 `json:"sale_period_to"`
-	PurchaseCooltimeMin          int64                  `json:"purchase_cooltime_min"`
-	PurchaseCountLimit           int64                  `json:"purchase_count_limit"`
-	PurchaseCountResetType       PurchaseCountResetType `json:"purchase_count_reset_type"`
-	BuyReportEventName           string                 `json:"buy_report_event_name"`
 	RestrictBuyWhenInventoryFull bool                   `json:"restrict_buy_when_inventory_full"`
+	PurchaseCooltimeMin          int64                  `json:"purchase_cooltime_min"`
+	SalePeriodFrom               string                 `json:"sale_period_from"`
+	PurchaseCountResetType       PurchaseCountResetType `json:"purchase_count_reset_type"`
+	GoodsId                      []int64                `json:"goods_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -32,24 +32,24 @@ func (t *EventContentShopExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShop"))
 	}
 	EventContentShopExcelStart(b)
+	EventContentShopExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
 	EventContentShopExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentShopExcelAddPurchaseCountLimit(b, fbsutils.Convert(t.PurchaseCountLimit, t.FlatBuffer.TableKey))
+	EventContentShopExcelAddBuyReportEventName(b, b.CreateString(fbsutils.Convert(t.BuyReportEventName, t.FlatBuffer.TableKey)))
 	EventContentShopExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentShopExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	EventContentShopExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
+	EventContentShopExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	EventContentShopExcelAddIsLegacy(b, t.IsLegacy)
+	EventContentShopExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
+	EventContentShopExcelAddRestrictBuyWhenInventoryFull(b, t.RestrictBuyWhenInventoryFull)
+	EventContentShopExcelAddPurchaseCooltimeMin(b, fbsutils.Convert(t.PurchaseCooltimeMin, t.FlatBuffer.TableKey))
+	EventContentShopExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
+	EventContentShopExcelAddPurchaseCountResetType(b, fbsutils.Convert(t.PurchaseCountResetType, t.FlatBuffer.TableKey))
 	EventContentShopExcelStartGoodsIdVector(b, len(t.GoodsId))
 	for i := range len(t.GoodsId) {
 		b.PrependInt64(fbsutils.Convert(t.GoodsId[len(t.GoodsId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentShopExcelAddGoodsId(b, b.EndVector(len(t.GoodsId)))
-	EventContentShopExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	EventContentShopExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
-	EventContentShopExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
-	EventContentShopExcelAddPurchaseCooltimeMin(b, fbsutils.Convert(t.PurchaseCooltimeMin, t.FlatBuffer.TableKey))
-	EventContentShopExcelAddPurchaseCountLimit(b, fbsutils.Convert(t.PurchaseCountLimit, t.FlatBuffer.TableKey))
-	EventContentShopExcelAddPurchaseCountResetType(b, fbsutils.Convert(t.PurchaseCountResetType, t.FlatBuffer.TableKey))
-	EventContentShopExcelAddBuyReportEventName(b, b.CreateString(fbsutils.Convert(t.BuyReportEventName, t.FlatBuffer.TableKey)))
-	EventContentShopExcelAddRestrictBuyWhenInventoryFull(b, t.RestrictBuyWhenInventoryFull)
 	return EventContentShopExcelEnd(b)
 }
 
@@ -65,23 +65,23 @@ func (t *EventContentShopExcelDto) UnmarshalMessage(e *EventContentShopExcel) er
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShop"))
 	}
+	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.PurchaseCountLimit = fbsutils.Convert(e.PurchaseCountLimit(), t.FlatBuffer.TableKey)
+	t.BuyReportEventName = fbsutils.Convert(string(e.BuyReportEventName()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.IsLegacy = e.IsLegacy()
+	t.SalePeriodTo = fbsutils.Convert(string(e.SalePeriodTo()), t.FlatBuffer.TableKey)
+	t.RestrictBuyWhenInventoryFull = e.RestrictBuyWhenInventoryFull()
+	t.PurchaseCooltimeMin = fbsutils.Convert(e.PurchaseCooltimeMin(), t.FlatBuffer.TableKey)
+	t.SalePeriodFrom = fbsutils.Convert(string(e.SalePeriodFrom()), t.FlatBuffer.TableKey)
+	t.PurchaseCountResetType = PurchaseCountResetType(fbsutils.Convert(int32(e.PurchaseCountResetType()), t.FlatBuffer.TableKey))
 	t.GoodsId = make([]int64, e.GoodsIdLength())
 	for i := range e.GoodsIdLength() {
 		t.GoodsId[i] = fbsutils.Convert(e.GoodsId(i), t.FlatBuffer.TableKey)
 	}
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.SalePeriodFrom = fbsutils.Convert(string(e.SalePeriodFrom()), t.FlatBuffer.TableKey)
-	t.SalePeriodTo = fbsutils.Convert(string(e.SalePeriodTo()), t.FlatBuffer.TableKey)
-	t.PurchaseCooltimeMin = fbsutils.Convert(e.PurchaseCooltimeMin(), t.FlatBuffer.TableKey)
-	t.PurchaseCountLimit = fbsutils.Convert(e.PurchaseCountLimit(), t.FlatBuffer.TableKey)
-	t.PurchaseCountResetType = PurchaseCountResetType(fbsutils.Convert(int32(e.PurchaseCountResetType()), t.FlatBuffer.TableKey))
-	t.BuyReportEventName = fbsutils.Convert(string(e.BuyReportEventName()), t.FlatBuffer.TableKey)
-	t.RestrictBuyWhenInventoryFull = e.RestrictBuyWhenInventoryFull()
 	return nil
 }
 

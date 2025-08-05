@@ -10,15 +10,15 @@ import (
 // FieldQuestExcelDto represents a FlatBuffers table
 type FieldQuestExcelDto struct {
 	fbsutils.FlatBuffer
+	IsDaily       bool   `json:"is_daily"`
+	QuestNamKey   uint32 `json:"quest_nam_key"`
+	AssetPath     string `json:"asset_path"`
+	Opendate      int64  `json:"opendate"`
+	Prob          int32  `json:"prob"`
+	RewardId      int64  `json:"reward_id"`
 	FieldSeasonId int64  `json:"field_season_id"`
 	UniqueId      int64  `json:"unique_id"`
-	IsDaily       bool   `json:"is_daily"`
 	FieldDateId   int64  `json:"field_date_id"`
-	Opendate      int64  `json:"opendate"`
-	AssetPath     string `json:"asset_path"`
-	RewardId      int64  `json:"reward_id"`
-	Prob          int32  `json:"prob"`
-	QuestNamKey   uint32 `json:"quest_nam_key"`
 	QuestDescKey  uint32 `json:"quest_desc_key"`
 }
 
@@ -28,15 +28,15 @@ func (t *FieldQuestExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldQuest"))
 	}
 	FieldQuestExcelStart(b)
+	FieldQuestExcelAddIsDaily(b, t.IsDaily)
+	FieldQuestExcelAddQuestNamKey(b, fbsutils.Convert(t.QuestNamKey, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddAssetPath(b, b.CreateString(fbsutils.Convert(t.AssetPath, t.FlatBuffer.TableKey)))
+	FieldQuestExcelAddOpendate(b, fbsutils.Convert(t.Opendate, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
+	FieldQuestExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddFieldSeasonId(b, fbsutils.Convert(t.FieldSeasonId, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddIsDaily(b, t.IsDaily)
 	FieldQuestExcelAddFieldDateId(b, fbsutils.Convert(t.FieldDateId, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddOpendate(b, fbsutils.Convert(t.Opendate, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddAssetPath(b, b.CreateString(fbsutils.Convert(t.AssetPath, t.FlatBuffer.TableKey)))
-	FieldQuestExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
-	FieldQuestExcelAddQuestNamKey(b, fbsutils.Convert(t.QuestNamKey, t.FlatBuffer.TableKey))
 	FieldQuestExcelAddQuestDescKey(b, fbsutils.Convert(t.QuestDescKey, t.FlatBuffer.TableKey))
 	return FieldQuestExcelEnd(b)
 }
@@ -53,15 +53,15 @@ func (t *FieldQuestExcelDto) UnmarshalMessage(e *FieldQuestExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldQuest"))
 	}
+	t.IsDaily = e.IsDaily()
+	t.QuestNamKey = fbsutils.Convert(e.QuestNamKey(), t.FlatBuffer.TableKey)
+	t.AssetPath = fbsutils.Convert(string(e.AssetPath()), t.FlatBuffer.TableKey)
+	t.Opendate = fbsutils.Convert(e.Opendate(), t.FlatBuffer.TableKey)
+	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
+	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
 	t.FieldSeasonId = fbsutils.Convert(e.FieldSeasonId(), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.IsDaily = e.IsDaily()
 	t.FieldDateId = fbsutils.Convert(e.FieldDateId(), t.FlatBuffer.TableKey)
-	t.Opendate = fbsutils.Convert(e.Opendate(), t.FlatBuffer.TableKey)
-	t.AssetPath = fbsutils.Convert(string(e.AssetPath()), t.FlatBuffer.TableKey)
-	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
-	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
-	t.QuestNamKey = fbsutils.Convert(e.QuestNamKey(), t.FlatBuffer.TableKey)
 	t.QuestDescKey = fbsutils.Convert(e.QuestDescKey(), t.FlatBuffer.TableKey)
 	return nil
 }

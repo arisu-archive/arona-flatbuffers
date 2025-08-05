@@ -33,7 +33,7 @@ func (rcv *BGM_GlobalExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *BGM_GlobalExcel) GroupBgmId() int64 {
+func (rcv *BGM_GlobalExcel) BgmIdTh() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *BGM_GlobalExcel) GroupBgmId() int64 {
 	return 0
 }
 
-func (rcv *BGM_GlobalExcel) MutateGroupBgmId(n int64) bool {
+func (rcv *BGM_GlobalExcel) MutateBgmIdTh(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *BGM_GlobalExcel) BgmIdKr() int64 {
+func (rcv *BGM_GlobalExcel) BgmIdTw() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *BGM_GlobalExcel) BgmIdKr() int64 {
 	return 0
 }
 
-func (rcv *BGM_GlobalExcel) MutateBgmIdKr(n int64) bool {
+func (rcv *BGM_GlobalExcel) MutateBgmIdTw(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *BGM_GlobalExcel) BgmIdJp() int64 {
+func (rcv *BGM_GlobalExcel) BgmIdKr() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *BGM_GlobalExcel) BgmIdJp() int64 {
 	return 0
 }
 
-func (rcv *BGM_GlobalExcel) MutateBgmIdJp(n int64) bool {
+func (rcv *BGM_GlobalExcel) MutateBgmIdKr(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *BGM_GlobalExcel) BgmIdTh() int64 {
+func (rcv *BGM_GlobalExcel) BgmIdEn() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,11 +77,11 @@ func (rcv *BGM_GlobalExcel) BgmIdTh() int64 {
 	return 0
 }
 
-func (rcv *BGM_GlobalExcel) MutateBgmIdTh(n int64) bool {
+func (rcv *BGM_GlobalExcel) MutateBgmIdEn(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *BGM_GlobalExcel) BgmIdTw() int64 {
+func (rcv *BGM_GlobalExcel) GroupBgmId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,11 +89,11 @@ func (rcv *BGM_GlobalExcel) BgmIdTw() int64 {
 	return 0
 }
 
-func (rcv *BGM_GlobalExcel) MutateBgmIdTw(n int64) bool {
+func (rcv *BGM_GlobalExcel) MutateGroupBgmId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *BGM_GlobalExcel) BgmIdEn() int64 {
+func (rcv *BGM_GlobalExcel) BgmIdJp() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,30 +101,30 @@ func (rcv *BGM_GlobalExcel) BgmIdEn() int64 {
 	return 0
 }
 
-func (rcv *BGM_GlobalExcel) MutateBgmIdEn(n int64) bool {
+func (rcv *BGM_GlobalExcel) MutateBgmIdJp(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func BGM_GlobalExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func BGM_GlobalExcelAddGroupBgmId(builder *flatbuffers.Builder, groupBgmId int64) {
-	builder.PrependInt64Slot(0, groupBgmId, 0)
-}
-func BGM_GlobalExcelAddBgmIdKr(builder *flatbuffers.Builder, bgmIdKr int64) {
-	builder.PrependInt64Slot(1, bgmIdKr, 0)
-}
-func BGM_GlobalExcelAddBgmIdJp(builder *flatbuffers.Builder, bgmIdJp int64) {
-	builder.PrependInt64Slot(2, bgmIdJp, 0)
-}
 func BGM_GlobalExcelAddBgmIdTh(builder *flatbuffers.Builder, bgmIdTh int64) {
-	builder.PrependInt64Slot(3, bgmIdTh, 0)
+	builder.PrependInt64Slot(0, bgmIdTh, 0)
 }
 func BGM_GlobalExcelAddBgmIdTw(builder *flatbuffers.Builder, bgmIdTw int64) {
-	builder.PrependInt64Slot(4, bgmIdTw, 0)
+	builder.PrependInt64Slot(1, bgmIdTw, 0)
+}
+func BGM_GlobalExcelAddBgmIdKr(builder *flatbuffers.Builder, bgmIdKr int64) {
+	builder.PrependInt64Slot(2, bgmIdKr, 0)
 }
 func BGM_GlobalExcelAddBgmIdEn(builder *flatbuffers.Builder, bgmIdEn int64) {
-	builder.PrependInt64Slot(5, bgmIdEn, 0)
+	builder.PrependInt64Slot(3, bgmIdEn, 0)
+}
+func BGM_GlobalExcelAddGroupBgmId(builder *flatbuffers.Builder, groupBgmId int64) {
+	builder.PrependInt64Slot(4, groupBgmId, 0)
+}
+func BGM_GlobalExcelAddBgmIdJp(builder *flatbuffers.Builder, bgmIdJp int64) {
+	builder.PrependInt64Slot(5, bgmIdJp, 0)
 }
 func BGM_GlobalExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

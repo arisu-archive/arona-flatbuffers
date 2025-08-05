@@ -1,22 +1,22 @@
 namespace MX.Data.Excel;
 
 table LocalizeSkillExcel {
-    key: uint;
-    name_kr: string;
     description_kr: string;
-    skill_invoke_localize_kr: string;
-    name_jp: string;
-    description_jp: string;
-    skill_invoke_localize_jp: string;
-    name_th: string;
-    description_th: string;
-    skill_invoke_localize_th: string;
-    name_tw: string;
     description_tw: string;
-    skill_invoke_localize_tw: string;
-    name_en: string;
+    skill_invoke_localize_th: string;
+    key: uint;
     description_en: string;
+    skill_invoke_localize_jp: string;
     skill_invoke_localize_en: string;
+    name_jp: string;
+    skill_invoke_localize_tw: string;
+    name_th: string;
+    name_en: string;
+    description_jp: string;
+    name_tw: string;
+    name_kr: string;
+    skill_invoke_localize_kr: string;
+    description_th: string;
 }
 
 root_type LocalizeSkillExcel;

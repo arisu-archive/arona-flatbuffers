@@ -25,60 +25,60 @@ class ScenarioModeExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ScenarioModeExcel
-    def ModeId(self):
+    def BattleDuration(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ScenarioModeExcel
-    def ModeType(self):
+    def Lof(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # ScenarioModeExcel
-    def SubType(self):
+    def EventContentCondition(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
-    def VolumeId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ScenarioModeExcel
     def ChapterId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ScenarioModeExcel
-    def EpisodeId(self):
+    def Hide(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # ScenarioModeExcel
+    def EventIconParcelPath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ScenarioModeExcel
+    def ModeId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ScenarioModeExcel
     def ExposedTime(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
-
-    # ScenarioModeExcel
-    def Hide(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
 
     # ScenarioModeExcel
     def Open(self):
@@ -88,91 +88,8 @@ class ScenarioModeExcel(object):
         return False
 
     # ScenarioModeExcel
-    def ScenarioOpenDate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ScenarioModeExcel
-    def ScenarioCloseDate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ScenarioModeExcel
-    def IsContinue(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # ScenarioModeExcel
-    def EpisodeContinueModeId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
-    def FrontScenarioGroupId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # ScenarioModeExcel
-    def FrontScenarioGroupIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # ScenarioModeExcel
-    def FrontScenarioGroupIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # ScenarioModeExcel
-    def FrontScenarioGroupIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        return o == 0
-
-    # ScenarioModeExcel
-    def StrategyId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
-    def GroundId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
-    def IsDefeatBattle(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # ScenarioModeExcel
-    def BattleDuration(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
     def BackScenarioGroupId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -180,26 +97,172 @@ class ScenarioModeExcel(object):
 
     # ScenarioModeExcel
     def BackScenarioGroupIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # ScenarioModeExcel
     def BackScenarioGroupIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # ScenarioModeExcel
     def BackScenarioGroupIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         return o == 0
 
     # ScenarioModeExcel
-    def ClearedModeId(self, j):
+    def EpisodeId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def CompleteReportEventName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ScenarioModeExcel
+    def StepIndex(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def AccountLevelLimit(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def StageTopography(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def EventContentType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def FrontScenarioGroupId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # ScenarioModeExcel
+    def FrontScenarioGroupIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # ScenarioModeExcel
+    def FrontScenarioGroupIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ScenarioModeExcel
+    def FrontScenarioGroupIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        return o == 0
+
+    # ScenarioModeExcel
+    def ScenarioCloseDate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ScenarioModeExcel
+    def EventContentConditionGroup(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def VolumeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def FixedEchelonId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def IsContinue(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # ScenarioModeExcel
+    def CollectionGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def NeedClubStudentCount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def ScenarioOpenDate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ScenarioModeExcel
+    def ScenarioModeRewardId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def EchelonExtensionType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def SubType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def ClearedModeId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -207,165 +270,102 @@ class ScenarioModeExcel(object):
 
     # ScenarioModeExcel
     def ClearedModeIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # ScenarioModeExcel
     def ClearedModeIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # ScenarioModeExcel
     def ClearedModeIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         return o == 0
 
     # ScenarioModeExcel
-    def ScenarioModeRewardId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
-    def IsScenarioSpecialReward(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # ScenarioModeExcel
-    def AccountLevelLimit(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
-    def ClearedStageId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
-    def NeedClub(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
-    def NeedClubStudentCount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
-    def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
-    def EventContentType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
-    def EventContentCondition(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
-    def EventContentConditionGroup(self):
+    def EpisodeContinueModeId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ScenarioModeExcel
-    def MapDifficulty(self):
+    def ClearedStageId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ScenarioModeExcel
-    def StepIndex(self):
+    def GroundId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def EventBannerTitle(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioModeExcel
+    def ModeType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ScenarioModeExcel
     def RecommendLevel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ScenarioModeExcel
-    def EventIconParcelPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ScenarioModeExcel
-    def EventBannerTitle(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ScenarioModeExcel
-    def Lof(self):
+    def NeedClub(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # ScenarioModeExcel
-    def StageTopography(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(76))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ScenarioModeExcel
-    def FixedEchelonId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(78))
+    def StrategyId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(76))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ScenarioModeExcel
-    def CompleteReportEventName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
+    def IsScenarioSpecialReward(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(78))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # ScenarioModeExcel
-    def EchelonExtensionType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
+    def MapDifficulty(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ScenarioModeExcel
-    def CollectionGroupId(self):
+    def IsDefeatBattle(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # ScenarioModeExcel
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -374,138 +374,138 @@ class ScenarioModeExcel(object):
 def ScenarioModeExcelStart(builder): builder.StartObject(41)
 def Start(builder):
     return ScenarioModeExcelStart(builder)
-def ScenarioModeExcelAddModeId(builder, modeId): builder.PrependInt64Slot(0, modeId, 0)
-def AddModeId(builder, modeId):
-    return ScenarioModeExcelAddModeId(builder, modeId)
-def ScenarioModeExcelAddModeType(builder, modeType): builder.PrependInt32Slot(1, modeType, 0)
-def AddModeType(builder, modeType):
-    return ScenarioModeExcelAddModeType(builder, modeType)
-def ScenarioModeExcelAddSubType(builder, subType): builder.PrependInt32Slot(2, subType, 0)
-def AddSubType(builder, subType):
-    return ScenarioModeExcelAddSubType(builder, subType)
-def ScenarioModeExcelAddVolumeId(builder, volumeId): builder.PrependInt64Slot(3, volumeId, 0)
-def AddVolumeId(builder, volumeId):
-    return ScenarioModeExcelAddVolumeId(builder, volumeId)
-def ScenarioModeExcelAddChapterId(builder, chapterId): builder.PrependInt64Slot(4, chapterId, 0)
+def ScenarioModeExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(0, battleDuration, 0)
+def AddBattleDuration(builder, battleDuration):
+    return ScenarioModeExcelAddBattleDuration(builder, battleDuration)
+def ScenarioModeExcelAddLof(builder, lof): builder.PrependBoolSlot(1, lof, 0)
+def AddLof(builder, lof):
+    return ScenarioModeExcelAddLof(builder, lof)
+def ScenarioModeExcelAddEventContentCondition(builder, eventContentCondition): builder.PrependInt64Slot(2, eventContentCondition, 0)
+def AddEventContentCondition(builder, eventContentCondition):
+    return ScenarioModeExcelAddEventContentCondition(builder, eventContentCondition)
+def ScenarioModeExcelAddChapterId(builder, chapterId): builder.PrependInt64Slot(3, chapterId, 0)
 def AddChapterId(builder, chapterId):
     return ScenarioModeExcelAddChapterId(builder, chapterId)
-def ScenarioModeExcelAddEpisodeId(builder, episodeId): builder.PrependInt64Slot(5, episodeId, 0)
-def AddEpisodeId(builder, episodeId):
-    return ScenarioModeExcelAddEpisodeId(builder, episodeId)
-def ScenarioModeExcelAddExposedTime(builder, exposedTime): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(exposedTime), 0)
-def AddExposedTime(builder, exposedTime):
-    return ScenarioModeExcelAddExposedTime(builder, exposedTime)
-def ScenarioModeExcelAddHide(builder, hide): builder.PrependBoolSlot(7, hide, 0)
+def ScenarioModeExcelAddHide(builder, hide): builder.PrependBoolSlot(4, hide, 0)
 def AddHide(builder, hide):
     return ScenarioModeExcelAddHide(builder, hide)
+def ScenarioModeExcelAddEventIconParcelPath(builder, eventIconParcelPath): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(eventIconParcelPath), 0)
+def AddEventIconParcelPath(builder, eventIconParcelPath):
+    return ScenarioModeExcelAddEventIconParcelPath(builder, eventIconParcelPath)
+def ScenarioModeExcelAddModeId(builder, modeId): builder.PrependInt64Slot(6, modeId, 0)
+def AddModeId(builder, modeId):
+    return ScenarioModeExcelAddModeId(builder, modeId)
+def ScenarioModeExcelAddExposedTime(builder, exposedTime): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(exposedTime), 0)
+def AddExposedTime(builder, exposedTime):
+    return ScenarioModeExcelAddExposedTime(builder, exposedTime)
 def ScenarioModeExcelAddOpen(builder, open): builder.PrependBoolSlot(8, open, 0)
 def AddOpen(builder, open):
     return ScenarioModeExcelAddOpen(builder, open)
-def ScenarioModeExcelAddScenarioOpenDate(builder, scenarioOpenDate): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioOpenDate), 0)
-def AddScenarioOpenDate(builder, scenarioOpenDate):
-    return ScenarioModeExcelAddScenarioOpenDate(builder, scenarioOpenDate)
-def ScenarioModeExcelAddScenarioCloseDate(builder, scenarioCloseDate): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioCloseDate), 0)
-def AddScenarioCloseDate(builder, scenarioCloseDate):
-    return ScenarioModeExcelAddScenarioCloseDate(builder, scenarioCloseDate)
-def ScenarioModeExcelAddIsContinue(builder, isContinue): builder.PrependBoolSlot(11, isContinue, 0)
-def AddIsContinue(builder, isContinue):
-    return ScenarioModeExcelAddIsContinue(builder, isContinue)
-def ScenarioModeExcelAddEpisodeContinueModeId(builder, episodeContinueModeId): builder.PrependInt64Slot(12, episodeContinueModeId, 0)
-def AddEpisodeContinueModeId(builder, episodeContinueModeId):
-    return ScenarioModeExcelAddEpisodeContinueModeId(builder, episodeContinueModeId)
-def ScenarioModeExcelAddFrontScenarioGroupId(builder, frontScenarioGroupId): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(frontScenarioGroupId), 0)
-def AddFrontScenarioGroupId(builder, frontScenarioGroupId):
-    return ScenarioModeExcelAddFrontScenarioGroupId(builder, frontScenarioGroupId)
-def ScenarioModeExcelStartFrontScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartFrontScenarioGroupIdVector(builder, numElems):
-    return ScenarioModeExcelStartFrontScenarioGroupIdVector(builder, numElems)
-def ScenarioModeExcelAddStrategyId(builder, strategyId): builder.PrependInt64Slot(14, strategyId, 0)
-def AddStrategyId(builder, strategyId):
-    return ScenarioModeExcelAddStrategyId(builder, strategyId)
-def ScenarioModeExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(15, groundId, 0)
-def AddGroundId(builder, groundId):
-    return ScenarioModeExcelAddGroundId(builder, groundId)
-def ScenarioModeExcelAddIsDefeatBattle(builder, isDefeatBattle): builder.PrependBoolSlot(16, isDefeatBattle, 0)
-def AddIsDefeatBattle(builder, isDefeatBattle):
-    return ScenarioModeExcelAddIsDefeatBattle(builder, isDefeatBattle)
-def ScenarioModeExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(17, battleDuration, 0)
-def AddBattleDuration(builder, battleDuration):
-    return ScenarioModeExcelAddBattleDuration(builder, battleDuration)
-def ScenarioModeExcelAddBackScenarioGroupId(builder, backScenarioGroupId): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(backScenarioGroupId), 0)
+def ScenarioModeExcelAddBackScenarioGroupId(builder, backScenarioGroupId): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(backScenarioGroupId), 0)
 def AddBackScenarioGroupId(builder, backScenarioGroupId):
     return ScenarioModeExcelAddBackScenarioGroupId(builder, backScenarioGroupId)
 def ScenarioModeExcelStartBackScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartBackScenarioGroupIdVector(builder, numElems):
     return ScenarioModeExcelStartBackScenarioGroupIdVector(builder, numElems)
-def ScenarioModeExcelAddClearedModeId(builder, clearedModeId): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(clearedModeId), 0)
+def ScenarioModeExcelAddEpisodeId(builder, episodeId): builder.PrependInt64Slot(10, episodeId, 0)
+def AddEpisodeId(builder, episodeId):
+    return ScenarioModeExcelAddEpisodeId(builder, episodeId)
+def ScenarioModeExcelAddCompleteReportEventName(builder, completeReportEventName): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(completeReportEventName), 0)
+def AddCompleteReportEventName(builder, completeReportEventName):
+    return ScenarioModeExcelAddCompleteReportEventName(builder, completeReportEventName)
+def ScenarioModeExcelAddStepIndex(builder, stepIndex): builder.PrependInt32Slot(12, stepIndex, 0)
+def AddStepIndex(builder, stepIndex):
+    return ScenarioModeExcelAddStepIndex(builder, stepIndex)
+def ScenarioModeExcelAddAccountLevelLimit(builder, accountLevelLimit): builder.PrependInt64Slot(13, accountLevelLimit, 0)
+def AddAccountLevelLimit(builder, accountLevelLimit):
+    return ScenarioModeExcelAddAccountLevelLimit(builder, accountLevelLimit)
+def ScenarioModeExcelAddStageTopography(builder, stageTopography): builder.PrependInt32Slot(14, stageTopography, 0)
+def AddStageTopography(builder, stageTopography):
+    return ScenarioModeExcelAddStageTopography(builder, stageTopography)
+def ScenarioModeExcelAddEventContentType(builder, eventContentType): builder.PrependInt32Slot(15, eventContentType, 0)
+def AddEventContentType(builder, eventContentType):
+    return ScenarioModeExcelAddEventContentType(builder, eventContentType)
+def ScenarioModeExcelAddFrontScenarioGroupId(builder, frontScenarioGroupId): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(frontScenarioGroupId), 0)
+def AddFrontScenarioGroupId(builder, frontScenarioGroupId):
+    return ScenarioModeExcelAddFrontScenarioGroupId(builder, frontScenarioGroupId)
+def ScenarioModeExcelStartFrontScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartFrontScenarioGroupIdVector(builder, numElems):
+    return ScenarioModeExcelStartFrontScenarioGroupIdVector(builder, numElems)
+def ScenarioModeExcelAddScenarioCloseDate(builder, scenarioCloseDate): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioCloseDate), 0)
+def AddScenarioCloseDate(builder, scenarioCloseDate):
+    return ScenarioModeExcelAddScenarioCloseDate(builder, scenarioCloseDate)
+def ScenarioModeExcelAddEventContentConditionGroup(builder, eventContentConditionGroup): builder.PrependInt64Slot(18, eventContentConditionGroup, 0)
+def AddEventContentConditionGroup(builder, eventContentConditionGroup):
+    return ScenarioModeExcelAddEventContentConditionGroup(builder, eventContentConditionGroup)
+def ScenarioModeExcelAddVolumeId(builder, volumeId): builder.PrependInt64Slot(19, volumeId, 0)
+def AddVolumeId(builder, volumeId):
+    return ScenarioModeExcelAddVolumeId(builder, volumeId)
+def ScenarioModeExcelAddFixedEchelonId(builder, fixedEchelonId): builder.PrependInt64Slot(20, fixedEchelonId, 0)
+def AddFixedEchelonId(builder, fixedEchelonId):
+    return ScenarioModeExcelAddFixedEchelonId(builder, fixedEchelonId)
+def ScenarioModeExcelAddIsContinue(builder, isContinue): builder.PrependBoolSlot(21, isContinue, 0)
+def AddIsContinue(builder, isContinue):
+    return ScenarioModeExcelAddIsContinue(builder, isContinue)
+def ScenarioModeExcelAddCollectionGroupId(builder, collectionGroupId): builder.PrependInt64Slot(22, collectionGroupId, 0)
+def AddCollectionGroupId(builder, collectionGroupId):
+    return ScenarioModeExcelAddCollectionGroupId(builder, collectionGroupId)
+def ScenarioModeExcelAddNeedClubStudentCount(builder, needClubStudentCount): builder.PrependInt32Slot(23, needClubStudentCount, 0)
+def AddNeedClubStudentCount(builder, needClubStudentCount):
+    return ScenarioModeExcelAddNeedClubStudentCount(builder, needClubStudentCount)
+def ScenarioModeExcelAddScenarioOpenDate(builder, scenarioOpenDate): builder.PrependUOffsetTRelativeSlot(24, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioOpenDate), 0)
+def AddScenarioOpenDate(builder, scenarioOpenDate):
+    return ScenarioModeExcelAddScenarioOpenDate(builder, scenarioOpenDate)
+def ScenarioModeExcelAddScenarioModeRewardId(builder, scenarioModeRewardId): builder.PrependInt64Slot(25, scenarioModeRewardId, 0)
+def AddScenarioModeRewardId(builder, scenarioModeRewardId):
+    return ScenarioModeExcelAddScenarioModeRewardId(builder, scenarioModeRewardId)
+def ScenarioModeExcelAddEchelonExtensionType(builder, echelonExtensionType): builder.PrependInt32Slot(26, echelonExtensionType, 0)
+def AddEchelonExtensionType(builder, echelonExtensionType):
+    return ScenarioModeExcelAddEchelonExtensionType(builder, echelonExtensionType)
+def ScenarioModeExcelAddSubType(builder, subType): builder.PrependInt32Slot(27, subType, 0)
+def AddSubType(builder, subType):
+    return ScenarioModeExcelAddSubType(builder, subType)
+def ScenarioModeExcelAddClearedModeId(builder, clearedModeId): builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(clearedModeId), 0)
 def AddClearedModeId(builder, clearedModeId):
     return ScenarioModeExcelAddClearedModeId(builder, clearedModeId)
 def ScenarioModeExcelStartClearedModeIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartClearedModeIdVector(builder, numElems):
     return ScenarioModeExcelStartClearedModeIdVector(builder, numElems)
-def ScenarioModeExcelAddScenarioModeRewardId(builder, scenarioModeRewardId): builder.PrependInt64Slot(20, scenarioModeRewardId, 0)
-def AddScenarioModeRewardId(builder, scenarioModeRewardId):
-    return ScenarioModeExcelAddScenarioModeRewardId(builder, scenarioModeRewardId)
-def ScenarioModeExcelAddIsScenarioSpecialReward(builder, isScenarioSpecialReward): builder.PrependBoolSlot(21, isScenarioSpecialReward, 0)
-def AddIsScenarioSpecialReward(builder, isScenarioSpecialReward):
-    return ScenarioModeExcelAddIsScenarioSpecialReward(builder, isScenarioSpecialReward)
-def ScenarioModeExcelAddAccountLevelLimit(builder, accountLevelLimit): builder.PrependInt64Slot(22, accountLevelLimit, 0)
-def AddAccountLevelLimit(builder, accountLevelLimit):
-    return ScenarioModeExcelAddAccountLevelLimit(builder, accountLevelLimit)
-def ScenarioModeExcelAddClearedStageId(builder, clearedStageId): builder.PrependInt64Slot(23, clearedStageId, 0)
+def ScenarioModeExcelAddEpisodeContinueModeId(builder, episodeContinueModeId): builder.PrependInt64Slot(29, episodeContinueModeId, 0)
+def AddEpisodeContinueModeId(builder, episodeContinueModeId):
+    return ScenarioModeExcelAddEpisodeContinueModeId(builder, episodeContinueModeId)
+def ScenarioModeExcelAddClearedStageId(builder, clearedStageId): builder.PrependInt64Slot(30, clearedStageId, 0)
 def AddClearedStageId(builder, clearedStageId):
     return ScenarioModeExcelAddClearedStageId(builder, clearedStageId)
-def ScenarioModeExcelAddNeedClub(builder, needClub): builder.PrependInt32Slot(24, needClub, 0)
-def AddNeedClub(builder, needClub):
-    return ScenarioModeExcelAddNeedClub(builder, needClub)
-def ScenarioModeExcelAddNeedClubStudentCount(builder, needClubStudentCount): builder.PrependInt32Slot(25, needClubStudentCount, 0)
-def AddNeedClubStudentCount(builder, needClubStudentCount):
-    return ScenarioModeExcelAddNeedClubStudentCount(builder, needClubStudentCount)
-def ScenarioModeExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(26, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return ScenarioModeExcelAddEventContentId(builder, eventContentId)
-def ScenarioModeExcelAddEventContentType(builder, eventContentType): builder.PrependInt32Slot(27, eventContentType, 0)
-def AddEventContentType(builder, eventContentType):
-    return ScenarioModeExcelAddEventContentType(builder, eventContentType)
-def ScenarioModeExcelAddEventContentCondition(builder, eventContentCondition): builder.PrependInt64Slot(28, eventContentCondition, 0)
-def AddEventContentCondition(builder, eventContentCondition):
-    return ScenarioModeExcelAddEventContentCondition(builder, eventContentCondition)
-def ScenarioModeExcelAddEventContentConditionGroup(builder, eventContentConditionGroup): builder.PrependInt64Slot(29, eventContentConditionGroup, 0)
-def AddEventContentConditionGroup(builder, eventContentConditionGroup):
-    return ScenarioModeExcelAddEventContentConditionGroup(builder, eventContentConditionGroup)
-def ScenarioModeExcelAddMapDifficulty(builder, mapDifficulty): builder.PrependInt32Slot(30, mapDifficulty, 0)
-def AddMapDifficulty(builder, mapDifficulty):
-    return ScenarioModeExcelAddMapDifficulty(builder, mapDifficulty)
-def ScenarioModeExcelAddStepIndex(builder, stepIndex): builder.PrependInt32Slot(31, stepIndex, 0)
-def AddStepIndex(builder, stepIndex):
-    return ScenarioModeExcelAddStepIndex(builder, stepIndex)
-def ScenarioModeExcelAddRecommendLevel(builder, recommendLevel): builder.PrependInt32Slot(32, recommendLevel, 0)
-def AddRecommendLevel(builder, recommendLevel):
-    return ScenarioModeExcelAddRecommendLevel(builder, recommendLevel)
-def ScenarioModeExcelAddEventIconParcelPath(builder, eventIconParcelPath): builder.PrependUOffsetTRelativeSlot(33, flatbuffers.number_types.UOffsetTFlags.py_type(eventIconParcelPath), 0)
-def AddEventIconParcelPath(builder, eventIconParcelPath):
-    return ScenarioModeExcelAddEventIconParcelPath(builder, eventIconParcelPath)
-def ScenarioModeExcelAddEventBannerTitle(builder, eventBannerTitle): builder.PrependUint32Slot(34, eventBannerTitle, 0)
+def ScenarioModeExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(31, groundId, 0)
+def AddGroundId(builder, groundId):
+    return ScenarioModeExcelAddGroundId(builder, groundId)
+def ScenarioModeExcelAddEventBannerTitle(builder, eventBannerTitle): builder.PrependUint32Slot(32, eventBannerTitle, 0)
 def AddEventBannerTitle(builder, eventBannerTitle):
     return ScenarioModeExcelAddEventBannerTitle(builder, eventBannerTitle)
-def ScenarioModeExcelAddLof(builder, lof): builder.PrependBoolSlot(35, lof, 0)
-def AddLof(builder, lof):
-    return ScenarioModeExcelAddLof(builder, lof)
-def ScenarioModeExcelAddStageTopography(builder, stageTopography): builder.PrependInt32Slot(36, stageTopography, 0)
-def AddStageTopography(builder, stageTopography):
-    return ScenarioModeExcelAddStageTopography(builder, stageTopography)
-def ScenarioModeExcelAddFixedEchelonId(builder, fixedEchelonId): builder.PrependInt64Slot(37, fixedEchelonId, 0)
-def AddFixedEchelonId(builder, fixedEchelonId):
-    return ScenarioModeExcelAddFixedEchelonId(builder, fixedEchelonId)
-def ScenarioModeExcelAddCompleteReportEventName(builder, completeReportEventName): builder.PrependUOffsetTRelativeSlot(38, flatbuffers.number_types.UOffsetTFlags.py_type(completeReportEventName), 0)
-def AddCompleteReportEventName(builder, completeReportEventName):
-    return ScenarioModeExcelAddCompleteReportEventName(builder, completeReportEventName)
-def ScenarioModeExcelAddEchelonExtensionType(builder, echelonExtensionType): builder.PrependInt32Slot(39, echelonExtensionType, 0)
-def AddEchelonExtensionType(builder, echelonExtensionType):
-    return ScenarioModeExcelAddEchelonExtensionType(builder, echelonExtensionType)
-def ScenarioModeExcelAddCollectionGroupId(builder, collectionGroupId): builder.PrependInt64Slot(40, collectionGroupId, 0)
-def AddCollectionGroupId(builder, collectionGroupId):
-    return ScenarioModeExcelAddCollectionGroupId(builder, collectionGroupId)
+def ScenarioModeExcelAddModeType(builder, modeType): builder.PrependInt32Slot(33, modeType, 0)
+def AddModeType(builder, modeType):
+    return ScenarioModeExcelAddModeType(builder, modeType)
+def ScenarioModeExcelAddRecommendLevel(builder, recommendLevel): builder.PrependInt32Slot(34, recommendLevel, 0)
+def AddRecommendLevel(builder, recommendLevel):
+    return ScenarioModeExcelAddRecommendLevel(builder, recommendLevel)
+def ScenarioModeExcelAddNeedClub(builder, needClub): builder.PrependInt32Slot(35, needClub, 0)
+def AddNeedClub(builder, needClub):
+    return ScenarioModeExcelAddNeedClub(builder, needClub)
+def ScenarioModeExcelAddStrategyId(builder, strategyId): builder.PrependInt64Slot(36, strategyId, 0)
+def AddStrategyId(builder, strategyId):
+    return ScenarioModeExcelAddStrategyId(builder, strategyId)
+def ScenarioModeExcelAddIsScenarioSpecialReward(builder, isScenarioSpecialReward): builder.PrependBoolSlot(37, isScenarioSpecialReward, 0)
+def AddIsScenarioSpecialReward(builder, isScenarioSpecialReward):
+    return ScenarioModeExcelAddIsScenarioSpecialReward(builder, isScenarioSpecialReward)
+def ScenarioModeExcelAddMapDifficulty(builder, mapDifficulty): builder.PrependInt32Slot(38, mapDifficulty, 0)
+def AddMapDifficulty(builder, mapDifficulty):
+    return ScenarioModeExcelAddMapDifficulty(builder, mapDifficulty)
+def ScenarioModeExcelAddIsDefeatBattle(builder, isDefeatBattle): builder.PrependBoolSlot(39, isDefeatBattle, 0)
+def AddIsDefeatBattle(builder, isDefeatBattle):
+    return ScenarioModeExcelAddIsDefeatBattle(builder, isDefeatBattle)
+def ScenarioModeExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(40, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return ScenarioModeExcelAddEventContentId(builder, eventContentId)
 def ScenarioModeExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ScenarioModeExcelEnd(builder)

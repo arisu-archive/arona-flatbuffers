@@ -5,13 +5,13 @@ namespace FlatData;
 
 table RecipeCraftExcel {
     id: long;
-    dev_name: string;
-    recipe_type: RecipeType;
-    recipe_ingredient_id: long;
+    parcel_dev_name: [string];
     recipe_ingredient_dev_name: string;
+    result_amount_max: [long];
     parcel_type: [ParcelType];
     parcel_id: [long];
-    parcel_dev_name: [string];
+    recipe_ingredient_id: long;
+    recipe_type: RecipeType;
     result_amount_min: [long];
-    result_amount_max: [long];
+    dev_name: string;
 }

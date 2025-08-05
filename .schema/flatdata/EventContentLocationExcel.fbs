@@ -3,15 +3,15 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table EventContentLocationExcel {
-    event_content_id: long;
-    id: long;
-    localize_etc_id: uint;
-    prefab_path: string;
-    location_reset_schedule_count: int;
     schedule_event_point_cost_parcel_type: ParcelType;
-    schedule_event_point_cost_parcel_id: long;
-    schedule_event_point_cost_parcel_amount: long;
-    reward_parcel_type: ParcelType;
     reward_parcel_id: long;
+    schedule_event_point_cost_parcel_amount: long;
     information_group_id: long;
+    schedule_event_point_cost_parcel_id: long;
+    id: long;
+    prefab_path: string;
+    localize_etc_id: uint;
+    event_content_id: long;
+    reward_parcel_type: ParcelType;
+    location_reset_schedule_count: int;
 }

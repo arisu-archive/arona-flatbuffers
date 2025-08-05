@@ -10,101 +10,103 @@ import (
 // ConstCombatExcelDto represents a FlatBuffers table
 type ConstCombatExcelDto struct {
 	fbsutils.FlatBuffer
-	SkillHandCount                                  int32   `json:"skill_hand_count"`
-	DyingTime                                       int32   `json:"dying_time"`
-	BuffIconBlinkTime                               int32   `json:"buff_icon_blink_time"`
-	ShowBufficonExSkill                             bool    `json:"show_bufficon_ex_skill"`
-	ShowBufficonPassiveSkill                        bool    `json:"show_bufficon_passive_skill"`
-	ShowBufficonExtraPassiveSkill                   bool    `json:"show_bufficon_extra_passive_skill"`
-	ShowBufficonLeaderSkill                         bool    `json:"show_bufficon_leader_skill"`
-	ShowBufficonGroundPassiveSkill                  bool    `json:"show_bufficon_ground_passive_skill"`
-	SuppliesConditionStringId                       string  `json:"supplies_condition_string_id"`
-	PublicSpeechBubbleOffsetX                       float32 `json:"public_speech_bubble_offset_x"`
-	PublicSpeechBubbleOffsetY                       float32 `json:"public_speech_bubble_offset_y"`
-	PublicSpeechBubbleOffsetZ                       float32 `json:"public_speech_bubble_offset_z"`
-	ShowRaidListCount                               int32   `json:"show_raid_list_count"`
-	MaxRaidTicketCount                              int64   `json:"max_raid_ticket_count"`
-	MaxRaidBossSkillSlot                            int64   `json:"max_raid_boss_skill_slot"`
-	EngageTimelinePath                              string  `json:"engage_timeline_path"`
-	EngageWithSupporterTimelinePath                 string  `json:"engage_with_supporter_timeline_path"`
-	VictoryTimelinePath                             string  `json:"victory_timeline_path"`
-	TimeLimitAlarm                                  int64   `json:"time_limit_alarm"`
-	EchelonMaxCommonCost                            int32   `json:"echelon_max_common_cost"`
-	EchelonInitCommonCost                           int32   `json:"echelon_init_common_cost"`
 	SkillSlotCoolTime                               int64   `json:"skill_slot_cool_time"`
-	EnemyRegenCost                                  int64   `json:"enemy_regen_cost"`
-	ChampionRegenCost                               int64   `json:"champion_regen_cost"`
-	PlayerRegenCostDelay                            int64   `json:"player_regen_cost_delay"`
-	CrowdControlFactor                              int64   `json:"crowd_control_factor"`
-	RaidOpenScenarioId                              string  `json:"raid_open_scenario_id"`
-	EliminateRaidOpenScenarioId                     string  `json:"eliminate_raid_open_scenario_id"`
-	DefenceConstA                                   int64   `json:"defence_const_a"`
-	DefenceConstB                                   int64   `json:"defence_const_b"`
-	DefenceConstC                                   int64   `json:"defence_const_c"`
+	EchelonExtensionCostRegenRatio                  int64   `json:"echelon_extension_cost_regen_ratio"`
+	VictoryInteractionRate                          int64   `json:"victory_interaction_rate"`
 	DefenceConstD                                   int64   `json:"defence_const_d"`
+	WorldbossbattlemiddleAsia                       int64   `json:"worldbossbattlemiddle_asia"`
+	ChampionRegenCost                               int64   `json:"champion_regen_cost"`
+	CriticalConstC                                  int64   `json:"critical_const_c"`
+	Worldbossbattlelittle                           int64   `json:"worldbossbattlelittle"`
+	WorldbossbattleveryhighGlobal                   int64   `json:"worldbossbattleveryhigh_global"`
+	MaxRaidTicketCount                              int64   `json:"max_raid_ticket_count"`
+	AuraExitThresholdMargin                         int64   `json:"aura_exit_threshold_margin"`
+	EchelonExtensionVictoryTimelinePath             string  `json:"echelon_extension_victory_timeline_path"`
+	TsaInteractionDamageFactor                      int64   `json:"tsa_interaction_damage_factor"`
+	WorldbossbattlelittleTw                         int64   `json:"worldbossbattlelittle_tw"`
+	RaidRankingJumpMinimumWaitingTime               int64   `json:"raid_ranking_jump_minimum_waiting_time"`
+	BulletTimeScale                                 int64   `json:"bullet_time_scale"`
+	WorldbossbattleveryhighTw                       int64   `json:"worldbossbattleveryhigh_tw"`
+	DefenceConstC                                   int64   `json:"defence_const_c"`
+	WorldbossbattlehighAsia                         int64   `json:"worldbossbattlehigh_asia"`
+	SuppliesConditionStringId                       string  `json:"supplies_condition_string_id"`
+	EchelonExtensionEngageTimelinePath              string  `json:"echelon_extension_engage_timeline_path"`
+	RandomAnimationOutput                           int64   `json:"random_animation_output"`
+	ArenaMinimumClearTime                           int32   `json:"arena_minimum_clear_time"`
+	WorldbossbattlemiddleNa                         int64   `json:"worldbossbattlemiddle_na"`
+	PublicSpeechBubbleOffsetX                       float32 `json:"public_speech_bubble_offset_x"`
+	EffectTeleportDistance                          float32 `json:"effect_teleport_distance"`
+	EchelonExtensionEchelonInitCommonCost           int32   `json:"echelon_extension_echelon_init_common_cost"`
+	PublicSpeechBubbleOffsetY                       float32 `json:"public_speech_bubble_offset_y"`
+	AimIkMinDegree                                  float32 `json:"aim_ik_min_degree"`
+	EliminateRaidOpenScenarioId                     string  `json:"eliminate_raid_open_scenario_id"`
+	AccuracyConstC                                  int64   `json:"accuracy_const_c"`
+	EchelonExtensionEngageWithSupporterTimelinePath string  `json:"echelon_extension_engage_with_supporter_timeline_path"`
+	AimIkMaxDegree                                  float32 `json:"aim_ik_max_degree"`
+	CriticalConstA                                  int64   `json:"critical_const_a"`
 	AccuracyConstA                                  int64   `json:"accuracy_const_a"`
 	AccuracyConstB                                  int64   `json:"accuracy_const_b"`
-	AccuracyConstC                                  int64   `json:"accuracy_const_c"`
-	AccuracyConstD                                  int64   `json:"accuracy_const_d"`
-	CriticalConstA                                  int64   `json:"critical_const_a"`
-	CriticalConstB                                  int64   `json:"critical_const_b"`
-	CriticalConstC                                  int64   `json:"critical_const_c"`
-	CriticalConstD                                  int64   `json:"critical_const_d"`
-	MaxGroupBuffLevel                               int32   `json:"max_group_buff_level"`
-	EmojiDefaultTime                                int32   `json:"emoji_default_time"`
-	TimeLineActionRotateSpeed                       int64   `json:"time_line_action_rotate_speed"`
-	BodyRotateSpeed                                 int64   `json:"body_rotate_speed"`
-	NormalTimeScale                                 int64   `json:"normal_time_scale"`
-	FastTimeScale                                   int64   `json:"fast_time_scale"`
-	BulletTimeScale                                 int64   `json:"bullet_time_scale"`
-	UiDisplayDelayAfterSkillCutIn                   int64   `json:"ui_display_delay_after_skill_cut_in"`
-	UseInitialRangeForCoverMove                     bool    `json:"use_initial_range_for_cover_move"`
-	SlowTimeScale                                   int64   `json:"slow_time_scale"`
-	AimIkMinDegree                                  float32 `json:"aim_ik_min_degree"`
-	AimIkMaxDegree                                  float32 `json:"aim_ik_max_degree"`
-	MinimumClearTime                                int32   `json:"minimum_clear_time"`
-	MinimumClearLevelGap                            int32   `json:"minimum_clear_level_gap"`
-	CheckCheaterMaxUseCostNonArena                  int32   `json:"check_cheater_max_use_cost_non_arena"`
-	CheckCheaterMaxUseCostArena                     int32   `json:"check_cheater_max_use_cost_arena"`
-	AllowedMaxTimeScale                             int64   `json:"allowed_max_time_scale"`
-	RandomAnimationOutput                           int64   `json:"random_animation_output"`
-	SummonedTeleportDistance                        int64   `json:"summoned_teleport_distance"`
-	ArenaMinimumClearTime                           int32   `json:"arena_minimum_clear_time"`
-	Worldbossbattlelittle                           int64   `json:"worldbossbattlelittle"`
-	WorldbossbattlelittleTw                         int64   `json:"worldbossbattlelittle_tw"`
-	WorldbossbattlelittleAsia                       int64   `json:"worldbossbattlelittle_asia"`
-	WorldbossbattlelittleNa                         int64   `json:"worldbossbattlelittle_na"`
-	WorldbossbattlelittleGlobal                     int64   `json:"worldbossbattlelittle_global"`
 	Worldbossbattlemiddle                           int64   `json:"worldbossbattlemiddle"`
-	WorldbossbattlemiddleTw                         int64   `json:"worldbossbattlemiddle_tw"`
-	WorldbossbattlemiddleAsia                       int64   `json:"worldbossbattlemiddle_asia"`
-	WorldbossbattlemiddleNa                         int64   `json:"worldbossbattlemiddle_na"`
-	WorldbossbattlemiddleGlobal                     int64   `json:"worldbossbattlemiddle_global"`
-	Worldbossbattlehigh                             int64   `json:"worldbossbattlehigh"`
-	WorldbossbattlehighTw                           int64   `json:"worldbossbattlehigh_tw"`
-	WorldbossbattlehighAsia                         int64   `json:"worldbossbattlehigh_asia"`
+	ShowBufficonGroundPassiveSkill                  bool    `json:"show_bufficon_ground_passive_skill"`
+	DyingTime                                       int32   `json:"dying_time"`
+	WorldbossbattleveryhighNa                       int64   `json:"worldbossbattleveryhigh_na"`
+	WorldRaidAutoSyncTermSecond                     int64   `json:"world_raid_auto_sync_term_second"`
+	BuffIconBlinkTime                               int32   `json:"buff_icon_blink_time"`
+	BodyRotateSpeed                                 int64   `json:"body_rotate_speed"`
+	EngageWithSupporterTimelinePath                 string  `json:"engage_with_supporter_timeline_path"`
+	DefenceConstB                                   int64   `json:"defence_const_b"`
+	CriticalConstB                                  int64   `json:"critical_const_b"`
+	VictoryTimelinePath                             string  `json:"victory_timeline_path"`
+	SummonedTeleportDistance                        int64   `json:"summoned_teleport_distance"`
+	SlowTimeScale                                   int64   `json:"slow_time_scale"`
+	CriticalConstD                                  int64   `json:"critical_const_d"`
+	ExcessiveTouchCheckTime                         float32 `json:"excessive_touch_check_time"`
+	SkillHandCount                                  int32   `json:"skill_hand_count"`
+	MaxRaidBossSkillSlot                            int64   `json:"max_raid_boss_skill_slot"`
+	ShowBufficonPassiveSkill                        bool    `json:"show_bufficon_passive_skill"`
+	UseInitialRangeForCoverMove                     bool    `json:"use_initial_range_for_cover_move"`
+	UiDisplayDelayAfterSkillCutIn                   int64   `json:"ui_display_delay_after_skill_cut_in"`
+	WorldRaidBossHpDecreaseTerm                     int64   `json:"world_raid_boss_hp_decrease_term"`
 	WorldbossbattlehighNa                           int64   `json:"worldbossbattlehigh_na"`
 	WorldbossbattlehighGlobal                       int64   `json:"worldbossbattlehigh_global"`
-	Worldbossbattleveryhigh                         int64   `json:"worldbossbattleveryhigh"`
-	WorldbossbattleveryhighTw                       int64   `json:"worldbossbattleveryhigh_tw"`
-	WorldbossbattleveryhighAsia                     int64   `json:"worldbossbattleveryhigh_asia"`
-	WorldbossbattleveryhighNa                       int64   `json:"worldbossbattleveryhigh_na"`
-	WorldbossbattleveryhighGlobal                   int64   `json:"worldbossbattleveryhigh_global"`
-	WorldRaidAutoSyncTermSecond                     int64   `json:"world_raid_auto_sync_term_second"`
-	WorldRaidBossHpDecreaseTerm                     int64   `json:"world_raid_boss_hp_decrease_term"`
+	AccuracyConstD                                  int64   `json:"accuracy_const_d"`
 	WorldRaidBossParcelReactionDelay                int64   `json:"world_raid_boss_parcel_reaction_delay"`
-	RaidRankingJumpMinimumWaitingTime               int64   `json:"raid_ranking_jump_minimum_waiting_time"`
-	EffectTeleportDistance                          float32 `json:"effect_teleport_distance"`
-	AuraExitThresholdMargin                         int64   `json:"aura_exit_threshold_margin"`
-	TsaInteractionDamageFactor                      int64   `json:"tsa_interaction_damage_factor"`
-	VictoryInteractionRate                          int64   `json:"victory_interaction_rate"`
-	EchelonExtensionEngageTimelinePath              string  `json:"echelon_extension_engage_timeline_path"`
-	EchelonExtensionEngageWithSupporterTimelinePath string  `json:"echelon_extension_engage_with_supporter_timeline_path"`
-	EchelonExtensionVictoryTimelinePath             string  `json:"echelon_extension_victory_timeline_path"`
+	EchelonMaxCommonCost                            int32   `json:"echelon_max_common_cost"`
+	ExcessiveTouchCheckCount                        int32   `json:"excessive_touch_check_count"`
+	MinimumClearLevelGap                            int32   `json:"minimum_clear_level_gap"`
+	TimeLimitAlarm                                  int64   `json:"time_limit_alarm"`
+	MaxGroupBuffLevel                               int32   `json:"max_group_buff_level"`
 	EchelonExtensionEchelonMaxCommonCost            int32   `json:"echelon_extension_echelon_max_common_cost"`
-	EchelonExtensionEchelonInitCommonCost           int32   `json:"echelon_extension_echelon_init_common_cost"`
-	EchelonExtensionCostRegenRatio                  int64   `json:"echelon_extension_cost_regen_ratio"`
+	WorldbossbattlehighTw                           int64   `json:"worldbossbattlehigh_tw"`
+	PublicSpeechBubbleOffsetZ                       float32 `json:"public_speech_bubble_offset_z"`
+	WorldbossbattlemiddleTw                         int64   `json:"worldbossbattlemiddle_tw"`
+	Worldbossbattlehigh                             int64   `json:"worldbossbattlehigh"`
+	ShowBufficonExSkill                             bool    `json:"show_bufficon_ex_skill"`
+	ShowRaidListCount                               int32   `json:"show_raid_list_count"`
+	CheckCheaterMaxUseCostArena                     int32   `json:"check_cheater_max_use_cost_arena"`
+	CheckCheaterMaxUseCostNonArena                  int32   `json:"check_cheater_max_use_cost_non_arena"`
+	NormalTimeScale                                 int64   `json:"normal_time_scale"`
 	CheckCheaterMaxUseCostMultiFloorRaid            int32   `json:"check_cheater_max_use_cost_multi_floor_raid"`
+	EngageTimelinePath                              string  `json:"engage_timeline_path"`
+	CrowdControlFactor                              int64   `json:"crowd_control_factor"`
+	EmojiDefaultTime                                int32   `json:"emoji_default_time"`
+	FastTimeScale                                   int64   `json:"fast_time_scale"`
+	PlayerRegenCostDelay                            int64   `json:"player_regen_cost_delay"`
+	ShowBufficonLeaderSkill                         bool    `json:"show_bufficon_leader_skill"`
+	TimeLineActionRotateSpeed                       int64   `json:"time_line_action_rotate_speed"`
+	Worldbossbattleveryhigh                         int64   `json:"worldbossbattleveryhigh"`
+	WorldbossbattlemiddleGlobal                     int64   `json:"worldbossbattlemiddle_global"`
+	WorldbossbattlelittleGlobal                     int64   `json:"worldbossbattlelittle_global"`
+	WorldbossbattlelittleNa                         int64   `json:"worldbossbattlelittle_na"`
+	RaidOpenScenarioId                              string  `json:"raid_open_scenario_id"`
+	WorldbossbattleveryhighAsia                     int64   `json:"worldbossbattleveryhigh_asia"`
+	AllowedMaxTimeScale                             int64   `json:"allowed_max_time_scale"`
+	MinimumClearTime                                int32   `json:"minimum_clear_time"`
+	EchelonInitCommonCost                           int32   `json:"echelon_init_common_cost"`
+	ShowBufficonExtraPassiveSkill                   bool    `json:"show_bufficon_extra_passive_skill"`
+	EnemyRegenCost                                  int64   `json:"enemy_regen_cost"`
+	WorldbossbattlelittleAsia                       int64   `json:"worldbossbattlelittle_asia"`
+	DefenceConstA                                   int64   `json:"defence_const_a"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -113,101 +115,103 @@ func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstCombat"))
 	}
 	ConstCombatExcelStart(b)
-	ConstCombatExcelAddSkillHandCount(b, fbsutils.Convert(t.SkillHandCount, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddDyingTime(b, fbsutils.Convert(t.DyingTime, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddBuffIconBlinkTime(b, fbsutils.Convert(t.BuffIconBlinkTime, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddShowBufficonExSkill(b, t.ShowBufficonExSkill)
-	ConstCombatExcelAddShowBufficonPassiveSkill(b, t.ShowBufficonPassiveSkill)
-	ConstCombatExcelAddShowBufficonExtraPassiveSkill(b, t.ShowBufficonExtraPassiveSkill)
-	ConstCombatExcelAddShowBufficonLeaderSkill(b, t.ShowBufficonLeaderSkill)
-	ConstCombatExcelAddShowBufficonGroundPassiveSkill(b, t.ShowBufficonGroundPassiveSkill)
-	ConstCombatExcelAddSuppliesConditionStringId(b, b.CreateString(fbsutils.Convert(t.SuppliesConditionStringId, t.FlatBuffer.TableKey)))
-	ConstCombatExcelAddPublicSpeechBubbleOffsetX(b, fbsutils.Convert(t.PublicSpeechBubbleOffsetX, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddPublicSpeechBubbleOffsetY(b, fbsutils.Convert(t.PublicSpeechBubbleOffsetY, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddPublicSpeechBubbleOffsetZ(b, fbsutils.Convert(t.PublicSpeechBubbleOffsetZ, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddShowRaidListCount(b, fbsutils.Convert(t.ShowRaidListCount, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddMaxRaidTicketCount(b, fbsutils.Convert(t.MaxRaidTicketCount, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddMaxRaidBossSkillSlot(b, fbsutils.Convert(t.MaxRaidBossSkillSlot, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddEngageTimelinePath(b, b.CreateString(fbsutils.Convert(t.EngageTimelinePath, t.FlatBuffer.TableKey)))
-	ConstCombatExcelAddEngageWithSupporterTimelinePath(b, b.CreateString(fbsutils.Convert(t.EngageWithSupporterTimelinePath, t.FlatBuffer.TableKey)))
-	ConstCombatExcelAddVictoryTimelinePath(b, b.CreateString(fbsutils.Convert(t.VictoryTimelinePath, t.FlatBuffer.TableKey)))
-	ConstCombatExcelAddTimeLimitAlarm(b, fbsutils.Convert(t.TimeLimitAlarm, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddEchelonMaxCommonCost(b, fbsutils.Convert(t.EchelonMaxCommonCost, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddEchelonInitCommonCost(b, fbsutils.Convert(t.EchelonInitCommonCost, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddSkillSlotCoolTime(b, fbsutils.Convert(t.SkillSlotCoolTime, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddEnemyRegenCost(b, fbsutils.Convert(t.EnemyRegenCost, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddChampionRegenCost(b, fbsutils.Convert(t.ChampionRegenCost, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddPlayerRegenCostDelay(b, fbsutils.Convert(t.PlayerRegenCostDelay, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddCrowdControlFactor(b, fbsutils.Convert(t.CrowdControlFactor, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddRaidOpenScenarioId(b, b.CreateString(fbsutils.Convert(t.RaidOpenScenarioId, t.FlatBuffer.TableKey)))
-	ConstCombatExcelAddEliminateRaidOpenScenarioId(b, b.CreateString(fbsutils.Convert(t.EliminateRaidOpenScenarioId, t.FlatBuffer.TableKey)))
-	ConstCombatExcelAddDefenceConstA(b, fbsutils.Convert(t.DefenceConstA, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddDefenceConstB(b, fbsutils.Convert(t.DefenceConstB, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddDefenceConstC(b, fbsutils.Convert(t.DefenceConstC, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEchelonExtensionCostRegenRatio(b, fbsutils.Convert(t.EchelonExtensionCostRegenRatio, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddVictoryInteractionRate(b, fbsutils.Convert(t.VictoryInteractionRate, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddDefenceConstD(b, fbsutils.Convert(t.DefenceConstD, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattlemiddleAsia(b, fbsutils.Convert(t.WorldbossbattlemiddleAsia, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddChampionRegenCost(b, fbsutils.Convert(t.ChampionRegenCost, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddCriticalConstC(b, fbsutils.Convert(t.CriticalConstC, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattlelittle(b, fbsutils.Convert(t.Worldbossbattlelittle, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattleveryhighGlobal(b, fbsutils.Convert(t.WorldbossbattleveryhighGlobal, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddMaxRaidTicketCount(b, fbsutils.Convert(t.MaxRaidTicketCount, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddAuraExitThresholdMargin(b, fbsutils.Convert(t.AuraExitThresholdMargin, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEchelonExtensionVictoryTimelinePath(b, b.CreateString(fbsutils.Convert(t.EchelonExtensionVictoryTimelinePath, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddTsaInteractionDamageFactor(b, fbsutils.Convert(t.TsaInteractionDamageFactor, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattlelittleTw(b, fbsutils.Convert(t.WorldbossbattlelittleTw, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddRaidRankingJumpMinimumWaitingTime(b, fbsutils.Convert(t.RaidRankingJumpMinimumWaitingTime, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddBulletTimeScale(b, fbsutils.Convert(t.BulletTimeScale, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattleveryhighTw(b, fbsutils.Convert(t.WorldbossbattleveryhighTw, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddDefenceConstC(b, fbsutils.Convert(t.DefenceConstC, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattlehighAsia(b, fbsutils.Convert(t.WorldbossbattlehighAsia, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddSuppliesConditionStringId(b, b.CreateString(fbsutils.Convert(t.SuppliesConditionStringId, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddEchelonExtensionEngageTimelinePath(b, b.CreateString(fbsutils.Convert(t.EchelonExtensionEngageTimelinePath, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddRandomAnimationOutput(b, fbsutils.Convert(t.RandomAnimationOutput, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddArenaMinimumClearTime(b, fbsutils.Convert(t.ArenaMinimumClearTime, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattlemiddleNa(b, fbsutils.Convert(t.WorldbossbattlemiddleNa, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddPublicSpeechBubbleOffsetX(b, fbsutils.Convert(t.PublicSpeechBubbleOffsetX, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEffectTeleportDistance(b, fbsutils.Convert(t.EffectTeleportDistance, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEchelonExtensionEchelonInitCommonCost(b, fbsutils.Convert(t.EchelonExtensionEchelonInitCommonCost, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddPublicSpeechBubbleOffsetY(b, fbsutils.Convert(t.PublicSpeechBubbleOffsetY, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddAimIkMinDegree(b, fbsutils.Convert(t.AimIkMinDegree, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEliminateRaidOpenScenarioId(b, b.CreateString(fbsutils.Convert(t.EliminateRaidOpenScenarioId, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddAccuracyConstC(b, fbsutils.Convert(t.AccuracyConstC, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEchelonExtensionEngageWithSupporterTimelinePath(b, b.CreateString(fbsutils.Convert(t.EchelonExtensionEngageWithSupporterTimelinePath, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddAimIkMaxDegree(b, fbsutils.Convert(t.AimIkMaxDegree, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddCriticalConstA(b, fbsutils.Convert(t.CriticalConstA, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddAccuracyConstA(b, fbsutils.Convert(t.AccuracyConstA, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddAccuracyConstB(b, fbsutils.Convert(t.AccuracyConstB, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddAccuracyConstC(b, fbsutils.Convert(t.AccuracyConstC, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddAccuracyConstD(b, fbsutils.Convert(t.AccuracyConstD, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddCriticalConstA(b, fbsutils.Convert(t.CriticalConstA, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddCriticalConstB(b, fbsutils.Convert(t.CriticalConstB, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddCriticalConstC(b, fbsutils.Convert(t.CriticalConstC, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddCriticalConstD(b, fbsutils.Convert(t.CriticalConstD, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddMaxGroupBuffLevel(b, fbsutils.Convert(t.MaxGroupBuffLevel, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddEmojiDefaultTime(b, fbsutils.Convert(t.EmojiDefaultTime, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddTimeLineActionRotateSpeed(b, fbsutils.Convert(t.TimeLineActionRotateSpeed, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddBodyRotateSpeed(b, fbsutils.Convert(t.BodyRotateSpeed, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddNormalTimeScale(b, fbsutils.Convert(t.NormalTimeScale, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddFastTimeScale(b, fbsutils.Convert(t.FastTimeScale, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddBulletTimeScale(b, fbsutils.Convert(t.BulletTimeScale, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddUiDisplayDelayAfterSkillCutIn(b, fbsutils.Convert(t.UiDisplayDelayAfterSkillCutIn, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddUseInitialRangeForCoverMove(b, t.UseInitialRangeForCoverMove)
-	ConstCombatExcelAddSlowTimeScale(b, fbsutils.Convert(t.SlowTimeScale, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddAimIkMinDegree(b, fbsutils.Convert(t.AimIkMinDegree, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddAimIkMaxDegree(b, fbsutils.Convert(t.AimIkMaxDegree, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddMinimumClearTime(b, fbsutils.Convert(t.MinimumClearTime, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddMinimumClearLevelGap(b, fbsutils.Convert(t.MinimumClearLevelGap, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddCheckCheaterMaxUseCostNonArena(b, fbsutils.Convert(t.CheckCheaterMaxUseCostNonArena, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddCheckCheaterMaxUseCostArena(b, fbsutils.Convert(t.CheckCheaterMaxUseCostArena, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddAllowedMaxTimeScale(b, fbsutils.Convert(t.AllowedMaxTimeScale, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddRandomAnimationOutput(b, fbsutils.Convert(t.RandomAnimationOutput, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddSummonedTeleportDistance(b, fbsutils.Convert(t.SummonedTeleportDistance, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddArenaMinimumClearTime(b, fbsutils.Convert(t.ArenaMinimumClearTime, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattlelittle(b, fbsutils.Convert(t.Worldbossbattlelittle, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattlelittleTw(b, fbsutils.Convert(t.WorldbossbattlelittleTw, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattlelittleAsia(b, fbsutils.Convert(t.WorldbossbattlelittleAsia, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattlelittleNa(b, fbsutils.Convert(t.WorldbossbattlelittleNa, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattlelittleGlobal(b, fbsutils.Convert(t.WorldbossbattlelittleGlobal, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddWorldbossbattlemiddle(b, fbsutils.Convert(t.Worldbossbattlemiddle, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattlemiddleTw(b, fbsutils.Convert(t.WorldbossbattlemiddleTw, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattlemiddleAsia(b, fbsutils.Convert(t.WorldbossbattlemiddleAsia, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattlemiddleNa(b, fbsutils.Convert(t.WorldbossbattlemiddleNa, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattlemiddleGlobal(b, fbsutils.Convert(t.WorldbossbattlemiddleGlobal, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattlehigh(b, fbsutils.Convert(t.Worldbossbattlehigh, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattlehighTw(b, fbsutils.Convert(t.WorldbossbattlehighTw, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattlehighAsia(b, fbsutils.Convert(t.WorldbossbattlehighAsia, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddShowBufficonGroundPassiveSkill(b, t.ShowBufficonGroundPassiveSkill)
+	ConstCombatExcelAddDyingTime(b, fbsutils.Convert(t.DyingTime, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattleveryhighNa(b, fbsutils.Convert(t.WorldbossbattleveryhighNa, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldRaidAutoSyncTermSecond(b, fbsutils.Convert(t.WorldRaidAutoSyncTermSecond, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddBuffIconBlinkTime(b, fbsutils.Convert(t.BuffIconBlinkTime, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddBodyRotateSpeed(b, fbsutils.Convert(t.BodyRotateSpeed, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEngageWithSupporterTimelinePath(b, b.CreateString(fbsutils.Convert(t.EngageWithSupporterTimelinePath, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddDefenceConstB(b, fbsutils.Convert(t.DefenceConstB, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddCriticalConstB(b, fbsutils.Convert(t.CriticalConstB, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddVictoryTimelinePath(b, b.CreateString(fbsutils.Convert(t.VictoryTimelinePath, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddSummonedTeleportDistance(b, fbsutils.Convert(t.SummonedTeleportDistance, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddSlowTimeScale(b, fbsutils.Convert(t.SlowTimeScale, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddCriticalConstD(b, fbsutils.Convert(t.CriticalConstD, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddExcessiveTouchCheckTime(b, fbsutils.Convert(t.ExcessiveTouchCheckTime, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddSkillHandCount(b, fbsutils.Convert(t.SkillHandCount, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddMaxRaidBossSkillSlot(b, fbsutils.Convert(t.MaxRaidBossSkillSlot, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddShowBufficonPassiveSkill(b, t.ShowBufficonPassiveSkill)
+	ConstCombatExcelAddUseInitialRangeForCoverMove(b, t.UseInitialRangeForCoverMove)
+	ConstCombatExcelAddUiDisplayDelayAfterSkillCutIn(b, fbsutils.Convert(t.UiDisplayDelayAfterSkillCutIn, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldRaidBossHpDecreaseTerm(b, fbsutils.Convert(t.WorldRaidBossHpDecreaseTerm, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddWorldbossbattlehighNa(b, fbsutils.Convert(t.WorldbossbattlehighNa, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddWorldbossbattlehighGlobal(b, fbsutils.Convert(t.WorldbossbattlehighGlobal, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattleveryhigh(b, fbsutils.Convert(t.Worldbossbattleveryhigh, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattleveryhighTw(b, fbsutils.Convert(t.WorldbossbattleveryhighTw, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattleveryhighAsia(b, fbsutils.Convert(t.WorldbossbattleveryhighAsia, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattleveryhighNa(b, fbsutils.Convert(t.WorldbossbattleveryhighNa, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldbossbattleveryhighGlobal(b, fbsutils.Convert(t.WorldbossbattleveryhighGlobal, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldRaidAutoSyncTermSecond(b, fbsutils.Convert(t.WorldRaidAutoSyncTermSecond, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddWorldRaidBossHpDecreaseTerm(b, fbsutils.Convert(t.WorldRaidBossHpDecreaseTerm, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddAccuracyConstD(b, fbsutils.Convert(t.AccuracyConstD, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddWorldRaidBossParcelReactionDelay(b, fbsutils.Convert(t.WorldRaidBossParcelReactionDelay, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddRaidRankingJumpMinimumWaitingTime(b, fbsutils.Convert(t.RaidRankingJumpMinimumWaitingTime, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddEffectTeleportDistance(b, fbsutils.Convert(t.EffectTeleportDistance, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddAuraExitThresholdMargin(b, fbsutils.Convert(t.AuraExitThresholdMargin, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddTsaInteractionDamageFactor(b, fbsutils.Convert(t.TsaInteractionDamageFactor, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddVictoryInteractionRate(b, fbsutils.Convert(t.VictoryInteractionRate, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddEchelonExtensionEngageTimelinePath(b, b.CreateString(fbsutils.Convert(t.EchelonExtensionEngageTimelinePath, t.FlatBuffer.TableKey)))
-	ConstCombatExcelAddEchelonExtensionEngageWithSupporterTimelinePath(b, b.CreateString(fbsutils.Convert(t.EchelonExtensionEngageWithSupporterTimelinePath, t.FlatBuffer.TableKey)))
-	ConstCombatExcelAddEchelonExtensionVictoryTimelinePath(b, b.CreateString(fbsutils.Convert(t.EchelonExtensionVictoryTimelinePath, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddEchelonMaxCommonCost(b, fbsutils.Convert(t.EchelonMaxCommonCost, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddExcessiveTouchCheckCount(b, fbsutils.Convert(t.ExcessiveTouchCheckCount, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddMinimumClearLevelGap(b, fbsutils.Convert(t.MinimumClearLevelGap, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddTimeLimitAlarm(b, fbsutils.Convert(t.TimeLimitAlarm, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddMaxGroupBuffLevel(b, fbsutils.Convert(t.MaxGroupBuffLevel, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddEchelonExtensionEchelonMaxCommonCost(b, fbsutils.Convert(t.EchelonExtensionEchelonMaxCommonCost, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddEchelonExtensionEchelonInitCommonCost(b, fbsutils.Convert(t.EchelonExtensionEchelonInitCommonCost, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddEchelonExtensionCostRegenRatio(b, fbsutils.Convert(t.EchelonExtensionCostRegenRatio, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattlehighTw(b, fbsutils.Convert(t.WorldbossbattlehighTw, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddPublicSpeechBubbleOffsetZ(b, fbsutils.Convert(t.PublicSpeechBubbleOffsetZ, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattlemiddleTw(b, fbsutils.Convert(t.WorldbossbattlemiddleTw, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattlehigh(b, fbsutils.Convert(t.Worldbossbattlehigh, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddShowBufficonExSkill(b, t.ShowBufficonExSkill)
+	ConstCombatExcelAddShowRaidListCount(b, fbsutils.Convert(t.ShowRaidListCount, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddCheckCheaterMaxUseCostArena(b, fbsutils.Convert(t.CheckCheaterMaxUseCostArena, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddCheckCheaterMaxUseCostNonArena(b, fbsutils.Convert(t.CheckCheaterMaxUseCostNonArena, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddNormalTimeScale(b, fbsutils.Convert(t.NormalTimeScale, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(b, fbsutils.Convert(t.CheckCheaterMaxUseCostMultiFloorRaid, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEngageTimelinePath(b, b.CreateString(fbsutils.Convert(t.EngageTimelinePath, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddCrowdControlFactor(b, fbsutils.Convert(t.CrowdControlFactor, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEmojiDefaultTime(b, fbsutils.Convert(t.EmojiDefaultTime, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddFastTimeScale(b, fbsutils.Convert(t.FastTimeScale, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddPlayerRegenCostDelay(b, fbsutils.Convert(t.PlayerRegenCostDelay, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddShowBufficonLeaderSkill(b, t.ShowBufficonLeaderSkill)
+	ConstCombatExcelAddTimeLineActionRotateSpeed(b, fbsutils.Convert(t.TimeLineActionRotateSpeed, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattleveryhigh(b, fbsutils.Convert(t.Worldbossbattleveryhigh, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattlemiddleGlobal(b, fbsutils.Convert(t.WorldbossbattlemiddleGlobal, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattlelittleGlobal(b, fbsutils.Convert(t.WorldbossbattlelittleGlobal, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattlelittleNa(b, fbsutils.Convert(t.WorldbossbattlelittleNa, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddRaidOpenScenarioId(b, b.CreateString(fbsutils.Convert(t.RaidOpenScenarioId, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddWorldbossbattleveryhighAsia(b, fbsutils.Convert(t.WorldbossbattleveryhighAsia, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddAllowedMaxTimeScale(b, fbsutils.Convert(t.AllowedMaxTimeScale, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddMinimumClearTime(b, fbsutils.Convert(t.MinimumClearTime, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEchelonInitCommonCost(b, fbsutils.Convert(t.EchelonInitCommonCost, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddShowBufficonExtraPassiveSkill(b, t.ShowBufficonExtraPassiveSkill)
+	ConstCombatExcelAddEnemyRegenCost(b, fbsutils.Convert(t.EnemyRegenCost, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddWorldbossbattlelittleAsia(b, fbsutils.Convert(t.WorldbossbattlelittleAsia, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddDefenceConstA(b, fbsutils.Convert(t.DefenceConstA, t.FlatBuffer.TableKey))
 	return ConstCombatExcelEnd(b)
 }
 
@@ -223,101 +227,103 @@ func (t *ConstCombatExcelDto) UnmarshalMessage(e *ConstCombatExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstCombat"))
 	}
-	t.SkillHandCount = fbsutils.Convert(e.SkillHandCount(), t.FlatBuffer.TableKey)
-	t.DyingTime = fbsutils.Convert(e.DyingTime(), t.FlatBuffer.TableKey)
-	t.BuffIconBlinkTime = fbsutils.Convert(e.BuffIconBlinkTime(), t.FlatBuffer.TableKey)
-	t.ShowBufficonExSkill = e.ShowBufficonExSkill()
-	t.ShowBufficonPassiveSkill = e.ShowBufficonPassiveSkill()
-	t.ShowBufficonExtraPassiveSkill = e.ShowBufficonExtraPassiveSkill()
-	t.ShowBufficonLeaderSkill = e.ShowBufficonLeaderSkill()
-	t.ShowBufficonGroundPassiveSkill = e.ShowBufficonGroundPassiveSkill()
-	t.SuppliesConditionStringId = fbsutils.Convert(string(e.SuppliesConditionStringId()), t.FlatBuffer.TableKey)
-	t.PublicSpeechBubbleOffsetX = fbsutils.Convert(e.PublicSpeechBubbleOffsetX(), t.FlatBuffer.TableKey)
-	t.PublicSpeechBubbleOffsetY = fbsutils.Convert(e.PublicSpeechBubbleOffsetY(), t.FlatBuffer.TableKey)
-	t.PublicSpeechBubbleOffsetZ = fbsutils.Convert(e.PublicSpeechBubbleOffsetZ(), t.FlatBuffer.TableKey)
-	t.ShowRaidListCount = fbsutils.Convert(e.ShowRaidListCount(), t.FlatBuffer.TableKey)
-	t.MaxRaidTicketCount = fbsutils.Convert(e.MaxRaidTicketCount(), t.FlatBuffer.TableKey)
-	t.MaxRaidBossSkillSlot = fbsutils.Convert(e.MaxRaidBossSkillSlot(), t.FlatBuffer.TableKey)
-	t.EngageTimelinePath = fbsutils.Convert(string(e.EngageTimelinePath()), t.FlatBuffer.TableKey)
-	t.EngageWithSupporterTimelinePath = fbsutils.Convert(string(e.EngageWithSupporterTimelinePath()), t.FlatBuffer.TableKey)
-	t.VictoryTimelinePath = fbsutils.Convert(string(e.VictoryTimelinePath()), t.FlatBuffer.TableKey)
-	t.TimeLimitAlarm = fbsutils.Convert(e.TimeLimitAlarm(), t.FlatBuffer.TableKey)
-	t.EchelonMaxCommonCost = fbsutils.Convert(e.EchelonMaxCommonCost(), t.FlatBuffer.TableKey)
-	t.EchelonInitCommonCost = fbsutils.Convert(e.EchelonInitCommonCost(), t.FlatBuffer.TableKey)
 	t.SkillSlotCoolTime = fbsutils.Convert(e.SkillSlotCoolTime(), t.FlatBuffer.TableKey)
-	t.EnemyRegenCost = fbsutils.Convert(e.EnemyRegenCost(), t.FlatBuffer.TableKey)
-	t.ChampionRegenCost = fbsutils.Convert(e.ChampionRegenCost(), t.FlatBuffer.TableKey)
-	t.PlayerRegenCostDelay = fbsutils.Convert(e.PlayerRegenCostDelay(), t.FlatBuffer.TableKey)
-	t.CrowdControlFactor = fbsutils.Convert(e.CrowdControlFactor(), t.FlatBuffer.TableKey)
-	t.RaidOpenScenarioId = fbsutils.Convert(string(e.RaidOpenScenarioId()), t.FlatBuffer.TableKey)
-	t.EliminateRaidOpenScenarioId = fbsutils.Convert(string(e.EliminateRaidOpenScenarioId()), t.FlatBuffer.TableKey)
-	t.DefenceConstA = fbsutils.Convert(e.DefenceConstA(), t.FlatBuffer.TableKey)
-	t.DefenceConstB = fbsutils.Convert(e.DefenceConstB(), t.FlatBuffer.TableKey)
-	t.DefenceConstC = fbsutils.Convert(e.DefenceConstC(), t.FlatBuffer.TableKey)
+	t.EchelonExtensionCostRegenRatio = fbsutils.Convert(e.EchelonExtensionCostRegenRatio(), t.FlatBuffer.TableKey)
+	t.VictoryInteractionRate = fbsutils.Convert(e.VictoryInteractionRate(), t.FlatBuffer.TableKey)
 	t.DefenceConstD = fbsutils.Convert(e.DefenceConstD(), t.FlatBuffer.TableKey)
+	t.WorldbossbattlemiddleAsia = fbsutils.Convert(e.WorldbossbattlemiddleAsia(), t.FlatBuffer.TableKey)
+	t.ChampionRegenCost = fbsutils.Convert(e.ChampionRegenCost(), t.FlatBuffer.TableKey)
+	t.CriticalConstC = fbsutils.Convert(e.CriticalConstC(), t.FlatBuffer.TableKey)
+	t.Worldbossbattlelittle = fbsutils.Convert(e.Worldbossbattlelittle(), t.FlatBuffer.TableKey)
+	t.WorldbossbattleveryhighGlobal = fbsutils.Convert(e.WorldbossbattleveryhighGlobal(), t.FlatBuffer.TableKey)
+	t.MaxRaidTicketCount = fbsutils.Convert(e.MaxRaidTicketCount(), t.FlatBuffer.TableKey)
+	t.AuraExitThresholdMargin = fbsutils.Convert(e.AuraExitThresholdMargin(), t.FlatBuffer.TableKey)
+	t.EchelonExtensionVictoryTimelinePath = fbsutils.Convert(string(e.EchelonExtensionVictoryTimelinePath()), t.FlatBuffer.TableKey)
+	t.TsaInteractionDamageFactor = fbsutils.Convert(e.TsaInteractionDamageFactor(), t.FlatBuffer.TableKey)
+	t.WorldbossbattlelittleTw = fbsutils.Convert(e.WorldbossbattlelittleTw(), t.FlatBuffer.TableKey)
+	t.RaidRankingJumpMinimumWaitingTime = fbsutils.Convert(e.RaidRankingJumpMinimumWaitingTime(), t.FlatBuffer.TableKey)
+	t.BulletTimeScale = fbsutils.Convert(e.BulletTimeScale(), t.FlatBuffer.TableKey)
+	t.WorldbossbattleveryhighTw = fbsutils.Convert(e.WorldbossbattleveryhighTw(), t.FlatBuffer.TableKey)
+	t.DefenceConstC = fbsutils.Convert(e.DefenceConstC(), t.FlatBuffer.TableKey)
+	t.WorldbossbattlehighAsia = fbsutils.Convert(e.WorldbossbattlehighAsia(), t.FlatBuffer.TableKey)
+	t.SuppliesConditionStringId = fbsutils.Convert(string(e.SuppliesConditionStringId()), t.FlatBuffer.TableKey)
+	t.EchelonExtensionEngageTimelinePath = fbsutils.Convert(string(e.EchelonExtensionEngageTimelinePath()), t.FlatBuffer.TableKey)
+	t.RandomAnimationOutput = fbsutils.Convert(e.RandomAnimationOutput(), t.FlatBuffer.TableKey)
+	t.ArenaMinimumClearTime = fbsutils.Convert(e.ArenaMinimumClearTime(), t.FlatBuffer.TableKey)
+	t.WorldbossbattlemiddleNa = fbsutils.Convert(e.WorldbossbattlemiddleNa(), t.FlatBuffer.TableKey)
+	t.PublicSpeechBubbleOffsetX = fbsutils.Convert(e.PublicSpeechBubbleOffsetX(), t.FlatBuffer.TableKey)
+	t.EffectTeleportDistance = fbsutils.Convert(e.EffectTeleportDistance(), t.FlatBuffer.TableKey)
+	t.EchelonExtensionEchelonInitCommonCost = fbsutils.Convert(e.EchelonExtensionEchelonInitCommonCost(), t.FlatBuffer.TableKey)
+	t.PublicSpeechBubbleOffsetY = fbsutils.Convert(e.PublicSpeechBubbleOffsetY(), t.FlatBuffer.TableKey)
+	t.AimIkMinDegree = fbsutils.Convert(e.AimIkMinDegree(), t.FlatBuffer.TableKey)
+	t.EliminateRaidOpenScenarioId = fbsutils.Convert(string(e.EliminateRaidOpenScenarioId()), t.FlatBuffer.TableKey)
+	t.AccuracyConstC = fbsutils.Convert(e.AccuracyConstC(), t.FlatBuffer.TableKey)
+	t.EchelonExtensionEngageWithSupporterTimelinePath = fbsutils.Convert(string(e.EchelonExtensionEngageWithSupporterTimelinePath()), t.FlatBuffer.TableKey)
+	t.AimIkMaxDegree = fbsutils.Convert(e.AimIkMaxDegree(), t.FlatBuffer.TableKey)
+	t.CriticalConstA = fbsutils.Convert(e.CriticalConstA(), t.FlatBuffer.TableKey)
 	t.AccuracyConstA = fbsutils.Convert(e.AccuracyConstA(), t.FlatBuffer.TableKey)
 	t.AccuracyConstB = fbsutils.Convert(e.AccuracyConstB(), t.FlatBuffer.TableKey)
-	t.AccuracyConstC = fbsutils.Convert(e.AccuracyConstC(), t.FlatBuffer.TableKey)
-	t.AccuracyConstD = fbsutils.Convert(e.AccuracyConstD(), t.FlatBuffer.TableKey)
-	t.CriticalConstA = fbsutils.Convert(e.CriticalConstA(), t.FlatBuffer.TableKey)
-	t.CriticalConstB = fbsutils.Convert(e.CriticalConstB(), t.FlatBuffer.TableKey)
-	t.CriticalConstC = fbsutils.Convert(e.CriticalConstC(), t.FlatBuffer.TableKey)
-	t.CriticalConstD = fbsutils.Convert(e.CriticalConstD(), t.FlatBuffer.TableKey)
-	t.MaxGroupBuffLevel = fbsutils.Convert(e.MaxGroupBuffLevel(), t.FlatBuffer.TableKey)
-	t.EmojiDefaultTime = fbsutils.Convert(e.EmojiDefaultTime(), t.FlatBuffer.TableKey)
-	t.TimeLineActionRotateSpeed = fbsutils.Convert(e.TimeLineActionRotateSpeed(), t.FlatBuffer.TableKey)
-	t.BodyRotateSpeed = fbsutils.Convert(e.BodyRotateSpeed(), t.FlatBuffer.TableKey)
-	t.NormalTimeScale = fbsutils.Convert(e.NormalTimeScale(), t.FlatBuffer.TableKey)
-	t.FastTimeScale = fbsutils.Convert(e.FastTimeScale(), t.FlatBuffer.TableKey)
-	t.BulletTimeScale = fbsutils.Convert(e.BulletTimeScale(), t.FlatBuffer.TableKey)
-	t.UiDisplayDelayAfterSkillCutIn = fbsutils.Convert(e.UiDisplayDelayAfterSkillCutIn(), t.FlatBuffer.TableKey)
-	t.UseInitialRangeForCoverMove = e.UseInitialRangeForCoverMove()
-	t.SlowTimeScale = fbsutils.Convert(e.SlowTimeScale(), t.FlatBuffer.TableKey)
-	t.AimIkMinDegree = fbsutils.Convert(e.AimIkMinDegree(), t.FlatBuffer.TableKey)
-	t.AimIkMaxDegree = fbsutils.Convert(e.AimIkMaxDegree(), t.FlatBuffer.TableKey)
-	t.MinimumClearTime = fbsutils.Convert(e.MinimumClearTime(), t.FlatBuffer.TableKey)
-	t.MinimumClearLevelGap = fbsutils.Convert(e.MinimumClearLevelGap(), t.FlatBuffer.TableKey)
-	t.CheckCheaterMaxUseCostNonArena = fbsutils.Convert(e.CheckCheaterMaxUseCostNonArena(), t.FlatBuffer.TableKey)
-	t.CheckCheaterMaxUseCostArena = fbsutils.Convert(e.CheckCheaterMaxUseCostArena(), t.FlatBuffer.TableKey)
-	t.AllowedMaxTimeScale = fbsutils.Convert(e.AllowedMaxTimeScale(), t.FlatBuffer.TableKey)
-	t.RandomAnimationOutput = fbsutils.Convert(e.RandomAnimationOutput(), t.FlatBuffer.TableKey)
-	t.SummonedTeleportDistance = fbsutils.Convert(e.SummonedTeleportDistance(), t.FlatBuffer.TableKey)
-	t.ArenaMinimumClearTime = fbsutils.Convert(e.ArenaMinimumClearTime(), t.FlatBuffer.TableKey)
-	t.Worldbossbattlelittle = fbsutils.Convert(e.Worldbossbattlelittle(), t.FlatBuffer.TableKey)
-	t.WorldbossbattlelittleTw = fbsutils.Convert(e.WorldbossbattlelittleTw(), t.FlatBuffer.TableKey)
-	t.WorldbossbattlelittleAsia = fbsutils.Convert(e.WorldbossbattlelittleAsia(), t.FlatBuffer.TableKey)
-	t.WorldbossbattlelittleNa = fbsutils.Convert(e.WorldbossbattlelittleNa(), t.FlatBuffer.TableKey)
-	t.WorldbossbattlelittleGlobal = fbsutils.Convert(e.WorldbossbattlelittleGlobal(), t.FlatBuffer.TableKey)
 	t.Worldbossbattlemiddle = fbsutils.Convert(e.Worldbossbattlemiddle(), t.FlatBuffer.TableKey)
-	t.WorldbossbattlemiddleTw = fbsutils.Convert(e.WorldbossbattlemiddleTw(), t.FlatBuffer.TableKey)
-	t.WorldbossbattlemiddleAsia = fbsutils.Convert(e.WorldbossbattlemiddleAsia(), t.FlatBuffer.TableKey)
-	t.WorldbossbattlemiddleNa = fbsutils.Convert(e.WorldbossbattlemiddleNa(), t.FlatBuffer.TableKey)
-	t.WorldbossbattlemiddleGlobal = fbsutils.Convert(e.WorldbossbattlemiddleGlobal(), t.FlatBuffer.TableKey)
-	t.Worldbossbattlehigh = fbsutils.Convert(e.Worldbossbattlehigh(), t.FlatBuffer.TableKey)
-	t.WorldbossbattlehighTw = fbsutils.Convert(e.WorldbossbattlehighTw(), t.FlatBuffer.TableKey)
-	t.WorldbossbattlehighAsia = fbsutils.Convert(e.WorldbossbattlehighAsia(), t.FlatBuffer.TableKey)
+	t.ShowBufficonGroundPassiveSkill = e.ShowBufficonGroundPassiveSkill()
+	t.DyingTime = fbsutils.Convert(e.DyingTime(), t.FlatBuffer.TableKey)
+	t.WorldbossbattleveryhighNa = fbsutils.Convert(e.WorldbossbattleveryhighNa(), t.FlatBuffer.TableKey)
+	t.WorldRaidAutoSyncTermSecond = fbsutils.Convert(e.WorldRaidAutoSyncTermSecond(), t.FlatBuffer.TableKey)
+	t.BuffIconBlinkTime = fbsutils.Convert(e.BuffIconBlinkTime(), t.FlatBuffer.TableKey)
+	t.BodyRotateSpeed = fbsutils.Convert(e.BodyRotateSpeed(), t.FlatBuffer.TableKey)
+	t.EngageWithSupporterTimelinePath = fbsutils.Convert(string(e.EngageWithSupporterTimelinePath()), t.FlatBuffer.TableKey)
+	t.DefenceConstB = fbsutils.Convert(e.DefenceConstB(), t.FlatBuffer.TableKey)
+	t.CriticalConstB = fbsutils.Convert(e.CriticalConstB(), t.FlatBuffer.TableKey)
+	t.VictoryTimelinePath = fbsutils.Convert(string(e.VictoryTimelinePath()), t.FlatBuffer.TableKey)
+	t.SummonedTeleportDistance = fbsutils.Convert(e.SummonedTeleportDistance(), t.FlatBuffer.TableKey)
+	t.SlowTimeScale = fbsutils.Convert(e.SlowTimeScale(), t.FlatBuffer.TableKey)
+	t.CriticalConstD = fbsutils.Convert(e.CriticalConstD(), t.FlatBuffer.TableKey)
+	t.ExcessiveTouchCheckTime = fbsutils.Convert(e.ExcessiveTouchCheckTime(), t.FlatBuffer.TableKey)
+	t.SkillHandCount = fbsutils.Convert(e.SkillHandCount(), t.FlatBuffer.TableKey)
+	t.MaxRaidBossSkillSlot = fbsutils.Convert(e.MaxRaidBossSkillSlot(), t.FlatBuffer.TableKey)
+	t.ShowBufficonPassiveSkill = e.ShowBufficonPassiveSkill()
+	t.UseInitialRangeForCoverMove = e.UseInitialRangeForCoverMove()
+	t.UiDisplayDelayAfterSkillCutIn = fbsutils.Convert(e.UiDisplayDelayAfterSkillCutIn(), t.FlatBuffer.TableKey)
+	t.WorldRaidBossHpDecreaseTerm = fbsutils.Convert(e.WorldRaidBossHpDecreaseTerm(), t.FlatBuffer.TableKey)
 	t.WorldbossbattlehighNa = fbsutils.Convert(e.WorldbossbattlehighNa(), t.FlatBuffer.TableKey)
 	t.WorldbossbattlehighGlobal = fbsutils.Convert(e.WorldbossbattlehighGlobal(), t.FlatBuffer.TableKey)
-	t.Worldbossbattleveryhigh = fbsutils.Convert(e.Worldbossbattleveryhigh(), t.FlatBuffer.TableKey)
-	t.WorldbossbattleveryhighTw = fbsutils.Convert(e.WorldbossbattleveryhighTw(), t.FlatBuffer.TableKey)
-	t.WorldbossbattleveryhighAsia = fbsutils.Convert(e.WorldbossbattleveryhighAsia(), t.FlatBuffer.TableKey)
-	t.WorldbossbattleveryhighNa = fbsutils.Convert(e.WorldbossbattleveryhighNa(), t.FlatBuffer.TableKey)
-	t.WorldbossbattleveryhighGlobal = fbsutils.Convert(e.WorldbossbattleveryhighGlobal(), t.FlatBuffer.TableKey)
-	t.WorldRaidAutoSyncTermSecond = fbsutils.Convert(e.WorldRaidAutoSyncTermSecond(), t.FlatBuffer.TableKey)
-	t.WorldRaidBossHpDecreaseTerm = fbsutils.Convert(e.WorldRaidBossHpDecreaseTerm(), t.FlatBuffer.TableKey)
+	t.AccuracyConstD = fbsutils.Convert(e.AccuracyConstD(), t.FlatBuffer.TableKey)
 	t.WorldRaidBossParcelReactionDelay = fbsutils.Convert(e.WorldRaidBossParcelReactionDelay(), t.FlatBuffer.TableKey)
-	t.RaidRankingJumpMinimumWaitingTime = fbsutils.Convert(e.RaidRankingJumpMinimumWaitingTime(), t.FlatBuffer.TableKey)
-	t.EffectTeleportDistance = fbsutils.Convert(e.EffectTeleportDistance(), t.FlatBuffer.TableKey)
-	t.AuraExitThresholdMargin = fbsutils.Convert(e.AuraExitThresholdMargin(), t.FlatBuffer.TableKey)
-	t.TsaInteractionDamageFactor = fbsutils.Convert(e.TsaInteractionDamageFactor(), t.FlatBuffer.TableKey)
-	t.VictoryInteractionRate = fbsutils.Convert(e.VictoryInteractionRate(), t.FlatBuffer.TableKey)
-	t.EchelonExtensionEngageTimelinePath = fbsutils.Convert(string(e.EchelonExtensionEngageTimelinePath()), t.FlatBuffer.TableKey)
-	t.EchelonExtensionEngageWithSupporterTimelinePath = fbsutils.Convert(string(e.EchelonExtensionEngageWithSupporterTimelinePath()), t.FlatBuffer.TableKey)
-	t.EchelonExtensionVictoryTimelinePath = fbsutils.Convert(string(e.EchelonExtensionVictoryTimelinePath()), t.FlatBuffer.TableKey)
+	t.EchelonMaxCommonCost = fbsutils.Convert(e.EchelonMaxCommonCost(), t.FlatBuffer.TableKey)
+	t.ExcessiveTouchCheckCount = fbsutils.Convert(e.ExcessiveTouchCheckCount(), t.FlatBuffer.TableKey)
+	t.MinimumClearLevelGap = fbsutils.Convert(e.MinimumClearLevelGap(), t.FlatBuffer.TableKey)
+	t.TimeLimitAlarm = fbsutils.Convert(e.TimeLimitAlarm(), t.FlatBuffer.TableKey)
+	t.MaxGroupBuffLevel = fbsutils.Convert(e.MaxGroupBuffLevel(), t.FlatBuffer.TableKey)
 	t.EchelonExtensionEchelonMaxCommonCost = fbsutils.Convert(e.EchelonExtensionEchelonMaxCommonCost(), t.FlatBuffer.TableKey)
-	t.EchelonExtensionEchelonInitCommonCost = fbsutils.Convert(e.EchelonExtensionEchelonInitCommonCost(), t.FlatBuffer.TableKey)
-	t.EchelonExtensionCostRegenRatio = fbsutils.Convert(e.EchelonExtensionCostRegenRatio(), t.FlatBuffer.TableKey)
+	t.WorldbossbattlehighTw = fbsutils.Convert(e.WorldbossbattlehighTw(), t.FlatBuffer.TableKey)
+	t.PublicSpeechBubbleOffsetZ = fbsutils.Convert(e.PublicSpeechBubbleOffsetZ(), t.FlatBuffer.TableKey)
+	t.WorldbossbattlemiddleTw = fbsutils.Convert(e.WorldbossbattlemiddleTw(), t.FlatBuffer.TableKey)
+	t.Worldbossbattlehigh = fbsutils.Convert(e.Worldbossbattlehigh(), t.FlatBuffer.TableKey)
+	t.ShowBufficonExSkill = e.ShowBufficonExSkill()
+	t.ShowRaidListCount = fbsutils.Convert(e.ShowRaidListCount(), t.FlatBuffer.TableKey)
+	t.CheckCheaterMaxUseCostArena = fbsutils.Convert(e.CheckCheaterMaxUseCostArena(), t.FlatBuffer.TableKey)
+	t.CheckCheaterMaxUseCostNonArena = fbsutils.Convert(e.CheckCheaterMaxUseCostNonArena(), t.FlatBuffer.TableKey)
+	t.NormalTimeScale = fbsutils.Convert(e.NormalTimeScale(), t.FlatBuffer.TableKey)
 	t.CheckCheaterMaxUseCostMultiFloorRaid = fbsutils.Convert(e.CheckCheaterMaxUseCostMultiFloorRaid(), t.FlatBuffer.TableKey)
+	t.EngageTimelinePath = fbsutils.Convert(string(e.EngageTimelinePath()), t.FlatBuffer.TableKey)
+	t.CrowdControlFactor = fbsutils.Convert(e.CrowdControlFactor(), t.FlatBuffer.TableKey)
+	t.EmojiDefaultTime = fbsutils.Convert(e.EmojiDefaultTime(), t.FlatBuffer.TableKey)
+	t.FastTimeScale = fbsutils.Convert(e.FastTimeScale(), t.FlatBuffer.TableKey)
+	t.PlayerRegenCostDelay = fbsutils.Convert(e.PlayerRegenCostDelay(), t.FlatBuffer.TableKey)
+	t.ShowBufficonLeaderSkill = e.ShowBufficonLeaderSkill()
+	t.TimeLineActionRotateSpeed = fbsutils.Convert(e.TimeLineActionRotateSpeed(), t.FlatBuffer.TableKey)
+	t.Worldbossbattleveryhigh = fbsutils.Convert(e.Worldbossbattleveryhigh(), t.FlatBuffer.TableKey)
+	t.WorldbossbattlemiddleGlobal = fbsutils.Convert(e.WorldbossbattlemiddleGlobal(), t.FlatBuffer.TableKey)
+	t.WorldbossbattlelittleGlobal = fbsutils.Convert(e.WorldbossbattlelittleGlobal(), t.FlatBuffer.TableKey)
+	t.WorldbossbattlelittleNa = fbsutils.Convert(e.WorldbossbattlelittleNa(), t.FlatBuffer.TableKey)
+	t.RaidOpenScenarioId = fbsutils.Convert(string(e.RaidOpenScenarioId()), t.FlatBuffer.TableKey)
+	t.WorldbossbattleveryhighAsia = fbsutils.Convert(e.WorldbossbattleveryhighAsia(), t.FlatBuffer.TableKey)
+	t.AllowedMaxTimeScale = fbsutils.Convert(e.AllowedMaxTimeScale(), t.FlatBuffer.TableKey)
+	t.MinimumClearTime = fbsutils.Convert(e.MinimumClearTime(), t.FlatBuffer.TableKey)
+	t.EchelonInitCommonCost = fbsutils.Convert(e.EchelonInitCommonCost(), t.FlatBuffer.TableKey)
+	t.ShowBufficonExtraPassiveSkill = e.ShowBufficonExtraPassiveSkill()
+	t.EnemyRegenCost = fbsutils.Convert(e.EnemyRegenCost(), t.FlatBuffer.TableKey)
+	t.WorldbossbattlelittleAsia = fbsutils.Convert(e.WorldbossbattlelittleAsia(), t.FlatBuffer.TableKey)
+	t.DefenceConstA = fbsutils.Convert(e.DefenceConstA(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -5,13 +5,13 @@ include "SchoolDungeonType.fbs";
 namespace MX.Data.Excel;
 
 table SchoolDungeonRewardExcel {
-    group_id: long;
-    dungeon_type: SchoolDungeonType;
-    reward_tag: RewardTag;
     reward_parcel_type: ParcelType;
-    reward_parcel_id: long;
-    reward_parcel_amount: long;
+    group_id: long;
+    reward_tag: RewardTag;
     reward_parcel_probability: long;
+    dungeon_type: SchoolDungeonType;
+    reward_parcel_amount: long;
+    reward_parcel_id: long;
     is_displayed: bool;
 }
 
