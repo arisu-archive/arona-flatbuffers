@@ -32,17 +32,17 @@ class EventContentSpineDialogOffsetExcel(object):
         return 0
 
     # EventContentSpineDialogOffsetExcel
-    def DialogOffsetX(self):
+    def EventContentType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # EventContentSpineDialogOffsetExcel
-    def EventContentType(self):
+    def CostumeUniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentSpineDialogOffsetExcel
@@ -60,11 +60,11 @@ class EventContentSpineDialogOffsetExcel(object):
         return 0.0
 
     # EventContentSpineDialogOffsetExcel
-    def CostumeUniqueId(self):
+    def DialogOffsetX(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
 
     # EventContentSpineDialogOffsetExcel
     def DialogOffsetY(self):
@@ -79,21 +79,21 @@ def Start(builder):
 def EventContentSpineDialogOffsetExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
     return EventContentSpineDialogOffsetExcelAddEventContentId(builder, eventContentId)
-def EventContentSpineDialogOffsetExcelAddDialogOffsetX(builder, dialogOffsetX): builder.PrependFloat32Slot(1, dialogOffsetX, 0.0)
-def AddDialogOffsetX(builder, dialogOffsetX):
-    return EventContentSpineDialogOffsetExcelAddDialogOffsetX(builder, dialogOffsetX)
-def EventContentSpineDialogOffsetExcelAddEventContentType(builder, eventContentType): builder.PrependInt32Slot(2, eventContentType, 0)
+def EventContentSpineDialogOffsetExcelAddEventContentType(builder, eventContentType): builder.PrependInt32Slot(1, eventContentType, 0)
 def AddEventContentType(builder, eventContentType):
     return EventContentSpineDialogOffsetExcelAddEventContentType(builder, eventContentType)
+def EventContentSpineDialogOffsetExcelAddCostumeUniqueId(builder, costumeUniqueId): builder.PrependInt64Slot(2, costumeUniqueId, 0)
+def AddCostumeUniqueId(builder, costumeUniqueId):
+    return EventContentSpineDialogOffsetExcelAddCostumeUniqueId(builder, costumeUniqueId)
 def EventContentSpineDialogOffsetExcelAddSpineOffsetX(builder, spineOffsetX): builder.PrependFloat32Slot(3, spineOffsetX, 0.0)
 def AddSpineOffsetX(builder, spineOffsetX):
     return EventContentSpineDialogOffsetExcelAddSpineOffsetX(builder, spineOffsetX)
 def EventContentSpineDialogOffsetExcelAddSpineOffsetY(builder, spineOffsetY): builder.PrependFloat32Slot(4, spineOffsetY, 0.0)
 def AddSpineOffsetY(builder, spineOffsetY):
     return EventContentSpineDialogOffsetExcelAddSpineOffsetY(builder, spineOffsetY)
-def EventContentSpineDialogOffsetExcelAddCostumeUniqueId(builder, costumeUniqueId): builder.PrependInt64Slot(5, costumeUniqueId, 0)
-def AddCostumeUniqueId(builder, costumeUniqueId):
-    return EventContentSpineDialogOffsetExcelAddCostumeUniqueId(builder, costumeUniqueId)
+def EventContentSpineDialogOffsetExcelAddDialogOffsetX(builder, dialogOffsetX): builder.PrependFloat32Slot(5, dialogOffsetX, 0.0)
+def AddDialogOffsetX(builder, dialogOffsetX):
+    return EventContentSpineDialogOffsetExcelAddDialogOffsetX(builder, dialogOffsetX)
 def EventContentSpineDialogOffsetExcelAddDialogOffsetY(builder, dialogOffsetY): builder.PrependFloat32Slot(6, dialogOffsetY, 0.0)
 def AddDialogOffsetY(builder, dialogOffsetY):
     return EventContentSpineDialogOffsetExcelAddDialogOffsetY(builder, dialogOffsetY)

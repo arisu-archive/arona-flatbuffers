@@ -1,8 +1,8 @@
 namespace MX.Data.Excel;
 
 table ScenarioCharacterEmotionExcel {
-    name: uint;
     emoticon_name: string;
+    name: uint;
 }
 
 root_type ScenarioCharacterEmotionExcel;

@@ -10,105 +10,105 @@ import (
 // ScenarioModeExcelDto represents a FlatBuffers table
 type ScenarioModeExcelDto struct {
 	fbsutils.FlatBuffer
-	BattleDuration             int64                `json:"battle_duration"`
-	Lof                        bool                 `json:"lof"`
-	EventContentCondition      int64                `json:"event_content_condition"`
-	ChapterId                  int64                `json:"chapter_id"`
-	Hide                       bool                 `json:"hide"`
-	EventIconParcelPath        string               `json:"event_icon_parcel_path"`
 	ModeId                     int64                `json:"mode_id"`
-	ExposedTime                string               `json:"exposed_time"`
-	Open                       bool                 `json:"open"`
-	BackScenarioGroupId        []int64              `json:"back_scenario_group_id"`
-	EpisodeId                  int64                `json:"episode_id"`
-	CompleteReportEventName    string               `json:"complete_report_event_name"`
-	StepIndex                  int32                `json:"step_index"`
-	AccountLevelLimit          int64                `json:"account_level_limit"`
-	StageTopography            StageTopography      `json:"stage_topography"`
-	EventContentType           EventContentType     `json:"event_content_type"`
-	FrontScenarioGroupId       []int64              `json:"front_scenario_group_id"`
-	ScenarioCloseDate          string               `json:"scenario_close_date"`
-	EventContentConditionGroup int64                `json:"event_content_condition_group"`
-	VolumeId                   int64                `json:"volume_id"`
-	FixedEchelonId             int64                `json:"fixed_echelon_id"`
-	IsContinue                 bool                 `json:"is_continue"`
-	CollectionGroupId          int64                `json:"collection_group_id"`
-	NeedClubStudentCount       int32                `json:"need_club_student_count"`
-	ScenarioOpenDate           string               `json:"scenario_open_date"`
-	ScenarioModeRewardId       int64                `json:"scenario_mode_reward_id"`
-	EchelonExtensionType       EchelonExtensionType `json:"echelon_extension_type"`
-	SubType                    ScenarioModeSubTypes `json:"sub_type"`
-	ClearedModeId              []int64              `json:"cleared_mode_id"`
-	EpisodeContinueModeId      int64                `json:"episode_continue_mode_id"`
-	ClearedStageId             int64                `json:"cleared_stage_id"`
-	GroundId                   int64                `json:"ground_id"`
-	EventBannerTitle           uint32               `json:"event_banner_title"`
 	ModeType                   ScenarioModeTypes    `json:"mode_type"`
-	RecommendLevel             int32                `json:"recommend_level"`
-	NeedClub                   Club                 `json:"need_club"`
+	SubType                    ScenarioModeSubTypes `json:"sub_type"`
+	VolumeId                   int64                `json:"volume_id"`
+	ChapterId                  int64                `json:"chapter_id"`
+	EpisodeId                  int64                `json:"episode_id"`
+	ExposedTime                string               `json:"exposed_time"`
+	Hide                       bool                 `json:"hide"`
+	Open                       bool                 `json:"open"`
+	ScenarioOpenDate           string               `json:"scenario_open_date"`
+	ScenarioCloseDate          string               `json:"scenario_close_date"`
+	IsContinue                 bool                 `json:"is_continue"`
+	EpisodeContinueModeId      int64                `json:"episode_continue_mode_id"`
+	FrontScenarioGroupId       []int64              `json:"front_scenario_group_id"`
 	StrategyId                 int64                `json:"strategy_id"`
-	IsScenarioSpecialReward    bool                 `json:"is_scenario_special_reward"`
-	MapDifficulty              StageDifficulty      `json:"map_difficulty"`
+	GroundId                   int64                `json:"ground_id"`
 	IsDefeatBattle             bool                 `json:"is_defeat_battle"`
+	BattleDuration             int64                `json:"battle_duration"`
+	BackScenarioGroupId        []int64              `json:"back_scenario_group_id"`
+	ClearedModeId              []int64              `json:"cleared_mode_id"`
+	ScenarioModeRewardId       int64                `json:"scenario_mode_reward_id"`
+	IsScenarioSpecialReward    bool                 `json:"is_scenario_special_reward"`
+	AccountLevelLimit          int64                `json:"account_level_limit"`
+	ClearedStageId             int64                `json:"cleared_stage_id"`
+	NeedClub                   Club                 `json:"need_club"`
+	NeedClubStudentCount       int32                `json:"need_club_student_count"`
 	EventContentId             int64                `json:"event_content_id"`
+	EventContentType           EventContentType     `json:"event_content_type"`
+	EventContentCondition      int64                `json:"event_content_condition"`
+	EventContentConditionGroup int64                `json:"event_content_condition_group"`
+	MapDifficulty              StageDifficulty      `json:"map_difficulty"`
+	StepIndex                  int32                `json:"step_index"`
+	RecommendLevel             int32                `json:"recommend_level"`
+	EventIconParcelPath        string               `json:"event_icon_parcel_path"`
+	EventBannerTitle           uint32               `json:"event_banner_title"`
+	Lof                        bool                 `json:"lof"`
+	StageTopography            StageTopography      `json:"stage_topography"`
+	FixedEchelonId             int64                `json:"fixed_echelon_id"`
+	CompleteReportEventName    string               `json:"complete_report_event_name"`
+	EchelonExtensionType       EchelonExtensionType `json:"echelon_extension_type"`
+	CollectionGroupId          int64                `json:"collection_group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ScenarioModeExcelStart(b)
-	ScenarioModeExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddLof(b, t.Lof)
-	ScenarioModeExcelAddEventContentCondition(b, fbsutils.Convert(t.EventContentCondition, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddChapterId(b, fbsutils.Convert(t.ChapterId, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddHide(b, t.Hide)
-	ScenarioModeExcelAddEventIconParcelPath(b, b.CreateString(fbsutils.Convert(t.EventIconParcelPath, t.FlatBuffer.TableKey)))
 	ScenarioModeExcelAddModeId(b, fbsutils.Convert(t.ModeId, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddExposedTime(b, b.CreateString(fbsutils.Convert(t.ExposedTime, t.FlatBuffer.TableKey)))
-	ScenarioModeExcelAddOpen(b, t.Open)
-	ScenarioModeExcelStartBackScenarioGroupIdVector(b, len(t.BackScenarioGroupId))
-	for i := range len(t.BackScenarioGroupId) {
-		b.PrependInt64(fbsutils.Convert(t.BackScenarioGroupId[len(t.BackScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
-	}
-	ScenarioModeExcelAddBackScenarioGroupId(b, b.EndVector(len(t.BackScenarioGroupId)))
+	ScenarioModeExcelAddModeType(b, fbsutils.Convert(t.ModeType, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddSubType(b, fbsutils.Convert(t.SubType, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddVolumeId(b, fbsutils.Convert(t.VolumeId, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddChapterId(b, fbsutils.Convert(t.ChapterId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddEpisodeId(b, fbsutils.Convert(t.EpisodeId, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddCompleteReportEventName(b, b.CreateString(fbsutils.Convert(t.CompleteReportEventName, t.FlatBuffer.TableKey)))
-	ScenarioModeExcelAddStepIndex(b, fbsutils.Convert(t.StepIndex, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddAccountLevelLimit(b, fbsutils.Convert(t.AccountLevelLimit, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddEventContentType(b, fbsutils.Convert(t.EventContentType, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddExposedTime(b, b.CreateString(fbsutils.Convert(t.ExposedTime, t.FlatBuffer.TableKey)))
+	ScenarioModeExcelAddHide(b, t.Hide)
+	ScenarioModeExcelAddOpen(b, t.Open)
+	ScenarioModeExcelAddScenarioOpenDate(b, b.CreateString(fbsutils.Convert(t.ScenarioOpenDate, t.FlatBuffer.TableKey)))
+	ScenarioModeExcelAddScenarioCloseDate(b, b.CreateString(fbsutils.Convert(t.ScenarioCloseDate, t.FlatBuffer.TableKey)))
+	ScenarioModeExcelAddIsContinue(b, t.IsContinue)
+	ScenarioModeExcelAddEpisodeContinueModeId(b, fbsutils.Convert(t.EpisodeContinueModeId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelStartFrontScenarioGroupIdVector(b, len(t.FrontScenarioGroupId))
 	for i := range len(t.FrontScenarioGroupId) {
 		b.PrependInt64(fbsutils.Convert(t.FrontScenarioGroupId[len(t.FrontScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ScenarioModeExcelAddFrontScenarioGroupId(b, b.EndVector(len(t.FrontScenarioGroupId)))
-	ScenarioModeExcelAddScenarioCloseDate(b, b.CreateString(fbsutils.Convert(t.ScenarioCloseDate, t.FlatBuffer.TableKey)))
-	ScenarioModeExcelAddEventContentConditionGroup(b, fbsutils.Convert(t.EventContentConditionGroup, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddVolumeId(b, fbsutils.Convert(t.VolumeId, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddIsContinue(b, t.IsContinue)
-	ScenarioModeExcelAddCollectionGroupId(b, fbsutils.Convert(t.CollectionGroupId, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddNeedClubStudentCount(b, fbsutils.Convert(t.NeedClubStudentCount, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddScenarioOpenDate(b, b.CreateString(fbsutils.Convert(t.ScenarioOpenDate, t.FlatBuffer.TableKey)))
-	ScenarioModeExcelAddScenarioModeRewardId(b, fbsutils.Convert(t.ScenarioModeRewardId, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddSubType(b, fbsutils.Convert(t.SubType, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddStrategyId(b, fbsutils.Convert(t.StrategyId, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddIsDefeatBattle(b, t.IsDefeatBattle)
+	ScenarioModeExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
+	ScenarioModeExcelStartBackScenarioGroupIdVector(b, len(t.BackScenarioGroupId))
+	for i := range len(t.BackScenarioGroupId) {
+		b.PrependInt64(fbsutils.Convert(t.BackScenarioGroupId[len(t.BackScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
+	}
+	ScenarioModeExcelAddBackScenarioGroupId(b, b.EndVector(len(t.BackScenarioGroupId)))
 	ScenarioModeExcelStartClearedModeIdVector(b, len(t.ClearedModeId))
 	for i := range len(t.ClearedModeId) {
 		b.PrependInt64(fbsutils.Convert(t.ClearedModeId[len(t.ClearedModeId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ScenarioModeExcelAddClearedModeId(b, b.EndVector(len(t.ClearedModeId)))
-	ScenarioModeExcelAddEpisodeContinueModeId(b, fbsutils.Convert(t.EpisodeContinueModeId, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddClearedStageId(b, fbsutils.Convert(t.ClearedStageId, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddEventBannerTitle(b, fbsutils.Convert(t.EventBannerTitle, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddModeType(b, fbsutils.Convert(t.ModeType, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddRecommendLevel(b, fbsutils.Convert(t.RecommendLevel, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddNeedClub(b, fbsutils.Convert(t.NeedClub, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddStrategyId(b, fbsutils.Convert(t.StrategyId, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddScenarioModeRewardId(b, fbsutils.Convert(t.ScenarioModeRewardId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddIsScenarioSpecialReward(b, t.IsScenarioSpecialReward)
-	ScenarioModeExcelAddMapDifficulty(b, fbsutils.Convert(t.MapDifficulty, t.FlatBuffer.TableKey))
-	ScenarioModeExcelAddIsDefeatBattle(b, t.IsDefeatBattle)
+	ScenarioModeExcelAddAccountLevelLimit(b, fbsutils.Convert(t.AccountLevelLimit, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddClearedStageId(b, fbsutils.Convert(t.ClearedStageId, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddNeedClub(b, fbsutils.Convert(t.NeedClub, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddNeedClubStudentCount(b, fbsutils.Convert(t.NeedClubStudentCount, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddEventContentType(b, fbsutils.Convert(t.EventContentType, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddEventContentCondition(b, fbsutils.Convert(t.EventContentCondition, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddEventContentConditionGroup(b, fbsutils.Convert(t.EventContentConditionGroup, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddMapDifficulty(b, fbsutils.Convert(t.MapDifficulty, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddStepIndex(b, fbsutils.Convert(t.StepIndex, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddRecommendLevel(b, fbsutils.Convert(t.RecommendLevel, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddEventIconParcelPath(b, b.CreateString(fbsutils.Convert(t.EventIconParcelPath, t.FlatBuffer.TableKey)))
+	ScenarioModeExcelAddEventBannerTitle(b, fbsutils.Convert(t.EventBannerTitle, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddLof(b, t.Lof)
+	ScenarioModeExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddCompleteReportEventName(b, b.CreateString(fbsutils.Convert(t.CompleteReportEventName, t.FlatBuffer.TableKey)))
+	ScenarioModeExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddCollectionGroupId(b, fbsutils.Convert(t.CollectionGroupId, t.FlatBuffer.TableKey))
 	return ScenarioModeExcelEnd(b)
 }
 
@@ -121,56 +121,56 @@ func (t *ScenarioModeExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioModeExcelDto) UnmarshalMessage(e *ScenarioModeExcel) error {
-	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
-	t.Lof = e.Lof()
-	t.EventContentCondition = fbsutils.Convert(e.EventContentCondition(), t.FlatBuffer.TableKey)
-	t.ChapterId = fbsutils.Convert(e.ChapterId(), t.FlatBuffer.TableKey)
-	t.Hide = e.Hide()
-	t.EventIconParcelPath = fbsutils.Convert(string(e.EventIconParcelPath()), t.FlatBuffer.TableKey)
 	t.ModeId = fbsutils.Convert(e.ModeId(), t.FlatBuffer.TableKey)
-	t.ExposedTime = fbsutils.Convert(string(e.ExposedTime()), t.FlatBuffer.TableKey)
-	t.Open = e.Open()
-	t.BackScenarioGroupId = make([]int64, e.BackScenarioGroupIdLength())
-	for i := range e.BackScenarioGroupIdLength() {
-		t.BackScenarioGroupId[i] = fbsutils.Convert(e.BackScenarioGroupId(i), t.FlatBuffer.TableKey)
-	}
+	t.ModeType = ScenarioModeTypes(fbsutils.Convert(int32(e.ModeType()), t.FlatBuffer.TableKey))
+	t.SubType = ScenarioModeSubTypes(fbsutils.Convert(int32(e.SubType()), t.FlatBuffer.TableKey))
+	t.VolumeId = fbsutils.Convert(e.VolumeId(), t.FlatBuffer.TableKey)
+	t.ChapterId = fbsutils.Convert(e.ChapterId(), t.FlatBuffer.TableKey)
 	t.EpisodeId = fbsutils.Convert(e.EpisodeId(), t.FlatBuffer.TableKey)
-	t.CompleteReportEventName = fbsutils.Convert(string(e.CompleteReportEventName()), t.FlatBuffer.TableKey)
-	t.StepIndex = fbsutils.Convert(e.StepIndex(), t.FlatBuffer.TableKey)
-	t.AccountLevelLimit = fbsutils.Convert(e.AccountLevelLimit(), t.FlatBuffer.TableKey)
-	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
-	t.EventContentType = EventContentType(fbsutils.Convert(int32(e.EventContentType()), t.FlatBuffer.TableKey))
+	t.ExposedTime = fbsutils.Convert(string(e.ExposedTime()), t.FlatBuffer.TableKey)
+	t.Hide = e.Hide()
+	t.Open = e.Open()
+	t.ScenarioOpenDate = fbsutils.Convert(string(e.ScenarioOpenDate()), t.FlatBuffer.TableKey)
+	t.ScenarioCloseDate = fbsutils.Convert(string(e.ScenarioCloseDate()), t.FlatBuffer.TableKey)
+	t.IsContinue = e.IsContinue()
+	t.EpisodeContinueModeId = fbsutils.Convert(e.EpisodeContinueModeId(), t.FlatBuffer.TableKey)
 	t.FrontScenarioGroupId = make([]int64, e.FrontScenarioGroupIdLength())
 	for i := range e.FrontScenarioGroupIdLength() {
 		t.FrontScenarioGroupId[i] = fbsutils.Convert(e.FrontScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
-	t.ScenarioCloseDate = fbsutils.Convert(string(e.ScenarioCloseDate()), t.FlatBuffer.TableKey)
-	t.EventContentConditionGroup = fbsutils.Convert(e.EventContentConditionGroup(), t.FlatBuffer.TableKey)
-	t.VolumeId = fbsutils.Convert(e.VolumeId(), t.FlatBuffer.TableKey)
-	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
-	t.IsContinue = e.IsContinue()
-	t.CollectionGroupId = fbsutils.Convert(e.CollectionGroupId(), t.FlatBuffer.TableKey)
-	t.NeedClubStudentCount = fbsutils.Convert(e.NeedClubStudentCount(), t.FlatBuffer.TableKey)
-	t.ScenarioOpenDate = fbsutils.Convert(string(e.ScenarioOpenDate()), t.FlatBuffer.TableKey)
-	t.ScenarioModeRewardId = fbsutils.Convert(e.ScenarioModeRewardId(), t.FlatBuffer.TableKey)
-	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
-	t.SubType = ScenarioModeSubTypes(fbsutils.Convert(int32(e.SubType()), t.FlatBuffer.TableKey))
+	t.StrategyId = fbsutils.Convert(e.StrategyId(), t.FlatBuffer.TableKey)
+	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
+	t.IsDefeatBattle = e.IsDefeatBattle()
+	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
+	t.BackScenarioGroupId = make([]int64, e.BackScenarioGroupIdLength())
+	for i := range e.BackScenarioGroupIdLength() {
+		t.BackScenarioGroupId[i] = fbsutils.Convert(e.BackScenarioGroupId(i), t.FlatBuffer.TableKey)
+	}
 	t.ClearedModeId = make([]int64, e.ClearedModeIdLength())
 	for i := range e.ClearedModeIdLength() {
 		t.ClearedModeId[i] = fbsutils.Convert(e.ClearedModeId(i), t.FlatBuffer.TableKey)
 	}
-	t.EpisodeContinueModeId = fbsutils.Convert(e.EpisodeContinueModeId(), t.FlatBuffer.TableKey)
-	t.ClearedStageId = fbsutils.Convert(e.ClearedStageId(), t.FlatBuffer.TableKey)
-	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
-	t.EventBannerTitle = fbsutils.Convert(e.EventBannerTitle(), t.FlatBuffer.TableKey)
-	t.ModeType = ScenarioModeTypes(fbsutils.Convert(int32(e.ModeType()), t.FlatBuffer.TableKey))
-	t.RecommendLevel = fbsutils.Convert(e.RecommendLevel(), t.FlatBuffer.TableKey)
-	t.NeedClub = Club(fbsutils.Convert(int32(e.NeedClub()), t.FlatBuffer.TableKey))
-	t.StrategyId = fbsutils.Convert(e.StrategyId(), t.FlatBuffer.TableKey)
+	t.ScenarioModeRewardId = fbsutils.Convert(e.ScenarioModeRewardId(), t.FlatBuffer.TableKey)
 	t.IsScenarioSpecialReward = e.IsScenarioSpecialReward()
-	t.MapDifficulty = StageDifficulty(fbsutils.Convert(int32(e.MapDifficulty()), t.FlatBuffer.TableKey))
-	t.IsDefeatBattle = e.IsDefeatBattle()
+	t.AccountLevelLimit = fbsutils.Convert(e.AccountLevelLimit(), t.FlatBuffer.TableKey)
+	t.ClearedStageId = fbsutils.Convert(e.ClearedStageId(), t.FlatBuffer.TableKey)
+	t.NeedClub = Club(fbsutils.Convert(int32(e.NeedClub()), t.FlatBuffer.TableKey))
+	t.NeedClubStudentCount = fbsutils.Convert(e.NeedClubStudentCount(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.EventContentType = EventContentType(fbsutils.Convert(int32(e.EventContentType()), t.FlatBuffer.TableKey))
+	t.EventContentCondition = fbsutils.Convert(e.EventContentCondition(), t.FlatBuffer.TableKey)
+	t.EventContentConditionGroup = fbsutils.Convert(e.EventContentConditionGroup(), t.FlatBuffer.TableKey)
+	t.MapDifficulty = StageDifficulty(fbsutils.Convert(int32(e.MapDifficulty()), t.FlatBuffer.TableKey))
+	t.StepIndex = fbsutils.Convert(e.StepIndex(), t.FlatBuffer.TableKey)
+	t.RecommendLevel = fbsutils.Convert(e.RecommendLevel(), t.FlatBuffer.TableKey)
+	t.EventIconParcelPath = fbsutils.Convert(string(e.EventIconParcelPath()), t.FlatBuffer.TableKey)
+	t.EventBannerTitle = fbsutils.Convert(e.EventBannerTitle(), t.FlatBuffer.TableKey)
+	t.Lof = e.Lof()
+	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
+	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
+	t.CompleteReportEventName = fbsutils.Convert(string(e.CompleteReportEventName()), t.FlatBuffer.TableKey)
+	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
+	t.CollectionGroupId = fbsutils.Convert(e.CollectionGroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

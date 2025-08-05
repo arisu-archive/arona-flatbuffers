@@ -17,7 +17,6 @@ const (
 	FilterIconDefense       FilterIcon = 7
 	FilterIconRange         FilterIcon = 8
 	FilterIconMemoryLobby   FilterIcon = 9
-	FilterIconObscuration   FilterIcon = 10
 )
 
 var EnumNamesFilterIcon = map[FilterIcon]string{
@@ -31,7 +30,6 @@ var EnumNamesFilterIcon = map[FilterIcon]string{
 	FilterIconDefense:       "Defense",
 	FilterIconRange:         "Range",
 	FilterIconMemoryLobby:   "MemoryLobby",
-	FilterIconObscuration:   "Obscuration",
 }
 
 var EnumValuesFilterIcon = map[string]FilterIcon{
@@ -45,7 +43,6 @@ var EnumValuesFilterIcon = map[string]FilterIcon{
 	"Defense":       FilterIconDefense,
 	"Range":         FilterIconRange,
 	"MemoryLobby":   FilterIconMemoryLobby,
-	"Obscuration":   FilterIconObscuration,
 }
 
 func (v FilterIcon) String() string {

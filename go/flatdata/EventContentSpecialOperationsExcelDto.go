@@ -10,8 +10,8 @@ import (
 // EventContentSpecialOperationsExcelDto represents a FlatBuffers table
 type EventContentSpecialOperationsExcelDto struct {
 	fbsutils.FlatBuffer
-	PointItemId    int64 `json:"point_item_id"`
 	EventContentId int64 `json:"event_content_id"`
+	PointItemId    int64 `json:"point_item_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -20,8 +20,8 @@ func (t *EventContentSpecialOperationsExcelDto) MarshalModel(b *flatbuffers.Buil
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpecialOperations"))
 	}
 	EventContentSpecialOperationsExcelStart(b)
-	EventContentSpecialOperationsExcelAddPointItemId(b, fbsutils.Convert(t.PointItemId, t.FlatBuffer.TableKey))
 	EventContentSpecialOperationsExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentSpecialOperationsExcelAddPointItemId(b, fbsutils.Convert(t.PointItemId, t.FlatBuffer.TableKey))
 	return EventContentSpecialOperationsExcelEnd(b)
 }
 
@@ -37,8 +37,8 @@ func (t *EventContentSpecialOperationsExcelDto) UnmarshalMessage(e *EventContent
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentSpecialOperations"))
 	}
-	t.PointItemId = fbsutils.Convert(e.PointItemId(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.PointItemId = fbsutils.Convert(e.PointItemId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

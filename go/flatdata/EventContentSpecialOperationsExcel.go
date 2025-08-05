@@ -33,7 +33,7 @@ func (rcv *EventContentSpecialOperationsExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentSpecialOperationsExcel) PointItemId() int64 {
+func (rcv *EventContentSpecialOperationsExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *EventContentSpecialOperationsExcel) PointItemId() int64 {
 	return 0
 }
 
-func (rcv *EventContentSpecialOperationsExcel) MutatePointItemId(n int64) bool {
+func (rcv *EventContentSpecialOperationsExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EventContentSpecialOperationsExcel) EventContentId() int64 {
+func (rcv *EventContentSpecialOperationsExcel) PointItemId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,18 +53,18 @@ func (rcv *EventContentSpecialOperationsExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentSpecialOperationsExcel) MutateEventContentId(n int64) bool {
+func (rcv *EventContentSpecialOperationsExcel) MutatePointItemId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func EventContentSpecialOperationsExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func EventContentSpecialOperationsExcelAddPointItemId(builder *flatbuffers.Builder, pointItemId int64) {
-	builder.PrependInt64Slot(0, pointItemId, 0)
-}
 func EventContentSpecialOperationsExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(1, eventContentId, 0)
+	builder.PrependInt64Slot(0, eventContentId, 0)
+}
+func EventContentSpecialOperationsExcelAddPointItemId(builder *flatbuffers.Builder, pointItemId int64) {
+	builder.PrependInt64Slot(1, pointItemId, 0)
 }
 func EventContentSpecialOperationsExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

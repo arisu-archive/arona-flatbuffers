@@ -5,19 +5,19 @@ include "ShopCategoryType.fbs";
 namespace FlatData;
 
 table ShopExcel {
-    sale_period_from: string;
-    display_order: long;
-    shop_update_group_id: int;
-    buy_report_event_name: string;
-    sale_period_to: string;
-    goods_id: [long];
-    purchase_cooltime_min: long;
-    restrict_buy_when_inventory_full: bool;
-    purchase_count_limit: long;
-    display_tag: ProductDisplayTag;
     id: long;
-    purchase_count_reset_type: PurchaseCountResetType;
     localize_etc_id: uint;
     category_type: ShopCategoryType;
     is_legacy: bool;
+    goods_id: [long];
+    display_order: long;
+    sale_period_from: string;
+    sale_period_to: string;
+    purchase_cooltime_min: long;
+    purchase_count_limit: long;
+    purchase_count_reset_type: PurchaseCountResetType;
+    buy_report_event_name: string;
+    restrict_buy_when_inventory_full: bool;
+    display_tag: ProductDisplayTag;
+    shop_update_group_id: int;
 }

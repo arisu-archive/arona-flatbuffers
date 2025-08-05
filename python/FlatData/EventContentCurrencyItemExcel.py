@@ -25,48 +25,38 @@ class EventContentCurrencyItemExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentCurrencyItemExcel
-    def EventContentItemType(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentCurrencyItemExcel
+    def EventContentItemType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentCurrencyItemExcel
     def ItemUniqueId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentCurrencyItemExcel
-    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-    # EventContentCurrencyItemExcel
-    def UseShortCutContentType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-def EventContentCurrencyItemExcelStart(builder): builder.StartObject(4)
+def EventContentCurrencyItemExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return EventContentCurrencyItemExcelStart(builder)
-def EventContentCurrencyItemExcelAddEventContentItemType(builder, eventContentItemType): builder.PrependInt32Slot(0, eventContentItemType, 0)
-def AddEventContentItemType(builder, eventContentItemType):
-    return EventContentCurrencyItemExcelAddEventContentItemType(builder, eventContentItemType)
-def EventContentCurrencyItemExcelAddItemUniqueId(builder, itemUniqueId): builder.PrependInt64Slot(1, itemUniqueId, 0)
-def AddItemUniqueId(builder, itemUniqueId):
-    return EventContentCurrencyItemExcelAddItemUniqueId(builder, itemUniqueId)
-def EventContentCurrencyItemExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(2, eventContentId, 0)
+def EventContentCurrencyItemExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
     return EventContentCurrencyItemExcelAddEventContentId(builder, eventContentId)
-def EventContentCurrencyItemExcelAddUseShortCutContentType(builder, useShortCutContentType): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(useShortCutContentType), 0)
-def AddUseShortCutContentType(builder, useShortCutContentType):
-    return EventContentCurrencyItemExcelAddUseShortCutContentType(builder, useShortCutContentType)
+def EventContentCurrencyItemExcelAddEventContentItemType(builder, eventContentItemType): builder.PrependInt32Slot(1, eventContentItemType, 0)
+def AddEventContentItemType(builder, eventContentItemType):
+    return EventContentCurrencyItemExcelAddEventContentItemType(builder, eventContentItemType)
+def EventContentCurrencyItemExcelAddItemUniqueId(builder, itemUniqueId): builder.PrependInt64Slot(2, itemUniqueId, 0)
+def AddItemUniqueId(builder, itemUniqueId):
+    return EventContentCurrencyItemExcelAddItemUniqueId(builder, itemUniqueId)
 def EventContentCurrencyItemExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentCurrencyItemExcelEnd(builder)

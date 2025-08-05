@@ -33,20 +33,8 @@ func (rcv *CharacterCalculationLimitExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterCalculationLimitExcel) TacticEntityType() TacticEntityType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return TacticEntityType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CharacterCalculationLimitExcel) MutateTacticEntityType(n TacticEntityType) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
-}
-
 func (rcv *CharacterCalculationLimitExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -54,7 +42,19 @@ func (rcv *CharacterCalculationLimitExcel) Id() int64 {
 }
 
 func (rcv *CharacterCalculationLimitExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *CharacterCalculationLimitExcel) TacticEntityType() TacticEntityType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return TacticEntityType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterCalculationLimitExcel) MutateTacticEntityType(n TacticEntityType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
 func (rcv *CharacterCalculationLimitExcel) CalculationValue() BattleCalculationStat {
@@ -69,7 +69,7 @@ func (rcv *CharacterCalculationLimitExcel) MutateCalculationValue(n BattleCalcul
 	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *CharacterCalculationLimitExcel) MaxValue() int64 {
+func (rcv *CharacterCalculationLimitExcel) MinValue() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,11 +77,11 @@ func (rcv *CharacterCalculationLimitExcel) MaxValue() int64 {
 	return 0
 }
 
-func (rcv *CharacterCalculationLimitExcel) MutateMaxValue(n int64) bool {
+func (rcv *CharacterCalculationLimitExcel) MutateMinValue(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *CharacterCalculationLimitExcel) MinValue() int64 {
+func (rcv *CharacterCalculationLimitExcel) MaxValue() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,7 +89,7 @@ func (rcv *CharacterCalculationLimitExcel) MinValue() int64 {
 	return 0
 }
 
-func (rcv *CharacterCalculationLimitExcel) MutateMinValue(n int64) bool {
+func (rcv *CharacterCalculationLimitExcel) MutateMaxValue(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
@@ -148,20 +148,20 @@ func (rcv *CharacterCalculationLimitExcel) MutateDecreaseRate(j int, n int64) bo
 func CharacterCalculationLimitExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func CharacterCalculationLimitExcelAddTacticEntityType(builder *flatbuffers.Builder, tacticEntityType TacticEntityType) {
-	builder.PrependInt32Slot(0, int32(tacticEntityType), 0)
-}
 func CharacterCalculationLimitExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(1, id, 0)
+	builder.PrependInt64Slot(0, id, 0)
+}
+func CharacterCalculationLimitExcelAddTacticEntityType(builder *flatbuffers.Builder, tacticEntityType TacticEntityType) {
+	builder.PrependInt32Slot(1, int32(tacticEntityType), 0)
 }
 func CharacterCalculationLimitExcelAddCalculationValue(builder *flatbuffers.Builder, calculationValue BattleCalculationStat) {
 	builder.PrependInt32Slot(2, int32(calculationValue), 0)
 }
-func CharacterCalculationLimitExcelAddMaxValue(builder *flatbuffers.Builder, maxValue int64) {
-	builder.PrependInt64Slot(3, maxValue, 0)
-}
 func CharacterCalculationLimitExcelAddMinValue(builder *flatbuffers.Builder, minValue int64) {
-	builder.PrependInt64Slot(4, minValue, 0)
+	builder.PrependInt64Slot(3, minValue, 0)
+}
+func CharacterCalculationLimitExcelAddMaxValue(builder *flatbuffers.Builder, maxValue int64) {
+	builder.PrependInt64Slot(4, maxValue, 0)
 }
 func CharacterCalculationLimitExcelAddLimitStartValue(builder *flatbuffers.Builder, limitStartValue flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(limitStartValue), 0)

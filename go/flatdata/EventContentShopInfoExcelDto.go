@@ -10,19 +10,19 @@ import (
 // EventContentShopInfoExcelDto represents a FlatBuffers table
 type EventContentShopInfoExcelDto struct {
 	fbsutils.FlatBuffer
-	OpenPeriodFrom        string           `json:"open_period_from"`
-	LocalizeCode          uint32           `json:"localize_code"`
 	EventContentId        int64            `json:"event_content_id"`
-	CostParcelType        []ParcelType     `json:"cost_parcel_type"`
-	AutoRefreshCoolTime   int64            `json:"auto_refresh_cool_time"`
-	GoodsId               []int64          `json:"goods_id"`
-	RefreshAbleCount      int64            `json:"refresh_able_count"`
-	CostParcelId          []int64          `json:"cost_parcel_id"`
-	OpenPeriodTo          string           `json:"open_period_to"`
-	IsSoldOutDimmed       bool             `json:"is_sold_out_dimmed"`
 	CategoryType          ShopCategoryType `json:"category_type"`
-	ShopProductUpdateDate string           `json:"shop_product_update_date"`
+	LocalizeCode          uint32           `json:"localize_code"`
+	CostParcelType        []ParcelType     `json:"cost_parcel_type"`
+	CostParcelId          []int64          `json:"cost_parcel_id"`
 	IsRefresh             bool             `json:"is_refresh"`
+	IsSoldOutDimmed       bool             `json:"is_sold_out_dimmed"`
+	AutoRefreshCoolTime   int64            `json:"auto_refresh_cool_time"`
+	RefreshAbleCount      int64            `json:"refresh_able_count"`
+	GoodsId               []int64          `json:"goods_id"`
+	OpenPeriodFrom        string           `json:"open_period_from"`
+	OpenPeriodTo          string           `json:"open_period_to"`
+	ShopProductUpdateDate string           `json:"shop_product_update_date"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -31,31 +31,31 @@ func (t *EventContentShopInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShopInfo"))
 	}
 	EventContentShopInfoExcelStart(b)
-	EventContentShopInfoExcelAddOpenPeriodFrom(b, b.CreateString(fbsutils.Convert(t.OpenPeriodFrom, t.FlatBuffer.TableKey)))
-	EventContentShopInfoExcelAddLocalizeCode(b, fbsutils.Convert(t.LocalizeCode, t.FlatBuffer.TableKey))
 	EventContentShopInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentShopInfoExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
+	EventContentShopInfoExcelAddLocalizeCode(b, fbsutils.Convert(t.LocalizeCode, t.FlatBuffer.TableKey))
 	EventContentShopInfoExcelStartCostParcelTypeVector(b, len(t.CostParcelType))
 	for i := range len(t.CostParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.CostParcelType[len(t.CostParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentShopInfoExcelAddCostParcelType(b, b.EndVector(len(t.CostParcelType)))
-	EventContentShopInfoExcelAddAutoRefreshCoolTime(b, fbsutils.Convert(t.AutoRefreshCoolTime, t.FlatBuffer.TableKey))
-	EventContentShopInfoExcelStartGoodsIdVector(b, len(t.GoodsId))
-	for i := range len(t.GoodsId) {
-		b.PrependInt64(fbsutils.Convert(t.GoodsId[len(t.GoodsId)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentShopInfoExcelAddGoodsId(b, b.EndVector(len(t.GoodsId)))
-	EventContentShopInfoExcelAddRefreshAbleCount(b, fbsutils.Convert(t.RefreshAbleCount, t.FlatBuffer.TableKey))
 	EventContentShopInfoExcelStartCostParcelIdVector(b, len(t.CostParcelId))
 	for i := range len(t.CostParcelId) {
 		b.PrependInt64(fbsutils.Convert(t.CostParcelId[len(t.CostParcelId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentShopInfoExcelAddCostParcelId(b, b.EndVector(len(t.CostParcelId)))
-	EventContentShopInfoExcelAddOpenPeriodTo(b, b.CreateString(fbsutils.Convert(t.OpenPeriodTo, t.FlatBuffer.TableKey)))
-	EventContentShopInfoExcelAddIsSoldOutDimmed(b, t.IsSoldOutDimmed)
-	EventContentShopInfoExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
-	EventContentShopInfoExcelAddShopProductUpdateDate(b, b.CreateString(fbsutils.Convert(t.ShopProductUpdateDate, t.FlatBuffer.TableKey)))
 	EventContentShopInfoExcelAddIsRefresh(b, t.IsRefresh)
+	EventContentShopInfoExcelAddIsSoldOutDimmed(b, t.IsSoldOutDimmed)
+	EventContentShopInfoExcelAddAutoRefreshCoolTime(b, fbsutils.Convert(t.AutoRefreshCoolTime, t.FlatBuffer.TableKey))
+	EventContentShopInfoExcelAddRefreshAbleCount(b, fbsutils.Convert(t.RefreshAbleCount, t.FlatBuffer.TableKey))
+	EventContentShopInfoExcelStartGoodsIdVector(b, len(t.GoodsId))
+	for i := range len(t.GoodsId) {
+		b.PrependInt64(fbsutils.Convert(t.GoodsId[len(t.GoodsId)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentShopInfoExcelAddGoodsId(b, b.EndVector(len(t.GoodsId)))
+	EventContentShopInfoExcelAddOpenPeriodFrom(b, b.CreateString(fbsutils.Convert(t.OpenPeriodFrom, t.FlatBuffer.TableKey)))
+	EventContentShopInfoExcelAddOpenPeriodTo(b, b.CreateString(fbsutils.Convert(t.OpenPeriodTo, t.FlatBuffer.TableKey)))
+	EventContentShopInfoExcelAddShopProductUpdateDate(b, b.CreateString(fbsutils.Convert(t.ShopProductUpdateDate, t.FlatBuffer.TableKey)))
 	return EventContentShopInfoExcelEnd(b)
 }
 
@@ -71,28 +71,28 @@ func (t *EventContentShopInfoExcelDto) UnmarshalMessage(e *EventContentShopInfoE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentShopInfo"))
 	}
-	t.OpenPeriodFrom = fbsutils.Convert(string(e.OpenPeriodFrom()), t.FlatBuffer.TableKey)
-	t.LocalizeCode = fbsutils.Convert(e.LocalizeCode(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
+	t.LocalizeCode = fbsutils.Convert(e.LocalizeCode(), t.FlatBuffer.TableKey)
 	t.CostParcelType = make([]ParcelType, e.CostParcelTypeLength())
 	for i := range e.CostParcelTypeLength() {
 		t.CostParcelType[i] = ParcelType(fbsutils.Convert(int32(e.CostParcelType(i)), t.FlatBuffer.TableKey))
 	}
-	t.AutoRefreshCoolTime = fbsutils.Convert(e.AutoRefreshCoolTime(), t.FlatBuffer.TableKey)
-	t.GoodsId = make([]int64, e.GoodsIdLength())
-	for i := range e.GoodsIdLength() {
-		t.GoodsId[i] = fbsutils.Convert(e.GoodsId(i), t.FlatBuffer.TableKey)
-	}
-	t.RefreshAbleCount = fbsutils.Convert(e.RefreshAbleCount(), t.FlatBuffer.TableKey)
 	t.CostParcelId = make([]int64, e.CostParcelIdLength())
 	for i := range e.CostParcelIdLength() {
 		t.CostParcelId[i] = fbsutils.Convert(e.CostParcelId(i), t.FlatBuffer.TableKey)
 	}
-	t.OpenPeriodTo = fbsutils.Convert(string(e.OpenPeriodTo()), t.FlatBuffer.TableKey)
-	t.IsSoldOutDimmed = e.IsSoldOutDimmed()
-	t.CategoryType = ShopCategoryType(fbsutils.Convert(int32(e.CategoryType()), t.FlatBuffer.TableKey))
-	t.ShopProductUpdateDate = fbsutils.Convert(string(e.ShopProductUpdateDate()), t.FlatBuffer.TableKey)
 	t.IsRefresh = e.IsRefresh()
+	t.IsSoldOutDimmed = e.IsSoldOutDimmed()
+	t.AutoRefreshCoolTime = fbsutils.Convert(e.AutoRefreshCoolTime(), t.FlatBuffer.TableKey)
+	t.RefreshAbleCount = fbsutils.Convert(e.RefreshAbleCount(), t.FlatBuffer.TableKey)
+	t.GoodsId = make([]int64, e.GoodsIdLength())
+	for i := range e.GoodsIdLength() {
+		t.GoodsId[i] = fbsutils.Convert(e.GoodsId(i), t.FlatBuffer.TableKey)
+	}
+	t.OpenPeriodFrom = fbsutils.Convert(string(e.OpenPeriodFrom()), t.FlatBuffer.TableKey)
+	t.OpenPeriodTo = fbsutils.Convert(string(e.OpenPeriodTo()), t.FlatBuffer.TableKey)
+	t.ShopProductUpdateDate = fbsutils.Convert(string(e.ShopProductUpdateDate()), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -25,74 +25,74 @@ class MinigameTBGEncounterExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MinigameTBGEncounterExcel
-    def BeforeStoryOption3Localize(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # MinigameTBGEncounterExcel
-    def ObjectType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameTBGEncounterExcel
-    def EnemyAttackLocalize(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # MinigameTBGEncounterExcel
-    def RunawayStoryLocalize(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # MinigameTBGEncounterExcel
-    def BeforeStoryOption2Localize(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # MinigameTBGEncounterExcel
-    def EnemyImagePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # MinigameTBGEncounterExcel
-    def OptionGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameTBGEncounterExcel
-    def AttackDefenceLocalize(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+    def UniqueId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameTBGEncounterExcel
+    def AllThema(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # MinigameTBGEncounterExcel
+    def ThemaIndex(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameTBGEncounterExcel
+    def ThemaType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameTBGEncounterExcel
+    def ObjectType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameTBGEncounterExcel
+    def EnemyImagePath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MinigameTBGEncounterExcel
     def EnemyPrefabName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # MinigameTBGEncounterExcel
+    def EnemyNameLocalize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MinigameTBGEncounterExcel
-    def DefeatStoryLocalize(self):
+    def OptionGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # MinigameTBGEncounterExcel
     def RewardHide(self):
@@ -102,84 +102,84 @@ class MinigameTBGEncounterExcel(object):
         return False
 
     # MinigameTBGEncounterExcel
-    def StoryImagePath(self):
+    def EncounterTitleLocalize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MinigameTBGEncounterExcel
-    def BeforeStoryOption1Localize(self):
+    def StoryImagePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MinigameTBGEncounterExcel
-    def AllyAttackLocalize(self):
+    def BeforeStoryLocalize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MinigameTBGEncounterExcel
-    def ThemaType(self):
+    def BeforeStoryOption1Localize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # MinigameTBGEncounterExcel
-    def BeforeStoryLocalize(self):
+    def BeforeStoryOption2Localize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MinigameTBGEncounterExcel
-    def AllThema(self):
+    def BeforeStoryOption3Localize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # MinigameTBGEncounterExcel
-    def UniqueId(self):
+    def AllyAttackLocalize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # MinigameTBGEncounterExcel
-    def EnemyNameLocalize(self):
+    def EnemyAttackLocalize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MinigameTBGEncounterExcel
-    def ThemaIndex(self):
+    def AttackDefenceLocalize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MinigameTBGEncounterExcel
-    def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # MinigameTBGEncounterExcel
     def ClearStoryLocalize(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # MinigameTBGEncounterExcel
+    def DefeatStoryLocalize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MinigameTBGEncounterExcel
-    def EncounterTitleLocalize(self):
+    def RunawayStoryLocalize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -188,75 +188,75 @@ class MinigameTBGEncounterExcel(object):
 def MinigameTBGEncounterExcelStart(builder): builder.StartObject(23)
 def Start(builder):
     return MinigameTBGEncounterExcelStart(builder)
-def MinigameTBGEncounterExcelAddBeforeStoryOption3Localize(builder, beforeStoryOption3Localize): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(beforeStoryOption3Localize), 0)
-def AddBeforeStoryOption3Localize(builder, beforeStoryOption3Localize):
-    return MinigameTBGEncounterExcelAddBeforeStoryOption3Localize(builder, beforeStoryOption3Localize)
-def MinigameTBGEncounterExcelAddObjectType(builder, objectType): builder.PrependInt32Slot(1, objectType, 0)
+def MinigameTBGEncounterExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return MinigameTBGEncounterExcelAddEventContentId(builder, eventContentId)
+def MinigameTBGEncounterExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
+def AddUniqueId(builder, uniqueId):
+    return MinigameTBGEncounterExcelAddUniqueId(builder, uniqueId)
+def MinigameTBGEncounterExcelAddAllThema(builder, allThema): builder.PrependBoolSlot(2, allThema, 0)
+def AddAllThema(builder, allThema):
+    return MinigameTBGEncounterExcelAddAllThema(builder, allThema)
+def MinigameTBGEncounterExcelAddThemaIndex(builder, themaIndex): builder.PrependInt32Slot(3, themaIndex, 0)
+def AddThemaIndex(builder, themaIndex):
+    return MinigameTBGEncounterExcelAddThemaIndex(builder, themaIndex)
+def MinigameTBGEncounterExcelAddThemaType(builder, themaType): builder.PrependInt32Slot(4, themaType, 0)
+def AddThemaType(builder, themaType):
+    return MinigameTBGEncounterExcelAddThemaType(builder, themaType)
+def MinigameTBGEncounterExcelAddObjectType(builder, objectType): builder.PrependInt32Slot(5, objectType, 0)
 def AddObjectType(builder, objectType):
     return MinigameTBGEncounterExcelAddObjectType(builder, objectType)
-def MinigameTBGEncounterExcelAddEnemyAttackLocalize(builder, enemyAttackLocalize): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(enemyAttackLocalize), 0)
-def AddEnemyAttackLocalize(builder, enemyAttackLocalize):
-    return MinigameTBGEncounterExcelAddEnemyAttackLocalize(builder, enemyAttackLocalize)
-def MinigameTBGEncounterExcelAddRunawayStoryLocalize(builder, runawayStoryLocalize): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(runawayStoryLocalize), 0)
-def AddRunawayStoryLocalize(builder, runawayStoryLocalize):
-    return MinigameTBGEncounterExcelAddRunawayStoryLocalize(builder, runawayStoryLocalize)
-def MinigameTBGEncounterExcelAddBeforeStoryOption2Localize(builder, beforeStoryOption2Localize): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(beforeStoryOption2Localize), 0)
-def AddBeforeStoryOption2Localize(builder, beforeStoryOption2Localize):
-    return MinigameTBGEncounterExcelAddBeforeStoryOption2Localize(builder, beforeStoryOption2Localize)
-def MinigameTBGEncounterExcelAddEnemyImagePath(builder, enemyImagePath): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(enemyImagePath), 0)
+def MinigameTBGEncounterExcelAddEnemyImagePath(builder, enemyImagePath): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(enemyImagePath), 0)
 def AddEnemyImagePath(builder, enemyImagePath):
     return MinigameTBGEncounterExcelAddEnemyImagePath(builder, enemyImagePath)
-def MinigameTBGEncounterExcelAddOptionGroupId(builder, optionGroupId): builder.PrependInt64Slot(6, optionGroupId, 0)
-def AddOptionGroupId(builder, optionGroupId):
-    return MinigameTBGEncounterExcelAddOptionGroupId(builder, optionGroupId)
-def MinigameTBGEncounterExcelAddAttackDefenceLocalize(builder, attackDefenceLocalize): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(attackDefenceLocalize), 0)
-def AddAttackDefenceLocalize(builder, attackDefenceLocalize):
-    return MinigameTBGEncounterExcelAddAttackDefenceLocalize(builder, attackDefenceLocalize)
-def MinigameTBGEncounterExcelAddEnemyPrefabName(builder, enemyPrefabName): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(enemyPrefabName), 0)
+def MinigameTBGEncounterExcelAddEnemyPrefabName(builder, enemyPrefabName): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(enemyPrefabName), 0)
 def AddEnemyPrefabName(builder, enemyPrefabName):
     return MinigameTBGEncounterExcelAddEnemyPrefabName(builder, enemyPrefabName)
-def MinigameTBGEncounterExcelAddDefeatStoryLocalize(builder, defeatStoryLocalize): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(defeatStoryLocalize), 0)
-def AddDefeatStoryLocalize(builder, defeatStoryLocalize):
-    return MinigameTBGEncounterExcelAddDefeatStoryLocalize(builder, defeatStoryLocalize)
+def MinigameTBGEncounterExcelAddEnemyNameLocalize(builder, enemyNameLocalize): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(enemyNameLocalize), 0)
+def AddEnemyNameLocalize(builder, enemyNameLocalize):
+    return MinigameTBGEncounterExcelAddEnemyNameLocalize(builder, enemyNameLocalize)
+def MinigameTBGEncounterExcelAddOptionGroupId(builder, optionGroupId): builder.PrependInt64Slot(9, optionGroupId, 0)
+def AddOptionGroupId(builder, optionGroupId):
+    return MinigameTBGEncounterExcelAddOptionGroupId(builder, optionGroupId)
 def MinigameTBGEncounterExcelAddRewardHide(builder, rewardHide): builder.PrependBoolSlot(10, rewardHide, 0)
 def AddRewardHide(builder, rewardHide):
     return MinigameTBGEncounterExcelAddRewardHide(builder, rewardHide)
-def MinigameTBGEncounterExcelAddStoryImagePath(builder, storyImagePath): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(storyImagePath), 0)
-def AddStoryImagePath(builder, storyImagePath):
-    return MinigameTBGEncounterExcelAddStoryImagePath(builder, storyImagePath)
-def MinigameTBGEncounterExcelAddBeforeStoryOption1Localize(builder, beforeStoryOption1Localize): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(beforeStoryOption1Localize), 0)
-def AddBeforeStoryOption1Localize(builder, beforeStoryOption1Localize):
-    return MinigameTBGEncounterExcelAddBeforeStoryOption1Localize(builder, beforeStoryOption1Localize)
-def MinigameTBGEncounterExcelAddAllyAttackLocalize(builder, allyAttackLocalize): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(allyAttackLocalize), 0)
-def AddAllyAttackLocalize(builder, allyAttackLocalize):
-    return MinigameTBGEncounterExcelAddAllyAttackLocalize(builder, allyAttackLocalize)
-def MinigameTBGEncounterExcelAddThemaType(builder, themaType): builder.PrependInt32Slot(14, themaType, 0)
-def AddThemaType(builder, themaType):
-    return MinigameTBGEncounterExcelAddThemaType(builder, themaType)
-def MinigameTBGEncounterExcelAddBeforeStoryLocalize(builder, beforeStoryLocalize): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(beforeStoryLocalize), 0)
-def AddBeforeStoryLocalize(builder, beforeStoryLocalize):
-    return MinigameTBGEncounterExcelAddBeforeStoryLocalize(builder, beforeStoryLocalize)
-def MinigameTBGEncounterExcelAddAllThema(builder, allThema): builder.PrependBoolSlot(16, allThema, 0)
-def AddAllThema(builder, allThema):
-    return MinigameTBGEncounterExcelAddAllThema(builder, allThema)
-def MinigameTBGEncounterExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(17, uniqueId, 0)
-def AddUniqueId(builder, uniqueId):
-    return MinigameTBGEncounterExcelAddUniqueId(builder, uniqueId)
-def MinigameTBGEncounterExcelAddEnemyNameLocalize(builder, enemyNameLocalize): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(enemyNameLocalize), 0)
-def AddEnemyNameLocalize(builder, enemyNameLocalize):
-    return MinigameTBGEncounterExcelAddEnemyNameLocalize(builder, enemyNameLocalize)
-def MinigameTBGEncounterExcelAddThemaIndex(builder, themaIndex): builder.PrependInt32Slot(19, themaIndex, 0)
-def AddThemaIndex(builder, themaIndex):
-    return MinigameTBGEncounterExcelAddThemaIndex(builder, themaIndex)
-def MinigameTBGEncounterExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(20, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return MinigameTBGEncounterExcelAddEventContentId(builder, eventContentId)
-def MinigameTBGEncounterExcelAddClearStoryLocalize(builder, clearStoryLocalize): builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(clearStoryLocalize), 0)
-def AddClearStoryLocalize(builder, clearStoryLocalize):
-    return MinigameTBGEncounterExcelAddClearStoryLocalize(builder, clearStoryLocalize)
-def MinigameTBGEncounterExcelAddEncounterTitleLocalize(builder, encounterTitleLocalize): builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(encounterTitleLocalize), 0)
+def MinigameTBGEncounterExcelAddEncounterTitleLocalize(builder, encounterTitleLocalize): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(encounterTitleLocalize), 0)
 def AddEncounterTitleLocalize(builder, encounterTitleLocalize):
     return MinigameTBGEncounterExcelAddEncounterTitleLocalize(builder, encounterTitleLocalize)
+def MinigameTBGEncounterExcelAddStoryImagePath(builder, storyImagePath): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(storyImagePath), 0)
+def AddStoryImagePath(builder, storyImagePath):
+    return MinigameTBGEncounterExcelAddStoryImagePath(builder, storyImagePath)
+def MinigameTBGEncounterExcelAddBeforeStoryLocalize(builder, beforeStoryLocalize): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(beforeStoryLocalize), 0)
+def AddBeforeStoryLocalize(builder, beforeStoryLocalize):
+    return MinigameTBGEncounterExcelAddBeforeStoryLocalize(builder, beforeStoryLocalize)
+def MinigameTBGEncounterExcelAddBeforeStoryOption1Localize(builder, beforeStoryOption1Localize): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(beforeStoryOption1Localize), 0)
+def AddBeforeStoryOption1Localize(builder, beforeStoryOption1Localize):
+    return MinigameTBGEncounterExcelAddBeforeStoryOption1Localize(builder, beforeStoryOption1Localize)
+def MinigameTBGEncounterExcelAddBeforeStoryOption2Localize(builder, beforeStoryOption2Localize): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(beforeStoryOption2Localize), 0)
+def AddBeforeStoryOption2Localize(builder, beforeStoryOption2Localize):
+    return MinigameTBGEncounterExcelAddBeforeStoryOption2Localize(builder, beforeStoryOption2Localize)
+def MinigameTBGEncounterExcelAddBeforeStoryOption3Localize(builder, beforeStoryOption3Localize): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(beforeStoryOption3Localize), 0)
+def AddBeforeStoryOption3Localize(builder, beforeStoryOption3Localize):
+    return MinigameTBGEncounterExcelAddBeforeStoryOption3Localize(builder, beforeStoryOption3Localize)
+def MinigameTBGEncounterExcelAddAllyAttackLocalize(builder, allyAttackLocalize): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(allyAttackLocalize), 0)
+def AddAllyAttackLocalize(builder, allyAttackLocalize):
+    return MinigameTBGEncounterExcelAddAllyAttackLocalize(builder, allyAttackLocalize)
+def MinigameTBGEncounterExcelAddEnemyAttackLocalize(builder, enemyAttackLocalize): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(enemyAttackLocalize), 0)
+def AddEnemyAttackLocalize(builder, enemyAttackLocalize):
+    return MinigameTBGEncounterExcelAddEnemyAttackLocalize(builder, enemyAttackLocalize)
+def MinigameTBGEncounterExcelAddAttackDefenceLocalize(builder, attackDefenceLocalize): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(attackDefenceLocalize), 0)
+def AddAttackDefenceLocalize(builder, attackDefenceLocalize):
+    return MinigameTBGEncounterExcelAddAttackDefenceLocalize(builder, attackDefenceLocalize)
+def MinigameTBGEncounterExcelAddClearStoryLocalize(builder, clearStoryLocalize): builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(clearStoryLocalize), 0)
+def AddClearStoryLocalize(builder, clearStoryLocalize):
+    return MinigameTBGEncounterExcelAddClearStoryLocalize(builder, clearStoryLocalize)
+def MinigameTBGEncounterExcelAddDefeatStoryLocalize(builder, defeatStoryLocalize): builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(defeatStoryLocalize), 0)
+def AddDefeatStoryLocalize(builder, defeatStoryLocalize):
+    return MinigameTBGEncounterExcelAddDefeatStoryLocalize(builder, defeatStoryLocalize)
+def MinigameTBGEncounterExcelAddRunawayStoryLocalize(builder, runawayStoryLocalize): builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(runawayStoryLocalize), 0)
+def AddRunawayStoryLocalize(builder, runawayStoryLocalize):
+    return MinigameTBGEncounterExcelAddRunawayStoryLocalize(builder, runawayStoryLocalize)
 def MinigameTBGEncounterExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameTBGEncounterExcelEnd(builder)

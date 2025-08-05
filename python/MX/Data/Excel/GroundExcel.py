@@ -25,334 +25,15 @@ class GroundExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # GroundExcel
-    def EnemyMinimumPositionGapRate(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GroundExcel
-    def UiBattleHideFromScratch(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # GroundExcel
-    def UiEmojiScale(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # GroundExcel
-    def WarningUi(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # GroundExcel
-    def ShowNpcSkillCutIn(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def CoverPointOff(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # GroundExcel
-    def EnemySkillRangeRate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def SkipBattleEnd(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # GroundExcel
-    def ImmuneHitBeforeTimeOutEnd(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # GroundExcel
-    def LevelChampion(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def PlayerSkillRangeRate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def GradeChampion(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def EnemyPassiveSkillId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # GroundExcel
-    def EnemyPassiveSkillIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # GroundExcel
-    def EnemyPassiveSkillIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        return o == 0
-
-    # GroundExcel
-    def HideNpcWhenBattleEnd(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # GroundExcel
-    def PlayerSightRangeMax(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # GroundExcel
-    def PlayerMinimumPositionGapRate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def BattleReadyTimelinePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # GroundExcel
-    def PlayerSkillRangeAdd(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def PlayerAttackRangeAdd(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def LevelMinion(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def UiSkillMainLogScale(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # GroundExcel
-    def PlayerSightPointAdd(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def AllyPassiveSkillLevel(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # GroundExcel
-    def AllyPassiveSkillLevelAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # GroundExcel
-    def AllyPassiveSkillLevelLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # GroundExcel
-    def AllyPassiveSkillLevelIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
-        return o == 0
-
-    # GroundExcel
-    def GradeMinion(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def GradeElite(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def EnemySightRangeMax(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # GroundExcel
-    def EnemyAttackRangeRate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def EnemyPassiveSkillLevel(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return 0
-
-    # GroundExcel
-    def EnemyPassiveSkillLevelAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
-        return 0
-
-    # GroundExcel
-    def EnemyPassiveSkillLevelLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # GroundExcel
-    def EnemyPassiveSkillLevelIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
-        return o == 0
-
-    # GroundExcel
-    def BeforeVictoryTimelinePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # GroundExcel
-    def BgmId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def PlayerSightPointRate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def IsPhaseBgm(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # GroundExcel
-    def ForcedTacticSpeed(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def StageTopography(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def Id(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def ObstacleLevel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def GradeBoss(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(76))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def LevelBoss(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(78))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def LevelNpc(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
     def StageFileName(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -360,19 +41,369 @@ class GroundExcel(object):
 
     # GroundExcel
     def StageFileNameLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # GroundExcel
     def StageFileNameIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         return o == 0
 
     # GroundExcel
-    def AllyPassiveSkillId(self, j):
+    def GroundSceneName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # GroundExcel
+    def FormationGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def StageTopography(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def EnemyBulletType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def EnemyArmorType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def LevelNpc(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def LevelMinion(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def LevelElite(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def LevelChampion(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def LevelBoss(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def ObstacleLevel(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def GradeNpc(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def GradeMinion(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def GradeElite(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def GradeChampion(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def GradeBoss(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def PlayerSightPointAdd(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def PlayerSightPointRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def PlayerAttackRangeAdd(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def PlayerAttackRangeRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def EnemySightPointAdd(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def EnemySightPointRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def EnemyAttackRangeAdd(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def EnemyAttackRangeRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def PlayerSkillRangeAdd(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def PlayerSkillRangeRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def EnemySkillRangeAdd(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def EnemySkillRangeRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def PlayerMinimumPositionGapRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def EnemyMinimumPositionGapRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def PlayerSightRangeMax(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # GroundExcel
+    def EnemySightRangeMax(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # GroundExcel
+    def TssAirUnitHeight(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def IsPhaseBgm(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # GroundExcel
+    def BgmId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(76))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def WarningUi(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(78))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # GroundExcel
+    def TssHatchOpen(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # GroundExcel
+    def ForcedTacticSpeed(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def ForcedSkillUse(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def ShowNpcSkillCutIn(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(86))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # GroundExcel
+    def ImmuneHitBeforeTimeOutEnd(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(88))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # GroundExcel
+    def UiBattleHideFromScratch(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(90))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # GroundExcel
+    def BattleReadyTimelinePath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(92))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # GroundExcel
+    def BeforeVictoryTimelinePath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(94))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # GroundExcel
+    def SkipBattleEnd(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(96))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # GroundExcel
+    def HideNpcWhenBattleEnd(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(98))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # GroundExcel
+    def CoverPointOff(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(100))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # GroundExcel
+    def UiHpScale(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(102))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # GroundExcel
+    def UiEmojiScale(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(104))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # GroundExcel
+    def UiSkillMainLogScale(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(106))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
+
+    # GroundExcel
+    def AllyPassiveSkillId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(108))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -380,307 +411,276 @@ class GroundExcel(object):
 
     # GroundExcel
     def AllyPassiveSkillIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(108))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # GroundExcel
     def AllyPassiveSkillIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(108))
         return o == 0
 
     # GroundExcel
-    def TssHatchOpen(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(86))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # GroundExcel
-    def EnemyAttackRangeAdd(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(88))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def LevelElite(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(90))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def TssAirUnitHeight(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(92))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def ForcedSkillUse(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(94))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def UiHpScale(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(96))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
-
-    # GroundExcel
-    def GroundSceneName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(98))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # GroundExcel
-    def GradeNpc(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(100))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def PlayerAttackRangeRate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(102))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def EnemyBulletType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(104))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def EnemySightPointRate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(106))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def FormationGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(108))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # GroundExcel
-    def EnemySkillRangeAdd(self):
+    def AllyPassiveSkillLevel(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(110))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
 
     # GroundExcel
-    def EnemySightPointAdd(self):
+    def AllyPassiveSkillLevelAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(110))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # GroundExcel
+    def AllyPassiveSkillLevelLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(110))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # GroundExcel
+    def AllyPassiveSkillLevelIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(110))
+        return o == 0
+
+    # GroundExcel
+    def EnemyPassiveSkillId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(112))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # GroundExcel
+    def EnemyPassiveSkillIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(112))
+        if o != 0:
+            return self._tab.VectorLen(o)
         return 0
 
     # GroundExcel
-    def EnemyArmorType(self):
+    def EnemyPassiveSkillIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(112))
+        return o == 0
+
+    # GroundExcel
+    def EnemyPassiveSkillLevel(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(114))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
         return 0
+
+    # GroundExcel
+    def EnemyPassiveSkillLevelAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(114))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # GroundExcel
+    def EnemyPassiveSkillLevelLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(114))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # GroundExcel
+    def EnemyPassiveSkillLevelIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(114))
+        return o == 0
 
 def GroundExcelStart(builder): builder.StartObject(56)
 def Start(builder):
     return GroundExcelStart(builder)
-def GroundExcelAddEnemyMinimumPositionGapRate(builder, enemyMinimumPositionGapRate): builder.PrependInt64Slot(0, enemyMinimumPositionGapRate, 0)
-def AddEnemyMinimumPositionGapRate(builder, enemyMinimumPositionGapRate):
-    return GroundExcelAddEnemyMinimumPositionGapRate(builder, enemyMinimumPositionGapRate)
-def GroundExcelAddUiBattleHideFromScratch(builder, uiBattleHideFromScratch): builder.PrependBoolSlot(1, uiBattleHideFromScratch, 0)
-def AddUiBattleHideFromScratch(builder, uiBattleHideFromScratch):
-    return GroundExcelAddUiBattleHideFromScratch(builder, uiBattleHideFromScratch)
-def GroundExcelAddUiEmojiScale(builder, uiEmojiScale): builder.PrependFloat32Slot(2, uiEmojiScale, 0.0)
-def AddUiEmojiScale(builder, uiEmojiScale):
-    return GroundExcelAddUiEmojiScale(builder, uiEmojiScale)
-def GroundExcelAddWarningUi(builder, warningUi): builder.PrependBoolSlot(3, warningUi, 0)
-def AddWarningUi(builder, warningUi):
-    return GroundExcelAddWarningUi(builder, warningUi)
-def GroundExcelAddShowNpcSkillCutIn(builder, showNpcSkillCutIn): builder.PrependInt32Slot(4, showNpcSkillCutIn, 0)
-def AddShowNpcSkillCutIn(builder, showNpcSkillCutIn):
-    return GroundExcelAddShowNpcSkillCutIn(builder, showNpcSkillCutIn)
-def GroundExcelAddCoverPointOff(builder, coverPointOff): builder.PrependBoolSlot(5, coverPointOff, 0)
-def AddCoverPointOff(builder, coverPointOff):
-    return GroundExcelAddCoverPointOff(builder, coverPointOff)
-def GroundExcelAddEnemySkillRangeRate(builder, enemySkillRangeRate): builder.PrependInt64Slot(6, enemySkillRangeRate, 0)
-def AddEnemySkillRangeRate(builder, enemySkillRangeRate):
-    return GroundExcelAddEnemySkillRangeRate(builder, enemySkillRangeRate)
-def GroundExcelAddSkipBattleEnd(builder, skipBattleEnd): builder.PrependBoolSlot(7, skipBattleEnd, 0)
-def AddSkipBattleEnd(builder, skipBattleEnd):
-    return GroundExcelAddSkipBattleEnd(builder, skipBattleEnd)
-def GroundExcelAddImmuneHitBeforeTimeOutEnd(builder, immuneHitBeforeTimeOutEnd): builder.PrependBoolSlot(8, immuneHitBeforeTimeOutEnd, 0)
-def AddImmuneHitBeforeTimeOutEnd(builder, immuneHitBeforeTimeOutEnd):
-    return GroundExcelAddImmuneHitBeforeTimeOutEnd(builder, immuneHitBeforeTimeOutEnd)
-def GroundExcelAddLevelChampion(builder, levelChampion): builder.PrependInt64Slot(9, levelChampion, 0)
-def AddLevelChampion(builder, levelChampion):
-    return GroundExcelAddLevelChampion(builder, levelChampion)
-def GroundExcelAddPlayerSkillRangeRate(builder, playerSkillRangeRate): builder.PrependInt64Slot(10, playerSkillRangeRate, 0)
-def AddPlayerSkillRangeRate(builder, playerSkillRangeRate):
-    return GroundExcelAddPlayerSkillRangeRate(builder, playerSkillRangeRate)
-def GroundExcelAddGradeChampion(builder, gradeChampion): builder.PrependInt64Slot(11, gradeChampion, 0)
-def AddGradeChampion(builder, gradeChampion):
-    return GroundExcelAddGradeChampion(builder, gradeChampion)
-def GroundExcelAddEnemyPassiveSkillId(builder, enemyPassiveSkillId): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(enemyPassiveSkillId), 0)
-def AddEnemyPassiveSkillId(builder, enemyPassiveSkillId):
-    return GroundExcelAddEnemyPassiveSkillId(builder, enemyPassiveSkillId)
-def GroundExcelStartEnemyPassiveSkillIdVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartEnemyPassiveSkillIdVector(builder, numElems):
-    return GroundExcelStartEnemyPassiveSkillIdVector(builder, numElems)
-def GroundExcelAddHideNpcWhenBattleEnd(builder, hideNpcWhenBattleEnd): builder.PrependBoolSlot(13, hideNpcWhenBattleEnd, 0)
-def AddHideNpcWhenBattleEnd(builder, hideNpcWhenBattleEnd):
-    return GroundExcelAddHideNpcWhenBattleEnd(builder, hideNpcWhenBattleEnd)
-def GroundExcelAddPlayerSightRangeMax(builder, playerSightRangeMax): builder.PrependBoolSlot(14, playerSightRangeMax, 0)
-def AddPlayerSightRangeMax(builder, playerSightRangeMax):
-    return GroundExcelAddPlayerSightRangeMax(builder, playerSightRangeMax)
-def GroundExcelAddPlayerMinimumPositionGapRate(builder, playerMinimumPositionGapRate): builder.PrependInt64Slot(15, playerMinimumPositionGapRate, 0)
-def AddPlayerMinimumPositionGapRate(builder, playerMinimumPositionGapRate):
-    return GroundExcelAddPlayerMinimumPositionGapRate(builder, playerMinimumPositionGapRate)
-def GroundExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePath), 0)
-def AddBattleReadyTimelinePath(builder, battleReadyTimelinePath):
-    return GroundExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath)
-def GroundExcelAddPlayerSkillRangeAdd(builder, playerSkillRangeAdd): builder.PrependInt64Slot(17, playerSkillRangeAdd, 0)
-def AddPlayerSkillRangeAdd(builder, playerSkillRangeAdd):
-    return GroundExcelAddPlayerSkillRangeAdd(builder, playerSkillRangeAdd)
-def GroundExcelAddPlayerAttackRangeAdd(builder, playerAttackRangeAdd): builder.PrependInt64Slot(18, playerAttackRangeAdd, 0)
-def AddPlayerAttackRangeAdd(builder, playerAttackRangeAdd):
-    return GroundExcelAddPlayerAttackRangeAdd(builder, playerAttackRangeAdd)
-def GroundExcelAddLevelMinion(builder, levelMinion): builder.PrependInt64Slot(19, levelMinion, 0)
-def AddLevelMinion(builder, levelMinion):
-    return GroundExcelAddLevelMinion(builder, levelMinion)
-def GroundExcelAddUiSkillMainLogScale(builder, uiSkillMainLogScale): builder.PrependFloat32Slot(20, uiSkillMainLogScale, 0.0)
-def AddUiSkillMainLogScale(builder, uiSkillMainLogScale):
-    return GroundExcelAddUiSkillMainLogScale(builder, uiSkillMainLogScale)
-def GroundExcelAddPlayerSightPointAdd(builder, playerSightPointAdd): builder.PrependInt64Slot(21, playerSightPointAdd, 0)
-def AddPlayerSightPointAdd(builder, playerSightPointAdd):
-    return GroundExcelAddPlayerSightPointAdd(builder, playerSightPointAdd)
-def GroundExcelAddAllyPassiveSkillLevel(builder, allyPassiveSkillLevel): builder.PrependUOffsetTRelativeSlot(22, flatbuffers.number_types.UOffsetTFlags.py_type(allyPassiveSkillLevel), 0)
-def AddAllyPassiveSkillLevel(builder, allyPassiveSkillLevel):
-    return GroundExcelAddAllyPassiveSkillLevel(builder, allyPassiveSkillLevel)
-def GroundExcelStartAllyPassiveSkillLevelVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartAllyPassiveSkillLevelVector(builder, numElems):
-    return GroundExcelStartAllyPassiveSkillLevelVector(builder, numElems)
-def GroundExcelAddGradeMinion(builder, gradeMinion): builder.PrependInt64Slot(23, gradeMinion, 0)
-def AddGradeMinion(builder, gradeMinion):
-    return GroundExcelAddGradeMinion(builder, gradeMinion)
-def GroundExcelAddGradeElite(builder, gradeElite): builder.PrependInt64Slot(24, gradeElite, 0)
-def AddGradeElite(builder, gradeElite):
-    return GroundExcelAddGradeElite(builder, gradeElite)
-def GroundExcelAddEnemySightRangeMax(builder, enemySightRangeMax): builder.PrependBoolSlot(25, enemySightRangeMax, 0)
-def AddEnemySightRangeMax(builder, enemySightRangeMax):
-    return GroundExcelAddEnemySightRangeMax(builder, enemySightRangeMax)
-def GroundExcelAddEnemyAttackRangeRate(builder, enemyAttackRangeRate): builder.PrependInt64Slot(26, enemyAttackRangeRate, 0)
-def AddEnemyAttackRangeRate(builder, enemyAttackRangeRate):
-    return GroundExcelAddEnemyAttackRangeRate(builder, enemyAttackRangeRate)
-def GroundExcelAddEnemyPassiveSkillLevel(builder, enemyPassiveSkillLevel): builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(enemyPassiveSkillLevel), 0)
-def AddEnemyPassiveSkillLevel(builder, enemyPassiveSkillLevel):
-    return GroundExcelAddEnemyPassiveSkillLevel(builder, enemyPassiveSkillLevel)
-def GroundExcelStartEnemyPassiveSkillLevelVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartEnemyPassiveSkillLevelVector(builder, numElems):
-    return GroundExcelStartEnemyPassiveSkillLevelVector(builder, numElems)
-def GroundExcelAddBeforeVictoryTimelinePath(builder, beforeVictoryTimelinePath): builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(beforeVictoryTimelinePath), 0)
-def AddBeforeVictoryTimelinePath(builder, beforeVictoryTimelinePath):
-    return GroundExcelAddBeforeVictoryTimelinePath(builder, beforeVictoryTimelinePath)
-def GroundExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(29, bgmId, 0)
-def AddBgmId(builder, bgmId):
-    return GroundExcelAddBgmId(builder, bgmId)
-def GroundExcelAddPlayerSightPointRate(builder, playerSightPointRate): builder.PrependInt64Slot(30, playerSightPointRate, 0)
-def AddPlayerSightPointRate(builder, playerSightPointRate):
-    return GroundExcelAddPlayerSightPointRate(builder, playerSightPointRate)
-def GroundExcelAddIsPhaseBgm(builder, isPhaseBgm): builder.PrependBoolSlot(31, isPhaseBgm, 0)
-def AddIsPhaseBgm(builder, isPhaseBgm):
-    return GroundExcelAddIsPhaseBgm(builder, isPhaseBgm)
-def GroundExcelAddForcedTacticSpeed(builder, forcedTacticSpeed): builder.PrependInt32Slot(32, forcedTacticSpeed, 0)
-def AddForcedTacticSpeed(builder, forcedTacticSpeed):
-    return GroundExcelAddForcedTacticSpeed(builder, forcedTacticSpeed)
-def GroundExcelAddStageTopography(builder, stageTopography): builder.PrependInt32Slot(33, stageTopography, 0)
-def AddStageTopography(builder, stageTopography):
-    return GroundExcelAddStageTopography(builder, stageTopography)
-def GroundExcelAddId(builder, id): builder.PrependInt64Slot(34, id, 0)
+def GroundExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
     return GroundExcelAddId(builder, id)
-def GroundExcelAddObstacleLevel(builder, obstacleLevel): builder.PrependInt64Slot(35, obstacleLevel, 0)
-def AddObstacleLevel(builder, obstacleLevel):
-    return GroundExcelAddObstacleLevel(builder, obstacleLevel)
-def GroundExcelAddGradeBoss(builder, gradeBoss): builder.PrependInt64Slot(36, gradeBoss, 0)
-def AddGradeBoss(builder, gradeBoss):
-    return GroundExcelAddGradeBoss(builder, gradeBoss)
-def GroundExcelAddLevelBoss(builder, levelBoss): builder.PrependInt64Slot(37, levelBoss, 0)
-def AddLevelBoss(builder, levelBoss):
-    return GroundExcelAddLevelBoss(builder, levelBoss)
-def GroundExcelAddLevelNpc(builder, levelNpc): builder.PrependInt64Slot(38, levelNpc, 0)
-def AddLevelNpc(builder, levelNpc):
-    return GroundExcelAddLevelNpc(builder, levelNpc)
-def GroundExcelAddStageFileName(builder, stageFileName): builder.PrependUOffsetTRelativeSlot(39, flatbuffers.number_types.UOffsetTFlags.py_type(stageFileName), 0)
+def GroundExcelAddStageFileName(builder, stageFileName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(stageFileName), 0)
 def AddStageFileName(builder, stageFileName):
     return GroundExcelAddStageFileName(builder, stageFileName)
 def GroundExcelStartStageFileNameVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStageFileNameVector(builder, numElems):
     return GroundExcelStartStageFileNameVector(builder, numElems)
-def GroundExcelAddAllyPassiveSkillId(builder, allyPassiveSkillId): builder.PrependUOffsetTRelativeSlot(40, flatbuffers.number_types.UOffsetTFlags.py_type(allyPassiveSkillId), 0)
+def GroundExcelAddGroundSceneName(builder, groundSceneName): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(groundSceneName), 0)
+def AddGroundSceneName(builder, groundSceneName):
+    return GroundExcelAddGroundSceneName(builder, groundSceneName)
+def GroundExcelAddFormationGroupId(builder, formationGroupId): builder.PrependInt64Slot(3, formationGroupId, 0)
+def AddFormationGroupId(builder, formationGroupId):
+    return GroundExcelAddFormationGroupId(builder, formationGroupId)
+def GroundExcelAddStageTopography(builder, stageTopography): builder.PrependInt32Slot(4, stageTopography, 0)
+def AddStageTopography(builder, stageTopography):
+    return GroundExcelAddStageTopography(builder, stageTopography)
+def GroundExcelAddEnemyBulletType(builder, enemyBulletType): builder.PrependInt32Slot(5, enemyBulletType, 0)
+def AddEnemyBulletType(builder, enemyBulletType):
+    return GroundExcelAddEnemyBulletType(builder, enemyBulletType)
+def GroundExcelAddEnemyArmorType(builder, enemyArmorType): builder.PrependInt32Slot(6, enemyArmorType, 0)
+def AddEnemyArmorType(builder, enemyArmorType):
+    return GroundExcelAddEnemyArmorType(builder, enemyArmorType)
+def GroundExcelAddLevelNpc(builder, levelNpc): builder.PrependInt64Slot(7, levelNpc, 0)
+def AddLevelNpc(builder, levelNpc):
+    return GroundExcelAddLevelNpc(builder, levelNpc)
+def GroundExcelAddLevelMinion(builder, levelMinion): builder.PrependInt64Slot(8, levelMinion, 0)
+def AddLevelMinion(builder, levelMinion):
+    return GroundExcelAddLevelMinion(builder, levelMinion)
+def GroundExcelAddLevelElite(builder, levelElite): builder.PrependInt64Slot(9, levelElite, 0)
+def AddLevelElite(builder, levelElite):
+    return GroundExcelAddLevelElite(builder, levelElite)
+def GroundExcelAddLevelChampion(builder, levelChampion): builder.PrependInt64Slot(10, levelChampion, 0)
+def AddLevelChampion(builder, levelChampion):
+    return GroundExcelAddLevelChampion(builder, levelChampion)
+def GroundExcelAddLevelBoss(builder, levelBoss): builder.PrependInt64Slot(11, levelBoss, 0)
+def AddLevelBoss(builder, levelBoss):
+    return GroundExcelAddLevelBoss(builder, levelBoss)
+def GroundExcelAddObstacleLevel(builder, obstacleLevel): builder.PrependInt64Slot(12, obstacleLevel, 0)
+def AddObstacleLevel(builder, obstacleLevel):
+    return GroundExcelAddObstacleLevel(builder, obstacleLevel)
+def GroundExcelAddGradeNpc(builder, gradeNpc): builder.PrependInt64Slot(13, gradeNpc, 0)
+def AddGradeNpc(builder, gradeNpc):
+    return GroundExcelAddGradeNpc(builder, gradeNpc)
+def GroundExcelAddGradeMinion(builder, gradeMinion): builder.PrependInt64Slot(14, gradeMinion, 0)
+def AddGradeMinion(builder, gradeMinion):
+    return GroundExcelAddGradeMinion(builder, gradeMinion)
+def GroundExcelAddGradeElite(builder, gradeElite): builder.PrependInt64Slot(15, gradeElite, 0)
+def AddGradeElite(builder, gradeElite):
+    return GroundExcelAddGradeElite(builder, gradeElite)
+def GroundExcelAddGradeChampion(builder, gradeChampion): builder.PrependInt64Slot(16, gradeChampion, 0)
+def AddGradeChampion(builder, gradeChampion):
+    return GroundExcelAddGradeChampion(builder, gradeChampion)
+def GroundExcelAddGradeBoss(builder, gradeBoss): builder.PrependInt64Slot(17, gradeBoss, 0)
+def AddGradeBoss(builder, gradeBoss):
+    return GroundExcelAddGradeBoss(builder, gradeBoss)
+def GroundExcelAddPlayerSightPointAdd(builder, playerSightPointAdd): builder.PrependInt64Slot(18, playerSightPointAdd, 0)
+def AddPlayerSightPointAdd(builder, playerSightPointAdd):
+    return GroundExcelAddPlayerSightPointAdd(builder, playerSightPointAdd)
+def GroundExcelAddPlayerSightPointRate(builder, playerSightPointRate): builder.PrependInt64Slot(19, playerSightPointRate, 0)
+def AddPlayerSightPointRate(builder, playerSightPointRate):
+    return GroundExcelAddPlayerSightPointRate(builder, playerSightPointRate)
+def GroundExcelAddPlayerAttackRangeAdd(builder, playerAttackRangeAdd): builder.PrependInt64Slot(20, playerAttackRangeAdd, 0)
+def AddPlayerAttackRangeAdd(builder, playerAttackRangeAdd):
+    return GroundExcelAddPlayerAttackRangeAdd(builder, playerAttackRangeAdd)
+def GroundExcelAddPlayerAttackRangeRate(builder, playerAttackRangeRate): builder.PrependInt64Slot(21, playerAttackRangeRate, 0)
+def AddPlayerAttackRangeRate(builder, playerAttackRangeRate):
+    return GroundExcelAddPlayerAttackRangeRate(builder, playerAttackRangeRate)
+def GroundExcelAddEnemySightPointAdd(builder, enemySightPointAdd): builder.PrependInt64Slot(22, enemySightPointAdd, 0)
+def AddEnemySightPointAdd(builder, enemySightPointAdd):
+    return GroundExcelAddEnemySightPointAdd(builder, enemySightPointAdd)
+def GroundExcelAddEnemySightPointRate(builder, enemySightPointRate): builder.PrependInt64Slot(23, enemySightPointRate, 0)
+def AddEnemySightPointRate(builder, enemySightPointRate):
+    return GroundExcelAddEnemySightPointRate(builder, enemySightPointRate)
+def GroundExcelAddEnemyAttackRangeAdd(builder, enemyAttackRangeAdd): builder.PrependInt64Slot(24, enemyAttackRangeAdd, 0)
+def AddEnemyAttackRangeAdd(builder, enemyAttackRangeAdd):
+    return GroundExcelAddEnemyAttackRangeAdd(builder, enemyAttackRangeAdd)
+def GroundExcelAddEnemyAttackRangeRate(builder, enemyAttackRangeRate): builder.PrependInt64Slot(25, enemyAttackRangeRate, 0)
+def AddEnemyAttackRangeRate(builder, enemyAttackRangeRate):
+    return GroundExcelAddEnemyAttackRangeRate(builder, enemyAttackRangeRate)
+def GroundExcelAddPlayerSkillRangeAdd(builder, playerSkillRangeAdd): builder.PrependInt64Slot(26, playerSkillRangeAdd, 0)
+def AddPlayerSkillRangeAdd(builder, playerSkillRangeAdd):
+    return GroundExcelAddPlayerSkillRangeAdd(builder, playerSkillRangeAdd)
+def GroundExcelAddPlayerSkillRangeRate(builder, playerSkillRangeRate): builder.PrependInt64Slot(27, playerSkillRangeRate, 0)
+def AddPlayerSkillRangeRate(builder, playerSkillRangeRate):
+    return GroundExcelAddPlayerSkillRangeRate(builder, playerSkillRangeRate)
+def GroundExcelAddEnemySkillRangeAdd(builder, enemySkillRangeAdd): builder.PrependInt64Slot(28, enemySkillRangeAdd, 0)
+def AddEnemySkillRangeAdd(builder, enemySkillRangeAdd):
+    return GroundExcelAddEnemySkillRangeAdd(builder, enemySkillRangeAdd)
+def GroundExcelAddEnemySkillRangeRate(builder, enemySkillRangeRate): builder.PrependInt64Slot(29, enemySkillRangeRate, 0)
+def AddEnemySkillRangeRate(builder, enemySkillRangeRate):
+    return GroundExcelAddEnemySkillRangeRate(builder, enemySkillRangeRate)
+def GroundExcelAddPlayerMinimumPositionGapRate(builder, playerMinimumPositionGapRate): builder.PrependInt64Slot(30, playerMinimumPositionGapRate, 0)
+def AddPlayerMinimumPositionGapRate(builder, playerMinimumPositionGapRate):
+    return GroundExcelAddPlayerMinimumPositionGapRate(builder, playerMinimumPositionGapRate)
+def GroundExcelAddEnemyMinimumPositionGapRate(builder, enemyMinimumPositionGapRate): builder.PrependInt64Slot(31, enemyMinimumPositionGapRate, 0)
+def AddEnemyMinimumPositionGapRate(builder, enemyMinimumPositionGapRate):
+    return GroundExcelAddEnemyMinimumPositionGapRate(builder, enemyMinimumPositionGapRate)
+def GroundExcelAddPlayerSightRangeMax(builder, playerSightRangeMax): builder.PrependBoolSlot(32, playerSightRangeMax, 0)
+def AddPlayerSightRangeMax(builder, playerSightRangeMax):
+    return GroundExcelAddPlayerSightRangeMax(builder, playerSightRangeMax)
+def GroundExcelAddEnemySightRangeMax(builder, enemySightRangeMax): builder.PrependBoolSlot(33, enemySightRangeMax, 0)
+def AddEnemySightRangeMax(builder, enemySightRangeMax):
+    return GroundExcelAddEnemySightRangeMax(builder, enemySightRangeMax)
+def GroundExcelAddTssAirUnitHeight(builder, tssAirUnitHeight): builder.PrependInt64Slot(34, tssAirUnitHeight, 0)
+def AddTssAirUnitHeight(builder, tssAirUnitHeight):
+    return GroundExcelAddTssAirUnitHeight(builder, tssAirUnitHeight)
+def GroundExcelAddIsPhaseBgm(builder, isPhaseBgm): builder.PrependBoolSlot(35, isPhaseBgm, 0)
+def AddIsPhaseBgm(builder, isPhaseBgm):
+    return GroundExcelAddIsPhaseBgm(builder, isPhaseBgm)
+def GroundExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(36, bgmId, 0)
+def AddBgmId(builder, bgmId):
+    return GroundExcelAddBgmId(builder, bgmId)
+def GroundExcelAddWarningUi(builder, warningUi): builder.PrependBoolSlot(37, warningUi, 0)
+def AddWarningUi(builder, warningUi):
+    return GroundExcelAddWarningUi(builder, warningUi)
+def GroundExcelAddTssHatchOpen(builder, tssHatchOpen): builder.PrependBoolSlot(38, tssHatchOpen, 0)
+def AddTssHatchOpen(builder, tssHatchOpen):
+    return GroundExcelAddTssHatchOpen(builder, tssHatchOpen)
+def GroundExcelAddForcedTacticSpeed(builder, forcedTacticSpeed): builder.PrependInt32Slot(39, forcedTacticSpeed, 0)
+def AddForcedTacticSpeed(builder, forcedTacticSpeed):
+    return GroundExcelAddForcedTacticSpeed(builder, forcedTacticSpeed)
+def GroundExcelAddForcedSkillUse(builder, forcedSkillUse): builder.PrependInt32Slot(40, forcedSkillUse, 0)
+def AddForcedSkillUse(builder, forcedSkillUse):
+    return GroundExcelAddForcedSkillUse(builder, forcedSkillUse)
+def GroundExcelAddShowNpcSkillCutIn(builder, showNpcSkillCutIn): builder.PrependInt32Slot(41, showNpcSkillCutIn, 0)
+def AddShowNpcSkillCutIn(builder, showNpcSkillCutIn):
+    return GroundExcelAddShowNpcSkillCutIn(builder, showNpcSkillCutIn)
+def GroundExcelAddImmuneHitBeforeTimeOutEnd(builder, immuneHitBeforeTimeOutEnd): builder.PrependBoolSlot(42, immuneHitBeforeTimeOutEnd, 0)
+def AddImmuneHitBeforeTimeOutEnd(builder, immuneHitBeforeTimeOutEnd):
+    return GroundExcelAddImmuneHitBeforeTimeOutEnd(builder, immuneHitBeforeTimeOutEnd)
+def GroundExcelAddUiBattleHideFromScratch(builder, uiBattleHideFromScratch): builder.PrependBoolSlot(43, uiBattleHideFromScratch, 0)
+def AddUiBattleHideFromScratch(builder, uiBattleHideFromScratch):
+    return GroundExcelAddUiBattleHideFromScratch(builder, uiBattleHideFromScratch)
+def GroundExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath): builder.PrependUOffsetTRelativeSlot(44, flatbuffers.number_types.UOffsetTFlags.py_type(battleReadyTimelinePath), 0)
+def AddBattleReadyTimelinePath(builder, battleReadyTimelinePath):
+    return GroundExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath)
+def GroundExcelAddBeforeVictoryTimelinePath(builder, beforeVictoryTimelinePath): builder.PrependUOffsetTRelativeSlot(45, flatbuffers.number_types.UOffsetTFlags.py_type(beforeVictoryTimelinePath), 0)
+def AddBeforeVictoryTimelinePath(builder, beforeVictoryTimelinePath):
+    return GroundExcelAddBeforeVictoryTimelinePath(builder, beforeVictoryTimelinePath)
+def GroundExcelAddSkipBattleEnd(builder, skipBattleEnd): builder.PrependBoolSlot(46, skipBattleEnd, 0)
+def AddSkipBattleEnd(builder, skipBattleEnd):
+    return GroundExcelAddSkipBattleEnd(builder, skipBattleEnd)
+def GroundExcelAddHideNpcWhenBattleEnd(builder, hideNpcWhenBattleEnd): builder.PrependBoolSlot(47, hideNpcWhenBattleEnd, 0)
+def AddHideNpcWhenBattleEnd(builder, hideNpcWhenBattleEnd):
+    return GroundExcelAddHideNpcWhenBattleEnd(builder, hideNpcWhenBattleEnd)
+def GroundExcelAddCoverPointOff(builder, coverPointOff): builder.PrependBoolSlot(48, coverPointOff, 0)
+def AddCoverPointOff(builder, coverPointOff):
+    return GroundExcelAddCoverPointOff(builder, coverPointOff)
+def GroundExcelAddUiHpScale(builder, uiHpScale): builder.PrependFloat32Slot(49, uiHpScale, 0.0)
+def AddUiHpScale(builder, uiHpScale):
+    return GroundExcelAddUiHpScale(builder, uiHpScale)
+def GroundExcelAddUiEmojiScale(builder, uiEmojiScale): builder.PrependFloat32Slot(50, uiEmojiScale, 0.0)
+def AddUiEmojiScale(builder, uiEmojiScale):
+    return GroundExcelAddUiEmojiScale(builder, uiEmojiScale)
+def GroundExcelAddUiSkillMainLogScale(builder, uiSkillMainLogScale): builder.PrependFloat32Slot(51, uiSkillMainLogScale, 0.0)
+def AddUiSkillMainLogScale(builder, uiSkillMainLogScale):
+    return GroundExcelAddUiSkillMainLogScale(builder, uiSkillMainLogScale)
+def GroundExcelAddAllyPassiveSkillId(builder, allyPassiveSkillId): builder.PrependUOffsetTRelativeSlot(52, flatbuffers.number_types.UOffsetTFlags.py_type(allyPassiveSkillId), 0)
 def AddAllyPassiveSkillId(builder, allyPassiveSkillId):
     return GroundExcelAddAllyPassiveSkillId(builder, allyPassiveSkillId)
 def GroundExcelStartAllyPassiveSkillIdVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartAllyPassiveSkillIdVector(builder, numElems):
     return GroundExcelStartAllyPassiveSkillIdVector(builder, numElems)
-def GroundExcelAddTssHatchOpen(builder, tssHatchOpen): builder.PrependBoolSlot(41, tssHatchOpen, 0)
-def AddTssHatchOpen(builder, tssHatchOpen):
-    return GroundExcelAddTssHatchOpen(builder, tssHatchOpen)
-def GroundExcelAddEnemyAttackRangeAdd(builder, enemyAttackRangeAdd): builder.PrependInt64Slot(42, enemyAttackRangeAdd, 0)
-def AddEnemyAttackRangeAdd(builder, enemyAttackRangeAdd):
-    return GroundExcelAddEnemyAttackRangeAdd(builder, enemyAttackRangeAdd)
-def GroundExcelAddLevelElite(builder, levelElite): builder.PrependInt64Slot(43, levelElite, 0)
-def AddLevelElite(builder, levelElite):
-    return GroundExcelAddLevelElite(builder, levelElite)
-def GroundExcelAddTssAirUnitHeight(builder, tssAirUnitHeight): builder.PrependInt64Slot(44, tssAirUnitHeight, 0)
-def AddTssAirUnitHeight(builder, tssAirUnitHeight):
-    return GroundExcelAddTssAirUnitHeight(builder, tssAirUnitHeight)
-def GroundExcelAddForcedSkillUse(builder, forcedSkillUse): builder.PrependInt32Slot(45, forcedSkillUse, 0)
-def AddForcedSkillUse(builder, forcedSkillUse):
-    return GroundExcelAddForcedSkillUse(builder, forcedSkillUse)
-def GroundExcelAddUiHpScale(builder, uiHpScale): builder.PrependFloat32Slot(46, uiHpScale, 0.0)
-def AddUiHpScale(builder, uiHpScale):
-    return GroundExcelAddUiHpScale(builder, uiHpScale)
-def GroundExcelAddGroundSceneName(builder, groundSceneName): builder.PrependUOffsetTRelativeSlot(47, flatbuffers.number_types.UOffsetTFlags.py_type(groundSceneName), 0)
-def AddGroundSceneName(builder, groundSceneName):
-    return GroundExcelAddGroundSceneName(builder, groundSceneName)
-def GroundExcelAddGradeNpc(builder, gradeNpc): builder.PrependInt64Slot(48, gradeNpc, 0)
-def AddGradeNpc(builder, gradeNpc):
-    return GroundExcelAddGradeNpc(builder, gradeNpc)
-def GroundExcelAddPlayerAttackRangeRate(builder, playerAttackRangeRate): builder.PrependInt64Slot(49, playerAttackRangeRate, 0)
-def AddPlayerAttackRangeRate(builder, playerAttackRangeRate):
-    return GroundExcelAddPlayerAttackRangeRate(builder, playerAttackRangeRate)
-def GroundExcelAddEnemyBulletType(builder, enemyBulletType): builder.PrependInt32Slot(50, enemyBulletType, 0)
-def AddEnemyBulletType(builder, enemyBulletType):
-    return GroundExcelAddEnemyBulletType(builder, enemyBulletType)
-def GroundExcelAddEnemySightPointRate(builder, enemySightPointRate): builder.PrependInt64Slot(51, enemySightPointRate, 0)
-def AddEnemySightPointRate(builder, enemySightPointRate):
-    return GroundExcelAddEnemySightPointRate(builder, enemySightPointRate)
-def GroundExcelAddFormationGroupId(builder, formationGroupId): builder.PrependInt64Slot(52, formationGroupId, 0)
-def AddFormationGroupId(builder, formationGroupId):
-    return GroundExcelAddFormationGroupId(builder, formationGroupId)
-def GroundExcelAddEnemySkillRangeAdd(builder, enemySkillRangeAdd): builder.PrependInt64Slot(53, enemySkillRangeAdd, 0)
-def AddEnemySkillRangeAdd(builder, enemySkillRangeAdd):
-    return GroundExcelAddEnemySkillRangeAdd(builder, enemySkillRangeAdd)
-def GroundExcelAddEnemySightPointAdd(builder, enemySightPointAdd): builder.PrependInt64Slot(54, enemySightPointAdd, 0)
-def AddEnemySightPointAdd(builder, enemySightPointAdd):
-    return GroundExcelAddEnemySightPointAdd(builder, enemySightPointAdd)
-def GroundExcelAddEnemyArmorType(builder, enemyArmorType): builder.PrependInt32Slot(55, enemyArmorType, 0)
-def AddEnemyArmorType(builder, enemyArmorType):
-    return GroundExcelAddEnemyArmorType(builder, enemyArmorType)
+def GroundExcelAddAllyPassiveSkillLevel(builder, allyPassiveSkillLevel): builder.PrependUOffsetTRelativeSlot(53, flatbuffers.number_types.UOffsetTFlags.py_type(allyPassiveSkillLevel), 0)
+def AddAllyPassiveSkillLevel(builder, allyPassiveSkillLevel):
+    return GroundExcelAddAllyPassiveSkillLevel(builder, allyPassiveSkillLevel)
+def GroundExcelStartAllyPassiveSkillLevelVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartAllyPassiveSkillLevelVector(builder, numElems):
+    return GroundExcelStartAllyPassiveSkillLevelVector(builder, numElems)
+def GroundExcelAddEnemyPassiveSkillId(builder, enemyPassiveSkillId): builder.PrependUOffsetTRelativeSlot(54, flatbuffers.number_types.UOffsetTFlags.py_type(enemyPassiveSkillId), 0)
+def AddEnemyPassiveSkillId(builder, enemyPassiveSkillId):
+    return GroundExcelAddEnemyPassiveSkillId(builder, enemyPassiveSkillId)
+def GroundExcelStartEnemyPassiveSkillIdVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartEnemyPassiveSkillIdVector(builder, numElems):
+    return GroundExcelStartEnemyPassiveSkillIdVector(builder, numElems)
+def GroundExcelAddEnemyPassiveSkillLevel(builder, enemyPassiveSkillLevel): builder.PrependUOffsetTRelativeSlot(55, flatbuffers.number_types.UOffsetTFlags.py_type(enemyPassiveSkillLevel), 0)
+def AddEnemyPassiveSkillLevel(builder, enemyPassiveSkillLevel):
+    return GroundExcelAddEnemyPassiveSkillLevel(builder, enemyPassiveSkillLevel)
+def GroundExcelStartEnemyPassiveSkillLevelVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartEnemyPassiveSkillLevelVector(builder, numElems):
+    return GroundExcelStartEnemyPassiveSkillLevelVector(builder, numElems)
 def GroundExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return GroundExcelEnd(builder)

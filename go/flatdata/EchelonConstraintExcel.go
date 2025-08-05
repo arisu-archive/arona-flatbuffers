@@ -45,16 +45,16 @@ func (rcv *EchelonConstraintExcel) MutateGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EchelonConstraintExcel) School() School {
+func (rcv *EchelonConstraintExcel) IsWhiteList() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return School(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *EchelonConstraintExcel) MutateSchool(n School) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+func (rcv *EchelonConstraintExcel) MutateIsWhiteList(n bool) bool {
+	return rcv._tab.MutateBoolSlot(6, n)
 }
 
 func (rcv *EchelonConstraintExcel) CharacterId(j int) int64 {
@@ -121,32 +121,20 @@ func (rcv *EchelonConstraintExcel) MutateWeaponType(n WeaponType) bool {
 	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
-func (rcv *EchelonConstraintExcel) Role() TacticRole {
+func (rcv *EchelonConstraintExcel) School() School {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return TacticRole(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return School(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *EchelonConstraintExcel) MutateRole(n TacticRole) bool {
+func (rcv *EchelonConstraintExcel) MutateSchool(n School) bool {
 	return rcv._tab.MutateInt32Slot(14, int32(n))
 }
 
-func (rcv *EchelonConstraintExcel) IsWhiteList() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *EchelonConstraintExcel) MutateIsWhiteList(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
-}
-
 func (rcv *EchelonConstraintExcel) Club() Club {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return Club(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -154,6 +142,18 @@ func (rcv *EchelonConstraintExcel) Club() Club {
 }
 
 func (rcv *EchelonConstraintExcel) MutateClub(n Club) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
+}
+
+func (rcv *EchelonConstraintExcel) Role() TacticRole {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return TacticRole(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EchelonConstraintExcel) MutateRole(n TacticRole) bool {
 	return rcv._tab.MutateInt32Slot(18, int32(n))
 }
 
@@ -163,8 +163,8 @@ func EchelonConstraintExcelStart(builder *flatbuffers.Builder) {
 func EchelonConstraintExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
 	builder.PrependInt64Slot(0, groupId, 0)
 }
-func EchelonConstraintExcelAddSchool(builder *flatbuffers.Builder, school School) {
-	builder.PrependInt32Slot(1, int32(school), 0)
+func EchelonConstraintExcelAddIsWhiteList(builder *flatbuffers.Builder, isWhiteList bool) {
+	builder.PrependBoolSlot(1, isWhiteList, false)
 }
 func EchelonConstraintExcelAddCharacterId(builder *flatbuffers.Builder, characterId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(characterId), 0)
@@ -181,14 +181,14 @@ func EchelonConstraintExcelStartPersonalityIdVector(builder *flatbuffers.Builder
 func EchelonConstraintExcelAddWeaponType(builder *flatbuffers.Builder, weaponType WeaponType) {
 	builder.PrependInt32Slot(4, int32(weaponType), 0)
 }
-func EchelonConstraintExcelAddRole(builder *flatbuffers.Builder, role TacticRole) {
-	builder.PrependInt32Slot(5, int32(role), 0)
-}
-func EchelonConstraintExcelAddIsWhiteList(builder *flatbuffers.Builder, isWhiteList bool) {
-	builder.PrependBoolSlot(6, isWhiteList, false)
+func EchelonConstraintExcelAddSchool(builder *flatbuffers.Builder, school School) {
+	builder.PrependInt32Slot(5, int32(school), 0)
 }
 func EchelonConstraintExcelAddClub(builder *flatbuffers.Builder, club Club) {
-	builder.PrependInt32Slot(7, int32(club), 0)
+	builder.PrependInt32Slot(6, int32(club), 0)
+}
+func EchelonConstraintExcelAddRole(builder *flatbuffers.Builder, role TacticRole) {
+	builder.PrependInt32Slot(7, int32(role), 0)
 }
 func EchelonConstraintExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -4,17 +4,17 @@ include "StageDifficulty.fbs";
 namespace FlatData;
 
 table ConquestMapExcel {
-    map_goal_localize: string;
+    event_content_id: long;
+    dev_name: string;
     map_difficulty: StageDifficulty;
+    step_index: int;
+    conquest_map: string;
     step_enter_scenario_group_id: long;
     step_open_condition_type: [ConquestConditionType];
-    dev_name: string;
-    step_index: int;
-    step_name_localize: string;
-    camera_setting_id: long;
-    step_goal_localize: string;
-    conquest_map: string;
-    conquest_map_bg: string;
-    event_content_id: long;
     step_open_condition_parameter: [string];
+    map_goal_localize: string;
+    step_goal_localize: string;
+    step_name_localize: string;
+    conquest_map_bg: string;
+    camera_setting_id: long;
 }

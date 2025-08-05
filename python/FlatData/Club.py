@@ -53,5 +53,3 @@ class Club(object):
     Hyakkayouran = 47
     ShinySparkleSociety = 48
     AbydosStudentCouncil = 49
-    CentralControlCenter = 50
-    FreightLogisticsDepartment = 51

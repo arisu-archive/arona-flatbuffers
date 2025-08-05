@@ -12,10 +12,10 @@ type EventContentDiceRaceExcelDto struct {
 	fbsutils.FlatBuffer
 	EventContentId     int64    `json:"event_content_id"`
 	DiceCostGoodsId    int64    `json:"dice_cost_goods_id"`
-	IsUsingFixedDice   bool     `json:"is_using_fixed_dice"`
-	DiceRaceEventType  []string `json:"dice_race_event_type"`
 	SkipableLap        int32    `json:"skipable_lap"`
 	DiceRacePawnPrefab string   `json:"dice_race_pawn_prefab"`
+	IsUsingFixedDice   bool     `json:"is_using_fixed_dice"`
+	DiceRaceEventType  []string `json:"dice_race_event_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,14 +26,14 @@ func (t *EventContentDiceRaceExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	EventContentDiceRaceExcelStart(b)
 	EventContentDiceRaceExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentDiceRaceExcelAddDiceCostGoodsId(b, fbsutils.Convert(t.DiceCostGoodsId, t.FlatBuffer.TableKey))
+	EventContentDiceRaceExcelAddSkipableLap(b, fbsutils.Convert(t.SkipableLap, t.FlatBuffer.TableKey))
+	EventContentDiceRaceExcelAddDiceRacePawnPrefab(b, b.CreateString(fbsutils.Convert(t.DiceRacePawnPrefab, t.FlatBuffer.TableKey)))
 	EventContentDiceRaceExcelAddIsUsingFixedDice(b, t.IsUsingFixedDice)
 	EventContentDiceRaceExcelStartDiceRaceEventTypeVector(b, len(t.DiceRaceEventType))
 	for i := range len(t.DiceRaceEventType) {
 		b.PrependUOffsetT(b.CreateString(t.DiceRaceEventType[len(t.DiceRaceEventType)-i-1]))
 	}
 	EventContentDiceRaceExcelAddDiceRaceEventType(b, b.EndVector(len(t.DiceRaceEventType)))
-	EventContentDiceRaceExcelAddSkipableLap(b, fbsutils.Convert(t.SkipableLap, t.FlatBuffer.TableKey))
-	EventContentDiceRaceExcelAddDiceRacePawnPrefab(b, b.CreateString(fbsutils.Convert(t.DiceRacePawnPrefab, t.FlatBuffer.TableKey)))
 	return EventContentDiceRaceExcelEnd(b)
 }
 
@@ -51,13 +51,13 @@ func (t *EventContentDiceRaceExcelDto) UnmarshalMessage(e *EventContentDiceRaceE
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.DiceCostGoodsId = fbsutils.Convert(e.DiceCostGoodsId(), t.FlatBuffer.TableKey)
+	t.SkipableLap = fbsutils.Convert(e.SkipableLap(), t.FlatBuffer.TableKey)
+	t.DiceRacePawnPrefab = fbsutils.Convert(string(e.DiceRacePawnPrefab()), t.FlatBuffer.TableKey)
 	t.IsUsingFixedDice = e.IsUsingFixedDice()
 	t.DiceRaceEventType = make([]string, e.DiceRaceEventTypeLength())
 	for i := range e.DiceRaceEventTypeLength() {
 		t.DiceRaceEventType[i] = fbsutils.Convert(string(e.DiceRaceEventType(i)), t.FlatBuffer.TableKey)
 	}
-	t.SkipableLap = fbsutils.Convert(e.SkipableLap(), t.FlatBuffer.TableKey)
-	t.DiceRacePawnPrefab = fbsutils.Convert(string(e.DiceRacePawnPrefab()), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -3,11 +3,11 @@ include "Nation.fbs";
 namespace MX.Data.Excel;
 
 table VoiceSpineExcel {
+    unique_id: long;
     id: uint;
-    sound_volume: [float];
     nation: [Nation];
     path: [string];
-    unique_id: long;
+    sound_volume: [float];
 }
 
 root_type VoiceSpineExcel;

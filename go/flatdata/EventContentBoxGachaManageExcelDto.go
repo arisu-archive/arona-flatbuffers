@@ -10,10 +10,10 @@ import (
 // EventContentBoxGachaManageExcelDto represents a FlatBuffers table
 type EventContentBoxGachaManageExcelDto struct {
 	fbsutils.FlatBuffer
-	GoodsId        int64 `json:"goods_id"`
 	EventContentId int64 `json:"event_content_id"`
-	IsLoop         bool  `json:"is_loop"`
 	Round          int64 `json:"round"`
+	GoodsId        int64 `json:"goods_id"`
+	IsLoop         bool  `json:"is_loop"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *EventContentBoxGachaManageExcelDto) MarshalModel(b *flatbuffers.Builder
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBoxGachaManage"))
 	}
 	EventContentBoxGachaManageExcelStart(b)
-	EventContentBoxGachaManageExcelAddGoodsId(b, fbsutils.Convert(t.GoodsId, t.FlatBuffer.TableKey))
 	EventContentBoxGachaManageExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentBoxGachaManageExcelAddIsLoop(b, t.IsLoop)
 	EventContentBoxGachaManageExcelAddRound(b, fbsutils.Convert(t.Round, t.FlatBuffer.TableKey))
+	EventContentBoxGachaManageExcelAddGoodsId(b, fbsutils.Convert(t.GoodsId, t.FlatBuffer.TableKey))
+	EventContentBoxGachaManageExcelAddIsLoop(b, t.IsLoop)
 	return EventContentBoxGachaManageExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *EventContentBoxGachaManageExcelDto) UnmarshalMessage(e *EventContentBox
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBoxGachaManage"))
 	}
-	t.GoodsId = fbsutils.Convert(e.GoodsId(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.IsLoop = e.IsLoop()
 	t.Round = fbsutils.Convert(e.Round(), t.FlatBuffer.TableKey)
+	t.GoodsId = fbsutils.Convert(e.GoodsId(), t.FlatBuffer.TableKey)
+	t.IsLoop = e.IsLoop()
 	return nil
 }
 

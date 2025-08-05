@@ -10,14 +10,14 @@ import (
 // AcademyLocationExcelDto represents a FlatBuffers table
 type AcademyLocationExcelDto struct {
 	fbsutils.FlatBuffer
-	PrefabPath         string     `json:"prefab_path"`
-	OpenConditionCount []int64    `json:"open_condition_count"`
-	RewardParcelId     int64      `json:"reward_parcel_id"`
-	RewardParcelType   ParcelType `json:"reward_parcel_type"`
-	OpenCondition      []School   `json:"open_condition"`
 	Id                 int64      `json:"id"`
-	IconImagePath      string     `json:"icon_image_path"`
 	LocalizeEtcId      uint32     `json:"localize_etc_id"`
+	PrefabPath         string     `json:"prefab_path"`
+	IconImagePath      string     `json:"icon_image_path"`
+	OpenCondition      []School   `json:"open_condition"`
+	OpenConditionCount []int64    `json:"open_condition_count"`
+	RewardParcelType   ParcelType `json:"reward_parcel_type"`
+	RewardParcelId     int64      `json:"reward_parcel_id"`
 	OpenTeacherRank    int64      `json:"open_teacher_rank"`
 }
 
@@ -27,22 +27,22 @@ func (t *AcademyLocationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyLocation"))
 	}
 	AcademyLocationExcelStart(b)
+	AcademyLocationExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	AcademyLocationExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	AcademyLocationExcelAddPrefabPath(b, b.CreateString(fbsutils.Convert(t.PrefabPath, t.FlatBuffer.TableKey)))
-	AcademyLocationExcelStartOpenConditionCountVector(b, len(t.OpenConditionCount))
-	for i := range len(t.OpenConditionCount) {
-		b.PrependInt64(fbsutils.Convert(t.OpenConditionCount[len(t.OpenConditionCount)-i-1], t.FlatBuffer.TableKey))
-	}
-	AcademyLocationExcelAddOpenConditionCount(b, b.EndVector(len(t.OpenConditionCount)))
-	AcademyLocationExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
-	AcademyLocationExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
+	AcademyLocationExcelAddIconImagePath(b, b.CreateString(fbsutils.Convert(t.IconImagePath, t.FlatBuffer.TableKey)))
 	AcademyLocationExcelStartOpenConditionVector(b, len(t.OpenCondition))
 	for i := range len(t.OpenCondition) {
 		b.PrependInt32(fbsutils.Convert(int32(t.OpenCondition[len(t.OpenCondition)-i-1]), t.FlatBuffer.TableKey))
 	}
 	AcademyLocationExcelAddOpenCondition(b, b.EndVector(len(t.OpenCondition)))
-	AcademyLocationExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	AcademyLocationExcelAddIconImagePath(b, b.CreateString(fbsutils.Convert(t.IconImagePath, t.FlatBuffer.TableKey)))
-	AcademyLocationExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	AcademyLocationExcelStartOpenConditionCountVector(b, len(t.OpenConditionCount))
+	for i := range len(t.OpenConditionCount) {
+		b.PrependInt64(fbsutils.Convert(t.OpenConditionCount[len(t.OpenConditionCount)-i-1], t.FlatBuffer.TableKey))
+	}
+	AcademyLocationExcelAddOpenConditionCount(b, b.EndVector(len(t.OpenConditionCount)))
+	AcademyLocationExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
+	AcademyLocationExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
 	AcademyLocationExcelAddOpenTeacherRank(b, fbsutils.Convert(t.OpenTeacherRank, t.FlatBuffer.TableKey))
 	return AcademyLocationExcelEnd(b)
 }
@@ -59,20 +59,20 @@ func (t *AcademyLocationExcelDto) UnmarshalMessage(e *AcademyLocationExcel) erro
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyLocation"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.PrefabPath = fbsutils.Convert(string(e.PrefabPath()), t.FlatBuffer.TableKey)
-	t.OpenConditionCount = make([]int64, e.OpenConditionCountLength())
-	for i := range e.OpenConditionCountLength() {
-		t.OpenConditionCount[i] = fbsutils.Convert(e.OpenConditionCount(i), t.FlatBuffer.TableKey)
-	}
-	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
+	t.IconImagePath = fbsutils.Convert(string(e.IconImagePath()), t.FlatBuffer.TableKey)
 	t.OpenCondition = make([]School, e.OpenConditionLength())
 	for i := range e.OpenConditionLength() {
 		t.OpenCondition[i] = School(fbsutils.Convert(int32(e.OpenCondition(i)), t.FlatBuffer.TableKey))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.IconImagePath = fbsutils.Convert(string(e.IconImagePath()), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.OpenConditionCount = make([]int64, e.OpenConditionCountLength())
+	for i := range e.OpenConditionCountLength() {
+		t.OpenConditionCount[i] = fbsutils.Convert(e.OpenConditionCount(i), t.FlatBuffer.TableKey)
+	}
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
+	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.OpenTeacherRank = fbsutils.Convert(e.OpenTeacherRank(), t.FlatBuffer.TableKey)
 	return nil
 }

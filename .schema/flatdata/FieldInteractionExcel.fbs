@@ -5,18 +5,18 @@ include "FieldInteractionType.fbs";
 namespace FlatData;
 
 table FieldInteractionExcel {
-    condition_id: [long];
-    condition_type: [FieldConditionType];
     field_season_id: long;
-    condition_class: FieldConditionClass;
-    condition_index: [long];
-    once_only: bool;
-    keyword_localize: string;
     unique_id: long;
-    interaction_id: [long];
-    show_emoji: bool;
-    condition_class_parameters: [long];
     field_date_id: long;
-    negate_condition: [bool];
+    show_emoji: bool;
+    keyword_localize: string;
     interaction_type: [FieldInteractionType];
+    interaction_id: [long];
+    condition_class: FieldConditionClass;
+    condition_class_parameters: [long];
+    once_only: bool;
+    condition_index: [long];
+    condition_type: [FieldConditionType];
+    condition_id: [long];
+    negate_condition: [bool];
 }

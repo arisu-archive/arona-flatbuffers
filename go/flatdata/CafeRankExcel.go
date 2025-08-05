@@ -33,66 +33,52 @@ func (rcv *CafeRankExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CafeRankExcel) CharacterVisitMin() int32 {
+func (rcv *CafeRankExcel) CafeId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CafeRankExcel) MutateCharacterVisitMin(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
+func (rcv *CafeRankExcel) MutateCafeId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *CafeRankExcel) CafeVisitWeightBase() int32 {
+func (rcv *CafeRankExcel) Rank() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CafeRankExcel) MutateCafeVisitWeightBase(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
+func (rcv *CafeRankExcel) MutateRank(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *CafeRankExcel) CharacterVisitMax() int32 {
+func (rcv *CafeRankExcel) RecipeId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CafeRankExcel) MutateCharacterVisitMax(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
+func (rcv *CafeRankExcel) MutateRecipeId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *CafeRankExcel) CafeVisitWeightTagBonusStep(j int) int32 {
+func (rcv *CafeRankExcel) ComfortMax() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CafeRankExcel) CafeVisitWeightTagBonusStepLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *CafeRankExcel) MutateCafeVisitWeightTagBonusStep(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
+func (rcv *CafeRankExcel) MutateComfortMax(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func (rcv *CafeRankExcel) TagCountMax() int64 {
@@ -107,32 +93,70 @@ func (rcv *CafeRankExcel) MutateTagCountMax(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *CafeRankExcel) CafeId() int64 {
+func (rcv *CafeRankExcel) CharacterVisitMin() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CafeRankExcel) MutateCafeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
+func (rcv *CafeRankExcel) MutateCharacterVisitMin(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
 }
 
-func (rcv *CafeRankExcel) ComfortMax() int64 {
+func (rcv *CafeRankExcel) CharacterVisitMax() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CafeRankExcel) MutateComfortMax(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
+func (rcv *CafeRankExcel) MutateCharacterVisitMax(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
+}
+
+func (rcv *CafeRankExcel) CafeVisitWeightBase() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CafeRankExcel) MutateCafeVisitWeightBase(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
+}
+
+func (rcv *CafeRankExcel) CafeVisitWeightTagBonusStep(j int) int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *CafeRankExcel) CafeVisitWeightTagBonusStepLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *CafeRankExcel) MutateCafeVisitWeightTagBonusStep(j int, n int32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
 }
 
 func (rcv *CafeRankExcel) CafeVisitWeightTagBonus(j int) int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4))
@@ -141,7 +165,7 @@ func (rcv *CafeRankExcel) CafeVisitWeightTagBonus(j int) int32 {
 }
 
 func (rcv *CafeRankExcel) CafeVisitWeightTagBonusLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -149,7 +173,7 @@ func (rcv *CafeRankExcel) CafeVisitWeightTagBonusLength() int {
 }
 
 func (rcv *CafeRankExcel) MutateCafeVisitWeightTagBonus(j int, n int32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), n)
@@ -157,68 +181,44 @@ func (rcv *CafeRankExcel) MutateCafeVisitWeightTagBonus(j int, n int32) bool {
 	return false
 }
 
-func (rcv *CafeRankExcel) RecipeId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CafeRankExcel) MutateRecipeId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *CafeRankExcel) Rank() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CafeRankExcel) MutateRank(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
-}
-
 func CafeRankExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(10)
 }
-func CafeRankExcelAddCharacterVisitMin(builder *flatbuffers.Builder, characterVisitMin int32) {
-	builder.PrependInt32Slot(0, characterVisitMin, 0)
+func CafeRankExcelAddCafeId(builder *flatbuffers.Builder, cafeId int64) {
+	builder.PrependInt64Slot(0, cafeId, 0)
 }
-func CafeRankExcelAddCafeVisitWeightBase(builder *flatbuffers.Builder, cafeVisitWeightBase int32) {
-	builder.PrependInt32Slot(1, cafeVisitWeightBase, 0)
+func CafeRankExcelAddRank(builder *flatbuffers.Builder, rank int64) {
+	builder.PrependInt64Slot(1, rank, 0)
 }
-func CafeRankExcelAddCharacterVisitMax(builder *flatbuffers.Builder, characterVisitMax int32) {
-	builder.PrependInt32Slot(2, characterVisitMax, 0)
+func CafeRankExcelAddRecipeId(builder *flatbuffers.Builder, recipeId int64) {
+	builder.PrependInt64Slot(2, recipeId, 0)
 }
-func CafeRankExcelAddCafeVisitWeightTagBonusStep(builder *flatbuffers.Builder, cafeVisitWeightTagBonusStep flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(cafeVisitWeightTagBonusStep), 0)
-}
-func CafeRankExcelStartCafeVisitWeightTagBonusStepVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func CafeRankExcelAddComfortMax(builder *flatbuffers.Builder, comfortMax int64) {
+	builder.PrependInt64Slot(3, comfortMax, 0)
 }
 func CafeRankExcelAddTagCountMax(builder *flatbuffers.Builder, tagCountMax int64) {
 	builder.PrependInt64Slot(4, tagCountMax, 0)
 }
-func CafeRankExcelAddCafeId(builder *flatbuffers.Builder, cafeId int64) {
-	builder.PrependInt64Slot(5, cafeId, 0)
+func CafeRankExcelAddCharacterVisitMin(builder *flatbuffers.Builder, characterVisitMin int32) {
+	builder.PrependInt32Slot(5, characterVisitMin, 0)
 }
-func CafeRankExcelAddComfortMax(builder *flatbuffers.Builder, comfortMax int64) {
-	builder.PrependInt64Slot(6, comfortMax, 0)
+func CafeRankExcelAddCharacterVisitMax(builder *flatbuffers.Builder, characterVisitMax int32) {
+	builder.PrependInt32Slot(6, characterVisitMax, 0)
+}
+func CafeRankExcelAddCafeVisitWeightBase(builder *flatbuffers.Builder, cafeVisitWeightBase int32) {
+	builder.PrependInt32Slot(7, cafeVisitWeightBase, 0)
+}
+func CafeRankExcelAddCafeVisitWeightTagBonusStep(builder *flatbuffers.Builder, cafeVisitWeightTagBonusStep flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(cafeVisitWeightTagBonusStep), 0)
+}
+func CafeRankExcelStartCafeVisitWeightTagBonusStepVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func CafeRankExcelAddCafeVisitWeightTagBonus(builder *flatbuffers.Builder, cafeVisitWeightTagBonus flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(cafeVisitWeightTagBonus), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(cafeVisitWeightTagBonus), 0)
 }
 func CafeRankExcelStartCafeVisitWeightTagBonusVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
-}
-func CafeRankExcelAddRecipeId(builder *flatbuffers.Builder, recipeId int64) {
-	builder.PrependInt64Slot(8, recipeId, 0)
-}
-func CafeRankExcelAddRank(builder *flatbuffers.Builder, rank int64) {
-	builder.PrependInt64Slot(9, rank, 0)
 }
 func CafeRankExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -10,33 +10,33 @@ import (
 // CharacterDialogSubtitleExcelDto represents a FlatBuffers table
 type CharacterDialogSubtitleExcelDto struct {
 	fbsutils.FlatBuffer
+	LocalizeCvGroup string `json:"localize_cv_group"`
 	CharacterId     int64  `json:"character_id"`
+	Tlmid           string `json:"tlmid"`
+	Duration        int64  `json:"duration"`
 	DurationKr      int64  `json:"duration_kr"`
 	Separate        bool   `json:"separate"`
-	Tlmid           string `json:"tlmid"`
 	LocalizeKr      string `json:"localize_kr"`
+	LocalizeJp      string `json:"localize_jp"`
 	LocalizeTh      string `json:"localize_th"`
-	Duration        int64  `json:"duration"`
-	LocalizeCvGroup string `json:"localize_cv_group"`
 	LocalizeTw      string `json:"localize_tw"`
 	LocalizeEn      string `json:"localize_en"`
-	LocalizeJp      string `json:"localize_jp"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogSubtitleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CharacterDialogSubtitleExcelStart(b)
+	CharacterDialogSubtitleExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
 	CharacterDialogSubtitleExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
+	CharacterDialogSubtitleExcelAddTlmid(b, b.CreateString(fbsutils.Convert(t.Tlmid, t.FlatBuffer.TableKey)))
+	CharacterDialogSubtitleExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
 	CharacterDialogSubtitleExcelAddDurationKr(b, fbsutils.Convert(t.DurationKr, t.FlatBuffer.TableKey))
 	CharacterDialogSubtitleExcelAddSeparate(b, t.Separate)
-	CharacterDialogSubtitleExcelAddTlmid(b, b.CreateString(fbsutils.Convert(t.Tlmid, t.FlatBuffer.TableKey)))
 	CharacterDialogSubtitleExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
+	CharacterDialogSubtitleExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
 	CharacterDialogSubtitleExcelAddLocalizeTh(b, b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey)))
-	CharacterDialogSubtitleExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
-	CharacterDialogSubtitleExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
 	CharacterDialogSubtitleExcelAddLocalizeTw(b, b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey)))
 	CharacterDialogSubtitleExcelAddLocalizeEn(b, b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey)))
-	CharacterDialogSubtitleExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
 	return CharacterDialogSubtitleExcelEnd(b)
 }
 
@@ -49,17 +49,17 @@ func (t *CharacterDialogSubtitleExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterDialogSubtitleExcelDto) UnmarshalMessage(e *CharacterDialogSubtitleExcel) error {
+	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
 	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
+	t.Tlmid = fbsutils.Convert(string(e.Tlmid()), t.FlatBuffer.TableKey)
+	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
 	t.DurationKr = fbsutils.Convert(e.DurationKr(), t.FlatBuffer.TableKey)
 	t.Separate = e.Separate()
-	t.Tlmid = fbsutils.Convert(string(e.Tlmid()), t.FlatBuffer.TableKey)
 	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
+	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
 	t.LocalizeTh = fbsutils.Convert(string(e.LocalizeTh()), t.FlatBuffer.TableKey)
-	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
-	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
 	t.LocalizeTw = fbsutils.Convert(string(e.LocalizeTw()), t.FlatBuffer.TableKey)
 	t.LocalizeEn = fbsutils.Convert(string(e.LocalizeEn()), t.FlatBuffer.TableKey)
-	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
 	return nil
 }
 

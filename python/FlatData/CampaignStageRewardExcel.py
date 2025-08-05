@@ -25,14 +25,14 @@ class CampaignStageRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CampaignStageRewardExcel
-    def StageRewardId(self):
+    def GroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CampaignStageRewardExcel
-    def StageRewardAmount(self):
+    def RewardTag(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -46,57 +46,57 @@ class CampaignStageRewardExcel(object):
         return 0
 
     # CampaignStageRewardExcel
-    def GroupId(self):
+    def StageRewardParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CampaignStageRewardExcel
+    def StageRewardId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CampaignStageRewardExcel
-    def IsDisplayed(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # CampaignStageRewardExcel
-    def RewardTag(self):
+    def StageRewardAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CampaignStageRewardExcel
-    def StageRewardParcelType(self):
+    def IsDisplayed(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
 def CampaignStageRewardExcelStart(builder): builder.StartObject(7)
 def Start(builder):
     return CampaignStageRewardExcelStart(builder)
-def CampaignStageRewardExcelAddStageRewardId(builder, stageRewardId): builder.PrependInt64Slot(0, stageRewardId, 0)
-def AddStageRewardId(builder, stageRewardId):
-    return CampaignStageRewardExcelAddStageRewardId(builder, stageRewardId)
-def CampaignStageRewardExcelAddStageRewardAmount(builder, stageRewardAmount): builder.PrependInt32Slot(1, stageRewardAmount, 0)
-def AddStageRewardAmount(builder, stageRewardAmount):
-    return CampaignStageRewardExcelAddStageRewardAmount(builder, stageRewardAmount)
+def CampaignStageRewardExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
+def AddGroupId(builder, groupId):
+    return CampaignStageRewardExcelAddGroupId(builder, groupId)
+def CampaignStageRewardExcelAddRewardTag(builder, rewardTag): builder.PrependInt32Slot(1, rewardTag, 0)
+def AddRewardTag(builder, rewardTag):
+    return CampaignStageRewardExcelAddRewardTag(builder, rewardTag)
 def CampaignStageRewardExcelAddStageRewardProb(builder, stageRewardProb): builder.PrependInt32Slot(2, stageRewardProb, 0)
 def AddStageRewardProb(builder, stageRewardProb):
     return CampaignStageRewardExcelAddStageRewardProb(builder, stageRewardProb)
-def CampaignStageRewardExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(3, groupId, 0)
-def AddGroupId(builder, groupId):
-    return CampaignStageRewardExcelAddGroupId(builder, groupId)
-def CampaignStageRewardExcelAddIsDisplayed(builder, isDisplayed): builder.PrependBoolSlot(4, isDisplayed, 0)
-def AddIsDisplayed(builder, isDisplayed):
-    return CampaignStageRewardExcelAddIsDisplayed(builder, isDisplayed)
-def CampaignStageRewardExcelAddRewardTag(builder, rewardTag): builder.PrependInt32Slot(5, rewardTag, 0)
-def AddRewardTag(builder, rewardTag):
-    return CampaignStageRewardExcelAddRewardTag(builder, rewardTag)
-def CampaignStageRewardExcelAddStageRewardParcelType(builder, stageRewardParcelType): builder.PrependInt32Slot(6, stageRewardParcelType, 0)
+def CampaignStageRewardExcelAddStageRewardParcelType(builder, stageRewardParcelType): builder.PrependInt32Slot(3, stageRewardParcelType, 0)
 def AddStageRewardParcelType(builder, stageRewardParcelType):
     return CampaignStageRewardExcelAddStageRewardParcelType(builder, stageRewardParcelType)
+def CampaignStageRewardExcelAddStageRewardId(builder, stageRewardId): builder.PrependInt64Slot(4, stageRewardId, 0)
+def AddStageRewardId(builder, stageRewardId):
+    return CampaignStageRewardExcelAddStageRewardId(builder, stageRewardId)
+def CampaignStageRewardExcelAddStageRewardAmount(builder, stageRewardAmount): builder.PrependInt32Slot(5, stageRewardAmount, 0)
+def AddStageRewardAmount(builder, stageRewardAmount):
+    return CampaignStageRewardExcelAddStageRewardAmount(builder, stageRewardAmount)
+def CampaignStageRewardExcelAddIsDisplayed(builder, isDisplayed): builder.PrependBoolSlot(6, isDisplayed, 0)
+def AddIsDisplayed(builder, isDisplayed):
+    return CampaignStageRewardExcelAddIsDisplayed(builder, isDisplayed)
 def CampaignStageRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CampaignStageRewardExcelEnd(builder)

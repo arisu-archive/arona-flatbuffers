@@ -10,14 +10,14 @@ import (
 // BossExternalBTExcelDto represents a FlatBuffers table
 type BossExternalBTExcelDto struct {
 	fbsutils.FlatBuffer
-	ExternalBehavior   ExternalBehavior   `json:"external_behavior"`
 	ExternalBtId       int64              `json:"external_bt_id"`
-	BehaviorArgument   string             `json:"behavior_argument"`
 	AiPhase            int64              `json:"ai_phase"`
-	ExternalBtTrigger  ExternalBTTrigger  `json:"external_bt_trigger"`
 	ExternalBtNodeType ExternalBTNodeType `json:"external_bt_node_type"`
-	BehaviorRate       int64              `json:"behavior_rate"`
+	ExternalBtTrigger  ExternalBTTrigger  `json:"external_bt_trigger"`
 	TriggerArgument    string             `json:"trigger_argument"`
+	BehaviorRate       int64              `json:"behavior_rate"`
+	ExternalBehavior   ExternalBehavior   `json:"external_behavior"`
+	BehaviorArgument   string             `json:"behavior_argument"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,14 +26,14 @@ func (t *BossExternalBTExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossExternalBT"))
 	}
 	BossExternalBTExcelStart(b)
-	BossExternalBTExcelAddExternalBehavior(b, fbsutils.Convert(t.ExternalBehavior, t.FlatBuffer.TableKey))
 	BossExternalBTExcelAddExternalBtId(b, fbsutils.Convert(t.ExternalBtId, t.FlatBuffer.TableKey))
-	BossExternalBTExcelAddBehaviorArgument(b, b.CreateString(fbsutils.Convert(t.BehaviorArgument, t.FlatBuffer.TableKey)))
 	BossExternalBTExcelAddAiPhase(b, fbsutils.Convert(t.AiPhase, t.FlatBuffer.TableKey))
-	BossExternalBTExcelAddExternalBtTrigger(b, fbsutils.Convert(t.ExternalBtTrigger, t.FlatBuffer.TableKey))
 	BossExternalBTExcelAddExternalBtNodeType(b, fbsutils.Convert(t.ExternalBtNodeType, t.FlatBuffer.TableKey))
-	BossExternalBTExcelAddBehaviorRate(b, fbsutils.Convert(t.BehaviorRate, t.FlatBuffer.TableKey))
+	BossExternalBTExcelAddExternalBtTrigger(b, fbsutils.Convert(t.ExternalBtTrigger, t.FlatBuffer.TableKey))
 	BossExternalBTExcelAddTriggerArgument(b, b.CreateString(fbsutils.Convert(t.TriggerArgument, t.FlatBuffer.TableKey)))
+	BossExternalBTExcelAddBehaviorRate(b, fbsutils.Convert(t.BehaviorRate, t.FlatBuffer.TableKey))
+	BossExternalBTExcelAddExternalBehavior(b, fbsutils.Convert(t.ExternalBehavior, t.FlatBuffer.TableKey))
+	BossExternalBTExcelAddBehaviorArgument(b, b.CreateString(fbsutils.Convert(t.BehaviorArgument, t.FlatBuffer.TableKey)))
 	return BossExternalBTExcelEnd(b)
 }
 
@@ -49,14 +49,14 @@ func (t *BossExternalBTExcelDto) UnmarshalMessage(e *BossExternalBTExcel) error 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BossExternalBT"))
 	}
-	t.ExternalBehavior = ExternalBehavior(fbsutils.Convert(int32(e.ExternalBehavior()), t.FlatBuffer.TableKey))
 	t.ExternalBtId = fbsutils.Convert(e.ExternalBtId(), t.FlatBuffer.TableKey)
-	t.BehaviorArgument = fbsutils.Convert(string(e.BehaviorArgument()), t.FlatBuffer.TableKey)
 	t.AiPhase = fbsutils.Convert(e.AiPhase(), t.FlatBuffer.TableKey)
-	t.ExternalBtTrigger = ExternalBTTrigger(fbsutils.Convert(int32(e.ExternalBtTrigger()), t.FlatBuffer.TableKey))
 	t.ExternalBtNodeType = ExternalBTNodeType(fbsutils.Convert(int32(e.ExternalBtNodeType()), t.FlatBuffer.TableKey))
-	t.BehaviorRate = fbsutils.Convert(e.BehaviorRate(), t.FlatBuffer.TableKey)
+	t.ExternalBtTrigger = ExternalBTTrigger(fbsutils.Convert(int32(e.ExternalBtTrigger()), t.FlatBuffer.TableKey))
 	t.TriggerArgument = fbsutils.Convert(string(e.TriggerArgument()), t.FlatBuffer.TableKey)
+	t.BehaviorRate = fbsutils.Convert(e.BehaviorRate(), t.FlatBuffer.TableKey)
+	t.ExternalBehavior = ExternalBehavior(fbsutils.Convert(int32(e.ExternalBehavior()), t.FlatBuffer.TableKey))
+	t.BehaviorArgument = fbsutils.Convert(string(e.BehaviorArgument()), t.FlatBuffer.TableKey)
 	return nil
 }
 

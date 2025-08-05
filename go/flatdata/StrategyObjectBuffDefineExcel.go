@@ -33,28 +33,8 @@ func (rcv *StrategyObjectBuffDefineExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *StrategyObjectBuffDefineExcel) StrategyObjectTurn() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *StrategyObjectBuffDefineExcel) MutateStrategyObjectTurn(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
-}
-
-func (rcv *StrategyObjectBuffDefineExcel) SkillGroupId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *StrategyObjectBuffDefineExcel) StrategyObjectBuffId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -62,7 +42,27 @@ func (rcv *StrategyObjectBuffDefineExcel) StrategyObjectBuffId() int64 {
 }
 
 func (rcv *StrategyObjectBuffDefineExcel) MutateStrategyObjectBuffId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *StrategyObjectBuffDefineExcel) StrategyObjectTurn() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *StrategyObjectBuffDefineExcel) MutateStrategyObjectTurn(n int32) bool {
+	return rcv._tab.MutateInt32Slot(6, n)
+}
+
+func (rcv *StrategyObjectBuffDefineExcel) SkillGroupId() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *StrategyObjectBuffDefineExcel) LocalizeCodeId() uint32 {
@@ -88,14 +88,14 @@ func (rcv *StrategyObjectBuffDefineExcel) IconPath() []byte {
 func StrategyObjectBuffDefineExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
+func StrategyObjectBuffDefineExcelAddStrategyObjectBuffId(builder *flatbuffers.Builder, strategyObjectBuffId int64) {
+	builder.PrependInt64Slot(0, strategyObjectBuffId, 0)
+}
 func StrategyObjectBuffDefineExcelAddStrategyObjectTurn(builder *flatbuffers.Builder, strategyObjectTurn int32) {
-	builder.PrependInt32Slot(0, strategyObjectTurn, 0)
+	builder.PrependInt32Slot(1, strategyObjectTurn, 0)
 }
 func StrategyObjectBuffDefineExcelAddSkillGroupId(builder *flatbuffers.Builder, skillGroupId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(skillGroupId), 0)
-}
-func StrategyObjectBuffDefineExcelAddStrategyObjectBuffId(builder *flatbuffers.Builder, strategyObjectBuffId int64) {
-	builder.PrependInt64Slot(2, strategyObjectBuffId, 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(skillGroupId), 0)
 }
 func StrategyObjectBuffDefineExcelAddLocalizeCodeId(builder *flatbuffers.Builder, localizeCodeId uint32) {
 	builder.PrependUint32Slot(3, localizeCodeId, 0)

@@ -10,27 +10,27 @@ import (
 // TutorialCharacterDialogExcelDto represents a FlatBuffers table
 type TutorialCharacterDialogExcelDto struct {
 	fbsutils.FlatBuffer
-	LocalizeTh    string `json:"localize_th"`
-	LocalizeTw    string `json:"localize_tw"`
 	TalkId        int64  `json:"talk_id"`
-	VoiceId       uint32 `json:"voice_id"`
-	LocalizeJp    string `json:"localize_jp"`
 	AnimationName string `json:"animation_name"`
 	LocalizeKr    string `json:"localize_kr"`
+	LocalizeJp    string `json:"localize_jp"`
+	LocalizeTh    string `json:"localize_th"`
+	LocalizeTw    string `json:"localize_tw"`
 	LocalizeEn    string `json:"localize_en"`
+	VoiceId       uint32 `json:"voice_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TutorialCharacterDialogExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	TutorialCharacterDialogExcelStart(b)
-	TutorialCharacterDialogExcelAddLocalizeTh(b, b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey)))
-	TutorialCharacterDialogExcelAddLocalizeTw(b, b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey)))
 	TutorialCharacterDialogExcelAddTalkId(b, fbsutils.Convert(t.TalkId, t.FlatBuffer.TableKey))
-	TutorialCharacterDialogExcelAddVoiceId(b, fbsutils.Convert(t.VoiceId, t.FlatBuffer.TableKey))
-	TutorialCharacterDialogExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
 	TutorialCharacterDialogExcelAddAnimationName(b, b.CreateString(fbsutils.Convert(t.AnimationName, t.FlatBuffer.TableKey)))
 	TutorialCharacterDialogExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
+	TutorialCharacterDialogExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
+	TutorialCharacterDialogExcelAddLocalizeTh(b, b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey)))
+	TutorialCharacterDialogExcelAddLocalizeTw(b, b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey)))
 	TutorialCharacterDialogExcelAddLocalizeEn(b, b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey)))
+	TutorialCharacterDialogExcelAddVoiceId(b, fbsutils.Convert(t.VoiceId, t.FlatBuffer.TableKey))
 	return TutorialCharacterDialogExcelEnd(b)
 }
 
@@ -43,14 +43,14 @@ func (t *TutorialCharacterDialogExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TutorialCharacterDialogExcelDto) UnmarshalMessage(e *TutorialCharacterDialogExcel) error {
-	t.LocalizeTh = fbsutils.Convert(string(e.LocalizeTh()), t.FlatBuffer.TableKey)
-	t.LocalizeTw = fbsutils.Convert(string(e.LocalizeTw()), t.FlatBuffer.TableKey)
 	t.TalkId = fbsutils.Convert(e.TalkId(), t.FlatBuffer.TableKey)
-	t.VoiceId = fbsutils.Convert(e.VoiceId(), t.FlatBuffer.TableKey)
-	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
 	t.AnimationName = fbsutils.Convert(string(e.AnimationName()), t.FlatBuffer.TableKey)
 	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
+	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
+	t.LocalizeTh = fbsutils.Convert(string(e.LocalizeTh()), t.FlatBuffer.TableKey)
+	t.LocalizeTw = fbsutils.Convert(string(e.LocalizeTw()), t.FlatBuffer.TableKey)
 	t.LocalizeEn = fbsutils.Convert(string(e.LocalizeEn()), t.FlatBuffer.TableKey)
+	t.VoiceId = fbsutils.Convert(e.VoiceId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

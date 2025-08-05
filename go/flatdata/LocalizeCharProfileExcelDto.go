@@ -10,102 +10,102 @@ import (
 // LocalizeCharProfileExcelDto represents a FlatBuffers table
 type LocalizeCharProfileExcelDto struct {
 	fbsutils.FlatBuffer
-	DesignerNameKr        string `json:"designer_name_kr"`
-	CharacterAgeTw        string `json:"character_age_tw"`
-	PersonalNameRubyTw    string `json:"personal_name_ruby_tw"`
-	ProfileIntroductionEn string `json:"profile_introduction_en"`
-	KrCharacterVoiceTh    string `json:"kr_character_voice_th"`
+	CharacterId           int64  `json:"character_id"`
 	StatusMessageKr       string `json:"status_message_kr"`
-	IllustratorNameTw     string `json:"illustrator_name_tw"`
-	SchoolYearJp          string `json:"school_year_jp"`
-	BirthDay              string `json:"birth_day"`
-	DesignerNameTw        string `json:"designer_name_tw"`
-	ProfileIntroductionJp string `json:"profile_introduction_jp"`
-	HobbyJp               string `json:"hobby_jp"`
-	BirthdayTh            string `json:"birthday_th"`
-	ProfileIntroductionKr string `json:"profile_introduction_kr"`
-	CharacterSsrNewTw     string `json:"character_ssr_new_tw"`
-	CharacterAgeTh        string `json:"character_age_th"`
-	FamilyNameTw          string `json:"family_name_tw"`
-	IllustratorNameTh     string `json:"illustrator_name_th"`
-	PersonalNameRubyTh    string `json:"personal_name_ruby_th"`
-	StatusMessageTw       string `json:"status_message_tw"`
-	SchoolYearTh          string `json:"school_year_th"`
-	CharacterVoiceTh      string `json:"character_voice_th"`
-	BirthdayJp            string `json:"birthday_jp"`
-	CharHeightTh          string `json:"char_height_th"`
-	CharacterVoiceEn      string `json:"character_voice_en"`
-	CharacterVoiceKr      string `json:"character_voice_kr"`
-	FullNameEn            string `json:"full_name_en"`
 	StatusMessageJp       string `json:"status_message_jp"`
-	IllustratorNameJp     string `json:"illustrator_name_jp"`
-	WeaponNameEn          string `json:"weapon_name_en"`
-	WeaponDescEn          string `json:"weapon_desc_en"`
-	PersonalNameEn        string `json:"personal_name_en"`
-	CharacterSsrNewEn     string `json:"character_ssr_new_en"`
-	FamilyNameRubyEn      string `json:"family_name_ruby_en"`
-	DesignerNameJp        string `json:"designer_name_jp"`
-	PersonalNameKr        string `json:"personal_name_kr"`
-	FullNameTw            string `json:"full_name_tw"`
-	CharacterSsrNewTh     string `json:"character_ssr_new_th"`
-	FullNameJp            string `json:"full_name_jp"`
-	IllustratorNameEn     string `json:"illustrator_name_en"`
-	IllustratorNameKr     string `json:"illustrator_name_kr"`
-	CharHeightKr          string `json:"char_height_kr"`
-	CharHeightEn          string `json:"char_height_en"`
-	CharacterSsrNewKr     string `json:"character_ssr_new_kr"`
-	BirthdayKr            string `json:"birthday_kr"`
-	WeaponNameTw          string `json:"weapon_name_tw"`
-	WeaponDescTh          string `json:"weapon_desc_th"`
-	StatusMessageEn       string `json:"status_message_en"`
-	HobbyEn               string `json:"hobby_en"`
-	PersonalNameJp        string `json:"personal_name_jp"`
-	CharHeightJp          string `json:"char_height_jp"`
-	FamilyNameEn          string `json:"family_name_en"`
-	HobbyTh               string `json:"hobby_th"`
-	ProfileIntroductionTh string `json:"profile_introduction_th"`
-	FullNameKr            string `json:"full_name_kr"`
-	PersonalNameRubyEn    string `json:"personal_name_ruby_en"`
-	PersonalNameRubyKr    string `json:"personal_name_ruby_kr"`
-	WeaponNameKr          string `json:"weapon_name_kr"`
-	FamilyNameKr          string `json:"family_name_kr"`
-	FullNameTh            string `json:"full_name_th"`
-	ProfileIntroductionTw string `json:"profile_introduction_tw"`
-	CharacterVoiceJp      string `json:"character_voice_jp"`
-	KrCharacterVoiceEn    string `json:"kr_character_voice_en"`
-	BirthdayEn            string `json:"birthday_en"`
-	CharacterAgeKr        string `json:"character_age_kr"`
-	DesignerNameTh        string `json:"designer_name_th"`
-	WeaponDescKr          string `json:"weapon_desc_kr"`
-	CharacterAgeJp        string `json:"character_age_jp"`
-	WeaponNameJp          string `json:"weapon_name_jp"`
-	KrCharacterVoiceKr    string `json:"kr_character_voice_kr"`
-	FamilyNameJp          string `json:"family_name_jp"`
-	WeaponDescTw          string `json:"weapon_desc_tw"`
-	KrCharacterVoiceTw    string `json:"kr_character_voice_tw"`
 	StatusMessageTh       string `json:"status_message_th"`
-	PersonalNameTh        string `json:"personal_name_th"`
-	FamilyNameRubyTw      string `json:"family_name_ruby_tw"`
+	StatusMessageTw       string `json:"status_message_tw"`
+	StatusMessageEn       string `json:"status_message_en"`
+	FullNameKr            string `json:"full_name_kr"`
+	FullNameJp            string `json:"full_name_jp"`
+	FullNameTh            string `json:"full_name_th"`
+	FullNameTw            string `json:"full_name_tw"`
+	FullNameEn            string `json:"full_name_en"`
+	FamilyNameKr          string `json:"family_name_kr"`
+	FamilyNameRubyKr      string `json:"family_name_ruby_kr"`
+	PersonalNameKr        string `json:"personal_name_kr"`
+	PersonalNameRubyKr    string `json:"personal_name_ruby_kr"`
+	FamilyNameJp          string `json:"family_name_jp"`
+	FamilyNameRubyJp      string `json:"family_name_ruby_jp"`
+	PersonalNameJp        string `json:"personal_name_jp"`
+	PersonalNameRubyJp    string `json:"personal_name_ruby_jp"`
 	FamilyNameTh          string `json:"family_name_th"`
 	FamilyNameRubyTh      string `json:"family_name_ruby_th"`
-	SchoolYearEn          string `json:"school_year_en"`
-	HobbyTw               string `json:"hobby_tw"`
-	CharHeightTw          string `json:"char_height_tw"`
-	BirthdayTw            string `json:"birthday_tw"`
-	CharacterSsrNewJp     string `json:"character_ssr_new_jp"`
-	DesignerNameEn        string `json:"designer_name_en"`
-	FamilyNameRubyKr      string `json:"family_name_ruby_kr"`
-	WeaponNameTh          string `json:"weapon_name_th"`
-	WeaponDescJp          string `json:"weapon_desc_jp"`
-	HobbyKr               string `json:"hobby_kr"`
-	CharacterVoiceTw      string `json:"character_voice_tw"`
-	SchoolYearTw          string `json:"school_year_tw"`
-	PersonalNameRubyJp    string `json:"personal_name_ruby_jp"`
-	CharacterAgeEn        string `json:"character_age_en"`
+	PersonalNameTh        string `json:"personal_name_th"`
+	PersonalNameRubyTh    string `json:"personal_name_ruby_th"`
+	FamilyNameTw          string `json:"family_name_tw"`
+	FamilyNameRubyTw      string `json:"family_name_ruby_tw"`
 	PersonalNameTw        string `json:"personal_name_tw"`
-	CharacterId           int64  `json:"character_id"`
-	FamilyNameRubyJp      string `json:"family_name_ruby_jp"`
+	PersonalNameRubyTw    string `json:"personal_name_ruby_tw"`
+	FamilyNameEn          string `json:"family_name_en"`
+	FamilyNameRubyEn      string `json:"family_name_ruby_en"`
+	PersonalNameEn        string `json:"personal_name_en"`
+	PersonalNameRubyEn    string `json:"personal_name_ruby_en"`
 	SchoolYearKr          string `json:"school_year_kr"`
+	SchoolYearJp          string `json:"school_year_jp"`
+	SchoolYearTh          string `json:"school_year_th"`
+	SchoolYearTw          string `json:"school_year_tw"`
+	SchoolYearEn          string `json:"school_year_en"`
+	CharacterAgeKr        string `json:"character_age_kr"`
+	CharacterAgeJp        string `json:"character_age_jp"`
+	CharacterAgeTh        string `json:"character_age_th"`
+	CharacterAgeTw        string `json:"character_age_tw"`
+	CharacterAgeEn        string `json:"character_age_en"`
+	BirthDay              string `json:"birth_day"`
+	BirthdayKr            string `json:"birthday_kr"`
+	BirthdayJp            string `json:"birthday_jp"`
+	BirthdayTh            string `json:"birthday_th"`
+	BirthdayTw            string `json:"birthday_tw"`
+	BirthdayEn            string `json:"birthday_en"`
+	CharHeightKr          string `json:"char_height_kr"`
+	CharHeightJp          string `json:"char_height_jp"`
+	CharHeightTh          string `json:"char_height_th"`
+	CharHeightTw          string `json:"char_height_tw"`
+	CharHeightEn          string `json:"char_height_en"`
+	DesignerNameKr        string `json:"designer_name_kr"`
+	DesignerNameJp        string `json:"designer_name_jp"`
+	DesignerNameTh        string `json:"designer_name_th"`
+	DesignerNameTw        string `json:"designer_name_tw"`
+	DesignerNameEn        string `json:"designer_name_en"`
+	IllustratorNameKr     string `json:"illustrator_name_kr"`
+	IllustratorNameJp     string `json:"illustrator_name_jp"`
+	IllustratorNameTh     string `json:"illustrator_name_th"`
+	IllustratorNameTw     string `json:"illustrator_name_tw"`
+	IllustratorNameEn     string `json:"illustrator_name_en"`
+	CharacterVoiceKr      string `json:"character_voice_kr"`
+	CharacterVoiceJp      string `json:"character_voice_jp"`
+	CharacterVoiceTh      string `json:"character_voice_th"`
+	CharacterVoiceTw      string `json:"character_voice_tw"`
+	CharacterVoiceEn      string `json:"character_voice_en"`
+	KrCharacterVoiceKr    string `json:"kr_character_voice_kr"`
+	KrCharacterVoiceTh    string `json:"kr_character_voice_th"`
+	KrCharacterVoiceTw    string `json:"kr_character_voice_tw"`
+	KrCharacterVoiceEn    string `json:"kr_character_voice_en"`
+	HobbyKr               string `json:"hobby_kr"`
+	HobbyJp               string `json:"hobby_jp"`
+	HobbyTh               string `json:"hobby_th"`
+	HobbyTw               string `json:"hobby_tw"`
+	HobbyEn               string `json:"hobby_en"`
+	WeaponNameKr          string `json:"weapon_name_kr"`
+	WeaponDescKr          string `json:"weapon_desc_kr"`
+	WeaponNameJp          string `json:"weapon_name_jp"`
+	WeaponDescJp          string `json:"weapon_desc_jp"`
+	WeaponNameTh          string `json:"weapon_name_th"`
+	WeaponDescTh          string `json:"weapon_desc_th"`
+	WeaponNameTw          string `json:"weapon_name_tw"`
+	WeaponDescTw          string `json:"weapon_desc_tw"`
+	WeaponNameEn          string `json:"weapon_name_en"`
+	WeaponDescEn          string `json:"weapon_desc_en"`
+	ProfileIntroductionKr string `json:"profile_introduction_kr"`
+	ProfileIntroductionJp string `json:"profile_introduction_jp"`
+	ProfileIntroductionTh string `json:"profile_introduction_th"`
+	ProfileIntroductionTw string `json:"profile_introduction_tw"`
+	ProfileIntroductionEn string `json:"profile_introduction_en"`
+	CharacterSsrNewKr     string `json:"character_ssr_new_kr"`
+	CharacterSsrNewJp     string `json:"character_ssr_new_jp"`
+	CharacterSsrNewTh     string `json:"character_ssr_new_th"`
+	CharacterSsrNewTw     string `json:"character_ssr_new_tw"`
+	CharacterSsrNewEn     string `json:"character_ssr_new_en"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -114,102 +114,102 @@ func (t *LocalizeCharProfileExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCharProfile"))
 	}
 	LocalizeCharProfileExcelStart(b)
-	LocalizeCharProfileExcelAddDesignerNameKr(b, b.CreateString(fbsutils.Convert(t.DesignerNameKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterAgeTw(b, b.CreateString(fbsutils.Convert(t.CharacterAgeTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddPersonalNameRubyTw(b, b.CreateString(fbsutils.Convert(t.PersonalNameRubyTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddProfileIntroductionEn(b, b.CreateString(fbsutils.Convert(t.ProfileIntroductionEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddKrCharacterVoiceTh(b, b.CreateString(fbsutils.Convert(t.KrCharacterVoiceTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	LocalizeCharProfileExcelAddStatusMessageKr(b, b.CreateString(fbsutils.Convert(t.StatusMessageKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddIllustratorNameTw(b, b.CreateString(fbsutils.Convert(t.IllustratorNameTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddSchoolYearJp(b, b.CreateString(fbsutils.Convert(t.SchoolYearJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddBirthDay(b, b.CreateString(fbsutils.Convert(t.BirthDay, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddDesignerNameTw(b, b.CreateString(fbsutils.Convert(t.DesignerNameTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddProfileIntroductionJp(b, b.CreateString(fbsutils.Convert(t.ProfileIntroductionJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddHobbyJp(b, b.CreateString(fbsutils.Convert(t.HobbyJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddBirthdayTh(b, b.CreateString(fbsutils.Convert(t.BirthdayTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddProfileIntroductionKr(b, b.CreateString(fbsutils.Convert(t.ProfileIntroductionKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterSsrNewTw(b, b.CreateString(fbsutils.Convert(t.CharacterSsrNewTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterAgeTh(b, b.CreateString(fbsutils.Convert(t.CharacterAgeTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddFamilyNameTw(b, b.CreateString(fbsutils.Convert(t.FamilyNameTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddIllustratorNameTh(b, b.CreateString(fbsutils.Convert(t.IllustratorNameTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddPersonalNameRubyTh(b, b.CreateString(fbsutils.Convert(t.PersonalNameRubyTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddStatusMessageTw(b, b.CreateString(fbsutils.Convert(t.StatusMessageTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddSchoolYearTh(b, b.CreateString(fbsutils.Convert(t.SchoolYearTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterVoiceTh(b, b.CreateString(fbsutils.Convert(t.CharacterVoiceTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddBirthdayJp(b, b.CreateString(fbsutils.Convert(t.BirthdayJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharHeightTh(b, b.CreateString(fbsutils.Convert(t.CharHeightTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterVoiceEn(b, b.CreateString(fbsutils.Convert(t.CharacterVoiceEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterVoiceKr(b, b.CreateString(fbsutils.Convert(t.CharacterVoiceKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddFullNameEn(b, b.CreateString(fbsutils.Convert(t.FullNameEn, t.FlatBuffer.TableKey)))
 	LocalizeCharProfileExcelAddStatusMessageJp(b, b.CreateString(fbsutils.Convert(t.StatusMessageJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddIllustratorNameJp(b, b.CreateString(fbsutils.Convert(t.IllustratorNameJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddWeaponNameEn(b, b.CreateString(fbsutils.Convert(t.WeaponNameEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddWeaponDescEn(b, b.CreateString(fbsutils.Convert(t.WeaponDescEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddPersonalNameEn(b, b.CreateString(fbsutils.Convert(t.PersonalNameEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterSsrNewEn(b, b.CreateString(fbsutils.Convert(t.CharacterSsrNewEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddFamilyNameRubyEn(b, b.CreateString(fbsutils.Convert(t.FamilyNameRubyEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddDesignerNameJp(b, b.CreateString(fbsutils.Convert(t.DesignerNameJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddPersonalNameKr(b, b.CreateString(fbsutils.Convert(t.PersonalNameKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddFullNameTw(b, b.CreateString(fbsutils.Convert(t.FullNameTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterSsrNewTh(b, b.CreateString(fbsutils.Convert(t.CharacterSsrNewTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddFullNameJp(b, b.CreateString(fbsutils.Convert(t.FullNameJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddIllustratorNameEn(b, b.CreateString(fbsutils.Convert(t.IllustratorNameEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddIllustratorNameKr(b, b.CreateString(fbsutils.Convert(t.IllustratorNameKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharHeightKr(b, b.CreateString(fbsutils.Convert(t.CharHeightKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharHeightEn(b, b.CreateString(fbsutils.Convert(t.CharHeightEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterSsrNewKr(b, b.CreateString(fbsutils.Convert(t.CharacterSsrNewKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddBirthdayKr(b, b.CreateString(fbsutils.Convert(t.BirthdayKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddWeaponNameTw(b, b.CreateString(fbsutils.Convert(t.WeaponNameTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddWeaponDescTh(b, b.CreateString(fbsutils.Convert(t.WeaponDescTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddStatusMessageEn(b, b.CreateString(fbsutils.Convert(t.StatusMessageEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddHobbyEn(b, b.CreateString(fbsutils.Convert(t.HobbyEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddPersonalNameJp(b, b.CreateString(fbsutils.Convert(t.PersonalNameJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharHeightJp(b, b.CreateString(fbsutils.Convert(t.CharHeightJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddFamilyNameEn(b, b.CreateString(fbsutils.Convert(t.FamilyNameEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddHobbyTh(b, b.CreateString(fbsutils.Convert(t.HobbyTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddProfileIntroductionTh(b, b.CreateString(fbsutils.Convert(t.ProfileIntroductionTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddFullNameKr(b, b.CreateString(fbsutils.Convert(t.FullNameKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddPersonalNameRubyEn(b, b.CreateString(fbsutils.Convert(t.PersonalNameRubyEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddPersonalNameRubyKr(b, b.CreateString(fbsutils.Convert(t.PersonalNameRubyKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddWeaponNameKr(b, b.CreateString(fbsutils.Convert(t.WeaponNameKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddFamilyNameKr(b, b.CreateString(fbsutils.Convert(t.FamilyNameKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddFullNameTh(b, b.CreateString(fbsutils.Convert(t.FullNameTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddProfileIntroductionTw(b, b.CreateString(fbsutils.Convert(t.ProfileIntroductionTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterVoiceJp(b, b.CreateString(fbsutils.Convert(t.CharacterVoiceJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddKrCharacterVoiceEn(b, b.CreateString(fbsutils.Convert(t.KrCharacterVoiceEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddBirthdayEn(b, b.CreateString(fbsutils.Convert(t.BirthdayEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterAgeKr(b, b.CreateString(fbsutils.Convert(t.CharacterAgeKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddDesignerNameTh(b, b.CreateString(fbsutils.Convert(t.DesignerNameTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddWeaponDescKr(b, b.CreateString(fbsutils.Convert(t.WeaponDescKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterAgeJp(b, b.CreateString(fbsutils.Convert(t.CharacterAgeJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddWeaponNameJp(b, b.CreateString(fbsutils.Convert(t.WeaponNameJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddKrCharacterVoiceKr(b, b.CreateString(fbsutils.Convert(t.KrCharacterVoiceKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddFamilyNameJp(b, b.CreateString(fbsutils.Convert(t.FamilyNameJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddWeaponDescTw(b, b.CreateString(fbsutils.Convert(t.WeaponDescTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddKrCharacterVoiceTw(b, b.CreateString(fbsutils.Convert(t.KrCharacterVoiceTw, t.FlatBuffer.TableKey)))
 	LocalizeCharProfileExcelAddStatusMessageTh(b, b.CreateString(fbsutils.Convert(t.StatusMessageTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddPersonalNameTh(b, b.CreateString(fbsutils.Convert(t.PersonalNameTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddFamilyNameRubyTw(b, b.CreateString(fbsutils.Convert(t.FamilyNameRubyTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddStatusMessageTw(b, b.CreateString(fbsutils.Convert(t.StatusMessageTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddStatusMessageEn(b, b.CreateString(fbsutils.Convert(t.StatusMessageEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddFullNameKr(b, b.CreateString(fbsutils.Convert(t.FullNameKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddFullNameJp(b, b.CreateString(fbsutils.Convert(t.FullNameJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddFullNameTh(b, b.CreateString(fbsutils.Convert(t.FullNameTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddFullNameTw(b, b.CreateString(fbsutils.Convert(t.FullNameTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddFullNameEn(b, b.CreateString(fbsutils.Convert(t.FullNameEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddFamilyNameKr(b, b.CreateString(fbsutils.Convert(t.FamilyNameKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddFamilyNameRubyKr(b, b.CreateString(fbsutils.Convert(t.FamilyNameRubyKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddPersonalNameKr(b, b.CreateString(fbsutils.Convert(t.PersonalNameKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddPersonalNameRubyKr(b, b.CreateString(fbsutils.Convert(t.PersonalNameRubyKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddFamilyNameJp(b, b.CreateString(fbsutils.Convert(t.FamilyNameJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddFamilyNameRubyJp(b, b.CreateString(fbsutils.Convert(t.FamilyNameRubyJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddPersonalNameJp(b, b.CreateString(fbsutils.Convert(t.PersonalNameJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddPersonalNameRubyJp(b, b.CreateString(fbsutils.Convert(t.PersonalNameRubyJp, t.FlatBuffer.TableKey)))
 	LocalizeCharProfileExcelAddFamilyNameTh(b, b.CreateString(fbsutils.Convert(t.FamilyNameTh, t.FlatBuffer.TableKey)))
 	LocalizeCharProfileExcelAddFamilyNameRubyTh(b, b.CreateString(fbsutils.Convert(t.FamilyNameRubyTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddSchoolYearEn(b, b.CreateString(fbsutils.Convert(t.SchoolYearEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddHobbyTw(b, b.CreateString(fbsutils.Convert(t.HobbyTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharHeightTw(b, b.CreateString(fbsutils.Convert(t.CharHeightTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddBirthdayTw(b, b.CreateString(fbsutils.Convert(t.BirthdayTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterSsrNewJp(b, b.CreateString(fbsutils.Convert(t.CharacterSsrNewJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddDesignerNameEn(b, b.CreateString(fbsutils.Convert(t.DesignerNameEn, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddFamilyNameRubyKr(b, b.CreateString(fbsutils.Convert(t.FamilyNameRubyKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddWeaponNameTh(b, b.CreateString(fbsutils.Convert(t.WeaponNameTh, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddWeaponDescJp(b, b.CreateString(fbsutils.Convert(t.WeaponDescJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddHobbyKr(b, b.CreateString(fbsutils.Convert(t.HobbyKr, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterVoiceTw(b, b.CreateString(fbsutils.Convert(t.CharacterVoiceTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddSchoolYearTw(b, b.CreateString(fbsutils.Convert(t.SchoolYearTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddPersonalNameRubyJp(b, b.CreateString(fbsutils.Convert(t.PersonalNameRubyJp, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterAgeEn(b, b.CreateString(fbsutils.Convert(t.CharacterAgeEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddPersonalNameTh(b, b.CreateString(fbsutils.Convert(t.PersonalNameTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddPersonalNameRubyTh(b, b.CreateString(fbsutils.Convert(t.PersonalNameRubyTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddFamilyNameTw(b, b.CreateString(fbsutils.Convert(t.FamilyNameTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddFamilyNameRubyTw(b, b.CreateString(fbsutils.Convert(t.FamilyNameRubyTw, t.FlatBuffer.TableKey)))
 	LocalizeCharProfileExcelAddPersonalNameTw(b, b.CreateString(fbsutils.Convert(t.PersonalNameTw, t.FlatBuffer.TableKey)))
-	LocalizeCharProfileExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
-	LocalizeCharProfileExcelAddFamilyNameRubyJp(b, b.CreateString(fbsutils.Convert(t.FamilyNameRubyJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddPersonalNameRubyTw(b, b.CreateString(fbsutils.Convert(t.PersonalNameRubyTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddFamilyNameEn(b, b.CreateString(fbsutils.Convert(t.FamilyNameEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddFamilyNameRubyEn(b, b.CreateString(fbsutils.Convert(t.FamilyNameRubyEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddPersonalNameEn(b, b.CreateString(fbsutils.Convert(t.PersonalNameEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddPersonalNameRubyEn(b, b.CreateString(fbsutils.Convert(t.PersonalNameRubyEn, t.FlatBuffer.TableKey)))
 	LocalizeCharProfileExcelAddSchoolYearKr(b, b.CreateString(fbsutils.Convert(t.SchoolYearKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddSchoolYearJp(b, b.CreateString(fbsutils.Convert(t.SchoolYearJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddSchoolYearTh(b, b.CreateString(fbsutils.Convert(t.SchoolYearTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddSchoolYearTw(b, b.CreateString(fbsutils.Convert(t.SchoolYearTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddSchoolYearEn(b, b.CreateString(fbsutils.Convert(t.SchoolYearEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterAgeKr(b, b.CreateString(fbsutils.Convert(t.CharacterAgeKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterAgeJp(b, b.CreateString(fbsutils.Convert(t.CharacterAgeJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterAgeTh(b, b.CreateString(fbsutils.Convert(t.CharacterAgeTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterAgeTw(b, b.CreateString(fbsutils.Convert(t.CharacterAgeTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterAgeEn(b, b.CreateString(fbsutils.Convert(t.CharacterAgeEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddBirthDay(b, b.CreateString(fbsutils.Convert(t.BirthDay, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddBirthdayKr(b, b.CreateString(fbsutils.Convert(t.BirthdayKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddBirthdayJp(b, b.CreateString(fbsutils.Convert(t.BirthdayJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddBirthdayTh(b, b.CreateString(fbsutils.Convert(t.BirthdayTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddBirthdayTw(b, b.CreateString(fbsutils.Convert(t.BirthdayTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddBirthdayEn(b, b.CreateString(fbsutils.Convert(t.BirthdayEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharHeightKr(b, b.CreateString(fbsutils.Convert(t.CharHeightKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharHeightJp(b, b.CreateString(fbsutils.Convert(t.CharHeightJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharHeightTh(b, b.CreateString(fbsutils.Convert(t.CharHeightTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharHeightTw(b, b.CreateString(fbsutils.Convert(t.CharHeightTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharHeightEn(b, b.CreateString(fbsutils.Convert(t.CharHeightEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddDesignerNameKr(b, b.CreateString(fbsutils.Convert(t.DesignerNameKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddDesignerNameJp(b, b.CreateString(fbsutils.Convert(t.DesignerNameJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddDesignerNameTh(b, b.CreateString(fbsutils.Convert(t.DesignerNameTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddDesignerNameTw(b, b.CreateString(fbsutils.Convert(t.DesignerNameTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddDesignerNameEn(b, b.CreateString(fbsutils.Convert(t.DesignerNameEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddIllustratorNameKr(b, b.CreateString(fbsutils.Convert(t.IllustratorNameKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddIllustratorNameJp(b, b.CreateString(fbsutils.Convert(t.IllustratorNameJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddIllustratorNameTh(b, b.CreateString(fbsutils.Convert(t.IllustratorNameTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddIllustratorNameTw(b, b.CreateString(fbsutils.Convert(t.IllustratorNameTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddIllustratorNameEn(b, b.CreateString(fbsutils.Convert(t.IllustratorNameEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterVoiceKr(b, b.CreateString(fbsutils.Convert(t.CharacterVoiceKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterVoiceJp(b, b.CreateString(fbsutils.Convert(t.CharacterVoiceJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterVoiceTh(b, b.CreateString(fbsutils.Convert(t.CharacterVoiceTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterVoiceTw(b, b.CreateString(fbsutils.Convert(t.CharacterVoiceTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterVoiceEn(b, b.CreateString(fbsutils.Convert(t.CharacterVoiceEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddKrCharacterVoiceKr(b, b.CreateString(fbsutils.Convert(t.KrCharacterVoiceKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddKrCharacterVoiceTh(b, b.CreateString(fbsutils.Convert(t.KrCharacterVoiceTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddKrCharacterVoiceTw(b, b.CreateString(fbsutils.Convert(t.KrCharacterVoiceTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddKrCharacterVoiceEn(b, b.CreateString(fbsutils.Convert(t.KrCharacterVoiceEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddHobbyKr(b, b.CreateString(fbsutils.Convert(t.HobbyKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddHobbyJp(b, b.CreateString(fbsutils.Convert(t.HobbyJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddHobbyTh(b, b.CreateString(fbsutils.Convert(t.HobbyTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddHobbyTw(b, b.CreateString(fbsutils.Convert(t.HobbyTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddHobbyEn(b, b.CreateString(fbsutils.Convert(t.HobbyEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddWeaponNameKr(b, b.CreateString(fbsutils.Convert(t.WeaponNameKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddWeaponDescKr(b, b.CreateString(fbsutils.Convert(t.WeaponDescKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddWeaponNameJp(b, b.CreateString(fbsutils.Convert(t.WeaponNameJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddWeaponDescJp(b, b.CreateString(fbsutils.Convert(t.WeaponDescJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddWeaponNameTh(b, b.CreateString(fbsutils.Convert(t.WeaponNameTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddWeaponDescTh(b, b.CreateString(fbsutils.Convert(t.WeaponDescTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddWeaponNameTw(b, b.CreateString(fbsutils.Convert(t.WeaponNameTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddWeaponDescTw(b, b.CreateString(fbsutils.Convert(t.WeaponDescTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddWeaponNameEn(b, b.CreateString(fbsutils.Convert(t.WeaponNameEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddWeaponDescEn(b, b.CreateString(fbsutils.Convert(t.WeaponDescEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddProfileIntroductionKr(b, b.CreateString(fbsutils.Convert(t.ProfileIntroductionKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddProfileIntroductionJp(b, b.CreateString(fbsutils.Convert(t.ProfileIntroductionJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddProfileIntroductionTh(b, b.CreateString(fbsutils.Convert(t.ProfileIntroductionTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddProfileIntroductionTw(b, b.CreateString(fbsutils.Convert(t.ProfileIntroductionTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddProfileIntroductionEn(b, b.CreateString(fbsutils.Convert(t.ProfileIntroductionEn, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterSsrNewKr(b, b.CreateString(fbsutils.Convert(t.CharacterSsrNewKr, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterSsrNewJp(b, b.CreateString(fbsutils.Convert(t.CharacterSsrNewJp, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterSsrNewTh(b, b.CreateString(fbsutils.Convert(t.CharacterSsrNewTh, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterSsrNewTw(b, b.CreateString(fbsutils.Convert(t.CharacterSsrNewTw, t.FlatBuffer.TableKey)))
+	LocalizeCharProfileExcelAddCharacterSsrNewEn(b, b.CreateString(fbsutils.Convert(t.CharacterSsrNewEn, t.FlatBuffer.TableKey)))
 	return LocalizeCharProfileExcelEnd(b)
 }
 
@@ -225,102 +225,102 @@ func (t *LocalizeCharProfileExcelDto) UnmarshalMessage(e *LocalizeCharProfileExc
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("LocalizeCharProfile"))
 	}
-	t.DesignerNameKr = fbsutils.Convert(string(e.DesignerNameKr()), t.FlatBuffer.TableKey)
-	t.CharacterAgeTw = fbsutils.Convert(string(e.CharacterAgeTw()), t.FlatBuffer.TableKey)
-	t.PersonalNameRubyTw = fbsutils.Convert(string(e.PersonalNameRubyTw()), t.FlatBuffer.TableKey)
-	t.ProfileIntroductionEn = fbsutils.Convert(string(e.ProfileIntroductionEn()), t.FlatBuffer.TableKey)
-	t.KrCharacterVoiceTh = fbsutils.Convert(string(e.KrCharacterVoiceTh()), t.FlatBuffer.TableKey)
+	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.StatusMessageKr = fbsutils.Convert(string(e.StatusMessageKr()), t.FlatBuffer.TableKey)
-	t.IllustratorNameTw = fbsutils.Convert(string(e.IllustratorNameTw()), t.FlatBuffer.TableKey)
-	t.SchoolYearJp = fbsutils.Convert(string(e.SchoolYearJp()), t.FlatBuffer.TableKey)
-	t.BirthDay = fbsutils.Convert(string(e.BirthDay()), t.FlatBuffer.TableKey)
-	t.DesignerNameTw = fbsutils.Convert(string(e.DesignerNameTw()), t.FlatBuffer.TableKey)
-	t.ProfileIntroductionJp = fbsutils.Convert(string(e.ProfileIntroductionJp()), t.FlatBuffer.TableKey)
-	t.HobbyJp = fbsutils.Convert(string(e.HobbyJp()), t.FlatBuffer.TableKey)
-	t.BirthdayTh = fbsutils.Convert(string(e.BirthdayTh()), t.FlatBuffer.TableKey)
-	t.ProfileIntroductionKr = fbsutils.Convert(string(e.ProfileIntroductionKr()), t.FlatBuffer.TableKey)
-	t.CharacterSsrNewTw = fbsutils.Convert(string(e.CharacterSsrNewTw()), t.FlatBuffer.TableKey)
-	t.CharacterAgeTh = fbsutils.Convert(string(e.CharacterAgeTh()), t.FlatBuffer.TableKey)
-	t.FamilyNameTw = fbsutils.Convert(string(e.FamilyNameTw()), t.FlatBuffer.TableKey)
-	t.IllustratorNameTh = fbsutils.Convert(string(e.IllustratorNameTh()), t.FlatBuffer.TableKey)
-	t.PersonalNameRubyTh = fbsutils.Convert(string(e.PersonalNameRubyTh()), t.FlatBuffer.TableKey)
-	t.StatusMessageTw = fbsutils.Convert(string(e.StatusMessageTw()), t.FlatBuffer.TableKey)
-	t.SchoolYearTh = fbsutils.Convert(string(e.SchoolYearTh()), t.FlatBuffer.TableKey)
-	t.CharacterVoiceTh = fbsutils.Convert(string(e.CharacterVoiceTh()), t.FlatBuffer.TableKey)
-	t.BirthdayJp = fbsutils.Convert(string(e.BirthdayJp()), t.FlatBuffer.TableKey)
-	t.CharHeightTh = fbsutils.Convert(string(e.CharHeightTh()), t.FlatBuffer.TableKey)
-	t.CharacterVoiceEn = fbsutils.Convert(string(e.CharacterVoiceEn()), t.FlatBuffer.TableKey)
-	t.CharacterVoiceKr = fbsutils.Convert(string(e.CharacterVoiceKr()), t.FlatBuffer.TableKey)
-	t.FullNameEn = fbsutils.Convert(string(e.FullNameEn()), t.FlatBuffer.TableKey)
 	t.StatusMessageJp = fbsutils.Convert(string(e.StatusMessageJp()), t.FlatBuffer.TableKey)
-	t.IllustratorNameJp = fbsutils.Convert(string(e.IllustratorNameJp()), t.FlatBuffer.TableKey)
-	t.WeaponNameEn = fbsutils.Convert(string(e.WeaponNameEn()), t.FlatBuffer.TableKey)
-	t.WeaponDescEn = fbsutils.Convert(string(e.WeaponDescEn()), t.FlatBuffer.TableKey)
-	t.PersonalNameEn = fbsutils.Convert(string(e.PersonalNameEn()), t.FlatBuffer.TableKey)
-	t.CharacterSsrNewEn = fbsutils.Convert(string(e.CharacterSsrNewEn()), t.FlatBuffer.TableKey)
-	t.FamilyNameRubyEn = fbsutils.Convert(string(e.FamilyNameRubyEn()), t.FlatBuffer.TableKey)
-	t.DesignerNameJp = fbsutils.Convert(string(e.DesignerNameJp()), t.FlatBuffer.TableKey)
-	t.PersonalNameKr = fbsutils.Convert(string(e.PersonalNameKr()), t.FlatBuffer.TableKey)
-	t.FullNameTw = fbsutils.Convert(string(e.FullNameTw()), t.FlatBuffer.TableKey)
-	t.CharacterSsrNewTh = fbsutils.Convert(string(e.CharacterSsrNewTh()), t.FlatBuffer.TableKey)
-	t.FullNameJp = fbsutils.Convert(string(e.FullNameJp()), t.FlatBuffer.TableKey)
-	t.IllustratorNameEn = fbsutils.Convert(string(e.IllustratorNameEn()), t.FlatBuffer.TableKey)
-	t.IllustratorNameKr = fbsutils.Convert(string(e.IllustratorNameKr()), t.FlatBuffer.TableKey)
-	t.CharHeightKr = fbsutils.Convert(string(e.CharHeightKr()), t.FlatBuffer.TableKey)
-	t.CharHeightEn = fbsutils.Convert(string(e.CharHeightEn()), t.FlatBuffer.TableKey)
-	t.CharacterSsrNewKr = fbsutils.Convert(string(e.CharacterSsrNewKr()), t.FlatBuffer.TableKey)
-	t.BirthdayKr = fbsutils.Convert(string(e.BirthdayKr()), t.FlatBuffer.TableKey)
-	t.WeaponNameTw = fbsutils.Convert(string(e.WeaponNameTw()), t.FlatBuffer.TableKey)
-	t.WeaponDescTh = fbsutils.Convert(string(e.WeaponDescTh()), t.FlatBuffer.TableKey)
-	t.StatusMessageEn = fbsutils.Convert(string(e.StatusMessageEn()), t.FlatBuffer.TableKey)
-	t.HobbyEn = fbsutils.Convert(string(e.HobbyEn()), t.FlatBuffer.TableKey)
-	t.PersonalNameJp = fbsutils.Convert(string(e.PersonalNameJp()), t.FlatBuffer.TableKey)
-	t.CharHeightJp = fbsutils.Convert(string(e.CharHeightJp()), t.FlatBuffer.TableKey)
-	t.FamilyNameEn = fbsutils.Convert(string(e.FamilyNameEn()), t.FlatBuffer.TableKey)
-	t.HobbyTh = fbsutils.Convert(string(e.HobbyTh()), t.FlatBuffer.TableKey)
-	t.ProfileIntroductionTh = fbsutils.Convert(string(e.ProfileIntroductionTh()), t.FlatBuffer.TableKey)
-	t.FullNameKr = fbsutils.Convert(string(e.FullNameKr()), t.FlatBuffer.TableKey)
-	t.PersonalNameRubyEn = fbsutils.Convert(string(e.PersonalNameRubyEn()), t.FlatBuffer.TableKey)
-	t.PersonalNameRubyKr = fbsutils.Convert(string(e.PersonalNameRubyKr()), t.FlatBuffer.TableKey)
-	t.WeaponNameKr = fbsutils.Convert(string(e.WeaponNameKr()), t.FlatBuffer.TableKey)
-	t.FamilyNameKr = fbsutils.Convert(string(e.FamilyNameKr()), t.FlatBuffer.TableKey)
-	t.FullNameTh = fbsutils.Convert(string(e.FullNameTh()), t.FlatBuffer.TableKey)
-	t.ProfileIntroductionTw = fbsutils.Convert(string(e.ProfileIntroductionTw()), t.FlatBuffer.TableKey)
-	t.CharacterVoiceJp = fbsutils.Convert(string(e.CharacterVoiceJp()), t.FlatBuffer.TableKey)
-	t.KrCharacterVoiceEn = fbsutils.Convert(string(e.KrCharacterVoiceEn()), t.FlatBuffer.TableKey)
-	t.BirthdayEn = fbsutils.Convert(string(e.BirthdayEn()), t.FlatBuffer.TableKey)
-	t.CharacterAgeKr = fbsutils.Convert(string(e.CharacterAgeKr()), t.FlatBuffer.TableKey)
-	t.DesignerNameTh = fbsutils.Convert(string(e.DesignerNameTh()), t.FlatBuffer.TableKey)
-	t.WeaponDescKr = fbsutils.Convert(string(e.WeaponDescKr()), t.FlatBuffer.TableKey)
-	t.CharacterAgeJp = fbsutils.Convert(string(e.CharacterAgeJp()), t.FlatBuffer.TableKey)
-	t.WeaponNameJp = fbsutils.Convert(string(e.WeaponNameJp()), t.FlatBuffer.TableKey)
-	t.KrCharacterVoiceKr = fbsutils.Convert(string(e.KrCharacterVoiceKr()), t.FlatBuffer.TableKey)
-	t.FamilyNameJp = fbsutils.Convert(string(e.FamilyNameJp()), t.FlatBuffer.TableKey)
-	t.WeaponDescTw = fbsutils.Convert(string(e.WeaponDescTw()), t.FlatBuffer.TableKey)
-	t.KrCharacterVoiceTw = fbsutils.Convert(string(e.KrCharacterVoiceTw()), t.FlatBuffer.TableKey)
 	t.StatusMessageTh = fbsutils.Convert(string(e.StatusMessageTh()), t.FlatBuffer.TableKey)
-	t.PersonalNameTh = fbsutils.Convert(string(e.PersonalNameTh()), t.FlatBuffer.TableKey)
-	t.FamilyNameRubyTw = fbsutils.Convert(string(e.FamilyNameRubyTw()), t.FlatBuffer.TableKey)
+	t.StatusMessageTw = fbsutils.Convert(string(e.StatusMessageTw()), t.FlatBuffer.TableKey)
+	t.StatusMessageEn = fbsutils.Convert(string(e.StatusMessageEn()), t.FlatBuffer.TableKey)
+	t.FullNameKr = fbsutils.Convert(string(e.FullNameKr()), t.FlatBuffer.TableKey)
+	t.FullNameJp = fbsutils.Convert(string(e.FullNameJp()), t.FlatBuffer.TableKey)
+	t.FullNameTh = fbsutils.Convert(string(e.FullNameTh()), t.FlatBuffer.TableKey)
+	t.FullNameTw = fbsutils.Convert(string(e.FullNameTw()), t.FlatBuffer.TableKey)
+	t.FullNameEn = fbsutils.Convert(string(e.FullNameEn()), t.FlatBuffer.TableKey)
+	t.FamilyNameKr = fbsutils.Convert(string(e.FamilyNameKr()), t.FlatBuffer.TableKey)
+	t.FamilyNameRubyKr = fbsutils.Convert(string(e.FamilyNameRubyKr()), t.FlatBuffer.TableKey)
+	t.PersonalNameKr = fbsutils.Convert(string(e.PersonalNameKr()), t.FlatBuffer.TableKey)
+	t.PersonalNameRubyKr = fbsutils.Convert(string(e.PersonalNameRubyKr()), t.FlatBuffer.TableKey)
+	t.FamilyNameJp = fbsutils.Convert(string(e.FamilyNameJp()), t.FlatBuffer.TableKey)
+	t.FamilyNameRubyJp = fbsutils.Convert(string(e.FamilyNameRubyJp()), t.FlatBuffer.TableKey)
+	t.PersonalNameJp = fbsutils.Convert(string(e.PersonalNameJp()), t.FlatBuffer.TableKey)
+	t.PersonalNameRubyJp = fbsutils.Convert(string(e.PersonalNameRubyJp()), t.FlatBuffer.TableKey)
 	t.FamilyNameTh = fbsutils.Convert(string(e.FamilyNameTh()), t.FlatBuffer.TableKey)
 	t.FamilyNameRubyTh = fbsutils.Convert(string(e.FamilyNameRubyTh()), t.FlatBuffer.TableKey)
-	t.SchoolYearEn = fbsutils.Convert(string(e.SchoolYearEn()), t.FlatBuffer.TableKey)
-	t.HobbyTw = fbsutils.Convert(string(e.HobbyTw()), t.FlatBuffer.TableKey)
-	t.CharHeightTw = fbsutils.Convert(string(e.CharHeightTw()), t.FlatBuffer.TableKey)
-	t.BirthdayTw = fbsutils.Convert(string(e.BirthdayTw()), t.FlatBuffer.TableKey)
-	t.CharacterSsrNewJp = fbsutils.Convert(string(e.CharacterSsrNewJp()), t.FlatBuffer.TableKey)
-	t.DesignerNameEn = fbsutils.Convert(string(e.DesignerNameEn()), t.FlatBuffer.TableKey)
-	t.FamilyNameRubyKr = fbsutils.Convert(string(e.FamilyNameRubyKr()), t.FlatBuffer.TableKey)
-	t.WeaponNameTh = fbsutils.Convert(string(e.WeaponNameTh()), t.FlatBuffer.TableKey)
-	t.WeaponDescJp = fbsutils.Convert(string(e.WeaponDescJp()), t.FlatBuffer.TableKey)
-	t.HobbyKr = fbsutils.Convert(string(e.HobbyKr()), t.FlatBuffer.TableKey)
-	t.CharacterVoiceTw = fbsutils.Convert(string(e.CharacterVoiceTw()), t.FlatBuffer.TableKey)
-	t.SchoolYearTw = fbsutils.Convert(string(e.SchoolYearTw()), t.FlatBuffer.TableKey)
-	t.PersonalNameRubyJp = fbsutils.Convert(string(e.PersonalNameRubyJp()), t.FlatBuffer.TableKey)
-	t.CharacterAgeEn = fbsutils.Convert(string(e.CharacterAgeEn()), t.FlatBuffer.TableKey)
+	t.PersonalNameTh = fbsutils.Convert(string(e.PersonalNameTh()), t.FlatBuffer.TableKey)
+	t.PersonalNameRubyTh = fbsutils.Convert(string(e.PersonalNameRubyTh()), t.FlatBuffer.TableKey)
+	t.FamilyNameTw = fbsutils.Convert(string(e.FamilyNameTw()), t.FlatBuffer.TableKey)
+	t.FamilyNameRubyTw = fbsutils.Convert(string(e.FamilyNameRubyTw()), t.FlatBuffer.TableKey)
 	t.PersonalNameTw = fbsutils.Convert(string(e.PersonalNameTw()), t.FlatBuffer.TableKey)
-	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
-	t.FamilyNameRubyJp = fbsutils.Convert(string(e.FamilyNameRubyJp()), t.FlatBuffer.TableKey)
+	t.PersonalNameRubyTw = fbsutils.Convert(string(e.PersonalNameRubyTw()), t.FlatBuffer.TableKey)
+	t.FamilyNameEn = fbsutils.Convert(string(e.FamilyNameEn()), t.FlatBuffer.TableKey)
+	t.FamilyNameRubyEn = fbsutils.Convert(string(e.FamilyNameRubyEn()), t.FlatBuffer.TableKey)
+	t.PersonalNameEn = fbsutils.Convert(string(e.PersonalNameEn()), t.FlatBuffer.TableKey)
+	t.PersonalNameRubyEn = fbsutils.Convert(string(e.PersonalNameRubyEn()), t.FlatBuffer.TableKey)
 	t.SchoolYearKr = fbsutils.Convert(string(e.SchoolYearKr()), t.FlatBuffer.TableKey)
+	t.SchoolYearJp = fbsutils.Convert(string(e.SchoolYearJp()), t.FlatBuffer.TableKey)
+	t.SchoolYearTh = fbsutils.Convert(string(e.SchoolYearTh()), t.FlatBuffer.TableKey)
+	t.SchoolYearTw = fbsutils.Convert(string(e.SchoolYearTw()), t.FlatBuffer.TableKey)
+	t.SchoolYearEn = fbsutils.Convert(string(e.SchoolYearEn()), t.FlatBuffer.TableKey)
+	t.CharacterAgeKr = fbsutils.Convert(string(e.CharacterAgeKr()), t.FlatBuffer.TableKey)
+	t.CharacterAgeJp = fbsutils.Convert(string(e.CharacterAgeJp()), t.FlatBuffer.TableKey)
+	t.CharacterAgeTh = fbsutils.Convert(string(e.CharacterAgeTh()), t.FlatBuffer.TableKey)
+	t.CharacterAgeTw = fbsutils.Convert(string(e.CharacterAgeTw()), t.FlatBuffer.TableKey)
+	t.CharacterAgeEn = fbsutils.Convert(string(e.CharacterAgeEn()), t.FlatBuffer.TableKey)
+	t.BirthDay = fbsutils.Convert(string(e.BirthDay()), t.FlatBuffer.TableKey)
+	t.BirthdayKr = fbsutils.Convert(string(e.BirthdayKr()), t.FlatBuffer.TableKey)
+	t.BirthdayJp = fbsutils.Convert(string(e.BirthdayJp()), t.FlatBuffer.TableKey)
+	t.BirthdayTh = fbsutils.Convert(string(e.BirthdayTh()), t.FlatBuffer.TableKey)
+	t.BirthdayTw = fbsutils.Convert(string(e.BirthdayTw()), t.FlatBuffer.TableKey)
+	t.BirthdayEn = fbsutils.Convert(string(e.BirthdayEn()), t.FlatBuffer.TableKey)
+	t.CharHeightKr = fbsutils.Convert(string(e.CharHeightKr()), t.FlatBuffer.TableKey)
+	t.CharHeightJp = fbsutils.Convert(string(e.CharHeightJp()), t.FlatBuffer.TableKey)
+	t.CharHeightTh = fbsutils.Convert(string(e.CharHeightTh()), t.FlatBuffer.TableKey)
+	t.CharHeightTw = fbsutils.Convert(string(e.CharHeightTw()), t.FlatBuffer.TableKey)
+	t.CharHeightEn = fbsutils.Convert(string(e.CharHeightEn()), t.FlatBuffer.TableKey)
+	t.DesignerNameKr = fbsutils.Convert(string(e.DesignerNameKr()), t.FlatBuffer.TableKey)
+	t.DesignerNameJp = fbsutils.Convert(string(e.DesignerNameJp()), t.FlatBuffer.TableKey)
+	t.DesignerNameTh = fbsutils.Convert(string(e.DesignerNameTh()), t.FlatBuffer.TableKey)
+	t.DesignerNameTw = fbsutils.Convert(string(e.DesignerNameTw()), t.FlatBuffer.TableKey)
+	t.DesignerNameEn = fbsutils.Convert(string(e.DesignerNameEn()), t.FlatBuffer.TableKey)
+	t.IllustratorNameKr = fbsutils.Convert(string(e.IllustratorNameKr()), t.FlatBuffer.TableKey)
+	t.IllustratorNameJp = fbsutils.Convert(string(e.IllustratorNameJp()), t.FlatBuffer.TableKey)
+	t.IllustratorNameTh = fbsutils.Convert(string(e.IllustratorNameTh()), t.FlatBuffer.TableKey)
+	t.IllustratorNameTw = fbsutils.Convert(string(e.IllustratorNameTw()), t.FlatBuffer.TableKey)
+	t.IllustratorNameEn = fbsutils.Convert(string(e.IllustratorNameEn()), t.FlatBuffer.TableKey)
+	t.CharacterVoiceKr = fbsutils.Convert(string(e.CharacterVoiceKr()), t.FlatBuffer.TableKey)
+	t.CharacterVoiceJp = fbsutils.Convert(string(e.CharacterVoiceJp()), t.FlatBuffer.TableKey)
+	t.CharacterVoiceTh = fbsutils.Convert(string(e.CharacterVoiceTh()), t.FlatBuffer.TableKey)
+	t.CharacterVoiceTw = fbsutils.Convert(string(e.CharacterVoiceTw()), t.FlatBuffer.TableKey)
+	t.CharacterVoiceEn = fbsutils.Convert(string(e.CharacterVoiceEn()), t.FlatBuffer.TableKey)
+	t.KrCharacterVoiceKr = fbsutils.Convert(string(e.KrCharacterVoiceKr()), t.FlatBuffer.TableKey)
+	t.KrCharacterVoiceTh = fbsutils.Convert(string(e.KrCharacterVoiceTh()), t.FlatBuffer.TableKey)
+	t.KrCharacterVoiceTw = fbsutils.Convert(string(e.KrCharacterVoiceTw()), t.FlatBuffer.TableKey)
+	t.KrCharacterVoiceEn = fbsutils.Convert(string(e.KrCharacterVoiceEn()), t.FlatBuffer.TableKey)
+	t.HobbyKr = fbsutils.Convert(string(e.HobbyKr()), t.FlatBuffer.TableKey)
+	t.HobbyJp = fbsutils.Convert(string(e.HobbyJp()), t.FlatBuffer.TableKey)
+	t.HobbyTh = fbsutils.Convert(string(e.HobbyTh()), t.FlatBuffer.TableKey)
+	t.HobbyTw = fbsutils.Convert(string(e.HobbyTw()), t.FlatBuffer.TableKey)
+	t.HobbyEn = fbsutils.Convert(string(e.HobbyEn()), t.FlatBuffer.TableKey)
+	t.WeaponNameKr = fbsutils.Convert(string(e.WeaponNameKr()), t.FlatBuffer.TableKey)
+	t.WeaponDescKr = fbsutils.Convert(string(e.WeaponDescKr()), t.FlatBuffer.TableKey)
+	t.WeaponNameJp = fbsutils.Convert(string(e.WeaponNameJp()), t.FlatBuffer.TableKey)
+	t.WeaponDescJp = fbsutils.Convert(string(e.WeaponDescJp()), t.FlatBuffer.TableKey)
+	t.WeaponNameTh = fbsutils.Convert(string(e.WeaponNameTh()), t.FlatBuffer.TableKey)
+	t.WeaponDescTh = fbsutils.Convert(string(e.WeaponDescTh()), t.FlatBuffer.TableKey)
+	t.WeaponNameTw = fbsutils.Convert(string(e.WeaponNameTw()), t.FlatBuffer.TableKey)
+	t.WeaponDescTw = fbsutils.Convert(string(e.WeaponDescTw()), t.FlatBuffer.TableKey)
+	t.WeaponNameEn = fbsutils.Convert(string(e.WeaponNameEn()), t.FlatBuffer.TableKey)
+	t.WeaponDescEn = fbsutils.Convert(string(e.WeaponDescEn()), t.FlatBuffer.TableKey)
+	t.ProfileIntroductionKr = fbsutils.Convert(string(e.ProfileIntroductionKr()), t.FlatBuffer.TableKey)
+	t.ProfileIntroductionJp = fbsutils.Convert(string(e.ProfileIntroductionJp()), t.FlatBuffer.TableKey)
+	t.ProfileIntroductionTh = fbsutils.Convert(string(e.ProfileIntroductionTh()), t.FlatBuffer.TableKey)
+	t.ProfileIntroductionTw = fbsutils.Convert(string(e.ProfileIntroductionTw()), t.FlatBuffer.TableKey)
+	t.ProfileIntroductionEn = fbsutils.Convert(string(e.ProfileIntroductionEn()), t.FlatBuffer.TableKey)
+	t.CharacterSsrNewKr = fbsutils.Convert(string(e.CharacterSsrNewKr()), t.FlatBuffer.TableKey)
+	t.CharacterSsrNewJp = fbsutils.Convert(string(e.CharacterSsrNewJp()), t.FlatBuffer.TableKey)
+	t.CharacterSsrNewTh = fbsutils.Convert(string(e.CharacterSsrNewTh()), t.FlatBuffer.TableKey)
+	t.CharacterSsrNewTw = fbsutils.Convert(string(e.CharacterSsrNewTw()), t.FlatBuffer.TableKey)
+	t.CharacterSsrNewEn = fbsutils.Convert(string(e.CharacterSsrNewEn()), t.FlatBuffer.TableKey)
 	return nil
 }
 

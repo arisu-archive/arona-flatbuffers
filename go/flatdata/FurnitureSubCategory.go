@@ -11,9 +11,9 @@ const (
 	FurnitureSubCategoryCloset                 FurnitureSubCategory = 1
 	FurnitureSubCategoryChair                  FurnitureSubCategory = 2
 	FurnitureSubCategoryBed                    FurnitureSubCategory = 3
-	FurnitureSubCategoryProp                   FurnitureSubCategory = 4
-	FurnitureSubCategoryFurnitureEtc           FurnitureSubCategory = 5
-	FurnitureSubCategoryFurnitureSubCategory1  FurnitureSubCategory = 6
+	FurnitureSubCategoryFurnitureEtc           FurnitureSubCategory = 4
+	FurnitureSubCategoryFurnitureSubCategory1  FurnitureSubCategory = 5
+	FurnitureSubCategoryProp                   FurnitureSubCategory = 6
 	FurnitureSubCategoryHomeAppliance          FurnitureSubCategory = 7
 	FurnitureSubCategoryWallDecoration         FurnitureSubCategory = 8
 	FurnitureSubCategoryFloorDecoration        FurnitureSubCategory = 9
@@ -31,9 +31,9 @@ var EnumNamesFurnitureSubCategory = map[FurnitureSubCategory]string{
 	FurnitureSubCategoryCloset:                 "Closet",
 	FurnitureSubCategoryChair:                  "Chair",
 	FurnitureSubCategoryBed:                    "Bed",
-	FurnitureSubCategoryProp:                   "Prop",
 	FurnitureSubCategoryFurnitureEtc:           "FurnitureEtc",
 	FurnitureSubCategoryFurnitureSubCategory1:  "FurnitureSubCategory1",
+	FurnitureSubCategoryProp:                   "Prop",
 	FurnitureSubCategoryHomeAppliance:          "HomeAppliance",
 	FurnitureSubCategoryWallDecoration:         "WallDecoration",
 	FurnitureSubCategoryFloorDecoration:        "FloorDecoration",
@@ -51,9 +51,9 @@ var EnumValuesFurnitureSubCategory = map[string]FurnitureSubCategory{
 	"Closet":                 FurnitureSubCategoryCloset,
 	"Chair":                  FurnitureSubCategoryChair,
 	"Bed":                    FurnitureSubCategoryBed,
-	"Prop":                   FurnitureSubCategoryProp,
 	"FurnitureEtc":           FurnitureSubCategoryFurnitureEtc,
 	"FurnitureSubCategory1":  FurnitureSubCategoryFurnitureSubCategory1,
+	"Prop":                   FurnitureSubCategoryProp,
 	"HomeAppliance":          FurnitureSubCategoryHomeAppliance,
 	"WallDecoration":         FurnitureSubCategoryWallDecoration,
 	"FloorDecoration":        FurnitureSubCategoryFloorDecoration,

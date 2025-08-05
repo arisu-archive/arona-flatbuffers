@@ -11,11 +11,11 @@ import (
 type EventContentStageTotalRewardExcelDto struct {
 	fbsutils.FlatBuffer
 	Id                      int64        `json:"id"`
-	RequiredEventItemAmount int64        `json:"required_event_item_amount"`
 	EventContentId          int64        `json:"event_content_id"`
+	RequiredEventItemAmount int64        `json:"required_event_item_amount"`
 	RewardParcelType        []ParcelType `json:"reward_parcel_type"`
-	RewardParcelAmount      []int64      `json:"reward_parcel_amount"`
 	RewardParcelId          []int64      `json:"reward_parcel_id"`
+	RewardParcelAmount      []int64      `json:"reward_parcel_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,23 +25,23 @@ func (t *EventContentStageTotalRewardExcelDto) MarshalModel(b *flatbuffers.Build
 	}
 	EventContentStageTotalRewardExcelStart(b)
 	EventContentStageTotalRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentStageTotalRewardExcelAddRequiredEventItemAmount(b, fbsutils.Convert(t.RequiredEventItemAmount, t.FlatBuffer.TableKey))
 	EventContentStageTotalRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentStageTotalRewardExcelAddRequiredEventItemAmount(b, fbsutils.Convert(t.RequiredEventItemAmount, t.FlatBuffer.TableKey))
 	EventContentStageTotalRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentStageTotalRewardExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
-	EventContentStageTotalRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
-	for i := range len(t.RewardParcelAmount) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentStageTotalRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
 	EventContentStageTotalRewardExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
 	for i := range len(t.RewardParcelId) {
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentStageTotalRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	EventContentStageTotalRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
+	for i := range len(t.RewardParcelAmount) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentStageTotalRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
 	return EventContentStageTotalRewardExcelEnd(b)
 }
 
@@ -58,19 +58,19 @@ func (t *EventContentStageTotalRewardExcelDto) UnmarshalMessage(e *EventContentS
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentStageTotalReward"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.RequiredEventItemAmount = fbsutils.Convert(e.RequiredEventItemAmount(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.RequiredEventItemAmount = fbsutils.Convert(e.RequiredEventItemAmount(), t.FlatBuffer.TableKey)
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
 		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
-	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
-	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
 		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
+	}
+	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

@@ -1,17 +1,17 @@
 namespace MX.Data.Excel;
 
 table CharacterDialogSubtitleExcel {
+    localize_cv_group: string;
     character_id: long;
+    tlmid: string;
+    duration: long;
     duration_kr: long;
     separate: bool;
-    tlmid: string;
     localize_kr: string;
+    localize_jp: string;
     localize_th: string;
-    duration: long;
-    localize_cv_group: string;
     localize_tw: string;
     localize_en: string;
-    localize_jp: string;
 }
 
 root_type CharacterDialogSubtitleExcel;

@@ -1,8 +1,8 @@
 namespace MX.Data.Excel;
 
 table BGMRaidExcel {
-    phase_index: long;
     stage_id: long;
+    phase_index: long;
     bgm_id: long;
 }
 

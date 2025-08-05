@@ -33,32 +33,8 @@ func (rcv *EventContentCurrencyItemExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentCurrencyItemExcel) EventContentItemType() EventContentItemType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return EventContentItemType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EventContentCurrencyItemExcel) MutateEventContentItemType(n EventContentItemType) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
-}
-
-func (rcv *EventContentCurrencyItemExcel) ItemUniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentCurrencyItemExcel) MutateItemUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
 func (rcv *EventContentCurrencyItemExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -66,31 +42,44 @@ func (rcv *EventContentCurrencyItemExcel) EventContentId() int64 {
 }
 
 func (rcv *EventContentCurrencyItemExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *EventContentCurrencyItemExcel) EventContentItemType() EventContentItemType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return EventContentItemType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EventContentCurrencyItemExcel) MutateEventContentItemType(n EventContentItemType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *EventContentCurrencyItemExcel) ItemUniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentCurrencyItemExcel) MutateItemUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *EventContentCurrencyItemExcel) UseShortCutContentType() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func EventContentCurrencyItemExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(4)
-}
-func EventContentCurrencyItemExcelAddEventContentItemType(builder *flatbuffers.Builder, eventContentItemType EventContentItemType) {
-	builder.PrependInt32Slot(0, int32(eventContentItemType), 0)
-}
-func EventContentCurrencyItemExcelAddItemUniqueId(builder *flatbuffers.Builder, itemUniqueId int64) {
-	builder.PrependInt64Slot(1, itemUniqueId, 0)
+	builder.StartObject(3)
 }
 func EventContentCurrencyItemExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(2, eventContentId, 0)
+	builder.PrependInt64Slot(0, eventContentId, 0)
 }
-func EventContentCurrencyItemExcelAddUseShortCutContentType(builder *flatbuffers.Builder, useShortCutContentType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(useShortCutContentType), 0)
+func EventContentCurrencyItemExcelAddEventContentItemType(builder *flatbuffers.Builder, eventContentItemType EventContentItemType) {
+	builder.PrependInt32Slot(1, int32(eventContentItemType), 0)
+}
+func EventContentCurrencyItemExcelAddItemUniqueId(builder *flatbuffers.Builder, itemUniqueId int64) {
+	builder.PrependInt64Slot(2, itemUniqueId, 0)
 }
 func EventContentCurrencyItemExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

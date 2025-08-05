@@ -33,8 +33,32 @@ func (rcv *VoiceTimelineExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *VoiceTimelineExcel) Nation(j int) Nation {
+func (rcv *VoiceTimelineExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *VoiceTimelineExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *VoiceTimelineExcel) Id() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *VoiceTimelineExcel) MutateId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(6, n)
+}
+
+func (rcv *VoiceTimelineExcel) Nation(j int) Nation {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return Nation(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -43,7 +67,7 @@ func (rcv *VoiceTimelineExcel) Nation(j int) Nation {
 }
 
 func (rcv *VoiceTimelineExcel) NationLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -51,36 +75,12 @@ func (rcv *VoiceTimelineExcel) NationLength() int {
 }
 
 func (rcv *VoiceTimelineExcel) MutateNation(j int, n Nation) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
-}
-
-func (rcv *VoiceTimelineExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *VoiceTimelineExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *VoiceTimelineExcel) Id() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *VoiceTimelineExcel) MutateId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(8, n)
 }
 
 func (rcv *VoiceTimelineExcel) Path(j int) []byte {
@@ -129,17 +129,17 @@ func (rcv *VoiceTimelineExcel) MutateSoundVolume(j int, n float32) bool {
 func VoiceTimelineExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
+func VoiceTimelineExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(0, uniqueId, 0)
+}
+func VoiceTimelineExcelAddId(builder *flatbuffers.Builder, id uint32) {
+	builder.PrependUint32Slot(1, id, 0)
+}
 func VoiceTimelineExcelAddNation(builder *flatbuffers.Builder, nation flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(nation), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(nation), 0)
 }
 func VoiceTimelineExcelStartNationVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
-}
-func VoiceTimelineExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(1, uniqueId, 0)
-}
-func VoiceTimelineExcelAddId(builder *flatbuffers.Builder, id uint32) {
-	builder.PrependUint32Slot(2, id, 0)
 }
 func VoiceTimelineExcelAddPath(builder *flatbuffers.Builder, path flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(path), 0)

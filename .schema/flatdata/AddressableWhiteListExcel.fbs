@@ -2,6 +2,6 @@ namespace FlatData;
 
 table AddressableWhiteListExcel {
     id: long;
-    resource_path: [string];
     folder_path: [string];
+    resource_path: [string];
 }

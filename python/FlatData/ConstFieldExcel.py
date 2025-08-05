@@ -25,35 +25,35 @@ class ConstFieldExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ConstFieldExcel
-    def TalkDialogDurationDefault(self):
+    def DialogSmoothTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstFieldExcel
-    def IdleThinkDelayMax(self):
+    def TalkDialogDurationDefault(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstFieldExcel
-    def IdleThinkDelayMin(self):
+    def ThinkDialogDurationDefault(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstFieldExcel
-    def DialogSmoothTime(self):
+    def IdleThinkDelayMin(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstFieldExcel
-    def ThinkDialogDurationDefault(self):
+    def IdleThinkDelayMax(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -62,21 +62,21 @@ class ConstFieldExcel(object):
 def ConstFieldExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return ConstFieldExcelStart(builder)
-def ConstFieldExcelAddTalkDialogDurationDefault(builder, talkDialogDurationDefault): builder.PrependInt32Slot(0, talkDialogDurationDefault, 0)
-def AddTalkDialogDurationDefault(builder, talkDialogDurationDefault):
-    return ConstFieldExcelAddTalkDialogDurationDefault(builder, talkDialogDurationDefault)
-def ConstFieldExcelAddIdleThinkDelayMax(builder, idleThinkDelayMax): builder.PrependInt32Slot(1, idleThinkDelayMax, 0)
-def AddIdleThinkDelayMax(builder, idleThinkDelayMax):
-    return ConstFieldExcelAddIdleThinkDelayMax(builder, idleThinkDelayMax)
-def ConstFieldExcelAddIdleThinkDelayMin(builder, idleThinkDelayMin): builder.PrependInt32Slot(2, idleThinkDelayMin, 0)
-def AddIdleThinkDelayMin(builder, idleThinkDelayMin):
-    return ConstFieldExcelAddIdleThinkDelayMin(builder, idleThinkDelayMin)
-def ConstFieldExcelAddDialogSmoothTime(builder, dialogSmoothTime): builder.PrependInt32Slot(3, dialogSmoothTime, 0)
+def ConstFieldExcelAddDialogSmoothTime(builder, dialogSmoothTime): builder.PrependInt32Slot(0, dialogSmoothTime, 0)
 def AddDialogSmoothTime(builder, dialogSmoothTime):
     return ConstFieldExcelAddDialogSmoothTime(builder, dialogSmoothTime)
-def ConstFieldExcelAddThinkDialogDurationDefault(builder, thinkDialogDurationDefault): builder.PrependInt32Slot(4, thinkDialogDurationDefault, 0)
+def ConstFieldExcelAddTalkDialogDurationDefault(builder, talkDialogDurationDefault): builder.PrependInt32Slot(1, talkDialogDurationDefault, 0)
+def AddTalkDialogDurationDefault(builder, talkDialogDurationDefault):
+    return ConstFieldExcelAddTalkDialogDurationDefault(builder, talkDialogDurationDefault)
+def ConstFieldExcelAddThinkDialogDurationDefault(builder, thinkDialogDurationDefault): builder.PrependInt32Slot(2, thinkDialogDurationDefault, 0)
 def AddThinkDialogDurationDefault(builder, thinkDialogDurationDefault):
     return ConstFieldExcelAddThinkDialogDurationDefault(builder, thinkDialogDurationDefault)
+def ConstFieldExcelAddIdleThinkDelayMin(builder, idleThinkDelayMin): builder.PrependInt32Slot(3, idleThinkDelayMin, 0)
+def AddIdleThinkDelayMin(builder, idleThinkDelayMin):
+    return ConstFieldExcelAddIdleThinkDelayMin(builder, idleThinkDelayMin)
+def ConstFieldExcelAddIdleThinkDelayMax(builder, idleThinkDelayMax): builder.PrependInt32Slot(4, idleThinkDelayMax, 0)
+def AddIdleThinkDelayMax(builder, idleThinkDelayMax):
+    return ConstFieldExcelAddIdleThinkDelayMax(builder, idleThinkDelayMax)
 def ConstFieldExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ConstFieldExcelEnd(builder)

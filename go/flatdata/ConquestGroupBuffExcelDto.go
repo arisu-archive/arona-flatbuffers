@@ -10,10 +10,10 @@ import (
 // ConquestGroupBuffExcelDto represents a FlatBuffers table
 type ConquestGroupBuffExcelDto struct {
 	fbsutils.FlatBuffer
-	RecommandLocalizeEtcId uint32   `json:"recommand_localize_etc_id"`
-	School                 []School `json:"school"`
-	SkillGroupId           string   `json:"skill_group_id"`
 	ConquestBuffId         int64    `json:"conquest_buff_id"`
+	School                 []School `json:"school"`
+	RecommandLocalizeEtcId uint32   `json:"recommand_localize_etc_id"`
+	SkillGroupId           string   `json:"skill_group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,14 +22,14 @@ func (t *ConquestGroupBuffExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestGroupBuff"))
 	}
 	ConquestGroupBuffExcelStart(b)
-	ConquestGroupBuffExcelAddRecommandLocalizeEtcId(b, fbsutils.Convert(t.RecommandLocalizeEtcId, t.FlatBuffer.TableKey))
+	ConquestGroupBuffExcelAddConquestBuffId(b, fbsutils.Convert(t.ConquestBuffId, t.FlatBuffer.TableKey))
 	ConquestGroupBuffExcelStartSchoolVector(b, len(t.School))
 	for i := range len(t.School) {
 		b.PrependInt32(fbsutils.Convert(int32(t.School[len(t.School)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ConquestGroupBuffExcelAddSchool(b, b.EndVector(len(t.School)))
+	ConquestGroupBuffExcelAddRecommandLocalizeEtcId(b, fbsutils.Convert(t.RecommandLocalizeEtcId, t.FlatBuffer.TableKey))
 	ConquestGroupBuffExcelAddSkillGroupId(b, b.CreateString(fbsutils.Convert(t.SkillGroupId, t.FlatBuffer.TableKey)))
-	ConquestGroupBuffExcelAddConquestBuffId(b, fbsutils.Convert(t.ConquestBuffId, t.FlatBuffer.TableKey))
 	return ConquestGroupBuffExcelEnd(b)
 }
 
@@ -45,13 +45,13 @@ func (t *ConquestGroupBuffExcelDto) UnmarshalMessage(e *ConquestGroupBuffExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestGroupBuff"))
 	}
-	t.RecommandLocalizeEtcId = fbsutils.Convert(e.RecommandLocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.ConquestBuffId = fbsutils.Convert(e.ConquestBuffId(), t.FlatBuffer.TableKey)
 	t.School = make([]School, e.SchoolLength())
 	for i := range e.SchoolLength() {
 		t.School[i] = School(fbsutils.Convert(int32(e.School(i)), t.FlatBuffer.TableKey))
 	}
+	t.RecommandLocalizeEtcId = fbsutils.Convert(e.RecommandLocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.SkillGroupId = fbsutils.Convert(string(e.SkillGroupId()), t.FlatBuffer.TableKey)
-	t.ConquestBuffId = fbsutils.Convert(e.ConquestBuffId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

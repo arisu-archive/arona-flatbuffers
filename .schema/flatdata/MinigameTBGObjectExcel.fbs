@@ -4,13 +4,13 @@ include "TBGObjectType.fbs";
 namespace FlatData;
 
 table MinigameTBGObjectExcel {
-    key: string;
-    object_cost_type: ParcelType;
-    disposable: bool;
-    object_cost_id: long;
     unique_id: long;
-    object_type: TBGObjectType;
+    key: string;
     prefab_name: string;
-    re_encounter_cost: bool;
+    object_type: TBGObjectType;
+    object_cost_type: ParcelType;
+    object_cost_id: long;
     object_cost_amount: int;
+    disposable: bool;
+    re_encounter_cost: bool;
 }

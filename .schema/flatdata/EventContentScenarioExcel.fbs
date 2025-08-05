@@ -4,23 +4,23 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table EventContentScenarioExcel {
-    is_meetup: bool;
-    order: long;
     id: long;
+    event_content_id: long;
+    replay_display_group: int;
+    order: long;
+    recollection_number: long;
+    is_recollection: bool;
+    is_meetup: bool;
+    is_omnibus: bool;
+    scenario_group_id: [long];
+    scenario_condition_type: EventContentScenarioConditionType;
+    condition_amount: long;
+    condition_event_content_id: long;
+    cleared_scenario_group_id: long;
+    recollection_summary_localize_scenario_id: uint;
+    recollection_resource: string;
     is_recollection_horizon: bool;
     reward_parcel_type: [ParcelType];
-    condition_event_content_id: long;
-    is_omnibus: bool;
-    event_content_id: long;
     reward_id: [long];
-    recollection_summary_localize_scenario_id: uint;
-    scenario_group_id: [long];
     reward_amount: [int];
-    is_recollection: bool;
-    condition_amount: long;
-    recollection_number: long;
-    scenario_condition_type: EventContentScenarioConditionType;
-    replay_display_group: int;
-    cleared_scenario_group_id: long;
-    recollection_resource: string;
 }

@@ -45,15 +45,19 @@ func (rcv *MemoryLobby_GlobalExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MemoryLobby_GlobalExcel) PrefabNameAsia() []byte {
+func (rcv *MemoryLobby_GlobalExcel) CharacterId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *MemoryLobby_GlobalExcel) PrefabNameNa() []byte {
+func (rcv *MemoryLobby_GlobalExcel) MutateCharacterId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *MemoryLobby_GlobalExcel) PrefabNameKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -69,19 +73,15 @@ func (rcv *MemoryLobby_GlobalExcel) PrefabNameTw() []byte {
 	return nil
 }
 
-func (rcv *MemoryLobby_GlobalExcel) CharacterId() int64 {
+func (rcv *MemoryLobby_GlobalExcel) PrefabNameAsia() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *MemoryLobby_GlobalExcel) MutateCharacterId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
-func (rcv *MemoryLobby_GlobalExcel) PrefabNameKr() []byte {
+func (rcv *MemoryLobby_GlobalExcel) PrefabNameNa() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -89,7 +89,7 @@ func (rcv *MemoryLobby_GlobalExcel) PrefabNameKr() []byte {
 	return nil
 }
 
-func (rcv *MemoryLobby_GlobalExcel) PrefabNameTeen() []byte {
+func (rcv *MemoryLobby_GlobalExcel) PrefabNameGlobal() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -97,7 +97,7 @@ func (rcv *MemoryLobby_GlobalExcel) PrefabNameTeen() []byte {
 	return nil
 }
 
-func (rcv *MemoryLobby_GlobalExcel) PrefabNameGlobal() []byte {
+func (rcv *MemoryLobby_GlobalExcel) PrefabNameTeen() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -111,26 +111,26 @@ func MemoryLobby_GlobalExcelStart(builder *flatbuffers.Builder) {
 func MemoryLobby_GlobalExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
 }
-func MemoryLobby_GlobalExcelAddPrefabNameAsia(builder *flatbuffers.Builder, prefabNameAsia flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(prefabNameAsia), 0)
+func MemoryLobby_GlobalExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
+	builder.PrependInt64Slot(1, characterId, 0)
 }
-func MemoryLobby_GlobalExcelAddPrefabNameNa(builder *flatbuffers.Builder, prefabNameNa flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(prefabNameNa), 0)
+func MemoryLobby_GlobalExcelAddPrefabNameKr(builder *flatbuffers.Builder, prefabNameKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(prefabNameKr), 0)
 }
 func MemoryLobby_GlobalExcelAddPrefabNameTw(builder *flatbuffers.Builder, prefabNameTw flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(prefabNameTw), 0)
 }
-func MemoryLobby_GlobalExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
-	builder.PrependInt64Slot(4, characterId, 0)
+func MemoryLobby_GlobalExcelAddPrefabNameAsia(builder *flatbuffers.Builder, prefabNameAsia flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(prefabNameAsia), 0)
 }
-func MemoryLobby_GlobalExcelAddPrefabNameKr(builder *flatbuffers.Builder, prefabNameKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(prefabNameKr), 0)
-}
-func MemoryLobby_GlobalExcelAddPrefabNameTeen(builder *flatbuffers.Builder, prefabNameTeen flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(prefabNameTeen), 0)
+func MemoryLobby_GlobalExcelAddPrefabNameNa(builder *flatbuffers.Builder, prefabNameNa flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(prefabNameNa), 0)
 }
 func MemoryLobby_GlobalExcelAddPrefabNameGlobal(builder *flatbuffers.Builder, prefabNameGlobal flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(prefabNameGlobal), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(prefabNameGlobal), 0)
+}
+func MemoryLobby_GlobalExcelAddPrefabNameTeen(builder *flatbuffers.Builder, prefabNameTeen flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(prefabNameTeen), 0)
 }
 func MemoryLobby_GlobalExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

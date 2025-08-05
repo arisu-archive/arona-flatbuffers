@@ -32,21 +32,21 @@ class BGMUIExcel(object):
         return 0
 
     # BGMUIExcel
-    def BgmId3rd(self):
+    def BgmId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # BGMUIExcel
-    def BgmId(self):
+    def BgmId2nd(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # BGMUIExcel
-    def BgmId2nd(self):
+    def BgmId3rd(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -65,15 +65,15 @@ def Start(builder):
 def BGMUIExcelAddUiPrefab(builder, uiPrefab): builder.PrependUint32Slot(0, uiPrefab, 0)
 def AddUiPrefab(builder, uiPrefab):
     return BGMUIExcelAddUiPrefab(builder, uiPrefab)
-def BGMUIExcelAddBgmId3rd(builder, bgmId3rd): builder.PrependInt64Slot(1, bgmId3rd, 0)
-def AddBgmId3rd(builder, bgmId3rd):
-    return BGMUIExcelAddBgmId3rd(builder, bgmId3rd)
-def BGMUIExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(2, bgmId, 0)
+def BGMUIExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(1, bgmId, 0)
 def AddBgmId(builder, bgmId):
     return BGMUIExcelAddBgmId(builder, bgmId)
-def BGMUIExcelAddBgmId2nd(builder, bgmId2nd): builder.PrependInt64Slot(3, bgmId2nd, 0)
+def BGMUIExcelAddBgmId2nd(builder, bgmId2nd): builder.PrependInt64Slot(2, bgmId2nd, 0)
 def AddBgmId2nd(builder, bgmId2nd):
     return BGMUIExcelAddBgmId2nd(builder, bgmId2nd)
+def BGMUIExcelAddBgmId3rd(builder, bgmId3rd): builder.PrependInt64Slot(3, bgmId3rd, 0)
+def AddBgmId3rd(builder, bgmId3rd):
+    return BGMUIExcelAddBgmId3rd(builder, bgmId3rd)
 def BGMUIExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(4, eventContentId, 0)
 def AddEventContentId(builder, eventContentId):
     return BGMUIExcelAddEventContentId(builder, eventContentId)

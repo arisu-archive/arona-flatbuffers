@@ -10,23 +10,23 @@ import (
 // ProductMonthlyExcelDto represents a FlatBuffers table
 type ProductMonthlyExcelDto struct {
 	fbsutils.FlatBuffer
-	Price                  int64          `json:"price"`
-	ParcelAmount           []int64        `json:"parcel_amount"`
-	EnterCostReduceGroupId int64          `json:"enter_cost_reduce_group_id"`
-	MonthlyDays            int64          `json:"monthly_days"`
-	ProductTagType         ProductTagType `json:"product_tag_type"`
-	PriceReference         string         `json:"price_reference"`
-	PurchaseCountLimit     int64          `json:"purchase_count_limit"`
-	DailyParcelAmount      []int64        `json:"daily_parcel_amount"`
 	Id                     int64          `json:"id"`
-	ParcelId               []int64        `json:"parcel_id"`
-	DailyParcelType        []ParcelType   `json:"daily_parcel_type"`
 	ProductId              string         `json:"product_id"`
-	DailyParcelId          []int64        `json:"daily_parcel_id"`
 	TeenProductId          string         `json:"teen_product_id"`
 	StoreType              StoreType      `json:"store_type"`
+	Price                  int64          `json:"price"`
+	PriceReference         string         `json:"price_reference"`
+	ProductTagType         ProductTagType `json:"product_tag_type"`
+	MonthlyDays            int64          `json:"monthly_days"`
 	UseMonthlyProductCheck bool           `json:"use_monthly_product_check"`
+	PurchaseCountLimit     int64          `json:"purchase_count_limit"`
 	ParcelType             []ParcelType   `json:"parcel_type"`
+	ParcelId               []int64        `json:"parcel_id"`
+	ParcelAmount           []int64        `json:"parcel_amount"`
+	EnterCostReduceGroupId int64          `json:"enter_cost_reduce_group_id"`
+	DailyParcelType        []ParcelType   `json:"daily_parcel_type"`
+	DailyParcelId          []int64        `json:"daily_parcel_id"`
+	DailyParcelAmount      []int64        `json:"daily_parcel_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -35,47 +35,47 @@ func (t *ProductMonthlyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProductMonthly"))
 	}
 	ProductMonthlyExcelStart(b)
+	ProductMonthlyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	ProductMonthlyExcelAddProductId(b, b.CreateString(fbsutils.Convert(t.ProductId, t.FlatBuffer.TableKey)))
+	ProductMonthlyExcelAddTeenProductId(b, b.CreateString(fbsutils.Convert(t.TeenProductId, t.FlatBuffer.TableKey)))
+	ProductMonthlyExcelAddStoreType(b, fbsutils.Convert(t.StoreType, t.FlatBuffer.TableKey))
 	ProductMonthlyExcelAddPrice(b, fbsutils.Convert(t.Price, t.FlatBuffer.TableKey))
+	ProductMonthlyExcelAddPriceReference(b, b.CreateString(fbsutils.Convert(t.PriceReference, t.FlatBuffer.TableKey)))
+	ProductMonthlyExcelAddProductTagType(b, fbsutils.Convert(t.ProductTagType, t.FlatBuffer.TableKey))
+	ProductMonthlyExcelAddMonthlyDays(b, fbsutils.Convert(t.MonthlyDays, t.FlatBuffer.TableKey))
+	ProductMonthlyExcelAddUseMonthlyProductCheck(b, t.UseMonthlyProductCheck)
+	ProductMonthlyExcelAddPurchaseCountLimit(b, fbsutils.Convert(t.PurchaseCountLimit, t.FlatBuffer.TableKey))
+	ProductMonthlyExcelStartParcelTypeVector(b, len(t.ParcelType))
+	for i := range len(t.ParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	ProductMonthlyExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
+	ProductMonthlyExcelStartParcelIdVector(b, len(t.ParcelId))
+	for i := range len(t.ParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.ParcelId[len(t.ParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	ProductMonthlyExcelAddParcelId(b, b.EndVector(len(t.ParcelId)))
 	ProductMonthlyExcelStartParcelAmountVector(b, len(t.ParcelAmount))
 	for i := range len(t.ParcelAmount) {
 		b.PrependInt64(fbsutils.Convert(t.ParcelAmount[len(t.ParcelAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	ProductMonthlyExcelAddParcelAmount(b, b.EndVector(len(t.ParcelAmount)))
 	ProductMonthlyExcelAddEnterCostReduceGroupId(b, fbsutils.Convert(t.EnterCostReduceGroupId, t.FlatBuffer.TableKey))
-	ProductMonthlyExcelAddMonthlyDays(b, fbsutils.Convert(t.MonthlyDays, t.FlatBuffer.TableKey))
-	ProductMonthlyExcelAddProductTagType(b, fbsutils.Convert(t.ProductTagType, t.FlatBuffer.TableKey))
-	ProductMonthlyExcelAddPriceReference(b, b.CreateString(fbsutils.Convert(t.PriceReference, t.FlatBuffer.TableKey)))
-	ProductMonthlyExcelAddPurchaseCountLimit(b, fbsutils.Convert(t.PurchaseCountLimit, t.FlatBuffer.TableKey))
-	ProductMonthlyExcelStartDailyParcelAmountVector(b, len(t.DailyParcelAmount))
-	for i := range len(t.DailyParcelAmount) {
-		b.PrependInt64(fbsutils.Convert(t.DailyParcelAmount[len(t.DailyParcelAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	ProductMonthlyExcelAddDailyParcelAmount(b, b.EndVector(len(t.DailyParcelAmount)))
-	ProductMonthlyExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ProductMonthlyExcelStartParcelIdVector(b, len(t.ParcelId))
-	for i := range len(t.ParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.ParcelId[len(t.ParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	ProductMonthlyExcelAddParcelId(b, b.EndVector(len(t.ParcelId)))
 	ProductMonthlyExcelStartDailyParcelTypeVector(b, len(t.DailyParcelType))
 	for i := range len(t.DailyParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.DailyParcelType[len(t.DailyParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ProductMonthlyExcelAddDailyParcelType(b, b.EndVector(len(t.DailyParcelType)))
-	ProductMonthlyExcelAddProductId(b, b.CreateString(fbsutils.Convert(t.ProductId, t.FlatBuffer.TableKey)))
 	ProductMonthlyExcelStartDailyParcelIdVector(b, len(t.DailyParcelId))
 	for i := range len(t.DailyParcelId) {
 		b.PrependInt64(fbsutils.Convert(t.DailyParcelId[len(t.DailyParcelId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ProductMonthlyExcelAddDailyParcelId(b, b.EndVector(len(t.DailyParcelId)))
-	ProductMonthlyExcelAddTeenProductId(b, b.CreateString(fbsutils.Convert(t.TeenProductId, t.FlatBuffer.TableKey)))
-	ProductMonthlyExcelAddStoreType(b, fbsutils.Convert(t.StoreType, t.FlatBuffer.TableKey))
-	ProductMonthlyExcelAddUseMonthlyProductCheck(b, t.UseMonthlyProductCheck)
-	ProductMonthlyExcelStartParcelTypeVector(b, len(t.ParcelType))
-	for i := range len(t.ParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.ParcelType[len(t.ParcelType)-i-1]), t.FlatBuffer.TableKey))
+	ProductMonthlyExcelStartDailyParcelAmountVector(b, len(t.DailyParcelAmount))
+	for i := range len(t.DailyParcelAmount) {
+		b.PrependInt64(fbsutils.Convert(t.DailyParcelAmount[len(t.DailyParcelAmount)-i-1], t.FlatBuffer.TableKey))
 	}
-	ProductMonthlyExcelAddParcelType(b, b.EndVector(len(t.ParcelType)))
+	ProductMonthlyExcelAddDailyParcelAmount(b, b.EndVector(len(t.DailyParcelAmount)))
 	return ProductMonthlyExcelEnd(b)
 }
 
@@ -91,40 +91,40 @@ func (t *ProductMonthlyExcelDto) UnmarshalMessage(e *ProductMonthlyExcel) error 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ProductMonthly"))
 	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.ProductId = fbsutils.Convert(string(e.ProductId()), t.FlatBuffer.TableKey)
+	t.TeenProductId = fbsutils.Convert(string(e.TeenProductId()), t.FlatBuffer.TableKey)
+	t.StoreType = StoreType(fbsutils.Convert(int32(e.StoreType()), t.FlatBuffer.TableKey))
 	t.Price = fbsutils.Convert(e.Price(), t.FlatBuffer.TableKey)
+	t.PriceReference = fbsutils.Convert(string(e.PriceReference()), t.FlatBuffer.TableKey)
+	t.ProductTagType = ProductTagType(fbsutils.Convert(int32(e.ProductTagType()), t.FlatBuffer.TableKey))
+	t.MonthlyDays = fbsutils.Convert(e.MonthlyDays(), t.FlatBuffer.TableKey)
+	t.UseMonthlyProductCheck = e.UseMonthlyProductCheck()
+	t.PurchaseCountLimit = fbsutils.Convert(e.PurchaseCountLimit(), t.FlatBuffer.TableKey)
+	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
+	for i := range e.ParcelTypeLength() {
+		t.ParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ParcelType(i)), t.FlatBuffer.TableKey))
+	}
+	t.ParcelId = make([]int64, e.ParcelIdLength())
+	for i := range e.ParcelIdLength() {
+		t.ParcelId[i] = fbsutils.Convert(e.ParcelId(i), t.FlatBuffer.TableKey)
+	}
 	t.ParcelAmount = make([]int64, e.ParcelAmountLength())
 	for i := range e.ParcelAmountLength() {
 		t.ParcelAmount[i] = fbsutils.Convert(e.ParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	t.EnterCostReduceGroupId = fbsutils.Convert(e.EnterCostReduceGroupId(), t.FlatBuffer.TableKey)
-	t.MonthlyDays = fbsutils.Convert(e.MonthlyDays(), t.FlatBuffer.TableKey)
-	t.ProductTagType = ProductTagType(fbsutils.Convert(int32(e.ProductTagType()), t.FlatBuffer.TableKey))
-	t.PriceReference = fbsutils.Convert(string(e.PriceReference()), t.FlatBuffer.TableKey)
-	t.PurchaseCountLimit = fbsutils.Convert(e.PurchaseCountLimit(), t.FlatBuffer.TableKey)
-	t.DailyParcelAmount = make([]int64, e.DailyParcelAmountLength())
-	for i := range e.DailyParcelAmountLength() {
-		t.DailyParcelAmount[i] = fbsutils.Convert(e.DailyParcelAmount(i), t.FlatBuffer.TableKey)
-	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ParcelId = make([]int64, e.ParcelIdLength())
-	for i := range e.ParcelIdLength() {
-		t.ParcelId[i] = fbsutils.Convert(e.ParcelId(i), t.FlatBuffer.TableKey)
-	}
 	t.DailyParcelType = make([]ParcelType, e.DailyParcelTypeLength())
 	for i := range e.DailyParcelTypeLength() {
 		t.DailyParcelType[i] = ParcelType(fbsutils.Convert(int32(e.DailyParcelType(i)), t.FlatBuffer.TableKey))
 	}
-	t.ProductId = fbsutils.Convert(string(e.ProductId()), t.FlatBuffer.TableKey)
 	t.DailyParcelId = make([]int64, e.DailyParcelIdLength())
 	for i := range e.DailyParcelIdLength() {
 		t.DailyParcelId[i] = fbsutils.Convert(e.DailyParcelId(i), t.FlatBuffer.TableKey)
 	}
-	t.TeenProductId = fbsutils.Convert(string(e.TeenProductId()), t.FlatBuffer.TableKey)
-	t.StoreType = StoreType(fbsutils.Convert(int32(e.StoreType()), t.FlatBuffer.TableKey))
-	t.UseMonthlyProductCheck = e.UseMonthlyProductCheck()
-	t.ParcelType = make([]ParcelType, e.ParcelTypeLength())
-	for i := range e.ParcelTypeLength() {
-		t.ParcelType[i] = ParcelType(fbsutils.Convert(int32(e.ParcelType(i)), t.FlatBuffer.TableKey))
+	t.DailyParcelAmount = make([]int64, e.DailyParcelAmountLength())
+	for i := range e.DailyParcelAmountLength() {
+		t.DailyParcelAmount[i] = fbsutils.Convert(e.DailyParcelAmount(i), t.FlatBuffer.TableKey)
 	}
 	return nil
 }

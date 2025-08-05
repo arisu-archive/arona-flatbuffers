@@ -1,6 +1,6 @@
 namespace FlatData;
 
 table PersonalityExcel {
-    name: string;
     id: long;
+    name: string;
 }

@@ -45,59 +45,48 @@ func (rcv *RecipeCraftExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *RecipeCraftExcel) ParcelDevName(j int) []byte {
+func (rcv *RecipeCraftExcel) DevName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *RecipeCraftExcel) ParcelDevNameLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *RecipeCraftExcel) RecipeIngredientDevName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *RecipeCraftExcel) ResultAmountMax(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *RecipeCraftExcel) RecipeType() RecipeType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return RecipeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *RecipeCraftExcel) ResultAmountMaxLength() int {
+func (rcv *RecipeCraftExcel) MutateRecipeType(n RecipeType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
+}
+
+func (rcv *RecipeCraftExcel) RecipeIngredientId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *RecipeCraftExcel) MutateResultAmountMax(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *RecipeCraftExcel) MutateRecipeIngredientId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *RecipeCraftExcel) RecipeIngredientDevName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
+	return nil
 }
 
 func (rcv *RecipeCraftExcel) ParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -106,7 +95,7 @@ func (rcv *RecipeCraftExcel) ParcelType(j int) ParcelType {
 }
 
 func (rcv *RecipeCraftExcel) ParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -114,7 +103,7 @@ func (rcv *RecipeCraftExcel) ParcelTypeLength() int {
 }
 
 func (rcv *RecipeCraftExcel) MutateParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -123,7 +112,7 @@ func (rcv *RecipeCraftExcel) MutateParcelType(j int, n ParcelType) bool {
 }
 
 func (rcv *RecipeCraftExcel) ParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -132,7 +121,7 @@ func (rcv *RecipeCraftExcel) ParcelId(j int) int64 {
 }
 
 func (rcv *RecipeCraftExcel) ParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -140,7 +129,7 @@ func (rcv *RecipeCraftExcel) ParcelIdLength() int {
 }
 
 func (rcv *RecipeCraftExcel) MutateParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -148,28 +137,21 @@ func (rcv *RecipeCraftExcel) MutateParcelId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *RecipeCraftExcel) RecipeIngredientId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *RecipeCraftExcel) MutateRecipeIngredientId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *RecipeCraftExcel) RecipeType() RecipeType {
+func (rcv *RecipeCraftExcel) ParcelDevName(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return RecipeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
 	}
-	return 0
+	return nil
 }
 
-func (rcv *RecipeCraftExcel) MutateRecipeType(n RecipeType) bool {
-	return rcv._tab.MutateInt32Slot(18, int32(n))
+func (rcv *RecipeCraftExcel) ParcelDevNameLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
 func (rcv *RecipeCraftExcel) ResultAmountMin(j int) int64 {
@@ -198,12 +180,30 @@ func (rcv *RecipeCraftExcel) MutateResultAmountMin(j int, n int64) bool {
 	return false
 }
 
-func (rcv *RecipeCraftExcel) DevName() []byte {
+func (rcv *RecipeCraftExcel) ResultAmountMax(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
-	return nil
+	return 0
+}
+
+func (rcv *RecipeCraftExcel) ResultAmountMaxLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *RecipeCraftExcel) MutateResultAmountMax(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
 }
 
 func RecipeCraftExcelStart(builder *flatbuffers.Builder) {
@@ -212,38 +212,35 @@ func RecipeCraftExcelStart(builder *flatbuffers.Builder) {
 func RecipeCraftExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
 }
-func RecipeCraftExcelAddParcelDevName(builder *flatbuffers.Builder, parcelDevName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(parcelDevName), 0)
+func RecipeCraftExcelAddDevName(builder *flatbuffers.Builder, devName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(devName), 0)
 }
-func RecipeCraftExcelStartParcelDevNameVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func RecipeCraftExcelAddRecipeType(builder *flatbuffers.Builder, recipeType RecipeType) {
+	builder.PrependInt32Slot(2, int32(recipeType), 0)
+}
+func RecipeCraftExcelAddRecipeIngredientId(builder *flatbuffers.Builder, recipeIngredientId int64) {
+	builder.PrependInt64Slot(3, recipeIngredientId, 0)
 }
 func RecipeCraftExcelAddRecipeIngredientDevName(builder *flatbuffers.Builder, recipeIngredientDevName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(recipeIngredientDevName), 0)
-}
-func RecipeCraftExcelAddResultAmountMax(builder *flatbuffers.Builder, resultAmountMax flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(resultAmountMax), 0)
-}
-func RecipeCraftExcelStartResultAmountMaxVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(recipeIngredientDevName), 0)
 }
 func RecipeCraftExcelAddParcelType(builder *flatbuffers.Builder, parcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(parcelType), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(parcelType), 0)
 }
 func RecipeCraftExcelStartParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func RecipeCraftExcelAddParcelId(builder *flatbuffers.Builder, parcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(parcelId), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(parcelId), 0)
 }
 func RecipeCraftExcelStartParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func RecipeCraftExcelAddRecipeIngredientId(builder *flatbuffers.Builder, recipeIngredientId int64) {
-	builder.PrependInt64Slot(6, recipeIngredientId, 0)
+func RecipeCraftExcelAddParcelDevName(builder *flatbuffers.Builder, parcelDevName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(parcelDevName), 0)
 }
-func RecipeCraftExcelAddRecipeType(builder *flatbuffers.Builder, recipeType RecipeType) {
-	builder.PrependInt32Slot(7, int32(recipeType), 0)
+func RecipeCraftExcelStartParcelDevNameVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func RecipeCraftExcelAddResultAmountMin(builder *flatbuffers.Builder, resultAmountMin flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(resultAmountMin), 0)
@@ -251,8 +248,11 @@ func RecipeCraftExcelAddResultAmountMin(builder *flatbuffers.Builder, resultAmou
 func RecipeCraftExcelStartResultAmountMinVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func RecipeCraftExcelAddDevName(builder *flatbuffers.Builder, devName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(devName), 0)
+func RecipeCraftExcelAddResultAmountMax(builder *flatbuffers.Builder, resultAmountMax flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(resultAmountMax), 0)
+}
+func RecipeCraftExcelStartResultAmountMaxVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func RecipeCraftExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

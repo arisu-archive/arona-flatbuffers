@@ -1,21 +1,21 @@
 namespace MX.Data.Excel;
 
 table ScenarioScriptExcel {
+    group_id: long;
+    selection_group: long;
+    bgm_id: long;
+    sound: string;
+    transition: uint;
+    bg_name: uint;
     bg_effect: uint;
     popup_file_name: string;
-    bgm_id: long;
-    teen_mode: bool;
     script_kr: string;
-    voice_id: uint;
-    text_th: string;
-    selection_group: long;
-    sound: string;
-    text_en: string;
     text_jp: string;
-    transition: uint;
-    group_id: long;
-    bg_name: uint;
+    text_th: string;
     text_tw: string;
+    text_en: string;
+    voice_id: uint;
+    teen_mode: bool;
 }
 
 root_type ScenarioScriptExcel;

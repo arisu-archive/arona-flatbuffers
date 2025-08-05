@@ -33,20 +33,28 @@ func (rcv *AcademyMessanger2Excel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *AcademyMessanger2Excel) MessageTw() []byte {
+func (rcv *AcademyMessanger2Excel) MessageGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *AcademyMessanger2Excel) MessageEn() []byte {
+func (rcv *AcademyMessanger2Excel) MutateMessageGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *AcademyMessanger2Excel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *AcademyMessanger2Excel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *AcademyMessanger2Excel) CharacterId() int64 {
@@ -61,148 +69,8 @@ func (rcv *AcademyMessanger2Excel) MutateCharacterId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *AcademyMessanger2Excel) MessageKr() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *AcademyMessanger2Excel) PreConditionFavorScheduleId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AcademyMessanger2Excel) MutatePreConditionFavorScheduleId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
-func (rcv *AcademyMessanger2Excel) FavorScheduleId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AcademyMessanger2Excel) MutateFavorScheduleId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
-func (rcv *AcademyMessanger2Excel) PreConditionGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AcademyMessanger2Excel) MutatePreConditionGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *AcademyMessanger2Excel) ImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *AcademyMessanger2Excel) MessageJp() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *AcademyMessanger2Excel) ConditionValue() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AcademyMessanger2Excel) MutateConditionValue(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
-}
-
-func (rcv *AcademyMessanger2Excel) MessageGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AcademyMessanger2Excel) MutateMessageGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
-}
-
-func (rcv *AcademyMessanger2Excel) FeedbackTimeMillisec() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AcademyMessanger2Excel) MutateFeedbackTimeMillisec(n int64) bool {
-	return rcv._tab.MutateInt64Slot(26, n)
-}
-
-func (rcv *AcademyMessanger2Excel) MessageTh() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *AcademyMessanger2Excel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AcademyMessanger2Excel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
-}
-
-func (rcv *AcademyMessanger2Excel) MessageType() AcademyMessageTypes {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return AcademyMessageTypes(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *AcademyMessanger2Excel) MutateMessageType(n AcademyMessageTypes) bool {
-	return rcv._tab.MutateInt32Slot(32, int32(n))
-}
-
-func (rcv *AcademyMessanger2Excel) NextGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *AcademyMessanger2Excel) MutateNextGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(34, n)
-}
-
 func (rcv *AcademyMessanger2Excel) MessageCondition() AcademyMessageConditions {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return AcademyMessageConditions(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -210,62 +78,194 @@ func (rcv *AcademyMessanger2Excel) MessageCondition() AcademyMessageConditions {
 }
 
 func (rcv *AcademyMessanger2Excel) MutateMessageCondition(n AcademyMessageConditions) bool {
-	return rcv._tab.MutateInt32Slot(36, int32(n))
+	return rcv._tab.MutateInt32Slot(10, int32(n))
+}
+
+func (rcv *AcademyMessanger2Excel) ConditionValue() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AcademyMessanger2Excel) MutateConditionValue(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *AcademyMessanger2Excel) PreConditionGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AcademyMessanger2Excel) MutatePreConditionGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *AcademyMessanger2Excel) PreConditionFavorScheduleId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AcademyMessanger2Excel) MutatePreConditionFavorScheduleId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *AcademyMessanger2Excel) FavorScheduleId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AcademyMessanger2Excel) MutateFavorScheduleId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
+func (rcv *AcademyMessanger2Excel) NextGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AcademyMessanger2Excel) MutateNextGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *AcademyMessanger2Excel) FeedbackTimeMillisec() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *AcademyMessanger2Excel) MutateFeedbackTimeMillisec(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
+}
+
+func (rcv *AcademyMessanger2Excel) MessageType() AcademyMessageTypes {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return AcademyMessageTypes(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *AcademyMessanger2Excel) MutateMessageType(n AcademyMessageTypes) bool {
+	return rcv._tab.MutateInt32Slot(24, int32(n))
+}
+
+func (rcv *AcademyMessanger2Excel) ImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *AcademyMessanger2Excel) MessageKr() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *AcademyMessanger2Excel) MessageJp() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *AcademyMessanger2Excel) MessageTh() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *AcademyMessanger2Excel) MessageTw() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *AcademyMessanger2Excel) MessageEn() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func AcademyMessanger2ExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(17)
 }
-func AcademyMessanger2ExcelAddMessageTw(builder *flatbuffers.Builder, messageTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(messageTw), 0)
+func AcademyMessanger2ExcelAddMessageGroupId(builder *flatbuffers.Builder, messageGroupId int64) {
+	builder.PrependInt64Slot(0, messageGroupId, 0)
 }
-func AcademyMessanger2ExcelAddMessageEn(builder *flatbuffers.Builder, messageEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(messageEn), 0)
+func AcademyMessanger2ExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(1, id, 0)
 }
 func AcademyMessanger2ExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
 	builder.PrependInt64Slot(2, characterId, 0)
 }
-func AcademyMessanger2ExcelAddMessageKr(builder *flatbuffers.Builder, messageKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(messageKr), 0)
-}
-func AcademyMessanger2ExcelAddPreConditionFavorScheduleId(builder *flatbuffers.Builder, preConditionFavorScheduleId int64) {
-	builder.PrependInt64Slot(4, preConditionFavorScheduleId, 0)
-}
-func AcademyMessanger2ExcelAddFavorScheduleId(builder *flatbuffers.Builder, favorScheduleId int64) {
-	builder.PrependInt64Slot(5, favorScheduleId, 0)
-}
-func AcademyMessanger2ExcelAddPreConditionGroupId(builder *flatbuffers.Builder, preConditionGroupId int64) {
-	builder.PrependInt64Slot(6, preConditionGroupId, 0)
-}
-func AcademyMessanger2ExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(imagePath), 0)
-}
-func AcademyMessanger2ExcelAddMessageJp(builder *flatbuffers.Builder, messageJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(messageJp), 0)
+func AcademyMessanger2ExcelAddMessageCondition(builder *flatbuffers.Builder, messageCondition AcademyMessageConditions) {
+	builder.PrependInt32Slot(3, int32(messageCondition), 0)
 }
 func AcademyMessanger2ExcelAddConditionValue(builder *flatbuffers.Builder, conditionValue int64) {
-	builder.PrependInt64Slot(9, conditionValue, 0)
+	builder.PrependInt64Slot(4, conditionValue, 0)
 }
-func AcademyMessanger2ExcelAddMessageGroupId(builder *flatbuffers.Builder, messageGroupId int64) {
-	builder.PrependInt64Slot(10, messageGroupId, 0)
+func AcademyMessanger2ExcelAddPreConditionGroupId(builder *flatbuffers.Builder, preConditionGroupId int64) {
+	builder.PrependInt64Slot(5, preConditionGroupId, 0)
 }
-func AcademyMessanger2ExcelAddFeedbackTimeMillisec(builder *flatbuffers.Builder, feedbackTimeMillisec int64) {
-	builder.PrependInt64Slot(11, feedbackTimeMillisec, 0)
+func AcademyMessanger2ExcelAddPreConditionFavorScheduleId(builder *flatbuffers.Builder, preConditionFavorScheduleId int64) {
+	builder.PrependInt64Slot(6, preConditionFavorScheduleId, 0)
 }
-func AcademyMessanger2ExcelAddMessageTh(builder *flatbuffers.Builder, messageTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(messageTh), 0)
-}
-func AcademyMessanger2ExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(13, id, 0)
-}
-func AcademyMessanger2ExcelAddMessageType(builder *flatbuffers.Builder, messageType AcademyMessageTypes) {
-	builder.PrependInt32Slot(14, int32(messageType), 0)
+func AcademyMessanger2ExcelAddFavorScheduleId(builder *flatbuffers.Builder, favorScheduleId int64) {
+	builder.PrependInt64Slot(7, favorScheduleId, 0)
 }
 func AcademyMessanger2ExcelAddNextGroupId(builder *flatbuffers.Builder, nextGroupId int64) {
-	builder.PrependInt64Slot(15, nextGroupId, 0)
+	builder.PrependInt64Slot(8, nextGroupId, 0)
 }
-func AcademyMessanger2ExcelAddMessageCondition(builder *flatbuffers.Builder, messageCondition AcademyMessageConditions) {
-	builder.PrependInt32Slot(16, int32(messageCondition), 0)
+func AcademyMessanger2ExcelAddFeedbackTimeMillisec(builder *flatbuffers.Builder, feedbackTimeMillisec int64) {
+	builder.PrependInt64Slot(9, feedbackTimeMillisec, 0)
+}
+func AcademyMessanger2ExcelAddMessageType(builder *flatbuffers.Builder, messageType AcademyMessageTypes) {
+	builder.PrependInt32Slot(10, int32(messageType), 0)
+}
+func AcademyMessanger2ExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(imagePath), 0)
+}
+func AcademyMessanger2ExcelAddMessageKr(builder *flatbuffers.Builder, messageKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(messageKr), 0)
+}
+func AcademyMessanger2ExcelAddMessageJp(builder *flatbuffers.Builder, messageJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(messageJp), 0)
+}
+func AcademyMessanger2ExcelAddMessageTh(builder *flatbuffers.Builder, messageTh flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(messageTh), 0)
+}
+func AcademyMessanger2ExcelAddMessageTw(builder *flatbuffers.Builder, messageTw flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(messageTw), 0)
+}
+func AcademyMessanger2ExcelAddMessageEn(builder *flatbuffers.Builder, messageEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(messageEn), 0)
 }
 func AcademyMessanger2ExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

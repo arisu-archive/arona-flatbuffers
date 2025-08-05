@@ -25,17 +25,17 @@ class CharacterCalculationLimitExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CharacterCalculationLimitExcel
-    def TacticEntityType(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterCalculationLimitExcel
-    def Id(self):
+    def TacticEntityType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CharacterCalculationLimitExcel
@@ -46,14 +46,14 @@ class CharacterCalculationLimitExcel(object):
         return 0
 
     # CharacterCalculationLimitExcel
-    def MaxValue(self):
+    def MinValue(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CharacterCalculationLimitExcel
-    def MinValue(self):
+    def MaxValue(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -116,21 +116,21 @@ class CharacterCalculationLimitExcel(object):
 def CharacterCalculationLimitExcelStart(builder): builder.StartObject(7)
 def Start(builder):
     return CharacterCalculationLimitExcelStart(builder)
-def CharacterCalculationLimitExcelAddTacticEntityType(builder, tacticEntityType): builder.PrependInt32Slot(0, tacticEntityType, 0)
-def AddTacticEntityType(builder, tacticEntityType):
-    return CharacterCalculationLimitExcelAddTacticEntityType(builder, tacticEntityType)
-def CharacterCalculationLimitExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
+def CharacterCalculationLimitExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
 def AddId(builder, id):
     return CharacterCalculationLimitExcelAddId(builder, id)
+def CharacterCalculationLimitExcelAddTacticEntityType(builder, tacticEntityType): builder.PrependInt32Slot(1, tacticEntityType, 0)
+def AddTacticEntityType(builder, tacticEntityType):
+    return CharacterCalculationLimitExcelAddTacticEntityType(builder, tacticEntityType)
 def CharacterCalculationLimitExcelAddCalculationValue(builder, calculationValue): builder.PrependInt32Slot(2, calculationValue, 0)
 def AddCalculationValue(builder, calculationValue):
     return CharacterCalculationLimitExcelAddCalculationValue(builder, calculationValue)
-def CharacterCalculationLimitExcelAddMaxValue(builder, maxValue): builder.PrependInt64Slot(3, maxValue, 0)
-def AddMaxValue(builder, maxValue):
-    return CharacterCalculationLimitExcelAddMaxValue(builder, maxValue)
-def CharacterCalculationLimitExcelAddMinValue(builder, minValue): builder.PrependInt64Slot(4, minValue, 0)
+def CharacterCalculationLimitExcelAddMinValue(builder, minValue): builder.PrependInt64Slot(3, minValue, 0)
 def AddMinValue(builder, minValue):
     return CharacterCalculationLimitExcelAddMinValue(builder, minValue)
+def CharacterCalculationLimitExcelAddMaxValue(builder, maxValue): builder.PrependInt64Slot(4, maxValue, 0)
+def AddMaxValue(builder, maxValue):
+    return CharacterCalculationLimitExcelAddMaxValue(builder, maxValue)
 def CharacterCalculationLimitExcelAddLimitStartValue(builder, limitStartValue): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(limitStartValue), 0)
 def AddLimitStartValue(builder, limitStartValue):
     return CharacterCalculationLimitExcelAddLimitStartValue(builder, limitStartValue)

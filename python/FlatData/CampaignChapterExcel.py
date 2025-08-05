@@ -25,8 +25,43 @@ class CampaignChapterExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CampaignChapterExcel
-    def PreChapterId(self, j):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CampaignChapterExcel
+    def Name(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CampaignChapterExcel
+    def NormalImagePath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CampaignChapterExcel
+    def HardImagePath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CampaignChapterExcel
+    def Order(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CampaignChapterExcel
+    def PreChapterId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -34,87 +69,47 @@ class CampaignChapterExcel(object):
 
     # CampaignChapterExcel
     def PreChapterIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # CampaignChapterExcel
     def PreChapterIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CampaignChapterExcel
     def PreChapterIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         return o == 0
 
     # CampaignChapterExcel
-    def VeryHardCampaignStageId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+    def ChapterRewardId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CampaignChapterExcel
-    def VeryHardCampaignStageIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+    def ChapterHardRewardId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CampaignChapterExcel
-    def VeryHardCampaignStageIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+    def ChapterVeryHardRewardId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
-            return self._tab.VectorLen(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # CampaignChapterExcel
-    def VeryHardCampaignStageIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        return o == 0
-
-    # CampaignChapterExcel
-    def Name(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CampaignChapterExcel
-    def HardCampaignStageId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # CampaignChapterExcel
-    def HardCampaignStageIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # CampaignChapterExcel
-    def HardCampaignStageIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # CampaignChapterExcel
-    def HardCampaignStageIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        return o == 0
 
     # CampaignChapterExcel
     def NormalCampaignStageId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -122,68 +117,26 @@ class CampaignChapterExcel(object):
 
     # CampaignChapterExcel
     def NormalCampaignStageIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # CampaignChapterExcel
     def NormalCampaignStageIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CampaignChapterExcel
     def NormalCampaignStageIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         return o == 0
 
     # CampaignChapterExcel
-    def Order(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CampaignChapterExcel
-    def NormalImagePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CampaignChapterExcel
-    def ChapterRewardId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CampaignChapterExcel
-    def HardImagePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CampaignChapterExcel
-    def ChapterVeryHardRewardId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CampaignChapterExcel
-    def IsTacticSkip(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # CampaignChapterExcel
     def NormalExtraStageId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -191,97 +144,144 @@ class CampaignChapterExcel(object):
 
     # CampaignChapterExcel
     def NormalExtraStageIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # CampaignChapterExcel
     def NormalExtraStageIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CampaignChapterExcel
     def NormalExtraStageIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        return o == 0
+
+    # CampaignChapterExcel
+    def HardCampaignStageId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # CampaignChapterExcel
+    def HardCampaignStageIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # CampaignChapterExcel
+    def HardCampaignStageIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CampaignChapterExcel
+    def HardCampaignStageIdIsNone(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         return o == 0
 
     # CampaignChapterExcel
-    def Id(self):
+    def VeryHardCampaignStageId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # CampaignChapterExcel
-    def ChapterHardRewardId(self):
+    def VeryHardCampaignStageIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # CampaignChapterExcel
+    def VeryHardCampaignStageIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CampaignChapterExcel
+    def VeryHardCampaignStageIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        return o == 0
+
+    # CampaignChapterExcel
+    def IsTacticSkip(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
 def CampaignChapterExcelStart(builder): builder.StartObject(14)
 def Start(builder):
     return CampaignChapterExcelStart(builder)
-def CampaignChapterExcelAddPreChapterId(builder, preChapterId): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(preChapterId), 0)
+def CampaignChapterExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+def AddId(builder, id):
+    return CampaignChapterExcelAddId(builder, id)
+def CampaignChapterExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+def AddName(builder, name):
+    return CampaignChapterExcelAddName(builder, name)
+def CampaignChapterExcelAddNormalImagePath(builder, normalImagePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(normalImagePath), 0)
+def AddNormalImagePath(builder, normalImagePath):
+    return CampaignChapterExcelAddNormalImagePath(builder, normalImagePath)
+def CampaignChapterExcelAddHardImagePath(builder, hardImagePath): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(hardImagePath), 0)
+def AddHardImagePath(builder, hardImagePath):
+    return CampaignChapterExcelAddHardImagePath(builder, hardImagePath)
+def CampaignChapterExcelAddOrder(builder, order): builder.PrependInt64Slot(4, order, 0)
+def AddOrder(builder, order):
+    return CampaignChapterExcelAddOrder(builder, order)
+def CampaignChapterExcelAddPreChapterId(builder, preChapterId): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(preChapterId), 0)
 def AddPreChapterId(builder, preChapterId):
     return CampaignChapterExcelAddPreChapterId(builder, preChapterId)
 def CampaignChapterExcelStartPreChapterIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartPreChapterIdVector(builder, numElems):
     return CampaignChapterExcelStartPreChapterIdVector(builder, numElems)
-def CampaignChapterExcelAddVeryHardCampaignStageId(builder, veryHardCampaignStageId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(veryHardCampaignStageId), 0)
-def AddVeryHardCampaignStageId(builder, veryHardCampaignStageId):
-    return CampaignChapterExcelAddVeryHardCampaignStageId(builder, veryHardCampaignStageId)
-def CampaignChapterExcelStartVeryHardCampaignStageIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartVeryHardCampaignStageIdVector(builder, numElems):
-    return CampaignChapterExcelStartVeryHardCampaignStageIdVector(builder, numElems)
-def CampaignChapterExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
-def AddName(builder, name):
-    return CampaignChapterExcelAddName(builder, name)
-def CampaignChapterExcelAddHardCampaignStageId(builder, hardCampaignStageId): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(hardCampaignStageId), 0)
-def AddHardCampaignStageId(builder, hardCampaignStageId):
-    return CampaignChapterExcelAddHardCampaignStageId(builder, hardCampaignStageId)
-def CampaignChapterExcelStartHardCampaignStageIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartHardCampaignStageIdVector(builder, numElems):
-    return CampaignChapterExcelStartHardCampaignStageIdVector(builder, numElems)
-def CampaignChapterExcelAddNormalCampaignStageId(builder, normalCampaignStageId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(normalCampaignStageId), 0)
+def CampaignChapterExcelAddChapterRewardId(builder, chapterRewardId): builder.PrependInt64Slot(6, chapterRewardId, 0)
+def AddChapterRewardId(builder, chapterRewardId):
+    return CampaignChapterExcelAddChapterRewardId(builder, chapterRewardId)
+def CampaignChapterExcelAddChapterHardRewardId(builder, chapterHardRewardId): builder.PrependInt64Slot(7, chapterHardRewardId, 0)
+def AddChapterHardRewardId(builder, chapterHardRewardId):
+    return CampaignChapterExcelAddChapterHardRewardId(builder, chapterHardRewardId)
+def CampaignChapterExcelAddChapterVeryHardRewardId(builder, chapterVeryHardRewardId): builder.PrependInt64Slot(8, chapterVeryHardRewardId, 0)
+def AddChapterVeryHardRewardId(builder, chapterVeryHardRewardId):
+    return CampaignChapterExcelAddChapterVeryHardRewardId(builder, chapterVeryHardRewardId)
+def CampaignChapterExcelAddNormalCampaignStageId(builder, normalCampaignStageId): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(normalCampaignStageId), 0)
 def AddNormalCampaignStageId(builder, normalCampaignStageId):
     return CampaignChapterExcelAddNormalCampaignStageId(builder, normalCampaignStageId)
 def CampaignChapterExcelStartNormalCampaignStageIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartNormalCampaignStageIdVector(builder, numElems):
     return CampaignChapterExcelStartNormalCampaignStageIdVector(builder, numElems)
-def CampaignChapterExcelAddOrder(builder, order): builder.PrependInt64Slot(5, order, 0)
-def AddOrder(builder, order):
-    return CampaignChapterExcelAddOrder(builder, order)
-def CampaignChapterExcelAddNormalImagePath(builder, normalImagePath): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(normalImagePath), 0)
-def AddNormalImagePath(builder, normalImagePath):
-    return CampaignChapterExcelAddNormalImagePath(builder, normalImagePath)
-def CampaignChapterExcelAddChapterRewardId(builder, chapterRewardId): builder.PrependInt64Slot(7, chapterRewardId, 0)
-def AddChapterRewardId(builder, chapterRewardId):
-    return CampaignChapterExcelAddChapterRewardId(builder, chapterRewardId)
-def CampaignChapterExcelAddHardImagePath(builder, hardImagePath): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(hardImagePath), 0)
-def AddHardImagePath(builder, hardImagePath):
-    return CampaignChapterExcelAddHardImagePath(builder, hardImagePath)
-def CampaignChapterExcelAddChapterVeryHardRewardId(builder, chapterVeryHardRewardId): builder.PrependInt64Slot(9, chapterVeryHardRewardId, 0)
-def AddChapterVeryHardRewardId(builder, chapterVeryHardRewardId):
-    return CampaignChapterExcelAddChapterVeryHardRewardId(builder, chapterVeryHardRewardId)
-def CampaignChapterExcelAddIsTacticSkip(builder, isTacticSkip): builder.PrependBoolSlot(10, isTacticSkip, 0)
-def AddIsTacticSkip(builder, isTacticSkip):
-    return CampaignChapterExcelAddIsTacticSkip(builder, isTacticSkip)
-def CampaignChapterExcelAddNormalExtraStageId(builder, normalExtraStageId): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(normalExtraStageId), 0)
+def CampaignChapterExcelAddNormalExtraStageId(builder, normalExtraStageId): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(normalExtraStageId), 0)
 def AddNormalExtraStageId(builder, normalExtraStageId):
     return CampaignChapterExcelAddNormalExtraStageId(builder, normalExtraStageId)
 def CampaignChapterExcelStartNormalExtraStageIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartNormalExtraStageIdVector(builder, numElems):
     return CampaignChapterExcelStartNormalExtraStageIdVector(builder, numElems)
-def CampaignChapterExcelAddId(builder, id): builder.PrependInt64Slot(12, id, 0)
-def AddId(builder, id):
-    return CampaignChapterExcelAddId(builder, id)
-def CampaignChapterExcelAddChapterHardRewardId(builder, chapterHardRewardId): builder.PrependInt64Slot(13, chapterHardRewardId, 0)
-def AddChapterHardRewardId(builder, chapterHardRewardId):
-    return CampaignChapterExcelAddChapterHardRewardId(builder, chapterHardRewardId)
+def CampaignChapterExcelAddHardCampaignStageId(builder, hardCampaignStageId): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(hardCampaignStageId), 0)
+def AddHardCampaignStageId(builder, hardCampaignStageId):
+    return CampaignChapterExcelAddHardCampaignStageId(builder, hardCampaignStageId)
+def CampaignChapterExcelStartHardCampaignStageIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartHardCampaignStageIdVector(builder, numElems):
+    return CampaignChapterExcelStartHardCampaignStageIdVector(builder, numElems)
+def CampaignChapterExcelAddVeryHardCampaignStageId(builder, veryHardCampaignStageId): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(veryHardCampaignStageId), 0)
+def AddVeryHardCampaignStageId(builder, veryHardCampaignStageId):
+    return CampaignChapterExcelAddVeryHardCampaignStageId(builder, veryHardCampaignStageId)
+def CampaignChapterExcelStartVeryHardCampaignStageIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartVeryHardCampaignStageIdVector(builder, numElems):
+    return CampaignChapterExcelStartVeryHardCampaignStageIdVector(builder, numElems)
+def CampaignChapterExcelAddIsTacticSkip(builder, isTacticSkip): builder.PrependBoolSlot(13, isTacticSkip, 0)
+def AddIsTacticSkip(builder, isTacticSkip):
+    return CampaignChapterExcelAddIsTacticSkip(builder, isTacticSkip)
 def CampaignChapterExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CampaignChapterExcelEnd(builder)

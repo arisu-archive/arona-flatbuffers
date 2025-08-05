@@ -2,13 +2,13 @@ namespace MX.Data.Excel;
 
 table MemoryLobby_GlobalExcel {
     id: long;
-    prefab_name_asia: string;
-    prefab_name_na: string;
-    prefab_name_tw: string;
     character_id: long;
     prefab_name_kr: string;
-    prefab_name_teen: string;
+    prefab_name_tw: string;
+    prefab_name_asia: string;
+    prefab_name_na: string;
     prefab_name_global: string;
+    prefab_name_teen: string;
 }
 
 root_type MemoryLobby_GlobalExcel;

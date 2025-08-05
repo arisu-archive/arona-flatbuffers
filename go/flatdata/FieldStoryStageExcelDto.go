@@ -11,15 +11,15 @@ import (
 type FieldStoryStageExcelDto struct {
 	fbsutils.FlatBuffer
 	Id                    int64           `json:"id"`
+	SeasonId              int64           `json:"season_id"`
+	Name                  string          `json:"name"`
+	BattleDuration        int64           `json:"battle_duration"`
+	StageTopography       StageTopography `json:"stage_topography"`
 	RecommandLevel        int32           `json:"recommand_level"`
 	GroundId              int64           `json:"ground_id"`
-	FixedEchelonId        int64           `json:"fixed_echelon_id"`
-	SeasonId              int64           `json:"season_id"`
-	StageTopography       StageTopography `json:"stage_topography"`
-	BattleDuration        int64           `json:"battle_duration"`
-	Name                  string          `json:"name"`
-	SkipFormationSettings bool            `json:"skip_formation_settings"`
 	BgmId                 int64           `json:"bgm_id"`
+	FixedEchelonId        int64           `json:"fixed_echelon_id"`
+	SkipFormationSettings bool            `json:"skip_formation_settings"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -29,15 +29,15 @@ func (t *FieldStoryStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	}
 	FieldStoryStageExcelStart(b)
 	FieldStoryStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	FieldStoryStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
 	FieldStoryStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
 	FieldStoryStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
-	FieldStoryStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
-	FieldStoryStageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
-	FieldStoryStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
-	FieldStoryStageExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
-	FieldStoryStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
-	FieldStoryStageExcelAddSkipFormationSettings(b, t.SkipFormationSettings)
 	FieldStoryStageExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
+	FieldStoryStageExcelAddSkipFormationSettings(b, t.SkipFormationSettings)
 	return FieldStoryStageExcelEnd(b)
 }
 
@@ -54,15 +54,15 @@ func (t *FieldStoryStageExcelDto) UnmarshalMessage(e *FieldStoryStageExcel) erro
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldStoryStage"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
+	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
+	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
 	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
-	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
-	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
-	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
-	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
-	t.SkipFormationSettings = e.SkipFormationSettings()
 	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
+	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
+	t.SkipFormationSettings = e.SkipFormationSettings()
 	return nil
 }
 

@@ -4,18 +4,18 @@ include "ShopCategoryType.fbs";
 namespace FlatData;
 
 table EventContentShopExcel {
-    category_type: ShopCategoryType;
     event_content_id: long;
-    purchase_count_limit: long;
-    buy_report_event_name: string;
     id: long;
     localize_etc_id: uint;
-    display_order: long;
+    category_type: ShopCategoryType;
     is_legacy: bool;
-    sale_period_to: string;
-    restrict_buy_when_inventory_full: bool;
-    purchase_cooltime_min: long;
-    sale_period_from: string;
-    purchase_count_reset_type: PurchaseCountResetType;
     goods_id: [long];
+    display_order: long;
+    sale_period_from: string;
+    sale_period_to: string;
+    purchase_cooltime_min: long;
+    purchase_count_limit: long;
+    purchase_count_reset_type: PurchaseCountResetType;
+    buy_report_event_name: string;
+    restrict_buy_when_inventory_full: bool;
 }

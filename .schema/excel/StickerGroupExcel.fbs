@@ -3,17 +3,17 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table StickerGroupExcel {
-    page_complete_reward_amount: int;
-    page_complete_reward_parcel_type: ParcelType;
-    localize_description: uint;
-    unique_layout_path: string;
-    localize_title: uint;
-    sticker_group_coverpath: string;
     id: long;
-    page_complete_slot: long;
-    page_complete_reward_parcel_id: long;
-    sticker_group_iconpath: string;
     layout: string;
+    unique_layout_path: string;
+    sticker_group_iconpath: string;
+    page_complete_slot: long;
+    page_complete_reward_parcel_type: ParcelType;
+    page_complete_reward_parcel_id: long;
+    page_complete_reward_amount: int;
+    localize_title: uint;
+    localize_description: uint;
+    sticker_group_coverpath: string;
 }
 
 root_type StickerGroupExcel;

@@ -1,7 +1,7 @@
 namespace FlatData;
 
 table KnockBackExcel {
-    speed: float;
-    dist: float;
     index: long;
+    dist: float;
+    speed: float;
 }

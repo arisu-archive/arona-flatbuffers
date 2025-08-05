@@ -10,9 +10,9 @@ import (
 // FieldMasteryLevelExcelDto represents a FlatBuffers table
 type FieldMasteryLevelExcelDto struct {
 	fbsutils.FlatBuffer
+	Level    int32   `json:"level"`
 	Id       []int64 `json:"id"`
 	Exp      []int64 `json:"exp"`
-	Level    int32   `json:"level"`
 	TotalExp []int64 `json:"total_exp"`
 	RewardId []int64 `json:"reward_id"`
 }
@@ -23,6 +23,7 @@ func (t *FieldMasteryLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryLevel"))
 	}
 	FieldMasteryLevelExcelStart(b)
+	FieldMasteryLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	FieldMasteryLevelExcelStartIdVector(b, len(t.Id))
 	for i := range len(t.Id) {
 		b.PrependInt64(fbsutils.Convert(t.Id[len(t.Id)-i-1], t.FlatBuffer.TableKey))
@@ -33,7 +34,6 @@ func (t *FieldMasteryLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		b.PrependInt64(fbsutils.Convert(t.Exp[len(t.Exp)-i-1], t.FlatBuffer.TableKey))
 	}
 	FieldMasteryLevelExcelAddExp(b, b.EndVector(len(t.Exp)))
-	FieldMasteryLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	FieldMasteryLevelExcelStartTotalExpVector(b, len(t.TotalExp))
 	for i := range len(t.TotalExp) {
 		b.PrependInt64(fbsutils.Convert(t.TotalExp[len(t.TotalExp)-i-1], t.FlatBuffer.TableKey))
@@ -59,6 +59,7 @@ func (t *FieldMasteryLevelExcelDto) UnmarshalMessage(e *FieldMasteryLevelExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldMasteryLevel"))
 	}
+	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.Id = make([]int64, e.IdLength())
 	for i := range e.IdLength() {
 		t.Id[i] = fbsutils.Convert(e.Id(i), t.FlatBuffer.TableKey)
@@ -67,7 +68,6 @@ func (t *FieldMasteryLevelExcelDto) UnmarshalMessage(e *FieldMasteryLevelExcel) 
 	for i := range e.ExpLength() {
 		t.Exp[i] = fbsutils.Convert(e.Exp(i), t.FlatBuffer.TableKey)
 	}
-	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.TotalExp = make([]int64, e.TotalExpLength())
 	for i := range e.TotalExpLength() {
 		t.TotalExp[i] = fbsutils.Convert(e.TotalExp(i), t.FlatBuffer.TableKey)

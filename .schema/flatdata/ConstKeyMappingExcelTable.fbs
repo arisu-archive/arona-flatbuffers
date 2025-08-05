@@ -1,9 +1,0 @@
-include "ConstKeyMappingExcel.fbs";
-
-namespace FlatData;
-
-table ConstKeyMappingExcelTable {
-    data_list: [ConstKeyMappingExcel];
-}
-
-root_type ConstKeyMappingExcelTable;

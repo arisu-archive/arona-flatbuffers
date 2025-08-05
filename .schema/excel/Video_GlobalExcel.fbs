@@ -1,15 +1,15 @@
 namespace MX.Data.Excel;
 
 table Video_GlobalExcel {
-    video_teen_path_kr: string;
-    video_teen_path_en: string;
-    video_path_tw: string;
-    video_path_th: string;
-    video_teen_path_tw: string;
     video_id: long;
-    video_path_en: string;
-    video_teen_path_th: string;
     video_path_kr: string;
+    video_teen_path_kr: string;
+    video_path_th: string;
+    video_teen_path_th: string;
+    video_path_tw: string;
+    video_teen_path_tw: string;
+    video_path_en: string;
+    video_teen_path_en: string;
 }
 
 root_type Video_GlobalExcel;

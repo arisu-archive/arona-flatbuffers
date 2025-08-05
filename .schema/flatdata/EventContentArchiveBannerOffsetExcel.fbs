@@ -2,8 +2,8 @@ namespace FlatData;
 
 table EventContentArchiveBannerOffsetExcel {
     event_content_id: long;
+    offset_x: float;
     offset_y: float;
     scale_x: float;
-    offset_x: float;
     scale_y: float;
 }

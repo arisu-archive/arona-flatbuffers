@@ -3,14 +3,14 @@ include "Nation.fbs";
 namespace MX.Data.Excel;
 
 table BGMExcel {
-    loop_offset_time: [float];
+    id: long;
     nation: [Nation];
     path: [string];
-    loop_transtion_time: [float];
-    loop_end_time: [float];
     volume: [float];
     loop_start_time: [float];
-    id: long;
+    loop_end_time: [float];
+    loop_transtion_time: [float];
+    loop_offset_time: [float];
 }
 
 root_type BGMExcel;

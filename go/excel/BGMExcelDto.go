@@ -10,24 +10,20 @@ import (
 // BGMExcelDto represents a FlatBuffers table
 type BGMExcelDto struct {
 	fbsutils.FlatBuffer
-	LoopOffsetTime    []float32 `json:"loop_offset_time"`
+	Id                int64     `json:"id"`
 	Nation            []Nation  `json:"nation"`
 	Path              []string  `json:"path"`
-	LoopTranstionTime []float32 `json:"loop_transtion_time"`
-	LoopEndTime       []float32 `json:"loop_end_time"`
 	Volume            []float32 `json:"volume"`
 	LoopStartTime     []float32 `json:"loop_start_time"`
-	Id                int64     `json:"id"`
+	LoopEndTime       []float32 `json:"loop_end_time"`
+	LoopTranstionTime []float32 `json:"loop_transtion_time"`
+	LoopOffsetTime    []float32 `json:"loop_offset_time"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BGMExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	BGMExcelStart(b)
-	BGMExcelStartLoopOffsetTimeVector(b, len(t.LoopOffsetTime))
-	for i := range len(t.LoopOffsetTime) {
-		b.PrependFloat32(fbsutils.Convert(t.LoopOffsetTime[len(t.LoopOffsetTime)-i-1], t.FlatBuffer.TableKey))
-	}
-	BGMExcelAddLoopOffsetTime(b, b.EndVector(len(t.LoopOffsetTime)))
+	BGMExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	BGMExcelStartNationVector(b, len(t.Nation))
 	for i := range len(t.Nation) {
 		b.PrependInt32(fbsutils.Convert(int32(t.Nation[len(t.Nation)-i-1]), t.FlatBuffer.TableKey))
@@ -38,16 +34,6 @@ func (t *BGMExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT 
 		b.PrependUOffsetT(b.CreateString(t.Path[len(t.Path)-i-1]))
 	}
 	BGMExcelAddPath(b, b.EndVector(len(t.Path)))
-	BGMExcelStartLoopTranstionTimeVector(b, len(t.LoopTranstionTime))
-	for i := range len(t.LoopTranstionTime) {
-		b.PrependFloat32(fbsutils.Convert(t.LoopTranstionTime[len(t.LoopTranstionTime)-i-1], t.FlatBuffer.TableKey))
-	}
-	BGMExcelAddLoopTranstionTime(b, b.EndVector(len(t.LoopTranstionTime)))
-	BGMExcelStartLoopEndTimeVector(b, len(t.LoopEndTime))
-	for i := range len(t.LoopEndTime) {
-		b.PrependFloat32(fbsutils.Convert(t.LoopEndTime[len(t.LoopEndTime)-i-1], t.FlatBuffer.TableKey))
-	}
-	BGMExcelAddLoopEndTime(b, b.EndVector(len(t.LoopEndTime)))
 	BGMExcelStartVolumeVector(b, len(t.Volume))
 	for i := range len(t.Volume) {
 		b.PrependFloat32(fbsutils.Convert(t.Volume[len(t.Volume)-i-1], t.FlatBuffer.TableKey))
@@ -58,7 +44,21 @@ func (t *BGMExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT 
 		b.PrependFloat32(fbsutils.Convert(t.LoopStartTime[len(t.LoopStartTime)-i-1], t.FlatBuffer.TableKey))
 	}
 	BGMExcelAddLoopStartTime(b, b.EndVector(len(t.LoopStartTime)))
-	BGMExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	BGMExcelStartLoopEndTimeVector(b, len(t.LoopEndTime))
+	for i := range len(t.LoopEndTime) {
+		b.PrependFloat32(fbsutils.Convert(t.LoopEndTime[len(t.LoopEndTime)-i-1], t.FlatBuffer.TableKey))
+	}
+	BGMExcelAddLoopEndTime(b, b.EndVector(len(t.LoopEndTime)))
+	BGMExcelStartLoopTranstionTimeVector(b, len(t.LoopTranstionTime))
+	for i := range len(t.LoopTranstionTime) {
+		b.PrependFloat32(fbsutils.Convert(t.LoopTranstionTime[len(t.LoopTranstionTime)-i-1], t.FlatBuffer.TableKey))
+	}
+	BGMExcelAddLoopTranstionTime(b, b.EndVector(len(t.LoopTranstionTime)))
+	BGMExcelStartLoopOffsetTimeVector(b, len(t.LoopOffsetTime))
+	for i := range len(t.LoopOffsetTime) {
+		b.PrependFloat32(fbsutils.Convert(t.LoopOffsetTime[len(t.LoopOffsetTime)-i-1], t.FlatBuffer.TableKey))
+	}
+	BGMExcelAddLoopOffsetTime(b, b.EndVector(len(t.LoopOffsetTime)))
 	return BGMExcelEnd(b)
 }
 
@@ -71,10 +71,7 @@ func (t *BGMExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BGMExcelDto) UnmarshalMessage(e *BGMExcel) error {
-	t.LoopOffsetTime = make([]float32, e.LoopOffsetTimeLength())
-	for i := range e.LoopOffsetTimeLength() {
-		t.LoopOffsetTime[i] = fbsutils.Convert(e.LoopOffsetTime(i), t.FlatBuffer.TableKey)
-	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Nation = make([]Nation, e.NationLength())
 	for i := range e.NationLength() {
 		t.Nation[i] = Nation(fbsutils.Convert(int32(e.Nation(i)), t.FlatBuffer.TableKey))
@@ -82,14 +79,6 @@ func (t *BGMExcelDto) UnmarshalMessage(e *BGMExcel) error {
 	t.Path = make([]string, e.PathLength())
 	for i := range e.PathLength() {
 		t.Path[i] = fbsutils.Convert(string(e.Path(i)), t.FlatBuffer.TableKey)
-	}
-	t.LoopTranstionTime = make([]float32, e.LoopTranstionTimeLength())
-	for i := range e.LoopTranstionTimeLength() {
-		t.LoopTranstionTime[i] = fbsutils.Convert(e.LoopTranstionTime(i), t.FlatBuffer.TableKey)
-	}
-	t.LoopEndTime = make([]float32, e.LoopEndTimeLength())
-	for i := range e.LoopEndTimeLength() {
-		t.LoopEndTime[i] = fbsutils.Convert(e.LoopEndTime(i), t.FlatBuffer.TableKey)
 	}
 	t.Volume = make([]float32, e.VolumeLength())
 	for i := range e.VolumeLength() {
@@ -99,7 +88,18 @@ func (t *BGMExcelDto) UnmarshalMessage(e *BGMExcel) error {
 	for i := range e.LoopStartTimeLength() {
 		t.LoopStartTime[i] = fbsutils.Convert(e.LoopStartTime(i), t.FlatBuffer.TableKey)
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.LoopEndTime = make([]float32, e.LoopEndTimeLength())
+	for i := range e.LoopEndTimeLength() {
+		t.LoopEndTime[i] = fbsutils.Convert(e.LoopEndTime(i), t.FlatBuffer.TableKey)
+	}
+	t.LoopTranstionTime = make([]float32, e.LoopTranstionTimeLength())
+	for i := range e.LoopTranstionTimeLength() {
+		t.LoopTranstionTime[i] = fbsutils.Convert(e.LoopTranstionTime(i), t.FlatBuffer.TableKey)
+	}
+	t.LoopOffsetTime = make([]float32, e.LoopOffsetTimeLength())
+	for i := range e.LoopOffsetTimeLength() {
+		t.LoopOffsetTime[i] = fbsutils.Convert(e.LoopOffsetTime(i), t.FlatBuffer.TableKey)
+	}
 	return nil
 }
 

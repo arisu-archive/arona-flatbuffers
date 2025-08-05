@@ -10,16 +10,16 @@ import (
 // CafeInteractionExcelDto represents a FlatBuffers table
 type CafeInteractionExcelDto struct {
 	fbsutils.FlatBuffer
+	CharacterId                   int64        `json:"character_id"`
 	IgnoreIfUnobtained            bool         `json:"ignore_if_unobtained"`
 	IgnoreIfUnobtainedStartDate   string       `json:"ignore_if_unobtained_start_date"`
-	FavorEmoticonRewardAmount     int64        `json:"favor_emoticon_reward_amount"`
+	IgnoreIfUnobtainedEndDate     string       `json:"ignore_if_unobtained_end_date"`
 	BubbleType                    []BubbleType `json:"bubble_type"`
-	FavorEmoticonRewardId         int64        `json:"favor_emoticon_reward_id"`
 	BubbleDuration                []int64      `json:"bubble_duration"`
 	FavorEmoticonRewardParcelType ParcelType   `json:"favor_emoticon_reward_parcel_type"`
+	FavorEmoticonRewardId         int64        `json:"favor_emoticon_reward_id"`
+	FavorEmoticonRewardAmount     int64        `json:"favor_emoticon_reward_amount"`
 	CafeCharacterState            []string     `json:"cafe_character_state"`
-	CharacterId                   int64        `json:"character_id"`
-	IgnoreIfUnobtainedEndDate     string       `json:"ignore_if_unobtained_end_date"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -28,28 +28,28 @@ func (t *CafeInteractionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeInteraction"))
 	}
 	CafeInteractionExcelStart(b)
+	CafeInteractionExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	CafeInteractionExcelAddIgnoreIfUnobtained(b, t.IgnoreIfUnobtained)
 	CafeInteractionExcelAddIgnoreIfUnobtainedStartDate(b, b.CreateString(fbsutils.Convert(t.IgnoreIfUnobtainedStartDate, t.FlatBuffer.TableKey)))
-	CafeInteractionExcelAddFavorEmoticonRewardAmount(b, fbsutils.Convert(t.FavorEmoticonRewardAmount, t.FlatBuffer.TableKey))
+	CafeInteractionExcelAddIgnoreIfUnobtainedEndDate(b, b.CreateString(fbsutils.Convert(t.IgnoreIfUnobtainedEndDate, t.FlatBuffer.TableKey)))
 	CafeInteractionExcelStartBubbleTypeVector(b, len(t.BubbleType))
 	for i := range len(t.BubbleType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.BubbleType[len(t.BubbleType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	CafeInteractionExcelAddBubbleType(b, b.EndVector(len(t.BubbleType)))
-	CafeInteractionExcelAddFavorEmoticonRewardId(b, fbsutils.Convert(t.FavorEmoticonRewardId, t.FlatBuffer.TableKey))
 	CafeInteractionExcelStartBubbleDurationVector(b, len(t.BubbleDuration))
 	for i := range len(t.BubbleDuration) {
 		b.PrependInt64(fbsutils.Convert(t.BubbleDuration[len(t.BubbleDuration)-i-1], t.FlatBuffer.TableKey))
 	}
 	CafeInteractionExcelAddBubbleDuration(b, b.EndVector(len(t.BubbleDuration)))
 	CafeInteractionExcelAddFavorEmoticonRewardParcelType(b, fbsutils.Convert(t.FavorEmoticonRewardParcelType, t.FlatBuffer.TableKey))
+	CafeInteractionExcelAddFavorEmoticonRewardId(b, fbsutils.Convert(t.FavorEmoticonRewardId, t.FlatBuffer.TableKey))
+	CafeInteractionExcelAddFavorEmoticonRewardAmount(b, fbsutils.Convert(t.FavorEmoticonRewardAmount, t.FlatBuffer.TableKey))
 	CafeInteractionExcelStartCafeCharacterStateVector(b, len(t.CafeCharacterState))
 	for i := range len(t.CafeCharacterState) {
 		b.PrependUOffsetT(b.CreateString(t.CafeCharacterState[len(t.CafeCharacterState)-i-1]))
 	}
 	CafeInteractionExcelAddCafeCharacterState(b, b.EndVector(len(t.CafeCharacterState)))
-	CafeInteractionExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
-	CafeInteractionExcelAddIgnoreIfUnobtainedEndDate(b, b.CreateString(fbsutils.Convert(t.IgnoreIfUnobtainedEndDate, t.FlatBuffer.TableKey)))
 	return CafeInteractionExcelEnd(b)
 }
 
@@ -65,25 +65,25 @@ func (t *CafeInteractionExcelDto) UnmarshalMessage(e *CafeInteractionExcel) erro
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeInteraction"))
 	}
+	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.IgnoreIfUnobtained = e.IgnoreIfUnobtained()
 	t.IgnoreIfUnobtainedStartDate = fbsutils.Convert(string(e.IgnoreIfUnobtainedStartDate()), t.FlatBuffer.TableKey)
-	t.FavorEmoticonRewardAmount = fbsutils.Convert(e.FavorEmoticonRewardAmount(), t.FlatBuffer.TableKey)
+	t.IgnoreIfUnobtainedEndDate = fbsutils.Convert(string(e.IgnoreIfUnobtainedEndDate()), t.FlatBuffer.TableKey)
 	t.BubbleType = make([]BubbleType, e.BubbleTypeLength())
 	for i := range e.BubbleTypeLength() {
 		t.BubbleType[i] = BubbleType(fbsutils.Convert(int32(e.BubbleType(i)), t.FlatBuffer.TableKey))
 	}
-	t.FavorEmoticonRewardId = fbsutils.Convert(e.FavorEmoticonRewardId(), t.FlatBuffer.TableKey)
 	t.BubbleDuration = make([]int64, e.BubbleDurationLength())
 	for i := range e.BubbleDurationLength() {
 		t.BubbleDuration[i] = fbsutils.Convert(e.BubbleDuration(i), t.FlatBuffer.TableKey)
 	}
 	t.FavorEmoticonRewardParcelType = ParcelType(fbsutils.Convert(int32(e.FavorEmoticonRewardParcelType()), t.FlatBuffer.TableKey))
+	t.FavorEmoticonRewardId = fbsutils.Convert(e.FavorEmoticonRewardId(), t.FlatBuffer.TableKey)
+	t.FavorEmoticonRewardAmount = fbsutils.Convert(e.FavorEmoticonRewardAmount(), t.FlatBuffer.TableKey)
 	t.CafeCharacterState = make([]string, e.CafeCharacterStateLength())
 	for i := range e.CafeCharacterStateLength() {
 		t.CafeCharacterState[i] = fbsutils.Convert(string(e.CafeCharacterState(i)), t.FlatBuffer.TableKey)
 	}
-	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
-	t.IgnoreIfUnobtainedEndDate = fbsutils.Convert(string(e.IgnoreIfUnobtainedEndDate()), t.FlatBuffer.TableKey)
 	return nil
 }
 

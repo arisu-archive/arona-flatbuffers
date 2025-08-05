@@ -1,9 +1,9 @@
 namespace FlatData;
 
 table AniEventData {
-    time: float;
     name: string;
+    time: float;
     int_param: int;
-    string_param: string;
     float_param: float;
+    string_param: string;
 }

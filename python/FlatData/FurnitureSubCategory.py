@@ -7,9 +7,9 @@ class FurnitureSubCategory(object):
     Closet = 1
     Chair = 2
     Bed = 3
-    Prop = 4
-    FurnitureEtc = 5
-    FurnitureSubCategory1 = 6
+    FurnitureEtc = 4
+    FurnitureSubCategory1 = 5
+    Prop = 6
     HomeAppliance = 7
     WallDecoration = 8
     FloorDecoration = 9

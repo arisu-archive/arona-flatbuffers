@@ -1,7 +1,7 @@
 namespace FlatData;
 
 table EquipmentLevelExcel {
-    total_exp: [long];
-    tier_level_exp: [long];
     level: int;
+    tier_level_exp: [long];
+    total_exp: [long];
 }

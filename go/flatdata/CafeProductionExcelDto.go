@@ -10,13 +10,13 @@ import (
 // CafeProductionExcelDto represents a FlatBuffers table
 type CafeProductionExcelDto struct {
 	fbsutils.FlatBuffer
+	CafeId                          int64      `json:"cafe_id"`
 	Rank                            int64      `json:"rank"`
-	ParcelStorageMax                int64      `json:"parcel_storage_max"`
+	CafeProductionParcelType        ParcelType `json:"cafe_production_parcel_type"`
 	CafeProductionParcelId          int64      `json:"cafe_production_parcel_id"`
 	ParcelProductionCoefficient     int64      `json:"parcel_production_coefficient"`
 	ParcelProductionCorrectionValue int64      `json:"parcel_production_correction_value"`
-	CafeProductionParcelType        ParcelType `json:"cafe_production_parcel_type"`
-	CafeId                          int64      `json:"cafe_id"`
+	ParcelStorageMax                int64      `json:"parcel_storage_max"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,13 +25,13 @@ func (t *CafeProductionExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeProduction"))
 	}
 	CafeProductionExcelStart(b)
+	CafeProductionExcelAddCafeId(b, fbsutils.Convert(t.CafeId, t.FlatBuffer.TableKey))
 	CafeProductionExcelAddRank(b, fbsutils.Convert(t.Rank, t.FlatBuffer.TableKey))
-	CafeProductionExcelAddParcelStorageMax(b, fbsutils.Convert(t.ParcelStorageMax, t.FlatBuffer.TableKey))
+	CafeProductionExcelAddCafeProductionParcelType(b, fbsutils.Convert(t.CafeProductionParcelType, t.FlatBuffer.TableKey))
 	CafeProductionExcelAddCafeProductionParcelId(b, fbsutils.Convert(t.CafeProductionParcelId, t.FlatBuffer.TableKey))
 	CafeProductionExcelAddParcelProductionCoefficient(b, fbsutils.Convert(t.ParcelProductionCoefficient, t.FlatBuffer.TableKey))
 	CafeProductionExcelAddParcelProductionCorrectionValue(b, fbsutils.Convert(t.ParcelProductionCorrectionValue, t.FlatBuffer.TableKey))
-	CafeProductionExcelAddCafeProductionParcelType(b, fbsutils.Convert(t.CafeProductionParcelType, t.FlatBuffer.TableKey))
-	CafeProductionExcelAddCafeId(b, fbsutils.Convert(t.CafeId, t.FlatBuffer.TableKey))
+	CafeProductionExcelAddParcelStorageMax(b, fbsutils.Convert(t.ParcelStorageMax, t.FlatBuffer.TableKey))
 	return CafeProductionExcelEnd(b)
 }
 
@@ -47,13 +47,13 @@ func (t *CafeProductionExcelDto) UnmarshalMessage(e *CafeProductionExcel) error 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeProduction"))
 	}
+	t.CafeId = fbsutils.Convert(e.CafeId(), t.FlatBuffer.TableKey)
 	t.Rank = fbsutils.Convert(e.Rank(), t.FlatBuffer.TableKey)
-	t.ParcelStorageMax = fbsutils.Convert(e.ParcelStorageMax(), t.FlatBuffer.TableKey)
+	t.CafeProductionParcelType = ParcelType(fbsutils.Convert(int32(e.CafeProductionParcelType()), t.FlatBuffer.TableKey))
 	t.CafeProductionParcelId = fbsutils.Convert(e.CafeProductionParcelId(), t.FlatBuffer.TableKey)
 	t.ParcelProductionCoefficient = fbsutils.Convert(e.ParcelProductionCoefficient(), t.FlatBuffer.TableKey)
 	t.ParcelProductionCorrectionValue = fbsutils.Convert(e.ParcelProductionCorrectionValue(), t.FlatBuffer.TableKey)
-	t.CafeProductionParcelType = ParcelType(fbsutils.Convert(int32(e.CafeProductionParcelType()), t.FlatBuffer.TableKey))
-	t.CafeId = fbsutils.Convert(e.CafeId(), t.FlatBuffer.TableKey)
+	t.ParcelStorageMax = fbsutils.Convert(e.ParcelStorageMax(), t.FlatBuffer.TableKey)
 	return nil
 }
 

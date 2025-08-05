@@ -10,10 +10,10 @@ import (
 // ConquestErosionUnitExcelDto represents a FlatBuffers table
 type ConquestErosionUnitExcelDto struct {
 	fbsutils.FlatBuffer
+	TilePrefabId                   int64   `json:"tile_prefab_id"`
+	MassErosionUnitId              int64   `json:"mass_erosion_unit_id"`
 	MassErosionUnitRotationY       float32 `json:"mass_erosion_unit_rotation_y"`
 	IndividualErosionUnitId        int64   `json:"individual_erosion_unit_id"`
-	MassErosionUnitId              int64   `json:"mass_erosion_unit_id"`
-	TilePrefabId                   int64   `json:"tile_prefab_id"`
 	IndividualErosionUnitRotationY float32 `json:"individual_erosion_unit_rotation_y"`
 }
 
@@ -23,10 +23,10 @@ func (t *ConquestErosionUnitExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestErosionUnit"))
 	}
 	ConquestErosionUnitExcelStart(b)
+	ConquestErosionUnitExcelAddTilePrefabId(b, fbsutils.Convert(t.TilePrefabId, t.FlatBuffer.TableKey))
+	ConquestErosionUnitExcelAddMassErosionUnitId(b, fbsutils.Convert(t.MassErosionUnitId, t.FlatBuffer.TableKey))
 	ConquestErosionUnitExcelAddMassErosionUnitRotationY(b, fbsutils.Convert(t.MassErosionUnitRotationY, t.FlatBuffer.TableKey))
 	ConquestErosionUnitExcelAddIndividualErosionUnitId(b, fbsutils.Convert(t.IndividualErosionUnitId, t.FlatBuffer.TableKey))
-	ConquestErosionUnitExcelAddMassErosionUnitId(b, fbsutils.Convert(t.MassErosionUnitId, t.FlatBuffer.TableKey))
-	ConquestErosionUnitExcelAddTilePrefabId(b, fbsutils.Convert(t.TilePrefabId, t.FlatBuffer.TableKey))
 	ConquestErosionUnitExcelAddIndividualErosionUnitRotationY(b, fbsutils.Convert(t.IndividualErosionUnitRotationY, t.FlatBuffer.TableKey))
 	return ConquestErosionUnitExcelEnd(b)
 }
@@ -43,10 +43,10 @@ func (t *ConquestErosionUnitExcelDto) UnmarshalMessage(e *ConquestErosionUnitExc
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConquestErosionUnit"))
 	}
+	t.TilePrefabId = fbsutils.Convert(e.TilePrefabId(), t.FlatBuffer.TableKey)
+	t.MassErosionUnitId = fbsutils.Convert(e.MassErosionUnitId(), t.FlatBuffer.TableKey)
 	t.MassErosionUnitRotationY = fbsutils.Convert(e.MassErosionUnitRotationY(), t.FlatBuffer.TableKey)
 	t.IndividualErosionUnitId = fbsutils.Convert(e.IndividualErosionUnitId(), t.FlatBuffer.TableKey)
-	t.MassErosionUnitId = fbsutils.Convert(e.MassErosionUnitId(), t.FlatBuffer.TableKey)
-	t.TilePrefabId = fbsutils.Convert(e.TilePrefabId(), t.FlatBuffer.TableKey)
 	t.IndividualErosionUnitRotationY = fbsutils.Convert(e.IndividualErosionUnitRotationY(), t.FlatBuffer.TableKey)
 	return nil
 }

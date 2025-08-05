@@ -1,9 +1,0 @@
-include "MinigameRoadExcel.fbs";
-
-namespace FlatData;
-
-table MinigameRoadExcelTable {
-    data_list: [MinigameRoadExcel];
-}
-
-root_type MinigameRoadExcelTable;

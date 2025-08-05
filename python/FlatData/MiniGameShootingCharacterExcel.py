@@ -25,92 +25,43 @@ class MiniGameShootingCharacterExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MiniGameShootingCharacterExcel
-    def DeathSkillData(self):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # MiniGameShootingCharacterExcel
-    def IgnoreObstacleCheck(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # MiniGameShootingCharacterExcel
     def SpineResourceName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MiniGameShootingCharacterExcel
-    def ShotTime(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameShootingCharacterExcel
-    def CriticalDamageRate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameShootingCharacterExcel
-    def CriticalRate(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameShootingCharacterExcel
-    def Scale(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+    def BodyRadius(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # MiniGameShootingCharacterExcel
-    def MoveSpeed(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+    def ModelPrefabName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # MiniGameShootingCharacterExcel
-    def CharacterVoiceGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+    def NormalAttackSkillData(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameShootingCharacterExcel
-    def UniqueId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameShootingCharacterExcel
-    def DefensePower(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameShootingCharacterExcel
-    def IsBoss(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # MiniGameShootingCharacterExcel
     def PublicSkillData(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -118,121 +69,170 @@ class MiniGameShootingCharacterExcel(object):
 
     # MiniGameShootingCharacterExcel
     def PublicSkillDataLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # MiniGameShootingCharacterExcel
     def PublicSkillDataIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         return o == 0
 
     # MiniGameShootingCharacterExcel
-    def ModelPrefabName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+    def DeathSkillData(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MiniGameShootingCharacterExcel
     def MaxHp(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameShootingCharacterExcel
     def AttackPower(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameShootingCharacterExcel
-    def NormalAttackSkillData(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+    def DefensePower(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameShootingCharacterExcel
+    def CriticalRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameShootingCharacterExcel
+    def CriticalDamageRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # MiniGameShootingCharacterExcel
     def AttackRange(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameShootingCharacterExcel
-    def BodyRadius(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+    def MoveSpeed(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameShootingCharacterExcel
+    def ShotTime(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameShootingCharacterExcel
+    def IsBoss(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # MiniGameShootingCharacterExcel
+    def Scale(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
+    # MiniGameShootingCharacterExcel
+    def IgnoreObstacleCheck(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # MiniGameShootingCharacterExcel
+    def CharacterVoiceGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
 def MiniGameShootingCharacterExcelStart(builder): builder.StartObject(19)
 def Start(builder):
     return MiniGameShootingCharacterExcelStart(builder)
-def MiniGameShootingCharacterExcelAddDeathSkillData(builder, deathSkillData): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(deathSkillData), 0)
-def AddDeathSkillData(builder, deathSkillData):
-    return MiniGameShootingCharacterExcelAddDeathSkillData(builder, deathSkillData)
-def MiniGameShootingCharacterExcelAddIgnoreObstacleCheck(builder, ignoreObstacleCheck): builder.PrependBoolSlot(1, ignoreObstacleCheck, 0)
-def AddIgnoreObstacleCheck(builder, ignoreObstacleCheck):
-    return MiniGameShootingCharacterExcelAddIgnoreObstacleCheck(builder, ignoreObstacleCheck)
-def MiniGameShootingCharacterExcelAddSpineResourceName(builder, spineResourceName): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(spineResourceName), 0)
-def AddSpineResourceName(builder, spineResourceName):
-    return MiniGameShootingCharacterExcelAddSpineResourceName(builder, spineResourceName)
-def MiniGameShootingCharacterExcelAddShotTime(builder, shotTime): builder.PrependInt64Slot(3, shotTime, 0)
-def AddShotTime(builder, shotTime):
-    return MiniGameShootingCharacterExcelAddShotTime(builder, shotTime)
-def MiniGameShootingCharacterExcelAddCriticalDamageRate(builder, criticalDamageRate): builder.PrependInt64Slot(4, criticalDamageRate, 0)
-def AddCriticalDamageRate(builder, criticalDamageRate):
-    return MiniGameShootingCharacterExcelAddCriticalDamageRate(builder, criticalDamageRate)
-def MiniGameShootingCharacterExcelAddCriticalRate(builder, criticalRate): builder.PrependInt64Slot(5, criticalRate, 0)
-def AddCriticalRate(builder, criticalRate):
-    return MiniGameShootingCharacterExcelAddCriticalRate(builder, criticalRate)
-def MiniGameShootingCharacterExcelAddScale(builder, scale): builder.PrependFloat32Slot(6, scale, 0.0)
-def AddScale(builder, scale):
-    return MiniGameShootingCharacterExcelAddScale(builder, scale)
-def MiniGameShootingCharacterExcelAddMoveSpeed(builder, moveSpeed): builder.PrependInt64Slot(7, moveSpeed, 0)
-def AddMoveSpeed(builder, moveSpeed):
-    return MiniGameShootingCharacterExcelAddMoveSpeed(builder, moveSpeed)
-def MiniGameShootingCharacterExcelAddCharacterVoiceGroupId(builder, characterVoiceGroupId): builder.PrependInt64Slot(8, characterVoiceGroupId, 0)
-def AddCharacterVoiceGroupId(builder, characterVoiceGroupId):
-    return MiniGameShootingCharacterExcelAddCharacterVoiceGroupId(builder, characterVoiceGroupId)
-def MiniGameShootingCharacterExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(9, uniqueId, 0)
+def MiniGameShootingCharacterExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(0, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
     return MiniGameShootingCharacterExcelAddUniqueId(builder, uniqueId)
-def MiniGameShootingCharacterExcelAddDefensePower(builder, defensePower): builder.PrependInt64Slot(10, defensePower, 0)
-def AddDefensePower(builder, defensePower):
-    return MiniGameShootingCharacterExcelAddDefensePower(builder, defensePower)
-def MiniGameShootingCharacterExcelAddIsBoss(builder, isBoss): builder.PrependBoolSlot(11, isBoss, 0)
-def AddIsBoss(builder, isBoss):
-    return MiniGameShootingCharacterExcelAddIsBoss(builder, isBoss)
-def MiniGameShootingCharacterExcelAddPublicSkillData(builder, publicSkillData): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(publicSkillData), 0)
+def MiniGameShootingCharacterExcelAddSpineResourceName(builder, spineResourceName): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(spineResourceName), 0)
+def AddSpineResourceName(builder, spineResourceName):
+    return MiniGameShootingCharacterExcelAddSpineResourceName(builder, spineResourceName)
+def MiniGameShootingCharacterExcelAddBodyRadius(builder, bodyRadius): builder.PrependFloat32Slot(2, bodyRadius, 0.0)
+def AddBodyRadius(builder, bodyRadius):
+    return MiniGameShootingCharacterExcelAddBodyRadius(builder, bodyRadius)
+def MiniGameShootingCharacterExcelAddModelPrefabName(builder, modelPrefabName): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(modelPrefabName), 0)
+def AddModelPrefabName(builder, modelPrefabName):
+    return MiniGameShootingCharacterExcelAddModelPrefabName(builder, modelPrefabName)
+def MiniGameShootingCharacterExcelAddNormalAttackSkillData(builder, normalAttackSkillData): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(normalAttackSkillData), 0)
+def AddNormalAttackSkillData(builder, normalAttackSkillData):
+    return MiniGameShootingCharacterExcelAddNormalAttackSkillData(builder, normalAttackSkillData)
+def MiniGameShootingCharacterExcelAddPublicSkillData(builder, publicSkillData): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(publicSkillData), 0)
 def AddPublicSkillData(builder, publicSkillData):
     return MiniGameShootingCharacterExcelAddPublicSkillData(builder, publicSkillData)
 def MiniGameShootingCharacterExcelStartPublicSkillDataVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartPublicSkillDataVector(builder, numElems):
     return MiniGameShootingCharacterExcelStartPublicSkillDataVector(builder, numElems)
-def MiniGameShootingCharacterExcelAddModelPrefabName(builder, modelPrefabName): builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(modelPrefabName), 0)
-def AddModelPrefabName(builder, modelPrefabName):
-    return MiniGameShootingCharacterExcelAddModelPrefabName(builder, modelPrefabName)
-def MiniGameShootingCharacterExcelAddMaxHp(builder, maxHp): builder.PrependInt64Slot(14, maxHp, 0)
+def MiniGameShootingCharacterExcelAddDeathSkillData(builder, deathSkillData): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(deathSkillData), 0)
+def AddDeathSkillData(builder, deathSkillData):
+    return MiniGameShootingCharacterExcelAddDeathSkillData(builder, deathSkillData)
+def MiniGameShootingCharacterExcelAddMaxHp(builder, maxHp): builder.PrependInt64Slot(7, maxHp, 0)
 def AddMaxHp(builder, maxHp):
     return MiniGameShootingCharacterExcelAddMaxHp(builder, maxHp)
-def MiniGameShootingCharacterExcelAddAttackPower(builder, attackPower): builder.PrependInt64Slot(15, attackPower, 0)
+def MiniGameShootingCharacterExcelAddAttackPower(builder, attackPower): builder.PrependInt64Slot(8, attackPower, 0)
 def AddAttackPower(builder, attackPower):
     return MiniGameShootingCharacterExcelAddAttackPower(builder, attackPower)
-def MiniGameShootingCharacterExcelAddNormalAttackSkillData(builder, normalAttackSkillData): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(normalAttackSkillData), 0)
-def AddNormalAttackSkillData(builder, normalAttackSkillData):
-    return MiniGameShootingCharacterExcelAddNormalAttackSkillData(builder, normalAttackSkillData)
-def MiniGameShootingCharacterExcelAddAttackRange(builder, attackRange): builder.PrependInt64Slot(17, attackRange, 0)
+def MiniGameShootingCharacterExcelAddDefensePower(builder, defensePower): builder.PrependInt64Slot(9, defensePower, 0)
+def AddDefensePower(builder, defensePower):
+    return MiniGameShootingCharacterExcelAddDefensePower(builder, defensePower)
+def MiniGameShootingCharacterExcelAddCriticalRate(builder, criticalRate): builder.PrependInt64Slot(10, criticalRate, 0)
+def AddCriticalRate(builder, criticalRate):
+    return MiniGameShootingCharacterExcelAddCriticalRate(builder, criticalRate)
+def MiniGameShootingCharacterExcelAddCriticalDamageRate(builder, criticalDamageRate): builder.PrependInt64Slot(11, criticalDamageRate, 0)
+def AddCriticalDamageRate(builder, criticalDamageRate):
+    return MiniGameShootingCharacterExcelAddCriticalDamageRate(builder, criticalDamageRate)
+def MiniGameShootingCharacterExcelAddAttackRange(builder, attackRange): builder.PrependInt64Slot(12, attackRange, 0)
 def AddAttackRange(builder, attackRange):
     return MiniGameShootingCharacterExcelAddAttackRange(builder, attackRange)
-def MiniGameShootingCharacterExcelAddBodyRadius(builder, bodyRadius): builder.PrependFloat32Slot(18, bodyRadius, 0.0)
-def AddBodyRadius(builder, bodyRadius):
-    return MiniGameShootingCharacterExcelAddBodyRadius(builder, bodyRadius)
+def MiniGameShootingCharacterExcelAddMoveSpeed(builder, moveSpeed): builder.PrependInt64Slot(13, moveSpeed, 0)
+def AddMoveSpeed(builder, moveSpeed):
+    return MiniGameShootingCharacterExcelAddMoveSpeed(builder, moveSpeed)
+def MiniGameShootingCharacterExcelAddShotTime(builder, shotTime): builder.PrependInt64Slot(14, shotTime, 0)
+def AddShotTime(builder, shotTime):
+    return MiniGameShootingCharacterExcelAddShotTime(builder, shotTime)
+def MiniGameShootingCharacterExcelAddIsBoss(builder, isBoss): builder.PrependBoolSlot(15, isBoss, 0)
+def AddIsBoss(builder, isBoss):
+    return MiniGameShootingCharacterExcelAddIsBoss(builder, isBoss)
+def MiniGameShootingCharacterExcelAddScale(builder, scale): builder.PrependFloat32Slot(16, scale, 0.0)
+def AddScale(builder, scale):
+    return MiniGameShootingCharacterExcelAddScale(builder, scale)
+def MiniGameShootingCharacterExcelAddIgnoreObstacleCheck(builder, ignoreObstacleCheck): builder.PrependBoolSlot(17, ignoreObstacleCheck, 0)
+def AddIgnoreObstacleCheck(builder, ignoreObstacleCheck):
+    return MiniGameShootingCharacterExcelAddIgnoreObstacleCheck(builder, ignoreObstacleCheck)
+def MiniGameShootingCharacterExcelAddCharacterVoiceGroupId(builder, characterVoiceGroupId): builder.PrependInt64Slot(18, characterVoiceGroupId, 0)
+def AddCharacterVoiceGroupId(builder, characterVoiceGroupId):
+    return MiniGameShootingCharacterExcelAddCharacterVoiceGroupId(builder, characterVoiceGroupId)
 def MiniGameShootingCharacterExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameShootingCharacterExcelEnd(builder)

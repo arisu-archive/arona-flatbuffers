@@ -33,7 +33,7 @@ func (rcv *CharacterStatLimitExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterStatLimitExcel) StatMaxValue() int64 {
+func (rcv *CharacterStatLimitExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,20 +41,20 @@ func (rcv *CharacterStatLimitExcel) StatMaxValue() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatLimitExcel) MutateStatMaxValue(n int64) bool {
+func (rcv *CharacterStatLimitExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *CharacterStatLimitExcel) StatRatioMinValue() int64 {
+func (rcv *CharacterStatLimitExcel) TacticEntityType() TacticEntityType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return TacticEntityType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *CharacterStatLimitExcel) MutateStatRatioMinValue(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+func (rcv *CharacterStatLimitExcel) MutateTacticEntityType(n TacticEntityType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
 func (rcv *CharacterStatLimitExcel) StatType() StatType {
@@ -69,7 +69,7 @@ func (rcv *CharacterStatLimitExcel) MutateStatType(n StatType) bool {
 	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *CharacterStatLimitExcel) StatRatioMaxValue() int64 {
+func (rcv *CharacterStatLimitExcel) StatMinValue() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,23 +77,23 @@ func (rcv *CharacterStatLimitExcel) StatRatioMaxValue() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatLimitExcel) MutateStatRatioMaxValue(n int64) bool {
+func (rcv *CharacterStatLimitExcel) MutateStatMinValue(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *CharacterStatLimitExcel) TacticEntityType() TacticEntityType {
+func (rcv *CharacterStatLimitExcel) StatMaxValue() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return TacticEntityType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterStatLimitExcel) MutateTacticEntityType(n TacticEntityType) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
+func (rcv *CharacterStatLimitExcel) MutateStatMaxValue(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *CharacterStatLimitExcel) StatMinValue() int64 {
+func (rcv *CharacterStatLimitExcel) StatRatioMinValue() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -101,11 +101,11 @@ func (rcv *CharacterStatLimitExcel) StatMinValue() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatLimitExcel) MutateStatMinValue(n int64) bool {
+func (rcv *CharacterStatLimitExcel) MutateStatRatioMinValue(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
-func (rcv *CharacterStatLimitExcel) Id() int64 {
+func (rcv *CharacterStatLimitExcel) StatRatioMaxValue() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -113,33 +113,33 @@ func (rcv *CharacterStatLimitExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *CharacterStatLimitExcel) MutateId(n int64) bool {
+func (rcv *CharacterStatLimitExcel) MutateStatRatioMaxValue(n int64) bool {
 	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func CharacterStatLimitExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func CharacterStatLimitExcelAddStatMaxValue(builder *flatbuffers.Builder, statMaxValue int64) {
-	builder.PrependInt64Slot(0, statMaxValue, 0)
+func CharacterStatLimitExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(0, id, 0)
 }
-func CharacterStatLimitExcelAddStatRatioMinValue(builder *flatbuffers.Builder, statRatioMinValue int64) {
-	builder.PrependInt64Slot(1, statRatioMinValue, 0)
+func CharacterStatLimitExcelAddTacticEntityType(builder *flatbuffers.Builder, tacticEntityType TacticEntityType) {
+	builder.PrependInt32Slot(1, int32(tacticEntityType), 0)
 }
 func CharacterStatLimitExcelAddStatType(builder *flatbuffers.Builder, statType StatType) {
 	builder.PrependInt32Slot(2, int32(statType), 0)
 }
-func CharacterStatLimitExcelAddStatRatioMaxValue(builder *flatbuffers.Builder, statRatioMaxValue int64) {
-	builder.PrependInt64Slot(3, statRatioMaxValue, 0)
-}
-func CharacterStatLimitExcelAddTacticEntityType(builder *flatbuffers.Builder, tacticEntityType TacticEntityType) {
-	builder.PrependInt32Slot(4, int32(tacticEntityType), 0)
-}
 func CharacterStatLimitExcelAddStatMinValue(builder *flatbuffers.Builder, statMinValue int64) {
-	builder.PrependInt64Slot(5, statMinValue, 0)
+	builder.PrependInt64Slot(3, statMinValue, 0)
 }
-func CharacterStatLimitExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(6, id, 0)
+func CharacterStatLimitExcelAddStatMaxValue(builder *flatbuffers.Builder, statMaxValue int64) {
+	builder.PrependInt64Slot(4, statMaxValue, 0)
+}
+func CharacterStatLimitExcelAddStatRatioMinValue(builder *flatbuffers.Builder, statRatioMinValue int64) {
+	builder.PrependInt64Slot(5, statRatioMinValue, 0)
+}
+func CharacterStatLimitExcelAddStatRatioMaxValue(builder *flatbuffers.Builder, statRatioMaxValue int64) {
+	builder.PrependInt64Slot(6, statRatioMaxValue, 0)
 }
 func CharacterStatLimitExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

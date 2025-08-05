@@ -53,16 +53,12 @@ func (rcv *ArenaSeasonExcel) SeasonStartDate() []byte {
 	return nil
 }
 
-func (rcv *ArenaSeasonExcel) PrevSeasonId() int64 {
+func (rcv *ArenaSeasonExcel) SeasonEndDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *ArenaSeasonExcel) MutatePrevSeasonId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return nil
 }
 
 func (rcv *ArenaSeasonExcel) SeasonGroupLimit() int64 {
@@ -77,12 +73,16 @@ func (rcv *ArenaSeasonExcel) MutateSeasonGroupLimit(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *ArenaSeasonExcel) SeasonEndDate() []byte {
+func (rcv *ArenaSeasonExcel) PrevSeasonId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *ArenaSeasonExcel) MutatePrevSeasonId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func ArenaSeasonExcelStart(builder *flatbuffers.Builder) {
@@ -94,14 +94,14 @@ func ArenaSeasonExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
 func ArenaSeasonExcelAddSeasonStartDate(builder *flatbuffers.Builder, seasonStartDate flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(seasonStartDate), 0)
 }
-func ArenaSeasonExcelAddPrevSeasonId(builder *flatbuffers.Builder, prevSeasonId int64) {
-	builder.PrependInt64Slot(2, prevSeasonId, 0)
+func ArenaSeasonExcelAddSeasonEndDate(builder *flatbuffers.Builder, seasonEndDate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(seasonEndDate), 0)
 }
 func ArenaSeasonExcelAddSeasonGroupLimit(builder *flatbuffers.Builder, seasonGroupLimit int64) {
 	builder.PrependInt64Slot(3, seasonGroupLimit, 0)
 }
-func ArenaSeasonExcelAddSeasonEndDate(builder *flatbuffers.Builder, seasonEndDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(seasonEndDate), 0)
+func ArenaSeasonExcelAddPrevSeasonId(builder *flatbuffers.Builder, prevSeasonId int64) {
+	builder.PrependInt64Slot(4, prevSeasonId, 0)
 }
 func ArenaSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

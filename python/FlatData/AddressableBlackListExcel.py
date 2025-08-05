@@ -25,24 +25,11 @@ class AddressableBlackListExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # AddressableBlackListExcel
-    def ResourcePath(self, j):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
-        return ""
-
-    # AddressableBlackListExcel
-    def ResourcePathLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.VectorLen(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # AddressableBlackListExcel
-    def ResourcePathIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        return o == 0
 
     # AddressableBlackListExcel
     def FolderPath(self, j):
@@ -65,30 +52,43 @@ class AddressableBlackListExcel(object):
         return o == 0
 
     # AddressableBlackListExcel
-    def Id(self):
+    def ResourcePath(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # AddressableBlackListExcel
+    def ResourcePathLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.VectorLen(o)
         return 0
+
+    # AddressableBlackListExcel
+    def ResourcePathIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        return o == 0
 
 def AddressableBlackListExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return AddressableBlackListExcelStart(builder)
-def AddressableBlackListExcelAddResourcePath(builder, resourcePath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(resourcePath), 0)
-def AddResourcePath(builder, resourcePath):
-    return AddressableBlackListExcelAddResourcePath(builder, resourcePath)
-def AddressableBlackListExcelStartResourcePathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
-def StartResourcePathVector(builder, numElems):
-    return AddressableBlackListExcelStartResourcePathVector(builder, numElems)
+def AddressableBlackListExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+def AddId(builder, id):
+    return AddressableBlackListExcelAddId(builder, id)
 def AddressableBlackListExcelAddFolderPath(builder, folderPath): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(folderPath), 0)
 def AddFolderPath(builder, folderPath):
     return AddressableBlackListExcelAddFolderPath(builder, folderPath)
 def AddressableBlackListExcelStartFolderPathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartFolderPathVector(builder, numElems):
     return AddressableBlackListExcelStartFolderPathVector(builder, numElems)
-def AddressableBlackListExcelAddId(builder, id): builder.PrependInt64Slot(2, id, 0)
-def AddId(builder, id):
-    return AddressableBlackListExcelAddId(builder, id)
+def AddressableBlackListExcelAddResourcePath(builder, resourcePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(resourcePath), 0)
+def AddResourcePath(builder, resourcePath):
+    return AddressableBlackListExcelAddResourcePath(builder, resourcePath)
+def AddressableBlackListExcelStartResourcePathVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+def StartResourcePathVector(builder, numElems):
+    return AddressableBlackListExcelStartResourcePathVector(builder, numElems)
 def AddressableBlackListExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return AddressableBlackListExcelEnd(builder)

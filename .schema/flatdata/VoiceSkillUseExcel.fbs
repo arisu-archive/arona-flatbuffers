@@ -1,6 +1,6 @@
 namespace FlatData;
 
 table VoiceSkillUseExcel {
-    voice_hash: [uint];
     name: string;
+    voice_hash: [uint];
 }

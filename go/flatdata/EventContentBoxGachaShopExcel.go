@@ -57,7 +57,7 @@ func (rcv *EventContentBoxGachaShopExcel) MutateGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentBoxGachaShopExcel) Round() int64 {
+func (rcv *EventContentBoxGachaShopExcel) GroupElementAmount() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *EventContentBoxGachaShopExcel) Round() int64 {
 	return 0
 }
 
-func (rcv *EventContentBoxGachaShopExcel) MutateRound(n int64) bool {
+func (rcv *EventContentBoxGachaShopExcel) MutateGroupElementAmount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *EventContentBoxGachaShopExcel) GroupElementAmount() int64 {
+func (rcv *EventContentBoxGachaShopExcel) Round() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,24 +77,12 @@ func (rcv *EventContentBoxGachaShopExcel) GroupElementAmount() int64 {
 	return 0
 }
 
-func (rcv *EventContentBoxGachaShopExcel) MutateGroupElementAmount(n int64) bool {
+func (rcv *EventContentBoxGachaShopExcel) MutateRound(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *EventContentBoxGachaShopExcel) DisplayOrder() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentBoxGachaShopExcel) MutateDisplayOrder(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
 func (rcv *EventContentBoxGachaShopExcel) IsLegacy() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -102,11 +90,11 @@ func (rcv *EventContentBoxGachaShopExcel) IsLegacy() bool {
 }
 
 func (rcv *EventContentBoxGachaShopExcel) MutateIsLegacy(n bool) bool {
-	return rcv._tab.MutateBoolSlot(14, n)
+	return rcv._tab.MutateBoolSlot(12, n)
 }
 
 func (rcv *EventContentBoxGachaShopExcel) IsPrize() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -114,11 +102,11 @@ func (rcv *EventContentBoxGachaShopExcel) IsPrize() bool {
 }
 
 func (rcv *EventContentBoxGachaShopExcel) MutateIsPrize(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
+	return rcv._tab.MutateBoolSlot(14, n)
 }
 
 func (rcv *EventContentBoxGachaShopExcel) GoodsId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -127,7 +115,7 @@ func (rcv *EventContentBoxGachaShopExcel) GoodsId(j int) int64 {
 }
 
 func (rcv *EventContentBoxGachaShopExcel) GoodsIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -135,12 +123,24 @@ func (rcv *EventContentBoxGachaShopExcel) GoodsIdLength() int {
 }
 
 func (rcv *EventContentBoxGachaShopExcel) MutateGoodsId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
+}
+
+func (rcv *EventContentBoxGachaShopExcel) DisplayOrder() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentBoxGachaShopExcel) MutateDisplayOrder(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
 }
 
 func EventContentBoxGachaShopExcelStart(builder *flatbuffers.Builder) {
@@ -152,26 +152,26 @@ func EventContentBoxGachaShopExcelAddEventContentId(builder *flatbuffers.Builder
 func EventContentBoxGachaShopExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
 	builder.PrependInt64Slot(1, groupId, 0)
 }
-func EventContentBoxGachaShopExcelAddRound(builder *flatbuffers.Builder, round int64) {
-	builder.PrependInt64Slot(2, round, 0)
-}
 func EventContentBoxGachaShopExcelAddGroupElementAmount(builder *flatbuffers.Builder, groupElementAmount int64) {
-	builder.PrependInt64Slot(3, groupElementAmount, 0)
+	builder.PrependInt64Slot(2, groupElementAmount, 0)
 }
-func EventContentBoxGachaShopExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
-	builder.PrependInt64Slot(4, displayOrder, 0)
+func EventContentBoxGachaShopExcelAddRound(builder *flatbuffers.Builder, round int64) {
+	builder.PrependInt64Slot(3, round, 0)
 }
 func EventContentBoxGachaShopExcelAddIsLegacy(builder *flatbuffers.Builder, isLegacy bool) {
-	builder.PrependBoolSlot(5, isLegacy, false)
+	builder.PrependBoolSlot(4, isLegacy, false)
 }
 func EventContentBoxGachaShopExcelAddIsPrize(builder *flatbuffers.Builder, isPrize bool) {
-	builder.PrependBoolSlot(6, isPrize, false)
+	builder.PrependBoolSlot(5, isPrize, false)
 }
 func EventContentBoxGachaShopExcelAddGoodsId(builder *flatbuffers.Builder, goodsId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(goodsId), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(goodsId), 0)
 }
 func EventContentBoxGachaShopExcelStartGoodsIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
+}
+func EventContentBoxGachaShopExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
+	builder.PrependInt64Slot(7, displayOrder, 0)
 }
 func EventContentBoxGachaShopExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

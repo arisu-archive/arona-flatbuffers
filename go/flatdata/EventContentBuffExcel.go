@@ -33,29 +33,28 @@ func (rcv *EventContentBuffExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentBuffExcel) EnumTypeValue(j int) []byte {
+func (rcv *EventContentBuffExcel) EventContentBuffId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *EventContentBuffExcel) EnumTypeValueLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EventContentBuffExcel) BuffDescriptionLocalizeCodeId() []byte {
+func (rcv *EventContentBuffExcel) MutateEventContentBuffId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
+}
+
+func (rcv *EventContentBuffExcel) IsBuff() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return nil
+	return false
+}
+
+func (rcv *EventContentBuffExcel) MutateIsBuff(n bool) bool {
+	return rcv._tab.MutateBoolSlot(6, n)
 }
 
 func (rcv *EventContentBuffExcel) CharacterTag() Tag {
@@ -70,24 +69,33 @@ func (rcv *EventContentBuffExcel) MutateCharacterTag(n Tag) bool {
 	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
-func (rcv *EventContentBuffExcel) SpriteName() []byte {
+func (rcv *EventContentBuffExcel) EnumType() EventContentBuffFindRule {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return EventContentBuffFindRule(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EventContentBuffExcel) MutateEnumType(n EventContentBuffFindRule) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
+}
+
+func (rcv *EventContentBuffExcel) EnumTypeValue(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
 	}
 	return nil
 }
 
-func (rcv *EventContentBuffExcel) IsBuff() bool {
+func (rcv *EventContentBuffExcel) EnumTypeValueLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.VectorLen(o)
 	}
-	return false
-}
-
-func (rcv *EventContentBuffExcel) MutateIsBuff(n bool) bool {
-	return rcv._tab.MutateBoolSlot(12, n)
+	return 0
 }
 
 func (rcv *EventContentBuffExcel) SkillGroupId() []byte {
@@ -98,31 +106,23 @@ func (rcv *EventContentBuffExcel) SkillGroupId() []byte {
 	return nil
 }
 
-func (rcv *EventContentBuffExcel) EnumType() EventContentBuffFindRule {
+func (rcv *EventContentBuffExcel) IconPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return EventContentBuffFindRule(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *EventContentBuffExcel) MutateEnumType(n EventContentBuffFindRule) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
-}
-
-func (rcv *EventContentBuffExcel) EventContentBuffId() int64 {
+func (rcv *EventContentBuffExcel) SpriteName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *EventContentBuffExcel) MutateEventContentBuffId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *EventContentBuffExcel) IconPath() []byte {
+func (rcv *EventContentBuffExcel) BuffDescriptionLocalizeCodeId() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -133,35 +133,35 @@ func (rcv *EventContentBuffExcel) IconPath() []byte {
 func EventContentBuffExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(9)
 }
-func EventContentBuffExcelAddEnumTypeValue(builder *flatbuffers.Builder, enumTypeValue flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(enumTypeValue), 0)
+func EventContentBuffExcelAddEventContentBuffId(builder *flatbuffers.Builder, eventContentBuffId int64) {
+	builder.PrependInt64Slot(0, eventContentBuffId, 0)
 }
-func EventContentBuffExcelStartEnumTypeValueVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func EventContentBuffExcelAddBuffDescriptionLocalizeCodeId(builder *flatbuffers.Builder, buffDescriptionLocalizeCodeId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(buffDescriptionLocalizeCodeId), 0)
+func EventContentBuffExcelAddIsBuff(builder *flatbuffers.Builder, isBuff bool) {
+	builder.PrependBoolSlot(1, isBuff, false)
 }
 func EventContentBuffExcelAddCharacterTag(builder *flatbuffers.Builder, characterTag Tag) {
 	builder.PrependInt32Slot(2, int32(characterTag), 0)
 }
-func EventContentBuffExcelAddSpriteName(builder *flatbuffers.Builder, spriteName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(spriteName), 0)
+func EventContentBuffExcelAddEnumType(builder *flatbuffers.Builder, enumType EventContentBuffFindRule) {
+	builder.PrependInt32Slot(3, int32(enumType), 0)
 }
-func EventContentBuffExcelAddIsBuff(builder *flatbuffers.Builder, isBuff bool) {
-	builder.PrependBoolSlot(4, isBuff, false)
+func EventContentBuffExcelAddEnumTypeValue(builder *flatbuffers.Builder, enumTypeValue flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(enumTypeValue), 0)
+}
+func EventContentBuffExcelStartEnumTypeValueVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func EventContentBuffExcelAddSkillGroupId(builder *flatbuffers.Builder, skillGroupId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(skillGroupId), 0)
 }
-func EventContentBuffExcelAddEnumType(builder *flatbuffers.Builder, enumType EventContentBuffFindRule) {
-	builder.PrependInt32Slot(6, int32(enumType), 0)
-}
-func EventContentBuffExcelAddEventContentBuffId(builder *flatbuffers.Builder, eventContentBuffId int64) {
-	builder.PrependInt64Slot(7, eventContentBuffId, 0)
-}
 func EventContentBuffExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(iconPath), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(iconPath), 0)
+}
+func EventContentBuffExcelAddSpriteName(builder *flatbuffers.Builder, spriteName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(spriteName), 0)
+}
+func EventContentBuffExcelAddBuffDescriptionLocalizeCodeId(builder *flatbuffers.Builder, buffDescriptionLocalizeCodeId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(buffDescriptionLocalizeCodeId), 0)
 }
 func EventContentBuffExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

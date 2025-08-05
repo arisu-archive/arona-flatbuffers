@@ -1,10 +1,10 @@
 namespace FlatData;
 
 table ConquestPlayGuideExcel {
-    guide_image_path: string;
     id: long;
-    guide_text: string;
     event_content_id: long;
     display_order: int;
     guide_title: string;
+    guide_image_path: string;
+    guide_text: string;
 }

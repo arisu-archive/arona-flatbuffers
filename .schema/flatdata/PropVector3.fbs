@@ -1,7 +1,7 @@
 namespace FlatData;
 
 table PropVector3 {
-    y: float;
     x: float;
+    y: float;
     z: float;
 }

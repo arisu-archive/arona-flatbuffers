@@ -25,15 +25,22 @@ class AnimatorData(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # AnimatorData
-    def Name(self):
+    def DefaultStateName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # AnimatorData
-    def DataList(self, j):
+    def Name(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # AnimatorData
+    def DataList(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             x = self._tab.Vector(o)
             x += flatbuffers.number_types.UOffsetTFlags.py_type(j) * 4
@@ -46,38 +53,31 @@ class AnimatorData(object):
 
     # AnimatorData
     def DataListLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # AnimatorData
     def DataListIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        return o == 0
-
-    # AnimatorData
-    def DefaultStateName(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+        return o == 0
 
 def AnimatorDataStart(builder): builder.StartObject(3)
 def Start(builder):
     return AnimatorDataStart(builder)
-def AnimatorDataAddName(builder, name): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+def AnimatorDataAddDefaultStateName(builder, defaultStateName): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(defaultStateName), 0)
+def AddDefaultStateName(builder, defaultStateName):
+    return AnimatorDataAddDefaultStateName(builder, defaultStateName)
+def AnimatorDataAddName(builder, name): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
 def AddName(builder, name):
     return AnimatorDataAddName(builder, name)
-def AnimatorDataAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+def AnimatorDataAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
 def AddDataList(builder, dataList):
     return AnimatorDataAddDataList(builder, dataList)
 def AnimatorDataStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartDataListVector(builder, numElems):
     return AnimatorDataStartDataListVector(builder, numElems)
-def AnimatorDataAddDefaultStateName(builder, defaultStateName): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(defaultStateName), 0)
-def AddDefaultStateName(builder, defaultStateName):
-    return AnimatorDataAddDefaultStateName(builder, defaultStateName)
 def AnimatorDataEnd(builder): return builder.EndObject()
 def End(builder):
     return AnimatorDataEnd(builder)

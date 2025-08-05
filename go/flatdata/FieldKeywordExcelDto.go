@@ -11,10 +11,10 @@ import (
 type FieldKeywordExcelDto struct {
 	fbsutils.FlatBuffer
 	UniqueId               int64  `json:"unique_id"`
-	NameLocalizeKey        string `json:"name_localize_key"`
-	ImagePath              string `json:"image_path"`
-	DescriptionLocalizeKey string `json:"description_localize_key"`
 	SeasonId               int64  `json:"season_id"`
+	NameLocalizeKey        string `json:"name_localize_key"`
+	DescriptionLocalizeKey string `json:"description_localize_key"`
+	ImagePath              string `json:"image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,10 +24,10 @@ func (t *FieldKeywordExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	}
 	FieldKeywordExcelStart(b)
 	FieldKeywordExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	FieldKeywordExcelAddNameLocalizeKey(b, b.CreateString(fbsutils.Convert(t.NameLocalizeKey, t.FlatBuffer.TableKey)))
-	FieldKeywordExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
-	FieldKeywordExcelAddDescriptionLocalizeKey(b, b.CreateString(fbsutils.Convert(t.DescriptionLocalizeKey, t.FlatBuffer.TableKey)))
 	FieldKeywordExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
+	FieldKeywordExcelAddNameLocalizeKey(b, b.CreateString(fbsutils.Convert(t.NameLocalizeKey, t.FlatBuffer.TableKey)))
+	FieldKeywordExcelAddDescriptionLocalizeKey(b, b.CreateString(fbsutils.Convert(t.DescriptionLocalizeKey, t.FlatBuffer.TableKey)))
+	FieldKeywordExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
 	return FieldKeywordExcelEnd(b)
 }
 
@@ -44,10 +44,10 @@ func (t *FieldKeywordExcelDto) UnmarshalMessage(e *FieldKeywordExcel) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldKeyword"))
 	}
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.NameLocalizeKey = fbsutils.Convert(string(e.NameLocalizeKey()), t.FlatBuffer.TableKey)
-	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
-	t.DescriptionLocalizeKey = fbsutils.Convert(string(e.DescriptionLocalizeKey()), t.FlatBuffer.TableKey)
 	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
+	t.NameLocalizeKey = fbsutils.Convert(string(e.NameLocalizeKey()), t.FlatBuffer.TableKey)
+	t.DescriptionLocalizeKey = fbsutils.Convert(string(e.DescriptionLocalizeKey()), t.FlatBuffer.TableKey)
+	t.ImagePath = fbsutils.Convert(string(e.ImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

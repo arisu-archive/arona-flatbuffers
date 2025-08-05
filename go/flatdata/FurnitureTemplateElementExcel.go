@@ -33,32 +33,8 @@ func (rcv *FurnitureTemplateElementExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FurnitureTemplateElementExcel) PositionX() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *FurnitureTemplateElementExcel) MutatePositionX(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(4, n)
-}
-
-func (rcv *FurnitureTemplateElementExcel) Order() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FurnitureTemplateElementExcel) MutateOrder(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
 func (rcv *FurnitureTemplateElementExcel) FurnitureTemplateId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -66,11 +42,11 @@ func (rcv *FurnitureTemplateElementExcel) FurnitureTemplateId() int64 {
 }
 
 func (rcv *FurnitureTemplateElementExcel) MutateFurnitureTemplateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *FurnitureTemplateElementExcel) FurnitureId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -78,23 +54,11 @@ func (rcv *FurnitureTemplateElementExcel) FurnitureId() int64 {
 }
 
 func (rcv *FurnitureTemplateElementExcel) MutateFurnitureId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *FurnitureTemplateElementExcel) Rotation() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *FurnitureTemplateElementExcel) MutateRotation(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(12, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *FurnitureTemplateElementExcel) Location() FurnitureLocation {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return FurnitureLocation(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -102,11 +66,23 @@ func (rcv *FurnitureTemplateElementExcel) Location() FurnitureLocation {
 }
 
 func (rcv *FurnitureTemplateElementExcel) MutateLocation(n FurnitureLocation) bool {
-	return rcv._tab.MutateInt32Slot(14, int32(n))
+	return rcv._tab.MutateInt32Slot(8, int32(n))
+}
+
+func (rcv *FurnitureTemplateElementExcel) PositionX() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *FurnitureTemplateElementExcel) MutatePositionX(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(10, n)
 }
 
 func (rcv *FurnitureTemplateElementExcel) PositionY() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -114,32 +90,56 @@ func (rcv *FurnitureTemplateElementExcel) PositionY() float32 {
 }
 
 func (rcv *FurnitureTemplateElementExcel) MutatePositionY(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(16, n)
+	return rcv._tab.MutateFloat32Slot(12, n)
+}
+
+func (rcv *FurnitureTemplateElementExcel) Rotation() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *FurnitureTemplateElementExcel) MutateRotation(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(14, n)
+}
+
+func (rcv *FurnitureTemplateElementExcel) Order() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FurnitureTemplateElementExcel) MutateOrder(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func FurnitureTemplateElementExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func FurnitureTemplateElementExcelAddPositionX(builder *flatbuffers.Builder, positionX float32) {
-	builder.PrependFloat32Slot(0, positionX, 0.0)
-}
-func FurnitureTemplateElementExcelAddOrder(builder *flatbuffers.Builder, order int64) {
-	builder.PrependInt64Slot(1, order, 0)
-}
 func FurnitureTemplateElementExcelAddFurnitureTemplateId(builder *flatbuffers.Builder, furnitureTemplateId int64) {
-	builder.PrependInt64Slot(2, furnitureTemplateId, 0)
+	builder.PrependInt64Slot(0, furnitureTemplateId, 0)
 }
 func FurnitureTemplateElementExcelAddFurnitureId(builder *flatbuffers.Builder, furnitureId int64) {
-	builder.PrependInt64Slot(3, furnitureId, 0)
-}
-func FurnitureTemplateElementExcelAddRotation(builder *flatbuffers.Builder, rotation float32) {
-	builder.PrependFloat32Slot(4, rotation, 0.0)
+	builder.PrependInt64Slot(1, furnitureId, 0)
 }
 func FurnitureTemplateElementExcelAddLocation(builder *flatbuffers.Builder, location FurnitureLocation) {
-	builder.PrependInt32Slot(5, int32(location), 0)
+	builder.PrependInt32Slot(2, int32(location), 0)
+}
+func FurnitureTemplateElementExcelAddPositionX(builder *flatbuffers.Builder, positionX float32) {
+	builder.PrependFloat32Slot(3, positionX, 0.0)
 }
 func FurnitureTemplateElementExcelAddPositionY(builder *flatbuffers.Builder, positionY float32) {
-	builder.PrependFloat32Slot(6, positionY, 0.0)
+	builder.PrependFloat32Slot(4, positionY, 0.0)
+}
+func FurnitureTemplateElementExcelAddRotation(builder *flatbuffers.Builder, rotation float32) {
+	builder.PrependFloat32Slot(5, rotation, 0.0)
+}
+func FurnitureTemplateElementExcelAddOrder(builder *flatbuffers.Builder, order int64) {
+	builder.PrependInt64Slot(6, order, 0)
 }
 func FurnitureTemplateElementExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

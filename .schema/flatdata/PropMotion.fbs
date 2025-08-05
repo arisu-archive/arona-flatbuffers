@@ -4,6 +4,6 @@ namespace FlatData;
 
 table PropMotion {
     name: string;
-    rotations: [PropVector3];
     positions: [PropVector3];
+    rotations: [PropVector3];
 }
