@@ -33,44 +33,8 @@ func (rcv *CharacterAIExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterAIExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterAIExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *CharacterAIExcel) EngageType() EngageType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return EngageType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CharacterAIExcel) MutateEngageType(n EngageType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *CharacterAIExcel) Positioning() PositioningType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return PositioningType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CharacterAIExcel) MutatePositioning(n PositioningType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
 func (rcv *CharacterAIExcel) CheckCanUseAutoSkill() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -78,11 +42,11 @@ func (rcv *CharacterAIExcel) CheckCanUseAutoSkill() bool {
 }
 
 func (rcv *CharacterAIExcel) MutateCheckCanUseAutoSkill(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
+	return rcv._tab.MutateBoolSlot(4, n)
 }
 
 func (rcv *CharacterAIExcel) DistanceReduceRatioObstaclePath() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -90,35 +54,11 @@ func (rcv *CharacterAIExcel) DistanceReduceRatioObstaclePath() int64 {
 }
 
 func (rcv *CharacterAIExcel) MutateDistanceReduceRatioObstaclePath(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
-func (rcv *CharacterAIExcel) DistanceReduceObstaclePath() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterAIExcel) MutateDistanceReduceObstaclePath(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
-func (rcv *CharacterAIExcel) DistanceReduceRatioFormationPath() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterAIExcel) MutateDistanceReduceRatioFormationPath(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func (rcv *CharacterAIExcel) DistanceReduceFormationPath() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -126,7 +66,67 @@ func (rcv *CharacterAIExcel) DistanceReduceFormationPath() int64 {
 }
 
 func (rcv *CharacterAIExcel) MutateDistanceReduceFormationPath(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *CharacterAIExcel) CanUseObstacleOfStandMotion() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *CharacterAIExcel) MutateCanUseObstacleOfStandMotion(n bool) bool {
+	return rcv._tab.MutateBoolSlot(10, n)
+}
+
+func (rcv *CharacterAIExcel) DistanceReduceRatioFormationPath() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterAIExcel) MutateDistanceReduceRatioFormationPath(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *CharacterAIExcel) Positioning() PositioningType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return PositioningType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterAIExcel) MutatePositioning(n PositioningType) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
+}
+
+func (rcv *CharacterAIExcel) DistanceReduceObstaclePath() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterAIExcel) MutateDistanceReduceObstaclePath(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *CharacterAIExcel) HasTargetSwitchingMotion() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *CharacterAIExcel) MutateHasTargetSwitchingMotion(n bool) bool {
+	return rcv._tab.MutateBoolSlot(18, n)
 }
 
 func (rcv *CharacterAIExcel) MinimumPositionGap() int64 {
@@ -141,31 +141,31 @@ func (rcv *CharacterAIExcel) MutateMinimumPositionGap(n int64) bool {
 	return rcv._tab.MutateInt64Slot(20, n)
 }
 
-func (rcv *CharacterAIExcel) CanUseObstacleOfKneelMotion() bool {
+func (rcv *CharacterAIExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *CharacterAIExcel) MutateCanUseObstacleOfKneelMotion(n bool) bool {
-	return rcv._tab.MutateBoolSlot(22, n)
+func (rcv *CharacterAIExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
 }
 
-func (rcv *CharacterAIExcel) CanUseObstacleOfStandMotion() bool {
+func (rcv *CharacterAIExcel) EngageType() EngageType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return EngageType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return false
+	return 0
 }
 
-func (rcv *CharacterAIExcel) MutateCanUseObstacleOfStandMotion(n bool) bool {
-	return rcv._tab.MutateBoolSlot(24, n)
+func (rcv *CharacterAIExcel) MutateEngageType(n EngageType) bool {
+	return rcv._tab.MutateInt32Slot(24, int32(n))
 }
 
-func (rcv *CharacterAIExcel) HasTargetSwitchingMotion() bool {
+func (rcv *CharacterAIExcel) CanUseObstacleOfKneelMotion() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -173,48 +173,48 @@ func (rcv *CharacterAIExcel) HasTargetSwitchingMotion() bool {
 	return false
 }
 
-func (rcv *CharacterAIExcel) MutateHasTargetSwitchingMotion(n bool) bool {
+func (rcv *CharacterAIExcel) MutateCanUseObstacleOfKneelMotion(n bool) bool {
 	return rcv._tab.MutateBoolSlot(26, n)
 }
 
 func CharacterAIExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(12)
 }
-func CharacterAIExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func CharacterAIExcelAddEngageType(builder *flatbuffers.Builder, engageType EngageType) {
-	builder.PrependInt32Slot(1, int32(engageType), 0)
-}
-func CharacterAIExcelAddPositioning(builder *flatbuffers.Builder, positioning PositioningType) {
-	builder.PrependInt32Slot(2, int32(positioning), 0)
-}
 func CharacterAIExcelAddCheckCanUseAutoSkill(builder *flatbuffers.Builder, checkCanUseAutoSkill bool) {
-	builder.PrependBoolSlot(3, checkCanUseAutoSkill, false)
+	builder.PrependBoolSlot(0, checkCanUseAutoSkill, false)
 }
 func CharacterAIExcelAddDistanceReduceRatioObstaclePath(builder *flatbuffers.Builder, distanceReduceRatioObstaclePath int64) {
-	builder.PrependInt64Slot(4, distanceReduceRatioObstaclePath, 0)
-}
-func CharacterAIExcelAddDistanceReduceObstaclePath(builder *flatbuffers.Builder, distanceReduceObstaclePath int64) {
-	builder.PrependInt64Slot(5, distanceReduceObstaclePath, 0)
-}
-func CharacterAIExcelAddDistanceReduceRatioFormationPath(builder *flatbuffers.Builder, distanceReduceRatioFormationPath int64) {
-	builder.PrependInt64Slot(6, distanceReduceRatioFormationPath, 0)
+	builder.PrependInt64Slot(1, distanceReduceRatioObstaclePath, 0)
 }
 func CharacterAIExcelAddDistanceReduceFormationPath(builder *flatbuffers.Builder, distanceReduceFormationPath int64) {
-	builder.PrependInt64Slot(7, distanceReduceFormationPath, 0)
+	builder.PrependInt64Slot(2, distanceReduceFormationPath, 0)
+}
+func CharacterAIExcelAddCanUseObstacleOfStandMotion(builder *flatbuffers.Builder, canUseObstacleOfStandMotion bool) {
+	builder.PrependBoolSlot(3, canUseObstacleOfStandMotion, false)
+}
+func CharacterAIExcelAddDistanceReduceRatioFormationPath(builder *flatbuffers.Builder, distanceReduceRatioFormationPath int64) {
+	builder.PrependInt64Slot(4, distanceReduceRatioFormationPath, 0)
+}
+func CharacterAIExcelAddPositioning(builder *flatbuffers.Builder, positioning PositioningType) {
+	builder.PrependInt32Slot(5, int32(positioning), 0)
+}
+func CharacterAIExcelAddDistanceReduceObstaclePath(builder *flatbuffers.Builder, distanceReduceObstaclePath int64) {
+	builder.PrependInt64Slot(6, distanceReduceObstaclePath, 0)
+}
+func CharacterAIExcelAddHasTargetSwitchingMotion(builder *flatbuffers.Builder, hasTargetSwitchingMotion bool) {
+	builder.PrependBoolSlot(7, hasTargetSwitchingMotion, false)
 }
 func CharacterAIExcelAddMinimumPositionGap(builder *flatbuffers.Builder, minimumPositionGap int64) {
 	builder.PrependInt64Slot(8, minimumPositionGap, 0)
 }
+func CharacterAIExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(9, id, 0)
+}
+func CharacterAIExcelAddEngageType(builder *flatbuffers.Builder, engageType EngageType) {
+	builder.PrependInt32Slot(10, int32(engageType), 0)
+}
 func CharacterAIExcelAddCanUseObstacleOfKneelMotion(builder *flatbuffers.Builder, canUseObstacleOfKneelMotion bool) {
-	builder.PrependBoolSlot(9, canUseObstacleOfKneelMotion, false)
-}
-func CharacterAIExcelAddCanUseObstacleOfStandMotion(builder *flatbuffers.Builder, canUseObstacleOfStandMotion bool) {
-	builder.PrependBoolSlot(10, canUseObstacleOfStandMotion, false)
-}
-func CharacterAIExcelAddHasTargetSwitchingMotion(builder *flatbuffers.Builder, hasTargetSwitchingMotion bool) {
-	builder.PrependBoolSlot(11, hasTargetSwitchingMotion, false)
+	builder.PrependBoolSlot(11, canUseObstacleOfKneelMotion, false)
 }
 func CharacterAIExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

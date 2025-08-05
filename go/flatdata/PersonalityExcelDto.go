@@ -10,8 +10,8 @@ import (
 // PersonalityExcelDto represents a FlatBuffers table
 type PersonalityExcelDto struct {
 	fbsutils.FlatBuffer
-	Id   int64  `json:"id"`
 	Name string `json:"name"`
+	Id   int64  `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -20,8 +20,8 @@ func (t *PersonalityExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Personality"))
 	}
 	PersonalityExcelStart(b)
-	PersonalityExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	PersonalityExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	PersonalityExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return PersonalityExcelEnd(b)
 }
 
@@ -37,8 +37,8 @@ func (t *PersonalityExcelDto) UnmarshalMessage(e *PersonalityExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Personality"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

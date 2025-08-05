@@ -9,25 +9,25 @@ namespace MX.Data.Excel;
 
 table AttendanceExcel {
     id: long;
-    type: AttendanceType;
-    countdown_prefab: string;
-    display_order: long;
-    account_type: AccountState;
-    account_level_limit: long;
-    title: string;
+    mail_type: MailType;
     infomation_localize_code: string;
+    title_image_path: string;
+    start_date: string;
     count_rule: AttendanceCountRule;
+    display_order: long;
+    expiry_date: long;
+    account_type: AccountState;
+    end_date: string;
+    type: AttendanceType;
+    startable_end_date: string;
+    decoration_garland_image_path: string;
+    countdown_prefab: string;
+    title: string;
+    dialog_category: DialogCategory;
+    decoration_image_path: string;
     count_reset: AttendanceResetType;
     book_size: long;
-    start_date: string;
-    startable_end_date: string;
-    end_date: string;
-    expiry_date: long;
-    mail_type: MailType;
-    dialog_category: DialogCategory;
-    title_image_path: string;
-    decoration_image_path: string;
-    decoration_garland_image_path: string;
+    account_level_limit: long;
 }
 
 root_type AttendanceExcel;

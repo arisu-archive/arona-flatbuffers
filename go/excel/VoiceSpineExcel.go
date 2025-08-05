@@ -33,20 +33,8 @@ func (rcv *VoiceSpineExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *VoiceSpineExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *VoiceSpineExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
 func (rcv *VoiceSpineExcel) Id() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -54,7 +42,33 @@ func (rcv *VoiceSpineExcel) Id() uint32 {
 }
 
 func (rcv *VoiceSpineExcel) MutateId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(6, n)
+	return rcv._tab.MutateUint32Slot(4, n)
+}
+
+func (rcv *VoiceSpineExcel) SoundVolume(j int) float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *VoiceSpineExcel) SoundVolumeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *VoiceSpineExcel) MutateSoundVolume(j int, n float32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
 }
 
 func (rcv *VoiceSpineExcel) Nation(j int) Nation {
@@ -100,40 +114,29 @@ func (rcv *VoiceSpineExcel) PathLength() int {
 	return 0
 }
 
-func (rcv *VoiceSpineExcel) SoundVolume(j int) float32 {
+func (rcv *VoiceSpineExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *VoiceSpineExcel) SoundVolumeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *VoiceSpineExcel) MutateSoundVolume(j int, n float32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
+func (rcv *VoiceSpineExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func VoiceSpineExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func VoiceSpineExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
-}
 func VoiceSpineExcelAddId(builder *flatbuffers.Builder, id uint32) {
-	builder.PrependUint32Slot(1, id, 0)
+	builder.PrependUint32Slot(0, id, 0)
+}
+func VoiceSpineExcelAddSoundVolume(builder *flatbuffers.Builder, soundVolume flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(soundVolume), 0)
+}
+func VoiceSpineExcelStartSoundVolumeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func VoiceSpineExcelAddNation(builder *flatbuffers.Builder, nation flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(nation), 0)
@@ -147,11 +150,8 @@ func VoiceSpineExcelAddPath(builder *flatbuffers.Builder, path flatbuffers.UOffs
 func VoiceSpineExcelStartPathVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func VoiceSpineExcelAddSoundVolume(builder *flatbuffers.Builder, soundVolume flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(soundVolume), 0)
-}
-func VoiceSpineExcelStartSoundVolumeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func VoiceSpineExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(4, uniqueId, 0)
 }
 func VoiceSpineExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

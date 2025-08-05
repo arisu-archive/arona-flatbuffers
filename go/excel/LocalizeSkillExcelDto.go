@@ -10,43 +10,43 @@ import (
 // LocalizeSkillExcelDto represents a FlatBuffers table
 type LocalizeSkillExcelDto struct {
 	fbsutils.FlatBuffer
-	Key                   uint32 `json:"key"`
-	NameKr                string `json:"name_kr"`
 	DescriptionKr         string `json:"description_kr"`
-	SkillInvokeLocalizeKr string `json:"skill_invoke_localize_kr"`
-	NameJp                string `json:"name_jp"`
-	DescriptionJp         string `json:"description_jp"`
-	SkillInvokeLocalizeJp string `json:"skill_invoke_localize_jp"`
-	NameTh                string `json:"name_th"`
-	DescriptionTh         string `json:"description_th"`
-	SkillInvokeLocalizeTh string `json:"skill_invoke_localize_th"`
-	NameTw                string `json:"name_tw"`
 	DescriptionTw         string `json:"description_tw"`
-	SkillInvokeLocalizeTw string `json:"skill_invoke_localize_tw"`
-	NameEn                string `json:"name_en"`
+	SkillInvokeLocalizeTh string `json:"skill_invoke_localize_th"`
+	Key                   uint32 `json:"key"`
 	DescriptionEn         string `json:"description_en"`
+	SkillInvokeLocalizeJp string `json:"skill_invoke_localize_jp"`
 	SkillInvokeLocalizeEn string `json:"skill_invoke_localize_en"`
+	NameJp                string `json:"name_jp"`
+	SkillInvokeLocalizeTw string `json:"skill_invoke_localize_tw"`
+	NameTh                string `json:"name_th"`
+	NameEn                string `json:"name_en"`
+	DescriptionJp         string `json:"description_jp"`
+	NameTw                string `json:"name_tw"`
+	NameKr                string `json:"name_kr"`
+	SkillInvokeLocalizeKr string `json:"skill_invoke_localize_kr"`
+	DescriptionTh         string `json:"description_th"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeSkillExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	LocalizeSkillExcelStart(b)
-	LocalizeSkillExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	LocalizeSkillExcelAddNameKr(b, b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey)))
 	LocalizeSkillExcelAddDescriptionKr(b, b.CreateString(fbsutils.Convert(t.DescriptionKr, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddSkillInvokeLocalizeKr(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeKr, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddNameJp(b, b.CreateString(fbsutils.Convert(t.NameJp, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddDescriptionJp(b, b.CreateString(fbsutils.Convert(t.DescriptionJp, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddSkillInvokeLocalizeJp(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeJp, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddNameTh(b, b.CreateString(fbsutils.Convert(t.NameTh, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddDescriptionTh(b, b.CreateString(fbsutils.Convert(t.DescriptionTh, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddSkillInvokeLocalizeTh(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeTh, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddNameTw(b, b.CreateString(fbsutils.Convert(t.NameTw, t.FlatBuffer.TableKey)))
 	LocalizeSkillExcelAddDescriptionTw(b, b.CreateString(fbsutils.Convert(t.DescriptionTw, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddSkillInvokeLocalizeTw(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeTw, t.FlatBuffer.TableKey)))
-	LocalizeSkillExcelAddNameEn(b, b.CreateString(fbsutils.Convert(t.NameEn, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddSkillInvokeLocalizeTh(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeTh, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
 	LocalizeSkillExcelAddDescriptionEn(b, b.CreateString(fbsutils.Convert(t.DescriptionEn, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddSkillInvokeLocalizeJp(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeJp, t.FlatBuffer.TableKey)))
 	LocalizeSkillExcelAddSkillInvokeLocalizeEn(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeEn, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddNameJp(b, b.CreateString(fbsutils.Convert(t.NameJp, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddSkillInvokeLocalizeTw(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeTw, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddNameTh(b, b.CreateString(fbsutils.Convert(t.NameTh, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddNameEn(b, b.CreateString(fbsutils.Convert(t.NameEn, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddDescriptionJp(b, b.CreateString(fbsutils.Convert(t.DescriptionJp, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddNameTw(b, b.CreateString(fbsutils.Convert(t.NameTw, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddNameKr(b, b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddSkillInvokeLocalizeKr(b, b.CreateString(fbsutils.Convert(t.SkillInvokeLocalizeKr, t.FlatBuffer.TableKey)))
+	LocalizeSkillExcelAddDescriptionTh(b, b.CreateString(fbsutils.Convert(t.DescriptionTh, t.FlatBuffer.TableKey)))
 	return LocalizeSkillExcelEnd(b)
 }
 
@@ -59,22 +59,22 @@ func (t *LocalizeSkillExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LocalizeSkillExcelDto) UnmarshalMessage(e *LocalizeSkillExcel) error {
-	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
-	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)
 	t.DescriptionKr = fbsutils.Convert(string(e.DescriptionKr()), t.FlatBuffer.TableKey)
-	t.SkillInvokeLocalizeKr = fbsutils.Convert(string(e.SkillInvokeLocalizeKr()), t.FlatBuffer.TableKey)
-	t.NameJp = fbsutils.Convert(string(e.NameJp()), t.FlatBuffer.TableKey)
-	t.DescriptionJp = fbsutils.Convert(string(e.DescriptionJp()), t.FlatBuffer.TableKey)
-	t.SkillInvokeLocalizeJp = fbsutils.Convert(string(e.SkillInvokeLocalizeJp()), t.FlatBuffer.TableKey)
-	t.NameTh = fbsutils.Convert(string(e.NameTh()), t.FlatBuffer.TableKey)
-	t.DescriptionTh = fbsutils.Convert(string(e.DescriptionTh()), t.FlatBuffer.TableKey)
-	t.SkillInvokeLocalizeTh = fbsutils.Convert(string(e.SkillInvokeLocalizeTh()), t.FlatBuffer.TableKey)
-	t.NameTw = fbsutils.Convert(string(e.NameTw()), t.FlatBuffer.TableKey)
 	t.DescriptionTw = fbsutils.Convert(string(e.DescriptionTw()), t.FlatBuffer.TableKey)
-	t.SkillInvokeLocalizeTw = fbsutils.Convert(string(e.SkillInvokeLocalizeTw()), t.FlatBuffer.TableKey)
-	t.NameEn = fbsutils.Convert(string(e.NameEn()), t.FlatBuffer.TableKey)
+	t.SkillInvokeLocalizeTh = fbsutils.Convert(string(e.SkillInvokeLocalizeTh()), t.FlatBuffer.TableKey)
+	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
 	t.DescriptionEn = fbsutils.Convert(string(e.DescriptionEn()), t.FlatBuffer.TableKey)
+	t.SkillInvokeLocalizeJp = fbsutils.Convert(string(e.SkillInvokeLocalizeJp()), t.FlatBuffer.TableKey)
 	t.SkillInvokeLocalizeEn = fbsutils.Convert(string(e.SkillInvokeLocalizeEn()), t.FlatBuffer.TableKey)
+	t.NameJp = fbsutils.Convert(string(e.NameJp()), t.FlatBuffer.TableKey)
+	t.SkillInvokeLocalizeTw = fbsutils.Convert(string(e.SkillInvokeLocalizeTw()), t.FlatBuffer.TableKey)
+	t.NameTh = fbsutils.Convert(string(e.NameTh()), t.FlatBuffer.TableKey)
+	t.NameEn = fbsutils.Convert(string(e.NameEn()), t.FlatBuffer.TableKey)
+	t.DescriptionJp = fbsutils.Convert(string(e.DescriptionJp()), t.FlatBuffer.TableKey)
+	t.NameTw = fbsutils.Convert(string(e.NameTw()), t.FlatBuffer.TableKey)
+	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)
+	t.SkillInvokeLocalizeKr = fbsutils.Convert(string(e.SkillInvokeLocalizeKr()), t.FlatBuffer.TableKey)
+	t.DescriptionTh = fbsutils.Convert(string(e.DescriptionTh()), t.FlatBuffer.TableKey)
 	return nil
 }
 

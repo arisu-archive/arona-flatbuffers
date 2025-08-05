@@ -10,13 +10,13 @@ import (
 // DuplicateBonusExcelDto represents a FlatBuffers table
 type DuplicateBonusExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                 int64        `json:"id"`
-	ItemCategory       ItemCategory `json:"item_category"`
-	ItemId             int64        `json:"item_id"`
-	CharacterId        int64        `json:"character_id"`
 	RewardParcelType   ParcelType   `json:"reward_parcel_type"`
 	RewardParcelId     int64        `json:"reward_parcel_id"`
 	RewardParcelAmount int64        `json:"reward_parcel_amount"`
+	ItemCategory       ItemCategory `json:"item_category"`
+	CharacterId        int64        `json:"character_id"`
+	ItemId             int64        `json:"item_id"`
+	Id                 int64        `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,13 +25,13 @@ func (t *DuplicateBonusExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DuplicateBonus"))
 	}
 	DuplicateBonusExcelStart(b)
-	DuplicateBonusExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	DuplicateBonusExcelAddItemCategory(b, fbsutils.Convert(t.ItemCategory, t.FlatBuffer.TableKey))
-	DuplicateBonusExcelAddItemId(b, fbsutils.Convert(t.ItemId, t.FlatBuffer.TableKey))
-	DuplicateBonusExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
 	DuplicateBonusExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
 	DuplicateBonusExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
 	DuplicateBonusExcelAddRewardParcelAmount(b, fbsutils.Convert(t.RewardParcelAmount, t.FlatBuffer.TableKey))
+	DuplicateBonusExcelAddItemCategory(b, fbsutils.Convert(t.ItemCategory, t.FlatBuffer.TableKey))
+	DuplicateBonusExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
+	DuplicateBonusExcelAddItemId(b, fbsutils.Convert(t.ItemId, t.FlatBuffer.TableKey))
+	DuplicateBonusExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return DuplicateBonusExcelEnd(b)
 }
 
@@ -47,13 +47,13 @@ func (t *DuplicateBonusExcelDto) UnmarshalMessage(e *DuplicateBonusExcel) error 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DuplicateBonus"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ItemCategory = ItemCategory(fbsutils.Convert(int32(e.ItemCategory()), t.FlatBuffer.TableKey))
-	t.ItemId = fbsutils.Convert(e.ItemId(), t.FlatBuffer.TableKey)
-	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
 	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
 	t.RewardParcelAmount = fbsutils.Convert(e.RewardParcelAmount(), t.FlatBuffer.TableKey)
+	t.ItemCategory = ItemCategory(fbsutils.Convert(int32(e.ItemCategory()), t.FlatBuffer.TableKey))
+	t.CharacterId = fbsutils.Convert(e.CharacterId(), t.FlatBuffer.TableKey)
+	t.ItemId = fbsutils.Convert(e.ItemId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

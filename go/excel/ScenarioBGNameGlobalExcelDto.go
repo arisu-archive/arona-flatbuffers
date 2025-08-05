@@ -10,25 +10,25 @@ import (
 // ScenarioBGNameGlobalExcelDto represents a FlatBuffers table
 type ScenarioBGNameGlobalExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupName  uint32 `json:"group_name"`
-	NameKr     uint32 `json:"name_kr"`
-	NameTw     uint32 `json:"name_tw"`
 	NameAsia   uint32 `json:"name_asia"`
-	NameNa     uint32 `json:"name_na"`
 	NameGlobal uint32 `json:"name_global"`
 	NameTeen   uint32 `json:"name_teen"`
+	NameTw     uint32 `json:"name_tw"`
+	NameKr     uint32 `json:"name_kr"`
+	NameNa     uint32 `json:"name_na"`
+	GroupName  uint32 `json:"group_name"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioBGNameGlobalExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ScenarioBGName_GlobalExcelStart(b)
-	ScenarioBGName_GlobalExcelAddGroupName(b, fbsutils.Convert(t.GroupName, t.FlatBuffer.TableKey))
-	ScenarioBGName_GlobalExcelAddNameKr(b, fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey))
-	ScenarioBGName_GlobalExcelAddNameTw(b, fbsutils.Convert(t.NameTw, t.FlatBuffer.TableKey))
 	ScenarioBGName_GlobalExcelAddNameAsia(b, fbsutils.Convert(t.NameAsia, t.FlatBuffer.TableKey))
-	ScenarioBGName_GlobalExcelAddNameNa(b, fbsutils.Convert(t.NameNa, t.FlatBuffer.TableKey))
 	ScenarioBGName_GlobalExcelAddNameGlobal(b, fbsutils.Convert(t.NameGlobal, t.FlatBuffer.TableKey))
 	ScenarioBGName_GlobalExcelAddNameTeen(b, fbsutils.Convert(t.NameTeen, t.FlatBuffer.TableKey))
+	ScenarioBGName_GlobalExcelAddNameTw(b, fbsutils.Convert(t.NameTw, t.FlatBuffer.TableKey))
+	ScenarioBGName_GlobalExcelAddNameKr(b, fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey))
+	ScenarioBGName_GlobalExcelAddNameNa(b, fbsutils.Convert(t.NameNa, t.FlatBuffer.TableKey))
+	ScenarioBGName_GlobalExcelAddGroupName(b, fbsutils.Convert(t.GroupName, t.FlatBuffer.TableKey))
 	return ScenarioBGName_GlobalExcelEnd(b)
 }
 
@@ -41,13 +41,13 @@ func (t *ScenarioBGNameGlobalExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioBGNameGlobalExcelDto) UnmarshalMessage(e *ScenarioBGName_GlobalExcel) error {
-	t.GroupName = fbsutils.Convert(e.GroupName(), t.FlatBuffer.TableKey)
-	t.NameKr = fbsutils.Convert(e.NameKr(), t.FlatBuffer.TableKey)
-	t.NameTw = fbsutils.Convert(e.NameTw(), t.FlatBuffer.TableKey)
 	t.NameAsia = fbsutils.Convert(e.NameAsia(), t.FlatBuffer.TableKey)
-	t.NameNa = fbsutils.Convert(e.NameNa(), t.FlatBuffer.TableKey)
 	t.NameGlobal = fbsutils.Convert(e.NameGlobal(), t.FlatBuffer.TableKey)
 	t.NameTeen = fbsutils.Convert(e.NameTeen(), t.FlatBuffer.TableKey)
+	t.NameTw = fbsutils.Convert(e.NameTw(), t.FlatBuffer.TableKey)
+	t.NameKr = fbsutils.Convert(e.NameKr(), t.FlatBuffer.TableKey)
+	t.NameNa = fbsutils.Convert(e.NameNa(), t.FlatBuffer.TableKey)
+	t.GroupName = fbsutils.Convert(e.GroupName(), t.FlatBuffer.TableKey)
 	return nil
 }
 

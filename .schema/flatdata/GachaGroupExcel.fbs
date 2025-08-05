@@ -4,7 +4,7 @@ namespace FlatData;
 
 table GachaGroupExcel {
     id: long;
-    name_kr: string;
     is_recursive: bool;
     group_type: GachaGroupType;
+    name_kr: string;
 }

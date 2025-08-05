@@ -12,9 +12,9 @@ type BuffParticleExcelDto struct {
 	fbsutils.FlatBuffer
 	UniqueId     int64  `json:"unique_id"`
 	UniqueName   string `json:"unique_name"`
+	ResourcePath string `json:"resource_path"`
 	BuffType     string `json:"buff_type"`
 	BuffName     string `json:"buff_name"`
-	ResourcePath string `json:"resource_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,9 +25,9 @@ func (t *BuffParticleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	BuffParticleExcelStart(b)
 	BuffParticleExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	BuffParticleExcelAddUniqueName(b, b.CreateString(fbsutils.Convert(t.UniqueName, t.FlatBuffer.TableKey)))
+	BuffParticleExcelAddResourcePath(b, b.CreateString(fbsutils.Convert(t.ResourcePath, t.FlatBuffer.TableKey)))
 	BuffParticleExcelAddBuffType(b, b.CreateString(fbsutils.Convert(t.BuffType, t.FlatBuffer.TableKey)))
 	BuffParticleExcelAddBuffName(b, b.CreateString(fbsutils.Convert(t.BuffName, t.FlatBuffer.TableKey)))
-	BuffParticleExcelAddResourcePath(b, b.CreateString(fbsutils.Convert(t.ResourcePath, t.FlatBuffer.TableKey)))
 	return BuffParticleExcelEnd(b)
 }
 
@@ -45,9 +45,9 @@ func (t *BuffParticleExcelDto) UnmarshalMessage(e *BuffParticleExcel) error {
 	}
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.UniqueName = fbsutils.Convert(string(e.UniqueName()), t.FlatBuffer.TableKey)
+	t.ResourcePath = fbsutils.Convert(string(e.ResourcePath()), t.FlatBuffer.TableKey)
 	t.BuffType = fbsutils.Convert(string(e.BuffType()), t.FlatBuffer.TableKey)
 	t.BuffName = fbsutils.Convert(string(e.BuffName()), t.FlatBuffer.TableKey)
-	t.ResourcePath = fbsutils.Convert(string(e.ResourcePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

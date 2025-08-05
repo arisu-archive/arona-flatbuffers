@@ -33,8 +33,16 @@ func (rcv *PersonalityExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *PersonalityExcel) Id() int64 {
+func (rcv *PersonalityExcel) Name() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *PersonalityExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -42,25 +50,17 @@ func (rcv *PersonalityExcel) Id() int64 {
 }
 
 func (rcv *PersonalityExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *PersonalityExcel) Name() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
 func PersonalityExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func PersonalityExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
 func PersonalityExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(name), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(name), 0)
+}
+func PersonalityExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(1, id, 0)
 }
 func PersonalityExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

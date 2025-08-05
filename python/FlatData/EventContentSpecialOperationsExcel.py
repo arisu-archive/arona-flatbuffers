@@ -25,14 +25,14 @@ class EventContentSpecialOperationsExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentSpecialOperationsExcel
-    def EventContentId(self):
+    def PointItemId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentSpecialOperationsExcel
-    def PointItemId(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -41,12 +41,12 @@ class EventContentSpecialOperationsExcel(object):
 def EventContentSpecialOperationsExcelStart(builder): builder.StartObject(2)
 def Start(builder):
     return EventContentSpecialOperationsExcelStart(builder)
-def EventContentSpecialOperationsExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return EventContentSpecialOperationsExcelAddEventContentId(builder, eventContentId)
-def EventContentSpecialOperationsExcelAddPointItemId(builder, pointItemId): builder.PrependInt64Slot(1, pointItemId, 0)
+def EventContentSpecialOperationsExcelAddPointItemId(builder, pointItemId): builder.PrependInt64Slot(0, pointItemId, 0)
 def AddPointItemId(builder, pointItemId):
     return EventContentSpecialOperationsExcelAddPointItemId(builder, pointItemId)
+def EventContentSpecialOperationsExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return EventContentSpecialOperationsExcelAddEventContentId(builder, eventContentId)
 def EventContentSpecialOperationsExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentSpecialOperationsExcelEnd(builder)

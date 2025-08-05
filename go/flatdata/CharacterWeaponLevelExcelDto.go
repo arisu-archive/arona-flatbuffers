@@ -10,8 +10,8 @@ import (
 // CharacterWeaponLevelExcelDto represents a FlatBuffers table
 type CharacterWeaponLevelExcelDto struct {
 	fbsutils.FlatBuffer
-	Level    int32 `json:"level"`
 	Exp      int64 `json:"exp"`
+	Level    int32 `json:"level"`
 	TotalExp int64 `json:"total_exp"`
 }
 
@@ -21,8 +21,8 @@ func (t *CharacterWeaponLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeaponLevel"))
 	}
 	CharacterWeaponLevelExcelStart(b)
-	CharacterWeaponLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	CharacterWeaponLevelExcelAddExp(b, fbsutils.Convert(t.Exp, t.FlatBuffer.TableKey))
+	CharacterWeaponLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	CharacterWeaponLevelExcelAddTotalExp(b, fbsutils.Convert(t.TotalExp, t.FlatBuffer.TableKey))
 	return CharacterWeaponLevelExcelEnd(b)
 }
@@ -39,8 +39,8 @@ func (t *CharacterWeaponLevelExcelDto) UnmarshalMessage(e *CharacterWeaponLevelE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterWeaponLevel"))
 	}
-	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.Exp = fbsutils.Convert(e.Exp(), t.FlatBuffer.TableKey)
+	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.TotalExp = fbsutils.Convert(e.TotalExp(), t.FlatBuffer.TableKey)
 	return nil
 }

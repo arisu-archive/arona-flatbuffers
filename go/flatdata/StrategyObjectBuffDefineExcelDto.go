@@ -10,9 +10,9 @@ import (
 // StrategyObjectBuffDefineExcelDto represents a FlatBuffers table
 type StrategyObjectBuffDefineExcelDto struct {
 	fbsutils.FlatBuffer
-	StrategyObjectBuffId int64  `json:"strategy_object_buff_id"`
 	StrategyObjectTurn   int32  `json:"strategy_object_turn"`
 	SkillGroupId         string `json:"skill_group_id"`
+	StrategyObjectBuffId int64  `json:"strategy_object_buff_id"`
 	LocalizeCodeId       uint32 `json:"localize_code_id"`
 	IconPath             string `json:"icon_path"`
 }
@@ -23,9 +23,9 @@ func (t *StrategyObjectBuffDefineExcelDto) MarshalModel(b *flatbuffers.Builder) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StrategyObjectBuffDefine"))
 	}
 	StrategyObjectBuffDefineExcelStart(b)
-	StrategyObjectBuffDefineExcelAddStrategyObjectBuffId(b, fbsutils.Convert(t.StrategyObjectBuffId, t.FlatBuffer.TableKey))
 	StrategyObjectBuffDefineExcelAddStrategyObjectTurn(b, fbsutils.Convert(t.StrategyObjectTurn, t.FlatBuffer.TableKey))
 	StrategyObjectBuffDefineExcelAddSkillGroupId(b, b.CreateString(fbsutils.Convert(t.SkillGroupId, t.FlatBuffer.TableKey)))
+	StrategyObjectBuffDefineExcelAddStrategyObjectBuffId(b, fbsutils.Convert(t.StrategyObjectBuffId, t.FlatBuffer.TableKey))
 	StrategyObjectBuffDefineExcelAddLocalizeCodeId(b, fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
 	StrategyObjectBuffDefineExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
 	return StrategyObjectBuffDefineExcelEnd(b)
@@ -43,9 +43,9 @@ func (t *StrategyObjectBuffDefineExcelDto) UnmarshalMessage(e *StrategyObjectBuf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("StrategyObjectBuffDefine"))
 	}
-	t.StrategyObjectBuffId = fbsutils.Convert(e.StrategyObjectBuffId(), t.FlatBuffer.TableKey)
 	t.StrategyObjectTurn = fbsutils.Convert(e.StrategyObjectTurn(), t.FlatBuffer.TableKey)
 	t.SkillGroupId = fbsutils.Convert(string(e.SkillGroupId()), t.FlatBuffer.TableKey)
+	t.StrategyObjectBuffId = fbsutils.Convert(e.StrategyObjectBuffId(), t.FlatBuffer.TableKey)
 	t.LocalizeCodeId = fbsutils.Convert(e.LocalizeCodeId(), t.FlatBuffer.TableKey)
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
 	return nil

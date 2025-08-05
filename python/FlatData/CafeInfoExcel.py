@@ -25,48 +25,48 @@ class CafeInfoExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CafeInfoExcel
-    def CafeId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # CafeInfoExcel
-    def IsDefault(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # CafeInfoExcel
     def OpenConditionCafeId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # CafeInfoExcel
     def OpenConditionCafeInvite(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CafeInfoExcel
+    def IsDefault(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # CafeInfoExcel
+    def CafeId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def CafeInfoExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return CafeInfoExcelStart(builder)
-def CafeInfoExcelAddCafeId(builder, cafeId): builder.PrependInt64Slot(0, cafeId, 0)
-def AddCafeId(builder, cafeId):
-    return CafeInfoExcelAddCafeId(builder, cafeId)
-def CafeInfoExcelAddIsDefault(builder, isDefault): builder.PrependBoolSlot(1, isDefault, 0)
-def AddIsDefault(builder, isDefault):
-    return CafeInfoExcelAddIsDefault(builder, isDefault)
-def CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId): builder.PrependInt32Slot(2, openConditionCafeId, 0)
+def CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId): builder.PrependInt32Slot(0, openConditionCafeId, 0)
 def AddOpenConditionCafeId(builder, openConditionCafeId):
     return CafeInfoExcelAddOpenConditionCafeId(builder, openConditionCafeId)
-def CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite): builder.PrependInt32Slot(3, openConditionCafeInvite, 0)
+def CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite): builder.PrependInt32Slot(1, openConditionCafeInvite, 0)
 def AddOpenConditionCafeInvite(builder, openConditionCafeInvite):
     return CafeInfoExcelAddOpenConditionCafeInvite(builder, openConditionCafeInvite)
+def CafeInfoExcelAddIsDefault(builder, isDefault): builder.PrependBoolSlot(2, isDefault, 0)
+def AddIsDefault(builder, isDefault):
+    return CafeInfoExcelAddIsDefault(builder, isDefault)
+def CafeInfoExcelAddCafeId(builder, cafeId): builder.PrependInt64Slot(3, cafeId, 0)
+def AddCafeId(builder, cafeId):
+    return CafeInfoExcelAddCafeId(builder, cafeId)
 def CafeInfoExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CafeInfoExcelEnd(builder)

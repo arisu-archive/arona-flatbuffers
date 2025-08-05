@@ -7,11 +7,11 @@ namespace FlatData;
 
 table EchelonConstraintExcel {
     group_id: long;
-    is_white_list: bool;
+    school: School;
     character_id: [long];
     personality_id: [long];
     weapon_type: WeaponType;
-    school: School;
-    club: Club;
     role: TacticRole;
+    is_white_list: bool;
+    club: Club;
 }

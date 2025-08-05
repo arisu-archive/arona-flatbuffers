@@ -25,18 +25,18 @@ class CharacterCombatSkinExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CharacterCombatSkinExcel
-    def GroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CharacterCombatSkinExcel
     def UniqueId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
+
+    # CharacterCombatSkinExcel
+    def GroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # CharacterCombatSkinExcel
     def ResourcePath(self):
@@ -48,12 +48,12 @@ class CharacterCombatSkinExcel(object):
 def CharacterCombatSkinExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return CharacterCombatSkinExcelStart(builder)
-def CharacterCombatSkinExcelAddGroupId(builder, groupId): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(groupId), 0)
-def AddGroupId(builder, groupId):
-    return CharacterCombatSkinExcelAddGroupId(builder, groupId)
-def CharacterCombatSkinExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
+def CharacterCombatSkinExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(0, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
     return CharacterCombatSkinExcelAddUniqueId(builder, uniqueId)
+def CharacterCombatSkinExcelAddGroupId(builder, groupId): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(groupId), 0)
+def AddGroupId(builder, groupId):
+    return CharacterCombatSkinExcelAddGroupId(builder, groupId)
 def CharacterCombatSkinExcelAddResourcePath(builder, resourcePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(resourcePath), 0)
 def AddResourcePath(builder, resourcePath):
     return CharacterCombatSkinExcelAddResourcePath(builder, resourcePath)

@@ -4,19 +4,19 @@ include "StageDifficulty.fbs";
 namespace MX.Data.Excel;
 
 table ContentsShortcutExcel {
+    event_content_id: long;
+    localize: string;
+    condition_content_id: long;
     unique_id: long;
     content_type: ContentType;
-    event_content_id: long;
-    scenario_mode_volume: long;
-    scenario_mode_chapter: long;
-    shortcut_open_time: string;
-    shortcut_close_time: string;
-    condition_content_id: long;
     conquest_map_difficulty: StageDifficulty;
-    conquest_step_index: int;
-    shortcut_content_id: long;
     shortcut_ui_name: [string];
-    localize: string;
+    shortcut_close_time: string;
+    shortcut_content_id: long;
+    scenario_mode_chapter: long;
+    scenario_mode_volume: long;
+    shortcut_open_time: string;
+    conquest_step_index: int;
 }
 
 root_type ContentsShortcutExcel;

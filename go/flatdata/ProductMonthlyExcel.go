@@ -33,7 +33,7 @@ func (rcv *ProductMonthlyExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ProductMonthlyExcel) Id() int64 {
+func (rcv *ProductMonthlyExcel) Price() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,48 +41,70 @@ func (rcv *ProductMonthlyExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *ProductMonthlyExcel) MutateId(n int64) bool {
+func (rcv *ProductMonthlyExcel) MutatePrice(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *ProductMonthlyExcel) ProductId() []byte {
+func (rcv *ProductMonthlyExcel) ParcelAmount(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ProductMonthlyExcel) TeenProductId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ProductMonthlyExcel) StoreType() StoreType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return StoreType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *ProductMonthlyExcel) MutateStoreType(n StoreType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
+func (rcv *ProductMonthlyExcel) ParcelAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *ProductMonthlyExcel) Price() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+func (rcv *ProductMonthlyExcel) MutateParcelAmount(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *ProductMonthlyExcel) EnterCostReduceGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ProductMonthlyExcel) MutatePrice(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+func (rcv *ProductMonthlyExcel) MutateEnterCostReduceGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *ProductMonthlyExcel) MonthlyDays() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ProductMonthlyExcel) MutateMonthlyDays(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *ProductMonthlyExcel) ProductTagType() ProductTagType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return ProductTagType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ProductMonthlyExcel) MutateProductTagType(n ProductTagType) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
 func (rcv *ProductMonthlyExcel) PriceReference() []byte {
@@ -93,44 +115,8 @@ func (rcv *ProductMonthlyExcel) PriceReference() []byte {
 	return nil
 }
 
-func (rcv *ProductMonthlyExcel) ProductTagType() ProductTagType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return ProductTagType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ProductMonthlyExcel) MutateProductTagType(n ProductTagType) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
-}
-
-func (rcv *ProductMonthlyExcel) MonthlyDays() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ProductMonthlyExcel) MutateMonthlyDays(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *ProductMonthlyExcel) UseMonthlyProductCheck() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ProductMonthlyExcel) MutateUseMonthlyProductCheck(n bool) bool {
-	return rcv._tab.MutateBoolSlot(20, n)
-}
-
 func (rcv *ProductMonthlyExcel) PurchaseCountLimit() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -138,153 +124,11 @@ func (rcv *ProductMonthlyExcel) PurchaseCountLimit() int64 {
 }
 
 func (rcv *ProductMonthlyExcel) MutatePurchaseCountLimit(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
-}
-
-func (rcv *ProductMonthlyExcel) ParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *ProductMonthlyExcel) ParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ProductMonthlyExcel) MutateParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *ProductMonthlyExcel) ParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *ProductMonthlyExcel) ParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ProductMonthlyExcel) MutateParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *ProductMonthlyExcel) ParcelAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *ProductMonthlyExcel) ParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ProductMonthlyExcel) MutateParcelAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *ProductMonthlyExcel) EnterCostReduceGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ProductMonthlyExcel) MutateEnterCostReduceGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
-}
-
-func (rcv *ProductMonthlyExcel) DailyParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *ProductMonthlyExcel) DailyParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ProductMonthlyExcel) MutateDailyParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *ProductMonthlyExcel) DailyParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *ProductMonthlyExcel) DailyParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ProductMonthlyExcel) MutateDailyParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func (rcv *ProductMonthlyExcel) DailyParcelAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -293,7 +137,7 @@ func (rcv *ProductMonthlyExcel) DailyParcelAmount(j int) int64 {
 }
 
 func (rcv *ProductMonthlyExcel) DailyParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -301,7 +145,7 @@ func (rcv *ProductMonthlyExcel) DailyParcelAmountLength() int {
 }
 
 func (rcv *ProductMonthlyExcel) MutateDailyParcelAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -309,77 +153,233 @@ func (rcv *ProductMonthlyExcel) MutateDailyParcelAmount(j int, n int64) bool {
 	return false
 }
 
+func (rcv *ProductMonthlyExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ProductMonthlyExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *ProductMonthlyExcel) ParcelId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *ProductMonthlyExcel) ParcelIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ProductMonthlyExcel) MutateParcelId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *ProductMonthlyExcel) DailyParcelType(j int) ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *ProductMonthlyExcel) DailyParcelTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ProductMonthlyExcel) MutateDailyParcelType(j int, n ParcelType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *ProductMonthlyExcel) ProductId() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ProductMonthlyExcel) DailyParcelId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *ProductMonthlyExcel) DailyParcelIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ProductMonthlyExcel) MutateDailyParcelId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *ProductMonthlyExcel) TeenProductId() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ProductMonthlyExcel) StoreType() StoreType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return StoreType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ProductMonthlyExcel) MutateStoreType(n StoreType) bool {
+	return rcv._tab.MutateInt32Slot(32, int32(n))
+}
+
+func (rcv *ProductMonthlyExcel) UseMonthlyProductCheck() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ProductMonthlyExcel) MutateUseMonthlyProductCheck(n bool) bool {
+	return rcv._tab.MutateBoolSlot(34, n)
+}
+
+func (rcv *ProductMonthlyExcel) ParcelType(j int) ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *ProductMonthlyExcel) ParcelTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *ProductMonthlyExcel) MutateParcelType(j int, n ParcelType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
 func ProductMonthlyExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(17)
 }
-func ProductMonthlyExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func ProductMonthlyExcelAddProductId(builder *flatbuffers.Builder, productId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(productId), 0)
-}
-func ProductMonthlyExcelAddTeenProductId(builder *flatbuffers.Builder, teenProductId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(teenProductId), 0)
-}
-func ProductMonthlyExcelAddStoreType(builder *flatbuffers.Builder, storeType StoreType) {
-	builder.PrependInt32Slot(3, int32(storeType), 0)
-}
 func ProductMonthlyExcelAddPrice(builder *flatbuffers.Builder, price int64) {
-	builder.PrependInt64Slot(4, price, 0)
-}
-func ProductMonthlyExcelAddPriceReference(builder *flatbuffers.Builder, priceReference flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(priceReference), 0)
-}
-func ProductMonthlyExcelAddProductTagType(builder *flatbuffers.Builder, productTagType ProductTagType) {
-	builder.PrependInt32Slot(6, int32(productTagType), 0)
-}
-func ProductMonthlyExcelAddMonthlyDays(builder *flatbuffers.Builder, monthlyDays int64) {
-	builder.PrependInt64Slot(7, monthlyDays, 0)
-}
-func ProductMonthlyExcelAddUseMonthlyProductCheck(builder *flatbuffers.Builder, useMonthlyProductCheck bool) {
-	builder.PrependBoolSlot(8, useMonthlyProductCheck, false)
-}
-func ProductMonthlyExcelAddPurchaseCountLimit(builder *flatbuffers.Builder, purchaseCountLimit int64) {
-	builder.PrependInt64Slot(9, purchaseCountLimit, 0)
-}
-func ProductMonthlyExcelAddParcelType(builder *flatbuffers.Builder, parcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(parcelType), 0)
-}
-func ProductMonthlyExcelStartParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func ProductMonthlyExcelAddParcelId(builder *flatbuffers.Builder, parcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(parcelId), 0)
-}
-func ProductMonthlyExcelStartParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+	builder.PrependInt64Slot(0, price, 0)
 }
 func ProductMonthlyExcelAddParcelAmount(builder *flatbuffers.Builder, parcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(parcelAmount), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(parcelAmount), 0)
 }
 func ProductMonthlyExcelStartParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func ProductMonthlyExcelAddEnterCostReduceGroupId(builder *flatbuffers.Builder, enterCostReduceGroupId int64) {
-	builder.PrependInt64Slot(13, enterCostReduceGroupId, 0)
+	builder.PrependInt64Slot(2, enterCostReduceGroupId, 0)
+}
+func ProductMonthlyExcelAddMonthlyDays(builder *flatbuffers.Builder, monthlyDays int64) {
+	builder.PrependInt64Slot(3, monthlyDays, 0)
+}
+func ProductMonthlyExcelAddProductTagType(builder *flatbuffers.Builder, productTagType ProductTagType) {
+	builder.PrependInt32Slot(4, int32(productTagType), 0)
+}
+func ProductMonthlyExcelAddPriceReference(builder *flatbuffers.Builder, priceReference flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(priceReference), 0)
+}
+func ProductMonthlyExcelAddPurchaseCountLimit(builder *flatbuffers.Builder, purchaseCountLimit int64) {
+	builder.PrependInt64Slot(6, purchaseCountLimit, 0)
+}
+func ProductMonthlyExcelAddDailyParcelAmount(builder *flatbuffers.Builder, dailyParcelAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(dailyParcelAmount), 0)
+}
+func ProductMonthlyExcelStartDailyParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func ProductMonthlyExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(8, id, 0)
+}
+func ProductMonthlyExcelAddParcelId(builder *flatbuffers.Builder, parcelId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(parcelId), 0)
+}
+func ProductMonthlyExcelStartParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func ProductMonthlyExcelAddDailyParcelType(builder *flatbuffers.Builder, dailyParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(dailyParcelType), 0)
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(dailyParcelType), 0)
 }
 func ProductMonthlyExcelStartDailyParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
+func ProductMonthlyExcelAddProductId(builder *flatbuffers.Builder, productId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(productId), 0)
+}
 func ProductMonthlyExcelAddDailyParcelId(builder *flatbuffers.Builder, dailyParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(dailyParcelId), 0)
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(dailyParcelId), 0)
 }
 func ProductMonthlyExcelStartDailyParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func ProductMonthlyExcelAddDailyParcelAmount(builder *flatbuffers.Builder, dailyParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(dailyParcelAmount), 0)
+func ProductMonthlyExcelAddTeenProductId(builder *flatbuffers.Builder, teenProductId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(teenProductId), 0)
 }
-func ProductMonthlyExcelStartDailyParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func ProductMonthlyExcelAddStoreType(builder *flatbuffers.Builder, storeType StoreType) {
+	builder.PrependInt32Slot(14, int32(storeType), 0)
+}
+func ProductMonthlyExcelAddUseMonthlyProductCheck(builder *flatbuffers.Builder, useMonthlyProductCheck bool) {
+	builder.PrependBoolSlot(15, useMonthlyProductCheck, false)
+}
+func ProductMonthlyExcelAddParcelType(builder *flatbuffers.Builder, parcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(parcelType), 0)
+}
+func ProductMonthlyExcelStartParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func ProductMonthlyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

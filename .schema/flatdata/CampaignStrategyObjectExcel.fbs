@@ -4,19 +4,19 @@ include "StrategyObjectType.fbs";
 namespace FlatData;
 
 table CampaignStrategyObjectExcel {
-    id: long;
-    key: uint;
-    name: string;
-    prefab_name: string;
-    strategy_object_type: StrategyObjectType;
-    strategy_reward_parcel_type: ParcelType;
-    strategy_reward_id: long;
-    strategy_reward_name: string;
-    strategy_reward_amount: int;
-    strategy_sight_range: long;
-    portal_id: int;
-    heal_value: int;
     swith_id: int;
+    key: uint;
+    heal_value: int;
     buff_id: int;
+    strategy_sight_range: long;
+    strategy_reward_amount: int;
+    name: string;
+    strategy_reward_parcel_type: ParcelType;
+    prefab_name: string;
+    strategy_reward_name: string;
+    id: long;
+    portal_id: int;
+    strategy_object_type: StrategyObjectType;
     disposable: bool;
+    strategy_reward_id: long;
 }

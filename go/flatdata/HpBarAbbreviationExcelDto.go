@@ -10,9 +10,9 @@ import (
 // HpBarAbbreviationExcelDto represents a FlatBuffers table
 type HpBarAbbreviationExcelDto struct {
 	fbsutils.FlatBuffer
-	MonsterLv     int32 `json:"monster_lv"`
-	StandardHpBar int32 `json:"standard_hp_bar"`
 	RaidBossHpBar int32 `json:"raid_boss_hp_bar"`
+	StandardHpBar int32 `json:"standard_hp_bar"`
+	MonsterLv     int32 `json:"monster_lv"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,9 +21,9 @@ func (t *HpBarAbbreviationExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("HpBarAbbreviation"))
 	}
 	HpBarAbbreviationExcelStart(b)
-	HpBarAbbreviationExcelAddMonsterLv(b, fbsutils.Convert(t.MonsterLv, t.FlatBuffer.TableKey))
-	HpBarAbbreviationExcelAddStandardHpBar(b, fbsutils.Convert(t.StandardHpBar, t.FlatBuffer.TableKey))
 	HpBarAbbreviationExcelAddRaidBossHpBar(b, fbsutils.Convert(t.RaidBossHpBar, t.FlatBuffer.TableKey))
+	HpBarAbbreviationExcelAddStandardHpBar(b, fbsutils.Convert(t.StandardHpBar, t.FlatBuffer.TableKey))
+	HpBarAbbreviationExcelAddMonsterLv(b, fbsutils.Convert(t.MonsterLv, t.FlatBuffer.TableKey))
 	return HpBarAbbreviationExcelEnd(b)
 }
 
@@ -39,9 +39,9 @@ func (t *HpBarAbbreviationExcelDto) UnmarshalMessage(e *HpBarAbbreviationExcel) 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("HpBarAbbreviation"))
 	}
-	t.MonsterLv = fbsutils.Convert(e.MonsterLv(), t.FlatBuffer.TableKey)
-	t.StandardHpBar = fbsutils.Convert(e.StandardHpBar(), t.FlatBuffer.TableKey)
 	t.RaidBossHpBar = fbsutils.Convert(e.RaidBossHpBar(), t.FlatBuffer.TableKey)
+	t.StandardHpBar = fbsutils.Convert(e.StandardHpBar(), t.FlatBuffer.TableKey)
+	t.MonsterLv = fbsutils.Convert(e.MonsterLv(), t.FlatBuffer.TableKey)
 	return nil
 }
 

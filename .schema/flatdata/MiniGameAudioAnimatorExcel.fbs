@@ -1,15 +1,15 @@
 namespace FlatData;
 
 table MiniGameAudioAnimatorExcel {
-    controller_name_hash: uint;
-    voice_name_prefix: string;
     state_name_hash: uint;
-    state_name: string;
     ignore_interrupt_delay: bool;
-    ignore_interrupt_play: bool;
-    volume: float;
-    delay: float;
-    audio_priority: int;
-    audio_clip_path: [string];
+    voice_name_prefix: string;
     voice_hash: [uint];
+    ignore_interrupt_play: bool;
+    audio_clip_path: [string];
+    audio_priority: int;
+    state_name: string;
+    delay: float;
+    controller_name_hash: uint;
+    volume: float;
 }

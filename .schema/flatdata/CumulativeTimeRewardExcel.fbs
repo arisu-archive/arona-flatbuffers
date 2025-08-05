@@ -3,12 +3,12 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table CumulativeTimeRewardExcel {
-    id: long;
-    description: string;
-    start_date: string;
     end_date: string;
+    id: long;
+    start_date: string;
+    description: string;
     time_condition: [long];
-    reward_parcel_type: [ParcelType];
     reward_id: [long];
+    reward_parcel_type: [ParcelType];
     reward_amount: [int];
 }

@@ -2,7 +2,7 @@ namespace FlatData;
 
 table NormalSkillTemplateExcel {
     index: long;
+    multi_ani: bool;
     first_cool_time: float;
     cool_time: float;
-    multi_ani: bool;
 }

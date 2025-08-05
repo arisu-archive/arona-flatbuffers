@@ -1,17 +1,17 @@
 namespace MX.Data.Excel;
 
 table LocalizeEtcExcel {
-    key: uint;
-    name_kr: string;
-    description_kr: string;
-    name_jp: string;
-    description_jp: string;
+    description_en: string;
+    name_en: string;
+    name_tw: string;
     name_th: string;
     description_th: string;
-    name_tw: string;
+    description_jp: string;
+    key: uint;
+    description_kr: string;
     description_tw: string;
-    name_en: string;
-    description_en: string;
+    name_kr: string;
+    name_jp: string;
 }
 
 root_type LocalizeEtcExcel;

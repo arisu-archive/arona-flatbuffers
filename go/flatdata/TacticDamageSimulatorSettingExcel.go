@@ -33,32 +33,8 @@ func (rcv *TacticDamageSimulatorSettingExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *TacticDamageSimulatorSettingExcel) Order() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) MutateOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) Repeat() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) MutateRepeat(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
-}
-
 func (rcv *TacticDamageSimulatorSettingExcel) TestPreset() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -66,23 +42,23 @@ func (rcv *TacticDamageSimulatorSettingExcel) TestPreset() int64 {
 }
 
 func (rcv *TacticDamageSimulatorSettingExcel) MutateTestPreset(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *TacticDamageSimulatorSettingExcel) TestBattleTime() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *TacticDamageSimulatorSettingExcel) Order() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *TacticDamageSimulatorSettingExcel) MutateTestBattleTime(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+func (rcv *TacticDamageSimulatorSettingExcel) MutateOrder(n int32) bool {
+	return rcv._tab.MutateInt32Slot(6, n)
 }
 
 func (rcv *TacticDamageSimulatorSettingExcel) StrikerSquard() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -90,35 +66,23 @@ func (rcv *TacticDamageSimulatorSettingExcel) StrikerSquard() int64 {
 }
 
 func (rcv *TacticDamageSimulatorSettingExcel) MutateStrikerSquard(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *TacticDamageSimulatorSettingExcel) SpecialSquard() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+func (rcv *TacticDamageSimulatorSettingExcel) OverrideOutdoorAdaptation() TerrainAdaptationStat {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *TacticDamageSimulatorSettingExcel) MutateSpecialSquard(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) ReplaceCharacterCostRegen() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) MutateReplaceCharacterCostRegen(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
+func (rcv *TacticDamageSimulatorSettingExcel) MutateOverrideOutdoorAdaptation(n TerrainAdaptationStat) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
 func (rcv *TacticDamageSimulatorSettingExcel) ReplaceCostRegenValue() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -126,7 +90,43 @@ func (rcv *TacticDamageSimulatorSettingExcel) ReplaceCostRegenValue() int32 {
 }
 
 func (rcv *TacticDamageSimulatorSettingExcel) MutateReplaceCostRegenValue(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
+	return rcv._tab.MutateInt32Slot(12, n)
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) ApplyOverrideAdaptation() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) MutateApplyOverrideAdaptation(n bool) bool {
+	return rcv._tab.MutateBoolSlot(14, n)
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) GroundId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) MutateGroundId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) ReplaceCharacterCostRegen() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) MutateReplaceCharacterCostRegen(n bool) bool {
+	return rcv._tab.MutateBoolSlot(18, n)
 }
 
 func (rcv *TacticDamageSimulatorSettingExcel) UseAutoSkill() bool {
@@ -141,92 +141,8 @@ func (rcv *TacticDamageSimulatorSettingExcel) MutateUseAutoSkill(n bool) bool {
 	return rcv._tab.MutateBoolSlot(20, n)
 }
 
-func (rcv *TacticDamageSimulatorSettingExcel) OverrideStreetAdaptation() TerrainAdaptationStat {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) MutateOverrideStreetAdaptation(n TerrainAdaptationStat) bool {
-	return rcv._tab.MutateInt32Slot(22, int32(n))
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) OverrideOutdoorAdaptation() TerrainAdaptationStat {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) MutateOverrideOutdoorAdaptation(n TerrainAdaptationStat) bool {
-	return rcv._tab.MutateInt32Slot(24, int32(n))
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) OverrideIndoorAdaptation() TerrainAdaptationStat {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) MutateOverrideIndoorAdaptation(n TerrainAdaptationStat) bool {
-	return rcv._tab.MutateInt32Slot(26, int32(n))
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) ApplyOverrideAdaptation() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) MutateApplyOverrideAdaptation(n bool) bool {
-	return rcv._tab.MutateBoolSlot(28, n)
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) OverrideFavorLevel() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) MutateOverrideFavorLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(30, n)
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) ApplyOverrideFavorLevel() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) MutateApplyOverrideFavorLevel(n bool) bool {
-	return rcv._tab.MutateBoolSlot(32, n)
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) GroundId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TacticDamageSimulatorSettingExcel) MutateGroundId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(34, n)
-}
-
 func (rcv *TacticDamageSimulatorSettingExcel) FixedCharacter(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -235,7 +151,7 @@ func (rcv *TacticDamageSimulatorSettingExcel) FixedCharacter(j int) int64 {
 }
 
 func (rcv *TacticDamageSimulatorSettingExcel) FixedCharacterLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -243,7 +159,7 @@ func (rcv *TacticDamageSimulatorSettingExcel) FixedCharacterLength() int {
 }
 
 func (rcv *TacticDamageSimulatorSettingExcel) MutateFixedCharacter(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -251,62 +167,146 @@ func (rcv *TacticDamageSimulatorSettingExcel) MutateFixedCharacter(j int, n int6
 	return false
 }
 
+func (rcv *TacticDamageSimulatorSettingExcel) ApplyOverrideFavorLevel() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) MutateApplyOverrideFavorLevel(n bool) bool {
+	return rcv._tab.MutateBoolSlot(24, n)
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) OverrideStreetAdaptation() TerrainAdaptationStat {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) MutateOverrideStreetAdaptation(n TerrainAdaptationStat) bool {
+	return rcv._tab.MutateInt32Slot(26, int32(n))
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) OverrideFavorLevel() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) MutateOverrideFavorLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(28, n)
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) OverrideIndoorAdaptation() TerrainAdaptationStat {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) MutateOverrideIndoorAdaptation(n TerrainAdaptationStat) bool {
+	return rcv._tab.MutateInt32Slot(30, int32(n))
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) TestBattleTime() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) MutateTestBattleTime(n int64) bool {
+	return rcv._tab.MutateInt64Slot(32, n)
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) SpecialSquard() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) MutateSpecialSquard(n int64) bool {
+	return rcv._tab.MutateInt64Slot(34, n)
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) Repeat() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TacticDamageSimulatorSettingExcel) MutateRepeat(n int32) bool {
+	return rcv._tab.MutateInt32Slot(36, n)
+}
+
 func TacticDamageSimulatorSettingExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(17)
 }
-func TacticDamageSimulatorSettingExcelAddOrder(builder *flatbuffers.Builder, order int32) {
-	builder.PrependInt32Slot(0, order, 0)
-}
-func TacticDamageSimulatorSettingExcelAddRepeat(builder *flatbuffers.Builder, repeat int32) {
-	builder.PrependInt32Slot(1, repeat, 0)
-}
 func TacticDamageSimulatorSettingExcelAddTestPreset(builder *flatbuffers.Builder, testPreset int64) {
-	builder.PrependInt64Slot(2, testPreset, 0)
+	builder.PrependInt64Slot(0, testPreset, 0)
 }
-func TacticDamageSimulatorSettingExcelAddTestBattleTime(builder *flatbuffers.Builder, testBattleTime int64) {
-	builder.PrependInt64Slot(3, testBattleTime, 0)
+func TacticDamageSimulatorSettingExcelAddOrder(builder *flatbuffers.Builder, order int32) {
+	builder.PrependInt32Slot(1, order, 0)
 }
 func TacticDamageSimulatorSettingExcelAddStrikerSquard(builder *flatbuffers.Builder, strikerSquard int64) {
-	builder.PrependInt64Slot(4, strikerSquard, 0)
+	builder.PrependInt64Slot(2, strikerSquard, 0)
 }
-func TacticDamageSimulatorSettingExcelAddSpecialSquard(builder *flatbuffers.Builder, specialSquard int64) {
-	builder.PrependInt64Slot(5, specialSquard, 0)
-}
-func TacticDamageSimulatorSettingExcelAddReplaceCharacterCostRegen(builder *flatbuffers.Builder, replaceCharacterCostRegen bool) {
-	builder.PrependBoolSlot(6, replaceCharacterCostRegen, false)
+func TacticDamageSimulatorSettingExcelAddOverrideOutdoorAdaptation(builder *flatbuffers.Builder, overrideOutdoorAdaptation TerrainAdaptationStat) {
+	builder.PrependInt32Slot(3, int32(overrideOutdoorAdaptation), 0)
 }
 func TacticDamageSimulatorSettingExcelAddReplaceCostRegenValue(builder *flatbuffers.Builder, replaceCostRegenValue int32) {
-	builder.PrependInt32Slot(7, replaceCostRegenValue, 0)
+	builder.PrependInt32Slot(4, replaceCostRegenValue, 0)
+}
+func TacticDamageSimulatorSettingExcelAddApplyOverrideAdaptation(builder *flatbuffers.Builder, applyOverrideAdaptation bool) {
+	builder.PrependBoolSlot(5, applyOverrideAdaptation, false)
+}
+func TacticDamageSimulatorSettingExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
+	builder.PrependInt64Slot(6, groundId, 0)
+}
+func TacticDamageSimulatorSettingExcelAddReplaceCharacterCostRegen(builder *flatbuffers.Builder, replaceCharacterCostRegen bool) {
+	builder.PrependBoolSlot(7, replaceCharacterCostRegen, false)
 }
 func TacticDamageSimulatorSettingExcelAddUseAutoSkill(builder *flatbuffers.Builder, useAutoSkill bool) {
 	builder.PrependBoolSlot(8, useAutoSkill, false)
 }
-func TacticDamageSimulatorSettingExcelAddOverrideStreetAdaptation(builder *flatbuffers.Builder, overrideStreetAdaptation TerrainAdaptationStat) {
-	builder.PrependInt32Slot(9, int32(overrideStreetAdaptation), 0)
-}
-func TacticDamageSimulatorSettingExcelAddOverrideOutdoorAdaptation(builder *flatbuffers.Builder, overrideOutdoorAdaptation TerrainAdaptationStat) {
-	builder.PrependInt32Slot(10, int32(overrideOutdoorAdaptation), 0)
-}
-func TacticDamageSimulatorSettingExcelAddOverrideIndoorAdaptation(builder *flatbuffers.Builder, overrideIndoorAdaptation TerrainAdaptationStat) {
-	builder.PrependInt32Slot(11, int32(overrideIndoorAdaptation), 0)
-}
-func TacticDamageSimulatorSettingExcelAddApplyOverrideAdaptation(builder *flatbuffers.Builder, applyOverrideAdaptation bool) {
-	builder.PrependBoolSlot(12, applyOverrideAdaptation, false)
-}
-func TacticDamageSimulatorSettingExcelAddOverrideFavorLevel(builder *flatbuffers.Builder, overrideFavorLevel int32) {
-	builder.PrependInt32Slot(13, overrideFavorLevel, 0)
-}
-func TacticDamageSimulatorSettingExcelAddApplyOverrideFavorLevel(builder *flatbuffers.Builder, applyOverrideFavorLevel bool) {
-	builder.PrependBoolSlot(14, applyOverrideFavorLevel, false)
-}
-func TacticDamageSimulatorSettingExcelAddGroundId(builder *flatbuffers.Builder, groundId int64) {
-	builder.PrependInt64Slot(15, groundId, 0)
-}
 func TacticDamageSimulatorSettingExcelAddFixedCharacter(builder *flatbuffers.Builder, fixedCharacter flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(fixedCharacter), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(fixedCharacter), 0)
 }
 func TacticDamageSimulatorSettingExcelStartFixedCharacterVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
+}
+func TacticDamageSimulatorSettingExcelAddApplyOverrideFavorLevel(builder *flatbuffers.Builder, applyOverrideFavorLevel bool) {
+	builder.PrependBoolSlot(10, applyOverrideFavorLevel, false)
+}
+func TacticDamageSimulatorSettingExcelAddOverrideStreetAdaptation(builder *flatbuffers.Builder, overrideStreetAdaptation TerrainAdaptationStat) {
+	builder.PrependInt32Slot(11, int32(overrideStreetAdaptation), 0)
+}
+func TacticDamageSimulatorSettingExcelAddOverrideFavorLevel(builder *flatbuffers.Builder, overrideFavorLevel int32) {
+	builder.PrependInt32Slot(12, overrideFavorLevel, 0)
+}
+func TacticDamageSimulatorSettingExcelAddOverrideIndoorAdaptation(builder *flatbuffers.Builder, overrideIndoorAdaptation TerrainAdaptationStat) {
+	builder.PrependInt32Slot(13, int32(overrideIndoorAdaptation), 0)
+}
+func TacticDamageSimulatorSettingExcelAddTestBattleTime(builder *flatbuffers.Builder, testBattleTime int64) {
+	builder.PrependInt64Slot(14, testBattleTime, 0)
+}
+func TacticDamageSimulatorSettingExcelAddSpecialSquard(builder *flatbuffers.Builder, specialSquard int64) {
+	builder.PrependInt64Slot(15, specialSquard, 0)
+}
+func TacticDamageSimulatorSettingExcelAddRepeat(builder *flatbuffers.Builder, repeat int32) {
+	builder.PrependInt32Slot(16, repeat, 0)
 }
 func TacticDamageSimulatorSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

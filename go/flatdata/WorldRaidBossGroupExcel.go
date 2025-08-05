@@ -33,7 +33,7 @@ func (rcv *WorldRaidBossGroupExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *WorldRaidBossGroupExcel) Id() int64 {
+func (rcv *WorldRaidBossGroupExcel) WorldBossHp() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,31 +41,31 @@ func (rcv *WorldRaidBossGroupExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *WorldRaidBossGroupExcel) MutateId(n int64) bool {
+func (rcv *WorldRaidBossGroupExcel) MutateWorldBossHp(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *WorldRaidBossGroupExcel) WorldRaidBossGroupId() int64 {
+func (rcv *WorldRaidBossGroupExcel) WorldBossListParcel() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WorldRaidBossGroupExcel) MutateWorldRaidBossGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *WorldRaidBossGroupExcel) WorldBossName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *WorldRaidBossGroupExcel) WorldBossPopupPortrait() []byte {
+func (rcv *WorldRaidBossGroupExcel) HideAnotherBossKilled() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *WorldRaidBossGroupExcel) MutateHideAnotherBossKilled(n bool) bool {
+	return rcv._tab.MutateBoolSlot(8, n)
+}
+
+func (rcv *WorldRaidBossGroupExcel) WorldBossName() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -73,56 +73,20 @@ func (rcv *WorldRaidBossGroupExcel) WorldBossPopupPortrait() []byte {
 	return nil
 }
 
-func (rcv *WorldRaidBossGroupExcel) WorldBossPopupBg() []byte {
+func (rcv *WorldRaidBossGroupExcel) WorldBossClearRewardGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *WorldRaidBossGroupExcel) WorldBossParcelPortrait() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *WorldRaidBossGroupExcel) WorldBossListParcel() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *WorldRaidBossGroupExcel) WorldBossHp() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *WorldRaidBossGroupExcel) MutateWorldBossHp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *WorldRaidBossGroupExcel) WorldBossHpTw() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WorldRaidBossGroupExcel) MutateWorldBossHpTw(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
+func (rcv *WorldRaidBossGroupExcel) MutateWorldBossClearRewardGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func (rcv *WorldRaidBossGroupExcel) WorldBossHpAsia() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -130,7 +94,47 @@ func (rcv *WorldRaidBossGroupExcel) WorldBossHpAsia() int64 {
 }
 
 func (rcv *WorldRaidBossGroupExcel) MutateWorldBossHpAsia(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *WorldRaidBossGroupExcel) ExclusiveOperatorBossDamaged() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *WorldRaidBossGroupExcel) ExclusiveOperatorBossSpawn() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *WorldRaidBossGroupExcel) WorldBossHpGlobal() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WorldRaidBossGroupExcel) MutateWorldBossHpGlobal(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *WorldRaidBossGroupExcel) UiHideBeforeSpawn() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *WorldRaidBossGroupExcel) MutateUiHideBeforeSpawn(n bool) bool {
+	return rcv._tab.MutateBoolSlot(22, n)
 }
 
 func (rcv *WorldRaidBossGroupExcel) WorldBossHpNa() int64 {
@@ -145,7 +149,7 @@ func (rcv *WorldRaidBossGroupExcel) MutateWorldBossHpNa(n int64) bool {
 	return rcv._tab.MutateInt64Slot(24, n)
 }
 
-func (rcv *WorldRaidBossGroupExcel) WorldBossHpGlobal() int64 {
+func (rcv *WorldRaidBossGroupExcel) WorldRaidBossGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -153,35 +157,27 @@ func (rcv *WorldRaidBossGroupExcel) WorldBossHpGlobal() int64 {
 	return 0
 }
 
-func (rcv *WorldRaidBossGroupExcel) MutateWorldBossHpGlobal(n int64) bool {
+func (rcv *WorldRaidBossGroupExcel) MutateWorldRaidBossGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(26, n)
 }
 
-func (rcv *WorldRaidBossGroupExcel) UiHideBeforeSpawn() bool {
+func (rcv *WorldRaidBossGroupExcel) WorldBossParcelPortrait() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
+	return nil
 }
 
-func (rcv *WorldRaidBossGroupExcel) MutateUiHideBeforeSpawn(n bool) bool {
-	return rcv._tab.MutateBoolSlot(28, n)
-}
-
-func (rcv *WorldRaidBossGroupExcel) HideAnotherBossKilled() bool {
+func (rcv *WorldRaidBossGroupExcel) WorldBossPopupBg() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
+	return nil
 }
 
-func (rcv *WorldRaidBossGroupExcel) MutateHideAnotherBossKilled(n bool) bool {
-	return rcv._tab.MutateBoolSlot(30, n)
-}
-
-func (rcv *WorldRaidBossGroupExcel) WorldBossClearRewardGroupId() int64 {
+func (rcv *WorldRaidBossGroupExcel) WorldBossHpTw() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -189,12 +185,60 @@ func (rcv *WorldRaidBossGroupExcel) WorldBossClearRewardGroupId() int64 {
 	return 0
 }
 
-func (rcv *WorldRaidBossGroupExcel) MutateWorldBossClearRewardGroupId(n int64) bool {
+func (rcv *WorldRaidBossGroupExcel) MutateWorldBossHpTw(n int64) bool {
 	return rcv._tab.MutateInt64Slot(32, n)
 }
 
-func (rcv *WorldRaidBossGroupExcel) AnotherBossKilled(j int) int64 {
+func (rcv *WorldRaidBossGroupExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WorldRaidBossGroupExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(34, n)
+}
+
+func (rcv *WorldRaidBossGroupExcel) WorldBossPopupPortrait() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *WorldRaidBossGroupExcel) ExclusiveOperatorScenarioBattle() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *WorldRaidBossGroupExcel) BossGroupOpenCondition() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WorldRaidBossGroupExcel) MutateBossGroupOpenCondition(n int64) bool {
+	return rcv._tab.MutateInt64Slot(40, n)
+}
+
+func (rcv *WorldRaidBossGroupExcel) ExclusiveOperatorBossKill() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *WorldRaidBossGroupExcel) AnotherBossKilled(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -203,7 +247,7 @@ func (rcv *WorldRaidBossGroupExcel) AnotherBossKilled(j int) int64 {
 }
 
 func (rcv *WorldRaidBossGroupExcel) AnotherBossKilledLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -211,7 +255,7 @@ func (rcv *WorldRaidBossGroupExcel) AnotherBossKilledLength() int {
 }
 
 func (rcv *WorldRaidBossGroupExcel) MutateAnotherBossKilled(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -220,50 +264,6 @@ func (rcv *WorldRaidBossGroupExcel) MutateAnotherBossKilled(j int, n int64) bool
 }
 
 func (rcv *WorldRaidBossGroupExcel) EchelonConstraintGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WorldRaidBossGroupExcel) MutateEchelonConstraintGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(36, n)
-}
-
-func (rcv *WorldRaidBossGroupExcel) ExclusiveOperatorBossSpawn() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *WorldRaidBossGroupExcel) ExclusiveOperatorBossKill() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *WorldRaidBossGroupExcel) ExclusiveOperatorScenarioBattle() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *WorldRaidBossGroupExcel) ExclusiveOperatorBossDamaged() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *WorldRaidBossGroupExcel) BossGroupOpenCondition() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -271,81 +271,81 @@ func (rcv *WorldRaidBossGroupExcel) BossGroupOpenCondition() int64 {
 	return 0
 }
 
-func (rcv *WorldRaidBossGroupExcel) MutateBossGroupOpenCondition(n int64) bool {
+func (rcv *WorldRaidBossGroupExcel) MutateEchelonConstraintGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(46, n)
 }
 
 func WorldRaidBossGroupExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(22)
 }
-func WorldRaidBossGroupExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func WorldRaidBossGroupExcelAddWorldRaidBossGroupId(builder *flatbuffers.Builder, worldRaidBossGroupId int64) {
-	builder.PrependInt64Slot(1, worldRaidBossGroupId, 0)
-}
-func WorldRaidBossGroupExcelAddWorldBossName(builder *flatbuffers.Builder, worldBossName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(worldBossName), 0)
-}
-func WorldRaidBossGroupExcelAddWorldBossPopupPortrait(builder *flatbuffers.Builder, worldBossPopupPortrait flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(worldBossPopupPortrait), 0)
-}
-func WorldRaidBossGroupExcelAddWorldBossPopupBg(builder *flatbuffers.Builder, worldBossPopupBg flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(worldBossPopupBg), 0)
-}
-func WorldRaidBossGroupExcelAddWorldBossParcelPortrait(builder *flatbuffers.Builder, worldBossParcelPortrait flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(worldBossParcelPortrait), 0)
+func WorldRaidBossGroupExcelAddWorldBossHp(builder *flatbuffers.Builder, worldBossHp int64) {
+	builder.PrependInt64Slot(0, worldBossHp, 0)
 }
 func WorldRaidBossGroupExcelAddWorldBossListParcel(builder *flatbuffers.Builder, worldBossListParcel flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(worldBossListParcel), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(worldBossListParcel), 0)
 }
-func WorldRaidBossGroupExcelAddWorldBossHp(builder *flatbuffers.Builder, worldBossHp int64) {
-	builder.PrependInt64Slot(7, worldBossHp, 0)
+func WorldRaidBossGroupExcelAddHideAnotherBossKilled(builder *flatbuffers.Builder, hideAnotherBossKilled bool) {
+	builder.PrependBoolSlot(2, hideAnotherBossKilled, false)
 }
-func WorldRaidBossGroupExcelAddWorldBossHpTw(builder *flatbuffers.Builder, worldBossHpTw int64) {
-	builder.PrependInt64Slot(8, worldBossHpTw, 0)
+func WorldRaidBossGroupExcelAddWorldBossName(builder *flatbuffers.Builder, worldBossName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(worldBossName), 0)
+}
+func WorldRaidBossGroupExcelAddWorldBossClearRewardGroupId(builder *flatbuffers.Builder, worldBossClearRewardGroupId int64) {
+	builder.PrependInt64Slot(4, worldBossClearRewardGroupId, 0)
 }
 func WorldRaidBossGroupExcelAddWorldBossHpAsia(builder *flatbuffers.Builder, worldBossHpAsia int64) {
-	builder.PrependInt64Slot(9, worldBossHpAsia, 0)
+	builder.PrependInt64Slot(5, worldBossHpAsia, 0)
+}
+func WorldRaidBossGroupExcelAddExclusiveOperatorBossDamaged(builder *flatbuffers.Builder, exclusiveOperatorBossDamaged flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(exclusiveOperatorBossDamaged), 0)
+}
+func WorldRaidBossGroupExcelAddExclusiveOperatorBossSpawn(builder *flatbuffers.Builder, exclusiveOperatorBossSpawn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(exclusiveOperatorBossSpawn), 0)
+}
+func WorldRaidBossGroupExcelAddWorldBossHpGlobal(builder *flatbuffers.Builder, worldBossHpGlobal int64) {
+	builder.PrependInt64Slot(8, worldBossHpGlobal, 0)
+}
+func WorldRaidBossGroupExcelAddUiHideBeforeSpawn(builder *flatbuffers.Builder, uiHideBeforeSpawn bool) {
+	builder.PrependBoolSlot(9, uiHideBeforeSpawn, false)
 }
 func WorldRaidBossGroupExcelAddWorldBossHpNa(builder *flatbuffers.Builder, worldBossHpNa int64) {
 	builder.PrependInt64Slot(10, worldBossHpNa, 0)
 }
-func WorldRaidBossGroupExcelAddWorldBossHpGlobal(builder *flatbuffers.Builder, worldBossHpGlobal int64) {
-	builder.PrependInt64Slot(11, worldBossHpGlobal, 0)
+func WorldRaidBossGroupExcelAddWorldRaidBossGroupId(builder *flatbuffers.Builder, worldRaidBossGroupId int64) {
+	builder.PrependInt64Slot(11, worldRaidBossGroupId, 0)
 }
-func WorldRaidBossGroupExcelAddUiHideBeforeSpawn(builder *flatbuffers.Builder, uiHideBeforeSpawn bool) {
-	builder.PrependBoolSlot(12, uiHideBeforeSpawn, false)
+func WorldRaidBossGroupExcelAddWorldBossParcelPortrait(builder *flatbuffers.Builder, worldBossParcelPortrait flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(worldBossParcelPortrait), 0)
 }
-func WorldRaidBossGroupExcelAddHideAnotherBossKilled(builder *flatbuffers.Builder, hideAnotherBossKilled bool) {
-	builder.PrependBoolSlot(13, hideAnotherBossKilled, false)
+func WorldRaidBossGroupExcelAddWorldBossPopupBg(builder *flatbuffers.Builder, worldBossPopupBg flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(worldBossPopupBg), 0)
 }
-func WorldRaidBossGroupExcelAddWorldBossClearRewardGroupId(builder *flatbuffers.Builder, worldBossClearRewardGroupId int64) {
-	builder.PrependInt64Slot(14, worldBossClearRewardGroupId, 0)
+func WorldRaidBossGroupExcelAddWorldBossHpTw(builder *flatbuffers.Builder, worldBossHpTw int64) {
+	builder.PrependInt64Slot(14, worldBossHpTw, 0)
+}
+func WorldRaidBossGroupExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(15, id, 0)
+}
+func WorldRaidBossGroupExcelAddWorldBossPopupPortrait(builder *flatbuffers.Builder, worldBossPopupPortrait flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(worldBossPopupPortrait), 0)
+}
+func WorldRaidBossGroupExcelAddExclusiveOperatorScenarioBattle(builder *flatbuffers.Builder, exclusiveOperatorScenarioBattle flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(exclusiveOperatorScenarioBattle), 0)
+}
+func WorldRaidBossGroupExcelAddBossGroupOpenCondition(builder *flatbuffers.Builder, bossGroupOpenCondition int64) {
+	builder.PrependInt64Slot(18, bossGroupOpenCondition, 0)
+}
+func WorldRaidBossGroupExcelAddExclusiveOperatorBossKill(builder *flatbuffers.Builder, exclusiveOperatorBossKill flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(exclusiveOperatorBossKill), 0)
 }
 func WorldRaidBossGroupExcelAddAnotherBossKilled(builder *flatbuffers.Builder, anotherBossKilled flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(anotherBossKilled), 0)
+	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(anotherBossKilled), 0)
 }
 func WorldRaidBossGroupExcelStartAnotherBossKilledVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func WorldRaidBossGroupExcelAddEchelonConstraintGroupId(builder *flatbuffers.Builder, echelonConstraintGroupId int64) {
-	builder.PrependInt64Slot(16, echelonConstraintGroupId, 0)
-}
-func WorldRaidBossGroupExcelAddExclusiveOperatorBossSpawn(builder *flatbuffers.Builder, exclusiveOperatorBossSpawn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(exclusiveOperatorBossSpawn), 0)
-}
-func WorldRaidBossGroupExcelAddExclusiveOperatorBossKill(builder *flatbuffers.Builder, exclusiveOperatorBossKill flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(exclusiveOperatorBossKill), 0)
-}
-func WorldRaidBossGroupExcelAddExclusiveOperatorScenarioBattle(builder *flatbuffers.Builder, exclusiveOperatorScenarioBattle flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(exclusiveOperatorScenarioBattle), 0)
-}
-func WorldRaidBossGroupExcelAddExclusiveOperatorBossDamaged(builder *flatbuffers.Builder, exclusiveOperatorBossDamaged flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(exclusiveOperatorBossDamaged), 0)
-}
-func WorldRaidBossGroupExcelAddBossGroupOpenCondition(builder *flatbuffers.Builder, bossGroupOpenCondition int64) {
-	builder.PrependInt64Slot(21, bossGroupOpenCondition, 0)
+	builder.PrependInt64Slot(21, echelonConstraintGroupId, 0)
 }
 func WorldRaidBossGroupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -3,15 +3,15 @@ include "MultipleConditionCheckType.fbs";
 namespace MX.Data.Excel;
 
 table WorldRaidConditionExcel {
-    id: long;
-    lock_ui: [string];
-    hide_when_locked: bool;
-    account_level: long;
-    scenario_mode_id: [long];
-    campaign_stage_id: [long];
     multiple_condition_check_type: MultipleConditionCheckType;
-    after_when_date: string;
+    account_level: long;
     world_raid_boss_kill: [long];
+    after_when_date: string;
+    hide_when_locked: bool;
+    lock_ui: [string];
+    campaign_stage_id: [long];
+    scenario_mode_id: [long];
+    id: long;
 }
 
 root_type WorldRaidConditionExcel;

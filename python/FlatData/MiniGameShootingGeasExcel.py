@@ -25,39 +25,39 @@ class MiniGameShootingGeasExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MiniGameShootingGeasExcel
-    def UniqueId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameShootingGeasExcel
     def GeasType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameShootingGeasExcel
     def Icon(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # MiniGameShootingGeasExcel
-    def Probability(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+    def NeedGeasId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameShootingGeasExcel
     def MaxOverlapCount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
+
+    # MiniGameShootingGeasExcel
+    def HideInPausePopup(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # MiniGameShootingGeasExcel
     def GeasData(self):
@@ -67,46 +67,46 @@ class MiniGameShootingGeasExcel(object):
         return None
 
     # MiniGameShootingGeasExcel
-    def NeedGeasId(self):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameShootingGeasExcel
-    def HideInPausePopup(self):
+    def Probability(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def MiniGameShootingGeasExcelStart(builder): builder.StartObject(8)
 def Start(builder):
     return MiniGameShootingGeasExcelStart(builder)
-def MiniGameShootingGeasExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(0, uniqueId, 0)
-def AddUniqueId(builder, uniqueId):
-    return MiniGameShootingGeasExcelAddUniqueId(builder, uniqueId)
-def MiniGameShootingGeasExcelAddGeasType(builder, geasType): builder.PrependInt32Slot(1, geasType, 0)
+def MiniGameShootingGeasExcelAddGeasType(builder, geasType): builder.PrependInt32Slot(0, geasType, 0)
 def AddGeasType(builder, geasType):
     return MiniGameShootingGeasExcelAddGeasType(builder, geasType)
-def MiniGameShootingGeasExcelAddIcon(builder, icon): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
+def MiniGameShootingGeasExcelAddIcon(builder, icon): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
 def AddIcon(builder, icon):
     return MiniGameShootingGeasExcelAddIcon(builder, icon)
-def MiniGameShootingGeasExcelAddProbability(builder, probability): builder.PrependInt64Slot(3, probability, 0)
-def AddProbability(builder, probability):
-    return MiniGameShootingGeasExcelAddProbability(builder, probability)
-def MiniGameShootingGeasExcelAddMaxOverlapCount(builder, maxOverlapCount): builder.PrependInt32Slot(4, maxOverlapCount, 0)
+def MiniGameShootingGeasExcelAddNeedGeasId(builder, needGeasId): builder.PrependInt64Slot(2, needGeasId, 0)
+def AddNeedGeasId(builder, needGeasId):
+    return MiniGameShootingGeasExcelAddNeedGeasId(builder, needGeasId)
+def MiniGameShootingGeasExcelAddMaxOverlapCount(builder, maxOverlapCount): builder.PrependInt32Slot(3, maxOverlapCount, 0)
 def AddMaxOverlapCount(builder, maxOverlapCount):
     return MiniGameShootingGeasExcelAddMaxOverlapCount(builder, maxOverlapCount)
+def MiniGameShootingGeasExcelAddHideInPausePopup(builder, hideInPausePopup): builder.PrependBoolSlot(4, hideInPausePopup, 0)
+def AddHideInPausePopup(builder, hideInPausePopup):
+    return MiniGameShootingGeasExcelAddHideInPausePopup(builder, hideInPausePopup)
 def MiniGameShootingGeasExcelAddGeasData(builder, geasData): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(geasData), 0)
 def AddGeasData(builder, geasData):
     return MiniGameShootingGeasExcelAddGeasData(builder, geasData)
-def MiniGameShootingGeasExcelAddNeedGeasId(builder, needGeasId): builder.PrependInt64Slot(6, needGeasId, 0)
-def AddNeedGeasId(builder, needGeasId):
-    return MiniGameShootingGeasExcelAddNeedGeasId(builder, needGeasId)
-def MiniGameShootingGeasExcelAddHideInPausePopup(builder, hideInPausePopup): builder.PrependBoolSlot(7, hideInPausePopup, 0)
-def AddHideInPausePopup(builder, hideInPausePopup):
-    return MiniGameShootingGeasExcelAddHideInPausePopup(builder, hideInPausePopup)
+def MiniGameShootingGeasExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(6, uniqueId, 0)
+def AddUniqueId(builder, uniqueId):
+    return MiniGameShootingGeasExcelAddUniqueId(builder, uniqueId)
+def MiniGameShootingGeasExcelAddProbability(builder, probability): builder.PrependInt64Slot(7, probability, 0)
+def AddProbability(builder, probability):
+    return MiniGameShootingGeasExcelAddProbability(builder, probability)
 def MiniGameShootingGeasExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameShootingGeasExcelEnd(builder)

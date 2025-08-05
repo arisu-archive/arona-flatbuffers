@@ -5,15 +5,15 @@ include "StoreType.fbs";
 namespace FlatData;
 
 table ProductExcel {
-    id: long;
-    product_id: string;
-    teen_product_id: string;
-    store_type: StoreType;
-    price: long;
-    price_reference: string;
-    purchase_period_type: PurchasePeriodType;
-    purchase_period_limit: long;
-    parcel_type: [ParcelType];
     parcel_id: [long];
+    id: long;
+    parcel_type: [ParcelType];
+    price: long;
+    purchase_period_type: PurchasePeriodType;
     parcel_amount: [long];
+    store_type: StoreType;
+    product_id: string;
+    purchase_period_limit: long;
+    price_reference: string;
+    teen_product_id: string;
 }

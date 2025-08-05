@@ -10,9 +10,10 @@ import (
 // EventContentFortuneGachaExcelDto represents a FlatBuffers table
 type EventContentFortuneGachaExcelDto struct {
 	fbsutils.FlatBuffer
-	FortuneGachaGroupId int32  `json:"fortune_gacha_group_id"`
 	LocalizeEtcId       uint32 `json:"localize_etc_id"`
+	FortuneGachaGroupId int32  `json:"fortune_gacha_group_id"`
 	IconPath            string `json:"icon_path"`
+	NameImagePath       string `json:"name_image_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,9 +22,10 @@ func (t *EventContentFortuneGachaExcelDto) MarshalModel(b *flatbuffers.Builder) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentFortuneGacha"))
 	}
 	EventContentFortuneGachaExcelStart(b)
-	EventContentFortuneGachaExcelAddFortuneGachaGroupId(b, fbsutils.Convert(t.FortuneGachaGroupId, t.FlatBuffer.TableKey))
 	EventContentFortuneGachaExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	EventContentFortuneGachaExcelAddFortuneGachaGroupId(b, fbsutils.Convert(t.FortuneGachaGroupId, t.FlatBuffer.TableKey))
 	EventContentFortuneGachaExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	EventContentFortuneGachaExcelAddNameImagePath(b, b.CreateString(fbsutils.Convert(t.NameImagePath, t.FlatBuffer.TableKey)))
 	return EventContentFortuneGachaExcelEnd(b)
 }
 
@@ -39,9 +41,10 @@ func (t *EventContentFortuneGachaExcelDto) UnmarshalMessage(e *EventContentFortu
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentFortuneGacha"))
 	}
-	t.FortuneGachaGroupId = fbsutils.Convert(e.FortuneGachaGroupId(), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.FortuneGachaGroupId = fbsutils.Convert(e.FortuneGachaGroupId(), t.FlatBuffer.TableKey)
 	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
+	t.NameImagePath = fbsutils.Convert(string(e.NameImagePath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

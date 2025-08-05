@@ -25,15 +25,8 @@ class FieldTutorialExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # FieldTutorialExcel
-    def SeasonId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldTutorialExcel
     def TutorialType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -41,22 +34,29 @@ class FieldTutorialExcel(object):
 
     # FieldTutorialExcel
     def TutorialTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FieldTutorialExcel
     def TutorialTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FieldTutorialExcel
     def TutorialTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
+
+    # FieldTutorialExcel
+    def SeasonId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # FieldTutorialExcel
     def ConditionType(self, j):
@@ -115,15 +115,15 @@ class FieldTutorialExcel(object):
 def FieldTutorialExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return FieldTutorialExcelStart(builder)
-def FieldTutorialExcelAddSeasonId(builder, seasonId): builder.PrependInt64Slot(0, seasonId, 0)
-def AddSeasonId(builder, seasonId):
-    return FieldTutorialExcelAddSeasonId(builder, seasonId)
-def FieldTutorialExcelAddTutorialType(builder, tutorialType): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(tutorialType), 0)
+def FieldTutorialExcelAddTutorialType(builder, tutorialType): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(tutorialType), 0)
 def AddTutorialType(builder, tutorialType):
     return FieldTutorialExcelAddTutorialType(builder, tutorialType)
 def FieldTutorialExcelStartTutorialTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartTutorialTypeVector(builder, numElems):
     return FieldTutorialExcelStartTutorialTypeVector(builder, numElems)
+def FieldTutorialExcelAddSeasonId(builder, seasonId): builder.PrependInt64Slot(1, seasonId, 0)
+def AddSeasonId(builder, seasonId):
+    return FieldTutorialExcelAddSeasonId(builder, seasonId)
 def FieldTutorialExcelAddConditionType(builder, conditionType): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(conditionType), 0)
 def AddConditionType(builder, conditionType):
     return FieldTutorialExcelAddConditionType(builder, conditionType)

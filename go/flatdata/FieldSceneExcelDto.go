@@ -10,18 +10,18 @@ import (
 // FieldSceneExcelDto represents a FlatBuffers table
 type FieldSceneExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId                           int64   `json:"unique_id"`
-	DateId                             int64   `json:"date_id"`
-	GroupId                            int64   `json:"group_id"`
-	ArtLevelPath                       string  `json:"art_level_path"`
-	DesignLevelPath                    string  `json:"design_level_path"`
-	BgmId                              int64   `json:"bgm_id"`
 	ConditionalBgmQuestId              []int64 `json:"conditional_bgm_quest_id"`
+	UniqueId                           int64   `json:"unique_id"`
+	EndConditionalBgmInteractionId     []int64 `json:"end_conditional_bgm_interaction_id"`
 	BeginConditionalBgmScenarioGroupId []int64 `json:"begin_conditional_bgm_scenario_group_id"`
+	DateId                             int64   `json:"date_id"`
+	ArtLevelPath                       string  `json:"art_level_path"`
 	BeginConditionalBgmInteractionId   []int64 `json:"begin_conditional_bgm_interaction_id"`
 	EndConditionalBgmScenarioGroupId   []int64 `json:"end_conditional_bgm_scenario_group_id"`
-	EndConditionalBgmInteractionId     []int64 `json:"end_conditional_bgm_interaction_id"`
+	BgmId                              int64   `json:"bgm_id"`
+	GroupId                            int64   `json:"group_id"`
 	ConditionalBgmId                   []int64 `json:"conditional_bgm_id"`
+	DesignLevelPath                    string  `json:"design_level_path"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -30,22 +30,24 @@ func (t *FieldSceneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldScene"))
 	}
 	FieldSceneExcelStart(b)
-	FieldSceneExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	FieldSceneExcelAddDateId(b, fbsutils.Convert(t.DateId, t.FlatBuffer.TableKey))
-	FieldSceneExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	FieldSceneExcelAddArtLevelPath(b, b.CreateString(fbsutils.Convert(t.ArtLevelPath, t.FlatBuffer.TableKey)))
-	FieldSceneExcelAddDesignLevelPath(b, b.CreateString(fbsutils.Convert(t.DesignLevelPath, t.FlatBuffer.TableKey)))
-	FieldSceneExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
 	FieldSceneExcelStartConditionalBgmQuestIdVector(b, len(t.ConditionalBgmQuestId))
 	for i := range len(t.ConditionalBgmQuestId) {
 		b.PrependInt64(fbsutils.Convert(t.ConditionalBgmQuestId[len(t.ConditionalBgmQuestId)-i-1], t.FlatBuffer.TableKey))
 	}
 	FieldSceneExcelAddConditionalBgmQuestId(b, b.EndVector(len(t.ConditionalBgmQuestId)))
+	FieldSceneExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	FieldSceneExcelStartEndConditionalBgmInteractionIdVector(b, len(t.EndConditionalBgmInteractionId))
+	for i := range len(t.EndConditionalBgmInteractionId) {
+		b.PrependInt64(fbsutils.Convert(t.EndConditionalBgmInteractionId[len(t.EndConditionalBgmInteractionId)-i-1], t.FlatBuffer.TableKey))
+	}
+	FieldSceneExcelAddEndConditionalBgmInteractionId(b, b.EndVector(len(t.EndConditionalBgmInteractionId)))
 	FieldSceneExcelStartBeginConditionalBgmScenarioGroupIdVector(b, len(t.BeginConditionalBgmScenarioGroupId))
 	for i := range len(t.BeginConditionalBgmScenarioGroupId) {
 		b.PrependInt64(fbsutils.Convert(t.BeginConditionalBgmScenarioGroupId[len(t.BeginConditionalBgmScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	FieldSceneExcelAddBeginConditionalBgmScenarioGroupId(b, b.EndVector(len(t.BeginConditionalBgmScenarioGroupId)))
+	FieldSceneExcelAddDateId(b, fbsutils.Convert(t.DateId, t.FlatBuffer.TableKey))
+	FieldSceneExcelAddArtLevelPath(b, b.CreateString(fbsutils.Convert(t.ArtLevelPath, t.FlatBuffer.TableKey)))
 	FieldSceneExcelStartBeginConditionalBgmInteractionIdVector(b, len(t.BeginConditionalBgmInteractionId))
 	for i := range len(t.BeginConditionalBgmInteractionId) {
 		b.PrependInt64(fbsutils.Convert(t.BeginConditionalBgmInteractionId[len(t.BeginConditionalBgmInteractionId)-i-1], t.FlatBuffer.TableKey))
@@ -56,16 +58,14 @@ func (t *FieldSceneExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		b.PrependInt64(fbsutils.Convert(t.EndConditionalBgmScenarioGroupId[len(t.EndConditionalBgmScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	FieldSceneExcelAddEndConditionalBgmScenarioGroupId(b, b.EndVector(len(t.EndConditionalBgmScenarioGroupId)))
-	FieldSceneExcelStartEndConditionalBgmInteractionIdVector(b, len(t.EndConditionalBgmInteractionId))
-	for i := range len(t.EndConditionalBgmInteractionId) {
-		b.PrependInt64(fbsutils.Convert(t.EndConditionalBgmInteractionId[len(t.EndConditionalBgmInteractionId)-i-1], t.FlatBuffer.TableKey))
-	}
-	FieldSceneExcelAddEndConditionalBgmInteractionId(b, b.EndVector(len(t.EndConditionalBgmInteractionId)))
+	FieldSceneExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
+	FieldSceneExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	FieldSceneExcelStartConditionalBgmIdVector(b, len(t.ConditionalBgmId))
 	for i := range len(t.ConditionalBgmId) {
 		b.PrependInt64(fbsutils.Convert(t.ConditionalBgmId[len(t.ConditionalBgmId)-i-1], t.FlatBuffer.TableKey))
 	}
 	FieldSceneExcelAddConditionalBgmId(b, b.EndVector(len(t.ConditionalBgmId)))
+	FieldSceneExcelAddDesignLevelPath(b, b.CreateString(fbsutils.Convert(t.DesignLevelPath, t.FlatBuffer.TableKey)))
 	return FieldSceneExcelEnd(b)
 }
 
@@ -81,20 +81,21 @@ func (t *FieldSceneExcelDto) UnmarshalMessage(e *FieldSceneExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("FieldScene"))
 	}
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.DateId = fbsutils.Convert(e.DateId(), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.ArtLevelPath = fbsutils.Convert(string(e.ArtLevelPath()), t.FlatBuffer.TableKey)
-	t.DesignLevelPath = fbsutils.Convert(string(e.DesignLevelPath()), t.FlatBuffer.TableKey)
-	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
 	t.ConditionalBgmQuestId = make([]int64, e.ConditionalBgmQuestIdLength())
 	for i := range e.ConditionalBgmQuestIdLength() {
 		t.ConditionalBgmQuestId[i] = fbsutils.Convert(e.ConditionalBgmQuestId(i), t.FlatBuffer.TableKey)
+	}
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.EndConditionalBgmInteractionId = make([]int64, e.EndConditionalBgmInteractionIdLength())
+	for i := range e.EndConditionalBgmInteractionIdLength() {
+		t.EndConditionalBgmInteractionId[i] = fbsutils.Convert(e.EndConditionalBgmInteractionId(i), t.FlatBuffer.TableKey)
 	}
 	t.BeginConditionalBgmScenarioGroupId = make([]int64, e.BeginConditionalBgmScenarioGroupIdLength())
 	for i := range e.BeginConditionalBgmScenarioGroupIdLength() {
 		t.BeginConditionalBgmScenarioGroupId[i] = fbsutils.Convert(e.BeginConditionalBgmScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
+	t.DateId = fbsutils.Convert(e.DateId(), t.FlatBuffer.TableKey)
+	t.ArtLevelPath = fbsutils.Convert(string(e.ArtLevelPath()), t.FlatBuffer.TableKey)
 	t.BeginConditionalBgmInteractionId = make([]int64, e.BeginConditionalBgmInteractionIdLength())
 	for i := range e.BeginConditionalBgmInteractionIdLength() {
 		t.BeginConditionalBgmInteractionId[i] = fbsutils.Convert(e.BeginConditionalBgmInteractionId(i), t.FlatBuffer.TableKey)
@@ -103,14 +104,13 @@ func (t *FieldSceneExcelDto) UnmarshalMessage(e *FieldSceneExcel) error {
 	for i := range e.EndConditionalBgmScenarioGroupIdLength() {
 		t.EndConditionalBgmScenarioGroupId[i] = fbsutils.Convert(e.EndConditionalBgmScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
-	t.EndConditionalBgmInteractionId = make([]int64, e.EndConditionalBgmInteractionIdLength())
-	for i := range e.EndConditionalBgmInteractionIdLength() {
-		t.EndConditionalBgmInteractionId[i] = fbsutils.Convert(e.EndConditionalBgmInteractionId(i), t.FlatBuffer.TableKey)
-	}
+	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.ConditionalBgmId = make([]int64, e.ConditionalBgmIdLength())
 	for i := range e.ConditionalBgmIdLength() {
 		t.ConditionalBgmId[i] = fbsutils.Convert(e.ConditionalBgmId(i), t.FlatBuffer.TableKey)
 	}
+	t.DesignLevelPath = fbsutils.Convert(string(e.DesignLevelPath()), t.FlatBuffer.TableKey)
 	return nil
 }
 

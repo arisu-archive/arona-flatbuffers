@@ -1,25 +1,26 @@
 namespace FlatData;
 
 table EliminateRaidSeasonManageExcel {
-    season_id: long;
-    season_display: long;
-    season_start_data: string;
-    season_end_data: string;
-    settlement_end_date: string;
-    lobby_table_bg_path: string;
-    lobby_screen_bg_path: string;
-    open_raid_boss_group01: string;
-    open_raid_boss_group02: string;
-    open_raid_boss_group03: string;
-    ranking_reward_group_id: long;
     max_season_reward_gauage: int;
-    stacked_season_reward_gauge: [long];
-    season_reward_id: [long];
-    limited_reward_id_normal: long;
-    limited_reward_id_hard: long;
-    limited_reward_id_veryhard: long;
-    limited_reward_id_hardcore: long;
+    ranking_reward_group_id: long;
+    season_display: long;
     limited_reward_id_extreme: long;
+    season_reward_id: [long];
+    limited_reward_id_hardcore: long;
+    lobby_screen_bg_path: string;
     limited_reward_id_insane: long;
+    limited_reward_id_veryhard: long;
+    lobby_table_bg_path: string;
+    settlement_end_date: string;
+    end_note_label_start_date: string;
+    limited_reward_id_normal: long;
+    season_end_data: string;
+    limited_reward_id_hard: long;
+    open_raid_boss_group03: string;
+    open_raid_boss_group02: string;
+    season_start_data: string;
+    season_id: long;
+    stacked_season_reward_gauge: [long];
+    open_raid_boss_group01: string;
     limited_reward_id_torment: long;
 }

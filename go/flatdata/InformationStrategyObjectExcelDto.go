@@ -10,10 +10,10 @@ import (
 // InformationStrategyObjectExcelDto represents a FlatBuffers table
 type InformationStrategyObjectExcelDto struct {
 	fbsutils.FlatBuffer
-	Id             int64  `json:"id"`
 	StageId        int64  `json:"stage_id"`
 	PageName       string `json:"page_name"`
 	LocalizeCodeId string `json:"localize_code_id"`
+	Id             int64  `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *InformationStrategyObjectExcelDto) MarshalModel(b *flatbuffers.Builder)
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("InformationStrategyObject"))
 	}
 	InformationStrategyObjectExcelStart(b)
-	InformationStrategyObjectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	InformationStrategyObjectExcelAddStageId(b, fbsutils.Convert(t.StageId, t.FlatBuffer.TableKey))
 	InformationStrategyObjectExcelAddPageName(b, b.CreateString(fbsutils.Convert(t.PageName, t.FlatBuffer.TableKey)))
 	InformationStrategyObjectExcelAddLocalizeCodeId(b, b.CreateString(fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey)))
+	InformationStrategyObjectExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return InformationStrategyObjectExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *InformationStrategyObjectExcelDto) UnmarshalMessage(e *InformationStrat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("InformationStrategyObject"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.StageId = fbsutils.Convert(e.StageId(), t.FlatBuffer.TableKey)
 	t.PageName = fbsutils.Convert(string(e.PageName()), t.FlatBuffer.TableKey)
 	t.LocalizeCodeId = fbsutils.Convert(string(e.LocalizeCodeId()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

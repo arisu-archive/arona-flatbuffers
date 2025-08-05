@@ -57,28 +57,8 @@ func (rcv *EventContentDiceRaceExcel) MutateDiceCostGoodsId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentDiceRaceExcel) SkipableLap() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentDiceRaceExcel) MutateSkipableLap(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
-func (rcv *EventContentDiceRaceExcel) DiceRacePawnPrefab() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *EventContentDiceRaceExcel) IsUsingFixedDice() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -86,11 +66,11 @@ func (rcv *EventContentDiceRaceExcel) IsUsingFixedDice() bool {
 }
 
 func (rcv *EventContentDiceRaceExcel) MutateIsUsingFixedDice(n bool) bool {
-	return rcv._tab.MutateBoolSlot(12, n)
+	return rcv._tab.MutateBoolSlot(8, n)
 }
 
 func (rcv *EventContentDiceRaceExcel) DiceRaceEventType(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -99,11 +79,31 @@ func (rcv *EventContentDiceRaceExcel) DiceRaceEventType(j int) []byte {
 }
 
 func (rcv *EventContentDiceRaceExcel) DiceRaceEventTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
+}
+
+func (rcv *EventContentDiceRaceExcel) SkipableLap() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentDiceRaceExcel) MutateSkipableLap(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
+}
+
+func (rcv *EventContentDiceRaceExcel) DiceRacePawnPrefab() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func EventContentDiceRaceExcelStart(builder *flatbuffers.Builder) {
@@ -115,20 +115,20 @@ func EventContentDiceRaceExcelAddEventContentId(builder *flatbuffers.Builder, ev
 func EventContentDiceRaceExcelAddDiceCostGoodsId(builder *flatbuffers.Builder, diceCostGoodsId int64) {
 	builder.PrependInt64Slot(1, diceCostGoodsId, 0)
 }
-func EventContentDiceRaceExcelAddSkipableLap(builder *flatbuffers.Builder, skipableLap int32) {
-	builder.PrependInt32Slot(2, skipableLap, 0)
-}
-func EventContentDiceRaceExcelAddDiceRacePawnPrefab(builder *flatbuffers.Builder, diceRacePawnPrefab flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(diceRacePawnPrefab), 0)
-}
 func EventContentDiceRaceExcelAddIsUsingFixedDice(builder *flatbuffers.Builder, isUsingFixedDice bool) {
-	builder.PrependBoolSlot(4, isUsingFixedDice, false)
+	builder.PrependBoolSlot(2, isUsingFixedDice, false)
 }
 func EventContentDiceRaceExcelAddDiceRaceEventType(builder *flatbuffers.Builder, diceRaceEventType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(diceRaceEventType), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(diceRaceEventType), 0)
 }
 func EventContentDiceRaceExcelStartDiceRaceEventTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func EventContentDiceRaceExcelAddSkipableLap(builder *flatbuffers.Builder, skipableLap int32) {
+	builder.PrependInt32Slot(4, skipableLap, 0)
+}
+func EventContentDiceRaceExcelAddDiceRacePawnPrefab(builder *flatbuffers.Builder, diceRacePawnPrefab flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(diceRacePawnPrefab), 0)
 }
 func EventContentDiceRaceExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

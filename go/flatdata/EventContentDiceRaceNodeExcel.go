@@ -33,16 +33,16 @@ func (rcv *EventContentDiceRaceNodeExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentDiceRaceNodeExcel) EventContentId() int64 {
+func (rcv *EventContentDiceRaceNodeExcel) EventContentDiceRaceNodeType() EventContentDiceRaceNodeType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return EventContentDiceRaceNodeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *EventContentDiceRaceNodeExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *EventContentDiceRaceNodeExcel) MutateEventContentDiceRaceNodeType(n EventContentDiceRaceNodeType) bool {
+	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
 func (rcv *EventContentDiceRaceNodeExcel) NodeId() int64 {
@@ -57,32 +57,8 @@ func (rcv *EventContentDiceRaceNodeExcel) MutateNodeId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentDiceRaceNodeExcel) EventContentDiceRaceNodeType() EventContentDiceRaceNodeType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return EventContentDiceRaceNodeType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EventContentDiceRaceNodeExcel) MutateEventContentDiceRaceNodeType(n EventContentDiceRaceNodeType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *EventContentDiceRaceNodeExcel) MoveForwardTypeArg() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentDiceRaceNodeExcel) MutateMoveForwardTypeArg(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
-}
-
 func (rcv *EventContentDiceRaceNodeExcel) RewardParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -91,7 +67,7 @@ func (rcv *EventContentDiceRaceNodeExcel) RewardParcelType(j int) ParcelType {
 }
 
 func (rcv *EventContentDiceRaceNodeExcel) RewardParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -99,7 +75,7 @@ func (rcv *EventContentDiceRaceNodeExcel) RewardParcelTypeLength() int {
 }
 
 func (rcv *EventContentDiceRaceNodeExcel) MutateRewardParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -107,8 +83,20 @@ func (rcv *EventContentDiceRaceNodeExcel) MutateRewardParcelType(j int, n Parcel
 	return false
 }
 
+func (rcv *EventContentDiceRaceNodeExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentDiceRaceNodeExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
 func (rcv *EventContentDiceRaceNodeExcel) RewardParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -117,7 +105,7 @@ func (rcv *EventContentDiceRaceNodeExcel) RewardParcelId(j int) int64 {
 }
 
 func (rcv *EventContentDiceRaceNodeExcel) RewardParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -125,12 +113,24 @@ func (rcv *EventContentDiceRaceNodeExcel) RewardParcelIdLength() int {
 }
 
 func (rcv *EventContentDiceRaceNodeExcel) MutateRewardParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
+}
+
+func (rcv *EventContentDiceRaceNodeExcel) MoveForwardTypeArg() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentDiceRaceNodeExcel) MutateMoveForwardTypeArg(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
 }
 
 func (rcv *EventContentDiceRaceNodeExcel) RewardAmount(j int) int64 {
@@ -162,29 +162,29 @@ func (rcv *EventContentDiceRaceNodeExcel) MutateRewardAmount(j int, n int64) boo
 func EventContentDiceRaceNodeExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func EventContentDiceRaceNodeExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
+func EventContentDiceRaceNodeExcelAddEventContentDiceRaceNodeType(builder *flatbuffers.Builder, eventContentDiceRaceNodeType EventContentDiceRaceNodeType) {
+	builder.PrependInt32Slot(0, int32(eventContentDiceRaceNodeType), 0)
 }
 func EventContentDiceRaceNodeExcelAddNodeId(builder *flatbuffers.Builder, nodeId int64) {
 	builder.PrependInt64Slot(1, nodeId, 0)
 }
-func EventContentDiceRaceNodeExcelAddEventContentDiceRaceNodeType(builder *flatbuffers.Builder, eventContentDiceRaceNodeType EventContentDiceRaceNodeType) {
-	builder.PrependInt32Slot(2, int32(eventContentDiceRaceNodeType), 0)
-}
-func EventContentDiceRaceNodeExcelAddMoveForwardTypeArg(builder *flatbuffers.Builder, moveForwardTypeArg int32) {
-	builder.PrependInt32Slot(3, moveForwardTypeArg, 0)
-}
 func EventContentDiceRaceNodeExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardParcelType), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(rewardParcelType), 0)
 }
 func EventContentDiceRaceNodeExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
+func EventContentDiceRaceNodeExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(3, eventContentId, 0)
+}
 func EventContentDiceRaceNodeExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(rewardParcelId), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(rewardParcelId), 0)
 }
 func EventContentDiceRaceNodeExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
+}
+func EventContentDiceRaceNodeExcelAddMoveForwardTypeArg(builder *flatbuffers.Builder, moveForwardTypeArg int32) {
+	builder.PrependInt32Slot(5, moveForwardTypeArg, 0)
 }
 func EventContentDiceRaceNodeExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardAmount), 0)

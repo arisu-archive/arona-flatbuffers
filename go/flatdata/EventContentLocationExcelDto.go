@@ -10,17 +10,17 @@ import (
 // EventContentLocationExcelDto represents a FlatBuffers table
 type EventContentLocationExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId                     int64      `json:"event_content_id"`
-	Id                                 int64      `json:"id"`
-	LocalizeEtcId                      uint32     `json:"localize_etc_id"`
-	PrefabPath                         string     `json:"prefab_path"`
-	LocationResetScheduleCount         int32      `json:"location_reset_schedule_count"`
 	ScheduleEventPointCostParcelType   ParcelType `json:"schedule_event_point_cost_parcel_type"`
-	ScheduleEventPointCostParcelId     int64      `json:"schedule_event_point_cost_parcel_id"`
-	ScheduleEventPointCostParcelAmount int64      `json:"schedule_event_point_cost_parcel_amount"`
-	RewardParcelType                   ParcelType `json:"reward_parcel_type"`
 	RewardParcelId                     int64      `json:"reward_parcel_id"`
+	ScheduleEventPointCostParcelAmount int64      `json:"schedule_event_point_cost_parcel_amount"`
 	InformationGroupId                 int64      `json:"information_group_id"`
+	ScheduleEventPointCostParcelId     int64      `json:"schedule_event_point_cost_parcel_id"`
+	Id                                 int64      `json:"id"`
+	PrefabPath                         string     `json:"prefab_path"`
+	LocalizeEtcId                      uint32     `json:"localize_etc_id"`
+	EventContentId                     int64      `json:"event_content_id"`
+	RewardParcelType                   ParcelType `json:"reward_parcel_type"`
+	LocationResetScheduleCount         int32      `json:"location_reset_schedule_count"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -29,17 +29,17 @@ func (t *EventContentLocationExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLocation"))
 	}
 	EventContentLocationExcelStart(b)
-	EventContentLocationExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentLocationExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentLocationExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	EventContentLocationExcelAddPrefabPath(b, b.CreateString(fbsutils.Convert(t.PrefabPath, t.FlatBuffer.TableKey)))
-	EventContentLocationExcelAddLocationResetScheduleCount(b, fbsutils.Convert(t.LocationResetScheduleCount, t.FlatBuffer.TableKey))
 	EventContentLocationExcelAddScheduleEventPointCostParcelType(b, fbsutils.Convert(t.ScheduleEventPointCostParcelType, t.FlatBuffer.TableKey))
-	EventContentLocationExcelAddScheduleEventPointCostParcelId(b, fbsutils.Convert(t.ScheduleEventPointCostParcelId, t.FlatBuffer.TableKey))
-	EventContentLocationExcelAddScheduleEventPointCostParcelAmount(b, fbsutils.Convert(t.ScheduleEventPointCostParcelAmount, t.FlatBuffer.TableKey))
-	EventContentLocationExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
 	EventContentLocationExcelAddRewardParcelId(b, fbsutils.Convert(t.RewardParcelId, t.FlatBuffer.TableKey))
+	EventContentLocationExcelAddScheduleEventPointCostParcelAmount(b, fbsutils.Convert(t.ScheduleEventPointCostParcelAmount, t.FlatBuffer.TableKey))
 	EventContentLocationExcelAddInformationGroupId(b, fbsutils.Convert(t.InformationGroupId, t.FlatBuffer.TableKey))
+	EventContentLocationExcelAddScheduleEventPointCostParcelId(b, fbsutils.Convert(t.ScheduleEventPointCostParcelId, t.FlatBuffer.TableKey))
+	EventContentLocationExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	EventContentLocationExcelAddPrefabPath(b, b.CreateString(fbsutils.Convert(t.PrefabPath, t.FlatBuffer.TableKey)))
+	EventContentLocationExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	EventContentLocationExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentLocationExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
+	EventContentLocationExcelAddLocationResetScheduleCount(b, fbsutils.Convert(t.LocationResetScheduleCount, t.FlatBuffer.TableKey))
 	return EventContentLocationExcelEnd(b)
 }
 
@@ -55,17 +55,17 @@ func (t *EventContentLocationExcelDto) UnmarshalMessage(e *EventContentLocationE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLocation"))
 	}
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.PrefabPath = fbsutils.Convert(string(e.PrefabPath()), t.FlatBuffer.TableKey)
-	t.LocationResetScheduleCount = fbsutils.Convert(e.LocationResetScheduleCount(), t.FlatBuffer.TableKey)
 	t.ScheduleEventPointCostParcelType = ParcelType(fbsutils.Convert(int32(e.ScheduleEventPointCostParcelType()), t.FlatBuffer.TableKey))
-	t.ScheduleEventPointCostParcelId = fbsutils.Convert(e.ScheduleEventPointCostParcelId(), t.FlatBuffer.TableKey)
-	t.ScheduleEventPointCostParcelAmount = fbsutils.Convert(e.ScheduleEventPointCostParcelAmount(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	t.RewardParcelId = fbsutils.Convert(e.RewardParcelId(), t.FlatBuffer.TableKey)
+	t.ScheduleEventPointCostParcelAmount = fbsutils.Convert(e.ScheduleEventPointCostParcelAmount(), t.FlatBuffer.TableKey)
 	t.InformationGroupId = fbsutils.Convert(e.InformationGroupId(), t.FlatBuffer.TableKey)
+	t.ScheduleEventPointCostParcelId = fbsutils.Convert(e.ScheduleEventPointCostParcelId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.PrefabPath = fbsutils.Convert(string(e.PrefabPath()), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
+	t.LocationResetScheduleCount = fbsutils.Convert(e.LocationResetScheduleCount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

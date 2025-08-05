@@ -4,13 +4,13 @@ include "School.fbs";
 namespace FlatData;
 
 table AcademyLocationExcel {
-    id: long;
-    localize_etc_id: uint;
     prefab_path: string;
-    icon_image_path: string;
-    open_condition: [School];
     open_condition_count: [long];
-    reward_parcel_type: ParcelType;
     reward_parcel_id: long;
+    reward_parcel_type: ParcelType;
+    open_condition: [School];
+    id: long;
+    icon_image_path: string;
+    localize_etc_id: uint;
     open_teacher_rank: long;
 }

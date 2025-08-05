@@ -33,44 +33,20 @@ func (rcv *MinigameTBGThemaExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameTBGThemaExcel) EventContentId() int64 {
+func (rcv *MinigameTBGThemaExcel) IsTutorial() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *MinigameTBGThemaExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MinigameTBGThemaExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGThemaExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *MinigameTBGThemaExcel) ThemaIndex() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGThemaExcel) MutateThemaIndex(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
+func (rcv *MinigameTBGThemaExcel) MutateIsTutorial(n bool) bool {
+	return rcv._tab.MutateBoolSlot(4, n)
 }
 
 func (rcv *MinigameTBGThemaExcel) ThemaType() TBGThemaType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return TBGThemaType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -78,27 +54,11 @@ func (rcv *MinigameTBGThemaExcel) ThemaType() TBGThemaType {
 }
 
 func (rcv *MinigameTBGThemaExcel) MutateThemaType(n TBGThemaType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
-}
-
-func (rcv *MinigameTBGThemaExcel) ThemaMap() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MinigameTBGThemaExcel) ThemaMapBg() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
 func (rcv *MinigameTBGThemaExcel) PortalCondition(j int) TBGPortalCondition {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return TBGPortalCondition(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -107,7 +67,7 @@ func (rcv *MinigameTBGThemaExcel) PortalCondition(j int) TBGPortalCondition {
 }
 
 func (rcv *MinigameTBGThemaExcel) PortalConditionLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -115,7 +75,7 @@ func (rcv *MinigameTBGThemaExcel) PortalConditionLength() int {
 }
 
 func (rcv *MinigameTBGThemaExcel) MutatePortalCondition(j int, n TBGPortalCondition) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -123,8 +83,96 @@ func (rcv *MinigameTBGThemaExcel) MutatePortalCondition(j int, n TBGPortalCondit
 	return false
 }
 
-func (rcv *MinigameTBGThemaExcel) PortalConditionParameter(j int) []byte {
+func (rcv *MinigameTBGThemaExcel) ThemaLoadingImage() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MinigameTBGThemaExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGThemaExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *MinigameTBGThemaExcel) ThemaLeaderId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGThemaExcel) MutateThemaLeaderId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *MinigameTBGThemaExcel) ThemaMapBg() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MinigameTBGThemaExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGThemaExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
+func (rcv *MinigameTBGThemaExcel) ThemaPlayerPrefab() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MinigameTBGThemaExcel) ThemaGoalLocalize() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MinigameTBGThemaExcel) InstantClearCostAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameTBGThemaExcel) MutateInstantClearCostAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
+}
+
+func (rcv *MinigameTBGThemaExcel) ThemaNameLocalize() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MinigameTBGThemaExcel) PortalConditionParameter(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -133,134 +181,86 @@ func (rcv *MinigameTBGThemaExcel) PortalConditionParameter(j int) []byte {
 }
 
 func (rcv *MinigameTBGThemaExcel) PortalConditionParameterLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
-func (rcv *MinigameTBGThemaExcel) ThemaNameLocalize() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MinigameTBGThemaExcel) ThemaLoadingImage() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MinigameTBGThemaExcel) ThemaPlayerPrefab() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MinigameTBGThemaExcel) ThemaLeaderId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameTBGThemaExcel) MutateThemaLeaderId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(26, n)
-}
-
-func (rcv *MinigameTBGThemaExcel) ThemaGoalLocalize() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MinigameTBGThemaExcel) InstantClearCostAmount() int64 {
+func (rcv *MinigameTBGThemaExcel) ThemaIndex() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *MinigameTBGThemaExcel) MutateInstantClearCostAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
+func (rcv *MinigameTBGThemaExcel) MutateThemaIndex(n int32) bool {
+	return rcv._tab.MutateInt32Slot(30, n)
 }
 
-func (rcv *MinigameTBGThemaExcel) IsTutorial() bool {
+func (rcv *MinigameTBGThemaExcel) ThemaMap() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
-}
-
-func (rcv *MinigameTBGThemaExcel) MutateIsTutorial(n bool) bool {
-	return rcv._tab.MutateBoolSlot(32, n)
+	return nil
 }
 
 func MinigameTBGThemaExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(15)
 }
-func MinigameTBGThemaExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
-func MinigameTBGThemaExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(1, uniqueId, 0)
-}
-func MinigameTBGThemaExcelAddThemaIndex(builder *flatbuffers.Builder, themaIndex int32) {
-	builder.PrependInt32Slot(2, themaIndex, 0)
+func MinigameTBGThemaExcelAddIsTutorial(builder *flatbuffers.Builder, isTutorial bool) {
+	builder.PrependBoolSlot(0, isTutorial, false)
 }
 func MinigameTBGThemaExcelAddThemaType(builder *flatbuffers.Builder, themaType TBGThemaType) {
-	builder.PrependInt32Slot(3, int32(themaType), 0)
-}
-func MinigameTBGThemaExcelAddThemaMap(builder *flatbuffers.Builder, themaMap flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(themaMap), 0)
-}
-func MinigameTBGThemaExcelAddThemaMapBg(builder *flatbuffers.Builder, themaMapBg flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(themaMapBg), 0)
+	builder.PrependInt32Slot(1, int32(themaType), 0)
 }
 func MinigameTBGThemaExcelAddPortalCondition(builder *flatbuffers.Builder, portalCondition flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(portalCondition), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(portalCondition), 0)
 }
 func MinigameTBGThemaExcelStartPortalConditionVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
+func MinigameTBGThemaExcelAddThemaLoadingImage(builder *flatbuffers.Builder, themaLoadingImage flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(themaLoadingImage), 0)
+}
+func MinigameTBGThemaExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(4, eventContentId, 0)
+}
+func MinigameTBGThemaExcelAddThemaLeaderId(builder *flatbuffers.Builder, themaLeaderId int64) {
+	builder.PrependInt64Slot(5, themaLeaderId, 0)
+}
+func MinigameTBGThemaExcelAddThemaMapBg(builder *flatbuffers.Builder, themaMapBg flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(themaMapBg), 0)
+}
+func MinigameTBGThemaExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(7, uniqueId, 0)
+}
+func MinigameTBGThemaExcelAddThemaPlayerPrefab(builder *flatbuffers.Builder, themaPlayerPrefab flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(themaPlayerPrefab), 0)
+}
+func MinigameTBGThemaExcelAddThemaGoalLocalize(builder *flatbuffers.Builder, themaGoalLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(themaGoalLocalize), 0)
+}
+func MinigameTBGThemaExcelAddInstantClearCostAmount(builder *flatbuffers.Builder, instantClearCostAmount int64) {
+	builder.PrependInt64Slot(10, instantClearCostAmount, 0)
+}
+func MinigameTBGThemaExcelAddThemaNameLocalize(builder *flatbuffers.Builder, themaNameLocalize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(themaNameLocalize), 0)
+}
 func MinigameTBGThemaExcelAddPortalConditionParameter(builder *flatbuffers.Builder, portalConditionParameter flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(portalConditionParameter), 0)
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(portalConditionParameter), 0)
 }
 func MinigameTBGThemaExcelStartPortalConditionParameterVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func MinigameTBGThemaExcelAddThemaNameLocalize(builder *flatbuffers.Builder, themaNameLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(themaNameLocalize), 0)
+func MinigameTBGThemaExcelAddThemaIndex(builder *flatbuffers.Builder, themaIndex int32) {
+	builder.PrependInt32Slot(13, themaIndex, 0)
 }
-func MinigameTBGThemaExcelAddThemaLoadingImage(builder *flatbuffers.Builder, themaLoadingImage flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(themaLoadingImage), 0)
-}
-func MinigameTBGThemaExcelAddThemaPlayerPrefab(builder *flatbuffers.Builder, themaPlayerPrefab flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(themaPlayerPrefab), 0)
-}
-func MinigameTBGThemaExcelAddThemaLeaderId(builder *flatbuffers.Builder, themaLeaderId int64) {
-	builder.PrependInt64Slot(11, themaLeaderId, 0)
-}
-func MinigameTBGThemaExcelAddThemaGoalLocalize(builder *flatbuffers.Builder, themaGoalLocalize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(themaGoalLocalize), 0)
-}
-func MinigameTBGThemaExcelAddInstantClearCostAmount(builder *flatbuffers.Builder, instantClearCostAmount int64) {
-	builder.PrependInt64Slot(13, instantClearCostAmount, 0)
-}
-func MinigameTBGThemaExcelAddIsTutorial(builder *flatbuffers.Builder, isTutorial bool) {
-	builder.PrependBoolSlot(14, isTutorial, false)
+func MinigameTBGThemaExcelAddThemaMap(builder *flatbuffers.Builder, themaMap flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(themaMap), 0)
 }
 func MinigameTBGThemaExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -1,0 +1,9 @@
+include "KeyMappingExcel.fbs";
+
+namespace FlatData;
+
+table KeyMappingExcelTable {
+    data_list: [KeyMappingExcel];
+}
+
+root_type KeyMappingExcelTable;

@@ -3,17 +3,17 @@ include "FieldDialogType.fbs";
 namespace FlatData;
 
 table CharacterDialogFieldExcel {
-    group_id: long;
-    phase: int;
-    target_index: int;
-    dialog_type: FieldDialogType;
-    duration: long;
-    motion_name: string;
-    is_interaction_dialog: bool;
-    hide_ui: bool;
-    localize_kr: string;
-    localize_jp: string;
     localize_th: string;
-    localize_tw: string;
+    localize_jp: string;
+    is_interaction_dialog: bool;
     localize_en: string;
+    localize_kr: string;
+    duration: long;
+    dialog_type: FieldDialogType;
+    group_id: long;
+    localize_tw: string;
+    phase: int;
+    motion_name: string;
+    target_index: int;
+    hide_ui: bool;
 }
