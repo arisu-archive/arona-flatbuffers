@@ -45,68 +45,8 @@ func (rcv *EventContentCardShopExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EventContentCardShopExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentCardShopExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *EventContentCardShopExcel) Rarity() Rarity {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return Rarity(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EventContentCardShopExcel) MutateRarity(n Rarity) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *EventContentCardShopExcel) CostGoodsId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentCardShopExcel) MutateCostGoodsId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *EventContentCardShopExcel) CardGroupId() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentCardShopExcel) MutateCardGroupId(n int32) bool {
-	return rcv._tab.MutateInt32Slot(12, n)
-}
-
-func (rcv *EventContentCardShopExcel) IsLegacy() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *EventContentCardShopExcel) MutateIsLegacy(n bool) bool {
-	return rcv._tab.MutateBoolSlot(14, n)
-}
-
 func (rcv *EventContentCardShopExcel) RefreshGroup() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -114,11 +54,11 @@ func (rcv *EventContentCardShopExcel) RefreshGroup() int32 {
 }
 
 func (rcv *EventContentCardShopExcel) MutateRefreshGroup(n int32) bool {
-	return rcv._tab.MutateInt32Slot(16, n)
+	return rcv._tab.MutateInt32Slot(6, n)
 }
 
 func (rcv *EventContentCardShopExcel) Prob() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -126,11 +66,11 @@ func (rcv *EventContentCardShopExcel) Prob() int32 {
 }
 
 func (rcv *EventContentCardShopExcel) MutateProb(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
+	return rcv._tab.MutateInt32Slot(8, n)
 }
 
 func (rcv *EventContentCardShopExcel) ProbWeight1() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -138,33 +78,93 @@ func (rcv *EventContentCardShopExcel) ProbWeight1() int32 {
 }
 
 func (rcv *EventContentCardShopExcel) MutateProbWeight1(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
+	return rcv._tab.MutateInt32Slot(10, n)
 }
 
-func (rcv *EventContentCardShopExcel) RewardParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+func (rcv *EventContentCardShopExcel) Rarity() Rarity {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+		return Rarity(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *EventContentCardShopExcel) RewardParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+func (rcv *EventContentCardShopExcel) MutateRarity(n Rarity) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
+}
+
+func (rcv *EventContentCardShopExcel) CostGoodsId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentCardShopExcel) MutateCostGoodsId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *EventContentCardShopExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentCardShopExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *EventContentCardShopExcel) CardGroupId() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentCardShopExcel) MutateCardGroupId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
+}
+
+func (rcv *EventContentCardShopExcel) RewardParcelAmount(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *EventContentCardShopExcel) RewardParcelAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
 	return 0
 }
 
-func (rcv *EventContentCardShopExcel) MutateRewardParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+func (rcv *EventContentCardShopExcel) MutateRewardParcelAmount(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
+}
+
+func (rcv *EventContentCardShopExcel) IsLegacy() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *EventContentCardShopExcel) MutateIsLegacy(n bool) bool {
+	return rcv._tab.MutateBoolSlot(22, n)
 }
 
 func (rcv *EventContentCardShopExcel) RewardParcelId(j int) int64 {
@@ -193,16 +193,16 @@ func (rcv *EventContentCardShopExcel) MutateRewardParcelId(j int, n int64) bool 
 	return false
 }
 
-func (rcv *EventContentCardShopExcel) RewardParcelAmount(j int) int64 {
+func (rcv *EventContentCardShopExcel) RewardParcelType(j int) ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
 	}
 	return 0
 }
 
-func (rcv *EventContentCardShopExcel) RewardParcelAmountLength() int {
+func (rcv *EventContentCardShopExcel) RewardParcelTypeLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -210,11 +210,11 @@ func (rcv *EventContentCardShopExcel) RewardParcelAmountLength() int {
 	return 0
 }
 
-func (rcv *EventContentCardShopExcel) MutateRewardParcelAmount(j int, n int64) bool {
+func (rcv *EventContentCardShopExcel) MutateRewardParcelType(j int, n ParcelType) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
 	}
 	return false
 }
@@ -225,35 +225,35 @@ func EventContentCardShopExcelStart(builder *flatbuffers.Builder) {
 func EventContentCardShopExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
 }
-func EventContentCardShopExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(1, id, 0)
-}
-func EventContentCardShopExcelAddRarity(builder *flatbuffers.Builder, rarity Rarity) {
-	builder.PrependInt32Slot(2, int32(rarity), 0)
-}
-func EventContentCardShopExcelAddCostGoodsId(builder *flatbuffers.Builder, costGoodsId int64) {
-	builder.PrependInt64Slot(3, costGoodsId, 0)
-}
-func EventContentCardShopExcelAddCardGroupId(builder *flatbuffers.Builder, cardGroupId int32) {
-	builder.PrependInt32Slot(4, cardGroupId, 0)
-}
-func EventContentCardShopExcelAddIsLegacy(builder *flatbuffers.Builder, isLegacy bool) {
-	builder.PrependBoolSlot(5, isLegacy, false)
-}
 func EventContentCardShopExcelAddRefreshGroup(builder *flatbuffers.Builder, refreshGroup int32) {
-	builder.PrependInt32Slot(6, refreshGroup, 0)
+	builder.PrependInt32Slot(1, refreshGroup, 0)
 }
 func EventContentCardShopExcelAddProb(builder *flatbuffers.Builder, prob int32) {
-	builder.PrependInt32Slot(7, prob, 0)
+	builder.PrependInt32Slot(2, prob, 0)
 }
 func EventContentCardShopExcelAddProbWeight1(builder *flatbuffers.Builder, probWeight1 int32) {
-	builder.PrependInt32Slot(8, probWeight1, 0)
+	builder.PrependInt32Slot(3, probWeight1, 0)
 }
-func EventContentCardShopExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(rewardParcelType), 0)
+func EventContentCardShopExcelAddRarity(builder *flatbuffers.Builder, rarity Rarity) {
+	builder.PrependInt32Slot(4, int32(rarity), 0)
 }
-func EventContentCardShopExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func EventContentCardShopExcelAddCostGoodsId(builder *flatbuffers.Builder, costGoodsId int64) {
+	builder.PrependInt64Slot(5, costGoodsId, 0)
+}
+func EventContentCardShopExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(6, id, 0)
+}
+func EventContentCardShopExcelAddCardGroupId(builder *flatbuffers.Builder, cardGroupId int32) {
+	builder.PrependInt32Slot(7, cardGroupId, 0)
+}
+func EventContentCardShopExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+}
+func EventContentCardShopExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func EventContentCardShopExcelAddIsLegacy(builder *flatbuffers.Builder, isLegacy bool) {
+	builder.PrependBoolSlot(9, isLegacy, false)
 }
 func EventContentCardShopExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(rewardParcelId), 0)
@@ -261,11 +261,11 @@ func EventContentCardShopExcelAddRewardParcelId(builder *flatbuffers.Builder, re
 func EventContentCardShopExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func EventContentCardShopExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+func EventContentCardShopExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(rewardParcelType), 0)
 }
-func EventContentCardShopExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func EventContentCardShopExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func EventContentCardShopExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

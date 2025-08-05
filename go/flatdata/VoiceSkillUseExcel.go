@@ -33,16 +33,8 @@ func (rcv *VoiceSkillUseExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *VoiceSkillUseExcel) Name() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *VoiceSkillUseExcel) VoiceHash(j int) uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
@@ -51,7 +43,7 @@ func (rcv *VoiceSkillUseExcel) VoiceHash(j int) uint32 {
 }
 
 func (rcv *VoiceSkillUseExcel) VoiceHashLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -59,7 +51,7 @@ func (rcv *VoiceSkillUseExcel) VoiceHashLength() int {
 }
 
 func (rcv *VoiceSkillUseExcel) MutateVoiceHash(j int, n uint32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
@@ -67,17 +59,25 @@ func (rcv *VoiceSkillUseExcel) MutateVoiceHash(j int, n uint32) bool {
 	return false
 }
 
+func (rcv *VoiceSkillUseExcel) Name() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func VoiceSkillUseExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(2)
 }
-func VoiceSkillUseExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(name), 0)
-}
 func VoiceSkillUseExcelAddVoiceHash(builder *flatbuffers.Builder, voiceHash flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(voiceHash), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(voiceHash), 0)
 }
 func VoiceSkillUseExcelStartVoiceHashVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
+}
+func VoiceSkillUseExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(name), 0)
 }
 func VoiceSkillUseExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

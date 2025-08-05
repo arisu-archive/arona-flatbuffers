@@ -33,7 +33,7 @@ func (rcv *ShopRefreshExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ShopRefreshExcel) Id() int64 {
+func (rcv *ShopRefreshExcel) DisplayOrder() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,24 +41,12 @@ func (rcv *ShopRefreshExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *ShopRefreshExcel) MutateId(n int64) bool {
+func (rcv *ShopRefreshExcel) MutateDisplayOrder(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *ShopRefreshExcel) LocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopRefreshExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(6, n)
-}
-
 func (rcv *ShopRefreshExcel) IsLegacy() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -66,83 +54,11 @@ func (rcv *ShopRefreshExcel) IsLegacy() bool {
 }
 
 func (rcv *ShopRefreshExcel) MutateIsLegacy(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
-}
-
-func (rcv *ShopRefreshExcel) GoodsId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopRefreshExcel) MutateGoodsId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *ShopRefreshExcel) IsBundle() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ShopRefreshExcel) MutateIsBundle(n bool) bool {
-	return rcv._tab.MutateBoolSlot(12, n)
-}
-
-func (rcv *ShopRefreshExcel) VisibleAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopRefreshExcel) MutateVisibleAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
-func (rcv *ShopRefreshExcel) DisplayOrder() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopRefreshExcel) MutateDisplayOrder(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *ShopRefreshExcel) CategoryType() ShopCategoryType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return ShopCategoryType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ShopRefreshExcel) MutateCategoryType(n ShopCategoryType) bool {
-	return rcv._tab.MutateInt32Slot(18, int32(n))
-}
-
-func (rcv *ShopRefreshExcel) RefreshGroup() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ShopRefreshExcel) MutateRefreshGroup(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
+	return rcv._tab.MutateBoolSlot(6, n)
 }
 
 func (rcv *ShopRefreshExcel) Prob() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -150,19 +66,23 @@ func (rcv *ShopRefreshExcel) Prob() int32 {
 }
 
 func (rcv *ShopRefreshExcel) MutateProb(n int32) bool {
-	return rcv._tab.MutateInt32Slot(22, n)
+	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *ShopRefreshExcel) BuyReportEventName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+func (rcv *ShopRefreshExcel) VisibleAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *ShopRefreshExcel) MutateVisibleAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func (rcv *ShopRefreshExcel) DisplayTag() ProductDisplayTag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return ProductDisplayTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -170,47 +90,127 @@ func (rcv *ShopRefreshExcel) DisplayTag() ProductDisplayTag {
 }
 
 func (rcv *ShopRefreshExcel) MutateDisplayTag(n ProductDisplayTag) bool {
-	return rcv._tab.MutateInt32Slot(26, int32(n))
+	return rcv._tab.MutateInt32Slot(12, int32(n))
+}
+
+func (rcv *ShopRefreshExcel) RefreshGroup() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopRefreshExcel) MutateRefreshGroup(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *ShopRefreshExcel) GoodsId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopRefreshExcel) MutateGoodsId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *ShopRefreshExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopRefreshExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
+func (rcv *ShopRefreshExcel) LocalizeEtcId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ShopRefreshExcel) MutateLocalizeEtcId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(20, n)
+}
+
+func (rcv *ShopRefreshExcel) CategoryType() ShopCategoryType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return ShopCategoryType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ShopRefreshExcel) MutateCategoryType(n ShopCategoryType) bool {
+	return rcv._tab.MutateInt32Slot(22, int32(n))
+}
+
+func (rcv *ShopRefreshExcel) IsBundle() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ShopRefreshExcel) MutateIsBundle(n bool) bool {
+	return rcv._tab.MutateBoolSlot(24, n)
+}
+
+func (rcv *ShopRefreshExcel) BuyReportEventName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func ShopRefreshExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(12)
 }
-func ShopRefreshExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func ShopRefreshExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(1, localizeEtcId, 0)
+func ShopRefreshExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
+	builder.PrependInt64Slot(0, displayOrder, 0)
 }
 func ShopRefreshExcelAddIsLegacy(builder *flatbuffers.Builder, isLegacy bool) {
-	builder.PrependBoolSlot(2, isLegacy, false)
-}
-func ShopRefreshExcelAddGoodsId(builder *flatbuffers.Builder, goodsId int64) {
-	builder.PrependInt64Slot(3, goodsId, 0)
-}
-func ShopRefreshExcelAddIsBundle(builder *flatbuffers.Builder, isBundle bool) {
-	builder.PrependBoolSlot(4, isBundle, false)
-}
-func ShopRefreshExcelAddVisibleAmount(builder *flatbuffers.Builder, visibleAmount int64) {
-	builder.PrependInt64Slot(5, visibleAmount, 0)
-}
-func ShopRefreshExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
-	builder.PrependInt64Slot(6, displayOrder, 0)
-}
-func ShopRefreshExcelAddCategoryType(builder *flatbuffers.Builder, categoryType ShopCategoryType) {
-	builder.PrependInt32Slot(7, int32(categoryType), 0)
-}
-func ShopRefreshExcelAddRefreshGroup(builder *flatbuffers.Builder, refreshGroup int32) {
-	builder.PrependInt32Slot(8, refreshGroup, 0)
+	builder.PrependBoolSlot(1, isLegacy, false)
 }
 func ShopRefreshExcelAddProb(builder *flatbuffers.Builder, prob int32) {
-	builder.PrependInt32Slot(9, prob, 0)
+	builder.PrependInt32Slot(2, prob, 0)
 }
-func ShopRefreshExcelAddBuyReportEventName(builder *flatbuffers.Builder, buyReportEventName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(buyReportEventName), 0)
+func ShopRefreshExcelAddVisibleAmount(builder *flatbuffers.Builder, visibleAmount int64) {
+	builder.PrependInt64Slot(3, visibleAmount, 0)
 }
 func ShopRefreshExcelAddDisplayTag(builder *flatbuffers.Builder, displayTag ProductDisplayTag) {
-	builder.PrependInt32Slot(11, int32(displayTag), 0)
+	builder.PrependInt32Slot(4, int32(displayTag), 0)
+}
+func ShopRefreshExcelAddRefreshGroup(builder *flatbuffers.Builder, refreshGroup int32) {
+	builder.PrependInt32Slot(5, refreshGroup, 0)
+}
+func ShopRefreshExcelAddGoodsId(builder *flatbuffers.Builder, goodsId int64) {
+	builder.PrependInt64Slot(6, goodsId, 0)
+}
+func ShopRefreshExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(7, id, 0)
+}
+func ShopRefreshExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
+	builder.PrependUint32Slot(8, localizeEtcId, 0)
+}
+func ShopRefreshExcelAddCategoryType(builder *flatbuffers.Builder, categoryType ShopCategoryType) {
+	builder.PrependInt32Slot(9, int32(categoryType), 0)
+}
+func ShopRefreshExcelAddIsBundle(builder *flatbuffers.Builder, isBundle bool) {
+	builder.PrependBoolSlot(10, isBundle, false)
+}
+func ShopRefreshExcelAddBuyReportEventName(builder *flatbuffers.Builder, buyReportEventName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(buyReportEventName), 0)
 }
 func ShopRefreshExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

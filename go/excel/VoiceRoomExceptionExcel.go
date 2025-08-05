@@ -33,20 +33,8 @@ func (rcv *VoiceRoomExceptionExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *VoiceRoomExceptionExcel) CostumeUniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *VoiceRoomExceptionExcel) MutateCostumeUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
 func (rcv *VoiceRoomExceptionExcel) LinkedCharacterVoicePrintType() CVPrintType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return CVPrintType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -54,11 +42,11 @@ func (rcv *VoiceRoomExceptionExcel) LinkedCharacterVoicePrintType() CVPrintType 
 }
 
 func (rcv *VoiceRoomExceptionExcel) MutateLinkedCharacterVoicePrintType(n CVPrintType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
 func (rcv *VoiceRoomExceptionExcel) LinkedCostumeUniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -66,20 +54,32 @@ func (rcv *VoiceRoomExceptionExcel) LinkedCostumeUniqueId() int64 {
 }
 
 func (rcv *VoiceRoomExceptionExcel) MutateLinkedCostumeUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *VoiceRoomExceptionExcel) CostumeUniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *VoiceRoomExceptionExcel) MutateCostumeUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
 func VoiceRoomExceptionExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func VoiceRoomExceptionExcelAddCostumeUniqueId(builder *flatbuffers.Builder, costumeUniqueId int64) {
-	builder.PrependInt64Slot(0, costumeUniqueId, 0)
-}
 func VoiceRoomExceptionExcelAddLinkedCharacterVoicePrintType(builder *flatbuffers.Builder, linkedCharacterVoicePrintType CVPrintType) {
-	builder.PrependInt32Slot(1, int32(linkedCharacterVoicePrintType), 0)
+	builder.PrependInt32Slot(0, int32(linkedCharacterVoicePrintType), 0)
 }
 func VoiceRoomExceptionExcelAddLinkedCostumeUniqueId(builder *flatbuffers.Builder, linkedCostumeUniqueId int64) {
-	builder.PrependInt64Slot(2, linkedCostumeUniqueId, 0)
+	builder.PrependInt64Slot(1, linkedCostumeUniqueId, 0)
+}
+func VoiceRoomExceptionExcelAddCostumeUniqueId(builder *flatbuffers.Builder, costumeUniqueId int64) {
+	builder.PrependInt64Slot(2, costumeUniqueId, 0)
 }
 func VoiceRoomExceptionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

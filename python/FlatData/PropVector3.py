@@ -25,14 +25,14 @@ class PropVector3(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # PropVector3
-    def X(self):
+    def Y(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # PropVector3
-    def Y(self):
+    def X(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
@@ -48,12 +48,12 @@ class PropVector3(object):
 def PropVector3Start(builder): builder.StartObject(3)
 def Start(builder):
     return PropVector3Start(builder)
-def PropVector3AddX(builder, x): builder.PrependFloat32Slot(0, x, 0.0)
-def AddX(builder, x):
-    return PropVector3AddX(builder, x)
-def PropVector3AddY(builder, y): builder.PrependFloat32Slot(1, y, 0.0)
+def PropVector3AddY(builder, y): builder.PrependFloat32Slot(0, y, 0.0)
 def AddY(builder, y):
     return PropVector3AddY(builder, y)
+def PropVector3AddX(builder, x): builder.PrependFloat32Slot(1, x, 0.0)
+def AddX(builder, x):
+    return PropVector3AddX(builder, x)
 def PropVector3AddZ(builder, z): builder.PrependFloat32Slot(2, z, 0.0)
 def AddZ(builder, z):
     return PropVector3AddZ(builder, z)

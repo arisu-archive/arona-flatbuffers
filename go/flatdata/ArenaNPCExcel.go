@@ -33,19 +33,33 @@ func (rcv *ArenaNPCExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ArenaNPCExcel) UniqueId() int64 {
+func (rcv *ArenaNPCExcel) ExceptionTssIds(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *ArenaNPCExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *ArenaNPCExcel) ExceptionTssIdsLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *ArenaNPCExcel) Rank() int64 {
+func (rcv *ArenaNPCExcel) MutateExceptionTssIds(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *ArenaNPCExcel) NpcLevelDeviation() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,7 +67,7 @@ func (rcv *ArenaNPCExcel) Rank() int64 {
 	return 0
 }
 
-func (rcv *ArenaNPCExcel) MutateRank(n int64) bool {
+func (rcv *ArenaNPCExcel) MutateNpcLevelDeviation(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
@@ -69,19 +83,33 @@ func (rcv *ArenaNPCExcel) MutateNpcAccountLevel(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *ArenaNPCExcel) NpcLevel() int64 {
+func (rcv *ArenaNPCExcel) ExceptionSupportCharacterIds(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *ArenaNPCExcel) MutateNpcLevel(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
+func (rcv *ArenaNPCExcel) ExceptionSupportCharacterIdsLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *ArenaNPCExcel) NpcLevelDeviation() int64 {
+func (rcv *ArenaNPCExcel) MutateExceptionSupportCharacterIds(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *ArenaNPCExcel) NpcLevel() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -89,7 +117,7 @@ func (rcv *ArenaNPCExcel) NpcLevelDeviation() int64 {
 	return 0
 }
 
-func (rcv *ArenaNPCExcel) MutateNpcLevelDeviation(n int64) bool {
+func (rcv *ArenaNPCExcel) MutateNpcLevel(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
@@ -131,8 +159,20 @@ func (rcv *ArenaNPCExcel) MutateExceptionCharacterRarities(j int, n Rarity) bool
 	return false
 }
 
-func (rcv *ArenaNPCExcel) ExceptionMainCharacterIds(j int) int64 {
+func (rcv *ArenaNPCExcel) Rank() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ArenaNPCExcel) MutateRank(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
+func (rcv *ArenaNPCExcel) ExceptionMainCharacterIds(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -141,7 +181,7 @@ func (rcv *ArenaNPCExcel) ExceptionMainCharacterIds(j int) int64 {
 }
 
 func (rcv *ArenaNPCExcel) ExceptionMainCharacterIdsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -149,32 +189,6 @@ func (rcv *ArenaNPCExcel) ExceptionMainCharacterIdsLength() int {
 }
 
 func (rcv *ArenaNPCExcel) MutateExceptionMainCharacterIds(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *ArenaNPCExcel) ExceptionSupportCharacterIds(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *ArenaNPCExcel) ExceptionSupportCharacterIdsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ArenaNPCExcel) MutateExceptionSupportCharacterIds(j int, n int64) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
@@ -183,49 +197,41 @@ func (rcv *ArenaNPCExcel) MutateExceptionSupportCharacterIds(j int, n int64) boo
 	return false
 }
 
-func (rcv *ArenaNPCExcel) ExceptionTssIds(j int) int64 {
+func (rcv *ArenaNPCExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ArenaNPCExcel) ExceptionTssIdsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *ArenaNPCExcel) MutateExceptionTssIds(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+func (rcv *ArenaNPCExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(22, n)
 }
 
 func ArenaNPCExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(10)
 }
-func ArenaNPCExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
+func ArenaNPCExcelAddExceptionTssIds(builder *flatbuffers.Builder, exceptionTssIds flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(exceptionTssIds), 0)
 }
-func ArenaNPCExcelAddRank(builder *flatbuffers.Builder, rank int64) {
-	builder.PrependInt64Slot(1, rank, 0)
+func ArenaNPCExcelStartExceptionTssIdsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func ArenaNPCExcelAddNpcLevelDeviation(builder *flatbuffers.Builder, npcLevelDeviation int64) {
+	builder.PrependInt64Slot(1, npcLevelDeviation, 0)
 }
 func ArenaNPCExcelAddNpcAccountLevel(builder *flatbuffers.Builder, npcAccountLevel int64) {
 	builder.PrependInt64Slot(2, npcAccountLevel, 0)
 }
-func ArenaNPCExcelAddNpcLevel(builder *flatbuffers.Builder, npcLevel int64) {
-	builder.PrependInt64Slot(3, npcLevel, 0)
+func ArenaNPCExcelAddExceptionSupportCharacterIds(builder *flatbuffers.Builder, exceptionSupportCharacterIds flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(exceptionSupportCharacterIds), 0)
 }
-func ArenaNPCExcelAddNpcLevelDeviation(builder *flatbuffers.Builder, npcLevelDeviation int64) {
-	builder.PrependInt64Slot(4, npcLevelDeviation, 0)
+func ArenaNPCExcelStartExceptionSupportCharacterIdsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func ArenaNPCExcelAddNpcLevel(builder *flatbuffers.Builder, npcLevel int64) {
+	builder.PrependInt64Slot(4, npcLevel, 0)
 }
 func ArenaNPCExcelAddNpcStarGrade(builder *flatbuffers.Builder, npcStarGrade int64) {
 	builder.PrependInt64Slot(5, npcStarGrade, 0)
@@ -236,23 +242,17 @@ func ArenaNPCExcelAddExceptionCharacterRarities(builder *flatbuffers.Builder, ex
 func ArenaNPCExcelStartExceptionCharacterRaritiesVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
+func ArenaNPCExcelAddRank(builder *flatbuffers.Builder, rank int64) {
+	builder.PrependInt64Slot(7, rank, 0)
+}
 func ArenaNPCExcelAddExceptionMainCharacterIds(builder *flatbuffers.Builder, exceptionMainCharacterIds flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(exceptionMainCharacterIds), 0)
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(exceptionMainCharacterIds), 0)
 }
 func ArenaNPCExcelStartExceptionMainCharacterIdsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func ArenaNPCExcelAddExceptionSupportCharacterIds(builder *flatbuffers.Builder, exceptionSupportCharacterIds flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(exceptionSupportCharacterIds), 0)
-}
-func ArenaNPCExcelStartExceptionSupportCharacterIdsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func ArenaNPCExcelAddExceptionTssIds(builder *flatbuffers.Builder, exceptionTssIds flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(exceptionTssIds), 0)
-}
-func ArenaNPCExcelStartExceptionTssIdsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func ArenaNPCExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(9, uniqueId, 0)
 }
 func ArenaNPCExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

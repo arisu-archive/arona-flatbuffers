@@ -33,16 +33,16 @@ func (rcv *CharacterIllustCoordinateExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterIllustCoordinateExcel) Id() int64 {
+func (rcv *CharacterIllustCoordinateExcel) DefaultScale() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return 0
+	return 0.0
 }
 
-func (rcv *CharacterIllustCoordinateExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *CharacterIllustCoordinateExcel) MutateDefaultScale(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(4, n)
 }
 
 func (rcv *CharacterIllustCoordinateExcel) CharacterBodyCenterX() float32 {
@@ -69,7 +69,7 @@ func (rcv *CharacterIllustCoordinateExcel) MutateCharacterBodyCenterY(n float32)
 	return rcv._tab.MutateFloat32Slot(8, n)
 }
 
-func (rcv *CharacterIllustCoordinateExcel) DefaultScale() float32 {
+func (rcv *CharacterIllustCoordinateExcel) MinScale() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -77,11 +77,11 @@ func (rcv *CharacterIllustCoordinateExcel) DefaultScale() float32 {
 	return 0.0
 }
 
-func (rcv *CharacterIllustCoordinateExcel) MutateDefaultScale(n float32) bool {
+func (rcv *CharacterIllustCoordinateExcel) MutateMinScale(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(10, n)
 }
 
-func (rcv *CharacterIllustCoordinateExcel) MinScale() float32 {
+func (rcv *CharacterIllustCoordinateExcel) MaxScale() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -89,27 +89,27 @@ func (rcv *CharacterIllustCoordinateExcel) MinScale() float32 {
 	return 0.0
 }
 
-func (rcv *CharacterIllustCoordinateExcel) MutateMinScale(n float32) bool {
+func (rcv *CharacterIllustCoordinateExcel) MutateMaxScale(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(12, n)
 }
 
-func (rcv *CharacterIllustCoordinateExcel) MaxScale() float32 {
+func (rcv *CharacterIllustCoordinateExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return 0.0
+	return 0
 }
 
-func (rcv *CharacterIllustCoordinateExcel) MutateMaxScale(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(14, n)
+func (rcv *CharacterIllustCoordinateExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func CharacterIllustCoordinateExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func CharacterIllustCoordinateExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func CharacterIllustCoordinateExcelAddDefaultScale(builder *flatbuffers.Builder, defaultScale float32) {
+	builder.PrependFloat32Slot(0, defaultScale, 0.0)
 }
 func CharacterIllustCoordinateExcelAddCharacterBodyCenterX(builder *flatbuffers.Builder, characterBodyCenterX float32) {
 	builder.PrependFloat32Slot(1, characterBodyCenterX, 0.0)
@@ -117,14 +117,14 @@ func CharacterIllustCoordinateExcelAddCharacterBodyCenterX(builder *flatbuffers.
 func CharacterIllustCoordinateExcelAddCharacterBodyCenterY(builder *flatbuffers.Builder, characterBodyCenterY float32) {
 	builder.PrependFloat32Slot(2, characterBodyCenterY, 0.0)
 }
-func CharacterIllustCoordinateExcelAddDefaultScale(builder *flatbuffers.Builder, defaultScale float32) {
-	builder.PrependFloat32Slot(3, defaultScale, 0.0)
-}
 func CharacterIllustCoordinateExcelAddMinScale(builder *flatbuffers.Builder, minScale float32) {
-	builder.PrependFloat32Slot(4, minScale, 0.0)
+	builder.PrependFloat32Slot(3, minScale, 0.0)
 }
 func CharacterIllustCoordinateExcelAddMaxScale(builder *flatbuffers.Builder, maxScale float32) {
-	builder.PrependFloat32Slot(5, maxScale, 0.0)
+	builder.PrependFloat32Slot(4, maxScale, 0.0)
+}
+func CharacterIllustCoordinateExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(5, id, 0)
 }
 func CharacterIllustCoordinateExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

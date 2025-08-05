@@ -11,10 +11,10 @@ import (
 type CharacterLevelStatFactorExcelDto struct {
 	fbsutils.FlatBuffer
 	Level           int64 `json:"level"`
-	CriticalFactor  int64 `json:"critical_factor"`
-	StabilityFactor int64 `json:"stability_factor"`
 	DefenceFactor   int64 `json:"defence_factor"`
+	CriticalFactor  int64 `json:"critical_factor"`
 	AccuracyFactor  int64 `json:"accuracy_factor"`
+	StabilityFactor int64 `json:"stability_factor"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,10 +24,10 @@ func (t *CharacterLevelStatFactorExcelDto) MarshalModel(b *flatbuffers.Builder) 
 	}
 	CharacterLevelStatFactorExcelStart(b)
 	CharacterLevelStatFactorExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
-	CharacterLevelStatFactorExcelAddCriticalFactor(b, fbsutils.Convert(t.CriticalFactor, t.FlatBuffer.TableKey))
-	CharacterLevelStatFactorExcelAddStabilityFactor(b, fbsutils.Convert(t.StabilityFactor, t.FlatBuffer.TableKey))
 	CharacterLevelStatFactorExcelAddDefenceFactor(b, fbsutils.Convert(t.DefenceFactor, t.FlatBuffer.TableKey))
+	CharacterLevelStatFactorExcelAddCriticalFactor(b, fbsutils.Convert(t.CriticalFactor, t.FlatBuffer.TableKey))
 	CharacterLevelStatFactorExcelAddAccuracyFactor(b, fbsutils.Convert(t.AccuracyFactor, t.FlatBuffer.TableKey))
+	CharacterLevelStatFactorExcelAddStabilityFactor(b, fbsutils.Convert(t.StabilityFactor, t.FlatBuffer.TableKey))
 	return CharacterLevelStatFactorExcelEnd(b)
 }
 
@@ -44,10 +44,10 @@ func (t *CharacterLevelStatFactorExcelDto) UnmarshalMessage(e *CharacterLevelSta
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterLevelStatFactor"))
 	}
 	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
-	t.CriticalFactor = fbsutils.Convert(e.CriticalFactor(), t.FlatBuffer.TableKey)
-	t.StabilityFactor = fbsutils.Convert(e.StabilityFactor(), t.FlatBuffer.TableKey)
 	t.DefenceFactor = fbsutils.Convert(e.DefenceFactor(), t.FlatBuffer.TableKey)
+	t.CriticalFactor = fbsutils.Convert(e.CriticalFactor(), t.FlatBuffer.TableKey)
 	t.AccuracyFactor = fbsutils.Convert(e.AccuracyFactor(), t.FlatBuffer.TableKey)
+	t.StabilityFactor = fbsutils.Convert(e.StabilityFactor(), t.FlatBuffer.TableKey)
 	return nil
 }
 

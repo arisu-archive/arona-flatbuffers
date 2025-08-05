@@ -10,18 +10,22 @@ import (
 // VoiceSpineExcelDto represents a FlatBuffers table
 type VoiceSpineExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId    int64     `json:"unique_id"`
 	Id          uint32    `json:"id"`
+	SoundVolume []float32 `json:"sound_volume"`
 	Nation      []Nation  `json:"nation"`
 	Path        []string  `json:"path"`
-	SoundVolume []float32 `json:"sound_volume"`
+	UniqueId    int64     `json:"unique_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VoiceSpineExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	VoiceSpineExcelStart(b)
-	VoiceSpineExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	VoiceSpineExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	VoiceSpineExcelStartSoundVolumeVector(b, len(t.SoundVolume))
+	for i := range len(t.SoundVolume) {
+		b.PrependFloat32(fbsutils.Convert(t.SoundVolume[len(t.SoundVolume)-i-1], t.FlatBuffer.TableKey))
+	}
+	VoiceSpineExcelAddSoundVolume(b, b.EndVector(len(t.SoundVolume)))
 	VoiceSpineExcelStartNationVector(b, len(t.Nation))
 	for i := range len(t.Nation) {
 		b.PrependInt32(fbsutils.Convert(int32(t.Nation[len(t.Nation)-i-1]), t.FlatBuffer.TableKey))
@@ -32,11 +36,7 @@ func (t *VoiceSpineExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 		b.PrependUOffsetT(b.CreateString(t.Path[len(t.Path)-i-1]))
 	}
 	VoiceSpineExcelAddPath(b, b.EndVector(len(t.Path)))
-	VoiceSpineExcelStartSoundVolumeVector(b, len(t.SoundVolume))
-	for i := range len(t.SoundVolume) {
-		b.PrependFloat32(fbsutils.Convert(t.SoundVolume[len(t.SoundVolume)-i-1], t.FlatBuffer.TableKey))
-	}
-	VoiceSpineExcelAddSoundVolume(b, b.EndVector(len(t.SoundVolume)))
+	VoiceSpineExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	return VoiceSpineExcelEnd(b)
 }
 
@@ -49,8 +49,11 @@ func (t *VoiceSpineExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *VoiceSpineExcelDto) UnmarshalMessage(e *VoiceSpineExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.SoundVolume = make([]float32, e.SoundVolumeLength())
+	for i := range e.SoundVolumeLength() {
+		t.SoundVolume[i] = fbsutils.Convert(e.SoundVolume(i), t.FlatBuffer.TableKey)
+	}
 	t.Nation = make([]Nation, e.NationLength())
 	for i := range e.NationLength() {
 		t.Nation[i] = Nation(fbsutils.Convert(int32(e.Nation(i)), t.FlatBuffer.TableKey))
@@ -59,10 +62,7 @@ func (t *VoiceSpineExcelDto) UnmarshalMessage(e *VoiceSpineExcel) error {
 	for i := range e.PathLength() {
 		t.Path[i] = fbsutils.Convert(string(e.Path(i)), t.FlatBuffer.TableKey)
 	}
-	t.SoundVolume = make([]float32, e.SoundVolumeLength())
-	for i := range e.SoundVolumeLength() {
-		t.SoundVolume[i] = fbsutils.Convert(e.SoundVolume(i), t.FlatBuffer.TableKey)
-	}
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

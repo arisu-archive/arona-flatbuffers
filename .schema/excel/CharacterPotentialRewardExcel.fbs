@@ -4,11 +4,11 @@ include "PotentialStatBonusRateType.fbs";
 namespace MX.Data.Excel;
 
 table CharacterPotentialRewardExcel {
-    id: long;
-    require_potential_stat_type: [PotentialStatBonusRateType];
-    require_potential_stat_level: [long];
     reward_parcel_type: ParcelType;
     reward_id: long;
+    id: long;
+    require_potential_stat_level: [long];
+    require_potential_stat_type: [PotentialStatBonusRateType];
     reward_amount: int;
 }
 

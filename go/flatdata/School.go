@@ -23,6 +23,7 @@ const (
 	SchoolETC         School = 13
 	SchoolTokiwadai   School = 14
 	SchoolSakugawa    School = 15
+	SchoolHighlander  School = 16
 )
 
 var EnumNamesSchool = map[School]string{
@@ -42,6 +43,7 @@ var EnumNamesSchool = map[School]string{
 	SchoolETC:         "ETC",
 	SchoolTokiwadai:   "Tokiwadai",
 	SchoolSakugawa:    "Sakugawa",
+	SchoolHighlander:  "Highlander",
 }
 
 var EnumValuesSchool = map[string]School{
@@ -61,6 +63,7 @@ var EnumValuesSchool = map[string]School{
 	"ETC":         SchoolETC,
 	"Tokiwadai":   SchoolTokiwadai,
 	"Sakugawa":    SchoolSakugawa,
+	"Highlander":  SchoolHighlander,
 }
 
 func (v School) String() string {

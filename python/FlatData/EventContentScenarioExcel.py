@@ -25,140 +25,36 @@ class EventContentScenarioExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentScenarioExcel
-    def Id(self):
+    def IsMeetup(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # EventContentScenarioExcel
-    def EventContentId(self):
+    def Order(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentScenarioExcel
-    def ReplayDisplayGroup(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentScenarioExcel
-    def Order(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # EventContentScenarioExcel
-    def RecollectionNumber(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentScenarioExcel
-    def IsRecollection(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # EventContentScenarioExcel
-    def IsMeetup(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # EventContentScenarioExcel
-    def IsOmnibus(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # EventContentScenarioExcel
-    def ScenarioGroupId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
-        return 0
-
-    # EventContentScenarioExcel
-    def ScenarioGroupIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # EventContentScenarioExcel
-    def ScenarioGroupIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EventContentScenarioExcel
-    def ScenarioGroupIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        return o == 0
-
-    # EventContentScenarioExcel
-    def ScenarioConditionType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentScenarioExcel
-    def ConditionAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentScenarioExcel
-    def ConditionEventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentScenarioExcel
-    def ClearedScenarioGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentScenarioExcel
-    def RecollectionSummaryLocalizeScenarioId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
-
-    # EventContentScenarioExcel
-    def RecollectionResource(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
 
     # EventContentScenarioExcel
     def IsRecollectionHorizon(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # EventContentScenarioExcel
     def RewardParcelType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -166,26 +62,47 @@ class EventContentScenarioExcel(object):
 
     # EventContentScenarioExcel
     def RewardParcelTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # EventContentScenarioExcel
     def RewardParcelTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # EventContentScenarioExcel
     def RewardParcelTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         return o == 0
 
     # EventContentScenarioExcel
+    def ConditionEventContentId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentScenarioExcel
+    def IsOmnibus(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # EventContentScenarioExcel
+    def EventContentId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentScenarioExcel
     def RewardId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -193,26 +110,60 @@ class EventContentScenarioExcel(object):
 
     # EventContentScenarioExcel
     def RewardIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # EventContentScenarioExcel
     def RewardIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # EventContentScenarioExcel
     def RewardIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        return o == 0
+
+    # EventContentScenarioExcel
+    def RecollectionSummaryLocalizeScenarioId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentScenarioExcel
+    def ScenarioGroupId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # EventContentScenarioExcel
+    def ScenarioGroupIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # EventContentScenarioExcel
+    def ScenarioGroupIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EventContentScenarioExcel
+    def ScenarioGroupIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         return o == 0
 
     # EventContentScenarioExcel
     def RewardAmount(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -220,95 +171,144 @@ class EventContentScenarioExcel(object):
 
     # EventContentScenarioExcel
     def RewardAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # EventContentScenarioExcel
     def RewardAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # EventContentScenarioExcel
     def RewardAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         return o == 0
+
+    # EventContentScenarioExcel
+    def IsRecollection(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # EventContentScenarioExcel
+    def ConditionAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentScenarioExcel
+    def RecollectionNumber(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentScenarioExcel
+    def ScenarioConditionType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentScenarioExcel
+    def ReplayDisplayGroup(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentScenarioExcel
+    def ClearedScenarioGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentScenarioExcel
+    def RecollectionResource(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def EventContentScenarioExcelStart(builder): builder.StartObject(19)
 def Start(builder):
     return EventContentScenarioExcelStart(builder)
-def EventContentScenarioExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return EventContentScenarioExcelAddId(builder, id)
-def EventContentScenarioExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return EventContentScenarioExcelAddEventContentId(builder, eventContentId)
-def EventContentScenarioExcelAddReplayDisplayGroup(builder, replayDisplayGroup): builder.PrependInt32Slot(2, replayDisplayGroup, 0)
-def AddReplayDisplayGroup(builder, replayDisplayGroup):
-    return EventContentScenarioExcelAddReplayDisplayGroup(builder, replayDisplayGroup)
-def EventContentScenarioExcelAddOrder(builder, order): builder.PrependInt64Slot(3, order, 0)
-def AddOrder(builder, order):
-    return EventContentScenarioExcelAddOrder(builder, order)
-def EventContentScenarioExcelAddRecollectionNumber(builder, recollectionNumber): builder.PrependInt64Slot(4, recollectionNumber, 0)
-def AddRecollectionNumber(builder, recollectionNumber):
-    return EventContentScenarioExcelAddRecollectionNumber(builder, recollectionNumber)
-def EventContentScenarioExcelAddIsRecollection(builder, isRecollection): builder.PrependBoolSlot(5, isRecollection, 0)
-def AddIsRecollection(builder, isRecollection):
-    return EventContentScenarioExcelAddIsRecollection(builder, isRecollection)
-def EventContentScenarioExcelAddIsMeetup(builder, isMeetup): builder.PrependBoolSlot(6, isMeetup, 0)
+def EventContentScenarioExcelAddIsMeetup(builder, isMeetup): builder.PrependBoolSlot(0, isMeetup, 0)
 def AddIsMeetup(builder, isMeetup):
     return EventContentScenarioExcelAddIsMeetup(builder, isMeetup)
-def EventContentScenarioExcelAddIsOmnibus(builder, isOmnibus): builder.PrependBoolSlot(7, isOmnibus, 0)
-def AddIsOmnibus(builder, isOmnibus):
-    return EventContentScenarioExcelAddIsOmnibus(builder, isOmnibus)
-def EventContentScenarioExcelAddScenarioGroupId(builder, scenarioGroupId): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioGroupId), 0)
-def AddScenarioGroupId(builder, scenarioGroupId):
-    return EventContentScenarioExcelAddScenarioGroupId(builder, scenarioGroupId)
-def EventContentScenarioExcelStartScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartScenarioGroupIdVector(builder, numElems):
-    return EventContentScenarioExcelStartScenarioGroupIdVector(builder, numElems)
-def EventContentScenarioExcelAddScenarioConditionType(builder, scenarioConditionType): builder.PrependInt32Slot(9, scenarioConditionType, 0)
-def AddScenarioConditionType(builder, scenarioConditionType):
-    return EventContentScenarioExcelAddScenarioConditionType(builder, scenarioConditionType)
-def EventContentScenarioExcelAddConditionAmount(builder, conditionAmount): builder.PrependInt64Slot(10, conditionAmount, 0)
-def AddConditionAmount(builder, conditionAmount):
-    return EventContentScenarioExcelAddConditionAmount(builder, conditionAmount)
-def EventContentScenarioExcelAddConditionEventContentId(builder, conditionEventContentId): builder.PrependInt64Slot(11, conditionEventContentId, 0)
-def AddConditionEventContentId(builder, conditionEventContentId):
-    return EventContentScenarioExcelAddConditionEventContentId(builder, conditionEventContentId)
-def EventContentScenarioExcelAddClearedScenarioGroupId(builder, clearedScenarioGroupId): builder.PrependInt64Slot(12, clearedScenarioGroupId, 0)
-def AddClearedScenarioGroupId(builder, clearedScenarioGroupId):
-    return EventContentScenarioExcelAddClearedScenarioGroupId(builder, clearedScenarioGroupId)
-def EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(builder, recollectionSummaryLocalizeScenarioId): builder.PrependUint32Slot(13, recollectionSummaryLocalizeScenarioId, 0)
-def AddRecollectionSummaryLocalizeScenarioId(builder, recollectionSummaryLocalizeScenarioId):
-    return EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(builder, recollectionSummaryLocalizeScenarioId)
-def EventContentScenarioExcelAddRecollectionResource(builder, recollectionResource): builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(recollectionResource), 0)
-def AddRecollectionResource(builder, recollectionResource):
-    return EventContentScenarioExcelAddRecollectionResource(builder, recollectionResource)
-def EventContentScenarioExcelAddIsRecollectionHorizon(builder, isRecollectionHorizon): builder.PrependBoolSlot(15, isRecollectionHorizon, 0)
+def EventContentScenarioExcelAddOrder(builder, order): builder.PrependInt64Slot(1, order, 0)
+def AddOrder(builder, order):
+    return EventContentScenarioExcelAddOrder(builder, order)
+def EventContentScenarioExcelAddId(builder, id): builder.PrependInt64Slot(2, id, 0)
+def AddId(builder, id):
+    return EventContentScenarioExcelAddId(builder, id)
+def EventContentScenarioExcelAddIsRecollectionHorizon(builder, isRecollectionHorizon): builder.PrependBoolSlot(3, isRecollectionHorizon, 0)
 def AddIsRecollectionHorizon(builder, isRecollectionHorizon):
     return EventContentScenarioExcelAddIsRecollectionHorizon(builder, isRecollectionHorizon)
-def EventContentScenarioExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+def EventContentScenarioExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
 def AddRewardParcelType(builder, rewardParcelType):
     return EventContentScenarioExcelAddRewardParcelType(builder, rewardParcelType)
 def EventContentScenarioExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelTypeVector(builder, numElems):
     return EventContentScenarioExcelStartRewardParcelTypeVector(builder, numElems)
-def EventContentScenarioExcelAddRewardId(builder, rewardId): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(rewardId), 0)
+def EventContentScenarioExcelAddConditionEventContentId(builder, conditionEventContentId): builder.PrependInt64Slot(5, conditionEventContentId, 0)
+def AddConditionEventContentId(builder, conditionEventContentId):
+    return EventContentScenarioExcelAddConditionEventContentId(builder, conditionEventContentId)
+def EventContentScenarioExcelAddIsOmnibus(builder, isOmnibus): builder.PrependBoolSlot(6, isOmnibus, 0)
+def AddIsOmnibus(builder, isOmnibus):
+    return EventContentScenarioExcelAddIsOmnibus(builder, isOmnibus)
+def EventContentScenarioExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(7, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return EventContentScenarioExcelAddEventContentId(builder, eventContentId)
+def EventContentScenarioExcelAddRewardId(builder, rewardId): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(rewardId), 0)
 def AddRewardId(builder, rewardId):
     return EventContentScenarioExcelAddRewardId(builder, rewardId)
 def EventContentScenarioExcelStartRewardIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardIdVector(builder, numElems):
     return EventContentScenarioExcelStartRewardIdVector(builder, numElems)
-def EventContentScenarioExcelAddRewardAmount(builder, rewardAmount): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
+def EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(builder, recollectionSummaryLocalizeScenarioId): builder.PrependUint32Slot(9, recollectionSummaryLocalizeScenarioId, 0)
+def AddRecollectionSummaryLocalizeScenarioId(builder, recollectionSummaryLocalizeScenarioId):
+    return EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(builder, recollectionSummaryLocalizeScenarioId)
+def EventContentScenarioExcelAddScenarioGroupId(builder, scenarioGroupId): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(scenarioGroupId), 0)
+def AddScenarioGroupId(builder, scenarioGroupId):
+    return EventContentScenarioExcelAddScenarioGroupId(builder, scenarioGroupId)
+def EventContentScenarioExcelStartScenarioGroupIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartScenarioGroupIdVector(builder, numElems):
+    return EventContentScenarioExcelStartScenarioGroupIdVector(builder, numElems)
+def EventContentScenarioExcelAddRewardAmount(builder, rewardAmount): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
 def AddRewardAmount(builder, rewardAmount):
     return EventContentScenarioExcelAddRewardAmount(builder, rewardAmount)
 def EventContentScenarioExcelStartRewardAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardAmountVector(builder, numElems):
     return EventContentScenarioExcelStartRewardAmountVector(builder, numElems)
+def EventContentScenarioExcelAddIsRecollection(builder, isRecollection): builder.PrependBoolSlot(12, isRecollection, 0)
+def AddIsRecollection(builder, isRecollection):
+    return EventContentScenarioExcelAddIsRecollection(builder, isRecollection)
+def EventContentScenarioExcelAddConditionAmount(builder, conditionAmount): builder.PrependInt64Slot(13, conditionAmount, 0)
+def AddConditionAmount(builder, conditionAmount):
+    return EventContentScenarioExcelAddConditionAmount(builder, conditionAmount)
+def EventContentScenarioExcelAddRecollectionNumber(builder, recollectionNumber): builder.PrependInt64Slot(14, recollectionNumber, 0)
+def AddRecollectionNumber(builder, recollectionNumber):
+    return EventContentScenarioExcelAddRecollectionNumber(builder, recollectionNumber)
+def EventContentScenarioExcelAddScenarioConditionType(builder, scenarioConditionType): builder.PrependInt32Slot(15, scenarioConditionType, 0)
+def AddScenarioConditionType(builder, scenarioConditionType):
+    return EventContentScenarioExcelAddScenarioConditionType(builder, scenarioConditionType)
+def EventContentScenarioExcelAddReplayDisplayGroup(builder, replayDisplayGroup): builder.PrependInt32Slot(16, replayDisplayGroup, 0)
+def AddReplayDisplayGroup(builder, replayDisplayGroup):
+    return EventContentScenarioExcelAddReplayDisplayGroup(builder, replayDisplayGroup)
+def EventContentScenarioExcelAddClearedScenarioGroupId(builder, clearedScenarioGroupId): builder.PrependInt64Slot(17, clearedScenarioGroupId, 0)
+def AddClearedScenarioGroupId(builder, clearedScenarioGroupId):
+    return EventContentScenarioExcelAddClearedScenarioGroupId(builder, clearedScenarioGroupId)
+def EventContentScenarioExcelAddRecollectionResource(builder, recollectionResource): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(recollectionResource), 0)
+def AddRecollectionResource(builder, recollectionResource):
+    return EventContentScenarioExcelAddRecollectionResource(builder, recollectionResource)
 def EventContentScenarioExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentScenarioExcelEnd(builder)

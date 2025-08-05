@@ -33,7 +33,7 @@ func (rcv *FormationLocationExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FormationLocationExcel) Id() int64 {
+func (rcv *FormationLocationExcel) GroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,20 +41,34 @@ func (rcv *FormationLocationExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *FormationLocationExcel) MutateId(n int64) bool {
+func (rcv *FormationLocationExcel) MutateGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *FormationLocationExcel) GroupId() int64 {
+func (rcv *FormationLocationExcel) SlotX(j int) float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
 	}
 	return 0
 }
 
-func (rcv *FormationLocationExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
+func (rcv *FormationLocationExcel) SlotXLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *FormationLocationExcel) MutateSlotX(j int, n float32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
 }
 
 func (rcv *FormationLocationExcel) SlotZ(j int) float32 {
@@ -83,40 +97,29 @@ func (rcv *FormationLocationExcel) MutateSlotZ(j int, n float32) bool {
 	return false
 }
 
-func (rcv *FormationLocationExcel) SlotX(j int) float32 {
+func (rcv *FormationLocationExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetFloat32(a + flatbuffers.UOffsetT(j*4))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *FormationLocationExcel) SlotXLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *FormationLocationExcel) MutateSlotX(j int, n float32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateFloat32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
+func (rcv *FormationLocationExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func FormationLocationExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func FormationLocationExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
 func FormationLocationExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(1, groupId, 0)
+	builder.PrependInt64Slot(0, groupId, 0)
+}
+func FormationLocationExcelAddSlotX(builder *flatbuffers.Builder, slotX flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(slotX), 0)
+}
+func FormationLocationExcelStartSlotXVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func FormationLocationExcelAddSlotZ(builder *flatbuffers.Builder, slotZ flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(slotZ), 0)
@@ -124,11 +127,8 @@ func FormationLocationExcelAddSlotZ(builder *flatbuffers.Builder, slotZ flatbuff
 func FormationLocationExcelStartSlotZVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func FormationLocationExcelAddSlotX(builder *flatbuffers.Builder, slotX flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(slotX), 0)
-}
-func FormationLocationExcelStartSlotXVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func FormationLocationExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(3, id, 0)
 }
 func FormationLocationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

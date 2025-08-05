@@ -45,20 +45,8 @@ func (rcv *CharacterStatsTransExcel) MutateTransSupportStats(n StatType) bool {
 	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
-func (rcv *CharacterStatsTransExcel) EchelonExtensionType() EchelonExtensionType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return EchelonExtensionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CharacterStatsTransExcel) MutateEchelonExtensionType(n EchelonExtensionType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
 func (rcv *CharacterStatsTransExcel) TransSupportStatsFactor() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -66,11 +54,11 @@ func (rcv *CharacterStatsTransExcel) TransSupportStatsFactor() int32 {
 }
 
 func (rcv *CharacterStatsTransExcel) MutateTransSupportStatsFactor(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
+	return rcv._tab.MutateInt32Slot(6, n)
 }
 
 func (rcv *CharacterStatsTransExcel) StatTransType() StatTransType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return StatTransType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -78,6 +66,18 @@ func (rcv *CharacterStatsTransExcel) StatTransType() StatTransType {
 }
 
 func (rcv *CharacterStatsTransExcel) MutateStatTransType(n StatTransType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
+}
+
+func (rcv *CharacterStatsTransExcel) EchelonExtensionType() EchelonExtensionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return EchelonExtensionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterStatsTransExcel) MutateEchelonExtensionType(n EchelonExtensionType) bool {
 	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
@@ -87,14 +87,14 @@ func CharacterStatsTransExcelStart(builder *flatbuffers.Builder) {
 func CharacterStatsTransExcelAddTransSupportStats(builder *flatbuffers.Builder, transSupportStats StatType) {
 	builder.PrependInt32Slot(0, int32(transSupportStats), 0)
 }
-func CharacterStatsTransExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
-	builder.PrependInt32Slot(1, int32(echelonExtensionType), 0)
-}
 func CharacterStatsTransExcelAddTransSupportStatsFactor(builder *flatbuffers.Builder, transSupportStatsFactor int32) {
-	builder.PrependInt32Slot(2, transSupportStatsFactor, 0)
+	builder.PrependInt32Slot(1, transSupportStatsFactor, 0)
 }
 func CharacterStatsTransExcelAddStatTransType(builder *flatbuffers.Builder, statTransType StatTransType) {
-	builder.PrependInt32Slot(3, int32(statTransType), 0)
+	builder.PrependInt32Slot(2, int32(statTransType), 0)
+}
+func CharacterStatsTransExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
+	builder.PrependInt32Slot(3, int32(echelonExtensionType), 0)
 }
 func CharacterStatsTransExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

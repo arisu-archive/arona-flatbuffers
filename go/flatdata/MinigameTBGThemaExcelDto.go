@@ -10,21 +10,21 @@ import (
 // MinigameTBGThemaExcelDto represents a FlatBuffers table
 type MinigameTBGThemaExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId           int64                `json:"event_content_id"`
-	UniqueId                 int64                `json:"unique_id"`
-	ThemaIndex               int32                `json:"thema_index"`
+	IsTutorial               bool                 `json:"is_tutorial"`
 	ThemaType                TBGThemaType         `json:"thema_type"`
-	ThemaMap                 string               `json:"thema_map"`
-	ThemaMapBg               string               `json:"thema_map_bg"`
 	PortalCondition          []TBGPortalCondition `json:"portal_condition"`
-	PortalConditionParameter []string             `json:"portal_condition_parameter"`
-	ThemaNameLocalize        string               `json:"thema_name_localize"`
 	ThemaLoadingImage        string               `json:"thema_loading_image"`
-	ThemaPlayerPrefab        string               `json:"thema_player_prefab"`
+	EventContentId           int64                `json:"event_content_id"`
 	ThemaLeaderId            int64                `json:"thema_leader_id"`
+	ThemaMapBg               string               `json:"thema_map_bg"`
+	UniqueId                 int64                `json:"unique_id"`
+	ThemaPlayerPrefab        string               `json:"thema_player_prefab"`
 	ThemaGoalLocalize        string               `json:"thema_goal_localize"`
 	InstantClearCostAmount   int64                `json:"instant_clear_cost_amount"`
-	IsTutorial               bool                 `json:"is_tutorial"`
+	ThemaNameLocalize        string               `json:"thema_name_localize"`
+	PortalConditionParameter []string             `json:"portal_condition_parameter"`
+	ThemaIndex               int32                `json:"thema_index"`
+	ThemaMap                 string               `json:"thema_map"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -33,29 +33,29 @@ func (t *MinigameTBGThemaExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuff
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGThema"))
 	}
 	MinigameTBGThemaExcelStart(b)
-	MinigameTBGThemaExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MinigameTBGThemaExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MinigameTBGThemaExcelAddThemaIndex(b, fbsutils.Convert(t.ThemaIndex, t.FlatBuffer.TableKey))
+	MinigameTBGThemaExcelAddIsTutorial(b, t.IsTutorial)
 	MinigameTBGThemaExcelAddThemaType(b, fbsutils.Convert(t.ThemaType, t.FlatBuffer.TableKey))
-	MinigameTBGThemaExcelAddThemaMap(b, b.CreateString(fbsutils.Convert(t.ThemaMap, t.FlatBuffer.TableKey)))
-	MinigameTBGThemaExcelAddThemaMapBg(b, b.CreateString(fbsutils.Convert(t.ThemaMapBg, t.FlatBuffer.TableKey)))
 	MinigameTBGThemaExcelStartPortalConditionVector(b, len(t.PortalCondition))
 	for i := range len(t.PortalCondition) {
 		b.PrependInt32(fbsutils.Convert(int32(t.PortalCondition[len(t.PortalCondition)-i-1]), t.FlatBuffer.TableKey))
 	}
 	MinigameTBGThemaExcelAddPortalCondition(b, b.EndVector(len(t.PortalCondition)))
+	MinigameTBGThemaExcelAddThemaLoadingImage(b, b.CreateString(fbsutils.Convert(t.ThemaLoadingImage, t.FlatBuffer.TableKey)))
+	MinigameTBGThemaExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	MinigameTBGThemaExcelAddThemaLeaderId(b, fbsutils.Convert(t.ThemaLeaderId, t.FlatBuffer.TableKey))
+	MinigameTBGThemaExcelAddThemaMapBg(b, b.CreateString(fbsutils.Convert(t.ThemaMapBg, t.FlatBuffer.TableKey)))
+	MinigameTBGThemaExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	MinigameTBGThemaExcelAddThemaPlayerPrefab(b, b.CreateString(fbsutils.Convert(t.ThemaPlayerPrefab, t.FlatBuffer.TableKey)))
+	MinigameTBGThemaExcelAddThemaGoalLocalize(b, b.CreateString(fbsutils.Convert(t.ThemaGoalLocalize, t.FlatBuffer.TableKey)))
+	MinigameTBGThemaExcelAddInstantClearCostAmount(b, fbsutils.Convert(t.InstantClearCostAmount, t.FlatBuffer.TableKey))
+	MinigameTBGThemaExcelAddThemaNameLocalize(b, b.CreateString(fbsutils.Convert(t.ThemaNameLocalize, t.FlatBuffer.TableKey)))
 	MinigameTBGThemaExcelStartPortalConditionParameterVector(b, len(t.PortalConditionParameter))
 	for i := range len(t.PortalConditionParameter) {
 		b.PrependUOffsetT(b.CreateString(t.PortalConditionParameter[len(t.PortalConditionParameter)-i-1]))
 	}
 	MinigameTBGThemaExcelAddPortalConditionParameter(b, b.EndVector(len(t.PortalConditionParameter)))
-	MinigameTBGThemaExcelAddThemaNameLocalize(b, b.CreateString(fbsutils.Convert(t.ThemaNameLocalize, t.FlatBuffer.TableKey)))
-	MinigameTBGThemaExcelAddThemaLoadingImage(b, b.CreateString(fbsutils.Convert(t.ThemaLoadingImage, t.FlatBuffer.TableKey)))
-	MinigameTBGThemaExcelAddThemaPlayerPrefab(b, b.CreateString(fbsutils.Convert(t.ThemaPlayerPrefab, t.FlatBuffer.TableKey)))
-	MinigameTBGThemaExcelAddThemaLeaderId(b, fbsutils.Convert(t.ThemaLeaderId, t.FlatBuffer.TableKey))
-	MinigameTBGThemaExcelAddThemaGoalLocalize(b, b.CreateString(fbsutils.Convert(t.ThemaGoalLocalize, t.FlatBuffer.TableKey)))
-	MinigameTBGThemaExcelAddInstantClearCostAmount(b, fbsutils.Convert(t.InstantClearCostAmount, t.FlatBuffer.TableKey))
-	MinigameTBGThemaExcelAddIsTutorial(b, t.IsTutorial)
+	MinigameTBGThemaExcelAddThemaIndex(b, fbsutils.Convert(t.ThemaIndex, t.FlatBuffer.TableKey))
+	MinigameTBGThemaExcelAddThemaMap(b, b.CreateString(fbsutils.Convert(t.ThemaMap, t.FlatBuffer.TableKey)))
 	return MinigameTBGThemaExcelEnd(b)
 }
 
@@ -71,27 +71,27 @@ func (t *MinigameTBGThemaExcelDto) UnmarshalMessage(e *MinigameTBGThemaExcel) er
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MinigameTBGThema"))
 	}
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.ThemaIndex = fbsutils.Convert(e.ThemaIndex(), t.FlatBuffer.TableKey)
+	t.IsTutorial = e.IsTutorial()
 	t.ThemaType = TBGThemaType(fbsutils.Convert(int32(e.ThemaType()), t.FlatBuffer.TableKey))
-	t.ThemaMap = fbsutils.Convert(string(e.ThemaMap()), t.FlatBuffer.TableKey)
-	t.ThemaMapBg = fbsutils.Convert(string(e.ThemaMapBg()), t.FlatBuffer.TableKey)
 	t.PortalCondition = make([]TBGPortalCondition, e.PortalConditionLength())
 	for i := range e.PortalConditionLength() {
 		t.PortalCondition[i] = TBGPortalCondition(fbsutils.Convert(int32(e.PortalCondition(i)), t.FlatBuffer.TableKey))
 	}
+	t.ThemaLoadingImage = fbsutils.Convert(string(e.ThemaLoadingImage()), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.ThemaLeaderId = fbsutils.Convert(e.ThemaLeaderId(), t.FlatBuffer.TableKey)
+	t.ThemaMapBg = fbsutils.Convert(string(e.ThemaMapBg()), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.ThemaPlayerPrefab = fbsutils.Convert(string(e.ThemaPlayerPrefab()), t.FlatBuffer.TableKey)
+	t.ThemaGoalLocalize = fbsutils.Convert(string(e.ThemaGoalLocalize()), t.FlatBuffer.TableKey)
+	t.InstantClearCostAmount = fbsutils.Convert(e.InstantClearCostAmount(), t.FlatBuffer.TableKey)
+	t.ThemaNameLocalize = fbsutils.Convert(string(e.ThemaNameLocalize()), t.FlatBuffer.TableKey)
 	t.PortalConditionParameter = make([]string, e.PortalConditionParameterLength())
 	for i := range e.PortalConditionParameterLength() {
 		t.PortalConditionParameter[i] = fbsutils.Convert(string(e.PortalConditionParameter(i)), t.FlatBuffer.TableKey)
 	}
-	t.ThemaNameLocalize = fbsutils.Convert(string(e.ThemaNameLocalize()), t.FlatBuffer.TableKey)
-	t.ThemaLoadingImage = fbsutils.Convert(string(e.ThemaLoadingImage()), t.FlatBuffer.TableKey)
-	t.ThemaPlayerPrefab = fbsutils.Convert(string(e.ThemaPlayerPrefab()), t.FlatBuffer.TableKey)
-	t.ThemaLeaderId = fbsutils.Convert(e.ThemaLeaderId(), t.FlatBuffer.TableKey)
-	t.ThemaGoalLocalize = fbsutils.Convert(string(e.ThemaGoalLocalize()), t.FlatBuffer.TableKey)
-	t.InstantClearCostAmount = fbsutils.Convert(e.InstantClearCostAmount(), t.FlatBuffer.TableKey)
-	t.IsTutorial = e.IsTutorial()
+	t.ThemaIndex = fbsutils.Convert(e.ThemaIndex(), t.FlatBuffer.TableKey)
+	t.ThemaMap = fbsutils.Convert(string(e.ThemaMap()), t.FlatBuffer.TableKey)
 	return nil
 }
 

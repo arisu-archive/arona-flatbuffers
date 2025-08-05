@@ -10,25 +10,25 @@ import (
 // EventContentScenarioExcelDto represents a FlatBuffers table
 type EventContentScenarioExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                                    int64                             `json:"id"`
-	EventContentId                        int64                             `json:"event_content_id"`
-	ReplayDisplayGroup                    int32                             `json:"replay_display_group"`
-	Order                                 int64                             `json:"order"`
-	RecollectionNumber                    int64                             `json:"recollection_number"`
-	IsRecollection                        bool                              `json:"is_recollection"`
 	IsMeetup                              bool                              `json:"is_meetup"`
-	IsOmnibus                             bool                              `json:"is_omnibus"`
-	ScenarioGroupId                       []int64                           `json:"scenario_group_id"`
-	ScenarioConditionType                 EventContentScenarioConditionType `json:"scenario_condition_type"`
-	ConditionAmount                       int64                             `json:"condition_amount"`
-	ConditionEventContentId               int64                             `json:"condition_event_content_id"`
-	ClearedScenarioGroupId                int64                             `json:"cleared_scenario_group_id"`
-	RecollectionSummaryLocalizeScenarioId uint32                            `json:"recollection_summary_localize_scenario_id"`
-	RecollectionResource                  string                            `json:"recollection_resource"`
+	Order                                 int64                             `json:"order"`
+	Id                                    int64                             `json:"id"`
 	IsRecollectionHorizon                 bool                              `json:"is_recollection_horizon"`
 	RewardParcelType                      []ParcelType                      `json:"reward_parcel_type"`
+	ConditionEventContentId               int64                             `json:"condition_event_content_id"`
+	IsOmnibus                             bool                              `json:"is_omnibus"`
+	EventContentId                        int64                             `json:"event_content_id"`
 	RewardId                              []int64                           `json:"reward_id"`
+	RecollectionSummaryLocalizeScenarioId uint32                            `json:"recollection_summary_localize_scenario_id"`
+	ScenarioGroupId                       []int64                           `json:"scenario_group_id"`
 	RewardAmount                          []int32                           `json:"reward_amount"`
+	IsRecollection                        bool                              `json:"is_recollection"`
+	ConditionAmount                       int64                             `json:"condition_amount"`
+	RecollectionNumber                    int64                             `json:"recollection_number"`
+	ScenarioConditionType                 EventContentScenarioConditionType `json:"scenario_condition_type"`
+	ReplayDisplayGroup                    int32                             `json:"replay_display_group"`
+	ClearedScenarioGroupId                int64                             `json:"cleared_scenario_group_id"`
+	RecollectionResource                  string                            `json:"recollection_resource"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -37,41 +37,41 @@ func (t *EventContentScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentScenario"))
 	}
 	EventContentScenarioExcelStart(b)
-	EventContentScenarioExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddReplayDisplayGroup(b, fbsutils.Convert(t.ReplayDisplayGroup, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddRecollectionNumber(b, fbsutils.Convert(t.RecollectionNumber, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddIsRecollection(b, t.IsRecollection)
 	EventContentScenarioExcelAddIsMeetup(b, t.IsMeetup)
-	EventContentScenarioExcelAddIsOmnibus(b, t.IsOmnibus)
-	EventContentScenarioExcelStartScenarioGroupIdVector(b, len(t.ScenarioGroupId))
-	for i := range len(t.ScenarioGroupId) {
-		b.PrependInt64(fbsutils.Convert(t.ScenarioGroupId[len(t.ScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentScenarioExcelAddScenarioGroupId(b, b.EndVector(len(t.ScenarioGroupId)))
-	EventContentScenarioExcelAddScenarioConditionType(b, fbsutils.Convert(t.ScenarioConditionType, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddConditionAmount(b, fbsutils.Convert(t.ConditionAmount, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddConditionEventContentId(b, fbsutils.Convert(t.ConditionEventContentId, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddClearedScenarioGroupId(b, fbsutils.Convert(t.ClearedScenarioGroupId, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(b, fbsutils.Convert(t.RecollectionSummaryLocalizeScenarioId, t.FlatBuffer.TableKey))
-	EventContentScenarioExcelAddRecollectionResource(b, b.CreateString(fbsutils.Convert(t.RecollectionResource, t.FlatBuffer.TableKey)))
+	EventContentScenarioExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
+	EventContentScenarioExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelAddIsRecollectionHorizon(b, t.IsRecollectionHorizon)
 	EventContentScenarioExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentScenarioExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
+	EventContentScenarioExcelAddConditionEventContentId(b, fbsutils.Convert(t.ConditionEventContentId, t.FlatBuffer.TableKey))
+	EventContentScenarioExcelAddIsOmnibus(b, t.IsOmnibus)
+	EventContentScenarioExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentScenarioExcelStartRewardIdVector(b, len(t.RewardId))
 	for i := range len(t.RewardId) {
 		b.PrependInt64(fbsutils.Convert(t.RewardId[len(t.RewardId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentScenarioExcelAddRewardId(b, b.EndVector(len(t.RewardId)))
+	EventContentScenarioExcelAddRecollectionSummaryLocalizeScenarioId(b, fbsutils.Convert(t.RecollectionSummaryLocalizeScenarioId, t.FlatBuffer.TableKey))
+	EventContentScenarioExcelStartScenarioGroupIdVector(b, len(t.ScenarioGroupId))
+	for i := range len(t.ScenarioGroupId) {
+		b.PrependInt64(fbsutils.Convert(t.ScenarioGroupId[len(t.ScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentScenarioExcelAddScenarioGroupId(b, b.EndVector(len(t.ScenarioGroupId)))
 	EventContentScenarioExcelStartRewardAmountVector(b, len(t.RewardAmount))
 	for i := range len(t.RewardAmount) {
 		b.PrependInt32(fbsutils.Convert(t.RewardAmount[len(t.RewardAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentScenarioExcelAddRewardAmount(b, b.EndVector(len(t.RewardAmount)))
+	EventContentScenarioExcelAddIsRecollection(b, t.IsRecollection)
+	EventContentScenarioExcelAddConditionAmount(b, fbsutils.Convert(t.ConditionAmount, t.FlatBuffer.TableKey))
+	EventContentScenarioExcelAddRecollectionNumber(b, fbsutils.Convert(t.RecollectionNumber, t.FlatBuffer.TableKey))
+	EventContentScenarioExcelAddScenarioConditionType(b, fbsutils.Convert(t.ScenarioConditionType, t.FlatBuffer.TableKey))
+	EventContentScenarioExcelAddReplayDisplayGroup(b, fbsutils.Convert(t.ReplayDisplayGroup, t.FlatBuffer.TableKey))
+	EventContentScenarioExcelAddClearedScenarioGroupId(b, fbsutils.Convert(t.ClearedScenarioGroupId, t.FlatBuffer.TableKey))
+	EventContentScenarioExcelAddRecollectionResource(b, b.CreateString(fbsutils.Convert(t.RecollectionResource, t.FlatBuffer.TableKey)))
 	return EventContentScenarioExcelEnd(b)
 }
 
@@ -87,37 +87,37 @@ func (t *EventContentScenarioExcelDto) UnmarshalMessage(e *EventContentScenarioE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentScenario"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.ReplayDisplayGroup = fbsutils.Convert(e.ReplayDisplayGroup(), t.FlatBuffer.TableKey)
-	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
-	t.RecollectionNumber = fbsutils.Convert(e.RecollectionNumber(), t.FlatBuffer.TableKey)
-	t.IsRecollection = e.IsRecollection()
 	t.IsMeetup = e.IsMeetup()
-	t.IsOmnibus = e.IsOmnibus()
-	t.ScenarioGroupId = make([]int64, e.ScenarioGroupIdLength())
-	for i := range e.ScenarioGroupIdLength() {
-		t.ScenarioGroupId[i] = fbsutils.Convert(e.ScenarioGroupId(i), t.FlatBuffer.TableKey)
-	}
-	t.ScenarioConditionType = EventContentScenarioConditionType(fbsutils.Convert(int32(e.ScenarioConditionType()), t.FlatBuffer.TableKey))
-	t.ConditionAmount = fbsutils.Convert(e.ConditionAmount(), t.FlatBuffer.TableKey)
-	t.ConditionEventContentId = fbsutils.Convert(e.ConditionEventContentId(), t.FlatBuffer.TableKey)
-	t.ClearedScenarioGroupId = fbsutils.Convert(e.ClearedScenarioGroupId(), t.FlatBuffer.TableKey)
-	t.RecollectionSummaryLocalizeScenarioId = fbsutils.Convert(e.RecollectionSummaryLocalizeScenarioId(), t.FlatBuffer.TableKey)
-	t.RecollectionResource = fbsutils.Convert(string(e.RecollectionResource()), t.FlatBuffer.TableKey)
+	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.IsRecollectionHorizon = e.IsRecollectionHorizon()
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
 		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
+	t.ConditionEventContentId = fbsutils.Convert(e.ConditionEventContentId(), t.FlatBuffer.TableKey)
+	t.IsOmnibus = e.IsOmnibus()
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.RewardId = make([]int64, e.RewardIdLength())
 	for i := range e.RewardIdLength() {
 		t.RewardId[i] = fbsutils.Convert(e.RewardId(i), t.FlatBuffer.TableKey)
+	}
+	t.RecollectionSummaryLocalizeScenarioId = fbsutils.Convert(e.RecollectionSummaryLocalizeScenarioId(), t.FlatBuffer.TableKey)
+	t.ScenarioGroupId = make([]int64, e.ScenarioGroupIdLength())
+	for i := range e.ScenarioGroupIdLength() {
+		t.ScenarioGroupId[i] = fbsutils.Convert(e.ScenarioGroupId(i), t.FlatBuffer.TableKey)
 	}
 	t.RewardAmount = make([]int32, e.RewardAmountLength())
 	for i := range e.RewardAmountLength() {
 		t.RewardAmount[i] = fbsutils.Convert(e.RewardAmount(i), t.FlatBuffer.TableKey)
 	}
+	t.IsRecollection = e.IsRecollection()
+	t.ConditionAmount = fbsutils.Convert(e.ConditionAmount(), t.FlatBuffer.TableKey)
+	t.RecollectionNumber = fbsutils.Convert(e.RecollectionNumber(), t.FlatBuffer.TableKey)
+	t.ScenarioConditionType = EventContentScenarioConditionType(fbsutils.Convert(int32(e.ScenarioConditionType()), t.FlatBuffer.TableKey))
+	t.ReplayDisplayGroup = fbsutils.Convert(e.ReplayDisplayGroup(), t.FlatBuffer.TableKey)
+	t.ClearedScenarioGroupId = fbsutils.Convert(e.ClearedScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.RecollectionResource = fbsutils.Convert(string(e.RecollectionResource()), t.FlatBuffer.TableKey)
 	return nil
 }
 

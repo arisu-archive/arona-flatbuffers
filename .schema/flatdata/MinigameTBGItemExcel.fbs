@@ -4,14 +4,14 @@ include "TBGItemType.fbs";
 namespace FlatData;
 
 table MinigameTBGItemExcel {
-    unique_id: long;
+    dice_effect_ani_clip: string;
+    item_parameter: int;
+    buff_icon_hud_visible: bool;
     item_type: TBGItemType;
     tbg_item_effect_type: TBGItemEffectType;
-    item_parameter: int;
+    encounter_count: int;
+    buff_icon: string;
     localize_etc_id: string;
     icon: string;
-    buff_icon: string;
-    encounter_count: int;
-    dice_effect_ani_clip: string;
-    buff_icon_hud_visible: bool;
+    unique_id: long;
 }

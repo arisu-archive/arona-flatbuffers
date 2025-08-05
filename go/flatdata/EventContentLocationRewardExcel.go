@@ -33,134 +33,8 @@ func (rcv *EventContentLocationRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentLocationRewardExcel) Location() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentLocationRewardExcel) ScheduleGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) MutateScheduleGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *EventContentLocationRewardExcel) OrderInGroup() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) MutateOrderInGroup(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *EventContentLocationRewardExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *EventContentLocationRewardExcel) ProgressTexture() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentLocationRewardExcel) VoiceId(j int) uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) VoiceIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) MutateVoiceId(j int, n uint32) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
-	}
-	return false
-}
-
-func (rcv *EventContentLocationRewardExcel) LocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(16, n)
-}
-
-func (rcv *EventContentLocationRewardExcel) LocationRank() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) MutateLocationRank(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *EventContentLocationRewardExcel) FavorExp() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) MutateFavorExp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(20, n)
-}
-
-func (rcv *EventContentLocationRewardExcel) SecretStoneAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) MutateSecretStoneAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(22, n)
-}
-
 func (rcv *EventContentLocationRewardExcel) SecretStoneProb() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -168,11 +42,11 @@ func (rcv *EventContentLocationRewardExcel) SecretStoneProb() int64 {
 }
 
 func (rcv *EventContentLocationRewardExcel) MutateSecretStoneProb(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *EventContentLocationRewardExcel) ExtraFavorExp() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -180,101 +54,23 @@ func (rcv *EventContentLocationRewardExcel) ExtraFavorExp() int64 {
 }
 
 func (rcv *EventContentLocationRewardExcel) MutateExtraFavorExp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(26, n)
+	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentLocationRewardExcel) ExtraFavorExpProb() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+func (rcv *EventContentLocationRewardExcel) LocalizeEtcId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EventContentLocationRewardExcel) MutateExtraFavorExpProb(n int64) bool {
-	return rcv._tab.MutateInt64Slot(28, n)
-}
-
-func (rcv *EventContentLocationRewardExcel) ExtraRewardParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) ExtraRewardParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) MutateExtraRewardParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
-}
-
-func (rcv *EventContentLocationRewardExcel) ExtraRewardParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) ExtraRewardParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) MutateExtraRewardParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
-func (rcv *EventContentLocationRewardExcel) ExtraRewardAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) ExtraRewardAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *EventContentLocationRewardExcel) MutateExtraRewardAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+func (rcv *EventContentLocationRewardExcel) MutateLocalizeEtcId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(8, n)
 }
 
 func (rcv *EventContentLocationRewardExcel) ExtraRewardProb(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -283,7 +79,7 @@ func (rcv *EventContentLocationRewardExcel) ExtraRewardProb(j int) int64 {
 }
 
 func (rcv *EventContentLocationRewardExcel) ExtraRewardProbLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -291,7 +87,7 @@ func (rcv *EventContentLocationRewardExcel) ExtraRewardProbLength() int {
 }
 
 func (rcv *EventContentLocationRewardExcel) MutateExtraRewardProb(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -299,34 +95,28 @@ func (rcv *EventContentLocationRewardExcel) MutateExtraRewardProb(j int, n int64
 	return false
 }
 
-func (rcv *EventContentLocationRewardExcel) IsExtraRewardDisplayed(j int) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+func (rcv *EventContentLocationRewardExcel) Location() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetBool(a + flatbuffers.UOffsetT(j*1))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return false
+	return nil
 }
 
-func (rcv *EventContentLocationRewardExcel) IsExtraRewardDisplayedLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+func (rcv *EventContentLocationRewardExcel) SecretStoneAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EventContentLocationRewardExcel) MutateIsExtraRewardDisplayed(j int, n bool) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateBool(a+flatbuffers.UOffsetT(j*1), n)
-	}
-	return false
+func (rcv *EventContentLocationRewardExcel) MutateSecretStoneAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func (rcv *EventContentLocationRewardExcel) RewardParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -335,7 +125,7 @@ func (rcv *EventContentLocationRewardExcel) RewardParcelType(j int) ParcelType {
 }
 
 func (rcv *EventContentLocationRewardExcel) RewardParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -343,7 +133,7 @@ func (rcv *EventContentLocationRewardExcel) RewardParcelTypeLength() int {
 }
 
 func (rcv *EventContentLocationRewardExcel) MutateRewardParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -351,8 +141,34 @@ func (rcv *EventContentLocationRewardExcel) MutateRewardParcelType(j int, n Parc
 	return false
 }
 
+func (rcv *EventContentLocationRewardExcel) ExtraRewardAmount(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) ExtraRewardAmountLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) MutateExtraRewardAmount(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
 func (rcv *EventContentLocationRewardExcel) RewardParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -361,7 +177,7 @@ func (rcv *EventContentLocationRewardExcel) RewardParcelId(j int) int64 {
 }
 
 func (rcv *EventContentLocationRewardExcel) RewardParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -369,7 +185,7 @@ func (rcv *EventContentLocationRewardExcel) RewardParcelIdLength() int {
 }
 
 func (rcv *EventContentLocationRewardExcel) MutateRewardParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -377,8 +193,134 @@ func (rcv *EventContentLocationRewardExcel) MutateRewardParcelId(j int, n int64)
 	return false
 }
 
+func (rcv *EventContentLocationRewardExcel) ExtraRewardParcelType(j int) ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) ExtraRewardParcelTypeLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) MutateExtraRewardParcelType(j int, n ParcelType) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *EventContentLocationRewardExcel) ExtraRewardParcelId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) ExtraRewardParcelIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) MutateExtraRewardParcelId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *EventContentLocationRewardExcel) VoiceId(j int) uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetUint32(a + flatbuffers.UOffsetT(j*4))
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) VoiceIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) MutateVoiceId(j int, n uint32) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateUint32(a+flatbuffers.UOffsetT(j*4), n)
+	}
+	return false
+}
+
+func (rcv *EventContentLocationRewardExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(28, n)
+}
+
+func (rcv *EventContentLocationRewardExcel) FavorExp() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) MutateFavorExp(n int64) bool {
+	return rcv._tab.MutateInt64Slot(30, n)
+}
+
+func (rcv *EventContentLocationRewardExcel) OrderInGroup() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) MutateOrderInGroup(n int64) bool {
+	return rcv._tab.MutateInt64Slot(32, n)
+}
+
+func (rcv *EventContentLocationRewardExcel) LocationRank() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) MutateLocationRank(n int64) bool {
+	return rcv._tab.MutateInt64Slot(34, n)
+}
+
 func (rcv *EventContentLocationRewardExcel) RewardAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -387,7 +329,7 @@ func (rcv *EventContentLocationRewardExcel) RewardAmount(j int) int64 {
 }
 
 func (rcv *EventContentLocationRewardExcel) RewardAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -395,7 +337,7 @@ func (rcv *EventContentLocationRewardExcel) RewardAmountLength() int {
 }
 
 func (rcv *EventContentLocationRewardExcel) MutateRewardAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -403,98 +345,156 @@ func (rcv *EventContentLocationRewardExcel) MutateRewardAmount(j int, n int64) b
 	return false
 }
 
+func (rcv *EventContentLocationRewardExcel) ProgressTexture() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentLocationRewardExcel) ExtraFavorExpProb() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) MutateExtraFavorExpProb(n int64) bool {
+	return rcv._tab.MutateInt64Slot(40, n)
+}
+
+func (rcv *EventContentLocationRewardExcel) ScheduleGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) MutateScheduleGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(42, n)
+}
+
+func (rcv *EventContentLocationRewardExcel) IsExtraRewardDisplayed(j int) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetBool(a + flatbuffers.UOffsetT(j*1))
+	}
+	return false
+}
+
+func (rcv *EventContentLocationRewardExcel) IsExtraRewardDisplayedLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EventContentLocationRewardExcel) MutateIsExtraRewardDisplayed(j int, n bool) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateBool(a+flatbuffers.UOffsetT(j*1), n)
+	}
+	return false
+}
+
 func EventContentLocationRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(21)
 }
-func EventContentLocationRewardExcelAddLocation(builder *flatbuffers.Builder, location flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(location), 0)
-}
-func EventContentLocationRewardExcelAddScheduleGroupId(builder *flatbuffers.Builder, scheduleGroupId int64) {
-	builder.PrependInt64Slot(1, scheduleGroupId, 0)
-}
-func EventContentLocationRewardExcelAddOrderInGroup(builder *flatbuffers.Builder, orderInGroup int64) {
-	builder.PrependInt64Slot(2, orderInGroup, 0)
-}
-func EventContentLocationRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(3, id, 0)
-}
-func EventContentLocationRewardExcelAddProgressTexture(builder *flatbuffers.Builder, progressTexture flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(progressTexture), 0)
-}
-func EventContentLocationRewardExcelAddVoiceId(builder *flatbuffers.Builder, voiceId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(voiceId), 0)
-}
-func EventContentLocationRewardExcelStartVoiceIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func EventContentLocationRewardExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(6, localizeEtcId, 0)
-}
-func EventContentLocationRewardExcelAddLocationRank(builder *flatbuffers.Builder, locationRank int64) {
-	builder.PrependInt64Slot(7, locationRank, 0)
-}
-func EventContentLocationRewardExcelAddFavorExp(builder *flatbuffers.Builder, favorExp int64) {
-	builder.PrependInt64Slot(8, favorExp, 0)
-}
-func EventContentLocationRewardExcelAddSecretStoneAmount(builder *flatbuffers.Builder, secretStoneAmount int64) {
-	builder.PrependInt64Slot(9, secretStoneAmount, 0)
-}
 func EventContentLocationRewardExcelAddSecretStoneProb(builder *flatbuffers.Builder, secretStoneProb int64) {
-	builder.PrependInt64Slot(10, secretStoneProb, 0)
+	builder.PrependInt64Slot(0, secretStoneProb, 0)
 }
 func EventContentLocationRewardExcelAddExtraFavorExp(builder *flatbuffers.Builder, extraFavorExp int64) {
-	builder.PrependInt64Slot(11, extraFavorExp, 0)
+	builder.PrependInt64Slot(1, extraFavorExp, 0)
 }
-func EventContentLocationRewardExcelAddExtraFavorExpProb(builder *flatbuffers.Builder, extraFavorExpProb int64) {
-	builder.PrependInt64Slot(12, extraFavorExpProb, 0)
+func EventContentLocationRewardExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
+	builder.PrependUint32Slot(2, localizeEtcId, 0)
+}
+func EventContentLocationRewardExcelAddExtraRewardProb(builder *flatbuffers.Builder, extraRewardProb flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(extraRewardProb), 0)
+}
+func EventContentLocationRewardExcelStartExtraRewardProbVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func EventContentLocationRewardExcelAddLocation(builder *flatbuffers.Builder, location flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(location), 0)
+}
+func EventContentLocationRewardExcelAddSecretStoneAmount(builder *flatbuffers.Builder, secretStoneAmount int64) {
+	builder.PrependInt64Slot(5, secretStoneAmount, 0)
+}
+func EventContentLocationRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(rewardParcelType), 0)
+}
+func EventContentLocationRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func EventContentLocationRewardExcelAddExtraRewardAmount(builder *flatbuffers.Builder, extraRewardAmount flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(extraRewardAmount), 0)
+}
+func EventContentLocationRewardExcelStartExtraRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
+}
+func EventContentLocationRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(rewardParcelId), 0)
+}
+func EventContentLocationRewardExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func EventContentLocationRewardExcelAddExtraRewardParcelType(builder *flatbuffers.Builder, extraRewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(extraRewardParcelType), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(extraRewardParcelType), 0)
 }
 func EventContentLocationRewardExcelStartExtraRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func EventContentLocationRewardExcelAddExtraRewardParcelId(builder *flatbuffers.Builder, extraRewardParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(extraRewardParcelId), 0)
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(extraRewardParcelId), 0)
 }
 func EventContentLocationRewardExcelStartExtraRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func EventContentLocationRewardExcelAddExtraRewardAmount(builder *flatbuffers.Builder, extraRewardAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(extraRewardAmount), 0)
+func EventContentLocationRewardExcelAddVoiceId(builder *flatbuffers.Builder, voiceId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(voiceId), 0)
 }
-func EventContentLocationRewardExcelStartExtraRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func EventContentLocationRewardExcelAddExtraRewardProb(builder *flatbuffers.Builder, extraRewardProb flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(extraRewardProb), 0)
-}
-func EventContentLocationRewardExcelStartExtraRewardProbVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
-}
-func EventContentLocationRewardExcelAddIsExtraRewardDisplayed(builder *flatbuffers.Builder, isExtraRewardDisplayed flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(isExtraRewardDisplayed), 0)
-}
-func EventContentLocationRewardExcelStartIsExtraRewardDisplayedVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(1, numElems, 1)
-}
-func EventContentLocationRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(rewardParcelType), 0)
-}
-func EventContentLocationRewardExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+func EventContentLocationRewardExcelStartVoiceIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func EventContentLocationRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(rewardParcelId), 0)
+func EventContentLocationRewardExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(12, id, 0)
 }
-func EventContentLocationRewardExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func EventContentLocationRewardExcelAddFavorExp(builder *flatbuffers.Builder, favorExp int64) {
+	builder.PrependInt64Slot(13, favorExp, 0)
+}
+func EventContentLocationRewardExcelAddOrderInGroup(builder *flatbuffers.Builder, orderInGroup int64) {
+	builder.PrependInt64Slot(14, orderInGroup, 0)
+}
+func EventContentLocationRewardExcelAddLocationRank(builder *flatbuffers.Builder, locationRank int64) {
+	builder.PrependInt64Slot(15, locationRank, 0)
 }
 func EventContentLocationRewardExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(rewardAmount), 0)
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(rewardAmount), 0)
 }
 func EventContentLocationRewardExcelStartRewardAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
+}
+func EventContentLocationRewardExcelAddProgressTexture(builder *flatbuffers.Builder, progressTexture flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(progressTexture), 0)
+}
+func EventContentLocationRewardExcelAddExtraFavorExpProb(builder *flatbuffers.Builder, extraFavorExpProb int64) {
+	builder.PrependInt64Slot(18, extraFavorExpProb, 0)
+}
+func EventContentLocationRewardExcelAddScheduleGroupId(builder *flatbuffers.Builder, scheduleGroupId int64) {
+	builder.PrependInt64Slot(19, scheduleGroupId, 0)
+}
+func EventContentLocationRewardExcelAddIsExtraRewardDisplayed(builder *flatbuffers.Builder, isExtraRewardDisplayed flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(isExtraRewardDisplayed), 0)
+}
+func EventContentLocationRewardExcelStartIsExtraRewardDisplayedVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(1, numElems, 1)
 }
 func EventContentLocationRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

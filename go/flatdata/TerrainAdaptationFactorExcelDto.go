@@ -10,13 +10,13 @@ import (
 // TerrainAdaptationFactorExcelDto represents a FlatBuffers table
 type TerrainAdaptationFactorExcelDto struct {
 	fbsutils.FlatBuffer
-	TerrainAdaptation     StageTopography       `json:"terrain_adaptation"`
-	TerrainAdaptationStat TerrainAdaptationStat `json:"terrain_adaptation_stat"`
-	ShotFactor            int64                 `json:"shot_factor"`
-	BlockFactor           int64                 `json:"block_factor"`
 	AccuracyFactor        int64                 `json:"accuracy_factor"`
-	DodgeFactor           int64                 `json:"dodge_factor"`
+	TerrainAdaptation     StageTopography       `json:"terrain_adaptation"`
+	BlockFactor           int64                 `json:"block_factor"`
+	TerrainAdaptationStat TerrainAdaptationStat `json:"terrain_adaptation_stat"`
 	AttackPowerFactor     int64                 `json:"attack_power_factor"`
+	ShotFactor            int64                 `json:"shot_factor"`
+	DodgeFactor           int64                 `json:"dodge_factor"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,13 +25,13 @@ func (t *TerrainAdaptationFactorExcelDto) MarshalModel(b *flatbuffers.Builder) f
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TerrainAdaptationFactor"))
 	}
 	TerrainAdaptationFactorExcelStart(b)
-	TerrainAdaptationFactorExcelAddTerrainAdaptation(b, fbsutils.Convert(t.TerrainAdaptation, t.FlatBuffer.TableKey))
-	TerrainAdaptationFactorExcelAddTerrainAdaptationStat(b, fbsutils.Convert(t.TerrainAdaptationStat, t.FlatBuffer.TableKey))
-	TerrainAdaptationFactorExcelAddShotFactor(b, fbsutils.Convert(t.ShotFactor, t.FlatBuffer.TableKey))
-	TerrainAdaptationFactorExcelAddBlockFactor(b, fbsutils.Convert(t.BlockFactor, t.FlatBuffer.TableKey))
 	TerrainAdaptationFactorExcelAddAccuracyFactor(b, fbsutils.Convert(t.AccuracyFactor, t.FlatBuffer.TableKey))
-	TerrainAdaptationFactorExcelAddDodgeFactor(b, fbsutils.Convert(t.DodgeFactor, t.FlatBuffer.TableKey))
+	TerrainAdaptationFactorExcelAddTerrainAdaptation(b, fbsutils.Convert(t.TerrainAdaptation, t.FlatBuffer.TableKey))
+	TerrainAdaptationFactorExcelAddBlockFactor(b, fbsutils.Convert(t.BlockFactor, t.FlatBuffer.TableKey))
+	TerrainAdaptationFactorExcelAddTerrainAdaptationStat(b, fbsutils.Convert(t.TerrainAdaptationStat, t.FlatBuffer.TableKey))
 	TerrainAdaptationFactorExcelAddAttackPowerFactor(b, fbsutils.Convert(t.AttackPowerFactor, t.FlatBuffer.TableKey))
+	TerrainAdaptationFactorExcelAddShotFactor(b, fbsutils.Convert(t.ShotFactor, t.FlatBuffer.TableKey))
+	TerrainAdaptationFactorExcelAddDodgeFactor(b, fbsutils.Convert(t.DodgeFactor, t.FlatBuffer.TableKey))
 	return TerrainAdaptationFactorExcelEnd(b)
 }
 
@@ -47,13 +47,13 @@ func (t *TerrainAdaptationFactorExcelDto) UnmarshalMessage(e *TerrainAdaptationF
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TerrainAdaptationFactor"))
 	}
-	t.TerrainAdaptation = StageTopography(fbsutils.Convert(int32(e.TerrainAdaptation()), t.FlatBuffer.TableKey))
-	t.TerrainAdaptationStat = TerrainAdaptationStat(fbsutils.Convert(int32(e.TerrainAdaptationStat()), t.FlatBuffer.TableKey))
-	t.ShotFactor = fbsutils.Convert(e.ShotFactor(), t.FlatBuffer.TableKey)
-	t.BlockFactor = fbsutils.Convert(e.BlockFactor(), t.FlatBuffer.TableKey)
 	t.AccuracyFactor = fbsutils.Convert(e.AccuracyFactor(), t.FlatBuffer.TableKey)
-	t.DodgeFactor = fbsutils.Convert(e.DodgeFactor(), t.FlatBuffer.TableKey)
+	t.TerrainAdaptation = StageTopography(fbsutils.Convert(int32(e.TerrainAdaptation()), t.FlatBuffer.TableKey))
+	t.BlockFactor = fbsutils.Convert(e.BlockFactor(), t.FlatBuffer.TableKey)
+	t.TerrainAdaptationStat = TerrainAdaptationStat(fbsutils.Convert(int32(e.TerrainAdaptationStat()), t.FlatBuffer.TableKey))
 	t.AttackPowerFactor = fbsutils.Convert(e.AttackPowerFactor(), t.FlatBuffer.TableKey)
+	t.ShotFactor = fbsutils.Convert(e.ShotFactor(), t.FlatBuffer.TableKey)
+	t.DodgeFactor = fbsutils.Convert(e.DodgeFactor(), t.FlatBuffer.TableKey)
 	return nil
 }
 

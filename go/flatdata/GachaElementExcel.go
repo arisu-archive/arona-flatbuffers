@@ -33,19 +33,19 @@ func (rcv *GachaElementExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *GachaElementExcel) Id() int64 {
+func (rcv *GachaElementExcel) State() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *GachaElementExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *GachaElementExcel) MutateState(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *GachaElementExcel) GachaGroupId() int64 {
+func (rcv *GachaElementExcel) ParcelId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,23 +53,23 @@ func (rcv *GachaElementExcel) GachaGroupId() int64 {
 	return 0
 }
 
-func (rcv *GachaElementExcel) MutateGachaGroupId(n int64) bool {
+func (rcv *GachaElementExcel) MutateParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *GachaElementExcel) ParcelType() ParcelType {
+func (rcv *GachaElementExcel) Prob() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *GachaElementExcel) MutateParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
+func (rcv *GachaElementExcel) MutateProb(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *GachaElementExcel) ParcelId() int64 {
+func (rcv *GachaElementExcel) Id() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -77,19 +77,19 @@ func (rcv *GachaElementExcel) ParcelId() int64 {
 	return 0
 }
 
-func (rcv *GachaElementExcel) MutateParcelId(n int64) bool {
+func (rcv *GachaElementExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *GachaElementExcel) Rarity() Rarity {
+func (rcv *GachaElementExcel) ParcelType() ParcelType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return Rarity(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *GachaElementExcel) MutateRarity(n Rarity) bool {
+func (rcv *GachaElementExcel) MutateParcelType(n ParcelType) bool {
 	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
@@ -105,19 +105,19 @@ func (rcv *GachaElementExcel) MutateParcelAmountMin(n int32) bool {
 	return rcv._tab.MutateInt32Slot(14, n)
 }
 
-func (rcv *GachaElementExcel) ParcelAmountMax() int32 {
+func (rcv *GachaElementExcel) Rarity() Rarity {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return Rarity(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *GachaElementExcel) MutateParcelAmountMax(n int32) bool {
-	return rcv._tab.MutateInt32Slot(16, n)
+func (rcv *GachaElementExcel) MutateRarity(n Rarity) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
 }
 
-func (rcv *GachaElementExcel) Prob() int32 {
+func (rcv *GachaElementExcel) ParcelAmountMax() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -125,51 +125,51 @@ func (rcv *GachaElementExcel) Prob() int32 {
 	return 0
 }
 
-func (rcv *GachaElementExcel) MutateProb(n int32) bool {
+func (rcv *GachaElementExcel) MutateParcelAmountMax(n int32) bool {
 	return rcv._tab.MutateInt32Slot(18, n)
 }
 
-func (rcv *GachaElementExcel) State() int32 {
+func (rcv *GachaElementExcel) GachaGroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *GachaElementExcel) MutateState(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
+func (rcv *GachaElementExcel) MutateGachaGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func GachaElementExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(9)
 }
-func GachaElementExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func GachaElementExcelAddGachaGroupId(builder *flatbuffers.Builder, gachaGroupId int64) {
-	builder.PrependInt64Slot(1, gachaGroupId, 0)
-}
-func GachaElementExcelAddParcelType(builder *flatbuffers.Builder, parcelType ParcelType) {
-	builder.PrependInt32Slot(2, int32(parcelType), 0)
+func GachaElementExcelAddState(builder *flatbuffers.Builder, state int32) {
+	builder.PrependInt32Slot(0, state, 0)
 }
 func GachaElementExcelAddParcelId(builder *flatbuffers.Builder, parcelId int64) {
-	builder.PrependInt64Slot(3, parcelId, 0)
+	builder.PrependInt64Slot(1, parcelId, 0)
 }
-func GachaElementExcelAddRarity(builder *flatbuffers.Builder, rarity Rarity) {
-	builder.PrependInt32Slot(4, int32(rarity), 0)
+func GachaElementExcelAddProb(builder *flatbuffers.Builder, prob int32) {
+	builder.PrependInt32Slot(2, prob, 0)
+}
+func GachaElementExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(3, id, 0)
+}
+func GachaElementExcelAddParcelType(builder *flatbuffers.Builder, parcelType ParcelType) {
+	builder.PrependInt32Slot(4, int32(parcelType), 0)
 }
 func GachaElementExcelAddParcelAmountMin(builder *flatbuffers.Builder, parcelAmountMin int32) {
 	builder.PrependInt32Slot(5, parcelAmountMin, 0)
 }
+func GachaElementExcelAddRarity(builder *flatbuffers.Builder, rarity Rarity) {
+	builder.PrependInt32Slot(6, int32(rarity), 0)
+}
 func GachaElementExcelAddParcelAmountMax(builder *flatbuffers.Builder, parcelAmountMax int32) {
-	builder.PrependInt32Slot(6, parcelAmountMax, 0)
+	builder.PrependInt32Slot(7, parcelAmountMax, 0)
 }
-func GachaElementExcelAddProb(builder *flatbuffers.Builder, prob int32) {
-	builder.PrependInt32Slot(7, prob, 0)
-}
-func GachaElementExcelAddState(builder *flatbuffers.Builder, state int32) {
-	builder.PrependInt32Slot(8, state, 0)
+func GachaElementExcelAddGachaGroupId(builder *flatbuffers.Builder, gachaGroupId int64) {
+	builder.PrependInt64Slot(8, gachaGroupId, 0)
 }
 func GachaElementExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

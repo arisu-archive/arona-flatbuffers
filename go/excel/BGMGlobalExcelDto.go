@@ -10,23 +10,23 @@ import (
 // BGMGlobalExcelDto represents a FlatBuffers table
 type BGMGlobalExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupBgmId int64 `json:"group_bgm_id"`
-	BgmIdKr    int64 `json:"bgm_id_kr"`
-	BgmIdJp    int64 `json:"bgm_id_jp"`
 	BgmIdTh    int64 `json:"bgm_id_th"`
 	BgmIdTw    int64 `json:"bgm_id_tw"`
+	BgmIdKr    int64 `json:"bgm_id_kr"`
 	BgmIdEn    int64 `json:"bgm_id_en"`
+	GroupBgmId int64 `json:"group_bgm_id"`
+	BgmIdJp    int64 `json:"bgm_id_jp"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *BGMGlobalExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	BGM_GlobalExcelStart(b)
-	BGM_GlobalExcelAddGroupBgmId(b, fbsutils.Convert(t.GroupBgmId, t.FlatBuffer.TableKey))
-	BGM_GlobalExcelAddBgmIdKr(b, fbsutils.Convert(t.BgmIdKr, t.FlatBuffer.TableKey))
-	BGM_GlobalExcelAddBgmIdJp(b, fbsutils.Convert(t.BgmIdJp, t.FlatBuffer.TableKey))
 	BGM_GlobalExcelAddBgmIdTh(b, fbsutils.Convert(t.BgmIdTh, t.FlatBuffer.TableKey))
 	BGM_GlobalExcelAddBgmIdTw(b, fbsutils.Convert(t.BgmIdTw, t.FlatBuffer.TableKey))
+	BGM_GlobalExcelAddBgmIdKr(b, fbsutils.Convert(t.BgmIdKr, t.FlatBuffer.TableKey))
 	BGM_GlobalExcelAddBgmIdEn(b, fbsutils.Convert(t.BgmIdEn, t.FlatBuffer.TableKey))
+	BGM_GlobalExcelAddGroupBgmId(b, fbsutils.Convert(t.GroupBgmId, t.FlatBuffer.TableKey))
+	BGM_GlobalExcelAddBgmIdJp(b, fbsutils.Convert(t.BgmIdJp, t.FlatBuffer.TableKey))
 	return BGM_GlobalExcelEnd(b)
 }
 
@@ -39,12 +39,12 @@ func (t *BGMGlobalExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *BGMGlobalExcelDto) UnmarshalMessage(e *BGM_GlobalExcel) error {
-	t.GroupBgmId = fbsutils.Convert(e.GroupBgmId(), t.FlatBuffer.TableKey)
-	t.BgmIdKr = fbsutils.Convert(e.BgmIdKr(), t.FlatBuffer.TableKey)
-	t.BgmIdJp = fbsutils.Convert(e.BgmIdJp(), t.FlatBuffer.TableKey)
 	t.BgmIdTh = fbsutils.Convert(e.BgmIdTh(), t.FlatBuffer.TableKey)
 	t.BgmIdTw = fbsutils.Convert(e.BgmIdTw(), t.FlatBuffer.TableKey)
+	t.BgmIdKr = fbsutils.Convert(e.BgmIdKr(), t.FlatBuffer.TableKey)
 	t.BgmIdEn = fbsutils.Convert(e.BgmIdEn(), t.FlatBuffer.TableKey)
+	t.GroupBgmId = fbsutils.Convert(e.GroupBgmId(), t.FlatBuffer.TableKey)
+	t.BgmIdJp = fbsutils.Convert(e.BgmIdJp(), t.FlatBuffer.TableKey)
 	return nil
 }
 

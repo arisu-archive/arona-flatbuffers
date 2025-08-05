@@ -10,15 +10,15 @@ import (
 // GachaElementExcelDto represents a FlatBuffers table
 type GachaElementExcelDto struct {
 	fbsutils.FlatBuffer
-	Id              int64      `json:"id"`
-	GachaGroupId    int64      `json:"gacha_group_id"`
-	ParcelType      ParcelType `json:"parcel_type"`
-	ParcelId        int64      `json:"parcel_id"`
-	Rarity          Rarity     `json:"rarity"`
-	ParcelAmountMin int32      `json:"parcel_amount_min"`
-	ParcelAmountMax int32      `json:"parcel_amount_max"`
-	Prob            int32      `json:"prob"`
 	State           int32      `json:"state"`
+	ParcelId        int64      `json:"parcel_id"`
+	Prob            int32      `json:"prob"`
+	Id              int64      `json:"id"`
+	ParcelType      ParcelType `json:"parcel_type"`
+	ParcelAmountMin int32      `json:"parcel_amount_min"`
+	Rarity          Rarity     `json:"rarity"`
+	ParcelAmountMax int32      `json:"parcel_amount_max"`
+	GachaGroupId    int64      `json:"gacha_group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,15 +27,15 @@ func (t *GachaElementExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaElement"))
 	}
 	GachaElementExcelStart(b)
-	GachaElementExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	GachaElementExcelAddGachaGroupId(b, fbsutils.Convert(t.GachaGroupId, t.FlatBuffer.TableKey))
-	GachaElementExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
-	GachaElementExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
-	GachaElementExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
-	GachaElementExcelAddParcelAmountMin(b, fbsutils.Convert(t.ParcelAmountMin, t.FlatBuffer.TableKey))
-	GachaElementExcelAddParcelAmountMax(b, fbsutils.Convert(t.ParcelAmountMax, t.FlatBuffer.TableKey))
-	GachaElementExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
 	GachaElementExcelAddState(b, fbsutils.Convert(t.State, t.FlatBuffer.TableKey))
+	GachaElementExcelAddParcelId(b, fbsutils.Convert(t.ParcelId, t.FlatBuffer.TableKey))
+	GachaElementExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
+	GachaElementExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	GachaElementExcelAddParcelType(b, fbsutils.Convert(t.ParcelType, t.FlatBuffer.TableKey))
+	GachaElementExcelAddParcelAmountMin(b, fbsutils.Convert(t.ParcelAmountMin, t.FlatBuffer.TableKey))
+	GachaElementExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
+	GachaElementExcelAddParcelAmountMax(b, fbsutils.Convert(t.ParcelAmountMax, t.FlatBuffer.TableKey))
+	GachaElementExcelAddGachaGroupId(b, fbsutils.Convert(t.GachaGroupId, t.FlatBuffer.TableKey))
 	return GachaElementExcelEnd(b)
 }
 
@@ -51,15 +51,15 @@ func (t *GachaElementExcelDto) UnmarshalMessage(e *GachaElementExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("GachaElement"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.GachaGroupId = fbsutils.Convert(e.GachaGroupId(), t.FlatBuffer.TableKey)
-	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
-	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
-	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
-	t.ParcelAmountMin = fbsutils.Convert(e.ParcelAmountMin(), t.FlatBuffer.TableKey)
-	t.ParcelAmountMax = fbsutils.Convert(e.ParcelAmountMax(), t.FlatBuffer.TableKey)
-	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
 	t.State = fbsutils.Convert(e.State(), t.FlatBuffer.TableKey)
+	t.ParcelId = fbsutils.Convert(e.ParcelId(), t.FlatBuffer.TableKey)
+	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.ParcelType = ParcelType(fbsutils.Convert(int32(e.ParcelType()), t.FlatBuffer.TableKey))
+	t.ParcelAmountMin = fbsutils.Convert(e.ParcelAmountMin(), t.FlatBuffer.TableKey)
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
+	t.ParcelAmountMax = fbsutils.Convert(e.ParcelAmountMax(), t.FlatBuffer.TableKey)
+	t.GachaGroupId = fbsutils.Convert(e.GachaGroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

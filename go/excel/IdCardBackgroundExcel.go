@@ -33,20 +33,8 @@ func (rcv *IdCardBackgroundExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *IdCardBackgroundExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *IdCardBackgroundExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
 func (rcv *IdCardBackgroundExcel) Rarity() Rarity {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return Rarity(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -54,7 +42,19 @@ func (rcv *IdCardBackgroundExcel) Rarity() Rarity {
 }
 
 func (rcv *IdCardBackgroundExcel) MutateRarity(n Rarity) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+	return rcv._tab.MutateInt32Slot(4, int32(n))
+}
+
+func (rcv *IdCardBackgroundExcel) LocalizeEtcId() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *IdCardBackgroundExcel) MutateLocalizeEtcId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(6, n)
 }
 
 func (rcv *IdCardBackgroundExcel) DisplayOrder() int64 {
@@ -69,7 +69,7 @@ func (rcv *IdCardBackgroundExcel) MutateDisplayOrder(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
-func (rcv *IdCardBackgroundExcel) CollectionVisible() bool {
+func (rcv *IdCardBackgroundExcel) IsDefault() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
@@ -77,76 +77,76 @@ func (rcv *IdCardBackgroundExcel) CollectionVisible() bool {
 	return false
 }
 
-func (rcv *IdCardBackgroundExcel) MutateCollectionVisible(n bool) bool {
+func (rcv *IdCardBackgroundExcel) MutateIsDefault(n bool) bool {
 	return rcv._tab.MutateBoolSlot(10, n)
 }
 
-func (rcv *IdCardBackgroundExcel) IsDefault() bool {
+func (rcv *IdCardBackgroundExcel) BgPath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *IdCardBackgroundExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *IdCardBackgroundExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *IdCardBackgroundExcel) Icon() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *IdCardBackgroundExcel) CollectionVisible() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
 	return false
 }
 
-func (rcv *IdCardBackgroundExcel) MutateIsDefault(n bool) bool {
-	return rcv._tab.MutateBoolSlot(12, n)
-}
-
-func (rcv *IdCardBackgroundExcel) BgPath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *IdCardBackgroundExcel) LocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *IdCardBackgroundExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(16, n)
-}
-
-func (rcv *IdCardBackgroundExcel) Icon() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+func (rcv *IdCardBackgroundExcel) MutateCollectionVisible(n bool) bool {
+	return rcv._tab.MutateBoolSlot(18, n)
 }
 
 func IdCardBackgroundExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(8)
 }
-func IdCardBackgroundExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
 func IdCardBackgroundExcelAddRarity(builder *flatbuffers.Builder, rarity Rarity) {
-	builder.PrependInt32Slot(1, int32(rarity), 0)
+	builder.PrependInt32Slot(0, int32(rarity), 0)
+}
+func IdCardBackgroundExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
+	builder.PrependUint32Slot(1, localizeEtcId, 0)
 }
 func IdCardBackgroundExcelAddDisplayOrder(builder *flatbuffers.Builder, displayOrder int64) {
 	builder.PrependInt64Slot(2, displayOrder, 0)
 }
-func IdCardBackgroundExcelAddCollectionVisible(builder *flatbuffers.Builder, collectionVisible bool) {
-	builder.PrependBoolSlot(3, collectionVisible, false)
-}
 func IdCardBackgroundExcelAddIsDefault(builder *flatbuffers.Builder, isDefault bool) {
-	builder.PrependBoolSlot(4, isDefault, false)
+	builder.PrependBoolSlot(3, isDefault, false)
 }
 func IdCardBackgroundExcelAddBgPath(builder *flatbuffers.Builder, bgPath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(bgPath), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(bgPath), 0)
 }
-func IdCardBackgroundExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(6, localizeEtcId, 0)
+func IdCardBackgroundExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(5, id, 0)
 }
 func IdCardBackgroundExcelAddIcon(builder *flatbuffers.Builder, icon flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(icon), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(icon), 0)
+}
+func IdCardBackgroundExcelAddCollectionVisible(builder *flatbuffers.Builder, collectionVisible bool) {
+	builder.PrependBoolSlot(7, collectionVisible, false)
 }
 func IdCardBackgroundExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

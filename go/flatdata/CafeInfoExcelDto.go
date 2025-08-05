@@ -10,10 +10,10 @@ import (
 // CafeInfoExcelDto represents a FlatBuffers table
 type CafeInfoExcelDto struct {
 	fbsutils.FlatBuffer
-	CafeId                  int64                `json:"cafe_id"`
-	IsDefault               bool                 `json:"is_default"`
 	OpenConditionCafeId     OpenConditionContent `json:"open_condition_cafe_id"`
 	OpenConditionCafeInvite OpenConditionContent `json:"open_condition_cafe_invite"`
+	IsDefault               bool                 `json:"is_default"`
+	CafeId                  int64                `json:"cafe_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *CafeInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeInfo"))
 	}
 	CafeInfoExcelStart(b)
-	CafeInfoExcelAddCafeId(b, fbsutils.Convert(t.CafeId, t.FlatBuffer.TableKey))
-	CafeInfoExcelAddIsDefault(b, t.IsDefault)
 	CafeInfoExcelAddOpenConditionCafeId(b, fbsutils.Convert(t.OpenConditionCafeId, t.FlatBuffer.TableKey))
 	CafeInfoExcelAddOpenConditionCafeInvite(b, fbsutils.Convert(t.OpenConditionCafeInvite, t.FlatBuffer.TableKey))
+	CafeInfoExcelAddIsDefault(b, t.IsDefault)
+	CafeInfoExcelAddCafeId(b, fbsutils.Convert(t.CafeId, t.FlatBuffer.TableKey))
 	return CafeInfoExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *CafeInfoExcelDto) UnmarshalMessage(e *CafeInfoExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CafeInfo"))
 	}
-	t.CafeId = fbsutils.Convert(e.CafeId(), t.FlatBuffer.TableKey)
-	t.IsDefault = e.IsDefault()
 	t.OpenConditionCafeId = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionCafeId()), t.FlatBuffer.TableKey))
 	t.OpenConditionCafeInvite = OpenConditionContent(fbsutils.Convert(int32(e.OpenConditionCafeInvite()), t.FlatBuffer.TableKey))
+	t.IsDefault = e.IsDefault()
+	t.CafeId = fbsutils.Convert(e.CafeId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

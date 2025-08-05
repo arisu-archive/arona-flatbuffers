@@ -1,23 +1,23 @@
 namespace FlatData;
 
 table MiniGameShootingCharacterExcel {
-    unique_id: long;
-    spine_resource_name: string;
-    body_radius: float;
-    model_prefab_name: string;
-    normal_attack_skill_data: string;
-    public_skill_data: [string];
     death_skill_data: string;
+    ignore_obstacle_check: bool;
+    spine_resource_name: string;
+    shot_time: long;
+    critical_damage_rate: long;
+    critical_rate: long;
+    scale: float;
+    move_speed: long;
+    character_voice_group_id: long;
+    unique_id: long;
+    defense_power: long;
+    is_boss: bool;
+    public_skill_data: [string];
+    model_prefab_name: string;
     max_hp: long;
     attack_power: long;
-    defense_power: long;
-    critical_rate: long;
-    critical_damage_rate: long;
+    normal_attack_skill_data: string;
     attack_range: long;
-    move_speed: long;
-    shot_time: long;
-    is_boss: bool;
-    scale: float;
-    ignore_obstacle_check: bool;
-    character_voice_group_id: long;
+    body_radius: float;
 }

@@ -5,21 +5,21 @@ include "Tag.fbs";
 namespace FlatData;
 
 table CharacterWeaponExcel {
-    id: long;
-    image_path: string;
-    set_recipe: long;
+    stat_value: [long];
+    max_level: [int];
     stat_level_up_type: StatLevelUpType;
     attack_power: long;
-    attack_power100: long;
+    image_path: string;
+    unlock: [bool];
+    heal_power100: long;
+    learn_skill_slot: [string];
+    tags: [Tag];
     max_hp: long;
+    recipe_id: [long];
+    attack_power100: long;
+    set_recipe: long;
+    stat_type: [EquipmentOptionType];
     max_hp100: long;
     heal_power: long;
-    heal_power100: long;
-    tags: [Tag];
-    unlock: [bool];
-    recipe_id: [long];
-    max_level: [int];
-    learn_skill_slot: [string];
-    stat_type: [EquipmentOptionType];
-    stat_value: [long];
+    id: long;
 }

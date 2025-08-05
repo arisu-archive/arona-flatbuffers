@@ -1,16 +1,16 @@
 namespace MX.Data.Excel;
 
 table CharacterVoiceSubtitleExcel {
-    localize_cv_group: string;
-    character_voice_group_id: long;
-    tlmid: string;
-    duration: long;
-    duration_kr: long;
     separate: bool;
+    duration: long;
+    localize_tw: string;
+    duration_kr: long;
+    tlmid: string;
+    character_voice_group_id: long;
+    localize_th: string;
     localize_kr: string;
     localize_jp: string;
-    localize_th: string;
-    localize_tw: string;
+    localize_cv_group: string;
     localize_en: string;
 }
 

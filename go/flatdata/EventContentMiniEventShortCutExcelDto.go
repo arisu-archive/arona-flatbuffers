@@ -11,8 +11,9 @@ import (
 type EventContentMiniEventShortCutExcelDto struct {
 	fbsutils.FlatBuffer
 	Id                 int32           `json:"id"`
-	LocalizeEtcId      uint32          `json:"localize_etc_id"`
 	ShorcutContentType EventTargetType `json:"shorcut_content_type"`
+	ShortcutUi         string          `json:"shortcut_ui"`
+	LocalizeEtcId      uint32          `json:"localize_etc_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,8 +23,9 @@ func (t *EventContentMiniEventShortCutExcelDto) MarshalModel(b *flatbuffers.Buil
 	}
 	EventContentMiniEventShortCutExcelStart(b)
 	EventContentMiniEventShortCutExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentMiniEventShortCutExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	EventContentMiniEventShortCutExcelAddShorcutContentType(b, fbsutils.Convert(t.ShorcutContentType, t.FlatBuffer.TableKey))
+	EventContentMiniEventShortCutExcelAddShortcutUi(b, b.CreateString(fbsutils.Convert(t.ShortcutUi, t.FlatBuffer.TableKey)))
+	EventContentMiniEventShortCutExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	return EventContentMiniEventShortCutExcelEnd(b)
 }
 
@@ -40,8 +42,9 @@ func (t *EventContentMiniEventShortCutExcelDto) UnmarshalMessage(e *EventContent
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMiniEventShortCut"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.ShorcutContentType = EventTargetType(fbsutils.Convert(int32(e.ShorcutContentType()), t.FlatBuffer.TableKey))
+	t.ShortcutUi = fbsutils.Convert(string(e.ShortcutUi()), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

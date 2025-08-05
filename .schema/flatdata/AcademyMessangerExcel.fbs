@@ -4,21 +4,21 @@ include "AcademyMessageTypes.fbs";
 namespace FlatData;
 
 table AcademyMessangerExcel {
-    message_group_id: long;
-    id: long;
-    character_id: long;
-    message_condition: AcademyMessageConditions;
-    condition_value: long;
     pre_condition_group_id: long;
-    pre_condition_favor_schedule_id: long;
     favor_schedule_id: long;
     next_group_id: long;
-    feedback_time_millisec: long;
     message_type: AcademyMessageTypes;
-    image_path: string;
-    message_kr: string;
+    pre_condition_favor_schedule_id: long;
+    message_group_id: long;
+    message_condition: AcademyMessageConditions;
     message_jp: string;
-    message_th: string;
-    message_tw: string;
     message_en: string;
+    message_tw: string;
+    condition_value: long;
+    message_kr: string;
+    character_id: long;
+    id: long;
+    image_path: string;
+    message_th: string;
+    feedback_time_millisec: long;
 }

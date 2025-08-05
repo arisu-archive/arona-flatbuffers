@@ -10,14 +10,14 @@ import (
 // WebEventSeasonExcelDto represents a FlatBuffers table
 type WebEventSeasonExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                    int64  `json:"id"`
-	Enabled               bool   `json:"enabled"`
 	StartDate             string `json:"start_date"`
-	EndDate               string `json:"end_date"`
-	LobbyBannerImage      string `json:"lobby_banner_image"`
-	PopupTitleLocalizeKey string `json:"popup_title_localize_key"`
 	StageEventUrl         string `json:"stage_event_url"`
+	Id                    int64  `json:"id"`
+	EndDate               string `json:"end_date"`
+	PopupTitleLocalizeKey string `json:"popup_title_localize_key"`
 	LiveEventUrl          string `json:"live_event_url"`
+	Enabled               bool   `json:"enabled"`
+	LobbyBannerImage      string `json:"lobby_banner_image"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,14 +26,14 @@ func (t *WebEventSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WebEventSeason"))
 	}
 	WebEventSeasonExcelStart(b)
-	WebEventSeasonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	WebEventSeasonExcelAddEnabled(b, t.Enabled)
 	WebEventSeasonExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
-	WebEventSeasonExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
-	WebEventSeasonExcelAddLobbyBannerImage(b, b.CreateString(fbsutils.Convert(t.LobbyBannerImage, t.FlatBuffer.TableKey)))
-	WebEventSeasonExcelAddPopupTitleLocalizeKey(b, b.CreateString(fbsutils.Convert(t.PopupTitleLocalizeKey, t.FlatBuffer.TableKey)))
 	WebEventSeasonExcelAddStageEventUrl(b, b.CreateString(fbsutils.Convert(t.StageEventUrl, t.FlatBuffer.TableKey)))
+	WebEventSeasonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	WebEventSeasonExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
+	WebEventSeasonExcelAddPopupTitleLocalizeKey(b, b.CreateString(fbsutils.Convert(t.PopupTitleLocalizeKey, t.FlatBuffer.TableKey)))
 	WebEventSeasonExcelAddLiveEventUrl(b, b.CreateString(fbsutils.Convert(t.LiveEventUrl, t.FlatBuffer.TableKey)))
+	WebEventSeasonExcelAddEnabled(b, t.Enabled)
+	WebEventSeasonExcelAddLobbyBannerImage(b, b.CreateString(fbsutils.Convert(t.LobbyBannerImage, t.FlatBuffer.TableKey)))
 	return WebEventSeasonExcelEnd(b)
 }
 
@@ -49,14 +49,14 @@ func (t *WebEventSeasonExcelDto) UnmarshalMessage(e *WebEventSeasonExcel) error 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WebEventSeason"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Enabled = e.Enabled()
 	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)
-	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
-	t.LobbyBannerImage = fbsutils.Convert(string(e.LobbyBannerImage()), t.FlatBuffer.TableKey)
-	t.PopupTitleLocalizeKey = fbsutils.Convert(string(e.PopupTitleLocalizeKey()), t.FlatBuffer.TableKey)
 	t.StageEventUrl = fbsutils.Convert(string(e.StageEventUrl()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.EndDate = fbsutils.Convert(string(e.EndDate()), t.FlatBuffer.TableKey)
+	t.PopupTitleLocalizeKey = fbsutils.Convert(string(e.PopupTitleLocalizeKey()), t.FlatBuffer.TableKey)
 	t.LiveEventUrl = fbsutils.Convert(string(e.LiveEventUrl()), t.FlatBuffer.TableKey)
+	t.Enabled = e.Enabled()
+	t.LobbyBannerImage = fbsutils.Convert(string(e.LobbyBannerImage()), t.FlatBuffer.TableKey)
 	return nil
 }
 

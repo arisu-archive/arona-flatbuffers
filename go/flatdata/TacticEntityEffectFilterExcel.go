@@ -33,16 +33,8 @@ func (rcv *TacticEntityEffectFilterExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *TacticEntityEffectFilterExcel) TargetEffectName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *TacticEntityEffectFilterExcel) ShowEffectToVehicle() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -50,7 +42,15 @@ func (rcv *TacticEntityEffectFilterExcel) ShowEffectToVehicle() bool {
 }
 
 func (rcv *TacticEntityEffectFilterExcel) MutateShowEffectToVehicle(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
+	return rcv._tab.MutateBoolSlot(4, n)
+}
+
+func (rcv *TacticEntityEffectFilterExcel) TargetEffectName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *TacticEntityEffectFilterExcel) ShowEffectToBoss() bool {
@@ -68,11 +68,11 @@ func (rcv *TacticEntityEffectFilterExcel) MutateShowEffectToBoss(n bool) bool {
 func TacticEntityEffectFilterExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func TacticEntityEffectFilterExcelAddTargetEffectName(builder *flatbuffers.Builder, targetEffectName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(targetEffectName), 0)
-}
 func TacticEntityEffectFilterExcelAddShowEffectToVehicle(builder *flatbuffers.Builder, showEffectToVehicle bool) {
-	builder.PrependBoolSlot(1, showEffectToVehicle, false)
+	builder.PrependBoolSlot(0, showEffectToVehicle, false)
+}
+func TacticEntityEffectFilterExcelAddTargetEffectName(builder *flatbuffers.Builder, targetEffectName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(targetEffectName), 0)
 }
 func TacticEntityEffectFilterExcelAddShowEffectToBoss(builder *flatbuffers.Builder, showEffectToBoss bool) {
 	builder.PrependBoolSlot(2, showEffectToBoss, false)

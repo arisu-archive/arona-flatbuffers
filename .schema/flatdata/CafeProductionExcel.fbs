@@ -3,11 +3,11 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table CafeProductionExcel {
-    cafe_id: long;
     rank: long;
-    cafe_production_parcel_type: ParcelType;
+    parcel_storage_max: long;
     cafe_production_parcel_id: long;
     parcel_production_coefficient: long;
     parcel_production_correction_value: long;
-    parcel_storage_max: long;
+    cafe_production_parcel_type: ParcelType;
+    cafe_id: long;
 }

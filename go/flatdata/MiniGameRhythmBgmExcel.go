@@ -33,16 +33,12 @@ func (rcv *MiniGameRhythmBgmExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameRhythmBgmExcel) RhythmBgmId() int64 {
+func (rcv *MiniGameRhythmBgmExcel) BgmComposerText() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *MiniGameRhythmBgmExcel) MutateRhythmBgmId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+	return nil
 }
 
 func (rcv *MiniGameRhythmBgmExcel) EventContentId() int64 {
@@ -57,7 +53,7 @@ func (rcv *MiniGameRhythmBgmExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *MiniGameRhythmBgmExcel) StageSelectImagePath() []byte {
+func (rcv *MiniGameRhythmBgmExcel) BgmNameText() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -65,7 +61,7 @@ func (rcv *MiniGameRhythmBgmExcel) StageSelectImagePath() []byte {
 	return nil
 }
 
-func (rcv *MiniGameRhythmBgmExcel) Bpm() int64 {
+func (rcv *MiniGameRhythmBgmExcel) Bgm() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -73,11 +69,11 @@ func (rcv *MiniGameRhythmBgmExcel) Bpm() int64 {
 	return 0
 }
 
-func (rcv *MiniGameRhythmBgmExcel) MutateBpm(n int64) bool {
+func (rcv *MiniGameRhythmBgmExcel) MutateBgm(n int64) bool {
 	return rcv._tab.MutateInt64Slot(10, n)
 }
 
-func (rcv *MiniGameRhythmBgmExcel) Bgm() int64 {
+func (rcv *MiniGameRhythmBgmExcel) RhythmBgmId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -85,16 +81,20 @@ func (rcv *MiniGameRhythmBgmExcel) Bgm() int64 {
 	return 0
 }
 
-func (rcv *MiniGameRhythmBgmExcel) MutateBgm(n int64) bool {
+func (rcv *MiniGameRhythmBgmExcel) MutateRhythmBgmId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *MiniGameRhythmBgmExcel) BgmNameText() []byte {
+func (rcv *MiniGameRhythmBgmExcel) Bpm() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
+}
+
+func (rcv *MiniGameRhythmBgmExcel) MutateBpm(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func (rcv *MiniGameRhythmBgmExcel) BgmArtistText() []byte {
@@ -105,28 +105,8 @@ func (rcv *MiniGameRhythmBgmExcel) BgmArtistText() []byte {
 	return nil
 }
 
-func (rcv *MiniGameRhythmBgmExcel) HasLyricist() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *MiniGameRhythmBgmExcel) MutateHasLyricist(n bool) bool {
-	return rcv._tab.MutateBoolSlot(18, n)
-}
-
-func (rcv *MiniGameRhythmBgmExcel) BgmComposerText() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *MiniGameRhythmBgmExcel) BgmLength() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -134,41 +114,61 @@ func (rcv *MiniGameRhythmBgmExcel) BgmLength() int32 {
 }
 
 func (rcv *MiniGameRhythmBgmExcel) MutateBgmLength(n int32) bool {
-	return rcv._tab.MutateInt32Slot(22, n)
+	return rcv._tab.MutateInt32Slot(18, n)
+}
+
+func (rcv *MiniGameRhythmBgmExcel) HasLyricist() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *MiniGameRhythmBgmExcel) MutateHasLyricist(n bool) bool {
+	return rcv._tab.MutateBoolSlot(20, n)
+}
+
+func (rcv *MiniGameRhythmBgmExcel) StageSelectImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func MiniGameRhythmBgmExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(10)
 }
-func MiniGameRhythmBgmExcelAddRhythmBgmId(builder *flatbuffers.Builder, rhythmBgmId int64) {
-	builder.PrependInt64Slot(0, rhythmBgmId, 0)
+func MiniGameRhythmBgmExcelAddBgmComposerText(builder *flatbuffers.Builder, bgmComposerText flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(bgmComposerText), 0)
 }
 func MiniGameRhythmBgmExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(1, eventContentId, 0)
 }
-func MiniGameRhythmBgmExcelAddStageSelectImagePath(builder *flatbuffers.Builder, stageSelectImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(stageSelectImagePath), 0)
-}
-func MiniGameRhythmBgmExcelAddBpm(builder *flatbuffers.Builder, bpm int64) {
-	builder.PrependInt64Slot(3, bpm, 0)
+func MiniGameRhythmBgmExcelAddBgmNameText(builder *flatbuffers.Builder, bgmNameText flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(bgmNameText), 0)
 }
 func MiniGameRhythmBgmExcelAddBgm(builder *flatbuffers.Builder, bgm int64) {
-	builder.PrependInt64Slot(4, bgm, 0)
+	builder.PrependInt64Slot(3, bgm, 0)
 }
-func MiniGameRhythmBgmExcelAddBgmNameText(builder *flatbuffers.Builder, bgmNameText flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(bgmNameText), 0)
+func MiniGameRhythmBgmExcelAddRhythmBgmId(builder *flatbuffers.Builder, rhythmBgmId int64) {
+	builder.PrependInt64Slot(4, rhythmBgmId, 0)
+}
+func MiniGameRhythmBgmExcelAddBpm(builder *flatbuffers.Builder, bpm int64) {
+	builder.PrependInt64Slot(5, bpm, 0)
 }
 func MiniGameRhythmBgmExcelAddBgmArtistText(builder *flatbuffers.Builder, bgmArtistText flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(bgmArtistText), 0)
 }
-func MiniGameRhythmBgmExcelAddHasLyricist(builder *flatbuffers.Builder, hasLyricist bool) {
-	builder.PrependBoolSlot(7, hasLyricist, false)
-}
-func MiniGameRhythmBgmExcelAddBgmComposerText(builder *flatbuffers.Builder, bgmComposerText flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(bgmComposerText), 0)
-}
 func MiniGameRhythmBgmExcelAddBgmLength(builder *flatbuffers.Builder, bgmLength int32) {
-	builder.PrependInt32Slot(9, bgmLength, 0)
+	builder.PrependInt32Slot(7, bgmLength, 0)
+}
+func MiniGameRhythmBgmExcelAddHasLyricist(builder *flatbuffers.Builder, hasLyricist bool) {
+	builder.PrependBoolSlot(8, hasLyricist, false)
+}
+func MiniGameRhythmBgmExcelAddStageSelectImagePath(builder *flatbuffers.Builder, stageSelectImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(stageSelectImagePath), 0)
 }
 func MiniGameRhythmBgmExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

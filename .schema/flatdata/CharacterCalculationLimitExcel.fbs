@@ -4,11 +4,11 @@ include "TacticEntityType.fbs";
 namespace FlatData;
 
 table CharacterCalculationLimitExcel {
-    id: long;
     tactic_entity_type: TacticEntityType;
+    id: long;
     calculation_value: BattleCalculationStat;
-    min_value: long;
     max_value: long;
+    min_value: long;
     limit_start_value: [long];
     decrease_rate: [long];
 }

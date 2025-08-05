@@ -3,14 +3,14 @@ include "Tag.fbs";
 namespace FlatData;
 
 table EventContentZoneExcel {
+    location_id: long;
     id: long;
     original_zone_id: long;
-    location_id: long;
-    location_rank: long;
-    event_point_for_location_rank: long;
+    reward_group_id: long;
     localize_etc_id: uint;
     student_visit_prob: [long];
-    reward_group_id: long;
-    tags: [Tag];
+    event_point_for_location_rank: long;
     white_list_tags: [Tag];
+    tags: [Tag];
+    location_rank: long;
 }

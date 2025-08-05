@@ -10,33 +10,33 @@ import (
 // TacticalSupportSystemExcelDto represents a FlatBuffers table
 type TacticalSupportSystemExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                               int64   `json:"id"`
 	SummonedTime                     int64   `json:"summoned_time"`
-	DefaultPersonalityId             int64   `json:"default_personality_id"`
+	ObstacleCoverRange               int64   `json:"obstacle_cover_range"`
 	CanTargeting                     bool    `json:"can_targeting"`
 	CanCover                         bool    `json:"can_cover"`
-	ObstacleUniqueName               string  `json:"obstacle_unique_name"`
-	ObstacleCoverRange               int64   `json:"obstacle_cover_range"`
-	SummonSkilllGroupId              string  `json:"summon_skilll_group_id"`
-	CrashObstacleObbWidth            int64   `json:"crash_obstacle_obb_width"`
-	CrashObstacleObbHeight           int64   `json:"crash_obstacle_obb_height"`
-	IsTssBlockedNodeCheck            bool    `json:"is_tss_blocked_node_check"`
-	NumberOfUses                     int32   `json:"number_of_uses"`
 	InventoryOffsetX                 float32 `json:"inventory_offset_x"`
-	InventoryOffsetY                 float32 `json:"inventory_offset_y"`
-	InventoryOffsetZ                 float32 `json:"inventory_offset_z"`
-	InteractionChar                  int64   `json:"interaction_char"`
-	CharacterInteractionStartDelay   int64   `json:"character_interaction_start_delay"`
-	GetOnStartEffectPath             string  `json:"get_on_start_effect_path"`
 	GetOnEndEffectPath               string  `json:"get_on_end_effect_path"`
-	SummonerCharacterId              int64   `json:"summoner_character_id"`
-	InteractionFrame                 int32   `json:"interaction_frame"`
-	TsaInteractionAddDuration        int64   `json:"tsa_interaction_add_duration"`
-	InteractionStudentExSkillGroupId string  `json:"interaction_student_ex_skill_group_id"`
-	InteractionSkillCardTexture      string  `json:"interaction_skill_card_texture"`
-	InteractionSkillSpine            string  `json:"interaction_skill_spine"`
 	RetreatFrame                     int32   `json:"retreat_frame"`
+	ObstacleUniqueName               string  `json:"obstacle_unique_name"`
+	InteractionFrame                 int32   `json:"interaction_frame"`
+	SummonSkilllGroupId              string  `json:"summon_skilll_group_id"`
+	Id                               int64   `json:"id"`
 	DestroyFrame                     int32   `json:"destroy_frame"`
+	GetOnStartEffectPath             string  `json:"get_on_start_effect_path"`
+	CharacterInteractionStartDelay   int64   `json:"character_interaction_start_delay"`
+	IsTssBlockedNodeCheck            bool    `json:"is_tss_blocked_node_check"`
+	CrashObstacleObbWidth            int64   `json:"crash_obstacle_obb_width"`
+	InteractionStudentExSkillGroupId string  `json:"interaction_student_ex_skill_group_id"`
+	InteractionChar                  int64   `json:"interaction_char"`
+	TsaInteractionAddDuration        int64   `json:"tsa_interaction_add_duration"`
+	DefaultPersonalityId             int64   `json:"default_personality_id"`
+	CrashObstacleObbHeight           int64   `json:"crash_obstacle_obb_height"`
+	SummonerCharacterId              int64   `json:"summoner_character_id"`
+	InventoryOffsetZ                 float32 `json:"inventory_offset_z"`
+	InventoryOffsetY                 float32 `json:"inventory_offset_y"`
+	InteractionSkillSpine            string  `json:"interaction_skill_spine"`
+	NumberOfUses                     int32   `json:"number_of_uses"`
+	InteractionSkillCardTexture      string  `json:"interaction_skill_card_texture"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -45,33 +45,33 @@ func (t *TacticalSupportSystemExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticalSupportSystem"))
 	}
 	TacticalSupportSystemExcelStart(b)
-	TacticalSupportSystemExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	TacticalSupportSystemExcelAddSummonedTime(b, fbsutils.Convert(t.SummonedTime, t.FlatBuffer.TableKey))
-	TacticalSupportSystemExcelAddDefaultPersonalityId(b, fbsutils.Convert(t.DefaultPersonalityId, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddObstacleCoverRange(b, fbsutils.Convert(t.ObstacleCoverRange, t.FlatBuffer.TableKey))
 	TacticalSupportSystemExcelAddCanTargeting(b, t.CanTargeting)
 	TacticalSupportSystemExcelAddCanCover(b, t.CanCover)
-	TacticalSupportSystemExcelAddObstacleUniqueName(b, b.CreateString(fbsutils.Convert(t.ObstacleUniqueName, t.FlatBuffer.TableKey)))
-	TacticalSupportSystemExcelAddObstacleCoverRange(b, fbsutils.Convert(t.ObstacleCoverRange, t.FlatBuffer.TableKey))
-	TacticalSupportSystemExcelAddSummonSkilllGroupId(b, b.CreateString(fbsutils.Convert(t.SummonSkilllGroupId, t.FlatBuffer.TableKey)))
-	TacticalSupportSystemExcelAddCrashObstacleObbWidth(b, fbsutils.Convert(t.CrashObstacleObbWidth, t.FlatBuffer.TableKey))
-	TacticalSupportSystemExcelAddCrashObstacleObbHeight(b, fbsutils.Convert(t.CrashObstacleObbHeight, t.FlatBuffer.TableKey))
-	TacticalSupportSystemExcelAddIsTssBlockedNodeCheck(b, t.IsTssBlockedNodeCheck)
-	TacticalSupportSystemExcelAddNumberOfUses(b, fbsutils.Convert(t.NumberOfUses, t.FlatBuffer.TableKey))
 	TacticalSupportSystemExcelAddInventoryOffsetX(b, fbsutils.Convert(t.InventoryOffsetX, t.FlatBuffer.TableKey))
-	TacticalSupportSystemExcelAddInventoryOffsetY(b, fbsutils.Convert(t.InventoryOffsetY, t.FlatBuffer.TableKey))
-	TacticalSupportSystemExcelAddInventoryOffsetZ(b, fbsutils.Convert(t.InventoryOffsetZ, t.FlatBuffer.TableKey))
-	TacticalSupportSystemExcelAddInteractionChar(b, fbsutils.Convert(t.InteractionChar, t.FlatBuffer.TableKey))
-	TacticalSupportSystemExcelAddCharacterInteractionStartDelay(b, fbsutils.Convert(t.CharacterInteractionStartDelay, t.FlatBuffer.TableKey))
-	TacticalSupportSystemExcelAddGetOnStartEffectPath(b, b.CreateString(fbsutils.Convert(t.GetOnStartEffectPath, t.FlatBuffer.TableKey)))
 	TacticalSupportSystemExcelAddGetOnEndEffectPath(b, b.CreateString(fbsutils.Convert(t.GetOnEndEffectPath, t.FlatBuffer.TableKey)))
-	TacticalSupportSystemExcelAddSummonerCharacterId(b, fbsutils.Convert(t.SummonerCharacterId, t.FlatBuffer.TableKey))
-	TacticalSupportSystemExcelAddInteractionFrame(b, fbsutils.Convert(t.InteractionFrame, t.FlatBuffer.TableKey))
-	TacticalSupportSystemExcelAddTsaInteractionAddDuration(b, fbsutils.Convert(t.TsaInteractionAddDuration, t.FlatBuffer.TableKey))
-	TacticalSupportSystemExcelAddInteractionStudentExSkillGroupId(b, b.CreateString(fbsutils.Convert(t.InteractionStudentExSkillGroupId, t.FlatBuffer.TableKey)))
-	TacticalSupportSystemExcelAddInteractionSkillCardTexture(b, b.CreateString(fbsutils.Convert(t.InteractionSkillCardTexture, t.FlatBuffer.TableKey)))
-	TacticalSupportSystemExcelAddInteractionSkillSpine(b, b.CreateString(fbsutils.Convert(t.InteractionSkillSpine, t.FlatBuffer.TableKey)))
 	TacticalSupportSystemExcelAddRetreatFrame(b, fbsutils.Convert(t.RetreatFrame, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddObstacleUniqueName(b, b.CreateString(fbsutils.Convert(t.ObstacleUniqueName, t.FlatBuffer.TableKey)))
+	TacticalSupportSystemExcelAddInteractionFrame(b, fbsutils.Convert(t.InteractionFrame, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddSummonSkilllGroupId(b, b.CreateString(fbsutils.Convert(t.SummonSkilllGroupId, t.FlatBuffer.TableKey)))
+	TacticalSupportSystemExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	TacticalSupportSystemExcelAddDestroyFrame(b, fbsutils.Convert(t.DestroyFrame, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddGetOnStartEffectPath(b, b.CreateString(fbsutils.Convert(t.GetOnStartEffectPath, t.FlatBuffer.TableKey)))
+	TacticalSupportSystemExcelAddCharacterInteractionStartDelay(b, fbsutils.Convert(t.CharacterInteractionStartDelay, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddIsTssBlockedNodeCheck(b, t.IsTssBlockedNodeCheck)
+	TacticalSupportSystemExcelAddCrashObstacleObbWidth(b, fbsutils.Convert(t.CrashObstacleObbWidth, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddInteractionStudentExSkillGroupId(b, b.CreateString(fbsutils.Convert(t.InteractionStudentExSkillGroupId, t.FlatBuffer.TableKey)))
+	TacticalSupportSystemExcelAddInteractionChar(b, fbsutils.Convert(t.InteractionChar, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddTsaInteractionAddDuration(b, fbsutils.Convert(t.TsaInteractionAddDuration, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddDefaultPersonalityId(b, fbsutils.Convert(t.DefaultPersonalityId, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddCrashObstacleObbHeight(b, fbsutils.Convert(t.CrashObstacleObbHeight, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddSummonerCharacterId(b, fbsutils.Convert(t.SummonerCharacterId, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddInventoryOffsetZ(b, fbsutils.Convert(t.InventoryOffsetZ, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddInventoryOffsetY(b, fbsutils.Convert(t.InventoryOffsetY, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddInteractionSkillSpine(b, b.CreateString(fbsutils.Convert(t.InteractionSkillSpine, t.FlatBuffer.TableKey)))
+	TacticalSupportSystemExcelAddNumberOfUses(b, fbsutils.Convert(t.NumberOfUses, t.FlatBuffer.TableKey))
+	TacticalSupportSystemExcelAddInteractionSkillCardTexture(b, b.CreateString(fbsutils.Convert(t.InteractionSkillCardTexture, t.FlatBuffer.TableKey)))
 	return TacticalSupportSystemExcelEnd(b)
 }
 
@@ -87,33 +87,33 @@ func (t *TacticalSupportSystemExcelDto) UnmarshalMessage(e *TacticalSupportSyste
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticalSupportSystem"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.SummonedTime = fbsutils.Convert(e.SummonedTime(), t.FlatBuffer.TableKey)
-	t.DefaultPersonalityId = fbsutils.Convert(e.DefaultPersonalityId(), t.FlatBuffer.TableKey)
+	t.ObstacleCoverRange = fbsutils.Convert(e.ObstacleCoverRange(), t.FlatBuffer.TableKey)
 	t.CanTargeting = e.CanTargeting()
 	t.CanCover = e.CanCover()
-	t.ObstacleUniqueName = fbsutils.Convert(string(e.ObstacleUniqueName()), t.FlatBuffer.TableKey)
-	t.ObstacleCoverRange = fbsutils.Convert(e.ObstacleCoverRange(), t.FlatBuffer.TableKey)
-	t.SummonSkilllGroupId = fbsutils.Convert(string(e.SummonSkilllGroupId()), t.FlatBuffer.TableKey)
-	t.CrashObstacleObbWidth = fbsutils.Convert(e.CrashObstacleObbWidth(), t.FlatBuffer.TableKey)
-	t.CrashObstacleObbHeight = fbsutils.Convert(e.CrashObstacleObbHeight(), t.FlatBuffer.TableKey)
-	t.IsTssBlockedNodeCheck = e.IsTssBlockedNodeCheck()
-	t.NumberOfUses = fbsutils.Convert(e.NumberOfUses(), t.FlatBuffer.TableKey)
 	t.InventoryOffsetX = fbsutils.Convert(e.InventoryOffsetX(), t.FlatBuffer.TableKey)
-	t.InventoryOffsetY = fbsutils.Convert(e.InventoryOffsetY(), t.FlatBuffer.TableKey)
-	t.InventoryOffsetZ = fbsutils.Convert(e.InventoryOffsetZ(), t.FlatBuffer.TableKey)
-	t.InteractionChar = fbsutils.Convert(e.InteractionChar(), t.FlatBuffer.TableKey)
-	t.CharacterInteractionStartDelay = fbsutils.Convert(e.CharacterInteractionStartDelay(), t.FlatBuffer.TableKey)
-	t.GetOnStartEffectPath = fbsutils.Convert(string(e.GetOnStartEffectPath()), t.FlatBuffer.TableKey)
 	t.GetOnEndEffectPath = fbsutils.Convert(string(e.GetOnEndEffectPath()), t.FlatBuffer.TableKey)
-	t.SummonerCharacterId = fbsutils.Convert(e.SummonerCharacterId(), t.FlatBuffer.TableKey)
-	t.InteractionFrame = fbsutils.Convert(e.InteractionFrame(), t.FlatBuffer.TableKey)
-	t.TsaInteractionAddDuration = fbsutils.Convert(e.TsaInteractionAddDuration(), t.FlatBuffer.TableKey)
-	t.InteractionStudentExSkillGroupId = fbsutils.Convert(string(e.InteractionStudentExSkillGroupId()), t.FlatBuffer.TableKey)
-	t.InteractionSkillCardTexture = fbsutils.Convert(string(e.InteractionSkillCardTexture()), t.FlatBuffer.TableKey)
-	t.InteractionSkillSpine = fbsutils.Convert(string(e.InteractionSkillSpine()), t.FlatBuffer.TableKey)
 	t.RetreatFrame = fbsutils.Convert(e.RetreatFrame(), t.FlatBuffer.TableKey)
+	t.ObstacleUniqueName = fbsutils.Convert(string(e.ObstacleUniqueName()), t.FlatBuffer.TableKey)
+	t.InteractionFrame = fbsutils.Convert(e.InteractionFrame(), t.FlatBuffer.TableKey)
+	t.SummonSkilllGroupId = fbsutils.Convert(string(e.SummonSkilllGroupId()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.DestroyFrame = fbsutils.Convert(e.DestroyFrame(), t.FlatBuffer.TableKey)
+	t.GetOnStartEffectPath = fbsutils.Convert(string(e.GetOnStartEffectPath()), t.FlatBuffer.TableKey)
+	t.CharacterInteractionStartDelay = fbsutils.Convert(e.CharacterInteractionStartDelay(), t.FlatBuffer.TableKey)
+	t.IsTssBlockedNodeCheck = e.IsTssBlockedNodeCheck()
+	t.CrashObstacleObbWidth = fbsutils.Convert(e.CrashObstacleObbWidth(), t.FlatBuffer.TableKey)
+	t.InteractionStudentExSkillGroupId = fbsutils.Convert(string(e.InteractionStudentExSkillGroupId()), t.FlatBuffer.TableKey)
+	t.InteractionChar = fbsutils.Convert(e.InteractionChar(), t.FlatBuffer.TableKey)
+	t.TsaInteractionAddDuration = fbsutils.Convert(e.TsaInteractionAddDuration(), t.FlatBuffer.TableKey)
+	t.DefaultPersonalityId = fbsutils.Convert(e.DefaultPersonalityId(), t.FlatBuffer.TableKey)
+	t.CrashObstacleObbHeight = fbsutils.Convert(e.CrashObstacleObbHeight(), t.FlatBuffer.TableKey)
+	t.SummonerCharacterId = fbsutils.Convert(e.SummonerCharacterId(), t.FlatBuffer.TableKey)
+	t.InventoryOffsetZ = fbsutils.Convert(e.InventoryOffsetZ(), t.FlatBuffer.TableKey)
+	t.InventoryOffsetY = fbsutils.Convert(e.InventoryOffsetY(), t.FlatBuffer.TableKey)
+	t.InteractionSkillSpine = fbsutils.Convert(string(e.InteractionSkillSpine()), t.FlatBuffer.TableKey)
+	t.NumberOfUses = fbsutils.Convert(e.NumberOfUses(), t.FlatBuffer.TableKey)
+	t.InteractionSkillCardTexture = fbsutils.Convert(string(e.InteractionSkillCardTexture()), t.FlatBuffer.TableKey)
 	return nil
 }
 

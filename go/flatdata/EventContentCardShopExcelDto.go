@@ -11,17 +11,17 @@ import (
 type EventContentCardShopExcelDto struct {
 	fbsutils.FlatBuffer
 	EventContentId     int64        `json:"event_content_id"`
-	Id                 int64        `json:"id"`
-	Rarity             Rarity       `json:"rarity"`
-	CostGoodsId        int64        `json:"cost_goods_id"`
-	CardGroupId        int32        `json:"card_group_id"`
-	IsLegacy           bool         `json:"is_legacy"`
 	RefreshGroup       int32        `json:"refresh_group"`
 	Prob               int32        `json:"prob"`
 	ProbWeight1        int32        `json:"prob_weight1"`
-	RewardParcelType   []ParcelType `json:"reward_parcel_type"`
-	RewardParcelId     []int64      `json:"reward_parcel_id"`
+	Rarity             Rarity       `json:"rarity"`
+	CostGoodsId        int64        `json:"cost_goods_id"`
+	Id                 int64        `json:"id"`
+	CardGroupId        int32        `json:"card_group_id"`
 	RewardParcelAmount []int64      `json:"reward_parcel_amount"`
+	IsLegacy           bool         `json:"is_legacy"`
+	RewardParcelId     []int64      `json:"reward_parcel_id"`
+	RewardParcelType   []ParcelType `json:"reward_parcel_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -31,29 +31,29 @@ func (t *EventContentCardShopExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	}
 	EventContentCardShopExcelStart(b)
 	EventContentCardShopExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentCardShopExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentCardShopExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
-	EventContentCardShopExcelAddCostGoodsId(b, fbsutils.Convert(t.CostGoodsId, t.FlatBuffer.TableKey))
-	EventContentCardShopExcelAddCardGroupId(b, fbsutils.Convert(t.CardGroupId, t.FlatBuffer.TableKey))
-	EventContentCardShopExcelAddIsLegacy(b, t.IsLegacy)
 	EventContentCardShopExcelAddRefreshGroup(b, fbsutils.Convert(t.RefreshGroup, t.FlatBuffer.TableKey))
 	EventContentCardShopExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
 	EventContentCardShopExcelAddProbWeight1(b, fbsutils.Convert(t.ProbWeight1, t.FlatBuffer.TableKey))
-	EventContentCardShopExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
-	for i := range len(t.RewardParcelType) {
-		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
-	}
-	EventContentCardShopExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
-	EventContentCardShopExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
-	for i := range len(t.RewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentCardShopExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	EventContentCardShopExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
+	EventContentCardShopExcelAddCostGoodsId(b, fbsutils.Convert(t.CostGoodsId, t.FlatBuffer.TableKey))
+	EventContentCardShopExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	EventContentCardShopExcelAddCardGroupId(b, fbsutils.Convert(t.CardGroupId, t.FlatBuffer.TableKey))
 	EventContentCardShopExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
 	for i := range len(t.RewardParcelAmount) {
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentCardShopExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
+	EventContentCardShopExcelAddIsLegacy(b, t.IsLegacy)
+	EventContentCardShopExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
+	for i := range len(t.RewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentCardShopExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
+	EventContentCardShopExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
+	for i := range len(t.RewardParcelType) {
+		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
+	}
+	EventContentCardShopExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
 	return EventContentCardShopExcelEnd(b)
 }
 
@@ -70,25 +70,25 @@ func (t *EventContentCardShopExcelDto) UnmarshalMessage(e *EventContentCardShopE
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentCardShop"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
-	t.CostGoodsId = fbsutils.Convert(e.CostGoodsId(), t.FlatBuffer.TableKey)
-	t.CardGroupId = fbsutils.Convert(e.CardGroupId(), t.FlatBuffer.TableKey)
-	t.IsLegacy = e.IsLegacy()
 	t.RefreshGroup = fbsutils.Convert(e.RefreshGroup(), t.FlatBuffer.TableKey)
 	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
 	t.ProbWeight1 = fbsutils.Convert(e.ProbWeight1(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
-	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
+	t.CostGoodsId = fbsutils.Convert(e.CostGoodsId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.CardGroupId = fbsutils.Convert(e.CardGroupId(), t.FlatBuffer.TableKey)
+	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
 	}
+	t.IsLegacy = e.IsLegacy()
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
 		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
-	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
+	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
+	for i := range e.RewardParcelTypeLength() {
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

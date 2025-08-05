@@ -33,7 +33,7 @@ func (rcv *MiniGameShootingStageExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameShootingStageExcel) UniqueId() int64 {
+func (rcv *MiniGameShootingStageExcel) StartBattleDuration() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,12 +41,96 @@ func (rcv *MiniGameShootingStageExcel) UniqueId() int64 {
 	return 0
 }
 
-func (rcv *MiniGameShootingStageExcel) MutateUniqueId(n int64) bool {
+func (rcv *MiniGameShootingStageExcel) MutateStartBattleDuration(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MiniGameShootingStageExcel) BgmId(j int) int64 {
+func (rcv *MiniGameShootingStageExcel) DefaultBattleDuration() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameShootingStageExcel) MutateDefaultBattleDuration(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *MiniGameShootingStageExcel) Difficulty() Difficulty {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return Difficulty(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *MiniGameShootingStageExcel) MutateDifficulty(n Difficulty) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
+}
+
+func (rcv *MiniGameShootingStageExcel) CostGoodsId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameShootingStageExcel) MutateCostGoodsId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *MiniGameShootingStageExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameShootingStageExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *MiniGameShootingStageExcel) DefaultLogicEffect() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MiniGameShootingStageExcel) CameraSizeRate() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *MiniGameShootingStageExcel) MutateCameraSizeRate(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(16, n)
+}
+
+func (rcv *MiniGameShootingStageExcel) ArtLevel() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MiniGameShootingStageExcel) DesignLevel() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *MiniGameShootingStageExcel) BgmId(j int) int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -55,7 +139,7 @@ func (rcv *MiniGameShootingStageExcel) BgmId(j int) int64 {
 }
 
 func (rcv *MiniGameShootingStageExcel) BgmIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -63,96 +147,12 @@ func (rcv *MiniGameShootingStageExcel) BgmIdLength() int {
 }
 
 func (rcv *MiniGameShootingStageExcel) MutateBgmId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
 	}
 	return false
-}
-
-func (rcv *MiniGameShootingStageExcel) CostGoodsId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameShootingStageExcel) MutateCostGoodsId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *MiniGameShootingStageExcel) Difficulty() Difficulty {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return Difficulty(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *MiniGameShootingStageExcel) MutateDifficulty(n Difficulty) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
-}
-
-func (rcv *MiniGameShootingStageExcel) DesignLevel() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MiniGameShootingStageExcel) ArtLevel() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MiniGameShootingStageExcel) StartBattleDuration() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameShootingStageExcel) MutateStartBattleDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *MiniGameShootingStageExcel) DefaultBattleDuration() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameShootingStageExcel) MutateDefaultBattleDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
-}
-
-func (rcv *MiniGameShootingStageExcel) DefaultLogicEffect() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *MiniGameShootingStageExcel) CameraSizeRate() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *MiniGameShootingStageExcel) MutateCameraSizeRate(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(22, n)
 }
 
 func (rcv *MiniGameShootingStageExcel) EventContentStageRewardId() int64 {
@@ -170,38 +170,38 @@ func (rcv *MiniGameShootingStageExcel) MutateEventContentStageRewardId(n int64) 
 func MiniGameShootingStageExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(11)
 }
+func MiniGameShootingStageExcelAddStartBattleDuration(builder *flatbuffers.Builder, startBattleDuration int64) {
+	builder.PrependInt64Slot(0, startBattleDuration, 0)
+}
+func MiniGameShootingStageExcelAddDefaultBattleDuration(builder *flatbuffers.Builder, defaultBattleDuration int64) {
+	builder.PrependInt64Slot(1, defaultBattleDuration, 0)
+}
+func MiniGameShootingStageExcelAddDifficulty(builder *flatbuffers.Builder, difficulty Difficulty) {
+	builder.PrependInt32Slot(2, int32(difficulty), 0)
+}
+func MiniGameShootingStageExcelAddCostGoodsId(builder *flatbuffers.Builder, costGoodsId int64) {
+	builder.PrependInt64Slot(3, costGoodsId, 0)
+}
 func MiniGameShootingStageExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
+	builder.PrependInt64Slot(4, uniqueId, 0)
+}
+func MiniGameShootingStageExcelAddDefaultLogicEffect(builder *flatbuffers.Builder, defaultLogicEffect flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(defaultLogicEffect), 0)
+}
+func MiniGameShootingStageExcelAddCameraSizeRate(builder *flatbuffers.Builder, cameraSizeRate float32) {
+	builder.PrependFloat32Slot(6, cameraSizeRate, 0.0)
+}
+func MiniGameShootingStageExcelAddArtLevel(builder *flatbuffers.Builder, artLevel flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(artLevel), 0)
+}
+func MiniGameShootingStageExcelAddDesignLevel(builder *flatbuffers.Builder, designLevel flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(designLevel), 0)
 }
 func MiniGameShootingStageExcelAddBgmId(builder *flatbuffers.Builder, bgmId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(bgmId), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(bgmId), 0)
 }
 func MiniGameShootingStageExcelStartBgmIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
-}
-func MiniGameShootingStageExcelAddCostGoodsId(builder *flatbuffers.Builder, costGoodsId int64) {
-	builder.PrependInt64Slot(2, costGoodsId, 0)
-}
-func MiniGameShootingStageExcelAddDifficulty(builder *flatbuffers.Builder, difficulty Difficulty) {
-	builder.PrependInt32Slot(3, int32(difficulty), 0)
-}
-func MiniGameShootingStageExcelAddDesignLevel(builder *flatbuffers.Builder, designLevel flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(designLevel), 0)
-}
-func MiniGameShootingStageExcelAddArtLevel(builder *flatbuffers.Builder, artLevel flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(artLevel), 0)
-}
-func MiniGameShootingStageExcelAddStartBattleDuration(builder *flatbuffers.Builder, startBattleDuration int64) {
-	builder.PrependInt64Slot(6, startBattleDuration, 0)
-}
-func MiniGameShootingStageExcelAddDefaultBattleDuration(builder *flatbuffers.Builder, defaultBattleDuration int64) {
-	builder.PrependInt64Slot(7, defaultBattleDuration, 0)
-}
-func MiniGameShootingStageExcelAddDefaultLogicEffect(builder *flatbuffers.Builder, defaultLogicEffect flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(defaultLogicEffect), 0)
-}
-func MiniGameShootingStageExcelAddCameraSizeRate(builder *flatbuffers.Builder, cameraSizeRate float32) {
-	builder.PrependFloat32Slot(9, cameraSizeRate, 0.0)
 }
 func MiniGameShootingStageExcelAddEventContentStageRewardId(builder *flatbuffers.Builder, eventContentStageRewardId int64) {
 	builder.PrependInt64Slot(10, eventContentStageRewardId, 0)

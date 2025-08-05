@@ -11,30 +11,34 @@ import (
 type ScenarioResourceInfoExcelDto struct {
 	fbsutils.FlatBuffer
 	Id             int64  `json:"id"`
-	ScenarioModeId int64  `json:"scenario_mode_id"`
-	VideoId        int64  `json:"video_id"`
-	BgmId          int64  `json:"bgm_id"`
-	AudioName      string `json:"audio_name"`
-	SpinePath      string `json:"spine_path"`
 	Ratio          int32  `json:"ratio"`
-	LobbyAniPath   string `json:"lobby_ani_path"`
+	ScenarioModeId int64  `json:"scenario_mode_id"`
 	MovieCgPath    string `json:"movie_cg_path"`
+	AudioName      string `json:"audio_name"`
+	VideoId        int64  `json:"video_id"`
+	PvDisplayOrder int64  `json:"pv_display_order"`
+	LobbyAniPath   string `json:"lobby_ani_path"`
 	LocalizeId     uint32 `json:"localize_id"`
+	BgmId          int64  `json:"bgm_id"`
+	SpinePath      string `json:"spine_path"`
+	PriorityOrder  int64  `json:"priority_order"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	ScenarioResourceInfoExcelStart(b)
 	ScenarioResourceInfoExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	ScenarioResourceInfoExcelAddScenarioModeId(b, fbsutils.Convert(t.ScenarioModeId, t.FlatBuffer.TableKey))
-	ScenarioResourceInfoExcelAddVideoId(b, fbsutils.Convert(t.VideoId, t.FlatBuffer.TableKey))
-	ScenarioResourceInfoExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
-	ScenarioResourceInfoExcelAddAudioName(b, b.CreateString(fbsutils.Convert(t.AudioName, t.FlatBuffer.TableKey)))
-	ScenarioResourceInfoExcelAddSpinePath(b, b.CreateString(fbsutils.Convert(t.SpinePath, t.FlatBuffer.TableKey)))
 	ScenarioResourceInfoExcelAddRatio(b, fbsutils.Convert(t.Ratio, t.FlatBuffer.TableKey))
-	ScenarioResourceInfoExcelAddLobbyAniPath(b, b.CreateString(fbsutils.Convert(t.LobbyAniPath, t.FlatBuffer.TableKey)))
+	ScenarioResourceInfoExcelAddScenarioModeId(b, fbsutils.Convert(t.ScenarioModeId, t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelAddMovieCgPath(b, b.CreateString(fbsutils.Convert(t.MovieCgPath, t.FlatBuffer.TableKey)))
+	ScenarioResourceInfoExcelAddAudioName(b, b.CreateString(fbsutils.Convert(t.AudioName, t.FlatBuffer.TableKey)))
+	ScenarioResourceInfoExcelAddVideoId(b, fbsutils.Convert(t.VideoId, t.FlatBuffer.TableKey))
+	ScenarioResourceInfoExcelAddPvDisplayOrder(b, fbsutils.Convert(t.PvDisplayOrder, t.FlatBuffer.TableKey))
+	ScenarioResourceInfoExcelAddLobbyAniPath(b, b.CreateString(fbsutils.Convert(t.LobbyAniPath, t.FlatBuffer.TableKey)))
 	ScenarioResourceInfoExcelAddLocalizeId(b, fbsutils.Convert(t.LocalizeId, t.FlatBuffer.TableKey))
+	ScenarioResourceInfoExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
+	ScenarioResourceInfoExcelAddSpinePath(b, b.CreateString(fbsutils.Convert(t.SpinePath, t.FlatBuffer.TableKey)))
+	ScenarioResourceInfoExcelAddPriorityOrder(b, fbsutils.Convert(t.PriorityOrder, t.FlatBuffer.TableKey))
 	return ScenarioResourceInfoExcelEnd(b)
 }
 
@@ -48,15 +52,17 @@ func (t *ScenarioResourceInfoExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *ScenarioResourceInfoExcelDto) UnmarshalMessage(e *ScenarioResourceInfoExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.ScenarioModeId = fbsutils.Convert(e.ScenarioModeId(), t.FlatBuffer.TableKey)
-	t.VideoId = fbsutils.Convert(e.VideoId(), t.FlatBuffer.TableKey)
-	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
-	t.AudioName = fbsutils.Convert(string(e.AudioName()), t.FlatBuffer.TableKey)
-	t.SpinePath = fbsutils.Convert(string(e.SpinePath()), t.FlatBuffer.TableKey)
 	t.Ratio = fbsutils.Convert(e.Ratio(), t.FlatBuffer.TableKey)
-	t.LobbyAniPath = fbsutils.Convert(string(e.LobbyAniPath()), t.FlatBuffer.TableKey)
+	t.ScenarioModeId = fbsutils.Convert(e.ScenarioModeId(), t.FlatBuffer.TableKey)
 	t.MovieCgPath = fbsutils.Convert(string(e.MovieCgPath()), t.FlatBuffer.TableKey)
+	t.AudioName = fbsutils.Convert(string(e.AudioName()), t.FlatBuffer.TableKey)
+	t.VideoId = fbsutils.Convert(e.VideoId(), t.FlatBuffer.TableKey)
+	t.PvDisplayOrder = fbsutils.Convert(e.PvDisplayOrder(), t.FlatBuffer.TableKey)
+	t.LobbyAniPath = fbsutils.Convert(string(e.LobbyAniPath()), t.FlatBuffer.TableKey)
 	t.LocalizeId = fbsutils.Convert(e.LocalizeId(), t.FlatBuffer.TableKey)
+	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
+	t.SpinePath = fbsutils.Convert(string(e.SpinePath()), t.FlatBuffer.TableKey)
+	t.PriorityOrder = fbsutils.Convert(e.PriorityOrder(), t.FlatBuffer.TableKey)
 	return nil
 }
 

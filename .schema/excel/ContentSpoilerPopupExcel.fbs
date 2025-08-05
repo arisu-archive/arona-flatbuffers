@@ -3,11 +3,11 @@ include "ContentType.fbs";
 namespace MX.Data.Excel;
 
 table ContentSpoilerPopupExcel {
+    spoiler_popup_description: string;
+    condition_scenario_mode_id: long;
     content_type: ContentType;
     spoiler_popup_title: string;
-    spoiler_popup_description: string;
     is_warning_pop_up: bool;
-    condition_scenario_mode_id: long;
 }
 
 root_type ContentSpoilerPopupExcel;
