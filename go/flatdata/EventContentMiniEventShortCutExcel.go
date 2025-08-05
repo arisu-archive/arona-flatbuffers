@@ -69,8 +69,16 @@ func (rcv *EventContentMiniEventShortCutExcel) MutateShorcutContentType(n EventT
 	return rcv._tab.MutateInt32Slot(8, int32(n))
 }
 
+func (rcv *EventContentMiniEventShortCutExcel) ShortcutUi() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func EventContentMiniEventShortCutExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(3)
+	builder.StartObject(4)
 }
 func EventContentMiniEventShortCutExcelAddId(builder *flatbuffers.Builder, id int32) {
 	builder.PrependInt32Slot(0, id, 0)
@@ -80,6 +88,9 @@ func EventContentMiniEventShortCutExcelAddLocalizeEtcId(builder *flatbuffers.Bui
 }
 func EventContentMiniEventShortCutExcelAddShorcutContentType(builder *flatbuffers.Builder, shorcutContentType EventTargetType) {
 	builder.PrependInt32Slot(2, int32(shorcutContentType), 0)
+}
+func EventContentMiniEventShortCutExcelAddShortcutUi(builder *flatbuffers.Builder, shortcutUi flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(shortcutUi), 0)
 }
 func EventContentMiniEventShortCutExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

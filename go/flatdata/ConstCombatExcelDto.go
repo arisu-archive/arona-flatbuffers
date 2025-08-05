@@ -105,6 +105,8 @@ type ConstCombatExcelDto struct {
 	EchelonExtensionEchelonInitCommonCost           int32   `json:"echelon_extension_echelon_init_common_cost"`
 	EchelonExtensionCostRegenRatio                  int64   `json:"echelon_extension_cost_regen_ratio"`
 	CheckCheaterMaxUseCostMultiFloorRaid            int32   `json:"check_cheater_max_use_cost_multi_floor_raid"`
+	ExcessiveTouchCheckTime                         float32 `json:"excessive_touch_check_time"`
+	ExcessiveTouchCheckCount                        int32   `json:"excessive_touch_check_count"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -208,6 +210,8 @@ func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCombatExcelAddEchelonExtensionEchelonInitCommonCost(b, fbsutils.Convert(t.EchelonExtensionEchelonInitCommonCost, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddEchelonExtensionCostRegenRatio(b, fbsutils.Convert(t.EchelonExtensionCostRegenRatio, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(b, fbsutils.Convert(t.CheckCheaterMaxUseCostMultiFloorRaid, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddExcessiveTouchCheckTime(b, fbsutils.Convert(t.ExcessiveTouchCheckTime, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddExcessiveTouchCheckCount(b, fbsutils.Convert(t.ExcessiveTouchCheckCount, t.FlatBuffer.TableKey))
 	return ConstCombatExcelEnd(b)
 }
 
@@ -318,6 +322,8 @@ func (t *ConstCombatExcelDto) UnmarshalMessage(e *ConstCombatExcel) error {
 	t.EchelonExtensionEchelonInitCommonCost = fbsutils.Convert(e.EchelonExtensionEchelonInitCommonCost(), t.FlatBuffer.TableKey)
 	t.EchelonExtensionCostRegenRatio = fbsutils.Convert(e.EchelonExtensionCostRegenRatio(), t.FlatBuffer.TableKey)
 	t.CheckCheaterMaxUseCostMultiFloorRaid = fbsutils.Convert(e.CheckCheaterMaxUseCostMultiFloorRaid(), t.FlatBuffer.TableKey)
+	t.ExcessiveTouchCheckTime = fbsutils.Convert(e.ExcessiveTouchCheckTime(), t.FlatBuffer.TableKey)
+	t.ExcessiveTouchCheckCount = fbsutils.Convert(e.ExcessiveTouchCheckCount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

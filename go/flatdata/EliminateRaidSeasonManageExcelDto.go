@@ -13,6 +13,7 @@ type EliminateRaidSeasonManageExcelDto struct {
 	SeasonId                 int64   `json:"season_id"`
 	SeasonDisplay            int64   `json:"season_display"`
 	SeasonStartData          string  `json:"season_start_data"`
+	EndNoteLabelStartDate    string  `json:"end_note_label_start_date"`
 	SeasonEndData            string  `json:"season_end_data"`
 	SettlementEndDate        string  `json:"settlement_end_date"`
 	LobbyTableBgPath         string  `json:"lobby_table_bg_path"`
@@ -42,6 +43,7 @@ func (t *EliminateRaidSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder)
 	EliminateRaidSeasonManageExcelAddSeasonId(b, fbsutils.Convert(t.SeasonId, t.FlatBuffer.TableKey))
 	EliminateRaidSeasonManageExcelAddSeasonDisplay(b, fbsutils.Convert(t.SeasonDisplay, t.FlatBuffer.TableKey))
 	EliminateRaidSeasonManageExcelAddSeasonStartData(b, b.CreateString(fbsutils.Convert(t.SeasonStartData, t.FlatBuffer.TableKey)))
+	EliminateRaidSeasonManageExcelAddEndNoteLabelStartDate(b, b.CreateString(fbsutils.Convert(t.EndNoteLabelStartDate, t.FlatBuffer.TableKey)))
 	EliminateRaidSeasonManageExcelAddSeasonEndData(b, b.CreateString(fbsutils.Convert(t.SeasonEndData, t.FlatBuffer.TableKey)))
 	EliminateRaidSeasonManageExcelAddSettlementEndDate(b, b.CreateString(fbsutils.Convert(t.SettlementEndDate, t.FlatBuffer.TableKey)))
 	EliminateRaidSeasonManageExcelAddLobbyTableBgPath(b, b.CreateString(fbsutils.Convert(t.LobbyTableBgPath, t.FlatBuffer.TableKey)))
@@ -86,6 +88,7 @@ func (t *EliminateRaidSeasonManageExcelDto) UnmarshalMessage(e *EliminateRaidSea
 	t.SeasonId = fbsutils.Convert(e.SeasonId(), t.FlatBuffer.TableKey)
 	t.SeasonDisplay = fbsutils.Convert(e.SeasonDisplay(), t.FlatBuffer.TableKey)
 	t.SeasonStartData = fbsutils.Convert(string(e.SeasonStartData()), t.FlatBuffer.TableKey)
+	t.EndNoteLabelStartDate = fbsutils.Convert(string(e.EndNoteLabelStartDate()), t.FlatBuffer.TableKey)
 	t.SeasonEndData = fbsutils.Convert(string(e.SeasonEndData()), t.FlatBuffer.TableKey)
 	t.SettlementEndDate = fbsutils.Convert(string(e.SettlementEndDate()), t.FlatBuffer.TableKey)
 	t.LobbyTableBgPath = fbsutils.Convert(string(e.LobbyTableBgPath()), t.FlatBuffer.TableKey)

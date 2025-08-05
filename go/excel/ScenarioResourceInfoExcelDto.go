@@ -12,6 +12,8 @@ type ScenarioResourceInfoExcelDto struct {
 	fbsutils.FlatBuffer
 	Id             int64  `json:"id"`
 	ScenarioModeId int64  `json:"scenario_mode_id"`
+	PriorityOrder  int64  `json:"priority_order"`
+	PvDisplayOrder int64  `json:"pv_display_order"`
 	VideoId        int64  `json:"video_id"`
 	BgmId          int64  `json:"bgm_id"`
 	AudioName      string `json:"audio_name"`
@@ -27,6 +29,8 @@ func (t *ScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	ScenarioResourceInfoExcelStart(b)
 	ScenarioResourceInfoExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelAddScenarioModeId(b, fbsutils.Convert(t.ScenarioModeId, t.FlatBuffer.TableKey))
+	ScenarioResourceInfoExcelAddPriorityOrder(b, fbsutils.Convert(t.PriorityOrder, t.FlatBuffer.TableKey))
+	ScenarioResourceInfoExcelAddPvDisplayOrder(b, fbsutils.Convert(t.PvDisplayOrder, t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelAddVideoId(b, fbsutils.Convert(t.VideoId, t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
 	ScenarioResourceInfoExcelAddAudioName(b, b.CreateString(fbsutils.Convert(t.AudioName, t.FlatBuffer.TableKey)))
@@ -49,6 +53,8 @@ func (t *ScenarioResourceInfoExcelDto) Marshal() ([]byte, error) {
 func (t *ScenarioResourceInfoExcelDto) UnmarshalMessage(e *ScenarioResourceInfoExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.ScenarioModeId = fbsutils.Convert(e.ScenarioModeId(), t.FlatBuffer.TableKey)
+	t.PriorityOrder = fbsutils.Convert(e.PriorityOrder(), t.FlatBuffer.TableKey)
+	t.PvDisplayOrder = fbsutils.Convert(e.PvDisplayOrder(), t.FlatBuffer.TableKey)
 	t.VideoId = fbsutils.Convert(e.VideoId(), t.FlatBuffer.TableKey)
 	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
 	t.AudioName = fbsutils.Convert(string(e.AudioName()), t.FlatBuffer.TableKey)

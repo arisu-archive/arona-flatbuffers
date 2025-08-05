@@ -39,29 +39,36 @@ class TimeAttackDungeonSeasonManageExcel(object):
         return None
 
     # TimeAttackDungeonSeasonManageExcel
-    def EndDate(self):
+    def EndNoteLabelStartDate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # TimeAttackDungeonSeasonManageExcel
-    def UiSlot(self):
+    def EndDate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # TimeAttackDungeonSeasonManageExcel
-    def DungeonId(self):
+    def UiSlot(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # TimeAttackDungeonSeasonManageExcel
-    def DifficultyGeas(self, j):
+    def DungeonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # TimeAttackDungeonSeasonManageExcel
+    def DifficultyGeas(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -69,38 +76,38 @@ class TimeAttackDungeonSeasonManageExcel(object):
 
     # TimeAttackDungeonSeasonManageExcel
     def DifficultyGeasAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # TimeAttackDungeonSeasonManageExcel
     def DifficultyGeasLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # TimeAttackDungeonSeasonManageExcel
     def DifficultyGeasIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         return o == 0
 
     # TimeAttackDungeonSeasonManageExcel
     def TimeAttackDungeonRewardId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # TimeAttackDungeonSeasonManageExcel
     def RoomLifeTimeInSeconds(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def TimeAttackDungeonSeasonManageExcelStart(builder): builder.StartObject(8)
+def TimeAttackDungeonSeasonManageExcelStart(builder): builder.StartObject(9)
 def Start(builder):
     return TimeAttackDungeonSeasonManageExcelStart(builder)
 def TimeAttackDungeonSeasonManageExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
@@ -109,25 +116,28 @@ def AddId(builder, id):
 def TimeAttackDungeonSeasonManageExcelAddStartDate(builder, startDate): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
 def AddStartDate(builder, startDate):
     return TimeAttackDungeonSeasonManageExcelAddStartDate(builder, startDate)
-def TimeAttackDungeonSeasonManageExcelAddEndDate(builder, endDate): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
+def TimeAttackDungeonSeasonManageExcelAddEndNoteLabelStartDate(builder, endNoteLabelStartDate): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(endNoteLabelStartDate), 0)
+def AddEndNoteLabelStartDate(builder, endNoteLabelStartDate):
+    return TimeAttackDungeonSeasonManageExcelAddEndNoteLabelStartDate(builder, endNoteLabelStartDate)
+def TimeAttackDungeonSeasonManageExcelAddEndDate(builder, endDate): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
 def AddEndDate(builder, endDate):
     return TimeAttackDungeonSeasonManageExcelAddEndDate(builder, endDate)
-def TimeAttackDungeonSeasonManageExcelAddUiSlot(builder, uiSlot): builder.PrependInt64Slot(3, uiSlot, 0)
+def TimeAttackDungeonSeasonManageExcelAddUiSlot(builder, uiSlot): builder.PrependInt64Slot(4, uiSlot, 0)
 def AddUiSlot(builder, uiSlot):
     return TimeAttackDungeonSeasonManageExcelAddUiSlot(builder, uiSlot)
-def TimeAttackDungeonSeasonManageExcelAddDungeonId(builder, dungeonId): builder.PrependInt64Slot(4, dungeonId, 0)
+def TimeAttackDungeonSeasonManageExcelAddDungeonId(builder, dungeonId): builder.PrependInt64Slot(5, dungeonId, 0)
 def AddDungeonId(builder, dungeonId):
     return TimeAttackDungeonSeasonManageExcelAddDungeonId(builder, dungeonId)
-def TimeAttackDungeonSeasonManageExcelAddDifficultyGeas(builder, difficultyGeas): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(difficultyGeas), 0)
+def TimeAttackDungeonSeasonManageExcelAddDifficultyGeas(builder, difficultyGeas): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(difficultyGeas), 0)
 def AddDifficultyGeas(builder, difficultyGeas):
     return TimeAttackDungeonSeasonManageExcelAddDifficultyGeas(builder, difficultyGeas)
 def TimeAttackDungeonSeasonManageExcelStartDifficultyGeasVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartDifficultyGeasVector(builder, numElems):
     return TimeAttackDungeonSeasonManageExcelStartDifficultyGeasVector(builder, numElems)
-def TimeAttackDungeonSeasonManageExcelAddTimeAttackDungeonRewardId(builder, timeAttackDungeonRewardId): builder.PrependInt64Slot(6, timeAttackDungeonRewardId, 0)
+def TimeAttackDungeonSeasonManageExcelAddTimeAttackDungeonRewardId(builder, timeAttackDungeonRewardId): builder.PrependInt64Slot(7, timeAttackDungeonRewardId, 0)
 def AddTimeAttackDungeonRewardId(builder, timeAttackDungeonRewardId):
     return TimeAttackDungeonSeasonManageExcelAddTimeAttackDungeonRewardId(builder, timeAttackDungeonRewardId)
-def TimeAttackDungeonSeasonManageExcelAddRoomLifeTimeInSeconds(builder, roomLifeTimeInSeconds): builder.PrependInt64Slot(7, roomLifeTimeInSeconds, 0)
+def TimeAttackDungeonSeasonManageExcelAddRoomLifeTimeInSeconds(builder, roomLifeTimeInSeconds): builder.PrependInt64Slot(8, roomLifeTimeInSeconds, 0)
 def AddRoomLifeTimeInSeconds(builder, roomLifeTimeInSeconds):
     return TimeAttackDungeonSeasonManageExcelAddRoomLifeTimeInSeconds(builder, roomLifeTimeInSeconds)
 def TimeAttackDungeonSeasonManageExcelEnd(builder): return builder.EndObject()

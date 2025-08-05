@@ -45,7 +45,14 @@ class EventContentMiniEventShortCutExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
-def EventContentMiniEventShortCutExcelStart(builder): builder.StartObject(3)
+    # EventContentMiniEventShortCutExcel
+    def ShortcutUi(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+def EventContentMiniEventShortCutExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return EventContentMiniEventShortCutExcelStart(builder)
 def EventContentMiniEventShortCutExcelAddId(builder, id): builder.PrependInt32Slot(0, id, 0)
@@ -57,6 +64,9 @@ def AddLocalizeEtcId(builder, localizeEtcId):
 def EventContentMiniEventShortCutExcelAddShorcutContentType(builder, shorcutContentType): builder.PrependInt32Slot(2, shorcutContentType, 0)
 def AddShorcutContentType(builder, shorcutContentType):
     return EventContentMiniEventShortCutExcelAddShorcutContentType(builder, shorcutContentType)
+def EventContentMiniEventShortCutExcelAddShortcutUi(builder, shortcutUi): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(shortcutUi), 0)
+def AddShortcutUi(builder, shortcutUi):
+    return EventContentMiniEventShortCutExcelAddShortcutUi(builder, shortcutUi)
 def EventContentMiniEventShortCutExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentMiniEventShortCutExcelEnd(builder)

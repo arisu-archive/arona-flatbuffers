@@ -66,6 +66,7 @@ type CharacterExcelDto struct {
 	CanFix                     bool                `json:"can_fix"`
 	CanCrowdControl            bool                `json:"can_crowd_control"`
 	CanBattleItemMove          bool                `json:"can_battle_item_move"`
+	IgnoreObstacle             bool                `json:"ignore_obstacle"`
 	IsAirUnit                  bool                `json:"is_air_unit"`
 	AirUnitHeight              int64               `json:"air_unit_height"`
 	Tags                       []Tag               `json:"tags"`
@@ -142,6 +143,7 @@ func (t *CharacterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	CharacterExcelAddCanFix(b, t.CanFix)
 	CharacterExcelAddCanCrowdControl(b, t.CanCrowdControl)
 	CharacterExcelAddCanBattleItemMove(b, t.CanBattleItemMove)
+	CharacterExcelAddIgnoreObstacle(b, t.IgnoreObstacle)
 	CharacterExcelAddIsAirUnit(b, t.IsAirUnit)
 	CharacterExcelAddAirUnitHeight(b, fbsutils.Convert(t.AirUnitHeight, t.FlatBuffer.TableKey))
 	CharacterExcelStartTagsVector(b, len(t.Tags))
@@ -228,6 +230,7 @@ func (t *CharacterExcelDto) UnmarshalMessage(e *CharacterExcel) error {
 	t.CanFix = e.CanFix()
 	t.CanCrowdControl = e.CanCrowdControl()
 	t.CanBattleItemMove = e.CanBattleItemMove()
+	t.IgnoreObstacle = e.IgnoreObstacle()
 	t.IsAirUnit = e.IsAirUnit()
 	t.AirUnitHeight = fbsutils.Convert(e.AirUnitHeight(), t.FlatBuffer.TableKey)
 	t.Tags = make([]Tag, e.TagsLength())

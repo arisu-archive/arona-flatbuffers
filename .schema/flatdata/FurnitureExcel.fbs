@@ -13,6 +13,7 @@ table FurnitureExcel {
     rarity: Rarity;
     category: FurnitureCategory;
     sub_category: FurnitureSubCategory;
+    check_floor_decoration: bool;
     localize_etc_id: uint;
     star_grade_init: int;
     tier: long;

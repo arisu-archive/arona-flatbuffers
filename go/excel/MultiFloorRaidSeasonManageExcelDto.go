@@ -10,17 +10,18 @@ import (
 // MultiFloorRaidSeasonManageExcelDto represents a FlatBuffers table
 type MultiFloorRaidSeasonManageExcelDto struct {
 	fbsutils.FlatBuffer
-	SeasonId            int64  `json:"season_id"`
-	LobbyEnterScenario  uint32 `json:"lobby_enter_scenario"`
-	ShowLobbyBanner     bool   `json:"show_lobby_banner"`
-	SeasonStartDate     string `json:"season_start_date"`
-	SeasonEndDate       string `json:"season_end_date"`
-	SettlementEndDate   string `json:"settlement_end_date"`
-	OpenRaidBossGroupId string `json:"open_raid_boss_group_id"`
-	EnterScenarioKey    uint32 `json:"enter_scenario_key"`
-	LobbyImgPath        string `json:"lobby_img_path"`
-	LevelImgPath        string `json:"level_img_path"`
-	PlayTip             string `json:"play_tip"`
+	SeasonId              int64  `json:"season_id"`
+	LobbyEnterScenario    uint32 `json:"lobby_enter_scenario"`
+	ShowLobbyBanner       bool   `json:"show_lobby_banner"`
+	SeasonStartDate       string `json:"season_start_date"`
+	EndNoteLabelStartDate string `json:"end_note_label_start_date"`
+	SeasonEndDate         string `json:"season_end_date"`
+	SettlementEndDate     string `json:"settlement_end_date"`
+	OpenRaidBossGroupId   string `json:"open_raid_boss_group_id"`
+	EnterScenarioKey      uint32 `json:"enter_scenario_key"`
+	LobbyImgPath          string `json:"lobby_img_path"`
+	LevelImgPath          string `json:"level_img_path"`
+	PlayTip               string `json:"play_tip"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -30,6 +31,7 @@ func (t *MultiFloorRaidSeasonManageExcelDto) MarshalModel(b *flatbuffers.Builder
 	MultiFloorRaidSeasonManageExcelAddLobbyEnterScenario(b, fbsutils.Convert(t.LobbyEnterScenario, t.FlatBuffer.TableKey))
 	MultiFloorRaidSeasonManageExcelAddShowLobbyBanner(b, t.ShowLobbyBanner)
 	MultiFloorRaidSeasonManageExcelAddSeasonStartDate(b, b.CreateString(fbsutils.Convert(t.SeasonStartDate, t.FlatBuffer.TableKey)))
+	MultiFloorRaidSeasonManageExcelAddEndNoteLabelStartDate(b, b.CreateString(fbsutils.Convert(t.EndNoteLabelStartDate, t.FlatBuffer.TableKey)))
 	MultiFloorRaidSeasonManageExcelAddSeasonEndDate(b, b.CreateString(fbsutils.Convert(t.SeasonEndDate, t.FlatBuffer.TableKey)))
 	MultiFloorRaidSeasonManageExcelAddSettlementEndDate(b, b.CreateString(fbsutils.Convert(t.SettlementEndDate, t.FlatBuffer.TableKey)))
 	MultiFloorRaidSeasonManageExcelAddOpenRaidBossGroupId(b, b.CreateString(fbsutils.Convert(t.OpenRaidBossGroupId, t.FlatBuffer.TableKey)))
@@ -53,6 +55,7 @@ func (t *MultiFloorRaidSeasonManageExcelDto) UnmarshalMessage(e *MultiFloorRaidS
 	t.LobbyEnterScenario = fbsutils.Convert(e.LobbyEnterScenario(), t.FlatBuffer.TableKey)
 	t.ShowLobbyBanner = e.ShowLobbyBanner()
 	t.SeasonStartDate = fbsutils.Convert(string(e.SeasonStartDate()), t.FlatBuffer.TableKey)
+	t.EndNoteLabelStartDate = fbsutils.Convert(string(e.EndNoteLabelStartDate()), t.FlatBuffer.TableKey)
 	t.SeasonEndDate = fbsutils.Convert(string(e.SeasonEndDate()), t.FlatBuffer.TableKey)
 	t.SettlementEndDate = fbsutils.Convert(string(e.SettlementEndDate()), t.FlatBuffer.TableKey)
 	t.OpenRaidBossGroupId = fbsutils.Convert(string(e.OpenRaidBossGroupId()), t.FlatBuffer.TableKey)

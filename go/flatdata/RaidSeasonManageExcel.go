@@ -65,7 +65,7 @@ func (rcv *RaidSeasonManageExcel) SeasonStartData() []byte {
 	return nil
 }
 
-func (rcv *RaidSeasonManageExcel) SeasonEndData() []byte {
+func (rcv *RaidSeasonManageExcel) EndNoteLabelStartDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -73,7 +73,7 @@ func (rcv *RaidSeasonManageExcel) SeasonEndData() []byte {
 	return nil
 }
 
-func (rcv *RaidSeasonManageExcel) SettlementEndDate() []byte {
+func (rcv *RaidSeasonManageExcel) SeasonEndData() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -81,8 +81,16 @@ func (rcv *RaidSeasonManageExcel) SettlementEndDate() []byte {
 	return nil
 }
 
-func (rcv *RaidSeasonManageExcel) OpenRaidBossGroup(j int) []byte {
+func (rcv *RaidSeasonManageExcel) SettlementEndDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *RaidSeasonManageExcel) OpenRaidBossGroup(j int) []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
@@ -91,7 +99,7 @@ func (rcv *RaidSeasonManageExcel) OpenRaidBossGroup(j int) []byte {
 }
 
 func (rcv *RaidSeasonManageExcel) OpenRaidBossGroupLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -99,7 +107,7 @@ func (rcv *RaidSeasonManageExcel) OpenRaidBossGroupLength() int {
 }
 
 func (rcv *RaidSeasonManageExcel) RankingRewardGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -107,11 +115,11 @@ func (rcv *RaidSeasonManageExcel) RankingRewardGroupId() int64 {
 }
 
 func (rcv *RaidSeasonManageExcel) MutateRankingRewardGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
+	return rcv._tab.MutateInt64Slot(18, n)
 }
 
 func (rcv *RaidSeasonManageExcel) MaxSeasonRewardGauage() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -119,11 +127,11 @@ func (rcv *RaidSeasonManageExcel) MaxSeasonRewardGauage() int32 {
 }
 
 func (rcv *RaidSeasonManageExcel) MutateMaxSeasonRewardGauage(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
+	return rcv._tab.MutateInt32Slot(20, n)
 }
 
 func (rcv *RaidSeasonManageExcel) StackedSeasonRewardGauge(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -132,7 +140,7 @@ func (rcv *RaidSeasonManageExcel) StackedSeasonRewardGauge(j int) int64 {
 }
 
 func (rcv *RaidSeasonManageExcel) StackedSeasonRewardGaugeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -140,7 +148,7 @@ func (rcv *RaidSeasonManageExcel) StackedSeasonRewardGaugeLength() int {
 }
 
 func (rcv *RaidSeasonManageExcel) MutateStackedSeasonRewardGauge(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -149,7 +157,7 @@ func (rcv *RaidSeasonManageExcel) MutateStackedSeasonRewardGauge(j int, n int64)
 }
 
 func (rcv *RaidSeasonManageExcel) SeasonRewardId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -158,7 +166,7 @@ func (rcv *RaidSeasonManageExcel) SeasonRewardId(j int) int64 {
 }
 
 func (rcv *RaidSeasonManageExcel) SeasonRewardIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -166,7 +174,7 @@ func (rcv *RaidSeasonManageExcel) SeasonRewardIdLength() int {
 }
 
 func (rcv *RaidSeasonManageExcel) MutateSeasonRewardId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -175,7 +183,7 @@ func (rcv *RaidSeasonManageExcel) MutateSeasonRewardId(j int, n int64) bool {
 }
 
 func RaidSeasonManageExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(10)
+	builder.StartObject(11)
 }
 func RaidSeasonManageExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
 	builder.PrependInt64Slot(0, seasonId, 0)
@@ -186,32 +194,35 @@ func RaidSeasonManageExcelAddSeasonDisplay(builder *flatbuffers.Builder, seasonD
 func RaidSeasonManageExcelAddSeasonStartData(builder *flatbuffers.Builder, seasonStartData flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(seasonStartData), 0)
 }
+func RaidSeasonManageExcelAddEndNoteLabelStartDate(builder *flatbuffers.Builder, endNoteLabelStartDate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(endNoteLabelStartDate), 0)
+}
 func RaidSeasonManageExcelAddSeasonEndData(builder *flatbuffers.Builder, seasonEndData flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(seasonEndData), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(seasonEndData), 0)
 }
 func RaidSeasonManageExcelAddSettlementEndDate(builder *flatbuffers.Builder, settlementEndDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(settlementEndDate), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(settlementEndDate), 0)
 }
 func RaidSeasonManageExcelAddOpenRaidBossGroup(builder *flatbuffers.Builder, openRaidBossGroup flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(openRaidBossGroup), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(openRaidBossGroup), 0)
 }
 func RaidSeasonManageExcelStartOpenRaidBossGroupVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func RaidSeasonManageExcelAddRankingRewardGroupId(builder *flatbuffers.Builder, rankingRewardGroupId int64) {
-	builder.PrependInt64Slot(6, rankingRewardGroupId, 0)
+	builder.PrependInt64Slot(7, rankingRewardGroupId, 0)
 }
 func RaidSeasonManageExcelAddMaxSeasonRewardGauage(builder *flatbuffers.Builder, maxSeasonRewardGauage int32) {
-	builder.PrependInt32Slot(7, maxSeasonRewardGauage, 0)
+	builder.PrependInt32Slot(8, maxSeasonRewardGauage, 0)
 }
 func RaidSeasonManageExcelAddStackedSeasonRewardGauge(builder *flatbuffers.Builder, stackedSeasonRewardGauge flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(stackedSeasonRewardGauge), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(stackedSeasonRewardGauge), 0)
 }
 func RaidSeasonManageExcelStartStackedSeasonRewardGaugeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func RaidSeasonManageExcelAddSeasonRewardId(builder *flatbuffers.Builder, seasonRewardId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(seasonRewardId), 0)
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(seasonRewardId), 0)
 }
 func RaidSeasonManageExcelStartSeasonRewardIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)

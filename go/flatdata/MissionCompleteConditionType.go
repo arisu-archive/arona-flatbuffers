@@ -179,6 +179,9 @@ const (
 	MissionCompleteConditionTypeReset_JoinMultiFloorRaidCount                         MissionCompleteConditionType = 169
 	MissionCompleteConditionTypeReset_GivePresentCharacterCount                       MissionCompleteConditionType = 170
 	MissionCompleteConditionTypeReset_CharacterInviteCount                            MissionCompleteConditionType = 171
+	MissionCompleteConditionTypeReset_RoadpuzzleTileCount                             MissionCompleteConditionType = 172
+	MissionCompleteConditionTypeReset_ClearSpecificRoundRoadpuzzle                    MissionCompleteConditionType = 173
+	MissionCompleteConditionTypeReset_ClearCountRoadpuzzle                            MissionCompleteConditionType = 174
 )
 
 var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]string{
@@ -354,6 +357,9 @@ var EnumNamesMissionCompleteConditionType = map[MissionCompleteConditionType]str
 	MissionCompleteConditionTypeReset_JoinMultiFloorRaidCount:                         "Reset_JoinMultiFloorRaidCount",
 	MissionCompleteConditionTypeReset_GivePresentCharacterCount:                       "Reset_GivePresentCharacterCount",
 	MissionCompleteConditionTypeReset_CharacterInviteCount:                            "Reset_CharacterInviteCount",
+	MissionCompleteConditionTypeReset_RoadpuzzleTileCount:                             "Reset_RoadpuzzleTileCount",
+	MissionCompleteConditionTypeReset_ClearSpecificRoundRoadpuzzle:                    "Reset_ClearSpecificRoundRoadpuzzle",
+	MissionCompleteConditionTypeReset_ClearCountRoadpuzzle:                            "Reset_ClearCountRoadpuzzle",
 }
 
 var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteConditionType{
@@ -529,6 +535,9 @@ var EnumValuesMissionCompleteConditionType = map[string]MissionCompleteCondition
 	"Reset_JoinMultiFloorRaidCount":                         MissionCompleteConditionTypeReset_JoinMultiFloorRaidCount,
 	"Reset_GivePresentCharacterCount":                       MissionCompleteConditionTypeReset_GivePresentCharacterCount,
 	"Reset_CharacterInviteCount":                            MissionCompleteConditionTypeReset_CharacterInviteCount,
+	"Reset_RoadpuzzleTileCount":                             MissionCompleteConditionTypeReset_RoadpuzzleTileCount,
+	"Reset_ClearSpecificRoundRoadpuzzle":                    MissionCompleteConditionTypeReset_ClearSpecificRoundRoadpuzzle,
+	"Reset_ClearCountRoadpuzzle":                            MissionCompleteConditionTypeReset_ClearCountRoadpuzzle,
 }
 
 func (v MissionCompleteConditionType) String() string {

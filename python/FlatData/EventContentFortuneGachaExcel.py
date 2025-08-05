@@ -39,13 +39,20 @@ class EventContentFortuneGachaExcel(object):
         return 0
 
     # EventContentFortuneGachaExcel
-    def IconPath(self):
+    def NameImagePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def EventContentFortuneGachaExcelStart(builder): builder.StartObject(3)
+    # EventContentFortuneGachaExcel
+    def IconPath(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+def EventContentFortuneGachaExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return EventContentFortuneGachaExcelStart(builder)
 def EventContentFortuneGachaExcelAddFortuneGachaGroupId(builder, fortuneGachaGroupId): builder.PrependInt32Slot(0, fortuneGachaGroupId, 0)
@@ -54,7 +61,10 @@ def AddFortuneGachaGroupId(builder, fortuneGachaGroupId):
 def EventContentFortuneGachaExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(1, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
     return EventContentFortuneGachaExcelAddLocalizeEtcId(builder, localizeEtcId)
-def EventContentFortuneGachaExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+def EventContentFortuneGachaExcelAddNameImagePath(builder, nameImagePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(nameImagePath), 0)
+def AddNameImagePath(builder, nameImagePath):
+    return EventContentFortuneGachaExcelAddNameImagePath(builder, nameImagePath)
+def EventContentFortuneGachaExcelAddIconPath(builder, iconPath): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
 def AddIconPath(builder, iconPath):
     return EventContentFortuneGachaExcelAddIconPath(builder, iconPath)
 def EventContentFortuneGachaExcelEnd(builder): return builder.EndObject()

@@ -15,6 +15,7 @@ type FurnitureExcelDto struct {
 	Rarity                     Rarity                `json:"rarity"`
 	Category                   FurnitureCategory     `json:"category"`
 	SubCategory                FurnitureSubCategory  `json:"sub_category"`
+	CheckFloorDecoration       bool                  `json:"check_floor_decoration"`
 	LocalizeEtcId              uint32                `json:"localize_etc_id"`
 	StarGradeInit              int32                 `json:"star_grade_init"`
 	Tier                       int64                 `json:"tier"`
@@ -64,6 +65,7 @@ func (t *FurnitureExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	FurnitureExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
 	FurnitureExcelAddCategory(b, fbsutils.Convert(t.Category, t.FlatBuffer.TableKey))
 	FurnitureExcelAddSubCategory(b, fbsutils.Convert(t.SubCategory, t.FlatBuffer.TableKey))
+	FurnitureExcelAddCheckFloorDecoration(b, t.CheckFloorDecoration)
 	FurnitureExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	FurnitureExcelAddStarGradeInit(b, fbsutils.Convert(t.StarGradeInit, t.FlatBuffer.TableKey))
 	FurnitureExcelAddTier(b, fbsutils.Convert(t.Tier, t.FlatBuffer.TableKey))
@@ -144,6 +146,7 @@ func (t *FurnitureExcelDto) UnmarshalMessage(e *FurnitureExcel) error {
 	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
 	t.Category = FurnitureCategory(fbsutils.Convert(int32(e.Category()), t.FlatBuffer.TableKey))
 	t.SubCategory = FurnitureSubCategory(fbsutils.Convert(int32(e.SubCategory()), t.FlatBuffer.TableKey))
+	t.CheckFloorDecoration = e.CheckFloorDecoration()
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.StarGradeInit = fbsutils.Convert(e.StarGradeInit(), t.FlatBuffer.TableKey)
 	t.Tier = fbsutils.Convert(e.Tier(), t.FlatBuffer.TableKey)

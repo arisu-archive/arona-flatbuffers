@@ -60,155 +60,162 @@ class FurnitureExcel(object):
         return 0
 
     # FurnitureExcel
-    def LocalizeEtcId(self):
+    def CheckFloorDecoration(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # FurnitureExcel
+    def LocalizeEtcId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
     def StarGradeInit(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
     def Tier(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
     def Icon(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # FurnitureExcel
     def SizeWidth(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # FurnitureExcel
-    def SizeHeight(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def OtherSize(self):
+    def SizeHeight(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def ExpandWidth(self):
+    def OtherSize(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def Enable(self):
+    def ExpandWidth(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # FurnitureExcel
-    def ReverseRotation(self):
+    def Enable(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # FurnitureExcel
-    def Prefab(self):
+    def ReverseRotation(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # FurnitureExcel
-    def PrefabExpand(self):
+    def Prefab(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # FurnitureExcel
-    def SubPrefab(self):
+    def PrefabExpand(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # FurnitureExcel
-    def SubExpandPrefab(self):
+    def SubPrefab(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # FurnitureExcel
-    def CornerPrefab(self):
+    def SubExpandPrefab(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # FurnitureExcel
-    def StackableMax(self):
+    def CornerPrefab(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # FurnitureExcel
-    def RecipeCraftId(self):
+    def StackableMax(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def SetGroudpId(self):
+    def RecipeCraftId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def ComfortBonus(self):
+    def SetGroudpId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def VisitOperationType(self):
+    def ComfortBonus(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def VisitBonusOperationType(self):
+    def VisitOperationType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def Tags(self, j):
+    def VisitBonusOperationType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FurnitureExcel
+    def Tags(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -216,61 +223,61 @@ class FurnitureExcel(object):
 
     # FurnitureExcel
     def TagsAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FurnitureExcel
     def TagsLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FurnitureExcel
     def TagsIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         return o == 0
 
     # FurnitureExcel
     def CraftQualityTier0(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FurnitureExcel
-    def CraftQualityTier1(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def CraftQualityTier2(self):
+    def CraftQualityTier1(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def ShiftingCraftQuality(self):
+    def CraftQualityTier2(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def FurnitureFunctionType(self):
+    def ShiftingCraftQuality(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FurnitureExcel
+    def FurnitureFunctionType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
     def FurnitureFunctionParameter(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -278,54 +285,54 @@ class FurnitureExcel(object):
 
     # FurnitureExcel
     def FurnitureFunctionParameterAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # FurnitureExcel
     def FurnitureFunctionParameterLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FurnitureExcel
     def FurnitureFunctionParameterIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         return o == 0
 
     # FurnitureExcel
     def VideoId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FurnitureExcel
-    def EventCollectionId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def FurnitureBubbleOffsetX(self):
+    def EventCollectionId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def FurnitureBubbleOffsetY(self):
+    def FurnitureBubbleOffsetX(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(76))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FurnitureExcel
-    def CafeCharacterStateReq(self, j):
+    def FurnitureBubbleOffsetY(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(78))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FurnitureExcel
+    def CafeCharacterStateReq(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -333,19 +340,19 @@ class FurnitureExcel(object):
 
     # FurnitureExcel
     def CafeCharacterStateReqLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(78))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FurnitureExcel
     def CafeCharacterStateReqIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(78))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
         return o == 0
 
     # FurnitureExcel
     def CafeCharacterStateAdd(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -353,19 +360,19 @@ class FurnitureExcel(object):
 
     # FurnitureExcel
     def CafeCharacterStateAddLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FurnitureExcel
     def CafeCharacterStateAddIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(80))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
         return o == 0
 
     # FurnitureExcel
     def CafeCharacterStateMake(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -373,19 +380,19 @@ class FurnitureExcel(object):
 
     # FurnitureExcel
     def CafeCharacterStateMakeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FurnitureExcel
     def CafeCharacterStateMakeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(82))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
         return o == 0
 
     # FurnitureExcel
     def CafeCharacterStateOnly(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(86))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -393,17 +400,17 @@ class FurnitureExcel(object):
 
     # FurnitureExcel
     def CafeCharacterStateOnlyLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(86))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FurnitureExcel
     def CafeCharacterStateOnlyIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(84))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(86))
         return o == 0
 
-def FurnitureExcelStart(builder): builder.StartObject(41)
+def FurnitureExcelStart(builder): builder.StartObject(42)
 def Start(builder):
     return FurnitureExcelStart(builder)
 def FurnitureExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
@@ -421,127 +428,130 @@ def AddCategory(builder, category):
 def FurnitureExcelAddSubCategory(builder, subCategory): builder.PrependInt32Slot(4, subCategory, 0)
 def AddSubCategory(builder, subCategory):
     return FurnitureExcelAddSubCategory(builder, subCategory)
-def FurnitureExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(5, localizeEtcId, 0)
+def FurnitureExcelAddCheckFloorDecoration(builder, checkFloorDecoration): builder.PrependBoolSlot(5, checkFloorDecoration, 0)
+def AddCheckFloorDecoration(builder, checkFloorDecoration):
+    return FurnitureExcelAddCheckFloorDecoration(builder, checkFloorDecoration)
+def FurnitureExcelAddLocalizeEtcId(builder, localizeEtcId): builder.PrependUint32Slot(6, localizeEtcId, 0)
 def AddLocalizeEtcId(builder, localizeEtcId):
     return FurnitureExcelAddLocalizeEtcId(builder, localizeEtcId)
-def FurnitureExcelAddStarGradeInit(builder, starGradeInit): builder.PrependInt32Slot(6, starGradeInit, 0)
+def FurnitureExcelAddStarGradeInit(builder, starGradeInit): builder.PrependInt32Slot(7, starGradeInit, 0)
 def AddStarGradeInit(builder, starGradeInit):
     return FurnitureExcelAddStarGradeInit(builder, starGradeInit)
-def FurnitureExcelAddTier(builder, tier): builder.PrependInt64Slot(7, tier, 0)
+def FurnitureExcelAddTier(builder, tier): builder.PrependInt64Slot(8, tier, 0)
 def AddTier(builder, tier):
     return FurnitureExcelAddTier(builder, tier)
-def FurnitureExcelAddIcon(builder, icon): builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
+def FurnitureExcelAddIcon(builder, icon): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(icon), 0)
 def AddIcon(builder, icon):
     return FurnitureExcelAddIcon(builder, icon)
-def FurnitureExcelAddSizeWidth(builder, sizeWidth): builder.PrependInt32Slot(9, sizeWidth, 0)
+def FurnitureExcelAddSizeWidth(builder, sizeWidth): builder.PrependInt32Slot(10, sizeWidth, 0)
 def AddSizeWidth(builder, sizeWidth):
     return FurnitureExcelAddSizeWidth(builder, sizeWidth)
-def FurnitureExcelAddSizeHeight(builder, sizeHeight): builder.PrependInt32Slot(10, sizeHeight, 0)
+def FurnitureExcelAddSizeHeight(builder, sizeHeight): builder.PrependInt32Slot(11, sizeHeight, 0)
 def AddSizeHeight(builder, sizeHeight):
     return FurnitureExcelAddSizeHeight(builder, sizeHeight)
-def FurnitureExcelAddOtherSize(builder, otherSize): builder.PrependInt32Slot(11, otherSize, 0)
+def FurnitureExcelAddOtherSize(builder, otherSize): builder.PrependInt32Slot(12, otherSize, 0)
 def AddOtherSize(builder, otherSize):
     return FurnitureExcelAddOtherSize(builder, otherSize)
-def FurnitureExcelAddExpandWidth(builder, expandWidth): builder.PrependInt32Slot(12, expandWidth, 0)
+def FurnitureExcelAddExpandWidth(builder, expandWidth): builder.PrependInt32Slot(13, expandWidth, 0)
 def AddExpandWidth(builder, expandWidth):
     return FurnitureExcelAddExpandWidth(builder, expandWidth)
-def FurnitureExcelAddEnable(builder, enable): builder.PrependBoolSlot(13, enable, 0)
+def FurnitureExcelAddEnable(builder, enable): builder.PrependBoolSlot(14, enable, 0)
 def AddEnable(builder, enable):
     return FurnitureExcelAddEnable(builder, enable)
-def FurnitureExcelAddReverseRotation(builder, reverseRotation): builder.PrependBoolSlot(14, reverseRotation, 0)
+def FurnitureExcelAddReverseRotation(builder, reverseRotation): builder.PrependBoolSlot(15, reverseRotation, 0)
 def AddReverseRotation(builder, reverseRotation):
     return FurnitureExcelAddReverseRotation(builder, reverseRotation)
-def FurnitureExcelAddPrefab(builder, prefab): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(prefab), 0)
+def FurnitureExcelAddPrefab(builder, prefab): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(prefab), 0)
 def AddPrefab(builder, prefab):
     return FurnitureExcelAddPrefab(builder, prefab)
-def FurnitureExcelAddPrefabExpand(builder, prefabExpand): builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(prefabExpand), 0)
+def FurnitureExcelAddPrefabExpand(builder, prefabExpand): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(prefabExpand), 0)
 def AddPrefabExpand(builder, prefabExpand):
     return FurnitureExcelAddPrefabExpand(builder, prefabExpand)
-def FurnitureExcelAddSubPrefab(builder, subPrefab): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(subPrefab), 0)
+def FurnitureExcelAddSubPrefab(builder, subPrefab): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(subPrefab), 0)
 def AddSubPrefab(builder, subPrefab):
     return FurnitureExcelAddSubPrefab(builder, subPrefab)
-def FurnitureExcelAddSubExpandPrefab(builder, subExpandPrefab): builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(subExpandPrefab), 0)
+def FurnitureExcelAddSubExpandPrefab(builder, subExpandPrefab): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(subExpandPrefab), 0)
 def AddSubExpandPrefab(builder, subExpandPrefab):
     return FurnitureExcelAddSubExpandPrefab(builder, subExpandPrefab)
-def FurnitureExcelAddCornerPrefab(builder, cornerPrefab): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(cornerPrefab), 0)
+def FurnitureExcelAddCornerPrefab(builder, cornerPrefab): builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(cornerPrefab), 0)
 def AddCornerPrefab(builder, cornerPrefab):
     return FurnitureExcelAddCornerPrefab(builder, cornerPrefab)
-def FurnitureExcelAddStackableMax(builder, stackableMax): builder.PrependInt64Slot(20, stackableMax, 0)
+def FurnitureExcelAddStackableMax(builder, stackableMax): builder.PrependInt64Slot(21, stackableMax, 0)
 def AddStackableMax(builder, stackableMax):
     return FurnitureExcelAddStackableMax(builder, stackableMax)
-def FurnitureExcelAddRecipeCraftId(builder, recipeCraftId): builder.PrependInt64Slot(21, recipeCraftId, 0)
+def FurnitureExcelAddRecipeCraftId(builder, recipeCraftId): builder.PrependInt64Slot(22, recipeCraftId, 0)
 def AddRecipeCraftId(builder, recipeCraftId):
     return FurnitureExcelAddRecipeCraftId(builder, recipeCraftId)
-def FurnitureExcelAddSetGroudpId(builder, setGroudpId): builder.PrependInt64Slot(22, setGroudpId, 0)
+def FurnitureExcelAddSetGroudpId(builder, setGroudpId): builder.PrependInt64Slot(23, setGroudpId, 0)
 def AddSetGroudpId(builder, setGroudpId):
     return FurnitureExcelAddSetGroudpId(builder, setGroudpId)
-def FurnitureExcelAddComfortBonus(builder, comfortBonus): builder.PrependInt64Slot(23, comfortBonus, 0)
+def FurnitureExcelAddComfortBonus(builder, comfortBonus): builder.PrependInt64Slot(24, comfortBonus, 0)
 def AddComfortBonus(builder, comfortBonus):
     return FurnitureExcelAddComfortBonus(builder, comfortBonus)
-def FurnitureExcelAddVisitOperationType(builder, visitOperationType): builder.PrependInt64Slot(24, visitOperationType, 0)
+def FurnitureExcelAddVisitOperationType(builder, visitOperationType): builder.PrependInt64Slot(25, visitOperationType, 0)
 def AddVisitOperationType(builder, visitOperationType):
     return FurnitureExcelAddVisitOperationType(builder, visitOperationType)
-def FurnitureExcelAddVisitBonusOperationType(builder, visitBonusOperationType): builder.PrependInt64Slot(25, visitBonusOperationType, 0)
+def FurnitureExcelAddVisitBonusOperationType(builder, visitBonusOperationType): builder.PrependInt64Slot(26, visitBonusOperationType, 0)
 def AddVisitBonusOperationType(builder, visitBonusOperationType):
     return FurnitureExcelAddVisitBonusOperationType(builder, visitBonusOperationType)
-def FurnitureExcelAddTags(builder, tags): builder.PrependUOffsetTRelativeSlot(26, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
+def FurnitureExcelAddTags(builder, tags): builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(tags), 0)
 def AddTags(builder, tags):
     return FurnitureExcelAddTags(builder, tags)
 def FurnitureExcelStartTagsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartTagsVector(builder, numElems):
     return FurnitureExcelStartTagsVector(builder, numElems)
-def FurnitureExcelAddCraftQualityTier0(builder, craftQualityTier0): builder.PrependInt64Slot(27, craftQualityTier0, 0)
+def FurnitureExcelAddCraftQualityTier0(builder, craftQualityTier0): builder.PrependInt64Slot(28, craftQualityTier0, 0)
 def AddCraftQualityTier0(builder, craftQualityTier0):
     return FurnitureExcelAddCraftQualityTier0(builder, craftQualityTier0)
-def FurnitureExcelAddCraftQualityTier1(builder, craftQualityTier1): builder.PrependInt64Slot(28, craftQualityTier1, 0)
+def FurnitureExcelAddCraftQualityTier1(builder, craftQualityTier1): builder.PrependInt64Slot(29, craftQualityTier1, 0)
 def AddCraftQualityTier1(builder, craftQualityTier1):
     return FurnitureExcelAddCraftQualityTier1(builder, craftQualityTier1)
-def FurnitureExcelAddCraftQualityTier2(builder, craftQualityTier2): builder.PrependInt64Slot(29, craftQualityTier2, 0)
+def FurnitureExcelAddCraftQualityTier2(builder, craftQualityTier2): builder.PrependInt64Slot(30, craftQualityTier2, 0)
 def AddCraftQualityTier2(builder, craftQualityTier2):
     return FurnitureExcelAddCraftQualityTier2(builder, craftQualityTier2)
-def FurnitureExcelAddShiftingCraftQuality(builder, shiftingCraftQuality): builder.PrependInt64Slot(30, shiftingCraftQuality, 0)
+def FurnitureExcelAddShiftingCraftQuality(builder, shiftingCraftQuality): builder.PrependInt64Slot(31, shiftingCraftQuality, 0)
 def AddShiftingCraftQuality(builder, shiftingCraftQuality):
     return FurnitureExcelAddShiftingCraftQuality(builder, shiftingCraftQuality)
-def FurnitureExcelAddFurnitureFunctionType(builder, furnitureFunctionType): builder.PrependInt32Slot(31, furnitureFunctionType, 0)
+def FurnitureExcelAddFurnitureFunctionType(builder, furnitureFunctionType): builder.PrependInt32Slot(32, furnitureFunctionType, 0)
 def AddFurnitureFunctionType(builder, furnitureFunctionType):
     return FurnitureExcelAddFurnitureFunctionType(builder, furnitureFunctionType)
-def FurnitureExcelAddFurnitureFunctionParameter(builder, furnitureFunctionParameter): builder.PrependUOffsetTRelativeSlot(32, flatbuffers.number_types.UOffsetTFlags.py_type(furnitureFunctionParameter), 0)
+def FurnitureExcelAddFurnitureFunctionParameter(builder, furnitureFunctionParameter): builder.PrependUOffsetTRelativeSlot(33, flatbuffers.number_types.UOffsetTFlags.py_type(furnitureFunctionParameter), 0)
 def AddFurnitureFunctionParameter(builder, furnitureFunctionParameter):
     return FurnitureExcelAddFurnitureFunctionParameter(builder, furnitureFunctionParameter)
 def FurnitureExcelStartFurnitureFunctionParameterVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartFurnitureFunctionParameterVector(builder, numElems):
     return FurnitureExcelStartFurnitureFunctionParameterVector(builder, numElems)
-def FurnitureExcelAddVideoId(builder, videoId): builder.PrependInt64Slot(33, videoId, 0)
+def FurnitureExcelAddVideoId(builder, videoId): builder.PrependInt64Slot(34, videoId, 0)
 def AddVideoId(builder, videoId):
     return FurnitureExcelAddVideoId(builder, videoId)
-def FurnitureExcelAddEventCollectionId(builder, eventCollectionId): builder.PrependInt64Slot(34, eventCollectionId, 0)
+def FurnitureExcelAddEventCollectionId(builder, eventCollectionId): builder.PrependInt64Slot(35, eventCollectionId, 0)
 def AddEventCollectionId(builder, eventCollectionId):
     return FurnitureExcelAddEventCollectionId(builder, eventCollectionId)
-def FurnitureExcelAddFurnitureBubbleOffsetX(builder, furnitureBubbleOffsetX): builder.PrependInt64Slot(35, furnitureBubbleOffsetX, 0)
+def FurnitureExcelAddFurnitureBubbleOffsetX(builder, furnitureBubbleOffsetX): builder.PrependInt64Slot(36, furnitureBubbleOffsetX, 0)
 def AddFurnitureBubbleOffsetX(builder, furnitureBubbleOffsetX):
     return FurnitureExcelAddFurnitureBubbleOffsetX(builder, furnitureBubbleOffsetX)
-def FurnitureExcelAddFurnitureBubbleOffsetY(builder, furnitureBubbleOffsetY): builder.PrependInt64Slot(36, furnitureBubbleOffsetY, 0)
+def FurnitureExcelAddFurnitureBubbleOffsetY(builder, furnitureBubbleOffsetY): builder.PrependInt64Slot(37, furnitureBubbleOffsetY, 0)
 def AddFurnitureBubbleOffsetY(builder, furnitureBubbleOffsetY):
     return FurnitureExcelAddFurnitureBubbleOffsetY(builder, furnitureBubbleOffsetY)
-def FurnitureExcelAddCafeCharacterStateReq(builder, cafeCharacterStateReq): builder.PrependUOffsetTRelativeSlot(37, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateReq), 0)
+def FurnitureExcelAddCafeCharacterStateReq(builder, cafeCharacterStateReq): builder.PrependUOffsetTRelativeSlot(38, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateReq), 0)
 def AddCafeCharacterStateReq(builder, cafeCharacterStateReq):
     return FurnitureExcelAddCafeCharacterStateReq(builder, cafeCharacterStateReq)
 def FurnitureExcelStartCafeCharacterStateReqVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartCafeCharacterStateReqVector(builder, numElems):
     return FurnitureExcelStartCafeCharacterStateReqVector(builder, numElems)
-def FurnitureExcelAddCafeCharacterStateAdd(builder, cafeCharacterStateAdd): builder.PrependUOffsetTRelativeSlot(38, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateAdd), 0)
+def FurnitureExcelAddCafeCharacterStateAdd(builder, cafeCharacterStateAdd): builder.PrependUOffsetTRelativeSlot(39, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateAdd), 0)
 def AddCafeCharacterStateAdd(builder, cafeCharacterStateAdd):
     return FurnitureExcelAddCafeCharacterStateAdd(builder, cafeCharacterStateAdd)
 def FurnitureExcelStartCafeCharacterStateAddVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartCafeCharacterStateAddVector(builder, numElems):
     return FurnitureExcelStartCafeCharacterStateAddVector(builder, numElems)
-def FurnitureExcelAddCafeCharacterStateMake(builder, cafeCharacterStateMake): builder.PrependUOffsetTRelativeSlot(39, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateMake), 0)
+def FurnitureExcelAddCafeCharacterStateMake(builder, cafeCharacterStateMake): builder.PrependUOffsetTRelativeSlot(40, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateMake), 0)
 def AddCafeCharacterStateMake(builder, cafeCharacterStateMake):
     return FurnitureExcelAddCafeCharacterStateMake(builder, cafeCharacterStateMake)
 def FurnitureExcelStartCafeCharacterStateMakeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartCafeCharacterStateMakeVector(builder, numElems):
     return FurnitureExcelStartCafeCharacterStateMakeVector(builder, numElems)
-def FurnitureExcelAddCafeCharacterStateOnly(builder, cafeCharacterStateOnly): builder.PrependUOffsetTRelativeSlot(40, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateOnly), 0)
+def FurnitureExcelAddCafeCharacterStateOnly(builder, cafeCharacterStateOnly): builder.PrependUOffsetTRelativeSlot(41, flatbuffers.number_types.UOffsetTFlags.py_type(cafeCharacterStateOnly), 0)
 def AddCafeCharacterStateOnly(builder, cafeCharacterStateOnly):
     return FurnitureExcelAddCafeCharacterStateOnly(builder, cafeCharacterStateOnly)
 def FurnitureExcelStartCafeCharacterStateOnlyVector(builder, numElems): return builder.StartVector(4, numElems, 4)

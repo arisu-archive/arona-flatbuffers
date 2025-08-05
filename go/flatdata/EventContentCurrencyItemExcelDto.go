@@ -10,9 +10,10 @@ import (
 // EventContentCurrencyItemExcelDto represents a FlatBuffers table
 type EventContentCurrencyItemExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId       int64                `json:"event_content_id"`
-	EventContentItemType EventContentItemType `json:"event_content_item_type"`
-	ItemUniqueId         int64                `json:"item_unique_id"`
+	EventContentId         int64                `json:"event_content_id"`
+	EventContentItemType   EventContentItemType `json:"event_content_item_type"`
+	ItemUniqueId           int64                `json:"item_unique_id"`
+	UseShortCutContentType string               `json:"use_short_cut_content_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,6 +25,7 @@ func (t *EventContentCurrencyItemExcelDto) MarshalModel(b *flatbuffers.Builder) 
 	EventContentCurrencyItemExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentCurrencyItemExcelAddEventContentItemType(b, fbsutils.Convert(t.EventContentItemType, t.FlatBuffer.TableKey))
 	EventContentCurrencyItemExcelAddItemUniqueId(b, fbsutils.Convert(t.ItemUniqueId, t.FlatBuffer.TableKey))
+	EventContentCurrencyItemExcelAddUseShortCutContentType(b, b.CreateString(fbsutils.Convert(t.UseShortCutContentType, t.FlatBuffer.TableKey)))
 	return EventContentCurrencyItemExcelEnd(b)
 }
 
@@ -42,6 +44,7 @@ func (t *EventContentCurrencyItemExcelDto) UnmarshalMessage(e *EventContentCurre
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.EventContentItemType = EventContentItemType(fbsutils.Convert(int32(e.EventContentItemType()), t.FlatBuffer.TableKey))
 	t.ItemUniqueId = fbsutils.Convert(e.ItemUniqueId(), t.FlatBuffer.TableKey)
+	t.UseShortCutContentType = fbsutils.Convert(string(e.UseShortCutContentType()), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -30,11 +30,11 @@ type CampaignStageExcelDto struct {
 	MaxTurn                       int32                `json:"max_turn"`
 	StageTopography               StageTopography      `json:"stage_topography"`
 	RecommandLevel                int32                `json:"recommand_level"`
-	BgmId                         string               `json:"bgm_id"`
 	StrategyEnvironment           StrategyEnvironment  `json:"strategy_environment"`
 	GroundId                      int64                `json:"ground_id"`
 	StrategySkipGroundId          int32                `json:"strategy_skip_ground_id"`
 	ContentType                   ContentType          `json:"content_type"`
+	BgmId                         string               `json:"bgm_id"`
 	BgmIdC9738509                 int64                `json:"bgm_id_c9738509"`
 	FirstClearReportEventName     string               `json:"first_clear_report_event_name"`
 	FirstClearFunnelMessage       string               `json:"first_clear_funnel_message"`
@@ -78,11 +78,11 @@ func (t *CampaignStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	CampaignStageExcelAddMaxTurn(b, fbsutils.Convert(t.MaxTurn, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
-	CampaignStageExcelAddBgmId(b, b.CreateString(fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey)))
 	CampaignStageExcelAddStrategyEnvironment(b, fbsutils.Convert(t.StrategyEnvironment, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddStrategySkipGroundId(b, fbsutils.Convert(t.StrategySkipGroundId, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
+	CampaignStageExcelAddBgmId(b, b.CreateString(fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey)))
 	CampaignStageExcelAddBgmIdC9738509(b, fbsutils.Convert(t.BgmIdC9738509, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddFirstClearReportEventName(b, b.CreateString(fbsutils.Convert(t.FirstClearReportEventName, t.FlatBuffer.TableKey)))
 	CampaignStageExcelAddFirstClearFunnelMessage(b, b.CreateString(fbsutils.Convert(t.FirstClearFunnelMessage, t.FlatBuffer.TableKey)))
@@ -131,11 +131,11 @@ func (t *CampaignStageExcelDto) UnmarshalMessage(e *CampaignStageExcel) error {
 	t.MaxTurn = fbsutils.Convert(e.MaxTurn(), t.FlatBuffer.TableKey)
 	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
 	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
-	t.BgmId = fbsutils.Convert(string(e.BgmId()), t.FlatBuffer.TableKey)
 	t.StrategyEnvironment = StrategyEnvironment(fbsutils.Convert(int32(e.StrategyEnvironment()), t.FlatBuffer.TableKey))
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.StrategySkipGroundId = fbsutils.Convert(e.StrategySkipGroundId(), t.FlatBuffer.TableKey)
 	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
+	t.BgmId = fbsutils.Convert(string(e.BgmId()), t.FlatBuffer.TableKey)
 	t.BgmIdC9738509 = fbsutils.Convert(e.BgmIdC9738509(), t.FlatBuffer.TableKey)
 	t.FirstClearReportEventName = fbsutils.Convert(string(e.FirstClearReportEventName()), t.FlatBuffer.TableKey)
 	t.FirstClearFunnelMessage = fbsutils.Convert(string(e.FirstClearFunnelMessage()), t.FlatBuffer.TableKey)

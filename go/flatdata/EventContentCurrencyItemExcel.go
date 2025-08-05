@@ -69,8 +69,16 @@ func (rcv *EventContentCurrencyItemExcel) MutateItemUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
+func (rcv *EventContentCurrencyItemExcel) UseShortCutContentType() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func EventContentCurrencyItemExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(3)
+	builder.StartObject(4)
 }
 func EventContentCurrencyItemExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
 	builder.PrependInt64Slot(0, eventContentId, 0)
@@ -80,6 +88,9 @@ func EventContentCurrencyItemExcelAddEventContentItemType(builder *flatbuffers.B
 }
 func EventContentCurrencyItemExcelAddItemUniqueId(builder *flatbuffers.Builder, itemUniqueId int64) {
 	builder.PrependInt64Slot(2, itemUniqueId, 0)
+}
+func EventContentCurrencyItemExcelAddUseShortCutContentType(builder *flatbuffers.Builder, useShortCutContentType flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(useShortCutContentType), 0)
 }
 func EventContentCurrencyItemExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
