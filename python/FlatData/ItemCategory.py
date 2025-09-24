@@ -13,3 +13,4 @@ class ItemCategory(object):
     RecruitCoin = 7
     MonthlyBonus = 8
     InvisibleToken = 9
+    BattlePass = 10

@@ -51,6 +51,7 @@ type ScenarioModeExcelDto struct {
 	CompleteReportEventName    string               `json:"complete_report_event_name"`
 	EchelonExtensionType       EchelonExtensionType `json:"echelon_extension_type"`
 	CollectionGroupId          int64                `json:"collection_group_id"`
+	FirstClearFunnelMessage    string               `json:"first_clear_funnel_message"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -109,6 +110,7 @@ func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ScenarioModeExcelAddCompleteReportEventName(b, b.CreateString(fbsutils.Convert(t.CompleteReportEventName, t.FlatBuffer.TableKey)))
 	ScenarioModeExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddCollectionGroupId(b, fbsutils.Convert(t.CollectionGroupId, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddFirstClearFunnelMessage(b, b.CreateString(fbsutils.Convert(t.FirstClearFunnelMessage, t.FlatBuffer.TableKey)))
 	return ScenarioModeExcelEnd(b)
 }
 
@@ -171,6 +173,7 @@ func (t *ScenarioModeExcelDto) UnmarshalMessage(e *ScenarioModeExcel) error {
 	t.CompleteReportEventName = fbsutils.Convert(string(e.CompleteReportEventName()), t.FlatBuffer.TableKey)
 	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))
 	t.CollectionGroupId = fbsutils.Convert(e.CollectionGroupId(), t.FlatBuffer.TableKey)
+	t.FirstClearFunnelMessage = fbsutils.Convert(string(e.FirstClearFunnelMessage()), t.FlatBuffer.TableKey)
 	return nil
 }
 

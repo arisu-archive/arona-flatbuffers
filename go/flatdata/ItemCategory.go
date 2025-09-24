@@ -17,6 +17,7 @@ const (
 	ItemCategoryRecruitCoin        ItemCategory = 7
 	ItemCategoryMonthlyBonus       ItemCategory = 8
 	ItemCategoryInvisibleToken     ItemCategory = 9
+	ItemCategoryBattlePass         ItemCategory = 10
 )
 
 var EnumNamesItemCategory = map[ItemCategory]string{
@@ -30,6 +31,7 @@ var EnumNamesItemCategory = map[ItemCategory]string{
 	ItemCategoryRecruitCoin:        "RecruitCoin",
 	ItemCategoryMonthlyBonus:       "MonthlyBonus",
 	ItemCategoryInvisibleToken:     "InvisibleToken",
+	ItemCategoryBattlePass:         "BattlePass",
 }
 
 var EnumValuesItemCategory = map[string]ItemCategory{
@@ -43,6 +45,7 @@ var EnumValuesItemCategory = map[string]ItemCategory{
 	"RecruitCoin":        ItemCategoryRecruitCoin,
 	"MonthlyBonus":       ItemCategoryMonthlyBonus,
 	"InvisibleToken":     ItemCategoryInvisibleToken,
+	"BattlePass":         ItemCategoryBattlePass,
 }
 
 func (v ItemCategory) String() string {

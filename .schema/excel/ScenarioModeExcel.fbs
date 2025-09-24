@@ -50,6 +50,7 @@ table ScenarioModeExcel {
     complete_report_event_name: string;
     echelon_extension_type: EchelonExtensionType;
     collection_group_id: long;
+    first_clear_funnel_message: string;
 }
 
 root_type ScenarioModeExcel;

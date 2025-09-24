@@ -27,6 +27,7 @@ type EmblemExcelDto struct {
 	EmblemBgPathTh       string              `json:"emblem_bg_path_th"`
 	EmblemBgPathTw       string              `json:"emblem_bg_path_tw"`
 	EmblemBgPathEn       string              `json:"emblem_bg_path_en"`
+	EmblemEffectPath     string              `json:"emblem_effect_path"`
 	DisplayType          EmblemDisplayType   `json:"display_type"`
 	DisplayStartDate     string              `json:"display_start_date"`
 	DisplayEndDate       string              `json:"display_end_date"`
@@ -56,6 +57,7 @@ func (t *EmblemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 	EmblemExcelAddEmblemBgPathTh(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathTh, t.FlatBuffer.TableKey)))
 	EmblemExcelAddEmblemBgPathTw(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathTw, t.FlatBuffer.TableKey)))
 	EmblemExcelAddEmblemBgPathEn(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathEn, t.FlatBuffer.TableKey)))
+	EmblemExcelAddEmblemEffectPath(b, b.CreateString(fbsutils.Convert(t.EmblemEffectPath, t.FlatBuffer.TableKey)))
 	EmblemExcelAddDisplayType(b, fbsutils.Convert(t.DisplayType, t.FlatBuffer.TableKey))
 	EmblemExcelAddDisplayStartDate(b, b.CreateString(fbsutils.Convert(t.DisplayStartDate, t.FlatBuffer.TableKey)))
 	EmblemExcelAddDisplayEndDate(b, b.CreateString(fbsutils.Convert(t.DisplayEndDate, t.FlatBuffer.TableKey)))
@@ -92,6 +94,7 @@ func (t *EmblemExcelDto) UnmarshalMessage(e *EmblemExcel) error {
 	t.EmblemBgPathTh = fbsutils.Convert(string(e.EmblemBgPathTh()), t.FlatBuffer.TableKey)
 	t.EmblemBgPathTw = fbsutils.Convert(string(e.EmblemBgPathTw()), t.FlatBuffer.TableKey)
 	t.EmblemBgPathEn = fbsutils.Convert(string(e.EmblemBgPathEn()), t.FlatBuffer.TableKey)
+	t.EmblemEffectPath = fbsutils.Convert(string(e.EmblemEffectPath()), t.FlatBuffer.TableKey)
 	t.DisplayType = EmblemDisplayType(fbsutils.Convert(int32(e.DisplayType()), t.FlatBuffer.TableKey))
 	t.DisplayStartDate = fbsutils.Convert(string(e.DisplayStartDate()), t.FlatBuffer.TableKey)
 	t.DisplayEndDate = fbsutils.Convert(string(e.DisplayEndDate()), t.FlatBuffer.TableKey)
