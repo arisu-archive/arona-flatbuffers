@@ -23,6 +23,7 @@ table EmblemExcel {
     emblem_bg_path_th: string;
     emblem_bg_path_tw: string;
     emblem_bg_path_en: string;
+    emblem_effect_path: string;
     display_type: EmblemDisplayType;
     display_start_date: string;
     display_end_date: string;

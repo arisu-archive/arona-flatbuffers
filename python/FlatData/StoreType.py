@@ -10,3 +10,4 @@ class StoreType(object):
     MicrosoftStore = 4
     GalaxyStore = 5
     STEAM = 6
+    FreeProduct = 7

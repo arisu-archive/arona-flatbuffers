@@ -7,96 +7,105 @@ import "strconv"
 type MailType int32
 
 const (
-	MailTypeSystem                MailType = 0
-	MailTypeAttendance            MailType = 1
-	MailTypeEvent                 MailType = 2
-	MailTypeMassTrade             MailType = 3
-	MailTypeInventoryFull         MailType = 4
-	MailTypeArenaDefenseVictory   MailType = 5
-	MailTypeCouponUsageReward     MailType = 6
-	MailTypeArenaSeasonClose      MailType = 7
-	MailTypeProductReward         MailType = 8
-	MailTypeMonthlyProductReward  MailType = 9
-	MailTypeExpiryChangeItem      MailType = 10
-	MailTypeClanAttendance        MailType = 11
-	MailTypeAccountLink           MailType = 12
-	MailTypeNewUserBonus          MailType = 13
-	MailTypeLeftClanAssistReward  MailType = 14
-	MailTypeCashShopBuy           MailType = 15
-	MailTypeMonthlyProductPackage MailType = 16
-	MailTypeWebEventReward        MailType = 17
-	MailTypeAttendanceImmediately MailType = 18
-	MailTypeWeeklyProductReward   MailType = 19
-	MailTypeBiweeklyProductReward MailType = 20
-	MailTypeTemp_1                MailType = 21
-	MailTypeTemp_2                MailType = 22
-	MailTypeTemp_3                MailType = 23
-	MailTypeCouponCompleteReward  MailType = 24
-	MailTypeBirthdayMail          MailType = 25
-	MailTypeFromCS                MailType = 26
-	MailTypeExpiryChangeCurrency  MailType = 27
+	MailTypeSystem                   MailType = 0
+	MailTypeAttendance               MailType = 1
+	MailTypeEvent                    MailType = 2
+	MailTypeMassTrade                MailType = 3
+	MailTypeInventoryFull            MailType = 4
+	MailTypeArenaDefenseVictory      MailType = 5
+	MailTypeCouponUsageReward        MailType = 6
+	MailTypeArenaSeasonClose         MailType = 7
+	MailTypeProductReward            MailType = 8
+	MailTypeMonthlyProductReward     MailType = 9
+	MailTypeExpiryChangeItem         MailType = 10
+	MailTypeClanAttendance           MailType = 11
+	MailTypeAccountLink              MailType = 12
+	MailTypeNewUserBonus             MailType = 13
+	MailTypeLeftClanAssistReward     MailType = 14
+	MailTypeCashShopBuy              MailType = 15
+	MailTypeMonthlyProductPackage    MailType = 16
+	MailTypeWebEventReward           MailType = 17
+	MailTypeAttendanceImmediately    MailType = 18
+	MailTypeWeeklyProductReward      MailType = 19
+	MailTypeBiweeklyProductReward    MailType = 20
+	MailTypeTemp_1                   MailType = 21
+	MailTypeTemp_2                   MailType = 22
+	MailTypeTemp_3                   MailType = 23
+	MailTypeCouponCompleteReward     MailType = 24
+	MailTypeBirthdayMail             MailType = 25
+	MailTypeFromCS                   MailType = 26
+	MailTypeExpiryChangeCurrency     MailType = 27
+	MailTypeExpiryBattlePassItem     MailType = 28
+	MailTypeFreeProductReward        MailType = 29
+	MailTypeProductGooglePointReward MailType = 30
 )
 
 var EnumNamesMailType = map[MailType]string{
-	MailTypeSystem:                "System",
-	MailTypeAttendance:            "Attendance",
-	MailTypeEvent:                 "Event",
-	MailTypeMassTrade:             "MassTrade",
-	MailTypeInventoryFull:         "InventoryFull",
-	MailTypeArenaDefenseVictory:   "ArenaDefenseVictory",
-	MailTypeCouponUsageReward:     "CouponUsageReward",
-	MailTypeArenaSeasonClose:      "ArenaSeasonClose",
-	MailTypeProductReward:         "ProductReward",
-	MailTypeMonthlyProductReward:  "MonthlyProductReward",
-	MailTypeExpiryChangeItem:      "ExpiryChangeItem",
-	MailTypeClanAttendance:        "ClanAttendance",
-	MailTypeAccountLink:           "AccountLink",
-	MailTypeNewUserBonus:          "NewUserBonus",
-	MailTypeLeftClanAssistReward:  "LeftClanAssistReward",
-	MailTypeCashShopBuy:           "CashShopBuy",
-	MailTypeMonthlyProductPackage: "MonthlyProductPackage",
-	MailTypeWebEventReward:        "WebEventReward",
-	MailTypeAttendanceImmediately: "AttendanceImmediately",
-	MailTypeWeeklyProductReward:   "WeeklyProductReward",
-	MailTypeBiweeklyProductReward: "BiweeklyProductReward",
-	MailTypeTemp_1:                "Temp_1",
-	MailTypeTemp_2:                "Temp_2",
-	MailTypeTemp_3:                "Temp_3",
-	MailTypeCouponCompleteReward:  "CouponCompleteReward",
-	MailTypeBirthdayMail:          "BirthdayMail",
-	MailTypeFromCS:                "FromCS",
-	MailTypeExpiryChangeCurrency:  "ExpiryChangeCurrency",
+	MailTypeSystem:                   "System",
+	MailTypeAttendance:               "Attendance",
+	MailTypeEvent:                    "Event",
+	MailTypeMassTrade:                "MassTrade",
+	MailTypeInventoryFull:            "InventoryFull",
+	MailTypeArenaDefenseVictory:      "ArenaDefenseVictory",
+	MailTypeCouponUsageReward:        "CouponUsageReward",
+	MailTypeArenaSeasonClose:         "ArenaSeasonClose",
+	MailTypeProductReward:            "ProductReward",
+	MailTypeMonthlyProductReward:     "MonthlyProductReward",
+	MailTypeExpiryChangeItem:         "ExpiryChangeItem",
+	MailTypeClanAttendance:           "ClanAttendance",
+	MailTypeAccountLink:              "AccountLink",
+	MailTypeNewUserBonus:             "NewUserBonus",
+	MailTypeLeftClanAssistReward:     "LeftClanAssistReward",
+	MailTypeCashShopBuy:              "CashShopBuy",
+	MailTypeMonthlyProductPackage:    "MonthlyProductPackage",
+	MailTypeWebEventReward:           "WebEventReward",
+	MailTypeAttendanceImmediately:    "AttendanceImmediately",
+	MailTypeWeeklyProductReward:      "WeeklyProductReward",
+	MailTypeBiweeklyProductReward:    "BiweeklyProductReward",
+	MailTypeTemp_1:                   "Temp_1",
+	MailTypeTemp_2:                   "Temp_2",
+	MailTypeTemp_3:                   "Temp_3",
+	MailTypeCouponCompleteReward:     "CouponCompleteReward",
+	MailTypeBirthdayMail:             "BirthdayMail",
+	MailTypeFromCS:                   "FromCS",
+	MailTypeExpiryChangeCurrency:     "ExpiryChangeCurrency",
+	MailTypeExpiryBattlePassItem:     "ExpiryBattlePassItem",
+	MailTypeFreeProductReward:        "FreeProductReward",
+	MailTypeProductGooglePointReward: "ProductGooglePointReward",
 }
 
 var EnumValuesMailType = map[string]MailType{
-	"System":                MailTypeSystem,
-	"Attendance":            MailTypeAttendance,
-	"Event":                 MailTypeEvent,
-	"MassTrade":             MailTypeMassTrade,
-	"InventoryFull":         MailTypeInventoryFull,
-	"ArenaDefenseVictory":   MailTypeArenaDefenseVictory,
-	"CouponUsageReward":     MailTypeCouponUsageReward,
-	"ArenaSeasonClose":      MailTypeArenaSeasonClose,
-	"ProductReward":         MailTypeProductReward,
-	"MonthlyProductReward":  MailTypeMonthlyProductReward,
-	"ExpiryChangeItem":      MailTypeExpiryChangeItem,
-	"ClanAttendance":        MailTypeClanAttendance,
-	"AccountLink":           MailTypeAccountLink,
-	"NewUserBonus":          MailTypeNewUserBonus,
-	"LeftClanAssistReward":  MailTypeLeftClanAssistReward,
-	"CashShopBuy":           MailTypeCashShopBuy,
-	"MonthlyProductPackage": MailTypeMonthlyProductPackage,
-	"WebEventReward":        MailTypeWebEventReward,
-	"AttendanceImmediately": MailTypeAttendanceImmediately,
-	"WeeklyProductReward":   MailTypeWeeklyProductReward,
-	"BiweeklyProductReward": MailTypeBiweeklyProductReward,
-	"Temp_1":                MailTypeTemp_1,
-	"Temp_2":                MailTypeTemp_2,
-	"Temp_3":                MailTypeTemp_3,
-	"CouponCompleteReward":  MailTypeCouponCompleteReward,
-	"BirthdayMail":          MailTypeBirthdayMail,
-	"FromCS":                MailTypeFromCS,
-	"ExpiryChangeCurrency":  MailTypeExpiryChangeCurrency,
+	"System":                   MailTypeSystem,
+	"Attendance":               MailTypeAttendance,
+	"Event":                    MailTypeEvent,
+	"MassTrade":                MailTypeMassTrade,
+	"InventoryFull":            MailTypeInventoryFull,
+	"ArenaDefenseVictory":      MailTypeArenaDefenseVictory,
+	"CouponUsageReward":        MailTypeCouponUsageReward,
+	"ArenaSeasonClose":         MailTypeArenaSeasonClose,
+	"ProductReward":            MailTypeProductReward,
+	"MonthlyProductReward":     MailTypeMonthlyProductReward,
+	"ExpiryChangeItem":         MailTypeExpiryChangeItem,
+	"ClanAttendance":           MailTypeClanAttendance,
+	"AccountLink":              MailTypeAccountLink,
+	"NewUserBonus":             MailTypeNewUserBonus,
+	"LeftClanAssistReward":     MailTypeLeftClanAssistReward,
+	"CashShopBuy":              MailTypeCashShopBuy,
+	"MonthlyProductPackage":    MailTypeMonthlyProductPackage,
+	"WebEventReward":           MailTypeWebEventReward,
+	"AttendanceImmediately":    MailTypeAttendanceImmediately,
+	"WeeklyProductReward":      MailTypeWeeklyProductReward,
+	"BiweeklyProductReward":    MailTypeBiweeklyProductReward,
+	"Temp_1":                   MailTypeTemp_1,
+	"Temp_2":                   MailTypeTemp_2,
+	"Temp_3":                   MailTypeTemp_3,
+	"CouponCompleteReward":     MailTypeCouponCompleteReward,
+	"BirthdayMail":             MailTypeBirthdayMail,
+	"FromCS":                   MailTypeFromCS,
+	"ExpiryChangeCurrency":     MailTypeExpiryChangeCurrency,
+	"ExpiryBattlePassItem":     MailTypeExpiryBattlePassItem,
+	"FreeProductReward":        MailTypeFreeProductReward,
+	"ProductGooglePointReward": MailTypeProductGooglePointReward,
 }
 
 func (v MailType) String() string {

@@ -371,7 +371,14 @@ class ScenarioModeExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
-def ScenarioModeExcelStart(builder): builder.StartObject(41)
+    # ScenarioModeExcel
+    def FirstClearFunnelMessage(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(86))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+def ScenarioModeExcelStart(builder): builder.StartObject(42)
 def Start(builder):
     return ScenarioModeExcelStart(builder)
 def ScenarioModeExcelAddModeId(builder, modeId): builder.PrependInt64Slot(0, modeId, 0)
@@ -506,6 +513,9 @@ def AddEchelonExtensionType(builder, echelonExtensionType):
 def ScenarioModeExcelAddCollectionGroupId(builder, collectionGroupId): builder.PrependInt64Slot(40, collectionGroupId, 0)
 def AddCollectionGroupId(builder, collectionGroupId):
     return ScenarioModeExcelAddCollectionGroupId(builder, collectionGroupId)
+def ScenarioModeExcelAddFirstClearFunnelMessage(builder, firstClearFunnelMessage): builder.PrependUOffsetTRelativeSlot(41, flatbuffers.number_types.UOffsetTFlags.py_type(firstClearFunnelMessage), 0)
+def AddFirstClearFunnelMessage(builder, firstClearFunnelMessage):
+    return ScenarioModeExcelAddFirstClearFunnelMessage(builder, firstClearFunnelMessage)
 def ScenarioModeExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ScenarioModeExcelEnd(builder)
