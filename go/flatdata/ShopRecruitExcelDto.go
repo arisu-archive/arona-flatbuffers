@@ -44,16 +44,22 @@ func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ShopRecruit"))
 	}
+	__offset_goods_dev_name := b.CreateString(fbsutils.Convert(t.GoodsDevName, t.FlatBuffer.TableKey))
+	__offset_gacha_banner_path := b.CreateString(fbsutils.Convert(t.GachaBannerPath, t.FlatBuffer.TableKey))
+	__offset_sale_period_from := b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey))
+	__offset_sale_period_to := b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey))
+	__offset_probability_url_dev := b.CreateString(fbsutils.Convert(t.ProbabilityUrlDev, t.FlatBuffer.TableKey))
+	__offset_probability_url_live := b.CreateString(fbsutils.Convert(t.ProbabilityUrlLive, t.FlatBuffer.TableKey))
 	ShopRecruitExcelStart(b)
 	ShopRecruitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddCategoryType(b, fbsutils.Convert(t.CategoryType, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddIsLegacy(b, t.IsLegacy)
 	ShopRecruitExcelAddOneGachaGoodsId(b, fbsutils.Convert(t.OneGachaGoodsId, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddTenGachaGoodsId(b, fbsutils.Convert(t.TenGachaGoodsId, t.FlatBuffer.TableKey))
-	ShopRecruitExcelAddGoodsDevName(b, b.CreateString(fbsutils.Convert(t.GoodsDevName, t.FlatBuffer.TableKey)))
+	ShopRecruitExcelAddGoodsDevName(b, __offset_goods_dev_name)
 	ShopRecruitExcelAddDisplayTag(b, fbsutils.Convert(t.DisplayTag, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	ShopRecruitExcelAddGachaBannerPath(b, b.CreateString(fbsutils.Convert(t.GachaBannerPath, t.FlatBuffer.TableKey)))
+	ShopRecruitExcelAddGachaBannerPath(b, __offset_gacha_banner_path)
 	ShopRecruitExcelStartVideoIdVector(b, len(t.VideoId))
 	for i := range len(t.VideoId) {
 		b.PrependInt64(fbsutils.Convert(t.VideoId[len(t.VideoId)-i-1], t.FlatBuffer.TableKey))
@@ -65,8 +71,8 @@ func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		b.PrependInt64(fbsutils.Convert(t.InfoCharacterId[len(t.InfoCharacterId)-i-1], t.FlatBuffer.TableKey))
 	}
 	ShopRecruitExcelAddInfoCharacterId(b, b.EndVector(len(t.InfoCharacterId)))
-	ShopRecruitExcelAddSalePeriodFrom(b, b.CreateString(fbsutils.Convert(t.SalePeriodFrom, t.FlatBuffer.TableKey)))
-	ShopRecruitExcelAddSalePeriodTo(b, b.CreateString(fbsutils.Convert(t.SalePeriodTo, t.FlatBuffer.TableKey)))
+	ShopRecruitExcelAddSalePeriodFrom(b, __offset_sale_period_from)
+	ShopRecruitExcelAddSalePeriodTo(b, __offset_sale_period_to)
 	ShopRecruitExcelAddRecruitCoinId(b, fbsutils.Convert(t.RecruitCoinId, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddRecruitSellectionShopId(b, fbsutils.Convert(t.RecruitSellectionShopId, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddPurchaseCooltimeMin(b, fbsutils.Convert(t.PurchaseCooltimeMin, t.FlatBuffer.TableKey))
@@ -78,8 +84,8 @@ func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ShopRecruitExcelAddDirectPayAndroidShopCashId(b, fbsutils.Convert(t.DirectPayAndroidShopCashId, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddDirectPayAppleShopCashId(b, fbsutils.Convert(t.DirectPayAppleShopCashId, t.FlatBuffer.TableKey))
 	ShopRecruitExcelAddDirectPayOneStoreShopCashId(b, fbsutils.Convert(t.DirectPayOneStoreShopCashId, t.FlatBuffer.TableKey))
-	ShopRecruitExcelAddProbabilityUrlDev(b, b.CreateString(fbsutils.Convert(t.ProbabilityUrlDev, t.FlatBuffer.TableKey)))
-	ShopRecruitExcelAddProbabilityUrlLive(b, b.CreateString(fbsutils.Convert(t.ProbabilityUrlLive, t.FlatBuffer.TableKey)))
+	ShopRecruitExcelAddProbabilityUrlDev(b, __offset_probability_url_dev)
+	ShopRecruitExcelAddProbabilityUrlLive(b, __offset_probability_url_live)
 	return ShopRecruitExcelEnd(b)
 }
 

@@ -31,3 +31,6 @@ class MailType(object):
     BirthdayMail = 25
     FromCS = 26
     ExpiryChangeCurrency = 27
+    ExpiryBattlePassItem = 28
+    FreeProductReward = 29
+    ProductGooglePointReward = 30

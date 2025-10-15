@@ -34,6 +34,12 @@ func (t *AcademyMessanger1ExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AcademyMessanger1"))
 	}
+	__offset_image_path := b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey))
+	__offset_message_kr := b.CreateString(fbsutils.Convert(t.MessageKr, t.FlatBuffer.TableKey))
+	__offset_message_jp := b.CreateString(fbsutils.Convert(t.MessageJp, t.FlatBuffer.TableKey))
+	__offset_message_th := b.CreateString(fbsutils.Convert(t.MessageTh, t.FlatBuffer.TableKey))
+	__offset_message_tw := b.CreateString(fbsutils.Convert(t.MessageTw, t.FlatBuffer.TableKey))
+	__offset_message_en := b.CreateString(fbsutils.Convert(t.MessageEn, t.FlatBuffer.TableKey))
 	AcademyMessanger1ExcelStart(b)
 	AcademyMessanger1ExcelAddMessageGroupId(b, fbsutils.Convert(t.MessageGroupId, t.FlatBuffer.TableKey))
 	AcademyMessanger1ExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
@@ -46,12 +52,12 @@ func (t *AcademyMessanger1ExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	AcademyMessanger1ExcelAddNextGroupId(b, fbsutils.Convert(t.NextGroupId, t.FlatBuffer.TableKey))
 	AcademyMessanger1ExcelAddFeedbackTimeMillisec(b, fbsutils.Convert(t.FeedbackTimeMillisec, t.FlatBuffer.TableKey))
 	AcademyMessanger1ExcelAddMessageType(b, fbsutils.Convert(t.MessageType, t.FlatBuffer.TableKey))
-	AcademyMessanger1ExcelAddImagePath(b, b.CreateString(fbsutils.Convert(t.ImagePath, t.FlatBuffer.TableKey)))
-	AcademyMessanger1ExcelAddMessageKr(b, b.CreateString(fbsutils.Convert(t.MessageKr, t.FlatBuffer.TableKey)))
-	AcademyMessanger1ExcelAddMessageJp(b, b.CreateString(fbsutils.Convert(t.MessageJp, t.FlatBuffer.TableKey)))
-	AcademyMessanger1ExcelAddMessageTh(b, b.CreateString(fbsutils.Convert(t.MessageTh, t.FlatBuffer.TableKey)))
-	AcademyMessanger1ExcelAddMessageTw(b, b.CreateString(fbsutils.Convert(t.MessageTw, t.FlatBuffer.TableKey)))
-	AcademyMessanger1ExcelAddMessageEn(b, b.CreateString(fbsutils.Convert(t.MessageEn, t.FlatBuffer.TableKey)))
+	AcademyMessanger1ExcelAddImagePath(b, __offset_image_path)
+	AcademyMessanger1ExcelAddMessageKr(b, __offset_message_kr)
+	AcademyMessanger1ExcelAddMessageJp(b, __offset_message_jp)
+	AcademyMessanger1ExcelAddMessageTh(b, __offset_message_th)
+	AcademyMessanger1ExcelAddMessageTw(b, __offset_message_tw)
+	AcademyMessanger1ExcelAddMessageEn(b, __offset_message_en)
 	return AcademyMessanger1ExcelEnd(b)
 }
 

@@ -20,18 +20,30 @@ func (t *AddressableWhiteListExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AddressableWhiteList"))
 	}
-	AddressableWhiteListExcelStart(b)
-	AddressableWhiteListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	var __offset_folder_path flatbuffers.UOffsetT
+	__stringOffsets_folder_path := make([]flatbuffers.UOffsetT, len(t.FolderPath))
+	for i := range len(t.FolderPath) {
+		__stringOffsets_folder_path[i] = b.CreateString(fbsutils.Convert(t.FolderPath[i], t.FlatBuffer.TableKey))
+	}
 	AddressableWhiteListExcelStartFolderPathVector(b, len(t.FolderPath))
 	for i := range len(t.FolderPath) {
-		b.PrependUOffsetT(b.CreateString(t.FolderPath[len(t.FolderPath)-i-1]))
+		b.PrependUOffsetT(__stringOffsets_folder_path[len(t.FolderPath)-i-1])
 	}
-	AddressableWhiteListExcelAddFolderPath(b, b.EndVector(len(t.FolderPath)))
+	__offset_folder_path = b.EndVector(len(t.FolderPath))
+	var __offset_resource_path flatbuffers.UOffsetT
+	__stringOffsets_resource_path := make([]flatbuffers.UOffsetT, len(t.ResourcePath))
+	for i := range len(t.ResourcePath) {
+		__stringOffsets_resource_path[i] = b.CreateString(fbsutils.Convert(t.ResourcePath[i], t.FlatBuffer.TableKey))
+	}
 	AddressableWhiteListExcelStartResourcePathVector(b, len(t.ResourcePath))
 	for i := range len(t.ResourcePath) {
-		b.PrependUOffsetT(b.CreateString(t.ResourcePath[len(t.ResourcePath)-i-1]))
+		b.PrependUOffsetT(__stringOffsets_resource_path[len(t.ResourcePath)-i-1])
 	}
-	AddressableWhiteListExcelAddResourcePath(b, b.EndVector(len(t.ResourcePath)))
+	__offset_resource_path = b.EndVector(len(t.ResourcePath))
+	AddressableWhiteListExcelStart(b)
+	AddressableWhiteListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	AddressableWhiteListExcelAddFolderPath(b, __offset_folder_path)
+	AddressableWhiteListExcelAddResourcePath(b, __offset_resource_path)
 	return AddressableWhiteListExcelEnd(b)
 }
 

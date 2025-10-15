@@ -547,8 +547,16 @@ func (rcv *ScenarioModeExcel) MutateCollectionGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(84, n)
 }
 
+func (rcv *ScenarioModeExcel) FirstClearFunnelMessage() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(86))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func ScenarioModeExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(41)
+	builder.StartObject(42)
 }
 func ScenarioModeExcelAddModeId(builder *flatbuffers.Builder, modeId int64) {
 	builder.PrependInt64Slot(0, modeId, 0)
@@ -681,6 +689,9 @@ func ScenarioModeExcelAddEchelonExtensionType(builder *flatbuffers.Builder, eche
 }
 func ScenarioModeExcelAddCollectionGroupId(builder *flatbuffers.Builder, collectionGroupId int64) {
 	builder.PrependInt64Slot(40, collectionGroupId, 0)
+}
+func ScenarioModeExcelAddFirstClearFunnelMessage(builder *flatbuffers.Builder, firstClearFunnelMessage flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(41, flatbuffers.UOffsetT(firstClearFunnelMessage), 0)
 }
 func ScenarioModeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

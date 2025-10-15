@@ -38,10 +38,10 @@ type EventContentStageExcelDto struct {
 	MaxTurn                       int32                `json:"max_turn"`
 	StageTopography               StageTopography      `json:"stage_topography"`
 	RecommandLevel                int32                `json:"recommand_level"`
+	BgmId                         string               `json:"bgm_id"`
 	StrategyEnvironment           StrategyEnvironment  `json:"strategy_environment"`
 	GroundId                      int64                `json:"ground_id"`
 	ContentType                   ContentType          `json:"content_type"`
-	BgmId                         string               `json:"bgm_id"`
 	BgmIdC9738509                 int64                `json:"bgm_id_c9738509"`
 	InstantClear                  bool                 `json:"instant_clear"`
 	BuffContentId                 int64                `json:"buff_content_id"`
@@ -59,12 +59,17 @@ func (t *EventContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentStage"))
 	}
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
+	__offset_stage_number := b.CreateString(fbsutils.Convert(t.StageNumber, t.FlatBuffer.TableKey))
+	__offset_strategy_map := b.CreateString(fbsutils.Convert(t.StrategyMap, t.FlatBuffer.TableKey))
+	__offset_strategy_map_bg := b.CreateString(fbsutils.Convert(t.StrategyMapBg, t.FlatBuffer.TableKey))
+	__offset_bgm_id := b.CreateString(fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
 	EventContentStageExcelStart(b)
 	EventContentStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EventContentStageExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	EventContentStageExcelAddName(b, __offset_name)
 	EventContentStageExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddStageDifficulty(b, fbsutils.Convert(t.StageDifficulty, t.FlatBuffer.TableKey))
-	EventContentStageExcelAddStageNumber(b, b.CreateString(fbsutils.Convert(t.StageNumber, t.FlatBuffer.TableKey)))
+	EventContentStageExcelAddStageNumber(b, __offset_stage_number)
 	EventContentStageExcelAddStageDisplay(b, fbsutils.Convert(t.StageDisplay, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageId, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddOpenDate(b, fbsutils.Convert(t.OpenDate, t.FlatBuffer.TableKey))
@@ -90,16 +95,16 @@ func (t *EventContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 		b.PrependInt64(fbsutils.Convert(t.ClearScenarioGroupId[len(t.ClearScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentStageExcelAddClearScenarioGroupId(b, b.EndVector(len(t.ClearScenarioGroupId)))
-	EventContentStageExcelAddStrategyMap(b, b.CreateString(fbsutils.Convert(t.StrategyMap, t.FlatBuffer.TableKey)))
-	EventContentStageExcelAddStrategyMapBg(b, b.CreateString(fbsutils.Convert(t.StrategyMapBg, t.FlatBuffer.TableKey)))
+	EventContentStageExcelAddStrategyMap(b, __offset_strategy_map)
+	EventContentStageExcelAddStrategyMapBg(b, __offset_strategy_map_bg)
 	EventContentStageExcelAddEventContentStageRewardId(b, fbsutils.Convert(t.EventContentStageRewardId, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddMaxTurn(b, fbsutils.Convert(t.MaxTurn, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddRecommandLevel(b, fbsutils.Convert(t.RecommandLevel, t.FlatBuffer.TableKey))
+	EventContentStageExcelAddBgmId(b, __offset_bgm_id)
 	EventContentStageExcelAddStrategyEnvironment(b, fbsutils.Convert(t.StrategyEnvironment, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddContentType(b, fbsutils.Convert(t.ContentType, t.FlatBuffer.TableKey))
-	EventContentStageExcelAddBgmId(b, b.CreateString(fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey)))
 	EventContentStageExcelAddBgmIdC9738509(b, fbsutils.Convert(t.BgmIdC9738509, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddInstantClear(b, t.InstantClear)
 	EventContentStageExcelAddBuffContentId(b, fbsutils.Convert(t.BuffContentId, t.FlatBuffer.TableKey))
@@ -167,10 +172,10 @@ func (t *EventContentStageExcelDto) UnmarshalMessage(e *EventContentStageExcel) 
 	t.MaxTurn = fbsutils.Convert(e.MaxTurn(), t.FlatBuffer.TableKey)
 	t.StageTopography = StageTopography(fbsutils.Convert(int32(e.StageTopography()), t.FlatBuffer.TableKey))
 	t.RecommandLevel = fbsutils.Convert(e.RecommandLevel(), t.FlatBuffer.TableKey)
+	t.BgmId = fbsutils.Convert(string(e.BgmId()), t.FlatBuffer.TableKey)
 	t.StrategyEnvironment = StrategyEnvironment(fbsutils.Convert(int32(e.StrategyEnvironment()), t.FlatBuffer.TableKey))
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.ContentType = ContentType(fbsutils.Convert(int32(e.ContentType()), t.FlatBuffer.TableKey))
-	t.BgmId = fbsutils.Convert(string(e.BgmId()), t.FlatBuffer.TableKey)
 	t.BgmIdC9738509 = fbsutils.Convert(e.BgmIdC9738509(), t.FlatBuffer.TableKey)
 	t.InstantClear = e.InstantClear()
 	t.BuffContentId = fbsutils.Convert(e.BuffContentId(), t.FlatBuffer.TableKey)

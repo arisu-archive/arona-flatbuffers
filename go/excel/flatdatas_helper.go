@@ -7,6 +7,12 @@ import (
 )
 
 var fbs = map[string]reflect.Type{
+	"academyfavorscheduleexcel": reflect.TypeOf((*AcademyFavorScheduleExcelDto)(nil)).Elem(),
+	"academylocationexcel": reflect.TypeOf((*AcademyLocationExcelDto)(nil)).Elem(),
+	"academylocationrankexcel": reflect.TypeOf((*AcademyLocationRankExcelDto)(nil)).Elem(),
+	"academymessangerexcel": reflect.TypeOf((*AcademyMessangerExcelDto)(nil)).Elem(),
+	"academyrewardexcel": reflect.TypeOf((*AcademyRewardExcelDto)(nil)).Elem(),
+	"academyticketexcel": reflect.TypeOf((*AcademyTicketExcelDto)(nil)).Elem(),
 	"accountlevelexcel": reflect.TypeOf((*AccountLevelExcelDto)(nil)).Elem(),
 	"assistechelontypeconvertexcel": reflect.TypeOf((*AssistEchelonTypeConvertExcelDto)(nil)).Elem(),
 	"attendanceexcel": reflect.TypeOf((*AttendanceExcelDto)(nil)).Elem(),
@@ -78,6 +84,15 @@ var fbs = map[string]reflect.Type{
 	"minigamedreamscheduleresultexcel": reflect.TypeOf((*MiniGameDreamScheduleResultExcelDto)(nil)).Elem(),
 	"minigamedreamtimelineexcel": reflect.TypeOf((*MiniGameDreamTimelineExcelDto)(nil)).Elem(),
 	"minigamedreamvoiceexcel": reflect.TypeOf((*MinigameDreamVoiceExcelDto)(nil)).Elem(),
+	"minigameroadpuzzleadditionalrewardexcel": reflect.TypeOf((*MiniGameRoadPuzzleAdditionalRewardExcelDto)(nil)).Elem(),
+	"minigameroadpuzzleinfoexcel": reflect.TypeOf((*MiniGameRoadPuzzleInfoExcelDto)(nil)).Elem(),
+	"minigameroadpuzzlemapexcel": reflect.TypeOf((*MinigameRoadPuzzleMapExcelDto)(nil)).Elem(),
+	"minigameroadpuzzlemaptileexcel": reflect.TypeOf((*MinigameRoadPuzzleMapTileExcelDto)(nil)).Elem(),
+	"minigameroadpuzzlerailsetrewardexcel": reflect.TypeOf((*MiniGameRoadPuzzleRailSetRewardExcelDto)(nil)).Elem(),
+	"minigameroadpuzzlerailtileexcel": reflect.TypeOf((*MinigameRoadPuzzleRailTileExcelDto)(nil)).Elem(),
+	"minigameroadpuzzlerewardexcel": reflect.TypeOf((*MiniGameRoadPuzzleRewardExcelDto)(nil)).Elem(),
+	"minigameroadpuzzleroadroundexcel": reflect.TypeOf((*MinigameRoadPuzzleRoadRoundExcelDto)(nil)).Elem(),
+	"minigameroadpuzzlevoiceexcel": reflect.TypeOf((*MiniGameRoadPuzzleVoiceExcelDto)(nil)).Elem(),
 	"missionemergencycompleteexcel": reflect.TypeOf((*MissionEmergencyCompleteExcelDto)(nil)).Elem(),
 	"multifloorraidrewardexcel": reflect.TypeOf((*MultiFloorRaidRewardExcelDto)(nil)).Elem(),
 	"multifloorraidseasonmanageexcel": reflect.TypeOf((*MultiFloorRaidSeasonManageExcelDto)(nil)).Elem(),

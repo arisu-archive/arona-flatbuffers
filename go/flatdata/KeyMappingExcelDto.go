@@ -27,9 +27,11 @@ func (t *KeyMappingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UO
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KeyMapping"))
 	}
+	__offset_id := b.CreateString(fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	__offset_target_key_code := b.CreateString(fbsutils.Convert(t.TargetKeyCode, t.FlatBuffer.TableKey))
 	KeyMappingExcelStart(b)
-	KeyMappingExcelAddId(b, b.CreateString(fbsutils.Convert(t.Id, t.FlatBuffer.TableKey)))
-	KeyMappingExcelAddTargetKeyCode(b, b.CreateString(fbsutils.Convert(t.TargetKeyCode, t.FlatBuffer.TableKey)))
+	KeyMappingExcelAddId(b, __offset_id)
+	KeyMappingExcelAddTargetKeyCode(b, __offset_target_key_code)
 	KeyMappingExcelAddIsDisplay(b, t.IsDisplay)
 	KeyMappingExcelAddIsUsed(b, t.IsUsed)
 	KeyMappingExcelAddIsLongPress(b, t.IsLongPress)
