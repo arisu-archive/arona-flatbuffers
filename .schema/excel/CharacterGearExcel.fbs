@@ -5,21 +5,21 @@ include "Tag.fbs";
 namespace MX.Data.Excel;
 
 table CharacterGearExcel {
-    id: long;
-    character_id: long;
-    stat_level_up_type: StatLevelUpType;
-    tier: long;
-    next_tier_equipment: long;
-    recipe_id: long;
-    open_favor_level: long;
-    max_level: long;
-    learn_skill_slot: string;
-    stat_type: [EquipmentOptionType];
-    min_stat_value: [long];
-    max_stat_value: [long];
-    icon: string;
-    localize_etc_id: uint;
     tags: [Tag];
+    max_stat_value: [long];
+    min_stat_value: [long];
+    recipe_id: long;
+    learn_skill_slot: string;
+    localize_etc_id: uint;
+    id: long;
+    open_favor_level: long;
+    next_tier_equipment: long;
+    tier: long;
+    stat_type: [EquipmentOptionType];
+    icon: string;
+    stat_level_up_type: StatLevelUpType;
+    character_id: long;
+    max_level: long;
 }
 
 root_type CharacterGearExcel;

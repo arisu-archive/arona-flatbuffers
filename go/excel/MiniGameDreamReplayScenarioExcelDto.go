@@ -10,25 +10,25 @@ import (
 // MiniGameDreamReplayScenarioExcelDto represents a FlatBuffers table
 type MiniGameDreamReplayScenarioExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId                  int64  `json:"event_content_id"`
-	ScenarioGroupId                 int64  `json:"scenario_group_id"`
-	Order                           int64  `json:"order"`
 	ReplaySummaryTitleLocalize      uint32 `json:"replay_summary_title_localize"`
 	ReplaySummaryLocalizeScenarioId uint32 `json:"replay_summary_localize_scenario_id"`
-	ReplayScenarioResource          string `json:"replay_scenario_resource"`
+	EventContentId                  int64  `json:"event_content_id"`
 	IsReplayScenarioHorizon         bool   `json:"is_replay_scenario_horizon"`
+	ScenarioGroupId                 int64  `json:"scenario_group_id"`
+	ReplayScenarioResource          string `json:"replay_scenario_resource"`
+	Order                           int64  `json:"order"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamReplayScenarioExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameDreamReplayScenarioExcelStart(b)
-	MiniGameDreamReplayScenarioExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameDreamReplayScenarioExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
-	MiniGameDreamReplayScenarioExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
 	MiniGameDreamReplayScenarioExcelAddReplaySummaryTitleLocalize(b, fbsutils.Convert(t.ReplaySummaryTitleLocalize, t.FlatBuffer.TableKey))
 	MiniGameDreamReplayScenarioExcelAddReplaySummaryLocalizeScenarioId(b, fbsutils.Convert(t.ReplaySummaryLocalizeScenarioId, t.FlatBuffer.TableKey))
-	MiniGameDreamReplayScenarioExcelAddReplayScenarioResource(b, b.CreateString(fbsutils.Convert(t.ReplayScenarioResource, t.FlatBuffer.TableKey)))
+	MiniGameDreamReplayScenarioExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameDreamReplayScenarioExcelAddIsReplayScenarioHorizon(b, t.IsReplayScenarioHorizon)
+	MiniGameDreamReplayScenarioExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
+	MiniGameDreamReplayScenarioExcelAddReplayScenarioResource(b, b.CreateString(fbsutils.Convert(t.ReplayScenarioResource, t.FlatBuffer.TableKey)))
+	MiniGameDreamReplayScenarioExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
 	return MiniGameDreamReplayScenarioExcelEnd(b)
 }
 
@@ -41,13 +41,13 @@ func (t *MiniGameDreamReplayScenarioExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamReplayScenarioExcelDto) UnmarshalMessage(e *MiniGameDreamReplayScenarioExcel) error {
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
-	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	t.ReplaySummaryTitleLocalize = fbsutils.Convert(e.ReplaySummaryTitleLocalize(), t.FlatBuffer.TableKey)
 	t.ReplaySummaryLocalizeScenarioId = fbsutils.Convert(e.ReplaySummaryLocalizeScenarioId(), t.FlatBuffer.TableKey)
-	t.ReplayScenarioResource = fbsutils.Convert(string(e.ReplayScenarioResource()), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.IsReplayScenarioHorizon = e.IsReplayScenarioHorizon()
+	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
+	t.ReplayScenarioResource = fbsutils.Convert(string(e.ReplayScenarioResource()), t.FlatBuffer.TableKey)
+	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	return nil
 }
 

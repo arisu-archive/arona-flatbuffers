@@ -1,0 +1,31 @@
+include "EchelonExtensionType.fbs";
+include "ParcelType.fbs";
+include "StageTopography.fbs";
+include "StarGoalType.fbs";
+include "WeekDungeonType.fbs";
+
+namespace MX.Data.Excel;
+
+table WeekDungeonExcel {
+    stage_reward_id: long;
+    recommand_level: long;
+    battle_reward_exp: long;
+    ground_id: int;
+    stage_topography: StageTopography;
+    stage_id: long;
+    battle_reward_player_exp: long;
+    difficulty: int;
+    star_goal: [StarGoalType];
+    stage_enter_cost_amount: [int];
+    group_buff_id: [long];
+    play_time_limit_in_seconds: long;
+    stage_enter_cost_type: [ParcelType];
+    week_dungeon_type: WeekDungeonType;
+    stage_enter_cost_id: [long];
+    battle_duration: long;
+    prev_stage_id: long;
+    star_goal_amount: [int];
+    echelon_extension_type: EchelonExtensionType;
+}
+
+root_type WeekDungeonExcel;

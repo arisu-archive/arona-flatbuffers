@@ -11,8 +11,8 @@ import (
 type MoveEndDto struct {
 	fbsutils.FlatBuffer
 	Normal MotionDto `json:"normal"`
-	Stand  MotionDto `json:"stand"`
 	Kneel  MotionDto `json:"kneel"`
+	Stand  MotionDto `json:"stand"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,8 +22,8 @@ func (t *MoveEndDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	}
 	MoveEndStart(b)
 	MoveEndAddNormal(b, t.Normal.MarshalModel(b))
-	MoveEndAddStand(b, t.Stand.MarshalModel(b))
 	MoveEndAddKneel(b, t.Kneel.MarshalModel(b))
+	MoveEndAddStand(b, t.Stand.MarshalModel(b))
 	return MoveEndEnd(b)
 }
 
@@ -40,8 +40,8 @@ func (t *MoveEndDto) UnmarshalMessage(e *MoveEnd) error {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("MoveEnd"))
 	}
 	t.Normal.UnmarshalMessage(e.Normal(nil))
-	t.Stand.UnmarshalMessage(e.Stand(nil))
 	t.Kneel.UnmarshalMessage(e.Kneel(nil))
+	t.Stand.UnmarshalMessage(e.Stand(nil))
 	return nil
 }
 

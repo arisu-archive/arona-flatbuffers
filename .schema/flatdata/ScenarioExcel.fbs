@@ -12,12 +12,12 @@ namespace FlatData;
 
 table ScenarioExcel {
     none: [ScenarioBGType];
+    enter_conver: EmojiEvent;
     idle: [ScenarioCharacterAction];
     cafe: DialogCategory;
-    talk: DialogType;
-    open: StoryCondition;
-    enter_conver: EmojiEvent;
     center: ScenarioZoomAnchors;
     instant: ScenarioZoomType;
+    talk: DialogType;
     prologue: ScenarioContentType;
+    open: StoryCondition;
 }

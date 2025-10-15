@@ -4,10 +4,10 @@ namespace MX.Data.Excel;
 
 table ToastExcel {
     id: uint;
-    toast_type: ToastType;
-    mission_id: uint;
     text_id: uint;
+    mission_id: uint;
     life_time: long;
+    toast_type: ToastType;
 }
 
 root_type ToastExcel;

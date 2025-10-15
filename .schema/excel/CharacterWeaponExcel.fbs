@@ -1,0 +1,27 @@
+include "EquipmentOptionType.fbs";
+include "StatLevelUpType.fbs";
+include "Tag.fbs";
+
+namespace MX.Data.Excel;
+
+table CharacterWeaponExcel {
+    max_hp100: long;
+    learn_skill_slot: [string];
+    heal_power100: long;
+    stat_level_up_type: StatLevelUpType;
+    stat_value: [long];
+    id: long;
+    recipe_id: [long];
+    attack_power: long;
+    tags: [Tag];
+    max_hp: long;
+    unlock: [bool];
+    stat_type: [EquipmentOptionType];
+    image_path: string;
+    max_level: [int];
+    heal_power: long;
+    set_recipe: long;
+    attack_power100: long;
+}
+
+root_type CharacterWeaponExcel;

@@ -1,0 +1,16 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table GachaElementRecursiveExcel {
+    parcel_amount_max: int;
+    id: long;
+    parcel_type: ParcelType;
+    state: int;
+    parcel_amount_min: int;
+    prob: int;
+    gacha_group_id: long;
+    parcel_id: long;
+}
+
+root_type GachaElementRecursiveExcel;

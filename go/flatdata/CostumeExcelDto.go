@@ -10,38 +10,39 @@ import (
 // CostumeExcelDto represents a FlatBuffers table
 type CostumeExcelDto struct {
 	fbsutils.FlatBuffer
-	CostumeGroupId                            int64              `json:"costume_group_id"`
-	CostumeUniqueId                           int64              `json:"costume_unique_id"`
-	DevName                                   string             `json:"dev_name"`
-	ProductionStep                            ProductionStep     `json:"production_step"`
-	IsDefault                                 bool               `json:"is_default"`
-	CollectionVisible                         bool               `json:"collection_visible"`
-	ReleaseDate                               string             `json:"release_date"`
-	CollectionVisibleStartDate                string             `json:"collection_visible_start_date"`
-	CollectionVisibleEndDate                  string             `json:"collection_visible_end_date"`
-	Rarity                                    Rarity             `json:"rarity"`
 	CharacterSkillListGroupId                 int64              `json:"character_skill_list_group_id"`
-	SpineResourceName                         string             `json:"spine_resource_name"`
-	SpineResourceNameDiorama                  string             `json:"spine_resource_name_diorama"`
-	SpineResourceNameDioramaForFormConversion []string           `json:"spine_resource_name_diorama_for_form_conversion"`
+	IsDefault                                 bool               `json:"is_default"`
+	AnimatorName                              string             `json:"animator_name"`
 	EntityMaterialType                        EntityMaterialType `json:"entity_material_type"`
-	ModelPrefabName                           string             `json:"model_prefab_name"`
-	CafeModelPrefabName                       string             `json:"cafe_model_prefab_name"`
-	EchelonModelPrefabName                    string             `json:"echelon_model_prefab_name"`
-	StrategyModelPrefabName                   string             `json:"strategy_model_prefab_name"`
-	TextureDir                                string             `json:"texture_dir"`
-	CollectionTexturePath                     string             `json:"collection_texture_path"`
-	CollectionBgTexturePath                   string             `json:"collection_bg_texture_path"`
 	CombatStyleTexturePath                    string             `json:"combat_style_texture_path"`
-	UseObjectHpbar                            bool               `json:"use_object_hpbar"`
-	TextureBoss                               string             `json:"texture_boss"`
-	TextureSkillCard                          []string           `json:"texture_skill_card"`
-	InformationPacel                          string             `json:"information_pacel"`
-	AnimationSsr                              string             `json:"animation_ssr"`
-	EnterStrategyAnimationName                string             `json:"enter_strategy_animation_name"`
+	ProductionStep                            ProductionStep     `json:"production_step"`
+	SpineResourceName                         string             `json:"spine_resource_name"`
+	CollectionVisibleEndDate                  string             `json:"collection_visible_end_date"`
+	CafeModelPrefabName                       string             `json:"cafe_model_prefab_name"`
+	CollectionVisibleStartDate                string             `json:"collection_visible_start_date"`
+	CostumeGroupId                            int64              `json:"costume_group_id"`
+	CollectionVisible                         bool               `json:"collection_visible"`
+	StrategyModelPrefabName                   string             `json:"strategy_model_prefab_name"`
+	CollectionTexturePath                     string             `json:"collection_texture_path"`
 	AnimationValidator                        bool               `json:"animation_validator"`
-	CharacterVoiceGroupId                     int64              `json:"character_voice_group_id"`
+	CostumeUniqueId                           int64              `json:"costume_unique_id"`
+	AnimationSsr                              string             `json:"animation_ssr"`
+	ReleaseDate                               string             `json:"release_date"`
 	ShowObjectHpStatus                        bool               `json:"show_object_hp_status"`
+	SpineResourceNameDioramaForFormConversion []string           `json:"spine_resource_name_diorama_for_form_conversion"`
+	InformationPacel                          string             `json:"information_pacel"`
+	TextureBoss                               string             `json:"texture_boss"`
+	CharacterVoiceGroupId                     int64              `json:"character_voice_group_id"`
+	CollectionBgTexturePath                   string             `json:"collection_bg_texture_path"`
+	UseObjectHpbar                            bool               `json:"use_object_hpbar"`
+	SpineResourceNameDiorama                  string             `json:"spine_resource_name_diorama"`
+	TextureSkillCard                          []string           `json:"texture_skill_card"`
+	Rarity                                    Rarity             `json:"rarity"`
+	DevName                                   string             `json:"dev_name"`
+	EchelonModelPrefabName                    string             `json:"echelon_model_prefab_name"`
+	EnterStrategyAnimationName                string             `json:"enter_strategy_animation_name"`
+	ModelPrefabName                           string             `json:"model_prefab_name"`
+	TextureDir                                string             `json:"texture_dir"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -50,46 +51,47 @@ func (t *CostumeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffs
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Costume"))
 	}
 	CostumeExcelStart(b)
-	CostumeExcelAddCostumeGroupId(b, fbsutils.Convert(t.CostumeGroupId, t.FlatBuffer.TableKey))
-	CostumeExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
-	CostumeExcelAddDevName(b, b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey)))
-	CostumeExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
-	CostumeExcelAddIsDefault(b, t.IsDefault)
-	CostumeExcelAddCollectionVisible(b, t.CollectionVisible)
-	CostumeExcelAddReleaseDate(b, b.CreateString(fbsutils.Convert(t.ReleaseDate, t.FlatBuffer.TableKey)))
-	CostumeExcelAddCollectionVisibleStartDate(b, b.CreateString(fbsutils.Convert(t.CollectionVisibleStartDate, t.FlatBuffer.TableKey)))
-	CostumeExcelAddCollectionVisibleEndDate(b, b.CreateString(fbsutils.Convert(t.CollectionVisibleEndDate, t.FlatBuffer.TableKey)))
-	CostumeExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
 	CostumeExcelAddCharacterSkillListGroupId(b, fbsutils.Convert(t.CharacterSkillListGroupId, t.FlatBuffer.TableKey))
+	CostumeExcelAddIsDefault(b, t.IsDefault)
+	CostumeExcelAddAnimatorName(b, b.CreateString(fbsutils.Convert(t.AnimatorName, t.FlatBuffer.TableKey)))
+	CostumeExcelAddEntityMaterialType(b, fbsutils.Convert(t.EntityMaterialType, t.FlatBuffer.TableKey))
+	CostumeExcelAddCombatStyleTexturePath(b, b.CreateString(fbsutils.Convert(t.CombatStyleTexturePath, t.FlatBuffer.TableKey)))
+	CostumeExcelAddProductionStep(b, fbsutils.Convert(t.ProductionStep, t.FlatBuffer.TableKey))
 	CostumeExcelAddSpineResourceName(b, b.CreateString(fbsutils.Convert(t.SpineResourceName, t.FlatBuffer.TableKey)))
-	CostumeExcelAddSpineResourceNameDiorama(b, b.CreateString(fbsutils.Convert(t.SpineResourceNameDiorama, t.FlatBuffer.TableKey)))
+	CostumeExcelAddCollectionVisibleEndDate(b, b.CreateString(fbsutils.Convert(t.CollectionVisibleEndDate, t.FlatBuffer.TableKey)))
+	CostumeExcelAddCafeModelPrefabName(b, b.CreateString(fbsutils.Convert(t.CafeModelPrefabName, t.FlatBuffer.TableKey)))
+	CostumeExcelAddCollectionVisibleStartDate(b, b.CreateString(fbsutils.Convert(t.CollectionVisibleStartDate, t.FlatBuffer.TableKey)))
+	CostumeExcelAddCostumeGroupId(b, fbsutils.Convert(t.CostumeGroupId, t.FlatBuffer.TableKey))
+	CostumeExcelAddCollectionVisible(b, t.CollectionVisible)
+	CostumeExcelAddStrategyModelPrefabName(b, b.CreateString(fbsutils.Convert(t.StrategyModelPrefabName, t.FlatBuffer.TableKey)))
+	CostumeExcelAddCollectionTexturePath(b, b.CreateString(fbsutils.Convert(t.CollectionTexturePath, t.FlatBuffer.TableKey)))
+	CostumeExcelAddAnimationValidator(b, t.AnimationValidator)
+	CostumeExcelAddCostumeUniqueId(b, fbsutils.Convert(t.CostumeUniqueId, t.FlatBuffer.TableKey))
+	CostumeExcelAddAnimationSsr(b, b.CreateString(fbsutils.Convert(t.AnimationSsr, t.FlatBuffer.TableKey)))
+	CostumeExcelAddReleaseDate(b, b.CreateString(fbsutils.Convert(t.ReleaseDate, t.FlatBuffer.TableKey)))
+	CostumeExcelAddShowObjectHpStatus(b, t.ShowObjectHpStatus)
 	CostumeExcelStartSpineResourceNameDioramaForFormConversionVector(b, len(t.SpineResourceNameDioramaForFormConversion))
 	for i := range len(t.SpineResourceNameDioramaForFormConversion) {
 		b.PrependUOffsetT(b.CreateString(t.SpineResourceNameDioramaForFormConversion[len(t.SpineResourceNameDioramaForFormConversion)-i-1]))
 	}
 	CostumeExcelAddSpineResourceNameDioramaForFormConversion(b, b.EndVector(len(t.SpineResourceNameDioramaForFormConversion)))
-	CostumeExcelAddEntityMaterialType(b, fbsutils.Convert(t.EntityMaterialType, t.FlatBuffer.TableKey))
-	CostumeExcelAddModelPrefabName(b, b.CreateString(fbsutils.Convert(t.ModelPrefabName, t.FlatBuffer.TableKey)))
-	CostumeExcelAddCafeModelPrefabName(b, b.CreateString(fbsutils.Convert(t.CafeModelPrefabName, t.FlatBuffer.TableKey)))
-	CostumeExcelAddEchelonModelPrefabName(b, b.CreateString(fbsutils.Convert(t.EchelonModelPrefabName, t.FlatBuffer.TableKey)))
-	CostumeExcelAddStrategyModelPrefabName(b, b.CreateString(fbsutils.Convert(t.StrategyModelPrefabName, t.FlatBuffer.TableKey)))
-	CostumeExcelAddTextureDir(b, b.CreateString(fbsutils.Convert(t.TextureDir, t.FlatBuffer.TableKey)))
-	CostumeExcelAddCollectionTexturePath(b, b.CreateString(fbsutils.Convert(t.CollectionTexturePath, t.FlatBuffer.TableKey)))
-	CostumeExcelAddCollectionBgTexturePath(b, b.CreateString(fbsutils.Convert(t.CollectionBgTexturePath, t.FlatBuffer.TableKey)))
-	CostumeExcelAddCombatStyleTexturePath(b, b.CreateString(fbsutils.Convert(t.CombatStyleTexturePath, t.FlatBuffer.TableKey)))
-	CostumeExcelAddUseObjectHpbar(b, t.UseObjectHpbar)
+	CostumeExcelAddInformationPacel(b, b.CreateString(fbsutils.Convert(t.InformationPacel, t.FlatBuffer.TableKey)))
 	CostumeExcelAddTextureBoss(b, b.CreateString(fbsutils.Convert(t.TextureBoss, t.FlatBuffer.TableKey)))
+	CostumeExcelAddCharacterVoiceGroupId(b, fbsutils.Convert(t.CharacterVoiceGroupId, t.FlatBuffer.TableKey))
+	CostumeExcelAddCollectionBgTexturePath(b, b.CreateString(fbsutils.Convert(t.CollectionBgTexturePath, t.FlatBuffer.TableKey)))
+	CostumeExcelAddUseObjectHpbar(b, t.UseObjectHpbar)
+	CostumeExcelAddSpineResourceNameDiorama(b, b.CreateString(fbsutils.Convert(t.SpineResourceNameDiorama, t.FlatBuffer.TableKey)))
 	CostumeExcelStartTextureSkillCardVector(b, len(t.TextureSkillCard))
 	for i := range len(t.TextureSkillCard) {
 		b.PrependUOffsetT(b.CreateString(t.TextureSkillCard[len(t.TextureSkillCard)-i-1]))
 	}
 	CostumeExcelAddTextureSkillCard(b, b.EndVector(len(t.TextureSkillCard)))
-	CostumeExcelAddInformationPacel(b, b.CreateString(fbsutils.Convert(t.InformationPacel, t.FlatBuffer.TableKey)))
-	CostumeExcelAddAnimationSsr(b, b.CreateString(fbsutils.Convert(t.AnimationSsr, t.FlatBuffer.TableKey)))
+	CostumeExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
+	CostumeExcelAddDevName(b, b.CreateString(fbsutils.Convert(t.DevName, t.FlatBuffer.TableKey)))
+	CostumeExcelAddEchelonModelPrefabName(b, b.CreateString(fbsutils.Convert(t.EchelonModelPrefabName, t.FlatBuffer.TableKey)))
 	CostumeExcelAddEnterStrategyAnimationName(b, b.CreateString(fbsutils.Convert(t.EnterStrategyAnimationName, t.FlatBuffer.TableKey)))
-	CostumeExcelAddAnimationValidator(b, t.AnimationValidator)
-	CostumeExcelAddCharacterVoiceGroupId(b, fbsutils.Convert(t.CharacterVoiceGroupId, t.FlatBuffer.TableKey))
-	CostumeExcelAddShowObjectHpStatus(b, t.ShowObjectHpStatus)
+	CostumeExcelAddModelPrefabName(b, b.CreateString(fbsutils.Convert(t.ModelPrefabName, t.FlatBuffer.TableKey)))
+	CostumeExcelAddTextureDir(b, b.CreateString(fbsutils.Convert(t.TextureDir, t.FlatBuffer.TableKey)))
 	return CostumeExcelEnd(b)
 }
 
@@ -105,44 +107,45 @@ func (t *CostumeExcelDto) UnmarshalMessage(e *CostumeExcel) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("Costume"))
 	}
-	t.CostumeGroupId = fbsutils.Convert(e.CostumeGroupId(), t.FlatBuffer.TableKey)
-	t.CostumeUniqueId = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
-	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
-	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
-	t.IsDefault = e.IsDefault()
-	t.CollectionVisible = e.CollectionVisible()
-	t.ReleaseDate = fbsutils.Convert(string(e.ReleaseDate()), t.FlatBuffer.TableKey)
-	t.CollectionVisibleStartDate = fbsutils.Convert(string(e.CollectionVisibleStartDate()), t.FlatBuffer.TableKey)
-	t.CollectionVisibleEndDate = fbsutils.Convert(string(e.CollectionVisibleEndDate()), t.FlatBuffer.TableKey)
-	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
 	t.CharacterSkillListGroupId = fbsutils.Convert(e.CharacterSkillListGroupId(), t.FlatBuffer.TableKey)
+	t.IsDefault = e.IsDefault()
+	t.AnimatorName = fbsutils.Convert(string(e.AnimatorName()), t.FlatBuffer.TableKey)
+	t.EntityMaterialType = EntityMaterialType(fbsutils.Convert(int32(e.EntityMaterialType()), t.FlatBuffer.TableKey))
+	t.CombatStyleTexturePath = fbsutils.Convert(string(e.CombatStyleTexturePath()), t.FlatBuffer.TableKey)
+	t.ProductionStep = ProductionStep(fbsutils.Convert(int32(e.ProductionStep()), t.FlatBuffer.TableKey))
 	t.SpineResourceName = fbsutils.Convert(string(e.SpineResourceName()), t.FlatBuffer.TableKey)
-	t.SpineResourceNameDiorama = fbsutils.Convert(string(e.SpineResourceNameDiorama()), t.FlatBuffer.TableKey)
+	t.CollectionVisibleEndDate = fbsutils.Convert(string(e.CollectionVisibleEndDate()), t.FlatBuffer.TableKey)
+	t.CafeModelPrefabName = fbsutils.Convert(string(e.CafeModelPrefabName()), t.FlatBuffer.TableKey)
+	t.CollectionVisibleStartDate = fbsutils.Convert(string(e.CollectionVisibleStartDate()), t.FlatBuffer.TableKey)
+	t.CostumeGroupId = fbsutils.Convert(e.CostumeGroupId(), t.FlatBuffer.TableKey)
+	t.CollectionVisible = e.CollectionVisible()
+	t.StrategyModelPrefabName = fbsutils.Convert(string(e.StrategyModelPrefabName()), t.FlatBuffer.TableKey)
+	t.CollectionTexturePath = fbsutils.Convert(string(e.CollectionTexturePath()), t.FlatBuffer.TableKey)
+	t.AnimationValidator = e.AnimationValidator()
+	t.CostumeUniqueId = fbsutils.Convert(e.CostumeUniqueId(), t.FlatBuffer.TableKey)
+	t.AnimationSsr = fbsutils.Convert(string(e.AnimationSsr()), t.FlatBuffer.TableKey)
+	t.ReleaseDate = fbsutils.Convert(string(e.ReleaseDate()), t.FlatBuffer.TableKey)
+	t.ShowObjectHpStatus = e.ShowObjectHpStatus()
 	t.SpineResourceNameDioramaForFormConversion = make([]string, e.SpineResourceNameDioramaForFormConversionLength())
 	for i := range e.SpineResourceNameDioramaForFormConversionLength() {
 		t.SpineResourceNameDioramaForFormConversion[i] = fbsutils.Convert(string(e.SpineResourceNameDioramaForFormConversion(i)), t.FlatBuffer.TableKey)
 	}
-	t.EntityMaterialType = EntityMaterialType(fbsutils.Convert(int32(e.EntityMaterialType()), t.FlatBuffer.TableKey))
-	t.ModelPrefabName = fbsutils.Convert(string(e.ModelPrefabName()), t.FlatBuffer.TableKey)
-	t.CafeModelPrefabName = fbsutils.Convert(string(e.CafeModelPrefabName()), t.FlatBuffer.TableKey)
-	t.EchelonModelPrefabName = fbsutils.Convert(string(e.EchelonModelPrefabName()), t.FlatBuffer.TableKey)
-	t.StrategyModelPrefabName = fbsutils.Convert(string(e.StrategyModelPrefabName()), t.FlatBuffer.TableKey)
-	t.TextureDir = fbsutils.Convert(string(e.TextureDir()), t.FlatBuffer.TableKey)
-	t.CollectionTexturePath = fbsutils.Convert(string(e.CollectionTexturePath()), t.FlatBuffer.TableKey)
-	t.CollectionBgTexturePath = fbsutils.Convert(string(e.CollectionBgTexturePath()), t.FlatBuffer.TableKey)
-	t.CombatStyleTexturePath = fbsutils.Convert(string(e.CombatStyleTexturePath()), t.FlatBuffer.TableKey)
-	t.UseObjectHpbar = e.UseObjectHpbar()
+	t.InformationPacel = fbsutils.Convert(string(e.InformationPacel()), t.FlatBuffer.TableKey)
 	t.TextureBoss = fbsutils.Convert(string(e.TextureBoss()), t.FlatBuffer.TableKey)
+	t.CharacterVoiceGroupId = fbsutils.Convert(e.CharacterVoiceGroupId(), t.FlatBuffer.TableKey)
+	t.CollectionBgTexturePath = fbsutils.Convert(string(e.CollectionBgTexturePath()), t.FlatBuffer.TableKey)
+	t.UseObjectHpbar = e.UseObjectHpbar()
+	t.SpineResourceNameDiorama = fbsutils.Convert(string(e.SpineResourceNameDiorama()), t.FlatBuffer.TableKey)
 	t.TextureSkillCard = make([]string, e.TextureSkillCardLength())
 	for i := range e.TextureSkillCardLength() {
 		t.TextureSkillCard[i] = fbsutils.Convert(string(e.TextureSkillCard(i)), t.FlatBuffer.TableKey)
 	}
-	t.InformationPacel = fbsutils.Convert(string(e.InformationPacel()), t.FlatBuffer.TableKey)
-	t.AnimationSsr = fbsutils.Convert(string(e.AnimationSsr()), t.FlatBuffer.TableKey)
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
+	t.DevName = fbsutils.Convert(string(e.DevName()), t.FlatBuffer.TableKey)
+	t.EchelonModelPrefabName = fbsutils.Convert(string(e.EchelonModelPrefabName()), t.FlatBuffer.TableKey)
 	t.EnterStrategyAnimationName = fbsutils.Convert(string(e.EnterStrategyAnimationName()), t.FlatBuffer.TableKey)
-	t.AnimationValidator = e.AnimationValidator()
-	t.CharacterVoiceGroupId = fbsutils.Convert(e.CharacterVoiceGroupId(), t.FlatBuffer.TableKey)
-	t.ShowObjectHpStatus = e.ShowObjectHpStatus()
+	t.ModelPrefabName = fbsutils.Convert(string(e.ModelPrefabName()), t.FlatBuffer.TableKey)
+	t.TextureDir = fbsutils.Convert(string(e.TextureDir()), t.FlatBuffer.TableKey)
 	return nil
 }
 

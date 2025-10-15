@@ -1,0 +1,20 @@
+include "ParcelType.fbs";
+include "Tag.fbs";
+
+namespace MX.Data.Excel;
+
+table ShiftingCraftRecipeExcel {
+    display_order: long;
+    result_amount: long;
+    require_gold: long;
+    require_item_id: long;
+    id: long;
+    require_item_amount: long;
+    result_parcel: ParcelType;
+    ingredient_exp: long;
+    notification_id: int;
+    result_id: long;
+    ingredient_tag: [Tag];
+}
+
+root_type ShiftingCraftRecipeExcel;

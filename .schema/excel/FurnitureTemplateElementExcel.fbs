@@ -1,0 +1,15 @@
+include "FurnitureLocation.fbs";
+
+namespace MX.Data.Excel;
+
+table FurnitureTemplateElementExcel {
+    furniture_template_id: long;
+    position_y: float;
+    rotation: float;
+    location: FurnitureLocation;
+    furniture_id: long;
+    position_x: float;
+    order: long;
+}
+
+root_type FurnitureTemplateElementExcel;

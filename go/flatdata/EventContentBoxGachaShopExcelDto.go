@@ -10,14 +10,14 @@ import (
 // EventContentBoxGachaShopExcelDto represents a FlatBuffers table
 type EventContentBoxGachaShopExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId     int64   `json:"event_content_id"`
-	GroupId            int64   `json:"group_id"`
-	GroupElementAmount int64   `json:"group_element_amount"`
-	Round              int64   `json:"round"`
-	IsLegacy           bool    `json:"is_legacy"`
-	IsPrize            bool    `json:"is_prize"`
-	GoodsId            []int64 `json:"goods_id"`
 	DisplayOrder       int64   `json:"display_order"`
+	Round              int64   `json:"round"`
+	GroupElementAmount int64   `json:"group_element_amount"`
+	EventContentId     int64   `json:"event_content_id"`
+	GoodsId            []int64 `json:"goods_id"`
+	IsPrize            bool    `json:"is_prize"`
+	IsLegacy           bool    `json:"is_legacy"`
+	GroupId            int64   `json:"group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,18 +26,18 @@ func (t *EventContentBoxGachaShopExcelDto) MarshalModel(b *flatbuffers.Builder) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBoxGachaShop"))
 	}
 	EventContentBoxGachaShopExcelStart(b)
-	EventContentBoxGachaShopExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentBoxGachaShopExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	EventContentBoxGachaShopExcelAddGroupElementAmount(b, fbsutils.Convert(t.GroupElementAmount, t.FlatBuffer.TableKey))
+	EventContentBoxGachaShopExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
 	EventContentBoxGachaShopExcelAddRound(b, fbsutils.Convert(t.Round, t.FlatBuffer.TableKey))
-	EventContentBoxGachaShopExcelAddIsLegacy(b, t.IsLegacy)
-	EventContentBoxGachaShopExcelAddIsPrize(b, t.IsPrize)
+	EventContentBoxGachaShopExcelAddGroupElementAmount(b, fbsutils.Convert(t.GroupElementAmount, t.FlatBuffer.TableKey))
+	EventContentBoxGachaShopExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentBoxGachaShopExcelStartGoodsIdVector(b, len(t.GoodsId))
 	for i := range len(t.GoodsId) {
 		b.PrependInt64(fbsutils.Convert(t.GoodsId[len(t.GoodsId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentBoxGachaShopExcelAddGoodsId(b, b.EndVector(len(t.GoodsId)))
-	EventContentBoxGachaShopExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	EventContentBoxGachaShopExcelAddIsPrize(b, t.IsPrize)
+	EventContentBoxGachaShopExcelAddIsLegacy(b, t.IsLegacy)
+	EventContentBoxGachaShopExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	return EventContentBoxGachaShopExcelEnd(b)
 }
 
@@ -53,17 +53,17 @@ func (t *EventContentBoxGachaShopExcelDto) UnmarshalMessage(e *EventContentBoxGa
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentBoxGachaShop"))
 	}
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.GroupElementAmount = fbsutils.Convert(e.GroupElementAmount(), t.FlatBuffer.TableKey)
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
 	t.Round = fbsutils.Convert(e.Round(), t.FlatBuffer.TableKey)
-	t.IsLegacy = e.IsLegacy()
-	t.IsPrize = e.IsPrize()
+	t.GroupElementAmount = fbsutils.Convert(e.GroupElementAmount(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.GoodsId = make([]int64, e.GoodsIdLength())
 	for i := range e.GoodsIdLength() {
 		t.GoodsId[i] = fbsutils.Convert(e.GoodsId(i), t.FlatBuffer.TableKey)
 	}
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.IsPrize = e.IsPrize()
+	t.IsLegacy = e.IsLegacy()
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

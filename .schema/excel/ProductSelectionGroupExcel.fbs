@@ -1,0 +1,16 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table ProductSelectionGroupExcel {
+    display_order: long;
+    product_selection_group_component_id: long;
+    parcel_id: long;
+    result_amount: long;
+    condition_parcel_id: long;
+    parcel_type: ParcelType;
+    condition_parcel_type: ParcelType;
+    product_selection_group_id: long;
+}
+
+root_type ProductSelectionGroupExcel;

@@ -1,0 +1,24 @@
+include "ProductDisplayTag.fbs";
+include "ShopCategoryType.fbs";
+include "ShopPurchasePopupType.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopRefreshExcel {
+    purchase_count_limit: long;
+    refresh_group: int;
+    visible_amount: long;
+    is_legacy: bool;
+    prob: int;
+    category_type: ShopCategoryType;
+    goods_id: long;
+    is_bundle: bool;
+    display_tag: ProductDisplayTag;
+    shop_purchase_popup_type: ShopPurchasePopupType;
+    localize_etc_id: uint;
+    buy_report_event_name: string;
+    display_order: long;
+    id: long;
+}
+
+root_type ShopRefreshExcel;

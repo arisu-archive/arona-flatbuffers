@@ -10,15 +10,14 @@ import (
 // CharacterGearLevelExcelDto represents a FlatBuffers table
 type CharacterGearLevelExcelDto struct {
 	fbsutils.FlatBuffer
-	Level        int32   `json:"level"`
 	TierLevelExp []int64 `json:"tier_level_exp"`
 	TotalExp     []int64 `json:"total_exp"`
+	Level        int32   `json:"level"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterGearLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CharacterGearLevelExcelStart(b)
-	CharacterGearLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	CharacterGearLevelExcelStartTierLevelExpVector(b, len(t.TierLevelExp))
 	for i := range len(t.TierLevelExp) {
 		b.PrependInt64(fbsutils.Convert(t.TierLevelExp[len(t.TierLevelExp)-i-1], t.FlatBuffer.TableKey))
@@ -29,6 +28,7 @@ func (t *CharacterGearLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		b.PrependInt64(fbsutils.Convert(t.TotalExp[len(t.TotalExp)-i-1], t.FlatBuffer.TableKey))
 	}
 	CharacterGearLevelExcelAddTotalExp(b, b.EndVector(len(t.TotalExp)))
+	CharacterGearLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	return CharacterGearLevelExcelEnd(b)
 }
 
@@ -41,7 +41,6 @@ func (t *CharacterGearLevelExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterGearLevelExcelDto) UnmarshalMessage(e *CharacterGearLevelExcel) error {
-	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.TierLevelExp = make([]int64, e.TierLevelExpLength())
 	for i := range e.TierLevelExpLength() {
 		t.TierLevelExp[i] = fbsutils.Convert(e.TierLevelExp(i), t.FlatBuffer.TableKey)
@@ -50,6 +49,7 @@ func (t *CharacterGearLevelExcelDto) UnmarshalMessage(e *CharacterGearLevelExcel
 	for i := range e.TotalExpLength() {
 		t.TotalExp[i] = fbsutils.Convert(e.TotalExp(i), t.FlatBuffer.TableKey)
 	}
+	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	return nil
 }
 

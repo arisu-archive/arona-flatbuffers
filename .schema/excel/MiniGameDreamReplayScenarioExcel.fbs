@@ -1,13 +1,13 @@
 namespace MX.Data.Excel;
 
 table MiniGameDreamReplayScenarioExcel {
-    event_content_id: long;
-    scenario_group_id: long;
-    order: long;
     replay_summary_title_localize: uint;
     replay_summary_localize_scenario_id: uint;
-    replay_scenario_resource: string;
+    event_content_id: long;
     is_replay_scenario_horizon: bool;
+    scenario_group_id: long;
+    replay_scenario_resource: string;
+    order: long;
 }
 
 root_type MiniGameDreamReplayScenarioExcel;

@@ -10,9 +10,9 @@ import (
 // EventContentMiniEventTokenExcelDto represents a FlatBuffers table
 type EventContentMiniEventTokenExcelDto struct {
 	fbsutils.FlatBuffer
+	MaximumAmount  int64 `json:"maximum_amount"`
 	EventContentId int64 `json:"event_content_id"`
 	ItemUniqueId   int64 `json:"item_unique_id"`
-	MaximumAmount  int64 `json:"maximum_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,9 +21,9 @@ func (t *EventContentMiniEventTokenExcelDto) MarshalModel(b *flatbuffers.Builder
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMiniEventToken"))
 	}
 	EventContentMiniEventTokenExcelStart(b)
+	EventContentMiniEventTokenExcelAddMaximumAmount(b, fbsutils.Convert(t.MaximumAmount, t.FlatBuffer.TableKey))
 	EventContentMiniEventTokenExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentMiniEventTokenExcelAddItemUniqueId(b, fbsutils.Convert(t.ItemUniqueId, t.FlatBuffer.TableKey))
-	EventContentMiniEventTokenExcelAddMaximumAmount(b, fbsutils.Convert(t.MaximumAmount, t.FlatBuffer.TableKey))
 	return EventContentMiniEventTokenExcelEnd(b)
 }
 
@@ -39,9 +39,9 @@ func (t *EventContentMiniEventTokenExcelDto) UnmarshalMessage(e *EventContentMin
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMiniEventToken"))
 	}
+	t.MaximumAmount = fbsutils.Convert(e.MaximumAmount(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.ItemUniqueId = fbsutils.Convert(e.ItemUniqueId(), t.FlatBuffer.TableKey)
-	t.MaximumAmount = fbsutils.Convert(e.MaximumAmount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

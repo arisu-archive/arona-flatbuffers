@@ -33,16 +33,16 @@ func (rcv *TutorialExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *TutorialExcel) Id() int64 {
+func (rcv *TutorialExcel) CompulsoryTutorial() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
-	return 0
+	return false
 }
 
-func (rcv *TutorialExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *TutorialExcel) MutateCompulsoryTutorial(n bool) bool {
+	return rcv._tab.MutateBoolSlot(4, n)
 }
 
 func (rcv *TutorialExcel) CompletionReportEventName() []byte {
@@ -53,32 +53,8 @@ func (rcv *TutorialExcel) CompletionReportEventName() []byte {
 	return nil
 }
 
-func (rcv *TutorialExcel) CompulsoryTutorial() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *TutorialExcel) MutateCompulsoryTutorial(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
-}
-
-func (rcv *TutorialExcel) DescriptionTutorial() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *TutorialExcel) MutateDescriptionTutorial(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
-}
-
 func (rcv *TutorialExcel) TutorialStageId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -86,7 +62,31 @@ func (rcv *TutorialExcel) TutorialStageId() int64 {
 }
 
 func (rcv *TutorialExcel) MutateTutorialStageId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *TutorialExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TutorialExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *TutorialExcel) DescriptionTutorial() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *TutorialExcel) MutateDescriptionTutorial(n bool) bool {
+	return rcv._tab.MutateBoolSlot(12, n)
 }
 
 func (rcv *TutorialExcel) UiName(j int) []byte {
@@ -126,20 +126,20 @@ func (rcv *TutorialExcel) TutorialParentNameLength() int {
 func TutorialExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func TutorialExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
+func TutorialExcelAddCompulsoryTutorial(builder *flatbuffers.Builder, compulsoryTutorial bool) {
+	builder.PrependBoolSlot(0, compulsoryTutorial, false)
 }
 func TutorialExcelAddCompletionReportEventName(builder *flatbuffers.Builder, completionReportEventName flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(completionReportEventName), 0)
 }
-func TutorialExcelAddCompulsoryTutorial(builder *flatbuffers.Builder, compulsoryTutorial bool) {
-	builder.PrependBoolSlot(2, compulsoryTutorial, false)
+func TutorialExcelAddTutorialStageId(builder *flatbuffers.Builder, tutorialStageId int64) {
+	builder.PrependInt64Slot(2, tutorialStageId, 0)
+}
+func TutorialExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(3, id, 0)
 }
 func TutorialExcelAddDescriptionTutorial(builder *flatbuffers.Builder, descriptionTutorial bool) {
-	builder.PrependBoolSlot(3, descriptionTutorial, false)
-}
-func TutorialExcelAddTutorialStageId(builder *flatbuffers.Builder, tutorialStageId int64) {
-	builder.PrependInt64Slot(4, tutorialStageId, 0)
+	builder.PrependBoolSlot(4, descriptionTutorial, false)
 }
 func TutorialExcelAddUiName(builder *flatbuffers.Builder, uiName flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(uiName), 0)

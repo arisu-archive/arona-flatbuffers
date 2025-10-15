@@ -1,0 +1,26 @@
+namespace MX.Data.Excel;
+
+table BattlePassInfoExcel {
+    normal_product_group_id: long;
+    pass_exp_localize_etc_id: uint;
+    purchase_step_product_image_path: string;
+    premium_product_group_id: long;
+    pass_lv_up_goods_id: long;
+    video_id: [long];
+    discount_premium_product_group_id: long;
+    main_icon_parcel_path: string;
+    sale_period_to: string;
+    free_reward_group_id: long;
+    buy_premium_lv_up_amount: int;
+    purchase_reward_group_id: long;
+    lobby_banner_path: string;
+    exclusive_emblem_id: long;
+    next_lv_need_exp: int;
+    sale_period_from: string;
+    exclusive_reward_id: long;
+    flavor_text_group_id: long;
+    id: long;
+    purchase_step_bg_image_path: string;
+}
+
+root_type BattlePassInfoExcel;

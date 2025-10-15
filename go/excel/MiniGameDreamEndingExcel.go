@@ -33,32 +33,8 @@ func (rcv *MiniGameDreamEndingExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameDreamEndingExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameDreamEndingExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MiniGameDreamEndingExcel) EndingId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameDreamEndingExcel) MutateEndingId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
 func (rcv *MiniGameDreamEndingExcel) DreamMakerEndingType() DreamMakerEndingType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return DreamMakerEndingType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -66,23 +42,11 @@ func (rcv *MiniGameDreamEndingExcel) DreamMakerEndingType() DreamMakerEndingType
 }
 
 func (rcv *MiniGameDreamEndingExcel) MutateDreamMakerEndingType(n DreamMakerEndingType) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *MiniGameDreamEndingExcel) Order() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameDreamEndingExcel) MutateOrder(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
+	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
 func (rcv *MiniGameDreamEndingExcel) ScenarioGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -90,7 +54,43 @@ func (rcv *MiniGameDreamEndingExcel) ScenarioGroupId() int64 {
 }
 
 func (rcv *MiniGameDreamEndingExcel) MutateScenarioGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *MiniGameDreamEndingExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameDreamEndingExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *MiniGameDreamEndingExcel) EndingId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameDreamEndingExcel) MutateEndingId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *MiniGameDreamEndingExcel) Order() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameDreamEndingExcel) MutateOrder(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
 }
 
 func (rcv *MiniGameDreamEndingExcel) EndingCondition(j int) DreamMakerEndingCondition {
@@ -148,20 +148,20 @@ func (rcv *MiniGameDreamEndingExcel) MutateEndingConditionValue(j int, n int64) 
 func MiniGameDreamEndingExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func MiniGameDreamEndingExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
-func MiniGameDreamEndingExcelAddEndingId(builder *flatbuffers.Builder, endingId int64) {
-	builder.PrependInt64Slot(1, endingId, 0)
-}
 func MiniGameDreamEndingExcelAddDreamMakerEndingType(builder *flatbuffers.Builder, dreamMakerEndingType DreamMakerEndingType) {
-	builder.PrependInt32Slot(2, int32(dreamMakerEndingType), 0)
-}
-func MiniGameDreamEndingExcelAddOrder(builder *flatbuffers.Builder, order int32) {
-	builder.PrependInt32Slot(3, order, 0)
+	builder.PrependInt32Slot(0, int32(dreamMakerEndingType), 0)
 }
 func MiniGameDreamEndingExcelAddScenarioGroupId(builder *flatbuffers.Builder, scenarioGroupId int64) {
-	builder.PrependInt64Slot(4, scenarioGroupId, 0)
+	builder.PrependInt64Slot(1, scenarioGroupId, 0)
+}
+func MiniGameDreamEndingExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(2, eventContentId, 0)
+}
+func MiniGameDreamEndingExcelAddEndingId(builder *flatbuffers.Builder, endingId int64) {
+	builder.PrependInt64Slot(3, endingId, 0)
+}
+func MiniGameDreamEndingExcelAddOrder(builder *flatbuffers.Builder, order int32) {
+	builder.PrependInt32Slot(4, order, 0)
 }
 func MiniGameDreamEndingExcelAddEndingCondition(builder *flatbuffers.Builder, endingCondition flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(endingCondition), 0)

@@ -1,0 +1,14 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table PickupFirstGetBonusExcel {
+    pickup_character_id: long;
+    reward_parcel_amount: long;
+    recruit_sellection_shop_id: long;
+    reward_parcel_id: long;
+    reward_parcel_type: ParcelType;
+    shop_recruit_id: long;
+}
+
+root_type PickupFirstGetBonusExcel;

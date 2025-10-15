@@ -33,8 +33,16 @@ func (rcv *EventContentFortuneGachaExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentFortuneGachaExcel) FortuneGachaGroupId() int32 {
+func (rcv *EventContentFortuneGachaExcel) NameImagePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentFortuneGachaExcel) FortuneGachaGroupId() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -42,11 +50,11 @@ func (rcv *EventContentFortuneGachaExcel) FortuneGachaGroupId() int32 {
 }
 
 func (rcv *EventContentFortuneGachaExcel) MutateFortuneGachaGroupId(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
+	return rcv._tab.MutateInt32Slot(6, n)
 }
 
 func (rcv *EventContentFortuneGachaExcel) LocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -54,15 +62,7 @@ func (rcv *EventContentFortuneGachaExcel) LocalizeEtcId() uint32 {
 }
 
 func (rcv *EventContentFortuneGachaExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(6, n)
-}
-
-func (rcv *EventContentFortuneGachaExcel) NameImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+	return rcv._tab.MutateUint32Slot(8, n)
 }
 
 func (rcv *EventContentFortuneGachaExcel) IconPath() []byte {
@@ -76,14 +76,14 @@ func (rcv *EventContentFortuneGachaExcel) IconPath() []byte {
 func EventContentFortuneGachaExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
+func EventContentFortuneGachaExcelAddNameImagePath(builder *flatbuffers.Builder, nameImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(nameImagePath), 0)
+}
 func EventContentFortuneGachaExcelAddFortuneGachaGroupId(builder *flatbuffers.Builder, fortuneGachaGroupId int32) {
-	builder.PrependInt32Slot(0, fortuneGachaGroupId, 0)
+	builder.PrependInt32Slot(1, fortuneGachaGroupId, 0)
 }
 func EventContentFortuneGachaExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(1, localizeEtcId, 0)
-}
-func EventContentFortuneGachaExcelAddNameImagePath(builder *flatbuffers.Builder, nameImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(nameImagePath), 0)
+	builder.PrependUint32Slot(2, localizeEtcId, 0)
 }
 func EventContentFortuneGachaExcelAddIconPath(builder *flatbuffers.Builder, iconPath flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(iconPath), 0)

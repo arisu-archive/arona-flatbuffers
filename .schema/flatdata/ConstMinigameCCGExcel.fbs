@@ -1,0 +1,28 @@
+namespace FlatData;
+
+table ConstMinigameCCGExcel {
+    conquest_map_boundary_offset_right: float;
+    max_cost: int;
+    select_reward_option_count: int;
+    alternative_card_image_path: string;
+    camera_zoom_default: float;
+    striker_swap_front_cost: int;
+    conquest_map_center_offset_y: float;
+    ani_ally_battle_attack: string;
+    thema_loading_progress_time: float;
+    base_reward_reroll_point: int;
+    turn_draw_count: int;
+    max_hand_count: int;
+    striker_max_equip_count: int;
+    camera_zoom_min: float;
+    conquest_map_boundary_offset_top: float;
+    turn_cost: int;
+    camp_revive_health_rate: int;
+    camera_zoom_max: float;
+    conquest_map_center_offset_x: float;
+    start_draw_count: int;
+    conquest_map_boundary_offset_bottom: float;
+    camera_angle: float;
+    map_ally_rotation: float;
+    start_cost: int;
+}

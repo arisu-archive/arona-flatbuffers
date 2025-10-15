@@ -33,20 +33,8 @@ func (rcv *LimitedStageRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LimitedStageRewardExcel) GroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LimitedStageRewardExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
 func (rcv *LimitedStageRewardExcel) RewardTag() RewardTag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return RewardTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -54,10 +42,22 @@ func (rcv *LimitedStageRewardExcel) RewardTag() RewardTag {
 }
 
 func (rcv *LimitedStageRewardExcel) MutateRewardTag(n RewardTag) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
+	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
-func (rcv *LimitedStageRewardExcel) RewardProb() int32 {
+func (rcv *LimitedStageRewardExcel) GroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *LimitedStageRewardExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *LimitedStageRewardExcel) RewardAmount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -65,20 +65,20 @@ func (rcv *LimitedStageRewardExcel) RewardProb() int32 {
 	return 0
 }
 
-func (rcv *LimitedStageRewardExcel) MutateRewardProb(n int32) bool {
+func (rcv *LimitedStageRewardExcel) MutateRewardAmount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *LimitedStageRewardExcel) RewardParcelType() ParcelType {
+func (rcv *LimitedStageRewardExcel) RewardProb() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *LimitedStageRewardExcel) MutateRewardParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
+func (rcv *LimitedStageRewardExcel) MutateRewardProb(n int32) bool {
+	return rcv._tab.MutateInt32Slot(10, n)
 }
 
 func (rcv *LimitedStageRewardExcel) RewardId() int64 {
@@ -93,20 +93,8 @@ func (rcv *LimitedStageRewardExcel) MutateRewardId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *LimitedStageRewardExcel) RewardAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *LimitedStageRewardExcel) MutateRewardAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
-}
-
 func (rcv *LimitedStageRewardExcel) IsDisplayed() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -114,32 +102,44 @@ func (rcv *LimitedStageRewardExcel) IsDisplayed() bool {
 }
 
 func (rcv *LimitedStageRewardExcel) MutateIsDisplayed(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
+	return rcv._tab.MutateBoolSlot(14, n)
+}
+
+func (rcv *LimitedStageRewardExcel) RewardParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *LimitedStageRewardExcel) MutateRewardParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
 }
 
 func LimitedStageRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func LimitedStageRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
-}
 func LimitedStageRewardExcelAddRewardTag(builder *flatbuffers.Builder, rewardTag RewardTag) {
-	builder.PrependInt32Slot(1, int32(rewardTag), 0)
+	builder.PrependInt32Slot(0, int32(rewardTag), 0)
+}
+func LimitedStageRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(1, groupId, 0)
+}
+func LimitedStageRewardExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount int32) {
+	builder.PrependInt32Slot(2, rewardAmount, 0)
 }
 func LimitedStageRewardExcelAddRewardProb(builder *flatbuffers.Builder, rewardProb int32) {
-	builder.PrependInt32Slot(2, rewardProb, 0)
-}
-func LimitedStageRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
-	builder.PrependInt32Slot(3, int32(rewardParcelType), 0)
+	builder.PrependInt32Slot(3, rewardProb, 0)
 }
 func LimitedStageRewardExcelAddRewardId(builder *flatbuffers.Builder, rewardId int64) {
 	builder.PrependInt64Slot(4, rewardId, 0)
 }
-func LimitedStageRewardExcelAddRewardAmount(builder *flatbuffers.Builder, rewardAmount int32) {
-	builder.PrependInt32Slot(5, rewardAmount, 0)
-}
 func LimitedStageRewardExcelAddIsDisplayed(builder *flatbuffers.Builder, isDisplayed bool) {
-	builder.PrependBoolSlot(6, isDisplayed, false)
+	builder.PrependBoolSlot(5, isDisplayed, false)
+}
+func LimitedStageRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
+	builder.PrependInt32Slot(6, int32(rewardParcelType), 0)
 }
 func LimitedStageRewardExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

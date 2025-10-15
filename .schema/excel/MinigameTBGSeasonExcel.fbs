@@ -1,0 +1,37 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table MinigameTBGSeasonExcel {
+    echelon_slot1_character_id: long;
+    attack_damage: int;
+    echelon_slot1_portrait: string;
+    max_hp: int;
+    echelon_revival_cost_id: long;
+    echelon_revival_cost_type: ParcelType;
+    loop_thema_index: int;
+    map_name_localize: string;
+    event_use_cost_id: long;
+    map_image_path: string;
+    round_item_select_limit: int;
+    echelon_slot4_portrait: string;
+    enemy_boss_hp: int;
+    echelon_slot3_portrait: string;
+    echelon_slot3_character_id: long;
+    item_slot: int;
+    event_use_cost_type: ParcelType;
+    event_content_id: long;
+    enemy_minion_hp: int;
+    start_thema_index: int;
+    default_item_dice_id: long;
+    instant_clear_round: int;
+    max_dice_plus: int;
+    critical_attack_damage: int;
+    echelon_slot2_character_id: long;
+    echelon_revival_cost_amount: int;
+    echelon_slot4_character_id: long;
+    default_echelon_hp: int;
+    echelon_slot2_portrait: string;
+}
+
+root_type MinigameTBGSeasonExcel;

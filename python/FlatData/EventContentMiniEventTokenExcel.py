@@ -25,21 +25,21 @@ class EventContentMiniEventTokenExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentMiniEventTokenExcel
-    def EventContentId(self):
+    def MaximumAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentMiniEventTokenExcel
-    def ItemUniqueId(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentMiniEventTokenExcel
-    def MaximumAmount(self):
+    def ItemUniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -48,15 +48,15 @@ class EventContentMiniEventTokenExcel(object):
 def EventContentMiniEventTokenExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return EventContentMiniEventTokenExcelStart(builder)
-def EventContentMiniEventTokenExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return EventContentMiniEventTokenExcelAddEventContentId(builder, eventContentId)
-def EventContentMiniEventTokenExcelAddItemUniqueId(builder, itemUniqueId): builder.PrependInt64Slot(1, itemUniqueId, 0)
-def AddItemUniqueId(builder, itemUniqueId):
-    return EventContentMiniEventTokenExcelAddItemUniqueId(builder, itemUniqueId)
-def EventContentMiniEventTokenExcelAddMaximumAmount(builder, maximumAmount): builder.PrependInt64Slot(2, maximumAmount, 0)
+def EventContentMiniEventTokenExcelAddMaximumAmount(builder, maximumAmount): builder.PrependInt64Slot(0, maximumAmount, 0)
 def AddMaximumAmount(builder, maximumAmount):
     return EventContentMiniEventTokenExcelAddMaximumAmount(builder, maximumAmount)
+def EventContentMiniEventTokenExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return EventContentMiniEventTokenExcelAddEventContentId(builder, eventContentId)
+def EventContentMiniEventTokenExcelAddItemUniqueId(builder, itemUniqueId): builder.PrependInt64Slot(2, itemUniqueId, 0)
+def AddItemUniqueId(builder, itemUniqueId):
+    return EventContentMiniEventTokenExcelAddItemUniqueId(builder, itemUniqueId)
 def EventContentMiniEventTokenExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentMiniEventTokenExcelEnd(builder)

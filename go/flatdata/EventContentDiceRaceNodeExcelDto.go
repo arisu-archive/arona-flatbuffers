@@ -10,13 +10,13 @@ import (
 // EventContentDiceRaceNodeExcelDto represents a FlatBuffers table
 type EventContentDiceRaceNodeExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId               int64                        `json:"event_content_id"`
-	NodeId                       int64                        `json:"node_id"`
+	RewardParcelId               []int64                      `json:"reward_parcel_id"`
 	EventContentDiceRaceNodeType EventContentDiceRaceNodeType `json:"event_content_dice_race_node_type"`
+	EventContentId               int64                        `json:"event_content_id"`
+	RewardAmount                 []int64                      `json:"reward_amount"`
+	NodeId                       int64                        `json:"node_id"`
 	MoveForwardTypeArg           int32                        `json:"move_forward_type_arg"`
 	RewardParcelType             []ParcelType                 `json:"reward_parcel_type"`
-	RewardParcelId               []int64                      `json:"reward_parcel_id"`
-	RewardAmount                 []int64                      `json:"reward_amount"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,25 +25,25 @@ func (t *EventContentDiceRaceNodeExcelDto) MarshalModel(b *flatbuffers.Builder) 
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceNode"))
 	}
 	EventContentDiceRaceNodeExcelStart(b)
-	EventContentDiceRaceNodeExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentDiceRaceNodeExcelAddNodeId(b, fbsutils.Convert(t.NodeId, t.FlatBuffer.TableKey))
+	EventContentDiceRaceNodeExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
+	for i := range len(t.RewardParcelId) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentDiceRaceNodeExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
 	EventContentDiceRaceNodeExcelAddEventContentDiceRaceNodeType(b, fbsutils.Convert(t.EventContentDiceRaceNodeType, t.FlatBuffer.TableKey))
+	EventContentDiceRaceNodeExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentDiceRaceNodeExcelStartRewardAmountVector(b, len(t.RewardAmount))
+	for i := range len(t.RewardAmount) {
+		b.PrependInt64(fbsutils.Convert(t.RewardAmount[len(t.RewardAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentDiceRaceNodeExcelAddRewardAmount(b, b.EndVector(len(t.RewardAmount)))
+	EventContentDiceRaceNodeExcelAddNodeId(b, fbsutils.Convert(t.NodeId, t.FlatBuffer.TableKey))
 	EventContentDiceRaceNodeExcelAddMoveForwardTypeArg(b, fbsutils.Convert(t.MoveForwardTypeArg, t.FlatBuffer.TableKey))
 	EventContentDiceRaceNodeExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
 	}
 	EventContentDiceRaceNodeExcelAddRewardParcelType(b, b.EndVector(len(t.RewardParcelType)))
-	EventContentDiceRaceNodeExcelStartRewardParcelIdVector(b, len(t.RewardParcelId))
-	for i := range len(t.RewardParcelId) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentDiceRaceNodeExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
-	EventContentDiceRaceNodeExcelStartRewardAmountVector(b, len(t.RewardAmount))
-	for i := range len(t.RewardAmount) {
-		b.PrependInt64(fbsutils.Convert(t.RewardAmount[len(t.RewardAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentDiceRaceNodeExcelAddRewardAmount(b, b.EndVector(len(t.RewardAmount)))
 	return EventContentDiceRaceNodeExcelEnd(b)
 }
 
@@ -59,21 +59,21 @@ func (t *EventContentDiceRaceNodeExcelDto) UnmarshalMessage(e *EventContentDiceR
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceNode"))
 	}
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.NodeId = fbsutils.Convert(e.NodeId(), t.FlatBuffer.TableKey)
-	t.EventContentDiceRaceNodeType = EventContentDiceRaceNodeType(fbsutils.Convert(int32(e.EventContentDiceRaceNodeType()), t.FlatBuffer.TableKey))
-	t.MoveForwardTypeArg = fbsutils.Convert(e.MoveForwardTypeArg(), t.FlatBuffer.TableKey)
-	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
-	for i := range e.RewardParcelTypeLength() {
-		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
-	}
 	t.RewardParcelId = make([]int64, e.RewardParcelIdLength())
 	for i := range e.RewardParcelIdLength() {
 		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
+	t.EventContentDiceRaceNodeType = EventContentDiceRaceNodeType(fbsutils.Convert(int32(e.EventContentDiceRaceNodeType()), t.FlatBuffer.TableKey))
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.RewardAmount = make([]int64, e.RewardAmountLength())
 	for i := range e.RewardAmountLength() {
 		t.RewardAmount[i] = fbsutils.Convert(e.RewardAmount(i), t.FlatBuffer.TableKey)
+	}
+	t.NodeId = fbsutils.Convert(e.NodeId(), t.FlatBuffer.TableKey)
+	t.MoveForwardTypeArg = fbsutils.Convert(e.MoveForwardTypeArg(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
+	for i := range e.RewardParcelTypeLength() {
+		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

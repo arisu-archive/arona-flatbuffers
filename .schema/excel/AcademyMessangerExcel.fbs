@@ -1,0 +1,26 @@
+include "AcademyMessageConditions.fbs";
+include "AcademyMessageTypes.fbs";
+
+namespace MX.Data.Excel;
+
+table AcademyMessangerExcel {
+    favor_schedule_id: long;
+    condition_value: long;
+    image_path: string;
+    message_kr: string;
+    message_type: AcademyMessageTypes;
+    character_id: long;
+    message_th: string;
+    message_tw: string;
+    feedback_time_millisec: long;
+    id: long;
+    pre_condition_group_id: long;
+    message_jp: string;
+    pre_condition_favor_schedule_id: long;
+    message_en: string;
+    message_condition: AcademyMessageConditions;
+    message_group_id: long;
+    next_group_id: long;
+}
+
+root_type AcademyMessangerExcel;

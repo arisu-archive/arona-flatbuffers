@@ -1,0 +1,17 @@
+namespace MX.Data.Excel;
+
+table ConquestCameraSettingExcel {
+    conquest_map_center_offset_x: float;
+    conquest_map_boundary_offset_right: float;
+    conquest_map_boundary_offset_left: float;
+    camera_zoom_min: float;
+    conquest_map_boundary_offset_top: float;
+    id: long;
+    camera_angle: float;
+    conquest_map_center_offset_y: float;
+    camera_zoom_default: float;
+    conquest_map_boundary_offset_bottom: float;
+    camera_zoom_max: float;
+}
+
+root_type ConquestCameraSettingExcel;

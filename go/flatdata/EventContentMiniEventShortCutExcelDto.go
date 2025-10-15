@@ -10,10 +10,10 @@ import (
 // EventContentMiniEventShortCutExcelDto represents a FlatBuffers table
 type EventContentMiniEventShortCutExcelDto struct {
 	fbsutils.FlatBuffer
+	ShortcutUi         string          `json:"shortcut_ui"`
 	Id                 int32           `json:"id"`
 	LocalizeEtcId      uint32          `json:"localize_etc_id"`
 	ShorcutContentType EventTargetType `json:"shorcut_content_type"`
-	ShortcutUi         string          `json:"shortcut_ui"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *EventContentMiniEventShortCutExcelDto) MarshalModel(b *flatbuffers.Buil
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMiniEventShortCut"))
 	}
 	EventContentMiniEventShortCutExcelStart(b)
+	EventContentMiniEventShortCutExcelAddShortcutUi(b, b.CreateString(fbsutils.Convert(t.ShortcutUi, t.FlatBuffer.TableKey)))
 	EventContentMiniEventShortCutExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EventContentMiniEventShortCutExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
 	EventContentMiniEventShortCutExcelAddShorcutContentType(b, fbsutils.Convert(t.ShorcutContentType, t.FlatBuffer.TableKey))
-	EventContentMiniEventShortCutExcelAddShortcutUi(b, b.CreateString(fbsutils.Convert(t.ShortcutUi, t.FlatBuffer.TableKey)))
 	return EventContentMiniEventShortCutExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *EventContentMiniEventShortCutExcelDto) UnmarshalMessage(e *EventContent
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMiniEventShortCut"))
 	}
+	t.ShortcutUi = fbsutils.Convert(string(e.ShortcutUi()), t.FlatBuffer.TableKey)
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
 	t.ShorcutContentType = EventTargetType(fbsutils.Convert(int32(e.ShorcutContentType()), t.FlatBuffer.TableKey))
-	t.ShortcutUi = fbsutils.Convert(string(e.ShortcutUi()), t.FlatBuffer.TableKey)
 	return nil
 }
 

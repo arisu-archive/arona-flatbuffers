@@ -4,8 +4,8 @@ namespace MX.Data.Excel;
 
 table VoiceCommonExcel {
     voice_event: VoiceEvent;
-    rate: long;
     voice_hash: [uint];
+    rate: long;
 }
 
 root_type VoiceCommonExcel;

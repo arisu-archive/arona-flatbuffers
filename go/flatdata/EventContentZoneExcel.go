@@ -57,44 +57,8 @@ func (rcv *EventContentZoneExcel) MutateOriginalZoneId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentZoneExcel) LocationId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentZoneExcel) MutateLocationId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *EventContentZoneExcel) LocationRank() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentZoneExcel) MutateLocationRank(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *EventContentZoneExcel) EventPointForLocationRank() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentZoneExcel) MutateEventPointForLocationRank(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
 func (rcv *EventContentZoneExcel) LocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -102,11 +66,23 @@ func (rcv *EventContentZoneExcel) LocalizeEtcId() uint32 {
 }
 
 func (rcv *EventContentZoneExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(14, n)
+	return rcv._tab.MutateUint32Slot(8, n)
+}
+
+func (rcv *EventContentZoneExcel) EventPointForLocationRank() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentZoneExcel) MutateEventPointForLocationRank(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func (rcv *EventContentZoneExcel) StudentVisitProb(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -115,7 +91,7 @@ func (rcv *EventContentZoneExcel) StudentVisitProb(j int) int64 {
 }
 
 func (rcv *EventContentZoneExcel) StudentVisitProbLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -123,7 +99,7 @@ func (rcv *EventContentZoneExcel) StudentVisitProbLength() int {
 }
 
 func (rcv *EventContentZoneExcel) MutateStudentVisitProb(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -131,46 +107,32 @@ func (rcv *EventContentZoneExcel) MutateStudentVisitProb(j int, n int64) bool {
 	return false
 }
 
-func (rcv *EventContentZoneExcel) RewardGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+func (rcv *EventContentZoneExcel) LocationId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EventContentZoneExcel) MutateRewardGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+func (rcv *EventContentZoneExcel) MutateLocationId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
-func (rcv *EventContentZoneExcel) Tags(j int) Tag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+func (rcv *EventContentZoneExcel) LocationRank() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EventContentZoneExcel) TagsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *EventContentZoneExcel) MutateTags(j int, n Tag) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
-	}
-	return false
+func (rcv *EventContentZoneExcel) MutateLocationRank(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func (rcv *EventContentZoneExcel) WhiteListTags(j int) Tag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -179,7 +141,7 @@ func (rcv *EventContentZoneExcel) WhiteListTags(j int) Tag {
 }
 
 func (rcv *EventContentZoneExcel) WhiteListTagsLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -187,6 +149,44 @@ func (rcv *EventContentZoneExcel) WhiteListTagsLength() int {
 }
 
 func (rcv *EventContentZoneExcel) MutateWhiteListTags(j int, n Tag) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
+	}
+	return false
+}
+
+func (rcv *EventContentZoneExcel) RewardGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentZoneExcel) MutateRewardGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *EventContentZoneExcel) Tags(j int) Tag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return Tag(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
+	}
+	return 0
+}
+
+func (rcv *EventContentZoneExcel) TagsLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EventContentZoneExcel) MutateTags(j int, n Tag) bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
@@ -204,37 +204,37 @@ func EventContentZoneExcelAddId(builder *flatbuffers.Builder, id int64) {
 func EventContentZoneExcelAddOriginalZoneId(builder *flatbuffers.Builder, originalZoneId int64) {
 	builder.PrependInt64Slot(1, originalZoneId, 0)
 }
-func EventContentZoneExcelAddLocationId(builder *flatbuffers.Builder, locationId int64) {
-	builder.PrependInt64Slot(2, locationId, 0)
-}
-func EventContentZoneExcelAddLocationRank(builder *flatbuffers.Builder, locationRank int64) {
-	builder.PrependInt64Slot(3, locationRank, 0)
+func EventContentZoneExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
+	builder.PrependUint32Slot(2, localizeEtcId, 0)
 }
 func EventContentZoneExcelAddEventPointForLocationRank(builder *flatbuffers.Builder, eventPointForLocationRank int64) {
-	builder.PrependInt64Slot(4, eventPointForLocationRank, 0)
-}
-func EventContentZoneExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(5, localizeEtcId, 0)
+	builder.PrependInt64Slot(3, eventPointForLocationRank, 0)
 }
 func EventContentZoneExcelAddStudentVisitProb(builder *flatbuffers.Builder, studentVisitProb flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(studentVisitProb), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(studentVisitProb), 0)
 }
 func EventContentZoneExcelStartStudentVisitProbVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func EventContentZoneExcelAddRewardGroupId(builder *flatbuffers.Builder, rewardGroupId int64) {
-	builder.PrependInt64Slot(7, rewardGroupId, 0)
+func EventContentZoneExcelAddLocationId(builder *flatbuffers.Builder, locationId int64) {
+	builder.PrependInt64Slot(5, locationId, 0)
 }
-func EventContentZoneExcelAddTags(builder *flatbuffers.Builder, tags flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(tags), 0)
-}
-func EventContentZoneExcelStartTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
+func EventContentZoneExcelAddLocationRank(builder *flatbuffers.Builder, locationRank int64) {
+	builder.PrependInt64Slot(6, locationRank, 0)
 }
 func EventContentZoneExcelAddWhiteListTags(builder *flatbuffers.Builder, whiteListTags flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(whiteListTags), 0)
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(whiteListTags), 0)
 }
 func EventContentZoneExcelStartWhiteListTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
+}
+func EventContentZoneExcelAddRewardGroupId(builder *flatbuffers.Builder, rewardGroupId int64) {
+	builder.PrependInt64Slot(8, rewardGroupId, 0)
+}
+func EventContentZoneExcelAddTags(builder *flatbuffers.Builder, tags flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(tags), 0)
+}
+func EventContentZoneExcelStartTagsVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func EventContentZoneExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {

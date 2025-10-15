@@ -2,6 +2,6 @@ namespace FlatData;
 
 table GroundVector3 {
     x: float;
-    y: float;
     z: float;
+    y: float;
 }

@@ -25,21 +25,21 @@ class ConstConquestExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # ConstConquestExcel
-    def ManageUnitChange(self):
+    def AnimationUnitAmountMax(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstConquestExcel
-    def AssistCount(self):
+    def PlayTimeLimitInSeconds(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ConstConquestExcel
-    def PlayTimeLimitInSeconds(self):
+    def AssistCount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -53,40 +53,40 @@ class ConstConquestExcel(object):
         return 0
 
     # ConstConquestExcel
-    def AnimationUnitAmountMax(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ConstConquestExcel
     def AnimationUnitDelay(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
+    # ConstConquestExcel
+    def ManageUnitChange(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
 def ConstConquestExcelStart(builder): builder.StartObject(6)
 def Start(builder):
     return ConstConquestExcelStart(builder)
-def ConstConquestExcelAddManageUnitChange(builder, manageUnitChange): builder.PrependInt32Slot(0, manageUnitChange, 0)
-def AddManageUnitChange(builder, manageUnitChange):
-    return ConstConquestExcelAddManageUnitChange(builder, manageUnitChange)
-def ConstConquestExcelAddAssistCount(builder, assistCount): builder.PrependInt32Slot(1, assistCount, 0)
-def AddAssistCount(builder, assistCount):
-    return ConstConquestExcelAddAssistCount(builder, assistCount)
-def ConstConquestExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds): builder.PrependInt32Slot(2, playTimeLimitInSeconds, 0)
+def ConstConquestExcelAddAnimationUnitAmountMax(builder, animationUnitAmountMax): builder.PrependInt32Slot(0, animationUnitAmountMax, 0)
+def AddAnimationUnitAmountMax(builder, animationUnitAmountMax):
+    return ConstConquestExcelAddAnimationUnitAmountMax(builder, animationUnitAmountMax)
+def ConstConquestExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds): builder.PrependInt32Slot(1, playTimeLimitInSeconds, 0)
 def AddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds):
     return ConstConquestExcelAddPlayTimeLimitInSeconds(builder, playTimeLimitInSeconds)
+def ConstConquestExcelAddAssistCount(builder, assistCount): builder.PrependInt32Slot(2, assistCount, 0)
+def AddAssistCount(builder, assistCount):
+    return ConstConquestExcelAddAssistCount(builder, assistCount)
 def ConstConquestExcelAddAnimationUnitAmountMin(builder, animationUnitAmountMin): builder.PrependInt32Slot(3, animationUnitAmountMin, 0)
 def AddAnimationUnitAmountMin(builder, animationUnitAmountMin):
     return ConstConquestExcelAddAnimationUnitAmountMin(builder, animationUnitAmountMin)
-def ConstConquestExcelAddAnimationUnitAmountMax(builder, animationUnitAmountMax): builder.PrependInt32Slot(4, animationUnitAmountMax, 0)
-def AddAnimationUnitAmountMax(builder, animationUnitAmountMax):
-    return ConstConquestExcelAddAnimationUnitAmountMax(builder, animationUnitAmountMax)
-def ConstConquestExcelAddAnimationUnitDelay(builder, animationUnitDelay): builder.PrependFloat32Slot(5, animationUnitDelay, 0.0)
+def ConstConquestExcelAddAnimationUnitDelay(builder, animationUnitDelay): builder.PrependFloat32Slot(4, animationUnitDelay, 0.0)
 def AddAnimationUnitDelay(builder, animationUnitDelay):
     return ConstConquestExcelAddAnimationUnitDelay(builder, animationUnitDelay)
+def ConstConquestExcelAddManageUnitChange(builder, manageUnitChange): builder.PrependInt32Slot(5, manageUnitChange, 0)
+def AddManageUnitChange(builder, manageUnitChange):
+    return ConstConquestExcelAddManageUnitChange(builder, manageUnitChange)
 def ConstConquestExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ConstConquestExcelEnd(builder)

@@ -25,49 +25,49 @@ class SchoolDungeonRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # SchoolDungeonRewardExcel
-    def GroupId(self):
+    def RewardParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # SchoolDungeonRewardExcel
+    def RewardParcelProbability(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # SchoolDungeonRewardExcel
-    def DungeonType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # SchoolDungeonRewardExcel
-    def RewardTag(self):
+    def GroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # SchoolDungeonRewardExcel
-    def RewardParcelType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # SchoolDungeonRewardExcel
-    def RewardParcelId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # SchoolDungeonRewardExcel
     def RewardParcelAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # SchoolDungeonRewardExcel
-    def RewardParcelProbability(self):
+    def DungeonType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # SchoolDungeonRewardExcel
+    def RewardTag(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # SchoolDungeonRewardExcel
+    def RewardParcelId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -83,27 +83,27 @@ class SchoolDungeonRewardExcel(object):
 def SchoolDungeonRewardExcelStart(builder): builder.StartObject(8)
 def Start(builder):
     return SchoolDungeonRewardExcelStart(builder)
-def SchoolDungeonRewardExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(0, groupId, 0)
-def AddGroupId(builder, groupId):
-    return SchoolDungeonRewardExcelAddGroupId(builder, groupId)
-def SchoolDungeonRewardExcelAddDungeonType(builder, dungeonType): builder.PrependInt32Slot(1, dungeonType, 0)
-def AddDungeonType(builder, dungeonType):
-    return SchoolDungeonRewardExcelAddDungeonType(builder, dungeonType)
-def SchoolDungeonRewardExcelAddRewardTag(builder, rewardTag): builder.PrependInt32Slot(2, rewardTag, 0)
-def AddRewardTag(builder, rewardTag):
-    return SchoolDungeonRewardExcelAddRewardTag(builder, rewardTag)
-def SchoolDungeonRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(3, rewardParcelType, 0)
+def SchoolDungeonRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(0, rewardParcelType, 0)
 def AddRewardParcelType(builder, rewardParcelType):
     return SchoolDungeonRewardExcelAddRewardParcelType(builder, rewardParcelType)
-def SchoolDungeonRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependInt64Slot(4, rewardParcelId, 0)
-def AddRewardParcelId(builder, rewardParcelId):
-    return SchoolDungeonRewardExcelAddRewardParcelId(builder, rewardParcelId)
-def SchoolDungeonRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt64Slot(5, rewardParcelAmount, 0)
-def AddRewardParcelAmount(builder, rewardParcelAmount):
-    return SchoolDungeonRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-def SchoolDungeonRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability): builder.PrependInt64Slot(6, rewardParcelProbability, 0)
+def SchoolDungeonRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability): builder.PrependInt64Slot(1, rewardParcelProbability, 0)
 def AddRewardParcelProbability(builder, rewardParcelProbability):
     return SchoolDungeonRewardExcelAddRewardParcelProbability(builder, rewardParcelProbability)
+def SchoolDungeonRewardExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(2, groupId, 0)
+def AddGroupId(builder, groupId):
+    return SchoolDungeonRewardExcelAddGroupId(builder, groupId)
+def SchoolDungeonRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt64Slot(3, rewardParcelAmount, 0)
+def AddRewardParcelAmount(builder, rewardParcelAmount):
+    return SchoolDungeonRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def SchoolDungeonRewardExcelAddDungeonType(builder, dungeonType): builder.PrependInt32Slot(4, dungeonType, 0)
+def AddDungeonType(builder, dungeonType):
+    return SchoolDungeonRewardExcelAddDungeonType(builder, dungeonType)
+def SchoolDungeonRewardExcelAddRewardTag(builder, rewardTag): builder.PrependInt32Slot(5, rewardTag, 0)
+def AddRewardTag(builder, rewardTag):
+    return SchoolDungeonRewardExcelAddRewardTag(builder, rewardTag)
+def SchoolDungeonRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependInt64Slot(6, rewardParcelId, 0)
+def AddRewardParcelId(builder, rewardParcelId):
+    return SchoolDungeonRewardExcelAddRewardParcelId(builder, rewardParcelId)
 def SchoolDungeonRewardExcelAddIsDisplayed(builder, isDisplayed): builder.PrependBoolSlot(7, isDisplayed, 0)
 def AddIsDisplayed(builder, isDisplayed):
     return SchoolDungeonRewardExcelAddIsDisplayed(builder, isDisplayed)

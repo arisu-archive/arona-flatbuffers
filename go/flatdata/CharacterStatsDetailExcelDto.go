@@ -11,8 +11,8 @@ import (
 type CharacterStatsDetailExcelDto struct {
 	fbsutils.FlatBuffer
 	Id              int64      `json:"id"`
-	DetailShowStats []StatType `json:"detail_show_stats"`
 	IsStatsPercent  []bool     `json:"is_stats_percent"`
+	DetailShowStats []StatType `json:"detail_show_stats"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,16 +22,16 @@ func (t *CharacterStatsDetailExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	}
 	CharacterStatsDetailExcelStart(b)
 	CharacterStatsDetailExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CharacterStatsDetailExcelStartDetailShowStatsVector(b, len(t.DetailShowStats))
-	for i := range len(t.DetailShowStats) {
-		b.PrependInt32(fbsutils.Convert(int32(t.DetailShowStats[len(t.DetailShowStats)-i-1]), t.FlatBuffer.TableKey))
-	}
-	CharacterStatsDetailExcelAddDetailShowStats(b, b.EndVector(len(t.DetailShowStats)))
 	CharacterStatsDetailExcelStartIsStatsPercentVector(b, len(t.IsStatsPercent))
 	for i := range len(t.IsStatsPercent) {
 		b.PrependBool(t.IsStatsPercent[len(t.IsStatsPercent)-i-1])
 	}
 	CharacterStatsDetailExcelAddIsStatsPercent(b, b.EndVector(len(t.IsStatsPercent)))
+	CharacterStatsDetailExcelStartDetailShowStatsVector(b, len(t.DetailShowStats))
+	for i := range len(t.DetailShowStats) {
+		b.PrependInt32(fbsutils.Convert(int32(t.DetailShowStats[len(t.DetailShowStats)-i-1]), t.FlatBuffer.TableKey))
+	}
+	CharacterStatsDetailExcelAddDetailShowStats(b, b.EndVector(len(t.DetailShowStats)))
 	return CharacterStatsDetailExcelEnd(b)
 }
 
@@ -48,13 +48,13 @@ func (t *CharacterStatsDetailExcelDto) UnmarshalMessage(e *CharacterStatsDetailE
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatsDetail"))
 	}
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.DetailShowStats = make([]StatType, e.DetailShowStatsLength())
-	for i := range e.DetailShowStatsLength() {
-		t.DetailShowStats[i] = StatType(fbsutils.Convert(int32(e.DetailShowStats(i)), t.FlatBuffer.TableKey))
-	}
 	t.IsStatsPercent = make([]bool, e.IsStatsPercentLength())
 	for i := range e.IsStatsPercentLength() {
 		t.IsStatsPercent[i] = e.IsStatsPercent(i)
+	}
+	t.DetailShowStats = make([]StatType, e.DetailShowStatsLength())
+	for i := range e.DetailShowStatsLength() {
+		t.DetailShowStats[i] = StatType(fbsutils.Convert(int32(e.DetailShowStats(i)), t.FlatBuffer.TableKey))
 	}
 	return nil
 }

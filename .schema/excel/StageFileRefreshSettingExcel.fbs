@@ -1,8 +1,8 @@
 namespace MX.Data.Excel;
 
 table StageFileRefreshSettingExcel {
-    ground_id: long;
     force_save: bool;
+    ground_id: long;
 }
 
 root_type StageFileRefreshSettingExcel;

@@ -10,9 +10,9 @@ import (
 // AddressableWhiteListExcelDto represents a FlatBuffers table
 type AddressableWhiteListExcelDto struct {
 	fbsutils.FlatBuffer
-	Id           int64    `json:"id"`
-	FolderPath   []string `json:"folder_path"`
 	ResourcePath []string `json:"resource_path"`
+	FolderPath   []string `json:"folder_path"`
+	Id           int64    `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,17 +21,17 @@ func (t *AddressableWhiteListExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AddressableWhiteList"))
 	}
 	AddressableWhiteListExcelStart(b)
-	AddressableWhiteListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	AddressableWhiteListExcelStartFolderPathVector(b, len(t.FolderPath))
-	for i := range len(t.FolderPath) {
-		b.PrependUOffsetT(b.CreateString(t.FolderPath[len(t.FolderPath)-i-1]))
-	}
-	AddressableWhiteListExcelAddFolderPath(b, b.EndVector(len(t.FolderPath)))
 	AddressableWhiteListExcelStartResourcePathVector(b, len(t.ResourcePath))
 	for i := range len(t.ResourcePath) {
 		b.PrependUOffsetT(b.CreateString(t.ResourcePath[len(t.ResourcePath)-i-1]))
 	}
 	AddressableWhiteListExcelAddResourcePath(b, b.EndVector(len(t.ResourcePath)))
+	AddressableWhiteListExcelStartFolderPathVector(b, len(t.FolderPath))
+	for i := range len(t.FolderPath) {
+		b.PrependUOffsetT(b.CreateString(t.FolderPath[len(t.FolderPath)-i-1]))
+	}
+	AddressableWhiteListExcelAddFolderPath(b, b.EndVector(len(t.FolderPath)))
+	AddressableWhiteListExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return AddressableWhiteListExcelEnd(b)
 }
 
@@ -47,15 +47,15 @@ func (t *AddressableWhiteListExcelDto) UnmarshalMessage(e *AddressableWhiteListE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("AddressableWhiteList"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.FolderPath = make([]string, e.FolderPathLength())
-	for i := range e.FolderPathLength() {
-		t.FolderPath[i] = fbsutils.Convert(string(e.FolderPath(i)), t.FlatBuffer.TableKey)
-	}
 	t.ResourcePath = make([]string, e.ResourcePathLength())
 	for i := range e.ResourcePathLength() {
 		t.ResourcePath[i] = fbsutils.Convert(string(e.ResourcePath(i)), t.FlatBuffer.TableKey)
 	}
+	t.FolderPath = make([]string, e.FolderPathLength())
+	for i := range e.FolderPathLength() {
+		t.FolderPath[i] = fbsutils.Convert(string(e.FolderPath(i)), t.FlatBuffer.TableKey)
+	}
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

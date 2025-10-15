@@ -1,0 +1,50 @@
+include "Difficulty.fbs";
+include "EchelonExtensionType.fbs";
+include "ParcelType.fbs";
+include "TacticEnvironment.fbs";
+
+namespace MX.Data.Excel;
+
+table EliminateRaidStageExcel {
+    raid_enter_cost_type: ParcelType;
+    boss_bg_info_key: uint;
+    use_boss_index: bool;
+    difficulty: Difficulty;
+    max_player_count: long;
+    hp_percent_score: long;
+    phase_change_timeline_path: string;
+    enter_time_line: string;
+    battle_ready_timeline_phase_start: [int];
+    time_line_phase: long;
+    tactic_environment: TacticEnvironment;
+    echelon_extension_type: EchelonExtensionType;
+    raid_boss_group: string;
+    ground_id: long;
+    battle_duration: long;
+    show_skill_card: bool;
+    raid_room_life_time: int;
+    victory_timeline_path: string;
+    per_second_minus_score: long;
+    battle_ready_timeline_phase_end: [int];
+    enter_scenario_key: uint;
+    ground_dev_name: string;
+    is_open: bool;
+    maximum_score: long;
+    portrait_path: string;
+    battle_ready_timeline_path: [string];
+    raid_character_id: long;
+    use_boss_ai_phase_sync: bool;
+    raid_enter_cost_amount: int;
+    clear_scenario_key: uint;
+    raid_enter_cost_id: long;
+    id: long;
+    minimum_acquisition_score: long;
+    raid_reward_group_id: long;
+    boss_spine_path: string;
+    maximum_acquisition_score: long;
+    bg_path: string;
+    boss_character_id: [long];
+    default_clear_score: long;
+}
+
+root_type EliminateRaidStageExcel;

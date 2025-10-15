@@ -11,13 +11,13 @@ import (
 type BulletArmorDamageFactorExcelDto struct {
 	fbsutils.FlatBuffer
 	DamageFactorGroupId  string          `json:"damage_factor_group_id"`
-	BulletType           BulletType      `json:"bullet_type"`
-	ArmorType            ArmorType       `json:"armor_type"`
-	DamageRate           int64           `json:"damage_rate"`
-	DamageAttribute      DamageAttribute `json:"damage_attribute"`
+	ShowHighlightFloater bool            `json:"show_highlight_floater"`
 	MinDamageRate        int64           `json:"min_damage_rate"`
 	MaxDamageRate        int64           `json:"max_damage_rate"`
-	ShowHighlightFloater bool            `json:"show_highlight_floater"`
+	BulletType           BulletType      `json:"bullet_type"`
+	DamageRate           int64           `json:"damage_rate"`
+	ArmorType            ArmorType       `json:"armor_type"`
+	DamageAttribute      DamageAttribute `json:"damage_attribute"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,13 +27,13 @@ func (t *BulletArmorDamageFactorExcelDto) MarshalModel(b *flatbuffers.Builder) f
 	}
 	BulletArmorDamageFactorExcelStart(b)
 	BulletArmorDamageFactorExcelAddDamageFactorGroupId(b, b.CreateString(fbsutils.Convert(t.DamageFactorGroupId, t.FlatBuffer.TableKey)))
-	BulletArmorDamageFactorExcelAddBulletType(b, fbsutils.Convert(t.BulletType, t.FlatBuffer.TableKey))
-	BulletArmorDamageFactorExcelAddArmorType(b, fbsutils.Convert(t.ArmorType, t.FlatBuffer.TableKey))
-	BulletArmorDamageFactorExcelAddDamageRate(b, fbsutils.Convert(t.DamageRate, t.FlatBuffer.TableKey))
-	BulletArmorDamageFactorExcelAddDamageAttribute(b, fbsutils.Convert(t.DamageAttribute, t.FlatBuffer.TableKey))
+	BulletArmorDamageFactorExcelAddShowHighlightFloater(b, t.ShowHighlightFloater)
 	BulletArmorDamageFactorExcelAddMinDamageRate(b, fbsutils.Convert(t.MinDamageRate, t.FlatBuffer.TableKey))
 	BulletArmorDamageFactorExcelAddMaxDamageRate(b, fbsutils.Convert(t.MaxDamageRate, t.FlatBuffer.TableKey))
-	BulletArmorDamageFactorExcelAddShowHighlightFloater(b, t.ShowHighlightFloater)
+	BulletArmorDamageFactorExcelAddBulletType(b, fbsutils.Convert(t.BulletType, t.FlatBuffer.TableKey))
+	BulletArmorDamageFactorExcelAddDamageRate(b, fbsutils.Convert(t.DamageRate, t.FlatBuffer.TableKey))
+	BulletArmorDamageFactorExcelAddArmorType(b, fbsutils.Convert(t.ArmorType, t.FlatBuffer.TableKey))
+	BulletArmorDamageFactorExcelAddDamageAttribute(b, fbsutils.Convert(t.DamageAttribute, t.FlatBuffer.TableKey))
 	return BulletArmorDamageFactorExcelEnd(b)
 }
 
@@ -50,13 +50,13 @@ func (t *BulletArmorDamageFactorExcelDto) UnmarshalMessage(e *BulletArmorDamageF
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("BulletArmorDamageFactor"))
 	}
 	t.DamageFactorGroupId = fbsutils.Convert(string(e.DamageFactorGroupId()), t.FlatBuffer.TableKey)
-	t.BulletType = BulletType(fbsutils.Convert(int32(e.BulletType()), t.FlatBuffer.TableKey))
-	t.ArmorType = ArmorType(fbsutils.Convert(int32(e.ArmorType()), t.FlatBuffer.TableKey))
-	t.DamageRate = fbsutils.Convert(e.DamageRate(), t.FlatBuffer.TableKey)
-	t.DamageAttribute = DamageAttribute(fbsutils.Convert(int32(e.DamageAttribute()), t.FlatBuffer.TableKey))
+	t.ShowHighlightFloater = e.ShowHighlightFloater()
 	t.MinDamageRate = fbsutils.Convert(e.MinDamageRate(), t.FlatBuffer.TableKey)
 	t.MaxDamageRate = fbsutils.Convert(e.MaxDamageRate(), t.FlatBuffer.TableKey)
-	t.ShowHighlightFloater = e.ShowHighlightFloater()
+	t.BulletType = BulletType(fbsutils.Convert(int32(e.BulletType()), t.FlatBuffer.TableKey))
+	t.DamageRate = fbsutils.Convert(e.DamageRate(), t.FlatBuffer.TableKey)
+	t.ArmorType = ArmorType(fbsutils.Convert(int32(e.ArmorType()), t.FlatBuffer.TableKey))
+	t.DamageAttribute = DamageAttribute(fbsutils.Convert(int32(e.DamageAttribute()), t.FlatBuffer.TableKey))
 	return nil
 }
 

@@ -3,18 +3,18 @@ include "OperatorCondition.fbs";
 namespace MX.Data.Excel;
 
 table OperatorExcel {
+    portrait_path: string;
+    output_delay: int;
     unique_id: long;
+    text_localize_key: string;
     group_id: string;
+    voice_id: [uint];
+    random_weight: int;
     operator_condition: OperatorCondition;
     output_sequence: int;
-    random_weight: int;
-    output_delay: int;
-    duration: int;
-    operator_output_priority: int;
-    portrait_path: string;
-    text_localize_key: string;
-    voice_id: [uint];
     operator_wait_queue: bool;
+    operator_output_priority: int;
+    duration: int;
 }
 
 root_type OperatorExcel;

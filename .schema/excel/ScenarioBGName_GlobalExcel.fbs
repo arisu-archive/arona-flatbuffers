@@ -1,13 +1,13 @@
 namespace MX.Data.Excel;
 
 table ScenarioBGName_GlobalExcel {
-    group_name: uint;
+    name_teen: uint;
     name_kr: uint;
+    name_global: uint;
+    name_na: uint;
     name_tw: uint;
     name_asia: uint;
-    name_na: uint;
-    name_global: uint;
-    name_teen: uint;
+    group_name: uint;
 }
 
 root_type ScenarioBGName_GlobalExcel;

@@ -3,12 +3,12 @@ include "EventContentType.fbs";
 namespace FlatData;
 
 table EventContentLobbyMenuExcel {
-    event_content_id: long;
-    event_content_type: EventContentType;
     icon_sprite_name: string;
-    button_text: string;
-    display_order: int;
-    icon_offset_x: float;
-    icon_offset_y: float;
     reddot_sprite_name: string;
+    icon_offset_y: float;
+    icon_offset_x: float;
+    event_content_type: EventContentType;
+    display_order: int;
+    button_text: string;
+    event_content_id: long;
 }

@@ -33,16 +33,16 @@ func (rcv *EventContentArchiveBannerOffsetExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentArchiveBannerOffsetExcel) EventContentId() int64 {
+func (rcv *EventContentArchiveBannerOffsetExcel) ScaleX() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return 0
+	return 0.0
 }
 
-func (rcv *EventContentArchiveBannerOffsetExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *EventContentArchiveBannerOffsetExcel) MutateScaleX(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(4, n)
 }
 
 func (rcv *EventContentArchiveBannerOffsetExcel) OffsetX() float32 {
@@ -57,7 +57,7 @@ func (rcv *EventContentArchiveBannerOffsetExcel) MutateOffsetX(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(6, n)
 }
 
-func (rcv *EventContentArchiveBannerOffsetExcel) OffsetY() float32 {
+func (rcv *EventContentArchiveBannerOffsetExcel) ScaleY() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *EventContentArchiveBannerOffsetExcel) OffsetY() float32 {
 	return 0.0
 }
 
-func (rcv *EventContentArchiveBannerOffsetExcel) MutateOffsetY(n float32) bool {
+func (rcv *EventContentArchiveBannerOffsetExcel) MutateScaleY(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(8, n)
 }
 
-func (rcv *EventContentArchiveBannerOffsetExcel) ScaleX() float32 {
+func (rcv *EventContentArchiveBannerOffsetExcel) OffsetY() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -77,39 +77,39 @@ func (rcv *EventContentArchiveBannerOffsetExcel) ScaleX() float32 {
 	return 0.0
 }
 
-func (rcv *EventContentArchiveBannerOffsetExcel) MutateScaleX(n float32) bool {
+func (rcv *EventContentArchiveBannerOffsetExcel) MutateOffsetY(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(10, n)
 }
 
-func (rcv *EventContentArchiveBannerOffsetExcel) ScaleY() float32 {
+func (rcv *EventContentArchiveBannerOffsetExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return 0.0
+	return 0
 }
 
-func (rcv *EventContentArchiveBannerOffsetExcel) MutateScaleY(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(12, n)
+func (rcv *EventContentArchiveBannerOffsetExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func EventContentArchiveBannerOffsetExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func EventContentArchiveBannerOffsetExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
+func EventContentArchiveBannerOffsetExcelAddScaleX(builder *flatbuffers.Builder, scaleX float32) {
+	builder.PrependFloat32Slot(0, scaleX, 0.0)
 }
 func EventContentArchiveBannerOffsetExcelAddOffsetX(builder *flatbuffers.Builder, offsetX float32) {
 	builder.PrependFloat32Slot(1, offsetX, 0.0)
 }
-func EventContentArchiveBannerOffsetExcelAddOffsetY(builder *flatbuffers.Builder, offsetY float32) {
-	builder.PrependFloat32Slot(2, offsetY, 0.0)
-}
-func EventContentArchiveBannerOffsetExcelAddScaleX(builder *flatbuffers.Builder, scaleX float32) {
-	builder.PrependFloat32Slot(3, scaleX, 0.0)
-}
 func EventContentArchiveBannerOffsetExcelAddScaleY(builder *flatbuffers.Builder, scaleY float32) {
-	builder.PrependFloat32Slot(4, scaleY, 0.0)
+	builder.PrependFloat32Slot(2, scaleY, 0.0)
+}
+func EventContentArchiveBannerOffsetExcelAddOffsetY(builder *flatbuffers.Builder, offsetY float32) {
+	builder.PrependFloat32Slot(3, offsetY, 0.0)
+}
+func EventContentArchiveBannerOffsetExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(4, eventContentId, 0)
 }
 func EventContentArchiveBannerOffsetExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

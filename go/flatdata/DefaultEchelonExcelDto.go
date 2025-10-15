@@ -10,11 +10,11 @@ import (
 // DefaultEchelonExcelDto represents a FlatBuffers table
 type DefaultEchelonExcelDto struct {
 	fbsutils.FlatBuffer
-	EchlonId  int32   `json:"echlon_id"`
+	TssId     int64   `json:"tss_id"`
 	LeaderId  int64   `json:"leader_id"`
 	MainId    []int64 `json:"main_id"`
 	SupportId []int64 `json:"support_id"`
-	TssId     int64   `json:"tss_id"`
+	EchlonId  int32   `json:"echlon_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,7 +23,7 @@ func (t *DefaultEchelonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultEchelon"))
 	}
 	DefaultEchelonExcelStart(b)
-	DefaultEchelonExcelAddEchlonId(b, fbsutils.Convert(t.EchlonId, t.FlatBuffer.TableKey))
+	DefaultEchelonExcelAddTssId(b, fbsutils.Convert(t.TssId, t.FlatBuffer.TableKey))
 	DefaultEchelonExcelAddLeaderId(b, fbsutils.Convert(t.LeaderId, t.FlatBuffer.TableKey))
 	DefaultEchelonExcelStartMainIdVector(b, len(t.MainId))
 	for i := range len(t.MainId) {
@@ -35,7 +35,7 @@ func (t *DefaultEchelonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		b.PrependInt64(fbsutils.Convert(t.SupportId[len(t.SupportId)-i-1], t.FlatBuffer.TableKey))
 	}
 	DefaultEchelonExcelAddSupportId(b, b.EndVector(len(t.SupportId)))
-	DefaultEchelonExcelAddTssId(b, fbsutils.Convert(t.TssId, t.FlatBuffer.TableKey))
+	DefaultEchelonExcelAddEchlonId(b, fbsutils.Convert(t.EchlonId, t.FlatBuffer.TableKey))
 	return DefaultEchelonExcelEnd(b)
 }
 
@@ -51,7 +51,7 @@ func (t *DefaultEchelonExcelDto) UnmarshalMessage(e *DefaultEchelonExcel) error 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("DefaultEchelon"))
 	}
-	t.EchlonId = fbsutils.Convert(e.EchlonId(), t.FlatBuffer.TableKey)
+	t.TssId = fbsutils.Convert(e.TssId(), t.FlatBuffer.TableKey)
 	t.LeaderId = fbsutils.Convert(e.LeaderId(), t.FlatBuffer.TableKey)
 	t.MainId = make([]int64, e.MainIdLength())
 	for i := range e.MainIdLength() {
@@ -61,7 +61,7 @@ func (t *DefaultEchelonExcelDto) UnmarshalMessage(e *DefaultEchelonExcel) error 
 	for i := range e.SupportIdLength() {
 		t.SupportId[i] = fbsutils.Convert(e.SupportId(i), t.FlatBuffer.TableKey)
 	}
-	t.TssId = fbsutils.Convert(e.TssId(), t.FlatBuffer.TableKey)
+	t.EchlonId = fbsutils.Convert(e.EchlonId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

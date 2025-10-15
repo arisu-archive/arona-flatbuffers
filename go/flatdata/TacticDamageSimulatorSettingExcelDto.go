@@ -10,23 +10,23 @@ import (
 // TacticDamageSimulatorSettingExcelDto represents a FlatBuffers table
 type TacticDamageSimulatorSettingExcelDto struct {
 	fbsutils.FlatBuffer
-	Order                     int32                 `json:"order"`
-	Repeat                    int32                 `json:"repeat"`
-	TestPreset                int64                 `json:"test_preset"`
+	ApplyOverrideFavorLevel   bool                  `json:"apply_override_favor_level"`
 	TestBattleTime            int64                 `json:"test_battle_time"`
 	StrikerSquard             int64                 `json:"striker_squard"`
-	SpecialSquard             int64                 `json:"special_squard"`
 	ReplaceCharacterCostRegen bool                  `json:"replace_character_cost_regen"`
+	OverrideOutdoorAdaptation TerrainAdaptationStat `json:"override_outdoor_adaptation"`
+	TestPreset                int64                 `json:"test_preset"`
+	OverrideIndoorAdaptation  TerrainAdaptationStat `json:"override_indoor_adaptation"`
 	ReplaceCostRegenValue     int32                 `json:"replace_cost_regen_value"`
+	Order                     int32                 `json:"order"`
+	ApplyOverrideAdaptation   bool                  `json:"apply_override_adaptation"`
+	FixedCharacter            []int64               `json:"fixed_character"`
+	GroundId                  int64                 `json:"ground_id"`
+	SpecialSquard             int64                 `json:"special_squard"`
+	OverrideFavorLevel        int32                 `json:"override_favor_level"`
+	Repeat                    int32                 `json:"repeat"`
 	UseAutoSkill              bool                  `json:"use_auto_skill"`
 	OverrideStreetAdaptation  TerrainAdaptationStat `json:"override_street_adaptation"`
-	OverrideOutdoorAdaptation TerrainAdaptationStat `json:"override_outdoor_adaptation"`
-	OverrideIndoorAdaptation  TerrainAdaptationStat `json:"override_indoor_adaptation"`
-	ApplyOverrideAdaptation   bool                  `json:"apply_override_adaptation"`
-	OverrideFavorLevel        int32                 `json:"override_favor_level"`
-	ApplyOverrideFavorLevel   bool                  `json:"apply_override_favor_level"`
-	GroundId                  int64                 `json:"ground_id"`
-	FixedCharacter            []int64               `json:"fixed_character"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -35,27 +35,27 @@ func (t *TacticDamageSimulatorSettingExcelDto) MarshalModel(b *flatbuffers.Build
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticDamageSimulatorSetting"))
 	}
 	TacticDamageSimulatorSettingExcelStart(b)
-	TacticDamageSimulatorSettingExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
-	TacticDamageSimulatorSettingExcelAddRepeat(b, fbsutils.Convert(t.Repeat, t.FlatBuffer.TableKey))
-	TacticDamageSimulatorSettingExcelAddTestPreset(b, fbsutils.Convert(t.TestPreset, t.FlatBuffer.TableKey))
+	TacticDamageSimulatorSettingExcelAddApplyOverrideFavorLevel(b, t.ApplyOverrideFavorLevel)
 	TacticDamageSimulatorSettingExcelAddTestBattleTime(b, fbsutils.Convert(t.TestBattleTime, t.FlatBuffer.TableKey))
 	TacticDamageSimulatorSettingExcelAddStrikerSquard(b, fbsutils.Convert(t.StrikerSquard, t.FlatBuffer.TableKey))
-	TacticDamageSimulatorSettingExcelAddSpecialSquard(b, fbsutils.Convert(t.SpecialSquard, t.FlatBuffer.TableKey))
 	TacticDamageSimulatorSettingExcelAddReplaceCharacterCostRegen(b, t.ReplaceCharacterCostRegen)
-	TacticDamageSimulatorSettingExcelAddReplaceCostRegenValue(b, fbsutils.Convert(t.ReplaceCostRegenValue, t.FlatBuffer.TableKey))
-	TacticDamageSimulatorSettingExcelAddUseAutoSkill(b, t.UseAutoSkill)
-	TacticDamageSimulatorSettingExcelAddOverrideStreetAdaptation(b, fbsutils.Convert(t.OverrideStreetAdaptation, t.FlatBuffer.TableKey))
 	TacticDamageSimulatorSettingExcelAddOverrideOutdoorAdaptation(b, fbsutils.Convert(t.OverrideOutdoorAdaptation, t.FlatBuffer.TableKey))
+	TacticDamageSimulatorSettingExcelAddTestPreset(b, fbsutils.Convert(t.TestPreset, t.FlatBuffer.TableKey))
 	TacticDamageSimulatorSettingExcelAddOverrideIndoorAdaptation(b, fbsutils.Convert(t.OverrideIndoorAdaptation, t.FlatBuffer.TableKey))
+	TacticDamageSimulatorSettingExcelAddReplaceCostRegenValue(b, fbsutils.Convert(t.ReplaceCostRegenValue, t.FlatBuffer.TableKey))
+	TacticDamageSimulatorSettingExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
 	TacticDamageSimulatorSettingExcelAddApplyOverrideAdaptation(b, t.ApplyOverrideAdaptation)
-	TacticDamageSimulatorSettingExcelAddOverrideFavorLevel(b, fbsutils.Convert(t.OverrideFavorLevel, t.FlatBuffer.TableKey))
-	TacticDamageSimulatorSettingExcelAddApplyOverrideFavorLevel(b, t.ApplyOverrideFavorLevel)
-	TacticDamageSimulatorSettingExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	TacticDamageSimulatorSettingExcelStartFixedCharacterVector(b, len(t.FixedCharacter))
 	for i := range len(t.FixedCharacter) {
 		b.PrependInt64(fbsutils.Convert(t.FixedCharacter[len(t.FixedCharacter)-i-1], t.FlatBuffer.TableKey))
 	}
 	TacticDamageSimulatorSettingExcelAddFixedCharacter(b, b.EndVector(len(t.FixedCharacter)))
+	TacticDamageSimulatorSettingExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
+	TacticDamageSimulatorSettingExcelAddSpecialSquard(b, fbsutils.Convert(t.SpecialSquard, t.FlatBuffer.TableKey))
+	TacticDamageSimulatorSettingExcelAddOverrideFavorLevel(b, fbsutils.Convert(t.OverrideFavorLevel, t.FlatBuffer.TableKey))
+	TacticDamageSimulatorSettingExcelAddRepeat(b, fbsutils.Convert(t.Repeat, t.FlatBuffer.TableKey))
+	TacticDamageSimulatorSettingExcelAddUseAutoSkill(b, t.UseAutoSkill)
+	TacticDamageSimulatorSettingExcelAddOverrideStreetAdaptation(b, fbsutils.Convert(t.OverrideStreetAdaptation, t.FlatBuffer.TableKey))
 	return TacticDamageSimulatorSettingExcelEnd(b)
 }
 
@@ -71,26 +71,26 @@ func (t *TacticDamageSimulatorSettingExcelDto) UnmarshalMessage(e *TacticDamageS
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("TacticDamageSimulatorSetting"))
 	}
-	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
-	t.Repeat = fbsutils.Convert(e.Repeat(), t.FlatBuffer.TableKey)
-	t.TestPreset = fbsutils.Convert(e.TestPreset(), t.FlatBuffer.TableKey)
+	t.ApplyOverrideFavorLevel = e.ApplyOverrideFavorLevel()
 	t.TestBattleTime = fbsutils.Convert(e.TestBattleTime(), t.FlatBuffer.TableKey)
 	t.StrikerSquard = fbsutils.Convert(e.StrikerSquard(), t.FlatBuffer.TableKey)
-	t.SpecialSquard = fbsutils.Convert(e.SpecialSquard(), t.FlatBuffer.TableKey)
 	t.ReplaceCharacterCostRegen = e.ReplaceCharacterCostRegen()
-	t.ReplaceCostRegenValue = fbsutils.Convert(e.ReplaceCostRegenValue(), t.FlatBuffer.TableKey)
-	t.UseAutoSkill = e.UseAutoSkill()
-	t.OverrideStreetAdaptation = TerrainAdaptationStat(fbsutils.Convert(int32(e.OverrideStreetAdaptation()), t.FlatBuffer.TableKey))
 	t.OverrideOutdoorAdaptation = TerrainAdaptationStat(fbsutils.Convert(int32(e.OverrideOutdoorAdaptation()), t.FlatBuffer.TableKey))
+	t.TestPreset = fbsutils.Convert(e.TestPreset(), t.FlatBuffer.TableKey)
 	t.OverrideIndoorAdaptation = TerrainAdaptationStat(fbsutils.Convert(int32(e.OverrideIndoorAdaptation()), t.FlatBuffer.TableKey))
+	t.ReplaceCostRegenValue = fbsutils.Convert(e.ReplaceCostRegenValue(), t.FlatBuffer.TableKey)
+	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
 	t.ApplyOverrideAdaptation = e.ApplyOverrideAdaptation()
-	t.OverrideFavorLevel = fbsutils.Convert(e.OverrideFavorLevel(), t.FlatBuffer.TableKey)
-	t.ApplyOverrideFavorLevel = e.ApplyOverrideFavorLevel()
-	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.FixedCharacter = make([]int64, e.FixedCharacterLength())
 	for i := range e.FixedCharacterLength() {
 		t.FixedCharacter[i] = fbsutils.Convert(e.FixedCharacter(i), t.FlatBuffer.TableKey)
 	}
+	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
+	t.SpecialSquard = fbsutils.Convert(e.SpecialSquard(), t.FlatBuffer.TableKey)
+	t.OverrideFavorLevel = fbsutils.Convert(e.OverrideFavorLevel(), t.FlatBuffer.TableKey)
+	t.Repeat = fbsutils.Convert(e.Repeat(), t.FlatBuffer.TableKey)
+	t.UseAutoSkill = e.UseAutoSkill()
+	t.OverrideStreetAdaptation = TerrainAdaptationStat(fbsutils.Convert(int32(e.OverrideStreetAdaptation()), t.FlatBuffer.TableKey))
 	return nil
 }
 

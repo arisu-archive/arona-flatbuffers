@@ -10,9 +10,9 @@ import (
 // CharacterCombatSkinExcelDto represents a FlatBuffers table
 type CharacterCombatSkinExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupId      string `json:"group_id"`
-	UniqueId     int64  `json:"unique_id"`
 	ResourcePath string `json:"resource_path"`
+	UniqueId     int64  `json:"unique_id"`
+	GroupId      string `json:"group_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,9 +21,9 @@ func (t *CharacterCombatSkinExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCombatSkin"))
 	}
 	CharacterCombatSkinExcelStart(b)
-	CharacterCombatSkinExcelAddGroupId(b, b.CreateString(fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey)))
-	CharacterCombatSkinExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
 	CharacterCombatSkinExcelAddResourcePath(b, b.CreateString(fbsutils.Convert(t.ResourcePath, t.FlatBuffer.TableKey)))
+	CharacterCombatSkinExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	CharacterCombatSkinExcelAddGroupId(b, b.CreateString(fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey)))
 	return CharacterCombatSkinExcelEnd(b)
 }
 
@@ -39,9 +39,9 @@ func (t *CharacterCombatSkinExcelDto) UnmarshalMessage(e *CharacterCombatSkinExc
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterCombatSkin"))
 	}
-	t.GroupId = fbsutils.Convert(string(e.GroupId()), t.FlatBuffer.TableKey)
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
 	t.ResourcePath = fbsutils.Convert(string(e.ResourcePath()), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.GroupId = fbsutils.Convert(string(e.GroupId()), t.FlatBuffer.TableKey)
 	return nil
 }
 

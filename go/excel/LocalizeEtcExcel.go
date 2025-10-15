@@ -33,16 +33,12 @@ func (rcv *LocalizeEtcExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *LocalizeEtcExcel) Key() uint32 {
+func (rcv *LocalizeEtcExcel) DescriptionEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *LocalizeEtcExcel) MutateKey(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(4, n)
+	return nil
 }
 
 func (rcv *LocalizeEtcExcel) NameKr() []byte {
@@ -53,7 +49,7 @@ func (rcv *LocalizeEtcExcel) NameKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeEtcExcel) DescriptionKr() []byte {
+func (rcv *LocalizeEtcExcel) NameEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -61,7 +57,7 @@ func (rcv *LocalizeEtcExcel) DescriptionKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeEtcExcel) NameJp() []byte {
+func (rcv *LocalizeEtcExcel) DescriptionTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -69,7 +65,7 @@ func (rcv *LocalizeEtcExcel) NameJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeEtcExcel) DescriptionJp() []byte {
+func (rcv *LocalizeEtcExcel) NameJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -77,7 +73,7 @@ func (rcv *LocalizeEtcExcel) DescriptionJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeEtcExcel) NameTh() []byte {
+func (rcv *LocalizeEtcExcel) DescriptionKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -85,15 +81,19 @@ func (rcv *LocalizeEtcExcel) NameTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeEtcExcel) DescriptionTh() []byte {
+func (rcv *LocalizeEtcExcel) Key() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *LocalizeEtcExcel) NameTw() []byte {
+func (rcv *LocalizeEtcExcel) MutateKey(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(16, n)
+}
+
+func (rcv *LocalizeEtcExcel) DescriptionJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -109,7 +109,7 @@ func (rcv *LocalizeEtcExcel) DescriptionTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeEtcExcel) NameEn() []byte {
+func (rcv *LocalizeEtcExcel) NameTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -117,7 +117,7 @@ func (rcv *LocalizeEtcExcel) NameEn() []byte {
 	return nil
 }
 
-func (rcv *LocalizeEtcExcel) DescriptionEn() []byte {
+func (rcv *LocalizeEtcExcel) NameTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -128,38 +128,38 @@ func (rcv *LocalizeEtcExcel) DescriptionEn() []byte {
 func LocalizeEtcExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(11)
 }
-func LocalizeEtcExcelAddKey(builder *flatbuffers.Builder, key uint32) {
-	builder.PrependUint32Slot(0, key, 0)
+func LocalizeEtcExcelAddDescriptionEn(builder *flatbuffers.Builder, descriptionEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(descriptionEn), 0)
 }
 func LocalizeEtcExcelAddNameKr(builder *flatbuffers.Builder, nameKr flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(nameKr), 0)
 }
-func LocalizeEtcExcelAddDescriptionKr(builder *flatbuffers.Builder, descriptionKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(descriptionKr), 0)
-}
-func LocalizeEtcExcelAddNameJp(builder *flatbuffers.Builder, nameJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(nameJp), 0)
-}
-func LocalizeEtcExcelAddDescriptionJp(builder *flatbuffers.Builder, descriptionJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(descriptionJp), 0)
-}
-func LocalizeEtcExcelAddNameTh(builder *flatbuffers.Builder, nameTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(nameTh), 0)
+func LocalizeEtcExcelAddNameEn(builder *flatbuffers.Builder, nameEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(nameEn), 0)
 }
 func LocalizeEtcExcelAddDescriptionTh(builder *flatbuffers.Builder, descriptionTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(descriptionTh), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(descriptionTh), 0)
 }
-func LocalizeEtcExcelAddNameTw(builder *flatbuffers.Builder, nameTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(nameTw), 0)
+func LocalizeEtcExcelAddNameJp(builder *flatbuffers.Builder, nameJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(nameJp), 0)
+}
+func LocalizeEtcExcelAddDescriptionKr(builder *flatbuffers.Builder, descriptionKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(descriptionKr), 0)
+}
+func LocalizeEtcExcelAddKey(builder *flatbuffers.Builder, key uint32) {
+	builder.PrependUint32Slot(6, key, 0)
+}
+func LocalizeEtcExcelAddDescriptionJp(builder *flatbuffers.Builder, descriptionJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(descriptionJp), 0)
 }
 func LocalizeEtcExcelAddDescriptionTw(builder *flatbuffers.Builder, descriptionTw flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(descriptionTw), 0)
 }
-func LocalizeEtcExcelAddNameEn(builder *flatbuffers.Builder, nameEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(nameEn), 0)
+func LocalizeEtcExcelAddNameTh(builder *flatbuffers.Builder, nameTh flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(nameTh), 0)
 }
-func LocalizeEtcExcelAddDescriptionEn(builder *flatbuffers.Builder, descriptionEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(descriptionEn), 0)
+func LocalizeEtcExcelAddNameTw(builder *flatbuffers.Builder, nameTw flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(nameTw), 0)
 }
 func LocalizeEtcExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -1,0 +1,18 @@
+include "ParcelType.fbs";
+include "Rarity.fbs";
+
+namespace MX.Data.Excel;
+
+table GachaElementExcel {
+    rarity: Rarity;
+    parcel_amount_max: int;
+    prob: int;
+    gacha_group_id: long;
+    state: int;
+    id: long;
+    parcel_amount_min: int;
+    parcel_type: ParcelType;
+    parcel_id: long;
+}
+
+root_type GachaElementExcel;

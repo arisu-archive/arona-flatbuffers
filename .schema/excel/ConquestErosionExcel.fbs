@@ -1,0 +1,24 @@
+include "ConquestConditionType.fbs";
+include "ConquestErosionType.fbs";
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table ConquestErosionExcel {
+    phase_alarm: bool;
+    phase_before_expose_condition_type: [ConquestConditionType];
+    phase: int;
+    erosion_type: ConquestErosionType;
+    phase_start_condition_type: [ConquestConditionType];
+    phase_start_condition_parameter: [string];
+    erosion_battle_condition_parcel_type: ParcelType;
+    event_content_id: long;
+    phase_before_expose_condition_parameter: [string];
+    step_index: int;
+    erosion_battle_condition_parcel_unique_id: long;
+    erosion_battle_condition_parcel_amount: long;
+    conquest_reward_id: long;
+    id: long;
+}
+
+root_type ConquestErosionExcel;

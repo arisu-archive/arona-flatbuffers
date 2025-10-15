@@ -25,11 +25,11 @@ class EventContentArchiveBannerOffsetExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentArchiveBannerOffsetExcel
-    def EventContentId(self):
+    def ScaleX(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
+        return 0.0
 
     # EventContentArchiveBannerOffsetExcel
     def OffsetX(self):
@@ -39,44 +39,44 @@ class EventContentArchiveBannerOffsetExcel(object):
         return 0.0
 
     # EventContentArchiveBannerOffsetExcel
-    def OffsetY(self):
+    def ScaleY(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # EventContentArchiveBannerOffsetExcel
-    def ScaleX(self):
+    def OffsetY(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # EventContentArchiveBannerOffsetExcel
-    def ScaleY(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
-        return 0.0
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def EventContentArchiveBannerOffsetExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return EventContentArchiveBannerOffsetExcelStart(builder)
-def EventContentArchiveBannerOffsetExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return EventContentArchiveBannerOffsetExcelAddEventContentId(builder, eventContentId)
+def EventContentArchiveBannerOffsetExcelAddScaleX(builder, scaleX): builder.PrependFloat32Slot(0, scaleX, 0.0)
+def AddScaleX(builder, scaleX):
+    return EventContentArchiveBannerOffsetExcelAddScaleX(builder, scaleX)
 def EventContentArchiveBannerOffsetExcelAddOffsetX(builder, offsetX): builder.PrependFloat32Slot(1, offsetX, 0.0)
 def AddOffsetX(builder, offsetX):
     return EventContentArchiveBannerOffsetExcelAddOffsetX(builder, offsetX)
-def EventContentArchiveBannerOffsetExcelAddOffsetY(builder, offsetY): builder.PrependFloat32Slot(2, offsetY, 0.0)
-def AddOffsetY(builder, offsetY):
-    return EventContentArchiveBannerOffsetExcelAddOffsetY(builder, offsetY)
-def EventContentArchiveBannerOffsetExcelAddScaleX(builder, scaleX): builder.PrependFloat32Slot(3, scaleX, 0.0)
-def AddScaleX(builder, scaleX):
-    return EventContentArchiveBannerOffsetExcelAddScaleX(builder, scaleX)
-def EventContentArchiveBannerOffsetExcelAddScaleY(builder, scaleY): builder.PrependFloat32Slot(4, scaleY, 0.0)
+def EventContentArchiveBannerOffsetExcelAddScaleY(builder, scaleY): builder.PrependFloat32Slot(2, scaleY, 0.0)
 def AddScaleY(builder, scaleY):
     return EventContentArchiveBannerOffsetExcelAddScaleY(builder, scaleY)
+def EventContentArchiveBannerOffsetExcelAddOffsetY(builder, offsetY): builder.PrependFloat32Slot(3, offsetY, 0.0)
+def AddOffsetY(builder, offsetY):
+    return EventContentArchiveBannerOffsetExcelAddOffsetY(builder, offsetY)
+def EventContentArchiveBannerOffsetExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(4, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return EventContentArchiveBannerOffsetExcelAddEventContentId(builder, eventContentId)
 def EventContentArchiveBannerOffsetExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentArchiveBannerOffsetExcelEnd(builder)

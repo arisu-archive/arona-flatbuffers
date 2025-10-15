@@ -25,66 +25,86 @@ class EventContentFortuneGachaShopExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentFortuneGachaShopExcel
-    def EventContentId(self):
+    def RewardParcelId(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # EventContentFortuneGachaShopExcel
-    def Id(self):
+    def RewardParcelIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # EventContentFortuneGachaShopExcel
+    def RewardParcelIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # EventContentFortuneGachaShopExcel
+    def RewardParcelIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        return o == 0
+
+    # EventContentFortuneGachaShopExcel
+    def CostGoodsId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentFortuneGachaShopExcel
-    def Grade(self):
+    def ProbModifyValue(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentFortuneGachaShopExcel
-    def CostGoodsId(self):
+    def Prob(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentFortuneGachaShopExcel
+    def EventContentId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentFortuneGachaShopExcel
-    def IsLegacy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # EventContentFortuneGachaShopExcel
-    def FortuneGachaGroupId(self):
+    def ProbModifyLimit(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentFortuneGachaShopExcel
-    def Prob(self):
+    def FortuneGachaGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # EventContentFortuneGachaShopExcel
-    def ProbModifyValue(self):
+    def IsLegacy(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # EventContentFortuneGachaShopExcel
-    def ProbModifyLimit(self):
+    def Id(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentFortuneGachaShopExcel
@@ -115,31 +135,11 @@ class EventContentFortuneGachaShopExcel(object):
         return o == 0
 
     # EventContentFortuneGachaShopExcel
-    def RewardParcelId(self, j):
+    def Grade(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
-
-    # EventContentFortuneGachaShopExcel
-    def RewardParcelIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # EventContentFortuneGachaShopExcel
-    def RewardParcelIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EventContentFortuneGachaShopExcel
-    def RewardParcelIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        return o == 0
 
     # EventContentFortuneGachaShopExcel
     def RewardParcelAmount(self, j):
@@ -171,45 +171,45 @@ class EventContentFortuneGachaShopExcel(object):
 def EventContentFortuneGachaShopExcelStart(builder): builder.StartObject(12)
 def Start(builder):
     return EventContentFortuneGachaShopExcelStart(builder)
-def EventContentFortuneGachaShopExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return EventContentFortuneGachaShopExcelAddEventContentId(builder, eventContentId)
-def EventContentFortuneGachaShopExcelAddId(builder, id): builder.PrependInt64Slot(1, id, 0)
-def AddId(builder, id):
-    return EventContentFortuneGachaShopExcelAddId(builder, id)
-def EventContentFortuneGachaShopExcelAddGrade(builder, grade): builder.PrependInt32Slot(2, grade, 0)
-def AddGrade(builder, grade):
-    return EventContentFortuneGachaShopExcelAddGrade(builder, grade)
-def EventContentFortuneGachaShopExcelAddCostGoodsId(builder, costGoodsId): builder.PrependInt64Slot(3, costGoodsId, 0)
+def EventContentFortuneGachaShopExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
+def AddRewardParcelId(builder, rewardParcelId):
+    return EventContentFortuneGachaShopExcelAddRewardParcelId(builder, rewardParcelId)
+def EventContentFortuneGachaShopExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRewardParcelIdVector(builder, numElems):
+    return EventContentFortuneGachaShopExcelStartRewardParcelIdVector(builder, numElems)
+def EventContentFortuneGachaShopExcelAddCostGoodsId(builder, costGoodsId): builder.PrependInt64Slot(1, costGoodsId, 0)
 def AddCostGoodsId(builder, costGoodsId):
     return EventContentFortuneGachaShopExcelAddCostGoodsId(builder, costGoodsId)
-def EventContentFortuneGachaShopExcelAddIsLegacy(builder, isLegacy): builder.PrependBoolSlot(4, isLegacy, 0)
-def AddIsLegacy(builder, isLegacy):
-    return EventContentFortuneGachaShopExcelAddIsLegacy(builder, isLegacy)
-def EventContentFortuneGachaShopExcelAddFortuneGachaGroupId(builder, fortuneGachaGroupId): builder.PrependInt32Slot(5, fortuneGachaGroupId, 0)
-def AddFortuneGachaGroupId(builder, fortuneGachaGroupId):
-    return EventContentFortuneGachaShopExcelAddFortuneGachaGroupId(builder, fortuneGachaGroupId)
-def EventContentFortuneGachaShopExcelAddProb(builder, prob): builder.PrependInt32Slot(6, prob, 0)
-def AddProb(builder, prob):
-    return EventContentFortuneGachaShopExcelAddProb(builder, prob)
-def EventContentFortuneGachaShopExcelAddProbModifyValue(builder, probModifyValue): builder.PrependInt32Slot(7, probModifyValue, 0)
+def EventContentFortuneGachaShopExcelAddProbModifyValue(builder, probModifyValue): builder.PrependInt32Slot(2, probModifyValue, 0)
 def AddProbModifyValue(builder, probModifyValue):
     return EventContentFortuneGachaShopExcelAddProbModifyValue(builder, probModifyValue)
-def EventContentFortuneGachaShopExcelAddProbModifyLimit(builder, probModifyLimit): builder.PrependInt32Slot(8, probModifyLimit, 0)
+def EventContentFortuneGachaShopExcelAddProb(builder, prob): builder.PrependInt32Slot(3, prob, 0)
+def AddProb(builder, prob):
+    return EventContentFortuneGachaShopExcelAddProb(builder, prob)
+def EventContentFortuneGachaShopExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(4, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return EventContentFortuneGachaShopExcelAddEventContentId(builder, eventContentId)
+def EventContentFortuneGachaShopExcelAddProbModifyLimit(builder, probModifyLimit): builder.PrependInt32Slot(5, probModifyLimit, 0)
 def AddProbModifyLimit(builder, probModifyLimit):
     return EventContentFortuneGachaShopExcelAddProbModifyLimit(builder, probModifyLimit)
+def EventContentFortuneGachaShopExcelAddFortuneGachaGroupId(builder, fortuneGachaGroupId): builder.PrependInt32Slot(6, fortuneGachaGroupId, 0)
+def AddFortuneGachaGroupId(builder, fortuneGachaGroupId):
+    return EventContentFortuneGachaShopExcelAddFortuneGachaGroupId(builder, fortuneGachaGroupId)
+def EventContentFortuneGachaShopExcelAddIsLegacy(builder, isLegacy): builder.PrependBoolSlot(7, isLegacy, 0)
+def AddIsLegacy(builder, isLegacy):
+    return EventContentFortuneGachaShopExcelAddIsLegacy(builder, isLegacy)
+def EventContentFortuneGachaShopExcelAddId(builder, id): builder.PrependInt64Slot(8, id, 0)
+def AddId(builder, id):
+    return EventContentFortuneGachaShopExcelAddId(builder, id)
 def EventContentFortuneGachaShopExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
 def AddRewardParcelType(builder, rewardParcelType):
     return EventContentFortuneGachaShopExcelAddRewardParcelType(builder, rewardParcelType)
 def EventContentFortuneGachaShopExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelTypeVector(builder, numElems):
     return EventContentFortuneGachaShopExcelStartRewardParcelTypeVector(builder, numElems)
-def EventContentFortuneGachaShopExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
-def AddRewardParcelId(builder, rewardParcelId):
-    return EventContentFortuneGachaShopExcelAddRewardParcelId(builder, rewardParcelId)
-def EventContentFortuneGachaShopExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRewardParcelIdVector(builder, numElems):
-    return EventContentFortuneGachaShopExcelStartRewardParcelIdVector(builder, numElems)
+def EventContentFortuneGachaShopExcelAddGrade(builder, grade): builder.PrependInt32Slot(10, grade, 0)
+def AddGrade(builder, grade):
+    return EventContentFortuneGachaShopExcelAddGrade(builder, grade)
 def EventContentFortuneGachaShopExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
 def AddRewardParcelAmount(builder, rewardParcelAmount):
     return EventContentFortuneGachaShopExcelAddRewardParcelAmount(builder, rewardParcelAmount)

@@ -1,0 +1,22 @@
+include "CCGCardType.fbs";
+include "CCGTagType.fbs";
+
+namespace MX.Data.Excel;
+
+table MinigameCCGCardExcel {
+    passive_skill_id: [int];
+    active_skille_cost_visible: bool;
+    passive_activate_count: int;
+    id: long;
+    active_skill_cost: int;
+    tags: [CCGTagType];
+    type: CCGCardType;
+    is_disposal: bool;
+    ui_image_path: string;
+    image_path: string;
+    description: string;
+    name: uint;
+    active_skill_id: int;
+}
+
+root_type MinigameCCGCardExcel;

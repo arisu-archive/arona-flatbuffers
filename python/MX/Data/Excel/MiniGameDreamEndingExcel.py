@@ -25,38 +25,38 @@ class MiniGameDreamEndingExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MiniGameDreamEndingExcel
-    def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameDreamEndingExcel
-    def EndingId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameDreamEndingExcel
     def DreamMakerEndingType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameDreamEndingExcel
-    def Order(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameDreamEndingExcel
     def ScenarioGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameDreamEndingExcel
+    def EventContentId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameDreamEndingExcel
+    def EndingId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameDreamEndingExcel
+    def Order(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameDreamEndingExcel
@@ -116,21 +116,21 @@ class MiniGameDreamEndingExcel(object):
 def MiniGameDreamEndingExcelStart(builder): builder.StartObject(7)
 def Start(builder):
     return MiniGameDreamEndingExcelStart(builder)
-def MiniGameDreamEndingExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return MiniGameDreamEndingExcelAddEventContentId(builder, eventContentId)
-def MiniGameDreamEndingExcelAddEndingId(builder, endingId): builder.PrependInt64Slot(1, endingId, 0)
-def AddEndingId(builder, endingId):
-    return MiniGameDreamEndingExcelAddEndingId(builder, endingId)
-def MiniGameDreamEndingExcelAddDreamMakerEndingType(builder, dreamMakerEndingType): builder.PrependInt32Slot(2, dreamMakerEndingType, 0)
+def MiniGameDreamEndingExcelAddDreamMakerEndingType(builder, dreamMakerEndingType): builder.PrependInt32Slot(0, dreamMakerEndingType, 0)
 def AddDreamMakerEndingType(builder, dreamMakerEndingType):
     return MiniGameDreamEndingExcelAddDreamMakerEndingType(builder, dreamMakerEndingType)
-def MiniGameDreamEndingExcelAddOrder(builder, order): builder.PrependInt32Slot(3, order, 0)
-def AddOrder(builder, order):
-    return MiniGameDreamEndingExcelAddOrder(builder, order)
-def MiniGameDreamEndingExcelAddScenarioGroupId(builder, scenarioGroupId): builder.PrependInt64Slot(4, scenarioGroupId, 0)
+def MiniGameDreamEndingExcelAddScenarioGroupId(builder, scenarioGroupId): builder.PrependInt64Slot(1, scenarioGroupId, 0)
 def AddScenarioGroupId(builder, scenarioGroupId):
     return MiniGameDreamEndingExcelAddScenarioGroupId(builder, scenarioGroupId)
+def MiniGameDreamEndingExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(2, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return MiniGameDreamEndingExcelAddEventContentId(builder, eventContentId)
+def MiniGameDreamEndingExcelAddEndingId(builder, endingId): builder.PrependInt64Slot(3, endingId, 0)
+def AddEndingId(builder, endingId):
+    return MiniGameDreamEndingExcelAddEndingId(builder, endingId)
+def MiniGameDreamEndingExcelAddOrder(builder, order): builder.PrependInt32Slot(4, order, 0)
+def AddOrder(builder, order):
+    return MiniGameDreamEndingExcelAddOrder(builder, order)
 def MiniGameDreamEndingExcelAddEndingCondition(builder, endingCondition): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(endingCondition), 0)
 def AddEndingCondition(builder, endingCondition):
     return MiniGameDreamEndingExcelAddEndingCondition(builder, endingCondition)

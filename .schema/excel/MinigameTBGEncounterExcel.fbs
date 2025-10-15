@@ -1,0 +1,32 @@
+include "TBGObjectType.fbs";
+include "TBGThemaType.fbs";
+
+namespace MX.Data.Excel;
+
+table MinigameTBGEncounterExcel {
+    unique_id: long;
+    attack_defence_localize: string;
+    ally_attack_localize: string;
+    enemy_name_localize: string;
+    clear_story_localize: string;
+    enemy_attack_localize: string;
+    object_type: TBGObjectType;
+    reward_hide: bool;
+    before_story_localize: string;
+    before_story_option3_localize: string;
+    thema_type: TBGThemaType;
+    enemy_image_path: string;
+    encounter_title_localize: string;
+    before_story_option2_localize: string;
+    option_group_id: long;
+    story_image_path: string;
+    event_content_id: long;
+    thema_index: int;
+    before_story_option1_localize: string;
+    defeat_story_localize: string;
+    enemy_prefab_name: string;
+    runaway_story_localize: string;
+    all_thema: bool;
+}
+
+root_type MinigameTBGEncounterExcel;

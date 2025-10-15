@@ -5,12 +5,12 @@ namespace MX.Data.Excel;
 
 table FavorLevelRewardExcel {
     character_id: long;
-    favor_level: long;
-    stat_type: [EquipmentOptionType];
-    stat_value: [long];
     reward_parcel_type: [ParcelType];
-    reward_parcel_id: [long];
+    stat_value: [long];
     reward_amount: [long];
+    stat_type: [EquipmentOptionType];
+    reward_parcel_id: [long];
+    favor_level: long;
 }
 
 root_type FavorLevelRewardExcel;

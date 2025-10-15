@@ -33,16 +33,30 @@ func (rcv *EventContentCharacterBonusExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentCharacterBonusExcel) EventContentId() int64 {
+func (rcv *EventContentCharacterBonusExcel) BonusPercentage(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *EventContentCharacterBonusExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *EventContentCharacterBonusExcel) BonusPercentageLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *EventContentCharacterBonusExcel) MutateBonusPercentage(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
 }
 
 func (rcv *EventContentCharacterBonusExcel) CharacterId() int64 {
@@ -57,8 +71,20 @@ func (rcv *EventContentCharacterBonusExcel) MutateCharacterId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentCharacterBonusExcel) EventContentItemType(j int) EventContentItemType {
+func (rcv *EventContentCharacterBonusExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentCharacterBonusExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *EventContentCharacterBonusExcel) EventContentItemType(j int) EventContentItemType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return EventContentItemType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -67,7 +93,7 @@ func (rcv *EventContentCharacterBonusExcel) EventContentItemType(j int) EventCon
 }
 
 func (rcv *EventContentCharacterBonusExcel) EventContentItemTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -75,7 +101,7 @@ func (rcv *EventContentCharacterBonusExcel) EventContentItemTypeLength() int {
 }
 
 func (rcv *EventContentCharacterBonusExcel) MutateEventContentItemType(j int, n EventContentItemType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -83,52 +109,26 @@ func (rcv *EventContentCharacterBonusExcel) MutateEventContentItemType(j int, n 
 	return false
 }
 
-func (rcv *EventContentCharacterBonusExcel) BonusPercentage(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
-	}
-	return 0
-}
-
-func (rcv *EventContentCharacterBonusExcel) BonusPercentageLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *EventContentCharacterBonusExcel) MutateBonusPercentage(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
-}
-
 func EventContentCharacterBonusExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func EventContentCharacterBonusExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
+func EventContentCharacterBonusExcelAddBonusPercentage(builder *flatbuffers.Builder, bonusPercentage flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(bonusPercentage), 0)
+}
+func EventContentCharacterBonusExcelStartBonusPercentageVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func EventContentCharacterBonusExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
 	builder.PrependInt64Slot(1, characterId, 0)
 }
+func EventContentCharacterBonusExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(2, eventContentId, 0)
+}
 func EventContentCharacterBonusExcelAddEventContentItemType(builder *flatbuffers.Builder, eventContentItemType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(eventContentItemType), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(eventContentItemType), 0)
 }
 func EventContentCharacterBonusExcelStartEventContentItemTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
-}
-func EventContentCharacterBonusExcelAddBonusPercentage(builder *flatbuffers.Builder, bonusPercentage flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(bonusPercentage), 0)
-}
-func EventContentCharacterBonusExcelStartBonusPercentageVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
 }
 func EventContentCharacterBonusExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

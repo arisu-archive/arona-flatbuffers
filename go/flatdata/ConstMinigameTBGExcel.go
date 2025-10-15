@@ -33,7 +33,7 @@ func (rcv *ConstMinigameTBGExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConstMinigameTBGExcel) ConquestMapBoundaryOffsetLeft() float32 {
+func (rcv *ConstMinigameTBGExcel) ThemaLoadingProgressTime() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *ConstMinigameTBGExcel) ConquestMapBoundaryOffsetLeft() float32 {
 	return 0.0
 }
 
-func (rcv *ConstMinigameTBGExcel) MutateConquestMapBoundaryOffsetLeft(n float32) bool {
+func (rcv *ConstMinigameTBGExcel) MutateThemaLoadingProgressTime(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(4, n)
 }
 
-func (rcv *ConstMinigameTBGExcel) ConquestMapBoundaryOffsetRight() float32 {
+func (rcv *ConstMinigameTBGExcel) ConquestMapCenterOffsetX() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *ConstMinigameTBGExcel) ConquestMapBoundaryOffsetRight() float32 {
 	return 0.0
 }
 
-func (rcv *ConstMinigameTBGExcel) MutateConquestMapBoundaryOffsetRight(n float32) bool {
+func (rcv *ConstMinigameTBGExcel) MutateConquestMapCenterOffsetX(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(6, n)
 }
 
-func (rcv *ConstMinigameTBGExcel) ConquestMapBoundaryOffsetTop() float32 {
+func (rcv *ConstMinigameTBGExcel) EncounterAllyRotation() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -65,11 +65,11 @@ func (rcv *ConstMinigameTBGExcel) ConquestMapBoundaryOffsetTop() float32 {
 	return 0.0
 }
 
-func (rcv *ConstMinigameTBGExcel) MutateConquestMapBoundaryOffsetTop(n float32) bool {
+func (rcv *ConstMinigameTBGExcel) MutateEncounterAllyRotation(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(8, n)
 }
 
-func (rcv *ConstMinigameTBGExcel) ConquestMapBoundaryOffsetBottom() float32 {
+func (rcv *ConstMinigameTBGExcel) ConquestMapBoundaryOffsetRight() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -77,11 +77,11 @@ func (rcv *ConstMinigameTBGExcel) ConquestMapBoundaryOffsetBottom() float32 {
 	return 0.0
 }
 
-func (rcv *ConstMinigameTBGExcel) MutateConquestMapBoundaryOffsetBottom(n float32) bool {
+func (rcv *ConstMinigameTBGExcel) MutateConquestMapBoundaryOffsetRight(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(10, n)
 }
 
-func (rcv *ConstMinigameTBGExcel) ConquestMapCenterOffsetX() float32 {
+func (rcv *ConstMinigameTBGExcel) CameraAngle() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -89,11 +89,11 @@ func (rcv *ConstMinigameTBGExcel) ConquestMapCenterOffsetX() float32 {
 	return 0.0
 }
 
-func (rcv *ConstMinigameTBGExcel) MutateConquestMapCenterOffsetX(n float32) bool {
+func (rcv *ConstMinigameTBGExcel) MutateCameraAngle(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(12, n)
 }
 
-func (rcv *ConstMinigameTBGExcel) ConquestMapCenterOffsetY() float32 {
+func (rcv *ConstMinigameTBGExcel) CameraZoomMax() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -101,11 +101,11 @@ func (rcv *ConstMinigameTBGExcel) ConquestMapCenterOffsetY() float32 {
 	return 0.0
 }
 
-func (rcv *ConstMinigameTBGExcel) MutateConquestMapCenterOffsetY(n float32) bool {
+func (rcv *ConstMinigameTBGExcel) MutateCameraZoomMax(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(14, n)
 }
 
-func (rcv *ConstMinigameTBGExcel) CameraAngle() float32 {
+func (rcv *ConstMinigameTBGExcel) EncounterEnemyRotation() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -113,11 +113,11 @@ func (rcv *ConstMinigameTBGExcel) CameraAngle() float32 {
 	return 0.0
 }
 
-func (rcv *ConstMinigameTBGExcel) MutateCameraAngle(n float32) bool {
+func (rcv *ConstMinigameTBGExcel) MutateEncounterEnemyRotation(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(16, n)
 }
 
-func (rcv *ConstMinigameTBGExcel) CameraZoomMax() float32 {
+func (rcv *ConstMinigameTBGExcel) CameraZoomMin() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -125,11 +125,11 @@ func (rcv *ConstMinigameTBGExcel) CameraZoomMax() float32 {
 	return 0.0
 }
 
-func (rcv *ConstMinigameTBGExcel) MutateCameraZoomMax(n float32) bool {
+func (rcv *ConstMinigameTBGExcel) MutateCameraZoomMin(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(18, n)
 }
 
-func (rcv *ConstMinigameTBGExcel) CameraZoomMin() float32 {
+func (rcv *ConstMinigameTBGExcel) CameraZoomDefault() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -137,11 +137,11 @@ func (rcv *ConstMinigameTBGExcel) CameraZoomMin() float32 {
 	return 0.0
 }
 
-func (rcv *ConstMinigameTBGExcel) MutateCameraZoomMin(n float32) bool {
+func (rcv *ConstMinigameTBGExcel) MutateCameraZoomDefault(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(20, n)
 }
 
-func (rcv *ConstMinigameTBGExcel) CameraZoomDefault() float32 {
+func (rcv *ConstMinigameTBGExcel) ConquestMapBoundaryOffsetBottom() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -149,20 +149,20 @@ func (rcv *ConstMinigameTBGExcel) CameraZoomDefault() float32 {
 	return 0.0
 }
 
-func (rcv *ConstMinigameTBGExcel) MutateCameraZoomDefault(n float32) bool {
+func (rcv *ConstMinigameTBGExcel) MutateConquestMapBoundaryOffsetBottom(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(22, n)
 }
 
-func (rcv *ConstMinigameTBGExcel) ThemaLoadingProgressTime() float32 {
+func (rcv *ConstMinigameTBGExcel) EncounterRewardReceiveIndex() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
-	return 0.0
+	return 0
 }
 
-func (rcv *ConstMinigameTBGExcel) MutateThemaLoadingProgressTime(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(24, n)
+func (rcv *ConstMinigameTBGExcel) MutateEncounterRewardReceiveIndex(n int32) bool {
+	return rcv._tab.MutateInt32Slot(24, n)
 }
 
 func (rcv *ConstMinigameTBGExcel) MapAllyRotation() float32 {
@@ -177,7 +177,7 @@ func (rcv *ConstMinigameTBGExcel) MutateMapAllyRotation(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(26, n)
 }
 
-func (rcv *ConstMinigameTBGExcel) AniAllyBattleAttack() []byte {
+func (rcv *ConstMinigameTBGExcel) EffectEnemyBattleDamage() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -185,7 +185,7 @@ func (rcv *ConstMinigameTBGExcel) AniAllyBattleAttack() []byte {
 	return nil
 }
 
-func (rcv *ConstMinigameTBGExcel) EffectAllyBattleAttack() []byte {
+func (rcv *ConstMinigameTBGExcel) EffectEnemyBattleAttack() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -193,23 +193,31 @@ func (rcv *ConstMinigameTBGExcel) EffectAllyBattleAttack() []byte {
 	return nil
 }
 
-func (rcv *ConstMinigameTBGExcel) EffectAllyBattleDamage() []byte {
+func (rcv *ConstMinigameTBGExcel) ConquestMapBoundaryOffsetTop() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0.0
 }
 
-func (rcv *ConstMinigameTBGExcel) AniEnemyBattleAttack() []byte {
+func (rcv *ConstMinigameTBGExcel) MutateConquestMapBoundaryOffsetTop(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(32, n)
+}
+
+func (rcv *ConstMinigameTBGExcel) ConquestMapBoundaryOffsetLeft() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0.0
 }
 
-func (rcv *ConstMinigameTBGExcel) EffectEnemyBattleAttack() []byte {
+func (rcv *ConstMinigameTBGExcel) MutateConquestMapBoundaryOffsetLeft(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(34, n)
+}
+
+func (rcv *ConstMinigameTBGExcel) EffectAllyBattleAttack() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -217,7 +225,7 @@ func (rcv *ConstMinigameTBGExcel) EffectEnemyBattleAttack() []byte {
 	return nil
 }
 
-func (rcv *ConstMinigameTBGExcel) EffectEnemyBattleDamage() []byte {
+func (rcv *ConstMinigameTBGExcel) AniEnemyBattleAttack() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -225,7 +233,7 @@ func (rcv *ConstMinigameTBGExcel) EffectEnemyBattleDamage() []byte {
 	return nil
 }
 
-func (rcv *ConstMinigameTBGExcel) EncounterAllyRotation() float32 {
+func (rcv *ConstMinigameTBGExcel) ConquestMapCenterOffsetY() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -233,99 +241,91 @@ func (rcv *ConstMinigameTBGExcel) EncounterAllyRotation() float32 {
 	return 0.0
 }
 
-func (rcv *ConstMinigameTBGExcel) MutateEncounterAllyRotation(n float32) bool {
+func (rcv *ConstMinigameTBGExcel) MutateConquestMapCenterOffsetY(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(40, n)
 }
 
-func (rcv *ConstMinigameTBGExcel) EncounterEnemyRotation() float32 {
+func (rcv *ConstMinigameTBGExcel) EffectAllyBattleDamage() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0.0
+	return nil
 }
 
-func (rcv *ConstMinigameTBGExcel) MutateEncounterEnemyRotation(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(42, n)
-}
-
-func (rcv *ConstMinigameTBGExcel) EncounterRewardReceiveIndex() int32 {
+func (rcv *ConstMinigameTBGExcel) AniAllyBattleAttack() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *ConstMinigameTBGExcel) MutateEncounterRewardReceiveIndex(n int32) bool {
-	return rcv._tab.MutateInt32Slot(44, n)
+	return nil
 }
 
 func ConstMinigameTBGExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(21)
 }
-func ConstMinigameTBGExcelAddConquestMapBoundaryOffsetLeft(builder *flatbuffers.Builder, conquestMapBoundaryOffsetLeft float32) {
-	builder.PrependFloat32Slot(0, conquestMapBoundaryOffsetLeft, 0.0)
-}
-func ConstMinigameTBGExcelAddConquestMapBoundaryOffsetRight(builder *flatbuffers.Builder, conquestMapBoundaryOffsetRight float32) {
-	builder.PrependFloat32Slot(1, conquestMapBoundaryOffsetRight, 0.0)
-}
-func ConstMinigameTBGExcelAddConquestMapBoundaryOffsetTop(builder *flatbuffers.Builder, conquestMapBoundaryOffsetTop float32) {
-	builder.PrependFloat32Slot(2, conquestMapBoundaryOffsetTop, 0.0)
-}
-func ConstMinigameTBGExcelAddConquestMapBoundaryOffsetBottom(builder *flatbuffers.Builder, conquestMapBoundaryOffsetBottom float32) {
-	builder.PrependFloat32Slot(3, conquestMapBoundaryOffsetBottom, 0.0)
+func ConstMinigameTBGExcelAddThemaLoadingProgressTime(builder *flatbuffers.Builder, themaLoadingProgressTime float32) {
+	builder.PrependFloat32Slot(0, themaLoadingProgressTime, 0.0)
 }
 func ConstMinigameTBGExcelAddConquestMapCenterOffsetX(builder *flatbuffers.Builder, conquestMapCenterOffsetX float32) {
-	builder.PrependFloat32Slot(4, conquestMapCenterOffsetX, 0.0)
+	builder.PrependFloat32Slot(1, conquestMapCenterOffsetX, 0.0)
 }
-func ConstMinigameTBGExcelAddConquestMapCenterOffsetY(builder *flatbuffers.Builder, conquestMapCenterOffsetY float32) {
-	builder.PrependFloat32Slot(5, conquestMapCenterOffsetY, 0.0)
+func ConstMinigameTBGExcelAddEncounterAllyRotation(builder *flatbuffers.Builder, encounterAllyRotation float32) {
+	builder.PrependFloat32Slot(2, encounterAllyRotation, 0.0)
+}
+func ConstMinigameTBGExcelAddConquestMapBoundaryOffsetRight(builder *flatbuffers.Builder, conquestMapBoundaryOffsetRight float32) {
+	builder.PrependFloat32Slot(3, conquestMapBoundaryOffsetRight, 0.0)
 }
 func ConstMinigameTBGExcelAddCameraAngle(builder *flatbuffers.Builder, cameraAngle float32) {
-	builder.PrependFloat32Slot(6, cameraAngle, 0.0)
+	builder.PrependFloat32Slot(4, cameraAngle, 0.0)
 }
 func ConstMinigameTBGExcelAddCameraZoomMax(builder *flatbuffers.Builder, cameraZoomMax float32) {
-	builder.PrependFloat32Slot(7, cameraZoomMax, 0.0)
+	builder.PrependFloat32Slot(5, cameraZoomMax, 0.0)
+}
+func ConstMinigameTBGExcelAddEncounterEnemyRotation(builder *flatbuffers.Builder, encounterEnemyRotation float32) {
+	builder.PrependFloat32Slot(6, encounterEnemyRotation, 0.0)
 }
 func ConstMinigameTBGExcelAddCameraZoomMin(builder *flatbuffers.Builder, cameraZoomMin float32) {
-	builder.PrependFloat32Slot(8, cameraZoomMin, 0.0)
+	builder.PrependFloat32Slot(7, cameraZoomMin, 0.0)
 }
 func ConstMinigameTBGExcelAddCameraZoomDefault(builder *flatbuffers.Builder, cameraZoomDefault float32) {
-	builder.PrependFloat32Slot(9, cameraZoomDefault, 0.0)
+	builder.PrependFloat32Slot(8, cameraZoomDefault, 0.0)
 }
-func ConstMinigameTBGExcelAddThemaLoadingProgressTime(builder *flatbuffers.Builder, themaLoadingProgressTime float32) {
-	builder.PrependFloat32Slot(10, themaLoadingProgressTime, 0.0)
+func ConstMinigameTBGExcelAddConquestMapBoundaryOffsetBottom(builder *flatbuffers.Builder, conquestMapBoundaryOffsetBottom float32) {
+	builder.PrependFloat32Slot(9, conquestMapBoundaryOffsetBottom, 0.0)
+}
+func ConstMinigameTBGExcelAddEncounterRewardReceiveIndex(builder *flatbuffers.Builder, encounterRewardReceiveIndex int32) {
+	builder.PrependInt32Slot(10, encounterRewardReceiveIndex, 0)
 }
 func ConstMinigameTBGExcelAddMapAllyRotation(builder *flatbuffers.Builder, mapAllyRotation float32) {
 	builder.PrependFloat32Slot(11, mapAllyRotation, 0.0)
 }
-func ConstMinigameTBGExcelAddAniAllyBattleAttack(builder *flatbuffers.Builder, aniAllyBattleAttack flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(aniAllyBattleAttack), 0)
-}
-func ConstMinigameTBGExcelAddEffectAllyBattleAttack(builder *flatbuffers.Builder, effectAllyBattleAttack flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(effectAllyBattleAttack), 0)
-}
-func ConstMinigameTBGExcelAddEffectAllyBattleDamage(builder *flatbuffers.Builder, effectAllyBattleDamage flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(effectAllyBattleDamage), 0)
-}
-func ConstMinigameTBGExcelAddAniEnemyBattleAttack(builder *flatbuffers.Builder, aniEnemyBattleAttack flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(aniEnemyBattleAttack), 0)
+func ConstMinigameTBGExcelAddEffectEnemyBattleDamage(builder *flatbuffers.Builder, effectEnemyBattleDamage flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(effectEnemyBattleDamage), 0)
 }
 func ConstMinigameTBGExcelAddEffectEnemyBattleAttack(builder *flatbuffers.Builder, effectEnemyBattleAttack flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(effectEnemyBattleAttack), 0)
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(effectEnemyBattleAttack), 0)
 }
-func ConstMinigameTBGExcelAddEffectEnemyBattleDamage(builder *flatbuffers.Builder, effectEnemyBattleDamage flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(effectEnemyBattleDamage), 0)
+func ConstMinigameTBGExcelAddConquestMapBoundaryOffsetTop(builder *flatbuffers.Builder, conquestMapBoundaryOffsetTop float32) {
+	builder.PrependFloat32Slot(14, conquestMapBoundaryOffsetTop, 0.0)
 }
-func ConstMinigameTBGExcelAddEncounterAllyRotation(builder *flatbuffers.Builder, encounterAllyRotation float32) {
-	builder.PrependFloat32Slot(18, encounterAllyRotation, 0.0)
+func ConstMinigameTBGExcelAddConquestMapBoundaryOffsetLeft(builder *flatbuffers.Builder, conquestMapBoundaryOffsetLeft float32) {
+	builder.PrependFloat32Slot(15, conquestMapBoundaryOffsetLeft, 0.0)
 }
-func ConstMinigameTBGExcelAddEncounterEnemyRotation(builder *flatbuffers.Builder, encounterEnemyRotation float32) {
-	builder.PrependFloat32Slot(19, encounterEnemyRotation, 0.0)
+func ConstMinigameTBGExcelAddEffectAllyBattleAttack(builder *flatbuffers.Builder, effectAllyBattleAttack flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(effectAllyBattleAttack), 0)
 }
-func ConstMinigameTBGExcelAddEncounterRewardReceiveIndex(builder *flatbuffers.Builder, encounterRewardReceiveIndex int32) {
-	builder.PrependInt32Slot(20, encounterRewardReceiveIndex, 0)
+func ConstMinigameTBGExcelAddAniEnemyBattleAttack(builder *flatbuffers.Builder, aniEnemyBattleAttack flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(aniEnemyBattleAttack), 0)
+}
+func ConstMinigameTBGExcelAddConquestMapCenterOffsetY(builder *flatbuffers.Builder, conquestMapCenterOffsetY float32) {
+	builder.PrependFloat32Slot(18, conquestMapCenterOffsetY, 0.0)
+}
+func ConstMinigameTBGExcelAddEffectAllyBattleDamage(builder *flatbuffers.Builder, effectAllyBattleDamage flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(effectAllyBattleDamage), 0)
+}
+func ConstMinigameTBGExcelAddAniAllyBattleAttack(builder *flatbuffers.Builder, aniAllyBattleAttack flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(20, flatbuffers.UOffsetT(aniAllyBattleAttack), 0)
 }
 func ConstMinigameTBGExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

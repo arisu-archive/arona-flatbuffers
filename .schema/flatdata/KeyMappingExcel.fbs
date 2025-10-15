@@ -3,12 +3,12 @@ namespace FlatData;
 table KeyMappingExcel {
     id: string;
     target_key_code: string;
-    is_display: bool;
-    is_used: bool;
-    is_long_press: bool;
-    ignore_pos_check: bool;
-    icon_position_x: float;
     icon_position_y: float;
+    is_display: bool;
     icon_scale_x: float;
+    is_used: bool;
+    ignore_pos_check: bool;
+    is_long_press: bool;
     icon_scale_y: float;
+    icon_position_x: float;
 }

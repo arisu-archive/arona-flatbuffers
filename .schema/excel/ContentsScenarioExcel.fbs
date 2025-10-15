@@ -5,9 +5,9 @@ namespace MX.Data.Excel;
 table ContentsScenarioExcel {
     id: uint;
     localize_id: uint;
-    display_order: int;
-    scenario_content_type: ScenarioContentType;
     scenario_group_id: [long];
+    scenario_content_type: ScenarioContentType;
+    display_order: int;
 }
 
 root_type ContentsScenarioExcel;

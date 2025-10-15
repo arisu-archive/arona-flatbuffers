@@ -33,7 +33,7 @@ func (rcv *EventContentDebuffRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentDebuffRewardExcel) EventContentId() int64 {
+func (rcv *EventContentDebuffRewardExcel) EventStageId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,11 +41,11 @@ func (rcv *EventContentDebuffRewardExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentDebuffRewardExcel) MutateEventContentId(n int64) bool {
+func (rcv *EventContentDebuffRewardExcel) MutateEventStageId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *EventContentDebuffRewardExcel) EventStageId() int64 {
+func (rcv *EventContentDebuffRewardExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,7 +53,7 @@ func (rcv *EventContentDebuffRewardExcel) EventStageId() int64 {
 	return 0
 }
 
-func (rcv *EventContentDebuffRewardExcel) MutateEventStageId(n int64) bool {
+func (rcv *EventContentDebuffRewardExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
@@ -84,11 +84,11 @@ func (rcv *EventContentDebuffRewardExcel) MutateRewardPercentage(n int64) bool {
 func EventContentDebuffRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func EventContentDebuffRewardExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
 func EventContentDebuffRewardExcelAddEventStageId(builder *flatbuffers.Builder, eventStageId int64) {
-	builder.PrependInt64Slot(1, eventStageId, 0)
+	builder.PrependInt64Slot(0, eventStageId, 0)
+}
+func EventContentDebuffRewardExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(1, eventContentId, 0)
 }
 func EventContentDebuffRewardExcelAddEventContentItemType(builder *flatbuffers.Builder, eventContentItemType EventContentItemType) {
 	builder.PrependInt32Slot(2, int32(eventContentItemType), 0)

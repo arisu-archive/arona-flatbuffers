@@ -5,18 +5,18 @@ namespace MX.Data.Excel;
 
 table ScenarioContentCollectionExcel {
     id: long;
-    group_id: long;
-    unlock_condition_type: CollectionUnlockType;
     unlock_condition_parameter: [long];
-    multiple_condition_check_type: MultipleConditionCheckType;
-    unlock_condition_count: long;
-    is_object: bool;
-    is_horizon: bool;
-    emblem_resource: string;
     thumb_resource: string;
+    unlock_condition_count: long;
     full_resource: string;
+    multiple_condition_check_type: MultipleConditionCheckType;
+    is_horizon: bool;
+    group_id: long;
     localize_etc_id: uint;
     sub_name_localize_code_id: string;
+    is_object: bool;
+    emblem_resource: string;
+    unlock_condition_type: CollectionUnlockType;
 }
 
 root_type ScenarioContentCollectionExcel;

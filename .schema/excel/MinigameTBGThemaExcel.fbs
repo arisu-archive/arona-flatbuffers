@@ -1,0 +1,24 @@
+include "TBGPortalCondition.fbs";
+include "TBGThemaType.fbs";
+
+namespace MX.Data.Excel;
+
+table MinigameTBGThemaExcel {
+    thema_goal_localize: string;
+    thema_type: TBGThemaType;
+    instant_clear_cost_amount: long;
+    thema_player_prefab: string;
+    unique_id: long;
+    thema_name_localize: string;
+    portal_condition: [TBGPortalCondition];
+    thema_map: string;
+    thema_leader_id: long;
+    thema_index: int;
+    thema_loading_image: string;
+    is_tutorial: bool;
+    portal_condition_parameter: [string];
+    thema_map_bg: string;
+    event_content_id: long;
+}
+
+root_type MinigameTBGThemaExcel;

@@ -33,40 +33,8 @@ func (rcv *ProtocolSettingExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ProtocolSettingExcel) Protocol() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *ProtocolSettingExcel) OpenConditionContent() OpenConditionContent {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return OpenConditionContent(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ProtocolSettingExcel) MutateOpenConditionContent(n OpenConditionContent) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *ProtocolSettingExcel) Currency() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *ProtocolSettingExcel) MutateCurrency(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
-}
-
 func (rcv *ProtocolSettingExcel) Inventory() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -74,11 +42,31 @@ func (rcv *ProtocolSettingExcel) Inventory() bool {
 }
 
 func (rcv *ProtocolSettingExcel) MutateInventory(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
+	return rcv._tab.MutateBoolSlot(4, n)
+}
+
+func (rcv *ProtocolSettingExcel) Currency() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ProtocolSettingExcel) MutateCurrency(n bool) bool {
+	return rcv._tab.MutateBoolSlot(6, n)
+}
+
+func (rcv *ProtocolSettingExcel) Protocol() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func (rcv *ProtocolSettingExcel) Mail() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -86,26 +74,38 @@ func (rcv *ProtocolSettingExcel) Mail() bool {
 }
 
 func (rcv *ProtocolSettingExcel) MutateMail(n bool) bool {
-	return rcv._tab.MutateBoolSlot(12, n)
+	return rcv._tab.MutateBoolSlot(10, n)
+}
+
+func (rcv *ProtocolSettingExcel) OpenConditionContent() OpenConditionContent {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return OpenConditionContent(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ProtocolSettingExcel) MutateOpenConditionContent(n OpenConditionContent) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
 func ProtocolSettingExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func ProtocolSettingExcelAddProtocol(builder *flatbuffers.Builder, protocol flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(protocol), 0)
-}
-func ProtocolSettingExcelAddOpenConditionContent(builder *flatbuffers.Builder, openConditionContent OpenConditionContent) {
-	builder.PrependInt32Slot(1, int32(openConditionContent), 0)
+func ProtocolSettingExcelAddInventory(builder *flatbuffers.Builder, inventory bool) {
+	builder.PrependBoolSlot(0, inventory, false)
 }
 func ProtocolSettingExcelAddCurrency(builder *flatbuffers.Builder, currency bool) {
-	builder.PrependBoolSlot(2, currency, false)
+	builder.PrependBoolSlot(1, currency, false)
 }
-func ProtocolSettingExcelAddInventory(builder *flatbuffers.Builder, inventory bool) {
-	builder.PrependBoolSlot(3, inventory, false)
+func ProtocolSettingExcelAddProtocol(builder *flatbuffers.Builder, protocol flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(protocol), 0)
 }
 func ProtocolSettingExcelAddMail(builder *flatbuffers.Builder, mail bool) {
-	builder.PrependBoolSlot(4, mail, false)
+	builder.PrependBoolSlot(3, mail, false)
+}
+func ProtocolSettingExcelAddOpenConditionContent(builder *flatbuffers.Builder, openConditionContent OpenConditionContent) {
+	builder.PrependInt32Slot(4, int32(openConditionContent), 0)
 }
 func ProtocolSettingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

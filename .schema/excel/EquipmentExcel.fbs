@@ -1,0 +1,30 @@
+include "EquipmentCategory.fbs";
+include "Rarity.fbs";
+include "ShopCategoryType.fbs";
+include "Tag.fbs";
+
+namespace MX.Data.Excel;
+
+table EquipmentExcel {
+    tags: [Tag];
+    equipment_category: EquipmentCategory;
+    shop_category: [ShopCategoryType];
+    max_level: int;
+    icon: string;
+    next_tier_equipment: long;
+    shifting_craft_quality: long;
+    craft_quality_tier2: long;
+    localize_etc_id: uint;
+    wear: bool;
+    recipe_id: int;
+    rarity: Rarity;
+    craft_quality_tier1: long;
+    id: long;
+    shortcut_type_id: long;
+    image_name: string;
+    tier_init: long;
+    stackable_max: int;
+    craft_quality_tier0: long;
+}
+
+root_type EquipmentExcel;

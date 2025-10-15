@@ -33,16 +33,16 @@ func (rcv *DefaultEchelonExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *DefaultEchelonExcel) EchlonId() int32 {
+func (rcv *DefaultEchelonExcel) TssId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *DefaultEchelonExcel) MutateEchlonId(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
+func (rcv *DefaultEchelonExcel) MutateTssId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *DefaultEchelonExcel) LeaderId() int64 {
@@ -109,23 +109,23 @@ func (rcv *DefaultEchelonExcel) MutateSupportId(j int, n int64) bool {
 	return false
 }
 
-func (rcv *DefaultEchelonExcel) TssId() int64 {
+func (rcv *DefaultEchelonExcel) EchlonId() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *DefaultEchelonExcel) MutateTssId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+func (rcv *DefaultEchelonExcel) MutateEchlonId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(12, n)
 }
 
 func DefaultEchelonExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func DefaultEchelonExcelAddEchlonId(builder *flatbuffers.Builder, echlonId int32) {
-	builder.PrependInt32Slot(0, echlonId, 0)
+func DefaultEchelonExcelAddTssId(builder *flatbuffers.Builder, tssId int64) {
+	builder.PrependInt64Slot(0, tssId, 0)
 }
 func DefaultEchelonExcelAddLeaderId(builder *flatbuffers.Builder, leaderId int64) {
 	builder.PrependInt64Slot(1, leaderId, 0)
@@ -142,8 +142,8 @@ func DefaultEchelonExcelAddSupportId(builder *flatbuffers.Builder, supportId fla
 func DefaultEchelonExcelStartSupportIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func DefaultEchelonExcelAddTssId(builder *flatbuffers.Builder, tssId int64) {
-	builder.PrependInt64Slot(4, tssId, 0)
+func DefaultEchelonExcelAddEchlonId(builder *flatbuffers.Builder, echlonId int32) {
+	builder.PrependInt32Slot(4, echlonId, 0)
 }
 func DefaultEchelonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

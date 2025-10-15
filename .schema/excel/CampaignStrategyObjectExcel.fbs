@@ -1,0 +1,24 @@
+include "ParcelType.fbs";
+include "StrategyObjectType.fbs";
+
+namespace MX.Data.Excel;
+
+table CampaignStrategyObjectExcel {
+    disposable: bool;
+    buff_id: int;
+    swith_id: int;
+    strategy_sight_range: long;
+    heal_value: int;
+    strategy_reward_name: string;
+    strategy_reward_parcel_type: ParcelType;
+    id: long;
+    strategy_reward_amount: int;
+    portal_id: int;
+    strategy_reward_id: long;
+    key: uint;
+    prefab_name: string;
+    name: string;
+    strategy_object_type: StrategyObjectType;
+}
+
+root_type CampaignStrategyObjectExcel;

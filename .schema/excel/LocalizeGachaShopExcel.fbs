@@ -1,0 +1,27 @@
+namespace MX.Data.Excel;
+
+table LocalizeGachaShopExcel {
+    sub_title_en: string;
+    gacha_description_en: string;
+    tab_name_en: string;
+    gacha_description_th: string;
+    gacha_shop_id: long;
+    sub_title_tw: string;
+    title_name_th: string;
+    gacha_description_tw: string;
+    title_name_en: string;
+    tab_name_jp: string;
+    tab_name_kr: string;
+    sub_title_jp: string;
+    title_name_kr: string;
+    sub_title_kr: string;
+    title_name_tw: string;
+    tab_name_th: string;
+    tab_name_tw: string;
+    gacha_description_jp: string;
+    gacha_description_kr: string;
+    title_name_jp: string;
+    sub_title_th: string;
+}
+
+root_type LocalizeGachaShopExcel;

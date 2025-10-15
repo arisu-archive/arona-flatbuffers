@@ -10,17 +10,17 @@ import (
 // KeyMappingPopupExcelDto represents a FlatBuffers table
 type KeyMappingPopupExcelDto struct {
 	fbsutils.FlatBuffer
-	PrefabName     string `json:"prefab_name"`
-	ButtonName01   string `json:"button_name01"`
-	KeyMappingId01 string `json:"key_mapping_id01"`
-	ButtonName02   string `json:"button_name02"`
-	KeyMappingId02 string `json:"key_mapping_id02"`
-	ButtonName03   string `json:"button_name03"`
 	KeyMappingId03 string `json:"key_mapping_id03"`
-	ButtonName04   string `json:"button_name04"`
-	KeyMappingId04 string `json:"key_mapping_id04"`
-	ButtonName05   string `json:"button_name05"`
+	KeyMappingId02 string `json:"key_mapping_id02"`
+	ButtonName02   string `json:"button_name02"`
 	KeyMappingId05 string `json:"key_mapping_id05"`
+	ButtonName03   string `json:"button_name03"`
+	ButtonName01   string `json:"button_name01"`
+	KeyMappingId04 string `json:"key_mapping_id04"`
+	PrefabName     string `json:"prefab_name"`
+	ButtonName04   string `json:"button_name04"`
+	ButtonName05   string `json:"button_name05"`
+	KeyMappingId01 string `json:"key_mapping_id01"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -29,17 +29,17 @@ func (t *KeyMappingPopupExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KeyMappingPopup"))
 	}
 	KeyMappingPopupExcelStart(b)
-	KeyMappingPopupExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
-	KeyMappingPopupExcelAddButtonName01(b, b.CreateString(fbsutils.Convert(t.ButtonName01, t.FlatBuffer.TableKey)))
-	KeyMappingPopupExcelAddKeyMappingId01(b, b.CreateString(fbsutils.Convert(t.KeyMappingId01, t.FlatBuffer.TableKey)))
-	KeyMappingPopupExcelAddButtonName02(b, b.CreateString(fbsutils.Convert(t.ButtonName02, t.FlatBuffer.TableKey)))
-	KeyMappingPopupExcelAddKeyMappingId02(b, b.CreateString(fbsutils.Convert(t.KeyMappingId02, t.FlatBuffer.TableKey)))
-	KeyMappingPopupExcelAddButtonName03(b, b.CreateString(fbsutils.Convert(t.ButtonName03, t.FlatBuffer.TableKey)))
 	KeyMappingPopupExcelAddKeyMappingId03(b, b.CreateString(fbsutils.Convert(t.KeyMappingId03, t.FlatBuffer.TableKey)))
-	KeyMappingPopupExcelAddButtonName04(b, b.CreateString(fbsutils.Convert(t.ButtonName04, t.FlatBuffer.TableKey)))
-	KeyMappingPopupExcelAddKeyMappingId04(b, b.CreateString(fbsutils.Convert(t.KeyMappingId04, t.FlatBuffer.TableKey)))
-	KeyMappingPopupExcelAddButtonName05(b, b.CreateString(fbsutils.Convert(t.ButtonName05, t.FlatBuffer.TableKey)))
+	KeyMappingPopupExcelAddKeyMappingId02(b, b.CreateString(fbsutils.Convert(t.KeyMappingId02, t.FlatBuffer.TableKey)))
+	KeyMappingPopupExcelAddButtonName02(b, b.CreateString(fbsutils.Convert(t.ButtonName02, t.FlatBuffer.TableKey)))
 	KeyMappingPopupExcelAddKeyMappingId05(b, b.CreateString(fbsutils.Convert(t.KeyMappingId05, t.FlatBuffer.TableKey)))
+	KeyMappingPopupExcelAddButtonName03(b, b.CreateString(fbsutils.Convert(t.ButtonName03, t.FlatBuffer.TableKey)))
+	KeyMappingPopupExcelAddButtonName01(b, b.CreateString(fbsutils.Convert(t.ButtonName01, t.FlatBuffer.TableKey)))
+	KeyMappingPopupExcelAddKeyMappingId04(b, b.CreateString(fbsutils.Convert(t.KeyMappingId04, t.FlatBuffer.TableKey)))
+	KeyMappingPopupExcelAddPrefabName(b, b.CreateString(fbsutils.Convert(t.PrefabName, t.FlatBuffer.TableKey)))
+	KeyMappingPopupExcelAddButtonName04(b, b.CreateString(fbsutils.Convert(t.ButtonName04, t.FlatBuffer.TableKey)))
+	KeyMappingPopupExcelAddButtonName05(b, b.CreateString(fbsutils.Convert(t.ButtonName05, t.FlatBuffer.TableKey)))
+	KeyMappingPopupExcelAddKeyMappingId01(b, b.CreateString(fbsutils.Convert(t.KeyMappingId01, t.FlatBuffer.TableKey)))
 	return KeyMappingPopupExcelEnd(b)
 }
 
@@ -55,17 +55,17 @@ func (t *KeyMappingPopupExcelDto) UnmarshalMessage(e *KeyMappingPopupExcel) erro
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KeyMappingPopup"))
 	}
-	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
-	t.ButtonName01 = fbsutils.Convert(string(e.ButtonName01()), t.FlatBuffer.TableKey)
-	t.KeyMappingId01 = fbsutils.Convert(string(e.KeyMappingId01()), t.FlatBuffer.TableKey)
-	t.ButtonName02 = fbsutils.Convert(string(e.ButtonName02()), t.FlatBuffer.TableKey)
-	t.KeyMappingId02 = fbsutils.Convert(string(e.KeyMappingId02()), t.FlatBuffer.TableKey)
-	t.ButtonName03 = fbsutils.Convert(string(e.ButtonName03()), t.FlatBuffer.TableKey)
 	t.KeyMappingId03 = fbsutils.Convert(string(e.KeyMappingId03()), t.FlatBuffer.TableKey)
-	t.ButtonName04 = fbsutils.Convert(string(e.ButtonName04()), t.FlatBuffer.TableKey)
-	t.KeyMappingId04 = fbsutils.Convert(string(e.KeyMappingId04()), t.FlatBuffer.TableKey)
-	t.ButtonName05 = fbsutils.Convert(string(e.ButtonName05()), t.FlatBuffer.TableKey)
+	t.KeyMappingId02 = fbsutils.Convert(string(e.KeyMappingId02()), t.FlatBuffer.TableKey)
+	t.ButtonName02 = fbsutils.Convert(string(e.ButtonName02()), t.FlatBuffer.TableKey)
 	t.KeyMappingId05 = fbsutils.Convert(string(e.KeyMappingId05()), t.FlatBuffer.TableKey)
+	t.ButtonName03 = fbsutils.Convert(string(e.ButtonName03()), t.FlatBuffer.TableKey)
+	t.ButtonName01 = fbsutils.Convert(string(e.ButtonName01()), t.FlatBuffer.TableKey)
+	t.KeyMappingId04 = fbsutils.Convert(string(e.KeyMappingId04()), t.FlatBuffer.TableKey)
+	t.PrefabName = fbsutils.Convert(string(e.PrefabName()), t.FlatBuffer.TableKey)
+	t.ButtonName04 = fbsutils.Convert(string(e.ButtonName04()), t.FlatBuffer.TableKey)
+	t.ButtonName05 = fbsutils.Convert(string(e.ButtonName05()), t.FlatBuffer.TableKey)
+	t.KeyMappingId01 = fbsutils.Convert(string(e.KeyMappingId01()), t.FlatBuffer.TableKey)
 	return nil
 }
 

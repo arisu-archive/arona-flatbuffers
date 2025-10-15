@@ -33,7 +33,7 @@ func (rcv *MinigameRoadPuzzleMapTileExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MinigameRoadPuzzleMapTileExcel) EventContentId() int64 {
+func (rcv *MinigameRoadPuzzleMapTileExcel) UniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,32 +41,12 @@ func (rcv *MinigameRoadPuzzleMapTileExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *MinigameRoadPuzzleMapTileExcel) MutateEventContentId(n int64) bool {
+func (rcv *MinigameRoadPuzzleMapTileExcel) MutateUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *MinigameRoadPuzzleMapTileExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MinigameRoadPuzzleMapTileExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *MinigameRoadPuzzleMapTileExcel) PrefabName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *MinigameRoadPuzzleMapTileExcel) MapTileType() RoadPuzzleMapTileType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return RoadPuzzleMapTileType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -74,23 +54,43 @@ func (rcv *MinigameRoadPuzzleMapTileExcel) MapTileType() RoadPuzzleMapTileType {
 }
 
 func (rcv *MinigameRoadPuzzleMapTileExcel) MutateMapTileType(n RoadPuzzleMapTileType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *MinigameRoadPuzzleMapTileExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameRoadPuzzleMapTileExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *MinigameRoadPuzzleMapTileExcel) PrefabName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
 }
 
 func MinigameRoadPuzzleMapTileExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func MinigameRoadPuzzleMapTileExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
 func MinigameRoadPuzzleMapTileExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(1, uniqueId, 0)
-}
-func MinigameRoadPuzzleMapTileExcelAddPrefabName(builder *flatbuffers.Builder, prefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(prefabName), 0)
+	builder.PrependInt64Slot(0, uniqueId, 0)
 }
 func MinigameRoadPuzzleMapTileExcelAddMapTileType(builder *flatbuffers.Builder, mapTileType RoadPuzzleMapTileType) {
-	builder.PrependInt32Slot(3, int32(mapTileType), 0)
+	builder.PrependInt32Slot(1, int32(mapTileType), 0)
+}
+func MinigameRoadPuzzleMapTileExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(2, eventContentId, 0)
+}
+func MinigameRoadPuzzleMapTileExcelAddPrefabName(builder *flatbuffers.Builder, prefabName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(prefabName), 0)
 }
 func MinigameRoadPuzzleMapTileExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

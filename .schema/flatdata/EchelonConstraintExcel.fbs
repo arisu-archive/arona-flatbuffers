@@ -6,12 +6,12 @@ include "WeaponType.fbs";
 namespace FlatData;
 
 table EchelonConstraintExcel {
-    group_id: long;
-    is_white_list: bool;
-    character_id: [long];
-    personality_id: [long];
-    weapon_type: WeaponType;
-    school: School;
     club: Club;
+    character_id: [long];
+    school: School;
+    is_white_list: bool;
+    personality_id: [long];
+    group_id: long;
     role: TacticRole;
+    weapon_type: WeaponType;
 }

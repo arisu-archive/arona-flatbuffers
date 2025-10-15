@@ -10,13 +10,13 @@ import (
 // EventContentDiceRaceTotalRewardExcelDto represents a FlatBuffers table
 type EventContentDiceRaceTotalRewardExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId         int64        `json:"event_content_id"`
-	RewardId               int64        `json:"reward_id"`
-	RequiredLapFinishCount int32        `json:"required_lap_finish_count"`
 	DisplayLapFinishCount  int32        `json:"display_lap_finish_count"`
+	RewardParcelAmount     []int64      `json:"reward_parcel_amount"`
+	EventContentId         int64        `json:"event_content_id"`
 	RewardParcelType       []ParcelType `json:"reward_parcel_type"`
 	RewardParcelId         []int64      `json:"reward_parcel_id"`
-	RewardParcelAmount     []int64      `json:"reward_parcel_amount"`
+	RequiredLapFinishCount int32        `json:"required_lap_finish_count"`
+	RewardId               int64        `json:"reward_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,10 +25,13 @@ func (t *EventContentDiceRaceTotalRewardExcelDto) MarshalModel(b *flatbuffers.Bu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceTotalReward"))
 	}
 	EventContentDiceRaceTotalRewardExcelStart(b)
-	EventContentDiceRaceTotalRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentDiceRaceTotalRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
-	EventContentDiceRaceTotalRewardExcelAddRequiredLapFinishCount(b, fbsutils.Convert(t.RequiredLapFinishCount, t.FlatBuffer.TableKey))
 	EventContentDiceRaceTotalRewardExcelAddDisplayLapFinishCount(b, fbsutils.Convert(t.DisplayLapFinishCount, t.FlatBuffer.TableKey))
+	EventContentDiceRaceTotalRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
+	for i := range len(t.RewardParcelAmount) {
+		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
+	}
+	EventContentDiceRaceTotalRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
+	EventContentDiceRaceTotalRewardExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	EventContentDiceRaceTotalRewardExcelStartRewardParcelTypeVector(b, len(t.RewardParcelType))
 	for i := range len(t.RewardParcelType) {
 		b.PrependInt32(fbsutils.Convert(int32(t.RewardParcelType[len(t.RewardParcelType)-i-1]), t.FlatBuffer.TableKey))
@@ -39,11 +42,8 @@ func (t *EventContentDiceRaceTotalRewardExcelDto) MarshalModel(b *flatbuffers.Bu
 		b.PrependInt64(fbsutils.Convert(t.RewardParcelId[len(t.RewardParcelId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentDiceRaceTotalRewardExcelAddRewardParcelId(b, b.EndVector(len(t.RewardParcelId)))
-	EventContentDiceRaceTotalRewardExcelStartRewardParcelAmountVector(b, len(t.RewardParcelAmount))
-	for i := range len(t.RewardParcelAmount) {
-		b.PrependInt64(fbsutils.Convert(t.RewardParcelAmount[len(t.RewardParcelAmount)-i-1], t.FlatBuffer.TableKey))
-	}
-	EventContentDiceRaceTotalRewardExcelAddRewardParcelAmount(b, b.EndVector(len(t.RewardParcelAmount)))
+	EventContentDiceRaceTotalRewardExcelAddRequiredLapFinishCount(b, fbsutils.Convert(t.RequiredLapFinishCount, t.FlatBuffer.TableKey))
+	EventContentDiceRaceTotalRewardExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
 	return EventContentDiceRaceTotalRewardExcelEnd(b)
 }
 
@@ -59,10 +59,12 @@ func (t *EventContentDiceRaceTotalRewardExcelDto) UnmarshalMessage(e *EventConte
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceTotalReward"))
 	}
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
-	t.RequiredLapFinishCount = fbsutils.Convert(e.RequiredLapFinishCount(), t.FlatBuffer.TableKey)
 	t.DisplayLapFinishCount = fbsutils.Convert(e.DisplayLapFinishCount(), t.FlatBuffer.TableKey)
+	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
+	for i := range e.RewardParcelAmountLength() {
+		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
+	}
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.RewardParcelType = make([]ParcelType, e.RewardParcelTypeLength())
 	for i := range e.RewardParcelTypeLength() {
 		t.RewardParcelType[i] = ParcelType(fbsutils.Convert(int32(e.RewardParcelType(i)), t.FlatBuffer.TableKey))
@@ -71,10 +73,8 @@ func (t *EventContentDiceRaceTotalRewardExcelDto) UnmarshalMessage(e *EventConte
 	for i := range e.RewardParcelIdLength() {
 		t.RewardParcelId[i] = fbsutils.Convert(e.RewardParcelId(i), t.FlatBuffer.TableKey)
 	}
-	t.RewardParcelAmount = make([]int64, e.RewardParcelAmountLength())
-	for i := range e.RewardParcelAmountLength() {
-		t.RewardParcelAmount[i] = fbsutils.Convert(e.RewardParcelAmount(i), t.FlatBuffer.TableKey)
-	}
+	t.RequiredLapFinishCount = fbsutils.Convert(e.RequiredLapFinishCount(), t.FlatBuffer.TableKey)
+	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

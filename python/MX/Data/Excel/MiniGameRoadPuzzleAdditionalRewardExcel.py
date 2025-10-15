@@ -25,10 +25,10 @@ class MiniGameRoadPuzzleAdditionalRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MiniGameRoadPuzzleAdditionalRewardExcel
-    def EventContentId(self):
+    def RewardParcelType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameRoadPuzzleAdditionalRewardExcel
@@ -39,21 +39,21 @@ class MiniGameRoadPuzzleAdditionalRewardExcel(object):
         return 0
 
     # MiniGameRoadPuzzleAdditionalRewardExcel
-    def RewardParcelType(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # MiniGameRoadPuzzleAdditionalRewardExcel
-    def RewardParcelId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MiniGameRoadPuzzleAdditionalRewardExcel
     def RewardParcelAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MiniGameRoadPuzzleAdditionalRewardExcel
+    def RewardParcelId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -62,21 +62,21 @@ class MiniGameRoadPuzzleAdditionalRewardExcel(object):
 def MiniGameRoadPuzzleAdditionalRewardExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return MiniGameRoadPuzzleAdditionalRewardExcelStart(builder)
-def MiniGameRoadPuzzleAdditionalRewardExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return MiniGameRoadPuzzleAdditionalRewardExcelAddEventContentId(builder, eventContentId)
+def MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(0, rewardParcelType, 0)
+def AddRewardParcelType(builder, rewardParcelType):
+    return MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelType(builder, rewardParcelType)
 def MiniGameRoadPuzzleAdditionalRewardExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
     return MiniGameRoadPuzzleAdditionalRewardExcelAddUniqueId(builder, uniqueId)
-def MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependInt32Slot(2, rewardParcelType, 0)
-def AddRewardParcelType(builder, rewardParcelType):
-    return MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelType(builder, rewardParcelType)
-def MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependInt64Slot(3, rewardParcelId, 0)
-def AddRewardParcelId(builder, rewardParcelId):
-    return MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelId(builder, rewardParcelId)
-def MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt64Slot(4, rewardParcelAmount, 0)
+def MiniGameRoadPuzzleAdditionalRewardExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(2, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return MiniGameRoadPuzzleAdditionalRewardExcelAddEventContentId(builder, eventContentId)
+def MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependInt64Slot(3, rewardParcelAmount, 0)
 def AddRewardParcelAmount(builder, rewardParcelAmount):
     return MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependInt64Slot(4, rewardParcelId, 0)
+def AddRewardParcelId(builder, rewardParcelId):
+    return MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelId(builder, rewardParcelId)
 def MiniGameRoadPuzzleAdditionalRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MiniGameRoadPuzzleAdditionalRewardExcelEnd(builder)

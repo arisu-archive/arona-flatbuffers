@@ -1,0 +1,22 @@
+include "ParcelType.fbs";
+include "PurchasePeriodType.fbs";
+include "StoreType.fbs";
+
+namespace MX.Data.Excel;
+
+table ProductSelectExcel {
+    price: long;
+    parcel_id: [long];
+    parcel_type: [ParcelType];
+    product_id: string;
+    purchase_period_type: PurchasePeriodType;
+    parcel_amount: [long];
+    id: long;
+    store_type: StoreType;
+    teen_product_id: string;
+    purchase_period_limit: long;
+    product_selection_slot: [long];
+    price_reference: string;
+}
+
+root_type ProductSelectExcel;

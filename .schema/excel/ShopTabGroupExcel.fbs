@@ -1,0 +1,13 @@
+include "ShopCategoryType.fbs";
+include "ShopGroupType.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopTabGroupExcel {
+    shop_category_types: [ShopCategoryType];
+    id: long;
+    shop_group_type: ShopGroupType;
+    display_order: int;
+}
+
+root_type ShopTabGroupExcel;

@@ -45,20 +45,8 @@ func (rcv *BossPhaseExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *BossPhaseExcel) AiPhase() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *BossPhaseExcel) MutateAiPhase(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
 func (rcv *BossPhaseExcel) NormalAttackSkillUniqueName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -66,7 +54,7 @@ func (rcv *BossPhaseExcel) NormalAttackSkillUniqueName() []byte {
 }
 
 func (rcv *BossPhaseExcel) UseExSkill(j int) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetBool(a + flatbuffers.UOffsetT(j*1))
@@ -75,7 +63,7 @@ func (rcv *BossPhaseExcel) UseExSkill(j int) bool {
 }
 
 func (rcv *BossPhaseExcel) UseExSkillLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -83,12 +71,24 @@ func (rcv *BossPhaseExcel) UseExSkillLength() int {
 }
 
 func (rcv *BossPhaseExcel) MutateUseExSkill(j int, n bool) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateBool(a+flatbuffers.UOffsetT(j*1), n)
 	}
 	return false
+}
+
+func (rcv *BossPhaseExcel) AiPhase() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *BossPhaseExcel) MutateAiPhase(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func BossPhaseExcelStart(builder *flatbuffers.Builder) {
@@ -97,17 +97,17 @@ func BossPhaseExcelStart(builder *flatbuffers.Builder) {
 func BossPhaseExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
 }
-func BossPhaseExcelAddAiPhase(builder *flatbuffers.Builder, aiPhase int64) {
-	builder.PrependInt64Slot(1, aiPhase, 0)
-}
 func BossPhaseExcelAddNormalAttackSkillUniqueName(builder *flatbuffers.Builder, normalAttackSkillUniqueName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(normalAttackSkillUniqueName), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(normalAttackSkillUniqueName), 0)
 }
 func BossPhaseExcelAddUseExSkill(builder *flatbuffers.Builder, useExSkill flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(useExSkill), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(useExSkill), 0)
 }
 func BossPhaseExcelStartUseExSkillVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(1, numElems, 1)
+}
+func BossPhaseExcelAddAiPhase(builder *flatbuffers.Builder, aiPhase int64) {
+	builder.PrependInt64Slot(3, aiPhase, 0)
 }
 func BossPhaseExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

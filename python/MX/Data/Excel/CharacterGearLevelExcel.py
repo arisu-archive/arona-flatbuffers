@@ -25,15 +25,8 @@ class CharacterGearLevelExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CharacterGearLevelExcel
-    def Level(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # CharacterGearLevelExcel
     def TierLevelExp(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -41,26 +34,26 @@ class CharacterGearLevelExcel(object):
 
     # CharacterGearLevelExcel
     def TierLevelExpAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # CharacterGearLevelExcel
     def TierLevelExpLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterGearLevelExcel
     def TierLevelExpIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
     # CharacterGearLevelExcel
     def TotalExp(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -68,41 +61,48 @@ class CharacterGearLevelExcel(object):
 
     # CharacterGearLevelExcel
     def TotalExpAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # CharacterGearLevelExcel
     def TotalExpLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # CharacterGearLevelExcel
     def TotalExpIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         return o == 0
+
+    # CharacterGearLevelExcel
+    def Level(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
 def CharacterGearLevelExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return CharacterGearLevelExcelStart(builder)
-def CharacterGearLevelExcelAddLevel(builder, level): builder.PrependInt32Slot(0, level, 0)
-def AddLevel(builder, level):
-    return CharacterGearLevelExcelAddLevel(builder, level)
-def CharacterGearLevelExcelAddTierLevelExp(builder, tierLevelExp): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(tierLevelExp), 0)
+def CharacterGearLevelExcelAddTierLevelExp(builder, tierLevelExp): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(tierLevelExp), 0)
 def AddTierLevelExp(builder, tierLevelExp):
     return CharacterGearLevelExcelAddTierLevelExp(builder, tierLevelExp)
 def CharacterGearLevelExcelStartTierLevelExpVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartTierLevelExpVector(builder, numElems):
     return CharacterGearLevelExcelStartTierLevelExpVector(builder, numElems)
-def CharacterGearLevelExcelAddTotalExp(builder, totalExp): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(totalExp), 0)
+def CharacterGearLevelExcelAddTotalExp(builder, totalExp): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(totalExp), 0)
 def AddTotalExp(builder, totalExp):
     return CharacterGearLevelExcelAddTotalExp(builder, totalExp)
 def CharacterGearLevelExcelStartTotalExpVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartTotalExpVector(builder, numElems):
     return CharacterGearLevelExcelStartTotalExpVector(builder, numElems)
+def CharacterGearLevelExcelAddLevel(builder, level): builder.PrependInt32Slot(2, level, 0)
+def AddLevel(builder, level):
+    return CharacterGearLevelExcelAddLevel(builder, level)
 def CharacterGearLevelExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterGearLevelExcelEnd(builder)

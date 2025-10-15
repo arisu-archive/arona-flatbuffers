@@ -33,7 +33,7 @@ func (rcv *EventContentMeetupInfoExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentMeetupInfoExcel) EventContentId() int64 {
+func (rcv *EventContentMeetupInfoExcel) CostId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,7 +41,7 @@ func (rcv *EventContentMeetupInfoExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentMeetupInfoExcel) MutateEventContentId(n int64) bool {
+func (rcv *EventContentMeetupInfoExcel) MutateCostId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
@@ -57,20 +57,8 @@ func (rcv *EventContentMeetupInfoExcel) MutateCostParcelType(n ParcelType) bool 
 	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
-func (rcv *EventContentMeetupInfoExcel) CostId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentMeetupInfoExcel) MutateCostId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
 func (rcv *EventContentMeetupInfoExcel) CostAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -78,23 +66,35 @@ func (rcv *EventContentMeetupInfoExcel) CostAmount() int32 {
 }
 
 func (rcv *EventContentMeetupInfoExcel) MutateCostAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
+func (rcv *EventContentMeetupInfoExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentMeetupInfoExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func EventContentMeetupInfoExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func EventContentMeetupInfoExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
+func EventContentMeetupInfoExcelAddCostId(builder *flatbuffers.Builder, costId int64) {
+	builder.PrependInt64Slot(0, costId, 0)
 }
 func EventContentMeetupInfoExcelAddCostParcelType(builder *flatbuffers.Builder, costParcelType ParcelType) {
 	builder.PrependInt32Slot(1, int32(costParcelType), 0)
 }
-func EventContentMeetupInfoExcelAddCostId(builder *flatbuffers.Builder, costId int64) {
-	builder.PrependInt64Slot(2, costId, 0)
-}
 func EventContentMeetupInfoExcelAddCostAmount(builder *flatbuffers.Builder, costAmount int32) {
-	builder.PrependInt32Slot(3, costAmount, 0)
+	builder.PrependInt32Slot(2, costAmount, 0)
+}
+func EventContentMeetupInfoExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(3, eventContentId, 0)
 }
 func EventContentMeetupInfoExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

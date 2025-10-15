@@ -1,0 +1,47 @@
+include "ContentType.fbs";
+include "EchelonExtensionType.fbs";
+include "ParcelType.fbs";
+include "StageTopography.fbs";
+include "StrategyEnvironment.fbs";
+
+namespace MX.Data.Excel;
+
+table CampaignStageExcel {
+    max_turn: int;
+    bgm_id: string;
+    star_condition_tactic_rank_s_count: long;
+    strategy_map: string;
+    bgm_id_c9738509: long;
+    star_condition_turn_count: long;
+    campaign_stage_reward_id: long;
+    stage_enter_cost_type: ParcelType;
+    first_clear_funnel_message: string;
+    min_equipment_tier_for_guide: [long];
+    strategy_skip_ground_id: int;
+    battle_duration: long;
+    first_clear_event_message: string;
+    echelon_extension_type: EchelonExtensionType;
+    strategy_map_bg: string;
+    fixed_echelon_id: long;
+    first_clear_report_event_name: string;
+    id: long;
+    stage_number: string;
+    stage_enter_cost_id: long;
+    stage_topography: StageTopography;
+    stage_enter_echelon_count: int;
+    min_skill_level_for_guide: [long];
+    cleard_scenario_id: long;
+    name: string;
+    content_type: ContentType;
+    stage_enter_cost_amount: int;
+    enter_scenario_group_id: [long];
+    recommand_level: int;
+    clear_scenario_group_id: [long];
+    recommand_level_gap_for_guide: int;
+    strategy_environment: StrategyEnvironment;
+    deprecated: bool;
+    tactic_reward_exp: long;
+    ground_id: long;
+}
+
+root_type CampaignStageExcel;

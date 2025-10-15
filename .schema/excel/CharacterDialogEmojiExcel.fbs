@@ -1,17 +1,17 @@
 namespace MX.Data.Excel;
 
 table CharacterDialogEmojiExcel {
+    localize_en: string;
     group_id: long;
     target_index: int;
     dialog_type: string;
-    duration: long;
-    duration_kr: long;
-    hide_ui: bool;
     localize_kr: string;
-    localize_jp: string;
     localize_th: string;
     localize_tw: string;
-    localize_en: string;
+    duration: long;
+    localize_jp: string;
+    hide_ui: bool;
+    duration_kr: long;
 }
 
 root_type CharacterDialogEmojiExcel;

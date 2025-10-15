@@ -1,0 +1,12 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table RecipeSelectionAutoUseExcel {
+    target_item_id: long;
+    id: long;
+    parcel_type: ParcelType;
+    priority: [long];
+}
+
+root_type RecipeSelectionAutoUseExcel;

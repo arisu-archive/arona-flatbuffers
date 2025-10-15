@@ -1,0 +1,19 @@
+include "ParcelType.fbs";
+include "StoreType.fbs";
+
+namespace MX.Data.Excel;
+
+table ProductBattlePassExcel {
+    product_id: string;
+    price: long;
+    parcel_type: [ParcelType];
+    teen_product_id: string;
+    purchase_count_limit: long;
+    battle_pass_product_group_id: long;
+    id: long;
+    store_type: StoreType;
+    parcel_amount: [long];
+    parcel_id: [long];
+}
+
+root_type ProductBattlePassExcel;

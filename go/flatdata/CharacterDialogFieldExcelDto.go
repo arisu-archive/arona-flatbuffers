@@ -10,19 +10,19 @@ import (
 // CharacterDialogFieldExcelDto represents a FlatBuffers table
 type CharacterDialogFieldExcelDto struct {
 	fbsutils.FlatBuffer
-	GroupId             int64           `json:"group_id"`
-	Phase               int32           `json:"phase"`
 	TargetIndex         int32           `json:"target_index"`
-	DialogType          FieldDialogType `json:"dialog_type"`
-	Duration            int64           `json:"duration"`
-	MotionName          string          `json:"motion_name"`
-	IsInteractionDialog bool            `json:"is_interaction_dialog"`
 	HideUi              bool            `json:"hide_ui"`
-	LocalizeKr          string          `json:"localize_kr"`
+	Duration            int64           `json:"duration"`
+	LocalizeTw          string          `json:"localize_tw"`
+	MotionName          string          `json:"motion_name"`
+	GroupId             int64           `json:"group_id"`
+	IsInteractionDialog bool            `json:"is_interaction_dialog"`
 	LocalizeJp          string          `json:"localize_jp"`
 	LocalizeTh          string          `json:"localize_th"`
-	LocalizeTw          string          `json:"localize_tw"`
+	DialogType          FieldDialogType `json:"dialog_type"`
+	Phase               int32           `json:"phase"`
 	LocalizeEn          string          `json:"localize_en"`
+	LocalizeKr          string          `json:"localize_kr"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -31,19 +31,19 @@ func (t *CharacterDialogFieldExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogField"))
 	}
 	CharacterDialogFieldExcelStart(b)
-	CharacterDialogFieldExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
-	CharacterDialogFieldExcelAddPhase(b, fbsutils.Convert(t.Phase, t.FlatBuffer.TableKey))
 	CharacterDialogFieldExcelAddTargetIndex(b, fbsutils.Convert(t.TargetIndex, t.FlatBuffer.TableKey))
-	CharacterDialogFieldExcelAddDialogType(b, fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey))
-	CharacterDialogFieldExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
-	CharacterDialogFieldExcelAddMotionName(b, b.CreateString(fbsutils.Convert(t.MotionName, t.FlatBuffer.TableKey)))
-	CharacterDialogFieldExcelAddIsInteractionDialog(b, t.IsInteractionDialog)
 	CharacterDialogFieldExcelAddHideUi(b, t.HideUi)
-	CharacterDialogFieldExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
+	CharacterDialogFieldExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
+	CharacterDialogFieldExcelAddLocalizeTw(b, b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey)))
+	CharacterDialogFieldExcelAddMotionName(b, b.CreateString(fbsutils.Convert(t.MotionName, t.FlatBuffer.TableKey)))
+	CharacterDialogFieldExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
+	CharacterDialogFieldExcelAddIsInteractionDialog(b, t.IsInteractionDialog)
 	CharacterDialogFieldExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
 	CharacterDialogFieldExcelAddLocalizeTh(b, b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey)))
-	CharacterDialogFieldExcelAddLocalizeTw(b, b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey)))
+	CharacterDialogFieldExcelAddDialogType(b, fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey))
+	CharacterDialogFieldExcelAddPhase(b, fbsutils.Convert(t.Phase, t.FlatBuffer.TableKey))
 	CharacterDialogFieldExcelAddLocalizeEn(b, b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey)))
+	CharacterDialogFieldExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
 	return CharacterDialogFieldExcelEnd(b)
 }
 
@@ -59,19 +59,19 @@ func (t *CharacterDialogFieldExcelDto) UnmarshalMessage(e *CharacterDialogFieldE
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterDialogField"))
 	}
-	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
-	t.Phase = fbsutils.Convert(e.Phase(), t.FlatBuffer.TableKey)
 	t.TargetIndex = fbsutils.Convert(e.TargetIndex(), t.FlatBuffer.TableKey)
-	t.DialogType = FieldDialogType(fbsutils.Convert(int32(e.DialogType()), t.FlatBuffer.TableKey))
-	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
-	t.MotionName = fbsutils.Convert(string(e.MotionName()), t.FlatBuffer.TableKey)
-	t.IsInteractionDialog = e.IsInteractionDialog()
 	t.HideUi = e.HideUi()
-	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
+	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
+	t.LocalizeTw = fbsutils.Convert(string(e.LocalizeTw()), t.FlatBuffer.TableKey)
+	t.MotionName = fbsutils.Convert(string(e.MotionName()), t.FlatBuffer.TableKey)
+	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
+	t.IsInteractionDialog = e.IsInteractionDialog()
 	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
 	t.LocalizeTh = fbsutils.Convert(string(e.LocalizeTh()), t.FlatBuffer.TableKey)
-	t.LocalizeTw = fbsutils.Convert(string(e.LocalizeTw()), t.FlatBuffer.TableKey)
+	t.DialogType = FieldDialogType(fbsutils.Convert(int32(e.DialogType()), t.FlatBuffer.TableKey))
+	t.Phase = fbsutils.Convert(e.Phase(), t.FlatBuffer.TableKey)
 	t.LocalizeEn = fbsutils.Convert(string(e.LocalizeEn()), t.FlatBuffer.TableKey)
+	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
 	return nil
 }
 

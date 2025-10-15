@@ -4,6 +4,6 @@ namespace FlatData;
 
 table MoveEnd {
     normal: Motion;
-    stand: Motion;
     kneel: Motion;
+    stand: Motion;
 }

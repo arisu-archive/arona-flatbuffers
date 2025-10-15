@@ -13,8 +13,8 @@ type MiniGameDreamCollectionScenarioExcelDto struct {
 	Id              int64                     `json:"id"`
 	IsSkip          bool                      `json:"is_skip"`
 	EventContentId  int64                     `json:"event_content_id"`
-	Parameter       []DreamMakerParameterType `json:"parameter"`
 	ParameterAmount []int64                   `json:"parameter_amount"`
+	Parameter       []DreamMakerParameterType `json:"parameter"`
 	ScenarioGroupId int64                     `json:"scenario_group_id"`
 }
 
@@ -24,16 +24,16 @@ func (t *MiniGameDreamCollectionScenarioExcelDto) MarshalModel(b *flatbuffers.Bu
 	MiniGameDreamCollectionScenarioExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MiniGameDreamCollectionScenarioExcelAddIsSkip(b, t.IsSkip)
 	MiniGameDreamCollectionScenarioExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	MiniGameDreamCollectionScenarioExcelStartParameterVector(b, len(t.Parameter))
-	for i := range len(t.Parameter) {
-		b.PrependInt32(fbsutils.Convert(int32(t.Parameter[len(t.Parameter)-i-1]), t.FlatBuffer.TableKey))
-	}
-	MiniGameDreamCollectionScenarioExcelAddParameter(b, b.EndVector(len(t.Parameter)))
 	MiniGameDreamCollectionScenarioExcelStartParameterAmountVector(b, len(t.ParameterAmount))
 	for i := range len(t.ParameterAmount) {
 		b.PrependInt64(fbsutils.Convert(t.ParameterAmount[len(t.ParameterAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	MiniGameDreamCollectionScenarioExcelAddParameterAmount(b, b.EndVector(len(t.ParameterAmount)))
+	MiniGameDreamCollectionScenarioExcelStartParameterVector(b, len(t.Parameter))
+	for i := range len(t.Parameter) {
+		b.PrependInt32(fbsutils.Convert(int32(t.Parameter[len(t.Parameter)-i-1]), t.FlatBuffer.TableKey))
+	}
+	MiniGameDreamCollectionScenarioExcelAddParameter(b, b.EndVector(len(t.Parameter)))
 	MiniGameDreamCollectionScenarioExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
 	return MiniGameDreamCollectionScenarioExcelEnd(b)
 }
@@ -50,13 +50,13 @@ func (t *MiniGameDreamCollectionScenarioExcelDto) UnmarshalMessage(e *MiniGameDr
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.IsSkip = e.IsSkip()
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.Parameter = make([]DreamMakerParameterType, e.ParameterLength())
-	for i := range e.ParameterLength() {
-		t.Parameter[i] = DreamMakerParameterType(fbsutils.Convert(int32(e.Parameter(i)), t.FlatBuffer.TableKey))
-	}
 	t.ParameterAmount = make([]int64, e.ParameterAmountLength())
 	for i := range e.ParameterAmountLength() {
 		t.ParameterAmount[i] = fbsutils.Convert(e.ParameterAmount(i), t.FlatBuffer.TableKey)
+	}
+	t.Parameter = make([]DreamMakerParameterType, e.ParameterLength())
+	for i := range e.ParameterLength() {
+		t.Parameter[i] = DreamMakerParameterType(fbsutils.Convert(int32(e.Parameter(i)), t.FlatBuffer.TableKey))
 	}
 	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
 	return nil

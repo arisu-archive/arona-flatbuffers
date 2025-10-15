@@ -1,0 +1,28 @@
+namespace MX.Data.Excel;
+
+table WorldRaidBossGroupExcel {
+    exclusive_operator_scenario_battle: string;
+    world_raid_boss_group_id: long;
+    exclusive_operator_boss_kill: string;
+    world_boss_hp: long;
+    id: long;
+    world_boss_list_parcel: string;
+    world_boss_hp_asia: long;
+    world_boss_popup_bg: string;
+    exclusive_operator_boss_spawn: string;
+    ui_hide_before_spawn: bool;
+    world_boss_hp_global: long;
+    world_boss_hp_tw: long;
+    world_boss_parcel_portrait: string;
+    world_boss_clear_reward_group_id: long;
+    world_boss_hp_na: long;
+    another_boss_killed: [long];
+    hide_another_boss_killed: bool;
+    world_boss_name: string;
+    boss_group_open_condition: long;
+    echelon_constraint_group_id: long;
+    exclusive_operator_boss_damaged: string;
+    world_boss_popup_portrait: string;
+}
+
+root_type WorldRaidBossGroupExcel;

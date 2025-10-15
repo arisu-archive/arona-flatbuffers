@@ -10,12 +10,12 @@ import (
 // CharacterIllustCoordinateExcelDto represents a FlatBuffers table
 type CharacterIllustCoordinateExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                   int64   `json:"id"`
-	CharacterBodyCenterX float32 `json:"character_body_center_x"`
 	CharacterBodyCenterY float32 `json:"character_body_center_y"`
-	DefaultScale         float32 `json:"default_scale"`
-	MinScale             float32 `json:"min_scale"`
 	MaxScale             float32 `json:"max_scale"`
+	Id                   int64   `json:"id"`
+	MinScale             float32 `json:"min_scale"`
+	CharacterBodyCenterX float32 `json:"character_body_center_x"`
+	DefaultScale         float32 `json:"default_scale"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,12 +24,12 @@ func (t *CharacterIllustCoordinateExcelDto) MarshalModel(b *flatbuffers.Builder)
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterIllustCoordinate"))
 	}
 	CharacterIllustCoordinateExcelStart(b)
-	CharacterIllustCoordinateExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CharacterIllustCoordinateExcelAddCharacterBodyCenterX(b, fbsutils.Convert(t.CharacterBodyCenterX, t.FlatBuffer.TableKey))
 	CharacterIllustCoordinateExcelAddCharacterBodyCenterY(b, fbsutils.Convert(t.CharacterBodyCenterY, t.FlatBuffer.TableKey))
-	CharacterIllustCoordinateExcelAddDefaultScale(b, fbsutils.Convert(t.DefaultScale, t.FlatBuffer.TableKey))
-	CharacterIllustCoordinateExcelAddMinScale(b, fbsutils.Convert(t.MinScale, t.FlatBuffer.TableKey))
 	CharacterIllustCoordinateExcelAddMaxScale(b, fbsutils.Convert(t.MaxScale, t.FlatBuffer.TableKey))
+	CharacterIllustCoordinateExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	CharacterIllustCoordinateExcelAddMinScale(b, fbsutils.Convert(t.MinScale, t.FlatBuffer.TableKey))
+	CharacterIllustCoordinateExcelAddCharacterBodyCenterX(b, fbsutils.Convert(t.CharacterBodyCenterX, t.FlatBuffer.TableKey))
+	CharacterIllustCoordinateExcelAddDefaultScale(b, fbsutils.Convert(t.DefaultScale, t.FlatBuffer.TableKey))
 	return CharacterIllustCoordinateExcelEnd(b)
 }
 
@@ -45,12 +45,12 @@ func (t *CharacterIllustCoordinateExcelDto) UnmarshalMessage(e *CharacterIllustC
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterIllustCoordinate"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.CharacterBodyCenterX = fbsutils.Convert(e.CharacterBodyCenterX(), t.FlatBuffer.TableKey)
 	t.CharacterBodyCenterY = fbsutils.Convert(e.CharacterBodyCenterY(), t.FlatBuffer.TableKey)
-	t.DefaultScale = fbsutils.Convert(e.DefaultScale(), t.FlatBuffer.TableKey)
-	t.MinScale = fbsutils.Convert(e.MinScale(), t.FlatBuffer.TableKey)
 	t.MaxScale = fbsutils.Convert(e.MaxScale(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.MinScale = fbsutils.Convert(e.MinScale(), t.FlatBuffer.TableKey)
+	t.CharacterBodyCenterX = fbsutils.Convert(e.CharacterBodyCenterX(), t.FlatBuffer.TableKey)
+	t.DefaultScale = fbsutils.Convert(e.DefaultScale(), t.FlatBuffer.TableKey)
 	return nil
 }
 

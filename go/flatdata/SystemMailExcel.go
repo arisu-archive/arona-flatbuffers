@@ -33,16 +33,12 @@ func (rcv *SystemMailExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *SystemMailExcel) MailType() MailType {
+func (rcv *SystemMailExcel) Comment() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return MailType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *SystemMailExcel) MutateMailType(n MailType) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
+	return nil
 }
 
 func (rcv *SystemMailExcel) ExpiredDay() int64 {
@@ -65,19 +61,23 @@ func (rcv *SystemMailExcel) Sender() []byte {
 	return nil
 }
 
-func (rcv *SystemMailExcel) Comment() []byte {
+func (rcv *SystemMailExcel) MailType() MailType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return MailType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
+}
+
+func (rcv *SystemMailExcel) MutateMailType(n MailType) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
 func SystemMailExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func SystemMailExcelAddMailType(builder *flatbuffers.Builder, mailType MailType) {
-	builder.PrependInt32Slot(0, int32(mailType), 0)
+func SystemMailExcelAddComment(builder *flatbuffers.Builder, comment flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(comment), 0)
 }
 func SystemMailExcelAddExpiredDay(builder *flatbuffers.Builder, expiredDay int64) {
 	builder.PrependInt64Slot(1, expiredDay, 0)
@@ -85,8 +85,8 @@ func SystemMailExcelAddExpiredDay(builder *flatbuffers.Builder, expiredDay int64
 func SystemMailExcelAddSender(builder *flatbuffers.Builder, sender flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(sender), 0)
 }
-func SystemMailExcelAddComment(builder *flatbuffers.Builder, comment flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(comment), 0)
+func SystemMailExcelAddMailType(builder *flatbuffers.Builder, mailType MailType) {
+	builder.PrependInt32Slot(3, int32(mailType), 0)
 }
 func SystemMailExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

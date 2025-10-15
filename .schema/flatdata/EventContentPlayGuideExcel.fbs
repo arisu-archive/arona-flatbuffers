@@ -1,11 +1,11 @@
 namespace FlatData;
 
 table EventContentPlayGuideExcel {
-    id: long;
-    event_content_id: long;
-    is_pc_build: bool;
     display_order: int;
-    guide_title: string;
     guide_image_path: string;
+    id: long;
     guide_text: string;
+    guide_title: string;
+    is_pc_build: bool;
+    event_content_id: long;
 }

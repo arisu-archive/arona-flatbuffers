@@ -32,7 +32,7 @@ class CharacterLevelStatFactorExcel(object):
         return 0
 
     # CharacterLevelStatFactorExcel
-    def CriticalFactor(self):
+    def DefenceFactor(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -46,7 +46,7 @@ class CharacterLevelStatFactorExcel(object):
         return 0
 
     # CharacterLevelStatFactorExcel
-    def DefenceFactor(self):
+    def CriticalFactor(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -65,15 +65,15 @@ def Start(builder):
 def CharacterLevelStatFactorExcelAddLevel(builder, level): builder.PrependInt64Slot(0, level, 0)
 def AddLevel(builder, level):
     return CharacterLevelStatFactorExcelAddLevel(builder, level)
-def CharacterLevelStatFactorExcelAddCriticalFactor(builder, criticalFactor): builder.PrependInt64Slot(1, criticalFactor, 0)
-def AddCriticalFactor(builder, criticalFactor):
-    return CharacterLevelStatFactorExcelAddCriticalFactor(builder, criticalFactor)
+def CharacterLevelStatFactorExcelAddDefenceFactor(builder, defenceFactor): builder.PrependInt64Slot(1, defenceFactor, 0)
+def AddDefenceFactor(builder, defenceFactor):
+    return CharacterLevelStatFactorExcelAddDefenceFactor(builder, defenceFactor)
 def CharacterLevelStatFactorExcelAddStabilityFactor(builder, stabilityFactor): builder.PrependInt64Slot(2, stabilityFactor, 0)
 def AddStabilityFactor(builder, stabilityFactor):
     return CharacterLevelStatFactorExcelAddStabilityFactor(builder, stabilityFactor)
-def CharacterLevelStatFactorExcelAddDefenceFactor(builder, defenceFactor): builder.PrependInt64Slot(3, defenceFactor, 0)
-def AddDefenceFactor(builder, defenceFactor):
-    return CharacterLevelStatFactorExcelAddDefenceFactor(builder, defenceFactor)
+def CharacterLevelStatFactorExcelAddCriticalFactor(builder, criticalFactor): builder.PrependInt64Slot(3, criticalFactor, 0)
+def AddCriticalFactor(builder, criticalFactor):
+    return CharacterLevelStatFactorExcelAddCriticalFactor(builder, criticalFactor)
 def CharacterLevelStatFactorExcelAddAccuracyFactor(builder, accuracyFactor): builder.PrependInt64Slot(4, accuracyFactor, 0)
 def AddAccuracyFactor(builder, accuracyFactor):
     return CharacterLevelStatFactorExcelAddAccuracyFactor(builder, accuracyFactor)

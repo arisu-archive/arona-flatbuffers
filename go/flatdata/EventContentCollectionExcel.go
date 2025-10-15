@@ -33,56 +33,8 @@ func (rcv *EventContentCollectionExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentCollectionExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentCollectionExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *EventContentCollectionExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentCollectionExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *EventContentCollectionExcel) GroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentCollectionExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *EventContentCollectionExcel) UnlockConditionType() CollectionUnlockType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return CollectionUnlockType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EventContentCollectionExcel) MutateUnlockConditionType(n CollectionUnlockType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
-}
-
 func (rcv *EventContentCollectionExcel) UnlockConditionParameter(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -91,7 +43,7 @@ func (rcv *EventContentCollectionExcel) UnlockConditionParameter(j int) int64 {
 }
 
 func (rcv *EventContentCollectionExcel) UnlockConditionParameterLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -99,7 +51,7 @@ func (rcv *EventContentCollectionExcel) UnlockConditionParameterLength() int {
 }
 
 func (rcv *EventContentCollectionExcel) MutateUnlockConditionParameter(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -107,44 +59,8 @@ func (rcv *EventContentCollectionExcel) MutateUnlockConditionParameter(j int, n 
 	return false
 }
 
-func (rcv *EventContentCollectionExcel) MultipleConditionCheckType() MultipleConditionCheckType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return MultipleConditionCheckType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *EventContentCollectionExcel) MutateMultipleConditionCheckType(n MultipleConditionCheckType) bool {
-	return rcv._tab.MutateInt32Slot(14, int32(n))
-}
-
-func (rcv *EventContentCollectionExcel) UnlockConditionCount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentCollectionExcel) MutateUnlockConditionCount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *EventContentCollectionExcel) IsObject() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *EventContentCollectionExcel) MutateIsObject(n bool) bool {
-	return rcv._tab.MutateBoolSlot(18, n)
-}
-
 func (rcv *EventContentCollectionExcel) IsObjectOnFullResource() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -152,39 +68,35 @@ func (rcv *EventContentCollectionExcel) IsObjectOnFullResource() bool {
 }
 
 func (rcv *EventContentCollectionExcel) MutateIsObjectOnFullResource(n bool) bool {
-	return rcv._tab.MutateBoolSlot(20, n)
+	return rcv._tab.MutateBoolSlot(6, n)
 }
 
-func (rcv *EventContentCollectionExcel) IsHorizon() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+func (rcv *EventContentCollectionExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *EventContentCollectionExcel) MutateIsHorizon(n bool) bool {
-	return rcv._tab.MutateBoolSlot(22, n)
+func (rcv *EventContentCollectionExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *EventContentCollectionExcel) MultipleConditionCheckType() MultipleConditionCheckType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return MultipleConditionCheckType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EventContentCollectionExcel) MutateMultipleConditionCheckType(n MultipleConditionCheckType) bool {
+	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
 func (rcv *EventContentCollectionExcel) EmblemResource() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentCollectionExcel) ThumbResource() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentCollectionExcel) FullResource() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -192,7 +104,7 @@ func (rcv *EventContentCollectionExcel) FullResource() []byte {
 }
 
 func (rcv *EventContentCollectionExcel) LocalizeEtcId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -200,67 +112,166 @@ func (rcv *EventContentCollectionExcel) LocalizeEtcId() uint32 {
 }
 
 func (rcv *EventContentCollectionExcel) MutateLocalizeEtcId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(30, n)
+	return rcv._tab.MutateUint32Slot(14, n)
 }
 
-func (rcv *EventContentCollectionExcel) SubNameLocalizeCodeId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+func (rcv *EventContentCollectionExcel) UnlockConditionType() CollectionUnlockType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return CollectionUnlockType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *EventContentCollectionExcel) MutateUnlockConditionType(n CollectionUnlockType) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
+}
+
+func (rcv *EventContentCollectionExcel) Decoration() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
+func (rcv *EventContentCollectionExcel) IsHorizon() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *EventContentCollectionExcel) MutateIsHorizon(n bool) bool {
+	return rcv._tab.MutateBoolSlot(20, n)
+}
+
+func (rcv *EventContentCollectionExcel) IsObject() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *EventContentCollectionExcel) MutateIsObject(n bool) bool {
+	return rcv._tab.MutateBoolSlot(22, n)
+}
+
+func (rcv *EventContentCollectionExcel) SubNameLocalizeCodeId() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentCollectionExcel) FullResource() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentCollectionExcel) ThumbResource() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentCollectionExcel) UnlockConditionCount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentCollectionExcel) MutateUnlockConditionCount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(30, n)
+}
+
+func (rcv *EventContentCollectionExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentCollectionExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(32, n)
+}
+
+func (rcv *EventContentCollectionExcel) GroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentCollectionExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(34, n)
+}
+
 func EventContentCollectionExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(15)
-}
-func EventContentCollectionExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func EventContentCollectionExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(1, eventContentId, 0)
-}
-func EventContentCollectionExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(2, groupId, 0)
-}
-func EventContentCollectionExcelAddUnlockConditionType(builder *flatbuffers.Builder, unlockConditionType CollectionUnlockType) {
-	builder.PrependInt32Slot(3, int32(unlockConditionType), 0)
+	builder.StartObject(16)
 }
 func EventContentCollectionExcelAddUnlockConditionParameter(builder *flatbuffers.Builder, unlockConditionParameter flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(unlockConditionParameter), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(unlockConditionParameter), 0)
 }
 func EventContentCollectionExcelStartUnlockConditionParameterVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func EventContentCollectionExcelAddMultipleConditionCheckType(builder *flatbuffers.Builder, multipleConditionCheckType MultipleConditionCheckType) {
-	builder.PrependInt32Slot(5, int32(multipleConditionCheckType), 0)
-}
-func EventContentCollectionExcelAddUnlockConditionCount(builder *flatbuffers.Builder, unlockConditionCount int64) {
-	builder.PrependInt64Slot(6, unlockConditionCount, 0)
-}
-func EventContentCollectionExcelAddIsObject(builder *flatbuffers.Builder, isObject bool) {
-	builder.PrependBoolSlot(7, isObject, false)
-}
 func EventContentCollectionExcelAddIsObjectOnFullResource(builder *flatbuffers.Builder, isObjectOnFullResource bool) {
-	builder.PrependBoolSlot(8, isObjectOnFullResource, false)
+	builder.PrependBoolSlot(1, isObjectOnFullResource, false)
 }
-func EventContentCollectionExcelAddIsHorizon(builder *flatbuffers.Builder, isHorizon bool) {
-	builder.PrependBoolSlot(9, isHorizon, false)
+func EventContentCollectionExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(2, eventContentId, 0)
+}
+func EventContentCollectionExcelAddMultipleConditionCheckType(builder *flatbuffers.Builder, multipleConditionCheckType MultipleConditionCheckType) {
+	builder.PrependInt32Slot(3, int32(multipleConditionCheckType), 0)
 }
 func EventContentCollectionExcelAddEmblemResource(builder *flatbuffers.Builder, emblemResource flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(emblemResource), 0)
-}
-func EventContentCollectionExcelAddThumbResource(builder *flatbuffers.Builder, thumbResource flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(thumbResource), 0)
-}
-func EventContentCollectionExcelAddFullResource(builder *flatbuffers.Builder, fullResource flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(fullResource), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(emblemResource), 0)
 }
 func EventContentCollectionExcelAddLocalizeEtcId(builder *flatbuffers.Builder, localizeEtcId uint32) {
-	builder.PrependUint32Slot(13, localizeEtcId, 0)
+	builder.PrependUint32Slot(5, localizeEtcId, 0)
+}
+func EventContentCollectionExcelAddUnlockConditionType(builder *flatbuffers.Builder, unlockConditionType CollectionUnlockType) {
+	builder.PrependInt32Slot(6, int32(unlockConditionType), 0)
+}
+func EventContentCollectionExcelAddDecoration(builder *flatbuffers.Builder, decoration flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(decoration), 0)
+}
+func EventContentCollectionExcelAddIsHorizon(builder *flatbuffers.Builder, isHorizon bool) {
+	builder.PrependBoolSlot(8, isHorizon, false)
+}
+func EventContentCollectionExcelAddIsObject(builder *flatbuffers.Builder, isObject bool) {
+	builder.PrependBoolSlot(9, isObject, false)
 }
 func EventContentCollectionExcelAddSubNameLocalizeCodeId(builder *flatbuffers.Builder, subNameLocalizeCodeId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(subNameLocalizeCodeId), 0)
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(subNameLocalizeCodeId), 0)
+}
+func EventContentCollectionExcelAddFullResource(builder *flatbuffers.Builder, fullResource flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(fullResource), 0)
+}
+func EventContentCollectionExcelAddThumbResource(builder *flatbuffers.Builder, thumbResource flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(thumbResource), 0)
+}
+func EventContentCollectionExcelAddUnlockConditionCount(builder *flatbuffers.Builder, unlockConditionCount int64) {
+	builder.PrependInt64Slot(13, unlockConditionCount, 0)
+}
+func EventContentCollectionExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(14, id, 0)
+}
+func EventContentCollectionExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(15, groupId, 0)
 }
 func EventContentCollectionExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

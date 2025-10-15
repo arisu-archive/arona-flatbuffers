@@ -10,45 +10,47 @@ import (
 // AudioAnimatorExcelDto represents a FlatBuffers table
 type AudioAnimatorExcelDto struct {
 	fbsutils.FlatBuffer
-	ControllerNameHash   uint32   `json:"controller_name_hash"`
-	VoiceNamePrefix      string   `json:"voice_name_prefix"`
 	StateNameHash        uint32   `json:"state_name_hash"`
+	IgnoreVelocity       bool     `json:"ignore_velocity"`
 	StateName            string   `json:"state_name"`
-	IgnoreInterruptDelay bool     `json:"ignore_interrupt_delay"`
-	IgnoreInterruptPlay  bool     `json:"ignore_interrupt_play"`
-	Volume               float32  `json:"volume"`
-	Delay                float32  `json:"delay"`
-	RandomPitchMin       int32    `json:"random_pitch_min"`
-	RandomPitchMax       int32    `json:"random_pitch_max"`
-	AudioPriority        int32    `json:"audio_priority"`
-	AudioClipPath        []string `json:"audio_clip_path"`
 	VoiceHash            []uint32 `json:"voice_hash"`
+	RandomPitchMin       int32    `json:"random_pitch_min"`
+	IgnoreInterruptPlay  bool     `json:"ignore_interrupt_play"`
+	Delay                float32  `json:"delay"`
+	RandomPitchMax       int32    `json:"random_pitch_max"`
+	VoiceNamePrefix      string   `json:"voice_name_prefix"`
+	AudioClipPath        []string `json:"audio_clip_path"`
+	AudioPriority        int32    `json:"audio_priority"`
+	IgnoreInterruptDelay bool     `json:"ignore_interrupt_delay"`
+	Volume               float32  `json:"volume"`
+	ControllerNameHash   uint32   `json:"controller_name_hash"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *AudioAnimatorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	AudioAnimatorExcelStart(b)
-	AudioAnimatorExcelAddControllerNameHash(b, fbsutils.Convert(t.ControllerNameHash, t.FlatBuffer.TableKey))
-	AudioAnimatorExcelAddVoiceNamePrefix(b, b.CreateString(fbsutils.Convert(t.VoiceNamePrefix, t.FlatBuffer.TableKey)))
 	AudioAnimatorExcelAddStateNameHash(b, fbsutils.Convert(t.StateNameHash, t.FlatBuffer.TableKey))
+	AudioAnimatorExcelAddIgnoreVelocity(b, t.IgnoreVelocity)
 	AudioAnimatorExcelAddStateName(b, b.CreateString(fbsutils.Convert(t.StateName, t.FlatBuffer.TableKey)))
-	AudioAnimatorExcelAddIgnoreInterruptDelay(b, t.IgnoreInterruptDelay)
-	AudioAnimatorExcelAddIgnoreInterruptPlay(b, t.IgnoreInterruptPlay)
-	AudioAnimatorExcelAddVolume(b, fbsutils.Convert(t.Volume, t.FlatBuffer.TableKey))
-	AudioAnimatorExcelAddDelay(b, fbsutils.Convert(t.Delay, t.FlatBuffer.TableKey))
-	AudioAnimatorExcelAddRandomPitchMin(b, fbsutils.Convert(t.RandomPitchMin, t.FlatBuffer.TableKey))
-	AudioAnimatorExcelAddRandomPitchMax(b, fbsutils.Convert(t.RandomPitchMax, t.FlatBuffer.TableKey))
-	AudioAnimatorExcelAddAudioPriority(b, fbsutils.Convert(t.AudioPriority, t.FlatBuffer.TableKey))
-	AudioAnimatorExcelStartAudioClipPathVector(b, len(t.AudioClipPath))
-	for i := range len(t.AudioClipPath) {
-		b.PrependUOffsetT(b.CreateString(t.AudioClipPath[len(t.AudioClipPath)-i-1]))
-	}
-	AudioAnimatorExcelAddAudioClipPath(b, b.EndVector(len(t.AudioClipPath)))
 	AudioAnimatorExcelStartVoiceHashVector(b, len(t.VoiceHash))
 	for i := range len(t.VoiceHash) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceHash[len(t.VoiceHash)-i-1], t.FlatBuffer.TableKey))
 	}
 	AudioAnimatorExcelAddVoiceHash(b, b.EndVector(len(t.VoiceHash)))
+	AudioAnimatorExcelAddRandomPitchMin(b, fbsutils.Convert(t.RandomPitchMin, t.FlatBuffer.TableKey))
+	AudioAnimatorExcelAddIgnoreInterruptPlay(b, t.IgnoreInterruptPlay)
+	AudioAnimatorExcelAddDelay(b, fbsutils.Convert(t.Delay, t.FlatBuffer.TableKey))
+	AudioAnimatorExcelAddRandomPitchMax(b, fbsutils.Convert(t.RandomPitchMax, t.FlatBuffer.TableKey))
+	AudioAnimatorExcelAddVoiceNamePrefix(b, b.CreateString(fbsutils.Convert(t.VoiceNamePrefix, t.FlatBuffer.TableKey)))
+	AudioAnimatorExcelStartAudioClipPathVector(b, len(t.AudioClipPath))
+	for i := range len(t.AudioClipPath) {
+		b.PrependUOffsetT(b.CreateString(t.AudioClipPath[len(t.AudioClipPath)-i-1]))
+	}
+	AudioAnimatorExcelAddAudioClipPath(b, b.EndVector(len(t.AudioClipPath)))
+	AudioAnimatorExcelAddAudioPriority(b, fbsutils.Convert(t.AudioPriority, t.FlatBuffer.TableKey))
+	AudioAnimatorExcelAddIgnoreInterruptDelay(b, t.IgnoreInterruptDelay)
+	AudioAnimatorExcelAddVolume(b, fbsutils.Convert(t.Volume, t.FlatBuffer.TableKey))
+	AudioAnimatorExcelAddControllerNameHash(b, fbsutils.Convert(t.ControllerNameHash, t.FlatBuffer.TableKey))
 	return AudioAnimatorExcelEnd(b)
 }
 
@@ -61,25 +63,26 @@ func (t *AudioAnimatorExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *AudioAnimatorExcelDto) UnmarshalMessage(e *AudioAnimatorExcel) error {
-	t.ControllerNameHash = fbsutils.Convert(e.ControllerNameHash(), t.FlatBuffer.TableKey)
-	t.VoiceNamePrefix = fbsutils.Convert(string(e.VoiceNamePrefix()), t.FlatBuffer.TableKey)
 	t.StateNameHash = fbsutils.Convert(e.StateNameHash(), t.FlatBuffer.TableKey)
+	t.IgnoreVelocity = e.IgnoreVelocity()
 	t.StateName = fbsutils.Convert(string(e.StateName()), t.FlatBuffer.TableKey)
-	t.IgnoreInterruptDelay = e.IgnoreInterruptDelay()
-	t.IgnoreInterruptPlay = e.IgnoreInterruptPlay()
-	t.Volume = fbsutils.Convert(e.Volume(), t.FlatBuffer.TableKey)
-	t.Delay = fbsutils.Convert(e.Delay(), t.FlatBuffer.TableKey)
-	t.RandomPitchMin = fbsutils.Convert(e.RandomPitchMin(), t.FlatBuffer.TableKey)
-	t.RandomPitchMax = fbsutils.Convert(e.RandomPitchMax(), t.FlatBuffer.TableKey)
-	t.AudioPriority = fbsutils.Convert(e.AudioPriority(), t.FlatBuffer.TableKey)
-	t.AudioClipPath = make([]string, e.AudioClipPathLength())
-	for i := range e.AudioClipPathLength() {
-		t.AudioClipPath[i] = fbsutils.Convert(string(e.AudioClipPath(i)), t.FlatBuffer.TableKey)
-	}
 	t.VoiceHash = make([]uint32, e.VoiceHashLength())
 	for i := range e.VoiceHashLength() {
 		t.VoiceHash[i] = fbsutils.Convert(e.VoiceHash(i), t.FlatBuffer.TableKey)
 	}
+	t.RandomPitchMin = fbsutils.Convert(e.RandomPitchMin(), t.FlatBuffer.TableKey)
+	t.IgnoreInterruptPlay = e.IgnoreInterruptPlay()
+	t.Delay = fbsutils.Convert(e.Delay(), t.FlatBuffer.TableKey)
+	t.RandomPitchMax = fbsutils.Convert(e.RandomPitchMax(), t.FlatBuffer.TableKey)
+	t.VoiceNamePrefix = fbsutils.Convert(string(e.VoiceNamePrefix()), t.FlatBuffer.TableKey)
+	t.AudioClipPath = make([]string, e.AudioClipPathLength())
+	for i := range e.AudioClipPathLength() {
+		t.AudioClipPath[i] = fbsutils.Convert(string(e.AudioClipPath(i)), t.FlatBuffer.TableKey)
+	}
+	t.AudioPriority = fbsutils.Convert(e.AudioPriority(), t.FlatBuffer.TableKey)
+	t.IgnoreInterruptDelay = e.IgnoreInterruptDelay()
+	t.Volume = fbsutils.Convert(e.Volume(), t.FlatBuffer.TableKey)
+	t.ControllerNameHash = fbsutils.Convert(e.ControllerNameHash(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -25,14 +25,14 @@ class EventContentDebuffRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentDebuffRewardExcel
-    def EventContentId(self):
+    def EventStageId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # EventContentDebuffRewardExcel
-    def EventStageId(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -55,12 +55,12 @@ class EventContentDebuffRewardExcel(object):
 def EventContentDebuffRewardExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return EventContentDebuffRewardExcelStart(builder)
-def EventContentDebuffRewardExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return EventContentDebuffRewardExcelAddEventContentId(builder, eventContentId)
-def EventContentDebuffRewardExcelAddEventStageId(builder, eventStageId): builder.PrependInt64Slot(1, eventStageId, 0)
+def EventContentDebuffRewardExcelAddEventStageId(builder, eventStageId): builder.PrependInt64Slot(0, eventStageId, 0)
 def AddEventStageId(builder, eventStageId):
     return EventContentDebuffRewardExcelAddEventStageId(builder, eventStageId)
+def EventContentDebuffRewardExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return EventContentDebuffRewardExcelAddEventContentId(builder, eventContentId)
 def EventContentDebuffRewardExcelAddEventContentItemType(builder, eventContentItemType): builder.PrependInt32Slot(2, eventContentItemType, 0)
 def AddEventContentItemType(builder, eventContentItemType):
     return EventContentDebuffRewardExcelAddEventContentItemType(builder, eventContentItemType)

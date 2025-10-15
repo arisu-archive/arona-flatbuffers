@@ -33,44 +33,8 @@ func (rcv *MiniGameDreamReplayScenarioExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *MiniGameDreamReplayScenarioExcel) EventContentId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameDreamReplayScenarioExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *MiniGameDreamReplayScenarioExcel) ScenarioGroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameDreamReplayScenarioExcel) MutateScenarioGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
-func (rcv *MiniGameDreamReplayScenarioExcel) Order() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *MiniGameDreamReplayScenarioExcel) MutateOrder(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
 func (rcv *MiniGameDreamReplayScenarioExcel) ReplaySummaryTitleLocalize() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -78,11 +42,11 @@ func (rcv *MiniGameDreamReplayScenarioExcel) ReplaySummaryTitleLocalize() uint32
 }
 
 func (rcv *MiniGameDreamReplayScenarioExcel) MutateReplaySummaryTitleLocalize(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(10, n)
+	return rcv._tab.MutateUint32Slot(4, n)
 }
 
 func (rcv *MiniGameDreamReplayScenarioExcel) ReplaySummaryLocalizeScenarioId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -90,7 +54,43 @@ func (rcv *MiniGameDreamReplayScenarioExcel) ReplaySummaryLocalizeScenarioId() u
 }
 
 func (rcv *MiniGameDreamReplayScenarioExcel) MutateReplaySummaryLocalizeScenarioId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(12, n)
+	return rcv._tab.MutateUint32Slot(6, n)
+}
+
+func (rcv *MiniGameDreamReplayScenarioExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameDreamReplayScenarioExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *MiniGameDreamReplayScenarioExcel) IsReplayScenarioHorizon() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *MiniGameDreamReplayScenarioExcel) MutateIsReplayScenarioHorizon(n bool) bool {
+	return rcv._tab.MutateBoolSlot(10, n)
+}
+
+func (rcv *MiniGameDreamReplayScenarioExcel) ScenarioGroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MiniGameDreamReplayScenarioExcel) MutateScenarioGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func (rcv *MiniGameDreamReplayScenarioExcel) ReplayScenarioResource() []byte {
@@ -101,41 +101,41 @@ func (rcv *MiniGameDreamReplayScenarioExcel) ReplayScenarioResource() []byte {
 	return nil
 }
 
-func (rcv *MiniGameDreamReplayScenarioExcel) IsReplayScenarioHorizon() bool {
+func (rcv *MiniGameDreamReplayScenarioExcel) Order() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *MiniGameDreamReplayScenarioExcel) MutateIsReplayScenarioHorizon(n bool) bool {
-	return rcv._tab.MutateBoolSlot(16, n)
+func (rcv *MiniGameDreamReplayScenarioExcel) MutateOrder(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
 }
 
 func MiniGameDreamReplayScenarioExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func MiniGameDreamReplayScenarioExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
-}
-func MiniGameDreamReplayScenarioExcelAddScenarioGroupId(builder *flatbuffers.Builder, scenarioGroupId int64) {
-	builder.PrependInt64Slot(1, scenarioGroupId, 0)
-}
-func MiniGameDreamReplayScenarioExcelAddOrder(builder *flatbuffers.Builder, order int64) {
-	builder.PrependInt64Slot(2, order, 0)
-}
 func MiniGameDreamReplayScenarioExcelAddReplaySummaryTitleLocalize(builder *flatbuffers.Builder, replaySummaryTitleLocalize uint32) {
-	builder.PrependUint32Slot(3, replaySummaryTitleLocalize, 0)
+	builder.PrependUint32Slot(0, replaySummaryTitleLocalize, 0)
 }
 func MiniGameDreamReplayScenarioExcelAddReplaySummaryLocalizeScenarioId(builder *flatbuffers.Builder, replaySummaryLocalizeScenarioId uint32) {
-	builder.PrependUint32Slot(4, replaySummaryLocalizeScenarioId, 0)
+	builder.PrependUint32Slot(1, replaySummaryLocalizeScenarioId, 0)
+}
+func MiniGameDreamReplayScenarioExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(2, eventContentId, 0)
+}
+func MiniGameDreamReplayScenarioExcelAddIsReplayScenarioHorizon(builder *flatbuffers.Builder, isReplayScenarioHorizon bool) {
+	builder.PrependBoolSlot(3, isReplayScenarioHorizon, false)
+}
+func MiniGameDreamReplayScenarioExcelAddScenarioGroupId(builder *flatbuffers.Builder, scenarioGroupId int64) {
+	builder.PrependInt64Slot(4, scenarioGroupId, 0)
 }
 func MiniGameDreamReplayScenarioExcelAddReplayScenarioResource(builder *flatbuffers.Builder, replayScenarioResource flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(replayScenarioResource), 0)
 }
-func MiniGameDreamReplayScenarioExcelAddIsReplayScenarioHorizon(builder *flatbuffers.Builder, isReplayScenarioHorizon bool) {
-	builder.PrependBoolSlot(6, isReplayScenarioHorizon, false)
+func MiniGameDreamReplayScenarioExcelAddOrder(builder *flatbuffers.Builder, order int64) {
+	builder.PrependInt64Slot(6, order, 0)
 }
 func MiniGameDreamReplayScenarioExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

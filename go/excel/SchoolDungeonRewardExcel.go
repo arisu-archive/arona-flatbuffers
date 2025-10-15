@@ -33,44 +33,8 @@ func (rcv *SchoolDungeonRewardExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *SchoolDungeonRewardExcel) GroupId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *SchoolDungeonRewardExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *SchoolDungeonRewardExcel) DungeonType() SchoolDungeonType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return SchoolDungeonType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *SchoolDungeonRewardExcel) MutateDungeonType(n SchoolDungeonType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *SchoolDungeonRewardExcel) RewardTag() RewardTag {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return RewardTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *SchoolDungeonRewardExcel) MutateRewardTag(n RewardTag) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
 func (rcv *SchoolDungeonRewardExcel) RewardParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -78,35 +42,11 @@ func (rcv *SchoolDungeonRewardExcel) RewardParcelType() ParcelType {
 }
 
 func (rcv *SchoolDungeonRewardExcel) MutateRewardParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
-}
-
-func (rcv *SchoolDungeonRewardExcel) RewardParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *SchoolDungeonRewardExcel) MutateRewardParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
-func (rcv *SchoolDungeonRewardExcel) RewardParcelAmount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *SchoolDungeonRewardExcel) MutateRewardParcelAmount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
+	return rcv._tab.MutateInt32Slot(4, int32(n))
 }
 
 func (rcv *SchoolDungeonRewardExcel) RewardParcelProbability() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -114,6 +54,66 @@ func (rcv *SchoolDungeonRewardExcel) RewardParcelProbability() int64 {
 }
 
 func (rcv *SchoolDungeonRewardExcel) MutateRewardParcelProbability(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *SchoolDungeonRewardExcel) GroupId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *SchoolDungeonRewardExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *SchoolDungeonRewardExcel) RewardParcelAmount() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *SchoolDungeonRewardExcel) MutateRewardParcelAmount(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *SchoolDungeonRewardExcel) DungeonType() SchoolDungeonType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return SchoolDungeonType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *SchoolDungeonRewardExcel) MutateDungeonType(n SchoolDungeonType) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
+}
+
+func (rcv *SchoolDungeonRewardExcel) RewardTag() RewardTag {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return RewardTag(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *SchoolDungeonRewardExcel) MutateRewardTag(n RewardTag) bool {
+	return rcv._tab.MutateInt32Slot(14, int32(n))
+}
+
+func (rcv *SchoolDungeonRewardExcel) RewardParcelId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *SchoolDungeonRewardExcel) MutateRewardParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(16, n)
 }
 
@@ -132,26 +132,26 @@ func (rcv *SchoolDungeonRewardExcel) MutateIsDisplayed(n bool) bool {
 func SchoolDungeonRewardExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(8)
 }
-func SchoolDungeonRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
-}
-func SchoolDungeonRewardExcelAddDungeonType(builder *flatbuffers.Builder, dungeonType SchoolDungeonType) {
-	builder.PrependInt32Slot(1, int32(dungeonType), 0)
-}
-func SchoolDungeonRewardExcelAddRewardTag(builder *flatbuffers.Builder, rewardTag RewardTag) {
-	builder.PrependInt32Slot(2, int32(rewardTag), 0)
-}
 func SchoolDungeonRewardExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType ParcelType) {
-	builder.PrependInt32Slot(3, int32(rewardParcelType), 0)
-}
-func SchoolDungeonRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
-	builder.PrependInt64Slot(4, rewardParcelId, 0)
-}
-func SchoolDungeonRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int64) {
-	builder.PrependInt64Slot(5, rewardParcelAmount, 0)
+	builder.PrependInt32Slot(0, int32(rewardParcelType), 0)
 }
 func SchoolDungeonRewardExcelAddRewardParcelProbability(builder *flatbuffers.Builder, rewardParcelProbability int64) {
-	builder.PrependInt64Slot(6, rewardParcelProbability, 0)
+	builder.PrependInt64Slot(1, rewardParcelProbability, 0)
+}
+func SchoolDungeonRewardExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(2, groupId, 0)
+}
+func SchoolDungeonRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount int64) {
+	builder.PrependInt64Slot(3, rewardParcelAmount, 0)
+}
+func SchoolDungeonRewardExcelAddDungeonType(builder *flatbuffers.Builder, dungeonType SchoolDungeonType) {
+	builder.PrependInt32Slot(4, int32(dungeonType), 0)
+}
+func SchoolDungeonRewardExcelAddRewardTag(builder *flatbuffers.Builder, rewardTag RewardTag) {
+	builder.PrependInt32Slot(5, int32(rewardTag), 0)
+}
+func SchoolDungeonRewardExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId int64) {
+	builder.PrependInt64Slot(6, rewardParcelId, 0)
 }
 func SchoolDungeonRewardExcelAddIsDisplayed(builder *flatbuffers.Builder, isDisplayed bool) {
 	builder.PrependBoolSlot(7, isDisplayed, false)

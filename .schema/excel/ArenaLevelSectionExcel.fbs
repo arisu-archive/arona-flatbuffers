@@ -1,0 +1,10 @@
+namespace MX.Data.Excel;
+
+table ArenaLevelSectionExcel {
+    last_level: long;
+    arena_season_id: long;
+    user_count: long;
+    start_level: long;
+}
+
+root_type ArenaLevelSectionExcel;

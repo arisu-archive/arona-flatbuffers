@@ -3,8 +3,8 @@ include "EventTargetType.fbs";
 namespace FlatData;
 
 table EventContentMiniEventShortCutExcel {
+    shortcut_ui: string;
     id: int;
     localize_etc_id: uint;
     shorcut_content_type: EventTargetType;
-    shortcut_ui: string;
 }

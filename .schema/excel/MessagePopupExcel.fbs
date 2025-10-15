@@ -5,19 +5,19 @@ include "MessagePopupLayout.fbs";
 namespace MX.Data.Excel;
 
 table MessagePopupExcel {
-    string_id: uint;
-    message_popup_layout: MessagePopupLayout;
-    order_type: MessagePopupImagePositionType;
-    image: string;
-    title_text: uint;
     sub_title_text: uint;
-    message_text: uint;
-    condition_text: [uint];
-    display_x_button: bool;
-    button: [MessagePopupButtonType];
-    button_text: [uint];
+    order_type: MessagePopupImagePositionType;
+    title_text: uint;
     button_command: [string];
     button_parameter: [string];
+    display_x_button: bool;
+    string_id: uint;
+    condition_text: [uint];
+    button_text: [uint];
+    image: string;
+    button: [MessagePopupButtonType];
+    message_text: uint;
+    message_popup_layout: MessagePopupLayout;
 }
 
 root_type MessagePopupExcel;

@@ -1,0 +1,27 @@
+include "ParcelType.fbs";
+include "ProductTagType.fbs";
+include "StoreType.fbs";
+
+namespace MX.Data.Excel;
+
+table ProductMonthlyExcel {
+    price_reference: string;
+    price: long;
+    teen_product_id: string;
+    use_monthly_product_check: bool;
+    enter_cost_reduce_group_id: long;
+    parcel_amount: [long];
+    purchase_count_limit: long;
+    daily_parcel_id: [long];
+    daily_parcel_amount: [long];
+    daily_parcel_type: [ParcelType];
+    product_tag_type: ProductTagType;
+    product_id: string;
+    parcel_type: [ParcelType];
+    store_type: StoreType;
+    id: long;
+    monthly_days: long;
+    parcel_id: [long];
+}
+
+root_type ProductMonthlyExcel;

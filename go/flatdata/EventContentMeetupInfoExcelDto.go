@@ -10,10 +10,10 @@ import (
 // EventContentMeetupInfoExcelDto represents a FlatBuffers table
 type EventContentMeetupInfoExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId int64      `json:"event_content_id"`
-	CostParcelType ParcelType `json:"cost_parcel_type"`
 	CostId         int64      `json:"cost_id"`
+	CostParcelType ParcelType `json:"cost_parcel_type"`
 	CostAmount     int32      `json:"cost_amount"`
+	EventContentId int64      `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,10 +22,10 @@ func (t *EventContentMeetupInfoExcelDto) MarshalModel(b *flatbuffers.Builder) fl
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMeetupInfo"))
 	}
 	EventContentMeetupInfoExcelStart(b)
-	EventContentMeetupInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentMeetupInfoExcelAddCostParcelType(b, fbsutils.Convert(t.CostParcelType, t.FlatBuffer.TableKey))
 	EventContentMeetupInfoExcelAddCostId(b, fbsutils.Convert(t.CostId, t.FlatBuffer.TableKey))
+	EventContentMeetupInfoExcelAddCostParcelType(b, fbsutils.Convert(t.CostParcelType, t.FlatBuffer.TableKey))
 	EventContentMeetupInfoExcelAddCostAmount(b, fbsutils.Convert(t.CostAmount, t.FlatBuffer.TableKey))
+	EventContentMeetupInfoExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return EventContentMeetupInfoExcelEnd(b)
 }
 
@@ -41,10 +41,10 @@ func (t *EventContentMeetupInfoExcelDto) UnmarshalMessage(e *EventContentMeetupI
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentMeetupInfo"))
 	}
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.CostParcelType = ParcelType(fbsutils.Convert(int32(e.CostParcelType()), t.FlatBuffer.TableKey))
 	t.CostId = fbsutils.Convert(e.CostId(), t.FlatBuffer.TableKey)
+	t.CostParcelType = ParcelType(fbsutils.Convert(int32(e.CostParcelType()), t.FlatBuffer.TableKey))
 	t.CostAmount = fbsutils.Convert(e.CostAmount(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

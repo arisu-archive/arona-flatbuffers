@@ -12,12 +12,12 @@ type UnderCoverStageExcelDto struct {
 	fbsutils.FlatBuffer
 	GroupId        int64  `json:"group_id"`
 	StageNameFile  string `json:"stage_name_file"`
-	StageTryCount  int32  `json:"stage_try_count"`
-	ApplySkip      bool   `json:"apply_skip"`
-	SkipCount      int32  `json:"skip_count"`
 	ShowClearScene bool   `json:"show_clear_scene"`
-	StageTips      uint32 `json:"stage_tips"`
+	SkipCount      int32  `json:"skip_count"`
+	ApplySkip      bool   `json:"apply_skip"`
 	StageName      uint32 `json:"stage_name"`
+	StageTips      uint32 `json:"stage_tips"`
+	StageTryCount  int32  `json:"stage_try_count"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,12 +25,12 @@ func (t *UnderCoverStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	UnderCoverStageExcelStart(b)
 	UnderCoverStageExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	UnderCoverStageExcelAddStageNameFile(b, b.CreateString(fbsutils.Convert(t.StageNameFile, t.FlatBuffer.TableKey)))
-	UnderCoverStageExcelAddStageTryCount(b, fbsutils.Convert(t.StageTryCount, t.FlatBuffer.TableKey))
-	UnderCoverStageExcelAddApplySkip(b, t.ApplySkip)
-	UnderCoverStageExcelAddSkipCount(b, fbsutils.Convert(t.SkipCount, t.FlatBuffer.TableKey))
 	UnderCoverStageExcelAddShowClearScene(b, t.ShowClearScene)
-	UnderCoverStageExcelAddStageTips(b, fbsutils.Convert(t.StageTips, t.FlatBuffer.TableKey))
+	UnderCoverStageExcelAddSkipCount(b, fbsutils.Convert(t.SkipCount, t.FlatBuffer.TableKey))
+	UnderCoverStageExcelAddApplySkip(b, t.ApplySkip)
 	UnderCoverStageExcelAddStageName(b, fbsutils.Convert(t.StageName, t.FlatBuffer.TableKey))
+	UnderCoverStageExcelAddStageTips(b, fbsutils.Convert(t.StageTips, t.FlatBuffer.TableKey))
+	UnderCoverStageExcelAddStageTryCount(b, fbsutils.Convert(t.StageTryCount, t.FlatBuffer.TableKey))
 	return UnderCoverStageExcelEnd(b)
 }
 
@@ -45,12 +45,12 @@ func (t *UnderCoverStageExcelDto) Marshal() ([]byte, error) {
 func (t *UnderCoverStageExcelDto) UnmarshalMessage(e *UnderCoverStageExcel) error {
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.StageNameFile = fbsutils.Convert(string(e.StageNameFile()), t.FlatBuffer.TableKey)
-	t.StageTryCount = fbsutils.Convert(e.StageTryCount(), t.FlatBuffer.TableKey)
-	t.ApplySkip = e.ApplySkip()
-	t.SkipCount = fbsutils.Convert(e.SkipCount(), t.FlatBuffer.TableKey)
 	t.ShowClearScene = e.ShowClearScene()
-	t.StageTips = fbsutils.Convert(e.StageTips(), t.FlatBuffer.TableKey)
+	t.SkipCount = fbsutils.Convert(e.SkipCount(), t.FlatBuffer.TableKey)
+	t.ApplySkip = e.ApplySkip()
 	t.StageName = fbsutils.Convert(e.StageName(), t.FlatBuffer.TableKey)
+	t.StageTips = fbsutils.Convert(e.StageTips(), t.FlatBuffer.TableKey)
+	t.StageTryCount = fbsutils.Convert(e.StageTryCount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

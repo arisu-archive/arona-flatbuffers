@@ -3,16 +3,16 @@ include "ParcelType.fbs";
 namespace FlatData;
 
 table EventContentFortuneGachaShopExcel {
-    event_content_id: long;
-    id: long;
-    grade: int;
-    cost_goods_id: long;
-    is_legacy: bool;
-    fortune_gacha_group_id: int;
-    prob: int;
-    prob_modify_value: int;
-    prob_modify_limit: int;
-    reward_parcel_type: [ParcelType];
     reward_parcel_id: [long];
+    cost_goods_id: long;
+    prob_modify_value: int;
+    prob: int;
+    event_content_id: long;
+    prob_modify_limit: int;
+    fortune_gacha_group_id: int;
+    is_legacy: bool;
+    id: long;
+    reward_parcel_type: [ParcelType];
+    grade: int;
     reward_parcel_amount: [long];
 }

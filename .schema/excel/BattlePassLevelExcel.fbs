@@ -1,0 +1,9 @@
+namespace MX.Data.Excel;
+
+table BattlePassLevelExcel {
+    is_pick_up_reward: bool;
+    battle_pass_id: long;
+    level: long;
+}
+
+root_type BattlePassLevelExcel;

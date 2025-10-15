@@ -33,19 +33,33 @@ func (rcv *EventContentFortuneGachaShopExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentFortuneGachaShopExcel) EventContentId() int64 {
+func (rcv *EventContentFortuneGachaShopExcel) RewardParcelId(j int) int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
 	}
 	return 0
 }
 
-func (rcv *EventContentFortuneGachaShopExcel) MutateEventContentId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *EventContentFortuneGachaShopExcel) RewardParcelIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
-func (rcv *EventContentFortuneGachaShopExcel) Id() int64 {
+func (rcv *EventContentFortuneGachaShopExcel) MutateRewardParcelId(j int, n int64) bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		a := rcv._tab.Vector(o)
+		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
+	}
+	return false
+}
+
+func (rcv *EventContentFortuneGachaShopExcel) CostGoodsId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,11 +67,11 @@ func (rcv *EventContentFortuneGachaShopExcel) Id() int64 {
 	return 0
 }
 
-func (rcv *EventContentFortuneGachaShopExcel) MutateId(n int64) bool {
+func (rcv *EventContentFortuneGachaShopExcel) MutateCostGoodsId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *EventContentFortuneGachaShopExcel) Grade() int32 {
+func (rcv *EventContentFortuneGachaShopExcel) ProbModifyValue() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -65,48 +79,12 @@ func (rcv *EventContentFortuneGachaShopExcel) Grade() int32 {
 	return 0
 }
 
-func (rcv *EventContentFortuneGachaShopExcel) MutateGrade(n int32) bool {
+func (rcv *EventContentFortuneGachaShopExcel) MutateProbModifyValue(n int32) bool {
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
-func (rcv *EventContentFortuneGachaShopExcel) CostGoodsId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentFortuneGachaShopExcel) MutateCostGoodsId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *EventContentFortuneGachaShopExcel) IsLegacy() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *EventContentFortuneGachaShopExcel) MutateIsLegacy(n bool) bool {
-	return rcv._tab.MutateBoolSlot(12, n)
-}
-
-func (rcv *EventContentFortuneGachaShopExcel) FortuneGachaGroupId() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentFortuneGachaShopExcel) MutateFortuneGachaGroupId(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
-}
-
 func (rcv *EventContentFortuneGachaShopExcel) Prob() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -114,23 +92,23 @@ func (rcv *EventContentFortuneGachaShopExcel) Prob() int32 {
 }
 
 func (rcv *EventContentFortuneGachaShopExcel) MutateProb(n int32) bool {
-	return rcv._tab.MutateInt32Slot(16, n)
+	return rcv._tab.MutateInt32Slot(10, n)
 }
 
-func (rcv *EventContentFortuneGachaShopExcel) ProbModifyValue() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+func (rcv *EventContentFortuneGachaShopExcel) EventContentId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EventContentFortuneGachaShopExcel) MutateProbModifyValue(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
+func (rcv *EventContentFortuneGachaShopExcel) MutateEventContentId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
 }
 
 func (rcv *EventContentFortuneGachaShopExcel) ProbModifyLimit() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -138,7 +116,43 @@ func (rcv *EventContentFortuneGachaShopExcel) ProbModifyLimit() int32 {
 }
 
 func (rcv *EventContentFortuneGachaShopExcel) MutateProbModifyLimit(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *EventContentFortuneGachaShopExcel) FortuneGachaGroupId() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentFortuneGachaShopExcel) MutateFortuneGachaGroupId(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
+}
+
+func (rcv *EventContentFortuneGachaShopExcel) IsLegacy() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *EventContentFortuneGachaShopExcel) MutateIsLegacy(n bool) bool {
+	return rcv._tab.MutateBoolSlot(18, n)
+}
+
+func (rcv *EventContentFortuneGachaShopExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentFortuneGachaShopExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func (rcv *EventContentFortuneGachaShopExcel) RewardParcelType(j int) ParcelType {
@@ -167,30 +181,16 @@ func (rcv *EventContentFortuneGachaShopExcel) MutateRewardParcelType(j int, n Pa
 	return false
 }
 
-func (rcv *EventContentFortuneGachaShopExcel) RewardParcelId(j int) int64 {
+func (rcv *EventContentFortuneGachaShopExcel) Grade() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *EventContentFortuneGachaShopExcel) RewardParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
-func (rcv *EventContentFortuneGachaShopExcel) MutateRewardParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
-	}
-	return false
+func (rcv *EventContentFortuneGachaShopExcel) MutateGrade(n int32) bool {
+	return rcv._tab.MutateInt32Slot(24, n)
 }
 
 func (rcv *EventContentFortuneGachaShopExcel) RewardParcelAmount(j int) int64 {
@@ -222,32 +222,35 @@ func (rcv *EventContentFortuneGachaShopExcel) MutateRewardParcelAmount(j int, n 
 func EventContentFortuneGachaShopExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(12)
 }
-func EventContentFortuneGachaShopExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
+func EventContentFortuneGachaShopExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(rewardParcelId), 0)
 }
-func EventContentFortuneGachaShopExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(1, id, 0)
-}
-func EventContentFortuneGachaShopExcelAddGrade(builder *flatbuffers.Builder, grade int32) {
-	builder.PrependInt32Slot(2, grade, 0)
+func EventContentFortuneGachaShopExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(8, numElems, 8)
 }
 func EventContentFortuneGachaShopExcelAddCostGoodsId(builder *flatbuffers.Builder, costGoodsId int64) {
-	builder.PrependInt64Slot(3, costGoodsId, 0)
-}
-func EventContentFortuneGachaShopExcelAddIsLegacy(builder *flatbuffers.Builder, isLegacy bool) {
-	builder.PrependBoolSlot(4, isLegacy, false)
-}
-func EventContentFortuneGachaShopExcelAddFortuneGachaGroupId(builder *flatbuffers.Builder, fortuneGachaGroupId int32) {
-	builder.PrependInt32Slot(5, fortuneGachaGroupId, 0)
-}
-func EventContentFortuneGachaShopExcelAddProb(builder *flatbuffers.Builder, prob int32) {
-	builder.PrependInt32Slot(6, prob, 0)
+	builder.PrependInt64Slot(1, costGoodsId, 0)
 }
 func EventContentFortuneGachaShopExcelAddProbModifyValue(builder *flatbuffers.Builder, probModifyValue int32) {
-	builder.PrependInt32Slot(7, probModifyValue, 0)
+	builder.PrependInt32Slot(2, probModifyValue, 0)
+}
+func EventContentFortuneGachaShopExcelAddProb(builder *flatbuffers.Builder, prob int32) {
+	builder.PrependInt32Slot(3, prob, 0)
+}
+func EventContentFortuneGachaShopExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(4, eventContentId, 0)
 }
 func EventContentFortuneGachaShopExcelAddProbModifyLimit(builder *flatbuffers.Builder, probModifyLimit int32) {
-	builder.PrependInt32Slot(8, probModifyLimit, 0)
+	builder.PrependInt32Slot(5, probModifyLimit, 0)
+}
+func EventContentFortuneGachaShopExcelAddFortuneGachaGroupId(builder *flatbuffers.Builder, fortuneGachaGroupId int32) {
+	builder.PrependInt32Slot(6, fortuneGachaGroupId, 0)
+}
+func EventContentFortuneGachaShopExcelAddIsLegacy(builder *flatbuffers.Builder, isLegacy bool) {
+	builder.PrependBoolSlot(7, isLegacy, false)
+}
+func EventContentFortuneGachaShopExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(8, id, 0)
 }
 func EventContentFortuneGachaShopExcelAddRewardParcelType(builder *flatbuffers.Builder, rewardParcelType flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(rewardParcelType), 0)
@@ -255,11 +258,8 @@ func EventContentFortuneGachaShopExcelAddRewardParcelType(builder *flatbuffers.B
 func EventContentFortuneGachaShopExcelStartRewardParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
-func EventContentFortuneGachaShopExcelAddRewardParcelId(builder *flatbuffers.Builder, rewardParcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(rewardParcelId), 0)
-}
-func EventContentFortuneGachaShopExcelStartRewardParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(8, numElems, 8)
+func EventContentFortuneGachaShopExcelAddGrade(builder *flatbuffers.Builder, grade int32) {
+	builder.PrependInt32Slot(10, grade, 0)
 }
 func EventContentFortuneGachaShopExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(rewardParcelAmount), 0)

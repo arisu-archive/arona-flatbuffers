@@ -33,32 +33,8 @@ func (rcv *FieldKeywordExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *FieldKeywordExcel) UniqueId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldKeywordExcel) MutateUniqueId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *FieldKeywordExcel) SeasonId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *FieldKeywordExcel) MutateSeasonId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(6, n)
-}
-
 func (rcv *FieldKeywordExcel) NameLocalizeKey() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -66,7 +42,7 @@ func (rcv *FieldKeywordExcel) NameLocalizeKey() []byte {
 }
 
 func (rcv *FieldKeywordExcel) DescriptionLocalizeKey() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -74,30 +50,54 @@ func (rcv *FieldKeywordExcel) DescriptionLocalizeKey() []byte {
 }
 
 func (rcv *FieldKeywordExcel) ImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
+func (rcv *FieldKeywordExcel) SeasonId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldKeywordExcel) MutateSeasonId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *FieldKeywordExcel) UniqueId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *FieldKeywordExcel) MutateUniqueId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
 func FieldKeywordExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func FieldKeywordExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
-	builder.PrependInt64Slot(0, uniqueId, 0)
-}
-func FieldKeywordExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
-	builder.PrependInt64Slot(1, seasonId, 0)
-}
 func FieldKeywordExcelAddNameLocalizeKey(builder *flatbuffers.Builder, nameLocalizeKey flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(nameLocalizeKey), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(nameLocalizeKey), 0)
 }
 func FieldKeywordExcelAddDescriptionLocalizeKey(builder *flatbuffers.Builder, descriptionLocalizeKey flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(descriptionLocalizeKey), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(descriptionLocalizeKey), 0)
 }
 func FieldKeywordExcelAddImagePath(builder *flatbuffers.Builder, imagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(imagePath), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(imagePath), 0)
+}
+func FieldKeywordExcelAddSeasonId(builder *flatbuffers.Builder, seasonId int64) {
+	builder.PrependInt64Slot(3, seasonId, 0)
+}
+func FieldKeywordExcelAddUniqueId(builder *flatbuffers.Builder, uniqueId int64) {
+	builder.PrependInt64Slot(4, uniqueId, 0)
 }
 func FieldKeywordExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -32,28 +32,28 @@ class ConstKeyMappingExcel(object):
         return 0.0
 
     # ConstKeyMappingExcel
-    def PcInformationGroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ConstKeyMappingExcel
     def ScrollWheelFactor(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Float32Flags, o + self._tab.Pos)
         return 0.0
 
     # ConstKeyMappingExcel
-    def RemoveKeycodeWord(self):
+    def PcInformationGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ConstKeyMappingExcel
+    def TutorialDialogTouchKey(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ConstKeyMappingExcel
-    def TutorialDialogTouchKey(self):
+    def RemoveKeycodeWord(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -65,18 +65,18 @@ def Start(builder):
 def ConstKeyMappingExcelAddDragSensitivity(builder, dragSensitivity): builder.PrependFloat32Slot(0, dragSensitivity, 0.0)
 def AddDragSensitivity(builder, dragSensitivity):
     return ConstKeyMappingExcelAddDragSensitivity(builder, dragSensitivity)
-def ConstKeyMappingExcelAddPcInformationGroupId(builder, pcInformationGroupId): builder.PrependInt64Slot(1, pcInformationGroupId, 0)
-def AddPcInformationGroupId(builder, pcInformationGroupId):
-    return ConstKeyMappingExcelAddPcInformationGroupId(builder, pcInformationGroupId)
-def ConstKeyMappingExcelAddScrollWheelFactor(builder, scrollWheelFactor): builder.PrependFloat32Slot(2, scrollWheelFactor, 0.0)
+def ConstKeyMappingExcelAddScrollWheelFactor(builder, scrollWheelFactor): builder.PrependFloat32Slot(1, scrollWheelFactor, 0.0)
 def AddScrollWheelFactor(builder, scrollWheelFactor):
     return ConstKeyMappingExcelAddScrollWheelFactor(builder, scrollWheelFactor)
-def ConstKeyMappingExcelAddRemoveKeycodeWord(builder, removeKeycodeWord): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(removeKeycodeWord), 0)
-def AddRemoveKeycodeWord(builder, removeKeycodeWord):
-    return ConstKeyMappingExcelAddRemoveKeycodeWord(builder, removeKeycodeWord)
-def ConstKeyMappingExcelAddTutorialDialogTouchKey(builder, tutorialDialogTouchKey): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(tutorialDialogTouchKey), 0)
+def ConstKeyMappingExcelAddPcInformationGroupId(builder, pcInformationGroupId): builder.PrependInt64Slot(2, pcInformationGroupId, 0)
+def AddPcInformationGroupId(builder, pcInformationGroupId):
+    return ConstKeyMappingExcelAddPcInformationGroupId(builder, pcInformationGroupId)
+def ConstKeyMappingExcelAddTutorialDialogTouchKey(builder, tutorialDialogTouchKey): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(tutorialDialogTouchKey), 0)
 def AddTutorialDialogTouchKey(builder, tutorialDialogTouchKey):
     return ConstKeyMappingExcelAddTutorialDialogTouchKey(builder, tutorialDialogTouchKey)
+def ConstKeyMappingExcelAddRemoveKeycodeWord(builder, removeKeycodeWord): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(removeKeycodeWord), 0)
+def AddRemoveKeycodeWord(builder, removeKeycodeWord):
+    return ConstKeyMappingExcelAddRemoveKeycodeWord(builder, removeKeycodeWord)
 def ConstKeyMappingExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return ConstKeyMappingExcelEnd(builder)

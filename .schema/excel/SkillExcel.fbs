@@ -1,0 +1,38 @@
+include "BulletType.fbs";
+
+namespace MX.Data.Excel;
+
+table SkillExcel {
+    skill_data_key: string;
+    skill_cost: int;
+    group_id: string;
+    extra_enemy_skill_cost: int;
+    additional_tool_tip_id: long;
+    localize_skill_id: uint;
+    require_level_up_material: long;
+    extra_npc_skill_cost: int;
+    require_character_level: int;
+    bullet_type: BulletType;
+    icon_name: string;
+    public_speech_duration: int;
+    enemy_skill_cost: int;
+    enemy_start_cool_time: int;
+    start_cool_time: int;
+    is_show_speechbubble: bool;
+    level: int;
+    npc_skill_cost: int;
+    enemy_cool_time: int;
+    npc_start_cool_time: int;
+    is_show_info: bool;
+    select_ex_skill_tool_tip_id: long;
+    cool_time: int;
+    visual_data_key: string;
+    texture_skill_card_for_form_conversion: string;
+    extra_skill_cost: int;
+    npc_cool_time: int;
+    use_atg: int;
+    skill_card_label_path: string;
+    id: long;
+}
+
+root_type SkillExcel;

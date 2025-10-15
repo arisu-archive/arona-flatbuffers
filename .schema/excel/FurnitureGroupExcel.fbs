@@ -1,0 +1,11 @@
+namespace MX.Data.Excel;
+
+table FurnitureGroupExcel {
+    group_name_localize: uint;
+    required_furniture_count: [int];
+    comfort_bonus: [long];
+    id: long;
+    localize_etc_id: uint;
+}
+
+root_type FurnitureGroupExcel;

@@ -12,14 +12,14 @@ type MinigameRoadPuzzleMapExcelDto struct {
 	fbsutils.FlatBuffer
 	EventContentId          int64   `json:"event_content_id"`
 	UniqueId                int64   `json:"unique_id"`
-	MapGroupId              int64   `json:"map_group_id"`
-	Map                     string  `json:"map"`
 	MapBg                   string  `json:"map_bg"`
-	BgmId                   int64   `json:"bgm_id"`
 	AvailableRailTile       []int64 `json:"available_rail_tile"`
 	AvailableRailTileAmount []int64 `json:"available_rail_tile_amount"`
-	OriginalTileCount       []int64 `json:"original_tile_count"`
 	TrainSpeed              float32 `json:"train_speed"`
+	MapGroupId              int64   `json:"map_group_id"`
+	BgmId                   int64   `json:"bgm_id"`
+	OriginalTileCount       []int64 `json:"original_tile_count"`
+	Map                     string  `json:"map"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,10 +27,7 @@ func (t *MinigameRoadPuzzleMapExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	MinigameRoadPuzzleMapExcelStart(b)
 	MinigameRoadPuzzleMapExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MinigameRoadPuzzleMapExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleMapExcelAddMapGroupId(b, fbsutils.Convert(t.MapGroupId, t.FlatBuffer.TableKey))
-	MinigameRoadPuzzleMapExcelAddMap(b, b.CreateString(fbsutils.Convert(t.Map, t.FlatBuffer.TableKey)))
 	MinigameRoadPuzzleMapExcelAddMapBg(b, b.CreateString(fbsutils.Convert(t.MapBg, t.FlatBuffer.TableKey)))
-	MinigameRoadPuzzleMapExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
 	MinigameRoadPuzzleMapExcelStartAvailableRailTileVector(b, len(t.AvailableRailTile))
 	for i := range len(t.AvailableRailTile) {
 		b.PrependInt64(fbsutils.Convert(t.AvailableRailTile[len(t.AvailableRailTile)-i-1], t.FlatBuffer.TableKey))
@@ -41,12 +38,15 @@ func (t *MinigameRoadPuzzleMapExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		b.PrependInt64(fbsutils.Convert(t.AvailableRailTileAmount[len(t.AvailableRailTileAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	MinigameRoadPuzzleMapExcelAddAvailableRailTileAmount(b, b.EndVector(len(t.AvailableRailTileAmount)))
+	MinigameRoadPuzzleMapExcelAddTrainSpeed(b, fbsutils.Convert(t.TrainSpeed, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleMapExcelAddMapGroupId(b, fbsutils.Convert(t.MapGroupId, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleMapExcelAddBgmId(b, fbsutils.Convert(t.BgmId, t.FlatBuffer.TableKey))
 	MinigameRoadPuzzleMapExcelStartOriginalTileCountVector(b, len(t.OriginalTileCount))
 	for i := range len(t.OriginalTileCount) {
 		b.PrependInt64(fbsutils.Convert(t.OriginalTileCount[len(t.OriginalTileCount)-i-1], t.FlatBuffer.TableKey))
 	}
 	MinigameRoadPuzzleMapExcelAddOriginalTileCount(b, b.EndVector(len(t.OriginalTileCount)))
-	MinigameRoadPuzzleMapExcelAddTrainSpeed(b, fbsutils.Convert(t.TrainSpeed, t.FlatBuffer.TableKey))
+	MinigameRoadPuzzleMapExcelAddMap(b, b.CreateString(fbsutils.Convert(t.Map, t.FlatBuffer.TableKey)))
 	return MinigameRoadPuzzleMapExcelEnd(b)
 }
 
@@ -61,10 +61,7 @@ func (t *MinigameRoadPuzzleMapExcelDto) Marshal() ([]byte, error) {
 func (t *MinigameRoadPuzzleMapExcelDto) UnmarshalMessage(e *MinigameRoadPuzzleMapExcel) error {
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.MapGroupId = fbsutils.Convert(e.MapGroupId(), t.FlatBuffer.TableKey)
-	t.Map = fbsutils.Convert(string(e.Map()), t.FlatBuffer.TableKey)
 	t.MapBg = fbsutils.Convert(string(e.MapBg()), t.FlatBuffer.TableKey)
-	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
 	t.AvailableRailTile = make([]int64, e.AvailableRailTileLength())
 	for i := range e.AvailableRailTileLength() {
 		t.AvailableRailTile[i] = fbsutils.Convert(e.AvailableRailTile(i), t.FlatBuffer.TableKey)
@@ -73,11 +70,14 @@ func (t *MinigameRoadPuzzleMapExcelDto) UnmarshalMessage(e *MinigameRoadPuzzleMa
 	for i := range e.AvailableRailTileAmountLength() {
 		t.AvailableRailTileAmount[i] = fbsutils.Convert(e.AvailableRailTileAmount(i), t.FlatBuffer.TableKey)
 	}
+	t.TrainSpeed = fbsutils.Convert(e.TrainSpeed(), t.FlatBuffer.TableKey)
+	t.MapGroupId = fbsutils.Convert(e.MapGroupId(), t.FlatBuffer.TableKey)
+	t.BgmId = fbsutils.Convert(e.BgmId(), t.FlatBuffer.TableKey)
 	t.OriginalTileCount = make([]int64, e.OriginalTileCountLength())
 	for i := range e.OriginalTileCountLength() {
 		t.OriginalTileCount[i] = fbsutils.Convert(e.OriginalTileCount(i), t.FlatBuffer.TableKey)
 	}
-	t.TrainSpeed = fbsutils.Convert(e.TrainSpeed(), t.FlatBuffer.TableKey)
+	t.Map = fbsutils.Convert(string(e.Map()), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -1,0 +1,32 @@
+include "ConsumeCondition.fbs";
+include "GachaTicketType.fbs";
+include "ParcelType.fbs";
+include "Rarity.fbs";
+
+namespace MX.Data.Excel;
+
+table GoodsExcel {
+    product_id_one: long;
+    product_id_steam: long;
+    consume_parcel_type: [ParcelType];
+    rarity: Rarity;
+    product_id_sgs: long;
+    parcel_type: [ParcelType];
+    id: long;
+    parcel_id: [long];
+    type: int;
+    product_idi_os: long;
+    consume_gacha_ticket_type_amount: [long];
+    consume_gacha_ticket_type: [GachaTicketType];
+    consume_extra_step: [long];
+    consume_extra_amount: [long];
+    state: int;
+    icon_path: string;
+    parcel_amount: [long];
+    consume_condition: [ConsumeCondition];
+    consume_parcel_amount: [long];
+    product_id_aos: long;
+    consume_parcel_id: [long];
+}
+
+root_type GoodsExcel;

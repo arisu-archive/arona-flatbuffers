@@ -33,7 +33,7 @@ func (rcv *CouponStuffExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CouponStuffExcel) StuffId() int64 {
+func (rcv *CouponStuffExcel) ParcelId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,36 +41,12 @@ func (rcv *CouponStuffExcel) StuffId() int64 {
 	return 0
 }
 
-func (rcv *CouponStuffExcel) MutateStuffId(n int64) bool {
+func (rcv *CouponStuffExcel) MutateParcelId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *CouponStuffExcel) ParcelType() ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CouponStuffExcel) MutateParcelType(n ParcelType) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
-func (rcv *CouponStuffExcel) ParcelId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CouponStuffExcel) MutateParcelId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
 func (rcv *CouponStuffExcel) LimitAmount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -78,7 +54,31 @@ func (rcv *CouponStuffExcel) LimitAmount() int32 {
 }
 
 func (rcv *CouponStuffExcel) MutateLimitAmount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
+	return rcv._tab.MutateInt32Slot(6, n)
+}
+
+func (rcv *CouponStuffExcel) ParcelType() ParcelType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return ParcelType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CouponStuffExcel) MutateParcelType(n ParcelType) bool {
+	return rcv._tab.MutateInt32Slot(8, int32(n))
+}
+
+func (rcv *CouponStuffExcel) StuffId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CouponStuffExcel) MutateStuffId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
 }
 
 func (rcv *CouponStuffExcel) CouponStuffNameLocalizeKey() []byte {
@@ -92,17 +92,17 @@ func (rcv *CouponStuffExcel) CouponStuffNameLocalizeKey() []byte {
 func CouponStuffExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(5)
 }
-func CouponStuffExcelAddStuffId(builder *flatbuffers.Builder, stuffId int64) {
-	builder.PrependInt64Slot(0, stuffId, 0)
-}
-func CouponStuffExcelAddParcelType(builder *flatbuffers.Builder, parcelType ParcelType) {
-	builder.PrependInt32Slot(1, int32(parcelType), 0)
-}
 func CouponStuffExcelAddParcelId(builder *flatbuffers.Builder, parcelId int64) {
-	builder.PrependInt64Slot(2, parcelId, 0)
+	builder.PrependInt64Slot(0, parcelId, 0)
 }
 func CouponStuffExcelAddLimitAmount(builder *flatbuffers.Builder, limitAmount int32) {
-	builder.PrependInt32Slot(3, limitAmount, 0)
+	builder.PrependInt32Slot(1, limitAmount, 0)
+}
+func CouponStuffExcelAddParcelType(builder *flatbuffers.Builder, parcelType ParcelType) {
+	builder.PrependInt32Slot(2, int32(parcelType), 0)
+}
+func CouponStuffExcelAddStuffId(builder *flatbuffers.Builder, stuffId int64) {
+	builder.PrependInt64Slot(3, stuffId, 0)
 }
 func CouponStuffExcelAddCouponStuffNameLocalizeKey(builder *flatbuffers.Builder, couponStuffNameLocalizeKey flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(couponStuffNameLocalizeKey), 0)

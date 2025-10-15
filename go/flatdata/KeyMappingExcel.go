@@ -49,68 +49,8 @@ func (rcv *KeyMappingExcel) TargetKeyCode() []byte {
 	return nil
 }
 
-func (rcv *KeyMappingExcel) IsDisplay() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *KeyMappingExcel) MutateIsDisplay(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
-}
-
-func (rcv *KeyMappingExcel) IsUsed() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *KeyMappingExcel) MutateIsUsed(n bool) bool {
-	return rcv._tab.MutateBoolSlot(10, n)
-}
-
-func (rcv *KeyMappingExcel) IsLongPress() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *KeyMappingExcel) MutateIsLongPress(n bool) bool {
-	return rcv._tab.MutateBoolSlot(12, n)
-}
-
-func (rcv *KeyMappingExcel) IgnorePosCheck() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *KeyMappingExcel) MutateIgnorePosCheck(n bool) bool {
-	return rcv._tab.MutateBoolSlot(14, n)
-}
-
-func (rcv *KeyMappingExcel) IconPositionX() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *KeyMappingExcel) MutateIconPositionX(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(16, n)
-}
-
 func (rcv *KeyMappingExcel) IconPositionY() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -118,11 +58,23 @@ func (rcv *KeyMappingExcel) IconPositionY() float32 {
 }
 
 func (rcv *KeyMappingExcel) MutateIconPositionY(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(18, n)
+	return rcv._tab.MutateFloat32Slot(8, n)
+}
+
+func (rcv *KeyMappingExcel) IsDisplay() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *KeyMappingExcel) MutateIsDisplay(n bool) bool {
+	return rcv._tab.MutateBoolSlot(10, n)
 }
 
 func (rcv *KeyMappingExcel) IconScaleX() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -130,11 +82,47 @@ func (rcv *KeyMappingExcel) IconScaleX() float32 {
 }
 
 func (rcv *KeyMappingExcel) MutateIconScaleX(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(20, n)
+	return rcv._tab.MutateFloat32Slot(12, n)
+}
+
+func (rcv *KeyMappingExcel) IsUsed() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *KeyMappingExcel) MutateIsUsed(n bool) bool {
+	return rcv._tab.MutateBoolSlot(14, n)
+}
+
+func (rcv *KeyMappingExcel) IgnorePosCheck() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *KeyMappingExcel) MutateIgnorePosCheck(n bool) bool {
+	return rcv._tab.MutateBoolSlot(16, n)
+}
+
+func (rcv *KeyMappingExcel) IsLongPress() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *KeyMappingExcel) MutateIsLongPress(n bool) bool {
+	return rcv._tab.MutateBoolSlot(18, n)
 }
 
 func (rcv *KeyMappingExcel) IconScaleY() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -142,6 +130,18 @@ func (rcv *KeyMappingExcel) IconScaleY() float32 {
 }
 
 func (rcv *KeyMappingExcel) MutateIconScaleY(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(20, n)
+}
+
+func (rcv *KeyMappingExcel) IconPositionX() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *KeyMappingExcel) MutateIconPositionX(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(22, n)
 }
 
@@ -154,29 +154,29 @@ func KeyMappingExcelAddId(builder *flatbuffers.Builder, id flatbuffers.UOffsetT)
 func KeyMappingExcelAddTargetKeyCode(builder *flatbuffers.Builder, targetKeyCode flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(targetKeyCode), 0)
 }
-func KeyMappingExcelAddIsDisplay(builder *flatbuffers.Builder, isDisplay bool) {
-	builder.PrependBoolSlot(2, isDisplay, false)
-}
-func KeyMappingExcelAddIsUsed(builder *flatbuffers.Builder, isUsed bool) {
-	builder.PrependBoolSlot(3, isUsed, false)
-}
-func KeyMappingExcelAddIsLongPress(builder *flatbuffers.Builder, isLongPress bool) {
-	builder.PrependBoolSlot(4, isLongPress, false)
-}
-func KeyMappingExcelAddIgnorePosCheck(builder *flatbuffers.Builder, ignorePosCheck bool) {
-	builder.PrependBoolSlot(5, ignorePosCheck, false)
-}
-func KeyMappingExcelAddIconPositionX(builder *flatbuffers.Builder, iconPositionX float32) {
-	builder.PrependFloat32Slot(6, iconPositionX, 0.0)
-}
 func KeyMappingExcelAddIconPositionY(builder *flatbuffers.Builder, iconPositionY float32) {
-	builder.PrependFloat32Slot(7, iconPositionY, 0.0)
+	builder.PrependFloat32Slot(2, iconPositionY, 0.0)
+}
+func KeyMappingExcelAddIsDisplay(builder *flatbuffers.Builder, isDisplay bool) {
+	builder.PrependBoolSlot(3, isDisplay, false)
 }
 func KeyMappingExcelAddIconScaleX(builder *flatbuffers.Builder, iconScaleX float32) {
-	builder.PrependFloat32Slot(8, iconScaleX, 0.0)
+	builder.PrependFloat32Slot(4, iconScaleX, 0.0)
+}
+func KeyMappingExcelAddIsUsed(builder *flatbuffers.Builder, isUsed bool) {
+	builder.PrependBoolSlot(5, isUsed, false)
+}
+func KeyMappingExcelAddIgnorePosCheck(builder *flatbuffers.Builder, ignorePosCheck bool) {
+	builder.PrependBoolSlot(6, ignorePosCheck, false)
+}
+func KeyMappingExcelAddIsLongPress(builder *flatbuffers.Builder, isLongPress bool) {
+	builder.PrependBoolSlot(7, isLongPress, false)
 }
 func KeyMappingExcelAddIconScaleY(builder *flatbuffers.Builder, iconScaleY float32) {
-	builder.PrependFloat32Slot(9, iconScaleY, 0.0)
+	builder.PrependFloat32Slot(8, iconScaleY, 0.0)
+}
+func KeyMappingExcelAddIconPositionX(builder *flatbuffers.Builder, iconPositionX float32) {
+	builder.PrependFloat32Slot(9, iconPositionX, 0.0)
 }
 func KeyMappingExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

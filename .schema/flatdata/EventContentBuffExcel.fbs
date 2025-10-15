@@ -4,13 +4,13 @@ include "Tag.fbs";
 namespace FlatData;
 
 table EventContentBuffExcel {
-    event_content_buff_id: long;
+    sprite_name: string;
+    skill_group_id: string;
     is_buff: bool;
+    event_content_buff_id: long;
+    buff_description_localize_code_id: string;
     character_tag: Tag;
+    icon_path: string;
     enum_type: EventContentBuffFindRule;
     enum_type_value: [string];
-    skill_group_id: string;
-    icon_path: string;
-    sprite_name: string;
-    buff_description_localize_code_id: string;
 }

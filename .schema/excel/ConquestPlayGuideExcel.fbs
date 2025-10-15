@@ -1,0 +1,12 @@
+namespace MX.Data.Excel;
+
+table ConquestPlayGuideExcel {
+    guide_title: string;
+    guide_text: string;
+    guide_image_path: string;
+    event_content_id: long;
+    id: long;
+    display_order: int;
+}
+
+root_type ConquestPlayGuideExcel;

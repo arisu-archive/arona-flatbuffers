@@ -1,0 +1,34 @@
+include "ConquestTileType.fbs";
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table ConquestTileExcel {
+    step: int;
+    prefab_name: string;
+    upgrade3_cost_amount: int;
+    conquest_cost_id: long;
+    playable: bool;
+    name: string;
+    id: long;
+    manage_cost_amount: int;
+    group_bonus_id: long;
+    conquest_reward_id: long;
+    mass_erosion_id: long;
+    conquest_cost_type: ParcelType;
+    tile_image_name: string;
+    not_map_fog: bool;
+    upgrade2_cost_id: long;
+    upgrade3_cost_type: ParcelType;
+    upgrade2_cost_type: ParcelType;
+    upgrade2_cost_amount: int;
+    conquest_cost_amount: int;
+    event_id: long;
+    manage_cost_id: long;
+    upgrade3_cost_id: long;
+    manage_cost_type: ParcelType;
+    tile_type: ConquestTileType;
+    tile_name_localize: string;
+}
+
+root_type ConquestTileExcel;

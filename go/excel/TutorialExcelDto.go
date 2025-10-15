@@ -10,11 +10,11 @@ import (
 // TutorialExcelDto represents a FlatBuffers table
 type TutorialExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                        int64    `json:"id"`
-	CompletionReportEventName string   `json:"completion_report_event_name"`
 	CompulsoryTutorial        bool     `json:"compulsory_tutorial"`
-	DescriptionTutorial       bool     `json:"description_tutorial"`
+	CompletionReportEventName string   `json:"completion_report_event_name"`
 	TutorialStageId           int64    `json:"tutorial_stage_id"`
+	Id                        int64    `json:"id"`
+	DescriptionTutorial       bool     `json:"description_tutorial"`
 	UiName                    []string `json:"ui_name"`
 	TutorialParentName        []string `json:"tutorial_parent_name"`
 }
@@ -22,11 +22,11 @@ type TutorialExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TutorialExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	TutorialExcelStart(b)
-	TutorialExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	TutorialExcelAddCompletionReportEventName(b, b.CreateString(fbsutils.Convert(t.CompletionReportEventName, t.FlatBuffer.TableKey)))
 	TutorialExcelAddCompulsoryTutorial(b, t.CompulsoryTutorial)
-	TutorialExcelAddDescriptionTutorial(b, t.DescriptionTutorial)
+	TutorialExcelAddCompletionReportEventName(b, b.CreateString(fbsutils.Convert(t.CompletionReportEventName, t.FlatBuffer.TableKey)))
 	TutorialExcelAddTutorialStageId(b, fbsutils.Convert(t.TutorialStageId, t.FlatBuffer.TableKey))
+	TutorialExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	TutorialExcelAddDescriptionTutorial(b, t.DescriptionTutorial)
 	TutorialExcelStartUiNameVector(b, len(t.UiName))
 	for i := range len(t.UiName) {
 		b.PrependUOffsetT(b.CreateString(t.UiName[len(t.UiName)-i-1]))
@@ -49,11 +49,11 @@ func (t *TutorialExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *TutorialExcelDto) UnmarshalMessage(e *TutorialExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.CompletionReportEventName = fbsutils.Convert(string(e.CompletionReportEventName()), t.FlatBuffer.TableKey)
 	t.CompulsoryTutorial = e.CompulsoryTutorial()
-	t.DescriptionTutorial = e.DescriptionTutorial()
+	t.CompletionReportEventName = fbsutils.Convert(string(e.CompletionReportEventName()), t.FlatBuffer.TableKey)
 	t.TutorialStageId = fbsutils.Convert(e.TutorialStageId(), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.DescriptionTutorial = e.DescriptionTutorial()
 	t.UiName = make([]string, e.UiNameLength())
 	for i := range e.UiNameLength() {
 		t.UiName[i] = fbsutils.Convert(string(e.UiName(i)), t.FlatBuffer.TableKey)

@@ -1,0 +1,13 @@
+namespace MX.Data.Excel;
+
+table MiniGamePlayGuideExcel {
+    display_order: int;
+    is_pc_build: bool;
+    guide_title: string;
+    guide_text: string;
+    event_content_id: long;
+    guide_image_path: string;
+    id: long;
+}
+
+root_type MiniGamePlayGuideExcel;

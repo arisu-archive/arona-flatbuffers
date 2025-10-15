@@ -1,0 +1,41 @@
+include "PotentialStatBonusRateType.fbs";
+
+namespace MX.Data.Excel;
+
+table PresetCharacterGroupExcel {
+    level: int;
+    equip_slot_level03: int;
+    favor_exp: int;
+    passive_skill_level: int;
+    potential_level03: int;
+    equip_character_gear_level: int;
+    equip_slot02: bool;
+    leader_skill_level: int;
+    star_grade: int;
+    equip_slot01: bool;
+    equip_character_weapon_tier: int;
+    potential_type01: PotentialStatBonusRateType;
+    exp: int;
+    equip_character_gear: bool;
+    potential_type03: PotentialStatBonusRateType;
+    potential_level02: int;
+    favor_rank: int;
+    equip_character_gear_tier: int;
+    potential_type02: PotentialStatBonusRateType;
+    potential_level01: int;
+    extra_passive_skill_level: int;
+    equip_character_weapon_level: int;
+    ex_skill_level: int;
+    common_skill_level: int;
+    equip_slot_tier01: int;
+    get_preset_type: string;
+    equip_character_weapon: bool;
+    equip_slot_tier03: int;
+    equip_slot_level02: int;
+    equip_slot_level01: int;
+    equip_slot03: bool;
+    equip_slot_tier02: int;
+    preset_character_group_id: long;
+}
+
+root_type PresetCharacterGroupExcel;

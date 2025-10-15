@@ -1,0 +1,14 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table BattlePassRewardExcel {
+    reward_parcel_type: ParcelType;
+    reward_parcel_unique_id: long;
+    level: long;
+    reward_parcel_amount: long;
+    id: long;
+    reward_group_id: long;
+}
+
+root_type BattlePassRewardExcel;

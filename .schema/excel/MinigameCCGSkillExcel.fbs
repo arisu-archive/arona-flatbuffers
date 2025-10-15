@@ -1,0 +1,12 @@
+namespace MX.Data.Excel;
+
+table MinigameCCGSkillExcel {
+    skill_icon: string;
+    id: long;
+    skill_type: string;
+    description: uint;
+    data_load_path: string;
+    name: uint;
+}
+
+root_type MinigameCCGSkillExcel;

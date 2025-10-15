@@ -1,0 +1,15 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table CafeProductionExcel {
+    parcel_production_coefficient: long;
+    cafe_production_parcel_type: ParcelType;
+    parcel_storage_max: long;
+    parcel_production_correction_value: long;
+    cafe_id: long;
+    rank: long;
+    cafe_production_parcel_id: long;
+}
+
+root_type CafeProductionExcel;

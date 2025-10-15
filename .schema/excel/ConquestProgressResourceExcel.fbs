@@ -1,0 +1,14 @@
+include "ConquestProgressType.fbs";
+
+namespace MX.Data.Excel;
+
+table ConquestProgressResourceExcel {
+    progress_resource: string;
+    voice_id: [uint];
+    event_content_id: long;
+    group: ConquestProgressType;
+    progress_localize_code: string;
+    id: long;
+}
+
+root_type ConquestProgressResourceExcel;

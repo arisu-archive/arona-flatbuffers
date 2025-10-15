@@ -10,59 +10,61 @@ import (
 // EmblemExcelDto represents a FlatBuffers table
 type EmblemExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                   int64               `json:"id"`
-	Category             EmblemCategory      `json:"category"`
-	Rarity               Rarity              `json:"rarity"`
-	DisplayOrder         int64               `json:"display_order"`
-	LocalizeEtcId        uint32              `json:"localize_etc_id"`
-	LocalizeCodeId       uint32              `json:"localize_code_id"`
-	UseAtLocalizeId      int64               `json:"use_at_localize_id"`
-	EmblemTextVisible    bool                `json:"emblem_text_visible"`
-	IconPath             string              `json:"icon_path"`
-	EmblemIconPath       string              `json:"emblem_icon_path"`
-	EmblemIconNumControl int32               `json:"emblem_icon_num_control"`
-	EmblemIconBgPath     string              `json:"emblem_icon_bg_path"`
-	EmblemBgPathJp       string              `json:"emblem_bg_path_jp"`
-	EmblemBgPathKr       string              `json:"emblem_bg_path_kr"`
-	EmblemBgPathTh       string              `json:"emblem_bg_path_th"`
-	EmblemBgPathTw       string              `json:"emblem_bg_path_tw"`
-	EmblemBgPathEn       string              `json:"emblem_bg_path_en"`
-	DisplayType          EmblemDisplayType   `json:"display_type"`
-	DisplayStartDate     string              `json:"display_start_date"`
-	DisplayEndDate       string              `json:"display_end_date"`
-	DislpayFavorLevel    int32               `json:"dislpay_favor_level"`
-	CheckPassType        EmblemCheckPassType `json:"check_pass_type"`
 	EmblemParameter      int64               `json:"emblem_parameter"`
+	LocalizeEtcId        uint32              `json:"localize_etc_id"`
+	EmblemEffectPath     string              `json:"emblem_effect_path"`
+	DisplayOrder         int64               `json:"display_order"`
+	DisplayEndDate       string              `json:"display_end_date"`
+	EmblemTextVisible    bool                `json:"emblem_text_visible"`
+	DislpayFavorLevel    int32               `json:"dislpay_favor_level"`
+	EmblemIconBgPath     string              `json:"emblem_icon_bg_path"`
+	Id                   int64               `json:"id"`
+	UseAtLocalizeId      int64               `json:"use_at_localize_id"`
+	EmblemIconPath       string              `json:"emblem_icon_path"`
+	EmblemBgPathTh       string              `json:"emblem_bg_path_th"`
+	DisplayType          EmblemDisplayType   `json:"display_type"`
+	Category             EmblemCategory      `json:"category"`
+	IconPath             string              `json:"icon_path"`
+	Rarity               Rarity              `json:"rarity"`
 	CheckPassCount       int64               `json:"check_pass_count"`
+	EmblemBgPathTw       string              `json:"emblem_bg_path_tw"`
+	EmblemIconNumControl int32               `json:"emblem_icon_num_control"`
+	EmblemBgPathJp       string              `json:"emblem_bg_path_jp"`
+	CheckPassType        EmblemCheckPassType `json:"check_pass_type"`
+	LocalizeCodeId       uint32              `json:"localize_code_id"`
+	EmblemBgPathEn       string              `json:"emblem_bg_path_en"`
+	DisplayStartDate     string              `json:"display_start_date"`
+	EmblemBgPathKr       string              `json:"emblem_bg_path_kr"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EmblemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	EmblemExcelStart(b)
-	EmblemExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	EmblemExcelAddCategory(b, fbsutils.Convert(t.Category, t.FlatBuffer.TableKey))
-	EmblemExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
-	EmblemExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	EmblemExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
-	EmblemExcelAddLocalizeCodeId(b, fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
-	EmblemExcelAddUseAtLocalizeId(b, fbsutils.Convert(t.UseAtLocalizeId, t.FlatBuffer.TableKey))
-	EmblemExcelAddEmblemTextVisible(b, t.EmblemTextVisible)
-	EmblemExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
-	EmblemExcelAddEmblemIconPath(b, b.CreateString(fbsutils.Convert(t.EmblemIconPath, t.FlatBuffer.TableKey)))
-	EmblemExcelAddEmblemIconNumControl(b, fbsutils.Convert(t.EmblemIconNumControl, t.FlatBuffer.TableKey))
-	EmblemExcelAddEmblemIconBgPath(b, b.CreateString(fbsutils.Convert(t.EmblemIconBgPath, t.FlatBuffer.TableKey)))
-	EmblemExcelAddEmblemBgPathJp(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathJp, t.FlatBuffer.TableKey)))
-	EmblemExcelAddEmblemBgPathKr(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathKr, t.FlatBuffer.TableKey)))
-	EmblemExcelAddEmblemBgPathTh(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathTh, t.FlatBuffer.TableKey)))
-	EmblemExcelAddEmblemBgPathTw(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathTw, t.FlatBuffer.TableKey)))
-	EmblemExcelAddEmblemBgPathEn(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathEn, t.FlatBuffer.TableKey)))
-	EmblemExcelAddDisplayType(b, fbsutils.Convert(t.DisplayType, t.FlatBuffer.TableKey))
-	EmblemExcelAddDisplayStartDate(b, b.CreateString(fbsutils.Convert(t.DisplayStartDate, t.FlatBuffer.TableKey)))
-	EmblemExcelAddDisplayEndDate(b, b.CreateString(fbsutils.Convert(t.DisplayEndDate, t.FlatBuffer.TableKey)))
-	EmblemExcelAddDislpayFavorLevel(b, fbsutils.Convert(t.DislpayFavorLevel, t.FlatBuffer.TableKey))
-	EmblemExcelAddCheckPassType(b, fbsutils.Convert(t.CheckPassType, t.FlatBuffer.TableKey))
 	EmblemExcelAddEmblemParameter(b, fbsutils.Convert(t.EmblemParameter, t.FlatBuffer.TableKey))
+	EmblemExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
+	EmblemExcelAddEmblemEffectPath(b, b.CreateString(fbsutils.Convert(t.EmblemEffectPath, t.FlatBuffer.TableKey)))
+	EmblemExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	EmblemExcelAddDisplayEndDate(b, b.CreateString(fbsutils.Convert(t.DisplayEndDate, t.FlatBuffer.TableKey)))
+	EmblemExcelAddEmblemTextVisible(b, t.EmblemTextVisible)
+	EmblemExcelAddDislpayFavorLevel(b, fbsutils.Convert(t.DislpayFavorLevel, t.FlatBuffer.TableKey))
+	EmblemExcelAddEmblemIconBgPath(b, b.CreateString(fbsutils.Convert(t.EmblemIconBgPath, t.FlatBuffer.TableKey)))
+	EmblemExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	EmblemExcelAddUseAtLocalizeId(b, fbsutils.Convert(t.UseAtLocalizeId, t.FlatBuffer.TableKey))
+	EmblemExcelAddEmblemIconPath(b, b.CreateString(fbsutils.Convert(t.EmblemIconPath, t.FlatBuffer.TableKey)))
+	EmblemExcelAddEmblemBgPathTh(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathTh, t.FlatBuffer.TableKey)))
+	EmblemExcelAddDisplayType(b, fbsutils.Convert(t.DisplayType, t.FlatBuffer.TableKey))
+	EmblemExcelAddCategory(b, fbsutils.Convert(t.Category, t.FlatBuffer.TableKey))
+	EmblemExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
+	EmblemExcelAddRarity(b, fbsutils.Convert(t.Rarity, t.FlatBuffer.TableKey))
 	EmblemExcelAddCheckPassCount(b, fbsutils.Convert(t.CheckPassCount, t.FlatBuffer.TableKey))
+	EmblemExcelAddEmblemBgPathTw(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathTw, t.FlatBuffer.TableKey)))
+	EmblemExcelAddEmblemIconNumControl(b, fbsutils.Convert(t.EmblemIconNumControl, t.FlatBuffer.TableKey))
+	EmblemExcelAddEmblemBgPathJp(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathJp, t.FlatBuffer.TableKey)))
+	EmblemExcelAddCheckPassType(b, fbsutils.Convert(t.CheckPassType, t.FlatBuffer.TableKey))
+	EmblemExcelAddLocalizeCodeId(b, fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
+	EmblemExcelAddEmblemBgPathEn(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathEn, t.FlatBuffer.TableKey)))
+	EmblemExcelAddDisplayStartDate(b, b.CreateString(fbsutils.Convert(t.DisplayStartDate, t.FlatBuffer.TableKey)))
+	EmblemExcelAddEmblemBgPathKr(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathKr, t.FlatBuffer.TableKey)))
 	return EmblemExcelEnd(b)
 }
 
@@ -75,30 +77,31 @@ func (t *EmblemExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *EmblemExcelDto) UnmarshalMessage(e *EmblemExcel) error {
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.Category = EmblemCategory(fbsutils.Convert(int32(e.Category()), t.FlatBuffer.TableKey))
-	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
-	t.LocalizeCodeId = fbsutils.Convert(e.LocalizeCodeId(), t.FlatBuffer.TableKey)
-	t.UseAtLocalizeId = fbsutils.Convert(e.UseAtLocalizeId(), t.FlatBuffer.TableKey)
-	t.EmblemTextVisible = e.EmblemTextVisible()
-	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
-	t.EmblemIconPath = fbsutils.Convert(string(e.EmblemIconPath()), t.FlatBuffer.TableKey)
-	t.EmblemIconNumControl = fbsutils.Convert(e.EmblemIconNumControl(), t.FlatBuffer.TableKey)
-	t.EmblemIconBgPath = fbsutils.Convert(string(e.EmblemIconBgPath()), t.FlatBuffer.TableKey)
-	t.EmblemBgPathJp = fbsutils.Convert(string(e.EmblemBgPathJp()), t.FlatBuffer.TableKey)
-	t.EmblemBgPathKr = fbsutils.Convert(string(e.EmblemBgPathKr()), t.FlatBuffer.TableKey)
-	t.EmblemBgPathTh = fbsutils.Convert(string(e.EmblemBgPathTh()), t.FlatBuffer.TableKey)
-	t.EmblemBgPathTw = fbsutils.Convert(string(e.EmblemBgPathTw()), t.FlatBuffer.TableKey)
-	t.EmblemBgPathEn = fbsutils.Convert(string(e.EmblemBgPathEn()), t.FlatBuffer.TableKey)
-	t.DisplayType = EmblemDisplayType(fbsutils.Convert(int32(e.DisplayType()), t.FlatBuffer.TableKey))
-	t.DisplayStartDate = fbsutils.Convert(string(e.DisplayStartDate()), t.FlatBuffer.TableKey)
-	t.DisplayEndDate = fbsutils.Convert(string(e.DisplayEndDate()), t.FlatBuffer.TableKey)
-	t.DislpayFavorLevel = fbsutils.Convert(e.DislpayFavorLevel(), t.FlatBuffer.TableKey)
-	t.CheckPassType = EmblemCheckPassType(fbsutils.Convert(int32(e.CheckPassType()), t.FlatBuffer.TableKey))
 	t.EmblemParameter = fbsutils.Convert(e.EmblemParameter(), t.FlatBuffer.TableKey)
+	t.LocalizeEtcId = fbsutils.Convert(e.LocalizeEtcId(), t.FlatBuffer.TableKey)
+	t.EmblemEffectPath = fbsutils.Convert(string(e.EmblemEffectPath()), t.FlatBuffer.TableKey)
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.DisplayEndDate = fbsutils.Convert(string(e.DisplayEndDate()), t.FlatBuffer.TableKey)
+	t.EmblemTextVisible = e.EmblemTextVisible()
+	t.DislpayFavorLevel = fbsutils.Convert(e.DislpayFavorLevel(), t.FlatBuffer.TableKey)
+	t.EmblemIconBgPath = fbsutils.Convert(string(e.EmblemIconBgPath()), t.FlatBuffer.TableKey)
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
+	t.UseAtLocalizeId = fbsutils.Convert(e.UseAtLocalizeId(), t.FlatBuffer.TableKey)
+	t.EmblemIconPath = fbsutils.Convert(string(e.EmblemIconPath()), t.FlatBuffer.TableKey)
+	t.EmblemBgPathTh = fbsutils.Convert(string(e.EmblemBgPathTh()), t.FlatBuffer.TableKey)
+	t.DisplayType = EmblemDisplayType(fbsutils.Convert(int32(e.DisplayType()), t.FlatBuffer.TableKey))
+	t.Category = EmblemCategory(fbsutils.Convert(int32(e.Category()), t.FlatBuffer.TableKey))
+	t.IconPath = fbsutils.Convert(string(e.IconPath()), t.FlatBuffer.TableKey)
+	t.Rarity = Rarity(fbsutils.Convert(int32(e.Rarity()), t.FlatBuffer.TableKey))
 	t.CheckPassCount = fbsutils.Convert(e.CheckPassCount(), t.FlatBuffer.TableKey)
+	t.EmblemBgPathTw = fbsutils.Convert(string(e.EmblemBgPathTw()), t.FlatBuffer.TableKey)
+	t.EmblemIconNumControl = fbsutils.Convert(e.EmblemIconNumControl(), t.FlatBuffer.TableKey)
+	t.EmblemBgPathJp = fbsutils.Convert(string(e.EmblemBgPathJp()), t.FlatBuffer.TableKey)
+	t.CheckPassType = EmblemCheckPassType(fbsutils.Convert(int32(e.CheckPassType()), t.FlatBuffer.TableKey))
+	t.LocalizeCodeId = fbsutils.Convert(e.LocalizeCodeId(), t.FlatBuffer.TableKey)
+	t.EmblemBgPathEn = fbsutils.Convert(string(e.EmblemBgPathEn()), t.FlatBuffer.TableKey)
+	t.DisplayStartDate = fbsutils.Convert(string(e.DisplayStartDate()), t.FlatBuffer.TableKey)
+	t.EmblemBgPathKr = fbsutils.Convert(string(e.EmblemBgPathKr()), t.FlatBuffer.TableKey)
 	return nil
 }
 

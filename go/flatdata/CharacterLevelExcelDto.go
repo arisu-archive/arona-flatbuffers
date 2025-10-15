@@ -10,9 +10,9 @@ import (
 // CharacterLevelExcelDto represents a FlatBuffers table
 type CharacterLevelExcelDto struct {
 	fbsutils.FlatBuffer
+	TotalExp int64 `json:"total_exp"`
 	Level    int32 `json:"level"`
 	Exp      int64 `json:"exp"`
-	TotalExp int64 `json:"total_exp"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -21,9 +21,9 @@ func (t *CharacterLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterLevel"))
 	}
 	CharacterLevelExcelStart(b)
+	CharacterLevelExcelAddTotalExp(b, fbsutils.Convert(t.TotalExp, t.FlatBuffer.TableKey))
 	CharacterLevelExcelAddLevel(b, fbsutils.Convert(t.Level, t.FlatBuffer.TableKey))
 	CharacterLevelExcelAddExp(b, fbsutils.Convert(t.Exp, t.FlatBuffer.TableKey))
-	CharacterLevelExcelAddTotalExp(b, fbsutils.Convert(t.TotalExp, t.FlatBuffer.TableKey))
 	return CharacterLevelExcelEnd(b)
 }
 
@@ -39,9 +39,9 @@ func (t *CharacterLevelExcelDto) UnmarshalMessage(e *CharacterLevelExcel) error 
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterLevel"))
 	}
+	t.TotalExp = fbsutils.Convert(e.TotalExp(), t.FlatBuffer.TableKey)
 	t.Level = fbsutils.Convert(e.Level(), t.FlatBuffer.TableKey)
 	t.Exp = fbsutils.Convert(e.Exp(), t.FlatBuffer.TableKey)
-	t.TotalExp = fbsutils.Convert(e.TotalExp(), t.FlatBuffer.TableKey)
 	return nil
 }
 

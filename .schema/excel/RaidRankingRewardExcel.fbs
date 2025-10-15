@@ -1,0 +1,27 @@
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table RaidRankingRewardExcel {
+    rank_end_na: long;
+    reward_parcel_unique_name: [string];
+    rank_end_tw: long;
+    rank_start_global: long;
+    rank_end_global: long;
+    reward_parcel_type: [ParcelType];
+    reward_parcel_amount: [long];
+    tier: int;
+    rank_start_tw: long;
+    percent_rank_end: long;
+    percent_rank_start: long;
+    rank_start_asia: long;
+    rank_end: long;
+    rank_start_na: long;
+    ranking_reward_group_id: long;
+    reward_parcel_unique_id: [long];
+    rank_start: long;
+    rank_end_asia: long;
+    id: long;
+}
+
+root_type RaidRankingRewardExcel;

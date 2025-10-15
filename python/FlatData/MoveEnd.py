@@ -36,7 +36,7 @@ class MoveEnd(object):
         return None
 
     # MoveEnd
-    def Stand(self):
+    def Kneel(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
@@ -47,7 +47,7 @@ class MoveEnd(object):
         return None
 
     # MoveEnd
-    def Kneel(self):
+    def Stand(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             x = self._tab.Indirect(o + self._tab.Pos)
@@ -63,12 +63,12 @@ def Start(builder):
 def MoveEndAddNormal(builder, normal): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(normal), 0)
 def AddNormal(builder, normal):
     return MoveEndAddNormal(builder, normal)
-def MoveEndAddStand(builder, stand): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(stand), 0)
-def AddStand(builder, stand):
-    return MoveEndAddStand(builder, stand)
-def MoveEndAddKneel(builder, kneel): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(kneel), 0)
+def MoveEndAddKneel(builder, kneel): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(kneel), 0)
 def AddKneel(builder, kneel):
     return MoveEndAddKneel(builder, kneel)
+def MoveEndAddStand(builder, stand): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(stand), 0)
+def AddStand(builder, stand):
+    return MoveEndAddStand(builder, stand)
 def MoveEndEnd(builder): return builder.EndObject()
 def End(builder):
     return MoveEndEnd(builder)

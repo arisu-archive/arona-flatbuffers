@@ -10,15 +10,15 @@ import (
 // StageFileRefreshSettingExcelDto represents a FlatBuffers table
 type StageFileRefreshSettingExcelDto struct {
 	fbsutils.FlatBuffer
-	GroundId  int64 `json:"ground_id"`
 	ForceSave bool  `json:"force_save"`
+	GroundId  int64 `json:"ground_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *StageFileRefreshSettingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	StageFileRefreshSettingExcelStart(b)
-	StageFileRefreshSettingExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	StageFileRefreshSettingExcelAddForceSave(b, t.ForceSave)
+	StageFileRefreshSettingExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	return StageFileRefreshSettingExcelEnd(b)
 }
 
@@ -31,8 +31,8 @@ func (t *StageFileRefreshSettingExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *StageFileRefreshSettingExcelDto) UnmarshalMessage(e *StageFileRefreshSettingExcel) error {
-	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.ForceSave = e.ForceSave()
+	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

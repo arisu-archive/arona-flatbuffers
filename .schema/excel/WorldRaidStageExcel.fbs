@@ -1,0 +1,44 @@
+include "EchelonExtensionType.fbs";
+include "WorldRaidDifficulty.fbs";
+
+namespace MX.Data.Excel;
+
+table WorldRaidStageExcel {
+    clear_scenario_key: long;
+    world_raid_difficulty: WorldRaidDifficulty;
+    id: long;
+    raid_enter_amount: long;
+    difficulty_open_condition: bool;
+    battle_duration: long;
+    battle_ready_timeline_path: [string];
+    bg_path: string;
+    raid_reward_group_id: long;
+    boss_bg_info_key: uint;
+    battle_ready_timeline_phase_start: [int];
+    use_boss_ai_phase_sync: bool;
+    ally_passive_skill_level: [int];
+    fixed_echelon_id: long;
+    world_raid_boss_group_id: long;
+    is_raid_scenario_battle: bool;
+    phase_change_timeline_path: string;
+    ground_id: long;
+    assist_character_limit_count: long;
+    enter_scenario_key: long;
+    portrait_path: string;
+    time_line_phase: long;
+    raid_battle_end_reward_group_id: long;
+    echelon_extension_type: EchelonExtensionType;
+    save_current_local_boss_hp: bool;
+    use_boss_index: bool;
+    boss_character_id: [long];
+    ally_passive_skill: [string];
+    show_skill_card: bool;
+    use_fixed_echelon: bool;
+    re_enter_amount: long;
+    raid_character_id: long;
+    battle_ready_timeline_phase_end: [int];
+    victory_timeline_path: string;
+    damage_to_world_boss: long;
+}
+
+root_type WorldRaidStageExcel;

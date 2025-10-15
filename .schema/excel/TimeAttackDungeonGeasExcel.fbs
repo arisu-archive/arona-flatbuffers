@@ -1,0 +1,24 @@
+include "TimeAttackDungeonType.fbs";
+
+namespace MX.Data.Excel;
+
+table TimeAttackDungeonGeasExcel {
+    ally_passive_skill_id: [string];
+    ground_id: long;
+    difficulty: int;
+    recommand_level: int;
+    clear_default_point: long;
+    geas_icon_path: [string];
+    localize_etc_key: uint;
+    id: long;
+    geas_localize_etc_key: [uint];
+    clear_time_weight_point: long;
+    ally_passive_skill_level: [int];
+    time_weight_const: long;
+    time_attack_dungeon_type: TimeAttackDungeonType;
+    battle_duration: long;
+    enemy_passive_skill_level: [int];
+    enemy_passive_skill_id: [string];
+}
+
+root_type TimeAttackDungeonGeasExcel;

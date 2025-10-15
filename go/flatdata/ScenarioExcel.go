@@ -59,8 +59,20 @@ func (rcv *ScenarioExcel) MutateNone(j int, n ScenarioBGType) bool {
 	return false
 }
 
-func (rcv *ScenarioExcel) Idle(j int) ScenarioCharacterAction {
+func (rcv *ScenarioExcel) EnterConver() EmojiEvent {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return EmojiEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ScenarioExcel) MutateEnterConver(n EmojiEvent) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *ScenarioExcel) Idle(j int) ScenarioCharacterAction {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ScenarioCharacterAction(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -69,7 +81,7 @@ func (rcv *ScenarioExcel) Idle(j int) ScenarioCharacterAction {
 }
 
 func (rcv *ScenarioExcel) IdleLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -77,7 +89,7 @@ func (rcv *ScenarioExcel) IdleLength() int {
 }
 
 func (rcv *ScenarioExcel) MutateIdle(j int, n ScenarioCharacterAction) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -86,7 +98,7 @@ func (rcv *ScenarioExcel) MutateIdle(j int, n ScenarioCharacterAction) bool {
 }
 
 func (rcv *ScenarioExcel) Cafe() DialogCategory {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return DialogCategory(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -94,47 +106,11 @@ func (rcv *ScenarioExcel) Cafe() DialogCategory {
 }
 
 func (rcv *ScenarioExcel) MutateCafe(n DialogCategory) bool {
-	return rcv._tab.MutateInt32Slot(8, int32(n))
-}
-
-func (rcv *ScenarioExcel) Talk() DialogType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return DialogType(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ScenarioExcel) MutateTalk(n DialogType) bool {
 	return rcv._tab.MutateInt32Slot(10, int32(n))
 }
 
-func (rcv *ScenarioExcel) Open() StoryCondition {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return StoryCondition(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ScenarioExcel) MutateOpen(n StoryCondition) bool {
-	return rcv._tab.MutateInt32Slot(12, int32(n))
-}
-
-func (rcv *ScenarioExcel) EnterConver() EmojiEvent {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return EmojiEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *ScenarioExcel) MutateEnterConver(n EmojiEvent) bool {
-	return rcv._tab.MutateInt32Slot(14, int32(n))
-}
-
 func (rcv *ScenarioExcel) Center() ScenarioZoomAnchors {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return ScenarioZoomAnchors(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -142,11 +118,11 @@ func (rcv *ScenarioExcel) Center() ScenarioZoomAnchors {
 }
 
 func (rcv *ScenarioExcel) MutateCenter(n ScenarioZoomAnchors) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
 func (rcv *ScenarioExcel) Instant() ScenarioZoomType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return ScenarioZoomType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -154,11 +130,23 @@ func (rcv *ScenarioExcel) Instant() ScenarioZoomType {
 }
 
 func (rcv *ScenarioExcel) MutateInstant(n ScenarioZoomType) bool {
-	return rcv._tab.MutateInt32Slot(18, int32(n))
+	return rcv._tab.MutateInt32Slot(14, int32(n))
+}
+
+func (rcv *ScenarioExcel) Talk() DialogType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return DialogType(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ScenarioExcel) MutateTalk(n DialogType) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
 }
 
 func (rcv *ScenarioExcel) Prologue() ScenarioContentType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return ScenarioContentType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -166,6 +154,18 @@ func (rcv *ScenarioExcel) Prologue() ScenarioContentType {
 }
 
 func (rcv *ScenarioExcel) MutatePrologue(n ScenarioContentType) bool {
+	return rcv._tab.MutateInt32Slot(18, int32(n))
+}
+
+func (rcv *ScenarioExcel) Open() StoryCondition {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return StoryCondition(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *ScenarioExcel) MutateOpen(n StoryCondition) bool {
 	return rcv._tab.MutateInt32Slot(20, int32(n))
 }
 
@@ -178,32 +178,32 @@ func ScenarioExcelAddNone(builder *flatbuffers.Builder, none flatbuffers.UOffset
 func ScenarioExcelStartNoneVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
+func ScenarioExcelAddEnterConver(builder *flatbuffers.Builder, enterConver EmojiEvent) {
+	builder.PrependInt32Slot(1, int32(enterConver), 0)
+}
 func ScenarioExcelAddIdle(builder *flatbuffers.Builder, idle flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(idle), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(idle), 0)
 }
 func ScenarioExcelStartIdleVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func ScenarioExcelAddCafe(builder *flatbuffers.Builder, cafe DialogCategory) {
-	builder.PrependInt32Slot(2, int32(cafe), 0)
-}
-func ScenarioExcelAddTalk(builder *flatbuffers.Builder, talk DialogType) {
-	builder.PrependInt32Slot(3, int32(talk), 0)
-}
-func ScenarioExcelAddOpen(builder *flatbuffers.Builder, open StoryCondition) {
-	builder.PrependInt32Slot(4, int32(open), 0)
-}
-func ScenarioExcelAddEnterConver(builder *flatbuffers.Builder, enterConver EmojiEvent) {
-	builder.PrependInt32Slot(5, int32(enterConver), 0)
+	builder.PrependInt32Slot(3, int32(cafe), 0)
 }
 func ScenarioExcelAddCenter(builder *flatbuffers.Builder, center ScenarioZoomAnchors) {
-	builder.PrependInt32Slot(6, int32(center), 0)
+	builder.PrependInt32Slot(4, int32(center), 0)
 }
 func ScenarioExcelAddInstant(builder *flatbuffers.Builder, instant ScenarioZoomType) {
-	builder.PrependInt32Slot(7, int32(instant), 0)
+	builder.PrependInt32Slot(5, int32(instant), 0)
+}
+func ScenarioExcelAddTalk(builder *flatbuffers.Builder, talk DialogType) {
+	builder.PrependInt32Slot(6, int32(talk), 0)
 }
 func ScenarioExcelAddPrologue(builder *flatbuffers.Builder, prologue ScenarioContentType) {
-	builder.PrependInt32Slot(8, int32(prologue), 0)
+	builder.PrependInt32Slot(7, int32(prologue), 0)
+}
+func ScenarioExcelAddOpen(builder *flatbuffers.Builder, open StoryCondition) {
+	builder.PrependInt32Slot(8, int32(open), 0)
 }
 func ScenarioExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

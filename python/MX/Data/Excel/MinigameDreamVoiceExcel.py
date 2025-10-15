@@ -25,17 +25,17 @@ class MinigameDreamVoiceExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # MinigameDreamVoiceExcel
-    def EventContentId(self):
+    def UniqueId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # MinigameDreamVoiceExcel
-    def UniqueId(self):
+    def VoiceClip(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # MinigameDreamVoiceExcel
@@ -46,27 +46,27 @@ class MinigameDreamVoiceExcel(object):
         return 0
 
     # MinigameDreamVoiceExcel
-    def VoiceClip(self):
+    def EventContentId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
 def MinigameDreamVoiceExcelStart(builder): builder.StartObject(4)
 def Start(builder):
     return MinigameDreamVoiceExcelStart(builder)
-def MinigameDreamVoiceExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(0, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return MinigameDreamVoiceExcelAddEventContentId(builder, eventContentId)
-def MinigameDreamVoiceExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
+def MinigameDreamVoiceExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(0, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
     return MinigameDreamVoiceExcelAddUniqueId(builder, uniqueId)
+def MinigameDreamVoiceExcelAddVoiceClip(builder, voiceClip): builder.PrependUint32Slot(1, voiceClip, 0)
+def AddVoiceClip(builder, voiceClip):
+    return MinigameDreamVoiceExcelAddVoiceClip(builder, voiceClip)
 def MinigameDreamVoiceExcelAddVoiceCondition(builder, voiceCondition): builder.PrependInt32Slot(2, voiceCondition, 0)
 def AddVoiceCondition(builder, voiceCondition):
     return MinigameDreamVoiceExcelAddVoiceCondition(builder, voiceCondition)
-def MinigameDreamVoiceExcelAddVoiceClip(builder, voiceClip): builder.PrependUint32Slot(3, voiceClip, 0)
-def AddVoiceClip(builder, voiceClip):
-    return MinigameDreamVoiceExcelAddVoiceClip(builder, voiceClip)
+def MinigameDreamVoiceExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(3, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return MinigameDreamVoiceExcelAddEventContentId(builder, eventContentId)
 def MinigameDreamVoiceExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return MinigameDreamVoiceExcelEnd(builder)

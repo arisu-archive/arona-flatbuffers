@@ -1,0 +1,34 @@
+include "ConquestEventType.fbs";
+
+namespace MX.Data.Excel;
+
+table ConquestEventExcel {
+    animation_unit_amount_min: int;
+    use_conquest_object: bool;
+    evnet_map_goal_localize: string;
+    localize_unexpected: string;
+    manage_unit_change: int;
+    localize_upgrade: string;
+    evnet_map_name_localize: string;
+    map_enter_scenario_group_id: long;
+    localize_map_info: string;
+    play_time_limit_in_seconds: int;
+    conquest_event_type: ConquestEventType;
+    localize_step: string;
+    use_erosion: bool;
+    main_story_event_content_id: long;
+    animation_unit_delay: float;
+    animation_unit_amount_max: int;
+    individual_erosion_daily_count: long;
+    localize_manage: string;
+    use_unexpected_event: bool;
+    assist_count: int;
+    localize_erosions: string;
+    use_calculate: bool;
+    localize_treasure_box: string;
+    localize_tile: string;
+    evnet_scenario_bg: string;
+    event_content_id: long;
+}
+
+root_type ConquestEventExcel;

@@ -1,0 +1,16 @@
+include "Geas.fbs";
+
+namespace MX.Data.Excel;
+
+table MiniGameShootingGeasExcel {
+    geas_type: Geas;
+    unique_id: long;
+    probability: long;
+    max_overlap_count: int;
+    geas_data: string;
+    need_geas_id: long;
+    icon: string;
+    hide_in_pause_popup: bool;
+}
+
+root_type MiniGameShootingGeasExcel;

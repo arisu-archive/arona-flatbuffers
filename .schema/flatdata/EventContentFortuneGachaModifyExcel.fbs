@@ -2,10 +2,10 @@ namespace FlatData;
 
 table EventContentFortuneGachaModifyExcel {
     event_content_id: int;
+    title_localize_key: string;
+    shop_bg_image_path: string;
+    bucket_image_path: string;
+    use_prefab_name: string;
     target_grade: int;
     prob_modify_start_count: int;
-    use_prefab_name: string;
-    bucket_image_path: string;
-    shop_bg_image_path: string;
-    title_localize_key: string;
 }

@@ -11,9 +11,9 @@ import (
 // PropMotionDto represents a FlatBuffers table
 type PropMotionDto struct {
 	fbsutils.FlatBuffer
-	Name      string           `json:"name"`
 	Positions []PropVector3Dto `json:"positions"`
 	Rotations []PropVector3Dto `json:"rotations"`
+	Name      string           `json:"name"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -22,7 +22,6 @@ func (t *PropMotionDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropMotion"))
 	}
 	PropMotionStart(b)
-	PropMotionAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	PropMotionStartPositionsVector(b, len(t.Positions))
 	for i := range len(t.Positions) {
 		// The array should be reversed.
@@ -35,6 +34,7 @@ func (t *PropMotionDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 		b.PrependUOffsetT(t.Rotations[len(t.Rotations)-i-1].MarshalModel(b))
 	}
 	PropMotionAddRotations(b, b.EndVector(len(t.Rotations)))
+	PropMotionAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
 	return PropMotionEnd(b)
 }
 
@@ -50,7 +50,6 @@ func (t *PropMotionDto) UnmarshalMessage(e *PropMotion) error {
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("PropMotion"))
 	}
-	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	t.Positions = make([]PropVector3Dto, e.PositionsLength())
 	for i := range e.PositionsLength() {
 		d := new(PropVector3)
@@ -67,6 +66,7 @@ func (t *PropMotionDto) UnmarshalMessage(e *PropMotion) error {
 		}
 		t.Rotations[i].UnmarshalMessage(d)
 	}
+	t.Name = fbsutils.Convert(string(e.Name()), t.FlatBuffer.TableKey)
 	return nil
 }
 

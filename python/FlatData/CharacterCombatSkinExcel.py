@@ -25,7 +25,7 @@ class CharacterCombatSkinExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # CharacterCombatSkinExcel
-    def GroupId(self):
+    def ResourcePath(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -39,7 +39,7 @@ class CharacterCombatSkinExcel(object):
         return 0
 
     # CharacterCombatSkinExcel
-    def ResourcePath(self):
+    def GroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -48,15 +48,15 @@ class CharacterCombatSkinExcel(object):
 def CharacterCombatSkinExcelStart(builder): builder.StartObject(3)
 def Start(builder):
     return CharacterCombatSkinExcelStart(builder)
-def CharacterCombatSkinExcelAddGroupId(builder, groupId): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(groupId), 0)
-def AddGroupId(builder, groupId):
-    return CharacterCombatSkinExcelAddGroupId(builder, groupId)
+def CharacterCombatSkinExcelAddResourcePath(builder, resourcePath): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(resourcePath), 0)
+def AddResourcePath(builder, resourcePath):
+    return CharacterCombatSkinExcelAddResourcePath(builder, resourcePath)
 def CharacterCombatSkinExcelAddUniqueId(builder, uniqueId): builder.PrependInt64Slot(1, uniqueId, 0)
 def AddUniqueId(builder, uniqueId):
     return CharacterCombatSkinExcelAddUniqueId(builder, uniqueId)
-def CharacterCombatSkinExcelAddResourcePath(builder, resourcePath): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(resourcePath), 0)
-def AddResourcePath(builder, resourcePath):
-    return CharacterCombatSkinExcelAddResourcePath(builder, resourcePath)
+def CharacterCombatSkinExcelAddGroupId(builder, groupId): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(groupId), 0)
+def AddGroupId(builder, groupId):
+    return CharacterCombatSkinExcelAddGroupId(builder, groupId)
 def CharacterCombatSkinExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return CharacterCombatSkinExcelEnd(builder)

@@ -33,80 +33,8 @@ func (rcv *StoryStrategyExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *StoryStrategyExcel) Id() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *StoryStrategyExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
 func (rcv *StoryStrategyExcel) Name() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *StoryStrategyExcel) Localize() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *StoryStrategyExcel) StageEnterEchelonCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *StoryStrategyExcel) MutateStageEnterEchelonCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(10, n)
-}
-
-func (rcv *StoryStrategyExcel) BattleDuration() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *StoryStrategyExcel) MutateBattleDuration(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
-}
-
-func (rcv *StoryStrategyExcel) WhiteListId() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *StoryStrategyExcel) MutateWhiteListId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
-}
-
-func (rcv *StoryStrategyExcel) StrategyMap() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *StoryStrategyExcel) StrategyMapBg() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -114,7 +42,7 @@ func (rcv *StoryStrategyExcel) StrategyMapBg() []byte {
 }
 
 func (rcv *StoryStrategyExcel) MaxTurn() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -122,11 +50,51 @@ func (rcv *StoryStrategyExcel) MaxTurn() int32 {
 }
 
 func (rcv *StoryStrategyExcel) MutateMaxTurn(n int32) bool {
-	return rcv._tab.MutateInt32Slot(20, n)
+	return rcv._tab.MutateInt32Slot(6, n)
+}
+
+func (rcv *StoryStrategyExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *StoryStrategyExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *StoryStrategyExcel) StrategyMap() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *StoryStrategyExcel) FirstClearReportEventName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *StoryStrategyExcel) StageEnterEchelonCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *StoryStrategyExcel) MutateStageEnterEchelonCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
 }
 
 func (rcv *StoryStrategyExcel) StageTopography() StageTopography {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -134,19 +102,51 @@ func (rcv *StoryStrategyExcel) StageTopography() StageTopography {
 }
 
 func (rcv *StoryStrategyExcel) MutateStageTopography(n StageTopography) bool {
-	return rcv._tab.MutateInt32Slot(22, int32(n))
+	return rcv._tab.MutateInt32Slot(16, int32(n))
 }
 
-func (rcv *StoryStrategyExcel) StrategyEnvironment() StrategyEnvironment {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+func (rcv *StoryStrategyExcel) WhiteListId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
-		return StrategyEnvironment(rcv._tab.GetInt32(o + rcv._tab.Pos))
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *StoryStrategyExcel) MutateStrategyEnvironment(n StrategyEnvironment) bool {
-	return rcv._tab.MutateInt32Slot(24, int32(n))
+func (rcv *StoryStrategyExcel) MutateWhiteListId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(18, n)
+}
+
+func (rcv *StoryStrategyExcel) BgmId() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *StoryStrategyExcel) MutateBgmId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *StoryStrategyExcel) StrategyMapBg() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *StoryStrategyExcel) BattleDuration() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *StoryStrategyExcel) MutateBattleDuration(n int64) bool {
+	return rcv._tab.MutateInt64Slot(24, n)
 }
 
 func (rcv *StoryStrategyExcel) ContentType() ContentType {
@@ -161,19 +161,19 @@ func (rcv *StoryStrategyExcel) MutateContentType(n ContentType) bool {
 	return rcv._tab.MutateInt32Slot(26, int32(n))
 }
 
-func (rcv *StoryStrategyExcel) BgmId() int64 {
+func (rcv *StoryStrategyExcel) StrategyEnvironment() StrategyEnvironment {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return StrategyEnvironment(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
 	return 0
 }
 
-func (rcv *StoryStrategyExcel) MutateBgmId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(28, n)
+func (rcv *StoryStrategyExcel) MutateStrategyEnvironment(n StrategyEnvironment) bool {
+	return rcv._tab.MutateInt32Slot(28, int32(n))
 }
 
-func (rcv *StoryStrategyExcel) FirstClearReportEventName() []byte {
+func (rcv *StoryStrategyExcel) Localize() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -184,47 +184,47 @@ func (rcv *StoryStrategyExcel) FirstClearReportEventName() []byte {
 func StoryStrategyExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(14)
 }
-func StoryStrategyExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
 func StoryStrategyExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(name), 0)
-}
-func StoryStrategyExcelAddLocalize(builder *flatbuffers.Builder, localize flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(localize), 0)
-}
-func StoryStrategyExcelAddStageEnterEchelonCount(builder *flatbuffers.Builder, stageEnterEchelonCount int32) {
-	builder.PrependInt32Slot(3, stageEnterEchelonCount, 0)
-}
-func StoryStrategyExcelAddBattleDuration(builder *flatbuffers.Builder, battleDuration int64) {
-	builder.PrependInt64Slot(4, battleDuration, 0)
-}
-func StoryStrategyExcelAddWhiteListId(builder *flatbuffers.Builder, whiteListId int64) {
-	builder.PrependInt64Slot(5, whiteListId, 0)
-}
-func StoryStrategyExcelAddStrategyMap(builder *flatbuffers.Builder, strategyMap flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(strategyMap), 0)
-}
-func StoryStrategyExcelAddStrategyMapBg(builder *flatbuffers.Builder, strategyMapBg flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(strategyMapBg), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(name), 0)
 }
 func StoryStrategyExcelAddMaxTurn(builder *flatbuffers.Builder, maxTurn int32) {
-	builder.PrependInt32Slot(8, maxTurn, 0)
+	builder.PrependInt32Slot(1, maxTurn, 0)
+}
+func StoryStrategyExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(2, id, 0)
+}
+func StoryStrategyExcelAddStrategyMap(builder *flatbuffers.Builder, strategyMap flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(strategyMap), 0)
+}
+func StoryStrategyExcelAddFirstClearReportEventName(builder *flatbuffers.Builder, firstClearReportEventName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(firstClearReportEventName), 0)
+}
+func StoryStrategyExcelAddStageEnterEchelonCount(builder *flatbuffers.Builder, stageEnterEchelonCount int32) {
+	builder.PrependInt32Slot(5, stageEnterEchelonCount, 0)
 }
 func StoryStrategyExcelAddStageTopography(builder *flatbuffers.Builder, stageTopography StageTopography) {
-	builder.PrependInt32Slot(9, int32(stageTopography), 0)
+	builder.PrependInt32Slot(6, int32(stageTopography), 0)
 }
-func StoryStrategyExcelAddStrategyEnvironment(builder *flatbuffers.Builder, strategyEnvironment StrategyEnvironment) {
-	builder.PrependInt32Slot(10, int32(strategyEnvironment), 0)
+func StoryStrategyExcelAddWhiteListId(builder *flatbuffers.Builder, whiteListId int64) {
+	builder.PrependInt64Slot(7, whiteListId, 0)
+}
+func StoryStrategyExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
+	builder.PrependInt64Slot(8, bgmId, 0)
+}
+func StoryStrategyExcelAddStrategyMapBg(builder *flatbuffers.Builder, strategyMapBg flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(strategyMapBg), 0)
+}
+func StoryStrategyExcelAddBattleDuration(builder *flatbuffers.Builder, battleDuration int64) {
+	builder.PrependInt64Slot(10, battleDuration, 0)
 }
 func StoryStrategyExcelAddContentType(builder *flatbuffers.Builder, contentType ContentType) {
 	builder.PrependInt32Slot(11, int32(contentType), 0)
 }
-func StoryStrategyExcelAddBgmId(builder *flatbuffers.Builder, bgmId int64) {
-	builder.PrependInt64Slot(12, bgmId, 0)
+func StoryStrategyExcelAddStrategyEnvironment(builder *flatbuffers.Builder, strategyEnvironment StrategyEnvironment) {
+	builder.PrependInt32Slot(12, int32(strategyEnvironment), 0)
 }
-func StoryStrategyExcelAddFirstClearReportEventName(builder *flatbuffers.Builder, firstClearReportEventName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(firstClearReportEventName), 0)
+func StoryStrategyExcelAddLocalize(builder *flatbuffers.Builder, localize flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(localize), 0)
 }
 func StoryStrategyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

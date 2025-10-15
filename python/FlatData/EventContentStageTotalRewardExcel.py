@@ -25,29 +25,35 @@ class EventContentStageTotalRewardExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # EventContentStageTotalRewardExcel
-    def Id(self):
+    def RewardParcelAmount(self, j):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
         return 0
 
     # EventContentStageTotalRewardExcel
-    def EventContentId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+    def RewardParcelAmountAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # EventContentStageTotalRewardExcel
-    def RequiredEventItemAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+    def RewardParcelAmountLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.VectorLen(o)
         return 0
+
+    # EventContentStageTotalRewardExcel
+    def RewardParcelAmountIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        return o == 0
 
     # EventContentStageTotalRewardExcel
     def RewardParcelType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -55,22 +61,36 @@ class EventContentStageTotalRewardExcel(object):
 
     # EventContentStageTotalRewardExcel
     def RewardParcelTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # EventContentStageTotalRewardExcel
     def RewardParcelTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # EventContentStageTotalRewardExcel
     def RewardParcelTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         return o == 0
+
+    # EventContentStageTotalRewardExcel
+    def EventContentId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # EventContentStageTotalRewardExcel
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # EventContentStageTotalRewardExcel
     def RewardParcelId(self, j):
@@ -100,62 +120,42 @@ class EventContentStageTotalRewardExcel(object):
         return o == 0
 
     # EventContentStageTotalRewardExcel
-    def RewardParcelAmount(self, j):
+    def RequiredEventItemAmount(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
-            a = self._tab.Vector(o)
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
-
-    # EventContentStageTotalRewardExcel
-    def RewardParcelAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
-        return 0
-
-    # EventContentStageTotalRewardExcel
-    def RewardParcelAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.VectorLen(o)
-        return 0
-
-    # EventContentStageTotalRewardExcel
-    def RewardParcelAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        return o == 0
 
 def EventContentStageTotalRewardExcelStart(builder): builder.StartObject(6)
 def Start(builder):
     return EventContentStageTotalRewardExcelStart(builder)
-def EventContentStageTotalRewardExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return EventContentStageTotalRewardExcelAddId(builder, id)
-def EventContentStageTotalRewardExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(1, eventContentId, 0)
-def AddEventContentId(builder, eventContentId):
-    return EventContentStageTotalRewardExcelAddEventContentId(builder, eventContentId)
-def EventContentStageTotalRewardExcelAddRequiredEventItemAmount(builder, requiredEventItemAmount): builder.PrependInt64Slot(2, requiredEventItemAmount, 0)
-def AddRequiredEventItemAmount(builder, requiredEventItemAmount):
-    return EventContentStageTotalRewardExcelAddRequiredEventItemAmount(builder, requiredEventItemAmount)
-def EventContentStageTotalRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+def EventContentStageTotalRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
+def AddRewardParcelAmount(builder, rewardParcelAmount):
+    return EventContentStageTotalRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+def EventContentStageTotalRewardExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
+def StartRewardParcelAmountVector(builder, numElems):
+    return EventContentStageTotalRewardExcelStartRewardParcelAmountVector(builder, numElems)
+def EventContentStageTotalRewardExcelAddRewardParcelType(builder, rewardParcelType): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
 def AddRewardParcelType(builder, rewardParcelType):
     return EventContentStageTotalRewardExcelAddRewardParcelType(builder, rewardParcelType)
 def EventContentStageTotalRewardExcelStartRewardParcelTypeVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRewardParcelTypeVector(builder, numElems):
     return EventContentStageTotalRewardExcelStartRewardParcelTypeVector(builder, numElems)
+def EventContentStageTotalRewardExcelAddEventContentId(builder, eventContentId): builder.PrependInt64Slot(2, eventContentId, 0)
+def AddEventContentId(builder, eventContentId):
+    return EventContentStageTotalRewardExcelAddEventContentId(builder, eventContentId)
+def EventContentStageTotalRewardExcelAddId(builder, id): builder.PrependInt64Slot(3, id, 0)
+def AddId(builder, id):
+    return EventContentStageTotalRewardExcelAddId(builder, id)
 def EventContentStageTotalRewardExcelAddRewardParcelId(builder, rewardParcelId): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelId), 0)
 def AddRewardParcelId(builder, rewardParcelId):
     return EventContentStageTotalRewardExcelAddRewardParcelId(builder, rewardParcelId)
 def EventContentStageTotalRewardExcelStartRewardParcelIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartRewardParcelIdVector(builder, numElems):
     return EventContentStageTotalRewardExcelStartRewardParcelIdVector(builder, numElems)
-def EventContentStageTotalRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelAmount), 0)
-def AddRewardParcelAmount(builder, rewardParcelAmount):
-    return EventContentStageTotalRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
-def EventContentStageTotalRewardExcelStartRewardParcelAmountVector(builder, numElems): return builder.StartVector(8, numElems, 8)
-def StartRewardParcelAmountVector(builder, numElems):
-    return EventContentStageTotalRewardExcelStartRewardParcelAmountVector(builder, numElems)
+def EventContentStageTotalRewardExcelAddRequiredEventItemAmount(builder, requiredEventItemAmount): builder.PrependInt64Slot(5, requiredEventItemAmount, 0)
+def AddRequiredEventItemAmount(builder, requiredEventItemAmount):
+    return EventContentStageTotalRewardExcelAddRequiredEventItemAmount(builder, requiredEventItemAmount)
 def EventContentStageTotalRewardExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return EventContentStageTotalRewardExcelEnd(builder)

@@ -6,17 +6,17 @@ include "ParcelType.fbs";
 namespace MX.Data.Excel;
 
 table MiniGameDreamScheduleResultExcel {
-    id: long;
-    event_content_id: long;
-    dream_maker_result: DreamMakerResult;
-    dream_maker_schedule_group: long;
-    prob: int;
     reward_parameter: [DreamMakerParameterType];
-    reward_parameter_operation_type: [DreamMakerParamOperationType];
-    reward_parameter_amount: [long];
-    reward_parcel_type: ParcelType;
+    dream_maker_schedule_group: long;
     reward_parcel_id: long;
+    event_content_id: long;
+    reward_parameter_amount: [long];
+    reward_parameter_operation_type: [DreamMakerParamOperationType];
+    dream_maker_result: DreamMakerResult;
+    prob: int;
+    reward_parcel_type: ParcelType;
     reward_parcel_amount: long;
+    id: long;
 }
 
 root_type MiniGameDreamScheduleResultExcel;

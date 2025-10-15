@@ -1,0 +1,12 @@
+namespace MX.Data.Excel;
+
+table MinigameCCGOpenDialogExcel {
+    duration: long;
+    dialog_id: long;
+    condition_card: long;
+    dialog: uint;
+    play_order: int;
+    voice: uint;
+}
+
+root_type MinigameCCGOpenDialogExcel;

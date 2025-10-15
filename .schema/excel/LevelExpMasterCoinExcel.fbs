@@ -1,0 +1,10 @@
+namespace MX.Data.Excel;
+
+table LevelExpMasterCoinExcel {
+    max_level: int;
+    min_level: int;
+    id: long;
+    ratio: int;
+}
+
+root_type LevelExpMasterCoinExcel;

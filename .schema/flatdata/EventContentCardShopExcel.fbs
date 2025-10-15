@@ -4,16 +4,16 @@ include "Rarity.fbs";
 namespace FlatData;
 
 table EventContentCardShopExcel {
-    event_content_id: long;
-    id: long;
-    rarity: Rarity;
-    cost_goods_id: long;
-    card_group_id: int;
-    is_legacy: bool;
-    refresh_group: int;
-    prob: int;
     prob_weight1: int;
+    prob: int;
     reward_parcel_type: [ParcelType];
+    cost_goods_id: long;
+    rarity: Rarity;
+    refresh_group: int;
+    is_legacy: bool;
     reward_parcel_id: [long];
+    card_group_id: int;
     reward_parcel_amount: [long];
+    id: long;
+    event_content_id: long;
 }

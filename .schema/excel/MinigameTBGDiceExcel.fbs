@@ -1,0 +1,16 @@
+include "TBGProbModifyCondition.fbs";
+
+namespace MX.Data.Excel;
+
+table MinigameTBGDiceExcel {
+    prob_modify_limit: [int];
+    prob: int;
+    dice_result: int;
+    unique_id: long;
+    prob_modify_condition: [TBGProbModifyCondition];
+    event_content_id: long;
+    dice_group: int;
+    prob_modify_value: [int];
+}
+
+root_type MinigameTBGDiceExcel;

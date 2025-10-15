@@ -25,15 +25,8 @@ class PropMotion(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # PropMotion
-    def Name(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # PropMotion
     def Positions(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             x = self._tab.Vector(o)
             x += flatbuffers.number_types.UOffsetTFlags.py_type(j) * 4
@@ -46,19 +39,19 @@ class PropMotion(object):
 
     # PropMotion
     def PositionsLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # PropMotion
     def PositionsIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
     # PropMotion
     def Rotations(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             x = self._tab.Vector(o)
             x += flatbuffers.number_types.UOffsetTFlags.py_type(j) * 4
@@ -71,34 +64,41 @@ class PropMotion(object):
 
     # PropMotion
     def RotationsLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # PropMotion
     def RotationsIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         return o == 0
+
+    # PropMotion
+    def Name(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
 def PropMotionStart(builder): builder.StartObject(3)
 def Start(builder):
     return PropMotionStart(builder)
-def PropMotionAddName(builder, name): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
-def AddName(builder, name):
-    return PropMotionAddName(builder, name)
-def PropMotionAddPositions(builder, positions): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(positions), 0)
+def PropMotionAddPositions(builder, positions): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(positions), 0)
 def AddPositions(builder, positions):
     return PropMotionAddPositions(builder, positions)
 def PropMotionStartPositionsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartPositionsVector(builder, numElems):
     return PropMotionStartPositionsVector(builder, numElems)
-def PropMotionAddRotations(builder, rotations): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(rotations), 0)
+def PropMotionAddRotations(builder, rotations): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(rotations), 0)
 def AddRotations(builder, rotations):
     return PropMotionAddRotations(builder, rotations)
 def PropMotionStartRotationsVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartRotationsVector(builder, numElems):
     return PropMotionStartRotationsVector(builder, numElems)
+def PropMotionAddName(builder, name): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+def AddName(builder, name):
+    return PropMotionAddName(builder, name)
 def PropMotionEnd(builder): return builder.EndObject()
 def End(builder):
     return PropMotionEnd(builder)

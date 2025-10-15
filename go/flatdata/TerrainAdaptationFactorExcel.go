@@ -33,32 +33,8 @@ func (rcv *TerrainAdaptationFactorExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *TerrainAdaptationFactorExcel) TerrainAdaptation() StageTopography {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *TerrainAdaptationFactorExcel) MutateTerrainAdaptation(n StageTopography) bool {
-	return rcv._tab.MutateInt32Slot(4, int32(n))
-}
-
-func (rcv *TerrainAdaptationFactorExcel) TerrainAdaptationStat() TerrainAdaptationStat {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *TerrainAdaptationFactorExcel) MutateTerrainAdaptationStat(n TerrainAdaptationStat) bool {
-	return rcv._tab.MutateInt32Slot(6, int32(n))
-}
-
 func (rcv *TerrainAdaptationFactorExcel) ShotFactor() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -66,35 +42,11 @@ func (rcv *TerrainAdaptationFactorExcel) ShotFactor() int64 {
 }
 
 func (rcv *TerrainAdaptationFactorExcel) MutateShotFactor(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *TerrainAdaptationFactorExcel) BlockFactor() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TerrainAdaptationFactorExcel) MutateBlockFactor(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *TerrainAdaptationFactorExcel) AccuracyFactor() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *TerrainAdaptationFactorExcel) MutateAccuracyFactor(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *TerrainAdaptationFactorExcel) DodgeFactor() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -102,11 +54,47 @@ func (rcv *TerrainAdaptationFactorExcel) DodgeFactor() int64 {
 }
 
 func (rcv *TerrainAdaptationFactorExcel) MutateDodgeFactor(n int64) bool {
-	return rcv._tab.MutateInt64Slot(14, n)
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *TerrainAdaptationFactorExcel) BlockFactor() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TerrainAdaptationFactorExcel) MutateBlockFactor(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *TerrainAdaptationFactorExcel) AccuracyFactor() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *TerrainAdaptationFactorExcel) MutateAccuracyFactor(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *TerrainAdaptationFactorExcel) TerrainAdaptationStat() TerrainAdaptationStat {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return TerrainAdaptationStat(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *TerrainAdaptationFactorExcel) MutateTerrainAdaptationStat(n TerrainAdaptationStat) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
 func (rcv *TerrainAdaptationFactorExcel) AttackPowerFactor() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -114,32 +102,44 @@ func (rcv *TerrainAdaptationFactorExcel) AttackPowerFactor() int64 {
 }
 
 func (rcv *TerrainAdaptationFactorExcel) MutateAttackPowerFactor(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *TerrainAdaptationFactorExcel) TerrainAdaptation() StageTopography {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return StageTopography(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *TerrainAdaptationFactorExcel) MutateTerrainAdaptation(n StageTopography) bool {
+	return rcv._tab.MutateInt32Slot(16, int32(n))
 }
 
 func TerrainAdaptationFactorExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(7)
 }
-func TerrainAdaptationFactorExcelAddTerrainAdaptation(builder *flatbuffers.Builder, terrainAdaptation StageTopography) {
-	builder.PrependInt32Slot(0, int32(terrainAdaptation), 0)
-}
-func TerrainAdaptationFactorExcelAddTerrainAdaptationStat(builder *flatbuffers.Builder, terrainAdaptationStat TerrainAdaptationStat) {
-	builder.PrependInt32Slot(1, int32(terrainAdaptationStat), 0)
-}
 func TerrainAdaptationFactorExcelAddShotFactor(builder *flatbuffers.Builder, shotFactor int64) {
-	builder.PrependInt64Slot(2, shotFactor, 0)
-}
-func TerrainAdaptationFactorExcelAddBlockFactor(builder *flatbuffers.Builder, blockFactor int64) {
-	builder.PrependInt64Slot(3, blockFactor, 0)
-}
-func TerrainAdaptationFactorExcelAddAccuracyFactor(builder *flatbuffers.Builder, accuracyFactor int64) {
-	builder.PrependInt64Slot(4, accuracyFactor, 0)
+	builder.PrependInt64Slot(0, shotFactor, 0)
 }
 func TerrainAdaptationFactorExcelAddDodgeFactor(builder *flatbuffers.Builder, dodgeFactor int64) {
-	builder.PrependInt64Slot(5, dodgeFactor, 0)
+	builder.PrependInt64Slot(1, dodgeFactor, 0)
+}
+func TerrainAdaptationFactorExcelAddBlockFactor(builder *flatbuffers.Builder, blockFactor int64) {
+	builder.PrependInt64Slot(2, blockFactor, 0)
+}
+func TerrainAdaptationFactorExcelAddAccuracyFactor(builder *flatbuffers.Builder, accuracyFactor int64) {
+	builder.PrependInt64Slot(3, accuracyFactor, 0)
+}
+func TerrainAdaptationFactorExcelAddTerrainAdaptationStat(builder *flatbuffers.Builder, terrainAdaptationStat TerrainAdaptationStat) {
+	builder.PrependInt32Slot(4, int32(terrainAdaptationStat), 0)
 }
 func TerrainAdaptationFactorExcelAddAttackPowerFactor(builder *flatbuffers.Builder, attackPowerFactor int64) {
-	builder.PrependInt64Slot(6, attackPowerFactor, 0)
+	builder.PrependInt64Slot(5, attackPowerFactor, 0)
+}
+func TerrainAdaptationFactorExcelAddTerrainAdaptation(builder *flatbuffers.Builder, terrainAdaptation StageTopography) {
+	builder.PrependInt32Slot(6, int32(terrainAdaptation), 0)
 }
 func TerrainAdaptationFactorExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

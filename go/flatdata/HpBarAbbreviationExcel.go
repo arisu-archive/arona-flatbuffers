@@ -45,7 +45,7 @@ func (rcv *HpBarAbbreviationExcel) MutateMonsterLv(n int32) bool {
 	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *HpBarAbbreviationExcel) StandardHpBar() int32 {
+func (rcv *HpBarAbbreviationExcel) RaidBossHpBar() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -53,11 +53,11 @@ func (rcv *HpBarAbbreviationExcel) StandardHpBar() int32 {
 	return 0
 }
 
-func (rcv *HpBarAbbreviationExcel) MutateStandardHpBar(n int32) bool {
+func (rcv *HpBarAbbreviationExcel) MutateRaidBossHpBar(n int32) bool {
 	return rcv._tab.MutateInt32Slot(6, n)
 }
 
-func (rcv *HpBarAbbreviationExcel) RaidBossHpBar() int32 {
+func (rcv *HpBarAbbreviationExcel) StandardHpBar() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -65,7 +65,7 @@ func (rcv *HpBarAbbreviationExcel) RaidBossHpBar() int32 {
 	return 0
 }
 
-func (rcv *HpBarAbbreviationExcel) MutateRaidBossHpBar(n int32) bool {
+func (rcv *HpBarAbbreviationExcel) MutateStandardHpBar(n int32) bool {
 	return rcv._tab.MutateInt32Slot(8, n)
 }
 
@@ -75,11 +75,11 @@ func HpBarAbbreviationExcelStart(builder *flatbuffers.Builder) {
 func HpBarAbbreviationExcelAddMonsterLv(builder *flatbuffers.Builder, monsterLv int32) {
 	builder.PrependInt32Slot(0, monsterLv, 0)
 }
-func HpBarAbbreviationExcelAddStandardHpBar(builder *flatbuffers.Builder, standardHpBar int32) {
-	builder.PrependInt32Slot(1, standardHpBar, 0)
-}
 func HpBarAbbreviationExcelAddRaidBossHpBar(builder *flatbuffers.Builder, raidBossHpBar int32) {
-	builder.PrependInt32Slot(2, raidBossHpBar, 0)
+	builder.PrependInt32Slot(1, raidBossHpBar, 0)
+}
+func HpBarAbbreviationExcelAddStandardHpBar(builder *flatbuffers.Builder, standardHpBar int32) {
+	builder.PrependInt32Slot(2, standardHpBar, 0)
 }
 func HpBarAbbreviationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

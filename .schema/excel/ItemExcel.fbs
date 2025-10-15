@@ -1,0 +1,47 @@
+include "GachaTicketType.fbs";
+include "ItemCategory.fbs";
+include "MailType.fbs";
+include "ParcelType.fbs";
+include "ProductionStep.fbs";
+include "Rarity.fbs";
+include "ShopCategoryType.fbs";
+include "Tag.fbs";
+
+namespace MX.Data.Excel;
+
+table ItemExcel {
+    using_result_parcel_type: ParcelType;
+    quality: long;
+    mail_type: MailType;
+    rarity: Rarity;
+    localize_etc_id: uint;
+    expiration_notify_date_in: int;
+    expiry_change_amount: long;
+    gacha_ticket: GachaTicketType;
+    id: long;
+    stackable_function: int;
+    craft_quality_tier1: long;
+    stackable_max: int;
+    craft_quality_tier0: long;
+    sprite_name: string;
+    shop_category: [ShopCategoryType];
+    tier_upgrade_recipe_craft_id: long;
+    item_category: ItemCategory;
+    max_gift_tags: int;
+    shortcut_type_id: long;
+    using_result_id: long;
+    tags: [Tag];
+    shifting_craft_quality: long;
+    icon: string;
+    expiry_change_parcel_type: ParcelType;
+    immediate_use: bool;
+    using_result_amount: long;
+    production_step: ProductionStep;
+    can_tier_upgrade: bool;
+    expiration_date_time: string;
+    craft_quality_tier2: long;
+    group_id: long;
+    expiry_change_id: long;
+}
+
+root_type ItemExcel;

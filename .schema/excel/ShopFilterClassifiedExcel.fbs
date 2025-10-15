@@ -1,0 +1,16 @@
+include "ParcelType.fbs";
+include "ShopCategoryType.fbs";
+include "ShopFilterType.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopFilterClassifiedExcel {
+    shop_filter_type: ShopFilterType;
+    id: long;
+    category_type: ShopCategoryType;
+    goods_id: long;
+    consume_parcel_id: long;
+    consume_parcel_type: ParcelType;
+}
+
+root_type ShopFilterClassifiedExcel;

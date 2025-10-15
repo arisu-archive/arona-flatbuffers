@@ -33,40 +33,16 @@ func (rcv *WebEventSeasonExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *WebEventSeasonExcel) Id() int64 {
+func (rcv *WebEventSeasonExcel) EndDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *WebEventSeasonExcel) MutateId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
-}
-
-func (rcv *WebEventSeasonExcel) Enabled() bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
-	}
-	return false
-}
-
-func (rcv *WebEventSeasonExcel) MutateEnabled(n bool) bool {
-	return rcv._tab.MutateBoolSlot(6, n)
-}
-
-func (rcv *WebEventSeasonExcel) StartDate() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *WebEventSeasonExcel) EndDate() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *WebEventSeasonExcel) StartDate() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -74,7 +50,7 @@ func (rcv *WebEventSeasonExcel) EndDate() []byte {
 }
 
 func (rcv *WebEventSeasonExcel) LobbyBannerImage() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -82,7 +58,7 @@ func (rcv *WebEventSeasonExcel) LobbyBannerImage() []byte {
 }
 
 func (rcv *WebEventSeasonExcel) PopupTitleLocalizeKey() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -90,7 +66,7 @@ func (rcv *WebEventSeasonExcel) PopupTitleLocalizeKey() []byte {
 }
 
 func (rcv *WebEventSeasonExcel) StageEventUrl() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -98,39 +74,63 @@ func (rcv *WebEventSeasonExcel) StageEventUrl() []byte {
 }
 
 func (rcv *WebEventSeasonExcel) LiveEventUrl() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
+func (rcv *WebEventSeasonExcel) Id() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *WebEventSeasonExcel) MutateId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(16, n)
+}
+
+func (rcv *WebEventSeasonExcel) Enabled() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *WebEventSeasonExcel) MutateEnabled(n bool) bool {
+	return rcv._tab.MutateBoolSlot(18, n)
+}
+
 func WebEventSeasonExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(8)
 }
-func WebEventSeasonExcelAddId(builder *flatbuffers.Builder, id int64) {
-	builder.PrependInt64Slot(0, id, 0)
-}
-func WebEventSeasonExcelAddEnabled(builder *flatbuffers.Builder, enabled bool) {
-	builder.PrependBoolSlot(1, enabled, false)
+func WebEventSeasonExcelAddEndDate(builder *flatbuffers.Builder, endDate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(endDate), 0)
 }
 func WebEventSeasonExcelAddStartDate(builder *flatbuffers.Builder, startDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(startDate), 0)
-}
-func WebEventSeasonExcelAddEndDate(builder *flatbuffers.Builder, endDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(endDate), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(startDate), 0)
 }
 func WebEventSeasonExcelAddLobbyBannerImage(builder *flatbuffers.Builder, lobbyBannerImage flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(lobbyBannerImage), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(lobbyBannerImage), 0)
 }
 func WebEventSeasonExcelAddPopupTitleLocalizeKey(builder *flatbuffers.Builder, popupTitleLocalizeKey flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(popupTitleLocalizeKey), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(popupTitleLocalizeKey), 0)
 }
 func WebEventSeasonExcelAddStageEventUrl(builder *flatbuffers.Builder, stageEventUrl flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(stageEventUrl), 0)
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(stageEventUrl), 0)
 }
 func WebEventSeasonExcelAddLiveEventUrl(builder *flatbuffers.Builder, liveEventUrl flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(liveEventUrl), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(liveEventUrl), 0)
+}
+func WebEventSeasonExcelAddId(builder *flatbuffers.Builder, id int64) {
+	builder.PrependInt64Slot(6, id, 0)
+}
+func WebEventSeasonExcelAddEnabled(builder *flatbuffers.Builder, enabled bool) {
+	builder.PrependBoolSlot(7, enabled, false)
 }
 func WebEventSeasonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

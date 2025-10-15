@@ -1,0 +1,26 @@
+include "ProductDisplayTag.fbs";
+include "PurchaseCountResetType.fbs";
+include "ShopCategoryType.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopExcel {
+    buy_report_event_name: string;
+    localize_etc_id: uint;
+    display_order: long;
+    shop_update_group_id: int;
+    category_type: ShopCategoryType;
+    sale_period_from: string;
+    goods_id: [long];
+    display_tag: ProductDisplayTag;
+    use_big_popup: bool;
+    is_legacy: bool;
+    purchase_cooltime_min: long;
+    purchase_count_reset_type: PurchaseCountResetType;
+    purchase_count_limit: long;
+    sale_period_to: string;
+    id: long;
+    restrict_buy_when_inventory_full: bool;
+}
+
+root_type ShopExcel;

@@ -1,0 +1,17 @@
+namespace MX.Data.Excel;
+
+table MiniGameAudioAnimatorExcel {
+    voice_name_prefix: string;
+    volume: float;
+    ignore_interrupt_delay: bool;
+    delay: float;
+    controller_name_hash: uint;
+    state_name: string;
+    ignore_interrupt_play: bool;
+    audio_priority: int;
+    state_name_hash: uint;
+    voice_hash: [uint];
+    audio_clip_path: [string];
+}
+
+root_type MiniGameAudioAnimatorExcel;

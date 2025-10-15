@@ -10,33 +10,33 @@ import (
 // LocalizeEtcExcelDto represents a FlatBuffers table
 type LocalizeEtcExcelDto struct {
 	fbsutils.FlatBuffer
-	Key           uint32 `json:"key"`
-	NameKr        string `json:"name_kr"`
-	DescriptionKr string `json:"description_kr"`
-	NameJp        string `json:"name_jp"`
-	DescriptionJp string `json:"description_jp"`
-	NameTh        string `json:"name_th"`
-	DescriptionTh string `json:"description_th"`
-	NameTw        string `json:"name_tw"`
-	DescriptionTw string `json:"description_tw"`
-	NameEn        string `json:"name_en"`
 	DescriptionEn string `json:"description_en"`
+	NameKr        string `json:"name_kr"`
+	NameEn        string `json:"name_en"`
+	DescriptionTh string `json:"description_th"`
+	NameJp        string `json:"name_jp"`
+	DescriptionKr string `json:"description_kr"`
+	Key           uint32 `json:"key"`
+	DescriptionJp string `json:"description_jp"`
+	DescriptionTw string `json:"description_tw"`
+	NameTh        string `json:"name_th"`
+	NameTw        string `json:"name_tw"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeEtcExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	LocalizeEtcExcelStart(b)
-	LocalizeEtcExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	LocalizeEtcExcelAddNameKr(b, b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey)))
-	LocalizeEtcExcelAddDescriptionKr(b, b.CreateString(fbsutils.Convert(t.DescriptionKr, t.FlatBuffer.TableKey)))
-	LocalizeEtcExcelAddNameJp(b, b.CreateString(fbsutils.Convert(t.NameJp, t.FlatBuffer.TableKey)))
-	LocalizeEtcExcelAddDescriptionJp(b, b.CreateString(fbsutils.Convert(t.DescriptionJp, t.FlatBuffer.TableKey)))
-	LocalizeEtcExcelAddNameTh(b, b.CreateString(fbsutils.Convert(t.NameTh, t.FlatBuffer.TableKey)))
-	LocalizeEtcExcelAddDescriptionTh(b, b.CreateString(fbsutils.Convert(t.DescriptionTh, t.FlatBuffer.TableKey)))
-	LocalizeEtcExcelAddNameTw(b, b.CreateString(fbsutils.Convert(t.NameTw, t.FlatBuffer.TableKey)))
-	LocalizeEtcExcelAddDescriptionTw(b, b.CreateString(fbsutils.Convert(t.DescriptionTw, t.FlatBuffer.TableKey)))
-	LocalizeEtcExcelAddNameEn(b, b.CreateString(fbsutils.Convert(t.NameEn, t.FlatBuffer.TableKey)))
 	LocalizeEtcExcelAddDescriptionEn(b, b.CreateString(fbsutils.Convert(t.DescriptionEn, t.FlatBuffer.TableKey)))
+	LocalizeEtcExcelAddNameKr(b, b.CreateString(fbsutils.Convert(t.NameKr, t.FlatBuffer.TableKey)))
+	LocalizeEtcExcelAddNameEn(b, b.CreateString(fbsutils.Convert(t.NameEn, t.FlatBuffer.TableKey)))
+	LocalizeEtcExcelAddDescriptionTh(b, b.CreateString(fbsutils.Convert(t.DescriptionTh, t.FlatBuffer.TableKey)))
+	LocalizeEtcExcelAddNameJp(b, b.CreateString(fbsutils.Convert(t.NameJp, t.FlatBuffer.TableKey)))
+	LocalizeEtcExcelAddDescriptionKr(b, b.CreateString(fbsutils.Convert(t.DescriptionKr, t.FlatBuffer.TableKey)))
+	LocalizeEtcExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
+	LocalizeEtcExcelAddDescriptionJp(b, b.CreateString(fbsutils.Convert(t.DescriptionJp, t.FlatBuffer.TableKey)))
+	LocalizeEtcExcelAddDescriptionTw(b, b.CreateString(fbsutils.Convert(t.DescriptionTw, t.FlatBuffer.TableKey)))
+	LocalizeEtcExcelAddNameTh(b, b.CreateString(fbsutils.Convert(t.NameTh, t.FlatBuffer.TableKey)))
+	LocalizeEtcExcelAddNameTw(b, b.CreateString(fbsutils.Convert(t.NameTw, t.FlatBuffer.TableKey)))
 	return LocalizeEtcExcelEnd(b)
 }
 
@@ -49,17 +49,17 @@ func (t *LocalizeEtcExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LocalizeEtcExcelDto) UnmarshalMessage(e *LocalizeEtcExcel) error {
-	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
-	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)
-	t.DescriptionKr = fbsutils.Convert(string(e.DescriptionKr()), t.FlatBuffer.TableKey)
-	t.NameJp = fbsutils.Convert(string(e.NameJp()), t.FlatBuffer.TableKey)
-	t.DescriptionJp = fbsutils.Convert(string(e.DescriptionJp()), t.FlatBuffer.TableKey)
-	t.NameTh = fbsutils.Convert(string(e.NameTh()), t.FlatBuffer.TableKey)
-	t.DescriptionTh = fbsutils.Convert(string(e.DescriptionTh()), t.FlatBuffer.TableKey)
-	t.NameTw = fbsutils.Convert(string(e.NameTw()), t.FlatBuffer.TableKey)
-	t.DescriptionTw = fbsutils.Convert(string(e.DescriptionTw()), t.FlatBuffer.TableKey)
-	t.NameEn = fbsutils.Convert(string(e.NameEn()), t.FlatBuffer.TableKey)
 	t.DescriptionEn = fbsutils.Convert(string(e.DescriptionEn()), t.FlatBuffer.TableKey)
+	t.NameKr = fbsutils.Convert(string(e.NameKr()), t.FlatBuffer.TableKey)
+	t.NameEn = fbsutils.Convert(string(e.NameEn()), t.FlatBuffer.TableKey)
+	t.DescriptionTh = fbsutils.Convert(string(e.DescriptionTh()), t.FlatBuffer.TableKey)
+	t.NameJp = fbsutils.Convert(string(e.NameJp()), t.FlatBuffer.TableKey)
+	t.DescriptionKr = fbsutils.Convert(string(e.DescriptionKr()), t.FlatBuffer.TableKey)
+	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
+	t.DescriptionJp = fbsutils.Convert(string(e.DescriptionJp()), t.FlatBuffer.TableKey)
+	t.DescriptionTw = fbsutils.Convert(string(e.DescriptionTw()), t.FlatBuffer.TableKey)
+	t.NameTh = fbsutils.Convert(string(e.NameTh()), t.FlatBuffer.TableKey)
+	t.NameTw = fbsutils.Convert(string(e.NameTw()), t.FlatBuffer.TableKey)
 	return nil
 }
 

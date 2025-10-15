@@ -33,20 +33,8 @@ func (rcv *CharacterGearLevelExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterGearLevelExcel) Level() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterGearLevelExcel) MutateLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(4, n)
-}
-
 func (rcv *CharacterGearLevelExcel) TierLevelExp(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -55,7 +43,7 @@ func (rcv *CharacterGearLevelExcel) TierLevelExp(j int) int64 {
 }
 
 func (rcv *CharacterGearLevelExcel) TierLevelExpLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -63,7 +51,7 @@ func (rcv *CharacterGearLevelExcel) TierLevelExpLength() int {
 }
 
 func (rcv *CharacterGearLevelExcel) MutateTierLevelExp(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -72,7 +60,7 @@ func (rcv *CharacterGearLevelExcel) MutateTierLevelExp(j int, n int64) bool {
 }
 
 func (rcv *CharacterGearLevelExcel) TotalExp(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -81,7 +69,7 @@ func (rcv *CharacterGearLevelExcel) TotalExp(j int) int64 {
 }
 
 func (rcv *CharacterGearLevelExcel) TotalExpLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -89,7 +77,7 @@ func (rcv *CharacterGearLevelExcel) TotalExpLength() int {
 }
 
 func (rcv *CharacterGearLevelExcel) MutateTotalExp(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -97,23 +85,35 @@ func (rcv *CharacterGearLevelExcel) MutateTotalExp(j int, n int64) bool {
 	return false
 }
 
+func (rcv *CharacterGearLevelExcel) Level() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterGearLevelExcel) MutateLevel(n int32) bool {
+	return rcv._tab.MutateInt32Slot(8, n)
+}
+
 func CharacterGearLevelExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(3)
 }
-func CharacterGearLevelExcelAddLevel(builder *flatbuffers.Builder, level int32) {
-	builder.PrependInt32Slot(0, level, 0)
-}
 func CharacterGearLevelExcelAddTierLevelExp(builder *flatbuffers.Builder, tierLevelExp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(tierLevelExp), 0)
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(tierLevelExp), 0)
 }
 func CharacterGearLevelExcelStartTierLevelExpVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func CharacterGearLevelExcelAddTotalExp(builder *flatbuffers.Builder, totalExp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(totalExp), 0)
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(totalExp), 0)
 }
 func CharacterGearLevelExcelStartTotalExpVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
+}
+func CharacterGearLevelExcelAddLevel(builder *flatbuffers.Builder, level int32) {
+	builder.PrependInt32Slot(2, level, 0)
 }
 func CharacterGearLevelExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

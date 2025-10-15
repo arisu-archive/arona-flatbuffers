@@ -33,28 +33,8 @@ func (rcv *ObstacleStatExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ObstacleStatExcel) StringId() uint32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.GetUint32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ObstacleStatExcel) MutateStringId(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(4, n)
-}
-
-func (rcv *ObstacleStatExcel) Name() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *ObstacleStatExcel) MaxHp1() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -62,35 +42,11 @@ func (rcv *ObstacleStatExcel) MaxHp1() int64 {
 }
 
 func (rcv *ObstacleStatExcel) MutateMaxHp1(n int64) bool {
-	return rcv._tab.MutateInt64Slot(8, n)
-}
-
-func (rcv *ObstacleStatExcel) MaxHp100() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ObstacleStatExcel) MutateMaxHp100(n int64) bool {
-	return rcv._tab.MutateInt64Slot(10, n)
-}
-
-func (rcv *ObstacleStatExcel) BlockRate() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ObstacleStatExcel) MutateBlockRate(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(4, n)
 }
 
 func (rcv *ObstacleStatExcel) Dodge() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -98,6 +54,54 @@ func (rcv *ObstacleStatExcel) Dodge() int64 {
 }
 
 func (rcv *ObstacleStatExcel) MutateDodge(n int64) bool {
+	return rcv._tab.MutateInt64Slot(6, n)
+}
+
+func (rcv *ObstacleStatExcel) EnhanceHeavyArmorRate() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ObstacleStatExcel) MutateEnhanceHeavyArmorRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *ObstacleStatExcel) EnhanceLightArmorRate() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ObstacleStatExcel) MutateEnhanceLightArmorRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *ObstacleStatExcel) EnhanceNormalArmorRate() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ObstacleStatExcel) MutateEnhanceNormalArmorRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *ObstacleStatExcel) MaxHp100() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ObstacleStatExcel) MutateMaxHp100(n int64) bool {
 	return rcv._tab.MutateInt64Slot(14, n)
 }
 
@@ -125,7 +129,7 @@ func (rcv *ObstacleStatExcel) MutateHighlightFloaterHeight(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(18, n)
 }
 
-func (rcv *ObstacleStatExcel) EnhanceLightArmorRate() int64 {
+func (rcv *ObstacleStatExcel) EnhanceStructureRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -133,11 +137,11 @@ func (rcv *ObstacleStatExcel) EnhanceLightArmorRate() int64 {
 	return 0
 }
 
-func (rcv *ObstacleStatExcel) MutateEnhanceLightArmorRate(n int64) bool {
+func (rcv *ObstacleStatExcel) MutateEnhanceStructureRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(20, n)
 }
 
-func (rcv *ObstacleStatExcel) EnhanceHeavyArmorRate() int64 {
+func (rcv *ObstacleStatExcel) ReduceExDamagedRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -145,23 +149,19 @@ func (rcv *ObstacleStatExcel) EnhanceHeavyArmorRate() int64 {
 	return 0
 }
 
-func (rcv *ObstacleStatExcel) MutateEnhanceHeavyArmorRate(n int64) bool {
+func (rcv *ObstacleStatExcel) MutateReduceExDamagedRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(22, n)
 }
 
-func (rcv *ObstacleStatExcel) EnhanceUnarmedRate() int64 {
+func (rcv *ObstacleStatExcel) Name() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *ObstacleStatExcel) MutateEnhanceUnarmedRate(n int64) bool {
-	return rcv._tab.MutateInt64Slot(24, n)
-}
-
-func (rcv *ObstacleStatExcel) EnhanceElasticArmorRate() int64 {
+func (rcv *ObstacleStatExcel) BlockRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -169,11 +169,11 @@ func (rcv *ObstacleStatExcel) EnhanceElasticArmorRate() int64 {
 	return 0
 }
 
-func (rcv *ObstacleStatExcel) MutateEnhanceElasticArmorRate(n int64) bool {
+func (rcv *ObstacleStatExcel) MutateBlockRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(26, n)
 }
 
-func (rcv *ObstacleStatExcel) EnhanceStructureRate() int64 {
+func (rcv *ObstacleStatExcel) EnhanceUnarmedRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -181,23 +181,23 @@ func (rcv *ObstacleStatExcel) EnhanceStructureRate() int64 {
 	return 0
 }
 
-func (rcv *ObstacleStatExcel) MutateEnhanceStructureRate(n int64) bool {
+func (rcv *ObstacleStatExcel) MutateEnhanceUnarmedRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(28, n)
 }
 
-func (rcv *ObstacleStatExcel) EnhanceNormalArmorRate() int64 {
+func (rcv *ObstacleStatExcel) StringId() uint32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ObstacleStatExcel) MutateEnhanceNormalArmorRate(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
+func (rcv *ObstacleStatExcel) MutateStringId(n uint32) bool {
+	return rcv._tab.MutateUint32Slot(30, n)
 }
 
-func (rcv *ObstacleStatExcel) ReduceExDamagedRate() int64 {
+func (rcv *ObstacleStatExcel) EnhanceElasticArmorRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -205,30 +205,30 @@ func (rcv *ObstacleStatExcel) ReduceExDamagedRate() int64 {
 	return 0
 }
 
-func (rcv *ObstacleStatExcel) MutateReduceExDamagedRate(n int64) bool {
+func (rcv *ObstacleStatExcel) MutateEnhanceElasticArmorRate(n int64) bool {
 	return rcv._tab.MutateInt64Slot(32, n)
 }
 
 func ObstacleStatExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(15)
 }
-func ObstacleStatExcelAddStringId(builder *flatbuffers.Builder, stringId uint32) {
-	builder.PrependUint32Slot(0, stringId, 0)
-}
-func ObstacleStatExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(name), 0)
-}
 func ObstacleStatExcelAddMaxHp1(builder *flatbuffers.Builder, maxHp1 int64) {
-	builder.PrependInt64Slot(2, maxHp1, 0)
-}
-func ObstacleStatExcelAddMaxHp100(builder *flatbuffers.Builder, maxHp100 int64) {
-	builder.PrependInt64Slot(3, maxHp100, 0)
-}
-func ObstacleStatExcelAddBlockRate(builder *flatbuffers.Builder, blockRate int64) {
-	builder.PrependInt64Slot(4, blockRate, 0)
+	builder.PrependInt64Slot(0, maxHp1, 0)
 }
 func ObstacleStatExcelAddDodge(builder *flatbuffers.Builder, dodge int64) {
-	builder.PrependInt64Slot(5, dodge, 0)
+	builder.PrependInt64Slot(1, dodge, 0)
+}
+func ObstacleStatExcelAddEnhanceHeavyArmorRate(builder *flatbuffers.Builder, enhanceHeavyArmorRate int64) {
+	builder.PrependInt64Slot(2, enhanceHeavyArmorRate, 0)
+}
+func ObstacleStatExcelAddEnhanceLightArmorRate(builder *flatbuffers.Builder, enhanceLightArmorRate int64) {
+	builder.PrependInt64Slot(3, enhanceLightArmorRate, 0)
+}
+func ObstacleStatExcelAddEnhanceNormalArmorRate(builder *flatbuffers.Builder, enhanceNormalArmorRate int64) {
+	builder.PrependInt64Slot(4, enhanceNormalArmorRate, 0)
+}
+func ObstacleStatExcelAddMaxHp100(builder *flatbuffers.Builder, maxHp100 int64) {
+	builder.PrependInt64Slot(5, maxHp100, 0)
 }
 func ObstacleStatExcelAddCanNotStandRange(builder *flatbuffers.Builder, canNotStandRange int64) {
 	builder.PrependInt64Slot(6, canNotStandRange, 0)
@@ -236,26 +236,26 @@ func ObstacleStatExcelAddCanNotStandRange(builder *flatbuffers.Builder, canNotSt
 func ObstacleStatExcelAddHighlightFloaterHeight(builder *flatbuffers.Builder, highlightFloaterHeight float32) {
 	builder.PrependFloat32Slot(7, highlightFloaterHeight, 0.0)
 }
-func ObstacleStatExcelAddEnhanceLightArmorRate(builder *flatbuffers.Builder, enhanceLightArmorRate int64) {
-	builder.PrependInt64Slot(8, enhanceLightArmorRate, 0)
-}
-func ObstacleStatExcelAddEnhanceHeavyArmorRate(builder *flatbuffers.Builder, enhanceHeavyArmorRate int64) {
-	builder.PrependInt64Slot(9, enhanceHeavyArmorRate, 0)
-}
-func ObstacleStatExcelAddEnhanceUnarmedRate(builder *flatbuffers.Builder, enhanceUnarmedRate int64) {
-	builder.PrependInt64Slot(10, enhanceUnarmedRate, 0)
-}
-func ObstacleStatExcelAddEnhanceElasticArmorRate(builder *flatbuffers.Builder, enhanceElasticArmorRate int64) {
-	builder.PrependInt64Slot(11, enhanceElasticArmorRate, 0)
-}
 func ObstacleStatExcelAddEnhanceStructureRate(builder *flatbuffers.Builder, enhanceStructureRate int64) {
-	builder.PrependInt64Slot(12, enhanceStructureRate, 0)
-}
-func ObstacleStatExcelAddEnhanceNormalArmorRate(builder *flatbuffers.Builder, enhanceNormalArmorRate int64) {
-	builder.PrependInt64Slot(13, enhanceNormalArmorRate, 0)
+	builder.PrependInt64Slot(8, enhanceStructureRate, 0)
 }
 func ObstacleStatExcelAddReduceExDamagedRate(builder *flatbuffers.Builder, reduceExDamagedRate int64) {
-	builder.PrependInt64Slot(14, reduceExDamagedRate, 0)
+	builder.PrependInt64Slot(9, reduceExDamagedRate, 0)
+}
+func ObstacleStatExcelAddName(builder *flatbuffers.Builder, name flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(name), 0)
+}
+func ObstacleStatExcelAddBlockRate(builder *flatbuffers.Builder, blockRate int64) {
+	builder.PrependInt64Slot(11, blockRate, 0)
+}
+func ObstacleStatExcelAddEnhanceUnarmedRate(builder *flatbuffers.Builder, enhanceUnarmedRate int64) {
+	builder.PrependInt64Slot(12, enhanceUnarmedRate, 0)
+}
+func ObstacleStatExcelAddStringId(builder *flatbuffers.Builder, stringId uint32) {
+	builder.PrependUint32Slot(13, stringId, 0)
+}
+func ObstacleStatExcelAddEnhanceElasticArmorRate(builder *flatbuffers.Builder, enhanceElasticArmorRate int64) {
+	builder.PrependInt64Slot(14, enhanceElasticArmorRate, 0)
 }
 func ObstacleStatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -10,13 +10,13 @@ import (
 // CharacterStatLimitExcelDto represents a FlatBuffers table
 type CharacterStatLimitExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                int64            `json:"id"`
-	TacticEntityType  TacticEntityType `json:"tactic_entity_type"`
-	StatType          StatType         `json:"stat_type"`
-	StatMinValue      int64            `json:"stat_min_value"`
 	StatMaxValue      int64            `json:"stat_max_value"`
-	StatRatioMinValue int64            `json:"stat_ratio_min_value"`
 	StatRatioMaxValue int64            `json:"stat_ratio_max_value"`
+	TacticEntityType  TacticEntityType `json:"tactic_entity_type"`
+	StatMinValue      int64            `json:"stat_min_value"`
+	StatRatioMinValue int64            `json:"stat_ratio_min_value"`
+	StatType          StatType         `json:"stat_type"`
+	Id                int64            `json:"id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -25,13 +25,13 @@ func (t *CharacterStatLimitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatLimit"))
 	}
 	CharacterStatLimitExcelStart(b)
-	CharacterStatLimitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CharacterStatLimitExcelAddTacticEntityType(b, fbsutils.Convert(t.TacticEntityType, t.FlatBuffer.TableKey))
-	CharacterStatLimitExcelAddStatType(b, fbsutils.Convert(t.StatType, t.FlatBuffer.TableKey))
-	CharacterStatLimitExcelAddStatMinValue(b, fbsutils.Convert(t.StatMinValue, t.FlatBuffer.TableKey))
 	CharacterStatLimitExcelAddStatMaxValue(b, fbsutils.Convert(t.StatMaxValue, t.FlatBuffer.TableKey))
-	CharacterStatLimitExcelAddStatRatioMinValue(b, fbsutils.Convert(t.StatRatioMinValue, t.FlatBuffer.TableKey))
 	CharacterStatLimitExcelAddStatRatioMaxValue(b, fbsutils.Convert(t.StatRatioMaxValue, t.FlatBuffer.TableKey))
+	CharacterStatLimitExcelAddTacticEntityType(b, fbsutils.Convert(t.TacticEntityType, t.FlatBuffer.TableKey))
+	CharacterStatLimitExcelAddStatMinValue(b, fbsutils.Convert(t.StatMinValue, t.FlatBuffer.TableKey))
+	CharacterStatLimitExcelAddStatRatioMinValue(b, fbsutils.Convert(t.StatRatioMinValue, t.FlatBuffer.TableKey))
+	CharacterStatLimitExcelAddStatType(b, fbsutils.Convert(t.StatType, t.FlatBuffer.TableKey))
+	CharacterStatLimitExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	return CharacterStatLimitExcelEnd(b)
 }
 
@@ -47,13 +47,13 @@ func (t *CharacterStatLimitExcelDto) UnmarshalMessage(e *CharacterStatLimitExcel
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CharacterStatLimit"))
 	}
-	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
-	t.TacticEntityType = TacticEntityType(fbsutils.Convert(int32(e.TacticEntityType()), t.FlatBuffer.TableKey))
-	t.StatType = StatType(fbsutils.Convert(int32(e.StatType()), t.FlatBuffer.TableKey))
-	t.StatMinValue = fbsutils.Convert(e.StatMinValue(), t.FlatBuffer.TableKey)
 	t.StatMaxValue = fbsutils.Convert(e.StatMaxValue(), t.FlatBuffer.TableKey)
-	t.StatRatioMinValue = fbsutils.Convert(e.StatRatioMinValue(), t.FlatBuffer.TableKey)
 	t.StatRatioMaxValue = fbsutils.Convert(e.StatRatioMaxValue(), t.FlatBuffer.TableKey)
+	t.TacticEntityType = TacticEntityType(fbsutils.Convert(int32(e.TacticEntityType()), t.FlatBuffer.TableKey))
+	t.StatMinValue = fbsutils.Convert(e.StatMinValue(), t.FlatBuffer.TableKey)
+	t.StatRatioMinValue = fbsutils.Convert(e.StatRatioMinValue(), t.FlatBuffer.TableKey)
+	t.StatType = StatType(fbsutils.Convert(int32(e.StatType()), t.FlatBuffer.TableKey))
+	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	return nil
 }
 

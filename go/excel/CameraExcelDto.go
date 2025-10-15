@@ -10,33 +10,33 @@ import (
 // CameraExcelDto represents a FlatBuffers table
 type CameraExcelDto struct {
 	fbsutils.FlatBuffer
-	UniqueId                  int64   `json:"unique_id"`
-	MinDistance               float32 `json:"min_distance"`
-	MaxDistance               float32 `json:"max_distance"`
 	RotationX                 float32 `json:"rotation_x"`
-	RotationY                 float32 `json:"rotation_y"`
-	MoveInstantly             bool    `json:"move_instantly"`
-	MoveInstantlyRotationSave bool    `json:"move_instantly_rotation_save"`
-	LeftMargin                float32 `json:"left_margin"`
+	MinDistance               float32 `json:"min_distance"`
+	UniqueId                  int64   `json:"unique_id"`
+	MaxDistance               float32 `json:"max_distance"`
 	BottomMargin              float32 `json:"bottom_margin"`
+	MoveInstantly             bool    `json:"move_instantly"`
+	RotationY                 float32 `json:"rotation_y"`
 	IgnoreEnemies             bool    `json:"ignore_enemies"`
+	LeftMargin                float32 `json:"left_margin"`
 	UseRailPointCompensation  bool    `json:"use_rail_point_compensation"`
+	MoveInstantlyRotationSave bool    `json:"move_instantly_rotation_save"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CameraExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CameraExcelStart(b)
-	CameraExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
-	CameraExcelAddMinDistance(b, fbsutils.Convert(t.MinDistance, t.FlatBuffer.TableKey))
-	CameraExcelAddMaxDistance(b, fbsutils.Convert(t.MaxDistance, t.FlatBuffer.TableKey))
 	CameraExcelAddRotationX(b, fbsutils.Convert(t.RotationX, t.FlatBuffer.TableKey))
-	CameraExcelAddRotationY(b, fbsutils.Convert(t.RotationY, t.FlatBuffer.TableKey))
-	CameraExcelAddMoveInstantly(b, t.MoveInstantly)
-	CameraExcelAddMoveInstantlyRotationSave(b, t.MoveInstantlyRotationSave)
-	CameraExcelAddLeftMargin(b, fbsutils.Convert(t.LeftMargin, t.FlatBuffer.TableKey))
+	CameraExcelAddMinDistance(b, fbsutils.Convert(t.MinDistance, t.FlatBuffer.TableKey))
+	CameraExcelAddUniqueId(b, fbsutils.Convert(t.UniqueId, t.FlatBuffer.TableKey))
+	CameraExcelAddMaxDistance(b, fbsutils.Convert(t.MaxDistance, t.FlatBuffer.TableKey))
 	CameraExcelAddBottomMargin(b, fbsutils.Convert(t.BottomMargin, t.FlatBuffer.TableKey))
+	CameraExcelAddMoveInstantly(b, t.MoveInstantly)
+	CameraExcelAddRotationY(b, fbsutils.Convert(t.RotationY, t.FlatBuffer.TableKey))
 	CameraExcelAddIgnoreEnemies(b, t.IgnoreEnemies)
+	CameraExcelAddLeftMargin(b, fbsutils.Convert(t.LeftMargin, t.FlatBuffer.TableKey))
 	CameraExcelAddUseRailPointCompensation(b, t.UseRailPointCompensation)
+	CameraExcelAddMoveInstantlyRotationSave(b, t.MoveInstantlyRotationSave)
 	return CameraExcelEnd(b)
 }
 
@@ -49,17 +49,17 @@ func (t *CameraExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CameraExcelDto) UnmarshalMessage(e *CameraExcel) error {
-	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
-	t.MinDistance = fbsutils.Convert(e.MinDistance(), t.FlatBuffer.TableKey)
-	t.MaxDistance = fbsutils.Convert(e.MaxDistance(), t.FlatBuffer.TableKey)
 	t.RotationX = fbsutils.Convert(e.RotationX(), t.FlatBuffer.TableKey)
-	t.RotationY = fbsutils.Convert(e.RotationY(), t.FlatBuffer.TableKey)
-	t.MoveInstantly = e.MoveInstantly()
-	t.MoveInstantlyRotationSave = e.MoveInstantlyRotationSave()
-	t.LeftMargin = fbsutils.Convert(e.LeftMargin(), t.FlatBuffer.TableKey)
+	t.MinDistance = fbsutils.Convert(e.MinDistance(), t.FlatBuffer.TableKey)
+	t.UniqueId = fbsutils.Convert(e.UniqueId(), t.FlatBuffer.TableKey)
+	t.MaxDistance = fbsutils.Convert(e.MaxDistance(), t.FlatBuffer.TableKey)
 	t.BottomMargin = fbsutils.Convert(e.BottomMargin(), t.FlatBuffer.TableKey)
+	t.MoveInstantly = e.MoveInstantly()
+	t.RotationY = fbsutils.Convert(e.RotationY(), t.FlatBuffer.TableKey)
 	t.IgnoreEnemies = e.IgnoreEnemies()
+	t.LeftMargin = fbsutils.Convert(e.LeftMargin(), t.FlatBuffer.TableKey)
 	t.UseRailPointCompensation = e.UseRailPointCompensation()
+	t.MoveInstantlyRotationSave = e.MoveInstantlyRotationSave()
 	return nil
 }
 

@@ -1,0 +1,24 @@
+include "HexaUnitGrade.fbs";
+include "StrategyAIType.fbs";
+include "TacticEnvironment.fbs";
+
+namespace MX.Data.Excel;
+
+table CampaignUnitExcel {
+    strategy_prefab_name: string;
+    ai_move_type: StrategyAIType;
+    grade: HexaUnitGrade;
+    ground_id: long;
+    clear_scenario_group_id: [long];
+    id: long;
+    key: uint;
+    scale: float;
+    prefab_name: string;
+    enter_scenario_group_id: [long];
+    name: string;
+    is_tactic_skip: bool;
+    move_range: int;
+    environment_type: TacticEnvironment;
+}
+
+root_type CampaignUnitExcel;

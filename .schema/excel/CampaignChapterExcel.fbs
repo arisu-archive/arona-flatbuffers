@@ -1,0 +1,20 @@
+namespace MX.Data.Excel;
+
+table CampaignChapterExcel {
+    normal_extra_stage_id: [long];
+    id: long;
+    normal_image_path: string;
+    hard_image_path: string;
+    hard_campaign_stage_id: [long];
+    chapter_reward_id: long;
+    order: long;
+    very_hard_campaign_stage_id: [long];
+    name: string;
+    chapter_very_hard_reward_id: long;
+    pre_chapter_id: [long];
+    is_tactic_skip: bool;
+    normal_campaign_stage_id: [long];
+    chapter_hard_reward_id: long;
+}
+
+root_type CampaignChapterExcel;

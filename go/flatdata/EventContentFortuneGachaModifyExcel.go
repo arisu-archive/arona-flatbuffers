@@ -45,40 +45,8 @@ func (rcv *EventContentFortuneGachaModifyExcel) MutateEventContentId(n int32) bo
 	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *EventContentFortuneGachaModifyExcel) TargetGrade() int32 {
+func (rcv *EventContentFortuneGachaModifyExcel) TitleLocalizeKey() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentFortuneGachaModifyExcel) MutateTargetGrade(n int32) bool {
-	return rcv._tab.MutateInt32Slot(6, n)
-}
-
-func (rcv *EventContentFortuneGachaModifyExcel) ProbModifyStartCount() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *EventContentFortuneGachaModifyExcel) MutateProbModifyStartCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
-func (rcv *EventContentFortuneGachaModifyExcel) UsePrefabName() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *EventContentFortuneGachaModifyExcel) BucketImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -86,19 +54,51 @@ func (rcv *EventContentFortuneGachaModifyExcel) BucketImagePath() []byte {
 }
 
 func (rcv *EventContentFortuneGachaModifyExcel) ShopBgImagePath() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
 }
 
-func (rcv *EventContentFortuneGachaModifyExcel) TitleLocalizeKey() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+func (rcv *EventContentFortuneGachaModifyExcel) BucketImagePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
 	return nil
+}
+
+func (rcv *EventContentFortuneGachaModifyExcel) UsePrefabName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *EventContentFortuneGachaModifyExcel) TargetGrade() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentFortuneGachaModifyExcel) MutateTargetGrade(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *EventContentFortuneGachaModifyExcel) ProbModifyStartCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *EventContentFortuneGachaModifyExcel) MutateProbModifyStartCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(16, n)
 }
 
 func EventContentFortuneGachaModifyExcelStart(builder *flatbuffers.Builder) {
@@ -107,23 +107,23 @@ func EventContentFortuneGachaModifyExcelStart(builder *flatbuffers.Builder) {
 func EventContentFortuneGachaModifyExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int32) {
 	builder.PrependInt32Slot(0, eventContentId, 0)
 }
-func EventContentFortuneGachaModifyExcelAddTargetGrade(builder *flatbuffers.Builder, targetGrade int32) {
-	builder.PrependInt32Slot(1, targetGrade, 0)
-}
-func EventContentFortuneGachaModifyExcelAddProbModifyStartCount(builder *flatbuffers.Builder, probModifyStartCount int32) {
-	builder.PrependInt32Slot(2, probModifyStartCount, 0)
-}
-func EventContentFortuneGachaModifyExcelAddUsePrefabName(builder *flatbuffers.Builder, usePrefabName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(usePrefabName), 0)
-}
-func EventContentFortuneGachaModifyExcelAddBucketImagePath(builder *flatbuffers.Builder, bucketImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(bucketImagePath), 0)
+func EventContentFortuneGachaModifyExcelAddTitleLocalizeKey(builder *flatbuffers.Builder, titleLocalizeKey flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(titleLocalizeKey), 0)
 }
 func EventContentFortuneGachaModifyExcelAddShopBgImagePath(builder *flatbuffers.Builder, shopBgImagePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(shopBgImagePath), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(shopBgImagePath), 0)
 }
-func EventContentFortuneGachaModifyExcelAddTitleLocalizeKey(builder *flatbuffers.Builder, titleLocalizeKey flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(titleLocalizeKey), 0)
+func EventContentFortuneGachaModifyExcelAddBucketImagePath(builder *flatbuffers.Builder, bucketImagePath flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(bucketImagePath), 0)
+}
+func EventContentFortuneGachaModifyExcelAddUsePrefabName(builder *flatbuffers.Builder, usePrefabName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(usePrefabName), 0)
+}
+func EventContentFortuneGachaModifyExcelAddTargetGrade(builder *flatbuffers.Builder, targetGrade int32) {
+	builder.PrependInt32Slot(5, targetGrade, 0)
+}
+func EventContentFortuneGachaModifyExcelAddProbModifyStartCount(builder *flatbuffers.Builder, probModifyStartCount int32) {
+	builder.PrependInt32Slot(6, probModifyStartCount, 0)
 }
 func EventContentFortuneGachaModifyExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

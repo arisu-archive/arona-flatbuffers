@@ -11,10 +11,10 @@ import (
 type EventContentDiceRaceEffectExcelDto struct {
 	fbsutils.FlatBuffer
 	EventContentId                 int64                          `json:"event_content_id"`
-	EventContentDiceRaceResultType EventContentDiceRaceResultType `json:"event_content_dice_race_result_type"`
-	IsDiceResult                   bool                           `json:"is_dice_result"`
 	AniClip                        string                         `json:"ani_clip"`
+	IsDiceResult                   bool                           `json:"is_dice_result"`
 	VoiceId                        []uint32                       `json:"voice_id"`
+	EventContentDiceRaceResultType EventContentDiceRaceResultType `json:"event_content_dice_race_result_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -24,14 +24,14 @@ func (t *EventContentDiceRaceEffectExcelDto) MarshalModel(b *flatbuffers.Builder
 	}
 	EventContentDiceRaceEffectExcelStart(b)
 	EventContentDiceRaceEffectExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentDiceRaceEffectExcelAddEventContentDiceRaceResultType(b, fbsutils.Convert(t.EventContentDiceRaceResultType, t.FlatBuffer.TableKey))
-	EventContentDiceRaceEffectExcelAddIsDiceResult(b, t.IsDiceResult)
 	EventContentDiceRaceEffectExcelAddAniClip(b, b.CreateString(fbsutils.Convert(t.AniClip, t.FlatBuffer.TableKey)))
+	EventContentDiceRaceEffectExcelAddIsDiceResult(b, t.IsDiceResult)
 	EventContentDiceRaceEffectExcelStartVoiceIdVector(b, len(t.VoiceId))
 	for i := range len(t.VoiceId) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceId[len(t.VoiceId)-i-1], t.FlatBuffer.TableKey))
 	}
 	EventContentDiceRaceEffectExcelAddVoiceId(b, b.EndVector(len(t.VoiceId)))
+	EventContentDiceRaceEffectExcelAddEventContentDiceRaceResultType(b, fbsutils.Convert(t.EventContentDiceRaceResultType, t.FlatBuffer.TableKey))
 	return EventContentDiceRaceEffectExcelEnd(b)
 }
 
@@ -48,13 +48,13 @@ func (t *EventContentDiceRaceEffectExcelDto) UnmarshalMessage(e *EventContentDic
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentDiceRaceEffect"))
 	}
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EventContentDiceRaceResultType = EventContentDiceRaceResultType(fbsutils.Convert(int32(e.EventContentDiceRaceResultType()), t.FlatBuffer.TableKey))
-	t.IsDiceResult = e.IsDiceResult()
 	t.AniClip = fbsutils.Convert(string(e.AniClip()), t.FlatBuffer.TableKey)
+	t.IsDiceResult = e.IsDiceResult()
 	t.VoiceId = make([]uint32, e.VoiceIdLength())
 	for i := range e.VoiceIdLength() {
 		t.VoiceId[i] = fbsutils.Convert(e.VoiceId(i), t.FlatBuffer.TableKey)
 	}
+	t.EventContentDiceRaceResultType = EventContentDiceRaceResultType(fbsutils.Convert(int32(e.EventContentDiceRaceResultType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

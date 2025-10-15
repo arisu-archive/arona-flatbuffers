@@ -10,33 +10,33 @@ import (
 // CharacterVoiceSubtitleExcelDto represents a FlatBuffers table
 type CharacterVoiceSubtitleExcelDto struct {
 	fbsutils.FlatBuffer
-	LocalizeCvGroup       string `json:"localize_cv_group"`
 	CharacterVoiceGroupId int64  `json:"character_voice_group_id"`
-	Tlmid                 string `json:"tlmid"`
-	Duration              int64  `json:"duration"`
+	LocalizeEn            string `json:"localize_en"`
+	LocalizeTw            string `json:"localize_tw"`
 	DurationKr            int64  `json:"duration_kr"`
+	Tlmid                 string `json:"tlmid"`
+	LocalizeTh            string `json:"localize_th"`
+	LocalizeCvGroup       string `json:"localize_cv_group"`
 	Separate              bool   `json:"separate"`
+	Duration              int64  `json:"duration"`
 	LocalizeKr            string `json:"localize_kr"`
 	LocalizeJp            string `json:"localize_jp"`
-	LocalizeTh            string `json:"localize_th"`
-	LocalizeTw            string `json:"localize_tw"`
-	LocalizeEn            string `json:"localize_en"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterVoiceSubtitleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CharacterVoiceSubtitleExcelStart(b)
-	CharacterVoiceSubtitleExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
 	CharacterVoiceSubtitleExcelAddCharacterVoiceGroupId(b, fbsutils.Convert(t.CharacterVoiceGroupId, t.FlatBuffer.TableKey))
-	CharacterVoiceSubtitleExcelAddTlmid(b, b.CreateString(fbsutils.Convert(t.Tlmid, t.FlatBuffer.TableKey)))
-	CharacterVoiceSubtitleExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
+	CharacterVoiceSubtitleExcelAddLocalizeEn(b, b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey)))
+	CharacterVoiceSubtitleExcelAddLocalizeTw(b, b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey)))
 	CharacterVoiceSubtitleExcelAddDurationKr(b, fbsutils.Convert(t.DurationKr, t.FlatBuffer.TableKey))
+	CharacterVoiceSubtitleExcelAddTlmid(b, b.CreateString(fbsutils.Convert(t.Tlmid, t.FlatBuffer.TableKey)))
+	CharacterVoiceSubtitleExcelAddLocalizeTh(b, b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey)))
+	CharacterVoiceSubtitleExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
 	CharacterVoiceSubtitleExcelAddSeparate(b, t.Separate)
+	CharacterVoiceSubtitleExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
 	CharacterVoiceSubtitleExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
 	CharacterVoiceSubtitleExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
-	CharacterVoiceSubtitleExcelAddLocalizeTh(b, b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey)))
-	CharacterVoiceSubtitleExcelAddLocalizeTw(b, b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey)))
-	CharacterVoiceSubtitleExcelAddLocalizeEn(b, b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey)))
 	return CharacterVoiceSubtitleExcelEnd(b)
 }
 
@@ -49,17 +49,17 @@ func (t *CharacterVoiceSubtitleExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterVoiceSubtitleExcelDto) UnmarshalMessage(e *CharacterVoiceSubtitleExcel) error {
-	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
 	t.CharacterVoiceGroupId = fbsutils.Convert(e.CharacterVoiceGroupId(), t.FlatBuffer.TableKey)
-	t.Tlmid = fbsutils.Convert(string(e.Tlmid()), t.FlatBuffer.TableKey)
-	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
+	t.LocalizeEn = fbsutils.Convert(string(e.LocalizeEn()), t.FlatBuffer.TableKey)
+	t.LocalizeTw = fbsutils.Convert(string(e.LocalizeTw()), t.FlatBuffer.TableKey)
 	t.DurationKr = fbsutils.Convert(e.DurationKr(), t.FlatBuffer.TableKey)
+	t.Tlmid = fbsutils.Convert(string(e.Tlmid()), t.FlatBuffer.TableKey)
+	t.LocalizeTh = fbsutils.Convert(string(e.LocalizeTh()), t.FlatBuffer.TableKey)
+	t.LocalizeCvGroup = fbsutils.Convert(string(e.LocalizeCvGroup()), t.FlatBuffer.TableKey)
 	t.Separate = e.Separate()
+	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
 	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
 	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
-	t.LocalizeTh = fbsutils.Convert(string(e.LocalizeTh()), t.FlatBuffer.TableKey)
-	t.LocalizeTw = fbsutils.Convert(string(e.LocalizeTw()), t.FlatBuffer.TableKey)
-	t.LocalizeEn = fbsutils.Convert(string(e.LocalizeEn()), t.FlatBuffer.TableKey)
 	return nil
 }
 

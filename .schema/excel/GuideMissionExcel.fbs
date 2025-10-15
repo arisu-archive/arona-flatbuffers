@@ -1,0 +1,30 @@
+include "MissionCategory.fbs";
+include "MissionCompleteConditionType.fbs";
+include "MissionToastDisplayConditionType.fbs";
+include "ParcelType.fbs";
+include "Tag.fbs";
+
+namespace MX.Data.Excel;
+
+table GuideMissionExcel {
+    complete_condition_parameter_tag: [Tag];
+    is_legacy: bool;
+    is_auto_clear_for_scenario: bool;
+    shortcut_ui: [string];
+    toast_image_path: string;
+    mission_reward_parcel_type: [ParcelType];
+    mission_reward_parcel_id: [long];
+    complete_condition_type: MissionCompleteConditionType;
+    tab_number: long;
+    complete_condition_count: long;
+    season_id: long;
+    category: MissionCategory;
+    complete_condition_parameter: [long];
+    pre_mission_id: [long];
+    id: long;
+    description: uint;
+    toast_display_type: MissionToastDisplayConditionType;
+    mission_reward_amount: [int];
+}
+
+root_type GuideMissionExcel;

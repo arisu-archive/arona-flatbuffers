@@ -25,11 +25,11 @@ class LocalizeErrorExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # LocalizeErrorExcel
-    def Key(self):
+    def Th(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # LocalizeErrorExcel
     def ErrorLevel(self):
@@ -39,7 +39,7 @@ class LocalizeErrorExcel(object):
         return 0
 
     # LocalizeErrorExcel
-    def Kr(self):
+    def En(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
@@ -53,50 +53,50 @@ class LocalizeErrorExcel(object):
         return None
 
     # LocalizeErrorExcel
-    def Th(self):
+    def Tw(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # LocalizeErrorExcel
-    def Tw(self):
+    def Kr(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # LocalizeErrorExcel
-    def En(self):
+    def Key(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
 
 def LocalizeErrorExcelStart(builder): builder.StartObject(7)
 def Start(builder):
     return LocalizeErrorExcelStart(builder)
-def LocalizeErrorExcelAddKey(builder, key): builder.PrependUint32Slot(0, key, 0)
-def AddKey(builder, key):
-    return LocalizeErrorExcelAddKey(builder, key)
+def LocalizeErrorExcelAddTh(builder, th): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(th), 0)
+def AddTh(builder, th):
+    return LocalizeErrorExcelAddTh(builder, th)
 def LocalizeErrorExcelAddErrorLevel(builder, errorLevel): builder.PrependInt32Slot(1, errorLevel, 0)
 def AddErrorLevel(builder, errorLevel):
     return LocalizeErrorExcelAddErrorLevel(builder, errorLevel)
-def LocalizeErrorExcelAddKr(builder, kr): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(kr), 0)
-def AddKr(builder, kr):
-    return LocalizeErrorExcelAddKr(builder, kr)
+def LocalizeErrorExcelAddEn(builder, en): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(en), 0)
+def AddEn(builder, en):
+    return LocalizeErrorExcelAddEn(builder, en)
 def LocalizeErrorExcelAddJp(builder, jp): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(jp), 0)
 def AddJp(builder, jp):
     return LocalizeErrorExcelAddJp(builder, jp)
-def LocalizeErrorExcelAddTh(builder, th): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(th), 0)
-def AddTh(builder, th):
-    return LocalizeErrorExcelAddTh(builder, th)
-def LocalizeErrorExcelAddTw(builder, tw): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(tw), 0)
+def LocalizeErrorExcelAddTw(builder, tw): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(tw), 0)
 def AddTw(builder, tw):
     return LocalizeErrorExcelAddTw(builder, tw)
-def LocalizeErrorExcelAddEn(builder, en): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(en), 0)
-def AddEn(builder, en):
-    return LocalizeErrorExcelAddEn(builder, en)
+def LocalizeErrorExcelAddKr(builder, kr): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(kr), 0)
+def AddKr(builder, kr):
+    return LocalizeErrorExcelAddKr(builder, kr)
+def LocalizeErrorExcelAddKey(builder, key): builder.PrependUint32Slot(6, key, 0)
+def AddKey(builder, key):
+    return LocalizeErrorExcelAddKey(builder, key)
 def LocalizeErrorExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return LocalizeErrorExcelEnd(builder)

@@ -1,16 +1,16 @@
 namespace FlatData;
 
 table ConstMiniGameShootingExcel {
-    normal_stage_id: long;
     normal_section_count: int;
+    normal_stage_id: long;
     hard_stage_id: long;
-    hard_section_count: int;
-    free_stage_id: long;
     free_section_count: int;
-    player_character_id: [long];
-    hidden_player_character_id: long;
-    camera_smooth_time: float;
     spawn_effect_path: string;
+    camera_smooth_time: float;
+    hard_section_count: int;
     wait_time_after_spawn: float;
+    hidden_player_character_id: long;
     free_gear_interval: int;
+    free_stage_id: long;
+    player_character_id: [long];
 }

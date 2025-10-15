@@ -1,0 +1,28 @@
+namespace MX.Data.Excel;
+
+table EliminateRaidSeasonManageExcel {
+    limited_reward_id_normal: long;
+    season_start_data: string;
+    open_raid_boss_group01: string;
+    season_display: long;
+    limited_reward_id_hardcore: long;
+    limited_reward_id_torment: long;
+    season_end_data: string;
+    lobby_screen_bg_path: string;
+    settlement_end_date: string;
+    season_reward_id: [long];
+    end_note_label_start_date: string;
+    limited_reward_id_insane: long;
+    open_raid_boss_group02: string;
+    stacked_season_reward_gauge: [long];
+    open_raid_boss_group03: string;
+    limited_reward_id_veryhard: long;
+    lobby_table_bg_path: string;
+    limited_reward_id_hard: long;
+    max_season_reward_gauage: int;
+    limited_reward_id_extreme: long;
+    ranking_reward_group_id: long;
+    season_id: long;
+}
+
+root_type EliminateRaidSeasonManageExcel;

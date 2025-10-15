@@ -5,18 +5,18 @@ namespace MX.Data.Excel;
 
 table ContentsShortcutExcel {
     unique_id: long;
-    content_type: ContentType;
-    event_content_id: long;
-    scenario_mode_volume: long;
-    scenario_mode_chapter: long;
+    localize: string;
     shortcut_open_time: string;
     shortcut_close_time: string;
-    condition_content_id: long;
+    content_type: ContentType;
     conquest_map_difficulty: StageDifficulty;
+    condition_content_id: long;
     conquest_step_index: int;
     shortcut_content_id: long;
+    scenario_mode_chapter: long;
+    scenario_mode_volume: long;
+    event_content_id: long;
     shortcut_ui_name: [string];
-    localize: string;
 }
 
 root_type ContentsShortcutExcel;

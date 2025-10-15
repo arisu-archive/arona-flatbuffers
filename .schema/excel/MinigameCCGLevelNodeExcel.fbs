@@ -1,0 +1,13 @@
+include "CCGLevelNodeIcon.fbs";
+
+namespace MX.Data.Excel;
+
+table MinigameCCGLevelNodeExcel {
+    node_icon: CCGLevelNodeIcon;
+    next_node_id: [long];
+    node_id: long;
+    level_id: long;
+    stage_group_id: long;
+}
+
+root_type MinigameCCGLevelNodeExcel;

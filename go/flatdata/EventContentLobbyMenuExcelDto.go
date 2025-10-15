@@ -10,14 +10,14 @@ import (
 // EventContentLobbyMenuExcelDto represents a FlatBuffers table
 type EventContentLobbyMenuExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId   int64            `json:"event_content_id"`
-	EventContentType EventContentType `json:"event_content_type"`
 	IconSpriteName   string           `json:"icon_sprite_name"`
-	ButtonText       string           `json:"button_text"`
-	DisplayOrder     int32            `json:"display_order"`
-	IconOffsetX      float32          `json:"icon_offset_x"`
-	IconOffsetY      float32          `json:"icon_offset_y"`
 	ReddotSpriteName string           `json:"reddot_sprite_name"`
+	IconOffsetY      float32          `json:"icon_offset_y"`
+	IconOffsetX      float32          `json:"icon_offset_x"`
+	EventContentType EventContentType `json:"event_content_type"`
+	DisplayOrder     int32            `json:"display_order"`
+	ButtonText       string           `json:"button_text"`
+	EventContentId   int64            `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -26,14 +26,14 @@ func (t *EventContentLobbyMenuExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLobbyMenu"))
 	}
 	EventContentLobbyMenuExcelStart(b)
-	EventContentLobbyMenuExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentLobbyMenuExcelAddEventContentType(b, fbsutils.Convert(t.EventContentType, t.FlatBuffer.TableKey))
 	EventContentLobbyMenuExcelAddIconSpriteName(b, b.CreateString(fbsutils.Convert(t.IconSpriteName, t.FlatBuffer.TableKey)))
-	EventContentLobbyMenuExcelAddButtonText(b, b.CreateString(fbsutils.Convert(t.ButtonText, t.FlatBuffer.TableKey)))
-	EventContentLobbyMenuExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
-	EventContentLobbyMenuExcelAddIconOffsetX(b, fbsutils.Convert(t.IconOffsetX, t.FlatBuffer.TableKey))
-	EventContentLobbyMenuExcelAddIconOffsetY(b, fbsutils.Convert(t.IconOffsetY, t.FlatBuffer.TableKey))
 	EventContentLobbyMenuExcelAddReddotSpriteName(b, b.CreateString(fbsutils.Convert(t.ReddotSpriteName, t.FlatBuffer.TableKey)))
+	EventContentLobbyMenuExcelAddIconOffsetY(b, fbsutils.Convert(t.IconOffsetY, t.FlatBuffer.TableKey))
+	EventContentLobbyMenuExcelAddIconOffsetX(b, fbsutils.Convert(t.IconOffsetX, t.FlatBuffer.TableKey))
+	EventContentLobbyMenuExcelAddEventContentType(b, fbsutils.Convert(t.EventContentType, t.FlatBuffer.TableKey))
+	EventContentLobbyMenuExcelAddDisplayOrder(b, fbsutils.Convert(t.DisplayOrder, t.FlatBuffer.TableKey))
+	EventContentLobbyMenuExcelAddButtonText(b, b.CreateString(fbsutils.Convert(t.ButtonText, t.FlatBuffer.TableKey)))
+	EventContentLobbyMenuExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return EventContentLobbyMenuExcelEnd(b)
 }
 
@@ -49,14 +49,14 @@ func (t *EventContentLobbyMenuExcelDto) UnmarshalMessage(e *EventContentLobbyMen
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLobbyMenu"))
 	}
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.EventContentType = EventContentType(fbsutils.Convert(int32(e.EventContentType()), t.FlatBuffer.TableKey))
 	t.IconSpriteName = fbsutils.Convert(string(e.IconSpriteName()), t.FlatBuffer.TableKey)
-	t.ButtonText = fbsutils.Convert(string(e.ButtonText()), t.FlatBuffer.TableKey)
-	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
-	t.IconOffsetX = fbsutils.Convert(e.IconOffsetX(), t.FlatBuffer.TableKey)
-	t.IconOffsetY = fbsutils.Convert(e.IconOffsetY(), t.FlatBuffer.TableKey)
 	t.ReddotSpriteName = fbsutils.Convert(string(e.ReddotSpriteName()), t.FlatBuffer.TableKey)
+	t.IconOffsetY = fbsutils.Convert(e.IconOffsetY(), t.FlatBuffer.TableKey)
+	t.IconOffsetX = fbsutils.Convert(e.IconOffsetX(), t.FlatBuffer.TableKey)
+	t.EventContentType = EventContentType(fbsutils.Convert(int32(e.EventContentType()), t.FlatBuffer.TableKey))
+	t.DisplayOrder = fbsutils.Convert(e.DisplayOrder(), t.FlatBuffer.TableKey)
+	t.ButtonText = fbsutils.Convert(string(e.ButtonText()), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -1,0 +1,40 @@
+include "GachaDisplayTag.fbs";
+include "PurchaseCountResetType.fbs";
+include "ShopCategoryType.fbs";
+
+namespace MX.Data.Excel;
+
+table ShopRecruitExcel {
+    select_able_gacha_group_id: long;
+    probability_url_live: string;
+    direct_pay_invisible_token_id: long;
+    display_tag: GachaDisplayTag;
+    direct_pay_android_shop_cash_id: long;
+    display_order: long;
+    direct_pay_apple_shop_cash_id: long;
+    purchase_count_limit: long;
+    recruit_sellection_shop_id: long;
+    sale_period_from: string;
+    sale_period_visible: bool;
+    probability_url_dev: string;
+    video_id: [long];
+    purchase_count_reset_type: PurchaseCountResetType;
+    sale_period_to: string;
+    recruit_coin_id: long;
+    linked_robby_banner_id: long;
+    is_legacy: bool;
+    goods_dev_name: string;
+    is_newbie: bool;
+    gacha_banner_path: string;
+    id: long;
+    max_select_character_num: long;
+    direct_pay_one_store_shop_cash_id: long;
+    category_type: ShopCategoryType;
+    ten_gacha_goods_id: long;
+    info_character_id: [long];
+    one_gacha_goods_id: long;
+    is_select_recruit: bool;
+    purchase_cooltime_min: long;
+}
+
+root_type ShopRecruitExcel;

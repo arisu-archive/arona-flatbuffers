@@ -10,11 +10,11 @@ import (
 // MiniGameDreamEndingExcelDto represents a FlatBuffers table
 type MiniGameDreamEndingExcelDto struct {
 	fbsutils.FlatBuffer
+	DreamMakerEndingType DreamMakerEndingType        `json:"dream_maker_ending_type"`
+	ScenarioGroupId      int64                       `json:"scenario_group_id"`
 	EventContentId       int64                       `json:"event_content_id"`
 	EndingId             int64                       `json:"ending_id"`
-	DreamMakerEndingType DreamMakerEndingType        `json:"dream_maker_ending_type"`
 	Order                int32                       `json:"order"`
-	ScenarioGroupId      int64                       `json:"scenario_group_id"`
 	EndingCondition      []DreamMakerEndingCondition `json:"ending_condition"`
 	EndingConditionValue []int64                     `json:"ending_condition_value"`
 }
@@ -22,11 +22,11 @@ type MiniGameDreamEndingExcelDto struct {
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MiniGameDreamEndingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	MiniGameDreamEndingExcelStart(b)
+	MiniGameDreamEndingExcelAddDreamMakerEndingType(b, fbsutils.Convert(t.DreamMakerEndingType, t.FlatBuffer.TableKey))
+	MiniGameDreamEndingExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
 	MiniGameDreamEndingExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	MiniGameDreamEndingExcelAddEndingId(b, fbsutils.Convert(t.EndingId, t.FlatBuffer.TableKey))
-	MiniGameDreamEndingExcelAddDreamMakerEndingType(b, fbsutils.Convert(t.DreamMakerEndingType, t.FlatBuffer.TableKey))
 	MiniGameDreamEndingExcelAddOrder(b, fbsutils.Convert(t.Order, t.FlatBuffer.TableKey))
-	MiniGameDreamEndingExcelAddScenarioGroupId(b, fbsutils.Convert(t.ScenarioGroupId, t.FlatBuffer.TableKey))
 	MiniGameDreamEndingExcelStartEndingConditionVector(b, len(t.EndingCondition))
 	for i := range len(t.EndingCondition) {
 		b.PrependInt32(fbsutils.Convert(int32(t.EndingCondition[len(t.EndingCondition)-i-1]), t.FlatBuffer.TableKey))
@@ -49,11 +49,11 @@ func (t *MiniGameDreamEndingExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *MiniGameDreamEndingExcelDto) UnmarshalMessage(e *MiniGameDreamEndingExcel) error {
+	t.DreamMakerEndingType = DreamMakerEndingType(fbsutils.Convert(int32(e.DreamMakerEndingType()), t.FlatBuffer.TableKey))
+	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	t.EndingId = fbsutils.Convert(e.EndingId(), t.FlatBuffer.TableKey)
-	t.DreamMakerEndingType = DreamMakerEndingType(fbsutils.Convert(int32(e.DreamMakerEndingType()), t.FlatBuffer.TableKey))
 	t.Order = fbsutils.Convert(e.Order(), t.FlatBuffer.TableKey)
-	t.ScenarioGroupId = fbsutils.Convert(e.ScenarioGroupId(), t.FlatBuffer.TableKey)
 	t.EndingCondition = make([]DreamMakerEndingCondition, e.EndingConditionLength())
 	for i := range e.EndingConditionLength() {
 		t.EndingCondition[i] = DreamMakerEndingCondition(fbsutils.Convert(int32(e.EndingCondition(i)), t.FlatBuffer.TableKey))

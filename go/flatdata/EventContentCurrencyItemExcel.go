@@ -33,7 +33,7 @@ func (rcv *EventContentCurrencyItemExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *EventContentCurrencyItemExcel) EventContentId() int64 {
+func (rcv *EventContentCurrencyItemExcel) ItemUniqueId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -41,7 +41,7 @@ func (rcv *EventContentCurrencyItemExcel) EventContentId() int64 {
 	return 0
 }
 
-func (rcv *EventContentCurrencyItemExcel) MutateEventContentId(n int64) bool {
+func (rcv *EventContentCurrencyItemExcel) MutateItemUniqueId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
@@ -57,7 +57,7 @@ func (rcv *EventContentCurrencyItemExcel) MutateEventContentItemType(n EventCont
 	return rcv._tab.MutateInt32Slot(6, int32(n))
 }
 
-func (rcv *EventContentCurrencyItemExcel) ItemUniqueId() int64 {
+func (rcv *EventContentCurrencyItemExcel) EventContentId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -65,7 +65,7 @@ func (rcv *EventContentCurrencyItemExcel) ItemUniqueId() int64 {
 	return 0
 }
 
-func (rcv *EventContentCurrencyItemExcel) MutateItemUniqueId(n int64) bool {
+func (rcv *EventContentCurrencyItemExcel) MutateEventContentId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(8, n)
 }
 
@@ -80,14 +80,14 @@ func (rcv *EventContentCurrencyItemExcel) UseShortCutContentType() []byte {
 func EventContentCurrencyItemExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(4)
 }
-func EventContentCurrencyItemExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
-	builder.PrependInt64Slot(0, eventContentId, 0)
+func EventContentCurrencyItemExcelAddItemUniqueId(builder *flatbuffers.Builder, itemUniqueId int64) {
+	builder.PrependInt64Slot(0, itemUniqueId, 0)
 }
 func EventContentCurrencyItemExcelAddEventContentItemType(builder *flatbuffers.Builder, eventContentItemType EventContentItemType) {
 	builder.PrependInt32Slot(1, int32(eventContentItemType), 0)
 }
-func EventContentCurrencyItemExcelAddItemUniqueId(builder *flatbuffers.Builder, itemUniqueId int64) {
-	builder.PrependInt64Slot(2, itemUniqueId, 0)
+func EventContentCurrencyItemExcelAddEventContentId(builder *flatbuffers.Builder, eventContentId int64) {
+	builder.PrependInt64Slot(2, eventContentId, 0)
 }
 func EventContentCurrencyItemExcelAddUseShortCutContentType(builder *flatbuffers.Builder, useShortCutContentType flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(useShortCutContentType), 0)

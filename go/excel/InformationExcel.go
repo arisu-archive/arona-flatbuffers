@@ -33,16 +33,21 @@ func (rcv *InformationExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *InformationExcel) GroupId() int64 {
+func (rcv *InformationExcel) UiName(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
 	}
-	return 0
+	return nil
 }
 
-func (rcv *InformationExcel) MutateGroupId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *InformationExcel) UiNameLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
 }
 
 func (rcv *InformationExcel) PageName() []byte {
@@ -53,8 +58,16 @@ func (rcv *InformationExcel) PageName() []byte {
 	return nil
 }
 
-func (rcv *InformationExcel) IsPcBuild() bool {
+func (rcv *InformationExcel) LocalizeCodeId() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *InformationExcel) IsPcBuild() bool {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetBool(o + rcv._tab.Pos)
 	}
@@ -62,35 +75,22 @@ func (rcv *InformationExcel) IsPcBuild() bool {
 }
 
 func (rcv *InformationExcel) MutateIsPcBuild(n bool) bool {
-	return rcv._tab.MutateBoolSlot(8, n)
+	return rcv._tab.MutateBoolSlot(10, n)
 }
 
-func (rcv *InformationExcel) LocalizeCodeId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *InformationExcel) TutorialParentName(j int) []byte {
+func (rcv *InformationExcel) GroupId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *InformationExcel) TutorialParentNameLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *InformationExcel) UiName(j int) []byte {
+func (rcv *InformationExcel) MutateGroupId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(12, n)
+}
+
+func (rcv *InformationExcel) TutorialParentName(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
@@ -99,7 +99,7 @@ func (rcv *InformationExcel) UiName(j int) []byte {
 	return nil
 }
 
-func (rcv *InformationExcel) UiNameLength() int {
+func (rcv *InformationExcel) TutorialParentNameLength() int {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
@@ -110,28 +110,28 @@ func (rcv *InformationExcel) UiNameLength() int {
 func InformationExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func InformationExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
-	builder.PrependInt64Slot(0, groupId, 0)
+func InformationExcelAddUiName(builder *flatbuffers.Builder, uiName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(uiName), 0)
+}
+func InformationExcelStartUiNameVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func InformationExcelAddPageName(builder *flatbuffers.Builder, pageName flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(pageName), 0)
 }
-func InformationExcelAddIsPcBuild(builder *flatbuffers.Builder, isPcBuild bool) {
-	builder.PrependBoolSlot(2, isPcBuild, false)
-}
 func InformationExcelAddLocalizeCodeId(builder *flatbuffers.Builder, localizeCodeId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(localizeCodeId), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(localizeCodeId), 0)
+}
+func InformationExcelAddIsPcBuild(builder *flatbuffers.Builder, isPcBuild bool) {
+	builder.PrependBoolSlot(3, isPcBuild, false)
+}
+func InformationExcelAddGroupId(builder *flatbuffers.Builder, groupId int64) {
+	builder.PrependInt64Slot(4, groupId, 0)
 }
 func InformationExcelAddTutorialParentName(builder *flatbuffers.Builder, tutorialParentName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(tutorialParentName), 0)
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(tutorialParentName), 0)
 }
 func InformationExcelStartTutorialParentNameVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
-func InformationExcelAddUiName(builder *flatbuffers.Builder, uiName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(uiName), 0)
-}
-func InformationExcelStartUiNameVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func InformationExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {

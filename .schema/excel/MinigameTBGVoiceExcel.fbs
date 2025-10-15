@@ -1,0 +1,12 @@
+include "TBGVoiceCondition.fbs";
+
+namespace MX.Data.Excel;
+
+table MinigameTBGVoiceExcel {
+    voice_id: uint;
+    voice_condition: TBGVoiceCondition;
+    event_content_id: long;
+    unique_id: long;
+}
+
+root_type MinigameTBGVoiceExcel;

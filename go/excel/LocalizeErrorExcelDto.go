@@ -10,25 +10,25 @@ import (
 // LocalizeErrorExcelDto represents a FlatBuffers table
 type LocalizeErrorExcelDto struct {
 	fbsutils.FlatBuffer
-	Key        uint32           `json:"key"`
-	ErrorLevel WebAPIErrorLevel `json:"error_level"`
-	Kr         string           `json:"kr"`
-	Jp         string           `json:"jp"`
 	Th         string           `json:"th"`
-	Tw         string           `json:"tw"`
+	ErrorLevel WebAPIErrorLevel `json:"error_level"`
 	En         string           `json:"en"`
+	Jp         string           `json:"jp"`
+	Tw         string           `json:"tw"`
+	Kr         string           `json:"kr"`
+	Key        uint32           `json:"key"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeErrorExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	LocalizeErrorExcelStart(b)
-	LocalizeErrorExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	LocalizeErrorExcelAddErrorLevel(b, fbsutils.Convert(t.ErrorLevel, t.FlatBuffer.TableKey))
-	LocalizeErrorExcelAddKr(b, b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey)))
-	LocalizeErrorExcelAddJp(b, b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey)))
 	LocalizeErrorExcelAddTh(b, b.CreateString(fbsutils.Convert(t.Th, t.FlatBuffer.TableKey)))
-	LocalizeErrorExcelAddTw(b, b.CreateString(fbsutils.Convert(t.Tw, t.FlatBuffer.TableKey)))
+	LocalizeErrorExcelAddErrorLevel(b, fbsutils.Convert(t.ErrorLevel, t.FlatBuffer.TableKey))
 	LocalizeErrorExcelAddEn(b, b.CreateString(fbsutils.Convert(t.En, t.FlatBuffer.TableKey)))
+	LocalizeErrorExcelAddJp(b, b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey)))
+	LocalizeErrorExcelAddTw(b, b.CreateString(fbsutils.Convert(t.Tw, t.FlatBuffer.TableKey)))
+	LocalizeErrorExcelAddKr(b, b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey)))
+	LocalizeErrorExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
 	return LocalizeErrorExcelEnd(b)
 }
 
@@ -41,13 +41,13 @@ func (t *LocalizeErrorExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *LocalizeErrorExcelDto) UnmarshalMessage(e *LocalizeErrorExcel) error {
-	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
-	t.ErrorLevel = WebAPIErrorLevel(fbsutils.Convert(int32(e.ErrorLevel()), t.FlatBuffer.TableKey))
-	t.Kr = fbsutils.Convert(string(e.Kr()), t.FlatBuffer.TableKey)
-	t.Jp = fbsutils.Convert(string(e.Jp()), t.FlatBuffer.TableKey)
 	t.Th = fbsutils.Convert(string(e.Th()), t.FlatBuffer.TableKey)
-	t.Tw = fbsutils.Convert(string(e.Tw()), t.FlatBuffer.TableKey)
+	t.ErrorLevel = WebAPIErrorLevel(fbsutils.Convert(int32(e.ErrorLevel()), t.FlatBuffer.TableKey))
 	t.En = fbsutils.Convert(string(e.En()), t.FlatBuffer.TableKey)
+	t.Jp = fbsutils.Convert(string(e.Jp()), t.FlatBuffer.TableKey)
+	t.Tw = fbsutils.Convert(string(e.Tw()), t.FlatBuffer.TableKey)
+	t.Kr = fbsutils.Convert(string(e.Kr()), t.FlatBuffer.TableKey)
+	t.Key = fbsutils.Convert(e.Key(), t.FlatBuffer.TableKey)
 	return nil
 }
 

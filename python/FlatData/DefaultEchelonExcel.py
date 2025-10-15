@@ -25,10 +25,10 @@ class DefaultEchelonExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # DefaultEchelonExcel
-    def EchlonId(self):
+    def TssId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # DefaultEchelonExcel
@@ -93,18 +93,18 @@ class DefaultEchelonExcel(object):
         return o == 0
 
     # DefaultEchelonExcel
-    def TssId(self):
+    def EchlonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
 def DefaultEchelonExcelStart(builder): builder.StartObject(5)
 def Start(builder):
     return DefaultEchelonExcelStart(builder)
-def DefaultEchelonExcelAddEchlonId(builder, echlonId): builder.PrependInt32Slot(0, echlonId, 0)
-def AddEchlonId(builder, echlonId):
-    return DefaultEchelonExcelAddEchlonId(builder, echlonId)
+def DefaultEchelonExcelAddTssId(builder, tssId): builder.PrependInt64Slot(0, tssId, 0)
+def AddTssId(builder, tssId):
+    return DefaultEchelonExcelAddTssId(builder, tssId)
 def DefaultEchelonExcelAddLeaderId(builder, leaderId): builder.PrependInt64Slot(1, leaderId, 0)
 def AddLeaderId(builder, leaderId):
     return DefaultEchelonExcelAddLeaderId(builder, leaderId)
@@ -120,9 +120,9 @@ def AddSupportId(builder, supportId):
 def DefaultEchelonExcelStartSupportIdVector(builder, numElems): return builder.StartVector(8, numElems, 8)
 def StartSupportIdVector(builder, numElems):
     return DefaultEchelonExcelStartSupportIdVector(builder, numElems)
-def DefaultEchelonExcelAddTssId(builder, tssId): builder.PrependInt64Slot(4, tssId, 0)
-def AddTssId(builder, tssId):
-    return DefaultEchelonExcelAddTssId(builder, tssId)
+def DefaultEchelonExcelAddEchlonId(builder, echlonId): builder.PrependInt32Slot(4, echlonId, 0)
+def AddEchlonId(builder, echlonId):
+    return DefaultEchelonExcelAddEchlonId(builder, echlonId)
 def DefaultEchelonExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return DefaultEchelonExcelEnd(builder)

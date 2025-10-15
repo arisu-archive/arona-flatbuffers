@@ -33,19 +33,19 @@ func (rcv *CharacterVictoryInteractionExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *CharacterVictoryInteractionExcel) InteractionId() int64 {
+func (rcv *CharacterVictoryInteractionExcel) PositionIndex05() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterVictoryInteractionExcel) MutateInteractionId(n int64) bool {
-	return rcv._tab.MutateInt64Slot(4, n)
+func (rcv *CharacterVictoryInteractionExcel) MutatePositionIndex05(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
 }
 
-func (rcv *CharacterVictoryInteractionExcel) CostumeId01() int64 {
+func (rcv *CharacterVictoryInteractionExcel) CostumeId06() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -53,104 +53,12 @@ func (rcv *CharacterVictoryInteractionExcel) CostumeId01() int64 {
 	return 0
 }
 
-func (rcv *CharacterVictoryInteractionExcel) MutateCostumeId01(n int64) bool {
+func (rcv *CharacterVictoryInteractionExcel) MutateCostumeId06(n int64) bool {
 	return rcv._tab.MutateInt64Slot(6, n)
 }
 
-func (rcv *CharacterVictoryInteractionExcel) PositionIndex01() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterVictoryInteractionExcel) MutatePositionIndex01(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
-func (rcv *CharacterVictoryInteractionExcel) VictoryStartAnimationPath01() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterVictoryInteractionExcel) VictoryEndAnimationPath01() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterVictoryInteractionExcel) VoiceEvent01() VoiceEvent {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return VoiceEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CharacterVictoryInteractionExcel) MutateVoiceEvent01(n VoiceEvent) bool {
-	return rcv._tab.MutateInt32Slot(14, int32(n))
-}
-
-func (rcv *CharacterVictoryInteractionExcel) CostumeId02() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterVictoryInteractionExcel) MutateCostumeId02(n int64) bool {
-	return rcv._tab.MutateInt64Slot(16, n)
-}
-
-func (rcv *CharacterVictoryInteractionExcel) PositionIndex02() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterVictoryInteractionExcel) MutatePositionIndex02(n int32) bool {
-	return rcv._tab.MutateInt32Slot(18, n)
-}
-
-func (rcv *CharacterVictoryInteractionExcel) VictoryStartAnimationPath02() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterVictoryInteractionExcel) VictoryEndAnimationPath02() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterVictoryInteractionExcel) VoiceEvent02() VoiceEvent {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return VoiceEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CharacterVictoryInteractionExcel) MutateVoiceEvent02(n VoiceEvent) bool {
-	return rcv._tab.MutateInt32Slot(24, int32(n))
-}
-
 func (rcv *CharacterVictoryInteractionExcel) CostumeId03() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -158,7 +66,103 @@ func (rcv *CharacterVictoryInteractionExcel) CostumeId03() int64 {
 }
 
 func (rcv *CharacterVictoryInteractionExcel) MutateCostumeId03(n int64) bool {
-	return rcv._tab.MutateInt64Slot(26, n)
+	return rcv._tab.MutateInt64Slot(8, n)
+}
+
+func (rcv *CharacterVictoryInteractionExcel) CostumeId02() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterVictoryInteractionExcel) MutateCostumeId02(n int64) bool {
+	return rcv._tab.MutateInt64Slot(10, n)
+}
+
+func (rcv *CharacterVictoryInteractionExcel) VoiceEvent04() VoiceEvent {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	if o != 0 {
+		return VoiceEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterVictoryInteractionExcel) MutateVoiceEvent04(n VoiceEvent) bool {
+	return rcv._tab.MutateInt32Slot(12, int32(n))
+}
+
+func (rcv *CharacterVictoryInteractionExcel) PositionIndex06() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterVictoryInteractionExcel) MutatePositionIndex06(n int32) bool {
+	return rcv._tab.MutateInt32Slot(14, n)
+}
+
+func (rcv *CharacterVictoryInteractionExcel) VictoryEndAnimationPath06() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterVictoryInteractionExcel) PositionIndex01() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterVictoryInteractionExcel) MutatePositionIndex01(n int32) bool {
+	return rcv._tab.MutateInt32Slot(18, n)
+}
+
+func (rcv *CharacterVictoryInteractionExcel) CostumeId01() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterVictoryInteractionExcel) MutateCostumeId01(n int64) bool {
+	return rcv._tab.MutateInt64Slot(20, n)
+}
+
+func (rcv *CharacterVictoryInteractionExcel) VictoryStartAnimationPath05() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterVictoryInteractionExcel) VictoryStartAnimationPath06() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterVictoryInteractionExcel) VoiceEvent02() VoiceEvent {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	if o != 0 {
+		return VoiceEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterVictoryInteractionExcel) MutateVoiceEvent02(n VoiceEvent) bool {
+	return rcv._tab.MutateInt32Slot(26, int32(n))
 }
 
 func (rcv *CharacterVictoryInteractionExcel) PositionIndex03() int32 {
@@ -173,7 +177,7 @@ func (rcv *CharacterVictoryInteractionExcel) MutatePositionIndex03(n int32) bool
 	return rcv._tab.MutateInt32Slot(28, n)
 }
 
-func (rcv *CharacterVictoryInteractionExcel) VictoryStartAnimationPath03() []byte {
+func (rcv *CharacterVictoryInteractionExcel) VictoryEndAnimationPath02() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -181,7 +185,7 @@ func (rcv *CharacterVictoryInteractionExcel) VictoryStartAnimationPath03() []byt
 	return nil
 }
 
-func (rcv *CharacterVictoryInteractionExcel) VictoryEndAnimationPath03() []byte {
+func (rcv *CharacterVictoryInteractionExcel) VictoryStartAnimationPath04() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -189,7 +193,7 @@ func (rcv *CharacterVictoryInteractionExcel) VictoryEndAnimationPath03() []byte 
 	return nil
 }
 
-func (rcv *CharacterVictoryInteractionExcel) VoiceEvent03() VoiceEvent {
+func (rcv *CharacterVictoryInteractionExcel) VoiceEvent01() VoiceEvent {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
 		return VoiceEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
@@ -197,96 +201,12 @@ func (rcv *CharacterVictoryInteractionExcel) VoiceEvent03() VoiceEvent {
 	return 0
 }
 
-func (rcv *CharacterVictoryInteractionExcel) MutateVoiceEvent03(n VoiceEvent) bool {
+func (rcv *CharacterVictoryInteractionExcel) MutateVoiceEvent01(n VoiceEvent) bool {
 	return rcv._tab.MutateInt32Slot(34, int32(n))
 }
 
-func (rcv *CharacterVictoryInteractionExcel) CostumeId04() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterVictoryInteractionExcel) MutateCostumeId04(n int64) bool {
-	return rcv._tab.MutateInt64Slot(36, n)
-}
-
-func (rcv *CharacterVictoryInteractionExcel) PositionIndex04() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterVictoryInteractionExcel) MutatePositionIndex04(n int32) bool {
-	return rcv._tab.MutateInt32Slot(38, n)
-}
-
-func (rcv *CharacterVictoryInteractionExcel) VictoryStartAnimationPath04() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterVictoryInteractionExcel) VictoryEndAnimationPath04() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *CharacterVictoryInteractionExcel) VoiceEvent04() VoiceEvent {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
-	if o != 0 {
-		return VoiceEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
-	}
-	return 0
-}
-
-func (rcv *CharacterVictoryInteractionExcel) MutateVoiceEvent04(n VoiceEvent) bool {
-	return rcv._tab.MutateInt32Slot(44, int32(n))
-}
-
-func (rcv *CharacterVictoryInteractionExcel) CostumeId05() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterVictoryInteractionExcel) MutateCostumeId05(n int64) bool {
-	return rcv._tab.MutateInt64Slot(46, n)
-}
-
-func (rcv *CharacterVictoryInteractionExcel) PositionIndex05() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *CharacterVictoryInteractionExcel) MutatePositionIndex05(n int32) bool {
-	return rcv._tab.MutateInt32Slot(48, n)
-}
-
-func (rcv *CharacterVictoryInteractionExcel) VictoryStartAnimationPath05() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *CharacterVictoryInteractionExcel) VictoryEndAnimationPath05() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -294,7 +214,7 @@ func (rcv *CharacterVictoryInteractionExcel) VictoryEndAnimationPath05() []byte 
 }
 
 func (rcv *CharacterVictoryInteractionExcel) VoiceEvent05() VoiceEvent {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return VoiceEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -302,22 +222,98 @@ func (rcv *CharacterVictoryInteractionExcel) VoiceEvent05() VoiceEvent {
 }
 
 func (rcv *CharacterVictoryInteractionExcel) MutateVoiceEvent05(n VoiceEvent) bool {
-	return rcv._tab.MutateInt32Slot(54, int32(n))
+	return rcv._tab.MutateInt32Slot(38, int32(n))
 }
 
-func (rcv *CharacterVictoryInteractionExcel) CostumeId06() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+func (rcv *CharacterVictoryInteractionExcel) CostumeId04() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *CharacterVictoryInteractionExcel) MutateCostumeId06(n int64) bool {
-	return rcv._tab.MutateInt64Slot(56, n)
+func (rcv *CharacterVictoryInteractionExcel) MutateCostumeId04(n int64) bool {
+	return rcv._tab.MutateInt64Slot(40, n)
 }
 
-func (rcv *CharacterVictoryInteractionExcel) PositionIndex06() int32 {
+func (rcv *CharacterVictoryInteractionExcel) PositionIndex02() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterVictoryInteractionExcel) MutatePositionIndex02(n int32) bool {
+	return rcv._tab.MutateInt32Slot(42, n)
+}
+
+func (rcv *CharacterVictoryInteractionExcel) CostumeId05() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CharacterVictoryInteractionExcel) MutateCostumeId05(n int64) bool {
+	return rcv._tab.MutateInt64Slot(44, n)
+}
+
+func (rcv *CharacterVictoryInteractionExcel) VoiceEvent03() VoiceEvent {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
+	if o != 0 {
+		return VoiceEvent(rcv._tab.GetInt32(o + rcv._tab.Pos))
+	}
+	return 0
+}
+
+func (rcv *CharacterVictoryInteractionExcel) MutateVoiceEvent03(n VoiceEvent) bool {
+	return rcv._tab.MutateInt32Slot(46, int32(n))
+}
+
+func (rcv *CharacterVictoryInteractionExcel) VictoryStartAnimationPath02() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterVictoryInteractionExcel) VictoryEndAnimationPath03() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterVictoryInteractionExcel) VictoryEndAnimationPath04() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterVictoryInteractionExcel) VictoryStartAnimationPath03() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterVictoryInteractionExcel) VictoryEndAnimationPath01() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *CharacterVictoryInteractionExcel) PositionIndex04() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -325,19 +321,23 @@ func (rcv *CharacterVictoryInteractionExcel) PositionIndex06() int32 {
 	return 0
 }
 
-func (rcv *CharacterVictoryInteractionExcel) MutatePositionIndex06(n int32) bool {
+func (rcv *CharacterVictoryInteractionExcel) MutatePositionIndex04(n int32) bool {
 	return rcv._tab.MutateInt32Slot(58, n)
 }
 
-func (rcv *CharacterVictoryInteractionExcel) VictoryStartAnimationPath06() []byte {
+func (rcv *CharacterVictoryInteractionExcel) InteractionId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *CharacterVictoryInteractionExcel) VictoryEndAnimationPath06() []byte {
+func (rcv *CharacterVictoryInteractionExcel) MutateInteractionId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(60, n)
+}
+
+func (rcv *CharacterVictoryInteractionExcel) VictoryStartAnimationPath01() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -360,95 +360,95 @@ func (rcv *CharacterVictoryInteractionExcel) MutateVoiceEvent06(n VoiceEvent) bo
 func CharacterVictoryInteractionExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(31)
 }
-func CharacterVictoryInteractionExcelAddInteractionId(builder *flatbuffers.Builder, interactionId int64) {
-	builder.PrependInt64Slot(0, interactionId, 0)
+func CharacterVictoryInteractionExcelAddPositionIndex05(builder *flatbuffers.Builder, positionIndex05 int32) {
+	builder.PrependInt32Slot(0, positionIndex05, 0)
 }
-func CharacterVictoryInteractionExcelAddCostumeId01(builder *flatbuffers.Builder, costumeId01 int64) {
-	builder.PrependInt64Slot(1, costumeId01, 0)
-}
-func CharacterVictoryInteractionExcelAddPositionIndex01(builder *flatbuffers.Builder, positionIndex01 int32) {
-	builder.PrependInt32Slot(2, positionIndex01, 0)
-}
-func CharacterVictoryInteractionExcelAddVictoryStartAnimationPath01(builder *flatbuffers.Builder, victoryStartAnimationPath01 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(victoryStartAnimationPath01), 0)
-}
-func CharacterVictoryInteractionExcelAddVictoryEndAnimationPath01(builder *flatbuffers.Builder, victoryEndAnimationPath01 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(victoryEndAnimationPath01), 0)
-}
-func CharacterVictoryInteractionExcelAddVoiceEvent01(builder *flatbuffers.Builder, voiceEvent01 VoiceEvent) {
-	builder.PrependInt32Slot(5, int32(voiceEvent01), 0)
-}
-func CharacterVictoryInteractionExcelAddCostumeId02(builder *flatbuffers.Builder, costumeId02 int64) {
-	builder.PrependInt64Slot(6, costumeId02, 0)
-}
-func CharacterVictoryInteractionExcelAddPositionIndex02(builder *flatbuffers.Builder, positionIndex02 int32) {
-	builder.PrependInt32Slot(7, positionIndex02, 0)
-}
-func CharacterVictoryInteractionExcelAddVictoryStartAnimationPath02(builder *flatbuffers.Builder, victoryStartAnimationPath02 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(victoryStartAnimationPath02), 0)
-}
-func CharacterVictoryInteractionExcelAddVictoryEndAnimationPath02(builder *flatbuffers.Builder, victoryEndAnimationPath02 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(victoryEndAnimationPath02), 0)
-}
-func CharacterVictoryInteractionExcelAddVoiceEvent02(builder *flatbuffers.Builder, voiceEvent02 VoiceEvent) {
-	builder.PrependInt32Slot(10, int32(voiceEvent02), 0)
+func CharacterVictoryInteractionExcelAddCostumeId06(builder *flatbuffers.Builder, costumeId06 int64) {
+	builder.PrependInt64Slot(1, costumeId06, 0)
 }
 func CharacterVictoryInteractionExcelAddCostumeId03(builder *flatbuffers.Builder, costumeId03 int64) {
-	builder.PrependInt64Slot(11, costumeId03, 0)
+	builder.PrependInt64Slot(2, costumeId03, 0)
+}
+func CharacterVictoryInteractionExcelAddCostumeId02(builder *flatbuffers.Builder, costumeId02 int64) {
+	builder.PrependInt64Slot(3, costumeId02, 0)
+}
+func CharacterVictoryInteractionExcelAddVoiceEvent04(builder *flatbuffers.Builder, voiceEvent04 VoiceEvent) {
+	builder.PrependInt32Slot(4, int32(voiceEvent04), 0)
+}
+func CharacterVictoryInteractionExcelAddPositionIndex06(builder *flatbuffers.Builder, positionIndex06 int32) {
+	builder.PrependInt32Slot(5, positionIndex06, 0)
+}
+func CharacterVictoryInteractionExcelAddVictoryEndAnimationPath06(builder *flatbuffers.Builder, victoryEndAnimationPath06 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(victoryEndAnimationPath06), 0)
+}
+func CharacterVictoryInteractionExcelAddPositionIndex01(builder *flatbuffers.Builder, positionIndex01 int32) {
+	builder.PrependInt32Slot(7, positionIndex01, 0)
+}
+func CharacterVictoryInteractionExcelAddCostumeId01(builder *flatbuffers.Builder, costumeId01 int64) {
+	builder.PrependInt64Slot(8, costumeId01, 0)
+}
+func CharacterVictoryInteractionExcelAddVictoryStartAnimationPath05(builder *flatbuffers.Builder, victoryStartAnimationPath05 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(victoryStartAnimationPath05), 0)
+}
+func CharacterVictoryInteractionExcelAddVictoryStartAnimationPath06(builder *flatbuffers.Builder, victoryStartAnimationPath06 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(victoryStartAnimationPath06), 0)
+}
+func CharacterVictoryInteractionExcelAddVoiceEvent02(builder *flatbuffers.Builder, voiceEvent02 VoiceEvent) {
+	builder.PrependInt32Slot(11, int32(voiceEvent02), 0)
 }
 func CharacterVictoryInteractionExcelAddPositionIndex03(builder *flatbuffers.Builder, positionIndex03 int32) {
 	builder.PrependInt32Slot(12, positionIndex03, 0)
 }
-func CharacterVictoryInteractionExcelAddVictoryStartAnimationPath03(builder *flatbuffers.Builder, victoryStartAnimationPath03 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(victoryStartAnimationPath03), 0)
-}
-func CharacterVictoryInteractionExcelAddVictoryEndAnimationPath03(builder *flatbuffers.Builder, victoryEndAnimationPath03 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(victoryEndAnimationPath03), 0)
-}
-func CharacterVictoryInteractionExcelAddVoiceEvent03(builder *flatbuffers.Builder, voiceEvent03 VoiceEvent) {
-	builder.PrependInt32Slot(15, int32(voiceEvent03), 0)
-}
-func CharacterVictoryInteractionExcelAddCostumeId04(builder *flatbuffers.Builder, costumeId04 int64) {
-	builder.PrependInt64Slot(16, costumeId04, 0)
-}
-func CharacterVictoryInteractionExcelAddPositionIndex04(builder *flatbuffers.Builder, positionIndex04 int32) {
-	builder.PrependInt32Slot(17, positionIndex04, 0)
+func CharacterVictoryInteractionExcelAddVictoryEndAnimationPath02(builder *flatbuffers.Builder, victoryEndAnimationPath02 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(victoryEndAnimationPath02), 0)
 }
 func CharacterVictoryInteractionExcelAddVictoryStartAnimationPath04(builder *flatbuffers.Builder, victoryStartAnimationPath04 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(victoryStartAnimationPath04), 0)
+	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(victoryStartAnimationPath04), 0)
 }
-func CharacterVictoryInteractionExcelAddVictoryEndAnimationPath04(builder *flatbuffers.Builder, victoryEndAnimationPath04 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(19, flatbuffers.UOffsetT(victoryEndAnimationPath04), 0)
-}
-func CharacterVictoryInteractionExcelAddVoiceEvent04(builder *flatbuffers.Builder, voiceEvent04 VoiceEvent) {
-	builder.PrependInt32Slot(20, int32(voiceEvent04), 0)
-}
-func CharacterVictoryInteractionExcelAddCostumeId05(builder *flatbuffers.Builder, costumeId05 int64) {
-	builder.PrependInt64Slot(21, costumeId05, 0)
-}
-func CharacterVictoryInteractionExcelAddPositionIndex05(builder *flatbuffers.Builder, positionIndex05 int32) {
-	builder.PrependInt32Slot(22, positionIndex05, 0)
-}
-func CharacterVictoryInteractionExcelAddVictoryStartAnimationPath05(builder *flatbuffers.Builder, victoryStartAnimationPath05 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(victoryStartAnimationPath05), 0)
+func CharacterVictoryInteractionExcelAddVoiceEvent01(builder *flatbuffers.Builder, voiceEvent01 VoiceEvent) {
+	builder.PrependInt32Slot(15, int32(voiceEvent01), 0)
 }
 func CharacterVictoryInteractionExcelAddVictoryEndAnimationPath05(builder *flatbuffers.Builder, victoryEndAnimationPath05 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(victoryEndAnimationPath05), 0)
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(victoryEndAnimationPath05), 0)
 }
 func CharacterVictoryInteractionExcelAddVoiceEvent05(builder *flatbuffers.Builder, voiceEvent05 VoiceEvent) {
-	builder.PrependInt32Slot(25, int32(voiceEvent05), 0)
+	builder.PrependInt32Slot(17, int32(voiceEvent05), 0)
 }
-func CharacterVictoryInteractionExcelAddCostumeId06(builder *flatbuffers.Builder, costumeId06 int64) {
-	builder.PrependInt64Slot(26, costumeId06, 0)
+func CharacterVictoryInteractionExcelAddCostumeId04(builder *flatbuffers.Builder, costumeId04 int64) {
+	builder.PrependInt64Slot(18, costumeId04, 0)
 }
-func CharacterVictoryInteractionExcelAddPositionIndex06(builder *flatbuffers.Builder, positionIndex06 int32) {
-	builder.PrependInt32Slot(27, positionIndex06, 0)
+func CharacterVictoryInteractionExcelAddPositionIndex02(builder *flatbuffers.Builder, positionIndex02 int32) {
+	builder.PrependInt32Slot(19, positionIndex02, 0)
 }
-func CharacterVictoryInteractionExcelAddVictoryStartAnimationPath06(builder *flatbuffers.Builder, victoryStartAnimationPath06 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(victoryStartAnimationPath06), 0)
+func CharacterVictoryInteractionExcelAddCostumeId05(builder *flatbuffers.Builder, costumeId05 int64) {
+	builder.PrependInt64Slot(20, costumeId05, 0)
 }
-func CharacterVictoryInteractionExcelAddVictoryEndAnimationPath06(builder *flatbuffers.Builder, victoryEndAnimationPath06 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(29, flatbuffers.UOffsetT(victoryEndAnimationPath06), 0)
+func CharacterVictoryInteractionExcelAddVoiceEvent03(builder *flatbuffers.Builder, voiceEvent03 VoiceEvent) {
+	builder.PrependInt32Slot(21, int32(voiceEvent03), 0)
+}
+func CharacterVictoryInteractionExcelAddVictoryStartAnimationPath02(builder *flatbuffers.Builder, victoryStartAnimationPath02 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(22, flatbuffers.UOffsetT(victoryStartAnimationPath02), 0)
+}
+func CharacterVictoryInteractionExcelAddVictoryEndAnimationPath03(builder *flatbuffers.Builder, victoryEndAnimationPath03 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(23, flatbuffers.UOffsetT(victoryEndAnimationPath03), 0)
+}
+func CharacterVictoryInteractionExcelAddVictoryEndAnimationPath04(builder *flatbuffers.Builder, victoryEndAnimationPath04 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(24, flatbuffers.UOffsetT(victoryEndAnimationPath04), 0)
+}
+func CharacterVictoryInteractionExcelAddVictoryStartAnimationPath03(builder *flatbuffers.Builder, victoryStartAnimationPath03 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(25, flatbuffers.UOffsetT(victoryStartAnimationPath03), 0)
+}
+func CharacterVictoryInteractionExcelAddVictoryEndAnimationPath01(builder *flatbuffers.Builder, victoryEndAnimationPath01 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(26, flatbuffers.UOffsetT(victoryEndAnimationPath01), 0)
+}
+func CharacterVictoryInteractionExcelAddPositionIndex04(builder *flatbuffers.Builder, positionIndex04 int32) {
+	builder.PrependInt32Slot(27, positionIndex04, 0)
+}
+func CharacterVictoryInteractionExcelAddInteractionId(builder *flatbuffers.Builder, interactionId int64) {
+	builder.PrependInt64Slot(28, interactionId, 0)
+}
+func CharacterVictoryInteractionExcelAddVictoryStartAnimationPath01(builder *flatbuffers.Builder, victoryStartAnimationPath01 flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(29, flatbuffers.UOffsetT(victoryStartAnimationPath01), 0)
 }
 func CharacterVictoryInteractionExcelAddVoiceEvent06(builder *flatbuffers.Builder, voiceEvent06 VoiceEvent) {
 	builder.PrependInt32Slot(30, int32(voiceEvent06), 0)

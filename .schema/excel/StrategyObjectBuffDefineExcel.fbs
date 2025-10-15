@@ -1,0 +1,11 @@
+namespace MX.Data.Excel;
+
+table StrategyObjectBuffDefineExcel {
+    strategy_object_buff_id: long;
+    icon_path: string;
+    skill_group_id: string;
+    localize_code_id: uint;
+    strategy_object_turn: int;
+}
+
+root_type StrategyObjectBuffDefineExcel;

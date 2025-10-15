@@ -25,141 +25,92 @@ class FieldContentStageExcel(object):
         self._tab = flatbuffers.table.Table(buf, pos)
 
     # FieldContentStageExcel
-    def Id(self):
+    def StageDifficulty(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FieldContentStageExcel
-    def SeasonId(self):
+    def FixedEchelonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FieldContentStageExcel
-    def AreaId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldContentStageExcel
-    def GroupId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldContentStageExcel
-    def StageDifficulty(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldContentStageExcel
-    def PrevStageId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldContentStageExcel
-    def Name(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # FieldContentStageExcel
-    def BattleDuration(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldContentStageExcel
-    def StageEnterCostType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldContentStageExcel
-    def StageEnterCostId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldContentStageExcel
-    def StageEnterCostAmount(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldContentStageExcel
-    def StageTopography(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldContentStageExcel
     def RecommandLevel(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # FieldContentStageExcel
     def GroundId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldContentStageExcel
-    def BgmId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # FieldContentStageExcel
-    def InstantClear(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # FieldContentStageExcel
-    def FixedEchelonId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # FieldContentStageExcel
     def SkipFormationSettings(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
+
+    # FieldContentStageExcel
+    def StageEnterCostType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldContentStageExcel
+    def BgmId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldContentStageExcel
+    def SeasonId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # FieldContentStageExcel
     def DailyLastPlay(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # FieldContentStageExcel
+    def PrevStageId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldContentStageExcel
+    def BattleDuration(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldContentStageExcel
+    def AreaId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldContentStageExcel
     def StarGoal(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -167,26 +118,40 @@ class FieldContentStageExcel(object):
 
     # FieldContentStageExcel
     def StarGoalAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FieldContentStageExcel
     def StarGoalLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FieldContentStageExcel
     def StarGoalIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         return o == 0
 
     # FieldContentStageExcel
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldContentStageExcel
+    def GroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldContentStageExcel
     def StarGoalAmount(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -194,95 +159,130 @@ class FieldContentStageExcel(object):
 
     # FieldContentStageExcel
     def StarGoalAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # FieldContentStageExcel
     def StarGoalAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # FieldContentStageExcel
     def StarGoalAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         return o == 0
+
+    # FieldContentStageExcel
+    def InstantClear(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # FieldContentStageExcel
+    def Name(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # FieldContentStageExcel
+    def StageEnterCostAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldContentStageExcel
+    def StageTopography(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # FieldContentStageExcel
+    def StageEnterCostId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
 def FieldContentStageExcelStart(builder): builder.StartObject(21)
 def Start(builder):
     return FieldContentStageExcelStart(builder)
-def FieldContentStageExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
-def AddId(builder, id):
-    return FieldContentStageExcelAddId(builder, id)
-def FieldContentStageExcelAddSeasonId(builder, seasonId): builder.PrependInt64Slot(1, seasonId, 0)
-def AddSeasonId(builder, seasonId):
-    return FieldContentStageExcelAddSeasonId(builder, seasonId)
-def FieldContentStageExcelAddAreaId(builder, areaId): builder.PrependInt64Slot(2, areaId, 0)
-def AddAreaId(builder, areaId):
-    return FieldContentStageExcelAddAreaId(builder, areaId)
-def FieldContentStageExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(3, groupId, 0)
-def AddGroupId(builder, groupId):
-    return FieldContentStageExcelAddGroupId(builder, groupId)
-def FieldContentStageExcelAddStageDifficulty(builder, stageDifficulty): builder.PrependInt32Slot(4, stageDifficulty, 0)
+def FieldContentStageExcelAddStageDifficulty(builder, stageDifficulty): builder.PrependInt32Slot(0, stageDifficulty, 0)
 def AddStageDifficulty(builder, stageDifficulty):
     return FieldContentStageExcelAddStageDifficulty(builder, stageDifficulty)
-def FieldContentStageExcelAddPrevStageId(builder, prevStageId): builder.PrependInt64Slot(5, prevStageId, 0)
-def AddPrevStageId(builder, prevStageId):
-    return FieldContentStageExcelAddPrevStageId(builder, prevStageId)
-def FieldContentStageExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
-def AddName(builder, name):
-    return FieldContentStageExcelAddName(builder, name)
-def FieldContentStageExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(7, battleDuration, 0)
-def AddBattleDuration(builder, battleDuration):
-    return FieldContentStageExcelAddBattleDuration(builder, battleDuration)
-def FieldContentStageExcelAddStageEnterCostType(builder, stageEnterCostType): builder.PrependInt32Slot(8, stageEnterCostType, 0)
-def AddStageEnterCostType(builder, stageEnterCostType):
-    return FieldContentStageExcelAddStageEnterCostType(builder, stageEnterCostType)
-def FieldContentStageExcelAddStageEnterCostId(builder, stageEnterCostId): builder.PrependInt64Slot(9, stageEnterCostId, 0)
-def AddStageEnterCostId(builder, stageEnterCostId):
-    return FieldContentStageExcelAddStageEnterCostId(builder, stageEnterCostId)
-def FieldContentStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount): builder.PrependInt32Slot(10, stageEnterCostAmount, 0)
-def AddStageEnterCostAmount(builder, stageEnterCostAmount):
-    return FieldContentStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
-def FieldContentStageExcelAddStageTopography(builder, stageTopography): builder.PrependInt32Slot(11, stageTopography, 0)
-def AddStageTopography(builder, stageTopography):
-    return FieldContentStageExcelAddStageTopography(builder, stageTopography)
-def FieldContentStageExcelAddRecommandLevel(builder, recommandLevel): builder.PrependInt32Slot(12, recommandLevel, 0)
-def AddRecommandLevel(builder, recommandLevel):
-    return FieldContentStageExcelAddRecommandLevel(builder, recommandLevel)
-def FieldContentStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(13, groundId, 0)
-def AddGroundId(builder, groundId):
-    return FieldContentStageExcelAddGroundId(builder, groundId)
-def FieldContentStageExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(14, bgmId, 0)
-def AddBgmId(builder, bgmId):
-    return FieldContentStageExcelAddBgmId(builder, bgmId)
-def FieldContentStageExcelAddInstantClear(builder, instantClear): builder.PrependBoolSlot(15, instantClear, 0)
-def AddInstantClear(builder, instantClear):
-    return FieldContentStageExcelAddInstantClear(builder, instantClear)
-def FieldContentStageExcelAddFixedEchelonId(builder, fixedEchelonId): builder.PrependInt64Slot(16, fixedEchelonId, 0)
+def FieldContentStageExcelAddFixedEchelonId(builder, fixedEchelonId): builder.PrependInt64Slot(1, fixedEchelonId, 0)
 def AddFixedEchelonId(builder, fixedEchelonId):
     return FieldContentStageExcelAddFixedEchelonId(builder, fixedEchelonId)
-def FieldContentStageExcelAddSkipFormationSettings(builder, skipFormationSettings): builder.PrependBoolSlot(17, skipFormationSettings, 0)
+def FieldContentStageExcelAddRecommandLevel(builder, recommandLevel): builder.PrependInt32Slot(2, recommandLevel, 0)
+def AddRecommandLevel(builder, recommandLevel):
+    return FieldContentStageExcelAddRecommandLevel(builder, recommandLevel)
+def FieldContentStageExcelAddGroundId(builder, groundId): builder.PrependInt64Slot(3, groundId, 0)
+def AddGroundId(builder, groundId):
+    return FieldContentStageExcelAddGroundId(builder, groundId)
+def FieldContentStageExcelAddSkipFormationSettings(builder, skipFormationSettings): builder.PrependBoolSlot(4, skipFormationSettings, 0)
 def AddSkipFormationSettings(builder, skipFormationSettings):
     return FieldContentStageExcelAddSkipFormationSettings(builder, skipFormationSettings)
-def FieldContentStageExcelAddDailyLastPlay(builder, dailyLastPlay): builder.PrependBoolSlot(18, dailyLastPlay, 0)
+def FieldContentStageExcelAddStageEnterCostType(builder, stageEnterCostType): builder.PrependInt32Slot(5, stageEnterCostType, 0)
+def AddStageEnterCostType(builder, stageEnterCostType):
+    return FieldContentStageExcelAddStageEnterCostType(builder, stageEnterCostType)
+def FieldContentStageExcelAddBgmId(builder, bgmId): builder.PrependInt64Slot(6, bgmId, 0)
+def AddBgmId(builder, bgmId):
+    return FieldContentStageExcelAddBgmId(builder, bgmId)
+def FieldContentStageExcelAddSeasonId(builder, seasonId): builder.PrependInt64Slot(7, seasonId, 0)
+def AddSeasonId(builder, seasonId):
+    return FieldContentStageExcelAddSeasonId(builder, seasonId)
+def FieldContentStageExcelAddDailyLastPlay(builder, dailyLastPlay): builder.PrependBoolSlot(8, dailyLastPlay, 0)
 def AddDailyLastPlay(builder, dailyLastPlay):
     return FieldContentStageExcelAddDailyLastPlay(builder, dailyLastPlay)
-def FieldContentStageExcelAddStarGoal(builder, starGoal): builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(starGoal), 0)
+def FieldContentStageExcelAddPrevStageId(builder, prevStageId): builder.PrependInt64Slot(9, prevStageId, 0)
+def AddPrevStageId(builder, prevStageId):
+    return FieldContentStageExcelAddPrevStageId(builder, prevStageId)
+def FieldContentStageExcelAddBattleDuration(builder, battleDuration): builder.PrependInt64Slot(10, battleDuration, 0)
+def AddBattleDuration(builder, battleDuration):
+    return FieldContentStageExcelAddBattleDuration(builder, battleDuration)
+def FieldContentStageExcelAddAreaId(builder, areaId): builder.PrependInt64Slot(11, areaId, 0)
+def AddAreaId(builder, areaId):
+    return FieldContentStageExcelAddAreaId(builder, areaId)
+def FieldContentStageExcelAddStarGoal(builder, starGoal): builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(starGoal), 0)
 def AddStarGoal(builder, starGoal):
     return FieldContentStageExcelAddStarGoal(builder, starGoal)
 def FieldContentStageExcelStartStarGoalVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStarGoalVector(builder, numElems):
     return FieldContentStageExcelStartStarGoalVector(builder, numElems)
-def FieldContentStageExcelAddStarGoalAmount(builder, starGoalAmount): builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(starGoalAmount), 0)
+def FieldContentStageExcelAddId(builder, id): builder.PrependInt64Slot(13, id, 0)
+def AddId(builder, id):
+    return FieldContentStageExcelAddId(builder, id)
+def FieldContentStageExcelAddGroupId(builder, groupId): builder.PrependInt64Slot(14, groupId, 0)
+def AddGroupId(builder, groupId):
+    return FieldContentStageExcelAddGroupId(builder, groupId)
+def FieldContentStageExcelAddStarGoalAmount(builder, starGoalAmount): builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(starGoalAmount), 0)
 def AddStarGoalAmount(builder, starGoalAmount):
     return FieldContentStageExcelAddStarGoalAmount(builder, starGoalAmount)
 def FieldContentStageExcelStartStarGoalAmountVector(builder, numElems): return builder.StartVector(4, numElems, 4)
 def StartStarGoalAmountVector(builder, numElems):
     return FieldContentStageExcelStartStarGoalAmountVector(builder, numElems)
+def FieldContentStageExcelAddInstantClear(builder, instantClear): builder.PrependBoolSlot(16, instantClear, 0)
+def AddInstantClear(builder, instantClear):
+    return FieldContentStageExcelAddInstantClear(builder, instantClear)
+def FieldContentStageExcelAddName(builder, name): builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(name), 0)
+def AddName(builder, name):
+    return FieldContentStageExcelAddName(builder, name)
+def FieldContentStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount): builder.PrependInt32Slot(18, stageEnterCostAmount, 0)
+def AddStageEnterCostAmount(builder, stageEnterCostAmount):
+    return FieldContentStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
+def FieldContentStageExcelAddStageTopography(builder, stageTopography): builder.PrependInt32Slot(19, stageTopography, 0)
+def AddStageTopography(builder, stageTopography):
+    return FieldContentStageExcelAddStageTopography(builder, stageTopography)
+def FieldContentStageExcelAddStageEnterCostId(builder, stageEnterCostId): builder.PrependInt64Slot(20, stageEnterCostId, 0)
+def AddStageEnterCostId(builder, stageEnterCostId):
+    return FieldContentStageExcelAddStageEnterCostId(builder, stageEnterCostId)
 def FieldContentStageExcelEnd(builder): return builder.EndObject()
 def End(builder):
     return FieldContentStageExcelEnd(builder)

@@ -1,0 +1,19 @@
+include "BubbleType.fbs";
+include "ParcelType.fbs";
+
+namespace MX.Data.Excel;
+
+table CafeInteractionExcel {
+    favor_emoticon_reward_amount: long;
+    ignore_if_unobtained_end_date: string;
+    ignore_if_unobtained_start_date: string;
+    favor_emoticon_reward_parcel_type: ParcelType;
+    favor_emoticon_reward_id: long;
+    bubble_duration: [long];
+    ignore_if_unobtained: bool;
+    character_id: long;
+    bubble_type: [BubbleType];
+    cafe_character_state: [string];
+}
+
+root_type CafeInteractionExcel;

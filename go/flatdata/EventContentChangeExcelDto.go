@@ -10,15 +10,15 @@ import (
 // EventContentChangeExcelDto represents a FlatBuffers table
 type EventContentChangeExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId   int64      `json:"event_content_id"`
-	ChangeCount      int64      `json:"change_count"`
-	IsLast           bool       `json:"is_last"`
-	RewardParcelType ParcelType `json:"reward_parcel_type"`
-	RewardId         int64      `json:"reward_id"`
 	RewardAmount     int32      `json:"reward_amount"`
 	ChangeCostType   ParcelType `json:"change_cost_type"`
-	ChangeCostId     int64      `json:"change_cost_id"`
+	IsLast           bool       `json:"is_last"`
 	ChangeCostAmount int32      `json:"change_cost_amount"`
+	EventContentId   int64      `json:"event_content_id"`
+	ChangeCostId     int64      `json:"change_cost_id"`
+	ChangeCount      int64      `json:"change_count"`
+	RewardId         int64      `json:"reward_id"`
+	RewardParcelType ParcelType `json:"reward_parcel_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -27,15 +27,15 @@ func (t *EventContentChangeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChange"))
 	}
 	EventContentChangeExcelStart(b)
-	EventContentChangeExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentChangeExcelAddChangeCount(b, fbsutils.Convert(t.ChangeCount, t.FlatBuffer.TableKey))
-	EventContentChangeExcelAddIsLast(b, t.IsLast)
-	EventContentChangeExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
-	EventContentChangeExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
 	EventContentChangeExcelAddRewardAmount(b, fbsutils.Convert(t.RewardAmount, t.FlatBuffer.TableKey))
 	EventContentChangeExcelAddChangeCostType(b, fbsutils.Convert(t.ChangeCostType, t.FlatBuffer.TableKey))
-	EventContentChangeExcelAddChangeCostId(b, fbsutils.Convert(t.ChangeCostId, t.FlatBuffer.TableKey))
+	EventContentChangeExcelAddIsLast(b, t.IsLast)
 	EventContentChangeExcelAddChangeCostAmount(b, fbsutils.Convert(t.ChangeCostAmount, t.FlatBuffer.TableKey))
+	EventContentChangeExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
+	EventContentChangeExcelAddChangeCostId(b, fbsutils.Convert(t.ChangeCostId, t.FlatBuffer.TableKey))
+	EventContentChangeExcelAddChangeCount(b, fbsutils.Convert(t.ChangeCount, t.FlatBuffer.TableKey))
+	EventContentChangeExcelAddRewardId(b, fbsutils.Convert(t.RewardId, t.FlatBuffer.TableKey))
+	EventContentChangeExcelAddRewardParcelType(b, fbsutils.Convert(t.RewardParcelType, t.FlatBuffer.TableKey))
 	return EventContentChangeExcelEnd(b)
 }
 
@@ -51,15 +51,15 @@ func (t *EventContentChangeExcelDto) UnmarshalMessage(e *EventContentChangeExcel
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentChange"))
 	}
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.ChangeCount = fbsutils.Convert(e.ChangeCount(), t.FlatBuffer.TableKey)
-	t.IsLast = e.IsLast()
-	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
-	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
 	t.RewardAmount = fbsutils.Convert(e.RewardAmount(), t.FlatBuffer.TableKey)
 	t.ChangeCostType = ParcelType(fbsutils.Convert(int32(e.ChangeCostType()), t.FlatBuffer.TableKey))
-	t.ChangeCostId = fbsutils.Convert(e.ChangeCostId(), t.FlatBuffer.TableKey)
+	t.IsLast = e.IsLast()
 	t.ChangeCostAmount = fbsutils.Convert(e.ChangeCostAmount(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
+	t.ChangeCostId = fbsutils.Convert(e.ChangeCostId(), t.FlatBuffer.TableKey)
+	t.ChangeCount = fbsutils.Convert(e.ChangeCount(), t.FlatBuffer.TableKey)
+	t.RewardId = fbsutils.Convert(e.RewardId(), t.FlatBuffer.TableKey)
+	t.RewardParcelType = ParcelType(fbsutils.Convert(int32(e.RewardParcelType()), t.FlatBuffer.TableKey))
 	return nil
 }
 

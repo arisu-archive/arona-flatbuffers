@@ -1,0 +1,16 @@
+include "ParcelType.fbs";
+include "ShopCategoryType.fbs";
+
+namespace MX.Data.Excel;
+
+table PickupDuplicateBonusExcel {
+    pickup_character_id: long;
+    reward_parcel_amount: long;
+    id: long;
+    reward_parcel_type: ParcelType;
+    shop_category_type: ShopCategoryType;
+    reward_parcel_id: long;
+    shop_id: long;
+}
+
+root_type PickupDuplicateBonusExcel;

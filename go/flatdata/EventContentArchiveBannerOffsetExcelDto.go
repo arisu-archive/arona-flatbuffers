@@ -10,11 +10,11 @@ import (
 // EventContentArchiveBannerOffsetExcelDto represents a FlatBuffers table
 type EventContentArchiveBannerOffsetExcelDto struct {
 	fbsutils.FlatBuffer
-	EventContentId int64   `json:"event_content_id"`
-	OffsetX        float32 `json:"offset_x"`
-	OffsetY        float32 `json:"offset_y"`
 	ScaleX         float32 `json:"scale_x"`
+	OffsetX        float32 `json:"offset_x"`
 	ScaleY         float32 `json:"scale_y"`
+	OffsetY        float32 `json:"offset_y"`
+	EventContentId int64   `json:"event_content_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -23,11 +23,11 @@ func (t *EventContentArchiveBannerOffsetExcelDto) MarshalModel(b *flatbuffers.Bu
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentArchiveBannerOffset"))
 	}
 	EventContentArchiveBannerOffsetExcelStart(b)
-	EventContentArchiveBannerOffsetExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
-	EventContentArchiveBannerOffsetExcelAddOffsetX(b, fbsutils.Convert(t.OffsetX, t.FlatBuffer.TableKey))
-	EventContentArchiveBannerOffsetExcelAddOffsetY(b, fbsutils.Convert(t.OffsetY, t.FlatBuffer.TableKey))
 	EventContentArchiveBannerOffsetExcelAddScaleX(b, fbsutils.Convert(t.ScaleX, t.FlatBuffer.TableKey))
+	EventContentArchiveBannerOffsetExcelAddOffsetX(b, fbsutils.Convert(t.OffsetX, t.FlatBuffer.TableKey))
 	EventContentArchiveBannerOffsetExcelAddScaleY(b, fbsutils.Convert(t.ScaleY, t.FlatBuffer.TableKey))
+	EventContentArchiveBannerOffsetExcelAddOffsetY(b, fbsutils.Convert(t.OffsetY, t.FlatBuffer.TableKey))
+	EventContentArchiveBannerOffsetExcelAddEventContentId(b, fbsutils.Convert(t.EventContentId, t.FlatBuffer.TableKey))
 	return EventContentArchiveBannerOffsetExcelEnd(b)
 }
 
@@ -43,11 +43,11 @@ func (t *EventContentArchiveBannerOffsetExcelDto) UnmarshalMessage(e *EventConte
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentArchiveBannerOffset"))
 	}
-	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
-	t.OffsetX = fbsutils.Convert(e.OffsetX(), t.FlatBuffer.TableKey)
-	t.OffsetY = fbsutils.Convert(e.OffsetY(), t.FlatBuffer.TableKey)
 	t.ScaleX = fbsutils.Convert(e.ScaleX(), t.FlatBuffer.TableKey)
+	t.OffsetX = fbsutils.Convert(e.OffsetX(), t.FlatBuffer.TableKey)
 	t.ScaleY = fbsutils.Convert(e.ScaleY(), t.FlatBuffer.TableKey)
+	t.OffsetY = fbsutils.Convert(e.OffsetY(), t.FlatBuffer.TableKey)
+	t.EventContentId = fbsutils.Convert(e.EventContentId(), t.FlatBuffer.TableKey)
 	return nil
 }
 

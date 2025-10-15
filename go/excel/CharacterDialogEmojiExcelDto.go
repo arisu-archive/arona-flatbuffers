@@ -10,33 +10,33 @@ import (
 // CharacterDialogEmojiExcelDto represents a FlatBuffers table
 type CharacterDialogEmojiExcelDto struct {
 	fbsutils.FlatBuffer
+	LocalizeEn  string `json:"localize_en"`
 	GroupId     int64  `json:"group_id"`
 	TargetIndex int32  `json:"target_index"`
 	DialogType  string `json:"dialog_type"`
-	Duration    int64  `json:"duration"`
-	DurationKr  int64  `json:"duration_kr"`
-	HideUi      bool   `json:"hide_ui"`
 	LocalizeKr  string `json:"localize_kr"`
-	LocalizeJp  string `json:"localize_jp"`
 	LocalizeTh  string `json:"localize_th"`
 	LocalizeTw  string `json:"localize_tw"`
-	LocalizeEn  string `json:"localize_en"`
+	Duration    int64  `json:"duration"`
+	LocalizeJp  string `json:"localize_jp"`
+	HideUi      bool   `json:"hide_ui"`
+	DurationKr  int64  `json:"duration_kr"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogEmojiExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	CharacterDialogEmojiExcelStart(b)
+	CharacterDialogEmojiExcelAddLocalizeEn(b, b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey)))
 	CharacterDialogEmojiExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelAddTargetIndex(b, fbsutils.Convert(t.TargetIndex, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelAddDialogType(b, b.CreateString(fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey)))
-	CharacterDialogEmojiExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
-	CharacterDialogEmojiExcelAddDurationKr(b, fbsutils.Convert(t.DurationKr, t.FlatBuffer.TableKey))
-	CharacterDialogEmojiExcelAddHideUi(b, t.HideUi)
 	CharacterDialogEmojiExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
-	CharacterDialogEmojiExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
 	CharacterDialogEmojiExcelAddLocalizeTh(b, b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey)))
 	CharacterDialogEmojiExcelAddLocalizeTw(b, b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey)))
-	CharacterDialogEmojiExcelAddLocalizeEn(b, b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey)))
+	CharacterDialogEmojiExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
+	CharacterDialogEmojiExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
+	CharacterDialogEmojiExcelAddHideUi(b, t.HideUi)
+	CharacterDialogEmojiExcelAddDurationKr(b, fbsutils.Convert(t.DurationKr, t.FlatBuffer.TableKey))
 	return CharacterDialogEmojiExcelEnd(b)
 }
 
@@ -49,17 +49,17 @@ func (t *CharacterDialogEmojiExcelDto) Marshal() ([]byte, error) {
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
 func (t *CharacterDialogEmojiExcelDto) UnmarshalMessage(e *CharacterDialogEmojiExcel) error {
+	t.LocalizeEn = fbsutils.Convert(string(e.LocalizeEn()), t.FlatBuffer.TableKey)
 	t.GroupId = fbsutils.Convert(e.GroupId(), t.FlatBuffer.TableKey)
 	t.TargetIndex = fbsutils.Convert(e.TargetIndex(), t.FlatBuffer.TableKey)
 	t.DialogType = fbsutils.Convert(string(e.DialogType()), t.FlatBuffer.TableKey)
-	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
-	t.DurationKr = fbsutils.Convert(e.DurationKr(), t.FlatBuffer.TableKey)
-	t.HideUi = e.HideUi()
 	t.LocalizeKr = fbsutils.Convert(string(e.LocalizeKr()), t.FlatBuffer.TableKey)
-	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
 	t.LocalizeTh = fbsutils.Convert(string(e.LocalizeTh()), t.FlatBuffer.TableKey)
 	t.LocalizeTw = fbsutils.Convert(string(e.LocalizeTw()), t.FlatBuffer.TableKey)
-	t.LocalizeEn = fbsutils.Convert(string(e.LocalizeEn()), t.FlatBuffer.TableKey)
+	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
+	t.LocalizeJp = fbsutils.Convert(string(e.LocalizeJp()), t.FlatBuffer.TableKey)
+	t.HideUi = e.HideUi()
+	t.DurationKr = fbsutils.Convert(e.DurationKr(), t.FlatBuffer.TableKey)
 	return nil
 }
 

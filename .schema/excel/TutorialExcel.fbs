@@ -1,11 +1,11 @@
 namespace MX.Data.Excel;
 
 table TutorialExcel {
-    id: long;
-    completion_report_event_name: string;
     compulsory_tutorial: bool;
-    description_tutorial: bool;
+    completion_report_event_name: string;
     tutorial_stage_id: long;
+    id: long;
+    description_tutorial: bool;
     ui_name: [string];
     tutorial_parent_name: [string];
 }

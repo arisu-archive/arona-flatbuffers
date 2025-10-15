@@ -1,0 +1,13 @@
+include "TimeAttackDungeonType.fbs";
+
+namespace MX.Data.Excel;
+
+table TimeAttackDungeonExcel {
+    information_group_id: long;
+    icon_path: string;
+    id: long;
+    localize_etc_key: uint;
+    time_attack_dungeon_type: TimeAttackDungeonType;
+}
+
+root_type TimeAttackDungeonExcel;

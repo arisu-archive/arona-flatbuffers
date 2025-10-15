@@ -33,16 +33,8 @@ func (rcv *ConstNewbieContentExcel) Table() flatbuffers.Table {
 	return rcv._tab
 }
 
-func (rcv *ConstNewbieContentExcel) NewbieGachaReleaseDate() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
 func (rcv *ConstNewbieContentExcel) NewbieGachaCheckDays() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(4))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -50,11 +42,31 @@ func (rcv *ConstNewbieContentExcel) NewbieGachaCheckDays() int32 {
 }
 
 func (rcv *ConstNewbieContentExcel) MutateNewbieGachaCheckDays(n int32) bool {
+	return rcv._tab.MutateInt32Slot(4, n)
+}
+
+func (rcv *ConstNewbieContentExcel) NewbieAttendanceEndDay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstNewbieContentExcel) MutateNewbieAttendanceEndDay(n int32) bool {
 	return rcv._tab.MutateInt32Slot(6, n)
 }
 
-func (rcv *ConstNewbieContentExcel) NewbieGachaTokenGraceTime() int32 {
+func (rcv *ConstNewbieContentExcel) NewbieAttendanceReleaseDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConstNewbieContentExcel) NewbieGachaTokenGraceTime() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -62,15 +74,7 @@ func (rcv *ConstNewbieContentExcel) NewbieGachaTokenGraceTime() int32 {
 }
 
 func (rcv *ConstNewbieContentExcel) MutateNewbieGachaTokenGraceTime(n int32) bool {
-	return rcv._tab.MutateInt32Slot(8, n)
-}
-
-func (rcv *ConstNewbieContentExcel) NewbieAttendanceReleaseDate() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+	return rcv._tab.MutateInt32Slot(10, n)
 }
 
 func (rcv *ConstNewbieContentExcel) NewbieAttendanceStartableEndDay() int32 {
@@ -85,38 +89,34 @@ func (rcv *ConstNewbieContentExcel) MutateNewbieAttendanceStartableEndDay(n int3
 	return rcv._tab.MutateInt32Slot(12, n)
 }
 
-func (rcv *ConstNewbieContentExcel) NewbieAttendanceEndDay() int32 {
+func (rcv *ConstNewbieContentExcel) NewbieGachaReleaseDate() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
-}
-
-func (rcv *ConstNewbieContentExcel) MutateNewbieAttendanceEndDay(n int32) bool {
-	return rcv._tab.MutateInt32Slot(14, n)
+	return nil
 }
 
 func ConstNewbieContentExcelStart(builder *flatbuffers.Builder) {
 	builder.StartObject(6)
 }
-func ConstNewbieContentExcelAddNewbieGachaReleaseDate(builder *flatbuffers.Builder, newbieGachaReleaseDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(newbieGachaReleaseDate), 0)
-}
 func ConstNewbieContentExcelAddNewbieGachaCheckDays(builder *flatbuffers.Builder, newbieGachaCheckDays int32) {
-	builder.PrependInt32Slot(1, newbieGachaCheckDays, 0)
+	builder.PrependInt32Slot(0, newbieGachaCheckDays, 0)
 }
-func ConstNewbieContentExcelAddNewbieGachaTokenGraceTime(builder *flatbuffers.Builder, newbieGachaTokenGraceTime int32) {
-	builder.PrependInt32Slot(2, newbieGachaTokenGraceTime, 0)
+func ConstNewbieContentExcelAddNewbieAttendanceEndDay(builder *flatbuffers.Builder, newbieAttendanceEndDay int32) {
+	builder.PrependInt32Slot(1, newbieAttendanceEndDay, 0)
 }
 func ConstNewbieContentExcelAddNewbieAttendanceReleaseDate(builder *flatbuffers.Builder, newbieAttendanceReleaseDate flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(newbieAttendanceReleaseDate), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(newbieAttendanceReleaseDate), 0)
+}
+func ConstNewbieContentExcelAddNewbieGachaTokenGraceTime(builder *flatbuffers.Builder, newbieGachaTokenGraceTime int32) {
+	builder.PrependInt32Slot(3, newbieGachaTokenGraceTime, 0)
 }
 func ConstNewbieContentExcelAddNewbieAttendanceStartableEndDay(builder *flatbuffers.Builder, newbieAttendanceStartableEndDay int32) {
 	builder.PrependInt32Slot(4, newbieAttendanceStartableEndDay, 0)
 }
-func ConstNewbieContentExcelAddNewbieAttendanceEndDay(builder *flatbuffers.Builder, newbieAttendanceEndDay int32) {
-	builder.PrependInt32Slot(5, newbieAttendanceEndDay, 0)
+func ConstNewbieContentExcelAddNewbieGachaReleaseDate(builder *flatbuffers.Builder, newbieGachaReleaseDate flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(newbieGachaReleaseDate), 0)
 }
 func ConstNewbieContentExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

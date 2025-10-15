@@ -1,0 +1,44 @@
+include "AccountState.fbs";
+include "ContentType.fbs";
+include "MissionCategory.fbs";
+include "MissionCompleteConditionType.fbs";
+include "MissionResetType.fbs";
+include "MissionToastDisplayConditionType.fbs";
+include "ParcelType.fbs";
+include "SuddenMissionContentType.fbs";
+include "Tag.fbs";
+
+namespace MX.Data.Excel;
+
+table MissionExcel {
+    description: uint;
+    toast_display_type: MissionToastDisplayConditionType;
+    mission_reward_parcel_type: [ParcelType];
+    mission_reward_parcel_id: [long];
+    mission_reward_amount: [int];
+    date_auto_refer: ContentType;
+    end_date: string;
+    shortcut_ui: [string];
+    limit: bool;
+    reward_icon: string;
+    view_flag: bool;
+    id: long;
+    category: MissionCategory;
+    startable_end_date: string;
+    complete_condition_parameter: [long];
+    pre_mission_id: [long];
+    complete_condition_count: long;
+    toast_image_path: string;
+    reset_type: MissionResetType;
+    complete_condition_parameter_tag: [Tag];
+    display_order: long;
+    account_type: AccountState;
+    content_tags: [SuddenMissionContentType];
+    end_day: long;
+    challenge_stage_shortcut: long;
+    complete_condition_type: MissionCompleteConditionType;
+    account_level: long;
+    start_date: string;
+}
+
+root_type MissionExcel;
