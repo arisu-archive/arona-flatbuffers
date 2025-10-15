@@ -7,84 +7,99 @@ import "strconv"
 type ParcelType int32
 
 const (
-	ParcelTypeNone             ParcelType = 0
-	ParcelTypeCharacter        ParcelType = 1
-	ParcelTypeCurrency         ParcelType = 2
-	ParcelTypeEquipment        ParcelType = 3
-	ParcelTypeItem             ParcelType = 4
-	ParcelTypeGachaGroup       ParcelType = 5
-	ParcelTypeProduct          ParcelType = 6
-	ParcelTypeShop             ParcelType = 7
-	ParcelTypeMemoryLobby      ParcelType = 8
-	ParcelTypeAccountExp       ParcelType = 9
-	ParcelTypeCharacterExp     ParcelType = 10
-	ParcelTypeFavorExp         ParcelType = 11
-	ParcelTypeTSS              ParcelType = 12
-	ParcelTypeFurniture        ParcelType = 13
-	ParcelTypeShopRefresh      ParcelType = 14
-	ParcelTypeLocationExp      ParcelType = 15
-	ParcelTypeRecipe           ParcelType = 16
-	ParcelTypeCharacterWeapon  ParcelType = 17
-	ParcelTypeProductMonthly   ParcelType = 18
-	ParcelTypeCharacterGear    ParcelType = 19
-	ParcelTypeIdCardBackground ParcelType = 20
-	ParcelTypeEmblem           ParcelType = 21
-	ParcelTypeSticker          ParcelType = 22
-	ParcelTypeCostume          ParcelType = 23
+	ParcelTypeNone                ParcelType = 0
+	ParcelTypeCharacter           ParcelType = 1
+	ParcelTypeCurrency            ParcelType = 2
+	ParcelTypeEquipment           ParcelType = 3
+	ParcelTypeItem                ParcelType = 4
+	ParcelTypeGachaGroup          ParcelType = 5
+	ParcelTypeProduct             ParcelType = 6
+	ParcelTypeShop                ParcelType = 7
+	ParcelTypeMemoryLobby         ParcelType = 8
+	ParcelTypeAccountExp          ParcelType = 9
+	ParcelTypeCharacterExp        ParcelType = 10
+	ParcelTypeFavorExp            ParcelType = 11
+	ParcelTypeTSS                 ParcelType = 12
+	ParcelTypeFurniture           ParcelType = 13
+	ParcelTypeShopRefresh         ParcelType = 14
+	ParcelTypeLocationExp         ParcelType = 15
+	ParcelTypeRecipe              ParcelType = 16
+	ParcelTypeCharacterWeapon     ParcelType = 17
+	ParcelTypeProductMonthly      ParcelType = 18
+	ParcelTypeCharacterGear       ParcelType = 19
+	ParcelTypeIdCardBackground    ParcelType = 20
+	ParcelTypeEmblem              ParcelType = 21
+	ParcelTypeSticker             ParcelType = 22
+	ParcelTypeCostume             ParcelType = 23
+	ParcelTypePossessionCheck     ParcelType = 24
+	ParcelTypeBattlePassExp       ParcelType = 25
+	ParcelTypeSelectedCharacter   ParcelType = 26
+	ParcelTypeUnSelectedCharacter ParcelType = 27
+	ParcelTypeProductBattlePass   ParcelType = 28
 )
 
 var EnumNamesParcelType = map[ParcelType]string{
-	ParcelTypeNone:             "None",
-	ParcelTypeCharacter:        "Character",
-	ParcelTypeCurrency:         "Currency",
-	ParcelTypeEquipment:        "Equipment",
-	ParcelTypeItem:             "Item",
-	ParcelTypeGachaGroup:       "GachaGroup",
-	ParcelTypeProduct:          "Product",
-	ParcelTypeShop:             "Shop",
-	ParcelTypeMemoryLobby:      "MemoryLobby",
-	ParcelTypeAccountExp:       "AccountExp",
-	ParcelTypeCharacterExp:     "CharacterExp",
-	ParcelTypeFavorExp:         "FavorExp",
-	ParcelTypeTSS:              "TSS",
-	ParcelTypeFurniture:        "Furniture",
-	ParcelTypeShopRefresh:      "ShopRefresh",
-	ParcelTypeLocationExp:      "LocationExp",
-	ParcelTypeRecipe:           "Recipe",
-	ParcelTypeCharacterWeapon:  "CharacterWeapon",
-	ParcelTypeProductMonthly:   "ProductMonthly",
-	ParcelTypeCharacterGear:    "CharacterGear",
-	ParcelTypeIdCardBackground: "IdCardBackground",
-	ParcelTypeEmblem:           "Emblem",
-	ParcelTypeSticker:          "Sticker",
-	ParcelTypeCostume:          "Costume",
+	ParcelTypeNone:                "None",
+	ParcelTypeCharacter:           "Character",
+	ParcelTypeCurrency:            "Currency",
+	ParcelTypeEquipment:           "Equipment",
+	ParcelTypeItem:                "Item",
+	ParcelTypeGachaGroup:          "GachaGroup",
+	ParcelTypeProduct:             "Product",
+	ParcelTypeShop:                "Shop",
+	ParcelTypeMemoryLobby:         "MemoryLobby",
+	ParcelTypeAccountExp:          "AccountExp",
+	ParcelTypeCharacterExp:        "CharacterExp",
+	ParcelTypeFavorExp:            "FavorExp",
+	ParcelTypeTSS:                 "TSS",
+	ParcelTypeFurniture:           "Furniture",
+	ParcelTypeShopRefresh:         "ShopRefresh",
+	ParcelTypeLocationExp:         "LocationExp",
+	ParcelTypeRecipe:              "Recipe",
+	ParcelTypeCharacterWeapon:     "CharacterWeapon",
+	ParcelTypeProductMonthly:      "ProductMonthly",
+	ParcelTypeCharacterGear:       "CharacterGear",
+	ParcelTypeIdCardBackground:    "IdCardBackground",
+	ParcelTypeEmblem:              "Emblem",
+	ParcelTypeSticker:             "Sticker",
+	ParcelTypeCostume:             "Costume",
+	ParcelTypePossessionCheck:     "PossessionCheck",
+	ParcelTypeBattlePassExp:       "BattlePassExp",
+	ParcelTypeSelectedCharacter:   "SelectedCharacter",
+	ParcelTypeUnSelectedCharacter: "UnSelectedCharacter",
+	ParcelTypeProductBattlePass:   "ProductBattlePass",
 }
 
 var EnumValuesParcelType = map[string]ParcelType{
-	"None":             ParcelTypeNone,
-	"Character":        ParcelTypeCharacter,
-	"Currency":         ParcelTypeCurrency,
-	"Equipment":        ParcelTypeEquipment,
-	"Item":             ParcelTypeItem,
-	"GachaGroup":       ParcelTypeGachaGroup,
-	"Product":          ParcelTypeProduct,
-	"Shop":             ParcelTypeShop,
-	"MemoryLobby":      ParcelTypeMemoryLobby,
-	"AccountExp":       ParcelTypeAccountExp,
-	"CharacterExp":     ParcelTypeCharacterExp,
-	"FavorExp":         ParcelTypeFavorExp,
-	"TSS":              ParcelTypeTSS,
-	"Furniture":        ParcelTypeFurniture,
-	"ShopRefresh":      ParcelTypeShopRefresh,
-	"LocationExp":      ParcelTypeLocationExp,
-	"Recipe":           ParcelTypeRecipe,
-	"CharacterWeapon":  ParcelTypeCharacterWeapon,
-	"ProductMonthly":   ParcelTypeProductMonthly,
-	"CharacterGear":    ParcelTypeCharacterGear,
-	"IdCardBackground": ParcelTypeIdCardBackground,
-	"Emblem":           ParcelTypeEmblem,
-	"Sticker":          ParcelTypeSticker,
-	"Costume":          ParcelTypeCostume,
+	"None":                ParcelTypeNone,
+	"Character":           ParcelTypeCharacter,
+	"Currency":            ParcelTypeCurrency,
+	"Equipment":           ParcelTypeEquipment,
+	"Item":                ParcelTypeItem,
+	"GachaGroup":          ParcelTypeGachaGroup,
+	"Product":             ParcelTypeProduct,
+	"Shop":                ParcelTypeShop,
+	"MemoryLobby":         ParcelTypeMemoryLobby,
+	"AccountExp":          ParcelTypeAccountExp,
+	"CharacterExp":        ParcelTypeCharacterExp,
+	"FavorExp":            ParcelTypeFavorExp,
+	"TSS":                 ParcelTypeTSS,
+	"Furniture":           ParcelTypeFurniture,
+	"ShopRefresh":         ParcelTypeShopRefresh,
+	"LocationExp":         ParcelTypeLocationExp,
+	"Recipe":              ParcelTypeRecipe,
+	"CharacterWeapon":     ParcelTypeCharacterWeapon,
+	"ProductMonthly":      ParcelTypeProductMonthly,
+	"CharacterGear":       ParcelTypeCharacterGear,
+	"IdCardBackground":    ParcelTypeIdCardBackground,
+	"Emblem":              ParcelTypeEmblem,
+	"Sticker":             ParcelTypeSticker,
+	"Costume":             ParcelTypeCostume,
+	"PossessionCheck":     ParcelTypePossessionCheck,
+	"BattlePassExp":       ParcelTypeBattlePassExp,
+	"SelectedCharacter":   ParcelTypeSelectedCharacter,
+	"UnSelectedCharacter": ParcelTypeUnSelectedCharacter,
+	"ProductBattlePass":   ParcelTypeProductBattlePass,
 }
 
 func (v ParcelType) String() string {

@@ -13,6 +13,8 @@ const (
 	ProductCategoryPackage                   ProductCategory = 3
 	ProductCategoryGachaDirect_DontUseGlobal ProductCategory = 4
 	ProductCategoryTimeLimit                 ProductCategory = 5
+	ProductCategoryBattlePass                ProductCategory = 6
+	ProductCategoryGooglePoint               ProductCategory = 7
 )
 
 var EnumNamesProductCategory = map[ProductCategory]string{
@@ -22,6 +24,8 @@ var EnumNamesProductCategory = map[ProductCategory]string{
 	ProductCategoryPackage:                   "Package",
 	ProductCategoryGachaDirect_DontUseGlobal: "GachaDirect_DontUseGlobal",
 	ProductCategoryTimeLimit:                 "TimeLimit",
+	ProductCategoryBattlePass:                "BattlePass",
+	ProductCategoryGooglePoint:               "GooglePoint",
 }
 
 var EnumValuesProductCategory = map[string]ProductCategory{
@@ -31,6 +35,8 @@ var EnumValuesProductCategory = map[string]ProductCategory{
 	"Package":                   ProductCategoryPackage,
 	"GachaDirect_DontUseGlobal": ProductCategoryGachaDirect_DontUseGlobal,
 	"TimeLimit":                 ProductCategoryTimeLimit,
+	"BattlePass":                ProductCategoryBattlePass,
+	"GooglePoint":               ProductCategoryGooglePoint,
 }
 
 func (v ProductCategory) String() string {

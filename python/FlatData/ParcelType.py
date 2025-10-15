@@ -27,3 +27,8 @@ class ParcelType(object):
     Emblem = 21
     Sticker = 22
     Costume = 23
+    PossessionCheck = 24
+    BattlePassExp = 25
+    SelectedCharacter = 26
+    UnSelectedCharacter = 27
+    ProductBattlePass = 28
