@@ -10,74 +10,105 @@ import (
 // GroundExcelDto represents a FlatBuffers table
 type GroundExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                           int64           `json:"id"`
-	StageFileName                []string        `json:"stage_file_name"`
-	GroundSceneName              string          `json:"ground_scene_name"`
-	FormationGroupId             int64           `json:"formation_group_id"`
-	StageTopography              StageTopography `json:"stage_topography"`
-	EnemyBulletType              BulletType      `json:"enemy_bullet_type"`
-	EnemyArmorType               ArmorType       `json:"enemy_armor_type"`
-	LevelNpc                     int64           `json:"level_npc"`
-	LevelMinion                  int64           `json:"level_minion"`
-	LevelElite                   int64           `json:"level_elite"`
-	LevelChampion                int64           `json:"level_champion"`
-	LevelBoss                    int64           `json:"level_boss"`
-	ObstacleLevel                int64           `json:"obstacle_level"`
-	GradeNpc                     int64           `json:"grade_npc"`
-	GradeMinion                  int64           `json:"grade_minion"`
-	GradeElite                   int64           `json:"grade_elite"`
-	GradeChampion                int64           `json:"grade_champion"`
-	GradeBoss                    int64           `json:"grade_boss"`
-	PlayerSightPointAdd          int64           `json:"player_sight_point_add"`
-	PlayerSightPointRate         int64           `json:"player_sight_point_rate"`
-	PlayerAttackRangeAdd         int64           `json:"player_attack_range_add"`
-	PlayerAttackRangeRate        int64           `json:"player_attack_range_rate"`
-	EnemySightPointAdd           int64           `json:"enemy_sight_point_add"`
-	EnemySightPointRate          int64           `json:"enemy_sight_point_rate"`
-	EnemyAttackRangeAdd          int64           `json:"enemy_attack_range_add"`
-	EnemyAttackRangeRate         int64           `json:"enemy_attack_range_rate"`
-	PlayerSkillRangeAdd          int64           `json:"player_skill_range_add"`
-	PlayerSkillRangeRate         int64           `json:"player_skill_range_rate"`
-	EnemySkillRangeAdd           int64           `json:"enemy_skill_range_add"`
-	EnemySkillRangeRate          int64           `json:"enemy_skill_range_rate"`
-	PlayerMinimumPositionGapRate int64           `json:"player_minimum_position_gap_rate"`
-	EnemyMinimumPositionGapRate  int64           `json:"enemy_minimum_position_gap_rate"`
-	PlayerSightRangeMax          bool            `json:"player_sight_range_max"`
-	EnemySightRangeMax           bool            `json:"enemy_sight_range_max"`
-	TssAirUnitHeight             int64           `json:"tss_air_unit_height"`
-	IsPhaseBgm                   bool            `json:"is_phase_bgm"`
-	BgmId                        int64           `json:"bgm_id"`
-	WarningUi                    bool            `json:"warning_ui"`
-	TssHatchOpen                 bool            `json:"tss_hatch_open"`
-	ForcedTacticSpeed            TacticSpeed     `json:"forced_tactic_speed"`
-	ForcedSkillUse               TacticSkillUse  `json:"forced_skill_use"`
-	ShowNpcSkillCutIn            ShowSkillCutIn  `json:"show_npc_skill_cut_in"`
-	ImmuneHitBeforeTimeOutEnd    bool            `json:"immune_hit_before_time_out_end"`
-	UiBattleHideFromScratch      bool            `json:"ui_battle_hide_from_scratch"`
-	BattleReadyTimelinePath      string          `json:"battle_ready_timeline_path"`
-	BeforeVictoryTimelinePath    string          `json:"before_victory_timeline_path"`
-	SkipBattleEnd                bool            `json:"skip_battle_end"`
-	HideNpcWhenBattleEnd         bool            `json:"hide_npc_when_battle_end"`
-	CoverPointOff                bool            `json:"cover_point_off"`
-	UiHpScale                    float32         `json:"ui_hp_scale"`
-	UiEmojiScale                 float32         `json:"ui_emoji_scale"`
-	UiSkillMainLogScale          float32         `json:"ui_skill_main_log_scale"`
-	AllyPassiveSkillId           []string        `json:"ally_passive_skill_id"`
-	AllyPassiveSkillLevel        []int32         `json:"ally_passive_skill_level"`
-	EnemyPassiveSkillId          []string        `json:"enemy_passive_skill_id"`
-	EnemyPassiveSkillLevel       []int32         `json:"enemy_passive_skill_level"`
+	Id                           int64            `json:"id"`
+	StageFileName                []string         `json:"stage_file_name"`
+	GroundSceneName              string           `json:"ground_scene_name"`
+	FormationGroupId             int64            `json:"formation_group_id"`
+	StageTopography              StageTopography  `json:"stage_topography"`
+	EnemyBulletType              BulletType       `json:"enemy_bullet_type"`
+	EnemyArmorType               ArmorType        `json:"enemy_armor_type"`
+	LevelNpc                     int64            `json:"level_npc"`
+	LevelMinion                  int64            `json:"level_minion"`
+	LevelElite                   int64            `json:"level_elite"`
+	LevelChampion                int64            `json:"level_champion"`
+	LevelBoss                    int64            `json:"level_boss"`
+	ObstacleLevel                int64            `json:"obstacle_level"`
+	GradeNpc                     int64            `json:"grade_npc"`
+	GradeMinion                  int64            `json:"grade_minion"`
+	GradeElite                   int64            `json:"grade_elite"`
+	GradeChampion                int64            `json:"grade_champion"`
+	GradeBoss                    int64            `json:"grade_boss"`
+	PlayerSightPointAdd          int64            `json:"player_sight_point_add"`
+	PlayerSightPointRate         int64            `json:"player_sight_point_rate"`
+	PlayerAttackRangeAdd         int64            `json:"player_attack_range_add"`
+	PlayerAttackRangeRate        int64            `json:"player_attack_range_rate"`
+	EnemySightPointAdd           int64            `json:"enemy_sight_point_add"`
+	EnemySightPointRate          int64            `json:"enemy_sight_point_rate"`
+	EnemyAttackRangeAdd          int64            `json:"enemy_attack_range_add"`
+	EnemyAttackRangeRate         int64            `json:"enemy_attack_range_rate"`
+	PlayerSkillRangeAdd          int64            `json:"player_skill_range_add"`
+	PlayerSkillRangeRate         int64            `json:"player_skill_range_rate"`
+	EnemySkillRangeAdd           int64            `json:"enemy_skill_range_add"`
+	EnemySkillRangeRate          int64            `json:"enemy_skill_range_rate"`
+	PlayerMinimumPositionGapRate int64            `json:"player_minimum_position_gap_rate"`
+	EnemyMinimumPositionGapRate  int64            `json:"enemy_minimum_position_gap_rate"`
+	PlayerSightRangeMax          bool             `json:"player_sight_range_max"`
+	EnemySightRangeMax           bool             `json:"enemy_sight_range_max"`
+	TssAirUnitHeight             int64            `json:"tss_air_unit_height"`
+	IsPhaseBgm                   bool             `json:"is_phase_bgm"`
+	BgmId                        int64            `json:"bgm_id"`
+	WarningUi                    bool             `json:"warning_ui"`
+	TssHatchOpen                 bool             `json:"tss_hatch_open"`
+	ForcedTacticSpeed            TacticSpeed      `json:"forced_tactic_speed"`
+	ForcedSkillUse               TacticSkillUse   `json:"forced_skill_use"`
+	ShowNpcSkillCutIn            ShowSkillCutIn   `json:"show_npc_skill_cut_in"`
+	ImmuneHitBeforeTimeOutEnd    bool             `json:"immune_hit_before_time_out_end"`
+	UiBattleHideFromScratch      bool             `json:"ui_battle_hide_from_scratch"`
+	UiEnemyCount                 UIEnemyCountType `json:"ui_enemy_count"`
+	BattleReadyTimelinePath      string           `json:"battle_ready_timeline_path"`
+	BeforeVictoryTimelinePath    string           `json:"before_victory_timeline_path"`
+	SkipBattleEnd                bool             `json:"skip_battle_end"`
+	HideNpcWhenBattleEnd         bool             `json:"hide_npc_when_battle_end"`
+	CoverPointOff                bool             `json:"cover_point_off"`
+	UiHpScale                    float32          `json:"ui_hp_scale"`
+	UiEmojiScale                 float32          `json:"ui_emoji_scale"`
+	UiSkillMainLogScale          float32          `json:"ui_skill_main_log_scale"`
+	EffectCountLimit             int32            `json:"effect_count_limit"`
+	AllyPassiveSkillId           []string         `json:"ally_passive_skill_id"`
+	AllyPassiveSkillLevel        []int32          `json:"ally_passive_skill_level"`
+	EnemyPassiveSkillId          []string         `json:"enemy_passive_skill_id"`
+	EnemyPassiveSkillLevel       []int32          `json:"enemy_passive_skill_level"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *GroundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
-	GroundExcelStart(b)
-	GroundExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	var __offset_stage_file_name flatbuffers.UOffsetT
+	__stringOffsets_stage_file_name := make([]flatbuffers.UOffsetT, len(t.StageFileName))
+	for i := range len(t.StageFileName) {
+		__stringOffsets_stage_file_name[i] = b.CreateString(fbsutils.Convert(t.StageFileName[i], t.FlatBuffer.TableKey))
+	}
 	GroundExcelStartStageFileNameVector(b, len(t.StageFileName))
 	for i := range len(t.StageFileName) {
-		b.PrependUOffsetT(b.CreateString(t.StageFileName[len(t.StageFileName)-i-1]))
+		b.PrependUOffsetT(__stringOffsets_stage_file_name[len(t.StageFileName)-i-1])
 	}
-	GroundExcelAddStageFileName(b, b.EndVector(len(t.StageFileName)))
-	GroundExcelAddGroundSceneName(b, b.CreateString(fbsutils.Convert(t.GroundSceneName, t.FlatBuffer.TableKey)))
+	__offset_stage_file_name = b.EndVector(len(t.StageFileName))
+	__offset_ground_scene_name := b.CreateString(fbsutils.Convert(t.GroundSceneName, t.FlatBuffer.TableKey))
+	__offset_battle_ready_timeline_path := b.CreateString(fbsutils.Convert(t.BattleReadyTimelinePath, t.FlatBuffer.TableKey))
+	__offset_before_victory_timeline_path := b.CreateString(fbsutils.Convert(t.BeforeVictoryTimelinePath, t.FlatBuffer.TableKey))
+	var __offset_ally_passive_skill_id flatbuffers.UOffsetT
+	__stringOffsets_ally_passive_skill_id := make([]flatbuffers.UOffsetT, len(t.AllyPassiveSkillId))
+	for i := range len(t.AllyPassiveSkillId) {
+		__stringOffsets_ally_passive_skill_id[i] = b.CreateString(fbsutils.Convert(t.AllyPassiveSkillId[i], t.FlatBuffer.TableKey))
+	}
+	GroundExcelStartAllyPassiveSkillIdVector(b, len(t.AllyPassiveSkillId))
+	for i := range len(t.AllyPassiveSkillId) {
+		b.PrependUOffsetT(__stringOffsets_ally_passive_skill_id[len(t.AllyPassiveSkillId)-i-1])
+	}
+	__offset_ally_passive_skill_id = b.EndVector(len(t.AllyPassiveSkillId))
+	var __offset_enemy_passive_skill_id flatbuffers.UOffsetT
+	__stringOffsets_enemy_passive_skill_id := make([]flatbuffers.UOffsetT, len(t.EnemyPassiveSkillId))
+	for i := range len(t.EnemyPassiveSkillId) {
+		__stringOffsets_enemy_passive_skill_id[i] = b.CreateString(fbsutils.Convert(t.EnemyPassiveSkillId[i], t.FlatBuffer.TableKey))
+	}
+	GroundExcelStartEnemyPassiveSkillIdVector(b, len(t.EnemyPassiveSkillId))
+	for i := range len(t.EnemyPassiveSkillId) {
+		b.PrependUOffsetT(__stringOffsets_enemy_passive_skill_id[len(t.EnemyPassiveSkillId)-i-1])
+	}
+	__offset_enemy_passive_skill_id = b.EndVector(len(t.EnemyPassiveSkillId))
+	GroundExcelStart(b)
+	GroundExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
+	GroundExcelAddStageFileName(b, __offset_stage_file_name)
+	GroundExcelAddGroundSceneName(b, __offset_ground_scene_name)
 	GroundExcelAddFormationGroupId(b, fbsutils.Convert(t.FormationGroupId, t.FlatBuffer.TableKey))
 	GroundExcelAddStageTopography(b, fbsutils.Convert(t.StageTopography, t.FlatBuffer.TableKey))
 	GroundExcelAddEnemyBulletType(b, fbsutils.Convert(t.EnemyBulletType, t.FlatBuffer.TableKey))
@@ -119,29 +150,23 @@ func (t *GroundExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 	GroundExcelAddShowNpcSkillCutIn(b, fbsutils.Convert(t.ShowNpcSkillCutIn, t.FlatBuffer.TableKey))
 	GroundExcelAddImmuneHitBeforeTimeOutEnd(b, t.ImmuneHitBeforeTimeOutEnd)
 	GroundExcelAddUiBattleHideFromScratch(b, t.UiBattleHideFromScratch)
-	GroundExcelAddBattleReadyTimelinePath(b, b.CreateString(fbsutils.Convert(t.BattleReadyTimelinePath, t.FlatBuffer.TableKey)))
-	GroundExcelAddBeforeVictoryTimelinePath(b, b.CreateString(fbsutils.Convert(t.BeforeVictoryTimelinePath, t.FlatBuffer.TableKey)))
+	GroundExcelAddUiEnemyCount(b, fbsutils.Convert(t.UiEnemyCount, t.FlatBuffer.TableKey))
+	GroundExcelAddBattleReadyTimelinePath(b, __offset_battle_ready_timeline_path)
+	GroundExcelAddBeforeVictoryTimelinePath(b, __offset_before_victory_timeline_path)
 	GroundExcelAddSkipBattleEnd(b, t.SkipBattleEnd)
 	GroundExcelAddHideNpcWhenBattleEnd(b, t.HideNpcWhenBattleEnd)
 	GroundExcelAddCoverPointOff(b, t.CoverPointOff)
 	GroundExcelAddUiHpScale(b, fbsutils.Convert(t.UiHpScale, t.FlatBuffer.TableKey))
 	GroundExcelAddUiEmojiScale(b, fbsutils.Convert(t.UiEmojiScale, t.FlatBuffer.TableKey))
 	GroundExcelAddUiSkillMainLogScale(b, fbsutils.Convert(t.UiSkillMainLogScale, t.FlatBuffer.TableKey))
-	GroundExcelStartAllyPassiveSkillIdVector(b, len(t.AllyPassiveSkillId))
-	for i := range len(t.AllyPassiveSkillId) {
-		b.PrependUOffsetT(b.CreateString(t.AllyPassiveSkillId[len(t.AllyPassiveSkillId)-i-1]))
-	}
-	GroundExcelAddAllyPassiveSkillId(b, b.EndVector(len(t.AllyPassiveSkillId)))
+	GroundExcelAddEffectCountLimit(b, fbsutils.Convert(t.EffectCountLimit, t.FlatBuffer.TableKey))
+	GroundExcelAddAllyPassiveSkillId(b, __offset_ally_passive_skill_id)
 	GroundExcelStartAllyPassiveSkillLevelVector(b, len(t.AllyPassiveSkillLevel))
 	for i := range len(t.AllyPassiveSkillLevel) {
 		b.PrependInt32(fbsutils.Convert(t.AllyPassiveSkillLevel[len(t.AllyPassiveSkillLevel)-i-1], t.FlatBuffer.TableKey))
 	}
 	GroundExcelAddAllyPassiveSkillLevel(b, b.EndVector(len(t.AllyPassiveSkillLevel)))
-	GroundExcelStartEnemyPassiveSkillIdVector(b, len(t.EnemyPassiveSkillId))
-	for i := range len(t.EnemyPassiveSkillId) {
-		b.PrependUOffsetT(b.CreateString(t.EnemyPassiveSkillId[len(t.EnemyPassiveSkillId)-i-1]))
-	}
-	GroundExcelAddEnemyPassiveSkillId(b, b.EndVector(len(t.EnemyPassiveSkillId)))
+	GroundExcelAddEnemyPassiveSkillId(b, __offset_enemy_passive_skill_id)
 	GroundExcelStartEnemyPassiveSkillLevelVector(b, len(t.EnemyPassiveSkillLevel))
 	for i := range len(t.EnemyPassiveSkillLevel) {
 		b.PrependInt32(fbsutils.Convert(t.EnemyPassiveSkillLevel[len(t.EnemyPassiveSkillLevel)-i-1], t.FlatBuffer.TableKey))
@@ -206,6 +231,7 @@ func (t *GroundExcelDto) UnmarshalMessage(e *GroundExcel) error {
 	t.ShowNpcSkillCutIn = ShowSkillCutIn(fbsutils.Convert(int32(e.ShowNpcSkillCutIn()), t.FlatBuffer.TableKey))
 	t.ImmuneHitBeforeTimeOutEnd = e.ImmuneHitBeforeTimeOutEnd()
 	t.UiBattleHideFromScratch = e.UiBattleHideFromScratch()
+	t.UiEnemyCount = UIEnemyCountType(fbsutils.Convert(int32(e.UiEnemyCount()), t.FlatBuffer.TableKey))
 	t.BattleReadyTimelinePath = fbsutils.Convert(string(e.BattleReadyTimelinePath()), t.FlatBuffer.TableKey)
 	t.BeforeVictoryTimelinePath = fbsutils.Convert(string(e.BeforeVictoryTimelinePath()), t.FlatBuffer.TableKey)
 	t.SkipBattleEnd = e.SkipBattleEnd()
@@ -214,6 +240,7 @@ func (t *GroundExcelDto) UnmarshalMessage(e *GroundExcel) error {
 	t.UiHpScale = fbsutils.Convert(e.UiHpScale(), t.FlatBuffer.TableKey)
 	t.UiEmojiScale = fbsutils.Convert(e.UiEmojiScale(), t.FlatBuffer.TableKey)
 	t.UiSkillMainLogScale = fbsutils.Convert(e.UiSkillMainLogScale(), t.FlatBuffer.TableKey)
+	t.EffectCountLimit = fbsutils.Convert(e.EffectCountLimit(), t.FlatBuffer.TableKey)
 	t.AllyPassiveSkillId = make([]string, e.AllyPassiveSkillIdLength())
 	for i := range e.AllyPassiveSkillIdLength() {
 		t.AllyPassiveSkillId[i] = fbsutils.Convert(string(e.AllyPassiveSkillId(i)), t.FlatBuffer.TableKey)

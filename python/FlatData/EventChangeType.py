@@ -2,6 +2,4 @@
 
 # namespace: FlatData
 
-class EventChangeType(object):
-    MainSub = 0
-    SubMain = 1
+# NOTE EventChangeType.py does not declare any structs or enums

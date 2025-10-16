@@ -1,8 +1,0 @@
-namespace FlatData;
-
-table FormationLocationExcel {
-    id: long;
-    group_id: long;
-    slot_z: [float];
-    slot_x: [float];
-}

@@ -19,8 +19,9 @@ func (t *VoiceSkillUseExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("VoiceSkillUse"))
 	}
+	__offset_name := b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey))
 	VoiceSkillUseExcelStart(b)
-	VoiceSkillUseExcelAddName(b, b.CreateString(fbsutils.Convert(t.Name, t.FlatBuffer.TableKey)))
+	VoiceSkillUseExcelAddName(b, __offset_name)
 	VoiceSkillUseExcelStartVoiceHashVector(b, len(t.VoiceHash))
 	for i := range len(t.VoiceHash) {
 		b.PrependUint32(fbsutils.Convert(t.VoiceHash[len(t.VoiceHash)-i-1], t.FlatBuffer.TableKey))

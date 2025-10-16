@@ -49,15 +49,26 @@ class CharacterStatsTransExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CharacterStatsTransExcelTableStart(builder): builder.StartObject(1)
+def CharacterStatsTransExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return CharacterStatsTransExcelTableStart(builder)
-def CharacterStatsTransExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    CharacterStatsTransExcelTableStart(builder)
+
+def CharacterStatsTransExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return CharacterStatsTransExcelTableAddDataList(builder, dataList)
-def CharacterStatsTransExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    CharacterStatsTransExcelTableAddDataList(builder, dataList)
+
+def CharacterStatsTransExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return CharacterStatsTransExcelTableStartDataListVector(builder, numElems)
-def CharacterStatsTransExcelTableEnd(builder): return builder.EndObject()
+
+def CharacterStatsTransExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CharacterStatsTransExcelTableEnd(builder)

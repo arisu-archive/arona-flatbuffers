@@ -49,15 +49,26 @@ class AddressableWhiteListExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def AddressableWhiteListExcelTableStart(builder): builder.StartObject(1)
+def AddressableWhiteListExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return AddressableWhiteListExcelTableStart(builder)
-def AddressableWhiteListExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    AddressableWhiteListExcelTableStart(builder)
+
+def AddressableWhiteListExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return AddressableWhiteListExcelTableAddDataList(builder, dataList)
-def AddressableWhiteListExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    AddressableWhiteListExcelTableAddDataList(builder, dataList)
+
+def AddressableWhiteListExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return AddressableWhiteListExcelTableStartDataListVector(builder, numElems)
-def AddressableWhiteListExcelTableEnd(builder): return builder.EndObject()
+
+def AddressableWhiteListExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return AddressableWhiteListExcelTableEnd(builder)

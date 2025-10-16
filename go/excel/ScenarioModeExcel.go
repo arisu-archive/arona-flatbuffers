@@ -17,11 +17,19 @@ func GetRootAsScenarioModeExcel(buf []byte, offset flatbuffers.UOffsetT) *Scenar
 	return x
 }
 
+func FinishScenarioModeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsScenarioModeExcel(buf []byte, offset flatbuffers.UOffsetT) *ScenarioModeExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ScenarioModeExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedScenarioModeExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ScenarioModeExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
@@ -547,8 +555,16 @@ func (rcv *ScenarioModeExcel) MutateCollectionGroupId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(84, n)
 }
 
+func (rcv *ScenarioModeExcel) FirstClearFunnelMessage() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(86))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func ScenarioModeExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(41)
+	builder.StartObject(42)
 }
 func ScenarioModeExcelAddModeId(builder *flatbuffers.Builder, modeId int64) {
 	builder.PrependInt64Slot(0, modeId, 0)
@@ -681,6 +697,9 @@ func ScenarioModeExcelAddEchelonExtensionType(builder *flatbuffers.Builder, eche
 }
 func ScenarioModeExcelAddCollectionGroupId(builder *flatbuffers.Builder, collectionGroupId int64) {
 	builder.PrependInt64Slot(40, collectionGroupId, 0)
+}
+func ScenarioModeExcelAddFirstClearFunnelMessage(builder *flatbuffers.Builder, firstClearFunnelMessage flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(41, flatbuffers.UOffsetT(firstClearFunnelMessage), 0)
 }
 func ScenarioModeExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

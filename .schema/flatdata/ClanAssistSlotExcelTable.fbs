@@ -1,9 +1,0 @@
-include "ClanAssistSlotExcel.fbs";
-
-namespace FlatData;
-
-table ClanAssistSlotExcelTable {
-    data_list: [ClanAssistSlotExcel];
-}
-
-root_type ClanAssistSlotExcelTable;

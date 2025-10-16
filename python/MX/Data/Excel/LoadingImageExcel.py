@@ -73,30 +73,56 @@ class LoadingImageExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def LoadingImageExcelStart(builder): builder.StartObject(7)
+def LoadingImageExcelStart(builder):
+    builder.StartObject(7)
+
 def Start(builder):
-    return LoadingImageExcelStart(builder)
-def LoadingImageExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    LoadingImageExcelStart(builder)
+
+def LoadingImageExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return LoadingImageExcelAddId(builder, id)
-def LoadingImageExcelAddImagePathKr(builder, imagePathKr): builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathKr), 0)
+    LoadingImageExcelAddId(builder, id)
+
+def LoadingImageExcelAddImagePathKr(builder, imagePathKr):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathKr), 0)
+
 def AddImagePathKr(builder, imagePathKr):
-    return LoadingImageExcelAddImagePathKr(builder, imagePathKr)
-def LoadingImageExcelAddImagePathJp(builder, imagePathJp): builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathJp), 0)
+    LoadingImageExcelAddImagePathKr(builder, imagePathKr)
+
+def LoadingImageExcelAddImagePathJp(builder, imagePathJp):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathJp), 0)
+
 def AddImagePathJp(builder, imagePathJp):
-    return LoadingImageExcelAddImagePathJp(builder, imagePathJp)
-def LoadingImageExcelAddDisplayWeight(builder, displayWeight): builder.PrependInt32Slot(3, displayWeight, 0)
+    LoadingImageExcelAddImagePathJp(builder, imagePathJp)
+
+def LoadingImageExcelAddDisplayWeight(builder, displayWeight):
+    builder.PrependInt32Slot(3, displayWeight, 0)
+
 def AddDisplayWeight(builder, displayWeight):
-    return LoadingImageExcelAddDisplayWeight(builder, displayWeight)
-def LoadingImageExcelAddImagePathTh(builder, imagePathTh): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathTh), 0)
+    LoadingImageExcelAddDisplayWeight(builder, displayWeight)
+
+def LoadingImageExcelAddImagePathTh(builder, imagePathTh):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathTh), 0)
+
 def AddImagePathTh(builder, imagePathTh):
-    return LoadingImageExcelAddImagePathTh(builder, imagePathTh)
-def LoadingImageExcelAddImagePathTw(builder, imagePathTw): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathTw), 0)
+    LoadingImageExcelAddImagePathTh(builder, imagePathTh)
+
+def LoadingImageExcelAddImagePathTw(builder, imagePathTw):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathTw), 0)
+
 def AddImagePathTw(builder, imagePathTw):
-    return LoadingImageExcelAddImagePathTw(builder, imagePathTw)
-def LoadingImageExcelAddImagePathEn(builder, imagePathEn): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathEn), 0)
+    LoadingImageExcelAddImagePathTw(builder, imagePathTw)
+
+def LoadingImageExcelAddImagePathEn(builder, imagePathEn):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathEn), 0)
+
 def AddImagePathEn(builder, imagePathEn):
-    return LoadingImageExcelAddImagePathEn(builder, imagePathEn)
-def LoadingImageExcelEnd(builder): return builder.EndObject()
+    LoadingImageExcelAddImagePathEn(builder, imagePathEn)
+
+def LoadingImageExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return LoadingImageExcelEnd(builder)

@@ -102,11 +102,17 @@ type ConstCombatExcelDto struct {
 	EchelonExtensionEngageWithSupporterTimelinePath string  `json:"echelon_extension_engage_with_supporter_timeline_path"`
 	EchelonExtensionVictoryTimelinePath             string  `json:"echelon_extension_victory_timeline_path"`
 	EchelonExtensionEchelonMaxCommonCost            int32   `json:"echelon_extension_echelon_max_common_cost"`
+	EchelonMaxOverloadCost                          int64   `json:"echelon_max_overload_cost"`
+	EchelonExtensionMaxOverloadCost                 int64   `json:"echelon_extension_max_overload_cost"`
 	EchelonExtensionEchelonInitCommonCost           int32   `json:"echelon_extension_echelon_init_common_cost"`
 	EchelonExtensionCostRegenRatio                  int64   `json:"echelon_extension_cost_regen_ratio"`
+	EchelonOverloadCostRegenRatio                   int64   `json:"echelon_overload_cost_regen_ratio"`
+	EchelonExtensionOverloadCostRegenRatio          int64   `json:"echelon_extension_overload_cost_regen_ratio"`
 	CheckCheaterMaxUseCostMultiFloorRaid            int32   `json:"check_cheater_max_use_cost_multi_floor_raid"`
 	ExcessiveTouchCheckTime                         float32 `json:"excessive_touch_check_time"`
 	ExcessiveTouchCheckCount                        int32   `json:"excessive_touch_check_count"`
+	CampaignAlertPopupLevelGap                      int32   `json:"campaign_alert_popup_level_gap"`
+	MoveCorrectionSkipRatio                         int32   `json:"move_correction_skip_ratio"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -114,6 +120,15 @@ func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstCombat"))
 	}
+	__offset_supplies_condition_string_id := b.CreateString(fbsutils.Convert(t.SuppliesConditionStringId, t.FlatBuffer.TableKey))
+	__offset_engage_timeline_path := b.CreateString(fbsutils.Convert(t.EngageTimelinePath, t.FlatBuffer.TableKey))
+	__offset_engage_with_supporter_timeline_path := b.CreateString(fbsutils.Convert(t.EngageWithSupporterTimelinePath, t.FlatBuffer.TableKey))
+	__offset_victory_timeline_path := b.CreateString(fbsutils.Convert(t.VictoryTimelinePath, t.FlatBuffer.TableKey))
+	__offset_raid_open_scenario_id := b.CreateString(fbsutils.Convert(t.RaidOpenScenarioId, t.FlatBuffer.TableKey))
+	__offset_eliminate_raid_open_scenario_id := b.CreateString(fbsutils.Convert(t.EliminateRaidOpenScenarioId, t.FlatBuffer.TableKey))
+	__offset_echelon_extension_engage_timeline_path := b.CreateString(fbsutils.Convert(t.EchelonExtensionEngageTimelinePath, t.FlatBuffer.TableKey))
+	__offset_echelon_extension_engage_with_supporter_timeline_path := b.CreateString(fbsutils.Convert(t.EchelonExtensionEngageWithSupporterTimelinePath, t.FlatBuffer.TableKey))
+	__offset_echelon_extension_victory_timeline_path := b.CreateString(fbsutils.Convert(t.EchelonExtensionVictoryTimelinePath, t.FlatBuffer.TableKey))
 	ConstCombatExcelStart(b)
 	ConstCombatExcelAddSkillHandCount(b, fbsutils.Convert(t.SkillHandCount, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddDyingTime(b, fbsutils.Convert(t.DyingTime, t.FlatBuffer.TableKey))
@@ -123,16 +138,16 @@ func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCombatExcelAddShowBufficonExtraPassiveSkill(b, t.ShowBufficonExtraPassiveSkill)
 	ConstCombatExcelAddShowBufficonLeaderSkill(b, t.ShowBufficonLeaderSkill)
 	ConstCombatExcelAddShowBufficonGroundPassiveSkill(b, t.ShowBufficonGroundPassiveSkill)
-	ConstCombatExcelAddSuppliesConditionStringId(b, b.CreateString(fbsutils.Convert(t.SuppliesConditionStringId, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddSuppliesConditionStringId(b, __offset_supplies_condition_string_id)
 	ConstCombatExcelAddPublicSpeechBubbleOffsetX(b, fbsutils.Convert(t.PublicSpeechBubbleOffsetX, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddPublicSpeechBubbleOffsetY(b, fbsutils.Convert(t.PublicSpeechBubbleOffsetY, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddPublicSpeechBubbleOffsetZ(b, fbsutils.Convert(t.PublicSpeechBubbleOffsetZ, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddShowRaidListCount(b, fbsutils.Convert(t.ShowRaidListCount, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddMaxRaidTicketCount(b, fbsutils.Convert(t.MaxRaidTicketCount, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddMaxRaidBossSkillSlot(b, fbsutils.Convert(t.MaxRaidBossSkillSlot, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddEngageTimelinePath(b, b.CreateString(fbsutils.Convert(t.EngageTimelinePath, t.FlatBuffer.TableKey)))
-	ConstCombatExcelAddEngageWithSupporterTimelinePath(b, b.CreateString(fbsutils.Convert(t.EngageWithSupporterTimelinePath, t.FlatBuffer.TableKey)))
-	ConstCombatExcelAddVictoryTimelinePath(b, b.CreateString(fbsutils.Convert(t.VictoryTimelinePath, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddEngageTimelinePath(b, __offset_engage_timeline_path)
+	ConstCombatExcelAddEngageWithSupporterTimelinePath(b, __offset_engage_with_supporter_timeline_path)
+	ConstCombatExcelAddVictoryTimelinePath(b, __offset_victory_timeline_path)
 	ConstCombatExcelAddTimeLimitAlarm(b, fbsutils.Convert(t.TimeLimitAlarm, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddEchelonMaxCommonCost(b, fbsutils.Convert(t.EchelonMaxCommonCost, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddEchelonInitCommonCost(b, fbsutils.Convert(t.EchelonInitCommonCost, t.FlatBuffer.TableKey))
@@ -141,8 +156,8 @@ func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCombatExcelAddChampionRegenCost(b, fbsutils.Convert(t.ChampionRegenCost, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddPlayerRegenCostDelay(b, fbsutils.Convert(t.PlayerRegenCostDelay, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddCrowdControlFactor(b, fbsutils.Convert(t.CrowdControlFactor, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddRaidOpenScenarioId(b, b.CreateString(fbsutils.Convert(t.RaidOpenScenarioId, t.FlatBuffer.TableKey)))
-	ConstCombatExcelAddEliminateRaidOpenScenarioId(b, b.CreateString(fbsutils.Convert(t.EliminateRaidOpenScenarioId, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddRaidOpenScenarioId(b, __offset_raid_open_scenario_id)
+	ConstCombatExcelAddEliminateRaidOpenScenarioId(b, __offset_eliminate_raid_open_scenario_id)
 	ConstCombatExcelAddDefenceConstA(b, fbsutils.Convert(t.DefenceConstA, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddDefenceConstB(b, fbsutils.Convert(t.DefenceConstB, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddDefenceConstC(b, fbsutils.Convert(t.DefenceConstC, t.FlatBuffer.TableKey))
@@ -203,15 +218,21 @@ func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCombatExcelAddAuraExitThresholdMargin(b, fbsutils.Convert(t.AuraExitThresholdMargin, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddTsaInteractionDamageFactor(b, fbsutils.Convert(t.TsaInteractionDamageFactor, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddVictoryInteractionRate(b, fbsutils.Convert(t.VictoryInteractionRate, t.FlatBuffer.TableKey))
-	ConstCombatExcelAddEchelonExtensionEngageTimelinePath(b, b.CreateString(fbsutils.Convert(t.EchelonExtensionEngageTimelinePath, t.FlatBuffer.TableKey)))
-	ConstCombatExcelAddEchelonExtensionEngageWithSupporterTimelinePath(b, b.CreateString(fbsutils.Convert(t.EchelonExtensionEngageWithSupporterTimelinePath, t.FlatBuffer.TableKey)))
-	ConstCombatExcelAddEchelonExtensionVictoryTimelinePath(b, b.CreateString(fbsutils.Convert(t.EchelonExtensionVictoryTimelinePath, t.FlatBuffer.TableKey)))
+	ConstCombatExcelAddEchelonExtensionEngageTimelinePath(b, __offset_echelon_extension_engage_timeline_path)
+	ConstCombatExcelAddEchelonExtensionEngageWithSupporterTimelinePath(b, __offset_echelon_extension_engage_with_supporter_timeline_path)
+	ConstCombatExcelAddEchelonExtensionVictoryTimelinePath(b, __offset_echelon_extension_victory_timeline_path)
 	ConstCombatExcelAddEchelonExtensionEchelonMaxCommonCost(b, fbsutils.Convert(t.EchelonExtensionEchelonMaxCommonCost, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEchelonMaxOverloadCost(b, fbsutils.Convert(t.EchelonMaxOverloadCost, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEchelonExtensionMaxOverloadCost(b, fbsutils.Convert(t.EchelonExtensionMaxOverloadCost, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddEchelonExtensionEchelonInitCommonCost(b, fbsutils.Convert(t.EchelonExtensionEchelonInitCommonCost, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddEchelonExtensionCostRegenRatio(b, fbsutils.Convert(t.EchelonExtensionCostRegenRatio, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEchelonOverloadCostRegenRatio(b, fbsutils.Convert(t.EchelonOverloadCostRegenRatio, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddEchelonExtensionOverloadCostRegenRatio(b, fbsutils.Convert(t.EchelonExtensionOverloadCostRegenRatio, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(b, fbsutils.Convert(t.CheckCheaterMaxUseCostMultiFloorRaid, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddExcessiveTouchCheckTime(b, fbsutils.Convert(t.ExcessiveTouchCheckTime, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddExcessiveTouchCheckCount(b, fbsutils.Convert(t.ExcessiveTouchCheckCount, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddCampaignAlertPopupLevelGap(b, fbsutils.Convert(t.CampaignAlertPopupLevelGap, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddMoveCorrectionSkipRatio(b, fbsutils.Convert(t.MoveCorrectionSkipRatio, t.FlatBuffer.TableKey))
 	return ConstCombatExcelEnd(b)
 }
 
@@ -319,11 +340,17 @@ func (t *ConstCombatExcelDto) UnmarshalMessage(e *ConstCombatExcel) error {
 	t.EchelonExtensionEngageWithSupporterTimelinePath = fbsutils.Convert(string(e.EchelonExtensionEngageWithSupporterTimelinePath()), t.FlatBuffer.TableKey)
 	t.EchelonExtensionVictoryTimelinePath = fbsutils.Convert(string(e.EchelonExtensionVictoryTimelinePath()), t.FlatBuffer.TableKey)
 	t.EchelonExtensionEchelonMaxCommonCost = fbsutils.Convert(e.EchelonExtensionEchelonMaxCommonCost(), t.FlatBuffer.TableKey)
+	t.EchelonMaxOverloadCost = fbsutils.Convert(e.EchelonMaxOverloadCost(), t.FlatBuffer.TableKey)
+	t.EchelonExtensionMaxOverloadCost = fbsutils.Convert(e.EchelonExtensionMaxOverloadCost(), t.FlatBuffer.TableKey)
 	t.EchelonExtensionEchelonInitCommonCost = fbsutils.Convert(e.EchelonExtensionEchelonInitCommonCost(), t.FlatBuffer.TableKey)
 	t.EchelonExtensionCostRegenRatio = fbsutils.Convert(e.EchelonExtensionCostRegenRatio(), t.FlatBuffer.TableKey)
+	t.EchelonOverloadCostRegenRatio = fbsutils.Convert(e.EchelonOverloadCostRegenRatio(), t.FlatBuffer.TableKey)
+	t.EchelonExtensionOverloadCostRegenRatio = fbsutils.Convert(e.EchelonExtensionOverloadCostRegenRatio(), t.FlatBuffer.TableKey)
 	t.CheckCheaterMaxUseCostMultiFloorRaid = fbsutils.Convert(e.CheckCheaterMaxUseCostMultiFloorRaid(), t.FlatBuffer.TableKey)
 	t.ExcessiveTouchCheckTime = fbsutils.Convert(e.ExcessiveTouchCheckTime(), t.FlatBuffer.TableKey)
 	t.ExcessiveTouchCheckCount = fbsutils.Convert(e.ExcessiveTouchCheckCount(), t.FlatBuffer.TableKey)
+	t.CampaignAlertPopupLevelGap = fbsutils.Convert(e.CampaignAlertPopupLevelGap(), t.FlatBuffer.TableKey)
+	t.MoveCorrectionSkipRatio = fbsutils.Convert(e.MoveCorrectionSkipRatio(), t.FlatBuffer.TableKey)
 	return nil
 }
 

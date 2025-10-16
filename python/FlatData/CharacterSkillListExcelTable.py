@@ -49,15 +49,26 @@ class CharacterSkillListExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def CharacterSkillListExcelTableStart(builder): builder.StartObject(1)
+def CharacterSkillListExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return CharacterSkillListExcelTableStart(builder)
-def CharacterSkillListExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    CharacterSkillListExcelTableStart(builder)
+
+def CharacterSkillListExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return CharacterSkillListExcelTableAddDataList(builder, dataList)
-def CharacterSkillListExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    CharacterSkillListExcelTableAddDataList(builder, dataList)
+
+def CharacterSkillListExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return CharacterSkillListExcelTableStartDataListVector(builder, numElems)
-def CharacterSkillListExcelTableEnd(builder): return builder.EndObject()
+
+def CharacterSkillListExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return CharacterSkillListExcelTableEnd(builder)

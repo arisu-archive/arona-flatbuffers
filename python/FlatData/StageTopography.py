@@ -2,7 +2,4 @@
 
 # namespace: FlatData
 
-class StageTopography(object):
-    Street = 0
-    Outdoor = 1
-    Indoor = 2
+# NOTE StageTopography.py does not declare any structs or enums

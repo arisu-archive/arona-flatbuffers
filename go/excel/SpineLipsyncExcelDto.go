@@ -17,10 +17,12 @@ type SpineLipsyncExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *SpineLipsyncExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_anim_json := b.CreateString(fbsutils.Convert(t.AnimJson, t.FlatBuffer.TableKey))
+	__offset_anim_json_kr := b.CreateString(fbsutils.Convert(t.AnimJsonKr, t.FlatBuffer.TableKey))
 	SpineLipsyncExcelStart(b)
 	SpineLipsyncExcelAddVoiceId(b, fbsutils.Convert(t.VoiceId, t.FlatBuffer.TableKey))
-	SpineLipsyncExcelAddAnimJson(b, b.CreateString(fbsutils.Convert(t.AnimJson, t.FlatBuffer.TableKey)))
-	SpineLipsyncExcelAddAnimJsonKr(b, b.CreateString(fbsutils.Convert(t.AnimJsonKr, t.FlatBuffer.TableKey)))
+	SpineLipsyncExcelAddAnimJson(b, __offset_anim_json)
+	SpineLipsyncExcelAddAnimJsonKr(b, __offset_anim_json_kr)
 	return SpineLipsyncExcelEnd(b)
 }
 

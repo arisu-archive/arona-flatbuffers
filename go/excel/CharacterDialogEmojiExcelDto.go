@@ -25,18 +25,24 @@ type CharacterDialogEmojiExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogEmojiExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_dialog_type := b.CreateString(fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey))
+	__offset_localize_kr := b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey))
+	__offset_localize_jp := b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey))
+	__offset_localize_th := b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey))
+	__offset_localize_tw := b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey))
+	__offset_localize_en := b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelStart(b)
 	CharacterDialogEmojiExcelAddGroupId(b, fbsutils.Convert(t.GroupId, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelAddTargetIndex(b, fbsutils.Convert(t.TargetIndex, t.FlatBuffer.TableKey))
-	CharacterDialogEmojiExcelAddDialogType(b, b.CreateString(fbsutils.Convert(t.DialogType, t.FlatBuffer.TableKey)))
+	CharacterDialogEmojiExcelAddDialogType(b, __offset_dialog_type)
 	CharacterDialogEmojiExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelAddDurationKr(b, fbsutils.Convert(t.DurationKr, t.FlatBuffer.TableKey))
 	CharacterDialogEmojiExcelAddHideUi(b, t.HideUi)
-	CharacterDialogEmojiExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
-	CharacterDialogEmojiExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
-	CharacterDialogEmojiExcelAddLocalizeTh(b, b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey)))
-	CharacterDialogEmojiExcelAddLocalizeTw(b, b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey)))
-	CharacterDialogEmojiExcelAddLocalizeEn(b, b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey)))
+	CharacterDialogEmojiExcelAddLocalizeKr(b, __offset_localize_kr)
+	CharacterDialogEmojiExcelAddLocalizeJp(b, __offset_localize_jp)
+	CharacterDialogEmojiExcelAddLocalizeTh(b, __offset_localize_th)
+	CharacterDialogEmojiExcelAddLocalizeTw(b, __offset_localize_tw)
+	CharacterDialogEmojiExcelAddLocalizeEn(b, __offset_localize_en)
 	return CharacterDialogEmojiExcelEnd(b)
 }
 

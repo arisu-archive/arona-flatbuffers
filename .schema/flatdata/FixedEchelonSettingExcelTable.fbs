@@ -1,9 +1,0 @@
-include "FixedEchelonSettingExcel.fbs";
-
-namespace FlatData;
-
-table FixedEchelonSettingExcelTable {
-    data_list: [FixedEchelonSettingExcel];
-}
-
-root_type FixedEchelonSettingExcelTable;

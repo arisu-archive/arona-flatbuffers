@@ -19,9 +19,11 @@ func (t *KatakanaConvertExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("KatakanaConvert"))
 	}
+	__offset_kr := b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey))
+	__offset_jp := b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey))
 	KatakanaConvertExcelStart(b)
-	KatakanaConvertExcelAddKr(b, b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey)))
-	KatakanaConvertExcelAddJp(b, b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey)))
+	KatakanaConvertExcelAddKr(b, __offset_kr)
+	KatakanaConvertExcelAddJp(b, __offset_jp)
 	return KatakanaConvertExcelEnd(b)
 }
 

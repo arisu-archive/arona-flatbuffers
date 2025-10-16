@@ -1,9 +1,0 @@
-include "StatLevelInterpolationExcel.fbs";
-
-namespace FlatData;
-
-table StatLevelInterpolationExcelTable {
-    data_list: [StatLevelInterpolationExcel];
-}
-
-root_type StatLevelInterpolationExcelTable;

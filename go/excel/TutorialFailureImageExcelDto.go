@@ -22,15 +22,21 @@ type TutorialFailureImageExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *TutorialFailureImageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_type := b.CreateString(fbsutils.Convert(t.Type, t.FlatBuffer.TableKey))
+	__offset_image_path_kr := b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey))
+	__offset_image_path_jp := b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey))
+	__offset_image_path_th := b.CreateString(fbsutils.Convert(t.ImagePathTh, t.FlatBuffer.TableKey))
+	__offset_image_path_tw := b.CreateString(fbsutils.Convert(t.ImagePathTw, t.FlatBuffer.TableKey))
+	__offset_image_path_en := b.CreateString(fbsutils.Convert(t.ImagePathEn, t.FlatBuffer.TableKey))
 	TutorialFailureImageExcelStart(b)
 	TutorialFailureImageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	TutorialFailureImageExcelAddContents(b, fbsutils.Convert(t.Contents, t.FlatBuffer.TableKey))
-	TutorialFailureImageExcelAddType(b, b.CreateString(fbsutils.Convert(t.Type, t.FlatBuffer.TableKey)))
-	TutorialFailureImageExcelAddImagePathKr(b, b.CreateString(fbsutils.Convert(t.ImagePathKr, t.FlatBuffer.TableKey)))
-	TutorialFailureImageExcelAddImagePathJp(b, b.CreateString(fbsutils.Convert(t.ImagePathJp, t.FlatBuffer.TableKey)))
-	TutorialFailureImageExcelAddImagePathTh(b, b.CreateString(fbsutils.Convert(t.ImagePathTh, t.FlatBuffer.TableKey)))
-	TutorialFailureImageExcelAddImagePathTw(b, b.CreateString(fbsutils.Convert(t.ImagePathTw, t.FlatBuffer.TableKey)))
-	TutorialFailureImageExcelAddImagePathEn(b, b.CreateString(fbsutils.Convert(t.ImagePathEn, t.FlatBuffer.TableKey)))
+	TutorialFailureImageExcelAddType(b, __offset_type)
+	TutorialFailureImageExcelAddImagePathKr(b, __offset_image_path_kr)
+	TutorialFailureImageExcelAddImagePathJp(b, __offset_image_path_jp)
+	TutorialFailureImageExcelAddImagePathTh(b, __offset_image_path_th)
+	TutorialFailureImageExcelAddImagePathTw(b, __offset_image_path_tw)
+	TutorialFailureImageExcelAddImagePathEn(b, __offset_image_path_en)
 	return TutorialFailureImageExcelEnd(b)
 }
 

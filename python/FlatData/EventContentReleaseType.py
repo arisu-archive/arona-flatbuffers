@@ -2,9 +2,4 @@
 
 # namespace: FlatData
 
-class EventContentReleaseType(object):
-    None_ = 0
-    Permanent = 1
-    MainStory = 2
-    PermanentSpecialOperate = 3
-    PermanentConquest = 4
+# NOTE EventContentReleaseType.py does not declare any structs or enums

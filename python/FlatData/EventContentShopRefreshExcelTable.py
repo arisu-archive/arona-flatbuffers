@@ -49,15 +49,26 @@ class EventContentShopRefreshExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentShopRefreshExcelTableStart(builder): builder.StartObject(1)
+def EventContentShopRefreshExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return EventContentShopRefreshExcelTableStart(builder)
-def EventContentShopRefreshExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    EventContentShopRefreshExcelTableStart(builder)
+
+def EventContentShopRefreshExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return EventContentShopRefreshExcelTableAddDataList(builder, dataList)
-def EventContentShopRefreshExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentShopRefreshExcelTableAddDataList(builder, dataList)
+
+def EventContentShopRefreshExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return EventContentShopRefreshExcelTableStartDataListVector(builder, numElems)
-def EventContentShopRefreshExcelTableEnd(builder): return builder.EndObject()
+
+def EventContentShopRefreshExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentShopRefreshExcelTableEnd(builder)

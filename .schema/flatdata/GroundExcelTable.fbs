@@ -1,9 +1,0 @@
-include "GroundExcel.fbs";
-
-namespace FlatData;
-
-table GroundExcelTable {
-    data_list: [GroundExcel];
-}
-
-root_type GroundExcelTable;

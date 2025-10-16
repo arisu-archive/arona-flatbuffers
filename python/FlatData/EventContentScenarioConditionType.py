@@ -2,7 +2,4 @@
 
 # namespace: FlatData
 
-class EventContentScenarioConditionType(object):
-    None_ = 0
-    DayAfter = 1
-    EventPoint = 2
+# NOTE EventContentScenarioConditionType.py does not declare any structs or enums

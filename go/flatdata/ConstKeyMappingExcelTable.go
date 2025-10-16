@@ -17,11 +17,19 @@ func GetRootAsConstKeyMappingExcelTable(buf []byte, offset flatbuffers.UOffsetT)
 	return x
 }
 
+func FinishConstKeyMappingExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsConstKeyMappingExcelTable(buf []byte, offset flatbuffers.UOffsetT) *ConstKeyMappingExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &ConstKeyMappingExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedConstKeyMappingExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *ConstKeyMappingExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

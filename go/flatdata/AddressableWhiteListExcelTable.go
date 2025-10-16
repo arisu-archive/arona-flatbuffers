@@ -17,11 +17,19 @@ func GetRootAsAddressableWhiteListExcelTable(buf []byte, offset flatbuffers.UOff
 	return x
 }
 
+func FinishAddressableWhiteListExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsAddressableWhiteListExcelTable(buf []byte, offset flatbuffers.UOffsetT) *AddressableWhiteListExcelTable {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &AddressableWhiteListExcelTable{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedAddressableWhiteListExcelTableBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *AddressableWhiteListExcelTable) Init(buf []byte, i flatbuffers.UOffsetT) {

@@ -1,9 +1,0 @@
-include "FavorLevelExcel.fbs";
-
-namespace FlatData;
-
-table FavorLevelExcelTable {
-    data_list: [FavorLevelExcel];
-}
-
-root_type FavorLevelExcelTable;
