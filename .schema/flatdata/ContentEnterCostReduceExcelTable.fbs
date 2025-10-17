@@ -1,9 +1,0 @@
-include "ContentEnterCostReduceExcel.fbs";
-
-namespace FlatData;
-
-table ContentEnterCostReduceExcelTable {
-    data_list: [ContentEnterCostReduceExcel];
-}
-
-root_type ContentEnterCostReduceExcelTable;

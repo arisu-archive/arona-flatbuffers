@@ -49,15 +49,26 @@ class KeyMappingPopupExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def KeyMappingPopupExcelTableStart(builder): builder.StartObject(1)
+def KeyMappingPopupExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return KeyMappingPopupExcelTableStart(builder)
-def KeyMappingPopupExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    KeyMappingPopupExcelTableStart(builder)
+
+def KeyMappingPopupExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return KeyMappingPopupExcelTableAddDataList(builder, dataList)
-def KeyMappingPopupExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    KeyMappingPopupExcelTableAddDataList(builder, dataList)
+
+def KeyMappingPopupExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return KeyMappingPopupExcelTableStartDataListVector(builder, numElems)
-def KeyMappingPopupExcelTableEnd(builder): return builder.EndObject()
+
+def KeyMappingPopupExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return KeyMappingPopupExcelTableEnd(builder)

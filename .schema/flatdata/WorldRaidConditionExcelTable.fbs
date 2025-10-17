@@ -1,9 +1,0 @@
-include "WorldRaidConditionExcel.fbs";
-
-namespace FlatData;
-
-table WorldRaidConditionExcelTable {
-    data_list: [WorldRaidConditionExcel];
-}
-
-root_type WorldRaidConditionExcelTable;

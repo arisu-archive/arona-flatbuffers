@@ -1,9 +1,0 @@
-include "GroundModuleRewardExcel.fbs";
-
-namespace FlatData;
-
-table GroundModuleRewardExcelTable {
-    data_list: [GroundModuleRewardExcel];
-}
-
-root_type GroundModuleRewardExcelTable;

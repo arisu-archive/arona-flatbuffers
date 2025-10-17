@@ -22,12 +22,14 @@ func (t *ConstKeyMappingExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffe
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstKeyMapping"))
 	}
+	__offset_remove_keycode_word := b.CreateString(fbsutils.Convert(t.RemoveKeycodeWord, t.FlatBuffer.TableKey))
+	__offset_tutorial_dialog_touch_key := b.CreateString(fbsutils.Convert(t.TutorialDialogTouchKey, t.FlatBuffer.TableKey))
 	ConstKeyMappingExcelStart(b)
 	ConstKeyMappingExcelAddDragSensitivity(b, fbsutils.Convert(t.DragSensitivity, t.FlatBuffer.TableKey))
 	ConstKeyMappingExcelAddPcInformationGroupId(b, fbsutils.Convert(t.PcInformationGroupId, t.FlatBuffer.TableKey))
 	ConstKeyMappingExcelAddScrollWheelFactor(b, fbsutils.Convert(t.ScrollWheelFactor, t.FlatBuffer.TableKey))
-	ConstKeyMappingExcelAddRemoveKeycodeWord(b, b.CreateString(fbsutils.Convert(t.RemoveKeycodeWord, t.FlatBuffer.TableKey)))
-	ConstKeyMappingExcelAddTutorialDialogTouchKey(b, b.CreateString(fbsutils.Convert(t.TutorialDialogTouchKey, t.FlatBuffer.TableKey)))
+	ConstKeyMappingExcelAddRemoveKeycodeWord(b, __offset_remove_keycode_word)
+	ConstKeyMappingExcelAddTutorialDialogTouchKey(b, __offset_tutorial_dialog_touch_key)
 	return ConstKeyMappingExcelEnd(b)
 }
 

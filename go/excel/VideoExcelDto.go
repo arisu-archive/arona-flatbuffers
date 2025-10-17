@@ -20,6 +20,36 @@ type VideoExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VideoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	var __offset_video_path flatbuffers.UOffsetT
+	__stringOffsets_video_path := make([]flatbuffers.UOffsetT, len(t.VideoPath))
+	for i := range len(t.VideoPath) {
+		__stringOffsets_video_path[i] = b.CreateString(fbsutils.Convert(t.VideoPath[i], t.FlatBuffer.TableKey))
+	}
+	VideoExcelStartVideoPathVector(b, len(t.VideoPath))
+	for i := range len(t.VideoPath) {
+		b.PrependUOffsetT(__stringOffsets_video_path[len(t.VideoPath)-i-1])
+	}
+	__offset_video_path = b.EndVector(len(t.VideoPath))
+	var __offset_video_teen_path flatbuffers.UOffsetT
+	__stringOffsets_video_teen_path := make([]flatbuffers.UOffsetT, len(t.VideoTeenPath))
+	for i := range len(t.VideoTeenPath) {
+		__stringOffsets_video_teen_path[i] = b.CreateString(fbsutils.Convert(t.VideoTeenPath[i], t.FlatBuffer.TableKey))
+	}
+	VideoExcelStartVideoTeenPathVector(b, len(t.VideoTeenPath))
+	for i := range len(t.VideoTeenPath) {
+		b.PrependUOffsetT(__stringOffsets_video_teen_path[len(t.VideoTeenPath)-i-1])
+	}
+	__offset_video_teen_path = b.EndVector(len(t.VideoTeenPath))
+	var __offset_sound_path flatbuffers.UOffsetT
+	__stringOffsets_sound_path := make([]flatbuffers.UOffsetT, len(t.SoundPath))
+	for i := range len(t.SoundPath) {
+		__stringOffsets_sound_path[i] = b.CreateString(fbsutils.Convert(t.SoundPath[i], t.FlatBuffer.TableKey))
+	}
+	VideoExcelStartSoundPathVector(b, len(t.SoundPath))
+	for i := range len(t.SoundPath) {
+		b.PrependUOffsetT(__stringOffsets_sound_path[len(t.SoundPath)-i-1])
+	}
+	__offset_sound_path = b.EndVector(len(t.SoundPath))
 	VideoExcelStart(b)
 	VideoExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	VideoExcelStartNationVector(b, len(t.Nation))
@@ -27,21 +57,9 @@ func (t *VideoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 		b.PrependInt32(fbsutils.Convert(int32(t.Nation[len(t.Nation)-i-1]), t.FlatBuffer.TableKey))
 	}
 	VideoExcelAddNation(b, b.EndVector(len(t.Nation)))
-	VideoExcelStartVideoPathVector(b, len(t.VideoPath))
-	for i := range len(t.VideoPath) {
-		b.PrependUOffsetT(b.CreateString(t.VideoPath[len(t.VideoPath)-i-1]))
-	}
-	VideoExcelAddVideoPath(b, b.EndVector(len(t.VideoPath)))
-	VideoExcelStartVideoTeenPathVector(b, len(t.VideoTeenPath))
-	for i := range len(t.VideoTeenPath) {
-		b.PrependUOffsetT(b.CreateString(t.VideoTeenPath[len(t.VideoTeenPath)-i-1]))
-	}
-	VideoExcelAddVideoTeenPath(b, b.EndVector(len(t.VideoTeenPath)))
-	VideoExcelStartSoundPathVector(b, len(t.SoundPath))
-	for i := range len(t.SoundPath) {
-		b.PrependUOffsetT(b.CreateString(t.SoundPath[len(t.SoundPath)-i-1]))
-	}
-	VideoExcelAddSoundPath(b, b.EndVector(len(t.SoundPath)))
+	VideoExcelAddVideoPath(b, __offset_video_path)
+	VideoExcelAddVideoTeenPath(b, __offset_video_teen_path)
+	VideoExcelAddSoundPath(b, __offset_sound_path)
 	VideoExcelStartSoundVolumeVector(b, len(t.SoundVolume))
 	for i := range len(t.SoundVolume) {
 		b.PrependFloat32(fbsutils.Convert(t.SoundVolume[len(t.SoundVolume)-i-1], t.FlatBuffer.TableKey))

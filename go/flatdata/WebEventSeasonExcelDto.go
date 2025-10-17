@@ -25,15 +25,21 @@ func (t *WebEventSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("WebEventSeason"))
 	}
+	__offset_start_date := b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey))
+	__offset_end_date := b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey))
+	__offset_lobby_banner_image := b.CreateString(fbsutils.Convert(t.LobbyBannerImage, t.FlatBuffer.TableKey))
+	__offset_popup_title_localize_key := b.CreateString(fbsutils.Convert(t.PopupTitleLocalizeKey, t.FlatBuffer.TableKey))
+	__offset_stage_event_url := b.CreateString(fbsutils.Convert(t.StageEventUrl, t.FlatBuffer.TableKey))
+	__offset_live_event_url := b.CreateString(fbsutils.Convert(t.LiveEventUrl, t.FlatBuffer.TableKey))
 	WebEventSeasonExcelStart(b)
 	WebEventSeasonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	WebEventSeasonExcelAddEnabled(b, t.Enabled)
-	WebEventSeasonExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
-	WebEventSeasonExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
-	WebEventSeasonExcelAddLobbyBannerImage(b, b.CreateString(fbsutils.Convert(t.LobbyBannerImage, t.FlatBuffer.TableKey)))
-	WebEventSeasonExcelAddPopupTitleLocalizeKey(b, b.CreateString(fbsutils.Convert(t.PopupTitleLocalizeKey, t.FlatBuffer.TableKey)))
-	WebEventSeasonExcelAddStageEventUrl(b, b.CreateString(fbsutils.Convert(t.StageEventUrl, t.FlatBuffer.TableKey)))
-	WebEventSeasonExcelAddLiveEventUrl(b, b.CreateString(fbsutils.Convert(t.LiveEventUrl, t.FlatBuffer.TableKey)))
+	WebEventSeasonExcelAddStartDate(b, __offset_start_date)
+	WebEventSeasonExcelAddEndDate(b, __offset_end_date)
+	WebEventSeasonExcelAddLobbyBannerImage(b, __offset_lobby_banner_image)
+	WebEventSeasonExcelAddPopupTitleLocalizeKey(b, __offset_popup_title_localize_key)
+	WebEventSeasonExcelAddStageEventUrl(b, __offset_stage_event_url)
+	WebEventSeasonExcelAddLiveEventUrl(b, __offset_live_event_url)
 	return WebEventSeasonExcelEnd(b)
 }
 

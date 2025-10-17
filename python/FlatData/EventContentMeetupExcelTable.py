@@ -49,15 +49,26 @@ class EventContentMeetupExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentMeetupExcelTableStart(builder): builder.StartObject(1)
+def EventContentMeetupExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return EventContentMeetupExcelTableStart(builder)
-def EventContentMeetupExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    EventContentMeetupExcelTableStart(builder)
+
+def EventContentMeetupExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return EventContentMeetupExcelTableAddDataList(builder, dataList)
-def EventContentMeetupExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentMeetupExcelTableAddDataList(builder, dataList)
+
+def EventContentMeetupExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return EventContentMeetupExcelTableStartDataListVector(builder, numElems)
-def EventContentMeetupExcelTableEnd(builder): return builder.EndObject()
+
+def EventContentMeetupExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentMeetupExcelTableEnd(builder)

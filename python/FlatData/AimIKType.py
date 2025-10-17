@@ -2,12 +2,4 @@
 
 # namespace: FlatData
 
-class AimIKType(object):
-    None_ = 0
-    OneHandRight = 1
-    OneHandLeft = 2
-    TwoHandRight = 3
-    TwoHandLeft = 4
-    Tripod = 5
-    Dual = 6
-    Max = 7
+# NOTE AimIKType.py does not declare any structs or enums

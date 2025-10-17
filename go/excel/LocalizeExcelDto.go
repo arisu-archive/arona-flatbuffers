@@ -20,13 +20,18 @@ type LocalizeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *LocalizeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_kr := b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey))
+	__offset_jp := b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey))
+	__offset_th := b.CreateString(fbsutils.Convert(t.Th, t.FlatBuffer.TableKey))
+	__offset_tw := b.CreateString(fbsutils.Convert(t.Tw, t.FlatBuffer.TableKey))
+	__offset_en := b.CreateString(fbsutils.Convert(t.En, t.FlatBuffer.TableKey))
 	LocalizeExcelStart(b)
 	LocalizeExcelAddKey(b, fbsutils.Convert(t.Key, t.FlatBuffer.TableKey))
-	LocalizeExcelAddKr(b, b.CreateString(fbsutils.Convert(t.Kr, t.FlatBuffer.TableKey)))
-	LocalizeExcelAddJp(b, b.CreateString(fbsutils.Convert(t.Jp, t.FlatBuffer.TableKey)))
-	LocalizeExcelAddTh(b, b.CreateString(fbsutils.Convert(t.Th, t.FlatBuffer.TableKey)))
-	LocalizeExcelAddTw(b, b.CreateString(fbsutils.Convert(t.Tw, t.FlatBuffer.TableKey)))
-	LocalizeExcelAddEn(b, b.CreateString(fbsutils.Convert(t.En, t.FlatBuffer.TableKey)))
+	LocalizeExcelAddKr(b, __offset_kr)
+	LocalizeExcelAddJp(b, __offset_jp)
+	LocalizeExcelAddTh(b, __offset_th)
+	LocalizeExcelAddTw(b, __offset_tw)
+	LocalizeExcelAddEn(b, __offset_en)
 	return LocalizeExcelEnd(b)
 }
 

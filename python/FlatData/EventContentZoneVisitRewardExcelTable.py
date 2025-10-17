@@ -49,15 +49,26 @@ class EventContentZoneVisitRewardExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentZoneVisitRewardExcelTableStart(builder): builder.StartObject(1)
+def EventContentZoneVisitRewardExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return EventContentZoneVisitRewardExcelTableStart(builder)
-def EventContentZoneVisitRewardExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    EventContentZoneVisitRewardExcelTableStart(builder)
+
+def EventContentZoneVisitRewardExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return EventContentZoneVisitRewardExcelTableAddDataList(builder, dataList)
-def EventContentZoneVisitRewardExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentZoneVisitRewardExcelTableAddDataList(builder, dataList)
+
+def EventContentZoneVisitRewardExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return EventContentZoneVisitRewardExcelTableStartDataListVector(builder, numElems)
-def EventContentZoneVisitRewardExcelTableEnd(builder): return builder.EndObject()
+
+def EventContentZoneVisitRewardExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentZoneVisitRewardExcelTableEnd(builder)

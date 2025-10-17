@@ -22,15 +22,21 @@ type MemoryLobbyGlobalExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *MemoryLobbyGlobalExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_prefab_name_kr := b.CreateString(fbsutils.Convert(t.PrefabNameKr, t.FlatBuffer.TableKey))
+	__offset_prefab_name_tw := b.CreateString(fbsutils.Convert(t.PrefabNameTw, t.FlatBuffer.TableKey))
+	__offset_prefab_name_asia := b.CreateString(fbsutils.Convert(t.PrefabNameAsia, t.FlatBuffer.TableKey))
+	__offset_prefab_name_na := b.CreateString(fbsutils.Convert(t.PrefabNameNa, t.FlatBuffer.TableKey))
+	__offset_prefab_name_global := b.CreateString(fbsutils.Convert(t.PrefabNameGlobal, t.FlatBuffer.TableKey))
+	__offset_prefab_name_teen := b.CreateString(fbsutils.Convert(t.PrefabNameTeen, t.FlatBuffer.TableKey))
 	MemoryLobby_GlobalExcelStart(b)
 	MemoryLobby_GlobalExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	MemoryLobby_GlobalExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
-	MemoryLobby_GlobalExcelAddPrefabNameKr(b, b.CreateString(fbsutils.Convert(t.PrefabNameKr, t.FlatBuffer.TableKey)))
-	MemoryLobby_GlobalExcelAddPrefabNameTw(b, b.CreateString(fbsutils.Convert(t.PrefabNameTw, t.FlatBuffer.TableKey)))
-	MemoryLobby_GlobalExcelAddPrefabNameAsia(b, b.CreateString(fbsutils.Convert(t.PrefabNameAsia, t.FlatBuffer.TableKey)))
-	MemoryLobby_GlobalExcelAddPrefabNameNa(b, b.CreateString(fbsutils.Convert(t.PrefabNameNa, t.FlatBuffer.TableKey)))
-	MemoryLobby_GlobalExcelAddPrefabNameGlobal(b, b.CreateString(fbsutils.Convert(t.PrefabNameGlobal, t.FlatBuffer.TableKey)))
-	MemoryLobby_GlobalExcelAddPrefabNameTeen(b, b.CreateString(fbsutils.Convert(t.PrefabNameTeen, t.FlatBuffer.TableKey)))
+	MemoryLobby_GlobalExcelAddPrefabNameKr(b, __offset_prefab_name_kr)
+	MemoryLobby_GlobalExcelAddPrefabNameTw(b, __offset_prefab_name_tw)
+	MemoryLobby_GlobalExcelAddPrefabNameAsia(b, __offset_prefab_name_asia)
+	MemoryLobby_GlobalExcelAddPrefabNameNa(b, __offset_prefab_name_na)
+	MemoryLobby_GlobalExcelAddPrefabNameGlobal(b, __offset_prefab_name_global)
+	MemoryLobby_GlobalExcelAddPrefabNameTeen(b, __offset_prefab_name_teen)
 	return MemoryLobby_GlobalExcelEnd(b)
 }
 

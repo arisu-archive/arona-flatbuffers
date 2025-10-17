@@ -80,33 +80,62 @@ class ClanChattingEmojiExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-def ClanChattingEmojiExcelStart(builder): builder.StartObject(8)
+def ClanChattingEmojiExcelStart(builder):
+    builder.StartObject(8)
+
 def Start(builder):
-    return ClanChattingEmojiExcelStart(builder)
-def ClanChattingEmojiExcelAddId(builder, id): builder.PrependInt64Slot(0, id, 0)
+    ClanChattingEmojiExcelStart(builder)
+
+def ClanChattingEmojiExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
 def AddId(builder, id):
-    return ClanChattingEmojiExcelAddId(builder, id)
-def ClanChattingEmojiExcelAddTabGroupId(builder, tabGroupId): builder.PrependInt32Slot(1, tabGroupId, 0)
+    ClanChattingEmojiExcelAddId(builder, id)
+
+def ClanChattingEmojiExcelAddTabGroupId(builder, tabGroupId):
+    builder.PrependInt32Slot(1, tabGroupId, 0)
+
 def AddTabGroupId(builder, tabGroupId):
-    return ClanChattingEmojiExcelAddTabGroupId(builder, tabGroupId)
-def ClanChattingEmojiExcelAddDisplayOrder(builder, displayOrder): builder.PrependInt32Slot(2, displayOrder, 0)
+    ClanChattingEmojiExcelAddTabGroupId(builder, tabGroupId)
+
+def ClanChattingEmojiExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt32Slot(2, displayOrder, 0)
+
 def AddDisplayOrder(builder, displayOrder):
-    return ClanChattingEmojiExcelAddDisplayOrder(builder, displayOrder)
-def ClanChattingEmojiExcelAddImagePathKr(builder, imagePathKr): builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathKr), 0)
+    ClanChattingEmojiExcelAddDisplayOrder(builder, displayOrder)
+
+def ClanChattingEmojiExcelAddImagePathKr(builder, imagePathKr):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathKr), 0)
+
 def AddImagePathKr(builder, imagePathKr):
-    return ClanChattingEmojiExcelAddImagePathKr(builder, imagePathKr)
-def ClanChattingEmojiExcelAddImagePathJp(builder, imagePathJp): builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathJp), 0)
+    ClanChattingEmojiExcelAddImagePathKr(builder, imagePathKr)
+
+def ClanChattingEmojiExcelAddImagePathJp(builder, imagePathJp):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathJp), 0)
+
 def AddImagePathJp(builder, imagePathJp):
-    return ClanChattingEmojiExcelAddImagePathJp(builder, imagePathJp)
-def ClanChattingEmojiExcelAddImagePathTh(builder, imagePathTh): builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathTh), 0)
+    ClanChattingEmojiExcelAddImagePathJp(builder, imagePathJp)
+
+def ClanChattingEmojiExcelAddImagePathTh(builder, imagePathTh):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathTh), 0)
+
 def AddImagePathTh(builder, imagePathTh):
-    return ClanChattingEmojiExcelAddImagePathTh(builder, imagePathTh)
-def ClanChattingEmojiExcelAddImagePathTw(builder, imagePathTw): builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathTw), 0)
+    ClanChattingEmojiExcelAddImagePathTh(builder, imagePathTh)
+
+def ClanChattingEmojiExcelAddImagePathTw(builder, imagePathTw):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathTw), 0)
+
 def AddImagePathTw(builder, imagePathTw):
-    return ClanChattingEmojiExcelAddImagePathTw(builder, imagePathTw)
-def ClanChattingEmojiExcelAddImagePathEn(builder, imagePathEn): builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathEn), 0)
+    ClanChattingEmojiExcelAddImagePathTw(builder, imagePathTw)
+
+def ClanChattingEmojiExcelAddImagePathEn(builder, imagePathEn):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(imagePathEn), 0)
+
 def AddImagePathEn(builder, imagePathEn):
-    return ClanChattingEmojiExcelAddImagePathEn(builder, imagePathEn)
-def ClanChattingEmojiExcelEnd(builder): return builder.EndObject()
+    ClanChattingEmojiExcelAddImagePathEn(builder, imagePathEn)
+
+def ClanChattingEmojiExcelEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return ClanChattingEmojiExcelEnd(builder)

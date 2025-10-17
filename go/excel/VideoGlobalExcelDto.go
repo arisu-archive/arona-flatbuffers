@@ -23,16 +23,24 @@ type VideoGlobalExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *VideoGlobalExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_video_path_kr := b.CreateString(fbsutils.Convert(t.VideoPathKr, t.FlatBuffer.TableKey))
+	__offset_video_teen_path_kr := b.CreateString(fbsutils.Convert(t.VideoTeenPathKr, t.FlatBuffer.TableKey))
+	__offset_video_path_th := b.CreateString(fbsutils.Convert(t.VideoPathTh, t.FlatBuffer.TableKey))
+	__offset_video_teen_path_th := b.CreateString(fbsutils.Convert(t.VideoTeenPathTh, t.FlatBuffer.TableKey))
+	__offset_video_path_tw := b.CreateString(fbsutils.Convert(t.VideoPathTw, t.FlatBuffer.TableKey))
+	__offset_video_teen_path_tw := b.CreateString(fbsutils.Convert(t.VideoTeenPathTw, t.FlatBuffer.TableKey))
+	__offset_video_path_en := b.CreateString(fbsutils.Convert(t.VideoPathEn, t.FlatBuffer.TableKey))
+	__offset_video_teen_path_en := b.CreateString(fbsutils.Convert(t.VideoTeenPathEn, t.FlatBuffer.TableKey))
 	Video_GlobalExcelStart(b)
 	Video_GlobalExcelAddVideoId(b, fbsutils.Convert(t.VideoId, t.FlatBuffer.TableKey))
-	Video_GlobalExcelAddVideoPathKr(b, b.CreateString(fbsutils.Convert(t.VideoPathKr, t.FlatBuffer.TableKey)))
-	Video_GlobalExcelAddVideoTeenPathKr(b, b.CreateString(fbsutils.Convert(t.VideoTeenPathKr, t.FlatBuffer.TableKey)))
-	Video_GlobalExcelAddVideoPathTh(b, b.CreateString(fbsutils.Convert(t.VideoPathTh, t.FlatBuffer.TableKey)))
-	Video_GlobalExcelAddVideoTeenPathTh(b, b.CreateString(fbsutils.Convert(t.VideoTeenPathTh, t.FlatBuffer.TableKey)))
-	Video_GlobalExcelAddVideoPathTw(b, b.CreateString(fbsutils.Convert(t.VideoPathTw, t.FlatBuffer.TableKey)))
-	Video_GlobalExcelAddVideoTeenPathTw(b, b.CreateString(fbsutils.Convert(t.VideoTeenPathTw, t.FlatBuffer.TableKey)))
-	Video_GlobalExcelAddVideoPathEn(b, b.CreateString(fbsutils.Convert(t.VideoPathEn, t.FlatBuffer.TableKey)))
-	Video_GlobalExcelAddVideoTeenPathEn(b, b.CreateString(fbsutils.Convert(t.VideoTeenPathEn, t.FlatBuffer.TableKey)))
+	Video_GlobalExcelAddVideoPathKr(b, __offset_video_path_kr)
+	Video_GlobalExcelAddVideoTeenPathKr(b, __offset_video_teen_path_kr)
+	Video_GlobalExcelAddVideoPathTh(b, __offset_video_path_th)
+	Video_GlobalExcelAddVideoTeenPathTh(b, __offset_video_teen_path_th)
+	Video_GlobalExcelAddVideoPathTw(b, __offset_video_path_tw)
+	Video_GlobalExcelAddVideoTeenPathTw(b, __offset_video_teen_path_tw)
+	Video_GlobalExcelAddVideoPathEn(b, __offset_video_path_en)
+	Video_GlobalExcelAddVideoTeenPathEn(b, __offset_video_teen_path_en)
 	return Video_GlobalExcelEnd(b)
 }
 

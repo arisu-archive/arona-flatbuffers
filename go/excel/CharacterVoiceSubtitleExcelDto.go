@@ -25,18 +25,25 @@ type CharacterVoiceSubtitleExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterVoiceSubtitleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_localize_cv_group := b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey))
+	__offset_tlmid := b.CreateString(fbsutils.Convert(t.Tlmid, t.FlatBuffer.TableKey))
+	__offset_localize_kr := b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey))
+	__offset_localize_jp := b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey))
+	__offset_localize_th := b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey))
+	__offset_localize_tw := b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey))
+	__offset_localize_en := b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey))
 	CharacterVoiceSubtitleExcelStart(b)
-	CharacterVoiceSubtitleExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
+	CharacterVoiceSubtitleExcelAddLocalizeCvGroup(b, __offset_localize_cv_group)
 	CharacterVoiceSubtitleExcelAddCharacterVoiceGroupId(b, fbsutils.Convert(t.CharacterVoiceGroupId, t.FlatBuffer.TableKey))
-	CharacterVoiceSubtitleExcelAddTlmid(b, b.CreateString(fbsutils.Convert(t.Tlmid, t.FlatBuffer.TableKey)))
+	CharacterVoiceSubtitleExcelAddTlmid(b, __offset_tlmid)
 	CharacterVoiceSubtitleExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
 	CharacterVoiceSubtitleExcelAddDurationKr(b, fbsutils.Convert(t.DurationKr, t.FlatBuffer.TableKey))
 	CharacterVoiceSubtitleExcelAddSeparate(b, t.Separate)
-	CharacterVoiceSubtitleExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
-	CharacterVoiceSubtitleExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
-	CharacterVoiceSubtitleExcelAddLocalizeTh(b, b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey)))
-	CharacterVoiceSubtitleExcelAddLocalizeTw(b, b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey)))
-	CharacterVoiceSubtitleExcelAddLocalizeEn(b, b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey)))
+	CharacterVoiceSubtitleExcelAddLocalizeKr(b, __offset_localize_kr)
+	CharacterVoiceSubtitleExcelAddLocalizeJp(b, __offset_localize_jp)
+	CharacterVoiceSubtitleExcelAddLocalizeTh(b, __offset_localize_th)
+	CharacterVoiceSubtitleExcelAddLocalizeTw(b, __offset_localize_tw)
+	CharacterVoiceSubtitleExcelAddLocalizeEn(b, __offset_localize_en)
 	return CharacterVoiceSubtitleExcelEnd(b)
 }
 

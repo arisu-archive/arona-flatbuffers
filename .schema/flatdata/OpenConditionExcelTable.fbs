@@ -1,9 +1,0 @@
-include "OpenConditionExcel.fbs";
-
-namespace FlatData;
-
-table OpenConditionExcelTable {
-    data_list: [OpenConditionExcel];
-}
-
-root_type OpenConditionExcelTable;

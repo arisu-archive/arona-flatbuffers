@@ -49,15 +49,26 @@ class EventContentMissionExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def EventContentMissionExcelTableStart(builder): builder.StartObject(1)
+def EventContentMissionExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return EventContentMissionExcelTableStart(builder)
-def EventContentMissionExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    EventContentMissionExcelTableStart(builder)
+
+def EventContentMissionExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return EventContentMissionExcelTableAddDataList(builder, dataList)
-def EventContentMissionExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    EventContentMissionExcelTableAddDataList(builder, dataList)
+
+def EventContentMissionExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return EventContentMissionExcelTableStartDataListVector(builder, numElems)
-def EventContentMissionExcelTableEnd(builder): return builder.EndObject()
+
+def EventContentMissionExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return EventContentMissionExcelTableEnd(builder)

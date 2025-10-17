@@ -1,9 +1,0 @@
-include "StickerGroupExcel.fbs";
-
-namespace FlatData;
-
-table StickerGroupExcelTable {
-    data_list: [StickerGroupExcel];
-}
-
-root_type StickerGroupExcelTable;

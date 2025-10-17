@@ -25,11 +25,14 @@ func (t *CumulativeTimeRewardExcelDto) MarshalModel(b *flatbuffers.Builder) flat
 	if t.FlatBuffer.TableKey == nil {
 		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("CumulativeTimeReward"))
 	}
+	__offset_description := b.CreateString(fbsutils.Convert(t.Description, t.FlatBuffer.TableKey))
+	__offset_start_date := b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey))
+	__offset_end_date := b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey))
 	CumulativeTimeRewardExcelStart(b)
 	CumulativeTimeRewardExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
-	CumulativeTimeRewardExcelAddDescription(b, b.CreateString(fbsutils.Convert(t.Description, t.FlatBuffer.TableKey)))
-	CumulativeTimeRewardExcelAddStartDate(b, b.CreateString(fbsutils.Convert(t.StartDate, t.FlatBuffer.TableKey)))
-	CumulativeTimeRewardExcelAddEndDate(b, b.CreateString(fbsutils.Convert(t.EndDate, t.FlatBuffer.TableKey)))
+	CumulativeTimeRewardExcelAddDescription(b, __offset_description)
+	CumulativeTimeRewardExcelAddStartDate(b, __offset_start_date)
+	CumulativeTimeRewardExcelAddEndDate(b, __offset_end_date)
 	CumulativeTimeRewardExcelStartTimeConditionVector(b, len(t.TimeCondition))
 	for i := range len(t.TimeCondition) {
 		b.PrependInt64(fbsutils.Convert(t.TimeCondition[len(t.TimeCondition)-i-1], t.FlatBuffer.TableKey))

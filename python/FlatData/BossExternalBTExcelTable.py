@@ -49,15 +49,26 @@ class BossExternalBTExcelTable(object):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
         return o == 0
 
-def BossExternalBTExcelTableStart(builder): builder.StartObject(1)
+def BossExternalBTExcelTableStart(builder):
+    builder.StartObject(1)
+
 def Start(builder):
-    return BossExternalBTExcelTableStart(builder)
-def BossExternalBTExcelTableAddDataList(builder, dataList): builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+    BossExternalBTExcelTableStart(builder)
+
+def BossExternalBTExcelTableAddDataList(builder, dataList):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(dataList), 0)
+
 def AddDataList(builder, dataList):
-    return BossExternalBTExcelTableAddDataList(builder, dataList)
-def BossExternalBTExcelTableStartDataListVector(builder, numElems): return builder.StartVector(4, numElems, 4)
+    BossExternalBTExcelTableAddDataList(builder, dataList)
+
+def BossExternalBTExcelTableStartDataListVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
 def StartDataListVector(builder, numElems):
     return BossExternalBTExcelTableStartDataListVector(builder, numElems)
-def BossExternalBTExcelTableEnd(builder): return builder.EndObject()
+
+def BossExternalBTExcelTableEnd(builder):
+    return builder.EndObject()
+
 def End(builder):
     return BossExternalBTExcelTableEnd(builder)

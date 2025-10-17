@@ -27,6 +27,7 @@ type EmblemExcelDto struct {
 	EmblemBgPathTh       string              `json:"emblem_bg_path_th"`
 	EmblemBgPathTw       string              `json:"emblem_bg_path_tw"`
 	EmblemBgPathEn       string              `json:"emblem_bg_path_en"`
+	EmblemEffectPath     string              `json:"emblem_effect_path"`
 	DisplayType          EmblemDisplayType   `json:"display_type"`
 	DisplayStartDate     string              `json:"display_start_date"`
 	DisplayEndDate       string              `json:"display_end_date"`
@@ -38,6 +39,17 @@ type EmblemExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *EmblemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_icon_path := b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey))
+	__offset_emblem_icon_path := b.CreateString(fbsutils.Convert(t.EmblemIconPath, t.FlatBuffer.TableKey))
+	__offset_emblem_icon_bg_path := b.CreateString(fbsutils.Convert(t.EmblemIconBgPath, t.FlatBuffer.TableKey))
+	__offset_emblem_bg_path_jp := b.CreateString(fbsutils.Convert(t.EmblemBgPathJp, t.FlatBuffer.TableKey))
+	__offset_emblem_bg_path_kr := b.CreateString(fbsutils.Convert(t.EmblemBgPathKr, t.FlatBuffer.TableKey))
+	__offset_emblem_bg_path_th := b.CreateString(fbsutils.Convert(t.EmblemBgPathTh, t.FlatBuffer.TableKey))
+	__offset_emblem_bg_path_tw := b.CreateString(fbsutils.Convert(t.EmblemBgPathTw, t.FlatBuffer.TableKey))
+	__offset_emblem_bg_path_en := b.CreateString(fbsutils.Convert(t.EmblemBgPathEn, t.FlatBuffer.TableKey))
+	__offset_emblem_effect_path := b.CreateString(fbsutils.Convert(t.EmblemEffectPath, t.FlatBuffer.TableKey))
+	__offset_display_start_date := b.CreateString(fbsutils.Convert(t.DisplayStartDate, t.FlatBuffer.TableKey))
+	__offset_display_end_date := b.CreateString(fbsutils.Convert(t.DisplayEndDate, t.FlatBuffer.TableKey))
 	EmblemExcelStart(b)
 	EmblemExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	EmblemExcelAddCategory(b, fbsutils.Convert(t.Category, t.FlatBuffer.TableKey))
@@ -47,18 +59,19 @@ func (t *EmblemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffse
 	EmblemExcelAddLocalizeCodeId(b, fbsutils.Convert(t.LocalizeCodeId, t.FlatBuffer.TableKey))
 	EmblemExcelAddUseAtLocalizeId(b, fbsutils.Convert(t.UseAtLocalizeId, t.FlatBuffer.TableKey))
 	EmblemExcelAddEmblemTextVisible(b, t.EmblemTextVisible)
-	EmblemExcelAddIconPath(b, b.CreateString(fbsutils.Convert(t.IconPath, t.FlatBuffer.TableKey)))
-	EmblemExcelAddEmblemIconPath(b, b.CreateString(fbsutils.Convert(t.EmblemIconPath, t.FlatBuffer.TableKey)))
+	EmblemExcelAddIconPath(b, __offset_icon_path)
+	EmblemExcelAddEmblemIconPath(b, __offset_emblem_icon_path)
 	EmblemExcelAddEmblemIconNumControl(b, fbsutils.Convert(t.EmblemIconNumControl, t.FlatBuffer.TableKey))
-	EmblemExcelAddEmblemIconBgPath(b, b.CreateString(fbsutils.Convert(t.EmblemIconBgPath, t.FlatBuffer.TableKey)))
-	EmblemExcelAddEmblemBgPathJp(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathJp, t.FlatBuffer.TableKey)))
-	EmblemExcelAddEmblemBgPathKr(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathKr, t.FlatBuffer.TableKey)))
-	EmblemExcelAddEmblemBgPathTh(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathTh, t.FlatBuffer.TableKey)))
-	EmblemExcelAddEmblemBgPathTw(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathTw, t.FlatBuffer.TableKey)))
-	EmblemExcelAddEmblemBgPathEn(b, b.CreateString(fbsutils.Convert(t.EmblemBgPathEn, t.FlatBuffer.TableKey)))
+	EmblemExcelAddEmblemIconBgPath(b, __offset_emblem_icon_bg_path)
+	EmblemExcelAddEmblemBgPathJp(b, __offset_emblem_bg_path_jp)
+	EmblemExcelAddEmblemBgPathKr(b, __offset_emblem_bg_path_kr)
+	EmblemExcelAddEmblemBgPathTh(b, __offset_emblem_bg_path_th)
+	EmblemExcelAddEmblemBgPathTw(b, __offset_emblem_bg_path_tw)
+	EmblemExcelAddEmblemBgPathEn(b, __offset_emblem_bg_path_en)
+	EmblemExcelAddEmblemEffectPath(b, __offset_emblem_effect_path)
 	EmblemExcelAddDisplayType(b, fbsutils.Convert(t.DisplayType, t.FlatBuffer.TableKey))
-	EmblemExcelAddDisplayStartDate(b, b.CreateString(fbsutils.Convert(t.DisplayStartDate, t.FlatBuffer.TableKey)))
-	EmblemExcelAddDisplayEndDate(b, b.CreateString(fbsutils.Convert(t.DisplayEndDate, t.FlatBuffer.TableKey)))
+	EmblemExcelAddDisplayStartDate(b, __offset_display_start_date)
+	EmblemExcelAddDisplayEndDate(b, __offset_display_end_date)
 	EmblemExcelAddDislpayFavorLevel(b, fbsutils.Convert(t.DislpayFavorLevel, t.FlatBuffer.TableKey))
 	EmblemExcelAddCheckPassType(b, fbsutils.Convert(t.CheckPassType, t.FlatBuffer.TableKey))
 	EmblemExcelAddEmblemParameter(b, fbsutils.Convert(t.EmblemParameter, t.FlatBuffer.TableKey))
@@ -92,6 +105,7 @@ func (t *EmblemExcelDto) UnmarshalMessage(e *EmblemExcel) error {
 	t.EmblemBgPathTh = fbsutils.Convert(string(e.EmblemBgPathTh()), t.FlatBuffer.TableKey)
 	t.EmblemBgPathTw = fbsutils.Convert(string(e.EmblemBgPathTw()), t.FlatBuffer.TableKey)
 	t.EmblemBgPathEn = fbsutils.Convert(string(e.EmblemBgPathEn()), t.FlatBuffer.TableKey)
+	t.EmblemEffectPath = fbsutils.Convert(string(e.EmblemEffectPath()), t.FlatBuffer.TableKey)
 	t.DisplayType = EmblemDisplayType(fbsutils.Convert(int32(e.DisplayType()), t.FlatBuffer.TableKey))
 	t.DisplayStartDate = fbsutils.Convert(string(e.DisplayStartDate()), t.FlatBuffer.TableKey)
 	t.DisplayEndDate = fbsutils.Convert(string(e.DisplayEndDate()), t.FlatBuffer.TableKey)

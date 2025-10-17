@@ -1,9 +1,0 @@
-include "FarmingDungeonLocationManageExcel.fbs";
-
-namespace FlatData;
-
-table FarmingDungeonLocationManageExcelTable {
-    data_list: [FarmingDungeonLocationManageExcel];
-}
-
-root_type FarmingDungeonLocationManageExcelTable;

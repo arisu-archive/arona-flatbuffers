@@ -25,18 +25,25 @@ type CharacterDialogSubtitleExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *CharacterDialogSubtitleExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_localize_cv_group := b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey))
+	__offset_tlmid := b.CreateString(fbsutils.Convert(t.Tlmid, t.FlatBuffer.TableKey))
+	__offset_localize_kr := b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey))
+	__offset_localize_jp := b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey))
+	__offset_localize_th := b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey))
+	__offset_localize_tw := b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey))
+	__offset_localize_en := b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey))
 	CharacterDialogSubtitleExcelStart(b)
-	CharacterDialogSubtitleExcelAddLocalizeCvGroup(b, b.CreateString(fbsutils.Convert(t.LocalizeCvGroup, t.FlatBuffer.TableKey)))
+	CharacterDialogSubtitleExcelAddLocalizeCvGroup(b, __offset_localize_cv_group)
 	CharacterDialogSubtitleExcelAddCharacterId(b, fbsutils.Convert(t.CharacterId, t.FlatBuffer.TableKey))
-	CharacterDialogSubtitleExcelAddTlmid(b, b.CreateString(fbsutils.Convert(t.Tlmid, t.FlatBuffer.TableKey)))
+	CharacterDialogSubtitleExcelAddTlmid(b, __offset_tlmid)
 	CharacterDialogSubtitleExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
 	CharacterDialogSubtitleExcelAddDurationKr(b, fbsutils.Convert(t.DurationKr, t.FlatBuffer.TableKey))
 	CharacterDialogSubtitleExcelAddSeparate(b, t.Separate)
-	CharacterDialogSubtitleExcelAddLocalizeKr(b, b.CreateString(fbsutils.Convert(t.LocalizeKr, t.FlatBuffer.TableKey)))
-	CharacterDialogSubtitleExcelAddLocalizeJp(b, b.CreateString(fbsutils.Convert(t.LocalizeJp, t.FlatBuffer.TableKey)))
-	CharacterDialogSubtitleExcelAddLocalizeTh(b, b.CreateString(fbsutils.Convert(t.LocalizeTh, t.FlatBuffer.TableKey)))
-	CharacterDialogSubtitleExcelAddLocalizeTw(b, b.CreateString(fbsutils.Convert(t.LocalizeTw, t.FlatBuffer.TableKey)))
-	CharacterDialogSubtitleExcelAddLocalizeEn(b, b.CreateString(fbsutils.Convert(t.LocalizeEn, t.FlatBuffer.TableKey)))
+	CharacterDialogSubtitleExcelAddLocalizeKr(b, __offset_localize_kr)
+	CharacterDialogSubtitleExcelAddLocalizeJp(b, __offset_localize_jp)
+	CharacterDialogSubtitleExcelAddLocalizeTh(b, __offset_localize_th)
+	CharacterDialogSubtitleExcelAddLocalizeTw(b, __offset_localize_tw)
+	CharacterDialogSubtitleExcelAddLocalizeEn(b, __offset_localize_en)
 	return CharacterDialogSubtitleExcelEnd(b)
 }
 

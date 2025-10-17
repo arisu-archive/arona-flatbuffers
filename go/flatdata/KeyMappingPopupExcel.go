@@ -17,11 +17,19 @@ func GetRootAsKeyMappingPopupExcel(buf []byte, offset flatbuffers.UOffsetT) *Key
 	return x
 }
 
+func FinishKeyMappingPopupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.Finish(offset)
+}
+
 func GetSizePrefixedRootAsKeyMappingPopupExcel(buf []byte, offset flatbuffers.UOffsetT) *KeyMappingPopupExcel {
 	n := flatbuffers.GetUOffsetT(buf[offset+flatbuffers.SizeUint32:])
 	x := &KeyMappingPopupExcel{}
 	x.Init(buf, n+offset+flatbuffers.SizeUint32)
 	return x
+}
+
+func FinishSizePrefixedKeyMappingPopupExcelBuffer(builder *flatbuffers.Builder, offset flatbuffers.UOffsetT) {
+	builder.FinishSizePrefixed(offset)
 }
 
 func (rcv *KeyMappingPopupExcel) Init(buf []byte, i flatbuffers.UOffsetT) {
