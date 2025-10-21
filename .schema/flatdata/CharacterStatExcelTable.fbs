@@ -1,9 +1,9 @@
-include "CharacterStatExcel.fbs";
+include "O09e5e4f912402c81e7c5cfba5bfe3a48a49bd438bcd057a3aafcc868b68db826.fbs";
 
 namespace FlatData;
 
 table CharacterStatExcelTable {
-    data_list: [CharacterStatExcel];
+    data_list: [O09e5e4f912402c81e7c5cfba5bfe3a48a49bd438bcd057a3aafcc868b68db826];
 }
 
 root_type CharacterStatExcelTable;
