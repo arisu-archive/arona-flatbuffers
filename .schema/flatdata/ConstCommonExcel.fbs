@@ -189,4 +189,7 @@ table ConstCommonExcel {
     cafe_camera_drag_threshold: float;
     battle_pass_notify_date_gl: int;
     purchase_mail_expired_day_gl: int;
+    review_event_date_gl: string;
+    review_event_stage_idgl: long;
+    review_event_char_idgl: long;
 }

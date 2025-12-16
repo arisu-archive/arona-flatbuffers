@@ -17,7 +17,7 @@ jobs:
       version: ${{ steps.get-version.outputs.version }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           ref: develop
           sparse-checkout: |
@@ -83,7 +83,7 @@ jobs:
     if: needs.check-branch.outputs.should_run == 'true'
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           ref: develop
           sparse-checkout-cone-mode: false
@@ -111,10 +111,6 @@ jobs:
           git config --global --add url."git@github.com:".insteadOf "https://github.com/"
           go run github.com/arisu-archive/arona-unflatd@develop d -i ./output/DiffableCs/BlueArchive -o ./.schema/flatdata -n FlatData
           go run github.com/arisu-archive/arona-unflatd@develop d -i ./output/DiffableCs/BlueArchive -o ./.schema/excel -n "MX.Data.Excel"
-      - name: Install FlatBuffers compiler
-        run: |
-          sudo apt update
-          sudo apt install flatbuffers-compiler
       - name: Compile the schema into code
         env:
           GOPRIVATE: github.com/arisu-archive
