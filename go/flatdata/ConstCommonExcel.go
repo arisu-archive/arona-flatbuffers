@@ -2303,8 +2303,40 @@ func (rcv *ConstCommonExcel) MutatePurchaseMailExpiredDayGl(n int32) bool {
 	return rcv._tab.MutateInt32Slot(370, n)
 }
 
+func (rcv *ConstCommonExcel) ReviewEventDateGl() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(372))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConstCommonExcel) ReviewEventStageIdgl() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(374))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateReviewEventStageIdgl(n int64) bool {
+	return rcv._tab.MutateInt64Slot(374, n)
+}
+
+func (rcv *ConstCommonExcel) ReviewEventCharIdgl() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(376))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateReviewEventCharIdgl(n int64) bool {
+	return rcv._tab.MutateInt64Slot(376, n)
+}
+
 func ConstCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(184)
+	builder.StartObject(187)
 }
 func ConstCommonExcelAddCampaignMainStageMaxRank(builder *flatbuffers.Builder, campaignMainStageMaxRank int32) {
 	builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -2872,6 +2904,15 @@ func ConstCommonExcelAddBattlePassNotifyDateGl(builder *flatbuffers.Builder, bat
 }
 func ConstCommonExcelAddPurchaseMailExpiredDayGl(builder *flatbuffers.Builder, purchaseMailExpiredDayGl int32) {
 	builder.PrependInt32Slot(183, purchaseMailExpiredDayGl, 0)
+}
+func ConstCommonExcelAddReviewEventDateGl(builder *flatbuffers.Builder, reviewEventDateGl flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(184, flatbuffers.UOffsetT(reviewEventDateGl), 0)
+}
+func ConstCommonExcelAddReviewEventStageIdgl(builder *flatbuffers.Builder, reviewEventStageIdgl int64) {
+	builder.PrependInt64Slot(185, reviewEventStageIdgl, 0)
+}
+func ConstCommonExcelAddReviewEventCharIdgl(builder *flatbuffers.Builder, reviewEventCharIdgl int64) {
+	builder.PrependInt64Slot(186, reviewEventCharIdgl, 0)
 }
 func ConstCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
