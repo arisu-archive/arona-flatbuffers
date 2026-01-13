@@ -6,6 +6,7 @@ table MinigameCCGOpenDialogExcel {
     condition_card: long;
     dialog: uint;
     duration: long;
+    duration_kr: long;
     voice: uint;
 }
 

@@ -20,6 +20,7 @@ type GoodsExcelDto struct {
 	ConsumeCondition             []ConsumeCondition `json:"consume_condition"`
 	ConsumeGachaTicketType       []GachaTicketType  `json:"consume_gacha_ticket_type"`
 	ConsumeGachaTicketTypeAmount []int64            `json:"consume_gacha_ticket_type_amount"`
+	CombinedGachaCostId          int64              `json:"combined_gacha_cost_id"`
 	ProductIdAos                 int64              `json:"product_id_aos"`
 	ProductIdiOs                 int64              `json:"product_idi_os"`
 	ProductIdOne                 int64              `json:"product_id_one"`
@@ -71,6 +72,7 @@ func (t *GoodsExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 		b.PrependInt64(fbsutils.Convert(t.ConsumeGachaTicketTypeAmount[len(t.ConsumeGachaTicketTypeAmount)-i-1], t.FlatBuffer.TableKey))
 	}
 	GoodsExcelAddConsumeGachaTicketTypeAmount(b, b.EndVector(len(t.ConsumeGachaTicketTypeAmount)))
+	GoodsExcelAddCombinedGachaCostId(b, fbsutils.Convert(t.CombinedGachaCostId, t.FlatBuffer.TableKey))
 	GoodsExcelAddProductIdAos(b, fbsutils.Convert(t.ProductIdAos, t.FlatBuffer.TableKey))
 	GoodsExcelAddProductIdiOs(b, fbsutils.Convert(t.ProductIdiOs, t.FlatBuffer.TableKey))
 	GoodsExcelAddProductIdOne(b, fbsutils.Convert(t.ProductIdOne, t.FlatBuffer.TableKey))
@@ -142,6 +144,7 @@ func (t *GoodsExcelDto) UnmarshalMessage(e *GoodsExcel) error {
 	for i := range e.ConsumeGachaTicketTypeAmountLength() {
 		t.ConsumeGachaTicketTypeAmount[i] = fbsutils.Convert(e.ConsumeGachaTicketTypeAmount(i), t.FlatBuffer.TableKey)
 	}
+	t.CombinedGachaCostId = fbsutils.Convert(e.CombinedGachaCostId(), t.FlatBuffer.TableKey)
 	t.ProductIdAos = fbsutils.Convert(e.ProductIdAos(), t.FlatBuffer.TableKey)
 	t.ProductIdiOs = fbsutils.Convert(e.ProductIdiOs(), t.FlatBuffer.TableKey)
 	t.ProductIdOne = fbsutils.Convert(e.ProductIdOne(), t.FlatBuffer.TableKey)

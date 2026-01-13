@@ -12,4 +12,10 @@ table KeyMappingPopupExcel {
     key_mapping_id04: string;
     button_name05: string;
     key_mapping_id05: string;
+    button_name06: string;
+    key_mapping_id06: string;
+    button_name07: string;
+    key_mapping_id07: string;
+    button_name08: string;
+    key_mapping_id08: string;
 }

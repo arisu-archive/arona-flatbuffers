@@ -192,4 +192,7 @@ table ConstCommonExcel {
     review_event_date_gl: string;
     review_event_stage_idgl: long;
     review_event_char_idgl: long;
+    cafe_summon_ticket_buy_limit_for_validate: int;
+    auto_craft_preset_count_limit: int;
+    auto_craft_node_select_count: int;
 }

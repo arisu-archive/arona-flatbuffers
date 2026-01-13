@@ -101,8 +101,20 @@ func (rcv *MinigameCCGOpenDialogExcel) MutateDuration(n int64) bool {
 	return rcv._tab.MutateInt64Slot(12, n)
 }
 
-func (rcv *MinigameCCGOpenDialogExcel) Voice() uint32 {
+func (rcv *MinigameCCGOpenDialogExcel) DurationKr() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *MinigameCCGOpenDialogExcel) MutateDurationKr(n int64) bool {
+	return rcv._tab.MutateInt64Slot(14, n)
+}
+
+func (rcv *MinigameCCGOpenDialogExcel) Voice() uint32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.GetUint32(o + rcv._tab.Pos)
 	}
@@ -110,11 +122,11 @@ func (rcv *MinigameCCGOpenDialogExcel) Voice() uint32 {
 }
 
 func (rcv *MinigameCCGOpenDialogExcel) MutateVoice(n uint32) bool {
-	return rcv._tab.MutateUint32Slot(14, n)
+	return rcv._tab.MutateUint32Slot(16, n)
 }
 
 func MinigameCCGOpenDialogExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(6)
+	builder.StartObject(7)
 }
 func MinigameCCGOpenDialogExcelAddDialogId(builder *flatbuffers.Builder, dialogId int64) {
 	builder.PrependInt64Slot(0, dialogId, 0)
@@ -131,8 +143,11 @@ func MinigameCCGOpenDialogExcelAddDialog(builder *flatbuffers.Builder, dialog ui
 func MinigameCCGOpenDialogExcelAddDuration(builder *flatbuffers.Builder, duration int64) {
 	builder.PrependInt64Slot(4, duration, 0)
 }
+func MinigameCCGOpenDialogExcelAddDurationKr(builder *flatbuffers.Builder, durationKr int64) {
+	builder.PrependInt64Slot(5, durationKr, 0)
+}
 func MinigameCCGOpenDialogExcelAddVoice(builder *flatbuffers.Builder, voice uint32) {
-	builder.PrependUint32Slot(5, voice, 0)
+	builder.PrependUint32Slot(6, voice, 0)
 }
 func MinigameCCGOpenDialogExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

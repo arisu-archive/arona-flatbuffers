@@ -449,19 +449,15 @@ func (rcv *CampaignStageExcel) FirstClearEventMessage() []byte {
 	return nil
 }
 
-func (rcv *CampaignStageExcel) TacticRewardExp() int64 {
+func (rcv *CampaignStageExcel) FirstStartFunnelMessage() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
-	return 0
+	return nil
 }
 
-func (rcv *CampaignStageExcel) MutateTacticRewardExp(n int64) bool {
-	return rcv._tab.MutateInt64Slot(68, n)
-}
-
-func (rcv *CampaignStageExcel) FixedEchelonId() int64 {
+func (rcv *CampaignStageExcel) TacticRewardExp() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -469,12 +465,24 @@ func (rcv *CampaignStageExcel) FixedEchelonId() int64 {
 	return 0
 }
 
-func (rcv *CampaignStageExcel) MutateFixedEchelonId(n int64) bool {
+func (rcv *CampaignStageExcel) MutateTacticRewardExp(n int64) bool {
 	return rcv._tab.MutateInt64Slot(70, n)
 }
 
-func (rcv *CampaignStageExcel) EchelonExtensionType() EchelonExtensionType {
+func (rcv *CampaignStageExcel) FixedEchelonId() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *CampaignStageExcel) MutateFixedEchelonId(n int64) bool {
+	return rcv._tab.MutateInt64Slot(72, n)
+}
+
+func (rcv *CampaignStageExcel) EchelonExtensionType() EchelonExtensionType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(74))
 	if o != 0 {
 		return EchelonExtensionType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -482,11 +490,11 @@ func (rcv *CampaignStageExcel) EchelonExtensionType() EchelonExtensionType {
 }
 
 func (rcv *CampaignStageExcel) MutateEchelonExtensionType(n EchelonExtensionType) bool {
-	return rcv._tab.MutateInt32Slot(72, int32(n))
+	return rcv._tab.MutateInt32Slot(74, int32(n))
 }
 
 func CampaignStageExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(35)
+	builder.StartObject(36)
 }
 func CampaignStageExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -596,14 +604,17 @@ func CampaignStageExcelAddFirstClearFunnelMessage(builder *flatbuffers.Builder, 
 func CampaignStageExcelAddFirstClearEventMessage(builder *flatbuffers.Builder, firstClearEventMessage flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(31, flatbuffers.UOffsetT(firstClearEventMessage), 0)
 }
+func CampaignStageExcelAddFirstStartFunnelMessage(builder *flatbuffers.Builder, firstStartFunnelMessage flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(32, flatbuffers.UOffsetT(firstStartFunnelMessage), 0)
+}
 func CampaignStageExcelAddTacticRewardExp(builder *flatbuffers.Builder, tacticRewardExp int64) {
-	builder.PrependInt64Slot(32, tacticRewardExp, 0)
+	builder.PrependInt64Slot(33, tacticRewardExp, 0)
 }
 func CampaignStageExcelAddFixedEchelonId(builder *flatbuffers.Builder, fixedEchelonId int64) {
-	builder.PrependInt64Slot(33, fixedEchelonId, 0)
+	builder.PrependInt64Slot(34, fixedEchelonId, 0)
 }
 func CampaignStageExcelAddEchelonExtensionType(builder *flatbuffers.Builder, echelonExtensionType EchelonExtensionType) {
-	builder.PrependInt32Slot(34, int32(echelonExtensionType), 0)
+	builder.PrependInt32Slot(35, int32(echelonExtensionType), 0)
 }
 func CampaignStageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
