@@ -273,25 +273,8 @@ func (rcv *RaidRankingRewardExcel) MutateRewardParcelUniqueId(j int, n int64) bo
 	return false
 }
 
-func (rcv *RaidRankingRewardExcel) RewardParcelUniqueName(j int) []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		a := rcv._tab.Vector(o)
-		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
-	}
-	return nil
-}
-
-func (rcv *RaidRankingRewardExcel) RewardParcelUniqueNameLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
-	if o != 0 {
-		return rcv._tab.VectorLen(o)
-	}
-	return 0
-}
-
 func (rcv *RaidRankingRewardExcel) RewardParcelAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -300,7 +283,7 @@ func (rcv *RaidRankingRewardExcel) RewardParcelAmount(j int) int64 {
 }
 
 func (rcv *RaidRankingRewardExcel) RewardParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -308,7 +291,7 @@ func (rcv *RaidRankingRewardExcel) RewardParcelAmountLength() int {
 }
 
 func (rcv *RaidRankingRewardExcel) MutateRewardParcelAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -317,7 +300,7 @@ func (rcv *RaidRankingRewardExcel) MutateRewardParcelAmount(j int, n int64) bool
 }
 
 func RaidRankingRewardExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(19)
+	builder.StartObject(18)
 }
 func RaidRankingRewardExcelAddRankingRewardGroupId(builder *flatbuffers.Builder, rankingRewardGroupId int64) {
 	builder.PrependInt64Slot(0, rankingRewardGroupId, 0)
@@ -376,14 +359,8 @@ func RaidRankingRewardExcelAddRewardParcelUniqueId(builder *flatbuffers.Builder,
 func RaidRankingRewardExcelStartRewardParcelUniqueIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
-func RaidRankingRewardExcelAddRewardParcelUniqueName(builder *flatbuffers.Builder, rewardParcelUniqueName flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(rewardParcelUniqueName), 0)
-}
-func RaidRankingRewardExcelStartRewardParcelUniqueNameVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
-	return builder.StartVector(4, numElems, 4)
-}
 func RaidRankingRewardExcelAddRewardParcelAmount(builder *flatbuffers.Builder, rewardParcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(rewardParcelAmount), 0)
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(rewardParcelAmount), 0)
 }
 func RaidRankingRewardExcelStartRewardParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)

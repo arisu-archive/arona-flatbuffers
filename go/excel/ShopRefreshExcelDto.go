@@ -23,12 +23,14 @@ type ShopRefreshExcelDto struct {
 	RefreshGroup          int32                 `json:"refresh_group"`
 	Prob                  int32                 `json:"prob"`
 	BuyReportEventName    string                `json:"buy_report_event_name"`
+	ProductUpdateTime     string                `json:"product_update_time"`
 	DisplayTag            ProductDisplayTag     `json:"display_tag"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ShopRefreshExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	__offset_buy_report_event_name := b.CreateString(fbsutils.Convert(t.BuyReportEventName, t.FlatBuffer.TableKey))
+	__offset_product_update_time := b.CreateString(fbsutils.Convert(t.ProductUpdateTime, t.FlatBuffer.TableKey))
 	ShopRefreshExcelStart(b)
 	ShopRefreshExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	ShopRefreshExcelAddLocalizeEtcId(b, fbsutils.Convert(t.LocalizeEtcId, t.FlatBuffer.TableKey))
@@ -43,6 +45,7 @@ func (t *ShopRefreshExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ShopRefreshExcelAddRefreshGroup(b, fbsutils.Convert(t.RefreshGroup, t.FlatBuffer.TableKey))
 	ShopRefreshExcelAddProb(b, fbsutils.Convert(t.Prob, t.FlatBuffer.TableKey))
 	ShopRefreshExcelAddBuyReportEventName(b, __offset_buy_report_event_name)
+	ShopRefreshExcelAddProductUpdateTime(b, __offset_product_update_time)
 	ShopRefreshExcelAddDisplayTag(b, fbsutils.Convert(t.DisplayTag, t.FlatBuffer.TableKey))
 	return ShopRefreshExcelEnd(b)
 }
@@ -69,6 +72,7 @@ func (t *ShopRefreshExcelDto) UnmarshalMessage(e *ShopRefreshExcel) error {
 	t.RefreshGroup = fbsutils.Convert(e.RefreshGroup(), t.FlatBuffer.TableKey)
 	t.Prob = fbsutils.Convert(e.Prob(), t.FlatBuffer.TableKey)
 	t.BuyReportEventName = fbsutils.Convert(string(e.BuyReportEventName()), t.FlatBuffer.TableKey)
+	t.ProductUpdateTime = fbsutils.Convert(string(e.ProductUpdateTime()), t.FlatBuffer.TableKey)
 	t.DisplayTag = ProductDisplayTag(fbsutils.Convert(int32(e.DisplayTag()), t.FlatBuffer.TableKey))
 	return nil
 }

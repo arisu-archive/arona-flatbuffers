@@ -15,6 +15,7 @@ type MinigameCCGOpenDialogExcelDto struct {
 	ConditionCard int64  `json:"condition_card"`
 	Dialog        uint32 `json:"dialog"`
 	Duration      int64  `json:"duration"`
+	DurationKr    int64  `json:"duration_kr"`
 	Voice         uint32 `json:"voice"`
 }
 
@@ -26,6 +27,7 @@ func (t *MinigameCCGOpenDialogExcelDto) MarshalModel(b *flatbuffers.Builder) fla
 	MinigameCCGOpenDialogExcelAddConditionCard(b, fbsutils.Convert(t.ConditionCard, t.FlatBuffer.TableKey))
 	MinigameCCGOpenDialogExcelAddDialog(b, fbsutils.Convert(t.Dialog, t.FlatBuffer.TableKey))
 	MinigameCCGOpenDialogExcelAddDuration(b, fbsutils.Convert(t.Duration, t.FlatBuffer.TableKey))
+	MinigameCCGOpenDialogExcelAddDurationKr(b, fbsutils.Convert(t.DurationKr, t.FlatBuffer.TableKey))
 	MinigameCCGOpenDialogExcelAddVoice(b, fbsutils.Convert(t.Voice, t.FlatBuffer.TableKey))
 	return MinigameCCGOpenDialogExcelEnd(b)
 }
@@ -44,6 +46,7 @@ func (t *MinigameCCGOpenDialogExcelDto) UnmarshalMessage(e *MinigameCCGOpenDialo
 	t.ConditionCard = fbsutils.Convert(e.ConditionCard(), t.FlatBuffer.TableKey)
 	t.Dialog = fbsutils.Convert(e.Dialog(), t.FlatBuffer.TableKey)
 	t.Duration = fbsutils.Convert(e.Duration(), t.FlatBuffer.TableKey)
+	t.DurationKr = fbsutils.Convert(e.DurationKr(), t.FlatBuffer.TableKey)
 	t.Voice = fbsutils.Convert(e.Voice(), t.FlatBuffer.TableKey)
 	return nil
 }

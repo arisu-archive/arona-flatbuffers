@@ -42,6 +42,7 @@ type CampaignStageExcelDto struct {
 	FirstClearReportEventName     string               `json:"first_clear_report_event_name"`
 	FirstClearFunnelMessage       string               `json:"first_clear_funnel_message"`
 	FirstClearEventMessage        string               `json:"first_clear_event_message"`
+	FirstStartFunnelMessage       string               `json:"first_start_funnel_message"`
 	TacticRewardExp               int64                `json:"tactic_reward_exp"`
 	FixedEchelonId                int64                `json:"fixed_echelon_id"`
 	EchelonExtensionType          EchelonExtensionType `json:"echelon_extension_type"`
@@ -57,6 +58,7 @@ func (t *CampaignStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	__offset_first_clear_report_event_name := b.CreateString(fbsutils.Convert(t.FirstClearReportEventName, t.FlatBuffer.TableKey))
 	__offset_first_clear_funnel_message := b.CreateString(fbsutils.Convert(t.FirstClearFunnelMessage, t.FlatBuffer.TableKey))
 	__offset_first_clear_event_message := b.CreateString(fbsutils.Convert(t.FirstClearEventMessage, t.FlatBuffer.TableKey))
+	__offset_first_start_funnel_message := b.CreateString(fbsutils.Convert(t.FirstStartFunnelMessage, t.FlatBuffer.TableKey))
 	CampaignStageExcelStart(b)
 	CampaignStageExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddDeprecated(b, t.Deprecated)
@@ -106,6 +108,7 @@ func (t *CampaignStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	CampaignStageExcelAddFirstClearReportEventName(b, __offset_first_clear_report_event_name)
 	CampaignStageExcelAddFirstClearFunnelMessage(b, __offset_first_clear_funnel_message)
 	CampaignStageExcelAddFirstClearEventMessage(b, __offset_first_clear_event_message)
+	CampaignStageExcelAddFirstStartFunnelMessage(b, __offset_first_start_funnel_message)
 	CampaignStageExcelAddTacticRewardExp(b, fbsutils.Convert(t.TacticRewardExp, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddFixedEchelonId(b, fbsutils.Convert(t.FixedEchelonId, t.FlatBuffer.TableKey))
 	CampaignStageExcelAddEchelonExtensionType(b, fbsutils.Convert(t.EchelonExtensionType, t.FlatBuffer.TableKey))
@@ -165,6 +168,7 @@ func (t *CampaignStageExcelDto) UnmarshalMessage(e *CampaignStageExcel) error {
 	t.FirstClearReportEventName = fbsutils.Convert(string(e.FirstClearReportEventName()), t.FlatBuffer.TableKey)
 	t.FirstClearFunnelMessage = fbsutils.Convert(string(e.FirstClearFunnelMessage()), t.FlatBuffer.TableKey)
 	t.FirstClearEventMessage = fbsutils.Convert(string(e.FirstClearEventMessage()), t.FlatBuffer.TableKey)
+	t.FirstStartFunnelMessage = fbsutils.Convert(string(e.FirstStartFunnelMessage()), t.FlatBuffer.TableKey)
 	t.TacticRewardExp = fbsutils.Convert(e.TacticRewardExp(), t.FlatBuffer.TableKey)
 	t.FixedEchelonId = fbsutils.Convert(e.FixedEchelonId(), t.FlatBuffer.TableKey)
 	t.EchelonExtensionType = EchelonExtensionType(fbsutils.Convert(int32(e.EchelonExtensionType()), t.FlatBuffer.TableKey))

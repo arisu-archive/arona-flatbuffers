@@ -1,0 +1,9 @@
+namespace MX.Data.Excel;
+
+table ScenarioScriptFunnelExcel {
+    group_id: long;
+    index: long;
+    funnel_id: string;
+}
+
+root_type ScenarioScriptFunnelExcel;

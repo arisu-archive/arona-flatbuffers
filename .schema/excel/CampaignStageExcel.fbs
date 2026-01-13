@@ -39,6 +39,7 @@ table CampaignStageExcel {
     first_clear_report_event_name: string;
     first_clear_funnel_message: string;
     first_clear_event_message: string;
+    first_start_funnel_message: string;
     tactic_reward_exp: long;
     fixed_echelon_id: long;
     echelon_extension_type: EchelonExtensionType;

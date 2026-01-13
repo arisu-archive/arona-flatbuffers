@@ -1,0 +1,16 @@
+namespace MX.Data.Excel;
+
+table WebEventSeasonExcel {
+    id: long;
+    enabled: bool;
+    is_full: bool;
+    use_external_browser: bool;
+    start_date: string;
+    end_date: string;
+    lobby_banner_image: string;
+    popup_title_localize_key: string;
+    stage_event_url: string;
+    live_event_url: string;
+}
+
+root_type WebEventSeasonExcel;
