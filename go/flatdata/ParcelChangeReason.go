@@ -201,6 +201,10 @@ const (
 	ParcelChangeReasonAccount_LevelReward                  ParcelChangeReason = 191
 	ParcelChangeReasonMiniGame_CCGCompleteGame             ParcelChangeReason = 192
 	ParcelChangeReasonMiniGame_CCGBuyPerk                  ParcelChangeReason = 193
+	ParcelChangeReasonCafe_SummonCharacterTicketUse        ParcelChangeReason = 194
+	ParcelChangeReasonConcentration_FlipCard               ParcelChangeReason = 195
+	ParcelChangeReasonConcentration_RoundComplete          ParcelChangeReason = 196
+	ParcelChangeReasonConcentration_RoundSkip              ParcelChangeReason = 197
 )
 
 var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
@@ -398,6 +402,10 @@ var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
 	ParcelChangeReasonAccount_LevelReward:                  "Account_LevelReward",
 	ParcelChangeReasonMiniGame_CCGCompleteGame:             "MiniGame_CCGCompleteGame",
 	ParcelChangeReasonMiniGame_CCGBuyPerk:                  "MiniGame_CCGBuyPerk",
+	ParcelChangeReasonCafe_SummonCharacterTicketUse:        "Cafe_SummonCharacterTicketUse",
+	ParcelChangeReasonConcentration_FlipCard:               "Concentration_FlipCard",
+	ParcelChangeReasonConcentration_RoundComplete:          "Concentration_RoundComplete",
+	ParcelChangeReasonConcentration_RoundSkip:              "Concentration_RoundSkip",
 }
 
 var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
@@ -595,6 +603,10 @@ var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
 	"Account_LevelReward":                  ParcelChangeReasonAccount_LevelReward,
 	"MiniGame_CCGCompleteGame":             ParcelChangeReasonMiniGame_CCGCompleteGame,
 	"MiniGame_CCGBuyPerk":                  ParcelChangeReasonMiniGame_CCGBuyPerk,
+	"Cafe_SummonCharacterTicketUse":        ParcelChangeReasonCafe_SummonCharacterTicketUse,
+	"Concentration_FlipCard":               ParcelChangeReasonConcentration_FlipCard,
+	"Concentration_RoundComplete":          ParcelChangeReasonConcentration_RoundComplete,
+	"Concentration_RoundSkip":              ParcelChangeReasonConcentration_RoundSkip,
 }
 
 func (v ParcelChangeReason) String() string {

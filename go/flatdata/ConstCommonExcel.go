@@ -2335,8 +2335,44 @@ func (rcv *ConstCommonExcel) MutateReviewEventCharIdgl(n int64) bool {
 	return rcv._tab.MutateInt64Slot(376, n)
 }
 
+func (rcv *ConstCommonExcel) CafeSummonTicketBuyLimitForValidate() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(378))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateCafeSummonTicketBuyLimitForValidate(n int32) bool {
+	return rcv._tab.MutateInt32Slot(378, n)
+}
+
+func (rcv *ConstCommonExcel) AutoCraftPresetCountLimit() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(380))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateAutoCraftPresetCountLimit(n int32) bool {
+	return rcv._tab.MutateInt32Slot(380, n)
+}
+
+func (rcv *ConstCommonExcel) AutoCraftNodeSelectCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(382))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateAutoCraftNodeSelectCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(382, n)
+}
+
 func ConstCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(187)
+	builder.StartObject(190)
 }
 func ConstCommonExcelAddCampaignMainStageMaxRank(builder *flatbuffers.Builder, campaignMainStageMaxRank int32) {
 	builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -2913,6 +2949,15 @@ func ConstCommonExcelAddReviewEventStageIdgl(builder *flatbuffers.Builder, revie
 }
 func ConstCommonExcelAddReviewEventCharIdgl(builder *flatbuffers.Builder, reviewEventCharIdgl int64) {
 	builder.PrependInt64Slot(186, reviewEventCharIdgl, 0)
+}
+func ConstCommonExcelAddCafeSummonTicketBuyLimitForValidate(builder *flatbuffers.Builder, cafeSummonTicketBuyLimitForValidate int32) {
+	builder.PrependInt32Slot(187, cafeSummonTicketBuyLimitForValidate, 0)
+}
+func ConstCommonExcelAddAutoCraftPresetCountLimit(builder *flatbuffers.Builder, autoCraftPresetCountLimit int32) {
+	builder.PrependInt32Slot(188, autoCraftPresetCountLimit, 0)
+}
+func ConstCommonExcelAddAutoCraftNodeSelectCount(builder *flatbuffers.Builder, autoCraftNodeSelectCount int32) {
+	builder.PrependInt32Slot(189, autoCraftNodeSelectCount, 0)
 }
 func ConstCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
