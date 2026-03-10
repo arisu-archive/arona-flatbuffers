@@ -12,6 +12,7 @@ type WebEventSeasonExcelDto struct {
 	fbsutils.FlatBuffer
 	Id                    int64  `json:"id"`
 	Enabled               bool   `json:"enabled"`
+	IconOrder             int64  `json:"icon_order"`
 	IsFull                bool   `json:"is_full"`
 	UseExternalBrowser    bool   `json:"use_external_browser"`
 	StartDate             string `json:"start_date"`
@@ -33,6 +34,7 @@ func (t *WebEventSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	WebEventSeasonExcelStart(b)
 	WebEventSeasonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	WebEventSeasonExcelAddEnabled(b, t.Enabled)
+	WebEventSeasonExcelAddIconOrder(b, fbsutils.Convert(t.IconOrder, t.FlatBuffer.TableKey))
 	WebEventSeasonExcelAddIsFull(b, t.IsFull)
 	WebEventSeasonExcelAddUseExternalBrowser(b, t.UseExternalBrowser)
 	WebEventSeasonExcelAddStartDate(b, __offset_start_date)
@@ -55,6 +57,7 @@ func (t *WebEventSeasonExcelDto) Marshal() ([]byte, error) {
 func (t *WebEventSeasonExcelDto) UnmarshalMessage(e *WebEventSeasonExcel) error {
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Enabled = e.Enabled()
+	t.IconOrder = fbsutils.Convert(e.IconOrder(), t.FlatBuffer.TableKey)
 	t.IsFull = e.IsFull()
 	t.UseExternalBrowser = e.UseExternalBrowser()
 	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)

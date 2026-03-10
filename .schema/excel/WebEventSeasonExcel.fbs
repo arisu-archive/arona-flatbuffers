@@ -3,6 +3,7 @@ namespace MX.Data.Excel;
 table WebEventSeasonExcel {
     id: long;
     enabled: bool;
+    icon_order: long;
     is_full: bool;
     use_external_browser: bool;
     start_date: string;
