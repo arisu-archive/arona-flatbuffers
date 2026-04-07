@@ -89,7 +89,7 @@ jobs:
           sparse-checkout-cone-mode: false
           fetch-depth: 0
       - name: Setup SSH agent
-        uses: webfactory/ssh-agent@v0.9.1
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: |
             ${{secrets.ARONA_FBS_GENERATOR_PRIVATE_KEY}}
@@ -122,7 +122,7 @@ jobs:
       - name: Reset the git config
         run: git config --global --unset url."git@github.com:".insteadOf "https://github.com/"
       - name: Commit and push changes
-        uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@v10
         with:
           add: "['./.schema', 'version.txt', 'go/', 'python/']"
           message: 'chore(apk): generate schema for ${{ needs.determine-version.outputs.version }}'

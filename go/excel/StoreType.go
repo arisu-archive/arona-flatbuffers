@@ -17,6 +17,8 @@ const (
 	StoreTypeFreeProduct    StoreType = 7
 	StoreTypeTwitch         StoreType = 8
 	StoreTypeChzzk          StoreType = 9
+	StoreTypePaymentCenter  StoreType = 10
+	StoreTypePCStore        StoreType = 11
 )
 
 var EnumNamesStoreType = map[StoreType]string{
@@ -30,6 +32,8 @@ var EnumNamesStoreType = map[StoreType]string{
 	StoreTypeFreeProduct:    "FreeProduct",
 	StoreTypeTwitch:         "Twitch",
 	StoreTypeChzzk:          "Chzzk",
+	StoreTypePaymentCenter:  "PaymentCenter",
+	StoreTypePCStore:        "PCStore",
 }
 
 var EnumValuesStoreType = map[string]StoreType{
@@ -43,6 +47,8 @@ var EnumValuesStoreType = map[string]StoreType{
 	"FreeProduct":    StoreTypeFreeProduct,
 	"Twitch":         StoreTypeTwitch,
 	"Chzzk":          StoreTypeChzzk,
+	"PaymentCenter":  StoreTypePaymentCenter,
+	"PCStore":        StoreTypePCStore,
 }
 
 func (v StoreType) String() string {
