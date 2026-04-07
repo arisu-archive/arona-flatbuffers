@@ -10,17 +10,18 @@ import (
 // WebEventSeasonExcelDto represents a FlatBuffers table
 type WebEventSeasonExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                    int64  `json:"id"`
-	Enabled               bool   `json:"enabled"`
-	IconOrder             int64  `json:"icon_order"`
-	IsFull                bool   `json:"is_full"`
-	UseExternalBrowser    bool   `json:"use_external_browser"`
-	StartDate             string `json:"start_date"`
-	EndDate               string `json:"end_date"`
-	LobbyBannerImage      string `json:"lobby_banner_image"`
-	PopupTitleLocalizeKey string `json:"popup_title_localize_key"`
-	StageEventUrl         string `json:"stage_event_url"`
-	LiveEventUrl          string `json:"live_event_url"`
+	Id                    int64   `json:"id"`
+	Enabled               bool    `json:"enabled"`
+	IconOrder             int64   `json:"icon_order"`
+	WebEventId            []int64 `json:"web_event_id"`
+	IsFull                bool    `json:"is_full"`
+	UseExternalBrowser    bool    `json:"use_external_browser"`
+	StartDate             string  `json:"start_date"`
+	EndDate               string  `json:"end_date"`
+	LobbyBannerImage      string  `json:"lobby_banner_image"`
+	PopupTitleLocalizeKey string  `json:"popup_title_localize_key"`
+	StageEventUrl         string  `json:"stage_event_url"`
+	LiveEventUrl          string  `json:"live_event_url"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -35,6 +36,11 @@ func (t *WebEventSeasonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffer
 	WebEventSeasonExcelAddId(b, fbsutils.Convert(t.Id, t.FlatBuffer.TableKey))
 	WebEventSeasonExcelAddEnabled(b, t.Enabled)
 	WebEventSeasonExcelAddIconOrder(b, fbsutils.Convert(t.IconOrder, t.FlatBuffer.TableKey))
+	WebEventSeasonExcelStartWebEventIdVector(b, len(t.WebEventId))
+	for i := range len(t.WebEventId) {
+		b.PrependInt64(fbsutils.Convert(t.WebEventId[len(t.WebEventId)-i-1], t.FlatBuffer.TableKey))
+	}
+	WebEventSeasonExcelAddWebEventId(b, b.EndVector(len(t.WebEventId)))
 	WebEventSeasonExcelAddIsFull(b, t.IsFull)
 	WebEventSeasonExcelAddUseExternalBrowser(b, t.UseExternalBrowser)
 	WebEventSeasonExcelAddStartDate(b, __offset_start_date)
@@ -58,6 +64,10 @@ func (t *WebEventSeasonExcelDto) UnmarshalMessage(e *WebEventSeasonExcel) error 
 	t.Id = fbsutils.Convert(e.Id(), t.FlatBuffer.TableKey)
 	t.Enabled = e.Enabled()
 	t.IconOrder = fbsutils.Convert(e.IconOrder(), t.FlatBuffer.TableKey)
+	t.WebEventId = make([]int64, e.WebEventIdLength())
+	for i := range e.WebEventIdLength() {
+		t.WebEventId[i] = fbsutils.Convert(e.WebEventId(i), t.FlatBuffer.TableKey)
+	}
 	t.IsFull = e.IsFull()
 	t.UseExternalBrowser = e.UseExternalBrowser()
 	t.StartDate = fbsutils.Convert(string(e.StartDate()), t.FlatBuffer.TableKey)

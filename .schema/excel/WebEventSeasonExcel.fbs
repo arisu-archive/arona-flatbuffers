@@ -4,6 +4,7 @@ table WebEventSeasonExcel {
     id: long;
     enabled: bool;
     icon_order: long;
+    web_event_id: [long];
     is_full: bool;
     use_external_browser: bool;
     start_date: string;

@@ -49,187 +49,57 @@ func (rcv *KeyMappingPopupExcel) PrefabName() []byte {
 	return nil
 }
 
-func (rcv *KeyMappingPopupExcel) ButtonName01() []byte {
+func (rcv *KeyMappingPopupExcel) ButtonName(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
 	}
 	return nil
 }
 
-func (rcv *KeyMappingPopupExcel) KeyMappingId01() []byte {
+func (rcv *KeyMappingPopupExcel) ButtonNameLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
+	if o != 0 {
+		return rcv._tab.VectorLen(o)
+	}
+	return 0
+}
+
+func (rcv *KeyMappingPopupExcel) KeyMappingId(j int) []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		a := rcv._tab.Vector(o)
+		return rcv._tab.ByteVector(a + flatbuffers.UOffsetT(j*4))
 	}
 	return nil
 }
 
-func (rcv *KeyMappingPopupExcel) ButtonName02() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+func (rcv *KeyMappingPopupExcel) KeyMappingIdLength() int {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.VectorLen(o)
 	}
-	return nil
-}
-
-func (rcv *KeyMappingPopupExcel) KeyMappingId02() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *KeyMappingPopupExcel) ButtonName03() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *KeyMappingPopupExcel) KeyMappingId03() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *KeyMappingPopupExcel) ButtonName04() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *KeyMappingPopupExcel) KeyMappingId04() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *KeyMappingPopupExcel) ButtonName05() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *KeyMappingPopupExcel) KeyMappingId05() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *KeyMappingPopupExcel) ButtonName06() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *KeyMappingPopupExcel) KeyMappingId06() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *KeyMappingPopupExcel) ButtonName07() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *KeyMappingPopupExcel) KeyMappingId07() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *KeyMappingPopupExcel) ButtonName08() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
-}
-
-func (rcv *KeyMappingPopupExcel) KeyMappingId08() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
-	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
-	}
-	return nil
+	return 0
 }
 
 func KeyMappingPopupExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(17)
+	builder.StartObject(3)
 }
 func KeyMappingPopupExcelAddPrefabName(builder *flatbuffers.Builder, prefabName flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(prefabName), 0)
 }
-func KeyMappingPopupExcelAddButtonName01(builder *flatbuffers.Builder, buttonName01 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(buttonName01), 0)
+func KeyMappingPopupExcelAddButtonName(builder *flatbuffers.Builder, buttonName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(buttonName), 0)
 }
-func KeyMappingPopupExcelAddKeyMappingId01(builder *flatbuffers.Builder, keyMappingId01 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(keyMappingId01), 0)
+func KeyMappingPopupExcelStartButtonNameVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
-func KeyMappingPopupExcelAddButtonName02(builder *flatbuffers.Builder, buttonName02 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(buttonName02), 0)
+func KeyMappingPopupExcelAddKeyMappingId(builder *flatbuffers.Builder, keyMappingId flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(keyMappingId), 0)
 }
-func KeyMappingPopupExcelAddKeyMappingId02(builder *flatbuffers.Builder, keyMappingId02 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(4, flatbuffers.UOffsetT(keyMappingId02), 0)
-}
-func KeyMappingPopupExcelAddButtonName03(builder *flatbuffers.Builder, buttonName03 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(buttonName03), 0)
-}
-func KeyMappingPopupExcelAddKeyMappingId03(builder *flatbuffers.Builder, keyMappingId03 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(keyMappingId03), 0)
-}
-func KeyMappingPopupExcelAddButtonName04(builder *flatbuffers.Builder, buttonName04 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(buttonName04), 0)
-}
-func KeyMappingPopupExcelAddKeyMappingId04(builder *flatbuffers.Builder, keyMappingId04 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(keyMappingId04), 0)
-}
-func KeyMappingPopupExcelAddButtonName05(builder *flatbuffers.Builder, buttonName05 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(buttonName05), 0)
-}
-func KeyMappingPopupExcelAddKeyMappingId05(builder *flatbuffers.Builder, keyMappingId05 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(keyMappingId05), 0)
-}
-func KeyMappingPopupExcelAddButtonName06(builder *flatbuffers.Builder, buttonName06 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(buttonName06), 0)
-}
-func KeyMappingPopupExcelAddKeyMappingId06(builder *flatbuffers.Builder, keyMappingId06 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(keyMappingId06), 0)
-}
-func KeyMappingPopupExcelAddButtonName07(builder *flatbuffers.Builder, buttonName07 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(13, flatbuffers.UOffsetT(buttonName07), 0)
-}
-func KeyMappingPopupExcelAddKeyMappingId07(builder *flatbuffers.Builder, keyMappingId07 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(14, flatbuffers.UOffsetT(keyMappingId07), 0)
-}
-func KeyMappingPopupExcelAddButtonName08(builder *flatbuffers.Builder, buttonName08 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(buttonName08), 0)
-}
-func KeyMappingPopupExcelAddKeyMappingId08(builder *flatbuffers.Builder, keyMappingId08 flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(keyMappingId08), 0)
+func KeyMappingPopupExcelStartKeyMappingIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
+	return builder.StartVector(4, numElems, 4)
 }
 func KeyMappingPopupExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()
