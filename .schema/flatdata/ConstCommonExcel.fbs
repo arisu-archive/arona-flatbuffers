@@ -53,7 +53,6 @@ table ConstCommonExcel {
     beforehand_gacha_shop_id: int;
     tutorial_gacha_goods_id: int;
     equipment_slot_open_level: [int];
-    scenario_auto_delay_millisec: float;
     join_or_create_clan_cool_time_from_hour: long;
     clan_max_member: long;
     clan_search_result_count: long;
@@ -138,6 +137,7 @@ table ConstCommonExcel {
     formation_preset_recent_number_of_echelon: int;
     formation_preset_echelon_tab_text_length: int;
     formation_preset_echelon_slot_text_length: int;
+    char_profile_row_interval_kr: int;
     callname_length_en: int;
     callname_length_kr: int;
     nickname_length_kr: int;
@@ -145,12 +145,11 @@ table ConstCommonExcel {
     cafe_preset_edit_name_length: int;
     formation_preset_echelon_tab_text_length_kr: int;
     formation_preset_echelon_slot_text_length_kr: int;
-    char_profile_row_interval_kr: int;
     char_profile_row_interval_jp: int;
     char_profile_popup_row_interval_kr: int;
     char_profile_popup_row_interval_jp: int;
-    low_memory_size_gl: long;
     beforehand_gacha_count: int;
+    low_memory_size_gl: long;
     beforehand_gacha_group_id: int;
     renewal_display_order_day: int;
     emblem_default_id: long;
@@ -167,9 +166,9 @@ table ConstCommonExcel {
     potential_bonus_stat_max_level_attack_power: int;
     potential_bonus_stat_max_level_heal_power: int;
     potential_open_condition_character_level: int;
+    assist_stranger_min_level: int;
     clan_chatting_notice_caution_delay: float;
     call_name_wait_time_gl: float;
-    assist_stranger_min_level: int;
     assist_stranger_max_level: int;
     max_blocked_user_count: int;
     cafe_random_visit_min_comfort_bonus: long;
@@ -187,12 +186,22 @@ table ConstCommonExcel {
     battle_pass_end_imminent_day: int;
     battle_pass_exp_icon_path: string;
     cafe_camera_drag_threshold: float;
+    cafe_summon_ticket_buy_limit_for_validate: int;
     battle_pass_notify_date_gl: int;
     purchase_mail_expired_day_gl: int;
     review_event_date_gl: string;
     review_event_stage_idgl: long;
     review_event_char_idgl: long;
-    cafe_summon_ticket_buy_limit_for_validate: int;
     auto_craft_preset_count_limit: int;
     auto_craft_node_select_count: int;
+    craft_preset_name_max_length: int;
+    selection_wait_time: long;
+    reward_wait_time: long;
+    episode_continue_wait_time: long;
+    scenario_auto_delay_millisec_long: float;
+    scenario_auto_delay_millisec: float;
+    scenario_auto_delay_millisec_short: float;
+    scenario_auto_delay_millisec_very_short: float;
+    pc_build_enter_information: int;
+    cafe_copy_preset_slot_count: int;
 }

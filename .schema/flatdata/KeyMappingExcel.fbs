@@ -12,3 +12,5 @@ table KeyMappingExcel {
     icon_scale_x: float;
     icon_scale_y: float;
 }
+
+root_type KeyMappingExcel;
