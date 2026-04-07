@@ -8,16 +8,16 @@ import (
 	flatbuffers "github.com/google/flatbuffers/go"
 )
 
-// EventContentLocationRewardExcelTableDto represents a FlatBuffers table
-type EventContentLocationRewardExcelTableDto struct {
+// ConstContentsExcelTableDto represents a FlatBuffers table
+type ConstContentsExcelTableDto struct {
 	fbsutils.FlatBuffer
-	DataList []EventContentLocationRewardExcelDto `json:"data_list"`
+	DataList []ConstContentsExcelDto `json:"data_list"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
-func (t *EventContentLocationRewardExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+func (t *ConstContentsExcelTableDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLocationReward"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstContents"))
 	}
 	var __offset_data_list flatbuffers.UOffsetT
 	__nestedOffsets_data_list := make([]flatbuffers.UOffsetT, len(t.DataList))
@@ -25,31 +25,31 @@ func (t *EventContentLocationRewardExcelTableDto) MarshalModel(b *flatbuffers.Bu
 		t.DataList[i].InitKey(t.FlatBuffer.TableKey)
 		__nestedOffsets_data_list[i] = t.DataList[i].MarshalModel(b)
 	}
-	EventContentLocationRewardExcelTableStartDataListVector(b, len(t.DataList))
+	ConstContentsExcelTableStartDataListVector(b, len(t.DataList))
 	for i := range len(t.DataList) {
 		b.PrependUOffsetT(__nestedOffsets_data_list[len(t.DataList)-i-1])
 	}
 	__offset_data_list = b.EndVector(len(t.DataList))
-	EventContentLocationRewardExcelTableStart(b)
-	EventContentLocationRewardExcelTableAddDataList(b, __offset_data_list)
-	return EventContentLocationRewardExcelTableEnd(b)
+	ConstContentsExcelTableStart(b)
+	ConstContentsExcelTableAddDataList(b, __offset_data_list)
+	return ConstContentsExcelTableEnd(b)
 }
 
 // Marshal marshals the struct into a FlatBuffers buffer
-func (t *EventContentLocationRewardExcelTableDto) Marshal() ([]byte, error) {
+func (t *ConstContentsExcelTableDto) Marshal() ([]byte, error) {
 	b := flatbuffers.NewBuilder(0)
 	b.Finish(t.MarshalModel(b))
 	return b.FinishedBytes(), nil
 }
 
 // UnmarshalMessage unmarshals the struct from a FlatBuffers buffer
-func (t *EventContentLocationRewardExcelTableDto) UnmarshalMessage(e *EventContentLocationRewardExcelTable) error {
+func (t *ConstContentsExcelTableDto) UnmarshalMessage(e *ConstContentsExcelTable) error {
 	if t.FlatBuffer.TableKey == nil {
-		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("EventContentLocationReward"))
+		t.FlatBuffer.InitKey(fbsutils.CreateTableKey("ConstContents"))
 	}
-	t.DataList = make([]EventContentLocationRewardExcelDto, e.DataListLength())
+	t.DataList = make([]ConstContentsExcelDto, e.DataListLength())
 	for i := range e.DataListLength() {
-		d := new(EventContentLocationRewardExcel)
+		d := new(ConstContentsExcel)
 		if !e.DataList(d, i) {
 			return errors.New("failed to unmarshal data")
 		}
@@ -59,8 +59,8 @@ func (t *EventContentLocationRewardExcelTableDto) UnmarshalMessage(e *EventConte
 }
 
 // Unmarshal unmarshals the struct from a FlatBuffers buffer
-func (t *EventContentLocationRewardExcelTableDto) Unmarshal(data []byte) error {
-	root := GetRootAsEventContentLocationRewardExcelTable(data, 0)
+func (t *ConstContentsExcelTableDto) Unmarshal(data []byte) error {
+	root := GetRootAsConstContentsExcelTable(data, 0)
 	err := t.UnmarshalMessage(root)
 	if err != nil {
 		return err
@@ -69,6 +69,6 @@ func (t *EventContentLocationRewardExcelTableDto) Unmarshal(data []byte) error {
 }
 
 // Name returns the name of the flatbuffer table name
-func (EventContentLocationRewardExcelTableDto) FlatDataName() string {
-	return "EventContentLocationRewardExcelTable"
+func (ConstContentsExcelTableDto) FlatDataName() string {
+	return "ConstContentsExcelTable"
 }

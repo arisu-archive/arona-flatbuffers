@@ -58,7 +58,6 @@ type ConstCommonExcelDto struct {
 	BeforehandGachaShopId                      int32            `json:"beforehand_gacha_shop_id"`
 	TutorialGachaGoodsId                       int32            `json:"tutorial_gacha_goods_id"`
 	EquipmentSlotOpenLevel                     []int32          `json:"equipment_slot_open_level"`
-	ScenarioAutoDelayMillisec                  float32          `json:"scenario_auto_delay_millisec"`
 	JoinOrCreateClanCoolTimeFromHour           int64            `json:"join_or_create_clan_cool_time_from_hour"`
 	ClanMaxMember                              int64            `json:"clan_max_member"`
 	ClanSearchResultCount                      int64            `json:"clan_search_result_count"`
@@ -143,6 +142,7 @@ type ConstCommonExcelDto struct {
 	FormationPresetRecentNumberOfEchelon       int32            `json:"formation_preset_recent_number_of_echelon"`
 	FormationPresetEchelonTabTextLength        int32            `json:"formation_preset_echelon_tab_text_length"`
 	FormationPresetEchelonSlotTextLength       int32            `json:"formation_preset_echelon_slot_text_length"`
+	CharProfileRowIntervalKr                   int32            `json:"char_profile_row_interval_kr"`
 	CallnameLengthEn                           int32            `json:"callname_length_en"`
 	CallnameLengthKr                           int32            `json:"callname_length_kr"`
 	NicknameLengthKr                           int32            `json:"nickname_length_kr"`
@@ -150,12 +150,11 @@ type ConstCommonExcelDto struct {
 	CafePresetEditNameLength                   int32            `json:"cafe_preset_edit_name_length"`
 	FormationPresetEchelonTabTextLengthKr      int32            `json:"formation_preset_echelon_tab_text_length_kr"`
 	FormationPresetEchelonSlotTextLengthKr     int32            `json:"formation_preset_echelon_slot_text_length_kr"`
-	CharProfileRowIntervalKr                   int32            `json:"char_profile_row_interval_kr"`
 	CharProfileRowIntervalJp                   int32            `json:"char_profile_row_interval_jp"`
 	CharProfilePopupRowIntervalKr              int32            `json:"char_profile_popup_row_interval_kr"`
 	CharProfilePopupRowIntervalJp              int32            `json:"char_profile_popup_row_interval_jp"`
-	LowMemorySizeGl                            int64            `json:"low_memory_size_gl"`
 	BeforehandGachaCount                       int32            `json:"beforehand_gacha_count"`
+	LowMemorySizeGl                            int64            `json:"low_memory_size_gl"`
 	BeforehandGachaGroupId                     int32            `json:"beforehand_gacha_group_id"`
 	RenewalDisplayOrderDay                     int32            `json:"renewal_display_order_day"`
 	EmblemDefaultId                            int64            `json:"emblem_default_id"`
@@ -172,9 +171,9 @@ type ConstCommonExcelDto struct {
 	PotentialBonusStatMaxLevelAttackPower      int32            `json:"potential_bonus_stat_max_level_attack_power"`
 	PotentialBonusStatMaxLevelHealPower        int32            `json:"potential_bonus_stat_max_level_heal_power"`
 	PotentialOpenConditionCharacterLevel       int32            `json:"potential_open_condition_character_level"`
+	AssistStrangerMinLevel                     int32            `json:"assist_stranger_min_level"`
 	ClanChattingNoticeCautionDelay             float32          `json:"clan_chatting_notice_caution_delay"`
 	CallNameWaitTimeGl                         float32          `json:"call_name_wait_time_gl"`
-	AssistStrangerMinLevel                     int32            `json:"assist_stranger_min_level"`
 	AssistStrangerMaxLevel                     int32            `json:"assist_stranger_max_level"`
 	MaxBlockedUserCount                        int32            `json:"max_blocked_user_count"`
 	CafeRandomVisitMinComfortBonus             int64            `json:"cafe_random_visit_min_comfort_bonus"`
@@ -192,8 +191,24 @@ type ConstCommonExcelDto struct {
 	BattlePassEndImminentDay                   int32            `json:"battle_pass_end_imminent_day"`
 	BattlePassExpIconPath                      string           `json:"battle_pass_exp_icon_path"`
 	CafeCameraDragThreshold                    float32          `json:"cafe_camera_drag_threshold"`
+	CafeSummonTicketBuyLimitForValidate        int32            `json:"cafe_summon_ticket_buy_limit_for_validate"`
 	BattlePassNotifyDateGl                     int32            `json:"battle_pass_notify_date_gl"`
 	PurchaseMailExpiredDayGl                   int32            `json:"purchase_mail_expired_day_gl"`
+	ReviewEventDateGl                          string           `json:"review_event_date_gl"`
+	ReviewEventStageIdgl                       int64            `json:"review_event_stage_idgl"`
+	ReviewEventCharIdgl                        int64            `json:"review_event_char_idgl"`
+	AutoCraftPresetCountLimit                  int32            `json:"auto_craft_preset_count_limit"`
+	AutoCraftNodeSelectCount                   int32            `json:"auto_craft_node_select_count"`
+	CraftPresetNameMaxLength                   int32            `json:"craft_preset_name_max_length"`
+	SelectionWaitTime                          int64            `json:"selection_wait_time"`
+	RewardWaitTime                             int64            `json:"reward_wait_time"`
+	EpisodeContinueWaitTime                    int64            `json:"episode_continue_wait_time"`
+	ScenarioAutoDelayMillisecLong              float32          `json:"scenario_auto_delay_millisec_long"`
+	ScenarioAutoDelayMillisec                  float32          `json:"scenario_auto_delay_millisec"`
+	ScenarioAutoDelayMillisecShort             float32          `json:"scenario_auto_delay_millisec_short"`
+	ScenarioAutoDelayMillisecVeryShort         float32          `json:"scenario_auto_delay_millisec_very_short"`
+	PcBuildEnterInformation                    int32            `json:"pc_build_enter_information"`
+	CafeCopyPresetSlotCount                    int32            `json:"cafe_copy_preset_slot_count"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -205,6 +220,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	__offset_time_attack_dungeon_scenario_id := b.CreateString(fbsutils.Convert(t.TimeAttackDungeonScenarioId, t.FlatBuffer.TableKey))
 	__offset_birthday_mail_start_date := b.CreateString(fbsutils.Convert(t.BirthdayMailStartDate, t.FlatBuffer.TableKey))
 	__offset_battle_pass_exp_icon_path := b.CreateString(fbsutils.Convert(t.BattlePassExpIconPath, t.FlatBuffer.TableKey))
+	__offset_review_event_date_gl := b.CreateString(fbsutils.Convert(t.ReviewEventDateGl, t.FlatBuffer.TableKey))
 	ConstCommonExcelStart(b)
 	ConstCommonExcelAddCampaignMainStageMaxRank(b, fbsutils.Convert(t.CampaignMainStageMaxRank, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCampaignMainStageBestRecord(b, fbsutils.Convert(t.CampaignMainStageBestRecord, t.FlatBuffer.TableKey))
@@ -266,7 +282,6 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		b.PrependInt32(fbsutils.Convert(t.EquipmentSlotOpenLevel[len(t.EquipmentSlotOpenLevel)-i-1], t.FlatBuffer.TableKey))
 	}
 	ConstCommonExcelAddEquipmentSlotOpenLevel(b, b.EndVector(len(t.EquipmentSlotOpenLevel)))
-	ConstCommonExcelAddScenarioAutoDelayMillisec(b, fbsutils.Convert(t.ScenarioAutoDelayMillisec, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddJoinOrCreateClanCoolTimeFromHour(b, fbsutils.Convert(t.JoinOrCreateClanCoolTimeFromHour, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClanMaxMember(b, fbsutils.Convert(t.ClanMaxMember, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClanSearchResultCount(b, fbsutils.Convert(t.ClanSearchResultCount, t.FlatBuffer.TableKey))
@@ -359,6 +374,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddFormationPresetRecentNumberOfEchelon(b, fbsutils.Convert(t.FormationPresetRecentNumberOfEchelon, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddFormationPresetEchelonTabTextLength(b, fbsutils.Convert(t.FormationPresetEchelonTabTextLength, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddFormationPresetEchelonSlotTextLength(b, fbsutils.Convert(t.FormationPresetEchelonSlotTextLength, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCharProfileRowIntervalKr(b, fbsutils.Convert(t.CharProfileRowIntervalKr, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCallnameLengthEn(b, fbsutils.Convert(t.CallnameLengthEn, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCallnameLengthKr(b, fbsutils.Convert(t.CallnameLengthKr, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddNicknameLengthKr(b, fbsutils.Convert(t.NicknameLengthKr, t.FlatBuffer.TableKey))
@@ -366,12 +382,11 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddCafePresetEditNameLength(b, fbsutils.Convert(t.CafePresetEditNameLength, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddFormationPresetEchelonTabTextLengthKr(b, fbsutils.Convert(t.FormationPresetEchelonTabTextLengthKr, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddFormationPresetEchelonSlotTextLengthKr(b, fbsutils.Convert(t.FormationPresetEchelonSlotTextLengthKr, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddCharProfileRowIntervalKr(b, fbsutils.Convert(t.CharProfileRowIntervalKr, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCharProfileRowIntervalJp(b, fbsutils.Convert(t.CharProfileRowIntervalJp, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCharProfilePopupRowIntervalKr(b, fbsutils.Convert(t.CharProfilePopupRowIntervalKr, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCharProfilePopupRowIntervalJp(b, fbsutils.Convert(t.CharProfilePopupRowIntervalJp, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddLowMemorySizeGl(b, fbsutils.Convert(t.LowMemorySizeGl, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddBeforehandGachaCount(b, fbsutils.Convert(t.BeforehandGachaCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddLowMemorySizeGl(b, fbsutils.Convert(t.LowMemorySizeGl, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddBeforehandGachaGroupId(b, fbsutils.Convert(t.BeforehandGachaGroupId, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRenewalDisplayOrderDay(b, fbsutils.Convert(t.RenewalDisplayOrderDay, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddEmblemDefaultId(b, fbsutils.Convert(t.EmblemDefaultId, t.FlatBuffer.TableKey))
@@ -388,9 +403,9 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddPotentialBonusStatMaxLevelAttackPower(b, fbsutils.Convert(t.PotentialBonusStatMaxLevelAttackPower, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddPotentialBonusStatMaxLevelHealPower(b, fbsutils.Convert(t.PotentialBonusStatMaxLevelHealPower, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddPotentialOpenConditionCharacterLevel(b, fbsutils.Convert(t.PotentialOpenConditionCharacterLevel, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAssistStrangerMinLevel(b, fbsutils.Convert(t.AssistStrangerMinLevel, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClanChattingNoticeCautionDelay(b, fbsutils.Convert(t.ClanChattingNoticeCautionDelay, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCallNameWaitTimeGl(b, fbsutils.Convert(t.CallNameWaitTimeGl, t.FlatBuffer.TableKey))
-	ConstCommonExcelAddAssistStrangerMinLevel(b, fbsutils.Convert(t.AssistStrangerMinLevel, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddAssistStrangerMaxLevel(b, fbsutils.Convert(t.AssistStrangerMaxLevel, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddMaxBlockedUserCount(b, fbsutils.Convert(t.MaxBlockedUserCount, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCafeRandomVisitMinComfortBonus(b, fbsutils.Convert(t.CafeRandomVisitMinComfortBonus, t.FlatBuffer.TableKey))
@@ -408,8 +423,24 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddBattlePassEndImminentDay(b, fbsutils.Convert(t.BattlePassEndImminentDay, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddBattlePassExpIconPath(b, __offset_battle_pass_exp_icon_path)
 	ConstCommonExcelAddCafeCameraDragThreshold(b, fbsutils.Convert(t.CafeCameraDragThreshold, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeSummonTicketBuyLimitForValidate(b, fbsutils.Convert(t.CafeSummonTicketBuyLimitForValidate, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddBattlePassNotifyDateGl(b, fbsutils.Convert(t.BattlePassNotifyDateGl, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddPurchaseMailExpiredDayGl(b, fbsutils.Convert(t.PurchaseMailExpiredDayGl, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddReviewEventDateGl(b, __offset_review_event_date_gl)
+	ConstCommonExcelAddReviewEventStageIdgl(b, fbsutils.Convert(t.ReviewEventStageIdgl, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddReviewEventCharIdgl(b, fbsutils.Convert(t.ReviewEventCharIdgl, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAutoCraftPresetCountLimit(b, fbsutils.Convert(t.AutoCraftPresetCountLimit, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddAutoCraftNodeSelectCount(b, fbsutils.Convert(t.AutoCraftNodeSelectCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCraftPresetNameMaxLength(b, fbsutils.Convert(t.CraftPresetNameMaxLength, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddSelectionWaitTime(b, fbsutils.Convert(t.SelectionWaitTime, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRewardWaitTime(b, fbsutils.Convert(t.RewardWaitTime, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddEpisodeContinueWaitTime(b, fbsutils.Convert(t.EpisodeContinueWaitTime, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddScenarioAutoDelayMillisecLong(b, fbsutils.Convert(t.ScenarioAutoDelayMillisecLong, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddScenarioAutoDelayMillisec(b, fbsutils.Convert(t.ScenarioAutoDelayMillisec, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddScenarioAutoDelayMillisecShort(b, fbsutils.Convert(t.ScenarioAutoDelayMillisecShort, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddScenarioAutoDelayMillisecVeryShort(b, fbsutils.Convert(t.ScenarioAutoDelayMillisecVeryShort, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPcBuildEnterInformation(b, fbsutils.Convert(t.PcBuildEnterInformation, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddCafeCopyPresetSlotCount(b, fbsutils.Convert(t.CafeCopyPresetSlotCount, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -482,7 +513,6 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	for i := range e.EquipmentSlotOpenLevelLength() {
 		t.EquipmentSlotOpenLevel[i] = fbsutils.Convert(e.EquipmentSlotOpenLevel(i), t.FlatBuffer.TableKey)
 	}
-	t.ScenarioAutoDelayMillisec = fbsutils.Convert(e.ScenarioAutoDelayMillisec(), t.FlatBuffer.TableKey)
 	t.JoinOrCreateClanCoolTimeFromHour = fbsutils.Convert(e.JoinOrCreateClanCoolTimeFromHour(), t.FlatBuffer.TableKey)
 	t.ClanMaxMember = fbsutils.Convert(e.ClanMaxMember(), t.FlatBuffer.TableKey)
 	t.ClanSearchResultCount = fbsutils.Convert(e.ClanSearchResultCount(), t.FlatBuffer.TableKey)
@@ -573,6 +603,7 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.FormationPresetRecentNumberOfEchelon = fbsutils.Convert(e.FormationPresetRecentNumberOfEchelon(), t.FlatBuffer.TableKey)
 	t.FormationPresetEchelonTabTextLength = fbsutils.Convert(e.FormationPresetEchelonTabTextLength(), t.FlatBuffer.TableKey)
 	t.FormationPresetEchelonSlotTextLength = fbsutils.Convert(e.FormationPresetEchelonSlotTextLength(), t.FlatBuffer.TableKey)
+	t.CharProfileRowIntervalKr = fbsutils.Convert(e.CharProfileRowIntervalKr(), t.FlatBuffer.TableKey)
 	t.CallnameLengthEn = fbsutils.Convert(e.CallnameLengthEn(), t.FlatBuffer.TableKey)
 	t.CallnameLengthKr = fbsutils.Convert(e.CallnameLengthKr(), t.FlatBuffer.TableKey)
 	t.NicknameLengthKr = fbsutils.Convert(e.NicknameLengthKr(), t.FlatBuffer.TableKey)
@@ -580,12 +611,11 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.CafePresetEditNameLength = fbsutils.Convert(e.CafePresetEditNameLength(), t.FlatBuffer.TableKey)
 	t.FormationPresetEchelonTabTextLengthKr = fbsutils.Convert(e.FormationPresetEchelonTabTextLengthKr(), t.FlatBuffer.TableKey)
 	t.FormationPresetEchelonSlotTextLengthKr = fbsutils.Convert(e.FormationPresetEchelonSlotTextLengthKr(), t.FlatBuffer.TableKey)
-	t.CharProfileRowIntervalKr = fbsutils.Convert(e.CharProfileRowIntervalKr(), t.FlatBuffer.TableKey)
 	t.CharProfileRowIntervalJp = fbsutils.Convert(e.CharProfileRowIntervalJp(), t.FlatBuffer.TableKey)
 	t.CharProfilePopupRowIntervalKr = fbsutils.Convert(e.CharProfilePopupRowIntervalKr(), t.FlatBuffer.TableKey)
 	t.CharProfilePopupRowIntervalJp = fbsutils.Convert(e.CharProfilePopupRowIntervalJp(), t.FlatBuffer.TableKey)
-	t.LowMemorySizeGl = fbsutils.Convert(e.LowMemorySizeGl(), t.FlatBuffer.TableKey)
 	t.BeforehandGachaCount = fbsutils.Convert(e.BeforehandGachaCount(), t.FlatBuffer.TableKey)
+	t.LowMemorySizeGl = fbsutils.Convert(e.LowMemorySizeGl(), t.FlatBuffer.TableKey)
 	t.BeforehandGachaGroupId = fbsutils.Convert(e.BeforehandGachaGroupId(), t.FlatBuffer.TableKey)
 	t.RenewalDisplayOrderDay = fbsutils.Convert(e.RenewalDisplayOrderDay(), t.FlatBuffer.TableKey)
 	t.EmblemDefaultId = fbsutils.Convert(e.EmblemDefaultId(), t.FlatBuffer.TableKey)
@@ -602,9 +632,9 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.PotentialBonusStatMaxLevelAttackPower = fbsutils.Convert(e.PotentialBonusStatMaxLevelAttackPower(), t.FlatBuffer.TableKey)
 	t.PotentialBonusStatMaxLevelHealPower = fbsutils.Convert(e.PotentialBonusStatMaxLevelHealPower(), t.FlatBuffer.TableKey)
 	t.PotentialOpenConditionCharacterLevel = fbsutils.Convert(e.PotentialOpenConditionCharacterLevel(), t.FlatBuffer.TableKey)
+	t.AssistStrangerMinLevel = fbsutils.Convert(e.AssistStrangerMinLevel(), t.FlatBuffer.TableKey)
 	t.ClanChattingNoticeCautionDelay = fbsutils.Convert(e.ClanChattingNoticeCautionDelay(), t.FlatBuffer.TableKey)
 	t.CallNameWaitTimeGl = fbsutils.Convert(e.CallNameWaitTimeGl(), t.FlatBuffer.TableKey)
-	t.AssistStrangerMinLevel = fbsutils.Convert(e.AssistStrangerMinLevel(), t.FlatBuffer.TableKey)
 	t.AssistStrangerMaxLevel = fbsutils.Convert(e.AssistStrangerMaxLevel(), t.FlatBuffer.TableKey)
 	t.MaxBlockedUserCount = fbsutils.Convert(e.MaxBlockedUserCount(), t.FlatBuffer.TableKey)
 	t.CafeRandomVisitMinComfortBonus = fbsutils.Convert(e.CafeRandomVisitMinComfortBonus(), t.FlatBuffer.TableKey)
@@ -622,8 +652,24 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.BattlePassEndImminentDay = fbsutils.Convert(e.BattlePassEndImminentDay(), t.FlatBuffer.TableKey)
 	t.BattlePassExpIconPath = fbsutils.Convert(string(e.BattlePassExpIconPath()), t.FlatBuffer.TableKey)
 	t.CafeCameraDragThreshold = fbsutils.Convert(e.CafeCameraDragThreshold(), t.FlatBuffer.TableKey)
+	t.CafeSummonTicketBuyLimitForValidate = fbsutils.Convert(e.CafeSummonTicketBuyLimitForValidate(), t.FlatBuffer.TableKey)
 	t.BattlePassNotifyDateGl = fbsutils.Convert(e.BattlePassNotifyDateGl(), t.FlatBuffer.TableKey)
 	t.PurchaseMailExpiredDayGl = fbsutils.Convert(e.PurchaseMailExpiredDayGl(), t.FlatBuffer.TableKey)
+	t.ReviewEventDateGl = fbsutils.Convert(string(e.ReviewEventDateGl()), t.FlatBuffer.TableKey)
+	t.ReviewEventStageIdgl = fbsutils.Convert(e.ReviewEventStageIdgl(), t.FlatBuffer.TableKey)
+	t.ReviewEventCharIdgl = fbsutils.Convert(e.ReviewEventCharIdgl(), t.FlatBuffer.TableKey)
+	t.AutoCraftPresetCountLimit = fbsutils.Convert(e.AutoCraftPresetCountLimit(), t.FlatBuffer.TableKey)
+	t.AutoCraftNodeSelectCount = fbsutils.Convert(e.AutoCraftNodeSelectCount(), t.FlatBuffer.TableKey)
+	t.CraftPresetNameMaxLength = fbsutils.Convert(e.CraftPresetNameMaxLength(), t.FlatBuffer.TableKey)
+	t.SelectionWaitTime = fbsutils.Convert(e.SelectionWaitTime(), t.FlatBuffer.TableKey)
+	t.RewardWaitTime = fbsutils.Convert(e.RewardWaitTime(), t.FlatBuffer.TableKey)
+	t.EpisodeContinueWaitTime = fbsutils.Convert(e.EpisodeContinueWaitTime(), t.FlatBuffer.TableKey)
+	t.ScenarioAutoDelayMillisecLong = fbsutils.Convert(e.ScenarioAutoDelayMillisecLong(), t.FlatBuffer.TableKey)
+	t.ScenarioAutoDelayMillisec = fbsutils.Convert(e.ScenarioAutoDelayMillisec(), t.FlatBuffer.TableKey)
+	t.ScenarioAutoDelayMillisecShort = fbsutils.Convert(e.ScenarioAutoDelayMillisecShort(), t.FlatBuffer.TableKey)
+	t.ScenarioAutoDelayMillisecVeryShort = fbsutils.Convert(e.ScenarioAutoDelayMillisecVeryShort(), t.FlatBuffer.TableKey)
+	t.PcBuildEnterInformation = fbsutils.Convert(e.PcBuildEnterInformation(), t.FlatBuffer.TableKey)
+	t.CafeCopyPresetSlotCount = fbsutils.Convert(e.CafeCopyPresetSlotCount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

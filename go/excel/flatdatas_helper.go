@@ -83,7 +83,6 @@ var fbs = map[string]reflect.Type{
 	"characterweaponexcel": reflect.TypeOf((*CharacterWeaponExcelDto)(nil)).Elem(),
 	"characterweaponexpbonusexcel": reflect.TypeOf((*CharacterWeaponExpBonusExcelDto)(nil)).Elem(),
 	"characterweaponlevelexcel": reflect.TypeOf((*CharacterWeaponLevelExcelDto)(nil)).Elem(),
-	"clanassistslotexcel": reflect.TypeOf((*ClanAssistSlotExcelDto)(nil)).Elem(),
 	"clanchattingemojiexcel": reflect.TypeOf((*ClanChattingEmojiExcelDto)(nil)).Elem(),
 	"clanrewardexcel": reflect.TypeOf((*ClanRewardExcelDto)(nil)).Elem(),
 	"combatemojiexcel": reflect.TypeOf((*CombatEmojiExcelDto)(nil)).Elem(),

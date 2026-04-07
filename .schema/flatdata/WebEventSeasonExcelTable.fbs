@@ -1,9 +1,0 @@
-include "WebEventSeasonExcel.fbs";
-
-namespace FlatData;
-
-table WebEventSeasonExcelTable {
-    data_list: [WebEventSeasonExcel];
-}
-
-root_type WebEventSeasonExcelTable;
