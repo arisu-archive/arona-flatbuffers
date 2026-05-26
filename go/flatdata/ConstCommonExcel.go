@@ -2467,7 +2467,7 @@ func (rcv *ConstCommonExcel) MutatePcBuildEnterInformation(n int32) bool {
 	return rcv._tab.MutateInt32Slot(398, n)
 }
 
-func (rcv *ConstCommonExcel) CafeCopyPresetSlotCount() int32 {
+func (rcv *ConstCommonExcel) ComebackUserStandardDay() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(400))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -2475,12 +2475,100 @@ func (rcv *ConstCommonExcel) CafeCopyPresetSlotCount() int32 {
 	return 0
 }
 
-func (rcv *ConstCommonExcel) MutateCafeCopyPresetSlotCount(n int32) bool {
+func (rcv *ConstCommonExcel) MutateComebackUserStandardDay(n int32) bool {
 	return rcv._tab.MutateInt32Slot(400, n)
 }
 
+func (rcv *ConstCommonExcel) ComebackUserLogSaveDay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(402))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateComebackUserLogSaveDay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(402, n)
+}
+
+func (rcv *ConstCommonExcel) ComeBackActivateCooldown() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(404))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateComeBackActivateCooldown(n int32) bool {
+	return rcv._tab.MutateInt32Slot(404, n)
+}
+
+func (rcv *ConstCommonExcel) CafeCopyPresetSlotCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(406))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateCafeCopyPresetSlotCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(406, n)
+}
+
+func (rcv *ConstCommonExcel) ExpiryProductDailyRecordItemReceiveDay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(408))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateExpiryProductDailyRecordItemReceiveDay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(408, n)
+}
+
+func (rcv *ConstCommonExcel) NewbieUserStandardDay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(410))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateNewbieUserStandardDay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(410, n)
+}
+
+func (rcv *ConstCommonExcel) NewbieStateHoldDay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(412))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateNewbieStateHoldDay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(412, n)
+}
+
+func (rcv *ConstCommonExcel) QrIconUrlDev() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(414))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConstCommonExcel) QrIconUrlLive() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(416))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func ConstCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(199)
+	builder.StartObject(207)
 }
 func ConstCommonExcelAddCampaignMainStageMaxRank(builder *flatbuffers.Builder, campaignMainStageMaxRank int32) {
 	builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -3091,8 +3179,32 @@ func ConstCommonExcelAddScenarioAutoDelayMillisecVeryShort(builder *flatbuffers.
 func ConstCommonExcelAddPcBuildEnterInformation(builder *flatbuffers.Builder, pcBuildEnterInformation int32) {
 	builder.PrependInt32Slot(197, pcBuildEnterInformation, 0)
 }
+func ConstCommonExcelAddComebackUserStandardDay(builder *flatbuffers.Builder, comebackUserStandardDay int32) {
+	builder.PrependInt32Slot(198, comebackUserStandardDay, 0)
+}
+func ConstCommonExcelAddComebackUserLogSaveDay(builder *flatbuffers.Builder, comebackUserLogSaveDay int32) {
+	builder.PrependInt32Slot(199, comebackUserLogSaveDay, 0)
+}
+func ConstCommonExcelAddComeBackActivateCooldown(builder *flatbuffers.Builder, comeBackActivateCooldown int32) {
+	builder.PrependInt32Slot(200, comeBackActivateCooldown, 0)
+}
 func ConstCommonExcelAddCafeCopyPresetSlotCount(builder *flatbuffers.Builder, cafeCopyPresetSlotCount int32) {
-	builder.PrependInt32Slot(198, cafeCopyPresetSlotCount, 0)
+	builder.PrependInt32Slot(201, cafeCopyPresetSlotCount, 0)
+}
+func ConstCommonExcelAddExpiryProductDailyRecordItemReceiveDay(builder *flatbuffers.Builder, expiryProductDailyRecordItemReceiveDay int32) {
+	builder.PrependInt32Slot(202, expiryProductDailyRecordItemReceiveDay, 0)
+}
+func ConstCommonExcelAddNewbieUserStandardDay(builder *flatbuffers.Builder, newbieUserStandardDay int32) {
+	builder.PrependInt32Slot(203, newbieUserStandardDay, 0)
+}
+func ConstCommonExcelAddNewbieStateHoldDay(builder *flatbuffers.Builder, newbieStateHoldDay int32) {
+	builder.PrependInt32Slot(204, newbieStateHoldDay, 0)
+}
+func ConstCommonExcelAddQrIconUrlDev(builder *flatbuffers.Builder, qrIconUrlDev flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(205, flatbuffers.UOffsetT(qrIconUrlDev), 0)
+}
+func ConstCommonExcelAddQrIconUrlLive(builder *flatbuffers.Builder, qrIconUrlLive flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(206, flatbuffers.UOffsetT(qrIconUrlLive), 0)
 }
 func ConstCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

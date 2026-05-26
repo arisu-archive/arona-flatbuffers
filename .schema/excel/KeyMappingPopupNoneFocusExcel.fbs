@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+table KeyMappingPopupNoneFocusExcel {
+    prefab_name: string;
+    button_name: string;
+}
+
+root_type KeyMappingPopupNoneFocusExcel;

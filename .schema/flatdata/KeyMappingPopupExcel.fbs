@@ -1,7 +1,0 @@
-namespace FlatData;
-
-table KeyMappingPopupExcel {
-    prefab_name: string;
-    button_name: [string];
-    key_mapping_id: [string];
-}

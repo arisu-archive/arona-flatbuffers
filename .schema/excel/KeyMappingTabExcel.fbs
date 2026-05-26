@@ -1,0 +1,17 @@
+namespace MX.Data.Excel;
+
+table KeyMappingTabExcel {
+    id: string;
+    left_arrow_key: string;
+    right_arrow_key: string;
+    left_icon_position_x: float;
+    left_icon_position_y: float;
+    left_icon_scale_x: float;
+    left_icon_scale_y: float;
+    right_icon_position_x: float;
+    right_icon_position_y: float;
+    right_icon_scale_x: float;
+    right_icon_scale_y: float;
+}
+
+root_type KeyMappingTabExcel;
