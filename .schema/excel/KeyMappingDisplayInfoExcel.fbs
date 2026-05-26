@@ -1,0 +1,8 @@
+namespace MX.Data.Excel;
+
+table KeyMappingDisplayInfoExcel {
+    key_mapping_key_code: string;
+    key_mapping_display_name: string;
+}
+
+root_type KeyMappingDisplayInfoExcel;

@@ -1,0 +1,6 @@
+namespace MX.Data.Excel;
+
+enum AchievementType: int {
+    Unlock = 0,
+    Step = 1,
+}

@@ -1,0 +1,16 @@
+namespace MX.Data.Excel;
+
+enum ConditionType: int {
+    CompleteScenario = 0,
+    SaveCafePreset = 1,
+    AcademyMessage = 2,
+    ClearBattleWithinFrame = 3,
+    UseSameExSkill = 4,
+    RecruitPickupGacha = 5,
+    UnlockMaxStarGrade = 6,
+    EquipCharacterWeapon = 7,
+    StayMemorialLobby = 8,
+    OpenSeasonBirthdayPlayerDialog = 9,
+    AssistUsedByOther = 10,
+    EquipCharacterGear = 11,
+}

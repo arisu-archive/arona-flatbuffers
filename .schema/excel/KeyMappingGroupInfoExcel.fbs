@@ -1,0 +1,10 @@
+include "DisplayGroupType.fbs";
+
+namespace MX.Data.Excel;
+
+table KeyMappingGroupInfoExcel {
+    display_group_type: DisplayGroupType;
+    localize_key_mapping_display_group_id: uint;
+}
+
+root_type KeyMappingGroupInfoExcel;
