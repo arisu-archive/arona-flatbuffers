@@ -53,15 +53,19 @@ func (rcv *ProductSelectExcel) MutateId(n int64) bool {
 	return rcv._tab.MutateInt64Slot(4, n)
 }
 
-func (rcv *ProductSelectExcel) ProductId() []byte {
+func (rcv *ProductSelectExcel) ProductSelectSubType() ProductSelectSubType {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(6))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return ProductSelectSubType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
-	return nil
+	return 0
 }
 
-func (rcv *ProductSelectExcel) TeenProductId() []byte {
+func (rcv *ProductSelectExcel) MutateProductSelectSubType(n ProductSelectSubType) bool {
+	return rcv._tab.MutateInt32Slot(6, int32(n))
+}
+
+func (rcv *ProductSelectExcel) ProductId() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(8))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -69,8 +73,16 @@ func (rcv *ProductSelectExcel) TeenProductId() []byte {
 	return nil
 }
 
-func (rcv *ProductSelectExcel) StoreType() StoreType {
+func (rcv *ProductSelectExcel) TeenProductId() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ProductSelectExcel) StoreType() StoreType {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
 	if o != 0 {
 		return StoreType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -78,11 +90,11 @@ func (rcv *ProductSelectExcel) StoreType() StoreType {
 }
 
 func (rcv *ProductSelectExcel) MutateStoreType(n StoreType) bool {
-	return rcv._tab.MutateInt32Slot(10, int32(n))
+	return rcv._tab.MutateInt32Slot(12, int32(n))
 }
 
 func (rcv *ProductSelectExcel) Price() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(12))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -90,11 +102,11 @@ func (rcv *ProductSelectExcel) Price() int64 {
 }
 
 func (rcv *ProductSelectExcel) MutatePrice(n int64) bool {
-	return rcv._tab.MutateInt64Slot(12, n)
+	return rcv._tab.MutateInt64Slot(14, n)
 }
 
 func (rcv *ProductSelectExcel) PriceReference() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(14))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -102,7 +114,7 @@ func (rcv *ProductSelectExcel) PriceReference() []byte {
 }
 
 func (rcv *ProductSelectExcel) PurchasePeriodType() PurchasePeriodType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(16))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
 	if o != 0 {
 		return PurchasePeriodType(rcv._tab.GetInt32(o + rcv._tab.Pos))
 	}
@@ -110,11 +122,11 @@ func (rcv *ProductSelectExcel) PurchasePeriodType() PurchasePeriodType {
 }
 
 func (rcv *ProductSelectExcel) MutatePurchasePeriodType(n PurchasePeriodType) bool {
-	return rcv._tab.MutateInt32Slot(16, int32(n))
+	return rcv._tab.MutateInt32Slot(18, int32(n))
 }
 
 func (rcv *ProductSelectExcel) PurchasePeriodLimit() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(18))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -122,11 +134,11 @@ func (rcv *ProductSelectExcel) PurchasePeriodLimit() int64 {
 }
 
 func (rcv *ProductSelectExcel) MutatePurchasePeriodLimit(n int64) bool {
-	return rcv._tab.MutateInt64Slot(18, n)
+	return rcv._tab.MutateInt64Slot(20, n)
 }
 
 func (rcv *ProductSelectExcel) ParcelType(j int) ParcelType {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return ParcelType(rcv._tab.GetInt32(a + flatbuffers.UOffsetT(j*4)))
@@ -135,7 +147,7 @@ func (rcv *ProductSelectExcel) ParcelType(j int) ParcelType {
 }
 
 func (rcv *ProductSelectExcel) ParcelTypeLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -143,7 +155,7 @@ func (rcv *ProductSelectExcel) ParcelTypeLength() int {
 }
 
 func (rcv *ProductSelectExcel) MutateParcelType(j int, n ParcelType) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt32(a+flatbuffers.UOffsetT(j*4), int32(n))
@@ -152,7 +164,7 @@ func (rcv *ProductSelectExcel) MutateParcelType(j int, n ParcelType) bool {
 }
 
 func (rcv *ProductSelectExcel) ParcelId(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -161,7 +173,7 @@ func (rcv *ProductSelectExcel) ParcelId(j int) int64 {
 }
 
 func (rcv *ProductSelectExcel) ParcelIdLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -169,7 +181,7 @@ func (rcv *ProductSelectExcel) ParcelIdLength() int {
 }
 
 func (rcv *ProductSelectExcel) MutateParcelId(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -178,7 +190,7 @@ func (rcv *ProductSelectExcel) MutateParcelId(j int, n int64) bool {
 }
 
 func (rcv *ProductSelectExcel) ParcelAmount(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -187,7 +199,7 @@ func (rcv *ProductSelectExcel) ParcelAmount(j int) int64 {
 }
 
 func (rcv *ProductSelectExcel) ParcelAmountLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -195,7 +207,7 @@ func (rcv *ProductSelectExcel) ParcelAmountLength() int {
 }
 
 func (rcv *ProductSelectExcel) MutateParcelAmount(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -204,7 +216,7 @@ func (rcv *ProductSelectExcel) MutateParcelAmount(j int, n int64) bool {
 }
 
 func (rcv *ProductSelectExcel) ProductSelectionSlot(j int) int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.GetInt64(a + flatbuffers.UOffsetT(j*8))
@@ -213,7 +225,7 @@ func (rcv *ProductSelectExcel) ProductSelectionSlot(j int) int64 {
 }
 
 func (rcv *ProductSelectExcel) ProductSelectionSlotLength() int {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		return rcv._tab.VectorLen(o)
 	}
@@ -221,7 +233,7 @@ func (rcv *ProductSelectExcel) ProductSelectionSlotLength() int {
 }
 
 func (rcv *ProductSelectExcel) MutateProductSelectionSlot(j int, n int64) bool {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
 	if o != 0 {
 		a := rcv._tab.Vector(o)
 		return rcv._tab.MutateInt64(a+flatbuffers.UOffsetT(j*8), n)
@@ -230,52 +242,55 @@ func (rcv *ProductSelectExcel) MutateProductSelectionSlot(j int, n int64) bool {
 }
 
 func ProductSelectExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(12)
+	builder.StartObject(13)
 }
 func ProductSelectExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
 }
+func ProductSelectExcelAddProductSelectSubType(builder *flatbuffers.Builder, productSelectSubType ProductSelectSubType) {
+	builder.PrependInt32Slot(1, int32(productSelectSubType), 0)
+}
 func ProductSelectExcelAddProductId(builder *flatbuffers.Builder, productId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(1, flatbuffers.UOffsetT(productId), 0)
+	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(productId), 0)
 }
 func ProductSelectExcelAddTeenProductId(builder *flatbuffers.Builder, teenProductId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(teenProductId), 0)
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(teenProductId), 0)
 }
 func ProductSelectExcelAddStoreType(builder *flatbuffers.Builder, storeType StoreType) {
-	builder.PrependInt32Slot(3, int32(storeType), 0)
+	builder.PrependInt32Slot(4, int32(storeType), 0)
 }
 func ProductSelectExcelAddPrice(builder *flatbuffers.Builder, price int64) {
-	builder.PrependInt64Slot(4, price, 0)
+	builder.PrependInt64Slot(5, price, 0)
 }
 func ProductSelectExcelAddPriceReference(builder *flatbuffers.Builder, priceReference flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(5, flatbuffers.UOffsetT(priceReference), 0)
+	builder.PrependUOffsetTSlot(6, flatbuffers.UOffsetT(priceReference), 0)
 }
 func ProductSelectExcelAddPurchasePeriodType(builder *flatbuffers.Builder, purchasePeriodType PurchasePeriodType) {
-	builder.PrependInt32Slot(6, int32(purchasePeriodType), 0)
+	builder.PrependInt32Slot(7, int32(purchasePeriodType), 0)
 }
 func ProductSelectExcelAddPurchasePeriodLimit(builder *flatbuffers.Builder, purchasePeriodLimit int64) {
-	builder.PrependInt64Slot(7, purchasePeriodLimit, 0)
+	builder.PrependInt64Slot(8, purchasePeriodLimit, 0)
 }
 func ProductSelectExcelAddParcelType(builder *flatbuffers.Builder, parcelType flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(parcelType), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(parcelType), 0)
 }
 func ProductSelectExcelStartParcelTypeVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(4, numElems, 4)
 }
 func ProductSelectExcelAddParcelId(builder *flatbuffers.Builder, parcelId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(parcelId), 0)
+	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(parcelId), 0)
 }
 func ProductSelectExcelStartParcelIdVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func ProductSelectExcelAddParcelAmount(builder *flatbuffers.Builder, parcelAmount flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(10, flatbuffers.UOffsetT(parcelAmount), 0)
+	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(parcelAmount), 0)
 }
 func ProductSelectExcelStartParcelAmountVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)
 }
 func ProductSelectExcelAddProductSelectionSlot(builder *flatbuffers.Builder, productSelectionSlot flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(11, flatbuffers.UOffsetT(productSelectionSlot), 0)
+	builder.PrependUOffsetTSlot(12, flatbuffers.UOffsetT(productSelectionSlot), 0)
 }
 func ProductSelectExcelStartProductSelectionSlotVector(builder *flatbuffers.Builder, numElems int) flatbuffers.UOffsetT {
 	return builder.StartVector(8, numElems, 8)

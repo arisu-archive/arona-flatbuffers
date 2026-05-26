@@ -113,8 +113,16 @@ func (rcv *TutorialFailureImageExcel) ImagePathEn() []byte {
 	return nil
 }
 
+func (rcv *TutorialFailureImageExcel) ReplaceLocalizeKey() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func TutorialFailureImageExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(8)
+	builder.StartObject(9)
 }
 func TutorialFailureImageExcelAddId(builder *flatbuffers.Builder, id int64) {
 	builder.PrependInt64Slot(0, id, 0)
@@ -139,6 +147,9 @@ func TutorialFailureImageExcelAddImagePathTw(builder *flatbuffers.Builder, image
 }
 func TutorialFailureImageExcelAddImagePathEn(builder *flatbuffers.Builder, imagePathEn flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(7, flatbuffers.UOffsetT(imagePathEn), 0)
+}
+func TutorialFailureImageExcelAddReplaceLocalizeKey(builder *flatbuffers.Builder, replaceLocalizeKey flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(replaceLocalizeKey), 0)
 }
 func TutorialFailureImageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

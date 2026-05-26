@@ -1,0 +1,14 @@
+include "AchievementType.fbs";
+include "ConditionType.fbs";
+
+namespace MX.Data.Excel;
+
+table GooglePlayAchievementExcel {
+    id: long;
+    condition_type: ConditionType;
+    condition_value: long;
+    google_play_id: string;
+    achievement_type: AchievementType;
+}
+
+root_type GooglePlayAchievementExcel;
