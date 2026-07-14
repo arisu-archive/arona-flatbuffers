@@ -65,8 +65,16 @@ func (rcv *KeyControllerImageExcel) XBoxIconName() []byte {
 	return nil
 }
 
+func (rcv *KeyControllerImageExcel) SteamDeckIconName() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(10))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func KeyControllerImageExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(3)
+	builder.StartObject(4)
 }
 func KeyControllerImageExcelAddControllerKeyCode(builder *flatbuffers.Builder, controllerKeyCode flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(0, flatbuffers.UOffsetT(controllerKeyCode), 0)
@@ -76,6 +84,9 @@ func KeyControllerImageExcelAddPsIconName(builder *flatbuffers.Builder, psIconNa
 }
 func KeyControllerImageExcelAddXBoxIconName(builder *flatbuffers.Builder, xBoxIconName flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(2, flatbuffers.UOffsetT(xBoxIconName), 0)
+}
+func KeyControllerImageExcelAddSteamDeckIconName(builder *flatbuffers.Builder, steamDeckIconName flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(3, flatbuffers.UOffsetT(steamDeckIconName), 0)
 }
 func KeyControllerImageExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

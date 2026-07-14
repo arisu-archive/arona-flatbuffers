@@ -4,6 +4,7 @@ table KeyControllerImageExcel {
     controller_key_code: string;
     ps_icon_name: string;
     x_box_icon_name: string;
+    steam_deck_icon_name: string;
 }
 
 root_type KeyControllerImageExcel;

@@ -13,6 +13,7 @@ type KeyControllerImageExcelDto struct {
 	ControllerKeyCode string `json:"controller_key_code"`
 	PsIconName        string `json:"ps_icon_name"`
 	XBoxIconName      string `json:"x_box_icon_name"`
+	SteamDeckIconName string `json:"steam_deck_icon_name"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -20,10 +21,12 @@ func (t *KeyControllerImageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbu
 	__offset_controller_key_code := b.CreateString(fbsutils.Convert(t.ControllerKeyCode, t.FlatBuffer.TableKey))
 	__offset_ps_icon_name := b.CreateString(fbsutils.Convert(t.PsIconName, t.FlatBuffer.TableKey))
 	__offset_x_box_icon_name := b.CreateString(fbsutils.Convert(t.XBoxIconName, t.FlatBuffer.TableKey))
+	__offset_steam_deck_icon_name := b.CreateString(fbsutils.Convert(t.SteamDeckIconName, t.FlatBuffer.TableKey))
 	KeyControllerImageExcelStart(b)
 	KeyControllerImageExcelAddControllerKeyCode(b, __offset_controller_key_code)
 	KeyControllerImageExcelAddPsIconName(b, __offset_ps_icon_name)
 	KeyControllerImageExcelAddXBoxIconName(b, __offset_x_box_icon_name)
+	KeyControllerImageExcelAddSteamDeckIconName(b, __offset_steam_deck_icon_name)
 	return KeyControllerImageExcelEnd(b)
 }
 
@@ -39,6 +42,7 @@ func (t *KeyControllerImageExcelDto) UnmarshalMessage(e *KeyControllerImageExcel
 	t.ControllerKeyCode = fbsutils.Convert(string(e.ControllerKeyCode()), t.FlatBuffer.TableKey)
 	t.PsIconName = fbsutils.Convert(string(e.PsIconName()), t.FlatBuffer.TableKey)
 	t.XBoxIconName = fbsutils.Convert(string(e.XBoxIconName()), t.FlatBuffer.TableKey)
+	t.SteamDeckIconName = fbsutils.Convert(string(e.SteamDeckIconName()), t.FlatBuffer.TableKey)
 	return nil
 }
 
