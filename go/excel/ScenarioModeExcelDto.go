@@ -13,6 +13,7 @@ type ScenarioModeExcelDto struct {
 	ModeId                     int64                `json:"mode_id"`
 	ModeType                   ScenarioModeTypes    `json:"mode_type"`
 	SubType                    ScenarioModeSubTypes `json:"sub_type"`
+	DisplayVolumeId            string               `json:"display_volume_id"`
 	VolumeId                   int64                `json:"volume_id"`
 	ChapterId                  int64                `json:"chapter_id"`
 	EpisodeId                  int64                `json:"episode_id"`
@@ -28,10 +29,13 @@ type ScenarioModeExcelDto struct {
 	GroundId                   int64                `json:"ground_id"`
 	IsDefeatBattle             bool                 `json:"is_defeat_battle"`
 	BattleDuration             int64                `json:"battle_duration"`
+	FieldDateId                int64                `json:"field_date_id"`
 	BackScenarioGroupId        []int64              `json:"back_scenario_group_id"`
 	ClearedModeId              []int64              `json:"cleared_mode_id"`
 	ScenarioModeRewardId       int64                `json:"scenario_mode_reward_id"`
 	IsScenarioSpecialReward    bool                 `json:"is_scenario_special_reward"`
+	SpecialRewardPrefabName    string               `json:"special_reward_prefab_name"`
+	SpecialRewardLogOut        bool                 `json:"special_reward_log_out"`
 	AccountLevelLimit          int64                `json:"account_level_limit"`
 	ClearedStageId             int64                `json:"cleared_stage_id"`
 	NeedClub                   Club                 `json:"need_club"`
@@ -56,9 +60,11 @@ type ScenarioModeExcelDto struct {
 
 // MarshalModel marshals the struct into flatbuffers offset
 func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	__offset_display_volume_id := b.CreateString(fbsutils.Convert(t.DisplayVolumeId, t.FlatBuffer.TableKey))
 	__offset_exposed_time := b.CreateString(fbsutils.Convert(t.ExposedTime, t.FlatBuffer.TableKey))
 	__offset_scenario_open_date := b.CreateString(fbsutils.Convert(t.ScenarioOpenDate, t.FlatBuffer.TableKey))
 	__offset_scenario_close_date := b.CreateString(fbsutils.Convert(t.ScenarioCloseDate, t.FlatBuffer.TableKey))
+	__offset_special_reward_prefab_name := b.CreateString(fbsutils.Convert(t.SpecialRewardPrefabName, t.FlatBuffer.TableKey))
 	__offset_event_icon_parcel_path := b.CreateString(fbsutils.Convert(t.EventIconParcelPath, t.FlatBuffer.TableKey))
 	__offset_complete_report_event_name := b.CreateString(fbsutils.Convert(t.CompleteReportEventName, t.FlatBuffer.TableKey))
 	__offset_first_clear_funnel_message := b.CreateString(fbsutils.Convert(t.FirstClearFunnelMessage, t.FlatBuffer.TableKey))
@@ -66,6 +72,7 @@ func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ScenarioModeExcelAddModeId(b, fbsutils.Convert(t.ModeId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddModeType(b, fbsutils.Convert(t.ModeType, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddSubType(b, fbsutils.Convert(t.SubType, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddDisplayVolumeId(b, __offset_display_volume_id)
 	ScenarioModeExcelAddVolumeId(b, fbsutils.Convert(t.VolumeId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddChapterId(b, fbsutils.Convert(t.ChapterId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddEpisodeId(b, fbsutils.Convert(t.EpisodeId, t.FlatBuffer.TableKey))
@@ -85,6 +92,7 @@ func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ScenarioModeExcelAddGroundId(b, fbsutils.Convert(t.GroundId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddIsDefeatBattle(b, t.IsDefeatBattle)
 	ScenarioModeExcelAddBattleDuration(b, fbsutils.Convert(t.BattleDuration, t.FlatBuffer.TableKey))
+	ScenarioModeExcelAddFieldDateId(b, fbsutils.Convert(t.FieldDateId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelStartBackScenarioGroupIdVector(b, len(t.BackScenarioGroupId))
 	for i := range len(t.BackScenarioGroupId) {
 		b.PrependInt64(fbsutils.Convert(t.BackScenarioGroupId[len(t.BackScenarioGroupId)-i-1], t.FlatBuffer.TableKey))
@@ -97,6 +105,8 @@ func (t *ScenarioModeExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ScenarioModeExcelAddClearedModeId(b, b.EndVector(len(t.ClearedModeId)))
 	ScenarioModeExcelAddScenarioModeRewardId(b, fbsutils.Convert(t.ScenarioModeRewardId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddIsScenarioSpecialReward(b, t.IsScenarioSpecialReward)
+	ScenarioModeExcelAddSpecialRewardPrefabName(b, __offset_special_reward_prefab_name)
+	ScenarioModeExcelAddSpecialRewardLogOut(b, t.SpecialRewardLogOut)
 	ScenarioModeExcelAddAccountLevelLimit(b, fbsutils.Convert(t.AccountLevelLimit, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddClearedStageId(b, fbsutils.Convert(t.ClearedStageId, t.FlatBuffer.TableKey))
 	ScenarioModeExcelAddNeedClub(b, fbsutils.Convert(t.NeedClub, t.FlatBuffer.TableKey))
@@ -132,6 +142,7 @@ func (t *ScenarioModeExcelDto) UnmarshalMessage(e *ScenarioModeExcel) error {
 	t.ModeId = fbsutils.Convert(e.ModeId(), t.FlatBuffer.TableKey)
 	t.ModeType = ScenarioModeTypes(fbsutils.Convert(int32(e.ModeType()), t.FlatBuffer.TableKey))
 	t.SubType = ScenarioModeSubTypes(fbsutils.Convert(int32(e.SubType()), t.FlatBuffer.TableKey))
+	t.DisplayVolumeId = fbsutils.Convert(string(e.DisplayVolumeId()), t.FlatBuffer.TableKey)
 	t.VolumeId = fbsutils.Convert(e.VolumeId(), t.FlatBuffer.TableKey)
 	t.ChapterId = fbsutils.Convert(e.ChapterId(), t.FlatBuffer.TableKey)
 	t.EpisodeId = fbsutils.Convert(e.EpisodeId(), t.FlatBuffer.TableKey)
@@ -150,6 +161,7 @@ func (t *ScenarioModeExcelDto) UnmarshalMessage(e *ScenarioModeExcel) error {
 	t.GroundId = fbsutils.Convert(e.GroundId(), t.FlatBuffer.TableKey)
 	t.IsDefeatBattle = e.IsDefeatBattle()
 	t.BattleDuration = fbsutils.Convert(e.BattleDuration(), t.FlatBuffer.TableKey)
+	t.FieldDateId = fbsutils.Convert(e.FieldDateId(), t.FlatBuffer.TableKey)
 	t.BackScenarioGroupId = make([]int64, e.BackScenarioGroupIdLength())
 	for i := range e.BackScenarioGroupIdLength() {
 		t.BackScenarioGroupId[i] = fbsutils.Convert(e.BackScenarioGroupId(i), t.FlatBuffer.TableKey)
@@ -160,6 +172,8 @@ func (t *ScenarioModeExcelDto) UnmarshalMessage(e *ScenarioModeExcel) error {
 	}
 	t.ScenarioModeRewardId = fbsutils.Convert(e.ScenarioModeRewardId(), t.FlatBuffer.TableKey)
 	t.IsScenarioSpecialReward = e.IsScenarioSpecialReward()
+	t.SpecialRewardPrefabName = fbsutils.Convert(string(e.SpecialRewardPrefabName()), t.FlatBuffer.TableKey)
+	t.SpecialRewardLogOut = e.SpecialRewardLogOut()
 	t.AccountLevelLimit = fbsutils.Convert(e.AccountLevelLimit(), t.FlatBuffer.TableKey)
 	t.ClearedStageId = fbsutils.Convert(e.ClearedStageId(), t.FlatBuffer.TableKey)
 	t.NeedClub = Club(fbsutils.Convert(int32(e.NeedClub()), t.FlatBuffer.TableKey))

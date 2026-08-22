@@ -2567,8 +2567,28 @@ func (rcv *ConstCommonExcel) QrIconUrlLive() []byte {
 	return nil
 }
 
+func (rcv *ConstCommonExcel) ProbablityInfoBtnLinkKr() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(418))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConstCommonExcel) ClearDeckEchelonShowMaxCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(420))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCommonExcel) MutateClearDeckEchelonShowMaxCount(n int32) bool {
+	return rcv._tab.MutateInt32Slot(420, n)
+}
+
 func ConstCommonExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(207)
+	builder.StartObject(209)
 }
 func ConstCommonExcelAddCampaignMainStageMaxRank(builder *flatbuffers.Builder, campaignMainStageMaxRank int32) {
 	builder.PrependInt32Slot(0, campaignMainStageMaxRank, 0)
@@ -3205,6 +3225,12 @@ func ConstCommonExcelAddQrIconUrlDev(builder *flatbuffers.Builder, qrIconUrlDev 
 }
 func ConstCommonExcelAddQrIconUrlLive(builder *flatbuffers.Builder, qrIconUrlLive flatbuffers.UOffsetT) {
 	builder.PrependUOffsetTSlot(206, flatbuffers.UOffsetT(qrIconUrlLive), 0)
+}
+func ConstCommonExcelAddProbablityInfoBtnLinkKr(builder *flatbuffers.Builder, probablityInfoBtnLinkKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(207, flatbuffers.UOffsetT(probablityInfoBtnLinkKr), 0)
+}
+func ConstCommonExcelAddClearDeckEchelonShowMaxCount(builder *flatbuffers.Builder, clearDeckEchelonShowMaxCount int32) {
+	builder.PrependInt32Slot(208, clearDeckEchelonShowMaxCount, 0)
 }
 func ConstCommonExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

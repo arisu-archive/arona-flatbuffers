@@ -19,6 +19,7 @@ const (
 	ConditionTypeOpenSeasonBirthdayPlayerDialog ConditionType = 9
 	ConditionTypeAssistUsedByOther              ConditionType = 10
 	ConditionTypeEquipCharacterGear             ConditionType = 11
+	ConditionTypeCompleteTutorial               ConditionType = 12
 )
 
 var EnumNamesConditionType = map[ConditionType]string{
@@ -34,6 +35,7 @@ var EnumNamesConditionType = map[ConditionType]string{
 	ConditionTypeOpenSeasonBirthdayPlayerDialog: "OpenSeasonBirthdayPlayerDialog",
 	ConditionTypeAssistUsedByOther:              "AssistUsedByOther",
 	ConditionTypeEquipCharacterGear:             "EquipCharacterGear",
+	ConditionTypeCompleteTutorial:               "CompleteTutorial",
 }
 
 var EnumValuesConditionType = map[string]ConditionType{
@@ -49,6 +51,7 @@ var EnumValuesConditionType = map[string]ConditionType{
 	"OpenSeasonBirthdayPlayerDialog": ConditionTypeOpenSeasonBirthdayPlayerDialog,
 	"AssistUsedByOther":              ConditionTypeAssistUsedByOther,
 	"EquipCharacterGear":             ConditionTypeEquipCharacterGear,
+	"CompleteTutorial":               ConditionTypeCompleteTutorial,
 }
 
 func (v ConditionType) String() string {

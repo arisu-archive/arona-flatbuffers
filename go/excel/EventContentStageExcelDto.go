@@ -10,48 +10,49 @@ import (
 // EventContentStageExcelDto represents a FlatBuffers table
 type EventContentStageExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                            int64                `json:"id"`
-	Name                          string               `json:"name"`
-	EventContentId                int64                `json:"event_content_id"`
-	StageDifficulty               StageDifficulty      `json:"stage_difficulty"`
-	StageNumber                   string               `json:"stage_number"`
-	StageDisplay                  int32                `json:"stage_display"`
-	PrevStageId                   int64                `json:"prev_stage_id"`
-	OpenDate                      int64                `json:"open_date"`
-	OpenEventPoint                int64                `json:"open_event_point"`
-	PrevStageSubEventId           int64                `json:"prev_stage_sub_event_id"`
-	OpenConditionScenarioId       int64                `json:"open_condition_scenario_id"`
-	OpenConditionContentType      EventContentType     `json:"open_condition_content_type"`
-	OpenConditionContentId        int64                `json:"open_condition_content_id"`
-	BattleDuration                int64                `json:"battle_duration"`
-	StageEnterCostType            ParcelType           `json:"stage_enter_cost_type"`
-	StageEnterCostId              int64                `json:"stage_enter_cost_id"`
-	StageEnterCostAmount          int32                `json:"stage_enter_cost_amount"`
-	StageEnterEchelonCount        int32                `json:"stage_enter_echelon_count"`
-	StarConditionTacticRankSCount int64                `json:"star_condition_tactic_rank_s_count"`
-	StarConditionTurnCount        int64                `json:"star_condition_turn_count"`
-	EnterScenarioGroupId          []int64              `json:"enter_scenario_group_id"`
-	ClearScenarioGroupId          []int64              `json:"clear_scenario_group_id"`
-	StrategyMap                   string               `json:"strategy_map"`
-	StrategyMapBg                 string               `json:"strategy_map_bg"`
-	EventContentStageRewardId     int64                `json:"event_content_stage_reward_id"`
-	MaxTurn                       int32                `json:"max_turn"`
-	StageTopography               StageTopography      `json:"stage_topography"`
-	RecommandLevel                int32                `json:"recommand_level"`
-	BgmId                         string               `json:"bgm_id"`
-	StrategyEnvironment           StrategyEnvironment  `json:"strategy_environment"`
-	GroundId                      int64                `json:"ground_id"`
-	ContentType                   ContentType          `json:"content_type"`
-	BgmIdC9738509                 int64                `json:"bgm_id_c9738509"`
-	InstantClear                  bool                 `json:"instant_clear"`
-	BuffContentId                 int64                `json:"buff_content_id"`
-	FixedEchelonId                int64                `json:"fixed_echelon_id"`
-	ChallengeDisplay              bool                 `json:"challenge_display"`
-	StarGoal                      []StarGoalType       `json:"star_goal"`
-	StarGoalAmount                []int32              `json:"star_goal_amount"`
-	IsDefeatBattle                bool                 `json:"is_defeat_battle"`
-	StageHint                     uint32               `json:"stage_hint"`
-	EchelonExtensionType          EchelonExtensionType `json:"echelon_extension_type"`
+	Id                                       int64                `json:"id"`
+	Name                                     string               `json:"name"`
+	EventContentId                           int64                `json:"event_content_id"`
+	StageDifficulty                          StageDifficulty      `json:"stage_difficulty"`
+	StageNumber                              string               `json:"stage_number"`
+	StageDisplay                             int32                `json:"stage_display"`
+	PrevStageId                              int64                `json:"prev_stage_id"`
+	OpenDate                                 int64                `json:"open_date"`
+	OpenEventPoint                           int64                `json:"open_event_point"`
+	OpenConditionScenarioPermanentSubEventId int64                `json:"open_condition_scenario_permanent_sub_event_id"`
+	PrevStageSubEventId                      int64                `json:"prev_stage_sub_event_id"`
+	OpenConditionScenarioId                  int64                `json:"open_condition_scenario_id"`
+	OpenConditionContentType                 EventContentType     `json:"open_condition_content_type"`
+	OpenConditionContentId                   int64                `json:"open_condition_content_id"`
+	BattleDuration                           int64                `json:"battle_duration"`
+	StageEnterCostType                       ParcelType           `json:"stage_enter_cost_type"`
+	StageEnterCostId                         int64                `json:"stage_enter_cost_id"`
+	StageEnterCostAmount                     int32                `json:"stage_enter_cost_amount"`
+	StageEnterEchelonCount                   int32                `json:"stage_enter_echelon_count"`
+	StarConditionTacticRankSCount            int64                `json:"star_condition_tactic_rank_s_count"`
+	StarConditionTurnCount                   int64                `json:"star_condition_turn_count"`
+	EnterScenarioGroupId                     []int64              `json:"enter_scenario_group_id"`
+	ClearScenarioGroupId                     []int64              `json:"clear_scenario_group_id"`
+	StrategyMap                              string               `json:"strategy_map"`
+	StrategyMapBg                            string               `json:"strategy_map_bg"`
+	EventContentStageRewardId                int64                `json:"event_content_stage_reward_id"`
+	MaxTurn                                  int32                `json:"max_turn"`
+	StageTopography                          StageTopography      `json:"stage_topography"`
+	RecommandLevel                           int32                `json:"recommand_level"`
+	BgmId                                    string               `json:"bgm_id"`
+	StrategyEnvironment                      StrategyEnvironment  `json:"strategy_environment"`
+	GroundId                                 int64                `json:"ground_id"`
+	ContentType                              ContentType          `json:"content_type"`
+	BgmIdC9738509                            int64                `json:"bgm_id_c9738509"`
+	InstantClear                             bool                 `json:"instant_clear"`
+	BuffContentId                            int64                `json:"buff_content_id"`
+	FixedEchelonId                           int64                `json:"fixed_echelon_id"`
+	ChallengeDisplay                         bool                 `json:"challenge_display"`
+	StarGoal                                 []StarGoalType       `json:"star_goal"`
+	StarGoalAmount                           []int32              `json:"star_goal_amount"`
+	IsDefeatBattle                           bool                 `json:"is_defeat_battle"`
+	StageHint                                uint32               `json:"stage_hint"`
+	EchelonExtensionType                     EchelonExtensionType `json:"echelon_extension_type"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -71,6 +72,7 @@ func (t *EventContentStageExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuf
 	EventContentStageExcelAddPrevStageId(b, fbsutils.Convert(t.PrevStageId, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddOpenDate(b, fbsutils.Convert(t.OpenDate, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddOpenEventPoint(b, fbsutils.Convert(t.OpenEventPoint, t.FlatBuffer.TableKey))
+	EventContentStageExcelAddOpenConditionScenarioPermanentSubEventId(b, fbsutils.Convert(t.OpenConditionScenarioPermanentSubEventId, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddPrevStageSubEventId(b, fbsutils.Convert(t.PrevStageSubEventId, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddOpenConditionScenarioId(b, fbsutils.Convert(t.OpenConditionScenarioId, t.FlatBuffer.TableKey))
 	EventContentStageExcelAddOpenConditionContentType(b, fbsutils.Convert(t.OpenConditionContentType, t.FlatBuffer.TableKey))
@@ -141,6 +143,7 @@ func (t *EventContentStageExcelDto) UnmarshalMessage(e *EventContentStageExcel) 
 	t.PrevStageId = fbsutils.Convert(e.PrevStageId(), t.FlatBuffer.TableKey)
 	t.OpenDate = fbsutils.Convert(e.OpenDate(), t.FlatBuffer.TableKey)
 	t.OpenEventPoint = fbsutils.Convert(e.OpenEventPoint(), t.FlatBuffer.TableKey)
+	t.OpenConditionScenarioPermanentSubEventId = fbsutils.Convert(e.OpenConditionScenarioPermanentSubEventId(), t.FlatBuffer.TableKey)
 	t.PrevStageSubEventId = fbsutils.Convert(e.PrevStageSubEventId(), t.FlatBuffer.TableKey)
 	t.OpenConditionScenarioId = fbsutils.Convert(e.OpenConditionScenarioId(), t.FlatBuffer.TableKey)
 	t.OpenConditionContentType = EventContentType(fbsutils.Convert(int32(e.OpenConditionContentType()), t.FlatBuffer.TableKey))

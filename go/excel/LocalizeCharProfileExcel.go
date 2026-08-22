@@ -305,7 +305,7 @@ func (rcv *LocalizeCharProfileExcel) MutateClub(n Club) bool {
 	return rcv._tab.MutateInt32Slot(66, int32(n))
 }
 
-func (rcv *LocalizeCharProfileExcel) SchoolYearKr() []byte {
+func (rcv *LocalizeCharProfileExcel) ClubNameForGachaKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -313,7 +313,7 @@ func (rcv *LocalizeCharProfileExcel) SchoolYearKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) SchoolYearJp() []byte {
+func (rcv *LocalizeCharProfileExcel) ClubNameForGachaJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -321,7 +321,7 @@ func (rcv *LocalizeCharProfileExcel) SchoolYearJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) SchoolYearTh() []byte {
+func (rcv *LocalizeCharProfileExcel) ClubNameForGachaTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -329,7 +329,7 @@ func (rcv *LocalizeCharProfileExcel) SchoolYearTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) SchoolYearTw() []byte {
+func (rcv *LocalizeCharProfileExcel) ClubNameForGachaTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(74))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -337,7 +337,7 @@ func (rcv *LocalizeCharProfileExcel) SchoolYearTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) SchoolYearEn() []byte {
+func (rcv *LocalizeCharProfileExcel) ClubNameForGachaEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(76))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -345,7 +345,7 @@ func (rcv *LocalizeCharProfileExcel) SchoolYearEn() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterAgeKr() []byte {
+func (rcv *LocalizeCharProfileExcel) SchoolYearKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(78))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -353,7 +353,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterAgeKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterAgeJp() []byte {
+func (rcv *LocalizeCharProfileExcel) SchoolYearJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(80))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -361,7 +361,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterAgeJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterAgeTh() []byte {
+func (rcv *LocalizeCharProfileExcel) SchoolYearTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(82))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -369,7 +369,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterAgeTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterAgeTw() []byte {
+func (rcv *LocalizeCharProfileExcel) SchoolYearTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(84))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -377,7 +377,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterAgeTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterAgeEn() []byte {
+func (rcv *LocalizeCharProfileExcel) SchoolYearEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(86))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -385,7 +385,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterAgeEn() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) BirthDay() []byte {
+func (rcv *LocalizeCharProfileExcel) CharacterAgeKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(88))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -393,7 +393,7 @@ func (rcv *LocalizeCharProfileExcel) BirthDay() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) BirthdayKr() []byte {
+func (rcv *LocalizeCharProfileExcel) CharacterAgeJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(90))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -401,7 +401,7 @@ func (rcv *LocalizeCharProfileExcel) BirthdayKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) BirthdayJp() []byte {
+func (rcv *LocalizeCharProfileExcel) CharacterAgeTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(92))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -409,7 +409,7 @@ func (rcv *LocalizeCharProfileExcel) BirthdayJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) BirthdayTh() []byte {
+func (rcv *LocalizeCharProfileExcel) CharacterAgeTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(94))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -417,7 +417,7 @@ func (rcv *LocalizeCharProfileExcel) BirthdayTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) BirthdayTw() []byte {
+func (rcv *LocalizeCharProfileExcel) CharacterAgeEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(96))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -425,7 +425,7 @@ func (rcv *LocalizeCharProfileExcel) BirthdayTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) BirthdayEn() []byte {
+func (rcv *LocalizeCharProfileExcel) BirthDay() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(98))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -433,7 +433,7 @@ func (rcv *LocalizeCharProfileExcel) BirthdayEn() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharHeightKr() []byte {
+func (rcv *LocalizeCharProfileExcel) BirthdayKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(100))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -441,7 +441,7 @@ func (rcv *LocalizeCharProfileExcel) CharHeightKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharHeightJp() []byte {
+func (rcv *LocalizeCharProfileExcel) BirthdayJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(102))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -449,7 +449,7 @@ func (rcv *LocalizeCharProfileExcel) CharHeightJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharHeightTh() []byte {
+func (rcv *LocalizeCharProfileExcel) BirthdayTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(104))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -457,7 +457,7 @@ func (rcv *LocalizeCharProfileExcel) CharHeightTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharHeightTw() []byte {
+func (rcv *LocalizeCharProfileExcel) BirthdayTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(106))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -465,7 +465,7 @@ func (rcv *LocalizeCharProfileExcel) CharHeightTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharHeightEn() []byte {
+func (rcv *LocalizeCharProfileExcel) BirthdayEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(108))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -473,7 +473,7 @@ func (rcv *LocalizeCharProfileExcel) CharHeightEn() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) DesignerNameKr() []byte {
+func (rcv *LocalizeCharProfileExcel) CharHeightKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(110))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -481,7 +481,7 @@ func (rcv *LocalizeCharProfileExcel) DesignerNameKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) DesignerNameJp() []byte {
+func (rcv *LocalizeCharProfileExcel) CharHeightJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(112))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -489,7 +489,7 @@ func (rcv *LocalizeCharProfileExcel) DesignerNameJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) DesignerNameTh() []byte {
+func (rcv *LocalizeCharProfileExcel) CharHeightTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(114))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -497,7 +497,7 @@ func (rcv *LocalizeCharProfileExcel) DesignerNameTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) DesignerNameTw() []byte {
+func (rcv *LocalizeCharProfileExcel) CharHeightTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -505,7 +505,7 @@ func (rcv *LocalizeCharProfileExcel) DesignerNameTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) DesignerNameEn() []byte {
+func (rcv *LocalizeCharProfileExcel) CharHeightEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -513,7 +513,7 @@ func (rcv *LocalizeCharProfileExcel) DesignerNameEn() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) IllustratorNameKr() []byte {
+func (rcv *LocalizeCharProfileExcel) DesignerNameKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -521,7 +521,7 @@ func (rcv *LocalizeCharProfileExcel) IllustratorNameKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) IllustratorNameJp() []byte {
+func (rcv *LocalizeCharProfileExcel) DesignerNameJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(122))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -529,7 +529,7 @@ func (rcv *LocalizeCharProfileExcel) IllustratorNameJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) IllustratorNameTh() []byte {
+func (rcv *LocalizeCharProfileExcel) DesignerNameTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(124))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -537,7 +537,7 @@ func (rcv *LocalizeCharProfileExcel) IllustratorNameTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) IllustratorNameTw() []byte {
+func (rcv *LocalizeCharProfileExcel) DesignerNameTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(126))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -545,7 +545,7 @@ func (rcv *LocalizeCharProfileExcel) IllustratorNameTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) IllustratorNameEn() []byte {
+func (rcv *LocalizeCharProfileExcel) DesignerNameEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(128))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -553,7 +553,7 @@ func (rcv *LocalizeCharProfileExcel) IllustratorNameEn() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterVoiceKr() []byte {
+func (rcv *LocalizeCharProfileExcel) IllustratorNameKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(130))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -561,7 +561,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterVoiceKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterVoiceJp() []byte {
+func (rcv *LocalizeCharProfileExcel) IllustratorNameJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(132))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -569,7 +569,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterVoiceJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterVoiceTh() []byte {
+func (rcv *LocalizeCharProfileExcel) IllustratorNameTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(134))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -577,7 +577,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterVoiceTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterVoiceTw() []byte {
+func (rcv *LocalizeCharProfileExcel) IllustratorNameTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(136))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -585,7 +585,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterVoiceTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterVoiceEn() []byte {
+func (rcv *LocalizeCharProfileExcel) IllustratorNameEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(138))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -593,7 +593,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterVoiceEn() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) KrCharacterVoiceKr() []byte {
+func (rcv *LocalizeCharProfileExcel) CharacterVoiceKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(140))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -601,7 +601,7 @@ func (rcv *LocalizeCharProfileExcel) KrCharacterVoiceKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) KrCharacterVoiceTh() []byte {
+func (rcv *LocalizeCharProfileExcel) CharacterVoiceJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(142))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -609,7 +609,7 @@ func (rcv *LocalizeCharProfileExcel) KrCharacterVoiceTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) KrCharacterVoiceTw() []byte {
+func (rcv *LocalizeCharProfileExcel) CharacterVoiceTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(144))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -617,7 +617,7 @@ func (rcv *LocalizeCharProfileExcel) KrCharacterVoiceTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) KrCharacterVoiceEn() []byte {
+func (rcv *LocalizeCharProfileExcel) CharacterVoiceTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(146))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -625,7 +625,7 @@ func (rcv *LocalizeCharProfileExcel) KrCharacterVoiceEn() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) HobbyKr() []byte {
+func (rcv *LocalizeCharProfileExcel) CharacterVoiceEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(148))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -633,7 +633,7 @@ func (rcv *LocalizeCharProfileExcel) HobbyKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) HobbyJp() []byte {
+func (rcv *LocalizeCharProfileExcel) KrCharacterVoiceKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(150))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -641,7 +641,7 @@ func (rcv *LocalizeCharProfileExcel) HobbyJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) HobbyTh() []byte {
+func (rcv *LocalizeCharProfileExcel) KrCharacterVoiceTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(152))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -649,7 +649,7 @@ func (rcv *LocalizeCharProfileExcel) HobbyTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) HobbyTw() []byte {
+func (rcv *LocalizeCharProfileExcel) KrCharacterVoiceTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(154))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -657,7 +657,7 @@ func (rcv *LocalizeCharProfileExcel) HobbyTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) HobbyEn() []byte {
+func (rcv *LocalizeCharProfileExcel) KrCharacterVoiceEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(156))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -665,7 +665,7 @@ func (rcv *LocalizeCharProfileExcel) HobbyEn() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) WeaponNameKr() []byte {
+func (rcv *LocalizeCharProfileExcel) HobbyKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(158))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -673,7 +673,7 @@ func (rcv *LocalizeCharProfileExcel) WeaponNameKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) WeaponDescKr() []byte {
+func (rcv *LocalizeCharProfileExcel) HobbyJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(160))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -681,7 +681,7 @@ func (rcv *LocalizeCharProfileExcel) WeaponDescKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) WeaponNameJp() []byte {
+func (rcv *LocalizeCharProfileExcel) HobbyTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(162))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -689,7 +689,7 @@ func (rcv *LocalizeCharProfileExcel) WeaponNameJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) WeaponDescJp() []byte {
+func (rcv *LocalizeCharProfileExcel) HobbyTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(164))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -697,7 +697,7 @@ func (rcv *LocalizeCharProfileExcel) WeaponDescJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) WeaponNameTh() []byte {
+func (rcv *LocalizeCharProfileExcel) HobbyEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(166))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -705,7 +705,7 @@ func (rcv *LocalizeCharProfileExcel) WeaponNameTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) WeaponDescTh() []byte {
+func (rcv *LocalizeCharProfileExcel) WeaponNameKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(168))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -713,7 +713,7 @@ func (rcv *LocalizeCharProfileExcel) WeaponDescTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) WeaponNameTw() []byte {
+func (rcv *LocalizeCharProfileExcel) WeaponDescKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(170))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -721,7 +721,7 @@ func (rcv *LocalizeCharProfileExcel) WeaponNameTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) WeaponDescTw() []byte {
+func (rcv *LocalizeCharProfileExcel) WeaponNameJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(172))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -729,7 +729,7 @@ func (rcv *LocalizeCharProfileExcel) WeaponDescTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) WeaponNameEn() []byte {
+func (rcv *LocalizeCharProfileExcel) WeaponDescJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(174))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -737,7 +737,7 @@ func (rcv *LocalizeCharProfileExcel) WeaponNameEn() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) WeaponDescEn() []byte {
+func (rcv *LocalizeCharProfileExcel) WeaponNameTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(176))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -745,7 +745,7 @@ func (rcv *LocalizeCharProfileExcel) WeaponDescEn() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) ProfileIntroductionKr() []byte {
+func (rcv *LocalizeCharProfileExcel) WeaponDescTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(178))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -753,7 +753,7 @@ func (rcv *LocalizeCharProfileExcel) ProfileIntroductionKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) ProfileIntroductionJp() []byte {
+func (rcv *LocalizeCharProfileExcel) WeaponNameTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(180))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -761,7 +761,7 @@ func (rcv *LocalizeCharProfileExcel) ProfileIntroductionJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) ProfileIntroductionTh() []byte {
+func (rcv *LocalizeCharProfileExcel) WeaponDescTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(182))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -769,7 +769,7 @@ func (rcv *LocalizeCharProfileExcel) ProfileIntroductionTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) ProfileIntroductionTw() []byte {
+func (rcv *LocalizeCharProfileExcel) WeaponNameEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(184))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -777,7 +777,7 @@ func (rcv *LocalizeCharProfileExcel) ProfileIntroductionTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) ProfileIntroductionEn() []byte {
+func (rcv *LocalizeCharProfileExcel) WeaponDescEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(186))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -785,7 +785,7 @@ func (rcv *LocalizeCharProfileExcel) ProfileIntroductionEn() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterSsrNewKr() []byte {
+func (rcv *LocalizeCharProfileExcel) ProfileIntroductionKr() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(188))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -793,7 +793,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterSsrNewKr() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterSsrNewJp() []byte {
+func (rcv *LocalizeCharProfileExcel) ProfileIntroductionJp() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(190))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -801,7 +801,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterSsrNewJp() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterSsrNewTh() []byte {
+func (rcv *LocalizeCharProfileExcel) ProfileIntroductionTh() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(192))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -809,7 +809,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterSsrNewTh() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterSsrNewTw() []byte {
+func (rcv *LocalizeCharProfileExcel) ProfileIntroductionTw() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(194))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -817,7 +817,7 @@ func (rcv *LocalizeCharProfileExcel) CharacterSsrNewTw() []byte {
 	return nil
 }
 
-func (rcv *LocalizeCharProfileExcel) CharacterSsrNewEn() []byte {
+func (rcv *LocalizeCharProfileExcel) ProfileIntroductionEn() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(196))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -825,8 +825,48 @@ func (rcv *LocalizeCharProfileExcel) CharacterSsrNewEn() []byte {
 	return nil
 }
 
+func (rcv *LocalizeCharProfileExcel) CharacterSsrNewKr() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(198))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeCharProfileExcel) CharacterSsrNewJp() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(200))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeCharProfileExcel) CharacterSsrNewTh() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(202))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeCharProfileExcel) CharacterSsrNewTw() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(204))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *LocalizeCharProfileExcel) CharacterSsrNewEn() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(206))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
 func LocalizeCharProfileExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(97)
+	builder.StartObject(102)
 }
 func LocalizeCharProfileExcelAddCharacterId(builder *flatbuffers.Builder, characterId int64) {
 	builder.PrependInt64Slot(0, characterId, 0)
@@ -924,200 +964,215 @@ func LocalizeCharProfileExcelAddPersonalNameRubyEn(builder *flatbuffers.Builder,
 func LocalizeCharProfileExcelAddClub(builder *flatbuffers.Builder, club Club) {
 	builder.PrependInt32Slot(31, int32(club), 0)
 }
+func LocalizeCharProfileExcelAddClubNameForGachaKr(builder *flatbuffers.Builder, clubNameForGachaKr flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(32, flatbuffers.UOffsetT(clubNameForGachaKr), 0)
+}
+func LocalizeCharProfileExcelAddClubNameForGachaJp(builder *flatbuffers.Builder, clubNameForGachaJp flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(33, flatbuffers.UOffsetT(clubNameForGachaJp), 0)
+}
+func LocalizeCharProfileExcelAddClubNameForGachaTh(builder *flatbuffers.Builder, clubNameForGachaTh flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(34, flatbuffers.UOffsetT(clubNameForGachaTh), 0)
+}
+func LocalizeCharProfileExcelAddClubNameForGachaTw(builder *flatbuffers.Builder, clubNameForGachaTw flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(35, flatbuffers.UOffsetT(clubNameForGachaTw), 0)
+}
+func LocalizeCharProfileExcelAddClubNameForGachaEn(builder *flatbuffers.Builder, clubNameForGachaEn flatbuffers.UOffsetT) {
+	builder.PrependUOffsetTSlot(36, flatbuffers.UOffsetT(clubNameForGachaEn), 0)
+}
 func LocalizeCharProfileExcelAddSchoolYearKr(builder *flatbuffers.Builder, schoolYearKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(32, flatbuffers.UOffsetT(schoolYearKr), 0)
+	builder.PrependUOffsetTSlot(37, flatbuffers.UOffsetT(schoolYearKr), 0)
 }
 func LocalizeCharProfileExcelAddSchoolYearJp(builder *flatbuffers.Builder, schoolYearJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(33, flatbuffers.UOffsetT(schoolYearJp), 0)
+	builder.PrependUOffsetTSlot(38, flatbuffers.UOffsetT(schoolYearJp), 0)
 }
 func LocalizeCharProfileExcelAddSchoolYearTh(builder *flatbuffers.Builder, schoolYearTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(34, flatbuffers.UOffsetT(schoolYearTh), 0)
+	builder.PrependUOffsetTSlot(39, flatbuffers.UOffsetT(schoolYearTh), 0)
 }
 func LocalizeCharProfileExcelAddSchoolYearTw(builder *flatbuffers.Builder, schoolYearTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(35, flatbuffers.UOffsetT(schoolYearTw), 0)
+	builder.PrependUOffsetTSlot(40, flatbuffers.UOffsetT(schoolYearTw), 0)
 }
 func LocalizeCharProfileExcelAddSchoolYearEn(builder *flatbuffers.Builder, schoolYearEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(36, flatbuffers.UOffsetT(schoolYearEn), 0)
+	builder.PrependUOffsetTSlot(41, flatbuffers.UOffsetT(schoolYearEn), 0)
 }
 func LocalizeCharProfileExcelAddCharacterAgeKr(builder *flatbuffers.Builder, characterAgeKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(37, flatbuffers.UOffsetT(characterAgeKr), 0)
+	builder.PrependUOffsetTSlot(42, flatbuffers.UOffsetT(characterAgeKr), 0)
 }
 func LocalizeCharProfileExcelAddCharacterAgeJp(builder *flatbuffers.Builder, characterAgeJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(38, flatbuffers.UOffsetT(characterAgeJp), 0)
+	builder.PrependUOffsetTSlot(43, flatbuffers.UOffsetT(characterAgeJp), 0)
 }
 func LocalizeCharProfileExcelAddCharacterAgeTh(builder *flatbuffers.Builder, characterAgeTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(39, flatbuffers.UOffsetT(characterAgeTh), 0)
+	builder.PrependUOffsetTSlot(44, flatbuffers.UOffsetT(characterAgeTh), 0)
 }
 func LocalizeCharProfileExcelAddCharacterAgeTw(builder *flatbuffers.Builder, characterAgeTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(40, flatbuffers.UOffsetT(characterAgeTw), 0)
+	builder.PrependUOffsetTSlot(45, flatbuffers.UOffsetT(characterAgeTw), 0)
 }
 func LocalizeCharProfileExcelAddCharacterAgeEn(builder *flatbuffers.Builder, characterAgeEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(41, flatbuffers.UOffsetT(characterAgeEn), 0)
+	builder.PrependUOffsetTSlot(46, flatbuffers.UOffsetT(characterAgeEn), 0)
 }
 func LocalizeCharProfileExcelAddBirthDay(builder *flatbuffers.Builder, birthDay flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(42, flatbuffers.UOffsetT(birthDay), 0)
+	builder.PrependUOffsetTSlot(47, flatbuffers.UOffsetT(birthDay), 0)
 }
 func LocalizeCharProfileExcelAddBirthdayKr(builder *flatbuffers.Builder, birthdayKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(43, flatbuffers.UOffsetT(birthdayKr), 0)
+	builder.PrependUOffsetTSlot(48, flatbuffers.UOffsetT(birthdayKr), 0)
 }
 func LocalizeCharProfileExcelAddBirthdayJp(builder *flatbuffers.Builder, birthdayJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(44, flatbuffers.UOffsetT(birthdayJp), 0)
+	builder.PrependUOffsetTSlot(49, flatbuffers.UOffsetT(birthdayJp), 0)
 }
 func LocalizeCharProfileExcelAddBirthdayTh(builder *flatbuffers.Builder, birthdayTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(45, flatbuffers.UOffsetT(birthdayTh), 0)
+	builder.PrependUOffsetTSlot(50, flatbuffers.UOffsetT(birthdayTh), 0)
 }
 func LocalizeCharProfileExcelAddBirthdayTw(builder *flatbuffers.Builder, birthdayTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(46, flatbuffers.UOffsetT(birthdayTw), 0)
+	builder.PrependUOffsetTSlot(51, flatbuffers.UOffsetT(birthdayTw), 0)
 }
 func LocalizeCharProfileExcelAddBirthdayEn(builder *flatbuffers.Builder, birthdayEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(47, flatbuffers.UOffsetT(birthdayEn), 0)
+	builder.PrependUOffsetTSlot(52, flatbuffers.UOffsetT(birthdayEn), 0)
 }
 func LocalizeCharProfileExcelAddCharHeightKr(builder *flatbuffers.Builder, charHeightKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(48, flatbuffers.UOffsetT(charHeightKr), 0)
+	builder.PrependUOffsetTSlot(53, flatbuffers.UOffsetT(charHeightKr), 0)
 }
 func LocalizeCharProfileExcelAddCharHeightJp(builder *flatbuffers.Builder, charHeightJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(49, flatbuffers.UOffsetT(charHeightJp), 0)
+	builder.PrependUOffsetTSlot(54, flatbuffers.UOffsetT(charHeightJp), 0)
 }
 func LocalizeCharProfileExcelAddCharHeightTh(builder *flatbuffers.Builder, charHeightTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(50, flatbuffers.UOffsetT(charHeightTh), 0)
+	builder.PrependUOffsetTSlot(55, flatbuffers.UOffsetT(charHeightTh), 0)
 }
 func LocalizeCharProfileExcelAddCharHeightTw(builder *flatbuffers.Builder, charHeightTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(51, flatbuffers.UOffsetT(charHeightTw), 0)
+	builder.PrependUOffsetTSlot(56, flatbuffers.UOffsetT(charHeightTw), 0)
 }
 func LocalizeCharProfileExcelAddCharHeightEn(builder *flatbuffers.Builder, charHeightEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(52, flatbuffers.UOffsetT(charHeightEn), 0)
+	builder.PrependUOffsetTSlot(57, flatbuffers.UOffsetT(charHeightEn), 0)
 }
 func LocalizeCharProfileExcelAddDesignerNameKr(builder *flatbuffers.Builder, designerNameKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(53, flatbuffers.UOffsetT(designerNameKr), 0)
+	builder.PrependUOffsetTSlot(58, flatbuffers.UOffsetT(designerNameKr), 0)
 }
 func LocalizeCharProfileExcelAddDesignerNameJp(builder *flatbuffers.Builder, designerNameJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(54, flatbuffers.UOffsetT(designerNameJp), 0)
+	builder.PrependUOffsetTSlot(59, flatbuffers.UOffsetT(designerNameJp), 0)
 }
 func LocalizeCharProfileExcelAddDesignerNameTh(builder *flatbuffers.Builder, designerNameTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(55, flatbuffers.UOffsetT(designerNameTh), 0)
+	builder.PrependUOffsetTSlot(60, flatbuffers.UOffsetT(designerNameTh), 0)
 }
 func LocalizeCharProfileExcelAddDesignerNameTw(builder *flatbuffers.Builder, designerNameTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(56, flatbuffers.UOffsetT(designerNameTw), 0)
+	builder.PrependUOffsetTSlot(61, flatbuffers.UOffsetT(designerNameTw), 0)
 }
 func LocalizeCharProfileExcelAddDesignerNameEn(builder *flatbuffers.Builder, designerNameEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(57, flatbuffers.UOffsetT(designerNameEn), 0)
+	builder.PrependUOffsetTSlot(62, flatbuffers.UOffsetT(designerNameEn), 0)
 }
 func LocalizeCharProfileExcelAddIllustratorNameKr(builder *flatbuffers.Builder, illustratorNameKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(58, flatbuffers.UOffsetT(illustratorNameKr), 0)
+	builder.PrependUOffsetTSlot(63, flatbuffers.UOffsetT(illustratorNameKr), 0)
 }
 func LocalizeCharProfileExcelAddIllustratorNameJp(builder *flatbuffers.Builder, illustratorNameJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(59, flatbuffers.UOffsetT(illustratorNameJp), 0)
+	builder.PrependUOffsetTSlot(64, flatbuffers.UOffsetT(illustratorNameJp), 0)
 }
 func LocalizeCharProfileExcelAddIllustratorNameTh(builder *flatbuffers.Builder, illustratorNameTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(60, flatbuffers.UOffsetT(illustratorNameTh), 0)
+	builder.PrependUOffsetTSlot(65, flatbuffers.UOffsetT(illustratorNameTh), 0)
 }
 func LocalizeCharProfileExcelAddIllustratorNameTw(builder *flatbuffers.Builder, illustratorNameTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(61, flatbuffers.UOffsetT(illustratorNameTw), 0)
+	builder.PrependUOffsetTSlot(66, flatbuffers.UOffsetT(illustratorNameTw), 0)
 }
 func LocalizeCharProfileExcelAddIllustratorNameEn(builder *flatbuffers.Builder, illustratorNameEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(62, flatbuffers.UOffsetT(illustratorNameEn), 0)
+	builder.PrependUOffsetTSlot(67, flatbuffers.UOffsetT(illustratorNameEn), 0)
 }
 func LocalizeCharProfileExcelAddCharacterVoiceKr(builder *flatbuffers.Builder, characterVoiceKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(63, flatbuffers.UOffsetT(characterVoiceKr), 0)
+	builder.PrependUOffsetTSlot(68, flatbuffers.UOffsetT(characterVoiceKr), 0)
 }
 func LocalizeCharProfileExcelAddCharacterVoiceJp(builder *flatbuffers.Builder, characterVoiceJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(64, flatbuffers.UOffsetT(characterVoiceJp), 0)
+	builder.PrependUOffsetTSlot(69, flatbuffers.UOffsetT(characterVoiceJp), 0)
 }
 func LocalizeCharProfileExcelAddCharacterVoiceTh(builder *flatbuffers.Builder, characterVoiceTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(65, flatbuffers.UOffsetT(characterVoiceTh), 0)
+	builder.PrependUOffsetTSlot(70, flatbuffers.UOffsetT(characterVoiceTh), 0)
 }
 func LocalizeCharProfileExcelAddCharacterVoiceTw(builder *flatbuffers.Builder, characterVoiceTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(66, flatbuffers.UOffsetT(characterVoiceTw), 0)
+	builder.PrependUOffsetTSlot(71, flatbuffers.UOffsetT(characterVoiceTw), 0)
 }
 func LocalizeCharProfileExcelAddCharacterVoiceEn(builder *flatbuffers.Builder, characterVoiceEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(67, flatbuffers.UOffsetT(characterVoiceEn), 0)
+	builder.PrependUOffsetTSlot(72, flatbuffers.UOffsetT(characterVoiceEn), 0)
 }
 func LocalizeCharProfileExcelAddKrCharacterVoiceKr(builder *flatbuffers.Builder, krCharacterVoiceKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(68, flatbuffers.UOffsetT(krCharacterVoiceKr), 0)
+	builder.PrependUOffsetTSlot(73, flatbuffers.UOffsetT(krCharacterVoiceKr), 0)
 }
 func LocalizeCharProfileExcelAddKrCharacterVoiceTh(builder *flatbuffers.Builder, krCharacterVoiceTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(69, flatbuffers.UOffsetT(krCharacterVoiceTh), 0)
+	builder.PrependUOffsetTSlot(74, flatbuffers.UOffsetT(krCharacterVoiceTh), 0)
 }
 func LocalizeCharProfileExcelAddKrCharacterVoiceTw(builder *flatbuffers.Builder, krCharacterVoiceTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(70, flatbuffers.UOffsetT(krCharacterVoiceTw), 0)
+	builder.PrependUOffsetTSlot(75, flatbuffers.UOffsetT(krCharacterVoiceTw), 0)
 }
 func LocalizeCharProfileExcelAddKrCharacterVoiceEn(builder *flatbuffers.Builder, krCharacterVoiceEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(71, flatbuffers.UOffsetT(krCharacterVoiceEn), 0)
+	builder.PrependUOffsetTSlot(76, flatbuffers.UOffsetT(krCharacterVoiceEn), 0)
 }
 func LocalizeCharProfileExcelAddHobbyKr(builder *flatbuffers.Builder, hobbyKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(72, flatbuffers.UOffsetT(hobbyKr), 0)
+	builder.PrependUOffsetTSlot(77, flatbuffers.UOffsetT(hobbyKr), 0)
 }
 func LocalizeCharProfileExcelAddHobbyJp(builder *flatbuffers.Builder, hobbyJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(73, flatbuffers.UOffsetT(hobbyJp), 0)
+	builder.PrependUOffsetTSlot(78, flatbuffers.UOffsetT(hobbyJp), 0)
 }
 func LocalizeCharProfileExcelAddHobbyTh(builder *flatbuffers.Builder, hobbyTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(74, flatbuffers.UOffsetT(hobbyTh), 0)
+	builder.PrependUOffsetTSlot(79, flatbuffers.UOffsetT(hobbyTh), 0)
 }
 func LocalizeCharProfileExcelAddHobbyTw(builder *flatbuffers.Builder, hobbyTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(75, flatbuffers.UOffsetT(hobbyTw), 0)
+	builder.PrependUOffsetTSlot(80, flatbuffers.UOffsetT(hobbyTw), 0)
 }
 func LocalizeCharProfileExcelAddHobbyEn(builder *flatbuffers.Builder, hobbyEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(76, flatbuffers.UOffsetT(hobbyEn), 0)
+	builder.PrependUOffsetTSlot(81, flatbuffers.UOffsetT(hobbyEn), 0)
 }
 func LocalizeCharProfileExcelAddWeaponNameKr(builder *flatbuffers.Builder, weaponNameKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(77, flatbuffers.UOffsetT(weaponNameKr), 0)
+	builder.PrependUOffsetTSlot(82, flatbuffers.UOffsetT(weaponNameKr), 0)
 }
 func LocalizeCharProfileExcelAddWeaponDescKr(builder *flatbuffers.Builder, weaponDescKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(78, flatbuffers.UOffsetT(weaponDescKr), 0)
+	builder.PrependUOffsetTSlot(83, flatbuffers.UOffsetT(weaponDescKr), 0)
 }
 func LocalizeCharProfileExcelAddWeaponNameJp(builder *flatbuffers.Builder, weaponNameJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(79, flatbuffers.UOffsetT(weaponNameJp), 0)
+	builder.PrependUOffsetTSlot(84, flatbuffers.UOffsetT(weaponNameJp), 0)
 }
 func LocalizeCharProfileExcelAddWeaponDescJp(builder *flatbuffers.Builder, weaponDescJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(80, flatbuffers.UOffsetT(weaponDescJp), 0)
+	builder.PrependUOffsetTSlot(85, flatbuffers.UOffsetT(weaponDescJp), 0)
 }
 func LocalizeCharProfileExcelAddWeaponNameTh(builder *flatbuffers.Builder, weaponNameTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(81, flatbuffers.UOffsetT(weaponNameTh), 0)
+	builder.PrependUOffsetTSlot(86, flatbuffers.UOffsetT(weaponNameTh), 0)
 }
 func LocalizeCharProfileExcelAddWeaponDescTh(builder *flatbuffers.Builder, weaponDescTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(82, flatbuffers.UOffsetT(weaponDescTh), 0)
+	builder.PrependUOffsetTSlot(87, flatbuffers.UOffsetT(weaponDescTh), 0)
 }
 func LocalizeCharProfileExcelAddWeaponNameTw(builder *flatbuffers.Builder, weaponNameTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(83, flatbuffers.UOffsetT(weaponNameTw), 0)
+	builder.PrependUOffsetTSlot(88, flatbuffers.UOffsetT(weaponNameTw), 0)
 }
 func LocalizeCharProfileExcelAddWeaponDescTw(builder *flatbuffers.Builder, weaponDescTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(84, flatbuffers.UOffsetT(weaponDescTw), 0)
+	builder.PrependUOffsetTSlot(89, flatbuffers.UOffsetT(weaponDescTw), 0)
 }
 func LocalizeCharProfileExcelAddWeaponNameEn(builder *flatbuffers.Builder, weaponNameEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(85, flatbuffers.UOffsetT(weaponNameEn), 0)
+	builder.PrependUOffsetTSlot(90, flatbuffers.UOffsetT(weaponNameEn), 0)
 }
 func LocalizeCharProfileExcelAddWeaponDescEn(builder *flatbuffers.Builder, weaponDescEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(86, flatbuffers.UOffsetT(weaponDescEn), 0)
+	builder.PrependUOffsetTSlot(91, flatbuffers.UOffsetT(weaponDescEn), 0)
 }
 func LocalizeCharProfileExcelAddProfileIntroductionKr(builder *flatbuffers.Builder, profileIntroductionKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(87, flatbuffers.UOffsetT(profileIntroductionKr), 0)
+	builder.PrependUOffsetTSlot(92, flatbuffers.UOffsetT(profileIntroductionKr), 0)
 }
 func LocalizeCharProfileExcelAddProfileIntroductionJp(builder *flatbuffers.Builder, profileIntroductionJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(88, flatbuffers.UOffsetT(profileIntroductionJp), 0)
+	builder.PrependUOffsetTSlot(93, flatbuffers.UOffsetT(profileIntroductionJp), 0)
 }
 func LocalizeCharProfileExcelAddProfileIntroductionTh(builder *flatbuffers.Builder, profileIntroductionTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(89, flatbuffers.UOffsetT(profileIntroductionTh), 0)
+	builder.PrependUOffsetTSlot(94, flatbuffers.UOffsetT(profileIntroductionTh), 0)
 }
 func LocalizeCharProfileExcelAddProfileIntroductionTw(builder *flatbuffers.Builder, profileIntroductionTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(90, flatbuffers.UOffsetT(profileIntroductionTw), 0)
+	builder.PrependUOffsetTSlot(95, flatbuffers.UOffsetT(profileIntroductionTw), 0)
 }
 func LocalizeCharProfileExcelAddProfileIntroductionEn(builder *flatbuffers.Builder, profileIntroductionEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(91, flatbuffers.UOffsetT(profileIntroductionEn), 0)
+	builder.PrependUOffsetTSlot(96, flatbuffers.UOffsetT(profileIntroductionEn), 0)
 }
 func LocalizeCharProfileExcelAddCharacterSsrNewKr(builder *flatbuffers.Builder, characterSsrNewKr flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(92, flatbuffers.UOffsetT(characterSsrNewKr), 0)
+	builder.PrependUOffsetTSlot(97, flatbuffers.UOffsetT(characterSsrNewKr), 0)
 }
 func LocalizeCharProfileExcelAddCharacterSsrNewJp(builder *flatbuffers.Builder, characterSsrNewJp flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(93, flatbuffers.UOffsetT(characterSsrNewJp), 0)
+	builder.PrependUOffsetTSlot(98, flatbuffers.UOffsetT(characterSsrNewJp), 0)
 }
 func LocalizeCharProfileExcelAddCharacterSsrNewTh(builder *flatbuffers.Builder, characterSsrNewTh flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(94, flatbuffers.UOffsetT(characterSsrNewTh), 0)
+	builder.PrependUOffsetTSlot(99, flatbuffers.UOffsetT(characterSsrNewTh), 0)
 }
 func LocalizeCharProfileExcelAddCharacterSsrNewTw(builder *flatbuffers.Builder, characterSsrNewTw flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(95, flatbuffers.UOffsetT(characterSsrNewTw), 0)
+	builder.PrependUOffsetTSlot(100, flatbuffers.UOffsetT(characterSsrNewTw), 0)
 }
 func LocalizeCharProfileExcelAddCharacterSsrNewEn(builder *flatbuffers.Builder, characterSsrNewEn flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(96, flatbuffers.UOffsetT(characterSsrNewEn), 0)
+	builder.PrependUOffsetTSlot(101, flatbuffers.UOffsetT(characterSsrNewEn), 0)
 }
 func LocalizeCharProfileExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

@@ -10,71 +10,73 @@ import (
 // CharacterExcelDto represents a FlatBuffers table
 type CharacterExcelDto struct {
 	fbsutils.FlatBuffer
-	Id                         int64               `json:"id"`
-	DevName                    string              `json:"dev_name"`
-	CostumeGroupId             int64               `json:"costume_group_id"`
-	IsPlayable                 bool                `json:"is_playable"`
-	ProductionStep             ProductionStep      `json:"production_step"`
-	CollectionVisible          bool                `json:"collection_visible"`
-	ReleaseDate                string              `json:"release_date"`
-	CollectionVisibleStartDate string              `json:"collection_visible_start_date"`
-	CollectionVisibleEndDate   string              `json:"collection_visible_end_date"`
-	IsPlayableCharacter        bool                `json:"is_playable_character"`
-	LocalizeEtcId              uint32              `json:"localize_etc_id"`
-	Rarity                     Rarity              `json:"rarity"`
-	IsNpc                      bool                `json:"is_npc"`
-	TacticEntityType           TacticEntityType    `json:"tactic_entity_type"`
-	CanSurvive                 bool                `json:"can_survive"`
-	IsDummy                    bool                `json:"is_dummy"`
-	SubPartsCount              int32               `json:"sub_parts_count"`
-	TacticRole                 TacticRole          `json:"tactic_role"`
-	WeaponType                 WeaponType          `json:"weapon_type"`
-	TacticRange                TacticRange         `json:"tactic_range"`
-	BulletType                 BulletType          `json:"bullet_type"`
-	ArmorType                  ArmorType           `json:"armor_type"`
-	AimIkType                  AimIKType           `json:"aim_ik_type"`
-	School                     School              `json:"school"`
-	Club                       Club                `json:"club"`
-	DefaultStarGrade           int32               `json:"default_star_grade"`
-	MaxStarGrade               int32               `json:"max_star_grade"`
-	StatLevelUpType            StatLevelUpType     `json:"stat_level_up_type"`
-	SquadType                  SquadType           `json:"squad_type"`
-	Jumpable                   bool                `json:"jumpable"`
-	PersonalityId              int64               `json:"personality_id"`
-	CharacterAiId              int64               `json:"character_ai_id"`
-	ExternalBtId               int64               `json:"external_bt_id"`
-	MainCombatStyleId          int64               `json:"main_combat_style_id"`
-	CombatStyleIndex           int32               `json:"combat_style_index"`
-	ScenarioCharacter          string              `json:"scenario_character"`
-	SpawnTemplateId            uint32              `json:"spawn_template_id"`
-	FavorLevelupType           int32               `json:"favor_levelup_type"`
-	EquipmentSlot              []EquipmentCategory `json:"equipment_slot"`
-	WeaponLocalizeId           uint32              `json:"weapon_localize_id"`
-	DisplayEnemyInfo           bool                `json:"display_enemy_info"`
-	BodyRadius                 int64               `json:"body_radius"`
-	RandomEffectRadius         int64               `json:"random_effect_radius"`
-	HpBarHide                  bool                `json:"hp_bar_hide"`
-	HpBarHeight                float32             `json:"hp_bar_height"`
-	HighlightFloaterHeight     float32             `json:"highlight_floater_height"`
-	EmojiOffsetX               float32             `json:"emoji_offset_x"`
-	EmojiOffsetY               float32             `json:"emoji_offset_y"`
-	MoveStartFrame             int32               `json:"move_start_frame"`
-	MoveEndFrame               int32               `json:"move_end_frame"`
-	JumpMotionFrame            int32               `json:"jump_motion_frame"`
-	AppearFrame                int32               `json:"appear_frame"`
-	CanMove                    bool                `json:"can_move"`
-	CanFix                     bool                `json:"can_fix"`
-	CanCrowdControl            bool                `json:"can_crowd_control"`
-	CanBattleItemMove          bool                `json:"can_battle_item_move"`
-	IgnoreObstacle             bool                `json:"ignore_obstacle"`
-	IsAirUnit                  bool                `json:"is_air_unit"`
-	AirUnitHeight              int64               `json:"air_unit_height"`
-	Tags                       []Tag               `json:"tags"`
-	SecretStoneItemId          int64               `json:"secret_stone_item_id"`
-	SecretStoneItemAmount      int32               `json:"secret_stone_item_amount"`
-	CharacterPieceItemId       int64               `json:"character_piece_item_id"`
-	CharacterPieceItemAmount   int32               `json:"character_piece_item_amount"`
-	CombineRecipeId            int64               `json:"combine_recipe_id"`
+	Id                           int64               `json:"id"`
+	DevName                      string              `json:"dev_name"`
+	CostumeGroupId               int64               `json:"costume_group_id"`
+	IsPlayable                   bool                `json:"is_playable"`
+	ProductionStep               ProductionStep      `json:"production_step"`
+	CollectionVisible            bool                `json:"collection_visible"`
+	ReleaseDate                  string              `json:"release_date"`
+	CollectionVisibleStartDate   string              `json:"collection_visible_start_date"`
+	CollectionVisibleEndDate     string              `json:"collection_visible_end_date"`
+	IsPlayableCharacter          bool                `json:"is_playable_character"`
+	LocalizeEtcId                uint32              `json:"localize_etc_id"`
+	Rarity                       Rarity              `json:"rarity"`
+	IsNpc                        bool                `json:"is_npc"`
+	TacticEntityType             TacticEntityType    `json:"tactic_entity_type"`
+	CanSurvive                   bool                `json:"can_survive"`
+	IsDummy                      bool                `json:"is_dummy"`
+	SubPartsCount                int32               `json:"sub_parts_count"`
+	TacticRole                   TacticRole          `json:"tactic_role"`
+	WeaponType                   WeaponType          `json:"weapon_type"`
+	TacticRange                  TacticRange         `json:"tactic_range"`
+	BulletType                   BulletType          `json:"bullet_type"`
+	ArmorType                    ArmorType           `json:"armor_type"`
+	AimIkType                    AimIKType           `json:"aim_ik_type"`
+	School                       School              `json:"school"`
+	Club                         Club                `json:"club"`
+	DefaultStarGrade             int32               `json:"default_star_grade"`
+	MaxStarGrade                 int32               `json:"max_star_grade"`
+	StatLevelUpType              StatLevelUpType     `json:"stat_level_up_type"`
+	SquadType                    SquadType           `json:"squad_type"`
+	Jumpable                     bool                `json:"jumpable"`
+	PersonalityId                int64               `json:"personality_id"`
+	CharacterAiId                int64               `json:"character_ai_id"`
+	ExternalBtId                 int64               `json:"external_bt_id"`
+	MainCombatStyleId            int64               `json:"main_combat_style_id"`
+	CombatStyleIndex             int32               `json:"combat_style_index"`
+	UseRepStyleOnCharacterGrowth bool                `json:"use_rep_style_on_character_growth"`
+	ScenarioCharacter            string              `json:"scenario_character"`
+	SpawnTemplateId              uint32              `json:"spawn_template_id"`
+	FavorLevelupType             int32               `json:"favor_levelup_type"`
+	EquipmentSlot                []EquipmentCategory `json:"equipment_slot"`
+	WeaponLocalizeId             uint32              `json:"weapon_localize_id"`
+	DisplayEnemyInfo             bool                `json:"display_enemy_info"`
+	BodyRadius                   int64               `json:"body_radius"`
+	RandomEffectRadius           int64               `json:"random_effect_radius"`
+	TargetGuideScale             float32             `json:"target_guide_scale"`
+	HpBarHide                    bool                `json:"hp_bar_hide"`
+	HpBarHeight                  float32             `json:"hp_bar_height"`
+	HighlightFloaterHeight       float32             `json:"highlight_floater_height"`
+	EmojiOffsetX                 float32             `json:"emoji_offset_x"`
+	EmojiOffsetY                 float32             `json:"emoji_offset_y"`
+	MoveStartFrame               int32               `json:"move_start_frame"`
+	MoveEndFrame                 int32               `json:"move_end_frame"`
+	JumpMotionFrame              int32               `json:"jump_motion_frame"`
+	AppearFrame                  int32               `json:"appear_frame"`
+	CanMove                      bool                `json:"can_move"`
+	CanFix                       bool                `json:"can_fix"`
+	CanCrowdControl              bool                `json:"can_crowd_control"`
+	CanBattleItemMove            bool                `json:"can_battle_item_move"`
+	IgnoreObstacle               bool                `json:"ignore_obstacle"`
+	IsAirUnit                    bool                `json:"is_air_unit"`
+	AirUnitHeight                int64               `json:"air_unit_height"`
+	Tags                         []Tag               `json:"tags"`
+	SecretStoneItemId            int64               `json:"secret_stone_item_id"`
+	SecretStoneItemAmount        int32               `json:"secret_stone_item_amount"`
+	CharacterPieceItemId         int64               `json:"character_piece_item_id"`
+	CharacterPieceItemAmount     int32               `json:"character_piece_item_amount"`
+	CombineRecipeId              int64               `json:"combine_recipe_id"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -120,6 +122,7 @@ func (t *CharacterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	CharacterExcelAddExternalBtId(b, fbsutils.Convert(t.ExternalBtId, t.FlatBuffer.TableKey))
 	CharacterExcelAddMainCombatStyleId(b, fbsutils.Convert(t.MainCombatStyleId, t.FlatBuffer.TableKey))
 	CharacterExcelAddCombatStyleIndex(b, fbsutils.Convert(t.CombatStyleIndex, t.FlatBuffer.TableKey))
+	CharacterExcelAddUseRepStyleOnCharacterGrowth(b, t.UseRepStyleOnCharacterGrowth)
 	CharacterExcelAddScenarioCharacter(b, __offset_scenario_character)
 	CharacterExcelAddSpawnTemplateId(b, fbsutils.Convert(t.SpawnTemplateId, t.FlatBuffer.TableKey))
 	CharacterExcelAddFavorLevelupType(b, fbsutils.Convert(t.FavorLevelupType, t.FlatBuffer.TableKey))
@@ -132,6 +135,7 @@ func (t *CharacterExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOf
 	CharacterExcelAddDisplayEnemyInfo(b, t.DisplayEnemyInfo)
 	CharacterExcelAddBodyRadius(b, fbsutils.Convert(t.BodyRadius, t.FlatBuffer.TableKey))
 	CharacterExcelAddRandomEffectRadius(b, fbsutils.Convert(t.RandomEffectRadius, t.FlatBuffer.TableKey))
+	CharacterExcelAddTargetGuideScale(b, fbsutils.Convert(t.TargetGuideScale, t.FlatBuffer.TableKey))
 	CharacterExcelAddHpBarHide(b, t.HpBarHide)
 	CharacterExcelAddHpBarHeight(b, fbsutils.Convert(t.HpBarHeight, t.FlatBuffer.TableKey))
 	CharacterExcelAddHighlightFloaterHeight(b, fbsutils.Convert(t.HighlightFloaterHeight, t.FlatBuffer.TableKey))
@@ -205,6 +209,7 @@ func (t *CharacterExcelDto) UnmarshalMessage(e *CharacterExcel) error {
 	t.ExternalBtId = fbsutils.Convert(e.ExternalBtId(), t.FlatBuffer.TableKey)
 	t.MainCombatStyleId = fbsutils.Convert(e.MainCombatStyleId(), t.FlatBuffer.TableKey)
 	t.CombatStyleIndex = fbsutils.Convert(e.CombatStyleIndex(), t.FlatBuffer.TableKey)
+	t.UseRepStyleOnCharacterGrowth = e.UseRepStyleOnCharacterGrowth()
 	t.ScenarioCharacter = fbsutils.Convert(string(e.ScenarioCharacter()), t.FlatBuffer.TableKey)
 	t.SpawnTemplateId = fbsutils.Convert(e.SpawnTemplateId(), t.FlatBuffer.TableKey)
 	t.FavorLevelupType = fbsutils.Convert(e.FavorLevelupType(), t.FlatBuffer.TableKey)
@@ -216,6 +221,7 @@ func (t *CharacterExcelDto) UnmarshalMessage(e *CharacterExcel) error {
 	t.DisplayEnemyInfo = e.DisplayEnemyInfo()
 	t.BodyRadius = fbsutils.Convert(e.BodyRadius(), t.FlatBuffer.TableKey)
 	t.RandomEffectRadius = fbsutils.Convert(e.RandomEffectRadius(), t.FlatBuffer.TableKey)
+	t.TargetGuideScale = fbsutils.Convert(e.TargetGuideScale(), t.FlatBuffer.TableKey)
 	t.HpBarHide = e.HpBarHide()
 	t.HpBarHeight = fbsutils.Convert(e.HpBarHeight(), t.FlatBuffer.TableKey)
 	t.HighlightFloaterHeight = fbsutils.Convert(e.HighlightFloaterHeight(), t.FlatBuffer.TableKey)
