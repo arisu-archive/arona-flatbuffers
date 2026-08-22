@@ -203,4 +203,7 @@ enum ParcelChangeReason: int {
     Mail_ReceiveSemiPermanentMail = 199,
     ClueSearch_Submit = 200,
     ClueSearch_RoundComplete = 201,
+    WelcomeCampaign_EnterReward = 202,
+    WelcomeCampaign_AttendanceReward = 203,
+    WelcomeCampaign_MissionClear = 204,
 }

@@ -19,6 +19,7 @@ table EventContentStageExcel {
     prev_stage_id: long;
     open_date: long;
     open_event_point: long;
+    open_condition_scenario_permanent_sub_event_id: long;
     prev_stage_sub_event_id: long;
     open_condition_scenario_id: long;
     open_condition_content_type: EventContentType;

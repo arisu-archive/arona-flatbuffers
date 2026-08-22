@@ -42,6 +42,11 @@ type LocalizeCharProfileExcelDto struct {
 	PersonalNameEn        string `json:"personal_name_en"`
 	PersonalNameRubyEn    string `json:"personal_name_ruby_en"`
 	Club                  Club   `json:"club"`
+	ClubNameForGachaKr    string `json:"club_name_for_gacha_kr"`
+	ClubNameForGachaJp    string `json:"club_name_for_gacha_jp"`
+	ClubNameForGachaTh    string `json:"club_name_for_gacha_th"`
+	ClubNameForGachaTw    string `json:"club_name_for_gacha_tw"`
+	ClubNameForGachaEn    string `json:"club_name_for_gacha_en"`
 	SchoolYearKr          string `json:"school_year_kr"`
 	SchoolYearJp          string `json:"school_year_jp"`
 	SchoolYearTh          string `json:"school_year_th"`
@@ -141,6 +146,11 @@ func (t *LocalizeCharProfileExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	__offset_family_name_ruby_en := b.CreateString(fbsutils.Convert(t.FamilyNameRubyEn, t.FlatBuffer.TableKey))
 	__offset_personal_name_en := b.CreateString(fbsutils.Convert(t.PersonalNameEn, t.FlatBuffer.TableKey))
 	__offset_personal_name_ruby_en := b.CreateString(fbsutils.Convert(t.PersonalNameRubyEn, t.FlatBuffer.TableKey))
+	__offset_club_name_for_gacha_kr := b.CreateString(fbsutils.Convert(t.ClubNameForGachaKr, t.FlatBuffer.TableKey))
+	__offset_club_name_for_gacha_jp := b.CreateString(fbsutils.Convert(t.ClubNameForGachaJp, t.FlatBuffer.TableKey))
+	__offset_club_name_for_gacha_th := b.CreateString(fbsutils.Convert(t.ClubNameForGachaTh, t.FlatBuffer.TableKey))
+	__offset_club_name_for_gacha_tw := b.CreateString(fbsutils.Convert(t.ClubNameForGachaTw, t.FlatBuffer.TableKey))
+	__offset_club_name_for_gacha_en := b.CreateString(fbsutils.Convert(t.ClubNameForGachaEn, t.FlatBuffer.TableKey))
 	__offset_school_year_kr := b.CreateString(fbsutils.Convert(t.SchoolYearKr, t.FlatBuffer.TableKey))
 	__offset_school_year_jp := b.CreateString(fbsutils.Convert(t.SchoolYearJp, t.FlatBuffer.TableKey))
 	__offset_school_year_th := b.CreateString(fbsutils.Convert(t.SchoolYearTh, t.FlatBuffer.TableKey))
@@ -239,6 +249,11 @@ func (t *LocalizeCharProfileExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	LocalizeCharProfileExcelAddPersonalNameEn(b, __offset_personal_name_en)
 	LocalizeCharProfileExcelAddPersonalNameRubyEn(b, __offset_personal_name_ruby_en)
 	LocalizeCharProfileExcelAddClub(b, fbsutils.Convert(t.Club, t.FlatBuffer.TableKey))
+	LocalizeCharProfileExcelAddClubNameForGachaKr(b, __offset_club_name_for_gacha_kr)
+	LocalizeCharProfileExcelAddClubNameForGachaJp(b, __offset_club_name_for_gacha_jp)
+	LocalizeCharProfileExcelAddClubNameForGachaTh(b, __offset_club_name_for_gacha_th)
+	LocalizeCharProfileExcelAddClubNameForGachaTw(b, __offset_club_name_for_gacha_tw)
+	LocalizeCharProfileExcelAddClubNameForGachaEn(b, __offset_club_name_for_gacha_en)
 	LocalizeCharProfileExcelAddSchoolYearKr(b, __offset_school_year_kr)
 	LocalizeCharProfileExcelAddSchoolYearJp(b, __offset_school_year_jp)
 	LocalizeCharProfileExcelAddSchoolYearTh(b, __offset_school_year_th)
@@ -348,6 +363,11 @@ func (t *LocalizeCharProfileExcelDto) UnmarshalMessage(e *LocalizeCharProfileExc
 	t.PersonalNameEn = fbsutils.Convert(string(e.PersonalNameEn()), t.FlatBuffer.TableKey)
 	t.PersonalNameRubyEn = fbsutils.Convert(string(e.PersonalNameRubyEn()), t.FlatBuffer.TableKey)
 	t.Club = Club(fbsutils.Convert(int32(e.Club()), t.FlatBuffer.TableKey))
+	t.ClubNameForGachaKr = fbsutils.Convert(string(e.ClubNameForGachaKr()), t.FlatBuffer.TableKey)
+	t.ClubNameForGachaJp = fbsutils.Convert(string(e.ClubNameForGachaJp()), t.FlatBuffer.TableKey)
+	t.ClubNameForGachaTh = fbsutils.Convert(string(e.ClubNameForGachaTh()), t.FlatBuffer.TableKey)
+	t.ClubNameForGachaTw = fbsutils.Convert(string(e.ClubNameForGachaTw()), t.FlatBuffer.TableKey)
+	t.ClubNameForGachaEn = fbsutils.Convert(string(e.ClubNameForGachaEn()), t.FlatBuffer.TableKey)
 	t.SchoolYearKr = fbsutils.Convert(string(e.SchoolYearKr()), t.FlatBuffer.TableKey)
 	t.SchoolYearJp = fbsutils.Convert(string(e.SchoolYearJp()), t.FlatBuffer.TableKey)
 	t.SchoolYearTh = fbsutils.Convert(string(e.SchoolYearTh()), t.FlatBuffer.TableKey)

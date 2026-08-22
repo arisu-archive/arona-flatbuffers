@@ -212,4 +212,6 @@ table ConstCommonExcel {
     newbie_state_hold_day: int;
     qr_icon_url_dev: string;
     qr_icon_url_live: string;
+    probablity_info_btn_link_kr: string;
+    clear_deck_echelon_show_max_count: int;
 }
