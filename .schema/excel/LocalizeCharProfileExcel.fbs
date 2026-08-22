@@ -35,6 +35,11 @@ table LocalizeCharProfileExcel {
     personal_name_en: string;
     personal_name_ruby_en: string;
     club: Club;
+    club_name_for_gacha_kr: string;
+    club_name_for_gacha_jp: string;
+    club_name_for_gacha_th: string;
+    club_name_for_gacha_tw: string;
+    club_name_for_gacha_en: string;
     school_year_kr: string;
     school_year_jp: string;
     school_year_th: string;

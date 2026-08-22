@@ -209,6 +209,9 @@ const (
 	ParcelChangeReasonMail_ReceiveSemiPermanentMail        ParcelChangeReason = 199
 	ParcelChangeReasonClueSearch_Submit                    ParcelChangeReason = 200
 	ParcelChangeReasonClueSearch_RoundComplete             ParcelChangeReason = 201
+	ParcelChangeReasonWelcomeCampaign_EnterReward          ParcelChangeReason = 202
+	ParcelChangeReasonWelcomeCampaign_AttendanceReward     ParcelChangeReason = 203
+	ParcelChangeReasonWelcomeCampaign_MissionClear         ParcelChangeReason = 204
 )
 
 var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
@@ -414,6 +417,9 @@ var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
 	ParcelChangeReasonMail_ReceiveSemiPermanentMail:        "Mail_ReceiveSemiPermanentMail",
 	ParcelChangeReasonClueSearch_Submit:                    "ClueSearch_Submit",
 	ParcelChangeReasonClueSearch_RoundComplete:             "ClueSearch_RoundComplete",
+	ParcelChangeReasonWelcomeCampaign_EnterReward:          "WelcomeCampaign_EnterReward",
+	ParcelChangeReasonWelcomeCampaign_AttendanceReward:     "WelcomeCampaign_AttendanceReward",
+	ParcelChangeReasonWelcomeCampaign_MissionClear:         "WelcomeCampaign_MissionClear",
 }
 
 var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
@@ -619,6 +625,9 @@ var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
 	"Mail_ReceiveSemiPermanentMail":        ParcelChangeReasonMail_ReceiveSemiPermanentMail,
 	"ClueSearch_Submit":                    ParcelChangeReasonClueSearch_Submit,
 	"ClueSearch_RoundComplete":             ParcelChangeReasonClueSearch_RoundComplete,
+	"WelcomeCampaign_EnterReward":          ParcelChangeReasonWelcomeCampaign_EnterReward,
+	"WelcomeCampaign_AttendanceReward":     ParcelChangeReasonWelcomeCampaign_AttendanceReward,
+	"WelcomeCampaign_MissionClear":         ParcelChangeReasonWelcomeCampaign_MissionClear,
 }
 
 func (v ParcelChangeReason) String() string {

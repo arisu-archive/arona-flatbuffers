@@ -217,6 +217,8 @@ type ConstCommonExcelDto struct {
 	NewbieStateHoldDay                         int32            `json:"newbie_state_hold_day"`
 	QrIconUrlDev                               string           `json:"qr_icon_url_dev"`
 	QrIconUrlLive                              string           `json:"qr_icon_url_live"`
+	ProbablityInfoBtnLinkKr                    string           `json:"probablity_info_btn_link_kr"`
+	ClearDeckEchelonShowMaxCount               int32            `json:"clear_deck_echelon_show_max_count"`
 }
 
 // MarshalModel marshals the struct into flatbuffers offset
@@ -231,6 +233,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	__offset_review_event_date_gl := b.CreateString(fbsutils.Convert(t.ReviewEventDateGl, t.FlatBuffer.TableKey))
 	__offset_qr_icon_url_dev := b.CreateString(fbsutils.Convert(t.QrIconUrlDev, t.FlatBuffer.TableKey))
 	__offset_qr_icon_url_live := b.CreateString(fbsutils.Convert(t.QrIconUrlLive, t.FlatBuffer.TableKey))
+	__offset_probablity_info_btn_link_kr := b.CreateString(fbsutils.Convert(t.ProbablityInfoBtnLinkKr, t.FlatBuffer.TableKey))
 	ConstCommonExcelStart(b)
 	ConstCommonExcelAddCampaignMainStageMaxRank(b, fbsutils.Convert(t.CampaignMainStageMaxRank, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCampaignMainStageBestRecord(b, fbsutils.Convert(t.CampaignMainStageBestRecord, t.FlatBuffer.TableKey))
@@ -459,6 +462,8 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddNewbieStateHoldDay(b, fbsutils.Convert(t.NewbieStateHoldDay, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddQrIconUrlDev(b, __offset_qr_icon_url_dev)
 	ConstCommonExcelAddQrIconUrlLive(b, __offset_qr_icon_url_live)
+	ConstCommonExcelAddProbablityInfoBtnLinkKr(b, __offset_probablity_info_btn_link_kr)
+	ConstCommonExcelAddClearDeckEchelonShowMaxCount(b, fbsutils.Convert(t.ClearDeckEchelonShowMaxCount, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -696,6 +701,8 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.NewbieStateHoldDay = fbsutils.Convert(e.NewbieStateHoldDay(), t.FlatBuffer.TableKey)
 	t.QrIconUrlDev = fbsutils.Convert(string(e.QrIconUrlDev()), t.FlatBuffer.TableKey)
 	t.QrIconUrlLive = fbsutils.Convert(string(e.QrIconUrlLive()), t.FlatBuffer.TableKey)
+	t.ProbablityInfoBtnLinkKr = fbsutils.Convert(string(e.ProbablityInfoBtnLinkKr()), t.FlatBuffer.TableKey)
+	t.ClearDeckEchelonShowMaxCount = fbsutils.Convert(e.ClearDeckEchelonShowMaxCount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

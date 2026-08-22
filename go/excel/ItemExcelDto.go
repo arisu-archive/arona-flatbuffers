@@ -32,6 +32,7 @@ type ItemExcelDto struct {
 	CanTierUpgrade           bool               `json:"can_tier_upgrade"`
 	TierUpgradeRecipeCraftId int64              `json:"tier_upgrade_recipe_craft_id"`
 	Tags                     []Tag              `json:"tags"`
+	IsCollaboration          bool               `json:"is_collaboration"`
 	CraftQualityTier0        int64              `json:"craft_quality_tier0"`
 	CraftQualityTier1        int64              `json:"craft_quality_tier1"`
 	CraftQualityTier2        int64              `json:"craft_quality_tier2"`
@@ -40,6 +41,7 @@ type ItemExcelDto struct {
 	ShopCategory             []ShopCategoryType `json:"shop_category"`
 	ExpirationDateTime       string             `json:"expiration_date_time"`
 	ExpirationNotifyDateIn   int32              `json:"expiration_notify_date_in"`
+	IsOverrideExpiration     bool               `json:"is_override_expiration"`
 	ShortcutTypeId           int64              `json:"shortcut_type_id"`
 	GachaTicket              GachaTicketType    `json:"gacha_ticket"`
 	AlertPopupId             int64              `json:"alert_popup_id"`
@@ -78,6 +80,7 @@ func (t *ItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 		b.PrependInt32(fbsutils.Convert(int32(t.Tags[len(t.Tags)-i-1]), t.FlatBuffer.TableKey))
 	}
 	ItemExcelAddTags(b, b.EndVector(len(t.Tags)))
+	ItemExcelAddIsCollaboration(b, t.IsCollaboration)
 	ItemExcelAddCraftQualityTier0(b, fbsutils.Convert(t.CraftQualityTier0, t.FlatBuffer.TableKey))
 	ItemExcelAddCraftQualityTier1(b, fbsutils.Convert(t.CraftQualityTier1, t.FlatBuffer.TableKey))
 	ItemExcelAddCraftQualityTier2(b, fbsutils.Convert(t.CraftQualityTier2, t.FlatBuffer.TableKey))
@@ -90,6 +93,7 @@ func (t *ItemExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT
 	ItemExcelAddShopCategory(b, b.EndVector(len(t.ShopCategory)))
 	ItemExcelAddExpirationDateTime(b, __offset_expiration_date_time)
 	ItemExcelAddExpirationNotifyDateIn(b, fbsutils.Convert(t.ExpirationNotifyDateIn, t.FlatBuffer.TableKey))
+	ItemExcelAddIsOverrideExpiration(b, t.IsOverrideExpiration)
 	ItemExcelAddShortcutTypeId(b, fbsutils.Convert(t.ShortcutTypeId, t.FlatBuffer.TableKey))
 	ItemExcelAddGachaTicket(b, fbsutils.Convert(t.GachaTicket, t.FlatBuffer.TableKey))
 	ItemExcelAddAlertPopupId(b, fbsutils.Convert(t.AlertPopupId, t.FlatBuffer.TableKey))
@@ -131,6 +135,7 @@ func (t *ItemExcelDto) UnmarshalMessage(e *ItemExcel) error {
 	for i := range e.TagsLength() {
 		t.Tags[i] = Tag(fbsutils.Convert(int32(e.Tags(i)), t.FlatBuffer.TableKey))
 	}
+	t.IsCollaboration = e.IsCollaboration()
 	t.CraftQualityTier0 = fbsutils.Convert(e.CraftQualityTier0(), t.FlatBuffer.TableKey)
 	t.CraftQualityTier1 = fbsutils.Convert(e.CraftQualityTier1(), t.FlatBuffer.TableKey)
 	t.CraftQualityTier2 = fbsutils.Convert(e.CraftQualityTier2(), t.FlatBuffer.TableKey)
@@ -142,6 +147,7 @@ func (t *ItemExcelDto) UnmarshalMessage(e *ItemExcel) error {
 	}
 	t.ExpirationDateTime = fbsutils.Convert(string(e.ExpirationDateTime()), t.FlatBuffer.TableKey)
 	t.ExpirationNotifyDateIn = fbsutils.Convert(e.ExpirationNotifyDateIn(), t.FlatBuffer.TableKey)
+	t.IsOverrideExpiration = e.IsOverrideExpiration()
 	t.ShortcutTypeId = fbsutils.Convert(e.ShortcutTypeId(), t.FlatBuffer.TableKey)
 	t.GachaTicket = GachaTicketType(fbsutils.Convert(int32(e.GachaTicket()), t.FlatBuffer.TableKey))
 	t.AlertPopupId = fbsutils.Convert(e.AlertPopupId(), t.FlatBuffer.TableKey)
