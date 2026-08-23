@@ -45,8 +45,15 @@ class LocalizeCharProfileChangeExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
+    # LocalizeCharProfileChangeExcel
+    def OverrideClub(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
 def LocalizeCharProfileChangeExcelStart(builder):
-    builder.StartObject(3)
+    builder.StartObject(4)
 
 def Start(builder):
     LocalizeCharProfileChangeExcelStart(builder)
@@ -69,8 +76,66 @@ def LocalizeCharProfileChangeExcelAddChangeCharacterId(builder, changeCharacterI
 def AddChangeCharacterId(builder, changeCharacterId):
     LocalizeCharProfileChangeExcelAddChangeCharacterId(builder, changeCharacterId)
 
+def LocalizeCharProfileChangeExcelAddOverrideClub(builder, overrideClub):
+    builder.PrependBoolSlot(3, overrideClub, 0)
+
+def AddOverrideClub(builder, overrideClub):
+    LocalizeCharProfileChangeExcelAddOverrideClub(builder, overrideClub)
+
 def LocalizeCharProfileChangeExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return LocalizeCharProfileChangeExcelEnd(builder)
+
+
+class LocalizeCharProfileChangeExcelT(object):
+
+    # LocalizeCharProfileChangeExcelT
+    def __init__(
+        self,
+        characterId = 0,
+        scenarioModeId = 0,
+        changeCharacterId = 0,
+        overrideClub = False,
+    ):
+        self.characterId = characterId  # type: int
+        self.scenarioModeId = scenarioModeId  # type: int
+        self.changeCharacterId = changeCharacterId  # type: int
+        self.overrideClub = overrideClub  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        localizeCharProfileChangeExcel = LocalizeCharProfileChangeExcel()
+        localizeCharProfileChangeExcel.Init(buf, pos)
+        return cls.InitFromObj(localizeCharProfileChangeExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, localizeCharProfileChangeExcel):
+        x = LocalizeCharProfileChangeExcelT()
+        x._UnPack(localizeCharProfileChangeExcel)
+        return x
+
+    # LocalizeCharProfileChangeExcelT
+    def _UnPack(self, localizeCharProfileChangeExcel):
+        if localizeCharProfileChangeExcel is None:
+            return
+        self.characterId = localizeCharProfileChangeExcel.CharacterId()
+        self.scenarioModeId = localizeCharProfileChangeExcel.ScenarioModeId()
+        self.changeCharacterId = localizeCharProfileChangeExcel.ChangeCharacterId()
+        self.overrideClub = localizeCharProfileChangeExcel.OverrideClub()
+
+    # LocalizeCharProfileChangeExcelT
+    def Pack(self, builder):
+        LocalizeCharProfileChangeExcelStart(builder)
+        LocalizeCharProfileChangeExcelAddCharacterId(builder, self.characterId)
+        LocalizeCharProfileChangeExcelAddScenarioModeId(builder, self.scenarioModeId)
+        LocalizeCharProfileChangeExcelAddChangeCharacterId(builder, self.changeCharacterId)
+        LocalizeCharProfileChangeExcelAddOverrideClub(builder, self.overrideClub)
+        localizeCharProfileChangeExcel = LocalizeCharProfileChangeExcelEnd(builder)
+        return localizeCharProfileChangeExcel

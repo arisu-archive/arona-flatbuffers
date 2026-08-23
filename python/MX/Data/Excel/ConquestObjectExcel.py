@@ -191,3 +191,93 @@ def ConquestObjectExcelEnd(builder):
 
 def End(builder):
     return ConquestObjectExcelEnd(builder)
+
+
+class ConquestObjectExcelT(object):
+
+    # ConquestObjectExcelT
+    def __init__(
+        self,
+        id = 0,
+        eventContentId = 0,
+        conquestObjectType = 0,
+        key = 0,
+        name = None,
+        prefabName = None,
+        conquestRewardParcelType = 0,
+        conquestRewardId = 0,
+        conquestRewardAmount = 0,
+        disposable = False,
+        stepIndex = 0,
+        stepObjectCount = 0,
+    ):
+        self.id = id  # type: int
+        self.eventContentId = eventContentId  # type: int
+        self.conquestObjectType = conquestObjectType  # type: int
+        self.key = key  # type: int
+        self.name = name  # type: Optional[str]
+        self.prefabName = prefabName  # type: Optional[str]
+        self.conquestRewardParcelType = conquestRewardParcelType  # type: int
+        self.conquestRewardId = conquestRewardId  # type: int
+        self.conquestRewardAmount = conquestRewardAmount  # type: int
+        self.disposable = disposable  # type: bool
+        self.stepIndex = stepIndex  # type: int
+        self.stepObjectCount = stepObjectCount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestObjectExcel = ConquestObjectExcel()
+        conquestObjectExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestObjectExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestObjectExcel):
+        x = ConquestObjectExcelT()
+        x._UnPack(conquestObjectExcel)
+        return x
+
+    # ConquestObjectExcelT
+    def _UnPack(self, conquestObjectExcel):
+        if conquestObjectExcel is None:
+            return
+        self.id = conquestObjectExcel.Id()
+        self.eventContentId = conquestObjectExcel.EventContentId()
+        self.conquestObjectType = conquestObjectExcel.ConquestObjectType()
+        self.key = conquestObjectExcel.Key()
+        self.name = conquestObjectExcel.Name()
+        self.prefabName = conquestObjectExcel.PrefabName()
+        self.conquestRewardParcelType = conquestObjectExcel.ConquestRewardParcelType()
+        self.conquestRewardId = conquestObjectExcel.ConquestRewardId()
+        self.conquestRewardAmount = conquestObjectExcel.ConquestRewardAmount()
+        self.disposable = conquestObjectExcel.Disposable()
+        self.stepIndex = conquestObjectExcel.StepIndex()
+        self.stepObjectCount = conquestObjectExcel.StepObjectCount()
+
+    # ConquestObjectExcelT
+    def Pack(self, builder):
+        if self.name is not None:
+            name = builder.CreateString(self.name)
+        if self.prefabName is not None:
+            prefabName = builder.CreateString(self.prefabName)
+        ConquestObjectExcelStart(builder)
+        ConquestObjectExcelAddId(builder, self.id)
+        ConquestObjectExcelAddEventContentId(builder, self.eventContentId)
+        ConquestObjectExcelAddConquestObjectType(builder, self.conquestObjectType)
+        ConquestObjectExcelAddKey(builder, self.key)
+        if self.name is not None:
+            ConquestObjectExcelAddName(builder, name)
+        if self.prefabName is not None:
+            ConquestObjectExcelAddPrefabName(builder, prefabName)
+        ConquestObjectExcelAddConquestRewardParcelType(builder, self.conquestRewardParcelType)
+        ConquestObjectExcelAddConquestRewardId(builder, self.conquestRewardId)
+        ConquestObjectExcelAddConquestRewardAmount(builder, self.conquestRewardAmount)
+        ConquestObjectExcelAddDisposable(builder, self.disposable)
+        ConquestObjectExcelAddStepIndex(builder, self.stepIndex)
+        ConquestObjectExcelAddStepObjectCount(builder, self.stepObjectCount)
+        conquestObjectExcel = ConquestObjectExcelEnd(builder)
+        return conquestObjectExcel

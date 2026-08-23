@@ -275,3 +275,148 @@ def MinigameTBGThemaExcelEnd(builder):
 
 def End(builder):
     return MinigameTBGThemaExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MinigameTBGThemaExcelT(object):
+
+    # MinigameTBGThemaExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        uniqueId = 0,
+        themaIndex = 0,
+        themaType = 0,
+        themaMap = None,
+        themaMapBg = None,
+        portalCondition = None,
+        portalConditionParameter = None,
+        themaNameLocalize = None,
+        themaLoadingImage = None,
+        themaPlayerPrefab = None,
+        themaLeaderId = 0,
+        themaGoalLocalize = None,
+        instantClearCostAmount = 0,
+        isTutorial = False,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.themaIndex = themaIndex  # type: int
+        self.themaType = themaType  # type: int
+        self.themaMap = themaMap  # type: Optional[str]
+        self.themaMapBg = themaMapBg  # type: Optional[str]
+        self.portalCondition = portalCondition  # type: Optional[List[int]]
+        self.portalConditionParameter = portalConditionParameter  # type: Optional[List[Optional[str]]]
+        self.themaNameLocalize = themaNameLocalize  # type: Optional[str]
+        self.themaLoadingImage = themaLoadingImage  # type: Optional[str]
+        self.themaPlayerPrefab = themaPlayerPrefab  # type: Optional[str]
+        self.themaLeaderId = themaLeaderId  # type: int
+        self.themaGoalLocalize = themaGoalLocalize  # type: Optional[str]
+        self.instantClearCostAmount = instantClearCostAmount  # type: int
+        self.isTutorial = isTutorial  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameTbgthemaExcel = MinigameTBGThemaExcel()
+        minigameTbgthemaExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameTbgthemaExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameTbgthemaExcel):
+        x = MinigameTBGThemaExcelT()
+        x._UnPack(minigameTbgthemaExcel)
+        return x
+
+    # MinigameTBGThemaExcelT
+    def _UnPack(self, minigameTbgthemaExcel):
+        if minigameTbgthemaExcel is None:
+            return
+        self.eventContentId = minigameTbgthemaExcel.EventContentId()
+        self.uniqueId = minigameTbgthemaExcel.UniqueId()
+        self.themaIndex = minigameTbgthemaExcel.ThemaIndex()
+        self.themaType = minigameTbgthemaExcel.ThemaType()
+        self.themaMap = minigameTbgthemaExcel.ThemaMap()
+        self.themaMapBg = minigameTbgthemaExcel.ThemaMapBg()
+        if not minigameTbgthemaExcel.PortalConditionIsNone():
+            if np is None:
+                self.portalCondition = []
+                for i in range(minigameTbgthemaExcel.PortalConditionLength()):
+                    self.portalCondition.append(minigameTbgthemaExcel.PortalCondition(i))
+            else:
+                self.portalCondition = minigameTbgthemaExcel.PortalConditionAsNumpy()
+        if not minigameTbgthemaExcel.PortalConditionParameterIsNone():
+            self.portalConditionParameter = []
+            for i in range(minigameTbgthemaExcel.PortalConditionParameterLength()):
+                self.portalConditionParameter.append(minigameTbgthemaExcel.PortalConditionParameter(i))
+        self.themaNameLocalize = minigameTbgthemaExcel.ThemaNameLocalize()
+        self.themaLoadingImage = minigameTbgthemaExcel.ThemaLoadingImage()
+        self.themaPlayerPrefab = minigameTbgthemaExcel.ThemaPlayerPrefab()
+        self.themaLeaderId = minigameTbgthemaExcel.ThemaLeaderId()
+        self.themaGoalLocalize = minigameTbgthemaExcel.ThemaGoalLocalize()
+        self.instantClearCostAmount = minigameTbgthemaExcel.InstantClearCostAmount()
+        self.isTutorial = minigameTbgthemaExcel.IsTutorial()
+
+    # MinigameTBGThemaExcelT
+    def Pack(self, builder):
+        if self.themaMap is not None:
+            themaMap = builder.CreateString(self.themaMap)
+        if self.themaMapBg is not None:
+            themaMapBg = builder.CreateString(self.themaMapBg)
+        if self.portalCondition is not None:
+            if np is not None and type(self.portalCondition) is np.ndarray:
+                portalCondition = builder.CreateNumpyVector(self.portalCondition)
+            else:
+                MinigameTBGThemaExcelStartPortalConditionVector(builder, len(self.portalCondition))
+                for i in reversed(range(len(self.portalCondition))):
+                    builder.PrependInt32(self.portalCondition[i])
+                portalCondition = builder.EndVector()
+        if self.portalConditionParameter is not None:
+            portalConditionParameterlist = []
+            for i in range(len(self.portalConditionParameter)):
+                portalConditionParameterlist.append(builder.CreateString(self.portalConditionParameter[i]))
+            MinigameTBGThemaExcelStartPortalConditionParameterVector(builder, len(self.portalConditionParameter))
+            for i in reversed(range(len(self.portalConditionParameter))):
+                builder.PrependUOffsetTRelative(portalConditionParameterlist[i])
+            portalConditionParameter = builder.EndVector()
+        if self.themaNameLocalize is not None:
+            themaNameLocalize = builder.CreateString(self.themaNameLocalize)
+        if self.themaLoadingImage is not None:
+            themaLoadingImage = builder.CreateString(self.themaLoadingImage)
+        if self.themaPlayerPrefab is not None:
+            themaPlayerPrefab = builder.CreateString(self.themaPlayerPrefab)
+        if self.themaGoalLocalize is not None:
+            themaGoalLocalize = builder.CreateString(self.themaGoalLocalize)
+        MinigameTBGThemaExcelStart(builder)
+        MinigameTBGThemaExcelAddEventContentId(builder, self.eventContentId)
+        MinigameTBGThemaExcelAddUniqueId(builder, self.uniqueId)
+        MinigameTBGThemaExcelAddThemaIndex(builder, self.themaIndex)
+        MinigameTBGThemaExcelAddThemaType(builder, self.themaType)
+        if self.themaMap is not None:
+            MinigameTBGThemaExcelAddThemaMap(builder, themaMap)
+        if self.themaMapBg is not None:
+            MinigameTBGThemaExcelAddThemaMapBg(builder, themaMapBg)
+        if self.portalCondition is not None:
+            MinigameTBGThemaExcelAddPortalCondition(builder, portalCondition)
+        if self.portalConditionParameter is not None:
+            MinigameTBGThemaExcelAddPortalConditionParameter(builder, portalConditionParameter)
+        if self.themaNameLocalize is not None:
+            MinigameTBGThemaExcelAddThemaNameLocalize(builder, themaNameLocalize)
+        if self.themaLoadingImage is not None:
+            MinigameTBGThemaExcelAddThemaLoadingImage(builder, themaLoadingImage)
+        if self.themaPlayerPrefab is not None:
+            MinigameTBGThemaExcelAddThemaPlayerPrefab(builder, themaPlayerPrefab)
+        MinigameTBGThemaExcelAddThemaLeaderId(builder, self.themaLeaderId)
+        if self.themaGoalLocalize is not None:
+            MinigameTBGThemaExcelAddThemaGoalLocalize(builder, themaGoalLocalize)
+        MinigameTBGThemaExcelAddInstantClearCostAmount(builder, self.instantClearCostAmount)
+        MinigameTBGThemaExcelAddIsTutorial(builder, self.isTutorial)
+        minigameTbgthemaExcel = MinigameTBGThemaExcelEnd(builder)
+        return minigameTbgthemaExcel

@@ -100,3 +100,59 @@ def ClanRewardExcelEnd(builder):
 
 def End(builder):
     return ClanRewardExcelEnd(builder)
+
+
+class ClanRewardExcelT(object):
+
+    # ClanRewardExcelT
+    def __init__(
+        self,
+        clanRewardType = 0,
+        echelonType = 0,
+        rewardParcelType = 0,
+        rewardParcelId = 0,
+        rewardParcelAmount = 0,
+    ):
+        self.clanRewardType = clanRewardType  # type: int
+        self.echelonType = echelonType  # type: int
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelId = rewardParcelId  # type: int
+        self.rewardParcelAmount = rewardParcelAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        clanRewardExcel = ClanRewardExcel()
+        clanRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(clanRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, clanRewardExcel):
+        x = ClanRewardExcelT()
+        x._UnPack(clanRewardExcel)
+        return x
+
+    # ClanRewardExcelT
+    def _UnPack(self, clanRewardExcel):
+        if clanRewardExcel is None:
+            return
+        self.clanRewardType = clanRewardExcel.ClanRewardType()
+        self.echelonType = clanRewardExcel.EchelonType()
+        self.rewardParcelType = clanRewardExcel.RewardParcelType()
+        self.rewardParcelId = clanRewardExcel.RewardParcelId()
+        self.rewardParcelAmount = clanRewardExcel.RewardParcelAmount()
+
+    # ClanRewardExcelT
+    def Pack(self, builder):
+        ClanRewardExcelStart(builder)
+        ClanRewardExcelAddClanRewardType(builder, self.clanRewardType)
+        ClanRewardExcelAddEchelonType(builder, self.echelonType)
+        ClanRewardExcelAddRewardParcelType(builder, self.rewardParcelType)
+        ClanRewardExcelAddRewardParcelId(builder, self.rewardParcelId)
+        ClanRewardExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        clanRewardExcel = ClanRewardExcelEnd(builder)
+        return clanRewardExcel

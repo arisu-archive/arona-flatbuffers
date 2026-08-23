@@ -2,4 +2,116 @@
 
 # namespace: FlatData
 
-# NOTE KatakanaConvertExcel.py does not declare any structs or enums
+import flatbuffers
+from flatbuffers.compat import import_numpy
+np = import_numpy()
+
+class KatakanaConvertExcel(object):
+    __slots__ = ['_tab']
+
+    @classmethod
+    def GetRootAs(cls, buf, offset=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, offset)
+        x = KatakanaConvertExcel()
+        x.Init(buf, n + offset)
+        return x
+
+    @classmethod
+    def GetRootAsKatakanaConvertExcel(cls, buf, offset=0):
+        """This method is deprecated. Please switch to GetRootAs."""
+        return cls.GetRootAs(buf, offset)
+    # KatakanaConvertExcel
+    def Init(self, buf, pos):
+        self._tab = flatbuffers.table.Table(buf, pos)
+
+    # KatakanaConvertExcel
+    def Kr(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # KatakanaConvertExcel
+    def Jp(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+def KatakanaConvertExcelStart(builder):
+    builder.StartObject(2)
+
+def Start(builder):
+    KatakanaConvertExcelStart(builder)
+
+def KatakanaConvertExcelAddKr(builder, kr):
+    builder.PrependUOffsetTRelativeSlot(0, flatbuffers.number_types.UOffsetTFlags.py_type(kr), 0)
+
+def AddKr(builder, kr):
+    KatakanaConvertExcelAddKr(builder, kr)
+
+def KatakanaConvertExcelAddJp(builder, jp):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(jp), 0)
+
+def AddJp(builder, jp):
+    KatakanaConvertExcelAddJp(builder, jp)
+
+def KatakanaConvertExcelEnd(builder):
+    return builder.EndObject()
+
+def End(builder):
+    return KatakanaConvertExcelEnd(builder)
+
+
+class KatakanaConvertExcelT(object):
+
+    # KatakanaConvertExcelT
+    def __init__(
+        self,
+        kr = None,
+        jp = None,
+    ):
+        self.kr = kr  # type: Optional[str]
+        self.jp = jp  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        katakanaConvertExcel = KatakanaConvertExcel()
+        katakanaConvertExcel.Init(buf, pos)
+        return cls.InitFromObj(katakanaConvertExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, katakanaConvertExcel):
+        x = KatakanaConvertExcelT()
+        x._UnPack(katakanaConvertExcel)
+        return x
+
+    # KatakanaConvertExcelT
+    def _UnPack(self, katakanaConvertExcel):
+        if katakanaConvertExcel is None:
+            return
+        self.kr = katakanaConvertExcel.Kr()
+        self.jp = katakanaConvertExcel.Jp()
+
+    # KatakanaConvertExcelT
+    def Pack(self, builder):
+        if self.kr is not None:
+            kr = builder.CreateString(self.kr)
+        if self.jp is not None:
+            jp = builder.CreateString(self.jp)
+        KatakanaConvertExcelStart(builder)
+        if self.kr is not None:
+            KatakanaConvertExcelAddKr(builder, kr)
+        if self.jp is not None:
+            KatakanaConvertExcelAddJp(builder, jp)
+        katakanaConvertExcel = KatakanaConvertExcelEnd(builder)
+        return katakanaConvertExcel
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(KatakanaConvertExcelT, 'KatakanaConvertExcel', (('kr', 'string', False), ('jp', 'string', False)))

@@ -152,3 +152,75 @@ def GachaElementExcelEnd(builder):
 
 def End(builder):
     return GachaElementExcelEnd(builder)
+
+
+class GachaElementExcelT(object):
+
+    # GachaElementExcelT
+    def __init__(
+        self,
+        id = 0,
+        gachaGroupId = 0,
+        parcelType = 0,
+        parcelId = 0,
+        rarity = 0,
+        parcelAmountMin = 0,
+        parcelAmountMax = 0,
+        prob = 0,
+        state = 0,
+    ):
+        self.id = id  # type: int
+        self.gachaGroupId = gachaGroupId  # type: int
+        self.parcelType = parcelType  # type: int
+        self.parcelId = parcelId  # type: int
+        self.rarity = rarity  # type: int
+        self.parcelAmountMin = parcelAmountMin  # type: int
+        self.parcelAmountMax = parcelAmountMax  # type: int
+        self.prob = prob  # type: int
+        self.state = state  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        gachaElementExcel = GachaElementExcel()
+        gachaElementExcel.Init(buf, pos)
+        return cls.InitFromObj(gachaElementExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, gachaElementExcel):
+        x = GachaElementExcelT()
+        x._UnPack(gachaElementExcel)
+        return x
+
+    # GachaElementExcelT
+    def _UnPack(self, gachaElementExcel):
+        if gachaElementExcel is None:
+            return
+        self.id = gachaElementExcel.Id()
+        self.gachaGroupId = gachaElementExcel.GachaGroupId()
+        self.parcelType = gachaElementExcel.ParcelType()
+        self.parcelId = gachaElementExcel.ParcelId()
+        self.rarity = gachaElementExcel.Rarity()
+        self.parcelAmountMin = gachaElementExcel.ParcelAmountMin()
+        self.parcelAmountMax = gachaElementExcel.ParcelAmountMax()
+        self.prob = gachaElementExcel.Prob()
+        self.state = gachaElementExcel.State()
+
+    # GachaElementExcelT
+    def Pack(self, builder):
+        GachaElementExcelStart(builder)
+        GachaElementExcelAddId(builder, self.id)
+        GachaElementExcelAddGachaGroupId(builder, self.gachaGroupId)
+        GachaElementExcelAddParcelType(builder, self.parcelType)
+        GachaElementExcelAddParcelId(builder, self.parcelId)
+        GachaElementExcelAddRarity(builder, self.rarity)
+        GachaElementExcelAddParcelAmountMin(builder, self.parcelAmountMin)
+        GachaElementExcelAddParcelAmountMax(builder, self.parcelAmountMax)
+        GachaElementExcelAddProb(builder, self.prob)
+        GachaElementExcelAddState(builder, self.state)
+        gachaElementExcel = GachaElementExcelEnd(builder)
+        return gachaElementExcel

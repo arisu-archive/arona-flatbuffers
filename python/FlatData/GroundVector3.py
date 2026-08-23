@@ -74,3 +74,55 @@ def GroundVector3End(builder):
 
 def End(builder):
     return GroundVector3End(builder)
+
+
+class GroundVector3T(object):
+
+    # GroundVector3T
+    def __init__(
+        self,
+        x = 0.0,
+        y = 0.0,
+        z = 0.0,
+    ):
+        self.x = x  # type: float
+        self.y = y  # type: float
+        self.z = z  # type: float
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        groundVector3 = GroundVector3()
+        groundVector3.Init(buf, pos)
+        return cls.InitFromObj(groundVector3)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, groundVector3):
+        x = GroundVector3T()
+        x._UnPack(groundVector3)
+        return x
+
+    # GroundVector3T
+    def _UnPack(self, groundVector3):
+        if groundVector3 is None:
+            return
+        self.x = groundVector3.X()
+        self.y = groundVector3.Y()
+        self.z = groundVector3.Z()
+
+    # GroundVector3T
+    def Pack(self, builder):
+        GroundVector3Start(builder)
+        GroundVector3AddX(builder, self.x)
+        GroundVector3AddY(builder, self.y)
+        GroundVector3AddZ(builder, self.z)
+        groundVector3 = GroundVector3End(builder)
+        return groundVector3
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(GroundVector3T, 'GroundVector3', (('x', 'float32', False), ('y', 'float32', False), ('z', 'float32', False)))

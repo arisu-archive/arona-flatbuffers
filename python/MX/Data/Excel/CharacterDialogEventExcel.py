@@ -233,8 +233,15 @@ class CharacterDialogEventExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
+    # CharacterDialogEventExcel
+    def ScenarioCharacterShapes(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
 def CharacterDialogEventExcelStart(builder):
-    builder.StartObject(27)
+    builder.StartObject(28)
 
 def Start(builder):
     CharacterDialogEventExcelStart(builder)
@@ -407,8 +414,205 @@ def CharacterDialogEventExcelAddLocalizeCvGroup(builder, localizeCvGroup):
 def AddLocalizeCvGroup(builder, localizeCvGroup):
     CharacterDialogEventExcelAddLocalizeCvGroup(builder, localizeCvGroup)
 
+def CharacterDialogEventExcelAddScenarioCharacterShapes(builder, scenarioCharacterShapes):
+    builder.PrependInt32Slot(27, scenarioCharacterShapes, 0)
+
+def AddScenarioCharacterShapes(builder, scenarioCharacterShapes):
+    CharacterDialogEventExcelAddScenarioCharacterShapes(builder, scenarioCharacterShapes)
+
 def CharacterDialogEventExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return CharacterDialogEventExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CharacterDialogEventExcelT(object):
+
+    # CharacterDialogEventExcelT
+    def __init__(
+        self,
+        costumeUniqueId = 0,
+        originalCharacterId = 0,
+        displayOrder = 0,
+        eventId = 0,
+        productionStep = 0,
+        dialogCategory = 0,
+        dialogCondition = 0,
+        dialogConditionDetail = 0,
+        dialogConditionDetailValue = 0,
+        groupId = 0,
+        dialogType = 0,
+        actionName = None,
+        duration = 0,
+        durationKr = 0,
+        animationName = None,
+        localizeKr = None,
+        localizeJp = None,
+        localizeTh = None,
+        localizeTw = None,
+        localizeEn = None,
+        voiceId = None,
+        collectionVisible = False,
+        cvCollectionType = 0,
+        cvUnlockScenarioType = 0,
+        unlockEventSeason = 0,
+        scenarioGroupId = 0,
+        localizeCvGroup = None,
+        scenarioCharacterShapes = 0,
+    ):
+        self.costumeUniqueId = costumeUniqueId  # type: int
+        self.originalCharacterId = originalCharacterId  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.eventId = eventId  # type: int
+        self.productionStep = productionStep  # type: int
+        self.dialogCategory = dialogCategory  # type: int
+        self.dialogCondition = dialogCondition  # type: int
+        self.dialogConditionDetail = dialogConditionDetail  # type: int
+        self.dialogConditionDetailValue = dialogConditionDetailValue  # type: int
+        self.groupId = groupId  # type: int
+        self.dialogType = dialogType  # type: int
+        self.actionName = actionName  # type: Optional[str]
+        self.duration = duration  # type: int
+        self.durationKr = durationKr  # type: int
+        self.animationName = animationName  # type: Optional[str]
+        self.localizeKr = localizeKr  # type: Optional[str]
+        self.localizeJp = localizeJp  # type: Optional[str]
+        self.localizeTh = localizeTh  # type: Optional[str]
+        self.localizeTw = localizeTw  # type: Optional[str]
+        self.localizeEn = localizeEn  # type: Optional[str]
+        self.voiceId = voiceId  # type: Optional[List[int]]
+        self.collectionVisible = collectionVisible  # type: bool
+        self.cvCollectionType = cvCollectionType  # type: int
+        self.cvUnlockScenarioType = cvUnlockScenarioType  # type: int
+        self.unlockEventSeason = unlockEventSeason  # type: int
+        self.scenarioGroupId = scenarioGroupId  # type: int
+        self.localizeCvGroup = localizeCvGroup  # type: Optional[str]
+        self.scenarioCharacterShapes = scenarioCharacterShapes  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterDialogEventExcel = CharacterDialogEventExcel()
+        characterDialogEventExcel.Init(buf, pos)
+        return cls.InitFromObj(characterDialogEventExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterDialogEventExcel):
+        x = CharacterDialogEventExcelT()
+        x._UnPack(characterDialogEventExcel)
+        return x
+
+    # CharacterDialogEventExcelT
+    def _UnPack(self, characterDialogEventExcel):
+        if characterDialogEventExcel is None:
+            return
+        self.costumeUniqueId = characterDialogEventExcel.CostumeUniqueId()
+        self.originalCharacterId = characterDialogEventExcel.OriginalCharacterId()
+        self.displayOrder = characterDialogEventExcel.DisplayOrder()
+        self.eventId = characterDialogEventExcel.EventId()
+        self.productionStep = characterDialogEventExcel.ProductionStep()
+        self.dialogCategory = characterDialogEventExcel.DialogCategory()
+        self.dialogCondition = characterDialogEventExcel.DialogCondition()
+        self.dialogConditionDetail = characterDialogEventExcel.DialogConditionDetail()
+        self.dialogConditionDetailValue = characterDialogEventExcel.DialogConditionDetailValue()
+        self.groupId = characterDialogEventExcel.GroupId()
+        self.dialogType = characterDialogEventExcel.DialogType()
+        self.actionName = characterDialogEventExcel.ActionName()
+        self.duration = characterDialogEventExcel.Duration()
+        self.durationKr = characterDialogEventExcel.DurationKr()
+        self.animationName = characterDialogEventExcel.AnimationName()
+        self.localizeKr = characterDialogEventExcel.LocalizeKr()
+        self.localizeJp = characterDialogEventExcel.LocalizeJp()
+        self.localizeTh = characterDialogEventExcel.LocalizeTh()
+        self.localizeTw = characterDialogEventExcel.LocalizeTw()
+        self.localizeEn = characterDialogEventExcel.LocalizeEn()
+        if not characterDialogEventExcel.VoiceIdIsNone():
+            if np is None:
+                self.voiceId = []
+                for i in range(characterDialogEventExcel.VoiceIdLength()):
+                    self.voiceId.append(characterDialogEventExcel.VoiceId(i))
+            else:
+                self.voiceId = characterDialogEventExcel.VoiceIdAsNumpy()
+        self.collectionVisible = characterDialogEventExcel.CollectionVisible()
+        self.cvCollectionType = characterDialogEventExcel.CvCollectionType()
+        self.cvUnlockScenarioType = characterDialogEventExcel.CvUnlockScenarioType()
+        self.unlockEventSeason = characterDialogEventExcel.UnlockEventSeason()
+        self.scenarioGroupId = characterDialogEventExcel.ScenarioGroupId()
+        self.localizeCvGroup = characterDialogEventExcel.LocalizeCvGroup()
+        self.scenarioCharacterShapes = characterDialogEventExcel.ScenarioCharacterShapes()
+
+    # CharacterDialogEventExcelT
+    def Pack(self, builder):
+        if self.actionName is not None:
+            actionName = builder.CreateString(self.actionName)
+        if self.animationName is not None:
+            animationName = builder.CreateString(self.animationName)
+        if self.localizeKr is not None:
+            localizeKr = builder.CreateString(self.localizeKr)
+        if self.localizeJp is not None:
+            localizeJp = builder.CreateString(self.localizeJp)
+        if self.localizeTh is not None:
+            localizeTh = builder.CreateString(self.localizeTh)
+        if self.localizeTw is not None:
+            localizeTw = builder.CreateString(self.localizeTw)
+        if self.localizeEn is not None:
+            localizeEn = builder.CreateString(self.localizeEn)
+        if self.voiceId is not None:
+            if np is not None and type(self.voiceId) is np.ndarray:
+                voiceId = builder.CreateNumpyVector(self.voiceId)
+            else:
+                CharacterDialogEventExcelStartVoiceIdVector(builder, len(self.voiceId))
+                for i in reversed(range(len(self.voiceId))):
+                    builder.PrependUint32(self.voiceId[i])
+                voiceId = builder.EndVector()
+        if self.localizeCvGroup is not None:
+            localizeCvGroup = builder.CreateString(self.localizeCvGroup)
+        CharacterDialogEventExcelStart(builder)
+        CharacterDialogEventExcelAddCostumeUniqueId(builder, self.costumeUniqueId)
+        CharacterDialogEventExcelAddOriginalCharacterId(builder, self.originalCharacterId)
+        CharacterDialogEventExcelAddDisplayOrder(builder, self.displayOrder)
+        CharacterDialogEventExcelAddEventId(builder, self.eventId)
+        CharacterDialogEventExcelAddProductionStep(builder, self.productionStep)
+        CharacterDialogEventExcelAddDialogCategory(builder, self.dialogCategory)
+        CharacterDialogEventExcelAddDialogCondition(builder, self.dialogCondition)
+        CharacterDialogEventExcelAddDialogConditionDetail(builder, self.dialogConditionDetail)
+        CharacterDialogEventExcelAddDialogConditionDetailValue(builder, self.dialogConditionDetailValue)
+        CharacterDialogEventExcelAddGroupId(builder, self.groupId)
+        CharacterDialogEventExcelAddDialogType(builder, self.dialogType)
+        if self.actionName is not None:
+            CharacterDialogEventExcelAddActionName(builder, actionName)
+        CharacterDialogEventExcelAddDuration(builder, self.duration)
+        CharacterDialogEventExcelAddDurationKr(builder, self.durationKr)
+        if self.animationName is not None:
+            CharacterDialogEventExcelAddAnimationName(builder, animationName)
+        if self.localizeKr is not None:
+            CharacterDialogEventExcelAddLocalizeKr(builder, localizeKr)
+        if self.localizeJp is not None:
+            CharacterDialogEventExcelAddLocalizeJp(builder, localizeJp)
+        if self.localizeTh is not None:
+            CharacterDialogEventExcelAddLocalizeTh(builder, localizeTh)
+        if self.localizeTw is not None:
+            CharacterDialogEventExcelAddLocalizeTw(builder, localizeTw)
+        if self.localizeEn is not None:
+            CharacterDialogEventExcelAddLocalizeEn(builder, localizeEn)
+        if self.voiceId is not None:
+            CharacterDialogEventExcelAddVoiceId(builder, voiceId)
+        CharacterDialogEventExcelAddCollectionVisible(builder, self.collectionVisible)
+        CharacterDialogEventExcelAddCvCollectionType(builder, self.cvCollectionType)
+        CharacterDialogEventExcelAddCvUnlockScenarioType(builder, self.cvUnlockScenarioType)
+        CharacterDialogEventExcelAddUnlockEventSeason(builder, self.unlockEventSeason)
+        CharacterDialogEventExcelAddScenarioGroupId(builder, self.scenarioGroupId)
+        if self.localizeCvGroup is not None:
+            CharacterDialogEventExcelAddLocalizeCvGroup(builder, localizeCvGroup)
+        CharacterDialogEventExcelAddScenarioCharacterShapes(builder, self.scenarioCharacterShapes)
+        characterDialogEventExcel = CharacterDialogEventExcelEnd(builder)
+        return characterDialogEventExcel

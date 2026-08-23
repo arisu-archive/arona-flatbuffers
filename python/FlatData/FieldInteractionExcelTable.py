@@ -72,3 +72,68 @@ def FieldInteractionExcelTableEnd(builder):
 
 def End(builder):
     return FieldInteractionExcelTableEnd(builder)
+
+import FlatData.FieldInteractionExcel
+try:
+    from typing import List
+except:
+    pass
+
+class FieldInteractionExcelTableT(object):
+
+    # FieldInteractionExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.FieldInteractionExcel.FieldInteractionExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        fieldInteractionExcelTable = FieldInteractionExcelTable()
+        fieldInteractionExcelTable.Init(buf, pos)
+        return cls.InitFromObj(fieldInteractionExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, fieldInteractionExcelTable):
+        x = FieldInteractionExcelTableT()
+        x._UnPack(fieldInteractionExcelTable)
+        return x
+
+    # FieldInteractionExcelTableT
+    def _UnPack(self, fieldInteractionExcelTable):
+        if fieldInteractionExcelTable is None:
+            return
+        if not fieldInteractionExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(fieldInteractionExcelTable.DataListLength()):
+                if fieldInteractionExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    fieldInteractionExcel_ = FlatData.FieldInteractionExcel.FieldInteractionExcelT.InitFromObj(fieldInteractionExcelTable.DataList(i))
+                    self.dataList.append(fieldInteractionExcel_)
+
+    # FieldInteractionExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            FieldInteractionExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        FieldInteractionExcelTableStart(builder)
+        if self.dataList is not None:
+            FieldInteractionExcelTableAddDataList(builder, dataList)
+        fieldInteractionExcelTable = FieldInteractionExcelTableEnd(builder)
+        return fieldInteractionExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(FieldInteractionExcelTableT, 'FieldInteractionExcelTable', ())

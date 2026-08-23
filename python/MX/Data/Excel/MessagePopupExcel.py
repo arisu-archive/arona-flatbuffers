@@ -320,3 +320,167 @@ def MessagePopupExcelEnd(builder):
 
 def End(builder):
     return MessagePopupExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MessagePopupExcelT(object):
+
+    # MessagePopupExcelT
+    def __init__(
+        self,
+        stringId = 0,
+        messagePopupLayout = 0,
+        orderType = 0,
+        image = None,
+        titleText = 0,
+        subTitleText = 0,
+        messageText = 0,
+        conditionText = None,
+        displayXButton = False,
+        button = None,
+        buttonText = None,
+        buttonCommand = None,
+        buttonParameter = None,
+    ):
+        self.stringId = stringId  # type: int
+        self.messagePopupLayout = messagePopupLayout  # type: int
+        self.orderType = orderType  # type: int
+        self.image = image  # type: Optional[str]
+        self.titleText = titleText  # type: int
+        self.subTitleText = subTitleText  # type: int
+        self.messageText = messageText  # type: int
+        self.conditionText = conditionText  # type: Optional[List[int]]
+        self.displayXButton = displayXButton  # type: bool
+        self.button = button  # type: Optional[List[int]]
+        self.buttonText = buttonText  # type: Optional[List[int]]
+        self.buttonCommand = buttonCommand  # type: Optional[List[Optional[str]]]
+        self.buttonParameter = buttonParameter  # type: Optional[List[Optional[str]]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        messagePopupExcel = MessagePopupExcel()
+        messagePopupExcel.Init(buf, pos)
+        return cls.InitFromObj(messagePopupExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, messagePopupExcel):
+        x = MessagePopupExcelT()
+        x._UnPack(messagePopupExcel)
+        return x
+
+    # MessagePopupExcelT
+    def _UnPack(self, messagePopupExcel):
+        if messagePopupExcel is None:
+            return
+        self.stringId = messagePopupExcel.StringId()
+        self.messagePopupLayout = messagePopupExcel.MessagePopupLayout()
+        self.orderType = messagePopupExcel.OrderType()
+        self.image = messagePopupExcel.Image()
+        self.titleText = messagePopupExcel.TitleText()
+        self.subTitleText = messagePopupExcel.SubTitleText()
+        self.messageText = messagePopupExcel.MessageText()
+        if not messagePopupExcel.ConditionTextIsNone():
+            if np is None:
+                self.conditionText = []
+                for i in range(messagePopupExcel.ConditionTextLength()):
+                    self.conditionText.append(messagePopupExcel.ConditionText(i))
+            else:
+                self.conditionText = messagePopupExcel.ConditionTextAsNumpy()
+        self.displayXButton = messagePopupExcel.DisplayXButton()
+        if not messagePopupExcel.ButtonIsNone():
+            if np is None:
+                self.button = []
+                for i in range(messagePopupExcel.ButtonLength()):
+                    self.button.append(messagePopupExcel.Button(i))
+            else:
+                self.button = messagePopupExcel.ButtonAsNumpy()
+        if not messagePopupExcel.ButtonTextIsNone():
+            if np is None:
+                self.buttonText = []
+                for i in range(messagePopupExcel.ButtonTextLength()):
+                    self.buttonText.append(messagePopupExcel.ButtonText(i))
+            else:
+                self.buttonText = messagePopupExcel.ButtonTextAsNumpy()
+        if not messagePopupExcel.ButtonCommandIsNone():
+            self.buttonCommand = []
+            for i in range(messagePopupExcel.ButtonCommandLength()):
+                self.buttonCommand.append(messagePopupExcel.ButtonCommand(i))
+        if not messagePopupExcel.ButtonParameterIsNone():
+            self.buttonParameter = []
+            for i in range(messagePopupExcel.ButtonParameterLength()):
+                self.buttonParameter.append(messagePopupExcel.ButtonParameter(i))
+
+    # MessagePopupExcelT
+    def Pack(self, builder):
+        if self.image is not None:
+            image = builder.CreateString(self.image)
+        if self.conditionText is not None:
+            if np is not None and type(self.conditionText) is np.ndarray:
+                conditionText = builder.CreateNumpyVector(self.conditionText)
+            else:
+                MessagePopupExcelStartConditionTextVector(builder, len(self.conditionText))
+                for i in reversed(range(len(self.conditionText))):
+                    builder.PrependUint32(self.conditionText[i])
+                conditionText = builder.EndVector()
+        if self.button is not None:
+            if np is not None and type(self.button) is np.ndarray:
+                button = builder.CreateNumpyVector(self.button)
+            else:
+                MessagePopupExcelStartButtonVector(builder, len(self.button))
+                for i in reversed(range(len(self.button))):
+                    builder.PrependInt32(self.button[i])
+                button = builder.EndVector()
+        if self.buttonText is not None:
+            if np is not None and type(self.buttonText) is np.ndarray:
+                buttonText = builder.CreateNumpyVector(self.buttonText)
+            else:
+                MessagePopupExcelStartButtonTextVector(builder, len(self.buttonText))
+                for i in reversed(range(len(self.buttonText))):
+                    builder.PrependUint32(self.buttonText[i])
+                buttonText = builder.EndVector()
+        if self.buttonCommand is not None:
+            buttonCommandlist = []
+            for i in range(len(self.buttonCommand)):
+                buttonCommandlist.append(builder.CreateString(self.buttonCommand[i]))
+            MessagePopupExcelStartButtonCommandVector(builder, len(self.buttonCommand))
+            for i in reversed(range(len(self.buttonCommand))):
+                builder.PrependUOffsetTRelative(buttonCommandlist[i])
+            buttonCommand = builder.EndVector()
+        if self.buttonParameter is not None:
+            buttonParameterlist = []
+            for i in range(len(self.buttonParameter)):
+                buttonParameterlist.append(builder.CreateString(self.buttonParameter[i]))
+            MessagePopupExcelStartButtonParameterVector(builder, len(self.buttonParameter))
+            for i in reversed(range(len(self.buttonParameter))):
+                builder.PrependUOffsetTRelative(buttonParameterlist[i])
+            buttonParameter = builder.EndVector()
+        MessagePopupExcelStart(builder)
+        MessagePopupExcelAddStringId(builder, self.stringId)
+        MessagePopupExcelAddMessagePopupLayout(builder, self.messagePopupLayout)
+        MessagePopupExcelAddOrderType(builder, self.orderType)
+        if self.image is not None:
+            MessagePopupExcelAddImage(builder, image)
+        MessagePopupExcelAddTitleText(builder, self.titleText)
+        MessagePopupExcelAddSubTitleText(builder, self.subTitleText)
+        MessagePopupExcelAddMessageText(builder, self.messageText)
+        if self.conditionText is not None:
+            MessagePopupExcelAddConditionText(builder, conditionText)
+        MessagePopupExcelAddDisplayXButton(builder, self.displayXButton)
+        if self.button is not None:
+            MessagePopupExcelAddButton(builder, button)
+        if self.buttonText is not None:
+            MessagePopupExcelAddButtonText(builder, buttonText)
+        if self.buttonCommand is not None:
+            MessagePopupExcelAddButtonCommand(builder, buttonCommand)
+        if self.buttonParameter is not None:
+            MessagePopupExcelAddButtonParameter(builder, buttonParameter)
+        messagePopupExcel = MessagePopupExcelEnd(builder)
+        return messagePopupExcel

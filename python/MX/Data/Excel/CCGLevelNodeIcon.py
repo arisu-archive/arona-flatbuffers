@@ -2,4 +2,9 @@
 
 # namespace: Excel
 
-# NOTE CCGLevelNodeIcon.py does not declare any structs or enums
+class CCGLevelNodeIcon(object):
+    None_ = 0
+    Battle = 1
+    Event = 2
+    Camp = 3
+    Boss = 4

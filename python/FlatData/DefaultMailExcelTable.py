@@ -72,3 +72,68 @@ def DefaultMailExcelTableEnd(builder):
 
 def End(builder):
     return DefaultMailExcelTableEnd(builder)
+
+import FlatData.DefaultMailExcel
+try:
+    from typing import List
+except:
+    pass
+
+class DefaultMailExcelTableT(object):
+
+    # DefaultMailExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.DefaultMailExcel.DefaultMailExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        defaultMailExcelTable = DefaultMailExcelTable()
+        defaultMailExcelTable.Init(buf, pos)
+        return cls.InitFromObj(defaultMailExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, defaultMailExcelTable):
+        x = DefaultMailExcelTableT()
+        x._UnPack(defaultMailExcelTable)
+        return x
+
+    # DefaultMailExcelTableT
+    def _UnPack(self, defaultMailExcelTable):
+        if defaultMailExcelTable is None:
+            return
+        if not defaultMailExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(defaultMailExcelTable.DataListLength()):
+                if defaultMailExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    defaultMailExcel_ = FlatData.DefaultMailExcel.DefaultMailExcelT.InitFromObj(defaultMailExcelTable.DataList(i))
+                    self.dataList.append(defaultMailExcel_)
+
+    # DefaultMailExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            DefaultMailExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        DefaultMailExcelTableStart(builder)
+        if self.dataList is not None:
+            DefaultMailExcelTableAddDataList(builder, dataList)
+        defaultMailExcelTable = DefaultMailExcelTableEnd(builder)
+        return defaultMailExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(DefaultMailExcelTableT, 'DefaultMailExcelTable', ())

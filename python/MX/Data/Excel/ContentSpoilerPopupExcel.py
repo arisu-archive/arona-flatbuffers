@@ -35,22 +35,22 @@ class ContentSpoilerPopupExcel(object):
     def SpoilerPopupTitle(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
 
     # ContentSpoilerPopupExcel
     def SpoilerPopupDescription(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
+        return 0
 
     # ContentSpoilerPopupExcel
-    def IsWarningPopUp(self):
+    def PopupType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # ContentSpoilerPopupExcel
     def ConditionScenarioModeId(self):
@@ -72,22 +72,22 @@ def AddContentType(builder, contentType):
     ContentSpoilerPopupExcelAddContentType(builder, contentType)
 
 def ContentSpoilerPopupExcelAddSpoilerPopupTitle(builder, spoilerPopupTitle):
-    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(spoilerPopupTitle), 0)
+    builder.PrependUint32Slot(1, spoilerPopupTitle, 0)
 
 def AddSpoilerPopupTitle(builder, spoilerPopupTitle):
     ContentSpoilerPopupExcelAddSpoilerPopupTitle(builder, spoilerPopupTitle)
 
 def ContentSpoilerPopupExcelAddSpoilerPopupDescription(builder, spoilerPopupDescription):
-    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(spoilerPopupDescription), 0)
+    builder.PrependUint32Slot(2, spoilerPopupDescription, 0)
 
 def AddSpoilerPopupDescription(builder, spoilerPopupDescription):
     ContentSpoilerPopupExcelAddSpoilerPopupDescription(builder, spoilerPopupDescription)
 
-def ContentSpoilerPopupExcelAddIsWarningPopUp(builder, isWarningPopUp):
-    builder.PrependBoolSlot(3, isWarningPopUp, 0)
+def ContentSpoilerPopupExcelAddPopupType(builder, popupType):
+    builder.PrependInt32Slot(3, popupType, 0)
 
-def AddIsWarningPopUp(builder, isWarningPopUp):
-    ContentSpoilerPopupExcelAddIsWarningPopUp(builder, isWarningPopUp)
+def AddPopupType(builder, popupType):
+    ContentSpoilerPopupExcelAddPopupType(builder, popupType)
 
 def ContentSpoilerPopupExcelAddConditionScenarioModeId(builder, conditionScenarioModeId):
     builder.PrependInt64Slot(4, conditionScenarioModeId, 0)
@@ -100,3 +100,59 @@ def ContentSpoilerPopupExcelEnd(builder):
 
 def End(builder):
     return ContentSpoilerPopupExcelEnd(builder)
+
+
+class ContentSpoilerPopupExcelT(object):
+
+    # ContentSpoilerPopupExcelT
+    def __init__(
+        self,
+        contentType = 0,
+        spoilerPopupTitle = 0,
+        spoilerPopupDescription = 0,
+        popupType = 0,
+        conditionScenarioModeId = 0,
+    ):
+        self.contentType = contentType  # type: int
+        self.spoilerPopupTitle = spoilerPopupTitle  # type: int
+        self.spoilerPopupDescription = spoilerPopupDescription  # type: int
+        self.popupType = popupType  # type: int
+        self.conditionScenarioModeId = conditionScenarioModeId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        contentSpoilerPopupExcel = ContentSpoilerPopupExcel()
+        contentSpoilerPopupExcel.Init(buf, pos)
+        return cls.InitFromObj(contentSpoilerPopupExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, contentSpoilerPopupExcel):
+        x = ContentSpoilerPopupExcelT()
+        x._UnPack(contentSpoilerPopupExcel)
+        return x
+
+    # ContentSpoilerPopupExcelT
+    def _UnPack(self, contentSpoilerPopupExcel):
+        if contentSpoilerPopupExcel is None:
+            return
+        self.contentType = contentSpoilerPopupExcel.ContentType()
+        self.spoilerPopupTitle = contentSpoilerPopupExcel.SpoilerPopupTitle()
+        self.spoilerPopupDescription = contentSpoilerPopupExcel.SpoilerPopupDescription()
+        self.popupType = contentSpoilerPopupExcel.PopupType()
+        self.conditionScenarioModeId = contentSpoilerPopupExcel.ConditionScenarioModeId()
+
+    # ContentSpoilerPopupExcelT
+    def Pack(self, builder):
+        ContentSpoilerPopupExcelStart(builder)
+        ContentSpoilerPopupExcelAddContentType(builder, self.contentType)
+        ContentSpoilerPopupExcelAddSpoilerPopupTitle(builder, self.spoilerPopupTitle)
+        ContentSpoilerPopupExcelAddSpoilerPopupDescription(builder, self.spoilerPopupDescription)
+        ContentSpoilerPopupExcelAddPopupType(builder, self.popupType)
+        ContentSpoilerPopupExcelAddConditionScenarioModeId(builder, self.conditionScenarioModeId)
+        contentSpoilerPopupExcel = ContentSpoilerPopupExcelEnd(builder)
+        return contentSpoilerPopupExcel

@@ -217,3 +217,110 @@ def StoryStrategyExcelEnd(builder):
 
 def End(builder):
     return StoryStrategyExcelEnd(builder)
+
+
+class StoryStrategyExcelT(object):
+
+    # StoryStrategyExcelT
+    def __init__(
+        self,
+        id = 0,
+        name = None,
+        localize = None,
+        stageEnterEchelonCount = 0,
+        battleDuration = 0,
+        whiteListId = 0,
+        strategyMap = None,
+        strategyMapBg = None,
+        maxTurn = 0,
+        stageTopography = 0,
+        strategyEnvironment = 0,
+        contentType = 0,
+        bgmId = 0,
+        firstClearReportEventName = None,
+    ):
+        self.id = id  # type: int
+        self.name = name  # type: Optional[str]
+        self.localize = localize  # type: Optional[str]
+        self.stageEnterEchelonCount = stageEnterEchelonCount  # type: int
+        self.battleDuration = battleDuration  # type: int
+        self.whiteListId = whiteListId  # type: int
+        self.strategyMap = strategyMap  # type: Optional[str]
+        self.strategyMapBg = strategyMapBg  # type: Optional[str]
+        self.maxTurn = maxTurn  # type: int
+        self.stageTopography = stageTopography  # type: int
+        self.strategyEnvironment = strategyEnvironment  # type: int
+        self.contentType = contentType  # type: int
+        self.bgmId = bgmId  # type: int
+        self.firstClearReportEventName = firstClearReportEventName  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        storyStrategyExcel = StoryStrategyExcel()
+        storyStrategyExcel.Init(buf, pos)
+        return cls.InitFromObj(storyStrategyExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, storyStrategyExcel):
+        x = StoryStrategyExcelT()
+        x._UnPack(storyStrategyExcel)
+        return x
+
+    # StoryStrategyExcelT
+    def _UnPack(self, storyStrategyExcel):
+        if storyStrategyExcel is None:
+            return
+        self.id = storyStrategyExcel.Id()
+        self.name = storyStrategyExcel.Name()
+        self.localize = storyStrategyExcel.Localize()
+        self.stageEnterEchelonCount = storyStrategyExcel.StageEnterEchelonCount()
+        self.battleDuration = storyStrategyExcel.BattleDuration()
+        self.whiteListId = storyStrategyExcel.WhiteListId()
+        self.strategyMap = storyStrategyExcel.StrategyMap()
+        self.strategyMapBg = storyStrategyExcel.StrategyMapBg()
+        self.maxTurn = storyStrategyExcel.MaxTurn()
+        self.stageTopography = storyStrategyExcel.StageTopography()
+        self.strategyEnvironment = storyStrategyExcel.StrategyEnvironment()
+        self.contentType = storyStrategyExcel.ContentType()
+        self.bgmId = storyStrategyExcel.BgmId()
+        self.firstClearReportEventName = storyStrategyExcel.FirstClearReportEventName()
+
+    # StoryStrategyExcelT
+    def Pack(self, builder):
+        if self.name is not None:
+            name = builder.CreateString(self.name)
+        if self.localize is not None:
+            localize = builder.CreateString(self.localize)
+        if self.strategyMap is not None:
+            strategyMap = builder.CreateString(self.strategyMap)
+        if self.strategyMapBg is not None:
+            strategyMapBg = builder.CreateString(self.strategyMapBg)
+        if self.firstClearReportEventName is not None:
+            firstClearReportEventName = builder.CreateString(self.firstClearReportEventName)
+        StoryStrategyExcelStart(builder)
+        StoryStrategyExcelAddId(builder, self.id)
+        if self.name is not None:
+            StoryStrategyExcelAddName(builder, name)
+        if self.localize is not None:
+            StoryStrategyExcelAddLocalize(builder, localize)
+        StoryStrategyExcelAddStageEnterEchelonCount(builder, self.stageEnterEchelonCount)
+        StoryStrategyExcelAddBattleDuration(builder, self.battleDuration)
+        StoryStrategyExcelAddWhiteListId(builder, self.whiteListId)
+        if self.strategyMap is not None:
+            StoryStrategyExcelAddStrategyMap(builder, strategyMap)
+        if self.strategyMapBg is not None:
+            StoryStrategyExcelAddStrategyMapBg(builder, strategyMapBg)
+        StoryStrategyExcelAddMaxTurn(builder, self.maxTurn)
+        StoryStrategyExcelAddStageTopography(builder, self.stageTopography)
+        StoryStrategyExcelAddStrategyEnvironment(builder, self.strategyEnvironment)
+        StoryStrategyExcelAddContentType(builder, self.contentType)
+        StoryStrategyExcelAddBgmId(builder, self.bgmId)
+        if self.firstClearReportEventName is not None:
+            StoryStrategyExcelAddFirstClearReportEventName(builder, firstClearReportEventName)
+        storyStrategyExcel = StoryStrategyExcelEnd(builder)
+        return storyStrategyExcel

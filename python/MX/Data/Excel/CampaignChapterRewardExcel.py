@@ -178,3 +178,108 @@ def CampaignChapterRewardExcelEnd(builder):
 
 def End(builder):
     return CampaignChapterRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CampaignChapterRewardExcelT(object):
+
+    # CampaignChapterRewardExcelT
+    def __init__(
+        self,
+        id = 0,
+        campaignChapterStar = 0,
+        chapterRewardParcelType = None,
+        chapterRewardId = None,
+        chapterRewardAmount = None,
+    ):
+        self.id = id  # type: int
+        self.campaignChapterStar = campaignChapterStar  # type: int
+        self.chapterRewardParcelType = chapterRewardParcelType  # type: Optional[List[int]]
+        self.chapterRewardId = chapterRewardId  # type: Optional[List[int]]
+        self.chapterRewardAmount = chapterRewardAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        campaignChapterRewardExcel = CampaignChapterRewardExcel()
+        campaignChapterRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(campaignChapterRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, campaignChapterRewardExcel):
+        x = CampaignChapterRewardExcelT()
+        x._UnPack(campaignChapterRewardExcel)
+        return x
+
+    # CampaignChapterRewardExcelT
+    def _UnPack(self, campaignChapterRewardExcel):
+        if campaignChapterRewardExcel is None:
+            return
+        self.id = campaignChapterRewardExcel.Id()
+        self.campaignChapterStar = campaignChapterRewardExcel.CampaignChapterStar()
+        if not campaignChapterRewardExcel.ChapterRewardParcelTypeIsNone():
+            if np is None:
+                self.chapterRewardParcelType = []
+                for i in range(campaignChapterRewardExcel.ChapterRewardParcelTypeLength()):
+                    self.chapterRewardParcelType.append(campaignChapterRewardExcel.ChapterRewardParcelType(i))
+            else:
+                self.chapterRewardParcelType = campaignChapterRewardExcel.ChapterRewardParcelTypeAsNumpy()
+        if not campaignChapterRewardExcel.ChapterRewardIdIsNone():
+            if np is None:
+                self.chapterRewardId = []
+                for i in range(campaignChapterRewardExcel.ChapterRewardIdLength()):
+                    self.chapterRewardId.append(campaignChapterRewardExcel.ChapterRewardId(i))
+            else:
+                self.chapterRewardId = campaignChapterRewardExcel.ChapterRewardIdAsNumpy()
+        if not campaignChapterRewardExcel.ChapterRewardAmountIsNone():
+            if np is None:
+                self.chapterRewardAmount = []
+                for i in range(campaignChapterRewardExcel.ChapterRewardAmountLength()):
+                    self.chapterRewardAmount.append(campaignChapterRewardExcel.ChapterRewardAmount(i))
+            else:
+                self.chapterRewardAmount = campaignChapterRewardExcel.ChapterRewardAmountAsNumpy()
+
+    # CampaignChapterRewardExcelT
+    def Pack(self, builder):
+        if self.chapterRewardParcelType is not None:
+            if np is not None and type(self.chapterRewardParcelType) is np.ndarray:
+                chapterRewardParcelType = builder.CreateNumpyVector(self.chapterRewardParcelType)
+            else:
+                CampaignChapterRewardExcelStartChapterRewardParcelTypeVector(builder, len(self.chapterRewardParcelType))
+                for i in reversed(range(len(self.chapterRewardParcelType))):
+                    builder.PrependInt32(self.chapterRewardParcelType[i])
+                chapterRewardParcelType = builder.EndVector()
+        if self.chapterRewardId is not None:
+            if np is not None and type(self.chapterRewardId) is np.ndarray:
+                chapterRewardId = builder.CreateNumpyVector(self.chapterRewardId)
+            else:
+                CampaignChapterRewardExcelStartChapterRewardIdVector(builder, len(self.chapterRewardId))
+                for i in reversed(range(len(self.chapterRewardId))):
+                    builder.PrependInt64(self.chapterRewardId[i])
+                chapterRewardId = builder.EndVector()
+        if self.chapterRewardAmount is not None:
+            if np is not None and type(self.chapterRewardAmount) is np.ndarray:
+                chapterRewardAmount = builder.CreateNumpyVector(self.chapterRewardAmount)
+            else:
+                CampaignChapterRewardExcelStartChapterRewardAmountVector(builder, len(self.chapterRewardAmount))
+                for i in reversed(range(len(self.chapterRewardAmount))):
+                    builder.PrependInt32(self.chapterRewardAmount[i])
+                chapterRewardAmount = builder.EndVector()
+        CampaignChapterRewardExcelStart(builder)
+        CampaignChapterRewardExcelAddId(builder, self.id)
+        CampaignChapterRewardExcelAddCampaignChapterStar(builder, self.campaignChapterStar)
+        if self.chapterRewardParcelType is not None:
+            CampaignChapterRewardExcelAddChapterRewardParcelType(builder, chapterRewardParcelType)
+        if self.chapterRewardId is not None:
+            CampaignChapterRewardExcelAddChapterRewardId(builder, chapterRewardId)
+        if self.chapterRewardAmount is not None:
+            CampaignChapterRewardExcelAddChapterRewardAmount(builder, chapterRewardAmount)
+        campaignChapterRewardExcel = CampaignChapterRewardExcelEnd(builder)
+        return campaignChapterRewardExcel

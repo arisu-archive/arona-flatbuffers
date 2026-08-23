@@ -139,3 +139,71 @@ def SchoolDungeonRewardExcelEnd(builder):
 
 def End(builder):
     return SchoolDungeonRewardExcelEnd(builder)
+
+
+class SchoolDungeonRewardExcelT(object):
+
+    # SchoolDungeonRewardExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        dungeonType = 0,
+        rewardTag = 0,
+        rewardParcelType = 0,
+        rewardParcelId = 0,
+        rewardParcelAmount = 0,
+        rewardParcelProbability = 0,
+        isDisplayed = False,
+    ):
+        self.groupId = groupId  # type: int
+        self.dungeonType = dungeonType  # type: int
+        self.rewardTag = rewardTag  # type: int
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelId = rewardParcelId  # type: int
+        self.rewardParcelAmount = rewardParcelAmount  # type: int
+        self.rewardParcelProbability = rewardParcelProbability  # type: int
+        self.isDisplayed = isDisplayed  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        schoolDungeonRewardExcel = SchoolDungeonRewardExcel()
+        schoolDungeonRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(schoolDungeonRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, schoolDungeonRewardExcel):
+        x = SchoolDungeonRewardExcelT()
+        x._UnPack(schoolDungeonRewardExcel)
+        return x
+
+    # SchoolDungeonRewardExcelT
+    def _UnPack(self, schoolDungeonRewardExcel):
+        if schoolDungeonRewardExcel is None:
+            return
+        self.groupId = schoolDungeonRewardExcel.GroupId()
+        self.dungeonType = schoolDungeonRewardExcel.DungeonType()
+        self.rewardTag = schoolDungeonRewardExcel.RewardTag()
+        self.rewardParcelType = schoolDungeonRewardExcel.RewardParcelType()
+        self.rewardParcelId = schoolDungeonRewardExcel.RewardParcelId()
+        self.rewardParcelAmount = schoolDungeonRewardExcel.RewardParcelAmount()
+        self.rewardParcelProbability = schoolDungeonRewardExcel.RewardParcelProbability()
+        self.isDisplayed = schoolDungeonRewardExcel.IsDisplayed()
+
+    # SchoolDungeonRewardExcelT
+    def Pack(self, builder):
+        SchoolDungeonRewardExcelStart(builder)
+        SchoolDungeonRewardExcelAddGroupId(builder, self.groupId)
+        SchoolDungeonRewardExcelAddDungeonType(builder, self.dungeonType)
+        SchoolDungeonRewardExcelAddRewardTag(builder, self.rewardTag)
+        SchoolDungeonRewardExcelAddRewardParcelType(builder, self.rewardParcelType)
+        SchoolDungeonRewardExcelAddRewardParcelId(builder, self.rewardParcelId)
+        SchoolDungeonRewardExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        SchoolDungeonRewardExcelAddRewardParcelProbability(builder, self.rewardParcelProbability)
+        SchoolDungeonRewardExcelAddIsDisplayed(builder, self.isDisplayed)
+        schoolDungeonRewardExcel = SchoolDungeonRewardExcelEnd(builder)
+        return schoolDungeonRewardExcel

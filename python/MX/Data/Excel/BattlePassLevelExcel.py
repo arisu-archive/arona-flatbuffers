@@ -74,3 +74,51 @@ def BattlePassLevelExcelEnd(builder):
 
 def End(builder):
     return BattlePassLevelExcelEnd(builder)
+
+
+class BattlePassLevelExcelT(object):
+
+    # BattlePassLevelExcelT
+    def __init__(
+        self,
+        battlePassId = 0,
+        level = 0,
+        isPickUpReward = False,
+    ):
+        self.battlePassId = battlePassId  # type: int
+        self.level = level  # type: int
+        self.isPickUpReward = isPickUpReward  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        battlePassLevelExcel = BattlePassLevelExcel()
+        battlePassLevelExcel.Init(buf, pos)
+        return cls.InitFromObj(battlePassLevelExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, battlePassLevelExcel):
+        x = BattlePassLevelExcelT()
+        x._UnPack(battlePassLevelExcel)
+        return x
+
+    # BattlePassLevelExcelT
+    def _UnPack(self, battlePassLevelExcel):
+        if battlePassLevelExcel is None:
+            return
+        self.battlePassId = battlePassLevelExcel.BattlePassId()
+        self.level = battlePassLevelExcel.Level()
+        self.isPickUpReward = battlePassLevelExcel.IsPickUpReward()
+
+    # BattlePassLevelExcelT
+    def Pack(self, builder):
+        BattlePassLevelExcelStart(builder)
+        BattlePassLevelExcelAddBattlePassId(builder, self.battlePassId)
+        BattlePassLevelExcelAddLevel(builder, self.level)
+        BattlePassLevelExcelAddIsPickUpReward(builder, self.isPickUpReward)
+        battlePassLevelExcel = BattlePassLevelExcelEnd(builder)
+        return battlePassLevelExcel

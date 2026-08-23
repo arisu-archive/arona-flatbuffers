@@ -178,3 +178,111 @@ def EventContentTreasureCellRewardExcelEnd(builder):
 
 def End(builder):
     return EventContentTreasureCellRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class EventContentTreasureCellRewardExcelT(object):
+
+    # EventContentTreasureCellRewardExcelT
+    def __init__(
+        self,
+        id = 0,
+        localizeCodeId = None,
+        rewardParcelType = None,
+        rewardParcelId = None,
+        rewardParcelAmount = None,
+    ):
+        self.id = id  # type: int
+        self.localizeCodeId = localizeCodeId  # type: Optional[str]
+        self.rewardParcelType = rewardParcelType  # type: Optional[List[int]]
+        self.rewardParcelId = rewardParcelId  # type: Optional[List[int]]
+        self.rewardParcelAmount = rewardParcelAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        eventContentTreasureCellRewardExcel = EventContentTreasureCellRewardExcel()
+        eventContentTreasureCellRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(eventContentTreasureCellRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, eventContentTreasureCellRewardExcel):
+        x = EventContentTreasureCellRewardExcelT()
+        x._UnPack(eventContentTreasureCellRewardExcel)
+        return x
+
+    # EventContentTreasureCellRewardExcelT
+    def _UnPack(self, eventContentTreasureCellRewardExcel):
+        if eventContentTreasureCellRewardExcel is None:
+            return
+        self.id = eventContentTreasureCellRewardExcel.Id()
+        self.localizeCodeId = eventContentTreasureCellRewardExcel.LocalizeCodeId()
+        if not eventContentTreasureCellRewardExcel.RewardParcelTypeIsNone():
+            if np is None:
+                self.rewardParcelType = []
+                for i in range(eventContentTreasureCellRewardExcel.RewardParcelTypeLength()):
+                    self.rewardParcelType.append(eventContentTreasureCellRewardExcel.RewardParcelType(i))
+            else:
+                self.rewardParcelType = eventContentTreasureCellRewardExcel.RewardParcelTypeAsNumpy()
+        if not eventContentTreasureCellRewardExcel.RewardParcelIdIsNone():
+            if np is None:
+                self.rewardParcelId = []
+                for i in range(eventContentTreasureCellRewardExcel.RewardParcelIdLength()):
+                    self.rewardParcelId.append(eventContentTreasureCellRewardExcel.RewardParcelId(i))
+            else:
+                self.rewardParcelId = eventContentTreasureCellRewardExcel.RewardParcelIdAsNumpy()
+        if not eventContentTreasureCellRewardExcel.RewardParcelAmountIsNone():
+            if np is None:
+                self.rewardParcelAmount = []
+                for i in range(eventContentTreasureCellRewardExcel.RewardParcelAmountLength()):
+                    self.rewardParcelAmount.append(eventContentTreasureCellRewardExcel.RewardParcelAmount(i))
+            else:
+                self.rewardParcelAmount = eventContentTreasureCellRewardExcel.RewardParcelAmountAsNumpy()
+
+    # EventContentTreasureCellRewardExcelT
+    def Pack(self, builder):
+        if self.localizeCodeId is not None:
+            localizeCodeId = builder.CreateString(self.localizeCodeId)
+        if self.rewardParcelType is not None:
+            if np is not None and type(self.rewardParcelType) is np.ndarray:
+                rewardParcelType = builder.CreateNumpyVector(self.rewardParcelType)
+            else:
+                EventContentTreasureCellRewardExcelStartRewardParcelTypeVector(builder, len(self.rewardParcelType))
+                for i in reversed(range(len(self.rewardParcelType))):
+                    builder.PrependInt32(self.rewardParcelType[i])
+                rewardParcelType = builder.EndVector()
+        if self.rewardParcelId is not None:
+            if np is not None and type(self.rewardParcelId) is np.ndarray:
+                rewardParcelId = builder.CreateNumpyVector(self.rewardParcelId)
+            else:
+                EventContentTreasureCellRewardExcelStartRewardParcelIdVector(builder, len(self.rewardParcelId))
+                for i in reversed(range(len(self.rewardParcelId))):
+                    builder.PrependInt64(self.rewardParcelId[i])
+                rewardParcelId = builder.EndVector()
+        if self.rewardParcelAmount is not None:
+            if np is not None and type(self.rewardParcelAmount) is np.ndarray:
+                rewardParcelAmount = builder.CreateNumpyVector(self.rewardParcelAmount)
+            else:
+                EventContentTreasureCellRewardExcelStartRewardParcelAmountVector(builder, len(self.rewardParcelAmount))
+                for i in reversed(range(len(self.rewardParcelAmount))):
+                    builder.PrependInt64(self.rewardParcelAmount[i])
+                rewardParcelAmount = builder.EndVector()
+        EventContentTreasureCellRewardExcelStart(builder)
+        EventContentTreasureCellRewardExcelAddId(builder, self.id)
+        if self.localizeCodeId is not None:
+            EventContentTreasureCellRewardExcelAddLocalizeCodeId(builder, localizeCodeId)
+        if self.rewardParcelType is not None:
+            EventContentTreasureCellRewardExcelAddRewardParcelType(builder, rewardParcelType)
+        if self.rewardParcelId is not None:
+            EventContentTreasureCellRewardExcelAddRewardParcelId(builder, rewardParcelId)
+        if self.rewardParcelAmount is not None:
+            EventContentTreasureCellRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+        eventContentTreasureCellRewardExcel = EventContentTreasureCellRewardExcelEnd(builder)
+        return eventContentTreasureCellRewardExcel

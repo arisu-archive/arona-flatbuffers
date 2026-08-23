@@ -1257,3 +1257,629 @@ def FixedEchelonSettingExcelEnd(builder):
 
 def End(builder):
     return FixedEchelonSettingExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class FixedEchelonSettingExcelT(object):
+
+    # FixedEchelonSettingExcelT
+    def __init__(
+        self,
+        fixedEchelonId = 0,
+        echelonSceneSkip = False,
+        mainLeaderSlot = 0,
+        mainCharacterId = None,
+        mainLevel = None,
+        mainGrade = None,
+        mainExSkillLevel = None,
+        mainNoneExSkillLevel = None,
+        mainEquipment1Tier = None,
+        mainEquipment1Level = None,
+        mainEquipment2Tier = None,
+        mainEquipment2Level = None,
+        mainEquipment3Tier = None,
+        mainEquipment3Level = None,
+        mainCharacterWeaponGrade = None,
+        mainCharacterWeaponLevel = None,
+        mainCharacterGearTier = None,
+        mainCharacterGearLevel = None,
+        supportCharacterId = None,
+        supportLevel = None,
+        supportGrade = None,
+        supportExSkillLevel = None,
+        supportNoneExSkillLevel = None,
+        supportEquipment1Tier = None,
+        supportEquipment1Level = None,
+        supportEquipment2Tier = None,
+        supportEquipment2Level = None,
+        supportEquipment3Tier = None,
+        supportEquipment3Level = None,
+        supportCharacterWeaponGrade = None,
+        supportCharacterWeaponLevel = None,
+        supportCharacterGearTier = None,
+        supportCharacterGearLevel = None,
+        interactionTsCharacterId = 0,
+    ):
+        self.fixedEchelonId = fixedEchelonId  # type: int
+        self.echelonSceneSkip = echelonSceneSkip  # type: bool
+        self.mainLeaderSlot = mainLeaderSlot  # type: int
+        self.mainCharacterId = mainCharacterId  # type: Optional[List[int]]
+        self.mainLevel = mainLevel  # type: Optional[List[int]]
+        self.mainGrade = mainGrade  # type: Optional[List[int]]
+        self.mainExSkillLevel = mainExSkillLevel  # type: Optional[List[int]]
+        self.mainNoneExSkillLevel = mainNoneExSkillLevel  # type: Optional[List[int]]
+        self.mainEquipment1Tier = mainEquipment1Tier  # type: Optional[List[int]]
+        self.mainEquipment1Level = mainEquipment1Level  # type: Optional[List[int]]
+        self.mainEquipment2Tier = mainEquipment2Tier  # type: Optional[List[int]]
+        self.mainEquipment2Level = mainEquipment2Level  # type: Optional[List[int]]
+        self.mainEquipment3Tier = mainEquipment3Tier  # type: Optional[List[int]]
+        self.mainEquipment3Level = mainEquipment3Level  # type: Optional[List[int]]
+        self.mainCharacterWeaponGrade = mainCharacterWeaponGrade  # type: Optional[List[int]]
+        self.mainCharacterWeaponLevel = mainCharacterWeaponLevel  # type: Optional[List[int]]
+        self.mainCharacterGearTier = mainCharacterGearTier  # type: Optional[List[int]]
+        self.mainCharacterGearLevel = mainCharacterGearLevel  # type: Optional[List[int]]
+        self.supportCharacterId = supportCharacterId  # type: Optional[List[int]]
+        self.supportLevel = supportLevel  # type: Optional[List[int]]
+        self.supportGrade = supportGrade  # type: Optional[List[int]]
+        self.supportExSkillLevel = supportExSkillLevel  # type: Optional[List[int]]
+        self.supportNoneExSkillLevel = supportNoneExSkillLevel  # type: Optional[List[int]]
+        self.supportEquipment1Tier = supportEquipment1Tier  # type: Optional[List[int]]
+        self.supportEquipment1Level = supportEquipment1Level  # type: Optional[List[int]]
+        self.supportEquipment2Tier = supportEquipment2Tier  # type: Optional[List[int]]
+        self.supportEquipment2Level = supportEquipment2Level  # type: Optional[List[int]]
+        self.supportEquipment3Tier = supportEquipment3Tier  # type: Optional[List[int]]
+        self.supportEquipment3Level = supportEquipment3Level  # type: Optional[List[int]]
+        self.supportCharacterWeaponGrade = supportCharacterWeaponGrade  # type: Optional[List[int]]
+        self.supportCharacterWeaponLevel = supportCharacterWeaponLevel  # type: Optional[List[int]]
+        self.supportCharacterGearTier = supportCharacterGearTier  # type: Optional[List[int]]
+        self.supportCharacterGearLevel = supportCharacterGearLevel  # type: Optional[List[int]]
+        self.interactionTsCharacterId = interactionTsCharacterId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        fixedEchelonSettingExcel = FixedEchelonSettingExcel()
+        fixedEchelonSettingExcel.Init(buf, pos)
+        return cls.InitFromObj(fixedEchelonSettingExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, fixedEchelonSettingExcel):
+        x = FixedEchelonSettingExcelT()
+        x._UnPack(fixedEchelonSettingExcel)
+        return x
+
+    # FixedEchelonSettingExcelT
+    def _UnPack(self, fixedEchelonSettingExcel):
+        if fixedEchelonSettingExcel is None:
+            return
+        self.fixedEchelonId = fixedEchelonSettingExcel.FixedEchelonId()
+        self.echelonSceneSkip = fixedEchelonSettingExcel.EchelonSceneSkip()
+        self.mainLeaderSlot = fixedEchelonSettingExcel.MainLeaderSlot()
+        if not fixedEchelonSettingExcel.MainCharacterIdIsNone():
+            if np is None:
+                self.mainCharacterId = []
+                for i in range(fixedEchelonSettingExcel.MainCharacterIdLength()):
+                    self.mainCharacterId.append(fixedEchelonSettingExcel.MainCharacterId(i))
+            else:
+                self.mainCharacterId = fixedEchelonSettingExcel.MainCharacterIdAsNumpy()
+        if not fixedEchelonSettingExcel.MainLevelIsNone():
+            if np is None:
+                self.mainLevel = []
+                for i in range(fixedEchelonSettingExcel.MainLevelLength()):
+                    self.mainLevel.append(fixedEchelonSettingExcel.MainLevel(i))
+            else:
+                self.mainLevel = fixedEchelonSettingExcel.MainLevelAsNumpy()
+        if not fixedEchelonSettingExcel.MainGradeIsNone():
+            if np is None:
+                self.mainGrade = []
+                for i in range(fixedEchelonSettingExcel.MainGradeLength()):
+                    self.mainGrade.append(fixedEchelonSettingExcel.MainGrade(i))
+            else:
+                self.mainGrade = fixedEchelonSettingExcel.MainGradeAsNumpy()
+        if not fixedEchelonSettingExcel.MainExSkillLevelIsNone():
+            if np is None:
+                self.mainExSkillLevel = []
+                for i in range(fixedEchelonSettingExcel.MainExSkillLevelLength()):
+                    self.mainExSkillLevel.append(fixedEchelonSettingExcel.MainExSkillLevel(i))
+            else:
+                self.mainExSkillLevel = fixedEchelonSettingExcel.MainExSkillLevelAsNumpy()
+        if not fixedEchelonSettingExcel.MainNoneExSkillLevelIsNone():
+            if np is None:
+                self.mainNoneExSkillLevel = []
+                for i in range(fixedEchelonSettingExcel.MainNoneExSkillLevelLength()):
+                    self.mainNoneExSkillLevel.append(fixedEchelonSettingExcel.MainNoneExSkillLevel(i))
+            else:
+                self.mainNoneExSkillLevel = fixedEchelonSettingExcel.MainNoneExSkillLevelAsNumpy()
+        if not fixedEchelonSettingExcel.MainEquipment1TierIsNone():
+            if np is None:
+                self.mainEquipment1Tier = []
+                for i in range(fixedEchelonSettingExcel.MainEquipment1TierLength()):
+                    self.mainEquipment1Tier.append(fixedEchelonSettingExcel.MainEquipment1Tier(i))
+            else:
+                self.mainEquipment1Tier = fixedEchelonSettingExcel.MainEquipment1TierAsNumpy()
+        if not fixedEchelonSettingExcel.MainEquipment1LevelIsNone():
+            if np is None:
+                self.mainEquipment1Level = []
+                for i in range(fixedEchelonSettingExcel.MainEquipment1LevelLength()):
+                    self.mainEquipment1Level.append(fixedEchelonSettingExcel.MainEquipment1Level(i))
+            else:
+                self.mainEquipment1Level = fixedEchelonSettingExcel.MainEquipment1LevelAsNumpy()
+        if not fixedEchelonSettingExcel.MainEquipment2TierIsNone():
+            if np is None:
+                self.mainEquipment2Tier = []
+                for i in range(fixedEchelonSettingExcel.MainEquipment2TierLength()):
+                    self.mainEquipment2Tier.append(fixedEchelonSettingExcel.MainEquipment2Tier(i))
+            else:
+                self.mainEquipment2Tier = fixedEchelonSettingExcel.MainEquipment2TierAsNumpy()
+        if not fixedEchelonSettingExcel.MainEquipment2LevelIsNone():
+            if np is None:
+                self.mainEquipment2Level = []
+                for i in range(fixedEchelonSettingExcel.MainEquipment2LevelLength()):
+                    self.mainEquipment2Level.append(fixedEchelonSettingExcel.MainEquipment2Level(i))
+            else:
+                self.mainEquipment2Level = fixedEchelonSettingExcel.MainEquipment2LevelAsNumpy()
+        if not fixedEchelonSettingExcel.MainEquipment3TierIsNone():
+            if np is None:
+                self.mainEquipment3Tier = []
+                for i in range(fixedEchelonSettingExcel.MainEquipment3TierLength()):
+                    self.mainEquipment3Tier.append(fixedEchelonSettingExcel.MainEquipment3Tier(i))
+            else:
+                self.mainEquipment3Tier = fixedEchelonSettingExcel.MainEquipment3TierAsNumpy()
+        if not fixedEchelonSettingExcel.MainEquipment3LevelIsNone():
+            if np is None:
+                self.mainEquipment3Level = []
+                for i in range(fixedEchelonSettingExcel.MainEquipment3LevelLength()):
+                    self.mainEquipment3Level.append(fixedEchelonSettingExcel.MainEquipment3Level(i))
+            else:
+                self.mainEquipment3Level = fixedEchelonSettingExcel.MainEquipment3LevelAsNumpy()
+        if not fixedEchelonSettingExcel.MainCharacterWeaponGradeIsNone():
+            if np is None:
+                self.mainCharacterWeaponGrade = []
+                for i in range(fixedEchelonSettingExcel.MainCharacterWeaponGradeLength()):
+                    self.mainCharacterWeaponGrade.append(fixedEchelonSettingExcel.MainCharacterWeaponGrade(i))
+            else:
+                self.mainCharacterWeaponGrade = fixedEchelonSettingExcel.MainCharacterWeaponGradeAsNumpy()
+        if not fixedEchelonSettingExcel.MainCharacterWeaponLevelIsNone():
+            if np is None:
+                self.mainCharacterWeaponLevel = []
+                for i in range(fixedEchelonSettingExcel.MainCharacterWeaponLevelLength()):
+                    self.mainCharacterWeaponLevel.append(fixedEchelonSettingExcel.MainCharacterWeaponLevel(i))
+            else:
+                self.mainCharacterWeaponLevel = fixedEchelonSettingExcel.MainCharacterWeaponLevelAsNumpy()
+        if not fixedEchelonSettingExcel.MainCharacterGearTierIsNone():
+            if np is None:
+                self.mainCharacterGearTier = []
+                for i in range(fixedEchelonSettingExcel.MainCharacterGearTierLength()):
+                    self.mainCharacterGearTier.append(fixedEchelonSettingExcel.MainCharacterGearTier(i))
+            else:
+                self.mainCharacterGearTier = fixedEchelonSettingExcel.MainCharacterGearTierAsNumpy()
+        if not fixedEchelonSettingExcel.MainCharacterGearLevelIsNone():
+            if np is None:
+                self.mainCharacterGearLevel = []
+                for i in range(fixedEchelonSettingExcel.MainCharacterGearLevelLength()):
+                    self.mainCharacterGearLevel.append(fixedEchelonSettingExcel.MainCharacterGearLevel(i))
+            else:
+                self.mainCharacterGearLevel = fixedEchelonSettingExcel.MainCharacterGearLevelAsNumpy()
+        if not fixedEchelonSettingExcel.SupportCharacterIdIsNone():
+            if np is None:
+                self.supportCharacterId = []
+                for i in range(fixedEchelonSettingExcel.SupportCharacterIdLength()):
+                    self.supportCharacterId.append(fixedEchelonSettingExcel.SupportCharacterId(i))
+            else:
+                self.supportCharacterId = fixedEchelonSettingExcel.SupportCharacterIdAsNumpy()
+        if not fixedEchelonSettingExcel.SupportLevelIsNone():
+            if np is None:
+                self.supportLevel = []
+                for i in range(fixedEchelonSettingExcel.SupportLevelLength()):
+                    self.supportLevel.append(fixedEchelonSettingExcel.SupportLevel(i))
+            else:
+                self.supportLevel = fixedEchelonSettingExcel.SupportLevelAsNumpy()
+        if not fixedEchelonSettingExcel.SupportGradeIsNone():
+            if np is None:
+                self.supportGrade = []
+                for i in range(fixedEchelonSettingExcel.SupportGradeLength()):
+                    self.supportGrade.append(fixedEchelonSettingExcel.SupportGrade(i))
+            else:
+                self.supportGrade = fixedEchelonSettingExcel.SupportGradeAsNumpy()
+        if not fixedEchelonSettingExcel.SupportExSkillLevelIsNone():
+            if np is None:
+                self.supportExSkillLevel = []
+                for i in range(fixedEchelonSettingExcel.SupportExSkillLevelLength()):
+                    self.supportExSkillLevel.append(fixedEchelonSettingExcel.SupportExSkillLevel(i))
+            else:
+                self.supportExSkillLevel = fixedEchelonSettingExcel.SupportExSkillLevelAsNumpy()
+        if not fixedEchelonSettingExcel.SupportNoneExSkillLevelIsNone():
+            if np is None:
+                self.supportNoneExSkillLevel = []
+                for i in range(fixedEchelonSettingExcel.SupportNoneExSkillLevelLength()):
+                    self.supportNoneExSkillLevel.append(fixedEchelonSettingExcel.SupportNoneExSkillLevel(i))
+            else:
+                self.supportNoneExSkillLevel = fixedEchelonSettingExcel.SupportNoneExSkillLevelAsNumpy()
+        if not fixedEchelonSettingExcel.SupportEquipment1TierIsNone():
+            if np is None:
+                self.supportEquipment1Tier = []
+                for i in range(fixedEchelonSettingExcel.SupportEquipment1TierLength()):
+                    self.supportEquipment1Tier.append(fixedEchelonSettingExcel.SupportEquipment1Tier(i))
+            else:
+                self.supportEquipment1Tier = fixedEchelonSettingExcel.SupportEquipment1TierAsNumpy()
+        if not fixedEchelonSettingExcel.SupportEquipment1LevelIsNone():
+            if np is None:
+                self.supportEquipment1Level = []
+                for i in range(fixedEchelonSettingExcel.SupportEquipment1LevelLength()):
+                    self.supportEquipment1Level.append(fixedEchelonSettingExcel.SupportEquipment1Level(i))
+            else:
+                self.supportEquipment1Level = fixedEchelonSettingExcel.SupportEquipment1LevelAsNumpy()
+        if not fixedEchelonSettingExcel.SupportEquipment2TierIsNone():
+            if np is None:
+                self.supportEquipment2Tier = []
+                for i in range(fixedEchelonSettingExcel.SupportEquipment2TierLength()):
+                    self.supportEquipment2Tier.append(fixedEchelonSettingExcel.SupportEquipment2Tier(i))
+            else:
+                self.supportEquipment2Tier = fixedEchelonSettingExcel.SupportEquipment2TierAsNumpy()
+        if not fixedEchelonSettingExcel.SupportEquipment2LevelIsNone():
+            if np is None:
+                self.supportEquipment2Level = []
+                for i in range(fixedEchelonSettingExcel.SupportEquipment2LevelLength()):
+                    self.supportEquipment2Level.append(fixedEchelonSettingExcel.SupportEquipment2Level(i))
+            else:
+                self.supportEquipment2Level = fixedEchelonSettingExcel.SupportEquipment2LevelAsNumpy()
+        if not fixedEchelonSettingExcel.SupportEquipment3TierIsNone():
+            if np is None:
+                self.supportEquipment3Tier = []
+                for i in range(fixedEchelonSettingExcel.SupportEquipment3TierLength()):
+                    self.supportEquipment3Tier.append(fixedEchelonSettingExcel.SupportEquipment3Tier(i))
+            else:
+                self.supportEquipment3Tier = fixedEchelonSettingExcel.SupportEquipment3TierAsNumpy()
+        if not fixedEchelonSettingExcel.SupportEquipment3LevelIsNone():
+            if np is None:
+                self.supportEquipment3Level = []
+                for i in range(fixedEchelonSettingExcel.SupportEquipment3LevelLength()):
+                    self.supportEquipment3Level.append(fixedEchelonSettingExcel.SupportEquipment3Level(i))
+            else:
+                self.supportEquipment3Level = fixedEchelonSettingExcel.SupportEquipment3LevelAsNumpy()
+        if not fixedEchelonSettingExcel.SupportCharacterWeaponGradeIsNone():
+            if np is None:
+                self.supportCharacterWeaponGrade = []
+                for i in range(fixedEchelonSettingExcel.SupportCharacterWeaponGradeLength()):
+                    self.supportCharacterWeaponGrade.append(fixedEchelonSettingExcel.SupportCharacterWeaponGrade(i))
+            else:
+                self.supportCharacterWeaponGrade = fixedEchelonSettingExcel.SupportCharacterWeaponGradeAsNumpy()
+        if not fixedEchelonSettingExcel.SupportCharacterWeaponLevelIsNone():
+            if np is None:
+                self.supportCharacterWeaponLevel = []
+                for i in range(fixedEchelonSettingExcel.SupportCharacterWeaponLevelLength()):
+                    self.supportCharacterWeaponLevel.append(fixedEchelonSettingExcel.SupportCharacterWeaponLevel(i))
+            else:
+                self.supportCharacterWeaponLevel = fixedEchelonSettingExcel.SupportCharacterWeaponLevelAsNumpy()
+        if not fixedEchelonSettingExcel.SupportCharacterGearTierIsNone():
+            if np is None:
+                self.supportCharacterGearTier = []
+                for i in range(fixedEchelonSettingExcel.SupportCharacterGearTierLength()):
+                    self.supportCharacterGearTier.append(fixedEchelonSettingExcel.SupportCharacterGearTier(i))
+            else:
+                self.supportCharacterGearTier = fixedEchelonSettingExcel.SupportCharacterGearTierAsNumpy()
+        if not fixedEchelonSettingExcel.SupportCharacterGearLevelIsNone():
+            if np is None:
+                self.supportCharacterGearLevel = []
+                for i in range(fixedEchelonSettingExcel.SupportCharacterGearLevelLength()):
+                    self.supportCharacterGearLevel.append(fixedEchelonSettingExcel.SupportCharacterGearLevel(i))
+            else:
+                self.supportCharacterGearLevel = fixedEchelonSettingExcel.SupportCharacterGearLevelAsNumpy()
+        self.interactionTsCharacterId = fixedEchelonSettingExcel.InteractionTsCharacterId()
+
+    # FixedEchelonSettingExcelT
+    def Pack(self, builder):
+        if self.mainCharacterId is not None:
+            if np is not None and type(self.mainCharacterId) is np.ndarray:
+                mainCharacterId = builder.CreateNumpyVector(self.mainCharacterId)
+            else:
+                FixedEchelonSettingExcelStartMainCharacterIdVector(builder, len(self.mainCharacterId))
+                for i in reversed(range(len(self.mainCharacterId))):
+                    builder.PrependInt64(self.mainCharacterId[i])
+                mainCharacterId = builder.EndVector()
+        if self.mainLevel is not None:
+            if np is not None and type(self.mainLevel) is np.ndarray:
+                mainLevel = builder.CreateNumpyVector(self.mainLevel)
+            else:
+                FixedEchelonSettingExcelStartMainLevelVector(builder, len(self.mainLevel))
+                for i in reversed(range(len(self.mainLevel))):
+                    builder.PrependInt32(self.mainLevel[i])
+                mainLevel = builder.EndVector()
+        if self.mainGrade is not None:
+            if np is not None and type(self.mainGrade) is np.ndarray:
+                mainGrade = builder.CreateNumpyVector(self.mainGrade)
+            else:
+                FixedEchelonSettingExcelStartMainGradeVector(builder, len(self.mainGrade))
+                for i in reversed(range(len(self.mainGrade))):
+                    builder.PrependInt32(self.mainGrade[i])
+                mainGrade = builder.EndVector()
+        if self.mainExSkillLevel is not None:
+            if np is not None and type(self.mainExSkillLevel) is np.ndarray:
+                mainExSkillLevel = builder.CreateNumpyVector(self.mainExSkillLevel)
+            else:
+                FixedEchelonSettingExcelStartMainExSkillLevelVector(builder, len(self.mainExSkillLevel))
+                for i in reversed(range(len(self.mainExSkillLevel))):
+                    builder.PrependInt32(self.mainExSkillLevel[i])
+                mainExSkillLevel = builder.EndVector()
+        if self.mainNoneExSkillLevel is not None:
+            if np is not None and type(self.mainNoneExSkillLevel) is np.ndarray:
+                mainNoneExSkillLevel = builder.CreateNumpyVector(self.mainNoneExSkillLevel)
+            else:
+                FixedEchelonSettingExcelStartMainNoneExSkillLevelVector(builder, len(self.mainNoneExSkillLevel))
+                for i in reversed(range(len(self.mainNoneExSkillLevel))):
+                    builder.PrependInt32(self.mainNoneExSkillLevel[i])
+                mainNoneExSkillLevel = builder.EndVector()
+        if self.mainEquipment1Tier is not None:
+            if np is not None and type(self.mainEquipment1Tier) is np.ndarray:
+                mainEquipment1Tier = builder.CreateNumpyVector(self.mainEquipment1Tier)
+            else:
+                FixedEchelonSettingExcelStartMainEquipment1TierVector(builder, len(self.mainEquipment1Tier))
+                for i in reversed(range(len(self.mainEquipment1Tier))):
+                    builder.PrependInt32(self.mainEquipment1Tier[i])
+                mainEquipment1Tier = builder.EndVector()
+        if self.mainEquipment1Level is not None:
+            if np is not None and type(self.mainEquipment1Level) is np.ndarray:
+                mainEquipment1Level = builder.CreateNumpyVector(self.mainEquipment1Level)
+            else:
+                FixedEchelonSettingExcelStartMainEquipment1LevelVector(builder, len(self.mainEquipment1Level))
+                for i in reversed(range(len(self.mainEquipment1Level))):
+                    builder.PrependInt32(self.mainEquipment1Level[i])
+                mainEquipment1Level = builder.EndVector()
+        if self.mainEquipment2Tier is not None:
+            if np is not None and type(self.mainEquipment2Tier) is np.ndarray:
+                mainEquipment2Tier = builder.CreateNumpyVector(self.mainEquipment2Tier)
+            else:
+                FixedEchelonSettingExcelStartMainEquipment2TierVector(builder, len(self.mainEquipment2Tier))
+                for i in reversed(range(len(self.mainEquipment2Tier))):
+                    builder.PrependInt32(self.mainEquipment2Tier[i])
+                mainEquipment2Tier = builder.EndVector()
+        if self.mainEquipment2Level is not None:
+            if np is not None and type(self.mainEquipment2Level) is np.ndarray:
+                mainEquipment2Level = builder.CreateNumpyVector(self.mainEquipment2Level)
+            else:
+                FixedEchelonSettingExcelStartMainEquipment2LevelVector(builder, len(self.mainEquipment2Level))
+                for i in reversed(range(len(self.mainEquipment2Level))):
+                    builder.PrependInt32(self.mainEquipment2Level[i])
+                mainEquipment2Level = builder.EndVector()
+        if self.mainEquipment3Tier is not None:
+            if np is not None and type(self.mainEquipment3Tier) is np.ndarray:
+                mainEquipment3Tier = builder.CreateNumpyVector(self.mainEquipment3Tier)
+            else:
+                FixedEchelonSettingExcelStartMainEquipment3TierVector(builder, len(self.mainEquipment3Tier))
+                for i in reversed(range(len(self.mainEquipment3Tier))):
+                    builder.PrependInt32(self.mainEquipment3Tier[i])
+                mainEquipment3Tier = builder.EndVector()
+        if self.mainEquipment3Level is not None:
+            if np is not None and type(self.mainEquipment3Level) is np.ndarray:
+                mainEquipment3Level = builder.CreateNumpyVector(self.mainEquipment3Level)
+            else:
+                FixedEchelonSettingExcelStartMainEquipment3LevelVector(builder, len(self.mainEquipment3Level))
+                for i in reversed(range(len(self.mainEquipment3Level))):
+                    builder.PrependInt32(self.mainEquipment3Level[i])
+                mainEquipment3Level = builder.EndVector()
+        if self.mainCharacterWeaponGrade is not None:
+            if np is not None and type(self.mainCharacterWeaponGrade) is np.ndarray:
+                mainCharacterWeaponGrade = builder.CreateNumpyVector(self.mainCharacterWeaponGrade)
+            else:
+                FixedEchelonSettingExcelStartMainCharacterWeaponGradeVector(builder, len(self.mainCharacterWeaponGrade))
+                for i in reversed(range(len(self.mainCharacterWeaponGrade))):
+                    builder.PrependInt32(self.mainCharacterWeaponGrade[i])
+                mainCharacterWeaponGrade = builder.EndVector()
+        if self.mainCharacterWeaponLevel is not None:
+            if np is not None and type(self.mainCharacterWeaponLevel) is np.ndarray:
+                mainCharacterWeaponLevel = builder.CreateNumpyVector(self.mainCharacterWeaponLevel)
+            else:
+                FixedEchelonSettingExcelStartMainCharacterWeaponLevelVector(builder, len(self.mainCharacterWeaponLevel))
+                for i in reversed(range(len(self.mainCharacterWeaponLevel))):
+                    builder.PrependInt32(self.mainCharacterWeaponLevel[i])
+                mainCharacterWeaponLevel = builder.EndVector()
+        if self.mainCharacterGearTier is not None:
+            if np is not None and type(self.mainCharacterGearTier) is np.ndarray:
+                mainCharacterGearTier = builder.CreateNumpyVector(self.mainCharacterGearTier)
+            else:
+                FixedEchelonSettingExcelStartMainCharacterGearTierVector(builder, len(self.mainCharacterGearTier))
+                for i in reversed(range(len(self.mainCharacterGearTier))):
+                    builder.PrependInt32(self.mainCharacterGearTier[i])
+                mainCharacterGearTier = builder.EndVector()
+        if self.mainCharacterGearLevel is not None:
+            if np is not None and type(self.mainCharacterGearLevel) is np.ndarray:
+                mainCharacterGearLevel = builder.CreateNumpyVector(self.mainCharacterGearLevel)
+            else:
+                FixedEchelonSettingExcelStartMainCharacterGearLevelVector(builder, len(self.mainCharacterGearLevel))
+                for i in reversed(range(len(self.mainCharacterGearLevel))):
+                    builder.PrependInt32(self.mainCharacterGearLevel[i])
+                mainCharacterGearLevel = builder.EndVector()
+        if self.supportCharacterId is not None:
+            if np is not None and type(self.supportCharacterId) is np.ndarray:
+                supportCharacterId = builder.CreateNumpyVector(self.supportCharacterId)
+            else:
+                FixedEchelonSettingExcelStartSupportCharacterIdVector(builder, len(self.supportCharacterId))
+                for i in reversed(range(len(self.supportCharacterId))):
+                    builder.PrependInt64(self.supportCharacterId[i])
+                supportCharacterId = builder.EndVector()
+        if self.supportLevel is not None:
+            if np is not None and type(self.supportLevel) is np.ndarray:
+                supportLevel = builder.CreateNumpyVector(self.supportLevel)
+            else:
+                FixedEchelonSettingExcelStartSupportLevelVector(builder, len(self.supportLevel))
+                for i in reversed(range(len(self.supportLevel))):
+                    builder.PrependInt32(self.supportLevel[i])
+                supportLevel = builder.EndVector()
+        if self.supportGrade is not None:
+            if np is not None and type(self.supportGrade) is np.ndarray:
+                supportGrade = builder.CreateNumpyVector(self.supportGrade)
+            else:
+                FixedEchelonSettingExcelStartSupportGradeVector(builder, len(self.supportGrade))
+                for i in reversed(range(len(self.supportGrade))):
+                    builder.PrependInt32(self.supportGrade[i])
+                supportGrade = builder.EndVector()
+        if self.supportExSkillLevel is not None:
+            if np is not None and type(self.supportExSkillLevel) is np.ndarray:
+                supportExSkillLevel = builder.CreateNumpyVector(self.supportExSkillLevel)
+            else:
+                FixedEchelonSettingExcelStartSupportExSkillLevelVector(builder, len(self.supportExSkillLevel))
+                for i in reversed(range(len(self.supportExSkillLevel))):
+                    builder.PrependInt32(self.supportExSkillLevel[i])
+                supportExSkillLevel = builder.EndVector()
+        if self.supportNoneExSkillLevel is not None:
+            if np is not None and type(self.supportNoneExSkillLevel) is np.ndarray:
+                supportNoneExSkillLevel = builder.CreateNumpyVector(self.supportNoneExSkillLevel)
+            else:
+                FixedEchelonSettingExcelStartSupportNoneExSkillLevelVector(builder, len(self.supportNoneExSkillLevel))
+                for i in reversed(range(len(self.supportNoneExSkillLevel))):
+                    builder.PrependInt32(self.supportNoneExSkillLevel[i])
+                supportNoneExSkillLevel = builder.EndVector()
+        if self.supportEquipment1Tier is not None:
+            if np is not None and type(self.supportEquipment1Tier) is np.ndarray:
+                supportEquipment1Tier = builder.CreateNumpyVector(self.supportEquipment1Tier)
+            else:
+                FixedEchelonSettingExcelStartSupportEquipment1TierVector(builder, len(self.supportEquipment1Tier))
+                for i in reversed(range(len(self.supportEquipment1Tier))):
+                    builder.PrependInt32(self.supportEquipment1Tier[i])
+                supportEquipment1Tier = builder.EndVector()
+        if self.supportEquipment1Level is not None:
+            if np is not None and type(self.supportEquipment1Level) is np.ndarray:
+                supportEquipment1Level = builder.CreateNumpyVector(self.supportEquipment1Level)
+            else:
+                FixedEchelonSettingExcelStartSupportEquipment1LevelVector(builder, len(self.supportEquipment1Level))
+                for i in reversed(range(len(self.supportEquipment1Level))):
+                    builder.PrependInt32(self.supportEquipment1Level[i])
+                supportEquipment1Level = builder.EndVector()
+        if self.supportEquipment2Tier is not None:
+            if np is not None and type(self.supportEquipment2Tier) is np.ndarray:
+                supportEquipment2Tier = builder.CreateNumpyVector(self.supportEquipment2Tier)
+            else:
+                FixedEchelonSettingExcelStartSupportEquipment2TierVector(builder, len(self.supportEquipment2Tier))
+                for i in reversed(range(len(self.supportEquipment2Tier))):
+                    builder.PrependInt32(self.supportEquipment2Tier[i])
+                supportEquipment2Tier = builder.EndVector()
+        if self.supportEquipment2Level is not None:
+            if np is not None and type(self.supportEquipment2Level) is np.ndarray:
+                supportEquipment2Level = builder.CreateNumpyVector(self.supportEquipment2Level)
+            else:
+                FixedEchelonSettingExcelStartSupportEquipment2LevelVector(builder, len(self.supportEquipment2Level))
+                for i in reversed(range(len(self.supportEquipment2Level))):
+                    builder.PrependInt32(self.supportEquipment2Level[i])
+                supportEquipment2Level = builder.EndVector()
+        if self.supportEquipment3Tier is not None:
+            if np is not None and type(self.supportEquipment3Tier) is np.ndarray:
+                supportEquipment3Tier = builder.CreateNumpyVector(self.supportEquipment3Tier)
+            else:
+                FixedEchelonSettingExcelStartSupportEquipment3TierVector(builder, len(self.supportEquipment3Tier))
+                for i in reversed(range(len(self.supportEquipment3Tier))):
+                    builder.PrependInt32(self.supportEquipment3Tier[i])
+                supportEquipment3Tier = builder.EndVector()
+        if self.supportEquipment3Level is not None:
+            if np is not None and type(self.supportEquipment3Level) is np.ndarray:
+                supportEquipment3Level = builder.CreateNumpyVector(self.supportEquipment3Level)
+            else:
+                FixedEchelonSettingExcelStartSupportEquipment3LevelVector(builder, len(self.supportEquipment3Level))
+                for i in reversed(range(len(self.supportEquipment3Level))):
+                    builder.PrependInt32(self.supportEquipment3Level[i])
+                supportEquipment3Level = builder.EndVector()
+        if self.supportCharacterWeaponGrade is not None:
+            if np is not None and type(self.supportCharacterWeaponGrade) is np.ndarray:
+                supportCharacterWeaponGrade = builder.CreateNumpyVector(self.supportCharacterWeaponGrade)
+            else:
+                FixedEchelonSettingExcelStartSupportCharacterWeaponGradeVector(builder, len(self.supportCharacterWeaponGrade))
+                for i in reversed(range(len(self.supportCharacterWeaponGrade))):
+                    builder.PrependInt32(self.supportCharacterWeaponGrade[i])
+                supportCharacterWeaponGrade = builder.EndVector()
+        if self.supportCharacterWeaponLevel is not None:
+            if np is not None and type(self.supportCharacterWeaponLevel) is np.ndarray:
+                supportCharacterWeaponLevel = builder.CreateNumpyVector(self.supportCharacterWeaponLevel)
+            else:
+                FixedEchelonSettingExcelStartSupportCharacterWeaponLevelVector(builder, len(self.supportCharacterWeaponLevel))
+                for i in reversed(range(len(self.supportCharacterWeaponLevel))):
+                    builder.PrependInt32(self.supportCharacterWeaponLevel[i])
+                supportCharacterWeaponLevel = builder.EndVector()
+        if self.supportCharacterGearTier is not None:
+            if np is not None and type(self.supportCharacterGearTier) is np.ndarray:
+                supportCharacterGearTier = builder.CreateNumpyVector(self.supportCharacterGearTier)
+            else:
+                FixedEchelonSettingExcelStartSupportCharacterGearTierVector(builder, len(self.supportCharacterGearTier))
+                for i in reversed(range(len(self.supportCharacterGearTier))):
+                    builder.PrependInt32(self.supportCharacterGearTier[i])
+                supportCharacterGearTier = builder.EndVector()
+        if self.supportCharacterGearLevel is not None:
+            if np is not None and type(self.supportCharacterGearLevel) is np.ndarray:
+                supportCharacterGearLevel = builder.CreateNumpyVector(self.supportCharacterGearLevel)
+            else:
+                FixedEchelonSettingExcelStartSupportCharacterGearLevelVector(builder, len(self.supportCharacterGearLevel))
+                for i in reversed(range(len(self.supportCharacterGearLevel))):
+                    builder.PrependInt32(self.supportCharacterGearLevel[i])
+                supportCharacterGearLevel = builder.EndVector()
+        FixedEchelonSettingExcelStart(builder)
+        FixedEchelonSettingExcelAddFixedEchelonId(builder, self.fixedEchelonId)
+        FixedEchelonSettingExcelAddEchelonSceneSkip(builder, self.echelonSceneSkip)
+        FixedEchelonSettingExcelAddMainLeaderSlot(builder, self.mainLeaderSlot)
+        if self.mainCharacterId is not None:
+            FixedEchelonSettingExcelAddMainCharacterId(builder, mainCharacterId)
+        if self.mainLevel is not None:
+            FixedEchelonSettingExcelAddMainLevel(builder, mainLevel)
+        if self.mainGrade is not None:
+            FixedEchelonSettingExcelAddMainGrade(builder, mainGrade)
+        if self.mainExSkillLevel is not None:
+            FixedEchelonSettingExcelAddMainExSkillLevel(builder, mainExSkillLevel)
+        if self.mainNoneExSkillLevel is not None:
+            FixedEchelonSettingExcelAddMainNoneExSkillLevel(builder, mainNoneExSkillLevel)
+        if self.mainEquipment1Tier is not None:
+            FixedEchelonSettingExcelAddMainEquipment1Tier(builder, mainEquipment1Tier)
+        if self.mainEquipment1Level is not None:
+            FixedEchelonSettingExcelAddMainEquipment1Level(builder, mainEquipment1Level)
+        if self.mainEquipment2Tier is not None:
+            FixedEchelonSettingExcelAddMainEquipment2Tier(builder, mainEquipment2Tier)
+        if self.mainEquipment2Level is not None:
+            FixedEchelonSettingExcelAddMainEquipment2Level(builder, mainEquipment2Level)
+        if self.mainEquipment3Tier is not None:
+            FixedEchelonSettingExcelAddMainEquipment3Tier(builder, mainEquipment3Tier)
+        if self.mainEquipment3Level is not None:
+            FixedEchelonSettingExcelAddMainEquipment3Level(builder, mainEquipment3Level)
+        if self.mainCharacterWeaponGrade is not None:
+            FixedEchelonSettingExcelAddMainCharacterWeaponGrade(builder, mainCharacterWeaponGrade)
+        if self.mainCharacterWeaponLevel is not None:
+            FixedEchelonSettingExcelAddMainCharacterWeaponLevel(builder, mainCharacterWeaponLevel)
+        if self.mainCharacterGearTier is not None:
+            FixedEchelonSettingExcelAddMainCharacterGearTier(builder, mainCharacterGearTier)
+        if self.mainCharacterGearLevel is not None:
+            FixedEchelonSettingExcelAddMainCharacterGearLevel(builder, mainCharacterGearLevel)
+        if self.supportCharacterId is not None:
+            FixedEchelonSettingExcelAddSupportCharacterId(builder, supportCharacterId)
+        if self.supportLevel is not None:
+            FixedEchelonSettingExcelAddSupportLevel(builder, supportLevel)
+        if self.supportGrade is not None:
+            FixedEchelonSettingExcelAddSupportGrade(builder, supportGrade)
+        if self.supportExSkillLevel is not None:
+            FixedEchelonSettingExcelAddSupportExSkillLevel(builder, supportExSkillLevel)
+        if self.supportNoneExSkillLevel is not None:
+            FixedEchelonSettingExcelAddSupportNoneExSkillLevel(builder, supportNoneExSkillLevel)
+        if self.supportEquipment1Tier is not None:
+            FixedEchelonSettingExcelAddSupportEquipment1Tier(builder, supportEquipment1Tier)
+        if self.supportEquipment1Level is not None:
+            FixedEchelonSettingExcelAddSupportEquipment1Level(builder, supportEquipment1Level)
+        if self.supportEquipment2Tier is not None:
+            FixedEchelonSettingExcelAddSupportEquipment2Tier(builder, supportEquipment2Tier)
+        if self.supportEquipment2Level is not None:
+            FixedEchelonSettingExcelAddSupportEquipment2Level(builder, supportEquipment2Level)
+        if self.supportEquipment3Tier is not None:
+            FixedEchelonSettingExcelAddSupportEquipment3Tier(builder, supportEquipment3Tier)
+        if self.supportEquipment3Level is not None:
+            FixedEchelonSettingExcelAddSupportEquipment3Level(builder, supportEquipment3Level)
+        if self.supportCharacterWeaponGrade is not None:
+            FixedEchelonSettingExcelAddSupportCharacterWeaponGrade(builder, supportCharacterWeaponGrade)
+        if self.supportCharacterWeaponLevel is not None:
+            FixedEchelonSettingExcelAddSupportCharacterWeaponLevel(builder, supportCharacterWeaponLevel)
+        if self.supportCharacterGearTier is not None:
+            FixedEchelonSettingExcelAddSupportCharacterGearTier(builder, supportCharacterGearTier)
+        if self.supportCharacterGearLevel is not None:
+            FixedEchelonSettingExcelAddSupportCharacterGearLevel(builder, supportCharacterGearLevel)
+        FixedEchelonSettingExcelAddInteractionTsCharacterId(builder, self.interactionTsCharacterId)
+        fixedEchelonSettingExcel = FixedEchelonSettingExcelEnd(builder)
+        return fixedEchelonSettingExcel

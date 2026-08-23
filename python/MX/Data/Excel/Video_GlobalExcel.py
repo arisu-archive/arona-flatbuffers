@@ -152,3 +152,99 @@ def Video_GlobalExcelEnd(builder):
 
 def End(builder):
     return Video_GlobalExcelEnd(builder)
+
+
+class Video_GlobalExcelT(object):
+
+    # Video_GlobalExcelT
+    def __init__(
+        self,
+        videoId = 0,
+        videoPathKr = None,
+        videoTeenPathKr = None,
+        videoPathTh = None,
+        videoTeenPathTh = None,
+        videoPathTw = None,
+        videoTeenPathTw = None,
+        videoPathEn = None,
+        videoTeenPathEn = None,
+    ):
+        self.videoId = videoId  # type: int
+        self.videoPathKr = videoPathKr  # type: Optional[str]
+        self.videoTeenPathKr = videoTeenPathKr  # type: Optional[str]
+        self.videoPathTh = videoPathTh  # type: Optional[str]
+        self.videoTeenPathTh = videoTeenPathTh  # type: Optional[str]
+        self.videoPathTw = videoPathTw  # type: Optional[str]
+        self.videoTeenPathTw = videoTeenPathTw  # type: Optional[str]
+        self.videoPathEn = videoPathEn  # type: Optional[str]
+        self.videoTeenPathEn = videoTeenPathEn  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        videoGlobalExcel = Video_GlobalExcel()
+        videoGlobalExcel.Init(buf, pos)
+        return cls.InitFromObj(videoGlobalExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, videoGlobalExcel):
+        x = Video_GlobalExcelT()
+        x._UnPack(videoGlobalExcel)
+        return x
+
+    # Video_GlobalExcelT
+    def _UnPack(self, videoGlobalExcel):
+        if videoGlobalExcel is None:
+            return
+        self.videoId = videoGlobalExcel.VideoId()
+        self.videoPathKr = videoGlobalExcel.VideoPathKr()
+        self.videoTeenPathKr = videoGlobalExcel.VideoTeenPathKr()
+        self.videoPathTh = videoGlobalExcel.VideoPathTh()
+        self.videoTeenPathTh = videoGlobalExcel.VideoTeenPathTh()
+        self.videoPathTw = videoGlobalExcel.VideoPathTw()
+        self.videoTeenPathTw = videoGlobalExcel.VideoTeenPathTw()
+        self.videoPathEn = videoGlobalExcel.VideoPathEn()
+        self.videoTeenPathEn = videoGlobalExcel.VideoTeenPathEn()
+
+    # Video_GlobalExcelT
+    def Pack(self, builder):
+        if self.videoPathKr is not None:
+            videoPathKr = builder.CreateString(self.videoPathKr)
+        if self.videoTeenPathKr is not None:
+            videoTeenPathKr = builder.CreateString(self.videoTeenPathKr)
+        if self.videoPathTh is not None:
+            videoPathTh = builder.CreateString(self.videoPathTh)
+        if self.videoTeenPathTh is not None:
+            videoTeenPathTh = builder.CreateString(self.videoTeenPathTh)
+        if self.videoPathTw is not None:
+            videoPathTw = builder.CreateString(self.videoPathTw)
+        if self.videoTeenPathTw is not None:
+            videoTeenPathTw = builder.CreateString(self.videoTeenPathTw)
+        if self.videoPathEn is not None:
+            videoPathEn = builder.CreateString(self.videoPathEn)
+        if self.videoTeenPathEn is not None:
+            videoTeenPathEn = builder.CreateString(self.videoTeenPathEn)
+        Video_GlobalExcelStart(builder)
+        Video_GlobalExcelAddVideoId(builder, self.videoId)
+        if self.videoPathKr is not None:
+            Video_GlobalExcelAddVideoPathKr(builder, videoPathKr)
+        if self.videoTeenPathKr is not None:
+            Video_GlobalExcelAddVideoTeenPathKr(builder, videoTeenPathKr)
+        if self.videoPathTh is not None:
+            Video_GlobalExcelAddVideoPathTh(builder, videoPathTh)
+        if self.videoTeenPathTh is not None:
+            Video_GlobalExcelAddVideoTeenPathTh(builder, videoTeenPathTh)
+        if self.videoPathTw is not None:
+            Video_GlobalExcelAddVideoPathTw(builder, videoPathTw)
+        if self.videoTeenPathTw is not None:
+            Video_GlobalExcelAddVideoTeenPathTw(builder, videoTeenPathTw)
+        if self.videoPathEn is not None:
+            Video_GlobalExcelAddVideoPathEn(builder, videoPathEn)
+        if self.videoTeenPathEn is not None:
+            Video_GlobalExcelAddVideoTeenPathEn(builder, videoTeenPathEn)
+        videoGlobalExcel = Video_GlobalExcelEnd(builder)
+        return videoGlobalExcel

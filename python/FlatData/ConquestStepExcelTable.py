@@ -72,3 +72,68 @@ def ConquestStepExcelTableEnd(builder):
 
 def End(builder):
     return ConquestStepExcelTableEnd(builder)
+
+import FlatData.ConquestStepExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConquestStepExcelTableT(object):
+
+    # ConquestStepExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConquestStepExcel.ConquestStepExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestStepExcelTable = ConquestStepExcelTable()
+        conquestStepExcelTable.Init(buf, pos)
+        return cls.InitFromObj(conquestStepExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestStepExcelTable):
+        x = ConquestStepExcelTableT()
+        x._UnPack(conquestStepExcelTable)
+        return x
+
+    # ConquestStepExcelTableT
+    def _UnPack(self, conquestStepExcelTable):
+        if conquestStepExcelTable is None:
+            return
+        if not conquestStepExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(conquestStepExcelTable.DataListLength()):
+                if conquestStepExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    conquestStepExcel_ = FlatData.ConquestStepExcel.ConquestStepExcelT.InitFromObj(conquestStepExcelTable.DataList(i))
+                    self.dataList.append(conquestStepExcel_)
+
+    # ConquestStepExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConquestStepExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConquestStepExcelTableStart(builder)
+        if self.dataList is not None:
+            ConquestStepExcelTableAddDataList(builder, dataList)
+        conquestStepExcelTable = ConquestStepExcelTableEnd(builder)
+        return conquestStepExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConquestStepExcelTableT, 'ConquestStepExcelTable', ())

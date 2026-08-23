@@ -171,3 +171,105 @@ def VoiceExcelEnd(builder):
 
 def End(builder):
     return VoiceExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class VoiceExcelT(object):
+
+    # VoiceExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        id = 0,
+        nation = None,
+        path = None,
+        volume = None,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.id = id  # type: int
+        self.nation = nation  # type: Optional[List[int]]
+        self.path = path  # type: Optional[List[Optional[str]]]
+        self.volume = volume  # type: Optional[List[float]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        voiceExcel = VoiceExcel()
+        voiceExcel.Init(buf, pos)
+        return cls.InitFromObj(voiceExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, voiceExcel):
+        x = VoiceExcelT()
+        x._UnPack(voiceExcel)
+        return x
+
+    # VoiceExcelT
+    def _UnPack(self, voiceExcel):
+        if voiceExcel is None:
+            return
+        self.uniqueId = voiceExcel.UniqueId()
+        self.id = voiceExcel.Id()
+        if not voiceExcel.NationIsNone():
+            if np is None:
+                self.nation = []
+                for i in range(voiceExcel.NationLength()):
+                    self.nation.append(voiceExcel.Nation(i))
+            else:
+                self.nation = voiceExcel.NationAsNumpy()
+        if not voiceExcel.PathIsNone():
+            self.path = []
+            for i in range(voiceExcel.PathLength()):
+                self.path.append(voiceExcel.Path(i))
+        if not voiceExcel.VolumeIsNone():
+            if np is None:
+                self.volume = []
+                for i in range(voiceExcel.VolumeLength()):
+                    self.volume.append(voiceExcel.Volume(i))
+            else:
+                self.volume = voiceExcel.VolumeAsNumpy()
+
+    # VoiceExcelT
+    def Pack(self, builder):
+        if self.nation is not None:
+            if np is not None and type(self.nation) is np.ndarray:
+                nation = builder.CreateNumpyVector(self.nation)
+            else:
+                VoiceExcelStartNationVector(builder, len(self.nation))
+                for i in reversed(range(len(self.nation))):
+                    builder.PrependInt32(self.nation[i])
+                nation = builder.EndVector()
+        if self.path is not None:
+            pathlist = []
+            for i in range(len(self.path)):
+                pathlist.append(builder.CreateString(self.path[i]))
+            VoiceExcelStartPathVector(builder, len(self.path))
+            for i in reversed(range(len(self.path))):
+                builder.PrependUOffsetTRelative(pathlist[i])
+            path = builder.EndVector()
+        if self.volume is not None:
+            if np is not None and type(self.volume) is np.ndarray:
+                volume = builder.CreateNumpyVector(self.volume)
+            else:
+                VoiceExcelStartVolumeVector(builder, len(self.volume))
+                for i in reversed(range(len(self.volume))):
+                    builder.PrependFloat32(self.volume[i])
+                volume = builder.EndVector()
+        VoiceExcelStart(builder)
+        VoiceExcelAddUniqueId(builder, self.uniqueId)
+        VoiceExcelAddId(builder, self.id)
+        if self.nation is not None:
+            VoiceExcelAddNation(builder, nation)
+        if self.path is not None:
+            VoiceExcelAddPath(builder, path)
+        if self.volume is not None:
+            VoiceExcelAddVolume(builder, volume)
+        voiceExcel = VoiceExcelEnd(builder)
+        return voiceExcel

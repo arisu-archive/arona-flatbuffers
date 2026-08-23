@@ -100,3 +100,62 @@ def TimeAttackDungeonExcelEnd(builder):
 
 def End(builder):
     return TimeAttackDungeonExcelEnd(builder)
+
+
+class TimeAttackDungeonExcelT(object):
+
+    # TimeAttackDungeonExcelT
+    def __init__(
+        self,
+        id = 0,
+        timeAttackDungeonType = 0,
+        localizeEtcKey = 0,
+        iconPath = None,
+        informationGroupId = 0,
+    ):
+        self.id = id  # type: int
+        self.timeAttackDungeonType = timeAttackDungeonType  # type: int
+        self.localizeEtcKey = localizeEtcKey  # type: int
+        self.iconPath = iconPath  # type: Optional[str]
+        self.informationGroupId = informationGroupId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        timeAttackDungeonExcel = TimeAttackDungeonExcel()
+        timeAttackDungeonExcel.Init(buf, pos)
+        return cls.InitFromObj(timeAttackDungeonExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, timeAttackDungeonExcel):
+        x = TimeAttackDungeonExcelT()
+        x._UnPack(timeAttackDungeonExcel)
+        return x
+
+    # TimeAttackDungeonExcelT
+    def _UnPack(self, timeAttackDungeonExcel):
+        if timeAttackDungeonExcel is None:
+            return
+        self.id = timeAttackDungeonExcel.Id()
+        self.timeAttackDungeonType = timeAttackDungeonExcel.TimeAttackDungeonType()
+        self.localizeEtcKey = timeAttackDungeonExcel.LocalizeEtcKey()
+        self.iconPath = timeAttackDungeonExcel.IconPath()
+        self.informationGroupId = timeAttackDungeonExcel.InformationGroupId()
+
+    # TimeAttackDungeonExcelT
+    def Pack(self, builder):
+        if self.iconPath is not None:
+            iconPath = builder.CreateString(self.iconPath)
+        TimeAttackDungeonExcelStart(builder)
+        TimeAttackDungeonExcelAddId(builder, self.id)
+        TimeAttackDungeonExcelAddTimeAttackDungeonType(builder, self.timeAttackDungeonType)
+        TimeAttackDungeonExcelAddLocalizeEtcKey(builder, self.localizeEtcKey)
+        if self.iconPath is not None:
+            TimeAttackDungeonExcelAddIconPath(builder, iconPath)
+        TimeAttackDungeonExcelAddInformationGroupId(builder, self.informationGroupId)
+        timeAttackDungeonExcel = TimeAttackDungeonExcelEnd(builder)
+        return timeAttackDungeonExcel

@@ -113,3 +113,63 @@ def MiniGameDreamDailyPointExcelEnd(builder):
 
 def End(builder):
     return MiniGameDreamDailyPointExcelEnd(builder)
+
+
+class MiniGameDreamDailyPointExcelT(object):
+
+    # MiniGameDreamDailyPointExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        eventContentId = 0,
+        totalParameterMin = 0,
+        totalParameterMax = 0,
+        dailyPointCoefficient = 0,
+        dailyPointCorrectionValue = 0,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.eventContentId = eventContentId  # type: int
+        self.totalParameterMin = totalParameterMin  # type: int
+        self.totalParameterMax = totalParameterMax  # type: int
+        self.dailyPointCoefficient = dailyPointCoefficient  # type: int
+        self.dailyPointCorrectionValue = dailyPointCorrectionValue  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDreamDailyPointExcel = MiniGameDreamDailyPointExcel()
+        miniGameDreamDailyPointExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDreamDailyPointExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDreamDailyPointExcel):
+        x = MiniGameDreamDailyPointExcelT()
+        x._UnPack(miniGameDreamDailyPointExcel)
+        return x
+
+    # MiniGameDreamDailyPointExcelT
+    def _UnPack(self, miniGameDreamDailyPointExcel):
+        if miniGameDreamDailyPointExcel is None:
+            return
+        self.uniqueId = miniGameDreamDailyPointExcel.UniqueId()
+        self.eventContentId = miniGameDreamDailyPointExcel.EventContentId()
+        self.totalParameterMin = miniGameDreamDailyPointExcel.TotalParameterMin()
+        self.totalParameterMax = miniGameDreamDailyPointExcel.TotalParameterMax()
+        self.dailyPointCoefficient = miniGameDreamDailyPointExcel.DailyPointCoefficient()
+        self.dailyPointCorrectionValue = miniGameDreamDailyPointExcel.DailyPointCorrectionValue()
+
+    # MiniGameDreamDailyPointExcelT
+    def Pack(self, builder):
+        MiniGameDreamDailyPointExcelStart(builder)
+        MiniGameDreamDailyPointExcelAddUniqueId(builder, self.uniqueId)
+        MiniGameDreamDailyPointExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameDreamDailyPointExcelAddTotalParameterMin(builder, self.totalParameterMin)
+        MiniGameDreamDailyPointExcelAddTotalParameterMax(builder, self.totalParameterMax)
+        MiniGameDreamDailyPointExcelAddDailyPointCoefficient(builder, self.dailyPointCoefficient)
+        MiniGameDreamDailyPointExcelAddDailyPointCorrectionValue(builder, self.dailyPointCorrectionValue)
+        miniGameDreamDailyPointExcel = MiniGameDreamDailyPointExcelEnd(builder)
+        return miniGameDreamDailyPointExcel

@@ -222,3 +222,133 @@ def VideoExcelEnd(builder):
 
 def End(builder):
     return VideoExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class VideoExcelT(object):
+
+    # VideoExcelT
+    def __init__(
+        self,
+        id = 0,
+        nation = None,
+        videoPath = None,
+        videoTeenPath = None,
+        soundPath = None,
+        soundVolume = None,
+    ):
+        self.id = id  # type: int
+        self.nation = nation  # type: Optional[List[int]]
+        self.videoPath = videoPath  # type: Optional[List[Optional[str]]]
+        self.videoTeenPath = videoTeenPath  # type: Optional[List[Optional[str]]]
+        self.soundPath = soundPath  # type: Optional[List[Optional[str]]]
+        self.soundVolume = soundVolume  # type: Optional[List[float]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        videoExcel = VideoExcel()
+        videoExcel.Init(buf, pos)
+        return cls.InitFromObj(videoExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, videoExcel):
+        x = VideoExcelT()
+        x._UnPack(videoExcel)
+        return x
+
+    # VideoExcelT
+    def _UnPack(self, videoExcel):
+        if videoExcel is None:
+            return
+        self.id = videoExcel.Id()
+        if not videoExcel.NationIsNone():
+            if np is None:
+                self.nation = []
+                for i in range(videoExcel.NationLength()):
+                    self.nation.append(videoExcel.Nation(i))
+            else:
+                self.nation = videoExcel.NationAsNumpy()
+        if not videoExcel.VideoPathIsNone():
+            self.videoPath = []
+            for i in range(videoExcel.VideoPathLength()):
+                self.videoPath.append(videoExcel.VideoPath(i))
+        if not videoExcel.VideoTeenPathIsNone():
+            self.videoTeenPath = []
+            for i in range(videoExcel.VideoTeenPathLength()):
+                self.videoTeenPath.append(videoExcel.VideoTeenPath(i))
+        if not videoExcel.SoundPathIsNone():
+            self.soundPath = []
+            for i in range(videoExcel.SoundPathLength()):
+                self.soundPath.append(videoExcel.SoundPath(i))
+        if not videoExcel.SoundVolumeIsNone():
+            if np is None:
+                self.soundVolume = []
+                for i in range(videoExcel.SoundVolumeLength()):
+                    self.soundVolume.append(videoExcel.SoundVolume(i))
+            else:
+                self.soundVolume = videoExcel.SoundVolumeAsNumpy()
+
+    # VideoExcelT
+    def Pack(self, builder):
+        if self.nation is not None:
+            if np is not None and type(self.nation) is np.ndarray:
+                nation = builder.CreateNumpyVector(self.nation)
+            else:
+                VideoExcelStartNationVector(builder, len(self.nation))
+                for i in reversed(range(len(self.nation))):
+                    builder.PrependInt32(self.nation[i])
+                nation = builder.EndVector()
+        if self.videoPath is not None:
+            videoPathlist = []
+            for i in range(len(self.videoPath)):
+                videoPathlist.append(builder.CreateString(self.videoPath[i]))
+            VideoExcelStartVideoPathVector(builder, len(self.videoPath))
+            for i in reversed(range(len(self.videoPath))):
+                builder.PrependUOffsetTRelative(videoPathlist[i])
+            videoPath = builder.EndVector()
+        if self.videoTeenPath is not None:
+            videoTeenPathlist = []
+            for i in range(len(self.videoTeenPath)):
+                videoTeenPathlist.append(builder.CreateString(self.videoTeenPath[i]))
+            VideoExcelStartVideoTeenPathVector(builder, len(self.videoTeenPath))
+            for i in reversed(range(len(self.videoTeenPath))):
+                builder.PrependUOffsetTRelative(videoTeenPathlist[i])
+            videoTeenPath = builder.EndVector()
+        if self.soundPath is not None:
+            soundPathlist = []
+            for i in range(len(self.soundPath)):
+                soundPathlist.append(builder.CreateString(self.soundPath[i]))
+            VideoExcelStartSoundPathVector(builder, len(self.soundPath))
+            for i in reversed(range(len(self.soundPath))):
+                builder.PrependUOffsetTRelative(soundPathlist[i])
+            soundPath = builder.EndVector()
+        if self.soundVolume is not None:
+            if np is not None and type(self.soundVolume) is np.ndarray:
+                soundVolume = builder.CreateNumpyVector(self.soundVolume)
+            else:
+                VideoExcelStartSoundVolumeVector(builder, len(self.soundVolume))
+                for i in reversed(range(len(self.soundVolume))):
+                    builder.PrependFloat32(self.soundVolume[i])
+                soundVolume = builder.EndVector()
+        VideoExcelStart(builder)
+        VideoExcelAddId(builder, self.id)
+        if self.nation is not None:
+            VideoExcelAddNation(builder, nation)
+        if self.videoPath is not None:
+            VideoExcelAddVideoPath(builder, videoPath)
+        if self.videoTeenPath is not None:
+            VideoExcelAddVideoTeenPath(builder, videoTeenPath)
+        if self.soundPath is not None:
+            VideoExcelAddSoundPath(builder, soundPath)
+        if self.soundVolume is not None:
+            VideoExcelAddSoundVolume(builder, soundVolume)
+        videoExcel = VideoExcelEnd(builder)
+        return videoExcel

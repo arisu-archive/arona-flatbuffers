@@ -87,3 +87,58 @@ def ShopFreeRecruitPeriodExcelEnd(builder):
 
 def End(builder):
     return ShopFreeRecruitPeriodExcelEnd(builder)
+
+
+class ShopFreeRecruitPeriodExcelT(object):
+
+    # ShopFreeRecruitPeriodExcelT
+    def __init__(
+        self,
+        shopFreeRecruitId = 0,
+        shopFreeRecruitIntervalId = 0,
+        intervalDate = None,
+        freeRecruitCount = 0,
+    ):
+        self.shopFreeRecruitId = shopFreeRecruitId  # type: int
+        self.shopFreeRecruitIntervalId = shopFreeRecruitIntervalId  # type: int
+        self.intervalDate = intervalDate  # type: Optional[str]
+        self.freeRecruitCount = freeRecruitCount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        shopFreeRecruitPeriodExcel = ShopFreeRecruitPeriodExcel()
+        shopFreeRecruitPeriodExcel.Init(buf, pos)
+        return cls.InitFromObj(shopFreeRecruitPeriodExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, shopFreeRecruitPeriodExcel):
+        x = ShopFreeRecruitPeriodExcelT()
+        x._UnPack(shopFreeRecruitPeriodExcel)
+        return x
+
+    # ShopFreeRecruitPeriodExcelT
+    def _UnPack(self, shopFreeRecruitPeriodExcel):
+        if shopFreeRecruitPeriodExcel is None:
+            return
+        self.shopFreeRecruitId = shopFreeRecruitPeriodExcel.ShopFreeRecruitId()
+        self.shopFreeRecruitIntervalId = shopFreeRecruitPeriodExcel.ShopFreeRecruitIntervalId()
+        self.intervalDate = shopFreeRecruitPeriodExcel.IntervalDate()
+        self.freeRecruitCount = shopFreeRecruitPeriodExcel.FreeRecruitCount()
+
+    # ShopFreeRecruitPeriodExcelT
+    def Pack(self, builder):
+        if self.intervalDate is not None:
+            intervalDate = builder.CreateString(self.intervalDate)
+        ShopFreeRecruitPeriodExcelStart(builder)
+        ShopFreeRecruitPeriodExcelAddShopFreeRecruitId(builder, self.shopFreeRecruitId)
+        ShopFreeRecruitPeriodExcelAddShopFreeRecruitIntervalId(builder, self.shopFreeRecruitIntervalId)
+        if self.intervalDate is not None:
+            ShopFreeRecruitPeriodExcelAddIntervalDate(builder, intervalDate)
+        ShopFreeRecruitPeriodExcelAddFreeRecruitCount(builder, self.freeRecruitCount)
+        shopFreeRecruitPeriodExcel = ShopFreeRecruitPeriodExcelEnd(builder)
+        return shopFreeRecruitPeriodExcel

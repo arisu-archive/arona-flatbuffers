@@ -178,3 +178,101 @@ def AcademyZoneExcelEnd(builder):
 
 def End(builder):
     return AcademyZoneExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class AcademyZoneExcelT(object):
+
+    # AcademyZoneExcelT
+    def __init__(
+        self,
+        id = 0,
+        locationId = 0,
+        locationRankForUnlock = 0,
+        localizeEtcId = 0,
+        studentVisitProb = None,
+        rewardGroupId = 0,
+        tags = None,
+    ):
+        self.id = id  # type: int
+        self.locationId = locationId  # type: int
+        self.locationRankForUnlock = locationRankForUnlock  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.studentVisitProb = studentVisitProb  # type: Optional[List[int]]
+        self.rewardGroupId = rewardGroupId  # type: int
+        self.tags = tags  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        academyZoneExcel = AcademyZoneExcel()
+        academyZoneExcel.Init(buf, pos)
+        return cls.InitFromObj(academyZoneExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, academyZoneExcel):
+        x = AcademyZoneExcelT()
+        x._UnPack(academyZoneExcel)
+        return x
+
+    # AcademyZoneExcelT
+    def _UnPack(self, academyZoneExcel):
+        if academyZoneExcel is None:
+            return
+        self.id = academyZoneExcel.Id()
+        self.locationId = academyZoneExcel.LocationId()
+        self.locationRankForUnlock = academyZoneExcel.LocationRankForUnlock()
+        self.localizeEtcId = academyZoneExcel.LocalizeEtcId()
+        if not academyZoneExcel.StudentVisitProbIsNone():
+            if np is None:
+                self.studentVisitProb = []
+                for i in range(academyZoneExcel.StudentVisitProbLength()):
+                    self.studentVisitProb.append(academyZoneExcel.StudentVisitProb(i))
+            else:
+                self.studentVisitProb = academyZoneExcel.StudentVisitProbAsNumpy()
+        self.rewardGroupId = academyZoneExcel.RewardGroupId()
+        if not academyZoneExcel.TagsIsNone():
+            if np is None:
+                self.tags = []
+                for i in range(academyZoneExcel.TagsLength()):
+                    self.tags.append(academyZoneExcel.Tags(i))
+            else:
+                self.tags = academyZoneExcel.TagsAsNumpy()
+
+    # AcademyZoneExcelT
+    def Pack(self, builder):
+        if self.studentVisitProb is not None:
+            if np is not None and type(self.studentVisitProb) is np.ndarray:
+                studentVisitProb = builder.CreateNumpyVector(self.studentVisitProb)
+            else:
+                AcademyZoneExcelStartStudentVisitProbVector(builder, len(self.studentVisitProb))
+                for i in reversed(range(len(self.studentVisitProb))):
+                    builder.PrependInt64(self.studentVisitProb[i])
+                studentVisitProb = builder.EndVector()
+        if self.tags is not None:
+            if np is not None and type(self.tags) is np.ndarray:
+                tags = builder.CreateNumpyVector(self.tags)
+            else:
+                AcademyZoneExcelStartTagsVector(builder, len(self.tags))
+                for i in reversed(range(len(self.tags))):
+                    builder.PrependInt32(self.tags[i])
+                tags = builder.EndVector()
+        AcademyZoneExcelStart(builder)
+        AcademyZoneExcelAddId(builder, self.id)
+        AcademyZoneExcelAddLocationId(builder, self.locationId)
+        AcademyZoneExcelAddLocationRankForUnlock(builder, self.locationRankForUnlock)
+        AcademyZoneExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        if self.studentVisitProb is not None:
+            AcademyZoneExcelAddStudentVisitProb(builder, studentVisitProb)
+        AcademyZoneExcelAddRewardGroupId(builder, self.rewardGroupId)
+        if self.tags is not None:
+            AcademyZoneExcelAddTags(builder, tags)
+        academyZoneExcel = AcademyZoneExcelEnd(builder)
+        return academyZoneExcel

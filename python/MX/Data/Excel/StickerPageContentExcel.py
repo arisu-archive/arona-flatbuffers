@@ -269,3 +269,138 @@ def StickerPageContentExcelEnd(builder):
 
 def End(builder):
     return StickerPageContentExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class StickerPageContentExcelT(object):
+
+    # StickerPageContentExcelT
+    def __init__(
+        self,
+        id = 0,
+        stickerGroupId = 0,
+        stickerPageId = 0,
+        stickerSlot = 0,
+        stickerGetConditionType = 0,
+        stickerCheckPassType = 0,
+        getStickerConditionType = 0,
+        stickerGetConditionCount = 0,
+        stickerGetConditionParameter = None,
+        stickerGetConditionParameterTag = None,
+        packedStickerIconLocalizeEtcId = 0,
+        packedStickerIconPath = None,
+        iconPath = None,
+        stickerDetailPath = None,
+    ):
+        self.id = id  # type: int
+        self.stickerGroupId = stickerGroupId  # type: int
+        self.stickerPageId = stickerPageId  # type: int
+        self.stickerSlot = stickerSlot  # type: int
+        self.stickerGetConditionType = stickerGetConditionType  # type: int
+        self.stickerCheckPassType = stickerCheckPassType  # type: int
+        self.getStickerConditionType = getStickerConditionType  # type: int
+        self.stickerGetConditionCount = stickerGetConditionCount  # type: int
+        self.stickerGetConditionParameter = stickerGetConditionParameter  # type: Optional[List[int]]
+        self.stickerGetConditionParameterTag = stickerGetConditionParameterTag  # type: Optional[List[int]]
+        self.packedStickerIconLocalizeEtcId = packedStickerIconLocalizeEtcId  # type: int
+        self.packedStickerIconPath = packedStickerIconPath  # type: Optional[str]
+        self.iconPath = iconPath  # type: Optional[str]
+        self.stickerDetailPath = stickerDetailPath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        stickerPageContentExcel = StickerPageContentExcel()
+        stickerPageContentExcel.Init(buf, pos)
+        return cls.InitFromObj(stickerPageContentExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, stickerPageContentExcel):
+        x = StickerPageContentExcelT()
+        x._UnPack(stickerPageContentExcel)
+        return x
+
+    # StickerPageContentExcelT
+    def _UnPack(self, stickerPageContentExcel):
+        if stickerPageContentExcel is None:
+            return
+        self.id = stickerPageContentExcel.Id()
+        self.stickerGroupId = stickerPageContentExcel.StickerGroupId()
+        self.stickerPageId = stickerPageContentExcel.StickerPageId()
+        self.stickerSlot = stickerPageContentExcel.StickerSlot()
+        self.stickerGetConditionType = stickerPageContentExcel.StickerGetConditionType()
+        self.stickerCheckPassType = stickerPageContentExcel.StickerCheckPassType()
+        self.getStickerConditionType = stickerPageContentExcel.GetStickerConditionType()
+        self.stickerGetConditionCount = stickerPageContentExcel.StickerGetConditionCount()
+        if not stickerPageContentExcel.StickerGetConditionParameterIsNone():
+            if np is None:
+                self.stickerGetConditionParameter = []
+                for i in range(stickerPageContentExcel.StickerGetConditionParameterLength()):
+                    self.stickerGetConditionParameter.append(stickerPageContentExcel.StickerGetConditionParameter(i))
+            else:
+                self.stickerGetConditionParameter = stickerPageContentExcel.StickerGetConditionParameterAsNumpy()
+        if not stickerPageContentExcel.StickerGetConditionParameterTagIsNone():
+            if np is None:
+                self.stickerGetConditionParameterTag = []
+                for i in range(stickerPageContentExcel.StickerGetConditionParameterTagLength()):
+                    self.stickerGetConditionParameterTag.append(stickerPageContentExcel.StickerGetConditionParameterTag(i))
+            else:
+                self.stickerGetConditionParameterTag = stickerPageContentExcel.StickerGetConditionParameterTagAsNumpy()
+        self.packedStickerIconLocalizeEtcId = stickerPageContentExcel.PackedStickerIconLocalizeEtcId()
+        self.packedStickerIconPath = stickerPageContentExcel.PackedStickerIconPath()
+        self.iconPath = stickerPageContentExcel.IconPath()
+        self.stickerDetailPath = stickerPageContentExcel.StickerDetailPath()
+
+    # StickerPageContentExcelT
+    def Pack(self, builder):
+        if self.stickerGetConditionParameter is not None:
+            if np is not None and type(self.stickerGetConditionParameter) is np.ndarray:
+                stickerGetConditionParameter = builder.CreateNumpyVector(self.stickerGetConditionParameter)
+            else:
+                StickerPageContentExcelStartStickerGetConditionParameterVector(builder, len(self.stickerGetConditionParameter))
+                for i in reversed(range(len(self.stickerGetConditionParameter))):
+                    builder.PrependInt64(self.stickerGetConditionParameter[i])
+                stickerGetConditionParameter = builder.EndVector()
+        if self.stickerGetConditionParameterTag is not None:
+            if np is not None and type(self.stickerGetConditionParameterTag) is np.ndarray:
+                stickerGetConditionParameterTag = builder.CreateNumpyVector(self.stickerGetConditionParameterTag)
+            else:
+                StickerPageContentExcelStartStickerGetConditionParameterTagVector(builder, len(self.stickerGetConditionParameterTag))
+                for i in reversed(range(len(self.stickerGetConditionParameterTag))):
+                    builder.PrependInt32(self.stickerGetConditionParameterTag[i])
+                stickerGetConditionParameterTag = builder.EndVector()
+        if self.packedStickerIconPath is not None:
+            packedStickerIconPath = builder.CreateString(self.packedStickerIconPath)
+        if self.iconPath is not None:
+            iconPath = builder.CreateString(self.iconPath)
+        if self.stickerDetailPath is not None:
+            stickerDetailPath = builder.CreateString(self.stickerDetailPath)
+        StickerPageContentExcelStart(builder)
+        StickerPageContentExcelAddId(builder, self.id)
+        StickerPageContentExcelAddStickerGroupId(builder, self.stickerGroupId)
+        StickerPageContentExcelAddStickerPageId(builder, self.stickerPageId)
+        StickerPageContentExcelAddStickerSlot(builder, self.stickerSlot)
+        StickerPageContentExcelAddStickerGetConditionType(builder, self.stickerGetConditionType)
+        StickerPageContentExcelAddStickerCheckPassType(builder, self.stickerCheckPassType)
+        StickerPageContentExcelAddGetStickerConditionType(builder, self.getStickerConditionType)
+        StickerPageContentExcelAddStickerGetConditionCount(builder, self.stickerGetConditionCount)
+        if self.stickerGetConditionParameter is not None:
+            StickerPageContentExcelAddStickerGetConditionParameter(builder, stickerGetConditionParameter)
+        if self.stickerGetConditionParameterTag is not None:
+            StickerPageContentExcelAddStickerGetConditionParameterTag(builder, stickerGetConditionParameterTag)
+        StickerPageContentExcelAddPackedStickerIconLocalizeEtcId(builder, self.packedStickerIconLocalizeEtcId)
+        if self.packedStickerIconPath is not None:
+            StickerPageContentExcelAddPackedStickerIconPath(builder, packedStickerIconPath)
+        if self.iconPath is not None:
+            StickerPageContentExcelAddIconPath(builder, iconPath)
+        if self.stickerDetailPath is not None:
+            StickerPageContentExcelAddStickerDetailPath(builder, stickerDetailPath)
+        stickerPageContentExcel = StickerPageContentExcelEnd(builder)
+        return stickerPageContentExcel

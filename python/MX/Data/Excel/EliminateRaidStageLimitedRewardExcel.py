@@ -165,3 +165,104 @@ def EliminateRaidStageLimitedRewardExcelEnd(builder):
 
 def End(builder):
     return EliminateRaidStageLimitedRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class EliminateRaidStageLimitedRewardExcelT(object):
+
+    # EliminateRaidStageLimitedRewardExcelT
+    def __init__(
+        self,
+        limitedRewardId = 0,
+        limitedRewardParcelType = None,
+        limitedRewardParcelUniqueId = None,
+        limitedRewardAmount = None,
+    ):
+        self.limitedRewardId = limitedRewardId  # type: int
+        self.limitedRewardParcelType = limitedRewardParcelType  # type: Optional[List[int]]
+        self.limitedRewardParcelUniqueId = limitedRewardParcelUniqueId  # type: Optional[List[int]]
+        self.limitedRewardAmount = limitedRewardAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        eliminateRaidStageLimitedRewardExcel = EliminateRaidStageLimitedRewardExcel()
+        eliminateRaidStageLimitedRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(eliminateRaidStageLimitedRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, eliminateRaidStageLimitedRewardExcel):
+        x = EliminateRaidStageLimitedRewardExcelT()
+        x._UnPack(eliminateRaidStageLimitedRewardExcel)
+        return x
+
+    # EliminateRaidStageLimitedRewardExcelT
+    def _UnPack(self, eliminateRaidStageLimitedRewardExcel):
+        if eliminateRaidStageLimitedRewardExcel is None:
+            return
+        self.limitedRewardId = eliminateRaidStageLimitedRewardExcel.LimitedRewardId()
+        if not eliminateRaidStageLimitedRewardExcel.LimitedRewardParcelTypeIsNone():
+            if np is None:
+                self.limitedRewardParcelType = []
+                for i in range(eliminateRaidStageLimitedRewardExcel.LimitedRewardParcelTypeLength()):
+                    self.limitedRewardParcelType.append(eliminateRaidStageLimitedRewardExcel.LimitedRewardParcelType(i))
+            else:
+                self.limitedRewardParcelType = eliminateRaidStageLimitedRewardExcel.LimitedRewardParcelTypeAsNumpy()
+        if not eliminateRaidStageLimitedRewardExcel.LimitedRewardParcelUniqueIdIsNone():
+            if np is None:
+                self.limitedRewardParcelUniqueId = []
+                for i in range(eliminateRaidStageLimitedRewardExcel.LimitedRewardParcelUniqueIdLength()):
+                    self.limitedRewardParcelUniqueId.append(eliminateRaidStageLimitedRewardExcel.LimitedRewardParcelUniqueId(i))
+            else:
+                self.limitedRewardParcelUniqueId = eliminateRaidStageLimitedRewardExcel.LimitedRewardParcelUniqueIdAsNumpy()
+        if not eliminateRaidStageLimitedRewardExcel.LimitedRewardAmountIsNone():
+            if np is None:
+                self.limitedRewardAmount = []
+                for i in range(eliminateRaidStageLimitedRewardExcel.LimitedRewardAmountLength()):
+                    self.limitedRewardAmount.append(eliminateRaidStageLimitedRewardExcel.LimitedRewardAmount(i))
+            else:
+                self.limitedRewardAmount = eliminateRaidStageLimitedRewardExcel.LimitedRewardAmountAsNumpy()
+
+    # EliminateRaidStageLimitedRewardExcelT
+    def Pack(self, builder):
+        if self.limitedRewardParcelType is not None:
+            if np is not None and type(self.limitedRewardParcelType) is np.ndarray:
+                limitedRewardParcelType = builder.CreateNumpyVector(self.limitedRewardParcelType)
+            else:
+                EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelTypeVector(builder, len(self.limitedRewardParcelType))
+                for i in reversed(range(len(self.limitedRewardParcelType))):
+                    builder.PrependInt32(self.limitedRewardParcelType[i])
+                limitedRewardParcelType = builder.EndVector()
+        if self.limitedRewardParcelUniqueId is not None:
+            if np is not None and type(self.limitedRewardParcelUniqueId) is np.ndarray:
+                limitedRewardParcelUniqueId = builder.CreateNumpyVector(self.limitedRewardParcelUniqueId)
+            else:
+                EliminateRaidStageLimitedRewardExcelStartLimitedRewardParcelUniqueIdVector(builder, len(self.limitedRewardParcelUniqueId))
+                for i in reversed(range(len(self.limitedRewardParcelUniqueId))):
+                    builder.PrependInt64(self.limitedRewardParcelUniqueId[i])
+                limitedRewardParcelUniqueId = builder.EndVector()
+        if self.limitedRewardAmount is not None:
+            if np is not None and type(self.limitedRewardAmount) is np.ndarray:
+                limitedRewardAmount = builder.CreateNumpyVector(self.limitedRewardAmount)
+            else:
+                EliminateRaidStageLimitedRewardExcelStartLimitedRewardAmountVector(builder, len(self.limitedRewardAmount))
+                for i in reversed(range(len(self.limitedRewardAmount))):
+                    builder.PrependInt64(self.limitedRewardAmount[i])
+                limitedRewardAmount = builder.EndVector()
+        EliminateRaidStageLimitedRewardExcelStart(builder)
+        EliminateRaidStageLimitedRewardExcelAddLimitedRewardId(builder, self.limitedRewardId)
+        if self.limitedRewardParcelType is not None:
+            EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelType(builder, limitedRewardParcelType)
+        if self.limitedRewardParcelUniqueId is not None:
+            EliminateRaidStageLimitedRewardExcelAddLimitedRewardParcelUniqueId(builder, limitedRewardParcelUniqueId)
+        if self.limitedRewardAmount is not None:
+            EliminateRaidStageLimitedRewardExcelAddLimitedRewardAmount(builder, limitedRewardAmount)
+        eliminateRaidStageLimitedRewardExcel = EliminateRaidStageLimitedRewardExcelEnd(builder)
+        return eliminateRaidStageLimitedRewardExcel

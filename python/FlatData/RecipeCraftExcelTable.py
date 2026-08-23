@@ -72,3 +72,68 @@ def RecipeCraftExcelTableEnd(builder):
 
 def End(builder):
     return RecipeCraftExcelTableEnd(builder)
+
+import FlatData.RecipeCraftExcel
+try:
+    from typing import List
+except:
+    pass
+
+class RecipeCraftExcelTableT(object):
+
+    # RecipeCraftExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.RecipeCraftExcel.RecipeCraftExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        recipeCraftExcelTable = RecipeCraftExcelTable()
+        recipeCraftExcelTable.Init(buf, pos)
+        return cls.InitFromObj(recipeCraftExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, recipeCraftExcelTable):
+        x = RecipeCraftExcelTableT()
+        x._UnPack(recipeCraftExcelTable)
+        return x
+
+    # RecipeCraftExcelTableT
+    def _UnPack(self, recipeCraftExcelTable):
+        if recipeCraftExcelTable is None:
+            return
+        if not recipeCraftExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(recipeCraftExcelTable.DataListLength()):
+                if recipeCraftExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    recipeCraftExcel_ = FlatData.RecipeCraftExcel.RecipeCraftExcelT.InitFromObj(recipeCraftExcelTable.DataList(i))
+                    self.dataList.append(recipeCraftExcel_)
+
+    # RecipeCraftExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            RecipeCraftExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        RecipeCraftExcelTableStart(builder)
+        if self.dataList is not None:
+            RecipeCraftExcelTableAddDataList(builder, dataList)
+        recipeCraftExcelTable = RecipeCraftExcelTableEnd(builder)
+        return recipeCraftExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(RecipeCraftExcelTableT, 'RecipeCraftExcelTable', ())

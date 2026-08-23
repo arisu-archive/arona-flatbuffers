@@ -139,3 +139,71 @@ def MinigameTBGEncounterRewardExcelEnd(builder):
 
 def End(builder):
     return MinigameTBGEncounterRewardExcelEnd(builder)
+
+
+class MinigameTBGEncounterRewardExcelT(object):
+
+    # MinigameTBGEncounterRewardExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        uniqueId = 0,
+        tbgOptionSuccessType = 0,
+        paremeter = 0,
+        parcelType = 0,
+        parcelId = 0,
+        amount = 0,
+        prob = 0,
+    ):
+        self.groupId = groupId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.tbgOptionSuccessType = tbgOptionSuccessType  # type: int
+        self.paremeter = paremeter  # type: int
+        self.parcelType = parcelType  # type: int
+        self.parcelId = parcelId  # type: int
+        self.amount = amount  # type: int
+        self.prob = prob  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameTbgencounterRewardExcel = MinigameTBGEncounterRewardExcel()
+        minigameTbgencounterRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameTbgencounterRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameTbgencounterRewardExcel):
+        x = MinigameTBGEncounterRewardExcelT()
+        x._UnPack(minigameTbgencounterRewardExcel)
+        return x
+
+    # MinigameTBGEncounterRewardExcelT
+    def _UnPack(self, minigameTbgencounterRewardExcel):
+        if minigameTbgencounterRewardExcel is None:
+            return
+        self.groupId = minigameTbgencounterRewardExcel.GroupId()
+        self.uniqueId = minigameTbgencounterRewardExcel.UniqueId()
+        self.tbgOptionSuccessType = minigameTbgencounterRewardExcel.TbgOptionSuccessType()
+        self.paremeter = minigameTbgencounterRewardExcel.Paremeter()
+        self.parcelType = minigameTbgencounterRewardExcel.ParcelType()
+        self.parcelId = minigameTbgencounterRewardExcel.ParcelId()
+        self.amount = minigameTbgencounterRewardExcel.Amount()
+        self.prob = minigameTbgencounterRewardExcel.Prob()
+
+    # MinigameTBGEncounterRewardExcelT
+    def Pack(self, builder):
+        MinigameTBGEncounterRewardExcelStart(builder)
+        MinigameTBGEncounterRewardExcelAddGroupId(builder, self.groupId)
+        MinigameTBGEncounterRewardExcelAddUniqueId(builder, self.uniqueId)
+        MinigameTBGEncounterRewardExcelAddTbgOptionSuccessType(builder, self.tbgOptionSuccessType)
+        MinigameTBGEncounterRewardExcelAddParemeter(builder, self.paremeter)
+        MinigameTBGEncounterRewardExcelAddParcelType(builder, self.parcelType)
+        MinigameTBGEncounterRewardExcelAddParcelId(builder, self.parcelId)
+        MinigameTBGEncounterRewardExcelAddAmount(builder, self.amount)
+        MinigameTBGEncounterRewardExcelAddProb(builder, self.prob)
+        minigameTbgencounterRewardExcel = MinigameTBGEncounterRewardExcelEnd(builder)
+        return minigameTbgencounterRewardExcel

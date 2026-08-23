@@ -191,3 +191,115 @@ def AttendanceRewardExcelEnd(builder):
 
 def End(builder):
     return AttendanceRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class AttendanceRewardExcelT(object):
+
+    # AttendanceRewardExcelT
+    def __init__(
+        self,
+        attendanceId = 0,
+        day = 0,
+        rewardIcon = None,
+        rewardParcelType = None,
+        rewardId = None,
+        rewardAmount = None,
+    ):
+        self.attendanceId = attendanceId  # type: int
+        self.day = day  # type: int
+        self.rewardIcon = rewardIcon  # type: Optional[str]
+        self.rewardParcelType = rewardParcelType  # type: Optional[List[int]]
+        self.rewardId = rewardId  # type: Optional[List[int]]
+        self.rewardAmount = rewardAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        attendanceRewardExcel = AttendanceRewardExcel()
+        attendanceRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(attendanceRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, attendanceRewardExcel):
+        x = AttendanceRewardExcelT()
+        x._UnPack(attendanceRewardExcel)
+        return x
+
+    # AttendanceRewardExcelT
+    def _UnPack(self, attendanceRewardExcel):
+        if attendanceRewardExcel is None:
+            return
+        self.attendanceId = attendanceRewardExcel.AttendanceId()
+        self.day = attendanceRewardExcel.Day()
+        self.rewardIcon = attendanceRewardExcel.RewardIcon()
+        if not attendanceRewardExcel.RewardParcelTypeIsNone():
+            if np is None:
+                self.rewardParcelType = []
+                for i in range(attendanceRewardExcel.RewardParcelTypeLength()):
+                    self.rewardParcelType.append(attendanceRewardExcel.RewardParcelType(i))
+            else:
+                self.rewardParcelType = attendanceRewardExcel.RewardParcelTypeAsNumpy()
+        if not attendanceRewardExcel.RewardIdIsNone():
+            if np is None:
+                self.rewardId = []
+                for i in range(attendanceRewardExcel.RewardIdLength()):
+                    self.rewardId.append(attendanceRewardExcel.RewardId(i))
+            else:
+                self.rewardId = attendanceRewardExcel.RewardIdAsNumpy()
+        if not attendanceRewardExcel.RewardAmountIsNone():
+            if np is None:
+                self.rewardAmount = []
+                for i in range(attendanceRewardExcel.RewardAmountLength()):
+                    self.rewardAmount.append(attendanceRewardExcel.RewardAmount(i))
+            else:
+                self.rewardAmount = attendanceRewardExcel.RewardAmountAsNumpy()
+
+    # AttendanceRewardExcelT
+    def Pack(self, builder):
+        if self.rewardIcon is not None:
+            rewardIcon = builder.CreateString(self.rewardIcon)
+        if self.rewardParcelType is not None:
+            if np is not None and type(self.rewardParcelType) is np.ndarray:
+                rewardParcelType = builder.CreateNumpyVector(self.rewardParcelType)
+            else:
+                AttendanceRewardExcelStartRewardParcelTypeVector(builder, len(self.rewardParcelType))
+                for i in reversed(range(len(self.rewardParcelType))):
+                    builder.PrependInt32(self.rewardParcelType[i])
+                rewardParcelType = builder.EndVector()
+        if self.rewardId is not None:
+            if np is not None and type(self.rewardId) is np.ndarray:
+                rewardId = builder.CreateNumpyVector(self.rewardId)
+            else:
+                AttendanceRewardExcelStartRewardIdVector(builder, len(self.rewardId))
+                for i in reversed(range(len(self.rewardId))):
+                    builder.PrependInt64(self.rewardId[i])
+                rewardId = builder.EndVector()
+        if self.rewardAmount is not None:
+            if np is not None and type(self.rewardAmount) is np.ndarray:
+                rewardAmount = builder.CreateNumpyVector(self.rewardAmount)
+            else:
+                AttendanceRewardExcelStartRewardAmountVector(builder, len(self.rewardAmount))
+                for i in reversed(range(len(self.rewardAmount))):
+                    builder.PrependInt64(self.rewardAmount[i])
+                rewardAmount = builder.EndVector()
+        AttendanceRewardExcelStart(builder)
+        AttendanceRewardExcelAddAttendanceId(builder, self.attendanceId)
+        AttendanceRewardExcelAddDay(builder, self.day)
+        if self.rewardIcon is not None:
+            AttendanceRewardExcelAddRewardIcon(builder, rewardIcon)
+        if self.rewardParcelType is not None:
+            AttendanceRewardExcelAddRewardParcelType(builder, rewardParcelType)
+        if self.rewardId is not None:
+            AttendanceRewardExcelAddRewardId(builder, rewardId)
+        if self.rewardAmount is not None:
+            AttendanceRewardExcelAddRewardAmount(builder, rewardAmount)
+        attendanceRewardExcel = AttendanceRewardExcelEnd(builder)
+        return attendanceRewardExcel

@@ -139,3 +139,74 @@ def WeekDungeonRewardExcelEnd(builder):
 
 def End(builder):
     return WeekDungeonRewardExcelEnd(builder)
+
+
+class WeekDungeonRewardExcelT(object):
+
+    # WeekDungeonRewardExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        dungeonType = 0,
+        rewardParcelType = 0,
+        rewardParcelId = 0,
+        rewardParcelAmount = 0,
+        rewardParcelProbability = 0,
+        isDisplayed = False,
+        dropItemModelPrefabPath = None,
+    ):
+        self.groupId = groupId  # type: int
+        self.dungeonType = dungeonType  # type: int
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelId = rewardParcelId  # type: int
+        self.rewardParcelAmount = rewardParcelAmount  # type: int
+        self.rewardParcelProbability = rewardParcelProbability  # type: int
+        self.isDisplayed = isDisplayed  # type: bool
+        self.dropItemModelPrefabPath = dropItemModelPrefabPath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        weekDungeonRewardExcel = WeekDungeonRewardExcel()
+        weekDungeonRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(weekDungeonRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, weekDungeonRewardExcel):
+        x = WeekDungeonRewardExcelT()
+        x._UnPack(weekDungeonRewardExcel)
+        return x
+
+    # WeekDungeonRewardExcelT
+    def _UnPack(self, weekDungeonRewardExcel):
+        if weekDungeonRewardExcel is None:
+            return
+        self.groupId = weekDungeonRewardExcel.GroupId()
+        self.dungeonType = weekDungeonRewardExcel.DungeonType()
+        self.rewardParcelType = weekDungeonRewardExcel.RewardParcelType()
+        self.rewardParcelId = weekDungeonRewardExcel.RewardParcelId()
+        self.rewardParcelAmount = weekDungeonRewardExcel.RewardParcelAmount()
+        self.rewardParcelProbability = weekDungeonRewardExcel.RewardParcelProbability()
+        self.isDisplayed = weekDungeonRewardExcel.IsDisplayed()
+        self.dropItemModelPrefabPath = weekDungeonRewardExcel.DropItemModelPrefabPath()
+
+    # WeekDungeonRewardExcelT
+    def Pack(self, builder):
+        if self.dropItemModelPrefabPath is not None:
+            dropItemModelPrefabPath = builder.CreateString(self.dropItemModelPrefabPath)
+        WeekDungeonRewardExcelStart(builder)
+        WeekDungeonRewardExcelAddGroupId(builder, self.groupId)
+        WeekDungeonRewardExcelAddDungeonType(builder, self.dungeonType)
+        WeekDungeonRewardExcelAddRewardParcelType(builder, self.rewardParcelType)
+        WeekDungeonRewardExcelAddRewardParcelId(builder, self.rewardParcelId)
+        WeekDungeonRewardExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        WeekDungeonRewardExcelAddRewardParcelProbability(builder, self.rewardParcelProbability)
+        WeekDungeonRewardExcelAddIsDisplayed(builder, self.isDisplayed)
+        if self.dropItemModelPrefabPath is not None:
+            WeekDungeonRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath)
+        weekDungeonRewardExcel = WeekDungeonRewardExcelEnd(builder)
+        return weekDungeonRewardExcel

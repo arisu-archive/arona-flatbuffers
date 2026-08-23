@@ -178,3 +178,104 @@ def CharacterVoiceSubtitleExcelEnd(builder):
 
 def End(builder):
     return CharacterVoiceSubtitleExcelEnd(builder)
+
+
+class CharacterVoiceSubtitleExcelT(object):
+
+    # CharacterVoiceSubtitleExcelT
+    def __init__(
+        self,
+        localizeCvGroup = None,
+        characterVoiceGroupId = 0,
+        tlmid = None,
+        duration = 0,
+        durationKr = 0,
+        separate = False,
+        localizeKr = None,
+        localizeJp = None,
+        localizeTh = None,
+        localizeTw = None,
+        localizeEn = None,
+    ):
+        self.localizeCvGroup = localizeCvGroup  # type: Optional[str]
+        self.characterVoiceGroupId = characterVoiceGroupId  # type: int
+        self.tlmid = tlmid  # type: Optional[str]
+        self.duration = duration  # type: int
+        self.durationKr = durationKr  # type: int
+        self.separate = separate  # type: bool
+        self.localizeKr = localizeKr  # type: Optional[str]
+        self.localizeJp = localizeJp  # type: Optional[str]
+        self.localizeTh = localizeTh  # type: Optional[str]
+        self.localizeTw = localizeTw  # type: Optional[str]
+        self.localizeEn = localizeEn  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterVoiceSubtitleExcel = CharacterVoiceSubtitleExcel()
+        characterVoiceSubtitleExcel.Init(buf, pos)
+        return cls.InitFromObj(characterVoiceSubtitleExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterVoiceSubtitleExcel):
+        x = CharacterVoiceSubtitleExcelT()
+        x._UnPack(characterVoiceSubtitleExcel)
+        return x
+
+    # CharacterVoiceSubtitleExcelT
+    def _UnPack(self, characterVoiceSubtitleExcel):
+        if characterVoiceSubtitleExcel is None:
+            return
+        self.localizeCvGroup = characterVoiceSubtitleExcel.LocalizeCvGroup()
+        self.characterVoiceGroupId = characterVoiceSubtitleExcel.CharacterVoiceGroupId()
+        self.tlmid = characterVoiceSubtitleExcel.Tlmid()
+        self.duration = characterVoiceSubtitleExcel.Duration()
+        self.durationKr = characterVoiceSubtitleExcel.DurationKr()
+        self.separate = characterVoiceSubtitleExcel.Separate()
+        self.localizeKr = characterVoiceSubtitleExcel.LocalizeKr()
+        self.localizeJp = characterVoiceSubtitleExcel.LocalizeJp()
+        self.localizeTh = characterVoiceSubtitleExcel.LocalizeTh()
+        self.localizeTw = characterVoiceSubtitleExcel.LocalizeTw()
+        self.localizeEn = characterVoiceSubtitleExcel.LocalizeEn()
+
+    # CharacterVoiceSubtitleExcelT
+    def Pack(self, builder):
+        if self.localizeCvGroup is not None:
+            localizeCvGroup = builder.CreateString(self.localizeCvGroup)
+        if self.tlmid is not None:
+            tlmid = builder.CreateString(self.tlmid)
+        if self.localizeKr is not None:
+            localizeKr = builder.CreateString(self.localizeKr)
+        if self.localizeJp is not None:
+            localizeJp = builder.CreateString(self.localizeJp)
+        if self.localizeTh is not None:
+            localizeTh = builder.CreateString(self.localizeTh)
+        if self.localizeTw is not None:
+            localizeTw = builder.CreateString(self.localizeTw)
+        if self.localizeEn is not None:
+            localizeEn = builder.CreateString(self.localizeEn)
+        CharacterVoiceSubtitleExcelStart(builder)
+        if self.localizeCvGroup is not None:
+            CharacterVoiceSubtitleExcelAddLocalizeCvGroup(builder, localizeCvGroup)
+        CharacterVoiceSubtitleExcelAddCharacterVoiceGroupId(builder, self.characterVoiceGroupId)
+        if self.tlmid is not None:
+            CharacterVoiceSubtitleExcelAddTlmid(builder, tlmid)
+        CharacterVoiceSubtitleExcelAddDuration(builder, self.duration)
+        CharacterVoiceSubtitleExcelAddDurationKr(builder, self.durationKr)
+        CharacterVoiceSubtitleExcelAddSeparate(builder, self.separate)
+        if self.localizeKr is not None:
+            CharacterVoiceSubtitleExcelAddLocalizeKr(builder, localizeKr)
+        if self.localizeJp is not None:
+            CharacterVoiceSubtitleExcelAddLocalizeJp(builder, localizeJp)
+        if self.localizeTh is not None:
+            CharacterVoiceSubtitleExcelAddLocalizeTh(builder, localizeTh)
+        if self.localizeTw is not None:
+            CharacterVoiceSubtitleExcelAddLocalizeTw(builder, localizeTw)
+        if self.localizeEn is not None:
+            CharacterVoiceSubtitleExcelAddLocalizeEn(builder, localizeEn)
+        characterVoiceSubtitleExcel = CharacterVoiceSubtitleExcelEnd(builder)
+        return characterVoiceSubtitleExcel

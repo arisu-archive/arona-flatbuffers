@@ -314,3 +314,177 @@ def BGMExcelEnd(builder):
 
 def End(builder):
     return BGMExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class BGMExcelT(object):
+
+    # BGMExcelT
+    def __init__(
+        self,
+        id = 0,
+        nation = None,
+        path = None,
+        volume = None,
+        loopStartTime = None,
+        loopEndTime = None,
+        loopTranstionTime = None,
+        loopOffsetTime = None,
+    ):
+        self.id = id  # type: int
+        self.nation = nation  # type: Optional[List[int]]
+        self.path = path  # type: Optional[List[Optional[str]]]
+        self.volume = volume  # type: Optional[List[float]]
+        self.loopStartTime = loopStartTime  # type: Optional[List[float]]
+        self.loopEndTime = loopEndTime  # type: Optional[List[float]]
+        self.loopTranstionTime = loopTranstionTime  # type: Optional[List[float]]
+        self.loopOffsetTime = loopOffsetTime  # type: Optional[List[float]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        bgmexcel = BGMExcel()
+        bgmexcel.Init(buf, pos)
+        return cls.InitFromObj(bgmexcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, bgmexcel):
+        x = BGMExcelT()
+        x._UnPack(bgmexcel)
+        return x
+
+    # BGMExcelT
+    def _UnPack(self, bgmexcel):
+        if bgmexcel is None:
+            return
+        self.id = bgmexcel.Id()
+        if not bgmexcel.NationIsNone():
+            if np is None:
+                self.nation = []
+                for i in range(bgmexcel.NationLength()):
+                    self.nation.append(bgmexcel.Nation(i))
+            else:
+                self.nation = bgmexcel.NationAsNumpy()
+        if not bgmexcel.PathIsNone():
+            self.path = []
+            for i in range(bgmexcel.PathLength()):
+                self.path.append(bgmexcel.Path(i))
+        if not bgmexcel.VolumeIsNone():
+            if np is None:
+                self.volume = []
+                for i in range(bgmexcel.VolumeLength()):
+                    self.volume.append(bgmexcel.Volume(i))
+            else:
+                self.volume = bgmexcel.VolumeAsNumpy()
+        if not bgmexcel.LoopStartTimeIsNone():
+            if np is None:
+                self.loopStartTime = []
+                for i in range(bgmexcel.LoopStartTimeLength()):
+                    self.loopStartTime.append(bgmexcel.LoopStartTime(i))
+            else:
+                self.loopStartTime = bgmexcel.LoopStartTimeAsNumpy()
+        if not bgmexcel.LoopEndTimeIsNone():
+            if np is None:
+                self.loopEndTime = []
+                for i in range(bgmexcel.LoopEndTimeLength()):
+                    self.loopEndTime.append(bgmexcel.LoopEndTime(i))
+            else:
+                self.loopEndTime = bgmexcel.LoopEndTimeAsNumpy()
+        if not bgmexcel.LoopTranstionTimeIsNone():
+            if np is None:
+                self.loopTranstionTime = []
+                for i in range(bgmexcel.LoopTranstionTimeLength()):
+                    self.loopTranstionTime.append(bgmexcel.LoopTranstionTime(i))
+            else:
+                self.loopTranstionTime = bgmexcel.LoopTranstionTimeAsNumpy()
+        if not bgmexcel.LoopOffsetTimeIsNone():
+            if np is None:
+                self.loopOffsetTime = []
+                for i in range(bgmexcel.LoopOffsetTimeLength()):
+                    self.loopOffsetTime.append(bgmexcel.LoopOffsetTime(i))
+            else:
+                self.loopOffsetTime = bgmexcel.LoopOffsetTimeAsNumpy()
+
+    # BGMExcelT
+    def Pack(self, builder):
+        if self.nation is not None:
+            if np is not None and type(self.nation) is np.ndarray:
+                nation = builder.CreateNumpyVector(self.nation)
+            else:
+                BGMExcelStartNationVector(builder, len(self.nation))
+                for i in reversed(range(len(self.nation))):
+                    builder.PrependInt32(self.nation[i])
+                nation = builder.EndVector()
+        if self.path is not None:
+            pathlist = []
+            for i in range(len(self.path)):
+                pathlist.append(builder.CreateString(self.path[i]))
+            BGMExcelStartPathVector(builder, len(self.path))
+            for i in reversed(range(len(self.path))):
+                builder.PrependUOffsetTRelative(pathlist[i])
+            path = builder.EndVector()
+        if self.volume is not None:
+            if np is not None and type(self.volume) is np.ndarray:
+                volume = builder.CreateNumpyVector(self.volume)
+            else:
+                BGMExcelStartVolumeVector(builder, len(self.volume))
+                for i in reversed(range(len(self.volume))):
+                    builder.PrependFloat32(self.volume[i])
+                volume = builder.EndVector()
+        if self.loopStartTime is not None:
+            if np is not None and type(self.loopStartTime) is np.ndarray:
+                loopStartTime = builder.CreateNumpyVector(self.loopStartTime)
+            else:
+                BGMExcelStartLoopStartTimeVector(builder, len(self.loopStartTime))
+                for i in reversed(range(len(self.loopStartTime))):
+                    builder.PrependFloat32(self.loopStartTime[i])
+                loopStartTime = builder.EndVector()
+        if self.loopEndTime is not None:
+            if np is not None and type(self.loopEndTime) is np.ndarray:
+                loopEndTime = builder.CreateNumpyVector(self.loopEndTime)
+            else:
+                BGMExcelStartLoopEndTimeVector(builder, len(self.loopEndTime))
+                for i in reversed(range(len(self.loopEndTime))):
+                    builder.PrependFloat32(self.loopEndTime[i])
+                loopEndTime = builder.EndVector()
+        if self.loopTranstionTime is not None:
+            if np is not None and type(self.loopTranstionTime) is np.ndarray:
+                loopTranstionTime = builder.CreateNumpyVector(self.loopTranstionTime)
+            else:
+                BGMExcelStartLoopTranstionTimeVector(builder, len(self.loopTranstionTime))
+                for i in reversed(range(len(self.loopTranstionTime))):
+                    builder.PrependFloat32(self.loopTranstionTime[i])
+                loopTranstionTime = builder.EndVector()
+        if self.loopOffsetTime is not None:
+            if np is not None and type(self.loopOffsetTime) is np.ndarray:
+                loopOffsetTime = builder.CreateNumpyVector(self.loopOffsetTime)
+            else:
+                BGMExcelStartLoopOffsetTimeVector(builder, len(self.loopOffsetTime))
+                for i in reversed(range(len(self.loopOffsetTime))):
+                    builder.PrependFloat32(self.loopOffsetTime[i])
+                loopOffsetTime = builder.EndVector()
+        BGMExcelStart(builder)
+        BGMExcelAddId(builder, self.id)
+        if self.nation is not None:
+            BGMExcelAddNation(builder, nation)
+        if self.path is not None:
+            BGMExcelAddPath(builder, path)
+        if self.volume is not None:
+            BGMExcelAddVolume(builder, volume)
+        if self.loopStartTime is not None:
+            BGMExcelAddLoopStartTime(builder, loopStartTime)
+        if self.loopEndTime is not None:
+            BGMExcelAddLoopEndTime(builder, loopEndTime)
+        if self.loopTranstionTime is not None:
+            BGMExcelAddLoopTranstionTime(builder, loopTranstionTime)
+        if self.loopOffsetTime is not None:
+            BGMExcelAddLoopOffsetTime(builder, loopOffsetTime)
+        bgmexcel = BGMExcelEnd(builder)
+        return bgmexcel

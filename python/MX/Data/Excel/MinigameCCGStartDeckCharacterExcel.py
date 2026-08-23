@@ -61,3 +61,47 @@ def MinigameCCGStartDeckCharacterExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGStartDeckCharacterExcelEnd(builder)
+
+
+class MinigameCCGStartDeckCharacterExcelT(object):
+
+    # MinigameCCGStartDeckCharacterExcelT
+    def __init__(
+        self,
+        ccgId = 0,
+        characterId = 0,
+    ):
+        self.ccgId = ccgId  # type: int
+        self.characterId = characterId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcgstartDeckCharacterExcel = MinigameCCGStartDeckCharacterExcel()
+        minigameCcgstartDeckCharacterExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcgstartDeckCharacterExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcgstartDeckCharacterExcel):
+        x = MinigameCCGStartDeckCharacterExcelT()
+        x._UnPack(minigameCcgstartDeckCharacterExcel)
+        return x
+
+    # MinigameCCGStartDeckCharacterExcelT
+    def _UnPack(self, minigameCcgstartDeckCharacterExcel):
+        if minigameCcgstartDeckCharacterExcel is None:
+            return
+        self.ccgId = minigameCcgstartDeckCharacterExcel.CcgId()
+        self.characterId = minigameCcgstartDeckCharacterExcel.CharacterId()
+
+    # MinigameCCGStartDeckCharacterExcelT
+    def Pack(self, builder):
+        MinigameCCGStartDeckCharacterExcelStart(builder)
+        MinigameCCGStartDeckCharacterExcelAddCcgId(builder, self.ccgId)
+        MinigameCCGStartDeckCharacterExcelAddCharacterId(builder, self.characterId)
+        minigameCcgstartDeckCharacterExcel = MinigameCCGStartDeckCharacterExcelEnd(builder)
+        return minigameCcgstartDeckCharacterExcel

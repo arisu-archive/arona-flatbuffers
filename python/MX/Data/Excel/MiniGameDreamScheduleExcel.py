@@ -139,3 +139,83 @@ def MiniGameDreamScheduleExcelEnd(builder):
 
 def End(builder):
     return MiniGameDreamScheduleExcelEnd(builder)
+
+
+class MiniGameDreamScheduleExcelT(object):
+
+    # MiniGameDreamScheduleExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        dreamMakerScheduleGroupId = 0,
+        displayOrder = 0,
+        localizeEtcId = 0,
+        iconPath = None,
+        loadingResource01 = None,
+        loadingResource02 = None,
+        animationName = None,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.dreamMakerScheduleGroupId = dreamMakerScheduleGroupId  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.iconPath = iconPath  # type: Optional[str]
+        self.loadingResource01 = loadingResource01  # type: Optional[str]
+        self.loadingResource02 = loadingResource02  # type: Optional[str]
+        self.animationName = animationName  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDreamScheduleExcel = MiniGameDreamScheduleExcel()
+        miniGameDreamScheduleExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDreamScheduleExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDreamScheduleExcel):
+        x = MiniGameDreamScheduleExcelT()
+        x._UnPack(miniGameDreamScheduleExcel)
+        return x
+
+    # MiniGameDreamScheduleExcelT
+    def _UnPack(self, miniGameDreamScheduleExcel):
+        if miniGameDreamScheduleExcel is None:
+            return
+        self.eventContentId = miniGameDreamScheduleExcel.EventContentId()
+        self.dreamMakerScheduleGroupId = miniGameDreamScheduleExcel.DreamMakerScheduleGroupId()
+        self.displayOrder = miniGameDreamScheduleExcel.DisplayOrder()
+        self.localizeEtcId = miniGameDreamScheduleExcel.LocalizeEtcId()
+        self.iconPath = miniGameDreamScheduleExcel.IconPath()
+        self.loadingResource01 = miniGameDreamScheduleExcel.LoadingResource01()
+        self.loadingResource02 = miniGameDreamScheduleExcel.LoadingResource02()
+        self.animationName = miniGameDreamScheduleExcel.AnimationName()
+
+    # MiniGameDreamScheduleExcelT
+    def Pack(self, builder):
+        if self.iconPath is not None:
+            iconPath = builder.CreateString(self.iconPath)
+        if self.loadingResource01 is not None:
+            loadingResource01 = builder.CreateString(self.loadingResource01)
+        if self.loadingResource02 is not None:
+            loadingResource02 = builder.CreateString(self.loadingResource02)
+        if self.animationName is not None:
+            animationName = builder.CreateString(self.animationName)
+        MiniGameDreamScheduleExcelStart(builder)
+        MiniGameDreamScheduleExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameDreamScheduleExcelAddDreamMakerScheduleGroupId(builder, self.dreamMakerScheduleGroupId)
+        MiniGameDreamScheduleExcelAddDisplayOrder(builder, self.displayOrder)
+        MiniGameDreamScheduleExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        if self.iconPath is not None:
+            MiniGameDreamScheduleExcelAddIconPath(builder, iconPath)
+        if self.loadingResource01 is not None:
+            MiniGameDreamScheduleExcelAddLoadingResource01(builder, loadingResource01)
+        if self.loadingResource02 is not None:
+            MiniGameDreamScheduleExcelAddLoadingResource02(builder, loadingResource02)
+        if self.animationName is not None:
+            MiniGameDreamScheduleExcelAddAnimationName(builder, animationName)
+        miniGameDreamScheduleExcel = MiniGameDreamScheduleExcelEnd(builder)
+        return miniGameDreamScheduleExcel

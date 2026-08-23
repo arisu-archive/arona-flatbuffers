@@ -129,7 +129,7 @@ class MiniGameMissionExcel(object):
         return o == 0
 
     # MiniGameMissionExcel
-    def AccountType(self):
+    def TargetGroup(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -524,11 +524,11 @@ def MiniGameMissionExcelStartPreMissionIdVector(builder, numElems):
 def StartPreMissionIdVector(builder, numElems):
     return MiniGameMissionExcelStartPreMissionIdVector(builder, numElems)
 
-def MiniGameMissionExcelAddAccountType(builder, accountType):
-    builder.PrependInt32Slot(12, accountType, 0)
+def MiniGameMissionExcelAddTargetGroup(builder, targetGroup):
+    builder.PrependInt32Slot(12, targetGroup, 0)
 
-def AddAccountType(builder, accountType):
-    MiniGameMissionExcelAddAccountType(builder, accountType)
+def AddTargetGroup(builder, targetGroup):
+    MiniGameMissionExcelAddTargetGroup(builder, targetGroup)
 
 def MiniGameMissionExcelAddAccountLevel(builder, accountLevel):
     builder.PrependInt64Slot(13, accountLevel, 0)
@@ -691,3 +691,330 @@ def MiniGameMissionExcelEnd(builder):
 
 def End(builder):
     return MiniGameMissionExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MiniGameMissionExcelT(object):
+
+    # MiniGameMissionExcelT
+    def __init__(
+        self,
+        id = 0,
+        eventContentId = 0,
+        groupId = 0,
+        groupName = None,
+        category = 0,
+        description = 0,
+        resetType = 0,
+        toastDisplayType = 0,
+        toastImagePath = None,
+        viewFlag = False,
+        displayOrder = 0,
+        preMissionId = None,
+        targetGroup = 0,
+        accountLevel = 0,
+        shortcutUi = None,
+        completeConditionType = 0,
+        isCompleteExtensionTime = False,
+        completeConditionCount = 0,
+        completeConditionParameter = None,
+        completeConditionParameterTag = None,
+        rewardIcon = None,
+        completeConditionMissionId = None,
+        completeConditionMissionCount = 0,
+        missionRewardParcelType = None,
+        missionRewardParcelId = None,
+        missionRewardAmount = None,
+        conditionRewardParcelType = None,
+        conditionRewardParcelId = None,
+        conditionRewardAmount = None,
+    ):
+        self.id = id  # type: int
+        self.eventContentId = eventContentId  # type: int
+        self.groupId = groupId  # type: int
+        self.groupName = groupName  # type: Optional[str]
+        self.category = category  # type: int
+        self.description = description  # type: int
+        self.resetType = resetType  # type: int
+        self.toastDisplayType = toastDisplayType  # type: int
+        self.toastImagePath = toastImagePath  # type: Optional[str]
+        self.viewFlag = viewFlag  # type: bool
+        self.displayOrder = displayOrder  # type: int
+        self.preMissionId = preMissionId  # type: Optional[List[int]]
+        self.targetGroup = targetGroup  # type: int
+        self.accountLevel = accountLevel  # type: int
+        self.shortcutUi = shortcutUi  # type: Optional[List[Optional[str]]]
+        self.completeConditionType = completeConditionType  # type: int
+        self.isCompleteExtensionTime = isCompleteExtensionTime  # type: bool
+        self.completeConditionCount = completeConditionCount  # type: int
+        self.completeConditionParameter = completeConditionParameter  # type: Optional[List[int]]
+        self.completeConditionParameterTag = completeConditionParameterTag  # type: Optional[List[int]]
+        self.rewardIcon = rewardIcon  # type: Optional[str]
+        self.completeConditionMissionId = completeConditionMissionId  # type: Optional[List[int]]
+        self.completeConditionMissionCount = completeConditionMissionCount  # type: int
+        self.missionRewardParcelType = missionRewardParcelType  # type: Optional[List[int]]
+        self.missionRewardParcelId = missionRewardParcelId  # type: Optional[List[int]]
+        self.missionRewardAmount = missionRewardAmount  # type: Optional[List[int]]
+        self.conditionRewardParcelType = conditionRewardParcelType  # type: Optional[List[int]]
+        self.conditionRewardParcelId = conditionRewardParcelId  # type: Optional[List[int]]
+        self.conditionRewardAmount = conditionRewardAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameMissionExcel = MiniGameMissionExcel()
+        miniGameMissionExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameMissionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameMissionExcel):
+        x = MiniGameMissionExcelT()
+        x._UnPack(miniGameMissionExcel)
+        return x
+
+    # MiniGameMissionExcelT
+    def _UnPack(self, miniGameMissionExcel):
+        if miniGameMissionExcel is None:
+            return
+        self.id = miniGameMissionExcel.Id()
+        self.eventContentId = miniGameMissionExcel.EventContentId()
+        self.groupId = miniGameMissionExcel.GroupId()
+        self.groupName = miniGameMissionExcel.GroupName()
+        self.category = miniGameMissionExcel.Category()
+        self.description = miniGameMissionExcel.Description()
+        self.resetType = miniGameMissionExcel.ResetType()
+        self.toastDisplayType = miniGameMissionExcel.ToastDisplayType()
+        self.toastImagePath = miniGameMissionExcel.ToastImagePath()
+        self.viewFlag = miniGameMissionExcel.ViewFlag()
+        self.displayOrder = miniGameMissionExcel.DisplayOrder()
+        if not miniGameMissionExcel.PreMissionIdIsNone():
+            if np is None:
+                self.preMissionId = []
+                for i in range(miniGameMissionExcel.PreMissionIdLength()):
+                    self.preMissionId.append(miniGameMissionExcel.PreMissionId(i))
+            else:
+                self.preMissionId = miniGameMissionExcel.PreMissionIdAsNumpy()
+        self.targetGroup = miniGameMissionExcel.TargetGroup()
+        self.accountLevel = miniGameMissionExcel.AccountLevel()
+        if not miniGameMissionExcel.ShortcutUiIsNone():
+            self.shortcutUi = []
+            for i in range(miniGameMissionExcel.ShortcutUiLength()):
+                self.shortcutUi.append(miniGameMissionExcel.ShortcutUi(i))
+        self.completeConditionType = miniGameMissionExcel.CompleteConditionType()
+        self.isCompleteExtensionTime = miniGameMissionExcel.IsCompleteExtensionTime()
+        self.completeConditionCount = miniGameMissionExcel.CompleteConditionCount()
+        if not miniGameMissionExcel.CompleteConditionParameterIsNone():
+            if np is None:
+                self.completeConditionParameter = []
+                for i in range(miniGameMissionExcel.CompleteConditionParameterLength()):
+                    self.completeConditionParameter.append(miniGameMissionExcel.CompleteConditionParameter(i))
+            else:
+                self.completeConditionParameter = miniGameMissionExcel.CompleteConditionParameterAsNumpy()
+        if not miniGameMissionExcel.CompleteConditionParameterTagIsNone():
+            if np is None:
+                self.completeConditionParameterTag = []
+                for i in range(miniGameMissionExcel.CompleteConditionParameterTagLength()):
+                    self.completeConditionParameterTag.append(miniGameMissionExcel.CompleteConditionParameterTag(i))
+            else:
+                self.completeConditionParameterTag = miniGameMissionExcel.CompleteConditionParameterTagAsNumpy()
+        self.rewardIcon = miniGameMissionExcel.RewardIcon()
+        if not miniGameMissionExcel.CompleteConditionMissionIdIsNone():
+            if np is None:
+                self.completeConditionMissionId = []
+                for i in range(miniGameMissionExcel.CompleteConditionMissionIdLength()):
+                    self.completeConditionMissionId.append(miniGameMissionExcel.CompleteConditionMissionId(i))
+            else:
+                self.completeConditionMissionId = miniGameMissionExcel.CompleteConditionMissionIdAsNumpy()
+        self.completeConditionMissionCount = miniGameMissionExcel.CompleteConditionMissionCount()
+        if not miniGameMissionExcel.MissionRewardParcelTypeIsNone():
+            if np is None:
+                self.missionRewardParcelType = []
+                for i in range(miniGameMissionExcel.MissionRewardParcelTypeLength()):
+                    self.missionRewardParcelType.append(miniGameMissionExcel.MissionRewardParcelType(i))
+            else:
+                self.missionRewardParcelType = miniGameMissionExcel.MissionRewardParcelTypeAsNumpy()
+        if not miniGameMissionExcel.MissionRewardParcelIdIsNone():
+            if np is None:
+                self.missionRewardParcelId = []
+                for i in range(miniGameMissionExcel.MissionRewardParcelIdLength()):
+                    self.missionRewardParcelId.append(miniGameMissionExcel.MissionRewardParcelId(i))
+            else:
+                self.missionRewardParcelId = miniGameMissionExcel.MissionRewardParcelIdAsNumpy()
+        if not miniGameMissionExcel.MissionRewardAmountIsNone():
+            if np is None:
+                self.missionRewardAmount = []
+                for i in range(miniGameMissionExcel.MissionRewardAmountLength()):
+                    self.missionRewardAmount.append(miniGameMissionExcel.MissionRewardAmount(i))
+            else:
+                self.missionRewardAmount = miniGameMissionExcel.MissionRewardAmountAsNumpy()
+        if not miniGameMissionExcel.ConditionRewardParcelTypeIsNone():
+            if np is None:
+                self.conditionRewardParcelType = []
+                for i in range(miniGameMissionExcel.ConditionRewardParcelTypeLength()):
+                    self.conditionRewardParcelType.append(miniGameMissionExcel.ConditionRewardParcelType(i))
+            else:
+                self.conditionRewardParcelType = miniGameMissionExcel.ConditionRewardParcelTypeAsNumpy()
+        if not miniGameMissionExcel.ConditionRewardParcelIdIsNone():
+            if np is None:
+                self.conditionRewardParcelId = []
+                for i in range(miniGameMissionExcel.ConditionRewardParcelIdLength()):
+                    self.conditionRewardParcelId.append(miniGameMissionExcel.ConditionRewardParcelId(i))
+            else:
+                self.conditionRewardParcelId = miniGameMissionExcel.ConditionRewardParcelIdAsNumpy()
+        if not miniGameMissionExcel.ConditionRewardAmountIsNone():
+            if np is None:
+                self.conditionRewardAmount = []
+                for i in range(miniGameMissionExcel.ConditionRewardAmountLength()):
+                    self.conditionRewardAmount.append(miniGameMissionExcel.ConditionRewardAmount(i))
+            else:
+                self.conditionRewardAmount = miniGameMissionExcel.ConditionRewardAmountAsNumpy()
+
+    # MiniGameMissionExcelT
+    def Pack(self, builder):
+        if self.groupName is not None:
+            groupName = builder.CreateString(self.groupName)
+        if self.toastImagePath is not None:
+            toastImagePath = builder.CreateString(self.toastImagePath)
+        if self.preMissionId is not None:
+            if np is not None and type(self.preMissionId) is np.ndarray:
+                preMissionId = builder.CreateNumpyVector(self.preMissionId)
+            else:
+                MiniGameMissionExcelStartPreMissionIdVector(builder, len(self.preMissionId))
+                for i in reversed(range(len(self.preMissionId))):
+                    builder.PrependInt64(self.preMissionId[i])
+                preMissionId = builder.EndVector()
+        if self.shortcutUi is not None:
+            shortcutUilist = []
+            for i in range(len(self.shortcutUi)):
+                shortcutUilist.append(builder.CreateString(self.shortcutUi[i]))
+            MiniGameMissionExcelStartShortcutUiVector(builder, len(self.shortcutUi))
+            for i in reversed(range(len(self.shortcutUi))):
+                builder.PrependUOffsetTRelative(shortcutUilist[i])
+            shortcutUi = builder.EndVector()
+        if self.completeConditionParameter is not None:
+            if np is not None and type(self.completeConditionParameter) is np.ndarray:
+                completeConditionParameter = builder.CreateNumpyVector(self.completeConditionParameter)
+            else:
+                MiniGameMissionExcelStartCompleteConditionParameterVector(builder, len(self.completeConditionParameter))
+                for i in reversed(range(len(self.completeConditionParameter))):
+                    builder.PrependInt64(self.completeConditionParameter[i])
+                completeConditionParameter = builder.EndVector()
+        if self.completeConditionParameterTag is not None:
+            if np is not None and type(self.completeConditionParameterTag) is np.ndarray:
+                completeConditionParameterTag = builder.CreateNumpyVector(self.completeConditionParameterTag)
+            else:
+                MiniGameMissionExcelStartCompleteConditionParameterTagVector(builder, len(self.completeConditionParameterTag))
+                for i in reversed(range(len(self.completeConditionParameterTag))):
+                    builder.PrependInt32(self.completeConditionParameterTag[i])
+                completeConditionParameterTag = builder.EndVector()
+        if self.rewardIcon is not None:
+            rewardIcon = builder.CreateString(self.rewardIcon)
+        if self.completeConditionMissionId is not None:
+            if np is not None and type(self.completeConditionMissionId) is np.ndarray:
+                completeConditionMissionId = builder.CreateNumpyVector(self.completeConditionMissionId)
+            else:
+                MiniGameMissionExcelStartCompleteConditionMissionIdVector(builder, len(self.completeConditionMissionId))
+                for i in reversed(range(len(self.completeConditionMissionId))):
+                    builder.PrependInt64(self.completeConditionMissionId[i])
+                completeConditionMissionId = builder.EndVector()
+        if self.missionRewardParcelType is not None:
+            if np is not None and type(self.missionRewardParcelType) is np.ndarray:
+                missionRewardParcelType = builder.CreateNumpyVector(self.missionRewardParcelType)
+            else:
+                MiniGameMissionExcelStartMissionRewardParcelTypeVector(builder, len(self.missionRewardParcelType))
+                for i in reversed(range(len(self.missionRewardParcelType))):
+                    builder.PrependInt32(self.missionRewardParcelType[i])
+                missionRewardParcelType = builder.EndVector()
+        if self.missionRewardParcelId is not None:
+            if np is not None and type(self.missionRewardParcelId) is np.ndarray:
+                missionRewardParcelId = builder.CreateNumpyVector(self.missionRewardParcelId)
+            else:
+                MiniGameMissionExcelStartMissionRewardParcelIdVector(builder, len(self.missionRewardParcelId))
+                for i in reversed(range(len(self.missionRewardParcelId))):
+                    builder.PrependInt64(self.missionRewardParcelId[i])
+                missionRewardParcelId = builder.EndVector()
+        if self.missionRewardAmount is not None:
+            if np is not None and type(self.missionRewardAmount) is np.ndarray:
+                missionRewardAmount = builder.CreateNumpyVector(self.missionRewardAmount)
+            else:
+                MiniGameMissionExcelStartMissionRewardAmountVector(builder, len(self.missionRewardAmount))
+                for i in reversed(range(len(self.missionRewardAmount))):
+                    builder.PrependInt32(self.missionRewardAmount[i])
+                missionRewardAmount = builder.EndVector()
+        if self.conditionRewardParcelType is not None:
+            if np is not None and type(self.conditionRewardParcelType) is np.ndarray:
+                conditionRewardParcelType = builder.CreateNumpyVector(self.conditionRewardParcelType)
+            else:
+                MiniGameMissionExcelStartConditionRewardParcelTypeVector(builder, len(self.conditionRewardParcelType))
+                for i in reversed(range(len(self.conditionRewardParcelType))):
+                    builder.PrependInt32(self.conditionRewardParcelType[i])
+                conditionRewardParcelType = builder.EndVector()
+        if self.conditionRewardParcelId is not None:
+            if np is not None and type(self.conditionRewardParcelId) is np.ndarray:
+                conditionRewardParcelId = builder.CreateNumpyVector(self.conditionRewardParcelId)
+            else:
+                MiniGameMissionExcelStartConditionRewardParcelIdVector(builder, len(self.conditionRewardParcelId))
+                for i in reversed(range(len(self.conditionRewardParcelId))):
+                    builder.PrependInt64(self.conditionRewardParcelId[i])
+                conditionRewardParcelId = builder.EndVector()
+        if self.conditionRewardAmount is not None:
+            if np is not None and type(self.conditionRewardAmount) is np.ndarray:
+                conditionRewardAmount = builder.CreateNumpyVector(self.conditionRewardAmount)
+            else:
+                MiniGameMissionExcelStartConditionRewardAmountVector(builder, len(self.conditionRewardAmount))
+                for i in reversed(range(len(self.conditionRewardAmount))):
+                    builder.PrependInt32(self.conditionRewardAmount[i])
+                conditionRewardAmount = builder.EndVector()
+        MiniGameMissionExcelStart(builder)
+        MiniGameMissionExcelAddId(builder, self.id)
+        MiniGameMissionExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameMissionExcelAddGroupId(builder, self.groupId)
+        if self.groupName is not None:
+            MiniGameMissionExcelAddGroupName(builder, groupName)
+        MiniGameMissionExcelAddCategory(builder, self.category)
+        MiniGameMissionExcelAddDescription(builder, self.description)
+        MiniGameMissionExcelAddResetType(builder, self.resetType)
+        MiniGameMissionExcelAddToastDisplayType(builder, self.toastDisplayType)
+        if self.toastImagePath is not None:
+            MiniGameMissionExcelAddToastImagePath(builder, toastImagePath)
+        MiniGameMissionExcelAddViewFlag(builder, self.viewFlag)
+        MiniGameMissionExcelAddDisplayOrder(builder, self.displayOrder)
+        if self.preMissionId is not None:
+            MiniGameMissionExcelAddPreMissionId(builder, preMissionId)
+        MiniGameMissionExcelAddTargetGroup(builder, self.targetGroup)
+        MiniGameMissionExcelAddAccountLevel(builder, self.accountLevel)
+        if self.shortcutUi is not None:
+            MiniGameMissionExcelAddShortcutUi(builder, shortcutUi)
+        MiniGameMissionExcelAddCompleteConditionType(builder, self.completeConditionType)
+        MiniGameMissionExcelAddIsCompleteExtensionTime(builder, self.isCompleteExtensionTime)
+        MiniGameMissionExcelAddCompleteConditionCount(builder, self.completeConditionCount)
+        if self.completeConditionParameter is not None:
+            MiniGameMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter)
+        if self.completeConditionParameterTag is not None:
+            MiniGameMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag)
+        if self.rewardIcon is not None:
+            MiniGameMissionExcelAddRewardIcon(builder, rewardIcon)
+        if self.completeConditionMissionId is not None:
+            MiniGameMissionExcelAddCompleteConditionMissionId(builder, completeConditionMissionId)
+        MiniGameMissionExcelAddCompleteConditionMissionCount(builder, self.completeConditionMissionCount)
+        if self.missionRewardParcelType is not None:
+            MiniGameMissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType)
+        if self.missionRewardParcelId is not None:
+            MiniGameMissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId)
+        if self.missionRewardAmount is not None:
+            MiniGameMissionExcelAddMissionRewardAmount(builder, missionRewardAmount)
+        if self.conditionRewardParcelType is not None:
+            MiniGameMissionExcelAddConditionRewardParcelType(builder, conditionRewardParcelType)
+        if self.conditionRewardParcelId is not None:
+            MiniGameMissionExcelAddConditionRewardParcelId(builder, conditionRewardParcelId)
+        if self.conditionRewardAmount is not None:
+            MiniGameMissionExcelAddConditionRewardAmount(builder, conditionRewardAmount)
+        miniGameMissionExcel = MiniGameMissionExcelEnd(builder)
+        return miniGameMissionExcel

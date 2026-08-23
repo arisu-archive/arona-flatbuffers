@@ -256,3 +256,134 @@ def MinigameCCGCharacterExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGCharacterExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MinigameCCGCharacterExcelT(object):
+
+    # MinigameCCGCharacterExcelT
+    def __init__(
+        self,
+        id = 0,
+        type = 0,
+        activeSkillId = 0,
+        activeSkillCost = 0,
+        activeSkilleCostVisible = False,
+        activeSkillCooldown = 0,
+        maxHealth = 0,
+        passiveSkillId = None,
+        name = 0,
+        description = None,
+        imagePath = None,
+        uiImagePath = None,
+        tags = None,
+    ):
+        self.id = id  # type: int
+        self.type = type  # type: int
+        self.activeSkillId = activeSkillId  # type: int
+        self.activeSkillCost = activeSkillCost  # type: int
+        self.activeSkilleCostVisible = activeSkilleCostVisible  # type: bool
+        self.activeSkillCooldown = activeSkillCooldown  # type: int
+        self.maxHealth = maxHealth  # type: int
+        self.passiveSkillId = passiveSkillId  # type: Optional[List[int]]
+        self.name = name  # type: int
+        self.description = description  # type: Optional[str]
+        self.imagePath = imagePath  # type: Optional[str]
+        self.uiImagePath = uiImagePath  # type: Optional[str]
+        self.tags = tags  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcgcharacterExcel = MinigameCCGCharacterExcel()
+        minigameCcgcharacterExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcgcharacterExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcgcharacterExcel):
+        x = MinigameCCGCharacterExcelT()
+        x._UnPack(minigameCcgcharacterExcel)
+        return x
+
+    # MinigameCCGCharacterExcelT
+    def _UnPack(self, minigameCcgcharacterExcel):
+        if minigameCcgcharacterExcel is None:
+            return
+        self.id = minigameCcgcharacterExcel.Id()
+        self.type = minigameCcgcharacterExcel.Type()
+        self.activeSkillId = minigameCcgcharacterExcel.ActiveSkillId()
+        self.activeSkillCost = minigameCcgcharacterExcel.ActiveSkillCost()
+        self.activeSkilleCostVisible = minigameCcgcharacterExcel.ActiveSkilleCostVisible()
+        self.activeSkillCooldown = minigameCcgcharacterExcel.ActiveSkillCooldown()
+        self.maxHealth = minigameCcgcharacterExcel.MaxHealth()
+        if not minigameCcgcharacterExcel.PassiveSkillIdIsNone():
+            if np is None:
+                self.passiveSkillId = []
+                for i in range(minigameCcgcharacterExcel.PassiveSkillIdLength()):
+                    self.passiveSkillId.append(minigameCcgcharacterExcel.PassiveSkillId(i))
+            else:
+                self.passiveSkillId = minigameCcgcharacterExcel.PassiveSkillIdAsNumpy()
+        self.name = minigameCcgcharacterExcel.Name()
+        self.description = minigameCcgcharacterExcel.Description()
+        self.imagePath = minigameCcgcharacterExcel.ImagePath()
+        self.uiImagePath = minigameCcgcharacterExcel.UiImagePath()
+        if not minigameCcgcharacterExcel.TagsIsNone():
+            if np is None:
+                self.tags = []
+                for i in range(minigameCcgcharacterExcel.TagsLength()):
+                    self.tags.append(minigameCcgcharacterExcel.Tags(i))
+            else:
+                self.tags = minigameCcgcharacterExcel.TagsAsNumpy()
+
+    # MinigameCCGCharacterExcelT
+    def Pack(self, builder):
+        if self.passiveSkillId is not None:
+            if np is not None and type(self.passiveSkillId) is np.ndarray:
+                passiveSkillId = builder.CreateNumpyVector(self.passiveSkillId)
+            else:
+                MinigameCCGCharacterExcelStartPassiveSkillIdVector(builder, len(self.passiveSkillId))
+                for i in reversed(range(len(self.passiveSkillId))):
+                    builder.PrependInt64(self.passiveSkillId[i])
+                passiveSkillId = builder.EndVector()
+        if self.description is not None:
+            description = builder.CreateString(self.description)
+        if self.imagePath is not None:
+            imagePath = builder.CreateString(self.imagePath)
+        if self.uiImagePath is not None:
+            uiImagePath = builder.CreateString(self.uiImagePath)
+        if self.tags is not None:
+            if np is not None and type(self.tags) is np.ndarray:
+                tags = builder.CreateNumpyVector(self.tags)
+            else:
+                MinigameCCGCharacterExcelStartTagsVector(builder, len(self.tags))
+                for i in reversed(range(len(self.tags))):
+                    builder.PrependInt32(self.tags[i])
+                tags = builder.EndVector()
+        MinigameCCGCharacterExcelStart(builder)
+        MinigameCCGCharacterExcelAddId(builder, self.id)
+        MinigameCCGCharacterExcelAddType(builder, self.type)
+        MinigameCCGCharacterExcelAddActiveSkillId(builder, self.activeSkillId)
+        MinigameCCGCharacterExcelAddActiveSkillCost(builder, self.activeSkillCost)
+        MinigameCCGCharacterExcelAddActiveSkilleCostVisible(builder, self.activeSkilleCostVisible)
+        MinigameCCGCharacterExcelAddActiveSkillCooldown(builder, self.activeSkillCooldown)
+        MinigameCCGCharacterExcelAddMaxHealth(builder, self.maxHealth)
+        if self.passiveSkillId is not None:
+            MinigameCCGCharacterExcelAddPassiveSkillId(builder, passiveSkillId)
+        MinigameCCGCharacterExcelAddName(builder, self.name)
+        if self.description is not None:
+            MinigameCCGCharacterExcelAddDescription(builder, description)
+        if self.imagePath is not None:
+            MinigameCCGCharacterExcelAddImagePath(builder, imagePath)
+        if self.uiImagePath is not None:
+            MinigameCCGCharacterExcelAddUiImagePath(builder, uiImagePath)
+        if self.tags is not None:
+            MinigameCCGCharacterExcelAddTags(builder, tags)
+        minigameCcgcharacterExcel = MinigameCCGCharacterExcelEnd(builder)
+        return minigameCcgcharacterExcel

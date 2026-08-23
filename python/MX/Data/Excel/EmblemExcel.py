@@ -360,3 +360,172 @@ def EmblemExcelEnd(builder):
 
 def End(builder):
     return EmblemExcelEnd(builder)
+
+
+class EmblemExcelT(object):
+
+    # EmblemExcelT
+    def __init__(
+        self,
+        id = 0,
+        category = 0,
+        rarity = 0,
+        displayOrder = 0,
+        localizeEtcId = 0,
+        localizeCodeId = 0,
+        useAtLocalizeId = 0,
+        emblemTextVisible = False,
+        iconPath = None,
+        emblemIconPath = None,
+        emblemIconNumControl = 0,
+        emblemIconBgPath = None,
+        emblemBgPathJp = None,
+        emblemBgPathKr = None,
+        emblemBgPathTh = None,
+        emblemBgPathTw = None,
+        emblemBgPathEn = None,
+        emblemEffectPath = None,
+        displayType = 0,
+        displayStartDate = None,
+        displayEndDate = None,
+        dislpayFavorLevel = 0,
+        checkPassType = 0,
+        emblemParameter = 0,
+        checkPassCount = 0,
+    ):
+        self.id = id  # type: int
+        self.category = category  # type: int
+        self.rarity = rarity  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.localizeCodeId = localizeCodeId  # type: int
+        self.useAtLocalizeId = useAtLocalizeId  # type: int
+        self.emblemTextVisible = emblemTextVisible  # type: bool
+        self.iconPath = iconPath  # type: Optional[str]
+        self.emblemIconPath = emblemIconPath  # type: Optional[str]
+        self.emblemIconNumControl = emblemIconNumControl  # type: int
+        self.emblemIconBgPath = emblemIconBgPath  # type: Optional[str]
+        self.emblemBgPathJp = emblemBgPathJp  # type: Optional[str]
+        self.emblemBgPathKr = emblemBgPathKr  # type: Optional[str]
+        self.emblemBgPathTh = emblemBgPathTh  # type: Optional[str]
+        self.emblemBgPathTw = emblemBgPathTw  # type: Optional[str]
+        self.emblemBgPathEn = emblemBgPathEn  # type: Optional[str]
+        self.emblemEffectPath = emblemEffectPath  # type: Optional[str]
+        self.displayType = displayType  # type: int
+        self.displayStartDate = displayStartDate  # type: Optional[str]
+        self.displayEndDate = displayEndDate  # type: Optional[str]
+        self.dislpayFavorLevel = dislpayFavorLevel  # type: int
+        self.checkPassType = checkPassType  # type: int
+        self.emblemParameter = emblemParameter  # type: int
+        self.checkPassCount = checkPassCount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        emblemExcel = EmblemExcel()
+        emblemExcel.Init(buf, pos)
+        return cls.InitFromObj(emblemExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, emblemExcel):
+        x = EmblemExcelT()
+        x._UnPack(emblemExcel)
+        return x
+
+    # EmblemExcelT
+    def _UnPack(self, emblemExcel):
+        if emblemExcel is None:
+            return
+        self.id = emblemExcel.Id()
+        self.category = emblemExcel.Category()
+        self.rarity = emblemExcel.Rarity()
+        self.displayOrder = emblemExcel.DisplayOrder()
+        self.localizeEtcId = emblemExcel.LocalizeEtcId()
+        self.localizeCodeId = emblemExcel.LocalizeCodeId()
+        self.useAtLocalizeId = emblemExcel.UseAtLocalizeId()
+        self.emblemTextVisible = emblemExcel.EmblemTextVisible()
+        self.iconPath = emblemExcel.IconPath()
+        self.emblemIconPath = emblemExcel.EmblemIconPath()
+        self.emblemIconNumControl = emblemExcel.EmblemIconNumControl()
+        self.emblemIconBgPath = emblemExcel.EmblemIconBgPath()
+        self.emblemBgPathJp = emblemExcel.EmblemBgPathJp()
+        self.emblemBgPathKr = emblemExcel.EmblemBgPathKr()
+        self.emblemBgPathTh = emblemExcel.EmblemBgPathTh()
+        self.emblemBgPathTw = emblemExcel.EmblemBgPathTw()
+        self.emblemBgPathEn = emblemExcel.EmblemBgPathEn()
+        self.emblemEffectPath = emblemExcel.EmblemEffectPath()
+        self.displayType = emblemExcel.DisplayType()
+        self.displayStartDate = emblemExcel.DisplayStartDate()
+        self.displayEndDate = emblemExcel.DisplayEndDate()
+        self.dislpayFavorLevel = emblemExcel.DislpayFavorLevel()
+        self.checkPassType = emblemExcel.CheckPassType()
+        self.emblemParameter = emblemExcel.EmblemParameter()
+        self.checkPassCount = emblemExcel.CheckPassCount()
+
+    # EmblemExcelT
+    def Pack(self, builder):
+        if self.iconPath is not None:
+            iconPath = builder.CreateString(self.iconPath)
+        if self.emblemIconPath is not None:
+            emblemIconPath = builder.CreateString(self.emblemIconPath)
+        if self.emblemIconBgPath is not None:
+            emblemIconBgPath = builder.CreateString(self.emblemIconBgPath)
+        if self.emblemBgPathJp is not None:
+            emblemBgPathJp = builder.CreateString(self.emblemBgPathJp)
+        if self.emblemBgPathKr is not None:
+            emblemBgPathKr = builder.CreateString(self.emblemBgPathKr)
+        if self.emblemBgPathTh is not None:
+            emblemBgPathTh = builder.CreateString(self.emblemBgPathTh)
+        if self.emblemBgPathTw is not None:
+            emblemBgPathTw = builder.CreateString(self.emblemBgPathTw)
+        if self.emblemBgPathEn is not None:
+            emblemBgPathEn = builder.CreateString(self.emblemBgPathEn)
+        if self.emblemEffectPath is not None:
+            emblemEffectPath = builder.CreateString(self.emblemEffectPath)
+        if self.displayStartDate is not None:
+            displayStartDate = builder.CreateString(self.displayStartDate)
+        if self.displayEndDate is not None:
+            displayEndDate = builder.CreateString(self.displayEndDate)
+        EmblemExcelStart(builder)
+        EmblemExcelAddId(builder, self.id)
+        EmblemExcelAddCategory(builder, self.category)
+        EmblemExcelAddRarity(builder, self.rarity)
+        EmblemExcelAddDisplayOrder(builder, self.displayOrder)
+        EmblemExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        EmblemExcelAddLocalizeCodeId(builder, self.localizeCodeId)
+        EmblemExcelAddUseAtLocalizeId(builder, self.useAtLocalizeId)
+        EmblemExcelAddEmblemTextVisible(builder, self.emblemTextVisible)
+        if self.iconPath is not None:
+            EmblemExcelAddIconPath(builder, iconPath)
+        if self.emblemIconPath is not None:
+            EmblemExcelAddEmblemIconPath(builder, emblemIconPath)
+        EmblemExcelAddEmblemIconNumControl(builder, self.emblemIconNumControl)
+        if self.emblemIconBgPath is not None:
+            EmblemExcelAddEmblemIconBgPath(builder, emblemIconBgPath)
+        if self.emblemBgPathJp is not None:
+            EmblemExcelAddEmblemBgPathJp(builder, emblemBgPathJp)
+        if self.emblemBgPathKr is not None:
+            EmblemExcelAddEmblemBgPathKr(builder, emblemBgPathKr)
+        if self.emblemBgPathTh is not None:
+            EmblemExcelAddEmblemBgPathTh(builder, emblemBgPathTh)
+        if self.emblemBgPathTw is not None:
+            EmblemExcelAddEmblemBgPathTw(builder, emblemBgPathTw)
+        if self.emblemBgPathEn is not None:
+            EmblemExcelAddEmblemBgPathEn(builder, emblemBgPathEn)
+        if self.emblemEffectPath is not None:
+            EmblemExcelAddEmblemEffectPath(builder, emblemEffectPath)
+        EmblemExcelAddDisplayType(builder, self.displayType)
+        if self.displayStartDate is not None:
+            EmblemExcelAddDisplayStartDate(builder, displayStartDate)
+        if self.displayEndDate is not None:
+            EmblemExcelAddDisplayEndDate(builder, displayEndDate)
+        EmblemExcelAddDislpayFavorLevel(builder, self.dislpayFavorLevel)
+        EmblemExcelAddCheckPassType(builder, self.checkPassType)
+        EmblemExcelAddEmblemParameter(builder, self.emblemParameter)
+        EmblemExcelAddCheckPassCount(builder, self.checkPassCount)
+        emblemExcel = EmblemExcelEnd(builder)
+        return emblemExcel

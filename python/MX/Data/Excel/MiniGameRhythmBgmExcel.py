@@ -165,3 +165,91 @@ def MiniGameRhythmBgmExcelEnd(builder):
 
 def End(builder):
     return MiniGameRhythmBgmExcelEnd(builder)
+
+
+class MiniGameRhythmBgmExcelT(object):
+
+    # MiniGameRhythmBgmExcelT
+    def __init__(
+        self,
+        rhythmBgmId = 0,
+        eventContentId = 0,
+        stageSelectImagePath = None,
+        bpm = 0,
+        bgm = 0,
+        bgmNameText = None,
+        bgmArtistText = None,
+        hasLyricist = False,
+        bgmComposerText = None,
+        bgmLength = 0,
+    ):
+        self.rhythmBgmId = rhythmBgmId  # type: int
+        self.eventContentId = eventContentId  # type: int
+        self.stageSelectImagePath = stageSelectImagePath  # type: Optional[str]
+        self.bpm = bpm  # type: int
+        self.bgm = bgm  # type: int
+        self.bgmNameText = bgmNameText  # type: Optional[str]
+        self.bgmArtistText = bgmArtistText  # type: Optional[str]
+        self.hasLyricist = hasLyricist  # type: bool
+        self.bgmComposerText = bgmComposerText  # type: Optional[str]
+        self.bgmLength = bgmLength  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameRhythmBgmExcel = MiniGameRhythmBgmExcel()
+        miniGameRhythmBgmExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameRhythmBgmExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameRhythmBgmExcel):
+        x = MiniGameRhythmBgmExcelT()
+        x._UnPack(miniGameRhythmBgmExcel)
+        return x
+
+    # MiniGameRhythmBgmExcelT
+    def _UnPack(self, miniGameRhythmBgmExcel):
+        if miniGameRhythmBgmExcel is None:
+            return
+        self.rhythmBgmId = miniGameRhythmBgmExcel.RhythmBgmId()
+        self.eventContentId = miniGameRhythmBgmExcel.EventContentId()
+        self.stageSelectImagePath = miniGameRhythmBgmExcel.StageSelectImagePath()
+        self.bpm = miniGameRhythmBgmExcel.Bpm()
+        self.bgm = miniGameRhythmBgmExcel.Bgm()
+        self.bgmNameText = miniGameRhythmBgmExcel.BgmNameText()
+        self.bgmArtistText = miniGameRhythmBgmExcel.BgmArtistText()
+        self.hasLyricist = miniGameRhythmBgmExcel.HasLyricist()
+        self.bgmComposerText = miniGameRhythmBgmExcel.BgmComposerText()
+        self.bgmLength = miniGameRhythmBgmExcel.BgmLength()
+
+    # MiniGameRhythmBgmExcelT
+    def Pack(self, builder):
+        if self.stageSelectImagePath is not None:
+            stageSelectImagePath = builder.CreateString(self.stageSelectImagePath)
+        if self.bgmNameText is not None:
+            bgmNameText = builder.CreateString(self.bgmNameText)
+        if self.bgmArtistText is not None:
+            bgmArtistText = builder.CreateString(self.bgmArtistText)
+        if self.bgmComposerText is not None:
+            bgmComposerText = builder.CreateString(self.bgmComposerText)
+        MiniGameRhythmBgmExcelStart(builder)
+        MiniGameRhythmBgmExcelAddRhythmBgmId(builder, self.rhythmBgmId)
+        MiniGameRhythmBgmExcelAddEventContentId(builder, self.eventContentId)
+        if self.stageSelectImagePath is not None:
+            MiniGameRhythmBgmExcelAddStageSelectImagePath(builder, stageSelectImagePath)
+        MiniGameRhythmBgmExcelAddBpm(builder, self.bpm)
+        MiniGameRhythmBgmExcelAddBgm(builder, self.bgm)
+        if self.bgmNameText is not None:
+            MiniGameRhythmBgmExcelAddBgmNameText(builder, bgmNameText)
+        if self.bgmArtistText is not None:
+            MiniGameRhythmBgmExcelAddBgmArtistText(builder, bgmArtistText)
+        MiniGameRhythmBgmExcelAddHasLyricist(builder, self.hasLyricist)
+        if self.bgmComposerText is not None:
+            MiniGameRhythmBgmExcelAddBgmComposerText(builder, bgmComposerText)
+        MiniGameRhythmBgmExcelAddBgmLength(builder, self.bgmLength)
+        miniGameRhythmBgmExcel = MiniGameRhythmBgmExcelEnd(builder)
+        return miniGameRhythmBgmExcel

@@ -72,3 +72,68 @@ def FieldSeasonExcelTableEnd(builder):
 
 def End(builder):
     return FieldSeasonExcelTableEnd(builder)
+
+import FlatData.FieldSeasonExcel
+try:
+    from typing import List
+except:
+    pass
+
+class FieldSeasonExcelTableT(object):
+
+    # FieldSeasonExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.FieldSeasonExcel.FieldSeasonExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        fieldSeasonExcelTable = FieldSeasonExcelTable()
+        fieldSeasonExcelTable.Init(buf, pos)
+        return cls.InitFromObj(fieldSeasonExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, fieldSeasonExcelTable):
+        x = FieldSeasonExcelTableT()
+        x._UnPack(fieldSeasonExcelTable)
+        return x
+
+    # FieldSeasonExcelTableT
+    def _UnPack(self, fieldSeasonExcelTable):
+        if fieldSeasonExcelTable is None:
+            return
+        if not fieldSeasonExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(fieldSeasonExcelTable.DataListLength()):
+                if fieldSeasonExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    fieldSeasonExcel_ = FlatData.FieldSeasonExcel.FieldSeasonExcelT.InitFromObj(fieldSeasonExcelTable.DataList(i))
+                    self.dataList.append(fieldSeasonExcel_)
+
+    # FieldSeasonExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            FieldSeasonExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        FieldSeasonExcelTableStart(builder)
+        if self.dataList is not None:
+            FieldSeasonExcelTableAddDataList(builder, dataList)
+        fieldSeasonExcelTable = FieldSeasonExcelTableEnd(builder)
+        return fieldSeasonExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(FieldSeasonExcelTableT, 'FieldSeasonExcelTable', ())

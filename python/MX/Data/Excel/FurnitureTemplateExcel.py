@@ -87,3 +87,61 @@ def FurnitureTemplateExcelEnd(builder):
 
 def End(builder):
     return FurnitureTemplateExcelEnd(builder)
+
+
+class FurnitureTemplateExcelT(object):
+
+    # FurnitureTemplateExcelT
+    def __init__(
+        self,
+        furnitureTemplateId = 0,
+        funitureTemplateTitle = 0,
+        thumbnailImagePath = None,
+        imagePath = None,
+    ):
+        self.furnitureTemplateId = furnitureTemplateId  # type: int
+        self.funitureTemplateTitle = funitureTemplateTitle  # type: int
+        self.thumbnailImagePath = thumbnailImagePath  # type: Optional[str]
+        self.imagePath = imagePath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        furnitureTemplateExcel = FurnitureTemplateExcel()
+        furnitureTemplateExcel.Init(buf, pos)
+        return cls.InitFromObj(furnitureTemplateExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, furnitureTemplateExcel):
+        x = FurnitureTemplateExcelT()
+        x._UnPack(furnitureTemplateExcel)
+        return x
+
+    # FurnitureTemplateExcelT
+    def _UnPack(self, furnitureTemplateExcel):
+        if furnitureTemplateExcel is None:
+            return
+        self.furnitureTemplateId = furnitureTemplateExcel.FurnitureTemplateId()
+        self.funitureTemplateTitle = furnitureTemplateExcel.FunitureTemplateTitle()
+        self.thumbnailImagePath = furnitureTemplateExcel.ThumbnailImagePath()
+        self.imagePath = furnitureTemplateExcel.ImagePath()
+
+    # FurnitureTemplateExcelT
+    def Pack(self, builder):
+        if self.thumbnailImagePath is not None:
+            thumbnailImagePath = builder.CreateString(self.thumbnailImagePath)
+        if self.imagePath is not None:
+            imagePath = builder.CreateString(self.imagePath)
+        FurnitureTemplateExcelStart(builder)
+        FurnitureTemplateExcelAddFurnitureTemplateId(builder, self.furnitureTemplateId)
+        FurnitureTemplateExcelAddFunitureTemplateTitle(builder, self.funitureTemplateTitle)
+        if self.thumbnailImagePath is not None:
+            FurnitureTemplateExcelAddThumbnailImagePath(builder, thumbnailImagePath)
+        if self.imagePath is not None:
+            FurnitureTemplateExcelAddImagePath(builder, imagePath)
+        furnitureTemplateExcel = FurnitureTemplateExcelEnd(builder)
+        return furnitureTemplateExcel

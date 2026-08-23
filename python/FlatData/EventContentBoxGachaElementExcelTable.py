@@ -72,3 +72,68 @@ def EventContentBoxGachaElementExcelTableEnd(builder):
 
 def End(builder):
     return EventContentBoxGachaElementExcelTableEnd(builder)
+
+import FlatData.EventContentBoxGachaElementExcel
+try:
+    from typing import List
+except:
+    pass
+
+class EventContentBoxGachaElementExcelTableT(object):
+
+    # EventContentBoxGachaElementExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.EventContentBoxGachaElementExcel.EventContentBoxGachaElementExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        eventContentBoxGachaElementExcelTable = EventContentBoxGachaElementExcelTable()
+        eventContentBoxGachaElementExcelTable.Init(buf, pos)
+        return cls.InitFromObj(eventContentBoxGachaElementExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, eventContentBoxGachaElementExcelTable):
+        x = EventContentBoxGachaElementExcelTableT()
+        x._UnPack(eventContentBoxGachaElementExcelTable)
+        return x
+
+    # EventContentBoxGachaElementExcelTableT
+    def _UnPack(self, eventContentBoxGachaElementExcelTable):
+        if eventContentBoxGachaElementExcelTable is None:
+            return
+        if not eventContentBoxGachaElementExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(eventContentBoxGachaElementExcelTable.DataListLength()):
+                if eventContentBoxGachaElementExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    eventContentBoxGachaElementExcel_ = FlatData.EventContentBoxGachaElementExcel.EventContentBoxGachaElementExcelT.InitFromObj(eventContentBoxGachaElementExcelTable.DataList(i))
+                    self.dataList.append(eventContentBoxGachaElementExcel_)
+
+    # EventContentBoxGachaElementExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            EventContentBoxGachaElementExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        EventContentBoxGachaElementExcelTableStart(builder)
+        if self.dataList is not None:
+            EventContentBoxGachaElementExcelTableAddDataList(builder, dataList)
+        eventContentBoxGachaElementExcelTable = EventContentBoxGachaElementExcelTableEnd(builder)
+        return eventContentBoxGachaElementExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(EventContentBoxGachaElementExcelTableT, 'EventContentBoxGachaElementExcelTable', ())

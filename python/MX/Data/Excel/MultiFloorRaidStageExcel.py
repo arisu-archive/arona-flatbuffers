@@ -483,3 +483,227 @@ def MultiFloorRaidStageExcelEnd(builder):
 
 def End(builder):
     return MultiFloorRaidStageExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MultiFloorRaidStageExcelT(object):
+
+    # MultiFloorRaidStageExcelT
+    def __init__(
+        self,
+        id = 0,
+        echelonExtensionType = 0,
+        bossGroupId = None,
+        assistSlot = 0,
+        stageOpenCondition = 0,
+        floorListSection = False,
+        floorListSectionOpenCondition = 0,
+        floorListSectionLabel = 0,
+        difficulty = 0,
+        useBossIndex = False,
+        useBossAiPhaseSync = False,
+        floorListImgPath = None,
+        floorImgPath = None,
+        raidCharacterId = 0,
+        bossCharacterId = None,
+        statChangeId = None,
+        battleDuration = 0,
+        groundId = 0,
+        recommendLevel = 0,
+        rewardGroupId = 0,
+        battleReadyTimelinePath = None,
+        battleReadyTimelinePhaseStart = None,
+        battleReadyTimelinePhaseEnd = None,
+        victoryTimelinePath = None,
+        showSkillCard = False,
+    ):
+        self.id = id  # type: int
+        self.echelonExtensionType = echelonExtensionType  # type: int
+        self.bossGroupId = bossGroupId  # type: Optional[str]
+        self.assistSlot = assistSlot  # type: int
+        self.stageOpenCondition = stageOpenCondition  # type: int
+        self.floorListSection = floorListSection  # type: bool
+        self.floorListSectionOpenCondition = floorListSectionOpenCondition  # type: int
+        self.floorListSectionLabel = floorListSectionLabel  # type: int
+        self.difficulty = difficulty  # type: int
+        self.useBossIndex = useBossIndex  # type: bool
+        self.useBossAiPhaseSync = useBossAiPhaseSync  # type: bool
+        self.floorListImgPath = floorListImgPath  # type: Optional[str]
+        self.floorImgPath = floorImgPath  # type: Optional[str]
+        self.raidCharacterId = raidCharacterId  # type: int
+        self.bossCharacterId = bossCharacterId  # type: Optional[List[int]]
+        self.statChangeId = statChangeId  # type: Optional[List[int]]
+        self.battleDuration = battleDuration  # type: int
+        self.groundId = groundId  # type: int
+        self.recommendLevel = recommendLevel  # type: int
+        self.rewardGroupId = rewardGroupId  # type: int
+        self.battleReadyTimelinePath = battleReadyTimelinePath  # type: Optional[List[Optional[str]]]
+        self.battleReadyTimelinePhaseStart = battleReadyTimelinePhaseStart  # type: Optional[List[int]]
+        self.battleReadyTimelinePhaseEnd = battleReadyTimelinePhaseEnd  # type: Optional[List[int]]
+        self.victoryTimelinePath = victoryTimelinePath  # type: Optional[str]
+        self.showSkillCard = showSkillCard  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        multiFloorRaidStageExcel = MultiFloorRaidStageExcel()
+        multiFloorRaidStageExcel.Init(buf, pos)
+        return cls.InitFromObj(multiFloorRaidStageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, multiFloorRaidStageExcel):
+        x = MultiFloorRaidStageExcelT()
+        x._UnPack(multiFloorRaidStageExcel)
+        return x
+
+    # MultiFloorRaidStageExcelT
+    def _UnPack(self, multiFloorRaidStageExcel):
+        if multiFloorRaidStageExcel is None:
+            return
+        self.id = multiFloorRaidStageExcel.Id()
+        self.echelonExtensionType = multiFloorRaidStageExcel.EchelonExtensionType()
+        self.bossGroupId = multiFloorRaidStageExcel.BossGroupId()
+        self.assistSlot = multiFloorRaidStageExcel.AssistSlot()
+        self.stageOpenCondition = multiFloorRaidStageExcel.StageOpenCondition()
+        self.floorListSection = multiFloorRaidStageExcel.FloorListSection()
+        self.floorListSectionOpenCondition = multiFloorRaidStageExcel.FloorListSectionOpenCondition()
+        self.floorListSectionLabel = multiFloorRaidStageExcel.FloorListSectionLabel()
+        self.difficulty = multiFloorRaidStageExcel.Difficulty()
+        self.useBossIndex = multiFloorRaidStageExcel.UseBossIndex()
+        self.useBossAiPhaseSync = multiFloorRaidStageExcel.UseBossAiPhaseSync()
+        self.floorListImgPath = multiFloorRaidStageExcel.FloorListImgPath()
+        self.floorImgPath = multiFloorRaidStageExcel.FloorImgPath()
+        self.raidCharacterId = multiFloorRaidStageExcel.RaidCharacterId()
+        if not multiFloorRaidStageExcel.BossCharacterIdIsNone():
+            if np is None:
+                self.bossCharacterId = []
+                for i in range(multiFloorRaidStageExcel.BossCharacterIdLength()):
+                    self.bossCharacterId.append(multiFloorRaidStageExcel.BossCharacterId(i))
+            else:
+                self.bossCharacterId = multiFloorRaidStageExcel.BossCharacterIdAsNumpy()
+        if not multiFloorRaidStageExcel.StatChangeIdIsNone():
+            if np is None:
+                self.statChangeId = []
+                for i in range(multiFloorRaidStageExcel.StatChangeIdLength()):
+                    self.statChangeId.append(multiFloorRaidStageExcel.StatChangeId(i))
+            else:
+                self.statChangeId = multiFloorRaidStageExcel.StatChangeIdAsNumpy()
+        self.battleDuration = multiFloorRaidStageExcel.BattleDuration()
+        self.groundId = multiFloorRaidStageExcel.GroundId()
+        self.recommendLevel = multiFloorRaidStageExcel.RecommendLevel()
+        self.rewardGroupId = multiFloorRaidStageExcel.RewardGroupId()
+        if not multiFloorRaidStageExcel.BattleReadyTimelinePathIsNone():
+            self.battleReadyTimelinePath = []
+            for i in range(multiFloorRaidStageExcel.BattleReadyTimelinePathLength()):
+                self.battleReadyTimelinePath.append(multiFloorRaidStageExcel.BattleReadyTimelinePath(i))
+        if not multiFloorRaidStageExcel.BattleReadyTimelinePhaseStartIsNone():
+            if np is None:
+                self.battleReadyTimelinePhaseStart = []
+                for i in range(multiFloorRaidStageExcel.BattleReadyTimelinePhaseStartLength()):
+                    self.battleReadyTimelinePhaseStart.append(multiFloorRaidStageExcel.BattleReadyTimelinePhaseStart(i))
+            else:
+                self.battleReadyTimelinePhaseStart = multiFloorRaidStageExcel.BattleReadyTimelinePhaseStartAsNumpy()
+        if not multiFloorRaidStageExcel.BattleReadyTimelinePhaseEndIsNone():
+            if np is None:
+                self.battleReadyTimelinePhaseEnd = []
+                for i in range(multiFloorRaidStageExcel.BattleReadyTimelinePhaseEndLength()):
+                    self.battleReadyTimelinePhaseEnd.append(multiFloorRaidStageExcel.BattleReadyTimelinePhaseEnd(i))
+            else:
+                self.battleReadyTimelinePhaseEnd = multiFloorRaidStageExcel.BattleReadyTimelinePhaseEndAsNumpy()
+        self.victoryTimelinePath = multiFloorRaidStageExcel.VictoryTimelinePath()
+        self.showSkillCard = multiFloorRaidStageExcel.ShowSkillCard()
+
+    # MultiFloorRaidStageExcelT
+    def Pack(self, builder):
+        if self.bossGroupId is not None:
+            bossGroupId = builder.CreateString(self.bossGroupId)
+        if self.floorListImgPath is not None:
+            floorListImgPath = builder.CreateString(self.floorListImgPath)
+        if self.floorImgPath is not None:
+            floorImgPath = builder.CreateString(self.floorImgPath)
+        if self.bossCharacterId is not None:
+            if np is not None and type(self.bossCharacterId) is np.ndarray:
+                bossCharacterId = builder.CreateNumpyVector(self.bossCharacterId)
+            else:
+                MultiFloorRaidStageExcelStartBossCharacterIdVector(builder, len(self.bossCharacterId))
+                for i in reversed(range(len(self.bossCharacterId))):
+                    builder.PrependInt64(self.bossCharacterId[i])
+                bossCharacterId = builder.EndVector()
+        if self.statChangeId is not None:
+            if np is not None and type(self.statChangeId) is np.ndarray:
+                statChangeId = builder.CreateNumpyVector(self.statChangeId)
+            else:
+                MultiFloorRaidStageExcelStartStatChangeIdVector(builder, len(self.statChangeId))
+                for i in reversed(range(len(self.statChangeId))):
+                    builder.PrependInt64(self.statChangeId[i])
+                statChangeId = builder.EndVector()
+        if self.battleReadyTimelinePath is not None:
+            battleReadyTimelinePathlist = []
+            for i in range(len(self.battleReadyTimelinePath)):
+                battleReadyTimelinePathlist.append(builder.CreateString(self.battleReadyTimelinePath[i]))
+            MultiFloorRaidStageExcelStartBattleReadyTimelinePathVector(builder, len(self.battleReadyTimelinePath))
+            for i in reversed(range(len(self.battleReadyTimelinePath))):
+                builder.PrependUOffsetTRelative(battleReadyTimelinePathlist[i])
+            battleReadyTimelinePath = builder.EndVector()
+        if self.battleReadyTimelinePhaseStart is not None:
+            if np is not None and type(self.battleReadyTimelinePhaseStart) is np.ndarray:
+                battleReadyTimelinePhaseStart = builder.CreateNumpyVector(self.battleReadyTimelinePhaseStart)
+            else:
+                MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, len(self.battleReadyTimelinePhaseStart))
+                for i in reversed(range(len(self.battleReadyTimelinePhaseStart))):
+                    builder.PrependInt32(self.battleReadyTimelinePhaseStart[i])
+                battleReadyTimelinePhaseStart = builder.EndVector()
+        if self.battleReadyTimelinePhaseEnd is not None:
+            if np is not None and type(self.battleReadyTimelinePhaseEnd) is np.ndarray:
+                battleReadyTimelinePhaseEnd = builder.CreateNumpyVector(self.battleReadyTimelinePhaseEnd)
+            else:
+                MultiFloorRaidStageExcelStartBattleReadyTimelinePhaseEndVector(builder, len(self.battleReadyTimelinePhaseEnd))
+                for i in reversed(range(len(self.battleReadyTimelinePhaseEnd))):
+                    builder.PrependInt32(self.battleReadyTimelinePhaseEnd[i])
+                battleReadyTimelinePhaseEnd = builder.EndVector()
+        if self.victoryTimelinePath is not None:
+            victoryTimelinePath = builder.CreateString(self.victoryTimelinePath)
+        MultiFloorRaidStageExcelStart(builder)
+        MultiFloorRaidStageExcelAddId(builder, self.id)
+        MultiFloorRaidStageExcelAddEchelonExtensionType(builder, self.echelonExtensionType)
+        if self.bossGroupId is not None:
+            MultiFloorRaidStageExcelAddBossGroupId(builder, bossGroupId)
+        MultiFloorRaidStageExcelAddAssistSlot(builder, self.assistSlot)
+        MultiFloorRaidStageExcelAddStageOpenCondition(builder, self.stageOpenCondition)
+        MultiFloorRaidStageExcelAddFloorListSection(builder, self.floorListSection)
+        MultiFloorRaidStageExcelAddFloorListSectionOpenCondition(builder, self.floorListSectionOpenCondition)
+        MultiFloorRaidStageExcelAddFloorListSectionLabel(builder, self.floorListSectionLabel)
+        MultiFloorRaidStageExcelAddDifficulty(builder, self.difficulty)
+        MultiFloorRaidStageExcelAddUseBossIndex(builder, self.useBossIndex)
+        MultiFloorRaidStageExcelAddUseBossAiPhaseSync(builder, self.useBossAiPhaseSync)
+        if self.floorListImgPath is not None:
+            MultiFloorRaidStageExcelAddFloorListImgPath(builder, floorListImgPath)
+        if self.floorImgPath is not None:
+            MultiFloorRaidStageExcelAddFloorImgPath(builder, floorImgPath)
+        MultiFloorRaidStageExcelAddRaidCharacterId(builder, self.raidCharacterId)
+        if self.bossCharacterId is not None:
+            MultiFloorRaidStageExcelAddBossCharacterId(builder, bossCharacterId)
+        if self.statChangeId is not None:
+            MultiFloorRaidStageExcelAddStatChangeId(builder, statChangeId)
+        MultiFloorRaidStageExcelAddBattleDuration(builder, self.battleDuration)
+        MultiFloorRaidStageExcelAddGroundId(builder, self.groundId)
+        MultiFloorRaidStageExcelAddRecommendLevel(builder, self.recommendLevel)
+        MultiFloorRaidStageExcelAddRewardGroupId(builder, self.rewardGroupId)
+        if self.battleReadyTimelinePath is not None:
+            MultiFloorRaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath)
+        if self.battleReadyTimelinePhaseStart is not None:
+            MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart)
+        if self.battleReadyTimelinePhaseEnd is not None:
+            MultiFloorRaidStageExcelAddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd)
+        if self.victoryTimelinePath is not None:
+            MultiFloorRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath)
+        MultiFloorRaidStageExcelAddShowSkillCard(builder, self.showSkillCard)
+        multiFloorRaidStageExcel = MultiFloorRaidStageExcelEnd(builder)
+        return multiFloorRaidStageExcel

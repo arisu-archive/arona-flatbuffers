@@ -2,4 +2,7 @@
 
 # namespace: Excel
 
-# NOTE CCGCharacterType.py does not declare any structs or enums
+class CCGCharacterType(object):
+    None_ = 0
+    Striker = 1
+    Special = 2

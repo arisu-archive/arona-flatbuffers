@@ -178,3 +178,83 @@ def CameraExcelEnd(builder):
 
 def End(builder):
     return CameraExcelEnd(builder)
+
+
+class CameraExcelT(object):
+
+    # CameraExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        minDistance = 0.0,
+        maxDistance = 0.0,
+        rotationX = 0.0,
+        rotationY = 0.0,
+        moveInstantly = False,
+        moveInstantlyRotationSave = False,
+        leftMargin = 0.0,
+        bottomMargin = 0.0,
+        ignoreEnemies = False,
+        useRailPointCompensation = False,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.minDistance = minDistance  # type: float
+        self.maxDistance = maxDistance  # type: float
+        self.rotationX = rotationX  # type: float
+        self.rotationY = rotationY  # type: float
+        self.moveInstantly = moveInstantly  # type: bool
+        self.moveInstantlyRotationSave = moveInstantlyRotationSave  # type: bool
+        self.leftMargin = leftMargin  # type: float
+        self.bottomMargin = bottomMargin  # type: float
+        self.ignoreEnemies = ignoreEnemies  # type: bool
+        self.useRailPointCompensation = useRailPointCompensation  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        cameraExcel = CameraExcel()
+        cameraExcel.Init(buf, pos)
+        return cls.InitFromObj(cameraExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, cameraExcel):
+        x = CameraExcelT()
+        x._UnPack(cameraExcel)
+        return x
+
+    # CameraExcelT
+    def _UnPack(self, cameraExcel):
+        if cameraExcel is None:
+            return
+        self.uniqueId = cameraExcel.UniqueId()
+        self.minDistance = cameraExcel.MinDistance()
+        self.maxDistance = cameraExcel.MaxDistance()
+        self.rotationX = cameraExcel.RotationX()
+        self.rotationY = cameraExcel.RotationY()
+        self.moveInstantly = cameraExcel.MoveInstantly()
+        self.moveInstantlyRotationSave = cameraExcel.MoveInstantlyRotationSave()
+        self.leftMargin = cameraExcel.LeftMargin()
+        self.bottomMargin = cameraExcel.BottomMargin()
+        self.ignoreEnemies = cameraExcel.IgnoreEnemies()
+        self.useRailPointCompensation = cameraExcel.UseRailPointCompensation()
+
+    # CameraExcelT
+    def Pack(self, builder):
+        CameraExcelStart(builder)
+        CameraExcelAddUniqueId(builder, self.uniqueId)
+        CameraExcelAddMinDistance(builder, self.minDistance)
+        CameraExcelAddMaxDistance(builder, self.maxDistance)
+        CameraExcelAddRotationX(builder, self.rotationX)
+        CameraExcelAddRotationY(builder, self.rotationY)
+        CameraExcelAddMoveInstantly(builder, self.moveInstantly)
+        CameraExcelAddMoveInstantlyRotationSave(builder, self.moveInstantlyRotationSave)
+        CameraExcelAddLeftMargin(builder, self.leftMargin)
+        CameraExcelAddBottomMargin(builder, self.bottomMargin)
+        CameraExcelAddIgnoreEnemies(builder, self.ignoreEnemies)
+        CameraExcelAddUseRailPointCompensation(builder, self.useRailPointCompensation)
+        cameraExcel = CameraExcelEnd(builder)
+        return cameraExcel

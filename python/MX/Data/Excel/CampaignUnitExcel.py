@@ -269,3 +269,138 @@ def CampaignUnitExcelEnd(builder):
 
 def End(builder):
     return CampaignUnitExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CampaignUnitExcelT(object):
+
+    # CampaignUnitExcelT
+    def __init__(
+        self,
+        id = 0,
+        key = 0,
+        name = None,
+        prefabName = None,
+        strategyPrefabName = None,
+        enterScenarioGroupId = None,
+        clearScenarioGroupId = None,
+        groundId = 0,
+        moveRange = 0,
+        aiMoveType = 0,
+        grade = 0,
+        environmentType = 0,
+        scale = 0.0,
+        isTacticSkip = False,
+    ):
+        self.id = id  # type: int
+        self.key = key  # type: int
+        self.name = name  # type: Optional[str]
+        self.prefabName = prefabName  # type: Optional[str]
+        self.strategyPrefabName = strategyPrefabName  # type: Optional[str]
+        self.enterScenarioGroupId = enterScenarioGroupId  # type: Optional[List[int]]
+        self.clearScenarioGroupId = clearScenarioGroupId  # type: Optional[List[int]]
+        self.groundId = groundId  # type: int
+        self.moveRange = moveRange  # type: int
+        self.aiMoveType = aiMoveType  # type: int
+        self.grade = grade  # type: int
+        self.environmentType = environmentType  # type: int
+        self.scale = scale  # type: float
+        self.isTacticSkip = isTacticSkip  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        campaignUnitExcel = CampaignUnitExcel()
+        campaignUnitExcel.Init(buf, pos)
+        return cls.InitFromObj(campaignUnitExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, campaignUnitExcel):
+        x = CampaignUnitExcelT()
+        x._UnPack(campaignUnitExcel)
+        return x
+
+    # CampaignUnitExcelT
+    def _UnPack(self, campaignUnitExcel):
+        if campaignUnitExcel is None:
+            return
+        self.id = campaignUnitExcel.Id()
+        self.key = campaignUnitExcel.Key()
+        self.name = campaignUnitExcel.Name()
+        self.prefabName = campaignUnitExcel.PrefabName()
+        self.strategyPrefabName = campaignUnitExcel.StrategyPrefabName()
+        if not campaignUnitExcel.EnterScenarioGroupIdIsNone():
+            if np is None:
+                self.enterScenarioGroupId = []
+                for i in range(campaignUnitExcel.EnterScenarioGroupIdLength()):
+                    self.enterScenarioGroupId.append(campaignUnitExcel.EnterScenarioGroupId(i))
+            else:
+                self.enterScenarioGroupId = campaignUnitExcel.EnterScenarioGroupIdAsNumpy()
+        if not campaignUnitExcel.ClearScenarioGroupIdIsNone():
+            if np is None:
+                self.clearScenarioGroupId = []
+                for i in range(campaignUnitExcel.ClearScenarioGroupIdLength()):
+                    self.clearScenarioGroupId.append(campaignUnitExcel.ClearScenarioGroupId(i))
+            else:
+                self.clearScenarioGroupId = campaignUnitExcel.ClearScenarioGroupIdAsNumpy()
+        self.groundId = campaignUnitExcel.GroundId()
+        self.moveRange = campaignUnitExcel.MoveRange()
+        self.aiMoveType = campaignUnitExcel.AiMoveType()
+        self.grade = campaignUnitExcel.Grade()
+        self.environmentType = campaignUnitExcel.EnvironmentType()
+        self.scale = campaignUnitExcel.Scale()
+        self.isTacticSkip = campaignUnitExcel.IsTacticSkip()
+
+    # CampaignUnitExcelT
+    def Pack(self, builder):
+        if self.name is not None:
+            name = builder.CreateString(self.name)
+        if self.prefabName is not None:
+            prefabName = builder.CreateString(self.prefabName)
+        if self.strategyPrefabName is not None:
+            strategyPrefabName = builder.CreateString(self.strategyPrefabName)
+        if self.enterScenarioGroupId is not None:
+            if np is not None and type(self.enterScenarioGroupId) is np.ndarray:
+                enterScenarioGroupId = builder.CreateNumpyVector(self.enterScenarioGroupId)
+            else:
+                CampaignUnitExcelStartEnterScenarioGroupIdVector(builder, len(self.enterScenarioGroupId))
+                for i in reversed(range(len(self.enterScenarioGroupId))):
+                    builder.PrependInt64(self.enterScenarioGroupId[i])
+                enterScenarioGroupId = builder.EndVector()
+        if self.clearScenarioGroupId is not None:
+            if np is not None and type(self.clearScenarioGroupId) is np.ndarray:
+                clearScenarioGroupId = builder.CreateNumpyVector(self.clearScenarioGroupId)
+            else:
+                CampaignUnitExcelStartClearScenarioGroupIdVector(builder, len(self.clearScenarioGroupId))
+                for i in reversed(range(len(self.clearScenarioGroupId))):
+                    builder.PrependInt64(self.clearScenarioGroupId[i])
+                clearScenarioGroupId = builder.EndVector()
+        CampaignUnitExcelStart(builder)
+        CampaignUnitExcelAddId(builder, self.id)
+        CampaignUnitExcelAddKey(builder, self.key)
+        if self.name is not None:
+            CampaignUnitExcelAddName(builder, name)
+        if self.prefabName is not None:
+            CampaignUnitExcelAddPrefabName(builder, prefabName)
+        if self.strategyPrefabName is not None:
+            CampaignUnitExcelAddStrategyPrefabName(builder, strategyPrefabName)
+        if self.enterScenarioGroupId is not None:
+            CampaignUnitExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId)
+        if self.clearScenarioGroupId is not None:
+            CampaignUnitExcelAddClearScenarioGroupId(builder, clearScenarioGroupId)
+        CampaignUnitExcelAddGroundId(builder, self.groundId)
+        CampaignUnitExcelAddMoveRange(builder, self.moveRange)
+        CampaignUnitExcelAddAiMoveType(builder, self.aiMoveType)
+        CampaignUnitExcelAddGrade(builder, self.grade)
+        CampaignUnitExcelAddEnvironmentType(builder, self.environmentType)
+        CampaignUnitExcelAddScale(builder, self.scale)
+        CampaignUnitExcelAddIsTacticSkip(builder, self.isTacticSkip)
+        campaignUnitExcel = CampaignUnitExcelEnd(builder)
+        return campaignUnitExcel

@@ -72,3 +72,68 @@ def FieldQuestExcelTableEnd(builder):
 
 def End(builder):
     return FieldQuestExcelTableEnd(builder)
+
+import FlatData.FieldQuestExcel
+try:
+    from typing import List
+except:
+    pass
+
+class FieldQuestExcelTableT(object):
+
+    # FieldQuestExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.FieldQuestExcel.FieldQuestExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        fieldQuestExcelTable = FieldQuestExcelTable()
+        fieldQuestExcelTable.Init(buf, pos)
+        return cls.InitFromObj(fieldQuestExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, fieldQuestExcelTable):
+        x = FieldQuestExcelTableT()
+        x._UnPack(fieldQuestExcelTable)
+        return x
+
+    # FieldQuestExcelTableT
+    def _UnPack(self, fieldQuestExcelTable):
+        if fieldQuestExcelTable is None:
+            return
+        if not fieldQuestExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(fieldQuestExcelTable.DataListLength()):
+                if fieldQuestExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    fieldQuestExcel_ = FlatData.FieldQuestExcel.FieldQuestExcelT.InitFromObj(fieldQuestExcelTable.DataList(i))
+                    self.dataList.append(fieldQuestExcel_)
+
+    # FieldQuestExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            FieldQuestExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        FieldQuestExcelTableStart(builder)
+        if self.dataList is not None:
+            FieldQuestExcelTableAddDataList(builder, dataList)
+        fieldQuestExcelTable = FieldQuestExcelTableEnd(builder)
+        return fieldQuestExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(FieldQuestExcelTableT, 'FieldQuestExcelTable', ())

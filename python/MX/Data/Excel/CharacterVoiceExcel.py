@@ -314,3 +314,159 @@ def CharacterVoiceExcelEnd(builder):
 
 def End(builder):
     return CharacterVoiceExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CharacterVoiceExcelT(object):
+
+    # CharacterVoiceExcelT
+    def __init__(
+        self,
+        characterVoiceUniqueId = 0,
+        characterVoiceGroupId = 0,
+        voiceHash = 0,
+        onlyOne = False,
+        priority = 0,
+        displayOrder = 0,
+        collectionVisible = False,
+        cvCollectionType = 0,
+        unlockFavorRank = 0,
+        localizeCvGroup = None,
+        nation = None,
+        volume = None,
+        delay = None,
+        path = None,
+    ):
+        self.characterVoiceUniqueId = characterVoiceUniqueId  # type: int
+        self.characterVoiceGroupId = characterVoiceGroupId  # type: int
+        self.voiceHash = voiceHash  # type: int
+        self.onlyOne = onlyOne  # type: bool
+        self.priority = priority  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.collectionVisible = collectionVisible  # type: bool
+        self.cvCollectionType = cvCollectionType  # type: int
+        self.unlockFavorRank = unlockFavorRank  # type: int
+        self.localizeCvGroup = localizeCvGroup  # type: Optional[str]
+        self.nation = nation  # type: Optional[List[int]]
+        self.volume = volume  # type: Optional[List[float]]
+        self.delay = delay  # type: Optional[List[float]]
+        self.path = path  # type: Optional[List[Optional[str]]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterVoiceExcel = CharacterVoiceExcel()
+        characterVoiceExcel.Init(buf, pos)
+        return cls.InitFromObj(characterVoiceExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterVoiceExcel):
+        x = CharacterVoiceExcelT()
+        x._UnPack(characterVoiceExcel)
+        return x
+
+    # CharacterVoiceExcelT
+    def _UnPack(self, characterVoiceExcel):
+        if characterVoiceExcel is None:
+            return
+        self.characterVoiceUniqueId = characterVoiceExcel.CharacterVoiceUniqueId()
+        self.characterVoiceGroupId = characterVoiceExcel.CharacterVoiceGroupId()
+        self.voiceHash = characterVoiceExcel.VoiceHash()
+        self.onlyOne = characterVoiceExcel.OnlyOne()
+        self.priority = characterVoiceExcel.Priority()
+        self.displayOrder = characterVoiceExcel.DisplayOrder()
+        self.collectionVisible = characterVoiceExcel.CollectionVisible()
+        self.cvCollectionType = characterVoiceExcel.CvCollectionType()
+        self.unlockFavorRank = characterVoiceExcel.UnlockFavorRank()
+        self.localizeCvGroup = characterVoiceExcel.LocalizeCvGroup()
+        if not characterVoiceExcel.NationIsNone():
+            if np is None:
+                self.nation = []
+                for i in range(characterVoiceExcel.NationLength()):
+                    self.nation.append(characterVoiceExcel.Nation(i))
+            else:
+                self.nation = characterVoiceExcel.NationAsNumpy()
+        if not characterVoiceExcel.VolumeIsNone():
+            if np is None:
+                self.volume = []
+                for i in range(characterVoiceExcel.VolumeLength()):
+                    self.volume.append(characterVoiceExcel.Volume(i))
+            else:
+                self.volume = characterVoiceExcel.VolumeAsNumpy()
+        if not characterVoiceExcel.DelayIsNone():
+            if np is None:
+                self.delay = []
+                for i in range(characterVoiceExcel.DelayLength()):
+                    self.delay.append(characterVoiceExcel.Delay(i))
+            else:
+                self.delay = characterVoiceExcel.DelayAsNumpy()
+        if not characterVoiceExcel.PathIsNone():
+            self.path = []
+            for i in range(characterVoiceExcel.PathLength()):
+                self.path.append(characterVoiceExcel.Path(i))
+
+    # CharacterVoiceExcelT
+    def Pack(self, builder):
+        if self.localizeCvGroup is not None:
+            localizeCvGroup = builder.CreateString(self.localizeCvGroup)
+        if self.nation is not None:
+            if np is not None and type(self.nation) is np.ndarray:
+                nation = builder.CreateNumpyVector(self.nation)
+            else:
+                CharacterVoiceExcelStartNationVector(builder, len(self.nation))
+                for i in reversed(range(len(self.nation))):
+                    builder.PrependInt32(self.nation[i])
+                nation = builder.EndVector()
+        if self.volume is not None:
+            if np is not None and type(self.volume) is np.ndarray:
+                volume = builder.CreateNumpyVector(self.volume)
+            else:
+                CharacterVoiceExcelStartVolumeVector(builder, len(self.volume))
+                for i in reversed(range(len(self.volume))):
+                    builder.PrependFloat32(self.volume[i])
+                volume = builder.EndVector()
+        if self.delay is not None:
+            if np is not None and type(self.delay) is np.ndarray:
+                delay = builder.CreateNumpyVector(self.delay)
+            else:
+                CharacterVoiceExcelStartDelayVector(builder, len(self.delay))
+                for i in reversed(range(len(self.delay))):
+                    builder.PrependFloat32(self.delay[i])
+                delay = builder.EndVector()
+        if self.path is not None:
+            pathlist = []
+            for i in range(len(self.path)):
+                pathlist.append(builder.CreateString(self.path[i]))
+            CharacterVoiceExcelStartPathVector(builder, len(self.path))
+            for i in reversed(range(len(self.path))):
+                builder.PrependUOffsetTRelative(pathlist[i])
+            path = builder.EndVector()
+        CharacterVoiceExcelStart(builder)
+        CharacterVoiceExcelAddCharacterVoiceUniqueId(builder, self.characterVoiceUniqueId)
+        CharacterVoiceExcelAddCharacterVoiceGroupId(builder, self.characterVoiceGroupId)
+        CharacterVoiceExcelAddVoiceHash(builder, self.voiceHash)
+        CharacterVoiceExcelAddOnlyOne(builder, self.onlyOne)
+        CharacterVoiceExcelAddPriority(builder, self.priority)
+        CharacterVoiceExcelAddDisplayOrder(builder, self.displayOrder)
+        CharacterVoiceExcelAddCollectionVisible(builder, self.collectionVisible)
+        CharacterVoiceExcelAddCvCollectionType(builder, self.cvCollectionType)
+        CharacterVoiceExcelAddUnlockFavorRank(builder, self.unlockFavorRank)
+        if self.localizeCvGroup is not None:
+            CharacterVoiceExcelAddLocalizeCvGroup(builder, localizeCvGroup)
+        if self.nation is not None:
+            CharacterVoiceExcelAddNation(builder, nation)
+        if self.volume is not None:
+            CharacterVoiceExcelAddVolume(builder, volume)
+        if self.delay is not None:
+            CharacterVoiceExcelAddDelay(builder, delay)
+        if self.path is not None:
+            CharacterVoiceExcelAddPath(builder, path)
+        characterVoiceExcel = CharacterVoiceExcelEnd(builder)
+        return characterVoiceExcel

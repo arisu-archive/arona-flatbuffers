@@ -87,3 +87,66 @@ def GachaCraftOpenTagExcelEnd(builder):
 
 def End(builder):
     return GachaCraftOpenTagExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class GachaCraftOpenTagExcelT(object):
+
+    # GachaCraftOpenTagExcelT
+    def __init__(
+        self,
+        nodeTier = 0,
+        tag = None,
+    ):
+        self.nodeTier = nodeTier  # type: int
+        self.tag = tag  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        gachaCraftOpenTagExcel = GachaCraftOpenTagExcel()
+        gachaCraftOpenTagExcel.Init(buf, pos)
+        return cls.InitFromObj(gachaCraftOpenTagExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, gachaCraftOpenTagExcel):
+        x = GachaCraftOpenTagExcelT()
+        x._UnPack(gachaCraftOpenTagExcel)
+        return x
+
+    # GachaCraftOpenTagExcelT
+    def _UnPack(self, gachaCraftOpenTagExcel):
+        if gachaCraftOpenTagExcel is None:
+            return
+        self.nodeTier = gachaCraftOpenTagExcel.NodeTier()
+        if not gachaCraftOpenTagExcel.TagIsNone():
+            if np is None:
+                self.tag = []
+                for i in range(gachaCraftOpenTagExcel.TagLength()):
+                    self.tag.append(gachaCraftOpenTagExcel.Tag(i))
+            else:
+                self.tag = gachaCraftOpenTagExcel.TagAsNumpy()
+
+    # GachaCraftOpenTagExcelT
+    def Pack(self, builder):
+        if self.tag is not None:
+            if np is not None and type(self.tag) is np.ndarray:
+                tag = builder.CreateNumpyVector(self.tag)
+            else:
+                GachaCraftOpenTagExcelStartTagVector(builder, len(self.tag))
+                for i in reversed(range(len(self.tag))):
+                    builder.PrependInt32(self.tag[i])
+                tag = builder.EndVector()
+        GachaCraftOpenTagExcelStart(builder)
+        GachaCraftOpenTagExcelAddNodeTier(builder, self.nodeTier)
+        if self.tag is not None:
+            GachaCraftOpenTagExcelAddTag(builder, tag)
+        gachaCraftOpenTagExcel = GachaCraftOpenTagExcelEnd(builder)
+        return gachaCraftOpenTagExcel

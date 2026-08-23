@@ -72,3 +72,68 @@ def KatakanaConvertExcelTableEnd(builder):
 
 def End(builder):
     return KatakanaConvertExcelTableEnd(builder)
+
+import FlatData.KatakanaConvertExcel
+try:
+    from typing import List
+except:
+    pass
+
+class KatakanaConvertExcelTableT(object):
+
+    # KatakanaConvertExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.KatakanaConvertExcel.KatakanaConvertExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        katakanaConvertExcelTable = KatakanaConvertExcelTable()
+        katakanaConvertExcelTable.Init(buf, pos)
+        return cls.InitFromObj(katakanaConvertExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, katakanaConvertExcelTable):
+        x = KatakanaConvertExcelTableT()
+        x._UnPack(katakanaConvertExcelTable)
+        return x
+
+    # KatakanaConvertExcelTableT
+    def _UnPack(self, katakanaConvertExcelTable):
+        if katakanaConvertExcelTable is None:
+            return
+        if not katakanaConvertExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(katakanaConvertExcelTable.DataListLength()):
+                if katakanaConvertExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    katakanaConvertExcel_ = FlatData.KatakanaConvertExcel.KatakanaConvertExcelT.InitFromObj(katakanaConvertExcelTable.DataList(i))
+                    self.dataList.append(katakanaConvertExcel_)
+
+    # KatakanaConvertExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            KatakanaConvertExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        KatakanaConvertExcelTableStart(builder)
+        if self.dataList is not None:
+            KatakanaConvertExcelTableAddDataList(builder, dataList)
+        katakanaConvertExcelTable = KatakanaConvertExcelTableEnd(builder)
+        return katakanaConvertExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(KatakanaConvertExcelTableT, 'KatakanaConvertExcelTable', ())

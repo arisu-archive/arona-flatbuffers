@@ -139,3 +139,74 @@ def MinigameCCGInfoExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGInfoExcelEnd(builder)
+
+
+class MinigameCCGInfoExcelT(object):
+
+    # MinigameCCGInfoExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        ccgId = 0,
+        costParcelType = 0,
+        costParcelId = 0,
+        costParcelAmount = 0,
+        cardBackPath = None,
+        perkCostParcelType = 0,
+        perkCostParcelId = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.ccgId = ccgId  # type: int
+        self.costParcelType = costParcelType  # type: int
+        self.costParcelId = costParcelId  # type: int
+        self.costParcelAmount = costParcelAmount  # type: int
+        self.cardBackPath = cardBackPath  # type: Optional[str]
+        self.perkCostParcelType = perkCostParcelType  # type: int
+        self.perkCostParcelId = perkCostParcelId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcginfoExcel = MinigameCCGInfoExcel()
+        minigameCcginfoExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcginfoExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcginfoExcel):
+        x = MinigameCCGInfoExcelT()
+        x._UnPack(minigameCcginfoExcel)
+        return x
+
+    # MinigameCCGInfoExcelT
+    def _UnPack(self, minigameCcginfoExcel):
+        if minigameCcginfoExcel is None:
+            return
+        self.eventContentId = minigameCcginfoExcel.EventContentId()
+        self.ccgId = minigameCcginfoExcel.CcgId()
+        self.costParcelType = minigameCcginfoExcel.CostParcelType()
+        self.costParcelId = minigameCcginfoExcel.CostParcelId()
+        self.costParcelAmount = minigameCcginfoExcel.CostParcelAmount()
+        self.cardBackPath = minigameCcginfoExcel.CardBackPath()
+        self.perkCostParcelType = minigameCcginfoExcel.PerkCostParcelType()
+        self.perkCostParcelId = minigameCcginfoExcel.PerkCostParcelId()
+
+    # MinigameCCGInfoExcelT
+    def Pack(self, builder):
+        if self.cardBackPath is not None:
+            cardBackPath = builder.CreateString(self.cardBackPath)
+        MinigameCCGInfoExcelStart(builder)
+        MinigameCCGInfoExcelAddEventContentId(builder, self.eventContentId)
+        MinigameCCGInfoExcelAddCcgId(builder, self.ccgId)
+        MinigameCCGInfoExcelAddCostParcelType(builder, self.costParcelType)
+        MinigameCCGInfoExcelAddCostParcelId(builder, self.costParcelId)
+        MinigameCCGInfoExcelAddCostParcelAmount(builder, self.costParcelAmount)
+        if self.cardBackPath is not None:
+            MinigameCCGInfoExcelAddCardBackPath(builder, cardBackPath)
+        MinigameCCGInfoExcelAddPerkCostParcelType(builder, self.perkCostParcelType)
+        MinigameCCGInfoExcelAddPerkCostParcelId(builder, self.perkCostParcelId)
+        minigameCcginfoExcel = MinigameCCGInfoExcelEnd(builder)
+        return minigameCcginfoExcel

@@ -126,3 +126,78 @@ def VoiceLogicEffectExcelEnd(builder):
 
 def End(builder):
     return VoiceLogicEffectExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class VoiceLogicEffectExcelT(object):
+
+    # VoiceLogicEffectExcelT
+    def __init__(
+        self,
+        logicEffectNameHash = 0,
+        self_ = False,
+        priority = 0,
+        voiceHash = None,
+        voiceId = 0,
+    ):
+        self.logicEffectNameHash = logicEffectNameHash  # type: int
+        self.self_ = self_  # type: bool
+        self.priority = priority  # type: int
+        self.voiceHash = voiceHash  # type: Optional[List[int]]
+        self.voiceId = voiceId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        voiceLogicEffectExcel = VoiceLogicEffectExcel()
+        voiceLogicEffectExcel.Init(buf, pos)
+        return cls.InitFromObj(voiceLogicEffectExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, voiceLogicEffectExcel):
+        x = VoiceLogicEffectExcelT()
+        x._UnPack(voiceLogicEffectExcel)
+        return x
+
+    # VoiceLogicEffectExcelT
+    def _UnPack(self, voiceLogicEffectExcel):
+        if voiceLogicEffectExcel is None:
+            return
+        self.logicEffectNameHash = voiceLogicEffectExcel.LogicEffectNameHash()
+        self.self_ = voiceLogicEffectExcel.Self()
+        self.priority = voiceLogicEffectExcel.Priority()
+        if not voiceLogicEffectExcel.VoiceHashIsNone():
+            if np is None:
+                self.voiceHash = []
+                for i in range(voiceLogicEffectExcel.VoiceHashLength()):
+                    self.voiceHash.append(voiceLogicEffectExcel.VoiceHash(i))
+            else:
+                self.voiceHash = voiceLogicEffectExcel.VoiceHashAsNumpy()
+        self.voiceId = voiceLogicEffectExcel.VoiceId()
+
+    # VoiceLogicEffectExcelT
+    def Pack(self, builder):
+        if self.voiceHash is not None:
+            if np is not None and type(self.voiceHash) is np.ndarray:
+                voiceHash = builder.CreateNumpyVector(self.voiceHash)
+            else:
+                VoiceLogicEffectExcelStartVoiceHashVector(builder, len(self.voiceHash))
+                for i in reversed(range(len(self.voiceHash))):
+                    builder.PrependUint32(self.voiceHash[i])
+                voiceHash = builder.EndVector()
+        VoiceLogicEffectExcelStart(builder)
+        VoiceLogicEffectExcelAddLogicEffectNameHash(builder, self.logicEffectNameHash)
+        VoiceLogicEffectExcelAddSelf(builder, self.self_)
+        VoiceLogicEffectExcelAddPriority(builder, self.priority)
+        if self.voiceHash is not None:
+            VoiceLogicEffectExcelAddVoiceHash(builder, voiceHash)
+        VoiceLogicEffectExcelAddVoiceId(builder, self.voiceId)
+        voiceLogicEffectExcel = VoiceLogicEffectExcelEnd(builder)
+        return voiceLogicEffectExcel

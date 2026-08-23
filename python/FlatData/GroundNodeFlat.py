@@ -117,3 +117,76 @@ def GroundNodeFlatEnd(builder):
 
 def End(builder):
     return GroundNodeFlatEnd(builder)
+
+import FlatData.GroundVector3
+try:
+    from typing import Optional
+except:
+    pass
+
+class GroundNodeFlatT(object):
+
+    # GroundNodeFlatT
+    def __init__(
+        self,
+        x = 0,
+        y = 0,
+        isCanNotUseSkill = False,
+        position = None,
+        nodeType = 0,
+        originalNodeType = 0,
+    ):
+        self.x = x  # type: int
+        self.y = y  # type: int
+        self.isCanNotUseSkill = isCanNotUseSkill  # type: bool
+        self.position = position  # type: Optional[FlatData.GroundVector3.GroundVector3T]
+        self.nodeType = nodeType  # type: int
+        self.originalNodeType = originalNodeType  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        groundNodeFlat = GroundNodeFlat()
+        groundNodeFlat.Init(buf, pos)
+        return cls.InitFromObj(groundNodeFlat)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, groundNodeFlat):
+        x = GroundNodeFlatT()
+        x._UnPack(groundNodeFlat)
+        return x
+
+    # GroundNodeFlatT
+    def _UnPack(self, groundNodeFlat):
+        if groundNodeFlat is None:
+            return
+        self.x = groundNodeFlat.X()
+        self.y = groundNodeFlat.Y()
+        self.isCanNotUseSkill = groundNodeFlat.IsCanNotUseSkill()
+        if groundNodeFlat.Position() is not None:
+            self.position = FlatData.GroundVector3.GroundVector3T.InitFromObj(groundNodeFlat.Position())
+        self.nodeType = groundNodeFlat.NodeType()
+        self.originalNodeType = groundNodeFlat.OriginalNodeType()
+
+    # GroundNodeFlatT
+    def Pack(self, builder):
+        if self.position is not None:
+            position = self.position.Pack(builder)
+        GroundNodeFlatStart(builder)
+        GroundNodeFlatAddX(builder, self.x)
+        GroundNodeFlatAddY(builder, self.y)
+        GroundNodeFlatAddIsCanNotUseSkill(builder, self.isCanNotUseSkill)
+        if self.position is not None:
+            GroundNodeFlatAddPosition(builder, position)
+        GroundNodeFlatAddNodeType(builder, self.nodeType)
+        GroundNodeFlatAddOriginalNodeType(builder, self.originalNodeType)
+        groundNodeFlat = GroundNodeFlatEnd(builder)
+        return groundNodeFlat
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(GroundNodeFlatT, 'GroundNodeFlat', (('x', 'int32', False), ('y', 'int32', False), ('nodeType', 'int32', False), ('originalNodeType', 'int32', False)))

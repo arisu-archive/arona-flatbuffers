@@ -100,3 +100,59 @@ def MinigameCCGEnemyExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGEnemyExcelEnd(builder)
+
+
+class MinigameCCGEnemyExcelT(object):
+
+    # MinigameCCGEnemyExcelT
+    def __init__(
+        self,
+        id = 0,
+        groupId = 0,
+        characterType = 0,
+        order = 0,
+        characterId = 0,
+    ):
+        self.id = id  # type: int
+        self.groupId = groupId  # type: int
+        self.characterType = characterType  # type: int
+        self.order = order  # type: int
+        self.characterId = characterId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcgenemyExcel = MinigameCCGEnemyExcel()
+        minigameCcgenemyExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcgenemyExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcgenemyExcel):
+        x = MinigameCCGEnemyExcelT()
+        x._UnPack(minigameCcgenemyExcel)
+        return x
+
+    # MinigameCCGEnemyExcelT
+    def _UnPack(self, minigameCcgenemyExcel):
+        if minigameCcgenemyExcel is None:
+            return
+        self.id = minigameCcgenemyExcel.Id()
+        self.groupId = minigameCcgenemyExcel.GroupId()
+        self.characterType = minigameCcgenemyExcel.CharacterType()
+        self.order = minigameCcgenemyExcel.Order()
+        self.characterId = minigameCcgenemyExcel.CharacterId()
+
+    # MinigameCCGEnemyExcelT
+    def Pack(self, builder):
+        MinigameCCGEnemyExcelStart(builder)
+        MinigameCCGEnemyExcelAddId(builder, self.id)
+        MinigameCCGEnemyExcelAddGroupId(builder, self.groupId)
+        MinigameCCGEnemyExcelAddCharacterType(builder, self.characterType)
+        MinigameCCGEnemyExcelAddOrder(builder, self.order)
+        MinigameCCGEnemyExcelAddCharacterId(builder, self.characterId)
+        minigameCcgenemyExcel = MinigameCCGEnemyExcelEnd(builder)
+        return minigameCcgenemyExcel

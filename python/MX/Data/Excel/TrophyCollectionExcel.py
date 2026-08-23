@@ -100,3 +100,70 @@ def TrophyCollectionExcelEnd(builder):
 
 def End(builder):
     return TrophyCollectionExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class TrophyCollectionExcelT(object):
+
+    # TrophyCollectionExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        localizeCodeId = 0,
+        furnitureId = None,
+    ):
+        self.groupId = groupId  # type: int
+        self.localizeCodeId = localizeCodeId  # type: int
+        self.furnitureId = furnitureId  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        trophyCollectionExcel = TrophyCollectionExcel()
+        trophyCollectionExcel.Init(buf, pos)
+        return cls.InitFromObj(trophyCollectionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, trophyCollectionExcel):
+        x = TrophyCollectionExcelT()
+        x._UnPack(trophyCollectionExcel)
+        return x
+
+    # TrophyCollectionExcelT
+    def _UnPack(self, trophyCollectionExcel):
+        if trophyCollectionExcel is None:
+            return
+        self.groupId = trophyCollectionExcel.GroupId()
+        self.localizeCodeId = trophyCollectionExcel.LocalizeCodeId()
+        if not trophyCollectionExcel.FurnitureIdIsNone():
+            if np is None:
+                self.furnitureId = []
+                for i in range(trophyCollectionExcel.FurnitureIdLength()):
+                    self.furnitureId.append(trophyCollectionExcel.FurnitureId(i))
+            else:
+                self.furnitureId = trophyCollectionExcel.FurnitureIdAsNumpy()
+
+    # TrophyCollectionExcelT
+    def Pack(self, builder):
+        if self.furnitureId is not None:
+            if np is not None and type(self.furnitureId) is np.ndarray:
+                furnitureId = builder.CreateNumpyVector(self.furnitureId)
+            else:
+                TrophyCollectionExcelStartFurnitureIdVector(builder, len(self.furnitureId))
+                for i in reversed(range(len(self.furnitureId))):
+                    builder.PrependInt64(self.furnitureId[i])
+                furnitureId = builder.EndVector()
+        TrophyCollectionExcelStart(builder)
+        TrophyCollectionExcelAddGroupId(builder, self.groupId)
+        TrophyCollectionExcelAddLocalizeCodeId(builder, self.localizeCodeId)
+        if self.furnitureId is not None:
+            TrophyCollectionExcelAddFurnitureId(builder, furnitureId)
+        trophyCollectionExcel = TrophyCollectionExcelEnd(builder)
+        return trophyCollectionExcel

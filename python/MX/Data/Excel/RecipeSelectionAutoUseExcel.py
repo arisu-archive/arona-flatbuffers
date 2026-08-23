@@ -113,3 +113,74 @@ def RecipeSelectionAutoUseExcelEnd(builder):
 
 def End(builder):
     return RecipeSelectionAutoUseExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class RecipeSelectionAutoUseExcelT(object):
+
+    # RecipeSelectionAutoUseExcelT
+    def __init__(
+        self,
+        id = 0,
+        parcelType = 0,
+        targetItemId = 0,
+        priority = None,
+    ):
+        self.id = id  # type: int
+        self.parcelType = parcelType  # type: int
+        self.targetItemId = targetItemId  # type: int
+        self.priority = priority  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        recipeSelectionAutoUseExcel = RecipeSelectionAutoUseExcel()
+        recipeSelectionAutoUseExcel.Init(buf, pos)
+        return cls.InitFromObj(recipeSelectionAutoUseExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, recipeSelectionAutoUseExcel):
+        x = RecipeSelectionAutoUseExcelT()
+        x._UnPack(recipeSelectionAutoUseExcel)
+        return x
+
+    # RecipeSelectionAutoUseExcelT
+    def _UnPack(self, recipeSelectionAutoUseExcel):
+        if recipeSelectionAutoUseExcel is None:
+            return
+        self.id = recipeSelectionAutoUseExcel.Id()
+        self.parcelType = recipeSelectionAutoUseExcel.ParcelType()
+        self.targetItemId = recipeSelectionAutoUseExcel.TargetItemId()
+        if not recipeSelectionAutoUseExcel.PriorityIsNone():
+            if np is None:
+                self.priority = []
+                for i in range(recipeSelectionAutoUseExcel.PriorityLength()):
+                    self.priority.append(recipeSelectionAutoUseExcel.Priority(i))
+            else:
+                self.priority = recipeSelectionAutoUseExcel.PriorityAsNumpy()
+
+    # RecipeSelectionAutoUseExcelT
+    def Pack(self, builder):
+        if self.priority is not None:
+            if np is not None and type(self.priority) is np.ndarray:
+                priority = builder.CreateNumpyVector(self.priority)
+            else:
+                RecipeSelectionAutoUseExcelStartPriorityVector(builder, len(self.priority))
+                for i in reversed(range(len(self.priority))):
+                    builder.PrependInt64(self.priority[i])
+                priority = builder.EndVector()
+        RecipeSelectionAutoUseExcelStart(builder)
+        RecipeSelectionAutoUseExcelAddId(builder, self.id)
+        RecipeSelectionAutoUseExcelAddParcelType(builder, self.parcelType)
+        RecipeSelectionAutoUseExcelAddTargetItemId(builder, self.targetItemId)
+        if self.priority is not None:
+            RecipeSelectionAutoUseExcelAddPriority(builder, priority)
+        recipeSelectionAutoUseExcel = RecipeSelectionAutoUseExcelEnd(builder)
+        return recipeSelectionAutoUseExcel

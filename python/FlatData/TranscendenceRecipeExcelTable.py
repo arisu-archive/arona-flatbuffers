@@ -72,3 +72,68 @@ def TranscendenceRecipeExcelTableEnd(builder):
 
 def End(builder):
     return TranscendenceRecipeExcelTableEnd(builder)
+
+import FlatData.TranscendenceRecipeExcel
+try:
+    from typing import List
+except:
+    pass
+
+class TranscendenceRecipeExcelTableT(object):
+
+    # TranscendenceRecipeExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.TranscendenceRecipeExcel.TranscendenceRecipeExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        transcendenceRecipeExcelTable = TranscendenceRecipeExcelTable()
+        transcendenceRecipeExcelTable.Init(buf, pos)
+        return cls.InitFromObj(transcendenceRecipeExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, transcendenceRecipeExcelTable):
+        x = TranscendenceRecipeExcelTableT()
+        x._UnPack(transcendenceRecipeExcelTable)
+        return x
+
+    # TranscendenceRecipeExcelTableT
+    def _UnPack(self, transcendenceRecipeExcelTable):
+        if transcendenceRecipeExcelTable is None:
+            return
+        if not transcendenceRecipeExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(transcendenceRecipeExcelTable.DataListLength()):
+                if transcendenceRecipeExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    transcendenceRecipeExcel_ = FlatData.TranscendenceRecipeExcel.TranscendenceRecipeExcelT.InitFromObj(transcendenceRecipeExcelTable.DataList(i))
+                    self.dataList.append(transcendenceRecipeExcel_)
+
+    # TranscendenceRecipeExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            TranscendenceRecipeExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        TranscendenceRecipeExcelTableStart(builder)
+        if self.dataList is not None:
+            TranscendenceRecipeExcelTableAddDataList(builder, dataList)
+        transcendenceRecipeExcelTable = TranscendenceRecipeExcelTableEnd(builder)
+        return transcendenceRecipeExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(TranscendenceRecipeExcelTableT, 'TranscendenceRecipeExcelTable', ())

@@ -72,3 +72,68 @@ def ConstArenaExcelTableEnd(builder):
 
 def End(builder):
     return ConstArenaExcelTableEnd(builder)
+
+import FlatData.ConstArenaExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConstArenaExcelTableT(object):
+
+    # ConstArenaExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConstArenaExcel.ConstArenaExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        constArenaExcelTable = ConstArenaExcelTable()
+        constArenaExcelTable.Init(buf, pos)
+        return cls.InitFromObj(constArenaExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, constArenaExcelTable):
+        x = ConstArenaExcelTableT()
+        x._UnPack(constArenaExcelTable)
+        return x
+
+    # ConstArenaExcelTableT
+    def _UnPack(self, constArenaExcelTable):
+        if constArenaExcelTable is None:
+            return
+        if not constArenaExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(constArenaExcelTable.DataListLength()):
+                if constArenaExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    constArenaExcel_ = FlatData.ConstArenaExcel.ConstArenaExcelT.InitFromObj(constArenaExcelTable.DataList(i))
+                    self.dataList.append(constArenaExcel_)
+
+    # ConstArenaExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConstArenaExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConstArenaExcelTableStart(builder)
+        if self.dataList is not None:
+            ConstArenaExcelTableAddDataList(builder, dataList)
+        constArenaExcelTable = ConstArenaExcelTableEnd(builder)
+        return constArenaExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConstArenaExcelTableT, 'ConstArenaExcelTable', ())

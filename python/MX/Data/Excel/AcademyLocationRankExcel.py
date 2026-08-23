@@ -74,3 +74,51 @@ def AcademyLocationRankExcelEnd(builder):
 
 def End(builder):
     return AcademyLocationRankExcelEnd(builder)
+
+
+class AcademyLocationRankExcelT(object):
+
+    # AcademyLocationRankExcelT
+    def __init__(
+        self,
+        rank = 0,
+        rankExp = 0,
+        totalExp = 0,
+    ):
+        self.rank = rank  # type: int
+        self.rankExp = rankExp  # type: int
+        self.totalExp = totalExp  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        academyLocationRankExcel = AcademyLocationRankExcel()
+        academyLocationRankExcel.Init(buf, pos)
+        return cls.InitFromObj(academyLocationRankExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, academyLocationRankExcel):
+        x = AcademyLocationRankExcelT()
+        x._UnPack(academyLocationRankExcel)
+        return x
+
+    # AcademyLocationRankExcelT
+    def _UnPack(self, academyLocationRankExcel):
+        if academyLocationRankExcel is None:
+            return
+        self.rank = academyLocationRankExcel.Rank()
+        self.rankExp = academyLocationRankExcel.RankExp()
+        self.totalExp = academyLocationRankExcel.TotalExp()
+
+    # AcademyLocationRankExcelT
+    def Pack(self, builder):
+        AcademyLocationRankExcelStart(builder)
+        AcademyLocationRankExcelAddRank(builder, self.rank)
+        AcademyLocationRankExcelAddRankExp(builder, self.rankExp)
+        AcademyLocationRankExcelAddTotalExp(builder, self.totalExp)
+        academyLocationRankExcel = AcademyLocationRankExcelEnd(builder)
+        return academyLocationRankExcel

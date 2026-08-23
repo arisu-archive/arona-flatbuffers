@@ -87,3 +87,61 @@ def BattlePassExpLimitExcelEnd(builder):
 
 def End(builder):
     return BattlePassExpLimitExcelEnd(builder)
+
+
+class BattlePassExpLimitExcelT(object):
+
+    # BattlePassExpLimitExcelT
+    def __init__(
+        self,
+        battlePassId = 0,
+        limitStartTime = None,
+        limitEndTime = None,
+        expLimitAmount = 0,
+    ):
+        self.battlePassId = battlePassId  # type: int
+        self.limitStartTime = limitStartTime  # type: Optional[str]
+        self.limitEndTime = limitEndTime  # type: Optional[str]
+        self.expLimitAmount = expLimitAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        battlePassExpLimitExcel = BattlePassExpLimitExcel()
+        battlePassExpLimitExcel.Init(buf, pos)
+        return cls.InitFromObj(battlePassExpLimitExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, battlePassExpLimitExcel):
+        x = BattlePassExpLimitExcelT()
+        x._UnPack(battlePassExpLimitExcel)
+        return x
+
+    # BattlePassExpLimitExcelT
+    def _UnPack(self, battlePassExpLimitExcel):
+        if battlePassExpLimitExcel is None:
+            return
+        self.battlePassId = battlePassExpLimitExcel.BattlePassId()
+        self.limitStartTime = battlePassExpLimitExcel.LimitStartTime()
+        self.limitEndTime = battlePassExpLimitExcel.LimitEndTime()
+        self.expLimitAmount = battlePassExpLimitExcel.ExpLimitAmount()
+
+    # BattlePassExpLimitExcelT
+    def Pack(self, builder):
+        if self.limitStartTime is not None:
+            limitStartTime = builder.CreateString(self.limitStartTime)
+        if self.limitEndTime is not None:
+            limitEndTime = builder.CreateString(self.limitEndTime)
+        BattlePassExpLimitExcelStart(builder)
+        BattlePassExpLimitExcelAddBattlePassId(builder, self.battlePassId)
+        if self.limitStartTime is not None:
+            BattlePassExpLimitExcelAddLimitStartTime(builder, limitStartTime)
+        if self.limitEndTime is not None:
+            BattlePassExpLimitExcelAddLimitEndTime(builder, limitEndTime)
+        BattlePassExpLimitExcelAddExpLimitAmount(builder, self.expLimitAmount)
+        battlePassExpLimitExcel = BattlePassExpLimitExcelEnd(builder)
+        return battlePassExpLimitExcel

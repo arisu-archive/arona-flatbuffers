@@ -516,3 +516,224 @@ def ShopInfoExcelEnd(builder):
 
 def End(builder):
     return ShopInfoExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ShopInfoExcelT(object):
+
+    # ShopInfoExcelT
+    def __init__(
+        self,
+        categoryType = 0,
+        isRefresh = False,
+        isSoldOutDimmed = False,
+        costParcelType = None,
+        costParcelId = None,
+        autoRefreshCoolTime = 0,
+        shopRefresherType = 0,
+        shopRefreshPeriodType = 0,
+        refreshAbleCount = 0,
+        goodsId = None,
+        openPeriodFrom = None,
+        openPeriodTo = None,
+        refreshPeriodBaseTime = None,
+        shopProductUpdateTime = None,
+        displayParcelType = 0,
+        displayParcelId = 0,
+        isShopVisible = False,
+        displayOrder = 0,
+        shopUpdateDate = 0,
+        shopUpdateGroupId1 = 0,
+        shopUpdateGroupId2 = 0,
+        shopUpdateGroupId3 = 0,
+        shopUpdateGroupId4 = 0,
+        shopUpdateGroupId5 = 0,
+        shopUpdateGroupId6 = 0,
+        shopUpdateGroupId7 = 0,
+        shopUpdateGroupId8 = 0,
+        shopUpdateGroupId9 = 0,
+        shopUpdateGroupId10 = 0,
+        shopUpdateGroupId11 = 0,
+        shopUpdateGroupId12 = 0,
+    ):
+        self.categoryType = categoryType  # type: int
+        self.isRefresh = isRefresh  # type: bool
+        self.isSoldOutDimmed = isSoldOutDimmed  # type: bool
+        self.costParcelType = costParcelType  # type: Optional[List[int]]
+        self.costParcelId = costParcelId  # type: Optional[List[int]]
+        self.autoRefreshCoolTime = autoRefreshCoolTime  # type: int
+        self.shopRefresherType = shopRefresherType  # type: int
+        self.shopRefreshPeriodType = shopRefreshPeriodType  # type: int
+        self.refreshAbleCount = refreshAbleCount  # type: int
+        self.goodsId = goodsId  # type: Optional[List[int]]
+        self.openPeriodFrom = openPeriodFrom  # type: Optional[str]
+        self.openPeriodTo = openPeriodTo  # type: Optional[str]
+        self.refreshPeriodBaseTime = refreshPeriodBaseTime  # type: Optional[str]
+        self.shopProductUpdateTime = shopProductUpdateTime  # type: Optional[str]
+        self.displayParcelType = displayParcelType  # type: int
+        self.displayParcelId = displayParcelId  # type: int
+        self.isShopVisible = isShopVisible  # type: bool
+        self.displayOrder = displayOrder  # type: int
+        self.shopUpdateDate = shopUpdateDate  # type: int
+        self.shopUpdateGroupId1 = shopUpdateGroupId1  # type: int
+        self.shopUpdateGroupId2 = shopUpdateGroupId2  # type: int
+        self.shopUpdateGroupId3 = shopUpdateGroupId3  # type: int
+        self.shopUpdateGroupId4 = shopUpdateGroupId4  # type: int
+        self.shopUpdateGroupId5 = shopUpdateGroupId5  # type: int
+        self.shopUpdateGroupId6 = shopUpdateGroupId6  # type: int
+        self.shopUpdateGroupId7 = shopUpdateGroupId7  # type: int
+        self.shopUpdateGroupId8 = shopUpdateGroupId8  # type: int
+        self.shopUpdateGroupId9 = shopUpdateGroupId9  # type: int
+        self.shopUpdateGroupId10 = shopUpdateGroupId10  # type: int
+        self.shopUpdateGroupId11 = shopUpdateGroupId11  # type: int
+        self.shopUpdateGroupId12 = shopUpdateGroupId12  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        shopInfoExcel = ShopInfoExcel()
+        shopInfoExcel.Init(buf, pos)
+        return cls.InitFromObj(shopInfoExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, shopInfoExcel):
+        x = ShopInfoExcelT()
+        x._UnPack(shopInfoExcel)
+        return x
+
+    # ShopInfoExcelT
+    def _UnPack(self, shopInfoExcel):
+        if shopInfoExcel is None:
+            return
+        self.categoryType = shopInfoExcel.CategoryType()
+        self.isRefresh = shopInfoExcel.IsRefresh()
+        self.isSoldOutDimmed = shopInfoExcel.IsSoldOutDimmed()
+        if not shopInfoExcel.CostParcelTypeIsNone():
+            if np is None:
+                self.costParcelType = []
+                for i in range(shopInfoExcel.CostParcelTypeLength()):
+                    self.costParcelType.append(shopInfoExcel.CostParcelType(i))
+            else:
+                self.costParcelType = shopInfoExcel.CostParcelTypeAsNumpy()
+        if not shopInfoExcel.CostParcelIdIsNone():
+            if np is None:
+                self.costParcelId = []
+                for i in range(shopInfoExcel.CostParcelIdLength()):
+                    self.costParcelId.append(shopInfoExcel.CostParcelId(i))
+            else:
+                self.costParcelId = shopInfoExcel.CostParcelIdAsNumpy()
+        self.autoRefreshCoolTime = shopInfoExcel.AutoRefreshCoolTime()
+        self.shopRefresherType = shopInfoExcel.ShopRefresherType()
+        self.shopRefreshPeriodType = shopInfoExcel.ShopRefreshPeriodType()
+        self.refreshAbleCount = shopInfoExcel.RefreshAbleCount()
+        if not shopInfoExcel.GoodsIdIsNone():
+            if np is None:
+                self.goodsId = []
+                for i in range(shopInfoExcel.GoodsIdLength()):
+                    self.goodsId.append(shopInfoExcel.GoodsId(i))
+            else:
+                self.goodsId = shopInfoExcel.GoodsIdAsNumpy()
+        self.openPeriodFrom = shopInfoExcel.OpenPeriodFrom()
+        self.openPeriodTo = shopInfoExcel.OpenPeriodTo()
+        self.refreshPeriodBaseTime = shopInfoExcel.RefreshPeriodBaseTime()
+        self.shopProductUpdateTime = shopInfoExcel.ShopProductUpdateTime()
+        self.displayParcelType = shopInfoExcel.DisplayParcelType()
+        self.displayParcelId = shopInfoExcel.DisplayParcelId()
+        self.isShopVisible = shopInfoExcel.IsShopVisible()
+        self.displayOrder = shopInfoExcel.DisplayOrder()
+        self.shopUpdateDate = shopInfoExcel.ShopUpdateDate()
+        self.shopUpdateGroupId1 = shopInfoExcel.ShopUpdateGroupId1()
+        self.shopUpdateGroupId2 = shopInfoExcel.ShopUpdateGroupId2()
+        self.shopUpdateGroupId3 = shopInfoExcel.ShopUpdateGroupId3()
+        self.shopUpdateGroupId4 = shopInfoExcel.ShopUpdateGroupId4()
+        self.shopUpdateGroupId5 = shopInfoExcel.ShopUpdateGroupId5()
+        self.shopUpdateGroupId6 = shopInfoExcel.ShopUpdateGroupId6()
+        self.shopUpdateGroupId7 = shopInfoExcel.ShopUpdateGroupId7()
+        self.shopUpdateGroupId8 = shopInfoExcel.ShopUpdateGroupId8()
+        self.shopUpdateGroupId9 = shopInfoExcel.ShopUpdateGroupId9()
+        self.shopUpdateGroupId10 = shopInfoExcel.ShopUpdateGroupId10()
+        self.shopUpdateGroupId11 = shopInfoExcel.ShopUpdateGroupId11()
+        self.shopUpdateGroupId12 = shopInfoExcel.ShopUpdateGroupId12()
+
+    # ShopInfoExcelT
+    def Pack(self, builder):
+        if self.costParcelType is not None:
+            if np is not None and type(self.costParcelType) is np.ndarray:
+                costParcelType = builder.CreateNumpyVector(self.costParcelType)
+            else:
+                ShopInfoExcelStartCostParcelTypeVector(builder, len(self.costParcelType))
+                for i in reversed(range(len(self.costParcelType))):
+                    builder.PrependInt32(self.costParcelType[i])
+                costParcelType = builder.EndVector()
+        if self.costParcelId is not None:
+            if np is not None and type(self.costParcelId) is np.ndarray:
+                costParcelId = builder.CreateNumpyVector(self.costParcelId)
+            else:
+                ShopInfoExcelStartCostParcelIdVector(builder, len(self.costParcelId))
+                for i in reversed(range(len(self.costParcelId))):
+                    builder.PrependInt64(self.costParcelId[i])
+                costParcelId = builder.EndVector()
+        if self.goodsId is not None:
+            if np is not None and type(self.goodsId) is np.ndarray:
+                goodsId = builder.CreateNumpyVector(self.goodsId)
+            else:
+                ShopInfoExcelStartGoodsIdVector(builder, len(self.goodsId))
+                for i in reversed(range(len(self.goodsId))):
+                    builder.PrependInt64(self.goodsId[i])
+                goodsId = builder.EndVector()
+        if self.openPeriodFrom is not None:
+            openPeriodFrom = builder.CreateString(self.openPeriodFrom)
+        if self.openPeriodTo is not None:
+            openPeriodTo = builder.CreateString(self.openPeriodTo)
+        if self.refreshPeriodBaseTime is not None:
+            refreshPeriodBaseTime = builder.CreateString(self.refreshPeriodBaseTime)
+        if self.shopProductUpdateTime is not None:
+            shopProductUpdateTime = builder.CreateString(self.shopProductUpdateTime)
+        ShopInfoExcelStart(builder)
+        ShopInfoExcelAddCategoryType(builder, self.categoryType)
+        ShopInfoExcelAddIsRefresh(builder, self.isRefresh)
+        ShopInfoExcelAddIsSoldOutDimmed(builder, self.isSoldOutDimmed)
+        if self.costParcelType is not None:
+            ShopInfoExcelAddCostParcelType(builder, costParcelType)
+        if self.costParcelId is not None:
+            ShopInfoExcelAddCostParcelId(builder, costParcelId)
+        ShopInfoExcelAddAutoRefreshCoolTime(builder, self.autoRefreshCoolTime)
+        ShopInfoExcelAddShopRefresherType(builder, self.shopRefresherType)
+        ShopInfoExcelAddShopRefreshPeriodType(builder, self.shopRefreshPeriodType)
+        ShopInfoExcelAddRefreshAbleCount(builder, self.refreshAbleCount)
+        if self.goodsId is not None:
+            ShopInfoExcelAddGoodsId(builder, goodsId)
+        if self.openPeriodFrom is not None:
+            ShopInfoExcelAddOpenPeriodFrom(builder, openPeriodFrom)
+        if self.openPeriodTo is not None:
+            ShopInfoExcelAddOpenPeriodTo(builder, openPeriodTo)
+        if self.refreshPeriodBaseTime is not None:
+            ShopInfoExcelAddRefreshPeriodBaseTime(builder, refreshPeriodBaseTime)
+        if self.shopProductUpdateTime is not None:
+            ShopInfoExcelAddShopProductUpdateTime(builder, shopProductUpdateTime)
+        ShopInfoExcelAddDisplayParcelType(builder, self.displayParcelType)
+        ShopInfoExcelAddDisplayParcelId(builder, self.displayParcelId)
+        ShopInfoExcelAddIsShopVisible(builder, self.isShopVisible)
+        ShopInfoExcelAddDisplayOrder(builder, self.displayOrder)
+        ShopInfoExcelAddShopUpdateDate(builder, self.shopUpdateDate)
+        ShopInfoExcelAddShopUpdateGroupId1(builder, self.shopUpdateGroupId1)
+        ShopInfoExcelAddShopUpdateGroupId2(builder, self.shopUpdateGroupId2)
+        ShopInfoExcelAddShopUpdateGroupId3(builder, self.shopUpdateGroupId3)
+        ShopInfoExcelAddShopUpdateGroupId4(builder, self.shopUpdateGroupId4)
+        ShopInfoExcelAddShopUpdateGroupId5(builder, self.shopUpdateGroupId5)
+        ShopInfoExcelAddShopUpdateGroupId6(builder, self.shopUpdateGroupId6)
+        ShopInfoExcelAddShopUpdateGroupId7(builder, self.shopUpdateGroupId7)
+        ShopInfoExcelAddShopUpdateGroupId8(builder, self.shopUpdateGroupId8)
+        ShopInfoExcelAddShopUpdateGroupId9(builder, self.shopUpdateGroupId9)
+        ShopInfoExcelAddShopUpdateGroupId10(builder, self.shopUpdateGroupId10)
+        ShopInfoExcelAddShopUpdateGroupId11(builder, self.shopUpdateGroupId11)
+        ShopInfoExcelAddShopUpdateGroupId12(builder, self.shopUpdateGroupId12)
+        shopInfoExcel = ShopInfoExcelEnd(builder)
+        return shopInfoExcel

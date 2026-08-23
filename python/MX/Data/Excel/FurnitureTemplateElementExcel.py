@@ -126,3 +126,67 @@ def FurnitureTemplateElementExcelEnd(builder):
 
 def End(builder):
     return FurnitureTemplateElementExcelEnd(builder)
+
+
+class FurnitureTemplateElementExcelT(object):
+
+    # FurnitureTemplateElementExcelT
+    def __init__(
+        self,
+        furnitureTemplateId = 0,
+        furnitureId = 0,
+        location = 0,
+        positionX = 0.0,
+        positionY = 0.0,
+        rotation = 0.0,
+        order = 0,
+    ):
+        self.furnitureTemplateId = furnitureTemplateId  # type: int
+        self.furnitureId = furnitureId  # type: int
+        self.location = location  # type: int
+        self.positionX = positionX  # type: float
+        self.positionY = positionY  # type: float
+        self.rotation = rotation  # type: float
+        self.order = order  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        furnitureTemplateElementExcel = FurnitureTemplateElementExcel()
+        furnitureTemplateElementExcel.Init(buf, pos)
+        return cls.InitFromObj(furnitureTemplateElementExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, furnitureTemplateElementExcel):
+        x = FurnitureTemplateElementExcelT()
+        x._UnPack(furnitureTemplateElementExcel)
+        return x
+
+    # FurnitureTemplateElementExcelT
+    def _UnPack(self, furnitureTemplateElementExcel):
+        if furnitureTemplateElementExcel is None:
+            return
+        self.furnitureTemplateId = furnitureTemplateElementExcel.FurnitureTemplateId()
+        self.furnitureId = furnitureTemplateElementExcel.FurnitureId()
+        self.location = furnitureTemplateElementExcel.Location()
+        self.positionX = furnitureTemplateElementExcel.PositionX()
+        self.positionY = furnitureTemplateElementExcel.PositionY()
+        self.rotation = furnitureTemplateElementExcel.Rotation()
+        self.order = furnitureTemplateElementExcel.Order()
+
+    # FurnitureTemplateElementExcelT
+    def Pack(self, builder):
+        FurnitureTemplateElementExcelStart(builder)
+        FurnitureTemplateElementExcelAddFurnitureTemplateId(builder, self.furnitureTemplateId)
+        FurnitureTemplateElementExcelAddFurnitureId(builder, self.furnitureId)
+        FurnitureTemplateElementExcelAddLocation(builder, self.location)
+        FurnitureTemplateElementExcelAddPositionX(builder, self.positionX)
+        FurnitureTemplateElementExcelAddPositionY(builder, self.positionY)
+        FurnitureTemplateElementExcelAddRotation(builder, self.rotation)
+        FurnitureTemplateElementExcelAddOrder(builder, self.order)
+        furnitureTemplateElementExcel = FurnitureTemplateElementExcelEnd(builder)
+        return furnitureTemplateElementExcel

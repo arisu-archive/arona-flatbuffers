@@ -329,28 +329,35 @@ class CampaignStageExcel(object):
         return None
 
     # CampaignStageExcel
-    def TacticRewardExp(self):
+    def FirstStartFunnelMessage(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # CampaignStageExcel
-    def FixedEchelonId(self):
+    def TacticRewardExp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # CampaignStageExcel
-    def EchelonExtensionType(self):
+    def FixedEchelonId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CampaignStageExcel
+    def EchelonExtensionType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
 def CampaignStageExcelStart(builder):
-    builder.StartObject(35)
+    builder.StartObject(36)
 
 def Start(builder):
     CampaignStageExcelStart(builder)
@@ -571,20 +578,26 @@ def CampaignStageExcelAddFirstClearEventMessage(builder, firstClearEventMessage)
 def AddFirstClearEventMessage(builder, firstClearEventMessage):
     CampaignStageExcelAddFirstClearEventMessage(builder, firstClearEventMessage)
 
+def CampaignStageExcelAddFirstStartFunnelMessage(builder, firstStartFunnelMessage):
+    builder.PrependUOffsetTRelativeSlot(32, flatbuffers.number_types.UOffsetTFlags.py_type(firstStartFunnelMessage), 0)
+
+def AddFirstStartFunnelMessage(builder, firstStartFunnelMessage):
+    CampaignStageExcelAddFirstStartFunnelMessage(builder, firstStartFunnelMessage)
+
 def CampaignStageExcelAddTacticRewardExp(builder, tacticRewardExp):
-    builder.PrependInt64Slot(32, tacticRewardExp, 0)
+    builder.PrependInt64Slot(33, tacticRewardExp, 0)
 
 def AddTacticRewardExp(builder, tacticRewardExp):
     CampaignStageExcelAddTacticRewardExp(builder, tacticRewardExp)
 
 def CampaignStageExcelAddFixedEchelonId(builder, fixedEchelonId):
-    builder.PrependInt64Slot(33, fixedEchelonId, 0)
+    builder.PrependInt64Slot(34, fixedEchelonId, 0)
 
 def AddFixedEchelonId(builder, fixedEchelonId):
     CampaignStageExcelAddFixedEchelonId(builder, fixedEchelonId)
 
 def CampaignStageExcelAddEchelonExtensionType(builder, echelonExtensionType):
-    builder.PrependInt32Slot(34, echelonExtensionType, 0)
+    builder.PrependInt32Slot(35, echelonExtensionType, 0)
 
 def AddEchelonExtensionType(builder, echelonExtensionType):
     CampaignStageExcelAddEchelonExtensionType(builder, echelonExtensionType)
@@ -594,3 +607,274 @@ def CampaignStageExcelEnd(builder):
 
 def End(builder):
     return CampaignStageExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CampaignStageExcelT(object):
+
+    # CampaignStageExcelT
+    def __init__(
+        self,
+        id = 0,
+        deprecated = False,
+        name = None,
+        stageNumber = None,
+        cleardScenarioId = 0,
+        battleDuration = 0,
+        stageEnterCostType = 0,
+        stageEnterCostId = 0,
+        stageEnterCostAmount = 0,
+        stageEnterEchelonCount = 0,
+        starConditionTacticRankSCount = 0,
+        starConditionTurnCount = 0,
+        enterScenarioGroupId = None,
+        clearScenarioGroupId = None,
+        strategyMap = None,
+        strategyMapBg = None,
+        campaignStageRewardId = 0,
+        maxTurn = 0,
+        stageTopography = 0,
+        recommandLevel = 0,
+        recommandLevelGapForGuide = 0,
+        minEquipmentTierForGuide = None,
+        minSkillLevelForGuide = None,
+        bgmId = None,
+        strategyEnvironment = 0,
+        groundId = 0,
+        strategySkipGroundId = 0,
+        contentType = 0,
+        bgmIdC9738509 = 0,
+        firstClearReportEventName = None,
+        firstClearFunnelMessage = None,
+        firstClearEventMessage = None,
+        firstStartFunnelMessage = None,
+        tacticRewardExp = 0,
+        fixedEchelonId = 0,
+        echelonExtensionType = 0,
+    ):
+        self.id = id  # type: int
+        self.deprecated = deprecated  # type: bool
+        self.name = name  # type: Optional[str]
+        self.stageNumber = stageNumber  # type: Optional[str]
+        self.cleardScenarioId = cleardScenarioId  # type: int
+        self.battleDuration = battleDuration  # type: int
+        self.stageEnterCostType = stageEnterCostType  # type: int
+        self.stageEnterCostId = stageEnterCostId  # type: int
+        self.stageEnterCostAmount = stageEnterCostAmount  # type: int
+        self.stageEnterEchelonCount = stageEnterEchelonCount  # type: int
+        self.starConditionTacticRankSCount = starConditionTacticRankSCount  # type: int
+        self.starConditionTurnCount = starConditionTurnCount  # type: int
+        self.enterScenarioGroupId = enterScenarioGroupId  # type: Optional[List[int]]
+        self.clearScenarioGroupId = clearScenarioGroupId  # type: Optional[List[int]]
+        self.strategyMap = strategyMap  # type: Optional[str]
+        self.strategyMapBg = strategyMapBg  # type: Optional[str]
+        self.campaignStageRewardId = campaignStageRewardId  # type: int
+        self.maxTurn = maxTurn  # type: int
+        self.stageTopography = stageTopography  # type: int
+        self.recommandLevel = recommandLevel  # type: int
+        self.recommandLevelGapForGuide = recommandLevelGapForGuide  # type: int
+        self.minEquipmentTierForGuide = minEquipmentTierForGuide  # type: Optional[List[int]]
+        self.minSkillLevelForGuide = minSkillLevelForGuide  # type: Optional[List[int]]
+        self.bgmId = bgmId  # type: Optional[str]
+        self.strategyEnvironment = strategyEnvironment  # type: int
+        self.groundId = groundId  # type: int
+        self.strategySkipGroundId = strategySkipGroundId  # type: int
+        self.contentType = contentType  # type: int
+        self.bgmIdC9738509 = bgmIdC9738509  # type: int
+        self.firstClearReportEventName = firstClearReportEventName  # type: Optional[str]
+        self.firstClearFunnelMessage = firstClearFunnelMessage  # type: Optional[str]
+        self.firstClearEventMessage = firstClearEventMessage  # type: Optional[str]
+        self.firstStartFunnelMessage = firstStartFunnelMessage  # type: Optional[str]
+        self.tacticRewardExp = tacticRewardExp  # type: int
+        self.fixedEchelonId = fixedEchelonId  # type: int
+        self.echelonExtensionType = echelonExtensionType  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        campaignStageExcel = CampaignStageExcel()
+        campaignStageExcel.Init(buf, pos)
+        return cls.InitFromObj(campaignStageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, campaignStageExcel):
+        x = CampaignStageExcelT()
+        x._UnPack(campaignStageExcel)
+        return x
+
+    # CampaignStageExcelT
+    def _UnPack(self, campaignStageExcel):
+        if campaignStageExcel is None:
+            return
+        self.id = campaignStageExcel.Id()
+        self.deprecated = campaignStageExcel.Deprecated()
+        self.name = campaignStageExcel.Name()
+        self.stageNumber = campaignStageExcel.StageNumber()
+        self.cleardScenarioId = campaignStageExcel.CleardScenarioId()
+        self.battleDuration = campaignStageExcel.BattleDuration()
+        self.stageEnterCostType = campaignStageExcel.StageEnterCostType()
+        self.stageEnterCostId = campaignStageExcel.StageEnterCostId()
+        self.stageEnterCostAmount = campaignStageExcel.StageEnterCostAmount()
+        self.stageEnterEchelonCount = campaignStageExcel.StageEnterEchelonCount()
+        self.starConditionTacticRankSCount = campaignStageExcel.StarConditionTacticRankSCount()
+        self.starConditionTurnCount = campaignStageExcel.StarConditionTurnCount()
+        if not campaignStageExcel.EnterScenarioGroupIdIsNone():
+            if np is None:
+                self.enterScenarioGroupId = []
+                for i in range(campaignStageExcel.EnterScenarioGroupIdLength()):
+                    self.enterScenarioGroupId.append(campaignStageExcel.EnterScenarioGroupId(i))
+            else:
+                self.enterScenarioGroupId = campaignStageExcel.EnterScenarioGroupIdAsNumpy()
+        if not campaignStageExcel.ClearScenarioGroupIdIsNone():
+            if np is None:
+                self.clearScenarioGroupId = []
+                for i in range(campaignStageExcel.ClearScenarioGroupIdLength()):
+                    self.clearScenarioGroupId.append(campaignStageExcel.ClearScenarioGroupId(i))
+            else:
+                self.clearScenarioGroupId = campaignStageExcel.ClearScenarioGroupIdAsNumpy()
+        self.strategyMap = campaignStageExcel.StrategyMap()
+        self.strategyMapBg = campaignStageExcel.StrategyMapBg()
+        self.campaignStageRewardId = campaignStageExcel.CampaignStageRewardId()
+        self.maxTurn = campaignStageExcel.MaxTurn()
+        self.stageTopography = campaignStageExcel.StageTopography()
+        self.recommandLevel = campaignStageExcel.RecommandLevel()
+        self.recommandLevelGapForGuide = campaignStageExcel.RecommandLevelGapForGuide()
+        if not campaignStageExcel.MinEquipmentTierForGuideIsNone():
+            if np is None:
+                self.minEquipmentTierForGuide = []
+                for i in range(campaignStageExcel.MinEquipmentTierForGuideLength()):
+                    self.minEquipmentTierForGuide.append(campaignStageExcel.MinEquipmentTierForGuide(i))
+            else:
+                self.minEquipmentTierForGuide = campaignStageExcel.MinEquipmentTierForGuideAsNumpy()
+        if not campaignStageExcel.MinSkillLevelForGuideIsNone():
+            if np is None:
+                self.minSkillLevelForGuide = []
+                for i in range(campaignStageExcel.MinSkillLevelForGuideLength()):
+                    self.minSkillLevelForGuide.append(campaignStageExcel.MinSkillLevelForGuide(i))
+            else:
+                self.minSkillLevelForGuide = campaignStageExcel.MinSkillLevelForGuideAsNumpy()
+        self.bgmId = campaignStageExcel.BgmId()
+        self.strategyEnvironment = campaignStageExcel.StrategyEnvironment()
+        self.groundId = campaignStageExcel.GroundId()
+        self.strategySkipGroundId = campaignStageExcel.StrategySkipGroundId()
+        self.contentType = campaignStageExcel.ContentType()
+        self.bgmIdC9738509 = campaignStageExcel.BgmIdC9738509()
+        self.firstClearReportEventName = campaignStageExcel.FirstClearReportEventName()
+        self.firstClearFunnelMessage = campaignStageExcel.FirstClearFunnelMessage()
+        self.firstClearEventMessage = campaignStageExcel.FirstClearEventMessage()
+        self.firstStartFunnelMessage = campaignStageExcel.FirstStartFunnelMessage()
+        self.tacticRewardExp = campaignStageExcel.TacticRewardExp()
+        self.fixedEchelonId = campaignStageExcel.FixedEchelonId()
+        self.echelonExtensionType = campaignStageExcel.EchelonExtensionType()
+
+    # CampaignStageExcelT
+    def Pack(self, builder):
+        if self.name is not None:
+            name = builder.CreateString(self.name)
+        if self.stageNumber is not None:
+            stageNumber = builder.CreateString(self.stageNumber)
+        if self.enterScenarioGroupId is not None:
+            if np is not None and type(self.enterScenarioGroupId) is np.ndarray:
+                enterScenarioGroupId = builder.CreateNumpyVector(self.enterScenarioGroupId)
+            else:
+                CampaignStageExcelStartEnterScenarioGroupIdVector(builder, len(self.enterScenarioGroupId))
+                for i in reversed(range(len(self.enterScenarioGroupId))):
+                    builder.PrependInt64(self.enterScenarioGroupId[i])
+                enterScenarioGroupId = builder.EndVector()
+        if self.clearScenarioGroupId is not None:
+            if np is not None and type(self.clearScenarioGroupId) is np.ndarray:
+                clearScenarioGroupId = builder.CreateNumpyVector(self.clearScenarioGroupId)
+            else:
+                CampaignStageExcelStartClearScenarioGroupIdVector(builder, len(self.clearScenarioGroupId))
+                for i in reversed(range(len(self.clearScenarioGroupId))):
+                    builder.PrependInt64(self.clearScenarioGroupId[i])
+                clearScenarioGroupId = builder.EndVector()
+        if self.strategyMap is not None:
+            strategyMap = builder.CreateString(self.strategyMap)
+        if self.strategyMapBg is not None:
+            strategyMapBg = builder.CreateString(self.strategyMapBg)
+        if self.minEquipmentTierForGuide is not None:
+            if np is not None and type(self.minEquipmentTierForGuide) is np.ndarray:
+                minEquipmentTierForGuide = builder.CreateNumpyVector(self.minEquipmentTierForGuide)
+            else:
+                CampaignStageExcelStartMinEquipmentTierForGuideVector(builder, len(self.minEquipmentTierForGuide))
+                for i in reversed(range(len(self.minEquipmentTierForGuide))):
+                    builder.PrependInt64(self.minEquipmentTierForGuide[i])
+                minEquipmentTierForGuide = builder.EndVector()
+        if self.minSkillLevelForGuide is not None:
+            if np is not None and type(self.minSkillLevelForGuide) is np.ndarray:
+                minSkillLevelForGuide = builder.CreateNumpyVector(self.minSkillLevelForGuide)
+            else:
+                CampaignStageExcelStartMinSkillLevelForGuideVector(builder, len(self.minSkillLevelForGuide))
+                for i in reversed(range(len(self.minSkillLevelForGuide))):
+                    builder.PrependInt64(self.minSkillLevelForGuide[i])
+                minSkillLevelForGuide = builder.EndVector()
+        if self.bgmId is not None:
+            bgmId = builder.CreateString(self.bgmId)
+        if self.firstClearReportEventName is not None:
+            firstClearReportEventName = builder.CreateString(self.firstClearReportEventName)
+        if self.firstClearFunnelMessage is not None:
+            firstClearFunnelMessage = builder.CreateString(self.firstClearFunnelMessage)
+        if self.firstClearEventMessage is not None:
+            firstClearEventMessage = builder.CreateString(self.firstClearEventMessage)
+        if self.firstStartFunnelMessage is not None:
+            firstStartFunnelMessage = builder.CreateString(self.firstStartFunnelMessage)
+        CampaignStageExcelStart(builder)
+        CampaignStageExcelAddId(builder, self.id)
+        CampaignStageExcelAddDeprecated(builder, self.deprecated)
+        if self.name is not None:
+            CampaignStageExcelAddName(builder, name)
+        if self.stageNumber is not None:
+            CampaignStageExcelAddStageNumber(builder, stageNumber)
+        CampaignStageExcelAddCleardScenarioId(builder, self.cleardScenarioId)
+        CampaignStageExcelAddBattleDuration(builder, self.battleDuration)
+        CampaignStageExcelAddStageEnterCostType(builder, self.stageEnterCostType)
+        CampaignStageExcelAddStageEnterCostId(builder, self.stageEnterCostId)
+        CampaignStageExcelAddStageEnterCostAmount(builder, self.stageEnterCostAmount)
+        CampaignStageExcelAddStageEnterEchelonCount(builder, self.stageEnterEchelonCount)
+        CampaignStageExcelAddStarConditionTacticRankSCount(builder, self.starConditionTacticRankSCount)
+        CampaignStageExcelAddStarConditionTurnCount(builder, self.starConditionTurnCount)
+        if self.enterScenarioGroupId is not None:
+            CampaignStageExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId)
+        if self.clearScenarioGroupId is not None:
+            CampaignStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId)
+        if self.strategyMap is not None:
+            CampaignStageExcelAddStrategyMap(builder, strategyMap)
+        if self.strategyMapBg is not None:
+            CampaignStageExcelAddStrategyMapBg(builder, strategyMapBg)
+        CampaignStageExcelAddCampaignStageRewardId(builder, self.campaignStageRewardId)
+        CampaignStageExcelAddMaxTurn(builder, self.maxTurn)
+        CampaignStageExcelAddStageTopography(builder, self.stageTopography)
+        CampaignStageExcelAddRecommandLevel(builder, self.recommandLevel)
+        CampaignStageExcelAddRecommandLevelGapForGuide(builder, self.recommandLevelGapForGuide)
+        if self.minEquipmentTierForGuide is not None:
+            CampaignStageExcelAddMinEquipmentTierForGuide(builder, minEquipmentTierForGuide)
+        if self.minSkillLevelForGuide is not None:
+            CampaignStageExcelAddMinSkillLevelForGuide(builder, minSkillLevelForGuide)
+        if self.bgmId is not None:
+            CampaignStageExcelAddBgmId(builder, bgmId)
+        CampaignStageExcelAddStrategyEnvironment(builder, self.strategyEnvironment)
+        CampaignStageExcelAddGroundId(builder, self.groundId)
+        CampaignStageExcelAddStrategySkipGroundId(builder, self.strategySkipGroundId)
+        CampaignStageExcelAddContentType(builder, self.contentType)
+        CampaignStageExcelAddBgmIdC9738509(builder, self.bgmIdC9738509)
+        if self.firstClearReportEventName is not None:
+            CampaignStageExcelAddFirstClearReportEventName(builder, firstClearReportEventName)
+        if self.firstClearFunnelMessage is not None:
+            CampaignStageExcelAddFirstClearFunnelMessage(builder, firstClearFunnelMessage)
+        if self.firstClearEventMessage is not None:
+            CampaignStageExcelAddFirstClearEventMessage(builder, firstClearEventMessage)
+        if self.firstStartFunnelMessage is not None:
+            CampaignStageExcelAddFirstStartFunnelMessage(builder, firstStartFunnelMessage)
+        CampaignStageExcelAddTacticRewardExp(builder, self.tacticRewardExp)
+        CampaignStageExcelAddFixedEchelonId(builder, self.fixedEchelonId)
+        CampaignStageExcelAddEchelonExtensionType(builder, self.echelonExtensionType)
+        campaignStageExcel = CampaignStageExcelEnd(builder)
+        return campaignStageExcel

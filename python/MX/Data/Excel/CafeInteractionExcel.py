@@ -236,3 +236,131 @@ def CafeInteractionExcelEnd(builder):
 
 def End(builder):
     return CafeInteractionExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CafeInteractionExcelT(object):
+
+    # CafeInteractionExcelT
+    def __init__(
+        self,
+        characterId = 0,
+        ignoreIfUnobtained = False,
+        ignoreIfUnobtainedStartDate = None,
+        ignoreIfUnobtainedEndDate = None,
+        bubbleType = None,
+        bubbleDuration = None,
+        favorEmoticonRewardParcelType = 0,
+        favorEmoticonRewardId = 0,
+        favorEmoticonRewardAmount = 0,
+        cafeCharacterState = None,
+    ):
+        self.characterId = characterId  # type: int
+        self.ignoreIfUnobtained = ignoreIfUnobtained  # type: bool
+        self.ignoreIfUnobtainedStartDate = ignoreIfUnobtainedStartDate  # type: Optional[str]
+        self.ignoreIfUnobtainedEndDate = ignoreIfUnobtainedEndDate  # type: Optional[str]
+        self.bubbleType = bubbleType  # type: Optional[List[int]]
+        self.bubbleDuration = bubbleDuration  # type: Optional[List[int]]
+        self.favorEmoticonRewardParcelType = favorEmoticonRewardParcelType  # type: int
+        self.favorEmoticonRewardId = favorEmoticonRewardId  # type: int
+        self.favorEmoticonRewardAmount = favorEmoticonRewardAmount  # type: int
+        self.cafeCharacterState = cafeCharacterState  # type: Optional[List[Optional[str]]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        cafeInteractionExcel = CafeInteractionExcel()
+        cafeInteractionExcel.Init(buf, pos)
+        return cls.InitFromObj(cafeInteractionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, cafeInteractionExcel):
+        x = CafeInteractionExcelT()
+        x._UnPack(cafeInteractionExcel)
+        return x
+
+    # CafeInteractionExcelT
+    def _UnPack(self, cafeInteractionExcel):
+        if cafeInteractionExcel is None:
+            return
+        self.characterId = cafeInteractionExcel.CharacterId()
+        self.ignoreIfUnobtained = cafeInteractionExcel.IgnoreIfUnobtained()
+        self.ignoreIfUnobtainedStartDate = cafeInteractionExcel.IgnoreIfUnobtainedStartDate()
+        self.ignoreIfUnobtainedEndDate = cafeInteractionExcel.IgnoreIfUnobtainedEndDate()
+        if not cafeInteractionExcel.BubbleTypeIsNone():
+            if np is None:
+                self.bubbleType = []
+                for i in range(cafeInteractionExcel.BubbleTypeLength()):
+                    self.bubbleType.append(cafeInteractionExcel.BubbleType(i))
+            else:
+                self.bubbleType = cafeInteractionExcel.BubbleTypeAsNumpy()
+        if not cafeInteractionExcel.BubbleDurationIsNone():
+            if np is None:
+                self.bubbleDuration = []
+                for i in range(cafeInteractionExcel.BubbleDurationLength()):
+                    self.bubbleDuration.append(cafeInteractionExcel.BubbleDuration(i))
+            else:
+                self.bubbleDuration = cafeInteractionExcel.BubbleDurationAsNumpy()
+        self.favorEmoticonRewardParcelType = cafeInteractionExcel.FavorEmoticonRewardParcelType()
+        self.favorEmoticonRewardId = cafeInteractionExcel.FavorEmoticonRewardId()
+        self.favorEmoticonRewardAmount = cafeInteractionExcel.FavorEmoticonRewardAmount()
+        if not cafeInteractionExcel.CafeCharacterStateIsNone():
+            self.cafeCharacterState = []
+            for i in range(cafeInteractionExcel.CafeCharacterStateLength()):
+                self.cafeCharacterState.append(cafeInteractionExcel.CafeCharacterState(i))
+
+    # CafeInteractionExcelT
+    def Pack(self, builder):
+        if self.ignoreIfUnobtainedStartDate is not None:
+            ignoreIfUnobtainedStartDate = builder.CreateString(self.ignoreIfUnobtainedStartDate)
+        if self.ignoreIfUnobtainedEndDate is not None:
+            ignoreIfUnobtainedEndDate = builder.CreateString(self.ignoreIfUnobtainedEndDate)
+        if self.bubbleType is not None:
+            if np is not None and type(self.bubbleType) is np.ndarray:
+                bubbleType = builder.CreateNumpyVector(self.bubbleType)
+            else:
+                CafeInteractionExcelStartBubbleTypeVector(builder, len(self.bubbleType))
+                for i in reversed(range(len(self.bubbleType))):
+                    builder.PrependInt32(self.bubbleType[i])
+                bubbleType = builder.EndVector()
+        if self.bubbleDuration is not None:
+            if np is not None and type(self.bubbleDuration) is np.ndarray:
+                bubbleDuration = builder.CreateNumpyVector(self.bubbleDuration)
+            else:
+                CafeInteractionExcelStartBubbleDurationVector(builder, len(self.bubbleDuration))
+                for i in reversed(range(len(self.bubbleDuration))):
+                    builder.PrependInt64(self.bubbleDuration[i])
+                bubbleDuration = builder.EndVector()
+        if self.cafeCharacterState is not None:
+            cafeCharacterStatelist = []
+            for i in range(len(self.cafeCharacterState)):
+                cafeCharacterStatelist.append(builder.CreateString(self.cafeCharacterState[i]))
+            CafeInteractionExcelStartCafeCharacterStateVector(builder, len(self.cafeCharacterState))
+            for i in reversed(range(len(self.cafeCharacterState))):
+                builder.PrependUOffsetTRelative(cafeCharacterStatelist[i])
+            cafeCharacterState = builder.EndVector()
+        CafeInteractionExcelStart(builder)
+        CafeInteractionExcelAddCharacterId(builder, self.characterId)
+        CafeInteractionExcelAddIgnoreIfUnobtained(builder, self.ignoreIfUnobtained)
+        if self.ignoreIfUnobtainedStartDate is not None:
+            CafeInteractionExcelAddIgnoreIfUnobtainedStartDate(builder, ignoreIfUnobtainedStartDate)
+        if self.ignoreIfUnobtainedEndDate is not None:
+            CafeInteractionExcelAddIgnoreIfUnobtainedEndDate(builder, ignoreIfUnobtainedEndDate)
+        if self.bubbleType is not None:
+            CafeInteractionExcelAddBubbleType(builder, bubbleType)
+        if self.bubbleDuration is not None:
+            CafeInteractionExcelAddBubbleDuration(builder, bubbleDuration)
+        CafeInteractionExcelAddFavorEmoticonRewardParcelType(builder, self.favorEmoticonRewardParcelType)
+        CafeInteractionExcelAddFavorEmoticonRewardId(builder, self.favorEmoticonRewardId)
+        CafeInteractionExcelAddFavorEmoticonRewardAmount(builder, self.favorEmoticonRewardAmount)
+        if self.cafeCharacterState is not None:
+            CafeInteractionExcelAddCafeCharacterState(builder, cafeCharacterState)
+        cafeInteractionExcel = CafeInteractionExcelEnd(builder)
+        return cafeInteractionExcel

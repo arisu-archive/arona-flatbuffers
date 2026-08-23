@@ -165,3 +165,88 @@ def FarmingDungeonLocationManageExcelEnd(builder):
 
 def End(builder):
     return FarmingDungeonLocationManageExcelEnd(builder)
+
+
+class FarmingDungeonLocationManageExcelT(object):
+
+    # FarmingDungeonLocationManageExcelT
+    def __init__(
+        self,
+        farmingDungeonLocationId = 0,
+        contentType = 0,
+        weekDungeonType = 0,
+        schoolDungeonType = 0,
+        order = 0,
+        openStartDateTime = None,
+        openEndDateTime = None,
+        locationButtonImagePath = None,
+        localizeCodeTitle = 0,
+        localizeCodeInfo = 0,
+    ):
+        self.farmingDungeonLocationId = farmingDungeonLocationId  # type: int
+        self.contentType = contentType  # type: int
+        self.weekDungeonType = weekDungeonType  # type: int
+        self.schoolDungeonType = schoolDungeonType  # type: int
+        self.order = order  # type: int
+        self.openStartDateTime = openStartDateTime  # type: Optional[str]
+        self.openEndDateTime = openEndDateTime  # type: Optional[str]
+        self.locationButtonImagePath = locationButtonImagePath  # type: Optional[str]
+        self.localizeCodeTitle = localizeCodeTitle  # type: int
+        self.localizeCodeInfo = localizeCodeInfo  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        farmingDungeonLocationManageExcel = FarmingDungeonLocationManageExcel()
+        farmingDungeonLocationManageExcel.Init(buf, pos)
+        return cls.InitFromObj(farmingDungeonLocationManageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, farmingDungeonLocationManageExcel):
+        x = FarmingDungeonLocationManageExcelT()
+        x._UnPack(farmingDungeonLocationManageExcel)
+        return x
+
+    # FarmingDungeonLocationManageExcelT
+    def _UnPack(self, farmingDungeonLocationManageExcel):
+        if farmingDungeonLocationManageExcel is None:
+            return
+        self.farmingDungeonLocationId = farmingDungeonLocationManageExcel.FarmingDungeonLocationId()
+        self.contentType = farmingDungeonLocationManageExcel.ContentType()
+        self.weekDungeonType = farmingDungeonLocationManageExcel.WeekDungeonType()
+        self.schoolDungeonType = farmingDungeonLocationManageExcel.SchoolDungeonType()
+        self.order = farmingDungeonLocationManageExcel.Order()
+        self.openStartDateTime = farmingDungeonLocationManageExcel.OpenStartDateTime()
+        self.openEndDateTime = farmingDungeonLocationManageExcel.OpenEndDateTime()
+        self.locationButtonImagePath = farmingDungeonLocationManageExcel.LocationButtonImagePath()
+        self.localizeCodeTitle = farmingDungeonLocationManageExcel.LocalizeCodeTitle()
+        self.localizeCodeInfo = farmingDungeonLocationManageExcel.LocalizeCodeInfo()
+
+    # FarmingDungeonLocationManageExcelT
+    def Pack(self, builder):
+        if self.openStartDateTime is not None:
+            openStartDateTime = builder.CreateString(self.openStartDateTime)
+        if self.openEndDateTime is not None:
+            openEndDateTime = builder.CreateString(self.openEndDateTime)
+        if self.locationButtonImagePath is not None:
+            locationButtonImagePath = builder.CreateString(self.locationButtonImagePath)
+        FarmingDungeonLocationManageExcelStart(builder)
+        FarmingDungeonLocationManageExcelAddFarmingDungeonLocationId(builder, self.farmingDungeonLocationId)
+        FarmingDungeonLocationManageExcelAddContentType(builder, self.contentType)
+        FarmingDungeonLocationManageExcelAddWeekDungeonType(builder, self.weekDungeonType)
+        FarmingDungeonLocationManageExcelAddSchoolDungeonType(builder, self.schoolDungeonType)
+        FarmingDungeonLocationManageExcelAddOrder(builder, self.order)
+        if self.openStartDateTime is not None:
+            FarmingDungeonLocationManageExcelAddOpenStartDateTime(builder, openStartDateTime)
+        if self.openEndDateTime is not None:
+            FarmingDungeonLocationManageExcelAddOpenEndDateTime(builder, openEndDateTime)
+        if self.locationButtonImagePath is not None:
+            FarmingDungeonLocationManageExcelAddLocationButtonImagePath(builder, locationButtonImagePath)
+        FarmingDungeonLocationManageExcelAddLocalizeCodeTitle(builder, self.localizeCodeTitle)
+        FarmingDungeonLocationManageExcelAddLocalizeCodeInfo(builder, self.localizeCodeInfo)
+        farmingDungeonLocationManageExcel = FarmingDungeonLocationManageExcelEnd(builder)
+        return farmingDungeonLocationManageExcel

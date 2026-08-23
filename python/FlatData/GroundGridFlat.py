@@ -150,3 +150,95 @@ def GroundGridFlatEnd(builder):
 
 def End(builder):
     return GroundGridFlatEnd(builder)
+
+import FlatData.GroundNodeFlat
+try:
+    from typing import List
+except:
+    pass
+
+class GroundGridFlatT(object):
+
+    # GroundGridFlatT
+    def __init__(
+        self,
+        x = 0,
+        y = 0,
+        startX = 0.0,
+        startY = 0.0,
+        gap = 0.0,
+        nodes = None,
+        version = None,
+    ):
+        self.x = x  # type: int
+        self.y = y  # type: int
+        self.startX = startX  # type: float
+        self.startY = startY  # type: float
+        self.gap = gap  # type: float
+        self.nodes = nodes  # type: Optional[List[FlatData.GroundNodeFlat.GroundNodeFlatT]]
+        self.version = version  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        groundGridFlat = GroundGridFlat()
+        groundGridFlat.Init(buf, pos)
+        return cls.InitFromObj(groundGridFlat)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, groundGridFlat):
+        x = GroundGridFlatT()
+        x._UnPack(groundGridFlat)
+        return x
+
+    # GroundGridFlatT
+    def _UnPack(self, groundGridFlat):
+        if groundGridFlat is None:
+            return
+        self.x = groundGridFlat.X()
+        self.y = groundGridFlat.Y()
+        self.startX = groundGridFlat.StartX()
+        self.startY = groundGridFlat.StartY()
+        self.gap = groundGridFlat.Gap()
+        if not groundGridFlat.NodesIsNone():
+            self.nodes = []
+            for i in range(groundGridFlat.NodesLength()):
+                if groundGridFlat.Nodes(i) is None:
+                    self.nodes.append(None)
+                else:
+                    groundNodeFlat_ = FlatData.GroundNodeFlat.GroundNodeFlatT.InitFromObj(groundGridFlat.Nodes(i))
+                    self.nodes.append(groundNodeFlat_)
+        self.version = groundGridFlat.Version()
+
+    # GroundGridFlatT
+    def Pack(self, builder):
+        if self.nodes is not None:
+            nodeslist = []
+            for i in range(len(self.nodes)):
+                nodeslist.append(self.nodes[i].Pack(builder))
+            GroundGridFlatStartNodesVector(builder, len(self.nodes))
+            for i in reversed(range(len(self.nodes))):
+                builder.PrependUOffsetTRelative(nodeslist[i])
+            nodes = builder.EndVector()
+        if self.version is not None:
+            version = builder.CreateString(self.version)
+        GroundGridFlatStart(builder)
+        GroundGridFlatAddX(builder, self.x)
+        GroundGridFlatAddY(builder, self.y)
+        GroundGridFlatAddStartX(builder, self.startX)
+        GroundGridFlatAddStartY(builder, self.startY)
+        GroundGridFlatAddGap(builder, self.gap)
+        if self.nodes is not None:
+            GroundGridFlatAddNodes(builder, nodes)
+        if self.version is not None:
+            GroundGridFlatAddVersion(builder, version)
+        groundGridFlat = GroundGridFlatEnd(builder)
+        return groundGridFlat
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(GroundGridFlatT, 'GroundGridFlat', (('x', 'int32', False), ('y', 'int32', False), ('startX', 'float32', False), ('startY', 'float32', False), ('gap', 'float32', False), ('version', 'string', False)))

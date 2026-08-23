@@ -243,3 +243,134 @@ def MinigameRoadPuzzleMapExcelEnd(builder):
 
 def End(builder):
     return MinigameRoadPuzzleMapExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MinigameRoadPuzzleMapExcelT(object):
+
+    # MinigameRoadPuzzleMapExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        uniqueId = 0,
+        mapGroupId = 0,
+        map = None,
+        mapBg = None,
+        bgmId = 0,
+        availableRailTile = None,
+        availableRailTileAmount = None,
+        originalTileCount = None,
+        trainSpeed = 0.0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.mapGroupId = mapGroupId  # type: int
+        self.map = map  # type: Optional[str]
+        self.mapBg = mapBg  # type: Optional[str]
+        self.bgmId = bgmId  # type: int
+        self.availableRailTile = availableRailTile  # type: Optional[List[int]]
+        self.availableRailTileAmount = availableRailTileAmount  # type: Optional[List[int]]
+        self.originalTileCount = originalTileCount  # type: Optional[List[int]]
+        self.trainSpeed = trainSpeed  # type: float
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameRoadPuzzleMapExcel = MinigameRoadPuzzleMapExcel()
+        minigameRoadPuzzleMapExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameRoadPuzzleMapExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameRoadPuzzleMapExcel):
+        x = MinigameRoadPuzzleMapExcelT()
+        x._UnPack(minigameRoadPuzzleMapExcel)
+        return x
+
+    # MinigameRoadPuzzleMapExcelT
+    def _UnPack(self, minigameRoadPuzzleMapExcel):
+        if minigameRoadPuzzleMapExcel is None:
+            return
+        self.eventContentId = minigameRoadPuzzleMapExcel.EventContentId()
+        self.uniqueId = minigameRoadPuzzleMapExcel.UniqueId()
+        self.mapGroupId = minigameRoadPuzzleMapExcel.MapGroupId()
+        self.map = minigameRoadPuzzleMapExcel.Map()
+        self.mapBg = minigameRoadPuzzleMapExcel.MapBg()
+        self.bgmId = minigameRoadPuzzleMapExcel.BgmId()
+        if not minigameRoadPuzzleMapExcel.AvailableRailTileIsNone():
+            if np is None:
+                self.availableRailTile = []
+                for i in range(minigameRoadPuzzleMapExcel.AvailableRailTileLength()):
+                    self.availableRailTile.append(minigameRoadPuzzleMapExcel.AvailableRailTile(i))
+            else:
+                self.availableRailTile = minigameRoadPuzzleMapExcel.AvailableRailTileAsNumpy()
+        if not minigameRoadPuzzleMapExcel.AvailableRailTileAmountIsNone():
+            if np is None:
+                self.availableRailTileAmount = []
+                for i in range(minigameRoadPuzzleMapExcel.AvailableRailTileAmountLength()):
+                    self.availableRailTileAmount.append(minigameRoadPuzzleMapExcel.AvailableRailTileAmount(i))
+            else:
+                self.availableRailTileAmount = minigameRoadPuzzleMapExcel.AvailableRailTileAmountAsNumpy()
+        if not minigameRoadPuzzleMapExcel.OriginalTileCountIsNone():
+            if np is None:
+                self.originalTileCount = []
+                for i in range(minigameRoadPuzzleMapExcel.OriginalTileCountLength()):
+                    self.originalTileCount.append(minigameRoadPuzzleMapExcel.OriginalTileCount(i))
+            else:
+                self.originalTileCount = minigameRoadPuzzleMapExcel.OriginalTileCountAsNumpy()
+        self.trainSpeed = minigameRoadPuzzleMapExcel.TrainSpeed()
+
+    # MinigameRoadPuzzleMapExcelT
+    def Pack(self, builder):
+        if self.map is not None:
+            map = builder.CreateString(self.map)
+        if self.mapBg is not None:
+            mapBg = builder.CreateString(self.mapBg)
+        if self.availableRailTile is not None:
+            if np is not None and type(self.availableRailTile) is np.ndarray:
+                availableRailTile = builder.CreateNumpyVector(self.availableRailTile)
+            else:
+                MinigameRoadPuzzleMapExcelStartAvailableRailTileVector(builder, len(self.availableRailTile))
+                for i in reversed(range(len(self.availableRailTile))):
+                    builder.PrependInt64(self.availableRailTile[i])
+                availableRailTile = builder.EndVector()
+        if self.availableRailTileAmount is not None:
+            if np is not None and type(self.availableRailTileAmount) is np.ndarray:
+                availableRailTileAmount = builder.CreateNumpyVector(self.availableRailTileAmount)
+            else:
+                MinigameRoadPuzzleMapExcelStartAvailableRailTileAmountVector(builder, len(self.availableRailTileAmount))
+                for i in reversed(range(len(self.availableRailTileAmount))):
+                    builder.PrependInt64(self.availableRailTileAmount[i])
+                availableRailTileAmount = builder.EndVector()
+        if self.originalTileCount is not None:
+            if np is not None and type(self.originalTileCount) is np.ndarray:
+                originalTileCount = builder.CreateNumpyVector(self.originalTileCount)
+            else:
+                MinigameRoadPuzzleMapExcelStartOriginalTileCountVector(builder, len(self.originalTileCount))
+                for i in reversed(range(len(self.originalTileCount))):
+                    builder.PrependInt64(self.originalTileCount[i])
+                originalTileCount = builder.EndVector()
+        MinigameRoadPuzzleMapExcelStart(builder)
+        MinigameRoadPuzzleMapExcelAddEventContentId(builder, self.eventContentId)
+        MinigameRoadPuzzleMapExcelAddUniqueId(builder, self.uniqueId)
+        MinigameRoadPuzzleMapExcelAddMapGroupId(builder, self.mapGroupId)
+        if self.map is not None:
+            MinigameRoadPuzzleMapExcelAddMap(builder, map)
+        if self.mapBg is not None:
+            MinigameRoadPuzzleMapExcelAddMapBg(builder, mapBg)
+        MinigameRoadPuzzleMapExcelAddBgmId(builder, self.bgmId)
+        if self.availableRailTile is not None:
+            MinigameRoadPuzzleMapExcelAddAvailableRailTile(builder, availableRailTile)
+        if self.availableRailTileAmount is not None:
+            MinigameRoadPuzzleMapExcelAddAvailableRailTileAmount(builder, availableRailTileAmount)
+        if self.originalTileCount is not None:
+            MinigameRoadPuzzleMapExcelAddOriginalTileCount(builder, originalTileCount)
+        MinigameRoadPuzzleMapExcelAddTrainSpeed(builder, self.trainSpeed)
+        minigameRoadPuzzleMapExcel = MinigameRoadPuzzleMapExcelEnd(builder)
+        return minigameRoadPuzzleMapExcel

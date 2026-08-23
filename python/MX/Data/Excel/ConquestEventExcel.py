@@ -373,3 +373,176 @@ def ConquestEventExcelEnd(builder):
 
 def End(builder):
     return ConquestEventExcelEnd(builder)
+
+
+class ConquestEventExcelT(object):
+
+    # ConquestEventExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        mainStoryEventContentId = 0,
+        conquestEventType = 0,
+        useErosion = False,
+        useUnexpectedEvent = False,
+        useCalculate = False,
+        useConquestObject = False,
+        evnetMapGoalLocalize = None,
+        evnetMapNameLocalize = None,
+        mapEnterScenarioGroupId = 0,
+        evnetScenarioBg = None,
+        manageUnitChange = 0,
+        assistCount = 0,
+        playTimeLimitInSeconds = 0,
+        animationUnitAmountMin = 0,
+        animationUnitAmountMax = 0,
+        animationUnitDelay = 0.0,
+        localizeUnexpected = None,
+        localizeErosions = None,
+        localizeStep = None,
+        localizeTile = None,
+        localizeMapInfo = None,
+        localizeManage = None,
+        localizeUpgrade = None,
+        localizeTreasureBox = None,
+        individualErosionDailyCount = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.mainStoryEventContentId = mainStoryEventContentId  # type: int
+        self.conquestEventType = conquestEventType  # type: int
+        self.useErosion = useErosion  # type: bool
+        self.useUnexpectedEvent = useUnexpectedEvent  # type: bool
+        self.useCalculate = useCalculate  # type: bool
+        self.useConquestObject = useConquestObject  # type: bool
+        self.evnetMapGoalLocalize = evnetMapGoalLocalize  # type: Optional[str]
+        self.evnetMapNameLocalize = evnetMapNameLocalize  # type: Optional[str]
+        self.mapEnterScenarioGroupId = mapEnterScenarioGroupId  # type: int
+        self.evnetScenarioBg = evnetScenarioBg  # type: Optional[str]
+        self.manageUnitChange = manageUnitChange  # type: int
+        self.assistCount = assistCount  # type: int
+        self.playTimeLimitInSeconds = playTimeLimitInSeconds  # type: int
+        self.animationUnitAmountMin = animationUnitAmountMin  # type: int
+        self.animationUnitAmountMax = animationUnitAmountMax  # type: int
+        self.animationUnitDelay = animationUnitDelay  # type: float
+        self.localizeUnexpected = localizeUnexpected  # type: Optional[str]
+        self.localizeErosions = localizeErosions  # type: Optional[str]
+        self.localizeStep = localizeStep  # type: Optional[str]
+        self.localizeTile = localizeTile  # type: Optional[str]
+        self.localizeMapInfo = localizeMapInfo  # type: Optional[str]
+        self.localizeManage = localizeManage  # type: Optional[str]
+        self.localizeUpgrade = localizeUpgrade  # type: Optional[str]
+        self.localizeTreasureBox = localizeTreasureBox  # type: Optional[str]
+        self.individualErosionDailyCount = individualErosionDailyCount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestEventExcel = ConquestEventExcel()
+        conquestEventExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestEventExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestEventExcel):
+        x = ConquestEventExcelT()
+        x._UnPack(conquestEventExcel)
+        return x
+
+    # ConquestEventExcelT
+    def _UnPack(self, conquestEventExcel):
+        if conquestEventExcel is None:
+            return
+        self.eventContentId = conquestEventExcel.EventContentId()
+        self.mainStoryEventContentId = conquestEventExcel.MainStoryEventContentId()
+        self.conquestEventType = conquestEventExcel.ConquestEventType()
+        self.useErosion = conquestEventExcel.UseErosion()
+        self.useUnexpectedEvent = conquestEventExcel.UseUnexpectedEvent()
+        self.useCalculate = conquestEventExcel.UseCalculate()
+        self.useConquestObject = conquestEventExcel.UseConquestObject()
+        self.evnetMapGoalLocalize = conquestEventExcel.EvnetMapGoalLocalize()
+        self.evnetMapNameLocalize = conquestEventExcel.EvnetMapNameLocalize()
+        self.mapEnterScenarioGroupId = conquestEventExcel.MapEnterScenarioGroupId()
+        self.evnetScenarioBg = conquestEventExcel.EvnetScenarioBg()
+        self.manageUnitChange = conquestEventExcel.ManageUnitChange()
+        self.assistCount = conquestEventExcel.AssistCount()
+        self.playTimeLimitInSeconds = conquestEventExcel.PlayTimeLimitInSeconds()
+        self.animationUnitAmountMin = conquestEventExcel.AnimationUnitAmountMin()
+        self.animationUnitAmountMax = conquestEventExcel.AnimationUnitAmountMax()
+        self.animationUnitDelay = conquestEventExcel.AnimationUnitDelay()
+        self.localizeUnexpected = conquestEventExcel.LocalizeUnexpected()
+        self.localizeErosions = conquestEventExcel.LocalizeErosions()
+        self.localizeStep = conquestEventExcel.LocalizeStep()
+        self.localizeTile = conquestEventExcel.LocalizeTile()
+        self.localizeMapInfo = conquestEventExcel.LocalizeMapInfo()
+        self.localizeManage = conquestEventExcel.LocalizeManage()
+        self.localizeUpgrade = conquestEventExcel.LocalizeUpgrade()
+        self.localizeTreasureBox = conquestEventExcel.LocalizeTreasureBox()
+        self.individualErosionDailyCount = conquestEventExcel.IndividualErosionDailyCount()
+
+    # ConquestEventExcelT
+    def Pack(self, builder):
+        if self.evnetMapGoalLocalize is not None:
+            evnetMapGoalLocalize = builder.CreateString(self.evnetMapGoalLocalize)
+        if self.evnetMapNameLocalize is not None:
+            evnetMapNameLocalize = builder.CreateString(self.evnetMapNameLocalize)
+        if self.evnetScenarioBg is not None:
+            evnetScenarioBg = builder.CreateString(self.evnetScenarioBg)
+        if self.localizeUnexpected is not None:
+            localizeUnexpected = builder.CreateString(self.localizeUnexpected)
+        if self.localizeErosions is not None:
+            localizeErosions = builder.CreateString(self.localizeErosions)
+        if self.localizeStep is not None:
+            localizeStep = builder.CreateString(self.localizeStep)
+        if self.localizeTile is not None:
+            localizeTile = builder.CreateString(self.localizeTile)
+        if self.localizeMapInfo is not None:
+            localizeMapInfo = builder.CreateString(self.localizeMapInfo)
+        if self.localizeManage is not None:
+            localizeManage = builder.CreateString(self.localizeManage)
+        if self.localizeUpgrade is not None:
+            localizeUpgrade = builder.CreateString(self.localizeUpgrade)
+        if self.localizeTreasureBox is not None:
+            localizeTreasureBox = builder.CreateString(self.localizeTreasureBox)
+        ConquestEventExcelStart(builder)
+        ConquestEventExcelAddEventContentId(builder, self.eventContentId)
+        ConquestEventExcelAddMainStoryEventContentId(builder, self.mainStoryEventContentId)
+        ConquestEventExcelAddConquestEventType(builder, self.conquestEventType)
+        ConquestEventExcelAddUseErosion(builder, self.useErosion)
+        ConquestEventExcelAddUseUnexpectedEvent(builder, self.useUnexpectedEvent)
+        ConquestEventExcelAddUseCalculate(builder, self.useCalculate)
+        ConquestEventExcelAddUseConquestObject(builder, self.useConquestObject)
+        if self.evnetMapGoalLocalize is not None:
+            ConquestEventExcelAddEvnetMapGoalLocalize(builder, evnetMapGoalLocalize)
+        if self.evnetMapNameLocalize is not None:
+            ConquestEventExcelAddEvnetMapNameLocalize(builder, evnetMapNameLocalize)
+        ConquestEventExcelAddMapEnterScenarioGroupId(builder, self.mapEnterScenarioGroupId)
+        if self.evnetScenarioBg is not None:
+            ConquestEventExcelAddEvnetScenarioBg(builder, evnetScenarioBg)
+        ConquestEventExcelAddManageUnitChange(builder, self.manageUnitChange)
+        ConquestEventExcelAddAssistCount(builder, self.assistCount)
+        ConquestEventExcelAddPlayTimeLimitInSeconds(builder, self.playTimeLimitInSeconds)
+        ConquestEventExcelAddAnimationUnitAmountMin(builder, self.animationUnitAmountMin)
+        ConquestEventExcelAddAnimationUnitAmountMax(builder, self.animationUnitAmountMax)
+        ConquestEventExcelAddAnimationUnitDelay(builder, self.animationUnitDelay)
+        if self.localizeUnexpected is not None:
+            ConquestEventExcelAddLocalizeUnexpected(builder, localizeUnexpected)
+        if self.localizeErosions is not None:
+            ConquestEventExcelAddLocalizeErosions(builder, localizeErosions)
+        if self.localizeStep is not None:
+            ConquestEventExcelAddLocalizeStep(builder, localizeStep)
+        if self.localizeTile is not None:
+            ConquestEventExcelAddLocalizeTile(builder, localizeTile)
+        if self.localizeMapInfo is not None:
+            ConquestEventExcelAddLocalizeMapInfo(builder, localizeMapInfo)
+        if self.localizeManage is not None:
+            ConquestEventExcelAddLocalizeManage(builder, localizeManage)
+        if self.localizeUpgrade is not None:
+            ConquestEventExcelAddLocalizeUpgrade(builder, localizeUpgrade)
+        if self.localizeTreasureBox is not None:
+            ConquestEventExcelAddLocalizeTreasureBox(builder, localizeTreasureBox)
+        ConquestEventExcelAddIndividualErosionDailyCount(builder, self.individualErosionDailyCount)
+        conquestEventExcel = ConquestEventExcelEnd(builder)
+        return conquestEventExcel

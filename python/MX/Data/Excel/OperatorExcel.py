@@ -128,8 +128,15 @@ class OperatorExcel(object):
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
+    # OperatorExcel
+    def CharacterVoiceOverridePriority(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
 def OperatorExcelStart(builder):
-    builder.StartObject(12)
+    builder.StartObject(13)
 
 def Start(builder):
     OperatorExcelStart(builder)
@@ -212,8 +219,130 @@ def OperatorExcelAddOperatorWaitQueue(builder, operatorWaitQueue):
 def AddOperatorWaitQueue(builder, operatorWaitQueue):
     OperatorExcelAddOperatorWaitQueue(builder, operatorWaitQueue)
 
+def OperatorExcelAddCharacterVoiceOverridePriority(builder, characterVoiceOverridePriority):
+    builder.PrependInt32Slot(12, characterVoiceOverridePriority, 0)
+
+def AddCharacterVoiceOverridePriority(builder, characterVoiceOverridePriority):
+    OperatorExcelAddCharacterVoiceOverridePriority(builder, characterVoiceOverridePriority)
+
 def OperatorExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return OperatorExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class OperatorExcelT(object):
+
+    # OperatorExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        groupId = None,
+        operatorCondition = 0,
+        outputSequence = 0,
+        randomWeight = 0,
+        outputDelay = 0,
+        duration = 0,
+        operatorOutputPriority = 0,
+        portraitPath = None,
+        textLocalizeKey = None,
+        voiceId = None,
+        operatorWaitQueue = False,
+        characterVoiceOverridePriority = 0,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.groupId = groupId  # type: Optional[str]
+        self.operatorCondition = operatorCondition  # type: int
+        self.outputSequence = outputSequence  # type: int
+        self.randomWeight = randomWeight  # type: int
+        self.outputDelay = outputDelay  # type: int
+        self.duration = duration  # type: int
+        self.operatorOutputPriority = operatorOutputPriority  # type: int
+        self.portraitPath = portraitPath  # type: Optional[str]
+        self.textLocalizeKey = textLocalizeKey  # type: Optional[str]
+        self.voiceId = voiceId  # type: Optional[List[int]]
+        self.operatorWaitQueue = operatorWaitQueue  # type: bool
+        self.characterVoiceOverridePriority = characterVoiceOverridePriority  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        operatorExcel = OperatorExcel()
+        operatorExcel.Init(buf, pos)
+        return cls.InitFromObj(operatorExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, operatorExcel):
+        x = OperatorExcelT()
+        x._UnPack(operatorExcel)
+        return x
+
+    # OperatorExcelT
+    def _UnPack(self, operatorExcel):
+        if operatorExcel is None:
+            return
+        self.uniqueId = operatorExcel.UniqueId()
+        self.groupId = operatorExcel.GroupId()
+        self.operatorCondition = operatorExcel.OperatorCondition()
+        self.outputSequence = operatorExcel.OutputSequence()
+        self.randomWeight = operatorExcel.RandomWeight()
+        self.outputDelay = operatorExcel.OutputDelay()
+        self.duration = operatorExcel.Duration()
+        self.operatorOutputPriority = operatorExcel.OperatorOutputPriority()
+        self.portraitPath = operatorExcel.PortraitPath()
+        self.textLocalizeKey = operatorExcel.TextLocalizeKey()
+        if not operatorExcel.VoiceIdIsNone():
+            if np is None:
+                self.voiceId = []
+                for i in range(operatorExcel.VoiceIdLength()):
+                    self.voiceId.append(operatorExcel.VoiceId(i))
+            else:
+                self.voiceId = operatorExcel.VoiceIdAsNumpy()
+        self.operatorWaitQueue = operatorExcel.OperatorWaitQueue()
+        self.characterVoiceOverridePriority = operatorExcel.CharacterVoiceOverridePriority()
+
+    # OperatorExcelT
+    def Pack(self, builder):
+        if self.groupId is not None:
+            groupId = builder.CreateString(self.groupId)
+        if self.portraitPath is not None:
+            portraitPath = builder.CreateString(self.portraitPath)
+        if self.textLocalizeKey is not None:
+            textLocalizeKey = builder.CreateString(self.textLocalizeKey)
+        if self.voiceId is not None:
+            if np is not None and type(self.voiceId) is np.ndarray:
+                voiceId = builder.CreateNumpyVector(self.voiceId)
+            else:
+                OperatorExcelStartVoiceIdVector(builder, len(self.voiceId))
+                for i in reversed(range(len(self.voiceId))):
+                    builder.PrependUint32(self.voiceId[i])
+                voiceId = builder.EndVector()
+        OperatorExcelStart(builder)
+        OperatorExcelAddUniqueId(builder, self.uniqueId)
+        if self.groupId is not None:
+            OperatorExcelAddGroupId(builder, groupId)
+        OperatorExcelAddOperatorCondition(builder, self.operatorCondition)
+        OperatorExcelAddOutputSequence(builder, self.outputSequence)
+        OperatorExcelAddRandomWeight(builder, self.randomWeight)
+        OperatorExcelAddOutputDelay(builder, self.outputDelay)
+        OperatorExcelAddDuration(builder, self.duration)
+        OperatorExcelAddOperatorOutputPriority(builder, self.operatorOutputPriority)
+        if self.portraitPath is not None:
+            OperatorExcelAddPortraitPath(builder, portraitPath)
+        if self.textLocalizeKey is not None:
+            OperatorExcelAddTextLocalizeKey(builder, textLocalizeKey)
+        if self.voiceId is not None:
+            OperatorExcelAddVoiceId(builder, voiceId)
+        OperatorExcelAddOperatorWaitQueue(builder, self.operatorWaitQueue)
+        OperatorExcelAddCharacterVoiceOverridePriority(builder, self.characterVoiceOverridePriority)
+        operatorExcel = OperatorExcelEnd(builder)
+        return operatorExcel

@@ -126,3 +126,67 @@ def AccountLevelExcelEnd(builder):
 
 def End(builder):
     return AccountLevelExcelEnd(builder)
+
+
+class AccountLevelExcelT(object):
+
+    # AccountLevelExcelT
+    def __init__(
+        self,
+        id = 0,
+        level = 0,
+        exp = 0,
+        newbieExpRatio = 0,
+        closeInterval = 0,
+        apAutoChargeMax = 0,
+        needReportEvent = False,
+    ):
+        self.id = id  # type: int
+        self.level = level  # type: int
+        self.exp = exp  # type: int
+        self.newbieExpRatio = newbieExpRatio  # type: int
+        self.closeInterval = closeInterval  # type: int
+        self.apAutoChargeMax = apAutoChargeMax  # type: int
+        self.needReportEvent = needReportEvent  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        accountLevelExcel = AccountLevelExcel()
+        accountLevelExcel.Init(buf, pos)
+        return cls.InitFromObj(accountLevelExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, accountLevelExcel):
+        x = AccountLevelExcelT()
+        x._UnPack(accountLevelExcel)
+        return x
+
+    # AccountLevelExcelT
+    def _UnPack(self, accountLevelExcel):
+        if accountLevelExcel is None:
+            return
+        self.id = accountLevelExcel.Id()
+        self.level = accountLevelExcel.Level()
+        self.exp = accountLevelExcel.Exp()
+        self.newbieExpRatio = accountLevelExcel.NewbieExpRatio()
+        self.closeInterval = accountLevelExcel.CloseInterval()
+        self.apAutoChargeMax = accountLevelExcel.ApAutoChargeMax()
+        self.needReportEvent = accountLevelExcel.NeedReportEvent()
+
+    # AccountLevelExcelT
+    def Pack(self, builder):
+        AccountLevelExcelStart(builder)
+        AccountLevelExcelAddId(builder, self.id)
+        AccountLevelExcelAddLevel(builder, self.level)
+        AccountLevelExcelAddExp(builder, self.exp)
+        AccountLevelExcelAddNewbieExpRatio(builder, self.newbieExpRatio)
+        AccountLevelExcelAddCloseInterval(builder, self.closeInterval)
+        AccountLevelExcelAddApAutoChargeMax(builder, self.apAutoChargeMax)
+        AccountLevelExcelAddNeedReportEvent(builder, self.needReportEvent)
+        accountLevelExcel = AccountLevelExcelEnd(builder)
+        return accountLevelExcel

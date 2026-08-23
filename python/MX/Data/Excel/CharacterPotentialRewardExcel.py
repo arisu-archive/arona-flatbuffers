@@ -165,3 +165,97 @@ def CharacterPotentialRewardExcelEnd(builder):
 
 def End(builder):
     return CharacterPotentialRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CharacterPotentialRewardExcelT(object):
+
+    # CharacterPotentialRewardExcelT
+    def __init__(
+        self,
+        id = 0,
+        requirePotentialStatType = None,
+        requirePotentialStatLevel = None,
+        rewardParcelType = 0,
+        rewardId = 0,
+        rewardAmount = 0,
+    ):
+        self.id = id  # type: int
+        self.requirePotentialStatType = requirePotentialStatType  # type: Optional[List[int]]
+        self.requirePotentialStatLevel = requirePotentialStatLevel  # type: Optional[List[int]]
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardId = rewardId  # type: int
+        self.rewardAmount = rewardAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterPotentialRewardExcel = CharacterPotentialRewardExcel()
+        characterPotentialRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(characterPotentialRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterPotentialRewardExcel):
+        x = CharacterPotentialRewardExcelT()
+        x._UnPack(characterPotentialRewardExcel)
+        return x
+
+    # CharacterPotentialRewardExcelT
+    def _UnPack(self, characterPotentialRewardExcel):
+        if characterPotentialRewardExcel is None:
+            return
+        self.id = characterPotentialRewardExcel.Id()
+        if not characterPotentialRewardExcel.RequirePotentialStatTypeIsNone():
+            if np is None:
+                self.requirePotentialStatType = []
+                for i in range(characterPotentialRewardExcel.RequirePotentialStatTypeLength()):
+                    self.requirePotentialStatType.append(characterPotentialRewardExcel.RequirePotentialStatType(i))
+            else:
+                self.requirePotentialStatType = characterPotentialRewardExcel.RequirePotentialStatTypeAsNumpy()
+        if not characterPotentialRewardExcel.RequirePotentialStatLevelIsNone():
+            if np is None:
+                self.requirePotentialStatLevel = []
+                for i in range(characterPotentialRewardExcel.RequirePotentialStatLevelLength()):
+                    self.requirePotentialStatLevel.append(characterPotentialRewardExcel.RequirePotentialStatLevel(i))
+            else:
+                self.requirePotentialStatLevel = characterPotentialRewardExcel.RequirePotentialStatLevelAsNumpy()
+        self.rewardParcelType = characterPotentialRewardExcel.RewardParcelType()
+        self.rewardId = characterPotentialRewardExcel.RewardId()
+        self.rewardAmount = characterPotentialRewardExcel.RewardAmount()
+
+    # CharacterPotentialRewardExcelT
+    def Pack(self, builder):
+        if self.requirePotentialStatType is not None:
+            if np is not None and type(self.requirePotentialStatType) is np.ndarray:
+                requirePotentialStatType = builder.CreateNumpyVector(self.requirePotentialStatType)
+            else:
+                CharacterPotentialRewardExcelStartRequirePotentialStatTypeVector(builder, len(self.requirePotentialStatType))
+                for i in reversed(range(len(self.requirePotentialStatType))):
+                    builder.PrependInt32(self.requirePotentialStatType[i])
+                requirePotentialStatType = builder.EndVector()
+        if self.requirePotentialStatLevel is not None:
+            if np is not None and type(self.requirePotentialStatLevel) is np.ndarray:
+                requirePotentialStatLevel = builder.CreateNumpyVector(self.requirePotentialStatLevel)
+            else:
+                CharacterPotentialRewardExcelStartRequirePotentialStatLevelVector(builder, len(self.requirePotentialStatLevel))
+                for i in reversed(range(len(self.requirePotentialStatLevel))):
+                    builder.PrependInt64(self.requirePotentialStatLevel[i])
+                requirePotentialStatLevel = builder.EndVector()
+        CharacterPotentialRewardExcelStart(builder)
+        CharacterPotentialRewardExcelAddId(builder, self.id)
+        if self.requirePotentialStatType is not None:
+            CharacterPotentialRewardExcelAddRequirePotentialStatType(builder, requirePotentialStatType)
+        if self.requirePotentialStatLevel is not None:
+            CharacterPotentialRewardExcelAddRequirePotentialStatLevel(builder, requirePotentialStatLevel)
+        CharacterPotentialRewardExcelAddRewardParcelType(builder, self.rewardParcelType)
+        CharacterPotentialRewardExcelAddRewardId(builder, self.rewardId)
+        CharacterPotentialRewardExcelAddRewardAmount(builder, self.rewardAmount)
+        characterPotentialRewardExcel = CharacterPotentialRewardExcelEnd(builder)
+        return characterPotentialRewardExcel

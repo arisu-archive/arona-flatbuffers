@@ -72,3 +72,68 @@ def LimitedStageSeasonExcelTableEnd(builder):
 
 def End(builder):
     return LimitedStageSeasonExcelTableEnd(builder)
+
+import FlatData.LimitedStageSeasonExcel
+try:
+    from typing import List
+except:
+    pass
+
+class LimitedStageSeasonExcelTableT(object):
+
+    # LimitedStageSeasonExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.LimitedStageSeasonExcel.LimitedStageSeasonExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        limitedStageSeasonExcelTable = LimitedStageSeasonExcelTable()
+        limitedStageSeasonExcelTable.Init(buf, pos)
+        return cls.InitFromObj(limitedStageSeasonExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, limitedStageSeasonExcelTable):
+        x = LimitedStageSeasonExcelTableT()
+        x._UnPack(limitedStageSeasonExcelTable)
+        return x
+
+    # LimitedStageSeasonExcelTableT
+    def _UnPack(self, limitedStageSeasonExcelTable):
+        if limitedStageSeasonExcelTable is None:
+            return
+        if not limitedStageSeasonExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(limitedStageSeasonExcelTable.DataListLength()):
+                if limitedStageSeasonExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    limitedStageSeasonExcel_ = FlatData.LimitedStageSeasonExcel.LimitedStageSeasonExcelT.InitFromObj(limitedStageSeasonExcelTable.DataList(i))
+                    self.dataList.append(limitedStageSeasonExcel_)
+
+    # LimitedStageSeasonExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            LimitedStageSeasonExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        LimitedStageSeasonExcelTableStart(builder)
+        if self.dataList is not None:
+            LimitedStageSeasonExcelTableAddDataList(builder, dataList)
+        limitedStageSeasonExcelTable = LimitedStageSeasonExcelTableEnd(builder)
+        return limitedStageSeasonExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(LimitedStageSeasonExcelTableT, 'LimitedStageSeasonExcelTable', ())

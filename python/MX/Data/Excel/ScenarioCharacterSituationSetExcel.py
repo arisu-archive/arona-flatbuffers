@@ -126,3 +126,79 @@ def ScenarioCharacterSituationSetExcelEnd(builder):
 
 def End(builder):
     return ScenarioCharacterSituationSetExcelEnd(builder)
+
+
+class ScenarioCharacterSituationSetExcelT(object):
+
+    # ScenarioCharacterSituationSetExcelT
+    def __init__(
+        self,
+        name = 0,
+        face = None,
+        behavior = None,
+        action = None,
+        shape = None,
+        effect = 0,
+        emotion = 0,
+    ):
+        self.name = name  # type: int
+        self.face = face  # type: Optional[str]
+        self.behavior = behavior  # type: Optional[str]
+        self.action = action  # type: Optional[str]
+        self.shape = shape  # type: Optional[str]
+        self.effect = effect  # type: int
+        self.emotion = emotion  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        scenarioCharacterSituationSetExcel = ScenarioCharacterSituationSetExcel()
+        scenarioCharacterSituationSetExcel.Init(buf, pos)
+        return cls.InitFromObj(scenarioCharacterSituationSetExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, scenarioCharacterSituationSetExcel):
+        x = ScenarioCharacterSituationSetExcelT()
+        x._UnPack(scenarioCharacterSituationSetExcel)
+        return x
+
+    # ScenarioCharacterSituationSetExcelT
+    def _UnPack(self, scenarioCharacterSituationSetExcel):
+        if scenarioCharacterSituationSetExcel is None:
+            return
+        self.name = scenarioCharacterSituationSetExcel.Name()
+        self.face = scenarioCharacterSituationSetExcel.Face()
+        self.behavior = scenarioCharacterSituationSetExcel.Behavior()
+        self.action = scenarioCharacterSituationSetExcel.Action()
+        self.shape = scenarioCharacterSituationSetExcel.Shape()
+        self.effect = scenarioCharacterSituationSetExcel.Effect()
+        self.emotion = scenarioCharacterSituationSetExcel.Emotion()
+
+    # ScenarioCharacterSituationSetExcelT
+    def Pack(self, builder):
+        if self.face is not None:
+            face = builder.CreateString(self.face)
+        if self.behavior is not None:
+            behavior = builder.CreateString(self.behavior)
+        if self.action is not None:
+            action = builder.CreateString(self.action)
+        if self.shape is not None:
+            shape = builder.CreateString(self.shape)
+        ScenarioCharacterSituationSetExcelStart(builder)
+        ScenarioCharacterSituationSetExcelAddName(builder, self.name)
+        if self.face is not None:
+            ScenarioCharacterSituationSetExcelAddFace(builder, face)
+        if self.behavior is not None:
+            ScenarioCharacterSituationSetExcelAddBehavior(builder, behavior)
+        if self.action is not None:
+            ScenarioCharacterSituationSetExcelAddAction(builder, action)
+        if self.shape is not None:
+            ScenarioCharacterSituationSetExcelAddShape(builder, shape)
+        ScenarioCharacterSituationSetExcelAddEffect(builder, self.effect)
+        ScenarioCharacterSituationSetExcelAddEmotion(builder, self.emotion)
+        scenarioCharacterSituationSetExcel = ScenarioCharacterSituationSetExcelEnd(builder)
+        return scenarioCharacterSituationSetExcel

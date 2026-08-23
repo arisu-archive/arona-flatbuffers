@@ -72,3 +72,68 @@ def CouponStuffExcelTableEnd(builder):
 
 def End(builder):
     return CouponStuffExcelTableEnd(builder)
+
+import FlatData.CouponStuffExcel
+try:
+    from typing import List
+except:
+    pass
+
+class CouponStuffExcelTableT(object):
+
+    # CouponStuffExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.CouponStuffExcel.CouponStuffExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        couponStuffExcelTable = CouponStuffExcelTable()
+        couponStuffExcelTable.Init(buf, pos)
+        return cls.InitFromObj(couponStuffExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, couponStuffExcelTable):
+        x = CouponStuffExcelTableT()
+        x._UnPack(couponStuffExcelTable)
+        return x
+
+    # CouponStuffExcelTableT
+    def _UnPack(self, couponStuffExcelTable):
+        if couponStuffExcelTable is None:
+            return
+        if not couponStuffExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(couponStuffExcelTable.DataListLength()):
+                if couponStuffExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    couponStuffExcel_ = FlatData.CouponStuffExcel.CouponStuffExcelT.InitFromObj(couponStuffExcelTable.DataList(i))
+                    self.dataList.append(couponStuffExcel_)
+
+    # CouponStuffExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            CouponStuffExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        CouponStuffExcelTableStart(builder)
+        if self.dataList is not None:
+            CouponStuffExcelTableAddDataList(builder, dataList)
+        couponStuffExcelTable = CouponStuffExcelTableEnd(builder)
+        return couponStuffExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(CouponStuffExcelTableT, 'CouponStuffExcelTable', ())

@@ -72,3 +72,68 @@ def EventContentExcelTableEnd(builder):
 
 def End(builder):
     return EventContentExcelTableEnd(builder)
+
+import FlatData.EventContentExcel
+try:
+    from typing import List
+except:
+    pass
+
+class EventContentExcelTableT(object):
+
+    # EventContentExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.EventContentExcel.EventContentExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        eventContentExcelTable = EventContentExcelTable()
+        eventContentExcelTable.Init(buf, pos)
+        return cls.InitFromObj(eventContentExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, eventContentExcelTable):
+        x = EventContentExcelTableT()
+        x._UnPack(eventContentExcelTable)
+        return x
+
+    # EventContentExcelTableT
+    def _UnPack(self, eventContentExcelTable):
+        if eventContentExcelTable is None:
+            return
+        if not eventContentExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(eventContentExcelTable.DataListLength()):
+                if eventContentExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    eventContentExcel_ = FlatData.EventContentExcel.EventContentExcelT.InitFromObj(eventContentExcelTable.DataList(i))
+                    self.dataList.append(eventContentExcel_)
+
+    # EventContentExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            EventContentExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        EventContentExcelTableStart(builder)
+        if self.dataList is not None:
+            EventContentExcelTableAddDataList(builder, dataList)
+        eventContentExcelTable = EventContentExcelTableEnd(builder)
+        return eventContentExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(EventContentExcelTableT, 'EventContentExcelTable', ())

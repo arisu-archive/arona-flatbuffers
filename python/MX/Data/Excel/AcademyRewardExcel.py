@@ -503,3 +503,249 @@ def AcademyRewardExcelEnd(builder):
 
 def End(builder):
     return AcademyRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class AcademyRewardExcelT(object):
+
+    # AcademyRewardExcelT
+    def __init__(
+        self,
+        location = None,
+        scheduleGroupId = 0,
+        orderInGroup = 0,
+        id = 0,
+        progressTexture = None,
+        localizeEtcId = 0,
+        locationRank = 0,
+        favorExp = 0,
+        secretStoneAmount = 0,
+        secretStoneProb = 0,
+        extraFavorExp = 0,
+        extraFavorExpProb = 0,
+        extraRewardParcelType = None,
+        extraRewardParcelId = None,
+        extraRewardAmount = None,
+        extraRewardProb = None,
+        isExtraRewardDisplayed = None,
+        rewardParcelType = None,
+        rewardParcelId = None,
+        rewardAmount = None,
+    ):
+        self.location = location  # type: Optional[str]
+        self.scheduleGroupId = scheduleGroupId  # type: int
+        self.orderInGroup = orderInGroup  # type: int
+        self.id = id  # type: int
+        self.progressTexture = progressTexture  # type: Optional[str]
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.locationRank = locationRank  # type: int
+        self.favorExp = favorExp  # type: int
+        self.secretStoneAmount = secretStoneAmount  # type: int
+        self.secretStoneProb = secretStoneProb  # type: int
+        self.extraFavorExp = extraFavorExp  # type: int
+        self.extraFavorExpProb = extraFavorExpProb  # type: int
+        self.extraRewardParcelType = extraRewardParcelType  # type: Optional[List[int]]
+        self.extraRewardParcelId = extraRewardParcelId  # type: Optional[List[int]]
+        self.extraRewardAmount = extraRewardAmount  # type: Optional[List[int]]
+        self.extraRewardProb = extraRewardProb  # type: Optional[List[int]]
+        self.isExtraRewardDisplayed = isExtraRewardDisplayed  # type: Optional[List[bool]]
+        self.rewardParcelType = rewardParcelType  # type: Optional[List[int]]
+        self.rewardParcelId = rewardParcelId  # type: Optional[List[int]]
+        self.rewardAmount = rewardAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        academyRewardExcel = AcademyRewardExcel()
+        academyRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(academyRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, academyRewardExcel):
+        x = AcademyRewardExcelT()
+        x._UnPack(academyRewardExcel)
+        return x
+
+    # AcademyRewardExcelT
+    def _UnPack(self, academyRewardExcel):
+        if academyRewardExcel is None:
+            return
+        self.location = academyRewardExcel.Location()
+        self.scheduleGroupId = academyRewardExcel.ScheduleGroupId()
+        self.orderInGroup = academyRewardExcel.OrderInGroup()
+        self.id = academyRewardExcel.Id()
+        self.progressTexture = academyRewardExcel.ProgressTexture()
+        self.localizeEtcId = academyRewardExcel.LocalizeEtcId()
+        self.locationRank = academyRewardExcel.LocationRank()
+        self.favorExp = academyRewardExcel.FavorExp()
+        self.secretStoneAmount = academyRewardExcel.SecretStoneAmount()
+        self.secretStoneProb = academyRewardExcel.SecretStoneProb()
+        self.extraFavorExp = academyRewardExcel.ExtraFavorExp()
+        self.extraFavorExpProb = academyRewardExcel.ExtraFavorExpProb()
+        if not academyRewardExcel.ExtraRewardParcelTypeIsNone():
+            if np is None:
+                self.extraRewardParcelType = []
+                for i in range(academyRewardExcel.ExtraRewardParcelTypeLength()):
+                    self.extraRewardParcelType.append(academyRewardExcel.ExtraRewardParcelType(i))
+            else:
+                self.extraRewardParcelType = academyRewardExcel.ExtraRewardParcelTypeAsNumpy()
+        if not academyRewardExcel.ExtraRewardParcelIdIsNone():
+            if np is None:
+                self.extraRewardParcelId = []
+                for i in range(academyRewardExcel.ExtraRewardParcelIdLength()):
+                    self.extraRewardParcelId.append(academyRewardExcel.ExtraRewardParcelId(i))
+            else:
+                self.extraRewardParcelId = academyRewardExcel.ExtraRewardParcelIdAsNumpy()
+        if not academyRewardExcel.ExtraRewardAmountIsNone():
+            if np is None:
+                self.extraRewardAmount = []
+                for i in range(academyRewardExcel.ExtraRewardAmountLength()):
+                    self.extraRewardAmount.append(academyRewardExcel.ExtraRewardAmount(i))
+            else:
+                self.extraRewardAmount = academyRewardExcel.ExtraRewardAmountAsNumpy()
+        if not academyRewardExcel.ExtraRewardProbIsNone():
+            if np is None:
+                self.extraRewardProb = []
+                for i in range(academyRewardExcel.ExtraRewardProbLength()):
+                    self.extraRewardProb.append(academyRewardExcel.ExtraRewardProb(i))
+            else:
+                self.extraRewardProb = academyRewardExcel.ExtraRewardProbAsNumpy()
+        if not academyRewardExcel.IsExtraRewardDisplayedIsNone():
+            if np is None:
+                self.isExtraRewardDisplayed = []
+                for i in range(academyRewardExcel.IsExtraRewardDisplayedLength()):
+                    self.isExtraRewardDisplayed.append(academyRewardExcel.IsExtraRewardDisplayed(i))
+            else:
+                self.isExtraRewardDisplayed = academyRewardExcel.IsExtraRewardDisplayedAsNumpy()
+        if not academyRewardExcel.RewardParcelTypeIsNone():
+            if np is None:
+                self.rewardParcelType = []
+                for i in range(academyRewardExcel.RewardParcelTypeLength()):
+                    self.rewardParcelType.append(academyRewardExcel.RewardParcelType(i))
+            else:
+                self.rewardParcelType = academyRewardExcel.RewardParcelTypeAsNumpy()
+        if not academyRewardExcel.RewardParcelIdIsNone():
+            if np is None:
+                self.rewardParcelId = []
+                for i in range(academyRewardExcel.RewardParcelIdLength()):
+                    self.rewardParcelId.append(academyRewardExcel.RewardParcelId(i))
+            else:
+                self.rewardParcelId = academyRewardExcel.RewardParcelIdAsNumpy()
+        if not academyRewardExcel.RewardAmountIsNone():
+            if np is None:
+                self.rewardAmount = []
+                for i in range(academyRewardExcel.RewardAmountLength()):
+                    self.rewardAmount.append(academyRewardExcel.RewardAmount(i))
+            else:
+                self.rewardAmount = academyRewardExcel.RewardAmountAsNumpy()
+
+    # AcademyRewardExcelT
+    def Pack(self, builder):
+        if self.location is not None:
+            location = builder.CreateString(self.location)
+        if self.progressTexture is not None:
+            progressTexture = builder.CreateString(self.progressTexture)
+        if self.extraRewardParcelType is not None:
+            if np is not None and type(self.extraRewardParcelType) is np.ndarray:
+                extraRewardParcelType = builder.CreateNumpyVector(self.extraRewardParcelType)
+            else:
+                AcademyRewardExcelStartExtraRewardParcelTypeVector(builder, len(self.extraRewardParcelType))
+                for i in reversed(range(len(self.extraRewardParcelType))):
+                    builder.PrependInt32(self.extraRewardParcelType[i])
+                extraRewardParcelType = builder.EndVector()
+        if self.extraRewardParcelId is not None:
+            if np is not None and type(self.extraRewardParcelId) is np.ndarray:
+                extraRewardParcelId = builder.CreateNumpyVector(self.extraRewardParcelId)
+            else:
+                AcademyRewardExcelStartExtraRewardParcelIdVector(builder, len(self.extraRewardParcelId))
+                for i in reversed(range(len(self.extraRewardParcelId))):
+                    builder.PrependInt64(self.extraRewardParcelId[i])
+                extraRewardParcelId = builder.EndVector()
+        if self.extraRewardAmount is not None:
+            if np is not None and type(self.extraRewardAmount) is np.ndarray:
+                extraRewardAmount = builder.CreateNumpyVector(self.extraRewardAmount)
+            else:
+                AcademyRewardExcelStartExtraRewardAmountVector(builder, len(self.extraRewardAmount))
+                for i in reversed(range(len(self.extraRewardAmount))):
+                    builder.PrependInt64(self.extraRewardAmount[i])
+                extraRewardAmount = builder.EndVector()
+        if self.extraRewardProb is not None:
+            if np is not None and type(self.extraRewardProb) is np.ndarray:
+                extraRewardProb = builder.CreateNumpyVector(self.extraRewardProb)
+            else:
+                AcademyRewardExcelStartExtraRewardProbVector(builder, len(self.extraRewardProb))
+                for i in reversed(range(len(self.extraRewardProb))):
+                    builder.PrependInt64(self.extraRewardProb[i])
+                extraRewardProb = builder.EndVector()
+        if self.isExtraRewardDisplayed is not None:
+            if np is not None and type(self.isExtraRewardDisplayed) is np.ndarray:
+                isExtraRewardDisplayed = builder.CreateNumpyVector(self.isExtraRewardDisplayed)
+            else:
+                AcademyRewardExcelStartIsExtraRewardDisplayedVector(builder, len(self.isExtraRewardDisplayed))
+                for i in reversed(range(len(self.isExtraRewardDisplayed))):
+                    builder.PrependBool(self.isExtraRewardDisplayed[i])
+                isExtraRewardDisplayed = builder.EndVector()
+        if self.rewardParcelType is not None:
+            if np is not None and type(self.rewardParcelType) is np.ndarray:
+                rewardParcelType = builder.CreateNumpyVector(self.rewardParcelType)
+            else:
+                AcademyRewardExcelStartRewardParcelTypeVector(builder, len(self.rewardParcelType))
+                for i in reversed(range(len(self.rewardParcelType))):
+                    builder.PrependInt32(self.rewardParcelType[i])
+                rewardParcelType = builder.EndVector()
+        if self.rewardParcelId is not None:
+            if np is not None and type(self.rewardParcelId) is np.ndarray:
+                rewardParcelId = builder.CreateNumpyVector(self.rewardParcelId)
+            else:
+                AcademyRewardExcelStartRewardParcelIdVector(builder, len(self.rewardParcelId))
+                for i in reversed(range(len(self.rewardParcelId))):
+                    builder.PrependInt64(self.rewardParcelId[i])
+                rewardParcelId = builder.EndVector()
+        if self.rewardAmount is not None:
+            if np is not None and type(self.rewardAmount) is np.ndarray:
+                rewardAmount = builder.CreateNumpyVector(self.rewardAmount)
+            else:
+                AcademyRewardExcelStartRewardAmountVector(builder, len(self.rewardAmount))
+                for i in reversed(range(len(self.rewardAmount))):
+                    builder.PrependInt64(self.rewardAmount[i])
+                rewardAmount = builder.EndVector()
+        AcademyRewardExcelStart(builder)
+        if self.location is not None:
+            AcademyRewardExcelAddLocation(builder, location)
+        AcademyRewardExcelAddScheduleGroupId(builder, self.scheduleGroupId)
+        AcademyRewardExcelAddOrderInGroup(builder, self.orderInGroup)
+        AcademyRewardExcelAddId(builder, self.id)
+        if self.progressTexture is not None:
+            AcademyRewardExcelAddProgressTexture(builder, progressTexture)
+        AcademyRewardExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        AcademyRewardExcelAddLocationRank(builder, self.locationRank)
+        AcademyRewardExcelAddFavorExp(builder, self.favorExp)
+        AcademyRewardExcelAddSecretStoneAmount(builder, self.secretStoneAmount)
+        AcademyRewardExcelAddSecretStoneProb(builder, self.secretStoneProb)
+        AcademyRewardExcelAddExtraFavorExp(builder, self.extraFavorExp)
+        AcademyRewardExcelAddExtraFavorExpProb(builder, self.extraFavorExpProb)
+        if self.extraRewardParcelType is not None:
+            AcademyRewardExcelAddExtraRewardParcelType(builder, extraRewardParcelType)
+        if self.extraRewardParcelId is not None:
+            AcademyRewardExcelAddExtraRewardParcelId(builder, extraRewardParcelId)
+        if self.extraRewardAmount is not None:
+            AcademyRewardExcelAddExtraRewardAmount(builder, extraRewardAmount)
+        if self.extraRewardProb is not None:
+            AcademyRewardExcelAddExtraRewardProb(builder, extraRewardProb)
+        if self.isExtraRewardDisplayed is not None:
+            AcademyRewardExcelAddIsExtraRewardDisplayed(builder, isExtraRewardDisplayed)
+        if self.rewardParcelType is not None:
+            AcademyRewardExcelAddRewardParcelType(builder, rewardParcelType)
+        if self.rewardParcelId is not None:
+            AcademyRewardExcelAddRewardParcelId(builder, rewardParcelId)
+        if self.rewardAmount is not None:
+            AcademyRewardExcelAddRewardAmount(builder, rewardAmount)
+        academyRewardExcel = AcademyRewardExcelEnd(builder)
+        return academyRewardExcel

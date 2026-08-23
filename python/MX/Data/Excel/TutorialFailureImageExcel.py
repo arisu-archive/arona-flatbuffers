@@ -80,8 +80,15 @@ class TutorialFailureImageExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
+    # TutorialFailureImageExcel
+    def ReplaceLocalizeKey(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
 def TutorialFailureImageExcelStart(builder):
-    builder.StartObject(8)
+    builder.StartObject(9)
 
 def Start(builder):
     TutorialFailureImageExcelStart(builder)
@@ -134,8 +141,107 @@ def TutorialFailureImageExcelAddImagePathEn(builder, imagePathEn):
 def AddImagePathEn(builder, imagePathEn):
     TutorialFailureImageExcelAddImagePathEn(builder, imagePathEn)
 
+def TutorialFailureImageExcelAddReplaceLocalizeKey(builder, replaceLocalizeKey):
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(replaceLocalizeKey), 0)
+
+def AddReplaceLocalizeKey(builder, replaceLocalizeKey):
+    TutorialFailureImageExcelAddReplaceLocalizeKey(builder, replaceLocalizeKey)
+
 def TutorialFailureImageExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return TutorialFailureImageExcelEnd(builder)
+
+
+class TutorialFailureImageExcelT(object):
+
+    # TutorialFailureImageExcelT
+    def __init__(
+        self,
+        id = 0,
+        contents = 0,
+        type = None,
+        imagePathKr = None,
+        imagePathJp = None,
+        imagePathTh = None,
+        imagePathTw = None,
+        imagePathEn = None,
+        replaceLocalizeKey = None,
+    ):
+        self.id = id  # type: int
+        self.contents = contents  # type: int
+        self.type = type  # type: Optional[str]
+        self.imagePathKr = imagePathKr  # type: Optional[str]
+        self.imagePathJp = imagePathJp  # type: Optional[str]
+        self.imagePathTh = imagePathTh  # type: Optional[str]
+        self.imagePathTw = imagePathTw  # type: Optional[str]
+        self.imagePathEn = imagePathEn  # type: Optional[str]
+        self.replaceLocalizeKey = replaceLocalizeKey  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        tutorialFailureImageExcel = TutorialFailureImageExcel()
+        tutorialFailureImageExcel.Init(buf, pos)
+        return cls.InitFromObj(tutorialFailureImageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, tutorialFailureImageExcel):
+        x = TutorialFailureImageExcelT()
+        x._UnPack(tutorialFailureImageExcel)
+        return x
+
+    # TutorialFailureImageExcelT
+    def _UnPack(self, tutorialFailureImageExcel):
+        if tutorialFailureImageExcel is None:
+            return
+        self.id = tutorialFailureImageExcel.Id()
+        self.contents = tutorialFailureImageExcel.Contents()
+        self.type = tutorialFailureImageExcel.Type()
+        self.imagePathKr = tutorialFailureImageExcel.ImagePathKr()
+        self.imagePathJp = tutorialFailureImageExcel.ImagePathJp()
+        self.imagePathTh = tutorialFailureImageExcel.ImagePathTh()
+        self.imagePathTw = tutorialFailureImageExcel.ImagePathTw()
+        self.imagePathEn = tutorialFailureImageExcel.ImagePathEn()
+        self.replaceLocalizeKey = tutorialFailureImageExcel.ReplaceLocalizeKey()
+
+    # TutorialFailureImageExcelT
+    def Pack(self, builder):
+        if self.type is not None:
+            type = builder.CreateString(self.type)
+        if self.imagePathKr is not None:
+            imagePathKr = builder.CreateString(self.imagePathKr)
+        if self.imagePathJp is not None:
+            imagePathJp = builder.CreateString(self.imagePathJp)
+        if self.imagePathTh is not None:
+            imagePathTh = builder.CreateString(self.imagePathTh)
+        if self.imagePathTw is not None:
+            imagePathTw = builder.CreateString(self.imagePathTw)
+        if self.imagePathEn is not None:
+            imagePathEn = builder.CreateString(self.imagePathEn)
+        if self.replaceLocalizeKey is not None:
+            replaceLocalizeKey = builder.CreateString(self.replaceLocalizeKey)
+        TutorialFailureImageExcelStart(builder)
+        TutorialFailureImageExcelAddId(builder, self.id)
+        TutorialFailureImageExcelAddContents(builder, self.contents)
+        if self.type is not None:
+            TutorialFailureImageExcelAddType(builder, type)
+        if self.imagePathKr is not None:
+            TutorialFailureImageExcelAddImagePathKr(builder, imagePathKr)
+        if self.imagePathJp is not None:
+            TutorialFailureImageExcelAddImagePathJp(builder, imagePathJp)
+        if self.imagePathTh is not None:
+            TutorialFailureImageExcelAddImagePathTh(builder, imagePathTh)
+        if self.imagePathTw is not None:
+            TutorialFailureImageExcelAddImagePathTw(builder, imagePathTw)
+        if self.imagePathEn is not None:
+            TutorialFailureImageExcelAddImagePathEn(builder, imagePathEn)
+        if self.replaceLocalizeKey is not None:
+            TutorialFailureImageExcelAddReplaceLocalizeKey(builder, replaceLocalizeKey)
+        tutorialFailureImageExcel = TutorialFailureImageExcelEnd(builder)
+        return tutorialFailureImageExcel

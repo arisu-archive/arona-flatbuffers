@@ -256,3 +256,141 @@ def ProductExcelEnd(builder):
 
 def End(builder):
     return ProductExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ProductExcelT(object):
+
+    # ProductExcelT
+    def __init__(
+        self,
+        id = 0,
+        productId = None,
+        teenProductId = None,
+        storeType = 0,
+        price = 0,
+        priceReference = None,
+        purchasePeriodType = 0,
+        purchasePeriodLimit = 0,
+        parcelType = None,
+        parcelId = None,
+        parcelAmount = None,
+    ):
+        self.id = id  # type: int
+        self.productId = productId  # type: Optional[str]
+        self.teenProductId = teenProductId  # type: Optional[str]
+        self.storeType = storeType  # type: int
+        self.price = price  # type: int
+        self.priceReference = priceReference  # type: Optional[str]
+        self.purchasePeriodType = purchasePeriodType  # type: int
+        self.purchasePeriodLimit = purchasePeriodLimit  # type: int
+        self.parcelType = parcelType  # type: Optional[List[int]]
+        self.parcelId = parcelId  # type: Optional[List[int]]
+        self.parcelAmount = parcelAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        productExcel = ProductExcel()
+        productExcel.Init(buf, pos)
+        return cls.InitFromObj(productExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, productExcel):
+        x = ProductExcelT()
+        x._UnPack(productExcel)
+        return x
+
+    # ProductExcelT
+    def _UnPack(self, productExcel):
+        if productExcel is None:
+            return
+        self.id = productExcel.Id()
+        self.productId = productExcel.ProductId()
+        self.teenProductId = productExcel.TeenProductId()
+        self.storeType = productExcel.StoreType()
+        self.price = productExcel.Price()
+        self.priceReference = productExcel.PriceReference()
+        self.purchasePeriodType = productExcel.PurchasePeriodType()
+        self.purchasePeriodLimit = productExcel.PurchasePeriodLimit()
+        if not productExcel.ParcelTypeIsNone():
+            if np is None:
+                self.parcelType = []
+                for i in range(productExcel.ParcelTypeLength()):
+                    self.parcelType.append(productExcel.ParcelType(i))
+            else:
+                self.parcelType = productExcel.ParcelTypeAsNumpy()
+        if not productExcel.ParcelIdIsNone():
+            if np is None:
+                self.parcelId = []
+                for i in range(productExcel.ParcelIdLength()):
+                    self.parcelId.append(productExcel.ParcelId(i))
+            else:
+                self.parcelId = productExcel.ParcelIdAsNumpy()
+        if not productExcel.ParcelAmountIsNone():
+            if np is None:
+                self.parcelAmount = []
+                for i in range(productExcel.ParcelAmountLength()):
+                    self.parcelAmount.append(productExcel.ParcelAmount(i))
+            else:
+                self.parcelAmount = productExcel.ParcelAmountAsNumpy()
+
+    # ProductExcelT
+    def Pack(self, builder):
+        if self.productId is not None:
+            productId = builder.CreateString(self.productId)
+        if self.teenProductId is not None:
+            teenProductId = builder.CreateString(self.teenProductId)
+        if self.priceReference is not None:
+            priceReference = builder.CreateString(self.priceReference)
+        if self.parcelType is not None:
+            if np is not None and type(self.parcelType) is np.ndarray:
+                parcelType = builder.CreateNumpyVector(self.parcelType)
+            else:
+                ProductExcelStartParcelTypeVector(builder, len(self.parcelType))
+                for i in reversed(range(len(self.parcelType))):
+                    builder.PrependInt32(self.parcelType[i])
+                parcelType = builder.EndVector()
+        if self.parcelId is not None:
+            if np is not None and type(self.parcelId) is np.ndarray:
+                parcelId = builder.CreateNumpyVector(self.parcelId)
+            else:
+                ProductExcelStartParcelIdVector(builder, len(self.parcelId))
+                for i in reversed(range(len(self.parcelId))):
+                    builder.PrependInt64(self.parcelId[i])
+                parcelId = builder.EndVector()
+        if self.parcelAmount is not None:
+            if np is not None and type(self.parcelAmount) is np.ndarray:
+                parcelAmount = builder.CreateNumpyVector(self.parcelAmount)
+            else:
+                ProductExcelStartParcelAmountVector(builder, len(self.parcelAmount))
+                for i in reversed(range(len(self.parcelAmount))):
+                    builder.PrependInt64(self.parcelAmount[i])
+                parcelAmount = builder.EndVector()
+        ProductExcelStart(builder)
+        ProductExcelAddId(builder, self.id)
+        if self.productId is not None:
+            ProductExcelAddProductId(builder, productId)
+        if self.teenProductId is not None:
+            ProductExcelAddTeenProductId(builder, teenProductId)
+        ProductExcelAddStoreType(builder, self.storeType)
+        ProductExcelAddPrice(builder, self.price)
+        if self.priceReference is not None:
+            ProductExcelAddPriceReference(builder, priceReference)
+        ProductExcelAddPurchasePeriodType(builder, self.purchasePeriodType)
+        ProductExcelAddPurchasePeriodLimit(builder, self.purchasePeriodLimit)
+        if self.parcelType is not None:
+            ProductExcelAddParcelType(builder, parcelType)
+        if self.parcelId is not None:
+            ProductExcelAddParcelId(builder, parcelId)
+        if self.parcelAmount is not None:
+            ProductExcelAddParcelAmount(builder, parcelAmount)
+        productExcel = ProductExcelEnd(builder)
+        return productExcel

@@ -72,3 +72,68 @@ def KnockBackExcelTableEnd(builder):
 
 def End(builder):
     return KnockBackExcelTableEnd(builder)
+
+import FlatData.KnockBackExcel
+try:
+    from typing import List
+except:
+    pass
+
+class KnockBackExcelTableT(object):
+
+    # KnockBackExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.KnockBackExcel.KnockBackExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        knockBackExcelTable = KnockBackExcelTable()
+        knockBackExcelTable.Init(buf, pos)
+        return cls.InitFromObj(knockBackExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, knockBackExcelTable):
+        x = KnockBackExcelTableT()
+        x._UnPack(knockBackExcelTable)
+        return x
+
+    # KnockBackExcelTableT
+    def _UnPack(self, knockBackExcelTable):
+        if knockBackExcelTable is None:
+            return
+        if not knockBackExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(knockBackExcelTable.DataListLength()):
+                if knockBackExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    knockBackExcel_ = FlatData.KnockBackExcel.KnockBackExcelT.InitFromObj(knockBackExcelTable.DataList(i))
+                    self.dataList.append(knockBackExcel_)
+
+    # KnockBackExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            KnockBackExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        KnockBackExcelTableStart(builder)
+        if self.dataList is not None:
+            KnockBackExcelTableAddDataList(builder, dataList)
+        knockBackExcelTable = KnockBackExcelTableEnd(builder)
+        return knockBackExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(KnockBackExcelTableT, 'KnockBackExcelTable', ())

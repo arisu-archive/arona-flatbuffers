@@ -61,3 +61,50 @@ def ScenarioCharacterEmotionExcelEnd(builder):
 
 def End(builder):
     return ScenarioCharacterEmotionExcelEnd(builder)
+
+
+class ScenarioCharacterEmotionExcelT(object):
+
+    # ScenarioCharacterEmotionExcelT
+    def __init__(
+        self,
+        emoticonName = None,
+        name = 0,
+    ):
+        self.emoticonName = emoticonName  # type: Optional[str]
+        self.name = name  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        scenarioCharacterEmotionExcel = ScenarioCharacterEmotionExcel()
+        scenarioCharacterEmotionExcel.Init(buf, pos)
+        return cls.InitFromObj(scenarioCharacterEmotionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, scenarioCharacterEmotionExcel):
+        x = ScenarioCharacterEmotionExcelT()
+        x._UnPack(scenarioCharacterEmotionExcel)
+        return x
+
+    # ScenarioCharacterEmotionExcelT
+    def _UnPack(self, scenarioCharacterEmotionExcel):
+        if scenarioCharacterEmotionExcel is None:
+            return
+        self.emoticonName = scenarioCharacterEmotionExcel.EmoticonName()
+        self.name = scenarioCharacterEmotionExcel.Name()
+
+    # ScenarioCharacterEmotionExcelT
+    def Pack(self, builder):
+        if self.emoticonName is not None:
+            emoticonName = builder.CreateString(self.emoticonName)
+        ScenarioCharacterEmotionExcelStart(builder)
+        if self.emoticonName is not None:
+            ScenarioCharacterEmotionExcelAddEmoticonName(builder, emoticonName)
+        ScenarioCharacterEmotionExcelAddName(builder, self.name)
+        scenarioCharacterEmotionExcel = ScenarioCharacterEmotionExcelEnd(builder)
+        return scenarioCharacterEmotionExcel

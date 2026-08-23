@@ -85,3 +85,72 @@ def BlendDataEnd(builder):
 
 def End(builder):
     return BlendDataEnd(builder)
+
+import FlatData.BlendInfo
+try:
+    from typing import List
+except:
+    pass
+
+class BlendDataT(object):
+
+    # BlendDataT
+    def __init__(
+        self,
+        type = 0,
+        infoList = None,
+    ):
+        self.type = type  # type: int
+        self.infoList = infoList  # type: Optional[List[FlatData.BlendInfo.BlendInfoT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        blendData = BlendData()
+        blendData.Init(buf, pos)
+        return cls.InitFromObj(blendData)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, blendData):
+        x = BlendDataT()
+        x._UnPack(blendData)
+        return x
+
+    # BlendDataT
+    def _UnPack(self, blendData):
+        if blendData is None:
+            return
+        self.type = blendData.Type()
+        if not blendData.InfoListIsNone():
+            self.infoList = []
+            for i in range(blendData.InfoListLength()):
+                if blendData.InfoList(i) is None:
+                    self.infoList.append(None)
+                else:
+                    blendInfo_ = FlatData.BlendInfo.BlendInfoT.InitFromObj(blendData.InfoList(i))
+                    self.infoList.append(blendInfo_)
+
+    # BlendDataT
+    def Pack(self, builder):
+        if self.infoList is not None:
+            infoListlist = []
+            for i in range(len(self.infoList)):
+                infoListlist.append(self.infoList[i].Pack(builder))
+            BlendDataStartInfoListVector(builder, len(self.infoList))
+            for i in reversed(range(len(self.infoList))):
+                builder.PrependUOffsetTRelative(infoListlist[i])
+            infoList = builder.EndVector()
+        BlendDataStart(builder)
+        BlendDataAddType(builder, self.type)
+        if self.infoList is not None:
+            BlendDataAddInfoList(builder, infoList)
+        blendData = BlendDataEnd(builder)
+        return blendData
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(BlendDataT, 'BlendData', (('type', 'int32', False),))

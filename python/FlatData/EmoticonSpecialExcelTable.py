@@ -72,3 +72,68 @@ def EmoticonSpecialExcelTableEnd(builder):
 
 def End(builder):
     return EmoticonSpecialExcelTableEnd(builder)
+
+import FlatData.EmoticonSpecialExcel
+try:
+    from typing import List
+except:
+    pass
+
+class EmoticonSpecialExcelTableT(object):
+
+    # EmoticonSpecialExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.EmoticonSpecialExcel.EmoticonSpecialExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        emoticonSpecialExcelTable = EmoticonSpecialExcelTable()
+        emoticonSpecialExcelTable.Init(buf, pos)
+        return cls.InitFromObj(emoticonSpecialExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, emoticonSpecialExcelTable):
+        x = EmoticonSpecialExcelTableT()
+        x._UnPack(emoticonSpecialExcelTable)
+        return x
+
+    # EmoticonSpecialExcelTableT
+    def _UnPack(self, emoticonSpecialExcelTable):
+        if emoticonSpecialExcelTable is None:
+            return
+        if not emoticonSpecialExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(emoticonSpecialExcelTable.DataListLength()):
+                if emoticonSpecialExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    emoticonSpecialExcel_ = FlatData.EmoticonSpecialExcel.EmoticonSpecialExcelT.InitFromObj(emoticonSpecialExcelTable.DataList(i))
+                    self.dataList.append(emoticonSpecialExcel_)
+
+    # EmoticonSpecialExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            EmoticonSpecialExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        EmoticonSpecialExcelTableStart(builder)
+        if self.dataList is not None:
+            EmoticonSpecialExcelTableAddDataList(builder, dataList)
+        emoticonSpecialExcelTable = EmoticonSpecialExcelTableEnd(builder)
+        return emoticonSpecialExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(EmoticonSpecialExcelTableT, 'EmoticonSpecialExcelTable', ())

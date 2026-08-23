@@ -72,3 +72,68 @@ def FieldRewardExcelTableEnd(builder):
 
 def End(builder):
     return FieldRewardExcelTableEnd(builder)
+
+import FlatData.FieldRewardExcel
+try:
+    from typing import List
+except:
+    pass
+
+class FieldRewardExcelTableT(object):
+
+    # FieldRewardExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.FieldRewardExcel.FieldRewardExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        fieldRewardExcelTable = FieldRewardExcelTable()
+        fieldRewardExcelTable.Init(buf, pos)
+        return cls.InitFromObj(fieldRewardExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, fieldRewardExcelTable):
+        x = FieldRewardExcelTableT()
+        x._UnPack(fieldRewardExcelTable)
+        return x
+
+    # FieldRewardExcelTableT
+    def _UnPack(self, fieldRewardExcelTable):
+        if fieldRewardExcelTable is None:
+            return
+        if not fieldRewardExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(fieldRewardExcelTable.DataListLength()):
+                if fieldRewardExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    fieldRewardExcel_ = FlatData.FieldRewardExcel.FieldRewardExcelT.InitFromObj(fieldRewardExcelTable.DataList(i))
+                    self.dataList.append(fieldRewardExcel_)
+
+    # FieldRewardExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            FieldRewardExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        FieldRewardExcelTableStart(builder)
+        if self.dataList is not None:
+            FieldRewardExcelTableAddDataList(builder, dataList)
+        fieldRewardExcelTable = FieldRewardExcelTableEnd(builder)
+        return fieldRewardExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(FieldRewardExcelTableT, 'FieldRewardExcelTable', ())

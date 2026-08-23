@@ -412,3 +412,222 @@ def ConquestGroupBonusExcelEnd(builder):
 
 def End(builder):
     return ConquestGroupBonusExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ConquestGroupBonusExcelT(object):
+
+    # ConquestGroupBonusExcelT
+    def __init__(
+        self,
+        conquestBonusId = 0,
+        school = None,
+        recommandLocalizeEtcId = 0,
+        bonusParcelType = None,
+        bonusId = None,
+        bonusCharacterCount1 = None,
+        bonusPercentage1 = None,
+        bonusCharacterCount2 = None,
+        bonusPercentage2 = None,
+        bonusCharacterCount3 = None,
+        bonusPercentage3 = None,
+    ):
+        self.conquestBonusId = conquestBonusId  # type: int
+        self.school = school  # type: Optional[List[int]]
+        self.recommandLocalizeEtcId = recommandLocalizeEtcId  # type: int
+        self.bonusParcelType = bonusParcelType  # type: Optional[List[int]]
+        self.bonusId = bonusId  # type: Optional[List[int]]
+        self.bonusCharacterCount1 = bonusCharacterCount1  # type: Optional[List[int]]
+        self.bonusPercentage1 = bonusPercentage1  # type: Optional[List[int]]
+        self.bonusCharacterCount2 = bonusCharacterCount2  # type: Optional[List[int]]
+        self.bonusPercentage2 = bonusPercentage2  # type: Optional[List[int]]
+        self.bonusCharacterCount3 = bonusCharacterCount3  # type: Optional[List[int]]
+        self.bonusPercentage3 = bonusPercentage3  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestGroupBonusExcel = ConquestGroupBonusExcel()
+        conquestGroupBonusExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestGroupBonusExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestGroupBonusExcel):
+        x = ConquestGroupBonusExcelT()
+        x._UnPack(conquestGroupBonusExcel)
+        return x
+
+    # ConquestGroupBonusExcelT
+    def _UnPack(self, conquestGroupBonusExcel):
+        if conquestGroupBonusExcel is None:
+            return
+        self.conquestBonusId = conquestGroupBonusExcel.ConquestBonusId()
+        if not conquestGroupBonusExcel.SchoolIsNone():
+            if np is None:
+                self.school = []
+                for i in range(conquestGroupBonusExcel.SchoolLength()):
+                    self.school.append(conquestGroupBonusExcel.School(i))
+            else:
+                self.school = conquestGroupBonusExcel.SchoolAsNumpy()
+        self.recommandLocalizeEtcId = conquestGroupBonusExcel.RecommandLocalizeEtcId()
+        if not conquestGroupBonusExcel.BonusParcelTypeIsNone():
+            if np is None:
+                self.bonusParcelType = []
+                for i in range(conquestGroupBonusExcel.BonusParcelTypeLength()):
+                    self.bonusParcelType.append(conquestGroupBonusExcel.BonusParcelType(i))
+            else:
+                self.bonusParcelType = conquestGroupBonusExcel.BonusParcelTypeAsNumpy()
+        if not conquestGroupBonusExcel.BonusIdIsNone():
+            if np is None:
+                self.bonusId = []
+                for i in range(conquestGroupBonusExcel.BonusIdLength()):
+                    self.bonusId.append(conquestGroupBonusExcel.BonusId(i))
+            else:
+                self.bonusId = conquestGroupBonusExcel.BonusIdAsNumpy()
+        if not conquestGroupBonusExcel.BonusCharacterCount1IsNone():
+            if np is None:
+                self.bonusCharacterCount1 = []
+                for i in range(conquestGroupBonusExcel.BonusCharacterCount1Length()):
+                    self.bonusCharacterCount1.append(conquestGroupBonusExcel.BonusCharacterCount1(i))
+            else:
+                self.bonusCharacterCount1 = conquestGroupBonusExcel.BonusCharacterCount1AsNumpy()
+        if not conquestGroupBonusExcel.BonusPercentage1IsNone():
+            if np is None:
+                self.bonusPercentage1 = []
+                for i in range(conquestGroupBonusExcel.BonusPercentage1Length()):
+                    self.bonusPercentage1.append(conquestGroupBonusExcel.BonusPercentage1(i))
+            else:
+                self.bonusPercentage1 = conquestGroupBonusExcel.BonusPercentage1AsNumpy()
+        if not conquestGroupBonusExcel.BonusCharacterCount2IsNone():
+            if np is None:
+                self.bonusCharacterCount2 = []
+                for i in range(conquestGroupBonusExcel.BonusCharacterCount2Length()):
+                    self.bonusCharacterCount2.append(conquestGroupBonusExcel.BonusCharacterCount2(i))
+            else:
+                self.bonusCharacterCount2 = conquestGroupBonusExcel.BonusCharacterCount2AsNumpy()
+        if not conquestGroupBonusExcel.BonusPercentage2IsNone():
+            if np is None:
+                self.bonusPercentage2 = []
+                for i in range(conquestGroupBonusExcel.BonusPercentage2Length()):
+                    self.bonusPercentage2.append(conquestGroupBonusExcel.BonusPercentage2(i))
+            else:
+                self.bonusPercentage2 = conquestGroupBonusExcel.BonusPercentage2AsNumpy()
+        if not conquestGroupBonusExcel.BonusCharacterCount3IsNone():
+            if np is None:
+                self.bonusCharacterCount3 = []
+                for i in range(conquestGroupBonusExcel.BonusCharacterCount3Length()):
+                    self.bonusCharacterCount3.append(conquestGroupBonusExcel.BonusCharacterCount3(i))
+            else:
+                self.bonusCharacterCount3 = conquestGroupBonusExcel.BonusCharacterCount3AsNumpy()
+        if not conquestGroupBonusExcel.BonusPercentage3IsNone():
+            if np is None:
+                self.bonusPercentage3 = []
+                for i in range(conquestGroupBonusExcel.BonusPercentage3Length()):
+                    self.bonusPercentage3.append(conquestGroupBonusExcel.BonusPercentage3(i))
+            else:
+                self.bonusPercentage3 = conquestGroupBonusExcel.BonusPercentage3AsNumpy()
+
+    # ConquestGroupBonusExcelT
+    def Pack(self, builder):
+        if self.school is not None:
+            if np is not None and type(self.school) is np.ndarray:
+                school = builder.CreateNumpyVector(self.school)
+            else:
+                ConquestGroupBonusExcelStartSchoolVector(builder, len(self.school))
+                for i in reversed(range(len(self.school))):
+                    builder.PrependInt32(self.school[i])
+                school = builder.EndVector()
+        if self.bonusParcelType is not None:
+            if np is not None and type(self.bonusParcelType) is np.ndarray:
+                bonusParcelType = builder.CreateNumpyVector(self.bonusParcelType)
+            else:
+                ConquestGroupBonusExcelStartBonusParcelTypeVector(builder, len(self.bonusParcelType))
+                for i in reversed(range(len(self.bonusParcelType))):
+                    builder.PrependInt32(self.bonusParcelType[i])
+                bonusParcelType = builder.EndVector()
+        if self.bonusId is not None:
+            if np is not None and type(self.bonusId) is np.ndarray:
+                bonusId = builder.CreateNumpyVector(self.bonusId)
+            else:
+                ConquestGroupBonusExcelStartBonusIdVector(builder, len(self.bonusId))
+                for i in reversed(range(len(self.bonusId))):
+                    builder.PrependInt64(self.bonusId[i])
+                bonusId = builder.EndVector()
+        if self.bonusCharacterCount1 is not None:
+            if np is not None and type(self.bonusCharacterCount1) is np.ndarray:
+                bonusCharacterCount1 = builder.CreateNumpyVector(self.bonusCharacterCount1)
+            else:
+                ConquestGroupBonusExcelStartBonusCharacterCount1Vector(builder, len(self.bonusCharacterCount1))
+                for i in reversed(range(len(self.bonusCharacterCount1))):
+                    builder.PrependInt32(self.bonusCharacterCount1[i])
+                bonusCharacterCount1 = builder.EndVector()
+        if self.bonusPercentage1 is not None:
+            if np is not None and type(self.bonusPercentage1) is np.ndarray:
+                bonusPercentage1 = builder.CreateNumpyVector(self.bonusPercentage1)
+            else:
+                ConquestGroupBonusExcelStartBonusPercentage1Vector(builder, len(self.bonusPercentage1))
+                for i in reversed(range(len(self.bonusPercentage1))):
+                    builder.PrependInt64(self.bonusPercentage1[i])
+                bonusPercentage1 = builder.EndVector()
+        if self.bonusCharacterCount2 is not None:
+            if np is not None and type(self.bonusCharacterCount2) is np.ndarray:
+                bonusCharacterCount2 = builder.CreateNumpyVector(self.bonusCharacterCount2)
+            else:
+                ConquestGroupBonusExcelStartBonusCharacterCount2Vector(builder, len(self.bonusCharacterCount2))
+                for i in reversed(range(len(self.bonusCharacterCount2))):
+                    builder.PrependInt32(self.bonusCharacterCount2[i])
+                bonusCharacterCount2 = builder.EndVector()
+        if self.bonusPercentage2 is not None:
+            if np is not None and type(self.bonusPercentage2) is np.ndarray:
+                bonusPercentage2 = builder.CreateNumpyVector(self.bonusPercentage2)
+            else:
+                ConquestGroupBonusExcelStartBonusPercentage2Vector(builder, len(self.bonusPercentage2))
+                for i in reversed(range(len(self.bonusPercentage2))):
+                    builder.PrependInt64(self.bonusPercentage2[i])
+                bonusPercentage2 = builder.EndVector()
+        if self.bonusCharacterCount3 is not None:
+            if np is not None and type(self.bonusCharacterCount3) is np.ndarray:
+                bonusCharacterCount3 = builder.CreateNumpyVector(self.bonusCharacterCount3)
+            else:
+                ConquestGroupBonusExcelStartBonusCharacterCount3Vector(builder, len(self.bonusCharacterCount3))
+                for i in reversed(range(len(self.bonusCharacterCount3))):
+                    builder.PrependInt32(self.bonusCharacterCount3[i])
+                bonusCharacterCount3 = builder.EndVector()
+        if self.bonusPercentage3 is not None:
+            if np is not None and type(self.bonusPercentage3) is np.ndarray:
+                bonusPercentage3 = builder.CreateNumpyVector(self.bonusPercentage3)
+            else:
+                ConquestGroupBonusExcelStartBonusPercentage3Vector(builder, len(self.bonusPercentage3))
+                for i in reversed(range(len(self.bonusPercentage3))):
+                    builder.PrependInt64(self.bonusPercentage3[i])
+                bonusPercentage3 = builder.EndVector()
+        ConquestGroupBonusExcelStart(builder)
+        ConquestGroupBonusExcelAddConquestBonusId(builder, self.conquestBonusId)
+        if self.school is not None:
+            ConquestGroupBonusExcelAddSchool(builder, school)
+        ConquestGroupBonusExcelAddRecommandLocalizeEtcId(builder, self.recommandLocalizeEtcId)
+        if self.bonusParcelType is not None:
+            ConquestGroupBonusExcelAddBonusParcelType(builder, bonusParcelType)
+        if self.bonusId is not None:
+            ConquestGroupBonusExcelAddBonusId(builder, bonusId)
+        if self.bonusCharacterCount1 is not None:
+            ConquestGroupBonusExcelAddBonusCharacterCount1(builder, bonusCharacterCount1)
+        if self.bonusPercentage1 is not None:
+            ConquestGroupBonusExcelAddBonusPercentage1(builder, bonusPercentage1)
+        if self.bonusCharacterCount2 is not None:
+            ConquestGroupBonusExcelAddBonusCharacterCount2(builder, bonusCharacterCount2)
+        if self.bonusPercentage2 is not None:
+            ConquestGroupBonusExcelAddBonusPercentage2(builder, bonusPercentage2)
+        if self.bonusCharacterCount3 is not None:
+            ConquestGroupBonusExcelAddBonusCharacterCount3(builder, bonusCharacterCount3)
+        if self.bonusPercentage3 is not None:
+            ConquestGroupBonusExcelAddBonusPercentage3(builder, bonusPercentage3)
+        conquestGroupBonusExcel = ConquestGroupBonusExcelEnd(builder)
+        return conquestGroupBonusExcel

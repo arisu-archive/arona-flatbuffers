@@ -74,3 +74,51 @@ def GrowthScoreCalculationExcelEnd(builder):
 
 def End(builder):
     return GrowthScoreCalculationExcelEnd(builder)
+
+
+class GrowthScoreCalculationExcelT(object):
+
+    # GrowthScoreCalculationExcelT
+    def __init__(
+        self,
+        id = 0,
+        includeGrowthFactor = 0,
+        conversionCoefficient = 0,
+    ):
+        self.id = id  # type: int
+        self.includeGrowthFactor = includeGrowthFactor  # type: int
+        self.conversionCoefficient = conversionCoefficient  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        growthScoreCalculationExcel = GrowthScoreCalculationExcel()
+        growthScoreCalculationExcel.Init(buf, pos)
+        return cls.InitFromObj(growthScoreCalculationExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, growthScoreCalculationExcel):
+        x = GrowthScoreCalculationExcelT()
+        x._UnPack(growthScoreCalculationExcel)
+        return x
+
+    # GrowthScoreCalculationExcelT
+    def _UnPack(self, growthScoreCalculationExcel):
+        if growthScoreCalculationExcel is None:
+            return
+        self.id = growthScoreCalculationExcel.Id()
+        self.includeGrowthFactor = growthScoreCalculationExcel.IncludeGrowthFactor()
+        self.conversionCoefficient = growthScoreCalculationExcel.ConversionCoefficient()
+
+    # GrowthScoreCalculationExcelT
+    def Pack(self, builder):
+        GrowthScoreCalculationExcelStart(builder)
+        GrowthScoreCalculationExcelAddId(builder, self.id)
+        GrowthScoreCalculationExcelAddIncludeGrowthFactor(builder, self.includeGrowthFactor)
+        GrowthScoreCalculationExcelAddConversionCoefficient(builder, self.conversionCoefficient)
+        growthScoreCalculationExcel = GrowthScoreCalculationExcelEnd(builder)
+        return growthScoreCalculationExcel

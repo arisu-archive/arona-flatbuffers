@@ -412,3 +412,201 @@ def SchoolDungeonStageExcelEnd(builder):
 
 def End(builder):
     return SchoolDungeonStageExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class SchoolDungeonStageExcelT(object):
+
+    # SchoolDungeonStageExcelT
+    def __init__(
+        self,
+        stageId = 0,
+        dungeonType = 0,
+        difficulty = 0,
+        battleDuration = 0,
+        prevStageId = 0,
+        stageEnterCostType = None,
+        stageEnterCostId = None,
+        stageEnterCostAmount = None,
+        stageEnterCostMinimumAmount = None,
+        groundId = 0,
+        starGoal = None,
+        starGoalAmount = None,
+        stageTopography = 0,
+        recommandLevel = 0,
+        stageRewardId = 0,
+        playTimeLimitInSeconds = 0,
+        echelonExtensionType = 0,
+    ):
+        self.stageId = stageId  # type: int
+        self.dungeonType = dungeonType  # type: int
+        self.difficulty = difficulty  # type: int
+        self.battleDuration = battleDuration  # type: int
+        self.prevStageId = prevStageId  # type: int
+        self.stageEnterCostType = stageEnterCostType  # type: Optional[List[int]]
+        self.stageEnterCostId = stageEnterCostId  # type: Optional[List[int]]
+        self.stageEnterCostAmount = stageEnterCostAmount  # type: Optional[List[int]]
+        self.stageEnterCostMinimumAmount = stageEnterCostMinimumAmount  # type: Optional[List[int]]
+        self.groundId = groundId  # type: int
+        self.starGoal = starGoal  # type: Optional[List[int]]
+        self.starGoalAmount = starGoalAmount  # type: Optional[List[int]]
+        self.stageTopography = stageTopography  # type: int
+        self.recommandLevel = recommandLevel  # type: int
+        self.stageRewardId = stageRewardId  # type: int
+        self.playTimeLimitInSeconds = playTimeLimitInSeconds  # type: int
+        self.echelonExtensionType = echelonExtensionType  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        schoolDungeonStageExcel = SchoolDungeonStageExcel()
+        schoolDungeonStageExcel.Init(buf, pos)
+        return cls.InitFromObj(schoolDungeonStageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, schoolDungeonStageExcel):
+        x = SchoolDungeonStageExcelT()
+        x._UnPack(schoolDungeonStageExcel)
+        return x
+
+    # SchoolDungeonStageExcelT
+    def _UnPack(self, schoolDungeonStageExcel):
+        if schoolDungeonStageExcel is None:
+            return
+        self.stageId = schoolDungeonStageExcel.StageId()
+        self.dungeonType = schoolDungeonStageExcel.DungeonType()
+        self.difficulty = schoolDungeonStageExcel.Difficulty()
+        self.battleDuration = schoolDungeonStageExcel.BattleDuration()
+        self.prevStageId = schoolDungeonStageExcel.PrevStageId()
+        if not schoolDungeonStageExcel.StageEnterCostTypeIsNone():
+            if np is None:
+                self.stageEnterCostType = []
+                for i in range(schoolDungeonStageExcel.StageEnterCostTypeLength()):
+                    self.stageEnterCostType.append(schoolDungeonStageExcel.StageEnterCostType(i))
+            else:
+                self.stageEnterCostType = schoolDungeonStageExcel.StageEnterCostTypeAsNumpy()
+        if not schoolDungeonStageExcel.StageEnterCostIdIsNone():
+            if np is None:
+                self.stageEnterCostId = []
+                for i in range(schoolDungeonStageExcel.StageEnterCostIdLength()):
+                    self.stageEnterCostId.append(schoolDungeonStageExcel.StageEnterCostId(i))
+            else:
+                self.stageEnterCostId = schoolDungeonStageExcel.StageEnterCostIdAsNumpy()
+        if not schoolDungeonStageExcel.StageEnterCostAmountIsNone():
+            if np is None:
+                self.stageEnterCostAmount = []
+                for i in range(schoolDungeonStageExcel.StageEnterCostAmountLength()):
+                    self.stageEnterCostAmount.append(schoolDungeonStageExcel.StageEnterCostAmount(i))
+            else:
+                self.stageEnterCostAmount = schoolDungeonStageExcel.StageEnterCostAmountAsNumpy()
+        if not schoolDungeonStageExcel.StageEnterCostMinimumAmountIsNone():
+            if np is None:
+                self.stageEnterCostMinimumAmount = []
+                for i in range(schoolDungeonStageExcel.StageEnterCostMinimumAmountLength()):
+                    self.stageEnterCostMinimumAmount.append(schoolDungeonStageExcel.StageEnterCostMinimumAmount(i))
+            else:
+                self.stageEnterCostMinimumAmount = schoolDungeonStageExcel.StageEnterCostMinimumAmountAsNumpy()
+        self.groundId = schoolDungeonStageExcel.GroundId()
+        if not schoolDungeonStageExcel.StarGoalIsNone():
+            if np is None:
+                self.starGoal = []
+                for i in range(schoolDungeonStageExcel.StarGoalLength()):
+                    self.starGoal.append(schoolDungeonStageExcel.StarGoal(i))
+            else:
+                self.starGoal = schoolDungeonStageExcel.StarGoalAsNumpy()
+        if not schoolDungeonStageExcel.StarGoalAmountIsNone():
+            if np is None:
+                self.starGoalAmount = []
+                for i in range(schoolDungeonStageExcel.StarGoalAmountLength()):
+                    self.starGoalAmount.append(schoolDungeonStageExcel.StarGoalAmount(i))
+            else:
+                self.starGoalAmount = schoolDungeonStageExcel.StarGoalAmountAsNumpy()
+        self.stageTopography = schoolDungeonStageExcel.StageTopography()
+        self.recommandLevel = schoolDungeonStageExcel.RecommandLevel()
+        self.stageRewardId = schoolDungeonStageExcel.StageRewardId()
+        self.playTimeLimitInSeconds = schoolDungeonStageExcel.PlayTimeLimitInSeconds()
+        self.echelonExtensionType = schoolDungeonStageExcel.EchelonExtensionType()
+
+    # SchoolDungeonStageExcelT
+    def Pack(self, builder):
+        if self.stageEnterCostType is not None:
+            if np is not None and type(self.stageEnterCostType) is np.ndarray:
+                stageEnterCostType = builder.CreateNumpyVector(self.stageEnterCostType)
+            else:
+                SchoolDungeonStageExcelStartStageEnterCostTypeVector(builder, len(self.stageEnterCostType))
+                for i in reversed(range(len(self.stageEnterCostType))):
+                    builder.PrependInt32(self.stageEnterCostType[i])
+                stageEnterCostType = builder.EndVector()
+        if self.stageEnterCostId is not None:
+            if np is not None and type(self.stageEnterCostId) is np.ndarray:
+                stageEnterCostId = builder.CreateNumpyVector(self.stageEnterCostId)
+            else:
+                SchoolDungeonStageExcelStartStageEnterCostIdVector(builder, len(self.stageEnterCostId))
+                for i in reversed(range(len(self.stageEnterCostId))):
+                    builder.PrependInt64(self.stageEnterCostId[i])
+                stageEnterCostId = builder.EndVector()
+        if self.stageEnterCostAmount is not None:
+            if np is not None and type(self.stageEnterCostAmount) is np.ndarray:
+                stageEnterCostAmount = builder.CreateNumpyVector(self.stageEnterCostAmount)
+            else:
+                SchoolDungeonStageExcelStartStageEnterCostAmountVector(builder, len(self.stageEnterCostAmount))
+                for i in reversed(range(len(self.stageEnterCostAmount))):
+                    builder.PrependInt64(self.stageEnterCostAmount[i])
+                stageEnterCostAmount = builder.EndVector()
+        if self.stageEnterCostMinimumAmount is not None:
+            if np is not None and type(self.stageEnterCostMinimumAmount) is np.ndarray:
+                stageEnterCostMinimumAmount = builder.CreateNumpyVector(self.stageEnterCostMinimumAmount)
+            else:
+                SchoolDungeonStageExcelStartStageEnterCostMinimumAmountVector(builder, len(self.stageEnterCostMinimumAmount))
+                for i in reversed(range(len(self.stageEnterCostMinimumAmount))):
+                    builder.PrependInt64(self.stageEnterCostMinimumAmount[i])
+                stageEnterCostMinimumAmount = builder.EndVector()
+        if self.starGoal is not None:
+            if np is not None and type(self.starGoal) is np.ndarray:
+                starGoal = builder.CreateNumpyVector(self.starGoal)
+            else:
+                SchoolDungeonStageExcelStartStarGoalVector(builder, len(self.starGoal))
+                for i in reversed(range(len(self.starGoal))):
+                    builder.PrependInt32(self.starGoal[i])
+                starGoal = builder.EndVector()
+        if self.starGoalAmount is not None:
+            if np is not None and type(self.starGoalAmount) is np.ndarray:
+                starGoalAmount = builder.CreateNumpyVector(self.starGoalAmount)
+            else:
+                SchoolDungeonStageExcelStartStarGoalAmountVector(builder, len(self.starGoalAmount))
+                for i in reversed(range(len(self.starGoalAmount))):
+                    builder.PrependInt32(self.starGoalAmount[i])
+                starGoalAmount = builder.EndVector()
+        SchoolDungeonStageExcelStart(builder)
+        SchoolDungeonStageExcelAddStageId(builder, self.stageId)
+        SchoolDungeonStageExcelAddDungeonType(builder, self.dungeonType)
+        SchoolDungeonStageExcelAddDifficulty(builder, self.difficulty)
+        SchoolDungeonStageExcelAddBattleDuration(builder, self.battleDuration)
+        SchoolDungeonStageExcelAddPrevStageId(builder, self.prevStageId)
+        if self.stageEnterCostType is not None:
+            SchoolDungeonStageExcelAddStageEnterCostType(builder, stageEnterCostType)
+        if self.stageEnterCostId is not None:
+            SchoolDungeonStageExcelAddStageEnterCostId(builder, stageEnterCostId)
+        if self.stageEnterCostAmount is not None:
+            SchoolDungeonStageExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
+        if self.stageEnterCostMinimumAmount is not None:
+            SchoolDungeonStageExcelAddStageEnterCostMinimumAmount(builder, stageEnterCostMinimumAmount)
+        SchoolDungeonStageExcelAddGroundId(builder, self.groundId)
+        if self.starGoal is not None:
+            SchoolDungeonStageExcelAddStarGoal(builder, starGoal)
+        if self.starGoalAmount is not None:
+            SchoolDungeonStageExcelAddStarGoalAmount(builder, starGoalAmount)
+        SchoolDungeonStageExcelAddStageTopography(builder, self.stageTopography)
+        SchoolDungeonStageExcelAddRecommandLevel(builder, self.recommandLevel)
+        SchoolDungeonStageExcelAddStageRewardId(builder, self.stageRewardId)
+        SchoolDungeonStageExcelAddPlayTimeLimitInSeconds(builder, self.playTimeLimitInSeconds)
+        SchoolDungeonStageExcelAddEchelonExtensionType(builder, self.echelonExtensionType)
+        schoolDungeonStageExcel = SchoolDungeonStageExcelEnd(builder)
+        return schoolDungeonStageExcel

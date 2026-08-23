@@ -72,3 +72,68 @@ def TagExcelTableEnd(builder):
 
 def End(builder):
     return TagExcelTableEnd(builder)
+
+import FlatData.TagExcel
+try:
+    from typing import List
+except:
+    pass
+
+class TagExcelTableT(object):
+
+    # TagExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.TagExcel.TagExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        tagExcelTable = TagExcelTable()
+        tagExcelTable.Init(buf, pos)
+        return cls.InitFromObj(tagExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, tagExcelTable):
+        x = TagExcelTableT()
+        x._UnPack(tagExcelTable)
+        return x
+
+    # TagExcelTableT
+    def _UnPack(self, tagExcelTable):
+        if tagExcelTable is None:
+            return
+        if not tagExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(tagExcelTable.DataListLength()):
+                if tagExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    tagExcel_ = FlatData.TagExcel.TagExcelT.InitFromObj(tagExcelTable.DataList(i))
+                    self.dataList.append(tagExcel_)
+
+    # TagExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            TagExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        TagExcelTableStart(builder)
+        if self.dataList is not None:
+            TagExcelTableAddDataList(builder, dataList)
+        tagExcelTable = TagExcelTableEnd(builder)
+        return tagExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(TagExcelTableT, 'TagExcelTable', ())

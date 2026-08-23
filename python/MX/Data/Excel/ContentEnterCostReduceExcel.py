@@ -113,3 +113,63 @@ def ContentEnterCostReduceExcelEnd(builder):
 
 def End(builder):
     return ContentEnterCostReduceExcelEnd(builder)
+
+
+class ContentEnterCostReduceExcelT(object):
+
+    # ContentEnterCostReduceExcelT
+    def __init__(
+        self,
+        enterCostReduceGroupId = 0,
+        contentType = 0,
+        stageId = 0,
+        reduceEnterCostType = 0,
+        reduceEnterCostId = 0,
+        reduceAmount = 0,
+    ):
+        self.enterCostReduceGroupId = enterCostReduceGroupId  # type: int
+        self.contentType = contentType  # type: int
+        self.stageId = stageId  # type: int
+        self.reduceEnterCostType = reduceEnterCostType  # type: int
+        self.reduceEnterCostId = reduceEnterCostId  # type: int
+        self.reduceAmount = reduceAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        contentEnterCostReduceExcel = ContentEnterCostReduceExcel()
+        contentEnterCostReduceExcel.Init(buf, pos)
+        return cls.InitFromObj(contentEnterCostReduceExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, contentEnterCostReduceExcel):
+        x = ContentEnterCostReduceExcelT()
+        x._UnPack(contentEnterCostReduceExcel)
+        return x
+
+    # ContentEnterCostReduceExcelT
+    def _UnPack(self, contentEnterCostReduceExcel):
+        if contentEnterCostReduceExcel is None:
+            return
+        self.enterCostReduceGroupId = contentEnterCostReduceExcel.EnterCostReduceGroupId()
+        self.contentType = contentEnterCostReduceExcel.ContentType()
+        self.stageId = contentEnterCostReduceExcel.StageId()
+        self.reduceEnterCostType = contentEnterCostReduceExcel.ReduceEnterCostType()
+        self.reduceEnterCostId = contentEnterCostReduceExcel.ReduceEnterCostId()
+        self.reduceAmount = contentEnterCostReduceExcel.ReduceAmount()
+
+    # ContentEnterCostReduceExcelT
+    def Pack(self, builder):
+        ContentEnterCostReduceExcelStart(builder)
+        ContentEnterCostReduceExcelAddEnterCostReduceGroupId(builder, self.enterCostReduceGroupId)
+        ContentEnterCostReduceExcelAddContentType(builder, self.contentType)
+        ContentEnterCostReduceExcelAddStageId(builder, self.stageId)
+        ContentEnterCostReduceExcelAddReduceEnterCostType(builder, self.reduceEnterCostType)
+        ContentEnterCostReduceExcelAddReduceEnterCostId(builder, self.reduceEnterCostId)
+        ContentEnterCostReduceExcelAddReduceAmount(builder, self.reduceAmount)
+        contentEnterCostReduceExcel = ContentEnterCostReduceExcelEnd(builder)
+        return contentEnterCostReduceExcel

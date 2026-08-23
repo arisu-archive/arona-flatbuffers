@@ -347,3 +347,183 @@ def CampaignChapterExcelEnd(builder):
 
 def End(builder):
     return CampaignChapterExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CampaignChapterExcelT(object):
+
+    # CampaignChapterExcelT
+    def __init__(
+        self,
+        id = 0,
+        name = None,
+        normalImagePath = None,
+        hardImagePath = None,
+        order = 0,
+        preChapterId = None,
+        chapterRewardId = 0,
+        chapterHardRewardId = 0,
+        chapterVeryHardRewardId = 0,
+        normalCampaignStageId = None,
+        normalExtraStageId = None,
+        hardCampaignStageId = None,
+        veryHardCampaignStageId = None,
+        isTacticSkip = False,
+    ):
+        self.id = id  # type: int
+        self.name = name  # type: Optional[str]
+        self.normalImagePath = normalImagePath  # type: Optional[str]
+        self.hardImagePath = hardImagePath  # type: Optional[str]
+        self.order = order  # type: int
+        self.preChapterId = preChapterId  # type: Optional[List[int]]
+        self.chapterRewardId = chapterRewardId  # type: int
+        self.chapterHardRewardId = chapterHardRewardId  # type: int
+        self.chapterVeryHardRewardId = chapterVeryHardRewardId  # type: int
+        self.normalCampaignStageId = normalCampaignStageId  # type: Optional[List[int]]
+        self.normalExtraStageId = normalExtraStageId  # type: Optional[List[int]]
+        self.hardCampaignStageId = hardCampaignStageId  # type: Optional[List[int]]
+        self.veryHardCampaignStageId = veryHardCampaignStageId  # type: Optional[List[int]]
+        self.isTacticSkip = isTacticSkip  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        campaignChapterExcel = CampaignChapterExcel()
+        campaignChapterExcel.Init(buf, pos)
+        return cls.InitFromObj(campaignChapterExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, campaignChapterExcel):
+        x = CampaignChapterExcelT()
+        x._UnPack(campaignChapterExcel)
+        return x
+
+    # CampaignChapterExcelT
+    def _UnPack(self, campaignChapterExcel):
+        if campaignChapterExcel is None:
+            return
+        self.id = campaignChapterExcel.Id()
+        self.name = campaignChapterExcel.Name()
+        self.normalImagePath = campaignChapterExcel.NormalImagePath()
+        self.hardImagePath = campaignChapterExcel.HardImagePath()
+        self.order = campaignChapterExcel.Order()
+        if not campaignChapterExcel.PreChapterIdIsNone():
+            if np is None:
+                self.preChapterId = []
+                for i in range(campaignChapterExcel.PreChapterIdLength()):
+                    self.preChapterId.append(campaignChapterExcel.PreChapterId(i))
+            else:
+                self.preChapterId = campaignChapterExcel.PreChapterIdAsNumpy()
+        self.chapterRewardId = campaignChapterExcel.ChapterRewardId()
+        self.chapterHardRewardId = campaignChapterExcel.ChapterHardRewardId()
+        self.chapterVeryHardRewardId = campaignChapterExcel.ChapterVeryHardRewardId()
+        if not campaignChapterExcel.NormalCampaignStageIdIsNone():
+            if np is None:
+                self.normalCampaignStageId = []
+                for i in range(campaignChapterExcel.NormalCampaignStageIdLength()):
+                    self.normalCampaignStageId.append(campaignChapterExcel.NormalCampaignStageId(i))
+            else:
+                self.normalCampaignStageId = campaignChapterExcel.NormalCampaignStageIdAsNumpy()
+        if not campaignChapterExcel.NormalExtraStageIdIsNone():
+            if np is None:
+                self.normalExtraStageId = []
+                for i in range(campaignChapterExcel.NormalExtraStageIdLength()):
+                    self.normalExtraStageId.append(campaignChapterExcel.NormalExtraStageId(i))
+            else:
+                self.normalExtraStageId = campaignChapterExcel.NormalExtraStageIdAsNumpy()
+        if not campaignChapterExcel.HardCampaignStageIdIsNone():
+            if np is None:
+                self.hardCampaignStageId = []
+                for i in range(campaignChapterExcel.HardCampaignStageIdLength()):
+                    self.hardCampaignStageId.append(campaignChapterExcel.HardCampaignStageId(i))
+            else:
+                self.hardCampaignStageId = campaignChapterExcel.HardCampaignStageIdAsNumpy()
+        if not campaignChapterExcel.VeryHardCampaignStageIdIsNone():
+            if np is None:
+                self.veryHardCampaignStageId = []
+                for i in range(campaignChapterExcel.VeryHardCampaignStageIdLength()):
+                    self.veryHardCampaignStageId.append(campaignChapterExcel.VeryHardCampaignStageId(i))
+            else:
+                self.veryHardCampaignStageId = campaignChapterExcel.VeryHardCampaignStageIdAsNumpy()
+        self.isTacticSkip = campaignChapterExcel.IsTacticSkip()
+
+    # CampaignChapterExcelT
+    def Pack(self, builder):
+        if self.name is not None:
+            name = builder.CreateString(self.name)
+        if self.normalImagePath is not None:
+            normalImagePath = builder.CreateString(self.normalImagePath)
+        if self.hardImagePath is not None:
+            hardImagePath = builder.CreateString(self.hardImagePath)
+        if self.preChapterId is not None:
+            if np is not None and type(self.preChapterId) is np.ndarray:
+                preChapterId = builder.CreateNumpyVector(self.preChapterId)
+            else:
+                CampaignChapterExcelStartPreChapterIdVector(builder, len(self.preChapterId))
+                for i in reversed(range(len(self.preChapterId))):
+                    builder.PrependInt64(self.preChapterId[i])
+                preChapterId = builder.EndVector()
+        if self.normalCampaignStageId is not None:
+            if np is not None and type(self.normalCampaignStageId) is np.ndarray:
+                normalCampaignStageId = builder.CreateNumpyVector(self.normalCampaignStageId)
+            else:
+                CampaignChapterExcelStartNormalCampaignStageIdVector(builder, len(self.normalCampaignStageId))
+                for i in reversed(range(len(self.normalCampaignStageId))):
+                    builder.PrependInt64(self.normalCampaignStageId[i])
+                normalCampaignStageId = builder.EndVector()
+        if self.normalExtraStageId is not None:
+            if np is not None and type(self.normalExtraStageId) is np.ndarray:
+                normalExtraStageId = builder.CreateNumpyVector(self.normalExtraStageId)
+            else:
+                CampaignChapterExcelStartNormalExtraStageIdVector(builder, len(self.normalExtraStageId))
+                for i in reversed(range(len(self.normalExtraStageId))):
+                    builder.PrependInt64(self.normalExtraStageId[i])
+                normalExtraStageId = builder.EndVector()
+        if self.hardCampaignStageId is not None:
+            if np is not None and type(self.hardCampaignStageId) is np.ndarray:
+                hardCampaignStageId = builder.CreateNumpyVector(self.hardCampaignStageId)
+            else:
+                CampaignChapterExcelStartHardCampaignStageIdVector(builder, len(self.hardCampaignStageId))
+                for i in reversed(range(len(self.hardCampaignStageId))):
+                    builder.PrependInt64(self.hardCampaignStageId[i])
+                hardCampaignStageId = builder.EndVector()
+        if self.veryHardCampaignStageId is not None:
+            if np is not None and type(self.veryHardCampaignStageId) is np.ndarray:
+                veryHardCampaignStageId = builder.CreateNumpyVector(self.veryHardCampaignStageId)
+            else:
+                CampaignChapterExcelStartVeryHardCampaignStageIdVector(builder, len(self.veryHardCampaignStageId))
+                for i in reversed(range(len(self.veryHardCampaignStageId))):
+                    builder.PrependInt64(self.veryHardCampaignStageId[i])
+                veryHardCampaignStageId = builder.EndVector()
+        CampaignChapterExcelStart(builder)
+        CampaignChapterExcelAddId(builder, self.id)
+        if self.name is not None:
+            CampaignChapterExcelAddName(builder, name)
+        if self.normalImagePath is not None:
+            CampaignChapterExcelAddNormalImagePath(builder, normalImagePath)
+        if self.hardImagePath is not None:
+            CampaignChapterExcelAddHardImagePath(builder, hardImagePath)
+        CampaignChapterExcelAddOrder(builder, self.order)
+        if self.preChapterId is not None:
+            CampaignChapterExcelAddPreChapterId(builder, preChapterId)
+        CampaignChapterExcelAddChapterRewardId(builder, self.chapterRewardId)
+        CampaignChapterExcelAddChapterHardRewardId(builder, self.chapterHardRewardId)
+        CampaignChapterExcelAddChapterVeryHardRewardId(builder, self.chapterVeryHardRewardId)
+        if self.normalCampaignStageId is not None:
+            CampaignChapterExcelAddNormalCampaignStageId(builder, normalCampaignStageId)
+        if self.normalExtraStageId is not None:
+            CampaignChapterExcelAddNormalExtraStageId(builder, normalExtraStageId)
+        if self.hardCampaignStageId is not None:
+            CampaignChapterExcelAddHardCampaignStageId(builder, hardCampaignStageId)
+        if self.veryHardCampaignStageId is not None:
+            CampaignChapterExcelAddVeryHardCampaignStageId(builder, veryHardCampaignStageId)
+        CampaignChapterExcelAddIsTacticSkip(builder, self.isTacticSkip)
+        campaignChapterExcel = CampaignChapterExcelEnd(builder)
+        return campaignChapterExcel

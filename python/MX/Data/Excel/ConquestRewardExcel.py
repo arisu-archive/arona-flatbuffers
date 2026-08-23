@@ -126,3 +126,67 @@ def ConquestRewardExcelEnd(builder):
 
 def End(builder):
     return ConquestRewardExcelEnd(builder)
+
+
+class ConquestRewardExcelT(object):
+
+    # ConquestRewardExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        rewardTag = 0,
+        rewardProb = 0,
+        rewardParcelType = 0,
+        rewardId = 0,
+        rewardAmount = 0,
+        isDisplayed = False,
+    ):
+        self.groupId = groupId  # type: int
+        self.rewardTag = rewardTag  # type: int
+        self.rewardProb = rewardProb  # type: int
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardId = rewardId  # type: int
+        self.rewardAmount = rewardAmount  # type: int
+        self.isDisplayed = isDisplayed  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestRewardExcel = ConquestRewardExcel()
+        conquestRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestRewardExcel):
+        x = ConquestRewardExcelT()
+        x._UnPack(conquestRewardExcel)
+        return x
+
+    # ConquestRewardExcelT
+    def _UnPack(self, conquestRewardExcel):
+        if conquestRewardExcel is None:
+            return
+        self.groupId = conquestRewardExcel.GroupId()
+        self.rewardTag = conquestRewardExcel.RewardTag()
+        self.rewardProb = conquestRewardExcel.RewardProb()
+        self.rewardParcelType = conquestRewardExcel.RewardParcelType()
+        self.rewardId = conquestRewardExcel.RewardId()
+        self.rewardAmount = conquestRewardExcel.RewardAmount()
+        self.isDisplayed = conquestRewardExcel.IsDisplayed()
+
+    # ConquestRewardExcelT
+    def Pack(self, builder):
+        ConquestRewardExcelStart(builder)
+        ConquestRewardExcelAddGroupId(builder, self.groupId)
+        ConquestRewardExcelAddRewardTag(builder, self.rewardTag)
+        ConquestRewardExcelAddRewardProb(builder, self.rewardProb)
+        ConquestRewardExcelAddRewardParcelType(builder, self.rewardParcelType)
+        ConquestRewardExcelAddRewardId(builder, self.rewardId)
+        ConquestRewardExcelAddRewardAmount(builder, self.rewardAmount)
+        ConquestRewardExcelAddIsDisplayed(builder, self.isDisplayed)
+        conquestRewardExcel = ConquestRewardExcelEnd(builder)
+        return conquestRewardExcel

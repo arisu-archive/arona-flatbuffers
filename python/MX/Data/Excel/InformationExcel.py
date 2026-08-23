@@ -151,3 +151,97 @@ def InformationExcelEnd(builder):
 
 def End(builder):
     return InformationExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class InformationExcelT(object):
+
+    # InformationExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        pageName = None,
+        isPcBuild = False,
+        localizeCodeId = None,
+        tutorialParentName = None,
+        uiName = None,
+    ):
+        self.groupId = groupId  # type: int
+        self.pageName = pageName  # type: Optional[str]
+        self.isPcBuild = isPcBuild  # type: bool
+        self.localizeCodeId = localizeCodeId  # type: Optional[str]
+        self.tutorialParentName = tutorialParentName  # type: Optional[List[Optional[str]]]
+        self.uiName = uiName  # type: Optional[List[Optional[str]]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        informationExcel = InformationExcel()
+        informationExcel.Init(buf, pos)
+        return cls.InitFromObj(informationExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, informationExcel):
+        x = InformationExcelT()
+        x._UnPack(informationExcel)
+        return x
+
+    # InformationExcelT
+    def _UnPack(self, informationExcel):
+        if informationExcel is None:
+            return
+        self.groupId = informationExcel.GroupId()
+        self.pageName = informationExcel.PageName()
+        self.isPcBuild = informationExcel.IsPcBuild()
+        self.localizeCodeId = informationExcel.LocalizeCodeId()
+        if not informationExcel.TutorialParentNameIsNone():
+            self.tutorialParentName = []
+            for i in range(informationExcel.TutorialParentNameLength()):
+                self.tutorialParentName.append(informationExcel.TutorialParentName(i))
+        if not informationExcel.UiNameIsNone():
+            self.uiName = []
+            for i in range(informationExcel.UiNameLength()):
+                self.uiName.append(informationExcel.UiName(i))
+
+    # InformationExcelT
+    def Pack(self, builder):
+        if self.pageName is not None:
+            pageName = builder.CreateString(self.pageName)
+        if self.localizeCodeId is not None:
+            localizeCodeId = builder.CreateString(self.localizeCodeId)
+        if self.tutorialParentName is not None:
+            tutorialParentNamelist = []
+            for i in range(len(self.tutorialParentName)):
+                tutorialParentNamelist.append(builder.CreateString(self.tutorialParentName[i]))
+            InformationExcelStartTutorialParentNameVector(builder, len(self.tutorialParentName))
+            for i in reversed(range(len(self.tutorialParentName))):
+                builder.PrependUOffsetTRelative(tutorialParentNamelist[i])
+            tutorialParentName = builder.EndVector()
+        if self.uiName is not None:
+            uiNamelist = []
+            for i in range(len(self.uiName)):
+                uiNamelist.append(builder.CreateString(self.uiName[i]))
+            InformationExcelStartUiNameVector(builder, len(self.uiName))
+            for i in reversed(range(len(self.uiName))):
+                builder.PrependUOffsetTRelative(uiNamelist[i])
+            uiName = builder.EndVector()
+        InformationExcelStart(builder)
+        InformationExcelAddGroupId(builder, self.groupId)
+        if self.pageName is not None:
+            InformationExcelAddPageName(builder, pageName)
+        InformationExcelAddIsPcBuild(builder, self.isPcBuild)
+        if self.localizeCodeId is not None:
+            InformationExcelAddLocalizeCodeId(builder, localizeCodeId)
+        if self.tutorialParentName is not None:
+            InformationExcelAddTutorialParentName(builder, tutorialParentName)
+        if self.uiName is not None:
+            InformationExcelAddUiName(builder, uiName)
+        informationExcel = InformationExcelEnd(builder)
+        return informationExcel

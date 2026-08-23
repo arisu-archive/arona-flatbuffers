@@ -100,3 +100,59 @@ def MiniGameRoadPuzzleAdditionalRewardExcelEnd(builder):
 
 def End(builder):
     return MiniGameRoadPuzzleAdditionalRewardExcelEnd(builder)
+
+
+class MiniGameRoadPuzzleAdditionalRewardExcelT(object):
+
+    # MiniGameRoadPuzzleAdditionalRewardExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        uniqueId = 0,
+        rewardParcelType = 0,
+        rewardParcelId = 0,
+        rewardParcelAmount = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelId = rewardParcelId  # type: int
+        self.rewardParcelAmount = rewardParcelAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameRoadPuzzleAdditionalRewardExcel = MiniGameRoadPuzzleAdditionalRewardExcel()
+        miniGameRoadPuzzleAdditionalRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameRoadPuzzleAdditionalRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameRoadPuzzleAdditionalRewardExcel):
+        x = MiniGameRoadPuzzleAdditionalRewardExcelT()
+        x._UnPack(miniGameRoadPuzzleAdditionalRewardExcel)
+        return x
+
+    # MiniGameRoadPuzzleAdditionalRewardExcelT
+    def _UnPack(self, miniGameRoadPuzzleAdditionalRewardExcel):
+        if miniGameRoadPuzzleAdditionalRewardExcel is None:
+            return
+        self.eventContentId = miniGameRoadPuzzleAdditionalRewardExcel.EventContentId()
+        self.uniqueId = miniGameRoadPuzzleAdditionalRewardExcel.UniqueId()
+        self.rewardParcelType = miniGameRoadPuzzleAdditionalRewardExcel.RewardParcelType()
+        self.rewardParcelId = miniGameRoadPuzzleAdditionalRewardExcel.RewardParcelId()
+        self.rewardParcelAmount = miniGameRoadPuzzleAdditionalRewardExcel.RewardParcelAmount()
+
+    # MiniGameRoadPuzzleAdditionalRewardExcelT
+    def Pack(self, builder):
+        MiniGameRoadPuzzleAdditionalRewardExcelStart(builder)
+        MiniGameRoadPuzzleAdditionalRewardExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameRoadPuzzleAdditionalRewardExcelAddUniqueId(builder, self.uniqueId)
+        MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelType(builder, self.rewardParcelType)
+        MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelId(builder, self.rewardParcelId)
+        MiniGameRoadPuzzleAdditionalRewardExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        miniGameRoadPuzzleAdditionalRewardExcel = MiniGameRoadPuzzleAdditionalRewardExcelEnd(builder)
+        return miniGameRoadPuzzleAdditionalRewardExcel

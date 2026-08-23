@@ -100,3 +100,59 @@ def ConquestErosionUnitExcelEnd(builder):
 
 def End(builder):
     return ConquestErosionUnitExcelEnd(builder)
+
+
+class ConquestErosionUnitExcelT(object):
+
+    # ConquestErosionUnitExcelT
+    def __init__(
+        self,
+        tilePrefabId = 0,
+        massErosionUnitId = 0,
+        massErosionUnitRotationY = 0.0,
+        individualErosionUnitId = 0,
+        individualErosionUnitRotationY = 0.0,
+    ):
+        self.tilePrefabId = tilePrefabId  # type: int
+        self.massErosionUnitId = massErosionUnitId  # type: int
+        self.massErosionUnitRotationY = massErosionUnitRotationY  # type: float
+        self.individualErosionUnitId = individualErosionUnitId  # type: int
+        self.individualErosionUnitRotationY = individualErosionUnitRotationY  # type: float
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestErosionUnitExcel = ConquestErosionUnitExcel()
+        conquestErosionUnitExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestErosionUnitExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestErosionUnitExcel):
+        x = ConquestErosionUnitExcelT()
+        x._UnPack(conquestErosionUnitExcel)
+        return x
+
+    # ConquestErosionUnitExcelT
+    def _UnPack(self, conquestErosionUnitExcel):
+        if conquestErosionUnitExcel is None:
+            return
+        self.tilePrefabId = conquestErosionUnitExcel.TilePrefabId()
+        self.massErosionUnitId = conquestErosionUnitExcel.MassErosionUnitId()
+        self.massErosionUnitRotationY = conquestErosionUnitExcel.MassErosionUnitRotationY()
+        self.individualErosionUnitId = conquestErosionUnitExcel.IndividualErosionUnitId()
+        self.individualErosionUnitRotationY = conquestErosionUnitExcel.IndividualErosionUnitRotationY()
+
+    # ConquestErosionUnitExcelT
+    def Pack(self, builder):
+        ConquestErosionUnitExcelStart(builder)
+        ConquestErosionUnitExcelAddTilePrefabId(builder, self.tilePrefabId)
+        ConquestErosionUnitExcelAddMassErosionUnitId(builder, self.massErosionUnitId)
+        ConquestErosionUnitExcelAddMassErosionUnitRotationY(builder, self.massErosionUnitRotationY)
+        ConquestErosionUnitExcelAddIndividualErosionUnitId(builder, self.individualErosionUnitId)
+        ConquestErosionUnitExcelAddIndividualErosionUnitRotationY(builder, self.individualErosionUnitRotationY)
+        conquestErosionUnitExcel = ConquestErosionUnitExcelEnd(builder)
+        return conquestErosionUnitExcel

@@ -100,3 +100,62 @@ def WeekDungeonGroupBuffExcelEnd(builder):
 
 def End(builder):
     return WeekDungeonGroupBuffExcelEnd(builder)
+
+
+class WeekDungeonGroupBuffExcelT(object):
+
+    # WeekDungeonGroupBuffExcelT
+    def __init__(
+        self,
+        weekDungeonBuffId = 0,
+        school = 0,
+        recommandLocalizeEtcId = 0,
+        formationLocalizeEtcId = 0,
+        skillGroupId = None,
+    ):
+        self.weekDungeonBuffId = weekDungeonBuffId  # type: int
+        self.school = school  # type: int
+        self.recommandLocalizeEtcId = recommandLocalizeEtcId  # type: int
+        self.formationLocalizeEtcId = formationLocalizeEtcId  # type: int
+        self.skillGroupId = skillGroupId  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        weekDungeonGroupBuffExcel = WeekDungeonGroupBuffExcel()
+        weekDungeonGroupBuffExcel.Init(buf, pos)
+        return cls.InitFromObj(weekDungeonGroupBuffExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, weekDungeonGroupBuffExcel):
+        x = WeekDungeonGroupBuffExcelT()
+        x._UnPack(weekDungeonGroupBuffExcel)
+        return x
+
+    # WeekDungeonGroupBuffExcelT
+    def _UnPack(self, weekDungeonGroupBuffExcel):
+        if weekDungeonGroupBuffExcel is None:
+            return
+        self.weekDungeonBuffId = weekDungeonGroupBuffExcel.WeekDungeonBuffId()
+        self.school = weekDungeonGroupBuffExcel.School()
+        self.recommandLocalizeEtcId = weekDungeonGroupBuffExcel.RecommandLocalizeEtcId()
+        self.formationLocalizeEtcId = weekDungeonGroupBuffExcel.FormationLocalizeEtcId()
+        self.skillGroupId = weekDungeonGroupBuffExcel.SkillGroupId()
+
+    # WeekDungeonGroupBuffExcelT
+    def Pack(self, builder):
+        if self.skillGroupId is not None:
+            skillGroupId = builder.CreateString(self.skillGroupId)
+        WeekDungeonGroupBuffExcelStart(builder)
+        WeekDungeonGroupBuffExcelAddWeekDungeonBuffId(builder, self.weekDungeonBuffId)
+        WeekDungeonGroupBuffExcelAddSchool(builder, self.school)
+        WeekDungeonGroupBuffExcelAddRecommandLocalizeEtcId(builder, self.recommandLocalizeEtcId)
+        WeekDungeonGroupBuffExcelAddFormationLocalizeEtcId(builder, self.formationLocalizeEtcId)
+        if self.skillGroupId is not None:
+            WeekDungeonGroupBuffExcelAddSkillGroupId(builder, skillGroupId)
+        weekDungeonGroupBuffExcel = WeekDungeonGroupBuffExcelEnd(builder)
+        return weekDungeonGroupBuffExcel

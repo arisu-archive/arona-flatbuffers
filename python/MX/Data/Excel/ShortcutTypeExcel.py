@@ -100,3 +100,70 @@ def ShortcutTypeExcelEnd(builder):
 
 def End(builder):
     return ShortcutTypeExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ShortcutTypeExcelT(object):
+
+    # ShortcutTypeExcelT
+    def __init__(
+        self,
+        id = 0,
+        isAscending = False,
+        contentType = None,
+    ):
+        self.id = id  # type: int
+        self.isAscending = isAscending  # type: bool
+        self.contentType = contentType  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        shortcutTypeExcel = ShortcutTypeExcel()
+        shortcutTypeExcel.Init(buf, pos)
+        return cls.InitFromObj(shortcutTypeExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, shortcutTypeExcel):
+        x = ShortcutTypeExcelT()
+        x._UnPack(shortcutTypeExcel)
+        return x
+
+    # ShortcutTypeExcelT
+    def _UnPack(self, shortcutTypeExcel):
+        if shortcutTypeExcel is None:
+            return
+        self.id = shortcutTypeExcel.Id()
+        self.isAscending = shortcutTypeExcel.IsAscending()
+        if not shortcutTypeExcel.ContentTypeIsNone():
+            if np is None:
+                self.contentType = []
+                for i in range(shortcutTypeExcel.ContentTypeLength()):
+                    self.contentType.append(shortcutTypeExcel.ContentType(i))
+            else:
+                self.contentType = shortcutTypeExcel.ContentTypeAsNumpy()
+
+    # ShortcutTypeExcelT
+    def Pack(self, builder):
+        if self.contentType is not None:
+            if np is not None and type(self.contentType) is np.ndarray:
+                contentType = builder.CreateNumpyVector(self.contentType)
+            else:
+                ShortcutTypeExcelStartContentTypeVector(builder, len(self.contentType))
+                for i in reversed(range(len(self.contentType))):
+                    builder.PrependInt32(self.contentType[i])
+                contentType = builder.EndVector()
+        ShortcutTypeExcelStart(builder)
+        ShortcutTypeExcelAddId(builder, self.id)
+        ShortcutTypeExcelAddIsAscending(builder, self.isAscending)
+        if self.contentType is not None:
+            ShortcutTypeExcelAddContentType(builder, contentType)
+        shortcutTypeExcel = ShortcutTypeExcelEnd(builder)
+        return shortcutTypeExcel

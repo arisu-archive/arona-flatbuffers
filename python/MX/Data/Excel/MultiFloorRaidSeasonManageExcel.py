@@ -191,3 +191,111 @@ def MultiFloorRaidSeasonManageExcelEnd(builder):
 
 def End(builder):
     return MultiFloorRaidSeasonManageExcelEnd(builder)
+
+
+class MultiFloorRaidSeasonManageExcelT(object):
+
+    # MultiFloorRaidSeasonManageExcelT
+    def __init__(
+        self,
+        seasonId = 0,
+        lobbyEnterScenario = 0,
+        showLobbyBanner = False,
+        seasonStartDate = None,
+        endNoteLabelStartDate = None,
+        seasonEndDate = None,
+        settlementEndDate = None,
+        openRaidBossGroupId = None,
+        enterScenarioKey = 0,
+        lobbyImgPath = None,
+        levelImgPath = None,
+        playTip = None,
+    ):
+        self.seasonId = seasonId  # type: int
+        self.lobbyEnterScenario = lobbyEnterScenario  # type: int
+        self.showLobbyBanner = showLobbyBanner  # type: bool
+        self.seasonStartDate = seasonStartDate  # type: Optional[str]
+        self.endNoteLabelStartDate = endNoteLabelStartDate  # type: Optional[str]
+        self.seasonEndDate = seasonEndDate  # type: Optional[str]
+        self.settlementEndDate = settlementEndDate  # type: Optional[str]
+        self.openRaidBossGroupId = openRaidBossGroupId  # type: Optional[str]
+        self.enterScenarioKey = enterScenarioKey  # type: int
+        self.lobbyImgPath = lobbyImgPath  # type: Optional[str]
+        self.levelImgPath = levelImgPath  # type: Optional[str]
+        self.playTip = playTip  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        multiFloorRaidSeasonManageExcel = MultiFloorRaidSeasonManageExcel()
+        multiFloorRaidSeasonManageExcel.Init(buf, pos)
+        return cls.InitFromObj(multiFloorRaidSeasonManageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, multiFloorRaidSeasonManageExcel):
+        x = MultiFloorRaidSeasonManageExcelT()
+        x._UnPack(multiFloorRaidSeasonManageExcel)
+        return x
+
+    # MultiFloorRaidSeasonManageExcelT
+    def _UnPack(self, multiFloorRaidSeasonManageExcel):
+        if multiFloorRaidSeasonManageExcel is None:
+            return
+        self.seasonId = multiFloorRaidSeasonManageExcel.SeasonId()
+        self.lobbyEnterScenario = multiFloorRaidSeasonManageExcel.LobbyEnterScenario()
+        self.showLobbyBanner = multiFloorRaidSeasonManageExcel.ShowLobbyBanner()
+        self.seasonStartDate = multiFloorRaidSeasonManageExcel.SeasonStartDate()
+        self.endNoteLabelStartDate = multiFloorRaidSeasonManageExcel.EndNoteLabelStartDate()
+        self.seasonEndDate = multiFloorRaidSeasonManageExcel.SeasonEndDate()
+        self.settlementEndDate = multiFloorRaidSeasonManageExcel.SettlementEndDate()
+        self.openRaidBossGroupId = multiFloorRaidSeasonManageExcel.OpenRaidBossGroupId()
+        self.enterScenarioKey = multiFloorRaidSeasonManageExcel.EnterScenarioKey()
+        self.lobbyImgPath = multiFloorRaidSeasonManageExcel.LobbyImgPath()
+        self.levelImgPath = multiFloorRaidSeasonManageExcel.LevelImgPath()
+        self.playTip = multiFloorRaidSeasonManageExcel.PlayTip()
+
+    # MultiFloorRaidSeasonManageExcelT
+    def Pack(self, builder):
+        if self.seasonStartDate is not None:
+            seasonStartDate = builder.CreateString(self.seasonStartDate)
+        if self.endNoteLabelStartDate is not None:
+            endNoteLabelStartDate = builder.CreateString(self.endNoteLabelStartDate)
+        if self.seasonEndDate is not None:
+            seasonEndDate = builder.CreateString(self.seasonEndDate)
+        if self.settlementEndDate is not None:
+            settlementEndDate = builder.CreateString(self.settlementEndDate)
+        if self.openRaidBossGroupId is not None:
+            openRaidBossGroupId = builder.CreateString(self.openRaidBossGroupId)
+        if self.lobbyImgPath is not None:
+            lobbyImgPath = builder.CreateString(self.lobbyImgPath)
+        if self.levelImgPath is not None:
+            levelImgPath = builder.CreateString(self.levelImgPath)
+        if self.playTip is not None:
+            playTip = builder.CreateString(self.playTip)
+        MultiFloorRaidSeasonManageExcelStart(builder)
+        MultiFloorRaidSeasonManageExcelAddSeasonId(builder, self.seasonId)
+        MultiFloorRaidSeasonManageExcelAddLobbyEnterScenario(builder, self.lobbyEnterScenario)
+        MultiFloorRaidSeasonManageExcelAddShowLobbyBanner(builder, self.showLobbyBanner)
+        if self.seasonStartDate is not None:
+            MultiFloorRaidSeasonManageExcelAddSeasonStartDate(builder, seasonStartDate)
+        if self.endNoteLabelStartDate is not None:
+            MultiFloorRaidSeasonManageExcelAddEndNoteLabelStartDate(builder, endNoteLabelStartDate)
+        if self.seasonEndDate is not None:
+            MultiFloorRaidSeasonManageExcelAddSeasonEndDate(builder, seasonEndDate)
+        if self.settlementEndDate is not None:
+            MultiFloorRaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate)
+        if self.openRaidBossGroupId is not None:
+            MultiFloorRaidSeasonManageExcelAddOpenRaidBossGroupId(builder, openRaidBossGroupId)
+        MultiFloorRaidSeasonManageExcelAddEnterScenarioKey(builder, self.enterScenarioKey)
+        if self.lobbyImgPath is not None:
+            MultiFloorRaidSeasonManageExcelAddLobbyImgPath(builder, lobbyImgPath)
+        if self.levelImgPath is not None:
+            MultiFloorRaidSeasonManageExcelAddLevelImgPath(builder, levelImgPath)
+        if self.playTip is not None:
+            MultiFloorRaidSeasonManageExcelAddPlayTip(builder, playTip)
+        multiFloorRaidSeasonManageExcel = MultiFloorRaidSeasonManageExcelEnd(builder)
+        return multiFloorRaidSeasonManageExcel

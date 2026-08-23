@@ -126,3 +126,67 @@ def ScenarioBGName_GlobalExcelEnd(builder):
 
 def End(builder):
     return ScenarioBGName_GlobalExcelEnd(builder)
+
+
+class ScenarioBGName_GlobalExcelT(object):
+
+    # ScenarioBGName_GlobalExcelT
+    def __init__(
+        self,
+        groupName = 0,
+        nameKr = 0,
+        nameTw = 0,
+        nameAsia = 0,
+        nameNa = 0,
+        nameGlobal = 0,
+        nameTeen = 0,
+    ):
+        self.groupName = groupName  # type: int
+        self.nameKr = nameKr  # type: int
+        self.nameTw = nameTw  # type: int
+        self.nameAsia = nameAsia  # type: int
+        self.nameNa = nameNa  # type: int
+        self.nameGlobal = nameGlobal  # type: int
+        self.nameTeen = nameTeen  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        scenarioBgnameGlobalExcel = ScenarioBGName_GlobalExcel()
+        scenarioBgnameGlobalExcel.Init(buf, pos)
+        return cls.InitFromObj(scenarioBgnameGlobalExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, scenarioBgnameGlobalExcel):
+        x = ScenarioBGName_GlobalExcelT()
+        x._UnPack(scenarioBgnameGlobalExcel)
+        return x
+
+    # ScenarioBGName_GlobalExcelT
+    def _UnPack(self, scenarioBgnameGlobalExcel):
+        if scenarioBgnameGlobalExcel is None:
+            return
+        self.groupName = scenarioBgnameGlobalExcel.GroupName()
+        self.nameKr = scenarioBgnameGlobalExcel.NameKr()
+        self.nameTw = scenarioBgnameGlobalExcel.NameTw()
+        self.nameAsia = scenarioBgnameGlobalExcel.NameAsia()
+        self.nameNa = scenarioBgnameGlobalExcel.NameNa()
+        self.nameGlobal = scenarioBgnameGlobalExcel.NameGlobal()
+        self.nameTeen = scenarioBgnameGlobalExcel.NameTeen()
+
+    # ScenarioBGName_GlobalExcelT
+    def Pack(self, builder):
+        ScenarioBGName_GlobalExcelStart(builder)
+        ScenarioBGName_GlobalExcelAddGroupName(builder, self.groupName)
+        ScenarioBGName_GlobalExcelAddNameKr(builder, self.nameKr)
+        ScenarioBGName_GlobalExcelAddNameTw(builder, self.nameTw)
+        ScenarioBGName_GlobalExcelAddNameAsia(builder, self.nameAsia)
+        ScenarioBGName_GlobalExcelAddNameNa(builder, self.nameNa)
+        ScenarioBGName_GlobalExcelAddNameGlobal(builder, self.nameGlobal)
+        ScenarioBGName_GlobalExcelAddNameTeen(builder, self.nameTeen)
+        scenarioBgnameGlobalExcel = ScenarioBGName_GlobalExcelEnd(builder)
+        return scenarioBgnameGlobalExcel

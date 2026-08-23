@@ -269,3 +269,131 @@ def ShopExcelEnd(builder):
 
 def End(builder):
     return ShopExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ShopExcelT(object):
+
+    # ShopExcelT
+    def __init__(
+        self,
+        id = 0,
+        localizeEtcId = 0,
+        categoryType = 0,
+        isLegacy = False,
+        useBigPopup = False,
+        goodsId = None,
+        displayOrder = 0,
+        salePeriodFrom = None,
+        salePeriodTo = None,
+        purchaseCooltimeMin = 0,
+        purchaseCountLimit = 0,
+        purchaseCountResetType = 0,
+        buyReportEventName = None,
+        restrictBuyWhenInventoryFull = False,
+        displayTag = 0,
+        shopUpdateGroupId = 0,
+    ):
+        self.id = id  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.categoryType = categoryType  # type: int
+        self.isLegacy = isLegacy  # type: bool
+        self.useBigPopup = useBigPopup  # type: bool
+        self.goodsId = goodsId  # type: Optional[List[int]]
+        self.displayOrder = displayOrder  # type: int
+        self.salePeriodFrom = salePeriodFrom  # type: Optional[str]
+        self.salePeriodTo = salePeriodTo  # type: Optional[str]
+        self.purchaseCooltimeMin = purchaseCooltimeMin  # type: int
+        self.purchaseCountLimit = purchaseCountLimit  # type: int
+        self.purchaseCountResetType = purchaseCountResetType  # type: int
+        self.buyReportEventName = buyReportEventName  # type: Optional[str]
+        self.restrictBuyWhenInventoryFull = restrictBuyWhenInventoryFull  # type: bool
+        self.displayTag = displayTag  # type: int
+        self.shopUpdateGroupId = shopUpdateGroupId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        shopExcel = ShopExcel()
+        shopExcel.Init(buf, pos)
+        return cls.InitFromObj(shopExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, shopExcel):
+        x = ShopExcelT()
+        x._UnPack(shopExcel)
+        return x
+
+    # ShopExcelT
+    def _UnPack(self, shopExcel):
+        if shopExcel is None:
+            return
+        self.id = shopExcel.Id()
+        self.localizeEtcId = shopExcel.LocalizeEtcId()
+        self.categoryType = shopExcel.CategoryType()
+        self.isLegacy = shopExcel.IsLegacy()
+        self.useBigPopup = shopExcel.UseBigPopup()
+        if not shopExcel.GoodsIdIsNone():
+            if np is None:
+                self.goodsId = []
+                for i in range(shopExcel.GoodsIdLength()):
+                    self.goodsId.append(shopExcel.GoodsId(i))
+            else:
+                self.goodsId = shopExcel.GoodsIdAsNumpy()
+        self.displayOrder = shopExcel.DisplayOrder()
+        self.salePeriodFrom = shopExcel.SalePeriodFrom()
+        self.salePeriodTo = shopExcel.SalePeriodTo()
+        self.purchaseCooltimeMin = shopExcel.PurchaseCooltimeMin()
+        self.purchaseCountLimit = shopExcel.PurchaseCountLimit()
+        self.purchaseCountResetType = shopExcel.PurchaseCountResetType()
+        self.buyReportEventName = shopExcel.BuyReportEventName()
+        self.restrictBuyWhenInventoryFull = shopExcel.RestrictBuyWhenInventoryFull()
+        self.displayTag = shopExcel.DisplayTag()
+        self.shopUpdateGroupId = shopExcel.ShopUpdateGroupId()
+
+    # ShopExcelT
+    def Pack(self, builder):
+        if self.goodsId is not None:
+            if np is not None and type(self.goodsId) is np.ndarray:
+                goodsId = builder.CreateNumpyVector(self.goodsId)
+            else:
+                ShopExcelStartGoodsIdVector(builder, len(self.goodsId))
+                for i in reversed(range(len(self.goodsId))):
+                    builder.PrependInt64(self.goodsId[i])
+                goodsId = builder.EndVector()
+        if self.salePeriodFrom is not None:
+            salePeriodFrom = builder.CreateString(self.salePeriodFrom)
+        if self.salePeriodTo is not None:
+            salePeriodTo = builder.CreateString(self.salePeriodTo)
+        if self.buyReportEventName is not None:
+            buyReportEventName = builder.CreateString(self.buyReportEventName)
+        ShopExcelStart(builder)
+        ShopExcelAddId(builder, self.id)
+        ShopExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        ShopExcelAddCategoryType(builder, self.categoryType)
+        ShopExcelAddIsLegacy(builder, self.isLegacy)
+        ShopExcelAddUseBigPopup(builder, self.useBigPopup)
+        if self.goodsId is not None:
+            ShopExcelAddGoodsId(builder, goodsId)
+        ShopExcelAddDisplayOrder(builder, self.displayOrder)
+        if self.salePeriodFrom is not None:
+            ShopExcelAddSalePeriodFrom(builder, salePeriodFrom)
+        if self.salePeriodTo is not None:
+            ShopExcelAddSalePeriodTo(builder, salePeriodTo)
+        ShopExcelAddPurchaseCooltimeMin(builder, self.purchaseCooltimeMin)
+        ShopExcelAddPurchaseCountLimit(builder, self.purchaseCountLimit)
+        ShopExcelAddPurchaseCountResetType(builder, self.purchaseCountResetType)
+        if self.buyReportEventName is not None:
+            ShopExcelAddBuyReportEventName(builder, buyReportEventName)
+        ShopExcelAddRestrictBuyWhenInventoryFull(builder, self.restrictBuyWhenInventoryFull)
+        ShopExcelAddDisplayTag(builder, self.displayTag)
+        ShopExcelAddShopUpdateGroupId(builder, self.shopUpdateGroupId)
+        shopExcel = ShopExcelEnd(builder)
+        return shopExcel

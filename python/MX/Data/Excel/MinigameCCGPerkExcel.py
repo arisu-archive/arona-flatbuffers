@@ -230,3 +230,120 @@ def MinigameCCGPerkExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGPerkExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MinigameCCGPerkExcelT(object):
+
+    # MinigameCCGPerkExcelT
+    def __init__(
+        self,
+        id = 0,
+        ccgId = 0,
+        costParcelAmount = 0,
+        rerollPoint = 0,
+        discardPoint = 0,
+        environmentLogicEffectId = None,
+        requiredPerkId = None,
+        shopOrder = 0,
+        shopIcon = None,
+        shopLocalizeTitle = 0,
+        shopLocalizeDesc = 0,
+    ):
+        self.id = id  # type: int
+        self.ccgId = ccgId  # type: int
+        self.costParcelAmount = costParcelAmount  # type: int
+        self.rerollPoint = rerollPoint  # type: int
+        self.discardPoint = discardPoint  # type: int
+        self.environmentLogicEffectId = environmentLogicEffectId  # type: Optional[List[int]]
+        self.requiredPerkId = requiredPerkId  # type: Optional[List[int]]
+        self.shopOrder = shopOrder  # type: int
+        self.shopIcon = shopIcon  # type: Optional[str]
+        self.shopLocalizeTitle = shopLocalizeTitle  # type: int
+        self.shopLocalizeDesc = shopLocalizeDesc  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcgperkExcel = MinigameCCGPerkExcel()
+        minigameCcgperkExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcgperkExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcgperkExcel):
+        x = MinigameCCGPerkExcelT()
+        x._UnPack(minigameCcgperkExcel)
+        return x
+
+    # MinigameCCGPerkExcelT
+    def _UnPack(self, minigameCcgperkExcel):
+        if minigameCcgperkExcel is None:
+            return
+        self.id = minigameCcgperkExcel.Id()
+        self.ccgId = minigameCcgperkExcel.CcgId()
+        self.costParcelAmount = minigameCcgperkExcel.CostParcelAmount()
+        self.rerollPoint = minigameCcgperkExcel.RerollPoint()
+        self.discardPoint = minigameCcgperkExcel.DiscardPoint()
+        if not minigameCcgperkExcel.EnvironmentLogicEffectIdIsNone():
+            if np is None:
+                self.environmentLogicEffectId = []
+                for i in range(minigameCcgperkExcel.EnvironmentLogicEffectIdLength()):
+                    self.environmentLogicEffectId.append(minigameCcgperkExcel.EnvironmentLogicEffectId(i))
+            else:
+                self.environmentLogicEffectId = minigameCcgperkExcel.EnvironmentLogicEffectIdAsNumpy()
+        if not minigameCcgperkExcel.RequiredPerkIdIsNone():
+            if np is None:
+                self.requiredPerkId = []
+                for i in range(minigameCcgperkExcel.RequiredPerkIdLength()):
+                    self.requiredPerkId.append(minigameCcgperkExcel.RequiredPerkId(i))
+            else:
+                self.requiredPerkId = minigameCcgperkExcel.RequiredPerkIdAsNumpy()
+        self.shopOrder = minigameCcgperkExcel.ShopOrder()
+        self.shopIcon = minigameCcgperkExcel.ShopIcon()
+        self.shopLocalizeTitle = minigameCcgperkExcel.ShopLocalizeTitle()
+        self.shopLocalizeDesc = minigameCcgperkExcel.ShopLocalizeDesc()
+
+    # MinigameCCGPerkExcelT
+    def Pack(self, builder):
+        if self.environmentLogicEffectId is not None:
+            if np is not None and type(self.environmentLogicEffectId) is np.ndarray:
+                environmentLogicEffectId = builder.CreateNumpyVector(self.environmentLogicEffectId)
+            else:
+                MinigameCCGPerkExcelStartEnvironmentLogicEffectIdVector(builder, len(self.environmentLogicEffectId))
+                for i in reversed(range(len(self.environmentLogicEffectId))):
+                    builder.PrependInt64(self.environmentLogicEffectId[i])
+                environmentLogicEffectId = builder.EndVector()
+        if self.requiredPerkId is not None:
+            if np is not None and type(self.requiredPerkId) is np.ndarray:
+                requiredPerkId = builder.CreateNumpyVector(self.requiredPerkId)
+            else:
+                MinigameCCGPerkExcelStartRequiredPerkIdVector(builder, len(self.requiredPerkId))
+                for i in reversed(range(len(self.requiredPerkId))):
+                    builder.PrependInt64(self.requiredPerkId[i])
+                requiredPerkId = builder.EndVector()
+        if self.shopIcon is not None:
+            shopIcon = builder.CreateString(self.shopIcon)
+        MinigameCCGPerkExcelStart(builder)
+        MinigameCCGPerkExcelAddId(builder, self.id)
+        MinigameCCGPerkExcelAddCcgId(builder, self.ccgId)
+        MinigameCCGPerkExcelAddCostParcelAmount(builder, self.costParcelAmount)
+        MinigameCCGPerkExcelAddRerollPoint(builder, self.rerollPoint)
+        MinigameCCGPerkExcelAddDiscardPoint(builder, self.discardPoint)
+        if self.environmentLogicEffectId is not None:
+            MinigameCCGPerkExcelAddEnvironmentLogicEffectId(builder, environmentLogicEffectId)
+        if self.requiredPerkId is not None:
+            MinigameCCGPerkExcelAddRequiredPerkId(builder, requiredPerkId)
+        MinigameCCGPerkExcelAddShopOrder(builder, self.shopOrder)
+        if self.shopIcon is not None:
+            MinigameCCGPerkExcelAddShopIcon(builder, shopIcon)
+        MinigameCCGPerkExcelAddShopLocalizeTitle(builder, self.shopLocalizeTitle)
+        MinigameCCGPerkExcelAddShopLocalizeDesc(builder, self.shopLocalizeDesc)
+        minigameCcgperkExcel = MinigameCCGPerkExcelEnd(builder)
+        return minigameCcgperkExcel

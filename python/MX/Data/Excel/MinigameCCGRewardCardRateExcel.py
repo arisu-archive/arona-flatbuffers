@@ -74,3 +74,51 @@ def MinigameCCGRewardCardRateExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGRewardCardRateExcelEnd(builder)
+
+
+class MinigameCCGRewardCardRateExcelT(object):
+
+    # MinigameCCGRewardCardRateExcelT
+    def __init__(
+        self,
+        rarityGroupId = 0,
+        cardRarity = 0,
+        rate = 0,
+    ):
+        self.rarityGroupId = rarityGroupId  # type: int
+        self.cardRarity = cardRarity  # type: int
+        self.rate = rate  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcgrewardCardRateExcel = MinigameCCGRewardCardRateExcel()
+        minigameCcgrewardCardRateExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcgrewardCardRateExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcgrewardCardRateExcel):
+        x = MinigameCCGRewardCardRateExcelT()
+        x._UnPack(minigameCcgrewardCardRateExcel)
+        return x
+
+    # MinigameCCGRewardCardRateExcelT
+    def _UnPack(self, minigameCcgrewardCardRateExcel):
+        if minigameCcgrewardCardRateExcel is None:
+            return
+        self.rarityGroupId = minigameCcgrewardCardRateExcel.RarityGroupId()
+        self.cardRarity = minigameCcgrewardCardRateExcel.CardRarity()
+        self.rate = minigameCcgrewardCardRateExcel.Rate()
+
+    # MinigameCCGRewardCardRateExcelT
+    def Pack(self, builder):
+        MinigameCCGRewardCardRateExcelStart(builder)
+        MinigameCCGRewardCardRateExcelAddRarityGroupId(builder, self.rarityGroupId)
+        MinigameCCGRewardCardRateExcelAddCardRarity(builder, self.cardRarity)
+        MinigameCCGRewardCardRateExcelAddRate(builder, self.rate)
+        minigameCcgrewardCardRateExcel = MinigameCCGRewardCardRateExcelEnd(builder)
+        return minigameCcgrewardCardRateExcel

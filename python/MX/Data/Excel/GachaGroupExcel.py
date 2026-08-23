@@ -87,3 +87,58 @@ def GachaGroupExcelEnd(builder):
 
 def End(builder):
     return GachaGroupExcelEnd(builder)
+
+
+class GachaGroupExcelT(object):
+
+    # GachaGroupExcelT
+    def __init__(
+        self,
+        id = 0,
+        nameKr = None,
+        isRecursive = False,
+        groupType = 0,
+    ):
+        self.id = id  # type: int
+        self.nameKr = nameKr  # type: Optional[str]
+        self.isRecursive = isRecursive  # type: bool
+        self.groupType = groupType  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        gachaGroupExcel = GachaGroupExcel()
+        gachaGroupExcel.Init(buf, pos)
+        return cls.InitFromObj(gachaGroupExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, gachaGroupExcel):
+        x = GachaGroupExcelT()
+        x._UnPack(gachaGroupExcel)
+        return x
+
+    # GachaGroupExcelT
+    def _UnPack(self, gachaGroupExcel):
+        if gachaGroupExcel is None:
+            return
+        self.id = gachaGroupExcel.Id()
+        self.nameKr = gachaGroupExcel.NameKr()
+        self.isRecursive = gachaGroupExcel.IsRecursive()
+        self.groupType = gachaGroupExcel.GroupType()
+
+    # GachaGroupExcelT
+    def Pack(self, builder):
+        if self.nameKr is not None:
+            nameKr = builder.CreateString(self.nameKr)
+        GachaGroupExcelStart(builder)
+        GachaGroupExcelAddId(builder, self.id)
+        if self.nameKr is not None:
+            GachaGroupExcelAddNameKr(builder, nameKr)
+        GachaGroupExcelAddIsRecursive(builder, self.isRecursive)
+        GachaGroupExcelAddGroupType(builder, self.groupType)
+        gachaGroupExcel = GachaGroupExcelEnd(builder)
+        return gachaGroupExcel

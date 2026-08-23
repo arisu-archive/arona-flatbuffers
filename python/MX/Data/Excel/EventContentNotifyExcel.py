@@ -126,3 +126,70 @@ def EventContentNotifyExcelEnd(builder):
 
 def End(builder):
     return EventContentNotifyExcelEnd(builder)
+
+
+class EventContentNotifyExcelT(object):
+
+    # EventContentNotifyExcelT
+    def __init__(
+        self,
+        id = 0,
+        localizeEtcId = 0,
+        iconPath = None,
+        eventNotifyType = 0,
+        eventTargetType = 0,
+        shortcutEventTargetType = 0,
+        isShortcutEnable = False,
+    ):
+        self.id = id  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.iconPath = iconPath  # type: Optional[str]
+        self.eventNotifyType = eventNotifyType  # type: int
+        self.eventTargetType = eventTargetType  # type: int
+        self.shortcutEventTargetType = shortcutEventTargetType  # type: int
+        self.isShortcutEnable = isShortcutEnable  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        eventContentNotifyExcel = EventContentNotifyExcel()
+        eventContentNotifyExcel.Init(buf, pos)
+        return cls.InitFromObj(eventContentNotifyExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, eventContentNotifyExcel):
+        x = EventContentNotifyExcelT()
+        x._UnPack(eventContentNotifyExcel)
+        return x
+
+    # EventContentNotifyExcelT
+    def _UnPack(self, eventContentNotifyExcel):
+        if eventContentNotifyExcel is None:
+            return
+        self.id = eventContentNotifyExcel.Id()
+        self.localizeEtcId = eventContentNotifyExcel.LocalizeEtcId()
+        self.iconPath = eventContentNotifyExcel.IconPath()
+        self.eventNotifyType = eventContentNotifyExcel.EventNotifyType()
+        self.eventTargetType = eventContentNotifyExcel.EventTargetType()
+        self.shortcutEventTargetType = eventContentNotifyExcel.ShortcutEventTargetType()
+        self.isShortcutEnable = eventContentNotifyExcel.IsShortcutEnable()
+
+    # EventContentNotifyExcelT
+    def Pack(self, builder):
+        if self.iconPath is not None:
+            iconPath = builder.CreateString(self.iconPath)
+        EventContentNotifyExcelStart(builder)
+        EventContentNotifyExcelAddId(builder, self.id)
+        EventContentNotifyExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        if self.iconPath is not None:
+            EventContentNotifyExcelAddIconPath(builder, iconPath)
+        EventContentNotifyExcelAddEventNotifyType(builder, self.eventNotifyType)
+        EventContentNotifyExcelAddEventTargetType(builder, self.eventTargetType)
+        EventContentNotifyExcelAddShortcutEventTargetType(builder, self.shortcutEventTargetType)
+        EventContentNotifyExcelAddIsShortcutEnable(builder, self.isShortcutEnable)
+        eventContentNotifyExcel = EventContentNotifyExcelEnd(builder)
+        return eventContentNotifyExcel

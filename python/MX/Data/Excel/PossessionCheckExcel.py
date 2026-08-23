@@ -126,3 +126,67 @@ def PossessionCheckExcelEnd(builder):
 
 def End(builder):
     return PossessionCheckExcelEnd(builder)
+
+
+class PossessionCheckExcelT(object):
+
+    # PossessionCheckExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        defaultParcelType = 0,
+        defaultParcelId = 0,
+        defaultParcelAmount = 0,
+        replaceParcelType = 0,
+        replaceParcelId = 0,
+        replaceParcelAmount = 0,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.defaultParcelType = defaultParcelType  # type: int
+        self.defaultParcelId = defaultParcelId  # type: int
+        self.defaultParcelAmount = defaultParcelAmount  # type: int
+        self.replaceParcelType = replaceParcelType  # type: int
+        self.replaceParcelId = replaceParcelId  # type: int
+        self.replaceParcelAmount = replaceParcelAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        possessionCheckExcel = PossessionCheckExcel()
+        possessionCheckExcel.Init(buf, pos)
+        return cls.InitFromObj(possessionCheckExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, possessionCheckExcel):
+        x = PossessionCheckExcelT()
+        x._UnPack(possessionCheckExcel)
+        return x
+
+    # PossessionCheckExcelT
+    def _UnPack(self, possessionCheckExcel):
+        if possessionCheckExcel is None:
+            return
+        self.uniqueId = possessionCheckExcel.UniqueId()
+        self.defaultParcelType = possessionCheckExcel.DefaultParcelType()
+        self.defaultParcelId = possessionCheckExcel.DefaultParcelId()
+        self.defaultParcelAmount = possessionCheckExcel.DefaultParcelAmount()
+        self.replaceParcelType = possessionCheckExcel.ReplaceParcelType()
+        self.replaceParcelId = possessionCheckExcel.ReplaceParcelId()
+        self.replaceParcelAmount = possessionCheckExcel.ReplaceParcelAmount()
+
+    # PossessionCheckExcelT
+    def Pack(self, builder):
+        PossessionCheckExcelStart(builder)
+        PossessionCheckExcelAddUniqueId(builder, self.uniqueId)
+        PossessionCheckExcelAddDefaultParcelType(builder, self.defaultParcelType)
+        PossessionCheckExcelAddDefaultParcelId(builder, self.defaultParcelId)
+        PossessionCheckExcelAddDefaultParcelAmount(builder, self.defaultParcelAmount)
+        PossessionCheckExcelAddReplaceParcelType(builder, self.replaceParcelType)
+        PossessionCheckExcelAddReplaceParcelId(builder, self.replaceParcelId)
+        PossessionCheckExcelAddReplaceParcelAmount(builder, self.replaceParcelAmount)
+        possessionCheckExcel = PossessionCheckExcelEnd(builder)
+        return possessionCheckExcel

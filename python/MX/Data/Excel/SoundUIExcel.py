@@ -74,3 +74,57 @@ def SoundUIExcelEnd(builder):
 
 def End(builder):
     return SoundUIExcelEnd(builder)
+
+
+class SoundUIExcelT(object):
+
+    # SoundUIExcelT
+    def __init__(
+        self,
+        id = 0,
+        soundUniqueId = None,
+        path = None,
+    ):
+        self.id = id  # type: int
+        self.soundUniqueId = soundUniqueId  # type: Optional[str]
+        self.path = path  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        soundUiexcel = SoundUIExcel()
+        soundUiexcel.Init(buf, pos)
+        return cls.InitFromObj(soundUiexcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, soundUiexcel):
+        x = SoundUIExcelT()
+        x._UnPack(soundUiexcel)
+        return x
+
+    # SoundUIExcelT
+    def _UnPack(self, soundUiexcel):
+        if soundUiexcel is None:
+            return
+        self.id = soundUiexcel.Id()
+        self.soundUniqueId = soundUiexcel.SoundUniqueId()
+        self.path = soundUiexcel.Path()
+
+    # SoundUIExcelT
+    def Pack(self, builder):
+        if self.soundUniqueId is not None:
+            soundUniqueId = builder.CreateString(self.soundUniqueId)
+        if self.path is not None:
+            path = builder.CreateString(self.path)
+        SoundUIExcelStart(builder)
+        SoundUIExcelAddId(builder, self.id)
+        if self.soundUniqueId is not None:
+            SoundUIExcelAddSoundUniqueId(builder, soundUniqueId)
+        if self.path is not None:
+            SoundUIExcelAddPath(builder, path)
+        soundUiexcel = SoundUIExcelEnd(builder)
+        return soundUiexcel

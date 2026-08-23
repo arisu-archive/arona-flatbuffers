@@ -269,3 +269,139 @@ def AcademyFavorScheduleExcelEnd(builder):
 
 def End(builder):
     return AcademyFavorScheduleExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class AcademyFavorScheduleExcelT(object):
+
+    # AcademyFavorScheduleExcelT
+    def __init__(
+        self,
+        id = 0,
+        characterId = 0,
+        scheduleGroupId = 0,
+        orderInGroup = 0,
+        location = None,
+        localizeScenarioId = 0,
+        favorRank = 0,
+        secretStoneAmount = 0,
+        scenarioSriptGroupId = 0,
+        rewardParcelType = None,
+        rewardParcelId = None,
+        rewardAmount = None,
+    ):
+        self.id = id  # type: int
+        self.characterId = characterId  # type: int
+        self.scheduleGroupId = scheduleGroupId  # type: int
+        self.orderInGroup = orderInGroup  # type: int
+        self.location = location  # type: Optional[str]
+        self.localizeScenarioId = localizeScenarioId  # type: int
+        self.favorRank = favorRank  # type: int
+        self.secretStoneAmount = secretStoneAmount  # type: int
+        self.scenarioSriptGroupId = scenarioSriptGroupId  # type: int
+        self.rewardParcelType = rewardParcelType  # type: Optional[List[int]]
+        self.rewardParcelId = rewardParcelId  # type: Optional[List[int]]
+        self.rewardAmount = rewardAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        academyFavorScheduleExcel = AcademyFavorScheduleExcel()
+        academyFavorScheduleExcel.Init(buf, pos)
+        return cls.InitFromObj(academyFavorScheduleExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, academyFavorScheduleExcel):
+        x = AcademyFavorScheduleExcelT()
+        x._UnPack(academyFavorScheduleExcel)
+        return x
+
+    # AcademyFavorScheduleExcelT
+    def _UnPack(self, academyFavorScheduleExcel):
+        if academyFavorScheduleExcel is None:
+            return
+        self.id = academyFavorScheduleExcel.Id()
+        self.characterId = academyFavorScheduleExcel.CharacterId()
+        self.scheduleGroupId = academyFavorScheduleExcel.ScheduleGroupId()
+        self.orderInGroup = academyFavorScheduleExcel.OrderInGroup()
+        self.location = academyFavorScheduleExcel.Location()
+        self.localizeScenarioId = academyFavorScheduleExcel.LocalizeScenarioId()
+        self.favorRank = academyFavorScheduleExcel.FavorRank()
+        self.secretStoneAmount = academyFavorScheduleExcel.SecretStoneAmount()
+        self.scenarioSriptGroupId = academyFavorScheduleExcel.ScenarioSriptGroupId()
+        if not academyFavorScheduleExcel.RewardParcelTypeIsNone():
+            if np is None:
+                self.rewardParcelType = []
+                for i in range(academyFavorScheduleExcel.RewardParcelTypeLength()):
+                    self.rewardParcelType.append(academyFavorScheduleExcel.RewardParcelType(i))
+            else:
+                self.rewardParcelType = academyFavorScheduleExcel.RewardParcelTypeAsNumpy()
+        if not academyFavorScheduleExcel.RewardParcelIdIsNone():
+            if np is None:
+                self.rewardParcelId = []
+                for i in range(academyFavorScheduleExcel.RewardParcelIdLength()):
+                    self.rewardParcelId.append(academyFavorScheduleExcel.RewardParcelId(i))
+            else:
+                self.rewardParcelId = academyFavorScheduleExcel.RewardParcelIdAsNumpy()
+        if not academyFavorScheduleExcel.RewardAmountIsNone():
+            if np is None:
+                self.rewardAmount = []
+                for i in range(academyFavorScheduleExcel.RewardAmountLength()):
+                    self.rewardAmount.append(academyFavorScheduleExcel.RewardAmount(i))
+            else:
+                self.rewardAmount = academyFavorScheduleExcel.RewardAmountAsNumpy()
+
+    # AcademyFavorScheduleExcelT
+    def Pack(self, builder):
+        if self.location is not None:
+            location = builder.CreateString(self.location)
+        if self.rewardParcelType is not None:
+            if np is not None and type(self.rewardParcelType) is np.ndarray:
+                rewardParcelType = builder.CreateNumpyVector(self.rewardParcelType)
+            else:
+                AcademyFavorScheduleExcelStartRewardParcelTypeVector(builder, len(self.rewardParcelType))
+                for i in reversed(range(len(self.rewardParcelType))):
+                    builder.PrependInt32(self.rewardParcelType[i])
+                rewardParcelType = builder.EndVector()
+        if self.rewardParcelId is not None:
+            if np is not None and type(self.rewardParcelId) is np.ndarray:
+                rewardParcelId = builder.CreateNumpyVector(self.rewardParcelId)
+            else:
+                AcademyFavorScheduleExcelStartRewardParcelIdVector(builder, len(self.rewardParcelId))
+                for i in reversed(range(len(self.rewardParcelId))):
+                    builder.PrependInt64(self.rewardParcelId[i])
+                rewardParcelId = builder.EndVector()
+        if self.rewardAmount is not None:
+            if np is not None and type(self.rewardAmount) is np.ndarray:
+                rewardAmount = builder.CreateNumpyVector(self.rewardAmount)
+            else:
+                AcademyFavorScheduleExcelStartRewardAmountVector(builder, len(self.rewardAmount))
+                for i in reversed(range(len(self.rewardAmount))):
+                    builder.PrependInt64(self.rewardAmount[i])
+                rewardAmount = builder.EndVector()
+        AcademyFavorScheduleExcelStart(builder)
+        AcademyFavorScheduleExcelAddId(builder, self.id)
+        AcademyFavorScheduleExcelAddCharacterId(builder, self.characterId)
+        AcademyFavorScheduleExcelAddScheduleGroupId(builder, self.scheduleGroupId)
+        AcademyFavorScheduleExcelAddOrderInGroup(builder, self.orderInGroup)
+        if self.location is not None:
+            AcademyFavorScheduleExcelAddLocation(builder, location)
+        AcademyFavorScheduleExcelAddLocalizeScenarioId(builder, self.localizeScenarioId)
+        AcademyFavorScheduleExcelAddFavorRank(builder, self.favorRank)
+        AcademyFavorScheduleExcelAddSecretStoneAmount(builder, self.secretStoneAmount)
+        AcademyFavorScheduleExcelAddScenarioSriptGroupId(builder, self.scenarioSriptGroupId)
+        if self.rewardParcelType is not None:
+            AcademyFavorScheduleExcelAddRewardParcelType(builder, rewardParcelType)
+        if self.rewardParcelId is not None:
+            AcademyFavorScheduleExcelAddRewardParcelId(builder, rewardParcelId)
+        if self.rewardAmount is not None:
+            AcademyFavorScheduleExcelAddRewardAmount(builder, rewardAmount)
+        academyFavorScheduleExcel = AcademyFavorScheduleExcelEnd(builder)
+        return academyFavorScheduleExcel

@@ -32,7 +32,7 @@ class WorldRaidSeasonManageExcel(object):
         return 0
 
     # WorldRaidSeasonManageExcel
-    def EventContentId(self):
+    def PhaseId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
@@ -283,11 +283,11 @@ def WorldRaidSeasonManageExcelAddSeasonId(builder, seasonId):
 def AddSeasonId(builder, seasonId):
     WorldRaidSeasonManageExcelAddSeasonId(builder, seasonId)
 
-def WorldRaidSeasonManageExcelAddEventContentId(builder, eventContentId):
-    builder.PrependInt64Slot(1, eventContentId, 0)
+def WorldRaidSeasonManageExcelAddPhaseId(builder, phaseId):
+    builder.PrependInt64Slot(1, phaseId, 0)
 
-def AddEventContentId(builder, eventContentId):
-    WorldRaidSeasonManageExcelAddEventContentId(builder, eventContentId)
+def AddPhaseId(builder, phaseId):
+    WorldRaidSeasonManageExcelAddPhaseId(builder, phaseId)
 
 def WorldRaidSeasonManageExcelAddEnterTicket(builder, enterTicket):
     builder.PrependInt32Slot(2, enterTicket, 0)
@@ -450,3 +450,219 @@ def WorldRaidSeasonManageExcelEnd(builder):
 
 def End(builder):
     return WorldRaidSeasonManageExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class WorldRaidSeasonManageExcelT(object):
+
+    # WorldRaidSeasonManageExcelT
+    def __init__(
+        self,
+        seasonId = 0,
+        phaseId = 0,
+        enterTicket = 0,
+        worldRaidLobbyScene = None,
+        worldRaidLobbyBanner = None,
+        worldRaidLobbyBg = None,
+        worldRaidLobbyBannerShow = False,
+        seasonOpenCondition = 0,
+        worldRaidLobbyEnterScenario = 0,
+        canPlayNotSeasonTime = False,
+        worldRaidUniqueThemeLobbyUi = False,
+        worldRaidUniqueThemeName = None,
+        canWorldRaidGemEnter = False,
+        hideWorldRaidTicketUi = False,
+        hideWorldRaidBossCompleteRewardUi = False,
+        useWorldRaidCommonToast = False,
+        openRaidBossGroupId = None,
+        bossSpawnTime = None,
+        eliminateTime = None,
+        scenarioOutputConditionId = None,
+        conditionScenarioGroupid = None,
+        worldRaidMapEnterOperator = None,
+        useFavorRankBuff = False,
+    ):
+        self.seasonId = seasonId  # type: int
+        self.phaseId = phaseId  # type: int
+        self.enterTicket = enterTicket  # type: int
+        self.worldRaidLobbyScene = worldRaidLobbyScene  # type: Optional[str]
+        self.worldRaidLobbyBanner = worldRaidLobbyBanner  # type: Optional[str]
+        self.worldRaidLobbyBg = worldRaidLobbyBg  # type: Optional[str]
+        self.worldRaidLobbyBannerShow = worldRaidLobbyBannerShow  # type: bool
+        self.seasonOpenCondition = seasonOpenCondition  # type: int
+        self.worldRaidLobbyEnterScenario = worldRaidLobbyEnterScenario  # type: int
+        self.canPlayNotSeasonTime = canPlayNotSeasonTime  # type: bool
+        self.worldRaidUniqueThemeLobbyUi = worldRaidUniqueThemeLobbyUi  # type: bool
+        self.worldRaidUniqueThemeName = worldRaidUniqueThemeName  # type: Optional[str]
+        self.canWorldRaidGemEnter = canWorldRaidGemEnter  # type: bool
+        self.hideWorldRaidTicketUi = hideWorldRaidTicketUi  # type: bool
+        self.hideWorldRaidBossCompleteRewardUi = hideWorldRaidBossCompleteRewardUi  # type: bool
+        self.useWorldRaidCommonToast = useWorldRaidCommonToast  # type: bool
+        self.openRaidBossGroupId = openRaidBossGroupId  # type: Optional[List[int]]
+        self.bossSpawnTime = bossSpawnTime  # type: Optional[List[Optional[str]]]
+        self.eliminateTime = eliminateTime  # type: Optional[List[Optional[str]]]
+        self.scenarioOutputConditionId = scenarioOutputConditionId  # type: Optional[List[int]]
+        self.conditionScenarioGroupid = conditionScenarioGroupid  # type: Optional[List[int]]
+        self.worldRaidMapEnterOperator = worldRaidMapEnterOperator  # type: Optional[str]
+        self.useFavorRankBuff = useFavorRankBuff  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        worldRaidSeasonManageExcel = WorldRaidSeasonManageExcel()
+        worldRaidSeasonManageExcel.Init(buf, pos)
+        return cls.InitFromObj(worldRaidSeasonManageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, worldRaidSeasonManageExcel):
+        x = WorldRaidSeasonManageExcelT()
+        x._UnPack(worldRaidSeasonManageExcel)
+        return x
+
+    # WorldRaidSeasonManageExcelT
+    def _UnPack(self, worldRaidSeasonManageExcel):
+        if worldRaidSeasonManageExcel is None:
+            return
+        self.seasonId = worldRaidSeasonManageExcel.SeasonId()
+        self.phaseId = worldRaidSeasonManageExcel.PhaseId()
+        self.enterTicket = worldRaidSeasonManageExcel.EnterTicket()
+        self.worldRaidLobbyScene = worldRaidSeasonManageExcel.WorldRaidLobbyScene()
+        self.worldRaidLobbyBanner = worldRaidSeasonManageExcel.WorldRaidLobbyBanner()
+        self.worldRaidLobbyBg = worldRaidSeasonManageExcel.WorldRaidLobbyBg()
+        self.worldRaidLobbyBannerShow = worldRaidSeasonManageExcel.WorldRaidLobbyBannerShow()
+        self.seasonOpenCondition = worldRaidSeasonManageExcel.SeasonOpenCondition()
+        self.worldRaidLobbyEnterScenario = worldRaidSeasonManageExcel.WorldRaidLobbyEnterScenario()
+        self.canPlayNotSeasonTime = worldRaidSeasonManageExcel.CanPlayNotSeasonTime()
+        self.worldRaidUniqueThemeLobbyUi = worldRaidSeasonManageExcel.WorldRaidUniqueThemeLobbyUi()
+        self.worldRaidUniqueThemeName = worldRaidSeasonManageExcel.WorldRaidUniqueThemeName()
+        self.canWorldRaidGemEnter = worldRaidSeasonManageExcel.CanWorldRaidGemEnter()
+        self.hideWorldRaidTicketUi = worldRaidSeasonManageExcel.HideWorldRaidTicketUi()
+        self.hideWorldRaidBossCompleteRewardUi = worldRaidSeasonManageExcel.HideWorldRaidBossCompleteRewardUi()
+        self.useWorldRaidCommonToast = worldRaidSeasonManageExcel.UseWorldRaidCommonToast()
+        if not worldRaidSeasonManageExcel.OpenRaidBossGroupIdIsNone():
+            if np is None:
+                self.openRaidBossGroupId = []
+                for i in range(worldRaidSeasonManageExcel.OpenRaidBossGroupIdLength()):
+                    self.openRaidBossGroupId.append(worldRaidSeasonManageExcel.OpenRaidBossGroupId(i))
+            else:
+                self.openRaidBossGroupId = worldRaidSeasonManageExcel.OpenRaidBossGroupIdAsNumpy()
+        if not worldRaidSeasonManageExcel.BossSpawnTimeIsNone():
+            self.bossSpawnTime = []
+            for i in range(worldRaidSeasonManageExcel.BossSpawnTimeLength()):
+                self.bossSpawnTime.append(worldRaidSeasonManageExcel.BossSpawnTime(i))
+        if not worldRaidSeasonManageExcel.EliminateTimeIsNone():
+            self.eliminateTime = []
+            for i in range(worldRaidSeasonManageExcel.EliminateTimeLength()):
+                self.eliminateTime.append(worldRaidSeasonManageExcel.EliminateTime(i))
+        if not worldRaidSeasonManageExcel.ScenarioOutputConditionIdIsNone():
+            if np is None:
+                self.scenarioOutputConditionId = []
+                for i in range(worldRaidSeasonManageExcel.ScenarioOutputConditionIdLength()):
+                    self.scenarioOutputConditionId.append(worldRaidSeasonManageExcel.ScenarioOutputConditionId(i))
+            else:
+                self.scenarioOutputConditionId = worldRaidSeasonManageExcel.ScenarioOutputConditionIdAsNumpy()
+        if not worldRaidSeasonManageExcel.ConditionScenarioGroupidIsNone():
+            if np is None:
+                self.conditionScenarioGroupid = []
+                for i in range(worldRaidSeasonManageExcel.ConditionScenarioGroupidLength()):
+                    self.conditionScenarioGroupid.append(worldRaidSeasonManageExcel.ConditionScenarioGroupid(i))
+            else:
+                self.conditionScenarioGroupid = worldRaidSeasonManageExcel.ConditionScenarioGroupidAsNumpy()
+        self.worldRaidMapEnterOperator = worldRaidSeasonManageExcel.WorldRaidMapEnterOperator()
+        self.useFavorRankBuff = worldRaidSeasonManageExcel.UseFavorRankBuff()
+
+    # WorldRaidSeasonManageExcelT
+    def Pack(self, builder):
+        if self.worldRaidLobbyScene is not None:
+            worldRaidLobbyScene = builder.CreateString(self.worldRaidLobbyScene)
+        if self.worldRaidLobbyBanner is not None:
+            worldRaidLobbyBanner = builder.CreateString(self.worldRaidLobbyBanner)
+        if self.worldRaidLobbyBg is not None:
+            worldRaidLobbyBg = builder.CreateString(self.worldRaidLobbyBg)
+        if self.worldRaidUniqueThemeName is not None:
+            worldRaidUniqueThemeName = builder.CreateString(self.worldRaidUniqueThemeName)
+        if self.openRaidBossGroupId is not None:
+            if np is not None and type(self.openRaidBossGroupId) is np.ndarray:
+                openRaidBossGroupId = builder.CreateNumpyVector(self.openRaidBossGroupId)
+            else:
+                WorldRaidSeasonManageExcelStartOpenRaidBossGroupIdVector(builder, len(self.openRaidBossGroupId))
+                for i in reversed(range(len(self.openRaidBossGroupId))):
+                    builder.PrependInt64(self.openRaidBossGroupId[i])
+                openRaidBossGroupId = builder.EndVector()
+        if self.bossSpawnTime is not None:
+            bossSpawnTimelist = []
+            for i in range(len(self.bossSpawnTime)):
+                bossSpawnTimelist.append(builder.CreateString(self.bossSpawnTime[i]))
+            WorldRaidSeasonManageExcelStartBossSpawnTimeVector(builder, len(self.bossSpawnTime))
+            for i in reversed(range(len(self.bossSpawnTime))):
+                builder.PrependUOffsetTRelative(bossSpawnTimelist[i])
+            bossSpawnTime = builder.EndVector()
+        if self.eliminateTime is not None:
+            eliminateTimelist = []
+            for i in range(len(self.eliminateTime)):
+                eliminateTimelist.append(builder.CreateString(self.eliminateTime[i]))
+            WorldRaidSeasonManageExcelStartEliminateTimeVector(builder, len(self.eliminateTime))
+            for i in reversed(range(len(self.eliminateTime))):
+                builder.PrependUOffsetTRelative(eliminateTimelist[i])
+            eliminateTime = builder.EndVector()
+        if self.scenarioOutputConditionId is not None:
+            if np is not None and type(self.scenarioOutputConditionId) is np.ndarray:
+                scenarioOutputConditionId = builder.CreateNumpyVector(self.scenarioOutputConditionId)
+            else:
+                WorldRaidSeasonManageExcelStartScenarioOutputConditionIdVector(builder, len(self.scenarioOutputConditionId))
+                for i in reversed(range(len(self.scenarioOutputConditionId))):
+                    builder.PrependInt64(self.scenarioOutputConditionId[i])
+                scenarioOutputConditionId = builder.EndVector()
+        if self.conditionScenarioGroupid is not None:
+            if np is not None and type(self.conditionScenarioGroupid) is np.ndarray:
+                conditionScenarioGroupid = builder.CreateNumpyVector(self.conditionScenarioGroupid)
+            else:
+                WorldRaidSeasonManageExcelStartConditionScenarioGroupidVector(builder, len(self.conditionScenarioGroupid))
+                for i in reversed(range(len(self.conditionScenarioGroupid))):
+                    builder.PrependInt64(self.conditionScenarioGroupid[i])
+                conditionScenarioGroupid = builder.EndVector()
+        if self.worldRaidMapEnterOperator is not None:
+            worldRaidMapEnterOperator = builder.CreateString(self.worldRaidMapEnterOperator)
+        WorldRaidSeasonManageExcelStart(builder)
+        WorldRaidSeasonManageExcelAddSeasonId(builder, self.seasonId)
+        WorldRaidSeasonManageExcelAddPhaseId(builder, self.phaseId)
+        WorldRaidSeasonManageExcelAddEnterTicket(builder, self.enterTicket)
+        if self.worldRaidLobbyScene is not None:
+            WorldRaidSeasonManageExcelAddWorldRaidLobbyScene(builder, worldRaidLobbyScene)
+        if self.worldRaidLobbyBanner is not None:
+            WorldRaidSeasonManageExcelAddWorldRaidLobbyBanner(builder, worldRaidLobbyBanner)
+        if self.worldRaidLobbyBg is not None:
+            WorldRaidSeasonManageExcelAddWorldRaidLobbyBg(builder, worldRaidLobbyBg)
+        WorldRaidSeasonManageExcelAddWorldRaidLobbyBannerShow(builder, self.worldRaidLobbyBannerShow)
+        WorldRaidSeasonManageExcelAddSeasonOpenCondition(builder, self.seasonOpenCondition)
+        WorldRaidSeasonManageExcelAddWorldRaidLobbyEnterScenario(builder, self.worldRaidLobbyEnterScenario)
+        WorldRaidSeasonManageExcelAddCanPlayNotSeasonTime(builder, self.canPlayNotSeasonTime)
+        WorldRaidSeasonManageExcelAddWorldRaidUniqueThemeLobbyUi(builder, self.worldRaidUniqueThemeLobbyUi)
+        if self.worldRaidUniqueThemeName is not None:
+            WorldRaidSeasonManageExcelAddWorldRaidUniqueThemeName(builder, worldRaidUniqueThemeName)
+        WorldRaidSeasonManageExcelAddCanWorldRaidGemEnter(builder, self.canWorldRaidGemEnter)
+        WorldRaidSeasonManageExcelAddHideWorldRaidTicketUi(builder, self.hideWorldRaidTicketUi)
+        WorldRaidSeasonManageExcelAddHideWorldRaidBossCompleteRewardUi(builder, self.hideWorldRaidBossCompleteRewardUi)
+        WorldRaidSeasonManageExcelAddUseWorldRaidCommonToast(builder, self.useWorldRaidCommonToast)
+        if self.openRaidBossGroupId is not None:
+            WorldRaidSeasonManageExcelAddOpenRaidBossGroupId(builder, openRaidBossGroupId)
+        if self.bossSpawnTime is not None:
+            WorldRaidSeasonManageExcelAddBossSpawnTime(builder, bossSpawnTime)
+        if self.eliminateTime is not None:
+            WorldRaidSeasonManageExcelAddEliminateTime(builder, eliminateTime)
+        if self.scenarioOutputConditionId is not None:
+            WorldRaidSeasonManageExcelAddScenarioOutputConditionId(builder, scenarioOutputConditionId)
+        if self.conditionScenarioGroupid is not None:
+            WorldRaidSeasonManageExcelAddConditionScenarioGroupid(builder, conditionScenarioGroupid)
+        if self.worldRaidMapEnterOperator is not None:
+            WorldRaidSeasonManageExcelAddWorldRaidMapEnterOperator(builder, worldRaidMapEnterOperator)
+        WorldRaidSeasonManageExcelAddUseFavorRankBuff(builder, self.useFavorRankBuff)
+        worldRaidSeasonManageExcel = WorldRaidSeasonManageExcelEnd(builder)
+        return worldRaidSeasonManageExcel

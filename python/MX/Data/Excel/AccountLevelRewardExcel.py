@@ -100,3 +100,59 @@ def AccountLevelRewardExcelEnd(builder):
 
 def End(builder):
     return AccountLevelRewardExcelEnd(builder)
+
+
+class AccountLevelRewardExcelT(object):
+
+    # AccountLevelRewardExcelT
+    def __init__(
+        self,
+        id = 0,
+        level = 0,
+        rewardParcelType = 0,
+        rewardParcelId = 0,
+        rewardParcelAmount = 0,
+    ):
+        self.id = id  # type: int
+        self.level = level  # type: int
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelId = rewardParcelId  # type: int
+        self.rewardParcelAmount = rewardParcelAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        accountLevelRewardExcel = AccountLevelRewardExcel()
+        accountLevelRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(accountLevelRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, accountLevelRewardExcel):
+        x = AccountLevelRewardExcelT()
+        x._UnPack(accountLevelRewardExcel)
+        return x
+
+    # AccountLevelRewardExcelT
+    def _UnPack(self, accountLevelRewardExcel):
+        if accountLevelRewardExcel is None:
+            return
+        self.id = accountLevelRewardExcel.Id()
+        self.level = accountLevelRewardExcel.Level()
+        self.rewardParcelType = accountLevelRewardExcel.RewardParcelType()
+        self.rewardParcelId = accountLevelRewardExcel.RewardParcelId()
+        self.rewardParcelAmount = accountLevelRewardExcel.RewardParcelAmount()
+
+    # AccountLevelRewardExcelT
+    def Pack(self, builder):
+        AccountLevelRewardExcelStart(builder)
+        AccountLevelRewardExcelAddId(builder, self.id)
+        AccountLevelRewardExcelAddLevel(builder, self.level)
+        AccountLevelRewardExcelAddRewardParcelType(builder, self.rewardParcelType)
+        AccountLevelRewardExcelAddRewardParcelId(builder, self.rewardParcelId)
+        AccountLevelRewardExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        accountLevelRewardExcel = AccountLevelRewardExcelEnd(builder)
+        return accountLevelRewardExcel

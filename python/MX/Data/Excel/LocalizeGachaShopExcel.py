@@ -308,3 +308,183 @@ def LocalizeGachaShopExcelEnd(builder):
 
 def End(builder):
     return LocalizeGachaShopExcelEnd(builder)
+
+
+class LocalizeGachaShopExcelT(object):
+
+    # LocalizeGachaShopExcelT
+    def __init__(
+        self,
+        gachaShopId = 0,
+        tabNameKr = None,
+        tabNameJp = None,
+        tabNameTh = None,
+        tabNameTw = None,
+        tabNameEn = None,
+        titleNameKr = None,
+        titleNameJp = None,
+        titleNameTh = None,
+        titleNameTw = None,
+        titleNameEn = None,
+        subTitleKr = None,
+        subTitleJp = None,
+        subTitleTh = None,
+        subTitleTw = None,
+        subTitleEn = None,
+        gachaDescriptionKr = None,
+        gachaDescriptionJp = None,
+        gachaDescriptionTh = None,
+        gachaDescriptionTw = None,
+        gachaDescriptionEn = None,
+    ):
+        self.gachaShopId = gachaShopId  # type: int
+        self.tabNameKr = tabNameKr  # type: Optional[str]
+        self.tabNameJp = tabNameJp  # type: Optional[str]
+        self.tabNameTh = tabNameTh  # type: Optional[str]
+        self.tabNameTw = tabNameTw  # type: Optional[str]
+        self.tabNameEn = tabNameEn  # type: Optional[str]
+        self.titleNameKr = titleNameKr  # type: Optional[str]
+        self.titleNameJp = titleNameJp  # type: Optional[str]
+        self.titleNameTh = titleNameTh  # type: Optional[str]
+        self.titleNameTw = titleNameTw  # type: Optional[str]
+        self.titleNameEn = titleNameEn  # type: Optional[str]
+        self.subTitleKr = subTitleKr  # type: Optional[str]
+        self.subTitleJp = subTitleJp  # type: Optional[str]
+        self.subTitleTh = subTitleTh  # type: Optional[str]
+        self.subTitleTw = subTitleTw  # type: Optional[str]
+        self.subTitleEn = subTitleEn  # type: Optional[str]
+        self.gachaDescriptionKr = gachaDescriptionKr  # type: Optional[str]
+        self.gachaDescriptionJp = gachaDescriptionJp  # type: Optional[str]
+        self.gachaDescriptionTh = gachaDescriptionTh  # type: Optional[str]
+        self.gachaDescriptionTw = gachaDescriptionTw  # type: Optional[str]
+        self.gachaDescriptionEn = gachaDescriptionEn  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        localizeGachaShopExcel = LocalizeGachaShopExcel()
+        localizeGachaShopExcel.Init(buf, pos)
+        return cls.InitFromObj(localizeGachaShopExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, localizeGachaShopExcel):
+        x = LocalizeGachaShopExcelT()
+        x._UnPack(localizeGachaShopExcel)
+        return x
+
+    # LocalizeGachaShopExcelT
+    def _UnPack(self, localizeGachaShopExcel):
+        if localizeGachaShopExcel is None:
+            return
+        self.gachaShopId = localizeGachaShopExcel.GachaShopId()
+        self.tabNameKr = localizeGachaShopExcel.TabNameKr()
+        self.tabNameJp = localizeGachaShopExcel.TabNameJp()
+        self.tabNameTh = localizeGachaShopExcel.TabNameTh()
+        self.tabNameTw = localizeGachaShopExcel.TabNameTw()
+        self.tabNameEn = localizeGachaShopExcel.TabNameEn()
+        self.titleNameKr = localizeGachaShopExcel.TitleNameKr()
+        self.titleNameJp = localizeGachaShopExcel.TitleNameJp()
+        self.titleNameTh = localizeGachaShopExcel.TitleNameTh()
+        self.titleNameTw = localizeGachaShopExcel.TitleNameTw()
+        self.titleNameEn = localizeGachaShopExcel.TitleNameEn()
+        self.subTitleKr = localizeGachaShopExcel.SubTitleKr()
+        self.subTitleJp = localizeGachaShopExcel.SubTitleJp()
+        self.subTitleTh = localizeGachaShopExcel.SubTitleTh()
+        self.subTitleTw = localizeGachaShopExcel.SubTitleTw()
+        self.subTitleEn = localizeGachaShopExcel.SubTitleEn()
+        self.gachaDescriptionKr = localizeGachaShopExcel.GachaDescriptionKr()
+        self.gachaDescriptionJp = localizeGachaShopExcel.GachaDescriptionJp()
+        self.gachaDescriptionTh = localizeGachaShopExcel.GachaDescriptionTh()
+        self.gachaDescriptionTw = localizeGachaShopExcel.GachaDescriptionTw()
+        self.gachaDescriptionEn = localizeGachaShopExcel.GachaDescriptionEn()
+
+    # LocalizeGachaShopExcelT
+    def Pack(self, builder):
+        if self.tabNameKr is not None:
+            tabNameKr = builder.CreateString(self.tabNameKr)
+        if self.tabNameJp is not None:
+            tabNameJp = builder.CreateString(self.tabNameJp)
+        if self.tabNameTh is not None:
+            tabNameTh = builder.CreateString(self.tabNameTh)
+        if self.tabNameTw is not None:
+            tabNameTw = builder.CreateString(self.tabNameTw)
+        if self.tabNameEn is not None:
+            tabNameEn = builder.CreateString(self.tabNameEn)
+        if self.titleNameKr is not None:
+            titleNameKr = builder.CreateString(self.titleNameKr)
+        if self.titleNameJp is not None:
+            titleNameJp = builder.CreateString(self.titleNameJp)
+        if self.titleNameTh is not None:
+            titleNameTh = builder.CreateString(self.titleNameTh)
+        if self.titleNameTw is not None:
+            titleNameTw = builder.CreateString(self.titleNameTw)
+        if self.titleNameEn is not None:
+            titleNameEn = builder.CreateString(self.titleNameEn)
+        if self.subTitleKr is not None:
+            subTitleKr = builder.CreateString(self.subTitleKr)
+        if self.subTitleJp is not None:
+            subTitleJp = builder.CreateString(self.subTitleJp)
+        if self.subTitleTh is not None:
+            subTitleTh = builder.CreateString(self.subTitleTh)
+        if self.subTitleTw is not None:
+            subTitleTw = builder.CreateString(self.subTitleTw)
+        if self.subTitleEn is not None:
+            subTitleEn = builder.CreateString(self.subTitleEn)
+        if self.gachaDescriptionKr is not None:
+            gachaDescriptionKr = builder.CreateString(self.gachaDescriptionKr)
+        if self.gachaDescriptionJp is not None:
+            gachaDescriptionJp = builder.CreateString(self.gachaDescriptionJp)
+        if self.gachaDescriptionTh is not None:
+            gachaDescriptionTh = builder.CreateString(self.gachaDescriptionTh)
+        if self.gachaDescriptionTw is not None:
+            gachaDescriptionTw = builder.CreateString(self.gachaDescriptionTw)
+        if self.gachaDescriptionEn is not None:
+            gachaDescriptionEn = builder.CreateString(self.gachaDescriptionEn)
+        LocalizeGachaShopExcelStart(builder)
+        LocalizeGachaShopExcelAddGachaShopId(builder, self.gachaShopId)
+        if self.tabNameKr is not None:
+            LocalizeGachaShopExcelAddTabNameKr(builder, tabNameKr)
+        if self.tabNameJp is not None:
+            LocalizeGachaShopExcelAddTabNameJp(builder, tabNameJp)
+        if self.tabNameTh is not None:
+            LocalizeGachaShopExcelAddTabNameTh(builder, tabNameTh)
+        if self.tabNameTw is not None:
+            LocalizeGachaShopExcelAddTabNameTw(builder, tabNameTw)
+        if self.tabNameEn is not None:
+            LocalizeGachaShopExcelAddTabNameEn(builder, tabNameEn)
+        if self.titleNameKr is not None:
+            LocalizeGachaShopExcelAddTitleNameKr(builder, titleNameKr)
+        if self.titleNameJp is not None:
+            LocalizeGachaShopExcelAddTitleNameJp(builder, titleNameJp)
+        if self.titleNameTh is not None:
+            LocalizeGachaShopExcelAddTitleNameTh(builder, titleNameTh)
+        if self.titleNameTw is not None:
+            LocalizeGachaShopExcelAddTitleNameTw(builder, titleNameTw)
+        if self.titleNameEn is not None:
+            LocalizeGachaShopExcelAddTitleNameEn(builder, titleNameEn)
+        if self.subTitleKr is not None:
+            LocalizeGachaShopExcelAddSubTitleKr(builder, subTitleKr)
+        if self.subTitleJp is not None:
+            LocalizeGachaShopExcelAddSubTitleJp(builder, subTitleJp)
+        if self.subTitleTh is not None:
+            LocalizeGachaShopExcelAddSubTitleTh(builder, subTitleTh)
+        if self.subTitleTw is not None:
+            LocalizeGachaShopExcelAddSubTitleTw(builder, subTitleTw)
+        if self.subTitleEn is not None:
+            LocalizeGachaShopExcelAddSubTitleEn(builder, subTitleEn)
+        if self.gachaDescriptionKr is not None:
+            LocalizeGachaShopExcelAddGachaDescriptionKr(builder, gachaDescriptionKr)
+        if self.gachaDescriptionJp is not None:
+            LocalizeGachaShopExcelAddGachaDescriptionJp(builder, gachaDescriptionJp)
+        if self.gachaDescriptionTh is not None:
+            LocalizeGachaShopExcelAddGachaDescriptionTh(builder, gachaDescriptionTh)
+        if self.gachaDescriptionTw is not None:
+            LocalizeGachaShopExcelAddGachaDescriptionTw(builder, gachaDescriptionTw)
+        if self.gachaDescriptionEn is not None:
+            LocalizeGachaShopExcelAddGachaDescriptionEn(builder, gachaDescriptionEn)
+        localizeGachaShopExcel = LocalizeGachaShopExcelEnd(builder)
+        return localizeGachaShopExcel

@@ -72,3 +72,68 @@ def ProtocolSettingExcelTableEnd(builder):
 
 def End(builder):
     return ProtocolSettingExcelTableEnd(builder)
+
+import FlatData.ProtocolSettingExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ProtocolSettingExcelTableT(object):
+
+    # ProtocolSettingExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ProtocolSettingExcel.ProtocolSettingExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        protocolSettingExcelTable = ProtocolSettingExcelTable()
+        protocolSettingExcelTable.Init(buf, pos)
+        return cls.InitFromObj(protocolSettingExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, protocolSettingExcelTable):
+        x = ProtocolSettingExcelTableT()
+        x._UnPack(protocolSettingExcelTable)
+        return x
+
+    # ProtocolSettingExcelTableT
+    def _UnPack(self, protocolSettingExcelTable):
+        if protocolSettingExcelTable is None:
+            return
+        if not protocolSettingExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(protocolSettingExcelTable.DataListLength()):
+                if protocolSettingExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    protocolSettingExcel_ = FlatData.ProtocolSettingExcel.ProtocolSettingExcelT.InitFromObj(protocolSettingExcelTable.DataList(i))
+                    self.dataList.append(protocolSettingExcel_)
+
+    # ProtocolSettingExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ProtocolSettingExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ProtocolSettingExcelTableStart(builder)
+        if self.dataList is not None:
+            ProtocolSettingExcelTableAddDataList(builder, dataList)
+        protocolSettingExcelTable = ProtocolSettingExcelTableEnd(builder)
+        return protocolSettingExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ProtocolSettingExcelTableT, 'ProtocolSettingExcelTable', ())

@@ -87,3 +87,55 @@ def ArenaLevelSectionExcelEnd(builder):
 
 def End(builder):
     return ArenaLevelSectionExcelEnd(builder)
+
+
+class ArenaLevelSectionExcelT(object):
+
+    # ArenaLevelSectionExcelT
+    def __init__(
+        self,
+        arenaSeasonId = 0,
+        startLevel = 0,
+        lastLevel = 0,
+        userCount = 0,
+    ):
+        self.arenaSeasonId = arenaSeasonId  # type: int
+        self.startLevel = startLevel  # type: int
+        self.lastLevel = lastLevel  # type: int
+        self.userCount = userCount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        arenaLevelSectionExcel = ArenaLevelSectionExcel()
+        arenaLevelSectionExcel.Init(buf, pos)
+        return cls.InitFromObj(arenaLevelSectionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, arenaLevelSectionExcel):
+        x = ArenaLevelSectionExcelT()
+        x._UnPack(arenaLevelSectionExcel)
+        return x
+
+    # ArenaLevelSectionExcelT
+    def _UnPack(self, arenaLevelSectionExcel):
+        if arenaLevelSectionExcel is None:
+            return
+        self.arenaSeasonId = arenaLevelSectionExcel.ArenaSeasonId()
+        self.startLevel = arenaLevelSectionExcel.StartLevel()
+        self.lastLevel = arenaLevelSectionExcel.LastLevel()
+        self.userCount = arenaLevelSectionExcel.UserCount()
+
+    # ArenaLevelSectionExcelT
+    def Pack(self, builder):
+        ArenaLevelSectionExcelStart(builder)
+        ArenaLevelSectionExcelAddArenaSeasonId(builder, self.arenaSeasonId)
+        ArenaLevelSectionExcelAddStartLevel(builder, self.startLevel)
+        ArenaLevelSectionExcelAddLastLevel(builder, self.lastLevel)
+        ArenaLevelSectionExcelAddUserCount(builder, self.userCount)
+        arenaLevelSectionExcel = ArenaLevelSectionExcelEnd(builder)
+        return arenaLevelSectionExcel

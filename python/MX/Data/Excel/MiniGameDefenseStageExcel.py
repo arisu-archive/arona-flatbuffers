@@ -490,3 +490,217 @@ def MiniGameDefenseStageExcelEnd(builder):
 
 def End(builder):
     return MiniGameDefenseStageExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MiniGameDefenseStageExcelT(object):
+
+    # MiniGameDefenseStageExcelT
+    def __init__(
+        self,
+        id = 0,
+        name = None,
+        eventContentId = 0,
+        stageDifficulty = 0,
+        stageDifficultyLocalize = 0,
+        stageNumber = 0,
+        stageDisplay = 0,
+        prevStageId = 0,
+        echelonExtensionType = 0,
+        battleDuration = 0,
+        stageEnterCostType = 0,
+        stageEnterCostId = 0,
+        stageEnterCostAmount = 0,
+        eventContentStageRewardId = 0,
+        enterScenarioGroupId = None,
+        clearScenarioGroupId = None,
+        stageTopography = 0,
+        recommandLevel = 0,
+        groundId = 0,
+        contentType = 0,
+        starGoal = None,
+        starGoalAmount = None,
+        defenseFormationBgPrefab = None,
+        defenseFormationBgPrefabScale = 0.0,
+        fixedEchelon = 0,
+        mininageDefenseFixedStatId = 0,
+        stageHint = 0,
+    ):
+        self.id = id  # type: int
+        self.name = name  # type: Optional[str]
+        self.eventContentId = eventContentId  # type: int
+        self.stageDifficulty = stageDifficulty  # type: int
+        self.stageDifficultyLocalize = stageDifficultyLocalize  # type: int
+        self.stageNumber = stageNumber  # type: int
+        self.stageDisplay = stageDisplay  # type: int
+        self.prevStageId = prevStageId  # type: int
+        self.echelonExtensionType = echelonExtensionType  # type: int
+        self.battleDuration = battleDuration  # type: int
+        self.stageEnterCostType = stageEnterCostType  # type: int
+        self.stageEnterCostId = stageEnterCostId  # type: int
+        self.stageEnterCostAmount = stageEnterCostAmount  # type: int
+        self.eventContentStageRewardId = eventContentStageRewardId  # type: int
+        self.enterScenarioGroupId = enterScenarioGroupId  # type: Optional[List[int]]
+        self.clearScenarioGroupId = clearScenarioGroupId  # type: Optional[List[int]]
+        self.stageTopography = stageTopography  # type: int
+        self.recommandLevel = recommandLevel  # type: int
+        self.groundId = groundId  # type: int
+        self.contentType = contentType  # type: int
+        self.starGoal = starGoal  # type: Optional[List[int]]
+        self.starGoalAmount = starGoalAmount  # type: Optional[List[int]]
+        self.defenseFormationBgPrefab = defenseFormationBgPrefab  # type: Optional[str]
+        self.defenseFormationBgPrefabScale = defenseFormationBgPrefabScale  # type: float
+        self.fixedEchelon = fixedEchelon  # type: int
+        self.mininageDefenseFixedStatId = mininageDefenseFixedStatId  # type: int
+        self.stageHint = stageHint  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDefenseStageExcel = MiniGameDefenseStageExcel()
+        miniGameDefenseStageExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDefenseStageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDefenseStageExcel):
+        x = MiniGameDefenseStageExcelT()
+        x._UnPack(miniGameDefenseStageExcel)
+        return x
+
+    # MiniGameDefenseStageExcelT
+    def _UnPack(self, miniGameDefenseStageExcel):
+        if miniGameDefenseStageExcel is None:
+            return
+        self.id = miniGameDefenseStageExcel.Id()
+        self.name = miniGameDefenseStageExcel.Name()
+        self.eventContentId = miniGameDefenseStageExcel.EventContentId()
+        self.stageDifficulty = miniGameDefenseStageExcel.StageDifficulty()
+        self.stageDifficultyLocalize = miniGameDefenseStageExcel.StageDifficultyLocalize()
+        self.stageNumber = miniGameDefenseStageExcel.StageNumber()
+        self.stageDisplay = miniGameDefenseStageExcel.StageDisplay()
+        self.prevStageId = miniGameDefenseStageExcel.PrevStageId()
+        self.echelonExtensionType = miniGameDefenseStageExcel.EchelonExtensionType()
+        self.battleDuration = miniGameDefenseStageExcel.BattleDuration()
+        self.stageEnterCostType = miniGameDefenseStageExcel.StageEnterCostType()
+        self.stageEnterCostId = miniGameDefenseStageExcel.StageEnterCostId()
+        self.stageEnterCostAmount = miniGameDefenseStageExcel.StageEnterCostAmount()
+        self.eventContentStageRewardId = miniGameDefenseStageExcel.EventContentStageRewardId()
+        if not miniGameDefenseStageExcel.EnterScenarioGroupIdIsNone():
+            if np is None:
+                self.enterScenarioGroupId = []
+                for i in range(miniGameDefenseStageExcel.EnterScenarioGroupIdLength()):
+                    self.enterScenarioGroupId.append(miniGameDefenseStageExcel.EnterScenarioGroupId(i))
+            else:
+                self.enterScenarioGroupId = miniGameDefenseStageExcel.EnterScenarioGroupIdAsNumpy()
+        if not miniGameDefenseStageExcel.ClearScenarioGroupIdIsNone():
+            if np is None:
+                self.clearScenarioGroupId = []
+                for i in range(miniGameDefenseStageExcel.ClearScenarioGroupIdLength()):
+                    self.clearScenarioGroupId.append(miniGameDefenseStageExcel.ClearScenarioGroupId(i))
+            else:
+                self.clearScenarioGroupId = miniGameDefenseStageExcel.ClearScenarioGroupIdAsNumpy()
+        self.stageTopography = miniGameDefenseStageExcel.StageTopography()
+        self.recommandLevel = miniGameDefenseStageExcel.RecommandLevel()
+        self.groundId = miniGameDefenseStageExcel.GroundId()
+        self.contentType = miniGameDefenseStageExcel.ContentType()
+        if not miniGameDefenseStageExcel.StarGoalIsNone():
+            if np is None:
+                self.starGoal = []
+                for i in range(miniGameDefenseStageExcel.StarGoalLength()):
+                    self.starGoal.append(miniGameDefenseStageExcel.StarGoal(i))
+            else:
+                self.starGoal = miniGameDefenseStageExcel.StarGoalAsNumpy()
+        if not miniGameDefenseStageExcel.StarGoalAmountIsNone():
+            if np is None:
+                self.starGoalAmount = []
+                for i in range(miniGameDefenseStageExcel.StarGoalAmountLength()):
+                    self.starGoalAmount.append(miniGameDefenseStageExcel.StarGoalAmount(i))
+            else:
+                self.starGoalAmount = miniGameDefenseStageExcel.StarGoalAmountAsNumpy()
+        self.defenseFormationBgPrefab = miniGameDefenseStageExcel.DefenseFormationBgPrefab()
+        self.defenseFormationBgPrefabScale = miniGameDefenseStageExcel.DefenseFormationBgPrefabScale()
+        self.fixedEchelon = miniGameDefenseStageExcel.FixedEchelon()
+        self.mininageDefenseFixedStatId = miniGameDefenseStageExcel.MininageDefenseFixedStatId()
+        self.stageHint = miniGameDefenseStageExcel.StageHint()
+
+    # MiniGameDefenseStageExcelT
+    def Pack(self, builder):
+        if self.name is not None:
+            name = builder.CreateString(self.name)
+        if self.enterScenarioGroupId is not None:
+            if np is not None and type(self.enterScenarioGroupId) is np.ndarray:
+                enterScenarioGroupId = builder.CreateNumpyVector(self.enterScenarioGroupId)
+            else:
+                MiniGameDefenseStageExcelStartEnterScenarioGroupIdVector(builder, len(self.enterScenarioGroupId))
+                for i in reversed(range(len(self.enterScenarioGroupId))):
+                    builder.PrependInt64(self.enterScenarioGroupId[i])
+                enterScenarioGroupId = builder.EndVector()
+        if self.clearScenarioGroupId is not None:
+            if np is not None and type(self.clearScenarioGroupId) is np.ndarray:
+                clearScenarioGroupId = builder.CreateNumpyVector(self.clearScenarioGroupId)
+            else:
+                MiniGameDefenseStageExcelStartClearScenarioGroupIdVector(builder, len(self.clearScenarioGroupId))
+                for i in reversed(range(len(self.clearScenarioGroupId))):
+                    builder.PrependInt64(self.clearScenarioGroupId[i])
+                clearScenarioGroupId = builder.EndVector()
+        if self.starGoal is not None:
+            if np is not None and type(self.starGoal) is np.ndarray:
+                starGoal = builder.CreateNumpyVector(self.starGoal)
+            else:
+                MiniGameDefenseStageExcelStartStarGoalVector(builder, len(self.starGoal))
+                for i in reversed(range(len(self.starGoal))):
+                    builder.PrependInt32(self.starGoal[i])
+                starGoal = builder.EndVector()
+        if self.starGoalAmount is not None:
+            if np is not None and type(self.starGoalAmount) is np.ndarray:
+                starGoalAmount = builder.CreateNumpyVector(self.starGoalAmount)
+            else:
+                MiniGameDefenseStageExcelStartStarGoalAmountVector(builder, len(self.starGoalAmount))
+                for i in reversed(range(len(self.starGoalAmount))):
+                    builder.PrependInt32(self.starGoalAmount[i])
+                starGoalAmount = builder.EndVector()
+        if self.defenseFormationBgPrefab is not None:
+            defenseFormationBgPrefab = builder.CreateString(self.defenseFormationBgPrefab)
+        MiniGameDefenseStageExcelStart(builder)
+        MiniGameDefenseStageExcelAddId(builder, self.id)
+        if self.name is not None:
+            MiniGameDefenseStageExcelAddName(builder, name)
+        MiniGameDefenseStageExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameDefenseStageExcelAddStageDifficulty(builder, self.stageDifficulty)
+        MiniGameDefenseStageExcelAddStageDifficultyLocalize(builder, self.stageDifficultyLocalize)
+        MiniGameDefenseStageExcelAddStageNumber(builder, self.stageNumber)
+        MiniGameDefenseStageExcelAddStageDisplay(builder, self.stageDisplay)
+        MiniGameDefenseStageExcelAddPrevStageId(builder, self.prevStageId)
+        MiniGameDefenseStageExcelAddEchelonExtensionType(builder, self.echelonExtensionType)
+        MiniGameDefenseStageExcelAddBattleDuration(builder, self.battleDuration)
+        MiniGameDefenseStageExcelAddStageEnterCostType(builder, self.stageEnterCostType)
+        MiniGameDefenseStageExcelAddStageEnterCostId(builder, self.stageEnterCostId)
+        MiniGameDefenseStageExcelAddStageEnterCostAmount(builder, self.stageEnterCostAmount)
+        MiniGameDefenseStageExcelAddEventContentStageRewardId(builder, self.eventContentStageRewardId)
+        if self.enterScenarioGroupId is not None:
+            MiniGameDefenseStageExcelAddEnterScenarioGroupId(builder, enterScenarioGroupId)
+        if self.clearScenarioGroupId is not None:
+            MiniGameDefenseStageExcelAddClearScenarioGroupId(builder, clearScenarioGroupId)
+        MiniGameDefenseStageExcelAddStageTopography(builder, self.stageTopography)
+        MiniGameDefenseStageExcelAddRecommandLevel(builder, self.recommandLevel)
+        MiniGameDefenseStageExcelAddGroundId(builder, self.groundId)
+        MiniGameDefenseStageExcelAddContentType(builder, self.contentType)
+        if self.starGoal is not None:
+            MiniGameDefenseStageExcelAddStarGoal(builder, starGoal)
+        if self.starGoalAmount is not None:
+            MiniGameDefenseStageExcelAddStarGoalAmount(builder, starGoalAmount)
+        if self.defenseFormationBgPrefab is not None:
+            MiniGameDefenseStageExcelAddDefenseFormationBgPrefab(builder, defenseFormationBgPrefab)
+        MiniGameDefenseStageExcelAddDefenseFormationBgPrefabScale(builder, self.defenseFormationBgPrefabScale)
+        MiniGameDefenseStageExcelAddFixedEchelon(builder, self.fixedEchelon)
+        MiniGameDefenseStageExcelAddMininageDefenseFixedStatId(builder, self.mininageDefenseFixedStatId)
+        MiniGameDefenseStageExcelAddStageHint(builder, self.stageHint)
+        miniGameDefenseStageExcel = MiniGameDefenseStageExcelEnd(builder)
+        return miniGameDefenseStageExcel

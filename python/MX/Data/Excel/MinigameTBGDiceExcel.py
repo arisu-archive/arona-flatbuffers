@@ -217,3 +217,120 @@ def MinigameTBGDiceExcelEnd(builder):
 
 def End(builder):
     return MinigameTBGDiceExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MinigameTBGDiceExcelT(object):
+
+    # MinigameTBGDiceExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        uniqueId = 0,
+        diceGroup = 0,
+        diceResult = 0,
+        prob = 0,
+        probModifyCondition = None,
+        probModifyValue = None,
+        probModifyLimit = None,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.diceGroup = diceGroup  # type: int
+        self.diceResult = diceResult  # type: int
+        self.prob = prob  # type: int
+        self.probModifyCondition = probModifyCondition  # type: Optional[List[int]]
+        self.probModifyValue = probModifyValue  # type: Optional[List[int]]
+        self.probModifyLimit = probModifyLimit  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameTbgdiceExcel = MinigameTBGDiceExcel()
+        minigameTbgdiceExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameTbgdiceExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameTbgdiceExcel):
+        x = MinigameTBGDiceExcelT()
+        x._UnPack(minigameTbgdiceExcel)
+        return x
+
+    # MinigameTBGDiceExcelT
+    def _UnPack(self, minigameTbgdiceExcel):
+        if minigameTbgdiceExcel is None:
+            return
+        self.eventContentId = minigameTbgdiceExcel.EventContentId()
+        self.uniqueId = minigameTbgdiceExcel.UniqueId()
+        self.diceGroup = minigameTbgdiceExcel.DiceGroup()
+        self.diceResult = minigameTbgdiceExcel.DiceResult()
+        self.prob = minigameTbgdiceExcel.Prob()
+        if not minigameTbgdiceExcel.ProbModifyConditionIsNone():
+            if np is None:
+                self.probModifyCondition = []
+                for i in range(minigameTbgdiceExcel.ProbModifyConditionLength()):
+                    self.probModifyCondition.append(minigameTbgdiceExcel.ProbModifyCondition(i))
+            else:
+                self.probModifyCondition = minigameTbgdiceExcel.ProbModifyConditionAsNumpy()
+        if not minigameTbgdiceExcel.ProbModifyValueIsNone():
+            if np is None:
+                self.probModifyValue = []
+                for i in range(minigameTbgdiceExcel.ProbModifyValueLength()):
+                    self.probModifyValue.append(minigameTbgdiceExcel.ProbModifyValue(i))
+            else:
+                self.probModifyValue = minigameTbgdiceExcel.ProbModifyValueAsNumpy()
+        if not minigameTbgdiceExcel.ProbModifyLimitIsNone():
+            if np is None:
+                self.probModifyLimit = []
+                for i in range(minigameTbgdiceExcel.ProbModifyLimitLength()):
+                    self.probModifyLimit.append(minigameTbgdiceExcel.ProbModifyLimit(i))
+            else:
+                self.probModifyLimit = minigameTbgdiceExcel.ProbModifyLimitAsNumpy()
+
+    # MinigameTBGDiceExcelT
+    def Pack(self, builder):
+        if self.probModifyCondition is not None:
+            if np is not None and type(self.probModifyCondition) is np.ndarray:
+                probModifyCondition = builder.CreateNumpyVector(self.probModifyCondition)
+            else:
+                MinigameTBGDiceExcelStartProbModifyConditionVector(builder, len(self.probModifyCondition))
+                for i in reversed(range(len(self.probModifyCondition))):
+                    builder.PrependInt32(self.probModifyCondition[i])
+                probModifyCondition = builder.EndVector()
+        if self.probModifyValue is not None:
+            if np is not None and type(self.probModifyValue) is np.ndarray:
+                probModifyValue = builder.CreateNumpyVector(self.probModifyValue)
+            else:
+                MinigameTBGDiceExcelStartProbModifyValueVector(builder, len(self.probModifyValue))
+                for i in reversed(range(len(self.probModifyValue))):
+                    builder.PrependInt32(self.probModifyValue[i])
+                probModifyValue = builder.EndVector()
+        if self.probModifyLimit is not None:
+            if np is not None and type(self.probModifyLimit) is np.ndarray:
+                probModifyLimit = builder.CreateNumpyVector(self.probModifyLimit)
+            else:
+                MinigameTBGDiceExcelStartProbModifyLimitVector(builder, len(self.probModifyLimit))
+                for i in reversed(range(len(self.probModifyLimit))):
+                    builder.PrependInt32(self.probModifyLimit[i])
+                probModifyLimit = builder.EndVector()
+        MinigameTBGDiceExcelStart(builder)
+        MinigameTBGDiceExcelAddEventContentId(builder, self.eventContentId)
+        MinigameTBGDiceExcelAddUniqueId(builder, self.uniqueId)
+        MinigameTBGDiceExcelAddDiceGroup(builder, self.diceGroup)
+        MinigameTBGDiceExcelAddDiceResult(builder, self.diceResult)
+        MinigameTBGDiceExcelAddProb(builder, self.prob)
+        if self.probModifyCondition is not None:
+            MinigameTBGDiceExcelAddProbModifyCondition(builder, probModifyCondition)
+        if self.probModifyValue is not None:
+            MinigameTBGDiceExcelAddProbModifyValue(builder, probModifyValue)
+        if self.probModifyLimit is not None:
+            MinigameTBGDiceExcelAddProbModifyLimit(builder, probModifyLimit)
+        minigameTbgdiceExcel = MinigameTBGDiceExcelEnd(builder)
+        return minigameTbgdiceExcel

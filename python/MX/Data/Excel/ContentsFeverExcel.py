@@ -100,3 +100,59 @@ def ContentsFeverExcelEnd(builder):
 
 def End(builder):
     return ContentsFeverExcelEnd(builder)
+
+
+class ContentsFeverExcelT(object):
+
+    # ContentsFeverExcelT
+    def __init__(
+        self,
+        conditionContent = 0,
+        skillFeverCheckCondition = 0,
+        skillCostFever = 0,
+        feverStartTime = 0,
+        feverDurationTime = 0,
+    ):
+        self.conditionContent = conditionContent  # type: int
+        self.skillFeverCheckCondition = skillFeverCheckCondition  # type: int
+        self.skillCostFever = skillCostFever  # type: int
+        self.feverStartTime = feverStartTime  # type: int
+        self.feverDurationTime = feverDurationTime  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        contentsFeverExcel = ContentsFeverExcel()
+        contentsFeverExcel.Init(buf, pos)
+        return cls.InitFromObj(contentsFeverExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, contentsFeverExcel):
+        x = ContentsFeverExcelT()
+        x._UnPack(contentsFeverExcel)
+        return x
+
+    # ContentsFeverExcelT
+    def _UnPack(self, contentsFeverExcel):
+        if contentsFeverExcel is None:
+            return
+        self.conditionContent = contentsFeverExcel.ConditionContent()
+        self.skillFeverCheckCondition = contentsFeverExcel.SkillFeverCheckCondition()
+        self.skillCostFever = contentsFeverExcel.SkillCostFever()
+        self.feverStartTime = contentsFeverExcel.FeverStartTime()
+        self.feverDurationTime = contentsFeverExcel.FeverDurationTime()
+
+    # ContentsFeverExcelT
+    def Pack(self, builder):
+        ContentsFeverExcelStart(builder)
+        ContentsFeverExcelAddConditionContent(builder, self.conditionContent)
+        ContentsFeverExcelAddSkillFeverCheckCondition(builder, self.skillFeverCheckCondition)
+        ContentsFeverExcelAddSkillCostFever(builder, self.skillCostFever)
+        ContentsFeverExcelAddFeverStartTime(builder, self.feverStartTime)
+        ContentsFeverExcelAddFeverDurationTime(builder, self.feverDurationTime)
+        contentsFeverExcel = ContentsFeverExcelEnd(builder)
+        return contentsFeverExcel

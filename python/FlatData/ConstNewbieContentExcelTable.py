@@ -72,3 +72,68 @@ def ConstNewbieContentExcelTableEnd(builder):
 
 def End(builder):
     return ConstNewbieContentExcelTableEnd(builder)
+
+import FlatData.ConstNewbieContentExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConstNewbieContentExcelTableT(object):
+
+    # ConstNewbieContentExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConstNewbieContentExcel.ConstNewbieContentExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        constNewbieContentExcelTable = ConstNewbieContentExcelTable()
+        constNewbieContentExcelTable.Init(buf, pos)
+        return cls.InitFromObj(constNewbieContentExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, constNewbieContentExcelTable):
+        x = ConstNewbieContentExcelTableT()
+        x._UnPack(constNewbieContentExcelTable)
+        return x
+
+    # ConstNewbieContentExcelTableT
+    def _UnPack(self, constNewbieContentExcelTable):
+        if constNewbieContentExcelTable is None:
+            return
+        if not constNewbieContentExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(constNewbieContentExcelTable.DataListLength()):
+                if constNewbieContentExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    constNewbieContentExcel_ = FlatData.ConstNewbieContentExcel.ConstNewbieContentExcelT.InitFromObj(constNewbieContentExcelTable.DataList(i))
+                    self.dataList.append(constNewbieContentExcel_)
+
+    # ConstNewbieContentExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConstNewbieContentExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConstNewbieContentExcelTableStart(builder)
+        if self.dataList is not None:
+            ConstNewbieContentExcelTableAddDataList(builder, dataList)
+        constNewbieContentExcelTable = ConstNewbieContentExcelTableEnd(builder)
+        return constNewbieContentExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConstNewbieContentExcelTableT, 'ConstNewbieContentExcelTable', ())

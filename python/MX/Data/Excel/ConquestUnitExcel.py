@@ -503,3 +503,216 @@ def ConquestUnitExcelEnd(builder):
 
 def End(builder):
     return ConquestUnitExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ConquestUnitExcelT(object):
+
+    # ConquestUnitExcelT
+    def __init__(
+        self,
+        id = 0,
+        key = 0,
+        name = None,
+        prefabName = None,
+        strategyPrefabName = None,
+        scale = 0.0,
+        shieldEffectScale = 0.0,
+        unitFxPrefabName = None,
+        pointAnimation = None,
+        enemyType = 0,
+        team = 0,
+        unitGroup = 0,
+        prevUnitGroup = 0,
+        battleDuration = 0,
+        groundId = 0,
+        starGoal = None,
+        starGoalAmount = None,
+        groupBuffId = 0,
+        stageEnterCostType = 0,
+        stageEnterCostId = 0,
+        stageEnterCostAmount = 0,
+        manageEchelonStageEnterCostType = 0,
+        manageEchelonStageEnterCostId = 0,
+        manageEchelonStageEnterCostAmount = 0,
+        enterScenarioGroupId = 0,
+        clearScenarioGroupId = 0,
+        conquestRewardId = 0,
+        stageTopography = 0,
+        recommandLevel = 0,
+        tacticRewardExp = 0,
+        fixedEchelonId = 0,
+        echelonExtensionType = 0,
+    ):
+        self.id = id  # type: int
+        self.key = key  # type: int
+        self.name = name  # type: Optional[str]
+        self.prefabName = prefabName  # type: Optional[str]
+        self.strategyPrefabName = strategyPrefabName  # type: Optional[str]
+        self.scale = scale  # type: float
+        self.shieldEffectScale = shieldEffectScale  # type: float
+        self.unitFxPrefabName = unitFxPrefabName  # type: Optional[str]
+        self.pointAnimation = pointAnimation  # type: Optional[str]
+        self.enemyType = enemyType  # type: int
+        self.team = team  # type: int
+        self.unitGroup = unitGroup  # type: int
+        self.prevUnitGroup = prevUnitGroup  # type: int
+        self.battleDuration = battleDuration  # type: int
+        self.groundId = groundId  # type: int
+        self.starGoal = starGoal  # type: Optional[List[int]]
+        self.starGoalAmount = starGoalAmount  # type: Optional[List[int]]
+        self.groupBuffId = groupBuffId  # type: int
+        self.stageEnterCostType = stageEnterCostType  # type: int
+        self.stageEnterCostId = stageEnterCostId  # type: int
+        self.stageEnterCostAmount = stageEnterCostAmount  # type: int
+        self.manageEchelonStageEnterCostType = manageEchelonStageEnterCostType  # type: int
+        self.manageEchelonStageEnterCostId = manageEchelonStageEnterCostId  # type: int
+        self.manageEchelonStageEnterCostAmount = manageEchelonStageEnterCostAmount  # type: int
+        self.enterScenarioGroupId = enterScenarioGroupId  # type: int
+        self.clearScenarioGroupId = clearScenarioGroupId  # type: int
+        self.conquestRewardId = conquestRewardId  # type: int
+        self.stageTopography = stageTopography  # type: int
+        self.recommandLevel = recommandLevel  # type: int
+        self.tacticRewardExp = tacticRewardExp  # type: int
+        self.fixedEchelonId = fixedEchelonId  # type: int
+        self.echelonExtensionType = echelonExtensionType  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestUnitExcel = ConquestUnitExcel()
+        conquestUnitExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestUnitExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestUnitExcel):
+        x = ConquestUnitExcelT()
+        x._UnPack(conquestUnitExcel)
+        return x
+
+    # ConquestUnitExcelT
+    def _UnPack(self, conquestUnitExcel):
+        if conquestUnitExcel is None:
+            return
+        self.id = conquestUnitExcel.Id()
+        self.key = conquestUnitExcel.Key()
+        self.name = conquestUnitExcel.Name()
+        self.prefabName = conquestUnitExcel.PrefabName()
+        self.strategyPrefabName = conquestUnitExcel.StrategyPrefabName()
+        self.scale = conquestUnitExcel.Scale()
+        self.shieldEffectScale = conquestUnitExcel.ShieldEffectScale()
+        self.unitFxPrefabName = conquestUnitExcel.UnitFxPrefabName()
+        self.pointAnimation = conquestUnitExcel.PointAnimation()
+        self.enemyType = conquestUnitExcel.EnemyType()
+        self.team = conquestUnitExcel.Team()
+        self.unitGroup = conquestUnitExcel.UnitGroup()
+        self.prevUnitGroup = conquestUnitExcel.PrevUnitGroup()
+        self.battleDuration = conquestUnitExcel.BattleDuration()
+        self.groundId = conquestUnitExcel.GroundId()
+        if not conquestUnitExcel.StarGoalIsNone():
+            if np is None:
+                self.starGoal = []
+                for i in range(conquestUnitExcel.StarGoalLength()):
+                    self.starGoal.append(conquestUnitExcel.StarGoal(i))
+            else:
+                self.starGoal = conquestUnitExcel.StarGoalAsNumpy()
+        if not conquestUnitExcel.StarGoalAmountIsNone():
+            if np is None:
+                self.starGoalAmount = []
+                for i in range(conquestUnitExcel.StarGoalAmountLength()):
+                    self.starGoalAmount.append(conquestUnitExcel.StarGoalAmount(i))
+            else:
+                self.starGoalAmount = conquestUnitExcel.StarGoalAmountAsNumpy()
+        self.groupBuffId = conquestUnitExcel.GroupBuffId()
+        self.stageEnterCostType = conquestUnitExcel.StageEnterCostType()
+        self.stageEnterCostId = conquestUnitExcel.StageEnterCostId()
+        self.stageEnterCostAmount = conquestUnitExcel.StageEnterCostAmount()
+        self.manageEchelonStageEnterCostType = conquestUnitExcel.ManageEchelonStageEnterCostType()
+        self.manageEchelonStageEnterCostId = conquestUnitExcel.ManageEchelonStageEnterCostId()
+        self.manageEchelonStageEnterCostAmount = conquestUnitExcel.ManageEchelonStageEnterCostAmount()
+        self.enterScenarioGroupId = conquestUnitExcel.EnterScenarioGroupId()
+        self.clearScenarioGroupId = conquestUnitExcel.ClearScenarioGroupId()
+        self.conquestRewardId = conquestUnitExcel.ConquestRewardId()
+        self.stageTopography = conquestUnitExcel.StageTopography()
+        self.recommandLevel = conquestUnitExcel.RecommandLevel()
+        self.tacticRewardExp = conquestUnitExcel.TacticRewardExp()
+        self.fixedEchelonId = conquestUnitExcel.FixedEchelonId()
+        self.echelonExtensionType = conquestUnitExcel.EchelonExtensionType()
+
+    # ConquestUnitExcelT
+    def Pack(self, builder):
+        if self.name is not None:
+            name = builder.CreateString(self.name)
+        if self.prefabName is not None:
+            prefabName = builder.CreateString(self.prefabName)
+        if self.strategyPrefabName is not None:
+            strategyPrefabName = builder.CreateString(self.strategyPrefabName)
+        if self.unitFxPrefabName is not None:
+            unitFxPrefabName = builder.CreateString(self.unitFxPrefabName)
+        if self.pointAnimation is not None:
+            pointAnimation = builder.CreateString(self.pointAnimation)
+        if self.starGoal is not None:
+            if np is not None and type(self.starGoal) is np.ndarray:
+                starGoal = builder.CreateNumpyVector(self.starGoal)
+            else:
+                ConquestUnitExcelStartStarGoalVector(builder, len(self.starGoal))
+                for i in reversed(range(len(self.starGoal))):
+                    builder.PrependInt32(self.starGoal[i])
+                starGoal = builder.EndVector()
+        if self.starGoalAmount is not None:
+            if np is not None and type(self.starGoalAmount) is np.ndarray:
+                starGoalAmount = builder.CreateNumpyVector(self.starGoalAmount)
+            else:
+                ConquestUnitExcelStartStarGoalAmountVector(builder, len(self.starGoalAmount))
+                for i in reversed(range(len(self.starGoalAmount))):
+                    builder.PrependInt32(self.starGoalAmount[i])
+                starGoalAmount = builder.EndVector()
+        ConquestUnitExcelStart(builder)
+        ConquestUnitExcelAddId(builder, self.id)
+        ConquestUnitExcelAddKey(builder, self.key)
+        if self.name is not None:
+            ConquestUnitExcelAddName(builder, name)
+        if self.prefabName is not None:
+            ConquestUnitExcelAddPrefabName(builder, prefabName)
+        if self.strategyPrefabName is not None:
+            ConquestUnitExcelAddStrategyPrefabName(builder, strategyPrefabName)
+        ConquestUnitExcelAddScale(builder, self.scale)
+        ConquestUnitExcelAddShieldEffectScale(builder, self.shieldEffectScale)
+        if self.unitFxPrefabName is not None:
+            ConquestUnitExcelAddUnitFxPrefabName(builder, unitFxPrefabName)
+        if self.pointAnimation is not None:
+            ConquestUnitExcelAddPointAnimation(builder, pointAnimation)
+        ConquestUnitExcelAddEnemyType(builder, self.enemyType)
+        ConquestUnitExcelAddTeam(builder, self.team)
+        ConquestUnitExcelAddUnitGroup(builder, self.unitGroup)
+        ConquestUnitExcelAddPrevUnitGroup(builder, self.prevUnitGroup)
+        ConquestUnitExcelAddBattleDuration(builder, self.battleDuration)
+        ConquestUnitExcelAddGroundId(builder, self.groundId)
+        if self.starGoal is not None:
+            ConquestUnitExcelAddStarGoal(builder, starGoal)
+        if self.starGoalAmount is not None:
+            ConquestUnitExcelAddStarGoalAmount(builder, starGoalAmount)
+        ConquestUnitExcelAddGroupBuffId(builder, self.groupBuffId)
+        ConquestUnitExcelAddStageEnterCostType(builder, self.stageEnterCostType)
+        ConquestUnitExcelAddStageEnterCostId(builder, self.stageEnterCostId)
+        ConquestUnitExcelAddStageEnterCostAmount(builder, self.stageEnterCostAmount)
+        ConquestUnitExcelAddManageEchelonStageEnterCostType(builder, self.manageEchelonStageEnterCostType)
+        ConquestUnitExcelAddManageEchelonStageEnterCostId(builder, self.manageEchelonStageEnterCostId)
+        ConquestUnitExcelAddManageEchelonStageEnterCostAmount(builder, self.manageEchelonStageEnterCostAmount)
+        ConquestUnitExcelAddEnterScenarioGroupId(builder, self.enterScenarioGroupId)
+        ConquestUnitExcelAddClearScenarioGroupId(builder, self.clearScenarioGroupId)
+        ConquestUnitExcelAddConquestRewardId(builder, self.conquestRewardId)
+        ConquestUnitExcelAddStageTopography(builder, self.stageTopography)
+        ConquestUnitExcelAddRecommandLevel(builder, self.recommandLevel)
+        ConquestUnitExcelAddTacticRewardExp(builder, self.tacticRewardExp)
+        ConquestUnitExcelAddFixedEchelonId(builder, self.fixedEchelonId)
+        ConquestUnitExcelAddEchelonExtensionType(builder, self.echelonExtensionType)
+        conquestUnitExcel = ConquestUnitExcelEnd(builder)
+        return conquestUnitExcel

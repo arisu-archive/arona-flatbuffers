@@ -116,14 +116,21 @@ class ShopRefreshExcel(object):
         return None
 
     # ShopRefreshExcel
-    def DisplayTag(self):
+    def ProductUpdateTime(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ShopRefreshExcel
+    def DisplayTag(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
 def ShopRefreshExcelStart(builder):
-    builder.StartObject(14)
+    builder.StartObject(15)
 
 def Start(builder):
     ShopRefreshExcelStart(builder)
@@ -206,8 +213,14 @@ def ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName):
 def AddBuyReportEventName(builder, buyReportEventName):
     ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName)
 
+def ShopRefreshExcelAddProductUpdateTime(builder, productUpdateTime):
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(productUpdateTime), 0)
+
+def AddProductUpdateTime(builder, productUpdateTime):
+    ShopRefreshExcelAddProductUpdateTime(builder, productUpdateTime)
+
 def ShopRefreshExcelAddDisplayTag(builder, displayTag):
-    builder.PrependInt32Slot(13, displayTag, 0)
+    builder.PrependInt32Slot(14, displayTag, 0)
 
 def AddDisplayTag(builder, displayTag):
     ShopRefreshExcelAddDisplayTag(builder, displayTag)
@@ -217,3 +230,105 @@ def ShopRefreshExcelEnd(builder):
 
 def End(builder):
     return ShopRefreshExcelEnd(builder)
+
+
+class ShopRefreshExcelT(object):
+
+    # ShopRefreshExcelT
+    def __init__(
+        self,
+        id = 0,
+        localizeEtcId = 0,
+        isLegacy = False,
+        goodsId = 0,
+        isBundle = False,
+        shopPurchasePopupType = 0,
+        visibleAmount = 0,
+        purchaseCountLimit = 0,
+        displayOrder = 0,
+        categoryType = 0,
+        refreshGroup = 0,
+        prob = 0,
+        buyReportEventName = None,
+        productUpdateTime = None,
+        displayTag = 0,
+    ):
+        self.id = id  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.isLegacy = isLegacy  # type: bool
+        self.goodsId = goodsId  # type: int
+        self.isBundle = isBundle  # type: bool
+        self.shopPurchasePopupType = shopPurchasePopupType  # type: int
+        self.visibleAmount = visibleAmount  # type: int
+        self.purchaseCountLimit = purchaseCountLimit  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.categoryType = categoryType  # type: int
+        self.refreshGroup = refreshGroup  # type: int
+        self.prob = prob  # type: int
+        self.buyReportEventName = buyReportEventName  # type: Optional[str]
+        self.productUpdateTime = productUpdateTime  # type: Optional[str]
+        self.displayTag = displayTag  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        shopRefreshExcel = ShopRefreshExcel()
+        shopRefreshExcel.Init(buf, pos)
+        return cls.InitFromObj(shopRefreshExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, shopRefreshExcel):
+        x = ShopRefreshExcelT()
+        x._UnPack(shopRefreshExcel)
+        return x
+
+    # ShopRefreshExcelT
+    def _UnPack(self, shopRefreshExcel):
+        if shopRefreshExcel is None:
+            return
+        self.id = shopRefreshExcel.Id()
+        self.localizeEtcId = shopRefreshExcel.LocalizeEtcId()
+        self.isLegacy = shopRefreshExcel.IsLegacy()
+        self.goodsId = shopRefreshExcel.GoodsId()
+        self.isBundle = shopRefreshExcel.IsBundle()
+        self.shopPurchasePopupType = shopRefreshExcel.ShopPurchasePopupType()
+        self.visibleAmount = shopRefreshExcel.VisibleAmount()
+        self.purchaseCountLimit = shopRefreshExcel.PurchaseCountLimit()
+        self.displayOrder = shopRefreshExcel.DisplayOrder()
+        self.categoryType = shopRefreshExcel.CategoryType()
+        self.refreshGroup = shopRefreshExcel.RefreshGroup()
+        self.prob = shopRefreshExcel.Prob()
+        self.buyReportEventName = shopRefreshExcel.BuyReportEventName()
+        self.productUpdateTime = shopRefreshExcel.ProductUpdateTime()
+        self.displayTag = shopRefreshExcel.DisplayTag()
+
+    # ShopRefreshExcelT
+    def Pack(self, builder):
+        if self.buyReportEventName is not None:
+            buyReportEventName = builder.CreateString(self.buyReportEventName)
+        if self.productUpdateTime is not None:
+            productUpdateTime = builder.CreateString(self.productUpdateTime)
+        ShopRefreshExcelStart(builder)
+        ShopRefreshExcelAddId(builder, self.id)
+        ShopRefreshExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        ShopRefreshExcelAddIsLegacy(builder, self.isLegacy)
+        ShopRefreshExcelAddGoodsId(builder, self.goodsId)
+        ShopRefreshExcelAddIsBundle(builder, self.isBundle)
+        ShopRefreshExcelAddShopPurchasePopupType(builder, self.shopPurchasePopupType)
+        ShopRefreshExcelAddVisibleAmount(builder, self.visibleAmount)
+        ShopRefreshExcelAddPurchaseCountLimit(builder, self.purchaseCountLimit)
+        ShopRefreshExcelAddDisplayOrder(builder, self.displayOrder)
+        ShopRefreshExcelAddCategoryType(builder, self.categoryType)
+        ShopRefreshExcelAddRefreshGroup(builder, self.refreshGroup)
+        ShopRefreshExcelAddProb(builder, self.prob)
+        if self.buyReportEventName is not None:
+            ShopRefreshExcelAddBuyReportEventName(builder, buyReportEventName)
+        if self.productUpdateTime is not None:
+            ShopRefreshExcelAddProductUpdateTime(builder, productUpdateTime)
+        ShopRefreshExcelAddDisplayTag(builder, self.displayTag)
+        shopRefreshExcel = ShopRefreshExcelEnd(builder)
+        return shopRefreshExcel

@@ -139,3 +139,71 @@ def CombatEmojiExcelEnd(builder):
 
 def End(builder):
     return CombatEmojiExcelEnd(builder)
+
+
+class CombatEmojiExcelT(object):
+
+    # CombatEmojiExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        emojiEvent = 0,
+        orderOfPriority = 0,
+        emojiDuration = False,
+        emojiReversal = False,
+        emojiTurnOn = False,
+        showEmojiDelay = 0,
+        showDefaultBg = False,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.emojiEvent = emojiEvent  # type: int
+        self.orderOfPriority = orderOfPriority  # type: int
+        self.emojiDuration = emojiDuration  # type: bool
+        self.emojiReversal = emojiReversal  # type: bool
+        self.emojiTurnOn = emojiTurnOn  # type: bool
+        self.showEmojiDelay = showEmojiDelay  # type: int
+        self.showDefaultBg = showDefaultBg  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        combatEmojiExcel = CombatEmojiExcel()
+        combatEmojiExcel.Init(buf, pos)
+        return cls.InitFromObj(combatEmojiExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, combatEmojiExcel):
+        x = CombatEmojiExcelT()
+        x._UnPack(combatEmojiExcel)
+        return x
+
+    # CombatEmojiExcelT
+    def _UnPack(self, combatEmojiExcel):
+        if combatEmojiExcel is None:
+            return
+        self.uniqueId = combatEmojiExcel.UniqueId()
+        self.emojiEvent = combatEmojiExcel.EmojiEvent()
+        self.orderOfPriority = combatEmojiExcel.OrderOfPriority()
+        self.emojiDuration = combatEmojiExcel.EmojiDuration()
+        self.emojiReversal = combatEmojiExcel.EmojiReversal()
+        self.emojiTurnOn = combatEmojiExcel.EmojiTurnOn()
+        self.showEmojiDelay = combatEmojiExcel.ShowEmojiDelay()
+        self.showDefaultBg = combatEmojiExcel.ShowDefaultBg()
+
+    # CombatEmojiExcelT
+    def Pack(self, builder):
+        CombatEmojiExcelStart(builder)
+        CombatEmojiExcelAddUniqueId(builder, self.uniqueId)
+        CombatEmojiExcelAddEmojiEvent(builder, self.emojiEvent)
+        CombatEmojiExcelAddOrderOfPriority(builder, self.orderOfPriority)
+        CombatEmojiExcelAddEmojiDuration(builder, self.emojiDuration)
+        CombatEmojiExcelAddEmojiReversal(builder, self.emojiReversal)
+        CombatEmojiExcelAddEmojiTurnOn(builder, self.emojiTurnOn)
+        CombatEmojiExcelAddShowEmojiDelay(builder, self.showEmojiDelay)
+        CombatEmojiExcelAddShowDefaultBg(builder, self.showDefaultBg)
+        combatEmojiExcel = CombatEmojiExcelEnd(builder)
+        return combatEmojiExcel

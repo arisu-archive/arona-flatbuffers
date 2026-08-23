@@ -139,3 +139,77 @@ def IdCardBackgroundExcelEnd(builder):
 
 def End(builder):
     return IdCardBackgroundExcelEnd(builder)
+
+
+class IdCardBackgroundExcelT(object):
+
+    # IdCardBackgroundExcelT
+    def __init__(
+        self,
+        id = 0,
+        rarity = 0,
+        displayOrder = 0,
+        collectionVisible = False,
+        isDefault = False,
+        bgPath = None,
+        localizeEtcId = 0,
+        icon = None,
+    ):
+        self.id = id  # type: int
+        self.rarity = rarity  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.collectionVisible = collectionVisible  # type: bool
+        self.isDefault = isDefault  # type: bool
+        self.bgPath = bgPath  # type: Optional[str]
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.icon = icon  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        idCardBackgroundExcel = IdCardBackgroundExcel()
+        idCardBackgroundExcel.Init(buf, pos)
+        return cls.InitFromObj(idCardBackgroundExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, idCardBackgroundExcel):
+        x = IdCardBackgroundExcelT()
+        x._UnPack(idCardBackgroundExcel)
+        return x
+
+    # IdCardBackgroundExcelT
+    def _UnPack(self, idCardBackgroundExcel):
+        if idCardBackgroundExcel is None:
+            return
+        self.id = idCardBackgroundExcel.Id()
+        self.rarity = idCardBackgroundExcel.Rarity()
+        self.displayOrder = idCardBackgroundExcel.DisplayOrder()
+        self.collectionVisible = idCardBackgroundExcel.CollectionVisible()
+        self.isDefault = idCardBackgroundExcel.IsDefault()
+        self.bgPath = idCardBackgroundExcel.BgPath()
+        self.localizeEtcId = idCardBackgroundExcel.LocalizeEtcId()
+        self.icon = idCardBackgroundExcel.Icon()
+
+    # IdCardBackgroundExcelT
+    def Pack(self, builder):
+        if self.bgPath is not None:
+            bgPath = builder.CreateString(self.bgPath)
+        if self.icon is not None:
+            icon = builder.CreateString(self.icon)
+        IdCardBackgroundExcelStart(builder)
+        IdCardBackgroundExcelAddId(builder, self.id)
+        IdCardBackgroundExcelAddRarity(builder, self.rarity)
+        IdCardBackgroundExcelAddDisplayOrder(builder, self.displayOrder)
+        IdCardBackgroundExcelAddCollectionVisible(builder, self.collectionVisible)
+        IdCardBackgroundExcelAddIsDefault(builder, self.isDefault)
+        if self.bgPath is not None:
+            IdCardBackgroundExcelAddBgPath(builder, bgPath)
+        IdCardBackgroundExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        if self.icon is not None:
+            IdCardBackgroundExcelAddIcon(builder, icon)
+        idCardBackgroundExcel = IdCardBackgroundExcelEnd(builder)
+        return idCardBackgroundExcel

@@ -61,3 +61,47 @@ def MiniGameDefenseCharacterBanExcelEnd(builder):
 
 def End(builder):
     return MiniGameDefenseCharacterBanExcelEnd(builder)
+
+
+class MiniGameDefenseCharacterBanExcelT(object):
+
+    # MiniGameDefenseCharacterBanExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        characterId = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.characterId = characterId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDefenseCharacterBanExcel = MiniGameDefenseCharacterBanExcel()
+        miniGameDefenseCharacterBanExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDefenseCharacterBanExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDefenseCharacterBanExcel):
+        x = MiniGameDefenseCharacterBanExcelT()
+        x._UnPack(miniGameDefenseCharacterBanExcel)
+        return x
+
+    # MiniGameDefenseCharacterBanExcelT
+    def _UnPack(self, miniGameDefenseCharacterBanExcel):
+        if miniGameDefenseCharacterBanExcel is None:
+            return
+        self.eventContentId = miniGameDefenseCharacterBanExcel.EventContentId()
+        self.characterId = miniGameDefenseCharacterBanExcel.CharacterId()
+
+    # MiniGameDefenseCharacterBanExcelT
+    def Pack(self, builder):
+        MiniGameDefenseCharacterBanExcelStart(builder)
+        MiniGameDefenseCharacterBanExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameDefenseCharacterBanExcelAddCharacterId(builder, self.characterId)
+        miniGameDefenseCharacterBanExcel = MiniGameDefenseCharacterBanExcelEnd(builder)
+        return miniGameDefenseCharacterBanExcel

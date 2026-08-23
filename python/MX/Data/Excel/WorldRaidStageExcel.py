@@ -632,3 +632,279 @@ def WorldRaidStageExcelEnd(builder):
 
 def End(builder):
     return WorldRaidStageExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class WorldRaidStageExcelT(object):
+
+    # WorldRaidStageExcelT
+    def __init__(
+        self,
+        id = 0,
+        useBossIndex = False,
+        useBossAiPhaseSync = False,
+        worldRaidBossGroupId = 0,
+        portraitPath = None,
+        bgPath = None,
+        raidCharacterId = 0,
+        bossCharacterId = None,
+        assistCharacterLimitCount = 0,
+        worldRaidDifficulty = 0,
+        difficultyOpenCondition = False,
+        raidEnterAmount = 0,
+        reEnterAmount = 0,
+        battleDuration = 0,
+        groundId = 0,
+        raidBattleEndRewardGroupId = 0,
+        raidRewardGroupId = 0,
+        battleReadyTimelinePath = None,
+        battleReadyTimelinePhaseStart = None,
+        battleReadyTimelinePhaseEnd = None,
+        victoryTimelinePath = None,
+        phaseChangeTimelinePath = None,
+        timeLinePhase = 0,
+        enterScenarioKey = 0,
+        clearScenarioKey = 0,
+        useFixedEchelon = False,
+        fixedEchelonId = 0,
+        isRaidScenarioBattle = False,
+        showSkillCard = False,
+        bossBgInfoKey = 0,
+        damageToWorldBoss = 0,
+        allyPassiveSkill = None,
+        allyPassiveSkillLevel = None,
+        saveCurrentLocalBossHp = False,
+        echelonExtensionType = 0,
+    ):
+        self.id = id  # type: int
+        self.useBossIndex = useBossIndex  # type: bool
+        self.useBossAiPhaseSync = useBossAiPhaseSync  # type: bool
+        self.worldRaidBossGroupId = worldRaidBossGroupId  # type: int
+        self.portraitPath = portraitPath  # type: Optional[str]
+        self.bgPath = bgPath  # type: Optional[str]
+        self.raidCharacterId = raidCharacterId  # type: int
+        self.bossCharacterId = bossCharacterId  # type: Optional[List[int]]
+        self.assistCharacterLimitCount = assistCharacterLimitCount  # type: int
+        self.worldRaidDifficulty = worldRaidDifficulty  # type: int
+        self.difficultyOpenCondition = difficultyOpenCondition  # type: bool
+        self.raidEnterAmount = raidEnterAmount  # type: int
+        self.reEnterAmount = reEnterAmount  # type: int
+        self.battleDuration = battleDuration  # type: int
+        self.groundId = groundId  # type: int
+        self.raidBattleEndRewardGroupId = raidBattleEndRewardGroupId  # type: int
+        self.raidRewardGroupId = raidRewardGroupId  # type: int
+        self.battleReadyTimelinePath = battleReadyTimelinePath  # type: Optional[List[Optional[str]]]
+        self.battleReadyTimelinePhaseStart = battleReadyTimelinePhaseStart  # type: Optional[List[int]]
+        self.battleReadyTimelinePhaseEnd = battleReadyTimelinePhaseEnd  # type: Optional[List[int]]
+        self.victoryTimelinePath = victoryTimelinePath  # type: Optional[str]
+        self.phaseChangeTimelinePath = phaseChangeTimelinePath  # type: Optional[str]
+        self.timeLinePhase = timeLinePhase  # type: int
+        self.enterScenarioKey = enterScenarioKey  # type: int
+        self.clearScenarioKey = clearScenarioKey  # type: int
+        self.useFixedEchelon = useFixedEchelon  # type: bool
+        self.fixedEchelonId = fixedEchelonId  # type: int
+        self.isRaidScenarioBattle = isRaidScenarioBattle  # type: bool
+        self.showSkillCard = showSkillCard  # type: bool
+        self.bossBgInfoKey = bossBgInfoKey  # type: int
+        self.damageToWorldBoss = damageToWorldBoss  # type: int
+        self.allyPassiveSkill = allyPassiveSkill  # type: Optional[List[Optional[str]]]
+        self.allyPassiveSkillLevel = allyPassiveSkillLevel  # type: Optional[List[int]]
+        self.saveCurrentLocalBossHp = saveCurrentLocalBossHp  # type: bool
+        self.echelonExtensionType = echelonExtensionType  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        worldRaidStageExcel = WorldRaidStageExcel()
+        worldRaidStageExcel.Init(buf, pos)
+        return cls.InitFromObj(worldRaidStageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, worldRaidStageExcel):
+        x = WorldRaidStageExcelT()
+        x._UnPack(worldRaidStageExcel)
+        return x
+
+    # WorldRaidStageExcelT
+    def _UnPack(self, worldRaidStageExcel):
+        if worldRaidStageExcel is None:
+            return
+        self.id = worldRaidStageExcel.Id()
+        self.useBossIndex = worldRaidStageExcel.UseBossIndex()
+        self.useBossAiPhaseSync = worldRaidStageExcel.UseBossAiPhaseSync()
+        self.worldRaidBossGroupId = worldRaidStageExcel.WorldRaidBossGroupId()
+        self.portraitPath = worldRaidStageExcel.PortraitPath()
+        self.bgPath = worldRaidStageExcel.BgPath()
+        self.raidCharacterId = worldRaidStageExcel.RaidCharacterId()
+        if not worldRaidStageExcel.BossCharacterIdIsNone():
+            if np is None:
+                self.bossCharacterId = []
+                for i in range(worldRaidStageExcel.BossCharacterIdLength()):
+                    self.bossCharacterId.append(worldRaidStageExcel.BossCharacterId(i))
+            else:
+                self.bossCharacterId = worldRaidStageExcel.BossCharacterIdAsNumpy()
+        self.assistCharacterLimitCount = worldRaidStageExcel.AssistCharacterLimitCount()
+        self.worldRaidDifficulty = worldRaidStageExcel.WorldRaidDifficulty()
+        self.difficultyOpenCondition = worldRaidStageExcel.DifficultyOpenCondition()
+        self.raidEnterAmount = worldRaidStageExcel.RaidEnterAmount()
+        self.reEnterAmount = worldRaidStageExcel.ReEnterAmount()
+        self.battleDuration = worldRaidStageExcel.BattleDuration()
+        self.groundId = worldRaidStageExcel.GroundId()
+        self.raidBattleEndRewardGroupId = worldRaidStageExcel.RaidBattleEndRewardGroupId()
+        self.raidRewardGroupId = worldRaidStageExcel.RaidRewardGroupId()
+        if not worldRaidStageExcel.BattleReadyTimelinePathIsNone():
+            self.battleReadyTimelinePath = []
+            for i in range(worldRaidStageExcel.BattleReadyTimelinePathLength()):
+                self.battleReadyTimelinePath.append(worldRaidStageExcel.BattleReadyTimelinePath(i))
+        if not worldRaidStageExcel.BattleReadyTimelinePhaseStartIsNone():
+            if np is None:
+                self.battleReadyTimelinePhaseStart = []
+                for i in range(worldRaidStageExcel.BattleReadyTimelinePhaseStartLength()):
+                    self.battleReadyTimelinePhaseStart.append(worldRaidStageExcel.BattleReadyTimelinePhaseStart(i))
+            else:
+                self.battleReadyTimelinePhaseStart = worldRaidStageExcel.BattleReadyTimelinePhaseStartAsNumpy()
+        if not worldRaidStageExcel.BattleReadyTimelinePhaseEndIsNone():
+            if np is None:
+                self.battleReadyTimelinePhaseEnd = []
+                for i in range(worldRaidStageExcel.BattleReadyTimelinePhaseEndLength()):
+                    self.battleReadyTimelinePhaseEnd.append(worldRaidStageExcel.BattleReadyTimelinePhaseEnd(i))
+            else:
+                self.battleReadyTimelinePhaseEnd = worldRaidStageExcel.BattleReadyTimelinePhaseEndAsNumpy()
+        self.victoryTimelinePath = worldRaidStageExcel.VictoryTimelinePath()
+        self.phaseChangeTimelinePath = worldRaidStageExcel.PhaseChangeTimelinePath()
+        self.timeLinePhase = worldRaidStageExcel.TimeLinePhase()
+        self.enterScenarioKey = worldRaidStageExcel.EnterScenarioKey()
+        self.clearScenarioKey = worldRaidStageExcel.ClearScenarioKey()
+        self.useFixedEchelon = worldRaidStageExcel.UseFixedEchelon()
+        self.fixedEchelonId = worldRaidStageExcel.FixedEchelonId()
+        self.isRaidScenarioBattle = worldRaidStageExcel.IsRaidScenarioBattle()
+        self.showSkillCard = worldRaidStageExcel.ShowSkillCard()
+        self.bossBgInfoKey = worldRaidStageExcel.BossBgInfoKey()
+        self.damageToWorldBoss = worldRaidStageExcel.DamageToWorldBoss()
+        if not worldRaidStageExcel.AllyPassiveSkillIsNone():
+            self.allyPassiveSkill = []
+            for i in range(worldRaidStageExcel.AllyPassiveSkillLength()):
+                self.allyPassiveSkill.append(worldRaidStageExcel.AllyPassiveSkill(i))
+        if not worldRaidStageExcel.AllyPassiveSkillLevelIsNone():
+            if np is None:
+                self.allyPassiveSkillLevel = []
+                for i in range(worldRaidStageExcel.AllyPassiveSkillLevelLength()):
+                    self.allyPassiveSkillLevel.append(worldRaidStageExcel.AllyPassiveSkillLevel(i))
+            else:
+                self.allyPassiveSkillLevel = worldRaidStageExcel.AllyPassiveSkillLevelAsNumpy()
+        self.saveCurrentLocalBossHp = worldRaidStageExcel.SaveCurrentLocalBossHp()
+        self.echelonExtensionType = worldRaidStageExcel.EchelonExtensionType()
+
+    # WorldRaidStageExcelT
+    def Pack(self, builder):
+        if self.portraitPath is not None:
+            portraitPath = builder.CreateString(self.portraitPath)
+        if self.bgPath is not None:
+            bgPath = builder.CreateString(self.bgPath)
+        if self.bossCharacterId is not None:
+            if np is not None and type(self.bossCharacterId) is np.ndarray:
+                bossCharacterId = builder.CreateNumpyVector(self.bossCharacterId)
+            else:
+                WorldRaidStageExcelStartBossCharacterIdVector(builder, len(self.bossCharacterId))
+                for i in reversed(range(len(self.bossCharacterId))):
+                    builder.PrependInt64(self.bossCharacterId[i])
+                bossCharacterId = builder.EndVector()
+        if self.battleReadyTimelinePath is not None:
+            battleReadyTimelinePathlist = []
+            for i in range(len(self.battleReadyTimelinePath)):
+                battleReadyTimelinePathlist.append(builder.CreateString(self.battleReadyTimelinePath[i]))
+            WorldRaidStageExcelStartBattleReadyTimelinePathVector(builder, len(self.battleReadyTimelinePath))
+            for i in reversed(range(len(self.battleReadyTimelinePath))):
+                builder.PrependUOffsetTRelative(battleReadyTimelinePathlist[i])
+            battleReadyTimelinePath = builder.EndVector()
+        if self.battleReadyTimelinePhaseStart is not None:
+            if np is not None and type(self.battleReadyTimelinePhaseStart) is np.ndarray:
+                battleReadyTimelinePhaseStart = builder.CreateNumpyVector(self.battleReadyTimelinePhaseStart)
+            else:
+                WorldRaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, len(self.battleReadyTimelinePhaseStart))
+                for i in reversed(range(len(self.battleReadyTimelinePhaseStart))):
+                    builder.PrependInt32(self.battleReadyTimelinePhaseStart[i])
+                battleReadyTimelinePhaseStart = builder.EndVector()
+        if self.battleReadyTimelinePhaseEnd is not None:
+            if np is not None and type(self.battleReadyTimelinePhaseEnd) is np.ndarray:
+                battleReadyTimelinePhaseEnd = builder.CreateNumpyVector(self.battleReadyTimelinePhaseEnd)
+            else:
+                WorldRaidStageExcelStartBattleReadyTimelinePhaseEndVector(builder, len(self.battleReadyTimelinePhaseEnd))
+                for i in reversed(range(len(self.battleReadyTimelinePhaseEnd))):
+                    builder.PrependInt32(self.battleReadyTimelinePhaseEnd[i])
+                battleReadyTimelinePhaseEnd = builder.EndVector()
+        if self.victoryTimelinePath is not None:
+            victoryTimelinePath = builder.CreateString(self.victoryTimelinePath)
+        if self.phaseChangeTimelinePath is not None:
+            phaseChangeTimelinePath = builder.CreateString(self.phaseChangeTimelinePath)
+        if self.allyPassiveSkill is not None:
+            allyPassiveSkilllist = []
+            for i in range(len(self.allyPassiveSkill)):
+                allyPassiveSkilllist.append(builder.CreateString(self.allyPassiveSkill[i]))
+            WorldRaidStageExcelStartAllyPassiveSkillVector(builder, len(self.allyPassiveSkill))
+            for i in reversed(range(len(self.allyPassiveSkill))):
+                builder.PrependUOffsetTRelative(allyPassiveSkilllist[i])
+            allyPassiveSkill = builder.EndVector()
+        if self.allyPassiveSkillLevel is not None:
+            if np is not None and type(self.allyPassiveSkillLevel) is np.ndarray:
+                allyPassiveSkillLevel = builder.CreateNumpyVector(self.allyPassiveSkillLevel)
+            else:
+                WorldRaidStageExcelStartAllyPassiveSkillLevelVector(builder, len(self.allyPassiveSkillLevel))
+                for i in reversed(range(len(self.allyPassiveSkillLevel))):
+                    builder.PrependInt32(self.allyPassiveSkillLevel[i])
+                allyPassiveSkillLevel = builder.EndVector()
+        WorldRaidStageExcelStart(builder)
+        WorldRaidStageExcelAddId(builder, self.id)
+        WorldRaidStageExcelAddUseBossIndex(builder, self.useBossIndex)
+        WorldRaidStageExcelAddUseBossAiPhaseSync(builder, self.useBossAiPhaseSync)
+        WorldRaidStageExcelAddWorldRaidBossGroupId(builder, self.worldRaidBossGroupId)
+        if self.portraitPath is not None:
+            WorldRaidStageExcelAddPortraitPath(builder, portraitPath)
+        if self.bgPath is not None:
+            WorldRaidStageExcelAddBgPath(builder, bgPath)
+        WorldRaidStageExcelAddRaidCharacterId(builder, self.raidCharacterId)
+        if self.bossCharacterId is not None:
+            WorldRaidStageExcelAddBossCharacterId(builder, bossCharacterId)
+        WorldRaidStageExcelAddAssistCharacterLimitCount(builder, self.assistCharacterLimitCount)
+        WorldRaidStageExcelAddWorldRaidDifficulty(builder, self.worldRaidDifficulty)
+        WorldRaidStageExcelAddDifficultyOpenCondition(builder, self.difficultyOpenCondition)
+        WorldRaidStageExcelAddRaidEnterAmount(builder, self.raidEnterAmount)
+        WorldRaidStageExcelAddReEnterAmount(builder, self.reEnterAmount)
+        WorldRaidStageExcelAddBattleDuration(builder, self.battleDuration)
+        WorldRaidStageExcelAddGroundId(builder, self.groundId)
+        WorldRaidStageExcelAddRaidBattleEndRewardGroupId(builder, self.raidBattleEndRewardGroupId)
+        WorldRaidStageExcelAddRaidRewardGroupId(builder, self.raidRewardGroupId)
+        if self.battleReadyTimelinePath is not None:
+            WorldRaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath)
+        if self.battleReadyTimelinePhaseStart is not None:
+            WorldRaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart)
+        if self.battleReadyTimelinePhaseEnd is not None:
+            WorldRaidStageExcelAddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd)
+        if self.victoryTimelinePath is not None:
+            WorldRaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath)
+        if self.phaseChangeTimelinePath is not None:
+            WorldRaidStageExcelAddPhaseChangeTimelinePath(builder, phaseChangeTimelinePath)
+        WorldRaidStageExcelAddTimeLinePhase(builder, self.timeLinePhase)
+        WorldRaidStageExcelAddEnterScenarioKey(builder, self.enterScenarioKey)
+        WorldRaidStageExcelAddClearScenarioKey(builder, self.clearScenarioKey)
+        WorldRaidStageExcelAddUseFixedEchelon(builder, self.useFixedEchelon)
+        WorldRaidStageExcelAddFixedEchelonId(builder, self.fixedEchelonId)
+        WorldRaidStageExcelAddIsRaidScenarioBattle(builder, self.isRaidScenarioBattle)
+        WorldRaidStageExcelAddShowSkillCard(builder, self.showSkillCard)
+        WorldRaidStageExcelAddBossBgInfoKey(builder, self.bossBgInfoKey)
+        WorldRaidStageExcelAddDamageToWorldBoss(builder, self.damageToWorldBoss)
+        if self.allyPassiveSkill is not None:
+            WorldRaidStageExcelAddAllyPassiveSkill(builder, allyPassiveSkill)
+        if self.allyPassiveSkillLevel is not None:
+            WorldRaidStageExcelAddAllyPassiveSkillLevel(builder, allyPassiveSkillLevel)
+        WorldRaidStageExcelAddSaveCurrentLocalBossHp(builder, self.saveCurrentLocalBossHp)
+        WorldRaidStageExcelAddEchelonExtensionType(builder, self.echelonExtensionType)
+        worldRaidStageExcel = WorldRaidStageExcelEnd(builder)
+        return worldRaidStageExcel

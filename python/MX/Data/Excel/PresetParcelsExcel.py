@@ -87,3 +87,55 @@ def PresetParcelsExcelEnd(builder):
 
 def End(builder):
     return PresetParcelsExcelEnd(builder)
+
+
+class PresetParcelsExcelT(object):
+
+    # PresetParcelsExcelT
+    def __init__(
+        self,
+        parcelType = 0,
+        parcelId = 0,
+        presetGroupId = 0,
+        parcelAmount = 0,
+    ):
+        self.parcelType = parcelType  # type: int
+        self.parcelId = parcelId  # type: int
+        self.presetGroupId = presetGroupId  # type: int
+        self.parcelAmount = parcelAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        presetParcelsExcel = PresetParcelsExcel()
+        presetParcelsExcel.Init(buf, pos)
+        return cls.InitFromObj(presetParcelsExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, presetParcelsExcel):
+        x = PresetParcelsExcelT()
+        x._UnPack(presetParcelsExcel)
+        return x
+
+    # PresetParcelsExcelT
+    def _UnPack(self, presetParcelsExcel):
+        if presetParcelsExcel is None:
+            return
+        self.parcelType = presetParcelsExcel.ParcelType()
+        self.parcelId = presetParcelsExcel.ParcelId()
+        self.presetGroupId = presetParcelsExcel.PresetGroupId()
+        self.parcelAmount = presetParcelsExcel.ParcelAmount()
+
+    # PresetParcelsExcelT
+    def Pack(self, builder):
+        PresetParcelsExcelStart(builder)
+        PresetParcelsExcelAddParcelType(builder, self.parcelType)
+        PresetParcelsExcelAddParcelId(builder, self.parcelId)
+        PresetParcelsExcelAddPresetGroupId(builder, self.presetGroupId)
+        PresetParcelsExcelAddParcelAmount(builder, self.parcelAmount)
+        presetParcelsExcel = PresetParcelsExcelEnd(builder)
+        return presetParcelsExcel

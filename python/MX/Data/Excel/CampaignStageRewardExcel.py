@@ -126,3 +126,67 @@ def CampaignStageRewardExcelEnd(builder):
 
 def End(builder):
     return CampaignStageRewardExcelEnd(builder)
+
+
+class CampaignStageRewardExcelT(object):
+
+    # CampaignStageRewardExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        rewardTag = 0,
+        stageRewardProb = 0,
+        stageRewardParcelType = 0,
+        stageRewardId = 0,
+        stageRewardAmount = 0,
+        isDisplayed = False,
+    ):
+        self.groupId = groupId  # type: int
+        self.rewardTag = rewardTag  # type: int
+        self.stageRewardProb = stageRewardProb  # type: int
+        self.stageRewardParcelType = stageRewardParcelType  # type: int
+        self.stageRewardId = stageRewardId  # type: int
+        self.stageRewardAmount = stageRewardAmount  # type: int
+        self.isDisplayed = isDisplayed  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        campaignStageRewardExcel = CampaignStageRewardExcel()
+        campaignStageRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(campaignStageRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, campaignStageRewardExcel):
+        x = CampaignStageRewardExcelT()
+        x._UnPack(campaignStageRewardExcel)
+        return x
+
+    # CampaignStageRewardExcelT
+    def _UnPack(self, campaignStageRewardExcel):
+        if campaignStageRewardExcel is None:
+            return
+        self.groupId = campaignStageRewardExcel.GroupId()
+        self.rewardTag = campaignStageRewardExcel.RewardTag()
+        self.stageRewardProb = campaignStageRewardExcel.StageRewardProb()
+        self.stageRewardParcelType = campaignStageRewardExcel.StageRewardParcelType()
+        self.stageRewardId = campaignStageRewardExcel.StageRewardId()
+        self.stageRewardAmount = campaignStageRewardExcel.StageRewardAmount()
+        self.isDisplayed = campaignStageRewardExcel.IsDisplayed()
+
+    # CampaignStageRewardExcelT
+    def Pack(self, builder):
+        CampaignStageRewardExcelStart(builder)
+        CampaignStageRewardExcelAddGroupId(builder, self.groupId)
+        CampaignStageRewardExcelAddRewardTag(builder, self.rewardTag)
+        CampaignStageRewardExcelAddStageRewardProb(builder, self.stageRewardProb)
+        CampaignStageRewardExcelAddStageRewardParcelType(builder, self.stageRewardParcelType)
+        CampaignStageRewardExcelAddStageRewardId(builder, self.stageRewardId)
+        CampaignStageRewardExcelAddStageRewardAmount(builder, self.stageRewardAmount)
+        CampaignStageRewardExcelAddIsDisplayed(builder, self.isDisplayed)
+        campaignStageRewardExcel = CampaignStageRewardExcelEnd(builder)
+        return campaignStageRewardExcel

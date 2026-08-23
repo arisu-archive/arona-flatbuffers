@@ -113,3 +113,63 @@ def BGM_GlobalExcelEnd(builder):
 
 def End(builder):
     return BGM_GlobalExcelEnd(builder)
+
+
+class BGM_GlobalExcelT(object):
+
+    # BGM_GlobalExcelT
+    def __init__(
+        self,
+        groupBgmId = 0,
+        bgmIdKr = 0,
+        bgmIdJp = 0,
+        bgmIdTh = 0,
+        bgmIdTw = 0,
+        bgmIdEn = 0,
+    ):
+        self.groupBgmId = groupBgmId  # type: int
+        self.bgmIdKr = bgmIdKr  # type: int
+        self.bgmIdJp = bgmIdJp  # type: int
+        self.bgmIdTh = bgmIdTh  # type: int
+        self.bgmIdTw = bgmIdTw  # type: int
+        self.bgmIdEn = bgmIdEn  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        bgmGlobalExcel = BGM_GlobalExcel()
+        bgmGlobalExcel.Init(buf, pos)
+        return cls.InitFromObj(bgmGlobalExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, bgmGlobalExcel):
+        x = BGM_GlobalExcelT()
+        x._UnPack(bgmGlobalExcel)
+        return x
+
+    # BGM_GlobalExcelT
+    def _UnPack(self, bgmGlobalExcel):
+        if bgmGlobalExcel is None:
+            return
+        self.groupBgmId = bgmGlobalExcel.GroupBgmId()
+        self.bgmIdKr = bgmGlobalExcel.BgmIdKr()
+        self.bgmIdJp = bgmGlobalExcel.BgmIdJp()
+        self.bgmIdTh = bgmGlobalExcel.BgmIdTh()
+        self.bgmIdTw = bgmGlobalExcel.BgmIdTw()
+        self.bgmIdEn = bgmGlobalExcel.BgmIdEn()
+
+    # BGM_GlobalExcelT
+    def Pack(self, builder):
+        BGM_GlobalExcelStart(builder)
+        BGM_GlobalExcelAddGroupBgmId(builder, self.groupBgmId)
+        BGM_GlobalExcelAddBgmIdKr(builder, self.bgmIdKr)
+        BGM_GlobalExcelAddBgmIdJp(builder, self.bgmIdJp)
+        BGM_GlobalExcelAddBgmIdTh(builder, self.bgmIdTh)
+        BGM_GlobalExcelAddBgmIdTw(builder, self.bgmIdTw)
+        BGM_GlobalExcelAddBgmIdEn(builder, self.bgmIdEn)
+        bgmGlobalExcel = BGM_GlobalExcelEnd(builder)
+        return bgmGlobalExcel

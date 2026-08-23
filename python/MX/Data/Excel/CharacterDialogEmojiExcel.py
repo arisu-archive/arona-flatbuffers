@@ -60,49 +60,146 @@ class CharacterDialogEmojiExcel(object):
         return 0
 
     # CharacterDialogEmojiExcel
-    def HideUi(self):
+    def DurationAdd(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterDialogEmojiExcel
+    def HideUi(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # CharacterDialogEmojiExcel
     def LocalizeKr(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # CharacterDialogEmojiExcel
-    def LocalizeJp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CharacterDialogEmojiExcel
-    def LocalizeTh(self):
+    def LocalizeJp(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CharacterDialogEmojiExcel
-    def LocalizeTw(self):
+    def LocalizeTh(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # CharacterDialogEmojiExcel
-    def LocalizeEn(self):
+    def LocalizeTw(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
+    # CharacterDialogEmojiExcel
+    def LocalizeEn(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CharacterDialogEmojiExcel
+    def VoiceId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Uint32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # CharacterDialogEmojiExcel
+    def VoiceIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Uint32Flags, o)
+        return 0
+
+    # CharacterDialogEmojiExcel
+    def VoiceIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CharacterDialogEmojiExcel
+    def VoiceIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        return o == 0
+
+    # CharacterDialogEmojiExcel
+    def CharacterId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterDialogEmojiExcel
+    def CostumeUniqueId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterDialogEmojiExcel
+    def DisplayOrder(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterDialogEmojiExcel
+    def CollectionVisible(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # CharacterDialogEmojiExcel
+    def CvCollectionType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterDialogEmojiExcel
+    def CvUnlockScenarioType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterDialogEmojiExcel
+    def ScenarioGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterDialogEmojiExcel
+    def UnlockEventSeason(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CharacterDialogEmojiExcel
+    def LocalizeCvGroup(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
 def CharacterDialogEmojiExcelStart(builder):
-    builder.StartObject(11)
+    builder.StartObject(22)
 
 def Start(builder):
     CharacterDialogEmojiExcelStart(builder)
@@ -137,44 +234,280 @@ def CharacterDialogEmojiExcelAddDurationKr(builder, durationKr):
 def AddDurationKr(builder, durationKr):
     CharacterDialogEmojiExcelAddDurationKr(builder, durationKr)
 
+def CharacterDialogEmojiExcelAddDurationAdd(builder, durationAdd):
+    builder.PrependInt64Slot(5, durationAdd, 0)
+
+def AddDurationAdd(builder, durationAdd):
+    CharacterDialogEmojiExcelAddDurationAdd(builder, durationAdd)
+
 def CharacterDialogEmojiExcelAddHideUi(builder, hideUi):
-    builder.PrependBoolSlot(5, hideUi, 0)
+    builder.PrependBoolSlot(6, hideUi, 0)
 
 def AddHideUi(builder, hideUi):
     CharacterDialogEmojiExcelAddHideUi(builder, hideUi)
 
 def CharacterDialogEmojiExcelAddLocalizeKr(builder, localizeKr):
-    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(localizeKr), 0)
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(localizeKr), 0)
 
 def AddLocalizeKr(builder, localizeKr):
     CharacterDialogEmojiExcelAddLocalizeKr(builder, localizeKr)
 
 def CharacterDialogEmojiExcelAddLocalizeJp(builder, localizeJp):
-    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(localizeJp), 0)
+    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(localizeJp), 0)
 
 def AddLocalizeJp(builder, localizeJp):
     CharacterDialogEmojiExcelAddLocalizeJp(builder, localizeJp)
 
 def CharacterDialogEmojiExcelAddLocalizeTh(builder, localizeTh):
-    builder.PrependUOffsetTRelativeSlot(8, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTh), 0)
+    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTh), 0)
 
 def AddLocalizeTh(builder, localizeTh):
     CharacterDialogEmojiExcelAddLocalizeTh(builder, localizeTh)
 
 def CharacterDialogEmojiExcelAddLocalizeTw(builder, localizeTw):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTw), 0)
+    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(localizeTw), 0)
 
 def AddLocalizeTw(builder, localizeTw):
     CharacterDialogEmojiExcelAddLocalizeTw(builder, localizeTw)
 
 def CharacterDialogEmojiExcelAddLocalizeEn(builder, localizeEn):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(localizeEn), 0)
+    builder.PrependUOffsetTRelativeSlot(11, flatbuffers.number_types.UOffsetTFlags.py_type(localizeEn), 0)
 
 def AddLocalizeEn(builder, localizeEn):
     CharacterDialogEmojiExcelAddLocalizeEn(builder, localizeEn)
+
+def CharacterDialogEmojiExcelAddVoiceId(builder, voiceId):
+    builder.PrependUOffsetTRelativeSlot(12, flatbuffers.number_types.UOffsetTFlags.py_type(voiceId), 0)
+
+def AddVoiceId(builder, voiceId):
+    CharacterDialogEmojiExcelAddVoiceId(builder, voiceId)
+
+def CharacterDialogEmojiExcelStartVoiceIdVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartVoiceIdVector(builder, numElems):
+    return CharacterDialogEmojiExcelStartVoiceIdVector(builder, numElems)
+
+def CharacterDialogEmojiExcelAddCharacterId(builder, characterId):
+    builder.PrependInt64Slot(13, characterId, 0)
+
+def AddCharacterId(builder, characterId):
+    CharacterDialogEmojiExcelAddCharacterId(builder, characterId)
+
+def CharacterDialogEmojiExcelAddCostumeUniqueId(builder, costumeUniqueId):
+    builder.PrependInt64Slot(14, costumeUniqueId, 0)
+
+def AddCostumeUniqueId(builder, costumeUniqueId):
+    CharacterDialogEmojiExcelAddCostumeUniqueId(builder, costumeUniqueId)
+
+def CharacterDialogEmojiExcelAddDisplayOrder(builder, displayOrder):
+    builder.PrependInt64Slot(15, displayOrder, 0)
+
+def AddDisplayOrder(builder, displayOrder):
+    CharacterDialogEmojiExcelAddDisplayOrder(builder, displayOrder)
+
+def CharacterDialogEmojiExcelAddCollectionVisible(builder, collectionVisible):
+    builder.PrependBoolSlot(16, collectionVisible, 0)
+
+def AddCollectionVisible(builder, collectionVisible):
+    CharacterDialogEmojiExcelAddCollectionVisible(builder, collectionVisible)
+
+def CharacterDialogEmojiExcelAddCvCollectionType(builder, cvCollectionType):
+    builder.PrependInt32Slot(17, cvCollectionType, 0)
+
+def AddCvCollectionType(builder, cvCollectionType):
+    CharacterDialogEmojiExcelAddCvCollectionType(builder, cvCollectionType)
+
+def CharacterDialogEmojiExcelAddCvUnlockScenarioType(builder, cvUnlockScenarioType):
+    builder.PrependInt32Slot(18, cvUnlockScenarioType, 0)
+
+def AddCvUnlockScenarioType(builder, cvUnlockScenarioType):
+    CharacterDialogEmojiExcelAddCvUnlockScenarioType(builder, cvUnlockScenarioType)
+
+def CharacterDialogEmojiExcelAddScenarioGroupId(builder, scenarioGroupId):
+    builder.PrependInt64Slot(19, scenarioGroupId, 0)
+
+def AddScenarioGroupId(builder, scenarioGroupId):
+    CharacterDialogEmojiExcelAddScenarioGroupId(builder, scenarioGroupId)
+
+def CharacterDialogEmojiExcelAddUnlockEventSeason(builder, unlockEventSeason):
+    builder.PrependInt64Slot(20, unlockEventSeason, 0)
+
+def AddUnlockEventSeason(builder, unlockEventSeason):
+    CharacterDialogEmojiExcelAddUnlockEventSeason(builder, unlockEventSeason)
+
+def CharacterDialogEmojiExcelAddLocalizeCvGroup(builder, localizeCvGroup):
+    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(localizeCvGroup), 0)
+
+def AddLocalizeCvGroup(builder, localizeCvGroup):
+    CharacterDialogEmojiExcelAddLocalizeCvGroup(builder, localizeCvGroup)
 
 def CharacterDialogEmojiExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return CharacterDialogEmojiExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CharacterDialogEmojiExcelT(object):
+
+    # CharacterDialogEmojiExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        targetIndex = 0,
+        dialogType = None,
+        duration = 0,
+        durationKr = 0,
+        durationAdd = 0,
+        hideUi = False,
+        localizeKr = None,
+        localizeJp = None,
+        localizeTh = None,
+        localizeTw = None,
+        localizeEn = None,
+        voiceId = None,
+        characterId = 0,
+        costumeUniqueId = 0,
+        displayOrder = 0,
+        collectionVisible = False,
+        cvCollectionType = 0,
+        cvUnlockScenarioType = 0,
+        scenarioGroupId = 0,
+        unlockEventSeason = 0,
+        localizeCvGroup = None,
+    ):
+        self.groupId = groupId  # type: int
+        self.targetIndex = targetIndex  # type: int
+        self.dialogType = dialogType  # type: Optional[str]
+        self.duration = duration  # type: int
+        self.durationKr = durationKr  # type: int
+        self.durationAdd = durationAdd  # type: int
+        self.hideUi = hideUi  # type: bool
+        self.localizeKr = localizeKr  # type: Optional[str]
+        self.localizeJp = localizeJp  # type: Optional[str]
+        self.localizeTh = localizeTh  # type: Optional[str]
+        self.localizeTw = localizeTw  # type: Optional[str]
+        self.localizeEn = localizeEn  # type: Optional[str]
+        self.voiceId = voiceId  # type: Optional[List[int]]
+        self.characterId = characterId  # type: int
+        self.costumeUniqueId = costumeUniqueId  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.collectionVisible = collectionVisible  # type: bool
+        self.cvCollectionType = cvCollectionType  # type: int
+        self.cvUnlockScenarioType = cvUnlockScenarioType  # type: int
+        self.scenarioGroupId = scenarioGroupId  # type: int
+        self.unlockEventSeason = unlockEventSeason  # type: int
+        self.localizeCvGroup = localizeCvGroup  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterDialogEmojiExcel = CharacterDialogEmojiExcel()
+        characterDialogEmojiExcel.Init(buf, pos)
+        return cls.InitFromObj(characterDialogEmojiExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterDialogEmojiExcel):
+        x = CharacterDialogEmojiExcelT()
+        x._UnPack(characterDialogEmojiExcel)
+        return x
+
+    # CharacterDialogEmojiExcelT
+    def _UnPack(self, characterDialogEmojiExcel):
+        if characterDialogEmojiExcel is None:
+            return
+        self.groupId = characterDialogEmojiExcel.GroupId()
+        self.targetIndex = characterDialogEmojiExcel.TargetIndex()
+        self.dialogType = characterDialogEmojiExcel.DialogType()
+        self.duration = characterDialogEmojiExcel.Duration()
+        self.durationKr = characterDialogEmojiExcel.DurationKr()
+        self.durationAdd = characterDialogEmojiExcel.DurationAdd()
+        self.hideUi = characterDialogEmojiExcel.HideUi()
+        self.localizeKr = characterDialogEmojiExcel.LocalizeKr()
+        self.localizeJp = characterDialogEmojiExcel.LocalizeJp()
+        self.localizeTh = characterDialogEmojiExcel.LocalizeTh()
+        self.localizeTw = characterDialogEmojiExcel.LocalizeTw()
+        self.localizeEn = characterDialogEmojiExcel.LocalizeEn()
+        if not characterDialogEmojiExcel.VoiceIdIsNone():
+            if np is None:
+                self.voiceId = []
+                for i in range(characterDialogEmojiExcel.VoiceIdLength()):
+                    self.voiceId.append(characterDialogEmojiExcel.VoiceId(i))
+            else:
+                self.voiceId = characterDialogEmojiExcel.VoiceIdAsNumpy()
+        self.characterId = characterDialogEmojiExcel.CharacterId()
+        self.costumeUniqueId = characterDialogEmojiExcel.CostumeUniqueId()
+        self.displayOrder = characterDialogEmojiExcel.DisplayOrder()
+        self.collectionVisible = characterDialogEmojiExcel.CollectionVisible()
+        self.cvCollectionType = characterDialogEmojiExcel.CvCollectionType()
+        self.cvUnlockScenarioType = characterDialogEmojiExcel.CvUnlockScenarioType()
+        self.scenarioGroupId = characterDialogEmojiExcel.ScenarioGroupId()
+        self.unlockEventSeason = characterDialogEmojiExcel.UnlockEventSeason()
+        self.localizeCvGroup = characterDialogEmojiExcel.LocalizeCvGroup()
+
+    # CharacterDialogEmojiExcelT
+    def Pack(self, builder):
+        if self.dialogType is not None:
+            dialogType = builder.CreateString(self.dialogType)
+        if self.localizeKr is not None:
+            localizeKr = builder.CreateString(self.localizeKr)
+        if self.localizeJp is not None:
+            localizeJp = builder.CreateString(self.localizeJp)
+        if self.localizeTh is not None:
+            localizeTh = builder.CreateString(self.localizeTh)
+        if self.localizeTw is not None:
+            localizeTw = builder.CreateString(self.localizeTw)
+        if self.localizeEn is not None:
+            localizeEn = builder.CreateString(self.localizeEn)
+        if self.voiceId is not None:
+            if np is not None and type(self.voiceId) is np.ndarray:
+                voiceId = builder.CreateNumpyVector(self.voiceId)
+            else:
+                CharacterDialogEmojiExcelStartVoiceIdVector(builder, len(self.voiceId))
+                for i in reversed(range(len(self.voiceId))):
+                    builder.PrependUint32(self.voiceId[i])
+                voiceId = builder.EndVector()
+        if self.localizeCvGroup is not None:
+            localizeCvGroup = builder.CreateString(self.localizeCvGroup)
+        CharacterDialogEmojiExcelStart(builder)
+        CharacterDialogEmojiExcelAddGroupId(builder, self.groupId)
+        CharacterDialogEmojiExcelAddTargetIndex(builder, self.targetIndex)
+        if self.dialogType is not None:
+            CharacterDialogEmojiExcelAddDialogType(builder, dialogType)
+        CharacterDialogEmojiExcelAddDuration(builder, self.duration)
+        CharacterDialogEmojiExcelAddDurationKr(builder, self.durationKr)
+        CharacterDialogEmojiExcelAddDurationAdd(builder, self.durationAdd)
+        CharacterDialogEmojiExcelAddHideUi(builder, self.hideUi)
+        if self.localizeKr is not None:
+            CharacterDialogEmojiExcelAddLocalizeKr(builder, localizeKr)
+        if self.localizeJp is not None:
+            CharacterDialogEmojiExcelAddLocalizeJp(builder, localizeJp)
+        if self.localizeTh is not None:
+            CharacterDialogEmojiExcelAddLocalizeTh(builder, localizeTh)
+        if self.localizeTw is not None:
+            CharacterDialogEmojiExcelAddLocalizeTw(builder, localizeTw)
+        if self.localizeEn is not None:
+            CharacterDialogEmojiExcelAddLocalizeEn(builder, localizeEn)
+        if self.voiceId is not None:
+            CharacterDialogEmojiExcelAddVoiceId(builder, voiceId)
+        CharacterDialogEmojiExcelAddCharacterId(builder, self.characterId)
+        CharacterDialogEmojiExcelAddCostumeUniqueId(builder, self.costumeUniqueId)
+        CharacterDialogEmojiExcelAddDisplayOrder(builder, self.displayOrder)
+        CharacterDialogEmojiExcelAddCollectionVisible(builder, self.collectionVisible)
+        CharacterDialogEmojiExcelAddCvCollectionType(builder, self.cvCollectionType)
+        CharacterDialogEmojiExcelAddCvUnlockScenarioType(builder, self.cvUnlockScenarioType)
+        CharacterDialogEmojiExcelAddScenarioGroupId(builder, self.scenarioGroupId)
+        CharacterDialogEmojiExcelAddUnlockEventSeason(builder, self.unlockEventSeason)
+        if self.localizeCvGroup is not None:
+            CharacterDialogEmojiExcelAddLocalizeCvGroup(builder, localizeCvGroup)
+        characterDialogEmojiExcel = CharacterDialogEmojiExcelEnd(builder)
+        return characterDialogEmojiExcel

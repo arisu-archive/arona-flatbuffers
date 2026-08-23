@@ -178,3 +178,104 @@ def CharacterDialogSubtitleExcelEnd(builder):
 
 def End(builder):
     return CharacterDialogSubtitleExcelEnd(builder)
+
+
+class CharacterDialogSubtitleExcelT(object):
+
+    # CharacterDialogSubtitleExcelT
+    def __init__(
+        self,
+        localizeCvGroup = None,
+        characterId = 0,
+        tlmid = None,
+        duration = 0,
+        durationKr = 0,
+        separate = False,
+        localizeKr = None,
+        localizeJp = None,
+        localizeTh = None,
+        localizeTw = None,
+        localizeEn = None,
+    ):
+        self.localizeCvGroup = localizeCvGroup  # type: Optional[str]
+        self.characterId = characterId  # type: int
+        self.tlmid = tlmid  # type: Optional[str]
+        self.duration = duration  # type: int
+        self.durationKr = durationKr  # type: int
+        self.separate = separate  # type: bool
+        self.localizeKr = localizeKr  # type: Optional[str]
+        self.localizeJp = localizeJp  # type: Optional[str]
+        self.localizeTh = localizeTh  # type: Optional[str]
+        self.localizeTw = localizeTw  # type: Optional[str]
+        self.localizeEn = localizeEn  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterDialogSubtitleExcel = CharacterDialogSubtitleExcel()
+        characterDialogSubtitleExcel.Init(buf, pos)
+        return cls.InitFromObj(characterDialogSubtitleExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterDialogSubtitleExcel):
+        x = CharacterDialogSubtitleExcelT()
+        x._UnPack(characterDialogSubtitleExcel)
+        return x
+
+    # CharacterDialogSubtitleExcelT
+    def _UnPack(self, characterDialogSubtitleExcel):
+        if characterDialogSubtitleExcel is None:
+            return
+        self.localizeCvGroup = characterDialogSubtitleExcel.LocalizeCvGroup()
+        self.characterId = characterDialogSubtitleExcel.CharacterId()
+        self.tlmid = characterDialogSubtitleExcel.Tlmid()
+        self.duration = characterDialogSubtitleExcel.Duration()
+        self.durationKr = characterDialogSubtitleExcel.DurationKr()
+        self.separate = characterDialogSubtitleExcel.Separate()
+        self.localizeKr = characterDialogSubtitleExcel.LocalizeKr()
+        self.localizeJp = characterDialogSubtitleExcel.LocalizeJp()
+        self.localizeTh = characterDialogSubtitleExcel.LocalizeTh()
+        self.localizeTw = characterDialogSubtitleExcel.LocalizeTw()
+        self.localizeEn = characterDialogSubtitleExcel.LocalizeEn()
+
+    # CharacterDialogSubtitleExcelT
+    def Pack(self, builder):
+        if self.localizeCvGroup is not None:
+            localizeCvGroup = builder.CreateString(self.localizeCvGroup)
+        if self.tlmid is not None:
+            tlmid = builder.CreateString(self.tlmid)
+        if self.localizeKr is not None:
+            localizeKr = builder.CreateString(self.localizeKr)
+        if self.localizeJp is not None:
+            localizeJp = builder.CreateString(self.localizeJp)
+        if self.localizeTh is not None:
+            localizeTh = builder.CreateString(self.localizeTh)
+        if self.localizeTw is not None:
+            localizeTw = builder.CreateString(self.localizeTw)
+        if self.localizeEn is not None:
+            localizeEn = builder.CreateString(self.localizeEn)
+        CharacterDialogSubtitleExcelStart(builder)
+        if self.localizeCvGroup is not None:
+            CharacterDialogSubtitleExcelAddLocalizeCvGroup(builder, localizeCvGroup)
+        CharacterDialogSubtitleExcelAddCharacterId(builder, self.characterId)
+        if self.tlmid is not None:
+            CharacterDialogSubtitleExcelAddTlmid(builder, tlmid)
+        CharacterDialogSubtitleExcelAddDuration(builder, self.duration)
+        CharacterDialogSubtitleExcelAddDurationKr(builder, self.durationKr)
+        CharacterDialogSubtitleExcelAddSeparate(builder, self.separate)
+        if self.localizeKr is not None:
+            CharacterDialogSubtitleExcelAddLocalizeKr(builder, localizeKr)
+        if self.localizeJp is not None:
+            CharacterDialogSubtitleExcelAddLocalizeJp(builder, localizeJp)
+        if self.localizeTh is not None:
+            CharacterDialogSubtitleExcelAddLocalizeTh(builder, localizeTh)
+        if self.localizeTw is not None:
+            CharacterDialogSubtitleExcelAddLocalizeTw(builder, localizeTw)
+        if self.localizeEn is not None:
+            CharacterDialogSubtitleExcelAddLocalizeEn(builder, localizeEn)
+        characterDialogSubtitleExcel = CharacterDialogSubtitleExcelEnd(builder)
+        return characterDialogSubtitleExcel

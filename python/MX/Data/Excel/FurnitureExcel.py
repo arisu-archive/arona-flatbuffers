@@ -722,3 +722,311 @@ def FurnitureExcelEnd(builder):
 
 def End(builder):
     return FurnitureExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class FurnitureExcelT(object):
+
+    # FurnitureExcelT
+    def __init__(
+        self,
+        id = 0,
+        productionStep = 0,
+        rarity = 0,
+        category = 0,
+        subCategory = 0,
+        checkFloorDecoration = False,
+        localizeEtcId = 0,
+        starGradeInit = 0,
+        tier = 0,
+        icon = None,
+        sizeWidth = 0,
+        sizeHeight = 0,
+        otherSize = 0,
+        expandWidth = 0,
+        enable = False,
+        reverseRotation = False,
+        prefab = None,
+        prefabExpand = None,
+        subPrefab = None,
+        subExpandPrefab = None,
+        cornerPrefab = None,
+        stackableMax = 0,
+        recipeCraftId = 0,
+        setGroudpId = 0,
+        comfortBonus = 0,
+        visitOperationType = 0,
+        visitBonusOperationType = 0,
+        tags = None,
+        craftQualityTier0 = 0,
+        craftQualityTier1 = 0,
+        craftQualityTier2 = 0,
+        shiftingCraftQuality = 0,
+        furnitureFunctionType = 0,
+        furnitureFunctionParameter = None,
+        videoId = 0,
+        eventCollectionId = 0,
+        furnitureBubbleOffsetX = 0,
+        furnitureBubbleOffsetY = 0,
+        cafeCharacterStateReq = None,
+        cafeCharacterStateAdd = None,
+        cafeCharacterStateMake = None,
+        cafeCharacterStateOnly = None,
+        hideCraftShortcut = False,
+    ):
+        self.id = id  # type: int
+        self.productionStep = productionStep  # type: int
+        self.rarity = rarity  # type: int
+        self.category = category  # type: int
+        self.subCategory = subCategory  # type: int
+        self.checkFloorDecoration = checkFloorDecoration  # type: bool
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.starGradeInit = starGradeInit  # type: int
+        self.tier = tier  # type: int
+        self.icon = icon  # type: Optional[str]
+        self.sizeWidth = sizeWidth  # type: int
+        self.sizeHeight = sizeHeight  # type: int
+        self.otherSize = otherSize  # type: int
+        self.expandWidth = expandWidth  # type: int
+        self.enable = enable  # type: bool
+        self.reverseRotation = reverseRotation  # type: bool
+        self.prefab = prefab  # type: Optional[str]
+        self.prefabExpand = prefabExpand  # type: Optional[str]
+        self.subPrefab = subPrefab  # type: Optional[str]
+        self.subExpandPrefab = subExpandPrefab  # type: Optional[str]
+        self.cornerPrefab = cornerPrefab  # type: Optional[str]
+        self.stackableMax = stackableMax  # type: int
+        self.recipeCraftId = recipeCraftId  # type: int
+        self.setGroudpId = setGroudpId  # type: int
+        self.comfortBonus = comfortBonus  # type: int
+        self.visitOperationType = visitOperationType  # type: int
+        self.visitBonusOperationType = visitBonusOperationType  # type: int
+        self.tags = tags  # type: Optional[List[int]]
+        self.craftQualityTier0 = craftQualityTier0  # type: int
+        self.craftQualityTier1 = craftQualityTier1  # type: int
+        self.craftQualityTier2 = craftQualityTier2  # type: int
+        self.shiftingCraftQuality = shiftingCraftQuality  # type: int
+        self.furnitureFunctionType = furnitureFunctionType  # type: int
+        self.furnitureFunctionParameter = furnitureFunctionParameter  # type: Optional[List[int]]
+        self.videoId = videoId  # type: int
+        self.eventCollectionId = eventCollectionId  # type: int
+        self.furnitureBubbleOffsetX = furnitureBubbleOffsetX  # type: int
+        self.furnitureBubbleOffsetY = furnitureBubbleOffsetY  # type: int
+        self.cafeCharacterStateReq = cafeCharacterStateReq  # type: Optional[List[Optional[str]]]
+        self.cafeCharacterStateAdd = cafeCharacterStateAdd  # type: Optional[List[Optional[str]]]
+        self.cafeCharacterStateMake = cafeCharacterStateMake  # type: Optional[List[Optional[str]]]
+        self.cafeCharacterStateOnly = cafeCharacterStateOnly  # type: Optional[List[Optional[str]]]
+        self.hideCraftShortcut = hideCraftShortcut  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        furnitureExcel = FurnitureExcel()
+        furnitureExcel.Init(buf, pos)
+        return cls.InitFromObj(furnitureExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, furnitureExcel):
+        x = FurnitureExcelT()
+        x._UnPack(furnitureExcel)
+        return x
+
+    # FurnitureExcelT
+    def _UnPack(self, furnitureExcel):
+        if furnitureExcel is None:
+            return
+        self.id = furnitureExcel.Id()
+        self.productionStep = furnitureExcel.ProductionStep()
+        self.rarity = furnitureExcel.Rarity()
+        self.category = furnitureExcel.Category()
+        self.subCategory = furnitureExcel.SubCategory()
+        self.checkFloorDecoration = furnitureExcel.CheckFloorDecoration()
+        self.localizeEtcId = furnitureExcel.LocalizeEtcId()
+        self.starGradeInit = furnitureExcel.StarGradeInit()
+        self.tier = furnitureExcel.Tier()
+        self.icon = furnitureExcel.Icon()
+        self.sizeWidth = furnitureExcel.SizeWidth()
+        self.sizeHeight = furnitureExcel.SizeHeight()
+        self.otherSize = furnitureExcel.OtherSize()
+        self.expandWidth = furnitureExcel.ExpandWidth()
+        self.enable = furnitureExcel.Enable()
+        self.reverseRotation = furnitureExcel.ReverseRotation()
+        self.prefab = furnitureExcel.Prefab()
+        self.prefabExpand = furnitureExcel.PrefabExpand()
+        self.subPrefab = furnitureExcel.SubPrefab()
+        self.subExpandPrefab = furnitureExcel.SubExpandPrefab()
+        self.cornerPrefab = furnitureExcel.CornerPrefab()
+        self.stackableMax = furnitureExcel.StackableMax()
+        self.recipeCraftId = furnitureExcel.RecipeCraftId()
+        self.setGroudpId = furnitureExcel.SetGroudpId()
+        self.comfortBonus = furnitureExcel.ComfortBonus()
+        self.visitOperationType = furnitureExcel.VisitOperationType()
+        self.visitBonusOperationType = furnitureExcel.VisitBonusOperationType()
+        if not furnitureExcel.TagsIsNone():
+            if np is None:
+                self.tags = []
+                for i in range(furnitureExcel.TagsLength()):
+                    self.tags.append(furnitureExcel.Tags(i))
+            else:
+                self.tags = furnitureExcel.TagsAsNumpy()
+        self.craftQualityTier0 = furnitureExcel.CraftQualityTier0()
+        self.craftQualityTier1 = furnitureExcel.CraftQualityTier1()
+        self.craftQualityTier2 = furnitureExcel.CraftQualityTier2()
+        self.shiftingCraftQuality = furnitureExcel.ShiftingCraftQuality()
+        self.furnitureFunctionType = furnitureExcel.FurnitureFunctionType()
+        if not furnitureExcel.FurnitureFunctionParameterIsNone():
+            if np is None:
+                self.furnitureFunctionParameter = []
+                for i in range(furnitureExcel.FurnitureFunctionParameterLength()):
+                    self.furnitureFunctionParameter.append(furnitureExcel.FurnitureFunctionParameter(i))
+            else:
+                self.furnitureFunctionParameter = furnitureExcel.FurnitureFunctionParameterAsNumpy()
+        self.videoId = furnitureExcel.VideoId()
+        self.eventCollectionId = furnitureExcel.EventCollectionId()
+        self.furnitureBubbleOffsetX = furnitureExcel.FurnitureBubbleOffsetX()
+        self.furnitureBubbleOffsetY = furnitureExcel.FurnitureBubbleOffsetY()
+        if not furnitureExcel.CafeCharacterStateReqIsNone():
+            self.cafeCharacterStateReq = []
+            for i in range(furnitureExcel.CafeCharacterStateReqLength()):
+                self.cafeCharacterStateReq.append(furnitureExcel.CafeCharacterStateReq(i))
+        if not furnitureExcel.CafeCharacterStateAddIsNone():
+            self.cafeCharacterStateAdd = []
+            for i in range(furnitureExcel.CafeCharacterStateAddLength()):
+                self.cafeCharacterStateAdd.append(furnitureExcel.CafeCharacterStateAdd(i))
+        if not furnitureExcel.CafeCharacterStateMakeIsNone():
+            self.cafeCharacterStateMake = []
+            for i in range(furnitureExcel.CafeCharacterStateMakeLength()):
+                self.cafeCharacterStateMake.append(furnitureExcel.CafeCharacterStateMake(i))
+        if not furnitureExcel.CafeCharacterStateOnlyIsNone():
+            self.cafeCharacterStateOnly = []
+            for i in range(furnitureExcel.CafeCharacterStateOnlyLength()):
+                self.cafeCharacterStateOnly.append(furnitureExcel.CafeCharacterStateOnly(i))
+        self.hideCraftShortcut = furnitureExcel.HideCraftShortcut()
+
+    # FurnitureExcelT
+    def Pack(self, builder):
+        if self.icon is not None:
+            icon = builder.CreateString(self.icon)
+        if self.prefab is not None:
+            prefab = builder.CreateString(self.prefab)
+        if self.prefabExpand is not None:
+            prefabExpand = builder.CreateString(self.prefabExpand)
+        if self.subPrefab is not None:
+            subPrefab = builder.CreateString(self.subPrefab)
+        if self.subExpandPrefab is not None:
+            subExpandPrefab = builder.CreateString(self.subExpandPrefab)
+        if self.cornerPrefab is not None:
+            cornerPrefab = builder.CreateString(self.cornerPrefab)
+        if self.tags is not None:
+            if np is not None and type(self.tags) is np.ndarray:
+                tags = builder.CreateNumpyVector(self.tags)
+            else:
+                FurnitureExcelStartTagsVector(builder, len(self.tags))
+                for i in reversed(range(len(self.tags))):
+                    builder.PrependInt32(self.tags[i])
+                tags = builder.EndVector()
+        if self.furnitureFunctionParameter is not None:
+            if np is not None and type(self.furnitureFunctionParameter) is np.ndarray:
+                furnitureFunctionParameter = builder.CreateNumpyVector(self.furnitureFunctionParameter)
+            else:
+                FurnitureExcelStartFurnitureFunctionParameterVector(builder, len(self.furnitureFunctionParameter))
+                for i in reversed(range(len(self.furnitureFunctionParameter))):
+                    builder.PrependInt64(self.furnitureFunctionParameter[i])
+                furnitureFunctionParameter = builder.EndVector()
+        if self.cafeCharacterStateReq is not None:
+            cafeCharacterStateReqlist = []
+            for i in range(len(self.cafeCharacterStateReq)):
+                cafeCharacterStateReqlist.append(builder.CreateString(self.cafeCharacterStateReq[i]))
+            FurnitureExcelStartCafeCharacterStateReqVector(builder, len(self.cafeCharacterStateReq))
+            for i in reversed(range(len(self.cafeCharacterStateReq))):
+                builder.PrependUOffsetTRelative(cafeCharacterStateReqlist[i])
+            cafeCharacterStateReq = builder.EndVector()
+        if self.cafeCharacterStateAdd is not None:
+            cafeCharacterStateAddlist = []
+            for i in range(len(self.cafeCharacterStateAdd)):
+                cafeCharacterStateAddlist.append(builder.CreateString(self.cafeCharacterStateAdd[i]))
+            FurnitureExcelStartCafeCharacterStateAddVector(builder, len(self.cafeCharacterStateAdd))
+            for i in reversed(range(len(self.cafeCharacterStateAdd))):
+                builder.PrependUOffsetTRelative(cafeCharacterStateAddlist[i])
+            cafeCharacterStateAdd = builder.EndVector()
+        if self.cafeCharacterStateMake is not None:
+            cafeCharacterStateMakelist = []
+            for i in range(len(self.cafeCharacterStateMake)):
+                cafeCharacterStateMakelist.append(builder.CreateString(self.cafeCharacterStateMake[i]))
+            FurnitureExcelStartCafeCharacterStateMakeVector(builder, len(self.cafeCharacterStateMake))
+            for i in reversed(range(len(self.cafeCharacterStateMake))):
+                builder.PrependUOffsetTRelative(cafeCharacterStateMakelist[i])
+            cafeCharacterStateMake = builder.EndVector()
+        if self.cafeCharacterStateOnly is not None:
+            cafeCharacterStateOnlylist = []
+            for i in range(len(self.cafeCharacterStateOnly)):
+                cafeCharacterStateOnlylist.append(builder.CreateString(self.cafeCharacterStateOnly[i]))
+            FurnitureExcelStartCafeCharacterStateOnlyVector(builder, len(self.cafeCharacterStateOnly))
+            for i in reversed(range(len(self.cafeCharacterStateOnly))):
+                builder.PrependUOffsetTRelative(cafeCharacterStateOnlylist[i])
+            cafeCharacterStateOnly = builder.EndVector()
+        FurnitureExcelStart(builder)
+        FurnitureExcelAddId(builder, self.id)
+        FurnitureExcelAddProductionStep(builder, self.productionStep)
+        FurnitureExcelAddRarity(builder, self.rarity)
+        FurnitureExcelAddCategory(builder, self.category)
+        FurnitureExcelAddSubCategory(builder, self.subCategory)
+        FurnitureExcelAddCheckFloorDecoration(builder, self.checkFloorDecoration)
+        FurnitureExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        FurnitureExcelAddStarGradeInit(builder, self.starGradeInit)
+        FurnitureExcelAddTier(builder, self.tier)
+        if self.icon is not None:
+            FurnitureExcelAddIcon(builder, icon)
+        FurnitureExcelAddSizeWidth(builder, self.sizeWidth)
+        FurnitureExcelAddSizeHeight(builder, self.sizeHeight)
+        FurnitureExcelAddOtherSize(builder, self.otherSize)
+        FurnitureExcelAddExpandWidth(builder, self.expandWidth)
+        FurnitureExcelAddEnable(builder, self.enable)
+        FurnitureExcelAddReverseRotation(builder, self.reverseRotation)
+        if self.prefab is not None:
+            FurnitureExcelAddPrefab(builder, prefab)
+        if self.prefabExpand is not None:
+            FurnitureExcelAddPrefabExpand(builder, prefabExpand)
+        if self.subPrefab is not None:
+            FurnitureExcelAddSubPrefab(builder, subPrefab)
+        if self.subExpandPrefab is not None:
+            FurnitureExcelAddSubExpandPrefab(builder, subExpandPrefab)
+        if self.cornerPrefab is not None:
+            FurnitureExcelAddCornerPrefab(builder, cornerPrefab)
+        FurnitureExcelAddStackableMax(builder, self.stackableMax)
+        FurnitureExcelAddRecipeCraftId(builder, self.recipeCraftId)
+        FurnitureExcelAddSetGroudpId(builder, self.setGroudpId)
+        FurnitureExcelAddComfortBonus(builder, self.comfortBonus)
+        FurnitureExcelAddVisitOperationType(builder, self.visitOperationType)
+        FurnitureExcelAddVisitBonusOperationType(builder, self.visitBonusOperationType)
+        if self.tags is not None:
+            FurnitureExcelAddTags(builder, tags)
+        FurnitureExcelAddCraftQualityTier0(builder, self.craftQualityTier0)
+        FurnitureExcelAddCraftQualityTier1(builder, self.craftQualityTier1)
+        FurnitureExcelAddCraftQualityTier2(builder, self.craftQualityTier2)
+        FurnitureExcelAddShiftingCraftQuality(builder, self.shiftingCraftQuality)
+        FurnitureExcelAddFurnitureFunctionType(builder, self.furnitureFunctionType)
+        if self.furnitureFunctionParameter is not None:
+            FurnitureExcelAddFurnitureFunctionParameter(builder, furnitureFunctionParameter)
+        FurnitureExcelAddVideoId(builder, self.videoId)
+        FurnitureExcelAddEventCollectionId(builder, self.eventCollectionId)
+        FurnitureExcelAddFurnitureBubbleOffsetX(builder, self.furnitureBubbleOffsetX)
+        FurnitureExcelAddFurnitureBubbleOffsetY(builder, self.furnitureBubbleOffsetY)
+        if self.cafeCharacterStateReq is not None:
+            FurnitureExcelAddCafeCharacterStateReq(builder, cafeCharacterStateReq)
+        if self.cafeCharacterStateAdd is not None:
+            FurnitureExcelAddCafeCharacterStateAdd(builder, cafeCharacterStateAdd)
+        if self.cafeCharacterStateMake is not None:
+            FurnitureExcelAddCafeCharacterStateMake(builder, cafeCharacterStateMake)
+        if self.cafeCharacterStateOnly is not None:
+            FurnitureExcelAddCafeCharacterStateOnly(builder, cafeCharacterStateOnly)
+        FurnitureExcelAddHideCraftShortcut(builder, self.hideCraftShortcut)
+        furnitureExcel = FurnitureExcelEnd(builder)
+        return furnitureExcel

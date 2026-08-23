@@ -100,3 +100,62 @@ def MinigameCCGEnemyGroupExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGEnemyGroupExcelEnd(builder)
+
+
+class MinigameCCGEnemyGroupExcelT(object):
+
+    # MinigameCCGEnemyGroupExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        enemyAi = None,
+        enemyBgm = 0,
+        localizeEnemyGroupName = 0,
+        localizeEnemyGroupDesc = 0,
+    ):
+        self.groupId = groupId  # type: int
+        self.enemyAi = enemyAi  # type: Optional[str]
+        self.enemyBgm = enemyBgm  # type: int
+        self.localizeEnemyGroupName = localizeEnemyGroupName  # type: int
+        self.localizeEnemyGroupDesc = localizeEnemyGroupDesc  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcgenemyGroupExcel = MinigameCCGEnemyGroupExcel()
+        minigameCcgenemyGroupExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcgenemyGroupExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcgenemyGroupExcel):
+        x = MinigameCCGEnemyGroupExcelT()
+        x._UnPack(minigameCcgenemyGroupExcel)
+        return x
+
+    # MinigameCCGEnemyGroupExcelT
+    def _UnPack(self, minigameCcgenemyGroupExcel):
+        if minigameCcgenemyGroupExcel is None:
+            return
+        self.groupId = minigameCcgenemyGroupExcel.GroupId()
+        self.enemyAi = minigameCcgenemyGroupExcel.EnemyAi()
+        self.enemyBgm = minigameCcgenemyGroupExcel.EnemyBgm()
+        self.localizeEnemyGroupName = minigameCcgenemyGroupExcel.LocalizeEnemyGroupName()
+        self.localizeEnemyGroupDesc = minigameCcgenemyGroupExcel.LocalizeEnemyGroupDesc()
+
+    # MinigameCCGEnemyGroupExcelT
+    def Pack(self, builder):
+        if self.enemyAi is not None:
+            enemyAi = builder.CreateString(self.enemyAi)
+        MinigameCCGEnemyGroupExcelStart(builder)
+        MinigameCCGEnemyGroupExcelAddGroupId(builder, self.groupId)
+        if self.enemyAi is not None:
+            MinigameCCGEnemyGroupExcelAddEnemyAi(builder, enemyAi)
+        MinigameCCGEnemyGroupExcelAddEnemyBgm(builder, self.enemyBgm)
+        MinigameCCGEnemyGroupExcelAddLocalizeEnemyGroupName(builder, self.localizeEnemyGroupName)
+        MinigameCCGEnemyGroupExcelAddLocalizeEnemyGroupDesc(builder, self.localizeEnemyGroupDesc)
+        minigameCcgenemyGroupExcel = MinigameCCGEnemyGroupExcelEnd(builder)
+        return minigameCcgenemyGroupExcel

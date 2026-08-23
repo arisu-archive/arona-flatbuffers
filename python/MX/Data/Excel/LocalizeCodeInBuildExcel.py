@@ -113,3 +113,78 @@ def LocalizeCodeInBuildExcelEnd(builder):
 
 def End(builder):
     return LocalizeCodeInBuildExcelEnd(builder)
+
+
+class LocalizeCodeInBuildExcelT(object):
+
+    # LocalizeCodeInBuildExcelT
+    def __init__(
+        self,
+        key = 0,
+        kr = None,
+        jp = None,
+        th = None,
+        tw = None,
+        en = None,
+    ):
+        self.key = key  # type: int
+        self.kr = kr  # type: Optional[str]
+        self.jp = jp  # type: Optional[str]
+        self.th = th  # type: Optional[str]
+        self.tw = tw  # type: Optional[str]
+        self.en = en  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        localizeCodeInBuildExcel = LocalizeCodeInBuildExcel()
+        localizeCodeInBuildExcel.Init(buf, pos)
+        return cls.InitFromObj(localizeCodeInBuildExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, localizeCodeInBuildExcel):
+        x = LocalizeCodeInBuildExcelT()
+        x._UnPack(localizeCodeInBuildExcel)
+        return x
+
+    # LocalizeCodeInBuildExcelT
+    def _UnPack(self, localizeCodeInBuildExcel):
+        if localizeCodeInBuildExcel is None:
+            return
+        self.key = localizeCodeInBuildExcel.Key()
+        self.kr = localizeCodeInBuildExcel.Kr()
+        self.jp = localizeCodeInBuildExcel.Jp()
+        self.th = localizeCodeInBuildExcel.Th()
+        self.tw = localizeCodeInBuildExcel.Tw()
+        self.en = localizeCodeInBuildExcel.En()
+
+    # LocalizeCodeInBuildExcelT
+    def Pack(self, builder):
+        if self.kr is not None:
+            kr = builder.CreateString(self.kr)
+        if self.jp is not None:
+            jp = builder.CreateString(self.jp)
+        if self.th is not None:
+            th = builder.CreateString(self.th)
+        if self.tw is not None:
+            tw = builder.CreateString(self.tw)
+        if self.en is not None:
+            en = builder.CreateString(self.en)
+        LocalizeCodeInBuildExcelStart(builder)
+        LocalizeCodeInBuildExcelAddKey(builder, self.key)
+        if self.kr is not None:
+            LocalizeCodeInBuildExcelAddKr(builder, kr)
+        if self.jp is not None:
+            LocalizeCodeInBuildExcelAddJp(builder, jp)
+        if self.th is not None:
+            LocalizeCodeInBuildExcelAddTh(builder, th)
+        if self.tw is not None:
+            LocalizeCodeInBuildExcelAddTw(builder, tw)
+        if self.en is not None:
+            LocalizeCodeInBuildExcelAddEn(builder, en)
+        localizeCodeInBuildExcel = LocalizeCodeInBuildExcelEnd(builder)
+        return localizeCodeInBuildExcel

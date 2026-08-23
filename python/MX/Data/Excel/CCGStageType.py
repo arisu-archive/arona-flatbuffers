@@ -2,4 +2,8 @@
 
 # namespace: Excel
 
-# NOTE CCGStageType.py does not declare any structs or enums
+class CCGStageType(object):
+    None_ = 0
+    Battle = 1
+    Event = 2
+    Camp = 3

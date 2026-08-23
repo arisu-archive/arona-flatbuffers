@@ -230,3 +230,127 @@ def EventContentTreasureRoundExcelEnd(builder):
 
 def End(builder):
     return EventContentTreasureRoundExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class EventContentTreasureRoundExcelT(object):
+
+    # EventContentTreasureRoundExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        treasureRound = 0,
+        treasureRoundSize = None,
+        cellVisualSortUnstructed = False,
+        cellCheckGoodsId = 0,
+        cellRewardId = 0,
+        rewardId = None,
+        rewardAmount = None,
+        treasureCellImagePath = None,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.treasureRound = treasureRound  # type: int
+        self.treasureRoundSize = treasureRoundSize  # type: Optional[List[int]]
+        self.cellVisualSortUnstructed = cellVisualSortUnstructed  # type: bool
+        self.cellCheckGoodsId = cellCheckGoodsId  # type: int
+        self.cellRewardId = cellRewardId  # type: int
+        self.rewardId = rewardId  # type: Optional[List[int]]
+        self.rewardAmount = rewardAmount  # type: Optional[List[int]]
+        self.treasureCellImagePath = treasureCellImagePath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        eventContentTreasureRoundExcel = EventContentTreasureRoundExcel()
+        eventContentTreasureRoundExcel.Init(buf, pos)
+        return cls.InitFromObj(eventContentTreasureRoundExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, eventContentTreasureRoundExcel):
+        x = EventContentTreasureRoundExcelT()
+        x._UnPack(eventContentTreasureRoundExcel)
+        return x
+
+    # EventContentTreasureRoundExcelT
+    def _UnPack(self, eventContentTreasureRoundExcel):
+        if eventContentTreasureRoundExcel is None:
+            return
+        self.eventContentId = eventContentTreasureRoundExcel.EventContentId()
+        self.treasureRound = eventContentTreasureRoundExcel.TreasureRound()
+        if not eventContentTreasureRoundExcel.TreasureRoundSizeIsNone():
+            if np is None:
+                self.treasureRoundSize = []
+                for i in range(eventContentTreasureRoundExcel.TreasureRoundSizeLength()):
+                    self.treasureRoundSize.append(eventContentTreasureRoundExcel.TreasureRoundSize(i))
+            else:
+                self.treasureRoundSize = eventContentTreasureRoundExcel.TreasureRoundSizeAsNumpy()
+        self.cellVisualSortUnstructed = eventContentTreasureRoundExcel.CellVisualSortUnstructed()
+        self.cellCheckGoodsId = eventContentTreasureRoundExcel.CellCheckGoodsId()
+        self.cellRewardId = eventContentTreasureRoundExcel.CellRewardId()
+        if not eventContentTreasureRoundExcel.RewardIdIsNone():
+            if np is None:
+                self.rewardId = []
+                for i in range(eventContentTreasureRoundExcel.RewardIdLength()):
+                    self.rewardId.append(eventContentTreasureRoundExcel.RewardId(i))
+            else:
+                self.rewardId = eventContentTreasureRoundExcel.RewardIdAsNumpy()
+        if not eventContentTreasureRoundExcel.RewardAmountIsNone():
+            if np is None:
+                self.rewardAmount = []
+                for i in range(eventContentTreasureRoundExcel.RewardAmountLength()):
+                    self.rewardAmount.append(eventContentTreasureRoundExcel.RewardAmount(i))
+            else:
+                self.rewardAmount = eventContentTreasureRoundExcel.RewardAmountAsNumpy()
+        self.treasureCellImagePath = eventContentTreasureRoundExcel.TreasureCellImagePath()
+
+    # EventContentTreasureRoundExcelT
+    def Pack(self, builder):
+        if self.treasureRoundSize is not None:
+            if np is not None and type(self.treasureRoundSize) is np.ndarray:
+                treasureRoundSize = builder.CreateNumpyVector(self.treasureRoundSize)
+            else:
+                EventContentTreasureRoundExcelStartTreasureRoundSizeVector(builder, len(self.treasureRoundSize))
+                for i in reversed(range(len(self.treasureRoundSize))):
+                    builder.PrependInt32(self.treasureRoundSize[i])
+                treasureRoundSize = builder.EndVector()
+        if self.rewardId is not None:
+            if np is not None and type(self.rewardId) is np.ndarray:
+                rewardId = builder.CreateNumpyVector(self.rewardId)
+            else:
+                EventContentTreasureRoundExcelStartRewardIdVector(builder, len(self.rewardId))
+                for i in reversed(range(len(self.rewardId))):
+                    builder.PrependInt64(self.rewardId[i])
+                rewardId = builder.EndVector()
+        if self.rewardAmount is not None:
+            if np is not None and type(self.rewardAmount) is np.ndarray:
+                rewardAmount = builder.CreateNumpyVector(self.rewardAmount)
+            else:
+                EventContentTreasureRoundExcelStartRewardAmountVector(builder, len(self.rewardAmount))
+                for i in reversed(range(len(self.rewardAmount))):
+                    builder.PrependInt32(self.rewardAmount[i])
+                rewardAmount = builder.EndVector()
+        if self.treasureCellImagePath is not None:
+            treasureCellImagePath = builder.CreateString(self.treasureCellImagePath)
+        EventContentTreasureRoundExcelStart(builder)
+        EventContentTreasureRoundExcelAddEventContentId(builder, self.eventContentId)
+        EventContentTreasureRoundExcelAddTreasureRound(builder, self.treasureRound)
+        if self.treasureRoundSize is not None:
+            EventContentTreasureRoundExcelAddTreasureRoundSize(builder, treasureRoundSize)
+        EventContentTreasureRoundExcelAddCellVisualSortUnstructed(builder, self.cellVisualSortUnstructed)
+        EventContentTreasureRoundExcelAddCellCheckGoodsId(builder, self.cellCheckGoodsId)
+        EventContentTreasureRoundExcelAddCellRewardId(builder, self.cellRewardId)
+        if self.rewardId is not None:
+            EventContentTreasureRoundExcelAddRewardId(builder, rewardId)
+        if self.rewardAmount is not None:
+            EventContentTreasureRoundExcelAddRewardAmount(builder, rewardAmount)
+        if self.treasureCellImagePath is not None:
+            EventContentTreasureRoundExcelAddTreasureCellImagePath(builder, treasureCellImagePath)
+        eventContentTreasureRoundExcel = EventContentTreasureRoundExcelEnd(builder)
+        return eventContentTreasureRoundExcel

@@ -2,4 +2,7 @@
 
 # namespace: Excel
 
-# NOTE CCGEntityType.py does not declare any structs or enums
+class CCGEntityType(object):
+    None_ = 0
+    Character = 1
+    Card = 2

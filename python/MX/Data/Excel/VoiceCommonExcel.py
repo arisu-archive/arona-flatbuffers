@@ -100,3 +100,70 @@ def VoiceCommonExcelEnd(builder):
 
 def End(builder):
     return VoiceCommonExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class VoiceCommonExcelT(object):
+
+    # VoiceCommonExcelT
+    def __init__(
+        self,
+        voiceEvent = 0,
+        rate = 0,
+        voiceHash = None,
+    ):
+        self.voiceEvent = voiceEvent  # type: int
+        self.rate = rate  # type: int
+        self.voiceHash = voiceHash  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        voiceCommonExcel = VoiceCommonExcel()
+        voiceCommonExcel.Init(buf, pos)
+        return cls.InitFromObj(voiceCommonExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, voiceCommonExcel):
+        x = VoiceCommonExcelT()
+        x._UnPack(voiceCommonExcel)
+        return x
+
+    # VoiceCommonExcelT
+    def _UnPack(self, voiceCommonExcel):
+        if voiceCommonExcel is None:
+            return
+        self.voiceEvent = voiceCommonExcel.VoiceEvent()
+        self.rate = voiceCommonExcel.Rate()
+        if not voiceCommonExcel.VoiceHashIsNone():
+            if np is None:
+                self.voiceHash = []
+                for i in range(voiceCommonExcel.VoiceHashLength()):
+                    self.voiceHash.append(voiceCommonExcel.VoiceHash(i))
+            else:
+                self.voiceHash = voiceCommonExcel.VoiceHashAsNumpy()
+
+    # VoiceCommonExcelT
+    def Pack(self, builder):
+        if self.voiceHash is not None:
+            if np is not None and type(self.voiceHash) is np.ndarray:
+                voiceHash = builder.CreateNumpyVector(self.voiceHash)
+            else:
+                VoiceCommonExcelStartVoiceHashVector(builder, len(self.voiceHash))
+                for i in reversed(range(len(self.voiceHash))):
+                    builder.PrependUint32(self.voiceHash[i])
+                voiceHash = builder.EndVector()
+        VoiceCommonExcelStart(builder)
+        VoiceCommonExcelAddVoiceEvent(builder, self.voiceEvent)
+        VoiceCommonExcelAddRate(builder, self.rate)
+        if self.voiceHash is not None:
+            VoiceCommonExcelAddVoiceHash(builder, voiceHash)
+        voiceCommonExcel = VoiceCommonExcelEnd(builder)
+        return voiceCommonExcel

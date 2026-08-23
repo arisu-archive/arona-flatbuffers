@@ -360,3 +360,151 @@ def ConquestTileExcelEnd(builder):
 
 def End(builder):
     return ConquestTileExcelEnd(builder)
+
+
+class ConquestTileExcelT(object):
+
+    # ConquestTileExcelT
+    def __init__(
+        self,
+        id = 0,
+        name = None,
+        eventId = 0,
+        step = 0,
+        prefabName = None,
+        tileNameLocalize = None,
+        tileImageName = None,
+        playable = False,
+        tileType = 0,
+        notMapFog = False,
+        groupBonusId = 0,
+        conquestCostType = 0,
+        conquestCostId = 0,
+        conquestCostAmount = 0,
+        manageCostType = 0,
+        manageCostId = 0,
+        manageCostAmount = 0,
+        conquestRewardId = 0,
+        massErosionId = 0,
+        upgrade2CostType = 0,
+        upgrade2CostId = 0,
+        upgrade2CostAmount = 0,
+        upgrade3CostType = 0,
+        upgrade3CostId = 0,
+        upgrade3CostAmount = 0,
+    ):
+        self.id = id  # type: int
+        self.name = name  # type: Optional[str]
+        self.eventId = eventId  # type: int
+        self.step = step  # type: int
+        self.prefabName = prefabName  # type: Optional[str]
+        self.tileNameLocalize = tileNameLocalize  # type: Optional[str]
+        self.tileImageName = tileImageName  # type: Optional[str]
+        self.playable = playable  # type: bool
+        self.tileType = tileType  # type: int
+        self.notMapFog = notMapFog  # type: bool
+        self.groupBonusId = groupBonusId  # type: int
+        self.conquestCostType = conquestCostType  # type: int
+        self.conquestCostId = conquestCostId  # type: int
+        self.conquestCostAmount = conquestCostAmount  # type: int
+        self.manageCostType = manageCostType  # type: int
+        self.manageCostId = manageCostId  # type: int
+        self.manageCostAmount = manageCostAmount  # type: int
+        self.conquestRewardId = conquestRewardId  # type: int
+        self.massErosionId = massErosionId  # type: int
+        self.upgrade2CostType = upgrade2CostType  # type: int
+        self.upgrade2CostId = upgrade2CostId  # type: int
+        self.upgrade2CostAmount = upgrade2CostAmount  # type: int
+        self.upgrade3CostType = upgrade3CostType  # type: int
+        self.upgrade3CostId = upgrade3CostId  # type: int
+        self.upgrade3CostAmount = upgrade3CostAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestTileExcel = ConquestTileExcel()
+        conquestTileExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestTileExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestTileExcel):
+        x = ConquestTileExcelT()
+        x._UnPack(conquestTileExcel)
+        return x
+
+    # ConquestTileExcelT
+    def _UnPack(self, conquestTileExcel):
+        if conquestTileExcel is None:
+            return
+        self.id = conquestTileExcel.Id()
+        self.name = conquestTileExcel.Name()
+        self.eventId = conquestTileExcel.EventId()
+        self.step = conquestTileExcel.Step()
+        self.prefabName = conquestTileExcel.PrefabName()
+        self.tileNameLocalize = conquestTileExcel.TileNameLocalize()
+        self.tileImageName = conquestTileExcel.TileImageName()
+        self.playable = conquestTileExcel.Playable()
+        self.tileType = conquestTileExcel.TileType()
+        self.notMapFog = conquestTileExcel.NotMapFog()
+        self.groupBonusId = conquestTileExcel.GroupBonusId()
+        self.conquestCostType = conquestTileExcel.ConquestCostType()
+        self.conquestCostId = conquestTileExcel.ConquestCostId()
+        self.conquestCostAmount = conquestTileExcel.ConquestCostAmount()
+        self.manageCostType = conquestTileExcel.ManageCostType()
+        self.manageCostId = conquestTileExcel.ManageCostId()
+        self.manageCostAmount = conquestTileExcel.ManageCostAmount()
+        self.conquestRewardId = conquestTileExcel.ConquestRewardId()
+        self.massErosionId = conquestTileExcel.MassErosionId()
+        self.upgrade2CostType = conquestTileExcel.Upgrade2CostType()
+        self.upgrade2CostId = conquestTileExcel.Upgrade2CostId()
+        self.upgrade2CostAmount = conquestTileExcel.Upgrade2CostAmount()
+        self.upgrade3CostType = conquestTileExcel.Upgrade3CostType()
+        self.upgrade3CostId = conquestTileExcel.Upgrade3CostId()
+        self.upgrade3CostAmount = conquestTileExcel.Upgrade3CostAmount()
+
+    # ConquestTileExcelT
+    def Pack(self, builder):
+        if self.name is not None:
+            name = builder.CreateString(self.name)
+        if self.prefabName is not None:
+            prefabName = builder.CreateString(self.prefabName)
+        if self.tileNameLocalize is not None:
+            tileNameLocalize = builder.CreateString(self.tileNameLocalize)
+        if self.tileImageName is not None:
+            tileImageName = builder.CreateString(self.tileImageName)
+        ConquestTileExcelStart(builder)
+        ConquestTileExcelAddId(builder, self.id)
+        if self.name is not None:
+            ConquestTileExcelAddName(builder, name)
+        ConquestTileExcelAddEventId(builder, self.eventId)
+        ConquestTileExcelAddStep(builder, self.step)
+        if self.prefabName is not None:
+            ConquestTileExcelAddPrefabName(builder, prefabName)
+        if self.tileNameLocalize is not None:
+            ConquestTileExcelAddTileNameLocalize(builder, tileNameLocalize)
+        if self.tileImageName is not None:
+            ConquestTileExcelAddTileImageName(builder, tileImageName)
+        ConquestTileExcelAddPlayable(builder, self.playable)
+        ConquestTileExcelAddTileType(builder, self.tileType)
+        ConquestTileExcelAddNotMapFog(builder, self.notMapFog)
+        ConquestTileExcelAddGroupBonusId(builder, self.groupBonusId)
+        ConquestTileExcelAddConquestCostType(builder, self.conquestCostType)
+        ConquestTileExcelAddConquestCostId(builder, self.conquestCostId)
+        ConquestTileExcelAddConquestCostAmount(builder, self.conquestCostAmount)
+        ConquestTileExcelAddManageCostType(builder, self.manageCostType)
+        ConquestTileExcelAddManageCostId(builder, self.manageCostId)
+        ConquestTileExcelAddManageCostAmount(builder, self.manageCostAmount)
+        ConquestTileExcelAddConquestRewardId(builder, self.conquestRewardId)
+        ConquestTileExcelAddMassErosionId(builder, self.massErosionId)
+        ConquestTileExcelAddUpgrade2CostType(builder, self.upgrade2CostType)
+        ConquestTileExcelAddUpgrade2CostId(builder, self.upgrade2CostId)
+        ConquestTileExcelAddUpgrade2CostAmount(builder, self.upgrade2CostAmount)
+        ConquestTileExcelAddUpgrade3CostType(builder, self.upgrade3CostType)
+        ConquestTileExcelAddUpgrade3CostId(builder, self.upgrade3CostId)
+        ConquestTileExcelAddUpgrade3CostAmount(builder, self.upgrade3CostAmount)
+        conquestTileExcel = ConquestTileExcelEnd(builder)
+        return conquestTileExcel

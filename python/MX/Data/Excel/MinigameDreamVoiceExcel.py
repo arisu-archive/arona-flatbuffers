@@ -87,3 +87,55 @@ def MinigameDreamVoiceExcelEnd(builder):
 
 def End(builder):
     return MinigameDreamVoiceExcelEnd(builder)
+
+
+class MinigameDreamVoiceExcelT(object):
+
+    # MinigameDreamVoiceExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        uniqueId = 0,
+        voiceCondition = 0,
+        voiceClip = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.voiceCondition = voiceCondition  # type: int
+        self.voiceClip = voiceClip  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameDreamVoiceExcel = MinigameDreamVoiceExcel()
+        minigameDreamVoiceExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameDreamVoiceExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameDreamVoiceExcel):
+        x = MinigameDreamVoiceExcelT()
+        x._UnPack(minigameDreamVoiceExcel)
+        return x
+
+    # MinigameDreamVoiceExcelT
+    def _UnPack(self, minigameDreamVoiceExcel):
+        if minigameDreamVoiceExcel is None:
+            return
+        self.eventContentId = minigameDreamVoiceExcel.EventContentId()
+        self.uniqueId = minigameDreamVoiceExcel.UniqueId()
+        self.voiceCondition = minigameDreamVoiceExcel.VoiceCondition()
+        self.voiceClip = minigameDreamVoiceExcel.VoiceClip()
+
+    # MinigameDreamVoiceExcelT
+    def Pack(self, builder):
+        MinigameDreamVoiceExcelStart(builder)
+        MinigameDreamVoiceExcelAddEventContentId(builder, self.eventContentId)
+        MinigameDreamVoiceExcelAddUniqueId(builder, self.uniqueId)
+        MinigameDreamVoiceExcelAddVoiceCondition(builder, self.voiceCondition)
+        MinigameDreamVoiceExcelAddVoiceClip(builder, self.voiceClip)
+        minigameDreamVoiceExcel = MinigameDreamVoiceExcelEnd(builder)
+        return minigameDreamVoiceExcel

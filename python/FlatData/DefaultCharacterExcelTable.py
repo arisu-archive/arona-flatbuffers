@@ -72,3 +72,68 @@ def DefaultCharacterExcelTableEnd(builder):
 
 def End(builder):
     return DefaultCharacterExcelTableEnd(builder)
+
+import FlatData.DefaultCharacterExcel
+try:
+    from typing import List
+except:
+    pass
+
+class DefaultCharacterExcelTableT(object):
+
+    # DefaultCharacterExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.DefaultCharacterExcel.DefaultCharacterExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        defaultCharacterExcelTable = DefaultCharacterExcelTable()
+        defaultCharacterExcelTable.Init(buf, pos)
+        return cls.InitFromObj(defaultCharacterExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, defaultCharacterExcelTable):
+        x = DefaultCharacterExcelTableT()
+        x._UnPack(defaultCharacterExcelTable)
+        return x
+
+    # DefaultCharacterExcelTableT
+    def _UnPack(self, defaultCharacterExcelTable):
+        if defaultCharacterExcelTable is None:
+            return
+        if not defaultCharacterExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(defaultCharacterExcelTable.DataListLength()):
+                if defaultCharacterExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    defaultCharacterExcel_ = FlatData.DefaultCharacterExcel.DefaultCharacterExcelT.InitFromObj(defaultCharacterExcelTable.DataList(i))
+                    self.dataList.append(defaultCharacterExcel_)
+
+    # DefaultCharacterExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            DefaultCharacterExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        DefaultCharacterExcelTableStart(builder)
+        if self.dataList is not None:
+            DefaultCharacterExcelTableAddDataList(builder, dataList)
+        defaultCharacterExcelTable = DefaultCharacterExcelTableEnd(builder)
+        return defaultCharacterExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(DefaultCharacterExcelTableT, 'DefaultCharacterExcelTable', ())

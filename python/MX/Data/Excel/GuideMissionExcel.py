@@ -444,3 +444,220 @@ def GuideMissionExcelEnd(builder):
 
 def End(builder):
     return GuideMissionExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class GuideMissionExcelT(object):
+
+    # GuideMissionExcelT
+    def __init__(
+        self,
+        seasonId = 0,
+        id = 0,
+        category = 0,
+        isLegacy = False,
+        tabNumber = 0,
+        preMissionId = None,
+        description = 0,
+        toastDisplayType = 0,
+        toastImagePath = None,
+        shortcutUi = None,
+        completeConditionType = 0,
+        completeConditionCount = 0,
+        completeConditionParameter = None,
+        completeConditionParameterTag = None,
+        isAutoClearForScenario = False,
+        missionRewardParcelType = None,
+        missionRewardParcelId = None,
+        missionRewardAmount = None,
+    ):
+        self.seasonId = seasonId  # type: int
+        self.id = id  # type: int
+        self.category = category  # type: int
+        self.isLegacy = isLegacy  # type: bool
+        self.tabNumber = tabNumber  # type: int
+        self.preMissionId = preMissionId  # type: Optional[List[int]]
+        self.description = description  # type: int
+        self.toastDisplayType = toastDisplayType  # type: int
+        self.toastImagePath = toastImagePath  # type: Optional[str]
+        self.shortcutUi = shortcutUi  # type: Optional[List[Optional[str]]]
+        self.completeConditionType = completeConditionType  # type: int
+        self.completeConditionCount = completeConditionCount  # type: int
+        self.completeConditionParameter = completeConditionParameter  # type: Optional[List[int]]
+        self.completeConditionParameterTag = completeConditionParameterTag  # type: Optional[List[int]]
+        self.isAutoClearForScenario = isAutoClearForScenario  # type: bool
+        self.missionRewardParcelType = missionRewardParcelType  # type: Optional[List[int]]
+        self.missionRewardParcelId = missionRewardParcelId  # type: Optional[List[int]]
+        self.missionRewardAmount = missionRewardAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        guideMissionExcel = GuideMissionExcel()
+        guideMissionExcel.Init(buf, pos)
+        return cls.InitFromObj(guideMissionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, guideMissionExcel):
+        x = GuideMissionExcelT()
+        x._UnPack(guideMissionExcel)
+        return x
+
+    # GuideMissionExcelT
+    def _UnPack(self, guideMissionExcel):
+        if guideMissionExcel is None:
+            return
+        self.seasonId = guideMissionExcel.SeasonId()
+        self.id = guideMissionExcel.Id()
+        self.category = guideMissionExcel.Category()
+        self.isLegacy = guideMissionExcel.IsLegacy()
+        self.tabNumber = guideMissionExcel.TabNumber()
+        if not guideMissionExcel.PreMissionIdIsNone():
+            if np is None:
+                self.preMissionId = []
+                for i in range(guideMissionExcel.PreMissionIdLength()):
+                    self.preMissionId.append(guideMissionExcel.PreMissionId(i))
+            else:
+                self.preMissionId = guideMissionExcel.PreMissionIdAsNumpy()
+        self.description = guideMissionExcel.Description()
+        self.toastDisplayType = guideMissionExcel.ToastDisplayType()
+        self.toastImagePath = guideMissionExcel.ToastImagePath()
+        if not guideMissionExcel.ShortcutUiIsNone():
+            self.shortcutUi = []
+            for i in range(guideMissionExcel.ShortcutUiLength()):
+                self.shortcutUi.append(guideMissionExcel.ShortcutUi(i))
+        self.completeConditionType = guideMissionExcel.CompleteConditionType()
+        self.completeConditionCount = guideMissionExcel.CompleteConditionCount()
+        if not guideMissionExcel.CompleteConditionParameterIsNone():
+            if np is None:
+                self.completeConditionParameter = []
+                for i in range(guideMissionExcel.CompleteConditionParameterLength()):
+                    self.completeConditionParameter.append(guideMissionExcel.CompleteConditionParameter(i))
+            else:
+                self.completeConditionParameter = guideMissionExcel.CompleteConditionParameterAsNumpy()
+        if not guideMissionExcel.CompleteConditionParameterTagIsNone():
+            if np is None:
+                self.completeConditionParameterTag = []
+                for i in range(guideMissionExcel.CompleteConditionParameterTagLength()):
+                    self.completeConditionParameterTag.append(guideMissionExcel.CompleteConditionParameterTag(i))
+            else:
+                self.completeConditionParameterTag = guideMissionExcel.CompleteConditionParameterTagAsNumpy()
+        self.isAutoClearForScenario = guideMissionExcel.IsAutoClearForScenario()
+        if not guideMissionExcel.MissionRewardParcelTypeIsNone():
+            if np is None:
+                self.missionRewardParcelType = []
+                for i in range(guideMissionExcel.MissionRewardParcelTypeLength()):
+                    self.missionRewardParcelType.append(guideMissionExcel.MissionRewardParcelType(i))
+            else:
+                self.missionRewardParcelType = guideMissionExcel.MissionRewardParcelTypeAsNumpy()
+        if not guideMissionExcel.MissionRewardParcelIdIsNone():
+            if np is None:
+                self.missionRewardParcelId = []
+                for i in range(guideMissionExcel.MissionRewardParcelIdLength()):
+                    self.missionRewardParcelId.append(guideMissionExcel.MissionRewardParcelId(i))
+            else:
+                self.missionRewardParcelId = guideMissionExcel.MissionRewardParcelIdAsNumpy()
+        if not guideMissionExcel.MissionRewardAmountIsNone():
+            if np is None:
+                self.missionRewardAmount = []
+                for i in range(guideMissionExcel.MissionRewardAmountLength()):
+                    self.missionRewardAmount.append(guideMissionExcel.MissionRewardAmount(i))
+            else:
+                self.missionRewardAmount = guideMissionExcel.MissionRewardAmountAsNumpy()
+
+    # GuideMissionExcelT
+    def Pack(self, builder):
+        if self.preMissionId is not None:
+            if np is not None and type(self.preMissionId) is np.ndarray:
+                preMissionId = builder.CreateNumpyVector(self.preMissionId)
+            else:
+                GuideMissionExcelStartPreMissionIdVector(builder, len(self.preMissionId))
+                for i in reversed(range(len(self.preMissionId))):
+                    builder.PrependInt64(self.preMissionId[i])
+                preMissionId = builder.EndVector()
+        if self.toastImagePath is not None:
+            toastImagePath = builder.CreateString(self.toastImagePath)
+        if self.shortcutUi is not None:
+            shortcutUilist = []
+            for i in range(len(self.shortcutUi)):
+                shortcutUilist.append(builder.CreateString(self.shortcutUi[i]))
+            GuideMissionExcelStartShortcutUiVector(builder, len(self.shortcutUi))
+            for i in reversed(range(len(self.shortcutUi))):
+                builder.PrependUOffsetTRelative(shortcutUilist[i])
+            shortcutUi = builder.EndVector()
+        if self.completeConditionParameter is not None:
+            if np is not None and type(self.completeConditionParameter) is np.ndarray:
+                completeConditionParameter = builder.CreateNumpyVector(self.completeConditionParameter)
+            else:
+                GuideMissionExcelStartCompleteConditionParameterVector(builder, len(self.completeConditionParameter))
+                for i in reversed(range(len(self.completeConditionParameter))):
+                    builder.PrependInt64(self.completeConditionParameter[i])
+                completeConditionParameter = builder.EndVector()
+        if self.completeConditionParameterTag is not None:
+            if np is not None and type(self.completeConditionParameterTag) is np.ndarray:
+                completeConditionParameterTag = builder.CreateNumpyVector(self.completeConditionParameterTag)
+            else:
+                GuideMissionExcelStartCompleteConditionParameterTagVector(builder, len(self.completeConditionParameterTag))
+                for i in reversed(range(len(self.completeConditionParameterTag))):
+                    builder.PrependInt32(self.completeConditionParameterTag[i])
+                completeConditionParameterTag = builder.EndVector()
+        if self.missionRewardParcelType is not None:
+            if np is not None and type(self.missionRewardParcelType) is np.ndarray:
+                missionRewardParcelType = builder.CreateNumpyVector(self.missionRewardParcelType)
+            else:
+                GuideMissionExcelStartMissionRewardParcelTypeVector(builder, len(self.missionRewardParcelType))
+                for i in reversed(range(len(self.missionRewardParcelType))):
+                    builder.PrependInt32(self.missionRewardParcelType[i])
+                missionRewardParcelType = builder.EndVector()
+        if self.missionRewardParcelId is not None:
+            if np is not None and type(self.missionRewardParcelId) is np.ndarray:
+                missionRewardParcelId = builder.CreateNumpyVector(self.missionRewardParcelId)
+            else:
+                GuideMissionExcelStartMissionRewardParcelIdVector(builder, len(self.missionRewardParcelId))
+                for i in reversed(range(len(self.missionRewardParcelId))):
+                    builder.PrependInt64(self.missionRewardParcelId[i])
+                missionRewardParcelId = builder.EndVector()
+        if self.missionRewardAmount is not None:
+            if np is not None and type(self.missionRewardAmount) is np.ndarray:
+                missionRewardAmount = builder.CreateNumpyVector(self.missionRewardAmount)
+            else:
+                GuideMissionExcelStartMissionRewardAmountVector(builder, len(self.missionRewardAmount))
+                for i in reversed(range(len(self.missionRewardAmount))):
+                    builder.PrependInt32(self.missionRewardAmount[i])
+                missionRewardAmount = builder.EndVector()
+        GuideMissionExcelStart(builder)
+        GuideMissionExcelAddSeasonId(builder, self.seasonId)
+        GuideMissionExcelAddId(builder, self.id)
+        GuideMissionExcelAddCategory(builder, self.category)
+        GuideMissionExcelAddIsLegacy(builder, self.isLegacy)
+        GuideMissionExcelAddTabNumber(builder, self.tabNumber)
+        if self.preMissionId is not None:
+            GuideMissionExcelAddPreMissionId(builder, preMissionId)
+        GuideMissionExcelAddDescription(builder, self.description)
+        GuideMissionExcelAddToastDisplayType(builder, self.toastDisplayType)
+        if self.toastImagePath is not None:
+            GuideMissionExcelAddToastImagePath(builder, toastImagePath)
+        if self.shortcutUi is not None:
+            GuideMissionExcelAddShortcutUi(builder, shortcutUi)
+        GuideMissionExcelAddCompleteConditionType(builder, self.completeConditionType)
+        GuideMissionExcelAddCompleteConditionCount(builder, self.completeConditionCount)
+        if self.completeConditionParameter is not None:
+            GuideMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter)
+        if self.completeConditionParameterTag is not None:
+            GuideMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag)
+        GuideMissionExcelAddIsAutoClearForScenario(builder, self.isAutoClearForScenario)
+        if self.missionRewardParcelType is not None:
+            GuideMissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType)
+        if self.missionRewardParcelId is not None:
+            GuideMissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId)
+        if self.missionRewardAmount is not None:
+            GuideMissionExcelAddMissionRewardAmount(builder, missionRewardAmount)
+        guideMissionExcel = GuideMissionExcelEnd(builder)
+        return guideMissionExcel

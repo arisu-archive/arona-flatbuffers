@@ -152,3 +152,75 @@ def FixedStrategyExcelEnd(builder):
 
 def End(builder):
     return FixedStrategyExcelEnd(builder)
+
+
+class FixedStrategyExcelT(object):
+
+    # FixedStrategyExcelT
+    def __init__(
+        self,
+        id = 0,
+        stageEnterEchelon01FixedEchelonId = 0,
+        stageEnterEchelon01Starttile = 0,
+        stageEnterEchelon02FixedEchelonId = 0,
+        stageEnterEchelon02Starttile = 0,
+        stageEnterEchelon03FixedEchelonId = 0,
+        stageEnterEchelon03Starttile = 0,
+        stageEnterEchelon04FixedEchelonId = 0,
+        stageEnterEchelon04Starttile = 0,
+    ):
+        self.id = id  # type: int
+        self.stageEnterEchelon01FixedEchelonId = stageEnterEchelon01FixedEchelonId  # type: int
+        self.stageEnterEchelon01Starttile = stageEnterEchelon01Starttile  # type: int
+        self.stageEnterEchelon02FixedEchelonId = stageEnterEchelon02FixedEchelonId  # type: int
+        self.stageEnterEchelon02Starttile = stageEnterEchelon02Starttile  # type: int
+        self.stageEnterEchelon03FixedEchelonId = stageEnterEchelon03FixedEchelonId  # type: int
+        self.stageEnterEchelon03Starttile = stageEnterEchelon03Starttile  # type: int
+        self.stageEnterEchelon04FixedEchelonId = stageEnterEchelon04FixedEchelonId  # type: int
+        self.stageEnterEchelon04Starttile = stageEnterEchelon04Starttile  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        fixedStrategyExcel = FixedStrategyExcel()
+        fixedStrategyExcel.Init(buf, pos)
+        return cls.InitFromObj(fixedStrategyExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, fixedStrategyExcel):
+        x = FixedStrategyExcelT()
+        x._UnPack(fixedStrategyExcel)
+        return x
+
+    # FixedStrategyExcelT
+    def _UnPack(self, fixedStrategyExcel):
+        if fixedStrategyExcel is None:
+            return
+        self.id = fixedStrategyExcel.Id()
+        self.stageEnterEchelon01FixedEchelonId = fixedStrategyExcel.StageEnterEchelon01FixedEchelonId()
+        self.stageEnterEchelon01Starttile = fixedStrategyExcel.StageEnterEchelon01Starttile()
+        self.stageEnterEchelon02FixedEchelonId = fixedStrategyExcel.StageEnterEchelon02FixedEchelonId()
+        self.stageEnterEchelon02Starttile = fixedStrategyExcel.StageEnterEchelon02Starttile()
+        self.stageEnterEchelon03FixedEchelonId = fixedStrategyExcel.StageEnterEchelon03FixedEchelonId()
+        self.stageEnterEchelon03Starttile = fixedStrategyExcel.StageEnterEchelon03Starttile()
+        self.stageEnterEchelon04FixedEchelonId = fixedStrategyExcel.StageEnterEchelon04FixedEchelonId()
+        self.stageEnterEchelon04Starttile = fixedStrategyExcel.StageEnterEchelon04Starttile()
+
+    # FixedStrategyExcelT
+    def Pack(self, builder):
+        FixedStrategyExcelStart(builder)
+        FixedStrategyExcelAddId(builder, self.id)
+        FixedStrategyExcelAddStageEnterEchelon01FixedEchelonId(builder, self.stageEnterEchelon01FixedEchelonId)
+        FixedStrategyExcelAddStageEnterEchelon01Starttile(builder, self.stageEnterEchelon01Starttile)
+        FixedStrategyExcelAddStageEnterEchelon02FixedEchelonId(builder, self.stageEnterEchelon02FixedEchelonId)
+        FixedStrategyExcelAddStageEnterEchelon02Starttile(builder, self.stageEnterEchelon02Starttile)
+        FixedStrategyExcelAddStageEnterEchelon03FixedEchelonId(builder, self.stageEnterEchelon03FixedEchelonId)
+        FixedStrategyExcelAddStageEnterEchelon03Starttile(builder, self.stageEnterEchelon03Starttile)
+        FixedStrategyExcelAddStageEnterEchelon04FixedEchelonId(builder, self.stageEnterEchelon04FixedEchelonId)
+        FixedStrategyExcelAddStageEnterEchelon04Starttile(builder, self.stageEnterEchelon04Starttile)
+        fixedStrategyExcel = FixedStrategyExcelEnd(builder)
+        return fixedStrategyExcel

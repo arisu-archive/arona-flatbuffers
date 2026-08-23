@@ -2,4 +2,22 @@
 
 # namespace: Excel
 
-# NOTE GachaTicketType.py does not declare any structs or enums
+class GachaTicketType(object):
+    None_ = 0
+    PackageThreeStar = 1
+    ThreeStar = 2
+    TwoStar = 3
+    Normal = 4
+    NormalOnce = 5
+    StartDash = 6
+    SelectRecruit = 7
+    PackagePropertyThreeStar = 8
+    Temp_1 = 9
+    PackageAcademyThreeStar = 10
+    SelectPickup = 11
+    SelectPickupOnce = 12
+    PackageLimitedThreeStar = 13
+    PackageThreeStar_R88_Explosion = 14
+    PackageThreeStar_R88_Mystic = 15
+    PackageThreeStar_R88_Pierce = 16
+    PackageThreeStar_R88_Sonic = 17

@@ -308,3 +308,169 @@ def RecipeIngredientExcelEnd(builder):
 
 def End(builder):
     return RecipeIngredientExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class RecipeIngredientExcelT(object):
+
+    # RecipeIngredientExcelT
+    def __init__(
+        self,
+        id = 0,
+        recipeType = 0,
+        costParcelType = None,
+        costId = None,
+        costAmount = None,
+        ingredientParcelType = None,
+        ingredientId = None,
+        ingredientAmount = None,
+        costTimeInSecond = 0,
+    ):
+        self.id = id  # type: int
+        self.recipeType = recipeType  # type: int
+        self.costParcelType = costParcelType  # type: Optional[List[int]]
+        self.costId = costId  # type: Optional[List[int]]
+        self.costAmount = costAmount  # type: Optional[List[int]]
+        self.ingredientParcelType = ingredientParcelType  # type: Optional[List[int]]
+        self.ingredientId = ingredientId  # type: Optional[List[int]]
+        self.ingredientAmount = ingredientAmount  # type: Optional[List[int]]
+        self.costTimeInSecond = costTimeInSecond  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        recipeIngredientExcel = RecipeIngredientExcel()
+        recipeIngredientExcel.Init(buf, pos)
+        return cls.InitFromObj(recipeIngredientExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, recipeIngredientExcel):
+        x = RecipeIngredientExcelT()
+        x._UnPack(recipeIngredientExcel)
+        return x
+
+    # RecipeIngredientExcelT
+    def _UnPack(self, recipeIngredientExcel):
+        if recipeIngredientExcel is None:
+            return
+        self.id = recipeIngredientExcel.Id()
+        self.recipeType = recipeIngredientExcel.RecipeType()
+        if not recipeIngredientExcel.CostParcelTypeIsNone():
+            if np is None:
+                self.costParcelType = []
+                for i in range(recipeIngredientExcel.CostParcelTypeLength()):
+                    self.costParcelType.append(recipeIngredientExcel.CostParcelType(i))
+            else:
+                self.costParcelType = recipeIngredientExcel.CostParcelTypeAsNumpy()
+        if not recipeIngredientExcel.CostIdIsNone():
+            if np is None:
+                self.costId = []
+                for i in range(recipeIngredientExcel.CostIdLength()):
+                    self.costId.append(recipeIngredientExcel.CostId(i))
+            else:
+                self.costId = recipeIngredientExcel.CostIdAsNumpy()
+        if not recipeIngredientExcel.CostAmountIsNone():
+            if np is None:
+                self.costAmount = []
+                for i in range(recipeIngredientExcel.CostAmountLength()):
+                    self.costAmount.append(recipeIngredientExcel.CostAmount(i))
+            else:
+                self.costAmount = recipeIngredientExcel.CostAmountAsNumpy()
+        if not recipeIngredientExcel.IngredientParcelTypeIsNone():
+            if np is None:
+                self.ingredientParcelType = []
+                for i in range(recipeIngredientExcel.IngredientParcelTypeLength()):
+                    self.ingredientParcelType.append(recipeIngredientExcel.IngredientParcelType(i))
+            else:
+                self.ingredientParcelType = recipeIngredientExcel.IngredientParcelTypeAsNumpy()
+        if not recipeIngredientExcel.IngredientIdIsNone():
+            if np is None:
+                self.ingredientId = []
+                for i in range(recipeIngredientExcel.IngredientIdLength()):
+                    self.ingredientId.append(recipeIngredientExcel.IngredientId(i))
+            else:
+                self.ingredientId = recipeIngredientExcel.IngredientIdAsNumpy()
+        if not recipeIngredientExcel.IngredientAmountIsNone():
+            if np is None:
+                self.ingredientAmount = []
+                for i in range(recipeIngredientExcel.IngredientAmountLength()):
+                    self.ingredientAmount.append(recipeIngredientExcel.IngredientAmount(i))
+            else:
+                self.ingredientAmount = recipeIngredientExcel.IngredientAmountAsNumpy()
+        self.costTimeInSecond = recipeIngredientExcel.CostTimeInSecond()
+
+    # RecipeIngredientExcelT
+    def Pack(self, builder):
+        if self.costParcelType is not None:
+            if np is not None and type(self.costParcelType) is np.ndarray:
+                costParcelType = builder.CreateNumpyVector(self.costParcelType)
+            else:
+                RecipeIngredientExcelStartCostParcelTypeVector(builder, len(self.costParcelType))
+                for i in reversed(range(len(self.costParcelType))):
+                    builder.PrependInt32(self.costParcelType[i])
+                costParcelType = builder.EndVector()
+        if self.costId is not None:
+            if np is not None and type(self.costId) is np.ndarray:
+                costId = builder.CreateNumpyVector(self.costId)
+            else:
+                RecipeIngredientExcelStartCostIdVector(builder, len(self.costId))
+                for i in reversed(range(len(self.costId))):
+                    builder.PrependInt64(self.costId[i])
+                costId = builder.EndVector()
+        if self.costAmount is not None:
+            if np is not None and type(self.costAmount) is np.ndarray:
+                costAmount = builder.CreateNumpyVector(self.costAmount)
+            else:
+                RecipeIngredientExcelStartCostAmountVector(builder, len(self.costAmount))
+                for i in reversed(range(len(self.costAmount))):
+                    builder.PrependInt64(self.costAmount[i])
+                costAmount = builder.EndVector()
+        if self.ingredientParcelType is not None:
+            if np is not None and type(self.ingredientParcelType) is np.ndarray:
+                ingredientParcelType = builder.CreateNumpyVector(self.ingredientParcelType)
+            else:
+                RecipeIngredientExcelStartIngredientParcelTypeVector(builder, len(self.ingredientParcelType))
+                for i in reversed(range(len(self.ingredientParcelType))):
+                    builder.PrependInt32(self.ingredientParcelType[i])
+                ingredientParcelType = builder.EndVector()
+        if self.ingredientId is not None:
+            if np is not None and type(self.ingredientId) is np.ndarray:
+                ingredientId = builder.CreateNumpyVector(self.ingredientId)
+            else:
+                RecipeIngredientExcelStartIngredientIdVector(builder, len(self.ingredientId))
+                for i in reversed(range(len(self.ingredientId))):
+                    builder.PrependInt64(self.ingredientId[i])
+                ingredientId = builder.EndVector()
+        if self.ingredientAmount is not None:
+            if np is not None and type(self.ingredientAmount) is np.ndarray:
+                ingredientAmount = builder.CreateNumpyVector(self.ingredientAmount)
+            else:
+                RecipeIngredientExcelStartIngredientAmountVector(builder, len(self.ingredientAmount))
+                for i in reversed(range(len(self.ingredientAmount))):
+                    builder.PrependInt64(self.ingredientAmount[i])
+                ingredientAmount = builder.EndVector()
+        RecipeIngredientExcelStart(builder)
+        RecipeIngredientExcelAddId(builder, self.id)
+        RecipeIngredientExcelAddRecipeType(builder, self.recipeType)
+        if self.costParcelType is not None:
+            RecipeIngredientExcelAddCostParcelType(builder, costParcelType)
+        if self.costId is not None:
+            RecipeIngredientExcelAddCostId(builder, costId)
+        if self.costAmount is not None:
+            RecipeIngredientExcelAddCostAmount(builder, costAmount)
+        if self.ingredientParcelType is not None:
+            RecipeIngredientExcelAddIngredientParcelType(builder, ingredientParcelType)
+        if self.ingredientId is not None:
+            RecipeIngredientExcelAddIngredientId(builder, ingredientId)
+        if self.ingredientAmount is not None:
+            RecipeIngredientExcelAddIngredientAmount(builder, ingredientAmount)
+        RecipeIngredientExcelAddCostTimeInSecond(builder, self.costTimeInSecond)
+        recipeIngredientExcel = RecipeIngredientExcelEnd(builder)
+        return recipeIngredientExcel

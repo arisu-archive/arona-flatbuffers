@@ -126,3 +126,82 @@ def LocalizeErrorExcelEnd(builder):
 
 def End(builder):
     return LocalizeErrorExcelEnd(builder)
+
+
+class LocalizeErrorExcelT(object):
+
+    # LocalizeErrorExcelT
+    def __init__(
+        self,
+        key = 0,
+        errorLevel = 0,
+        kr = None,
+        jp = None,
+        th = None,
+        tw = None,
+        en = None,
+    ):
+        self.key = key  # type: int
+        self.errorLevel = errorLevel  # type: int
+        self.kr = kr  # type: Optional[str]
+        self.jp = jp  # type: Optional[str]
+        self.th = th  # type: Optional[str]
+        self.tw = tw  # type: Optional[str]
+        self.en = en  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        localizeErrorExcel = LocalizeErrorExcel()
+        localizeErrorExcel.Init(buf, pos)
+        return cls.InitFromObj(localizeErrorExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, localizeErrorExcel):
+        x = LocalizeErrorExcelT()
+        x._UnPack(localizeErrorExcel)
+        return x
+
+    # LocalizeErrorExcelT
+    def _UnPack(self, localizeErrorExcel):
+        if localizeErrorExcel is None:
+            return
+        self.key = localizeErrorExcel.Key()
+        self.errorLevel = localizeErrorExcel.ErrorLevel()
+        self.kr = localizeErrorExcel.Kr()
+        self.jp = localizeErrorExcel.Jp()
+        self.th = localizeErrorExcel.Th()
+        self.tw = localizeErrorExcel.Tw()
+        self.en = localizeErrorExcel.En()
+
+    # LocalizeErrorExcelT
+    def Pack(self, builder):
+        if self.kr is not None:
+            kr = builder.CreateString(self.kr)
+        if self.jp is not None:
+            jp = builder.CreateString(self.jp)
+        if self.th is not None:
+            th = builder.CreateString(self.th)
+        if self.tw is not None:
+            tw = builder.CreateString(self.tw)
+        if self.en is not None:
+            en = builder.CreateString(self.en)
+        LocalizeErrorExcelStart(builder)
+        LocalizeErrorExcelAddKey(builder, self.key)
+        LocalizeErrorExcelAddErrorLevel(builder, self.errorLevel)
+        if self.kr is not None:
+            LocalizeErrorExcelAddKr(builder, kr)
+        if self.jp is not None:
+            LocalizeErrorExcelAddJp(builder, jp)
+        if self.th is not None:
+            LocalizeErrorExcelAddTh(builder, th)
+        if self.tw is not None:
+            LocalizeErrorExcelAddTw(builder, tw)
+        if self.en is not None:
+            LocalizeErrorExcelAddEn(builder, en)
+        localizeErrorExcel = LocalizeErrorExcelEnd(builder)
+        return localizeErrorExcel

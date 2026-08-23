@@ -126,3 +126,67 @@ def DuplicateBonusExcelEnd(builder):
 
 def End(builder):
     return DuplicateBonusExcelEnd(builder)
+
+
+class DuplicateBonusExcelT(object):
+
+    # DuplicateBonusExcelT
+    def __init__(
+        self,
+        id = 0,
+        itemCategory = 0,
+        itemId = 0,
+        characterId = 0,
+        rewardParcelType = 0,
+        rewardParcelId = 0,
+        rewardParcelAmount = 0,
+    ):
+        self.id = id  # type: int
+        self.itemCategory = itemCategory  # type: int
+        self.itemId = itemId  # type: int
+        self.characterId = characterId  # type: int
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelId = rewardParcelId  # type: int
+        self.rewardParcelAmount = rewardParcelAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        duplicateBonusExcel = DuplicateBonusExcel()
+        duplicateBonusExcel.Init(buf, pos)
+        return cls.InitFromObj(duplicateBonusExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, duplicateBonusExcel):
+        x = DuplicateBonusExcelT()
+        x._UnPack(duplicateBonusExcel)
+        return x
+
+    # DuplicateBonusExcelT
+    def _UnPack(self, duplicateBonusExcel):
+        if duplicateBonusExcel is None:
+            return
+        self.id = duplicateBonusExcel.Id()
+        self.itemCategory = duplicateBonusExcel.ItemCategory()
+        self.itemId = duplicateBonusExcel.ItemId()
+        self.characterId = duplicateBonusExcel.CharacterId()
+        self.rewardParcelType = duplicateBonusExcel.RewardParcelType()
+        self.rewardParcelId = duplicateBonusExcel.RewardParcelId()
+        self.rewardParcelAmount = duplicateBonusExcel.RewardParcelAmount()
+
+    # DuplicateBonusExcelT
+    def Pack(self, builder):
+        DuplicateBonusExcelStart(builder)
+        DuplicateBonusExcelAddId(builder, self.id)
+        DuplicateBonusExcelAddItemCategory(builder, self.itemCategory)
+        DuplicateBonusExcelAddItemId(builder, self.itemId)
+        DuplicateBonusExcelAddCharacterId(builder, self.characterId)
+        DuplicateBonusExcelAddRewardParcelType(builder, self.rewardParcelType)
+        DuplicateBonusExcelAddRewardParcelId(builder, self.rewardParcelId)
+        DuplicateBonusExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        duplicateBonusExcel = DuplicateBonusExcelEnd(builder)
+        return duplicateBonusExcel

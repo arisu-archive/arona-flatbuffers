@@ -72,3 +72,68 @@ def FieldMasteryExcelTableEnd(builder):
 
 def End(builder):
     return FieldMasteryExcelTableEnd(builder)
+
+import FlatData.FieldMasteryExcel
+try:
+    from typing import List
+except:
+    pass
+
+class FieldMasteryExcelTableT(object):
+
+    # FieldMasteryExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.FieldMasteryExcel.FieldMasteryExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        fieldMasteryExcelTable = FieldMasteryExcelTable()
+        fieldMasteryExcelTable.Init(buf, pos)
+        return cls.InitFromObj(fieldMasteryExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, fieldMasteryExcelTable):
+        x = FieldMasteryExcelTableT()
+        x._UnPack(fieldMasteryExcelTable)
+        return x
+
+    # FieldMasteryExcelTableT
+    def _UnPack(self, fieldMasteryExcelTable):
+        if fieldMasteryExcelTable is None:
+            return
+        if not fieldMasteryExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(fieldMasteryExcelTable.DataListLength()):
+                if fieldMasteryExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    fieldMasteryExcel_ = FlatData.FieldMasteryExcel.FieldMasteryExcelT.InitFromObj(fieldMasteryExcelTable.DataList(i))
+                    self.dataList.append(fieldMasteryExcel_)
+
+    # FieldMasteryExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            FieldMasteryExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        FieldMasteryExcelTableStart(builder)
+        if self.dataList is not None:
+            FieldMasteryExcelTableAddDataList(builder, dataList)
+        fieldMasteryExcelTable = FieldMasteryExcelTableEnd(builder)
+        return fieldMasteryExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(FieldMasteryExcelTableT, 'FieldMasteryExcelTable', ())

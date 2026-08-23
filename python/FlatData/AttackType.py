@@ -2,4 +2,8 @@
 
 # namespace: FlatData
 
-# NOTE AttackType.py does not declare any structs or enums
+class AttackType(object):
+    Single = 0
+    Splash = 1
+    Through = 2
+    Heal = 3

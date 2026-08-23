@@ -72,3 +72,68 @@ def BuffParticleExcelTableEnd(builder):
 
 def End(builder):
     return BuffParticleExcelTableEnd(builder)
+
+import FlatData.BuffParticleExcel
+try:
+    from typing import List
+except:
+    pass
+
+class BuffParticleExcelTableT(object):
+
+    # BuffParticleExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.BuffParticleExcel.BuffParticleExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        buffParticleExcelTable = BuffParticleExcelTable()
+        buffParticleExcelTable.Init(buf, pos)
+        return cls.InitFromObj(buffParticleExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, buffParticleExcelTable):
+        x = BuffParticleExcelTableT()
+        x._UnPack(buffParticleExcelTable)
+        return x
+
+    # BuffParticleExcelTableT
+    def _UnPack(self, buffParticleExcelTable):
+        if buffParticleExcelTable is None:
+            return
+        if not buffParticleExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(buffParticleExcelTable.DataListLength()):
+                if buffParticleExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    buffParticleExcel_ = FlatData.BuffParticleExcel.BuffParticleExcelT.InitFromObj(buffParticleExcelTable.DataList(i))
+                    self.dataList.append(buffParticleExcel_)
+
+    # BuffParticleExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            BuffParticleExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        BuffParticleExcelTableStart(builder)
+        if self.dataList is not None:
+            BuffParticleExcelTableAddDataList(builder, dataList)
+        buffParticleExcelTable = BuffParticleExcelTableEnd(builder)
+        return buffParticleExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(BuffParticleExcelTableT, 'BuffParticleExcelTable', ())

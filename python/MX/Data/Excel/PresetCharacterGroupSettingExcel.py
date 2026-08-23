@@ -93,3 +93,67 @@ def PresetCharacterGroupSettingExcelEnd(builder):
 
 def End(builder):
     return PresetCharacterGroupSettingExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class PresetCharacterGroupSettingExcelT(object):
+
+    # PresetCharacterGroupSettingExcelT
+    def __init__(
+        self,
+        characterId = 0,
+        arenaSimulatorFixed = False,
+        presetType = None,
+    ):
+        self.characterId = characterId  # type: int
+        self.arenaSimulatorFixed = arenaSimulatorFixed  # type: bool
+        self.presetType = presetType  # type: Optional[List[Optional[str]]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        presetCharacterGroupSettingExcel = PresetCharacterGroupSettingExcel()
+        presetCharacterGroupSettingExcel.Init(buf, pos)
+        return cls.InitFromObj(presetCharacterGroupSettingExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, presetCharacterGroupSettingExcel):
+        x = PresetCharacterGroupSettingExcelT()
+        x._UnPack(presetCharacterGroupSettingExcel)
+        return x
+
+    # PresetCharacterGroupSettingExcelT
+    def _UnPack(self, presetCharacterGroupSettingExcel):
+        if presetCharacterGroupSettingExcel is None:
+            return
+        self.characterId = presetCharacterGroupSettingExcel.CharacterId()
+        self.arenaSimulatorFixed = presetCharacterGroupSettingExcel.ArenaSimulatorFixed()
+        if not presetCharacterGroupSettingExcel.PresetTypeIsNone():
+            self.presetType = []
+            for i in range(presetCharacterGroupSettingExcel.PresetTypeLength()):
+                self.presetType.append(presetCharacterGroupSettingExcel.PresetType(i))
+
+    # PresetCharacterGroupSettingExcelT
+    def Pack(self, builder):
+        if self.presetType is not None:
+            presetTypelist = []
+            for i in range(len(self.presetType)):
+                presetTypelist.append(builder.CreateString(self.presetType[i]))
+            PresetCharacterGroupSettingExcelStartPresetTypeVector(builder, len(self.presetType))
+            for i in reversed(range(len(self.presetType))):
+                builder.PrependUOffsetTRelative(presetTypelist[i])
+            presetType = builder.EndVector()
+        PresetCharacterGroupSettingExcelStart(builder)
+        PresetCharacterGroupSettingExcelAddCharacterId(builder, self.characterId)
+        PresetCharacterGroupSettingExcelAddArenaSimulatorFixed(builder, self.arenaSimulatorFixed)
+        if self.presetType is not None:
+            PresetCharacterGroupSettingExcelAddPresetType(builder, presetType)
+        presetCharacterGroupSettingExcel = PresetCharacterGroupSettingExcelEnd(builder)
+        return presetCharacterGroupSettingExcel

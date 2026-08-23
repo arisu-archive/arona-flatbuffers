@@ -87,3 +87,55 @@ def LevelExpMasterCoinExcelEnd(builder):
 
 def End(builder):
     return LevelExpMasterCoinExcelEnd(builder)
+
+
+class LevelExpMasterCoinExcelT(object):
+
+    # LevelExpMasterCoinExcelT
+    def __init__(
+        self,
+        id = 0,
+        minLevel = 0,
+        maxLevel = 0,
+        ratio = 0,
+    ):
+        self.id = id  # type: int
+        self.minLevel = minLevel  # type: int
+        self.maxLevel = maxLevel  # type: int
+        self.ratio = ratio  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        levelExpMasterCoinExcel = LevelExpMasterCoinExcel()
+        levelExpMasterCoinExcel.Init(buf, pos)
+        return cls.InitFromObj(levelExpMasterCoinExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, levelExpMasterCoinExcel):
+        x = LevelExpMasterCoinExcelT()
+        x._UnPack(levelExpMasterCoinExcel)
+        return x
+
+    # LevelExpMasterCoinExcelT
+    def _UnPack(self, levelExpMasterCoinExcel):
+        if levelExpMasterCoinExcel is None:
+            return
+        self.id = levelExpMasterCoinExcel.Id()
+        self.minLevel = levelExpMasterCoinExcel.MinLevel()
+        self.maxLevel = levelExpMasterCoinExcel.MaxLevel()
+        self.ratio = levelExpMasterCoinExcel.Ratio()
+
+    # LevelExpMasterCoinExcelT
+    def Pack(self, builder):
+        LevelExpMasterCoinExcelStart(builder)
+        LevelExpMasterCoinExcelAddId(builder, self.id)
+        LevelExpMasterCoinExcelAddMinLevel(builder, self.minLevel)
+        LevelExpMasterCoinExcelAddMaxLevel(builder, self.maxLevel)
+        LevelExpMasterCoinExcelAddRatio(builder, self.ratio)
+        levelExpMasterCoinExcel = LevelExpMasterCoinExcelEnd(builder)
+        return levelExpMasterCoinExcel

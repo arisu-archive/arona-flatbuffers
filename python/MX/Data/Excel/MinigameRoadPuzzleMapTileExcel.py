@@ -87,3 +87,58 @@ def MinigameRoadPuzzleMapTileExcelEnd(builder):
 
 def End(builder):
     return MinigameRoadPuzzleMapTileExcelEnd(builder)
+
+
+class MinigameRoadPuzzleMapTileExcelT(object):
+
+    # MinigameRoadPuzzleMapTileExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        uniqueId = 0,
+        prefabName = None,
+        mapTileType = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.prefabName = prefabName  # type: Optional[str]
+        self.mapTileType = mapTileType  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameRoadPuzzleMapTileExcel = MinigameRoadPuzzleMapTileExcel()
+        minigameRoadPuzzleMapTileExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameRoadPuzzleMapTileExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameRoadPuzzleMapTileExcel):
+        x = MinigameRoadPuzzleMapTileExcelT()
+        x._UnPack(minigameRoadPuzzleMapTileExcel)
+        return x
+
+    # MinigameRoadPuzzleMapTileExcelT
+    def _UnPack(self, minigameRoadPuzzleMapTileExcel):
+        if minigameRoadPuzzleMapTileExcel is None:
+            return
+        self.eventContentId = minigameRoadPuzzleMapTileExcel.EventContentId()
+        self.uniqueId = minigameRoadPuzzleMapTileExcel.UniqueId()
+        self.prefabName = minigameRoadPuzzleMapTileExcel.PrefabName()
+        self.mapTileType = minigameRoadPuzzleMapTileExcel.MapTileType()
+
+    # MinigameRoadPuzzleMapTileExcelT
+    def Pack(self, builder):
+        if self.prefabName is not None:
+            prefabName = builder.CreateString(self.prefabName)
+        MinigameRoadPuzzleMapTileExcelStart(builder)
+        MinigameRoadPuzzleMapTileExcelAddEventContentId(builder, self.eventContentId)
+        MinigameRoadPuzzleMapTileExcelAddUniqueId(builder, self.uniqueId)
+        if self.prefabName is not None:
+            MinigameRoadPuzzleMapTileExcelAddPrefabName(builder, prefabName)
+        MinigameRoadPuzzleMapTileExcelAddMapTileType(builder, self.mapTileType)
+        minigameRoadPuzzleMapTileExcel = MinigameRoadPuzzleMapTileExcelEnd(builder)
+        return minigameRoadPuzzleMapTileExcel

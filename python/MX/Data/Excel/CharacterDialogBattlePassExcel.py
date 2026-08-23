@@ -386,3 +386,179 @@ def CharacterDialogBattlePassExcelEnd(builder):
 
 def End(builder):
     return CharacterDialogBattlePassExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CharacterDialogBattlePassExcelT(object):
+
+    # CharacterDialogBattlePassExcelT
+    def __init__(
+        self,
+        costumeUniqueId = 0,
+        originalCharacterId = 0,
+        displayOrder = 0,
+        battlePassId = 0,
+        productionStep = 0,
+        dialogCategory = 0,
+        dialogCondition = 0,
+        dialogConditionDetail = 0,
+        dialogConditionDetailValue = 0,
+        groupId = 0,
+        dialogType = 0,
+        duration = 0,
+        durationKr = 0,
+        animationName = None,
+        localizeKr = None,
+        localizeJp = None,
+        localizeTh = None,
+        localizeTw = None,
+        localizeEn = None,
+        voiceId = None,
+        collectionVisible = False,
+        cvCollectionType = 0,
+        unlockBattlePassId = 0,
+        localizeCvGroup = None,
+        teenMode = False,
+    ):
+        self.costumeUniqueId = costumeUniqueId  # type: int
+        self.originalCharacterId = originalCharacterId  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.battlePassId = battlePassId  # type: int
+        self.productionStep = productionStep  # type: int
+        self.dialogCategory = dialogCategory  # type: int
+        self.dialogCondition = dialogCondition  # type: int
+        self.dialogConditionDetail = dialogConditionDetail  # type: int
+        self.dialogConditionDetailValue = dialogConditionDetailValue  # type: int
+        self.groupId = groupId  # type: int
+        self.dialogType = dialogType  # type: int
+        self.duration = duration  # type: int
+        self.durationKr = durationKr  # type: int
+        self.animationName = animationName  # type: Optional[str]
+        self.localizeKr = localizeKr  # type: Optional[str]
+        self.localizeJp = localizeJp  # type: Optional[str]
+        self.localizeTh = localizeTh  # type: Optional[str]
+        self.localizeTw = localizeTw  # type: Optional[str]
+        self.localizeEn = localizeEn  # type: Optional[str]
+        self.voiceId = voiceId  # type: Optional[List[int]]
+        self.collectionVisible = collectionVisible  # type: bool
+        self.cvCollectionType = cvCollectionType  # type: int
+        self.unlockBattlePassId = unlockBattlePassId  # type: int
+        self.localizeCvGroup = localizeCvGroup  # type: Optional[str]
+        self.teenMode = teenMode  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterDialogBattlePassExcel = CharacterDialogBattlePassExcel()
+        characterDialogBattlePassExcel.Init(buf, pos)
+        return cls.InitFromObj(characterDialogBattlePassExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterDialogBattlePassExcel):
+        x = CharacterDialogBattlePassExcelT()
+        x._UnPack(characterDialogBattlePassExcel)
+        return x
+
+    # CharacterDialogBattlePassExcelT
+    def _UnPack(self, characterDialogBattlePassExcel):
+        if characterDialogBattlePassExcel is None:
+            return
+        self.costumeUniqueId = characterDialogBattlePassExcel.CostumeUniqueId()
+        self.originalCharacterId = characterDialogBattlePassExcel.OriginalCharacterId()
+        self.displayOrder = characterDialogBattlePassExcel.DisplayOrder()
+        self.battlePassId = characterDialogBattlePassExcel.BattlePassId()
+        self.productionStep = characterDialogBattlePassExcel.ProductionStep()
+        self.dialogCategory = characterDialogBattlePassExcel.DialogCategory()
+        self.dialogCondition = characterDialogBattlePassExcel.DialogCondition()
+        self.dialogConditionDetail = characterDialogBattlePassExcel.DialogConditionDetail()
+        self.dialogConditionDetailValue = characterDialogBattlePassExcel.DialogConditionDetailValue()
+        self.groupId = characterDialogBattlePassExcel.GroupId()
+        self.dialogType = characterDialogBattlePassExcel.DialogType()
+        self.duration = characterDialogBattlePassExcel.Duration()
+        self.durationKr = characterDialogBattlePassExcel.DurationKr()
+        self.animationName = characterDialogBattlePassExcel.AnimationName()
+        self.localizeKr = characterDialogBattlePassExcel.LocalizeKr()
+        self.localizeJp = characterDialogBattlePassExcel.LocalizeJp()
+        self.localizeTh = characterDialogBattlePassExcel.LocalizeTh()
+        self.localizeTw = characterDialogBattlePassExcel.LocalizeTw()
+        self.localizeEn = characterDialogBattlePassExcel.LocalizeEn()
+        if not characterDialogBattlePassExcel.VoiceIdIsNone():
+            if np is None:
+                self.voiceId = []
+                for i in range(characterDialogBattlePassExcel.VoiceIdLength()):
+                    self.voiceId.append(characterDialogBattlePassExcel.VoiceId(i))
+            else:
+                self.voiceId = characterDialogBattlePassExcel.VoiceIdAsNumpy()
+        self.collectionVisible = characterDialogBattlePassExcel.CollectionVisible()
+        self.cvCollectionType = characterDialogBattlePassExcel.CvCollectionType()
+        self.unlockBattlePassId = characterDialogBattlePassExcel.UnlockBattlePassId()
+        self.localizeCvGroup = characterDialogBattlePassExcel.LocalizeCvGroup()
+        self.teenMode = characterDialogBattlePassExcel.TeenMode()
+
+    # CharacterDialogBattlePassExcelT
+    def Pack(self, builder):
+        if self.animationName is not None:
+            animationName = builder.CreateString(self.animationName)
+        if self.localizeKr is not None:
+            localizeKr = builder.CreateString(self.localizeKr)
+        if self.localizeJp is not None:
+            localizeJp = builder.CreateString(self.localizeJp)
+        if self.localizeTh is not None:
+            localizeTh = builder.CreateString(self.localizeTh)
+        if self.localizeTw is not None:
+            localizeTw = builder.CreateString(self.localizeTw)
+        if self.localizeEn is not None:
+            localizeEn = builder.CreateString(self.localizeEn)
+        if self.voiceId is not None:
+            if np is not None and type(self.voiceId) is np.ndarray:
+                voiceId = builder.CreateNumpyVector(self.voiceId)
+            else:
+                CharacterDialogBattlePassExcelStartVoiceIdVector(builder, len(self.voiceId))
+                for i in reversed(range(len(self.voiceId))):
+                    builder.PrependUint32(self.voiceId[i])
+                voiceId = builder.EndVector()
+        if self.localizeCvGroup is not None:
+            localizeCvGroup = builder.CreateString(self.localizeCvGroup)
+        CharacterDialogBattlePassExcelStart(builder)
+        CharacterDialogBattlePassExcelAddCostumeUniqueId(builder, self.costumeUniqueId)
+        CharacterDialogBattlePassExcelAddOriginalCharacterId(builder, self.originalCharacterId)
+        CharacterDialogBattlePassExcelAddDisplayOrder(builder, self.displayOrder)
+        CharacterDialogBattlePassExcelAddBattlePassId(builder, self.battlePassId)
+        CharacterDialogBattlePassExcelAddProductionStep(builder, self.productionStep)
+        CharacterDialogBattlePassExcelAddDialogCategory(builder, self.dialogCategory)
+        CharacterDialogBattlePassExcelAddDialogCondition(builder, self.dialogCondition)
+        CharacterDialogBattlePassExcelAddDialogConditionDetail(builder, self.dialogConditionDetail)
+        CharacterDialogBattlePassExcelAddDialogConditionDetailValue(builder, self.dialogConditionDetailValue)
+        CharacterDialogBattlePassExcelAddGroupId(builder, self.groupId)
+        CharacterDialogBattlePassExcelAddDialogType(builder, self.dialogType)
+        CharacterDialogBattlePassExcelAddDuration(builder, self.duration)
+        CharacterDialogBattlePassExcelAddDurationKr(builder, self.durationKr)
+        if self.animationName is not None:
+            CharacterDialogBattlePassExcelAddAnimationName(builder, animationName)
+        if self.localizeKr is not None:
+            CharacterDialogBattlePassExcelAddLocalizeKr(builder, localizeKr)
+        if self.localizeJp is not None:
+            CharacterDialogBattlePassExcelAddLocalizeJp(builder, localizeJp)
+        if self.localizeTh is not None:
+            CharacterDialogBattlePassExcelAddLocalizeTh(builder, localizeTh)
+        if self.localizeTw is not None:
+            CharacterDialogBattlePassExcelAddLocalizeTw(builder, localizeTw)
+        if self.localizeEn is not None:
+            CharacterDialogBattlePassExcelAddLocalizeEn(builder, localizeEn)
+        if self.voiceId is not None:
+            CharacterDialogBattlePassExcelAddVoiceId(builder, voiceId)
+        CharacterDialogBattlePassExcelAddCollectionVisible(builder, self.collectionVisible)
+        CharacterDialogBattlePassExcelAddCvCollectionType(builder, self.cvCollectionType)
+        CharacterDialogBattlePassExcelAddUnlockBattlePassId(builder, self.unlockBattlePassId)
+        if self.localizeCvGroup is not None:
+            CharacterDialogBattlePassExcelAddLocalizeCvGroup(builder, localizeCvGroup)
+        CharacterDialogBattlePassExcelAddTeenMode(builder, self.teenMode)
+        characterDialogBattlePassExcel = CharacterDialogBattlePassExcelEnd(builder)
+        return characterDialogBattlePassExcel

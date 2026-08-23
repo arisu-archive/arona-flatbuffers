@@ -197,8 +197,15 @@ class EquipmentExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
+    # EquipmentExcel
+    def RedirectItemId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
 def EquipmentExcelStart(builder):
-    builder.StartObject(19)
+    builder.StartObject(20)
 
 def Start(builder):
     EquipmentExcelStart(builder)
@@ -329,8 +336,170 @@ def EquipmentExcelAddShortcutTypeId(builder, shortcutTypeId):
 def AddShortcutTypeId(builder, shortcutTypeId):
     EquipmentExcelAddShortcutTypeId(builder, shortcutTypeId)
 
+def EquipmentExcelAddRedirectItemId(builder, redirectItemId):
+    builder.PrependInt64Slot(19, redirectItemId, 0)
+
+def AddRedirectItemId(builder, redirectItemId):
+    EquipmentExcelAddRedirectItemId(builder, redirectItemId)
+
 def EquipmentExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return EquipmentExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class EquipmentExcelT(object):
+
+    # EquipmentExcelT
+    def __init__(
+        self,
+        id = 0,
+        equipmentCategory = 0,
+        rarity = 0,
+        localizeEtcId = 0,
+        wear = False,
+        maxLevel = 0,
+        recipeId = 0,
+        tierInit = 0,
+        nextTierEquipment = 0,
+        stackableMax = 0,
+        icon = None,
+        imageName = None,
+        tags = None,
+        craftQualityTier0 = 0,
+        craftQualityTier1 = 0,
+        craftQualityTier2 = 0,
+        shiftingCraftQuality = 0,
+        shopCategory = None,
+        shortcutTypeId = 0,
+        redirectItemId = 0,
+    ):
+        self.id = id  # type: int
+        self.equipmentCategory = equipmentCategory  # type: int
+        self.rarity = rarity  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.wear = wear  # type: bool
+        self.maxLevel = maxLevel  # type: int
+        self.recipeId = recipeId  # type: int
+        self.tierInit = tierInit  # type: int
+        self.nextTierEquipment = nextTierEquipment  # type: int
+        self.stackableMax = stackableMax  # type: int
+        self.icon = icon  # type: Optional[str]
+        self.imageName = imageName  # type: Optional[str]
+        self.tags = tags  # type: Optional[List[int]]
+        self.craftQualityTier0 = craftQualityTier0  # type: int
+        self.craftQualityTier1 = craftQualityTier1  # type: int
+        self.craftQualityTier2 = craftQualityTier2  # type: int
+        self.shiftingCraftQuality = shiftingCraftQuality  # type: int
+        self.shopCategory = shopCategory  # type: Optional[List[int]]
+        self.shortcutTypeId = shortcutTypeId  # type: int
+        self.redirectItemId = redirectItemId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        equipmentExcel = EquipmentExcel()
+        equipmentExcel.Init(buf, pos)
+        return cls.InitFromObj(equipmentExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, equipmentExcel):
+        x = EquipmentExcelT()
+        x._UnPack(equipmentExcel)
+        return x
+
+    # EquipmentExcelT
+    def _UnPack(self, equipmentExcel):
+        if equipmentExcel is None:
+            return
+        self.id = equipmentExcel.Id()
+        self.equipmentCategory = equipmentExcel.EquipmentCategory()
+        self.rarity = equipmentExcel.Rarity()
+        self.localizeEtcId = equipmentExcel.LocalizeEtcId()
+        self.wear = equipmentExcel.Wear()
+        self.maxLevel = equipmentExcel.MaxLevel()
+        self.recipeId = equipmentExcel.RecipeId()
+        self.tierInit = equipmentExcel.TierInit()
+        self.nextTierEquipment = equipmentExcel.NextTierEquipment()
+        self.stackableMax = equipmentExcel.StackableMax()
+        self.icon = equipmentExcel.Icon()
+        self.imageName = equipmentExcel.ImageName()
+        if not equipmentExcel.TagsIsNone():
+            if np is None:
+                self.tags = []
+                for i in range(equipmentExcel.TagsLength()):
+                    self.tags.append(equipmentExcel.Tags(i))
+            else:
+                self.tags = equipmentExcel.TagsAsNumpy()
+        self.craftQualityTier0 = equipmentExcel.CraftQualityTier0()
+        self.craftQualityTier1 = equipmentExcel.CraftQualityTier1()
+        self.craftQualityTier2 = equipmentExcel.CraftQualityTier2()
+        self.shiftingCraftQuality = equipmentExcel.ShiftingCraftQuality()
+        if not equipmentExcel.ShopCategoryIsNone():
+            if np is None:
+                self.shopCategory = []
+                for i in range(equipmentExcel.ShopCategoryLength()):
+                    self.shopCategory.append(equipmentExcel.ShopCategory(i))
+            else:
+                self.shopCategory = equipmentExcel.ShopCategoryAsNumpy()
+        self.shortcutTypeId = equipmentExcel.ShortcutTypeId()
+        self.redirectItemId = equipmentExcel.RedirectItemId()
+
+    # EquipmentExcelT
+    def Pack(self, builder):
+        if self.icon is not None:
+            icon = builder.CreateString(self.icon)
+        if self.imageName is not None:
+            imageName = builder.CreateString(self.imageName)
+        if self.tags is not None:
+            if np is not None and type(self.tags) is np.ndarray:
+                tags = builder.CreateNumpyVector(self.tags)
+            else:
+                EquipmentExcelStartTagsVector(builder, len(self.tags))
+                for i in reversed(range(len(self.tags))):
+                    builder.PrependInt32(self.tags[i])
+                tags = builder.EndVector()
+        if self.shopCategory is not None:
+            if np is not None and type(self.shopCategory) is np.ndarray:
+                shopCategory = builder.CreateNumpyVector(self.shopCategory)
+            else:
+                EquipmentExcelStartShopCategoryVector(builder, len(self.shopCategory))
+                for i in reversed(range(len(self.shopCategory))):
+                    builder.PrependInt32(self.shopCategory[i])
+                shopCategory = builder.EndVector()
+        EquipmentExcelStart(builder)
+        EquipmentExcelAddId(builder, self.id)
+        EquipmentExcelAddEquipmentCategory(builder, self.equipmentCategory)
+        EquipmentExcelAddRarity(builder, self.rarity)
+        EquipmentExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        EquipmentExcelAddWear(builder, self.wear)
+        EquipmentExcelAddMaxLevel(builder, self.maxLevel)
+        EquipmentExcelAddRecipeId(builder, self.recipeId)
+        EquipmentExcelAddTierInit(builder, self.tierInit)
+        EquipmentExcelAddNextTierEquipment(builder, self.nextTierEquipment)
+        EquipmentExcelAddStackableMax(builder, self.stackableMax)
+        if self.icon is not None:
+            EquipmentExcelAddIcon(builder, icon)
+        if self.imageName is not None:
+            EquipmentExcelAddImageName(builder, imageName)
+        if self.tags is not None:
+            EquipmentExcelAddTags(builder, tags)
+        EquipmentExcelAddCraftQualityTier0(builder, self.craftQualityTier0)
+        EquipmentExcelAddCraftQualityTier1(builder, self.craftQualityTier1)
+        EquipmentExcelAddCraftQualityTier2(builder, self.craftQualityTier2)
+        EquipmentExcelAddShiftingCraftQuality(builder, self.shiftingCraftQuality)
+        if self.shopCategory is not None:
+            EquipmentExcelAddShopCategory(builder, shopCategory)
+        EquipmentExcelAddShortcutTypeId(builder, self.shortcutTypeId)
+        EquipmentExcelAddRedirectItemId(builder, self.redirectItemId)
+        equipmentExcel = EquipmentExcelEnd(builder)
+        return equipmentExcel

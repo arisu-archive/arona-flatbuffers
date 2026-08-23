@@ -72,3 +72,68 @@ def StringTestExcelTableEnd(builder):
 
 def End(builder):
     return StringTestExcelTableEnd(builder)
+
+import FlatData.StringTestExcel
+try:
+    from typing import List
+except:
+    pass
+
+class StringTestExcelTableT(object):
+
+    # StringTestExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.StringTestExcel.StringTestExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        stringTestExcelTable = StringTestExcelTable()
+        stringTestExcelTable.Init(buf, pos)
+        return cls.InitFromObj(stringTestExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, stringTestExcelTable):
+        x = StringTestExcelTableT()
+        x._UnPack(stringTestExcelTable)
+        return x
+
+    # StringTestExcelTableT
+    def _UnPack(self, stringTestExcelTable):
+        if stringTestExcelTable is None:
+            return
+        if not stringTestExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(stringTestExcelTable.DataListLength()):
+                if stringTestExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    stringTestExcel_ = FlatData.StringTestExcel.StringTestExcelT.InitFromObj(stringTestExcelTable.DataList(i))
+                    self.dataList.append(stringTestExcel_)
+
+    # StringTestExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            StringTestExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        StringTestExcelTableStart(builder)
+        if self.dataList is not None:
+            StringTestExcelTableAddDataList(builder, dataList)
+        stringTestExcelTable = StringTestExcelTableEnd(builder)
+        return stringTestExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(StringTestExcelTableT, 'StringTestExcelTable', ())

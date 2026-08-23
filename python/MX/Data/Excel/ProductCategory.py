@@ -2,4 +2,13 @@
 
 # namespace: Excel
 
-# NOTE ProductCategory.py does not declare any structs or enums
+class ProductCategory(object):
+    None_ = 0
+    Gem = 1
+    Monthly = 2
+    Package = 3
+    GachaDirect_DontUseGlobal = 4
+    TimeLimit = 5
+    BattlePass = 6
+    GooglePoint = 7
+    DailyRecord = 8

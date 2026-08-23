@@ -249,3 +249,140 @@ def ConquestMapExcelEnd(builder):
 
 def End(builder):
     return ConquestMapExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ConquestMapExcelT(object):
+
+    # ConquestMapExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        devName = None,
+        mapDifficulty = 0,
+        stepIndex = 0,
+        conquestMap = None,
+        stepEnterScenarioGroupId = 0,
+        stepOpenConditionType = None,
+        stepOpenConditionParameter = None,
+        mapGoalLocalize = None,
+        stepGoalLocalize = None,
+        stepNameLocalize = None,
+        conquestMapBg = None,
+        cameraSettingId = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.devName = devName  # type: Optional[str]
+        self.mapDifficulty = mapDifficulty  # type: int
+        self.stepIndex = stepIndex  # type: int
+        self.conquestMap = conquestMap  # type: Optional[str]
+        self.stepEnterScenarioGroupId = stepEnterScenarioGroupId  # type: int
+        self.stepOpenConditionType = stepOpenConditionType  # type: Optional[List[int]]
+        self.stepOpenConditionParameter = stepOpenConditionParameter  # type: Optional[List[Optional[str]]]
+        self.mapGoalLocalize = mapGoalLocalize  # type: Optional[str]
+        self.stepGoalLocalize = stepGoalLocalize  # type: Optional[str]
+        self.stepNameLocalize = stepNameLocalize  # type: Optional[str]
+        self.conquestMapBg = conquestMapBg  # type: Optional[str]
+        self.cameraSettingId = cameraSettingId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestMapExcel = ConquestMapExcel()
+        conquestMapExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestMapExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestMapExcel):
+        x = ConquestMapExcelT()
+        x._UnPack(conquestMapExcel)
+        return x
+
+    # ConquestMapExcelT
+    def _UnPack(self, conquestMapExcel):
+        if conquestMapExcel is None:
+            return
+        self.eventContentId = conquestMapExcel.EventContentId()
+        self.devName = conquestMapExcel.DevName()
+        self.mapDifficulty = conquestMapExcel.MapDifficulty()
+        self.stepIndex = conquestMapExcel.StepIndex()
+        self.conquestMap = conquestMapExcel.ConquestMap()
+        self.stepEnterScenarioGroupId = conquestMapExcel.StepEnterScenarioGroupId()
+        if not conquestMapExcel.StepOpenConditionTypeIsNone():
+            if np is None:
+                self.stepOpenConditionType = []
+                for i in range(conquestMapExcel.StepOpenConditionTypeLength()):
+                    self.stepOpenConditionType.append(conquestMapExcel.StepOpenConditionType(i))
+            else:
+                self.stepOpenConditionType = conquestMapExcel.StepOpenConditionTypeAsNumpy()
+        if not conquestMapExcel.StepOpenConditionParameterIsNone():
+            self.stepOpenConditionParameter = []
+            for i in range(conquestMapExcel.StepOpenConditionParameterLength()):
+                self.stepOpenConditionParameter.append(conquestMapExcel.StepOpenConditionParameter(i))
+        self.mapGoalLocalize = conquestMapExcel.MapGoalLocalize()
+        self.stepGoalLocalize = conquestMapExcel.StepGoalLocalize()
+        self.stepNameLocalize = conquestMapExcel.StepNameLocalize()
+        self.conquestMapBg = conquestMapExcel.ConquestMapBg()
+        self.cameraSettingId = conquestMapExcel.CameraSettingId()
+
+    # ConquestMapExcelT
+    def Pack(self, builder):
+        if self.devName is not None:
+            devName = builder.CreateString(self.devName)
+        if self.conquestMap is not None:
+            conquestMap = builder.CreateString(self.conquestMap)
+        if self.stepOpenConditionType is not None:
+            if np is not None and type(self.stepOpenConditionType) is np.ndarray:
+                stepOpenConditionType = builder.CreateNumpyVector(self.stepOpenConditionType)
+            else:
+                ConquestMapExcelStartStepOpenConditionTypeVector(builder, len(self.stepOpenConditionType))
+                for i in reversed(range(len(self.stepOpenConditionType))):
+                    builder.PrependInt32(self.stepOpenConditionType[i])
+                stepOpenConditionType = builder.EndVector()
+        if self.stepOpenConditionParameter is not None:
+            stepOpenConditionParameterlist = []
+            for i in range(len(self.stepOpenConditionParameter)):
+                stepOpenConditionParameterlist.append(builder.CreateString(self.stepOpenConditionParameter[i]))
+            ConquestMapExcelStartStepOpenConditionParameterVector(builder, len(self.stepOpenConditionParameter))
+            for i in reversed(range(len(self.stepOpenConditionParameter))):
+                builder.PrependUOffsetTRelative(stepOpenConditionParameterlist[i])
+            stepOpenConditionParameter = builder.EndVector()
+        if self.mapGoalLocalize is not None:
+            mapGoalLocalize = builder.CreateString(self.mapGoalLocalize)
+        if self.stepGoalLocalize is not None:
+            stepGoalLocalize = builder.CreateString(self.stepGoalLocalize)
+        if self.stepNameLocalize is not None:
+            stepNameLocalize = builder.CreateString(self.stepNameLocalize)
+        if self.conquestMapBg is not None:
+            conquestMapBg = builder.CreateString(self.conquestMapBg)
+        ConquestMapExcelStart(builder)
+        ConquestMapExcelAddEventContentId(builder, self.eventContentId)
+        if self.devName is not None:
+            ConquestMapExcelAddDevName(builder, devName)
+        ConquestMapExcelAddMapDifficulty(builder, self.mapDifficulty)
+        ConquestMapExcelAddStepIndex(builder, self.stepIndex)
+        if self.conquestMap is not None:
+            ConquestMapExcelAddConquestMap(builder, conquestMap)
+        ConquestMapExcelAddStepEnterScenarioGroupId(builder, self.stepEnterScenarioGroupId)
+        if self.stepOpenConditionType is not None:
+            ConquestMapExcelAddStepOpenConditionType(builder, stepOpenConditionType)
+        if self.stepOpenConditionParameter is not None:
+            ConquestMapExcelAddStepOpenConditionParameter(builder, stepOpenConditionParameter)
+        if self.mapGoalLocalize is not None:
+            ConquestMapExcelAddMapGoalLocalize(builder, mapGoalLocalize)
+        if self.stepGoalLocalize is not None:
+            ConquestMapExcelAddStepGoalLocalize(builder, stepGoalLocalize)
+        if self.stepNameLocalize is not None:
+            ConquestMapExcelAddStepNameLocalize(builder, stepNameLocalize)
+        if self.conquestMapBg is not None:
+            ConquestMapExcelAddConquestMapBg(builder, conquestMapBg)
+        ConquestMapExcelAddCameraSettingId(builder, self.cameraSettingId)
+        conquestMapExcel = ConquestMapExcelEnd(builder)
+        return conquestMapExcel

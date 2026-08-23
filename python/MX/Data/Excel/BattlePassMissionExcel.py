@@ -353,3 +353,171 @@ def BattlePassMissionExcelEnd(builder):
 
 def End(builder):
     return BattlePassMissionExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class BattlePassMissionExcelT(object):
+
+    # BattlePassMissionExcelT
+    def __init__(
+        self,
+        battlePassId = 0,
+        id = 0,
+        category = 0,
+        preMissionId = None,
+        description = 0,
+        resetType = 0,
+        toastDisplayType = 0,
+        toastImagePath = None,
+        viewFlag = False,
+        displayOrder = 0,
+        shortcutUi = None,
+        challengeStageShortcut = 0,
+        completeConditionType = 0,
+        completeConditionCount = 0,
+        completeConditionParameter = None,
+        completeConditionParameterTag = None,
+        battlePassExpAmount = 0,
+    ):
+        self.battlePassId = battlePassId  # type: int
+        self.id = id  # type: int
+        self.category = category  # type: int
+        self.preMissionId = preMissionId  # type: Optional[List[int]]
+        self.description = description  # type: int
+        self.resetType = resetType  # type: int
+        self.toastDisplayType = toastDisplayType  # type: int
+        self.toastImagePath = toastImagePath  # type: Optional[str]
+        self.viewFlag = viewFlag  # type: bool
+        self.displayOrder = displayOrder  # type: int
+        self.shortcutUi = shortcutUi  # type: Optional[List[Optional[str]]]
+        self.challengeStageShortcut = challengeStageShortcut  # type: int
+        self.completeConditionType = completeConditionType  # type: int
+        self.completeConditionCount = completeConditionCount  # type: int
+        self.completeConditionParameter = completeConditionParameter  # type: Optional[List[int]]
+        self.completeConditionParameterTag = completeConditionParameterTag  # type: Optional[List[int]]
+        self.battlePassExpAmount = battlePassExpAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        battlePassMissionExcel = BattlePassMissionExcel()
+        battlePassMissionExcel.Init(buf, pos)
+        return cls.InitFromObj(battlePassMissionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, battlePassMissionExcel):
+        x = BattlePassMissionExcelT()
+        x._UnPack(battlePassMissionExcel)
+        return x
+
+    # BattlePassMissionExcelT
+    def _UnPack(self, battlePassMissionExcel):
+        if battlePassMissionExcel is None:
+            return
+        self.battlePassId = battlePassMissionExcel.BattlePassId()
+        self.id = battlePassMissionExcel.Id()
+        self.category = battlePassMissionExcel.Category()
+        if not battlePassMissionExcel.PreMissionIdIsNone():
+            if np is None:
+                self.preMissionId = []
+                for i in range(battlePassMissionExcel.PreMissionIdLength()):
+                    self.preMissionId.append(battlePassMissionExcel.PreMissionId(i))
+            else:
+                self.preMissionId = battlePassMissionExcel.PreMissionIdAsNumpy()
+        self.description = battlePassMissionExcel.Description()
+        self.resetType = battlePassMissionExcel.ResetType()
+        self.toastDisplayType = battlePassMissionExcel.ToastDisplayType()
+        self.toastImagePath = battlePassMissionExcel.ToastImagePath()
+        self.viewFlag = battlePassMissionExcel.ViewFlag()
+        self.displayOrder = battlePassMissionExcel.DisplayOrder()
+        if not battlePassMissionExcel.ShortcutUiIsNone():
+            self.shortcutUi = []
+            for i in range(battlePassMissionExcel.ShortcutUiLength()):
+                self.shortcutUi.append(battlePassMissionExcel.ShortcutUi(i))
+        self.challengeStageShortcut = battlePassMissionExcel.ChallengeStageShortcut()
+        self.completeConditionType = battlePassMissionExcel.CompleteConditionType()
+        self.completeConditionCount = battlePassMissionExcel.CompleteConditionCount()
+        if not battlePassMissionExcel.CompleteConditionParameterIsNone():
+            if np is None:
+                self.completeConditionParameter = []
+                for i in range(battlePassMissionExcel.CompleteConditionParameterLength()):
+                    self.completeConditionParameter.append(battlePassMissionExcel.CompleteConditionParameter(i))
+            else:
+                self.completeConditionParameter = battlePassMissionExcel.CompleteConditionParameterAsNumpy()
+        if not battlePassMissionExcel.CompleteConditionParameterTagIsNone():
+            if np is None:
+                self.completeConditionParameterTag = []
+                for i in range(battlePassMissionExcel.CompleteConditionParameterTagLength()):
+                    self.completeConditionParameterTag.append(battlePassMissionExcel.CompleteConditionParameterTag(i))
+            else:
+                self.completeConditionParameterTag = battlePassMissionExcel.CompleteConditionParameterTagAsNumpy()
+        self.battlePassExpAmount = battlePassMissionExcel.BattlePassExpAmount()
+
+    # BattlePassMissionExcelT
+    def Pack(self, builder):
+        if self.preMissionId is not None:
+            if np is not None and type(self.preMissionId) is np.ndarray:
+                preMissionId = builder.CreateNumpyVector(self.preMissionId)
+            else:
+                BattlePassMissionExcelStartPreMissionIdVector(builder, len(self.preMissionId))
+                for i in reversed(range(len(self.preMissionId))):
+                    builder.PrependInt64(self.preMissionId[i])
+                preMissionId = builder.EndVector()
+        if self.toastImagePath is not None:
+            toastImagePath = builder.CreateString(self.toastImagePath)
+        if self.shortcutUi is not None:
+            shortcutUilist = []
+            for i in range(len(self.shortcutUi)):
+                shortcutUilist.append(builder.CreateString(self.shortcutUi[i]))
+            BattlePassMissionExcelStartShortcutUiVector(builder, len(self.shortcutUi))
+            for i in reversed(range(len(self.shortcutUi))):
+                builder.PrependUOffsetTRelative(shortcutUilist[i])
+            shortcutUi = builder.EndVector()
+        if self.completeConditionParameter is not None:
+            if np is not None and type(self.completeConditionParameter) is np.ndarray:
+                completeConditionParameter = builder.CreateNumpyVector(self.completeConditionParameter)
+            else:
+                BattlePassMissionExcelStartCompleteConditionParameterVector(builder, len(self.completeConditionParameter))
+                for i in reversed(range(len(self.completeConditionParameter))):
+                    builder.PrependInt64(self.completeConditionParameter[i])
+                completeConditionParameter = builder.EndVector()
+        if self.completeConditionParameterTag is not None:
+            if np is not None and type(self.completeConditionParameterTag) is np.ndarray:
+                completeConditionParameterTag = builder.CreateNumpyVector(self.completeConditionParameterTag)
+            else:
+                BattlePassMissionExcelStartCompleteConditionParameterTagVector(builder, len(self.completeConditionParameterTag))
+                for i in reversed(range(len(self.completeConditionParameterTag))):
+                    builder.PrependInt32(self.completeConditionParameterTag[i])
+                completeConditionParameterTag = builder.EndVector()
+        BattlePassMissionExcelStart(builder)
+        BattlePassMissionExcelAddBattlePassId(builder, self.battlePassId)
+        BattlePassMissionExcelAddId(builder, self.id)
+        BattlePassMissionExcelAddCategory(builder, self.category)
+        if self.preMissionId is not None:
+            BattlePassMissionExcelAddPreMissionId(builder, preMissionId)
+        BattlePassMissionExcelAddDescription(builder, self.description)
+        BattlePassMissionExcelAddResetType(builder, self.resetType)
+        BattlePassMissionExcelAddToastDisplayType(builder, self.toastDisplayType)
+        if self.toastImagePath is not None:
+            BattlePassMissionExcelAddToastImagePath(builder, toastImagePath)
+        BattlePassMissionExcelAddViewFlag(builder, self.viewFlag)
+        BattlePassMissionExcelAddDisplayOrder(builder, self.displayOrder)
+        if self.shortcutUi is not None:
+            BattlePassMissionExcelAddShortcutUi(builder, shortcutUi)
+        BattlePassMissionExcelAddChallengeStageShortcut(builder, self.challengeStageShortcut)
+        BattlePassMissionExcelAddCompleteConditionType(builder, self.completeConditionType)
+        BattlePassMissionExcelAddCompleteConditionCount(builder, self.completeConditionCount)
+        if self.completeConditionParameter is not None:
+            BattlePassMissionExcelAddCompleteConditionParameter(builder, completeConditionParameter)
+        if self.completeConditionParameterTag is not None:
+            BattlePassMissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag)
+        BattlePassMissionExcelAddBattlePassExpAmount(builder, self.battlePassExpAmount)
+        battlePassMissionExcel = BattlePassMissionExcelEnd(builder)
+        return battlePassMissionExcel

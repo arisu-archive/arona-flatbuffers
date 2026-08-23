@@ -72,3 +72,68 @@ def NormalSkillTemplateExcelTableEnd(builder):
 
 def End(builder):
     return NormalSkillTemplateExcelTableEnd(builder)
+
+import FlatData.NormalSkillTemplateExcel
+try:
+    from typing import List
+except:
+    pass
+
+class NormalSkillTemplateExcelTableT(object):
+
+    # NormalSkillTemplateExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.NormalSkillTemplateExcel.NormalSkillTemplateExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        normalSkillTemplateExcelTable = NormalSkillTemplateExcelTable()
+        normalSkillTemplateExcelTable.Init(buf, pos)
+        return cls.InitFromObj(normalSkillTemplateExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, normalSkillTemplateExcelTable):
+        x = NormalSkillTemplateExcelTableT()
+        x._UnPack(normalSkillTemplateExcelTable)
+        return x
+
+    # NormalSkillTemplateExcelTableT
+    def _UnPack(self, normalSkillTemplateExcelTable):
+        if normalSkillTemplateExcelTable is None:
+            return
+        if not normalSkillTemplateExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(normalSkillTemplateExcelTable.DataListLength()):
+                if normalSkillTemplateExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    normalSkillTemplateExcel_ = FlatData.NormalSkillTemplateExcel.NormalSkillTemplateExcelT.InitFromObj(normalSkillTemplateExcelTable.DataList(i))
+                    self.dataList.append(normalSkillTemplateExcel_)
+
+    # NormalSkillTemplateExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            NormalSkillTemplateExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        NormalSkillTemplateExcelTableStart(builder)
+        if self.dataList is not None:
+            NormalSkillTemplateExcelTableAddDataList(builder, dataList)
+        normalSkillTemplateExcelTable = NormalSkillTemplateExcelTableEnd(builder)
+        return normalSkillTemplateExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(NormalSkillTemplateExcelTableT, 'NormalSkillTemplateExcelTable', ())

@@ -74,3 +74,54 @@ def TacticEntityEffectFilterExcelEnd(builder):
 
 def End(builder):
     return TacticEntityEffectFilterExcelEnd(builder)
+
+
+class TacticEntityEffectFilterExcelT(object):
+
+    # TacticEntityEffectFilterExcelT
+    def __init__(
+        self,
+        targetEffectName = None,
+        showEffectToVehicle = False,
+        showEffectToBoss = False,
+    ):
+        self.targetEffectName = targetEffectName  # type: Optional[str]
+        self.showEffectToVehicle = showEffectToVehicle  # type: bool
+        self.showEffectToBoss = showEffectToBoss  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        tacticEntityEffectFilterExcel = TacticEntityEffectFilterExcel()
+        tacticEntityEffectFilterExcel.Init(buf, pos)
+        return cls.InitFromObj(tacticEntityEffectFilterExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, tacticEntityEffectFilterExcel):
+        x = TacticEntityEffectFilterExcelT()
+        x._UnPack(tacticEntityEffectFilterExcel)
+        return x
+
+    # TacticEntityEffectFilterExcelT
+    def _UnPack(self, tacticEntityEffectFilterExcel):
+        if tacticEntityEffectFilterExcel is None:
+            return
+        self.targetEffectName = tacticEntityEffectFilterExcel.TargetEffectName()
+        self.showEffectToVehicle = tacticEntityEffectFilterExcel.ShowEffectToVehicle()
+        self.showEffectToBoss = tacticEntityEffectFilterExcel.ShowEffectToBoss()
+
+    # TacticEntityEffectFilterExcelT
+    def Pack(self, builder):
+        if self.targetEffectName is not None:
+            targetEffectName = builder.CreateString(self.targetEffectName)
+        TacticEntityEffectFilterExcelStart(builder)
+        if self.targetEffectName is not None:
+            TacticEntityEffectFilterExcelAddTargetEffectName(builder, targetEffectName)
+        TacticEntityEffectFilterExcelAddShowEffectToVehicle(builder, self.showEffectToVehicle)
+        TacticEntityEffectFilterExcelAddShowEffectToBoss(builder, self.showEffectToBoss)
+        tacticEntityEffectFilterExcel = TacticEntityEffectFilterExcelEnd(builder)
+        return tacticEntityEffectFilterExcel

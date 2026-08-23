@@ -72,3 +72,68 @@ def FieldContentStageRewardExcelTableEnd(builder):
 
 def End(builder):
     return FieldContentStageRewardExcelTableEnd(builder)
+
+import FlatData.FieldContentStageRewardExcel
+try:
+    from typing import List
+except:
+    pass
+
+class FieldContentStageRewardExcelTableT(object):
+
+    # FieldContentStageRewardExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.FieldContentStageRewardExcel.FieldContentStageRewardExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        fieldContentStageRewardExcelTable = FieldContentStageRewardExcelTable()
+        fieldContentStageRewardExcelTable.Init(buf, pos)
+        return cls.InitFromObj(fieldContentStageRewardExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, fieldContentStageRewardExcelTable):
+        x = FieldContentStageRewardExcelTableT()
+        x._UnPack(fieldContentStageRewardExcelTable)
+        return x
+
+    # FieldContentStageRewardExcelTableT
+    def _UnPack(self, fieldContentStageRewardExcelTable):
+        if fieldContentStageRewardExcelTable is None:
+            return
+        if not fieldContentStageRewardExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(fieldContentStageRewardExcelTable.DataListLength()):
+                if fieldContentStageRewardExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    fieldContentStageRewardExcel_ = FlatData.FieldContentStageRewardExcel.FieldContentStageRewardExcelT.InitFromObj(fieldContentStageRewardExcelTable.DataList(i))
+                    self.dataList.append(fieldContentStageRewardExcel_)
+
+    # FieldContentStageRewardExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            FieldContentStageRewardExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        FieldContentStageRewardExcelTableStart(builder)
+        if self.dataList is not None:
+            FieldContentStageRewardExcelTableAddDataList(builder, dataList)
+        fieldContentStageRewardExcelTable = FieldContentStageRewardExcelTableEnd(builder)
+        return fieldContentStageRewardExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(FieldContentStageRewardExcelTableT, 'FieldContentStageRewardExcelTable', ())

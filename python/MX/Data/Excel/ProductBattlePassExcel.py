@@ -243,3 +243,134 @@ def ProductBattlePassExcelEnd(builder):
 
 def End(builder):
     return ProductBattlePassExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ProductBattlePassExcelT(object):
+
+    # ProductBattlePassExcelT
+    def __init__(
+        self,
+        id = 0,
+        productId = None,
+        teenProductId = None,
+        storeType = 0,
+        price = 0,
+        purchaseCountLimit = 0,
+        battlePassProductGroupId = 0,
+        parcelType = None,
+        parcelId = None,
+        parcelAmount = None,
+    ):
+        self.id = id  # type: int
+        self.productId = productId  # type: Optional[str]
+        self.teenProductId = teenProductId  # type: Optional[str]
+        self.storeType = storeType  # type: int
+        self.price = price  # type: int
+        self.purchaseCountLimit = purchaseCountLimit  # type: int
+        self.battlePassProductGroupId = battlePassProductGroupId  # type: int
+        self.parcelType = parcelType  # type: Optional[List[int]]
+        self.parcelId = parcelId  # type: Optional[List[int]]
+        self.parcelAmount = parcelAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        productBattlePassExcel = ProductBattlePassExcel()
+        productBattlePassExcel.Init(buf, pos)
+        return cls.InitFromObj(productBattlePassExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, productBattlePassExcel):
+        x = ProductBattlePassExcelT()
+        x._UnPack(productBattlePassExcel)
+        return x
+
+    # ProductBattlePassExcelT
+    def _UnPack(self, productBattlePassExcel):
+        if productBattlePassExcel is None:
+            return
+        self.id = productBattlePassExcel.Id()
+        self.productId = productBattlePassExcel.ProductId()
+        self.teenProductId = productBattlePassExcel.TeenProductId()
+        self.storeType = productBattlePassExcel.StoreType()
+        self.price = productBattlePassExcel.Price()
+        self.purchaseCountLimit = productBattlePassExcel.PurchaseCountLimit()
+        self.battlePassProductGroupId = productBattlePassExcel.BattlePassProductGroupId()
+        if not productBattlePassExcel.ParcelTypeIsNone():
+            if np is None:
+                self.parcelType = []
+                for i in range(productBattlePassExcel.ParcelTypeLength()):
+                    self.parcelType.append(productBattlePassExcel.ParcelType(i))
+            else:
+                self.parcelType = productBattlePassExcel.ParcelTypeAsNumpy()
+        if not productBattlePassExcel.ParcelIdIsNone():
+            if np is None:
+                self.parcelId = []
+                for i in range(productBattlePassExcel.ParcelIdLength()):
+                    self.parcelId.append(productBattlePassExcel.ParcelId(i))
+            else:
+                self.parcelId = productBattlePassExcel.ParcelIdAsNumpy()
+        if not productBattlePassExcel.ParcelAmountIsNone():
+            if np is None:
+                self.parcelAmount = []
+                for i in range(productBattlePassExcel.ParcelAmountLength()):
+                    self.parcelAmount.append(productBattlePassExcel.ParcelAmount(i))
+            else:
+                self.parcelAmount = productBattlePassExcel.ParcelAmountAsNumpy()
+
+    # ProductBattlePassExcelT
+    def Pack(self, builder):
+        if self.productId is not None:
+            productId = builder.CreateString(self.productId)
+        if self.teenProductId is not None:
+            teenProductId = builder.CreateString(self.teenProductId)
+        if self.parcelType is not None:
+            if np is not None and type(self.parcelType) is np.ndarray:
+                parcelType = builder.CreateNumpyVector(self.parcelType)
+            else:
+                ProductBattlePassExcelStartParcelTypeVector(builder, len(self.parcelType))
+                for i in reversed(range(len(self.parcelType))):
+                    builder.PrependInt32(self.parcelType[i])
+                parcelType = builder.EndVector()
+        if self.parcelId is not None:
+            if np is not None and type(self.parcelId) is np.ndarray:
+                parcelId = builder.CreateNumpyVector(self.parcelId)
+            else:
+                ProductBattlePassExcelStartParcelIdVector(builder, len(self.parcelId))
+                for i in reversed(range(len(self.parcelId))):
+                    builder.PrependInt64(self.parcelId[i])
+                parcelId = builder.EndVector()
+        if self.parcelAmount is not None:
+            if np is not None and type(self.parcelAmount) is np.ndarray:
+                parcelAmount = builder.CreateNumpyVector(self.parcelAmount)
+            else:
+                ProductBattlePassExcelStartParcelAmountVector(builder, len(self.parcelAmount))
+                for i in reversed(range(len(self.parcelAmount))):
+                    builder.PrependInt64(self.parcelAmount[i])
+                parcelAmount = builder.EndVector()
+        ProductBattlePassExcelStart(builder)
+        ProductBattlePassExcelAddId(builder, self.id)
+        if self.productId is not None:
+            ProductBattlePassExcelAddProductId(builder, productId)
+        if self.teenProductId is not None:
+            ProductBattlePassExcelAddTeenProductId(builder, teenProductId)
+        ProductBattlePassExcelAddStoreType(builder, self.storeType)
+        ProductBattlePassExcelAddPrice(builder, self.price)
+        ProductBattlePassExcelAddPurchaseCountLimit(builder, self.purchaseCountLimit)
+        ProductBattlePassExcelAddBattlePassProductGroupId(builder, self.battlePassProductGroupId)
+        if self.parcelType is not None:
+            ProductBattlePassExcelAddParcelType(builder, parcelType)
+        if self.parcelId is not None:
+            ProductBattlePassExcelAddParcelId(builder, parcelId)
+        if self.parcelAmount is not None:
+            ProductBattlePassExcelAddParcelAmount(builder, parcelAmount)
+        productBattlePassExcel = ProductBattlePassExcelEnd(builder)
+        return productBattlePassExcel

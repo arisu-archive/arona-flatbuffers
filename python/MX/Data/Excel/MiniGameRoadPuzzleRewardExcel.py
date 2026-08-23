@@ -178,3 +178,108 @@ def MiniGameRoadPuzzleRewardExcelEnd(builder):
 
 def End(builder):
     return MiniGameRoadPuzzleRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MiniGameRoadPuzzleRewardExcelT(object):
+
+    # MiniGameRoadPuzzleRewardExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        uniqueId = 0,
+        rewardParcelType = None,
+        rewardParcelId = None,
+        rewardParcelAmount = None,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.rewardParcelType = rewardParcelType  # type: Optional[List[int]]
+        self.rewardParcelId = rewardParcelId  # type: Optional[List[int]]
+        self.rewardParcelAmount = rewardParcelAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameRoadPuzzleRewardExcel = MiniGameRoadPuzzleRewardExcel()
+        miniGameRoadPuzzleRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameRoadPuzzleRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameRoadPuzzleRewardExcel):
+        x = MiniGameRoadPuzzleRewardExcelT()
+        x._UnPack(miniGameRoadPuzzleRewardExcel)
+        return x
+
+    # MiniGameRoadPuzzleRewardExcelT
+    def _UnPack(self, miniGameRoadPuzzleRewardExcel):
+        if miniGameRoadPuzzleRewardExcel is None:
+            return
+        self.eventContentId = miniGameRoadPuzzleRewardExcel.EventContentId()
+        self.uniqueId = miniGameRoadPuzzleRewardExcel.UniqueId()
+        if not miniGameRoadPuzzleRewardExcel.RewardParcelTypeIsNone():
+            if np is None:
+                self.rewardParcelType = []
+                for i in range(miniGameRoadPuzzleRewardExcel.RewardParcelTypeLength()):
+                    self.rewardParcelType.append(miniGameRoadPuzzleRewardExcel.RewardParcelType(i))
+            else:
+                self.rewardParcelType = miniGameRoadPuzzleRewardExcel.RewardParcelTypeAsNumpy()
+        if not miniGameRoadPuzzleRewardExcel.RewardParcelIdIsNone():
+            if np is None:
+                self.rewardParcelId = []
+                for i in range(miniGameRoadPuzzleRewardExcel.RewardParcelIdLength()):
+                    self.rewardParcelId.append(miniGameRoadPuzzleRewardExcel.RewardParcelId(i))
+            else:
+                self.rewardParcelId = miniGameRoadPuzzleRewardExcel.RewardParcelIdAsNumpy()
+        if not miniGameRoadPuzzleRewardExcel.RewardParcelAmountIsNone():
+            if np is None:
+                self.rewardParcelAmount = []
+                for i in range(miniGameRoadPuzzleRewardExcel.RewardParcelAmountLength()):
+                    self.rewardParcelAmount.append(miniGameRoadPuzzleRewardExcel.RewardParcelAmount(i))
+            else:
+                self.rewardParcelAmount = miniGameRoadPuzzleRewardExcel.RewardParcelAmountAsNumpy()
+
+    # MiniGameRoadPuzzleRewardExcelT
+    def Pack(self, builder):
+        if self.rewardParcelType is not None:
+            if np is not None and type(self.rewardParcelType) is np.ndarray:
+                rewardParcelType = builder.CreateNumpyVector(self.rewardParcelType)
+            else:
+                MiniGameRoadPuzzleRewardExcelStartRewardParcelTypeVector(builder, len(self.rewardParcelType))
+                for i in reversed(range(len(self.rewardParcelType))):
+                    builder.PrependInt32(self.rewardParcelType[i])
+                rewardParcelType = builder.EndVector()
+        if self.rewardParcelId is not None:
+            if np is not None and type(self.rewardParcelId) is np.ndarray:
+                rewardParcelId = builder.CreateNumpyVector(self.rewardParcelId)
+            else:
+                MiniGameRoadPuzzleRewardExcelStartRewardParcelIdVector(builder, len(self.rewardParcelId))
+                for i in reversed(range(len(self.rewardParcelId))):
+                    builder.PrependInt64(self.rewardParcelId[i])
+                rewardParcelId = builder.EndVector()
+        if self.rewardParcelAmount is not None:
+            if np is not None and type(self.rewardParcelAmount) is np.ndarray:
+                rewardParcelAmount = builder.CreateNumpyVector(self.rewardParcelAmount)
+            else:
+                MiniGameRoadPuzzleRewardExcelStartRewardParcelAmountVector(builder, len(self.rewardParcelAmount))
+                for i in reversed(range(len(self.rewardParcelAmount))):
+                    builder.PrependInt64(self.rewardParcelAmount[i])
+                rewardParcelAmount = builder.EndVector()
+        MiniGameRoadPuzzleRewardExcelStart(builder)
+        MiniGameRoadPuzzleRewardExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameRoadPuzzleRewardExcelAddUniqueId(builder, self.uniqueId)
+        if self.rewardParcelType is not None:
+            MiniGameRoadPuzzleRewardExcelAddRewardParcelType(builder, rewardParcelType)
+        if self.rewardParcelId is not None:
+            MiniGameRoadPuzzleRewardExcelAddRewardParcelId(builder, rewardParcelId)
+        if self.rewardParcelAmount is not None:
+            MiniGameRoadPuzzleRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+        miniGameRoadPuzzleRewardExcel = MiniGameRoadPuzzleRewardExcelEnd(builder)
+        return miniGameRoadPuzzleRewardExcel

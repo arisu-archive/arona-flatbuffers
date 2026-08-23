@@ -464,3 +464,174 @@ def PresetCharacterGroupExcelEnd(builder):
 
 def End(builder):
     return PresetCharacterGroupExcelEnd(builder)
+
+
+class PresetCharacterGroupExcelT(object):
+
+    # PresetCharacterGroupExcelT
+    def __init__(
+        self,
+        presetCharacterGroupId = 0,
+        getPresetType = None,
+        level = 0,
+        exp = 0,
+        favorExp = 0,
+        favorRank = 0,
+        starGrade = 0,
+        exSkillLevel = 0,
+        passiveSkillLevel = 0,
+        extraPassiveSkillLevel = 0,
+        commonSkillLevel = 0,
+        leaderSkillLevel = 0,
+        equipSlot01 = False,
+        equipSlotTier01 = 0,
+        equipSlotLevel01 = 0,
+        equipSlot02 = False,
+        equipSlotTier02 = 0,
+        equipSlotLevel02 = 0,
+        equipSlot03 = False,
+        equipSlotTier03 = 0,
+        equipSlotLevel03 = 0,
+        equipCharacterWeapon = False,
+        equipCharacterWeaponTier = 0,
+        equipCharacterWeaponLevel = 0,
+        equipCharacterGear = False,
+        equipCharacterGearTier = 0,
+        equipCharacterGearLevel = 0,
+        potentialType01 = 0,
+        potentialLevel01 = 0,
+        potentialType02 = 0,
+        potentialLevel02 = 0,
+        potentialType03 = 0,
+        potentialLevel03 = 0,
+    ):
+        self.presetCharacterGroupId = presetCharacterGroupId  # type: int
+        self.getPresetType = getPresetType  # type: Optional[str]
+        self.level = level  # type: int
+        self.exp = exp  # type: int
+        self.favorExp = favorExp  # type: int
+        self.favorRank = favorRank  # type: int
+        self.starGrade = starGrade  # type: int
+        self.exSkillLevel = exSkillLevel  # type: int
+        self.passiveSkillLevel = passiveSkillLevel  # type: int
+        self.extraPassiveSkillLevel = extraPassiveSkillLevel  # type: int
+        self.commonSkillLevel = commonSkillLevel  # type: int
+        self.leaderSkillLevel = leaderSkillLevel  # type: int
+        self.equipSlot01 = equipSlot01  # type: bool
+        self.equipSlotTier01 = equipSlotTier01  # type: int
+        self.equipSlotLevel01 = equipSlotLevel01  # type: int
+        self.equipSlot02 = equipSlot02  # type: bool
+        self.equipSlotTier02 = equipSlotTier02  # type: int
+        self.equipSlotLevel02 = equipSlotLevel02  # type: int
+        self.equipSlot03 = equipSlot03  # type: bool
+        self.equipSlotTier03 = equipSlotTier03  # type: int
+        self.equipSlotLevel03 = equipSlotLevel03  # type: int
+        self.equipCharacterWeapon = equipCharacterWeapon  # type: bool
+        self.equipCharacterWeaponTier = equipCharacterWeaponTier  # type: int
+        self.equipCharacterWeaponLevel = equipCharacterWeaponLevel  # type: int
+        self.equipCharacterGear = equipCharacterGear  # type: bool
+        self.equipCharacterGearTier = equipCharacterGearTier  # type: int
+        self.equipCharacterGearLevel = equipCharacterGearLevel  # type: int
+        self.potentialType01 = potentialType01  # type: int
+        self.potentialLevel01 = potentialLevel01  # type: int
+        self.potentialType02 = potentialType02  # type: int
+        self.potentialLevel02 = potentialLevel02  # type: int
+        self.potentialType03 = potentialType03  # type: int
+        self.potentialLevel03 = potentialLevel03  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        presetCharacterGroupExcel = PresetCharacterGroupExcel()
+        presetCharacterGroupExcel.Init(buf, pos)
+        return cls.InitFromObj(presetCharacterGroupExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, presetCharacterGroupExcel):
+        x = PresetCharacterGroupExcelT()
+        x._UnPack(presetCharacterGroupExcel)
+        return x
+
+    # PresetCharacterGroupExcelT
+    def _UnPack(self, presetCharacterGroupExcel):
+        if presetCharacterGroupExcel is None:
+            return
+        self.presetCharacterGroupId = presetCharacterGroupExcel.PresetCharacterGroupId()
+        self.getPresetType = presetCharacterGroupExcel.GetPresetType()
+        self.level = presetCharacterGroupExcel.Level()
+        self.exp = presetCharacterGroupExcel.Exp()
+        self.favorExp = presetCharacterGroupExcel.FavorExp()
+        self.favorRank = presetCharacterGroupExcel.FavorRank()
+        self.starGrade = presetCharacterGroupExcel.StarGrade()
+        self.exSkillLevel = presetCharacterGroupExcel.ExSkillLevel()
+        self.passiveSkillLevel = presetCharacterGroupExcel.PassiveSkillLevel()
+        self.extraPassiveSkillLevel = presetCharacterGroupExcel.ExtraPassiveSkillLevel()
+        self.commonSkillLevel = presetCharacterGroupExcel.CommonSkillLevel()
+        self.leaderSkillLevel = presetCharacterGroupExcel.LeaderSkillLevel()
+        self.equipSlot01 = presetCharacterGroupExcel.EquipSlot01()
+        self.equipSlotTier01 = presetCharacterGroupExcel.EquipSlotTier01()
+        self.equipSlotLevel01 = presetCharacterGroupExcel.EquipSlotLevel01()
+        self.equipSlot02 = presetCharacterGroupExcel.EquipSlot02()
+        self.equipSlotTier02 = presetCharacterGroupExcel.EquipSlotTier02()
+        self.equipSlotLevel02 = presetCharacterGroupExcel.EquipSlotLevel02()
+        self.equipSlot03 = presetCharacterGroupExcel.EquipSlot03()
+        self.equipSlotTier03 = presetCharacterGroupExcel.EquipSlotTier03()
+        self.equipSlotLevel03 = presetCharacterGroupExcel.EquipSlotLevel03()
+        self.equipCharacterWeapon = presetCharacterGroupExcel.EquipCharacterWeapon()
+        self.equipCharacterWeaponTier = presetCharacterGroupExcel.EquipCharacterWeaponTier()
+        self.equipCharacterWeaponLevel = presetCharacterGroupExcel.EquipCharacterWeaponLevel()
+        self.equipCharacterGear = presetCharacterGroupExcel.EquipCharacterGear()
+        self.equipCharacterGearTier = presetCharacterGroupExcel.EquipCharacterGearTier()
+        self.equipCharacterGearLevel = presetCharacterGroupExcel.EquipCharacterGearLevel()
+        self.potentialType01 = presetCharacterGroupExcel.PotentialType01()
+        self.potentialLevel01 = presetCharacterGroupExcel.PotentialLevel01()
+        self.potentialType02 = presetCharacterGroupExcel.PotentialType02()
+        self.potentialLevel02 = presetCharacterGroupExcel.PotentialLevel02()
+        self.potentialType03 = presetCharacterGroupExcel.PotentialType03()
+        self.potentialLevel03 = presetCharacterGroupExcel.PotentialLevel03()
+
+    # PresetCharacterGroupExcelT
+    def Pack(self, builder):
+        if self.getPresetType is not None:
+            getPresetType = builder.CreateString(self.getPresetType)
+        PresetCharacterGroupExcelStart(builder)
+        PresetCharacterGroupExcelAddPresetCharacterGroupId(builder, self.presetCharacterGroupId)
+        if self.getPresetType is not None:
+            PresetCharacterGroupExcelAddGetPresetType(builder, getPresetType)
+        PresetCharacterGroupExcelAddLevel(builder, self.level)
+        PresetCharacterGroupExcelAddExp(builder, self.exp)
+        PresetCharacterGroupExcelAddFavorExp(builder, self.favorExp)
+        PresetCharacterGroupExcelAddFavorRank(builder, self.favorRank)
+        PresetCharacterGroupExcelAddStarGrade(builder, self.starGrade)
+        PresetCharacterGroupExcelAddExSkillLevel(builder, self.exSkillLevel)
+        PresetCharacterGroupExcelAddPassiveSkillLevel(builder, self.passiveSkillLevel)
+        PresetCharacterGroupExcelAddExtraPassiveSkillLevel(builder, self.extraPassiveSkillLevel)
+        PresetCharacterGroupExcelAddCommonSkillLevel(builder, self.commonSkillLevel)
+        PresetCharacterGroupExcelAddLeaderSkillLevel(builder, self.leaderSkillLevel)
+        PresetCharacterGroupExcelAddEquipSlot01(builder, self.equipSlot01)
+        PresetCharacterGroupExcelAddEquipSlotTier01(builder, self.equipSlotTier01)
+        PresetCharacterGroupExcelAddEquipSlotLevel01(builder, self.equipSlotLevel01)
+        PresetCharacterGroupExcelAddEquipSlot02(builder, self.equipSlot02)
+        PresetCharacterGroupExcelAddEquipSlotTier02(builder, self.equipSlotTier02)
+        PresetCharacterGroupExcelAddEquipSlotLevel02(builder, self.equipSlotLevel02)
+        PresetCharacterGroupExcelAddEquipSlot03(builder, self.equipSlot03)
+        PresetCharacterGroupExcelAddEquipSlotTier03(builder, self.equipSlotTier03)
+        PresetCharacterGroupExcelAddEquipSlotLevel03(builder, self.equipSlotLevel03)
+        PresetCharacterGroupExcelAddEquipCharacterWeapon(builder, self.equipCharacterWeapon)
+        PresetCharacterGroupExcelAddEquipCharacterWeaponTier(builder, self.equipCharacterWeaponTier)
+        PresetCharacterGroupExcelAddEquipCharacterWeaponLevel(builder, self.equipCharacterWeaponLevel)
+        PresetCharacterGroupExcelAddEquipCharacterGear(builder, self.equipCharacterGear)
+        PresetCharacterGroupExcelAddEquipCharacterGearTier(builder, self.equipCharacterGearTier)
+        PresetCharacterGroupExcelAddEquipCharacterGearLevel(builder, self.equipCharacterGearLevel)
+        PresetCharacterGroupExcelAddPotentialType01(builder, self.potentialType01)
+        PresetCharacterGroupExcelAddPotentialLevel01(builder, self.potentialLevel01)
+        PresetCharacterGroupExcelAddPotentialType02(builder, self.potentialType02)
+        PresetCharacterGroupExcelAddPotentialLevel02(builder, self.potentialLevel02)
+        PresetCharacterGroupExcelAddPotentialType03(builder, self.potentialType03)
+        PresetCharacterGroupExcelAddPotentialLevel03(builder, self.potentialLevel03)
+        presetCharacterGroupExcel = PresetCharacterGroupExcelEnd(builder)
+        return presetCharacterGroupExcel

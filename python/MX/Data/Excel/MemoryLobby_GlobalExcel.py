@@ -139,3 +139,89 @@ def MemoryLobby_GlobalExcelEnd(builder):
 
 def End(builder):
     return MemoryLobby_GlobalExcelEnd(builder)
+
+
+class MemoryLobby_GlobalExcelT(object):
+
+    # MemoryLobby_GlobalExcelT
+    def __init__(
+        self,
+        id = 0,
+        characterId = 0,
+        prefabNameKr = None,
+        prefabNameTw = None,
+        prefabNameAsia = None,
+        prefabNameNa = None,
+        prefabNameGlobal = None,
+        prefabNameTeen = None,
+    ):
+        self.id = id  # type: int
+        self.characterId = characterId  # type: int
+        self.prefabNameKr = prefabNameKr  # type: Optional[str]
+        self.prefabNameTw = prefabNameTw  # type: Optional[str]
+        self.prefabNameAsia = prefabNameAsia  # type: Optional[str]
+        self.prefabNameNa = prefabNameNa  # type: Optional[str]
+        self.prefabNameGlobal = prefabNameGlobal  # type: Optional[str]
+        self.prefabNameTeen = prefabNameTeen  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        memoryLobbyGlobalExcel = MemoryLobby_GlobalExcel()
+        memoryLobbyGlobalExcel.Init(buf, pos)
+        return cls.InitFromObj(memoryLobbyGlobalExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, memoryLobbyGlobalExcel):
+        x = MemoryLobby_GlobalExcelT()
+        x._UnPack(memoryLobbyGlobalExcel)
+        return x
+
+    # MemoryLobby_GlobalExcelT
+    def _UnPack(self, memoryLobbyGlobalExcel):
+        if memoryLobbyGlobalExcel is None:
+            return
+        self.id = memoryLobbyGlobalExcel.Id()
+        self.characterId = memoryLobbyGlobalExcel.CharacterId()
+        self.prefabNameKr = memoryLobbyGlobalExcel.PrefabNameKr()
+        self.prefabNameTw = memoryLobbyGlobalExcel.PrefabNameTw()
+        self.prefabNameAsia = memoryLobbyGlobalExcel.PrefabNameAsia()
+        self.prefabNameNa = memoryLobbyGlobalExcel.PrefabNameNa()
+        self.prefabNameGlobal = memoryLobbyGlobalExcel.PrefabNameGlobal()
+        self.prefabNameTeen = memoryLobbyGlobalExcel.PrefabNameTeen()
+
+    # MemoryLobby_GlobalExcelT
+    def Pack(self, builder):
+        if self.prefabNameKr is not None:
+            prefabNameKr = builder.CreateString(self.prefabNameKr)
+        if self.prefabNameTw is not None:
+            prefabNameTw = builder.CreateString(self.prefabNameTw)
+        if self.prefabNameAsia is not None:
+            prefabNameAsia = builder.CreateString(self.prefabNameAsia)
+        if self.prefabNameNa is not None:
+            prefabNameNa = builder.CreateString(self.prefabNameNa)
+        if self.prefabNameGlobal is not None:
+            prefabNameGlobal = builder.CreateString(self.prefabNameGlobal)
+        if self.prefabNameTeen is not None:
+            prefabNameTeen = builder.CreateString(self.prefabNameTeen)
+        MemoryLobby_GlobalExcelStart(builder)
+        MemoryLobby_GlobalExcelAddId(builder, self.id)
+        MemoryLobby_GlobalExcelAddCharacterId(builder, self.characterId)
+        if self.prefabNameKr is not None:
+            MemoryLobby_GlobalExcelAddPrefabNameKr(builder, prefabNameKr)
+        if self.prefabNameTw is not None:
+            MemoryLobby_GlobalExcelAddPrefabNameTw(builder, prefabNameTw)
+        if self.prefabNameAsia is not None:
+            MemoryLobby_GlobalExcelAddPrefabNameAsia(builder, prefabNameAsia)
+        if self.prefabNameNa is not None:
+            MemoryLobby_GlobalExcelAddPrefabNameNa(builder, prefabNameNa)
+        if self.prefabNameGlobal is not None:
+            MemoryLobby_GlobalExcelAddPrefabNameGlobal(builder, prefabNameGlobal)
+        if self.prefabNameTeen is not None:
+            MemoryLobby_GlobalExcelAddPrefabNameTeen(builder, prefabNameTeen)
+        memoryLobbyGlobalExcel = MemoryLobby_GlobalExcelEnd(builder)
+        return memoryLobbyGlobalExcel

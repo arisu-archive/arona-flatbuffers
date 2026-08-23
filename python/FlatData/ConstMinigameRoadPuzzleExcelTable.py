@@ -72,3 +72,68 @@ def ConstMinigameRoadPuzzleExcelTableEnd(builder):
 
 def End(builder):
     return ConstMinigameRoadPuzzleExcelTableEnd(builder)
+
+import FlatData.ConstMinigameRoadPuzzleExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConstMinigameRoadPuzzleExcelTableT(object):
+
+    # ConstMinigameRoadPuzzleExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConstMinigameRoadPuzzleExcel.ConstMinigameRoadPuzzleExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        constMinigameRoadPuzzleExcelTable = ConstMinigameRoadPuzzleExcelTable()
+        constMinigameRoadPuzzleExcelTable.Init(buf, pos)
+        return cls.InitFromObj(constMinigameRoadPuzzleExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, constMinigameRoadPuzzleExcelTable):
+        x = ConstMinigameRoadPuzzleExcelTableT()
+        x._UnPack(constMinigameRoadPuzzleExcelTable)
+        return x
+
+    # ConstMinigameRoadPuzzleExcelTableT
+    def _UnPack(self, constMinigameRoadPuzzleExcelTable):
+        if constMinigameRoadPuzzleExcelTable is None:
+            return
+        if not constMinigameRoadPuzzleExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(constMinigameRoadPuzzleExcelTable.DataListLength()):
+                if constMinigameRoadPuzzleExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    constMinigameRoadPuzzleExcel_ = FlatData.ConstMinigameRoadPuzzleExcel.ConstMinigameRoadPuzzleExcelT.InitFromObj(constMinigameRoadPuzzleExcelTable.DataList(i))
+                    self.dataList.append(constMinigameRoadPuzzleExcel_)
+
+    # ConstMinigameRoadPuzzleExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConstMinigameRoadPuzzleExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConstMinigameRoadPuzzleExcelTableStart(builder)
+        if self.dataList is not None:
+            ConstMinigameRoadPuzzleExcelTableAddDataList(builder, dataList)
+        constMinigameRoadPuzzleExcelTable = ConstMinigameRoadPuzzleExcelTableEnd(builder)
+        return constMinigameRoadPuzzleExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConstMinigameRoadPuzzleExcelTableT, 'ConstMinigameRoadPuzzleExcelTable', ())

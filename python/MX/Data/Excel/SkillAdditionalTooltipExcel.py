@@ -45,8 +45,15 @@ class SkillAdditionalTooltipExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
+    # SkillAdditionalTooltipExcel
+    def DisplayIconBg(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
 def SkillAdditionalTooltipExcelStart(builder):
-    builder.StartObject(3)
+    builder.StartObject(4)
 
 def Start(builder):
     SkillAdditionalTooltipExcelStart(builder)
@@ -69,8 +76,72 @@ def SkillAdditionalTooltipExcelAddShowSkillSlot(builder, showSkillSlot):
 def AddShowSkillSlot(builder, showSkillSlot):
     SkillAdditionalTooltipExcelAddShowSkillSlot(builder, showSkillSlot)
 
+def SkillAdditionalTooltipExcelAddDisplayIconBg(builder, displayIconBg):
+    builder.PrependBoolSlot(3, displayIconBg, 0)
+
+def AddDisplayIconBg(builder, displayIconBg):
+    SkillAdditionalTooltipExcelAddDisplayIconBg(builder, displayIconBg)
+
 def SkillAdditionalTooltipExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return SkillAdditionalTooltipExcelEnd(builder)
+
+
+class SkillAdditionalTooltipExcelT(object):
+
+    # SkillAdditionalTooltipExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        additionalSkillGroupId = None,
+        showSkillSlot = None,
+        displayIconBg = False,
+    ):
+        self.groupId = groupId  # type: int
+        self.additionalSkillGroupId = additionalSkillGroupId  # type: Optional[str]
+        self.showSkillSlot = showSkillSlot  # type: Optional[str]
+        self.displayIconBg = displayIconBg  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        skillAdditionalTooltipExcel = SkillAdditionalTooltipExcel()
+        skillAdditionalTooltipExcel.Init(buf, pos)
+        return cls.InitFromObj(skillAdditionalTooltipExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, skillAdditionalTooltipExcel):
+        x = SkillAdditionalTooltipExcelT()
+        x._UnPack(skillAdditionalTooltipExcel)
+        return x
+
+    # SkillAdditionalTooltipExcelT
+    def _UnPack(self, skillAdditionalTooltipExcel):
+        if skillAdditionalTooltipExcel is None:
+            return
+        self.groupId = skillAdditionalTooltipExcel.GroupId()
+        self.additionalSkillGroupId = skillAdditionalTooltipExcel.AdditionalSkillGroupId()
+        self.showSkillSlot = skillAdditionalTooltipExcel.ShowSkillSlot()
+        self.displayIconBg = skillAdditionalTooltipExcel.DisplayIconBg()
+
+    # SkillAdditionalTooltipExcelT
+    def Pack(self, builder):
+        if self.additionalSkillGroupId is not None:
+            additionalSkillGroupId = builder.CreateString(self.additionalSkillGroupId)
+        if self.showSkillSlot is not None:
+            showSkillSlot = builder.CreateString(self.showSkillSlot)
+        SkillAdditionalTooltipExcelStart(builder)
+        SkillAdditionalTooltipExcelAddGroupId(builder, self.groupId)
+        if self.additionalSkillGroupId is not None:
+            SkillAdditionalTooltipExcelAddAdditionalSkillGroupId(builder, additionalSkillGroupId)
+        if self.showSkillSlot is not None:
+            SkillAdditionalTooltipExcelAddShowSkillSlot(builder, showSkillSlot)
+        SkillAdditionalTooltipExcelAddDisplayIconBg(builder, self.displayIconBg)
+        skillAdditionalTooltipExcel = SkillAdditionalTooltipExcelEnd(builder)
+        return skillAdditionalTooltipExcel

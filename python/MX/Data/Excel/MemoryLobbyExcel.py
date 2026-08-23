@@ -217,3 +217,119 @@ def MemoryLobbyExcelEnd(builder):
 
 def End(builder):
     return MemoryLobbyExcelEnd(builder)
+
+
+class MemoryLobbyExcelT(object):
+
+    # MemoryLobbyExcelT
+    def __init__(
+        self,
+        id = 0,
+        productionStep = 0,
+        localizeEtcId = 0,
+        characterId = 0,
+        prefabName = None,
+        memoryLobbyCategory = 0,
+        slotTextureName = None,
+        rewardTextureName = None,
+        bgmId = 0,
+        audioClipJp = None,
+        audioClipKr = None,
+        audioClipTh = None,
+        audioClipTw = None,
+        audioClipEn = None,
+    ):
+        self.id = id  # type: int
+        self.productionStep = productionStep  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.characterId = characterId  # type: int
+        self.prefabName = prefabName  # type: Optional[str]
+        self.memoryLobbyCategory = memoryLobbyCategory  # type: int
+        self.slotTextureName = slotTextureName  # type: Optional[str]
+        self.rewardTextureName = rewardTextureName  # type: Optional[str]
+        self.bgmId = bgmId  # type: int
+        self.audioClipJp = audioClipJp  # type: Optional[str]
+        self.audioClipKr = audioClipKr  # type: Optional[str]
+        self.audioClipTh = audioClipTh  # type: Optional[str]
+        self.audioClipTw = audioClipTw  # type: Optional[str]
+        self.audioClipEn = audioClipEn  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        memoryLobbyExcel = MemoryLobbyExcel()
+        memoryLobbyExcel.Init(buf, pos)
+        return cls.InitFromObj(memoryLobbyExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, memoryLobbyExcel):
+        x = MemoryLobbyExcelT()
+        x._UnPack(memoryLobbyExcel)
+        return x
+
+    # MemoryLobbyExcelT
+    def _UnPack(self, memoryLobbyExcel):
+        if memoryLobbyExcel is None:
+            return
+        self.id = memoryLobbyExcel.Id()
+        self.productionStep = memoryLobbyExcel.ProductionStep()
+        self.localizeEtcId = memoryLobbyExcel.LocalizeEtcId()
+        self.characterId = memoryLobbyExcel.CharacterId()
+        self.prefabName = memoryLobbyExcel.PrefabName()
+        self.memoryLobbyCategory = memoryLobbyExcel.MemoryLobbyCategory()
+        self.slotTextureName = memoryLobbyExcel.SlotTextureName()
+        self.rewardTextureName = memoryLobbyExcel.RewardTextureName()
+        self.bgmId = memoryLobbyExcel.BgmId()
+        self.audioClipJp = memoryLobbyExcel.AudioClipJp()
+        self.audioClipKr = memoryLobbyExcel.AudioClipKr()
+        self.audioClipTh = memoryLobbyExcel.AudioClipTh()
+        self.audioClipTw = memoryLobbyExcel.AudioClipTw()
+        self.audioClipEn = memoryLobbyExcel.AudioClipEn()
+
+    # MemoryLobbyExcelT
+    def Pack(self, builder):
+        if self.prefabName is not None:
+            prefabName = builder.CreateString(self.prefabName)
+        if self.slotTextureName is not None:
+            slotTextureName = builder.CreateString(self.slotTextureName)
+        if self.rewardTextureName is not None:
+            rewardTextureName = builder.CreateString(self.rewardTextureName)
+        if self.audioClipJp is not None:
+            audioClipJp = builder.CreateString(self.audioClipJp)
+        if self.audioClipKr is not None:
+            audioClipKr = builder.CreateString(self.audioClipKr)
+        if self.audioClipTh is not None:
+            audioClipTh = builder.CreateString(self.audioClipTh)
+        if self.audioClipTw is not None:
+            audioClipTw = builder.CreateString(self.audioClipTw)
+        if self.audioClipEn is not None:
+            audioClipEn = builder.CreateString(self.audioClipEn)
+        MemoryLobbyExcelStart(builder)
+        MemoryLobbyExcelAddId(builder, self.id)
+        MemoryLobbyExcelAddProductionStep(builder, self.productionStep)
+        MemoryLobbyExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        MemoryLobbyExcelAddCharacterId(builder, self.characterId)
+        if self.prefabName is not None:
+            MemoryLobbyExcelAddPrefabName(builder, prefabName)
+        MemoryLobbyExcelAddMemoryLobbyCategory(builder, self.memoryLobbyCategory)
+        if self.slotTextureName is not None:
+            MemoryLobbyExcelAddSlotTextureName(builder, slotTextureName)
+        if self.rewardTextureName is not None:
+            MemoryLobbyExcelAddRewardTextureName(builder, rewardTextureName)
+        MemoryLobbyExcelAddBgmId(builder, self.bgmId)
+        if self.audioClipJp is not None:
+            MemoryLobbyExcelAddAudioClipJp(builder, audioClipJp)
+        if self.audioClipKr is not None:
+            MemoryLobbyExcelAddAudioClipKr(builder, audioClipKr)
+        if self.audioClipTh is not None:
+            MemoryLobbyExcelAddAudioClipTh(builder, audioClipTh)
+        if self.audioClipTw is not None:
+            MemoryLobbyExcelAddAudioClipTw(builder, audioClipTw)
+        if self.audioClipEn is not None:
+            MemoryLobbyExcelAddAudioClipEn(builder, audioClipEn)
+        memoryLobbyExcel = MemoryLobbyExcelEnd(builder)
+        return memoryLobbyExcel

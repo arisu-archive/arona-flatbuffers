@@ -139,3 +139,71 @@ def GachaElementRecursiveExcelEnd(builder):
 
 def End(builder):
     return GachaElementRecursiveExcelEnd(builder)
+
+
+class GachaElementRecursiveExcelT(object):
+
+    # GachaElementRecursiveExcelT
+    def __init__(
+        self,
+        id = 0,
+        gachaGroupId = 0,
+        parcelType = 0,
+        parcelId = 0,
+        parcelAmountMin = 0,
+        parcelAmountMax = 0,
+        prob = 0,
+        state = 0,
+    ):
+        self.id = id  # type: int
+        self.gachaGroupId = gachaGroupId  # type: int
+        self.parcelType = parcelType  # type: int
+        self.parcelId = parcelId  # type: int
+        self.parcelAmountMin = parcelAmountMin  # type: int
+        self.parcelAmountMax = parcelAmountMax  # type: int
+        self.prob = prob  # type: int
+        self.state = state  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        gachaElementRecursiveExcel = GachaElementRecursiveExcel()
+        gachaElementRecursiveExcel.Init(buf, pos)
+        return cls.InitFromObj(gachaElementRecursiveExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, gachaElementRecursiveExcel):
+        x = GachaElementRecursiveExcelT()
+        x._UnPack(gachaElementRecursiveExcel)
+        return x
+
+    # GachaElementRecursiveExcelT
+    def _UnPack(self, gachaElementRecursiveExcel):
+        if gachaElementRecursiveExcel is None:
+            return
+        self.id = gachaElementRecursiveExcel.Id()
+        self.gachaGroupId = gachaElementRecursiveExcel.GachaGroupId()
+        self.parcelType = gachaElementRecursiveExcel.ParcelType()
+        self.parcelId = gachaElementRecursiveExcel.ParcelId()
+        self.parcelAmountMin = gachaElementRecursiveExcel.ParcelAmountMin()
+        self.parcelAmountMax = gachaElementRecursiveExcel.ParcelAmountMax()
+        self.prob = gachaElementRecursiveExcel.Prob()
+        self.state = gachaElementRecursiveExcel.State()
+
+    # GachaElementRecursiveExcelT
+    def Pack(self, builder):
+        GachaElementRecursiveExcelStart(builder)
+        GachaElementRecursiveExcelAddId(builder, self.id)
+        GachaElementRecursiveExcelAddGachaGroupId(builder, self.gachaGroupId)
+        GachaElementRecursiveExcelAddParcelType(builder, self.parcelType)
+        GachaElementRecursiveExcelAddParcelId(builder, self.parcelId)
+        GachaElementRecursiveExcelAddParcelAmountMin(builder, self.parcelAmountMin)
+        GachaElementRecursiveExcelAddParcelAmountMax(builder, self.parcelAmountMax)
+        GachaElementRecursiveExcelAddProb(builder, self.prob)
+        GachaElementRecursiveExcelAddState(builder, self.state)
+        gachaElementRecursiveExcel = GachaElementRecursiveExcelEnd(builder)
+        return gachaElementRecursiveExcel

@@ -379,3 +379,176 @@ def EliminateRaidRankingRewardExcelEnd(builder):
 
 def End(builder):
     return EliminateRaidRankingRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class EliminateRaidRankingRewardExcelT(object):
+
+    # EliminateRaidRankingRewardExcelT
+    def __init__(
+        self,
+        rankingRewardGroupId = 0,
+        id = 0,
+        rankStart = 0,
+        rankEnd = 0,
+        rankStartTw = 0,
+        rankEndTw = 0,
+        rankStartAsia = 0,
+        rankEndAsia = 0,
+        rankStartNa = 0,
+        rankEndNa = 0,
+        rankStartGlobal = 0,
+        rankEndGlobal = 0,
+        percentRankStart = 0,
+        percentRankEnd = 0,
+        tier = 0,
+        rewardParcelType = None,
+        rewardParcelUniqueId = None,
+        rewardParcelUniqueName = None,
+        rewardParcelAmount = None,
+    ):
+        self.rankingRewardGroupId = rankingRewardGroupId  # type: int
+        self.id = id  # type: int
+        self.rankStart = rankStart  # type: int
+        self.rankEnd = rankEnd  # type: int
+        self.rankStartTw = rankStartTw  # type: int
+        self.rankEndTw = rankEndTw  # type: int
+        self.rankStartAsia = rankStartAsia  # type: int
+        self.rankEndAsia = rankEndAsia  # type: int
+        self.rankStartNa = rankStartNa  # type: int
+        self.rankEndNa = rankEndNa  # type: int
+        self.rankStartGlobal = rankStartGlobal  # type: int
+        self.rankEndGlobal = rankEndGlobal  # type: int
+        self.percentRankStart = percentRankStart  # type: int
+        self.percentRankEnd = percentRankEnd  # type: int
+        self.tier = tier  # type: int
+        self.rewardParcelType = rewardParcelType  # type: Optional[List[int]]
+        self.rewardParcelUniqueId = rewardParcelUniqueId  # type: Optional[List[int]]
+        self.rewardParcelUniqueName = rewardParcelUniqueName  # type: Optional[List[Optional[str]]]
+        self.rewardParcelAmount = rewardParcelAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        eliminateRaidRankingRewardExcel = EliminateRaidRankingRewardExcel()
+        eliminateRaidRankingRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(eliminateRaidRankingRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, eliminateRaidRankingRewardExcel):
+        x = EliminateRaidRankingRewardExcelT()
+        x._UnPack(eliminateRaidRankingRewardExcel)
+        return x
+
+    # EliminateRaidRankingRewardExcelT
+    def _UnPack(self, eliminateRaidRankingRewardExcel):
+        if eliminateRaidRankingRewardExcel is None:
+            return
+        self.rankingRewardGroupId = eliminateRaidRankingRewardExcel.RankingRewardGroupId()
+        self.id = eliminateRaidRankingRewardExcel.Id()
+        self.rankStart = eliminateRaidRankingRewardExcel.RankStart()
+        self.rankEnd = eliminateRaidRankingRewardExcel.RankEnd()
+        self.rankStartTw = eliminateRaidRankingRewardExcel.RankStartTw()
+        self.rankEndTw = eliminateRaidRankingRewardExcel.RankEndTw()
+        self.rankStartAsia = eliminateRaidRankingRewardExcel.RankStartAsia()
+        self.rankEndAsia = eliminateRaidRankingRewardExcel.RankEndAsia()
+        self.rankStartNa = eliminateRaidRankingRewardExcel.RankStartNa()
+        self.rankEndNa = eliminateRaidRankingRewardExcel.RankEndNa()
+        self.rankStartGlobal = eliminateRaidRankingRewardExcel.RankStartGlobal()
+        self.rankEndGlobal = eliminateRaidRankingRewardExcel.RankEndGlobal()
+        self.percentRankStart = eliminateRaidRankingRewardExcel.PercentRankStart()
+        self.percentRankEnd = eliminateRaidRankingRewardExcel.PercentRankEnd()
+        self.tier = eliminateRaidRankingRewardExcel.Tier()
+        if not eliminateRaidRankingRewardExcel.RewardParcelTypeIsNone():
+            if np is None:
+                self.rewardParcelType = []
+                for i in range(eliminateRaidRankingRewardExcel.RewardParcelTypeLength()):
+                    self.rewardParcelType.append(eliminateRaidRankingRewardExcel.RewardParcelType(i))
+            else:
+                self.rewardParcelType = eliminateRaidRankingRewardExcel.RewardParcelTypeAsNumpy()
+        if not eliminateRaidRankingRewardExcel.RewardParcelUniqueIdIsNone():
+            if np is None:
+                self.rewardParcelUniqueId = []
+                for i in range(eliminateRaidRankingRewardExcel.RewardParcelUniqueIdLength()):
+                    self.rewardParcelUniqueId.append(eliminateRaidRankingRewardExcel.RewardParcelUniqueId(i))
+            else:
+                self.rewardParcelUniqueId = eliminateRaidRankingRewardExcel.RewardParcelUniqueIdAsNumpy()
+        if not eliminateRaidRankingRewardExcel.RewardParcelUniqueNameIsNone():
+            self.rewardParcelUniqueName = []
+            for i in range(eliminateRaidRankingRewardExcel.RewardParcelUniqueNameLength()):
+                self.rewardParcelUniqueName.append(eliminateRaidRankingRewardExcel.RewardParcelUniqueName(i))
+        if not eliminateRaidRankingRewardExcel.RewardParcelAmountIsNone():
+            if np is None:
+                self.rewardParcelAmount = []
+                for i in range(eliminateRaidRankingRewardExcel.RewardParcelAmountLength()):
+                    self.rewardParcelAmount.append(eliminateRaidRankingRewardExcel.RewardParcelAmount(i))
+            else:
+                self.rewardParcelAmount = eliminateRaidRankingRewardExcel.RewardParcelAmountAsNumpy()
+
+    # EliminateRaidRankingRewardExcelT
+    def Pack(self, builder):
+        if self.rewardParcelType is not None:
+            if np is not None and type(self.rewardParcelType) is np.ndarray:
+                rewardParcelType = builder.CreateNumpyVector(self.rewardParcelType)
+            else:
+                EliminateRaidRankingRewardExcelStartRewardParcelTypeVector(builder, len(self.rewardParcelType))
+                for i in reversed(range(len(self.rewardParcelType))):
+                    builder.PrependInt32(self.rewardParcelType[i])
+                rewardParcelType = builder.EndVector()
+        if self.rewardParcelUniqueId is not None:
+            if np is not None and type(self.rewardParcelUniqueId) is np.ndarray:
+                rewardParcelUniqueId = builder.CreateNumpyVector(self.rewardParcelUniqueId)
+            else:
+                EliminateRaidRankingRewardExcelStartRewardParcelUniqueIdVector(builder, len(self.rewardParcelUniqueId))
+                for i in reversed(range(len(self.rewardParcelUniqueId))):
+                    builder.PrependInt64(self.rewardParcelUniqueId[i])
+                rewardParcelUniqueId = builder.EndVector()
+        if self.rewardParcelUniqueName is not None:
+            rewardParcelUniqueNamelist = []
+            for i in range(len(self.rewardParcelUniqueName)):
+                rewardParcelUniqueNamelist.append(builder.CreateString(self.rewardParcelUniqueName[i]))
+            EliminateRaidRankingRewardExcelStartRewardParcelUniqueNameVector(builder, len(self.rewardParcelUniqueName))
+            for i in reversed(range(len(self.rewardParcelUniqueName))):
+                builder.PrependUOffsetTRelative(rewardParcelUniqueNamelist[i])
+            rewardParcelUniqueName = builder.EndVector()
+        if self.rewardParcelAmount is not None:
+            if np is not None and type(self.rewardParcelAmount) is np.ndarray:
+                rewardParcelAmount = builder.CreateNumpyVector(self.rewardParcelAmount)
+            else:
+                EliminateRaidRankingRewardExcelStartRewardParcelAmountVector(builder, len(self.rewardParcelAmount))
+                for i in reversed(range(len(self.rewardParcelAmount))):
+                    builder.PrependInt64(self.rewardParcelAmount[i])
+                rewardParcelAmount = builder.EndVector()
+        EliminateRaidRankingRewardExcelStart(builder)
+        EliminateRaidRankingRewardExcelAddRankingRewardGroupId(builder, self.rankingRewardGroupId)
+        EliminateRaidRankingRewardExcelAddId(builder, self.id)
+        EliminateRaidRankingRewardExcelAddRankStart(builder, self.rankStart)
+        EliminateRaidRankingRewardExcelAddRankEnd(builder, self.rankEnd)
+        EliminateRaidRankingRewardExcelAddRankStartTw(builder, self.rankStartTw)
+        EliminateRaidRankingRewardExcelAddRankEndTw(builder, self.rankEndTw)
+        EliminateRaidRankingRewardExcelAddRankStartAsia(builder, self.rankStartAsia)
+        EliminateRaidRankingRewardExcelAddRankEndAsia(builder, self.rankEndAsia)
+        EliminateRaidRankingRewardExcelAddRankStartNa(builder, self.rankStartNa)
+        EliminateRaidRankingRewardExcelAddRankEndNa(builder, self.rankEndNa)
+        EliminateRaidRankingRewardExcelAddRankStartGlobal(builder, self.rankStartGlobal)
+        EliminateRaidRankingRewardExcelAddRankEndGlobal(builder, self.rankEndGlobal)
+        EliminateRaidRankingRewardExcelAddPercentRankStart(builder, self.percentRankStart)
+        EliminateRaidRankingRewardExcelAddPercentRankEnd(builder, self.percentRankEnd)
+        EliminateRaidRankingRewardExcelAddTier(builder, self.tier)
+        if self.rewardParcelType is not None:
+            EliminateRaidRankingRewardExcelAddRewardParcelType(builder, rewardParcelType)
+        if self.rewardParcelUniqueId is not None:
+            EliminateRaidRankingRewardExcelAddRewardParcelUniqueId(builder, rewardParcelUniqueId)
+        if self.rewardParcelUniqueName is not None:
+            EliminateRaidRankingRewardExcelAddRewardParcelUniqueName(builder, rewardParcelUniqueName)
+        if self.rewardParcelAmount is not None:
+            EliminateRaidRankingRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+        eliminateRaidRankingRewardExcel = EliminateRaidRankingRewardExcelEnd(builder)
+        return eliminateRaidRankingRewardExcel

@@ -12,3 +12,6 @@ class GachaDisplayTag(object):
     Fes = 6
     SelectRecruit = 7
     LimitedThreeStar = 8
+    Revival = 9
+    SelectLimited = 10
+    NewbieDateLimited = 11

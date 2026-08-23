@@ -204,3 +204,123 @@ def MultiFloorRaidStatChangeExcelEnd(builder):
 
 def End(builder):
     return MultiFloorRaidStatChangeExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MultiFloorRaidStatChangeExcelT(object):
+
+    # MultiFloorRaidStatChangeExcelT
+    def __init__(
+        self,
+        statChangeId = 0,
+        statType = None,
+        statAdd = None,
+        statMultiply = None,
+        applyCharacterId = None,
+    ):
+        self.statChangeId = statChangeId  # type: int
+        self.statType = statType  # type: Optional[List[int]]
+        self.statAdd = statAdd  # type: Optional[List[int]]
+        self.statMultiply = statMultiply  # type: Optional[List[int]]
+        self.applyCharacterId = applyCharacterId  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        multiFloorRaidStatChangeExcel = MultiFloorRaidStatChangeExcel()
+        multiFloorRaidStatChangeExcel.Init(buf, pos)
+        return cls.InitFromObj(multiFloorRaidStatChangeExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, multiFloorRaidStatChangeExcel):
+        x = MultiFloorRaidStatChangeExcelT()
+        x._UnPack(multiFloorRaidStatChangeExcel)
+        return x
+
+    # MultiFloorRaidStatChangeExcelT
+    def _UnPack(self, multiFloorRaidStatChangeExcel):
+        if multiFloorRaidStatChangeExcel is None:
+            return
+        self.statChangeId = multiFloorRaidStatChangeExcel.StatChangeId()
+        if not multiFloorRaidStatChangeExcel.StatTypeIsNone():
+            if np is None:
+                self.statType = []
+                for i in range(multiFloorRaidStatChangeExcel.StatTypeLength()):
+                    self.statType.append(multiFloorRaidStatChangeExcel.StatType(i))
+            else:
+                self.statType = multiFloorRaidStatChangeExcel.StatTypeAsNumpy()
+        if not multiFloorRaidStatChangeExcel.StatAddIsNone():
+            if np is None:
+                self.statAdd = []
+                for i in range(multiFloorRaidStatChangeExcel.StatAddLength()):
+                    self.statAdd.append(multiFloorRaidStatChangeExcel.StatAdd(i))
+            else:
+                self.statAdd = multiFloorRaidStatChangeExcel.StatAddAsNumpy()
+        if not multiFloorRaidStatChangeExcel.StatMultiplyIsNone():
+            if np is None:
+                self.statMultiply = []
+                for i in range(multiFloorRaidStatChangeExcel.StatMultiplyLength()):
+                    self.statMultiply.append(multiFloorRaidStatChangeExcel.StatMultiply(i))
+            else:
+                self.statMultiply = multiFloorRaidStatChangeExcel.StatMultiplyAsNumpy()
+        if not multiFloorRaidStatChangeExcel.ApplyCharacterIdIsNone():
+            if np is None:
+                self.applyCharacterId = []
+                for i in range(multiFloorRaidStatChangeExcel.ApplyCharacterIdLength()):
+                    self.applyCharacterId.append(multiFloorRaidStatChangeExcel.ApplyCharacterId(i))
+            else:
+                self.applyCharacterId = multiFloorRaidStatChangeExcel.ApplyCharacterIdAsNumpy()
+
+    # MultiFloorRaidStatChangeExcelT
+    def Pack(self, builder):
+        if self.statType is not None:
+            if np is not None and type(self.statType) is np.ndarray:
+                statType = builder.CreateNumpyVector(self.statType)
+            else:
+                MultiFloorRaidStatChangeExcelStartStatTypeVector(builder, len(self.statType))
+                for i in reversed(range(len(self.statType))):
+                    builder.PrependInt32(self.statType[i])
+                statType = builder.EndVector()
+        if self.statAdd is not None:
+            if np is not None and type(self.statAdd) is np.ndarray:
+                statAdd = builder.CreateNumpyVector(self.statAdd)
+            else:
+                MultiFloorRaidStatChangeExcelStartStatAddVector(builder, len(self.statAdd))
+                for i in reversed(range(len(self.statAdd))):
+                    builder.PrependInt64(self.statAdd[i])
+                statAdd = builder.EndVector()
+        if self.statMultiply is not None:
+            if np is not None and type(self.statMultiply) is np.ndarray:
+                statMultiply = builder.CreateNumpyVector(self.statMultiply)
+            else:
+                MultiFloorRaidStatChangeExcelStartStatMultiplyVector(builder, len(self.statMultiply))
+                for i in reversed(range(len(self.statMultiply))):
+                    builder.PrependInt64(self.statMultiply[i])
+                statMultiply = builder.EndVector()
+        if self.applyCharacterId is not None:
+            if np is not None and type(self.applyCharacterId) is np.ndarray:
+                applyCharacterId = builder.CreateNumpyVector(self.applyCharacterId)
+            else:
+                MultiFloorRaidStatChangeExcelStartApplyCharacterIdVector(builder, len(self.applyCharacterId))
+                for i in reversed(range(len(self.applyCharacterId))):
+                    builder.PrependInt64(self.applyCharacterId[i])
+                applyCharacterId = builder.EndVector()
+        MultiFloorRaidStatChangeExcelStart(builder)
+        MultiFloorRaidStatChangeExcelAddStatChangeId(builder, self.statChangeId)
+        if self.statType is not None:
+            MultiFloorRaidStatChangeExcelAddStatType(builder, statType)
+        if self.statAdd is not None:
+            MultiFloorRaidStatChangeExcelAddStatAdd(builder, statAdd)
+        if self.statMultiply is not None:
+            MultiFloorRaidStatChangeExcelAddStatMultiply(builder, statMultiply)
+        if self.applyCharacterId is not None:
+            MultiFloorRaidStatChangeExcelAddApplyCharacterId(builder, applyCharacterId)
+        multiFloorRaidStatChangeExcel = MultiFloorRaidStatChangeExcelEnd(builder)
+        return multiFloorRaidStatChangeExcel

@@ -334,3 +334,169 @@ def CharacterGearExcelEnd(builder):
 
 def End(builder):
     return CharacterGearExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CharacterGearExcelT(object):
+
+    # CharacterGearExcelT
+    def __init__(
+        self,
+        id = 0,
+        characterId = 0,
+        statLevelUpType = 0,
+        tier = 0,
+        nextTierEquipment = 0,
+        recipeId = 0,
+        openFavorLevel = 0,
+        maxLevel = 0,
+        learnSkillSlot = None,
+        statType = None,
+        minStatValue = None,
+        maxStatValue = None,
+        icon = None,
+        localizeEtcId = 0,
+        tags = None,
+    ):
+        self.id = id  # type: int
+        self.characterId = characterId  # type: int
+        self.statLevelUpType = statLevelUpType  # type: int
+        self.tier = tier  # type: int
+        self.nextTierEquipment = nextTierEquipment  # type: int
+        self.recipeId = recipeId  # type: int
+        self.openFavorLevel = openFavorLevel  # type: int
+        self.maxLevel = maxLevel  # type: int
+        self.learnSkillSlot = learnSkillSlot  # type: Optional[str]
+        self.statType = statType  # type: Optional[List[int]]
+        self.minStatValue = minStatValue  # type: Optional[List[int]]
+        self.maxStatValue = maxStatValue  # type: Optional[List[int]]
+        self.icon = icon  # type: Optional[str]
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.tags = tags  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterGearExcel = CharacterGearExcel()
+        characterGearExcel.Init(buf, pos)
+        return cls.InitFromObj(characterGearExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterGearExcel):
+        x = CharacterGearExcelT()
+        x._UnPack(characterGearExcel)
+        return x
+
+    # CharacterGearExcelT
+    def _UnPack(self, characterGearExcel):
+        if characterGearExcel is None:
+            return
+        self.id = characterGearExcel.Id()
+        self.characterId = characterGearExcel.CharacterId()
+        self.statLevelUpType = characterGearExcel.StatLevelUpType()
+        self.tier = characterGearExcel.Tier()
+        self.nextTierEquipment = characterGearExcel.NextTierEquipment()
+        self.recipeId = characterGearExcel.RecipeId()
+        self.openFavorLevel = characterGearExcel.OpenFavorLevel()
+        self.maxLevel = characterGearExcel.MaxLevel()
+        self.learnSkillSlot = characterGearExcel.LearnSkillSlot()
+        if not characterGearExcel.StatTypeIsNone():
+            if np is None:
+                self.statType = []
+                for i in range(characterGearExcel.StatTypeLength()):
+                    self.statType.append(characterGearExcel.StatType(i))
+            else:
+                self.statType = characterGearExcel.StatTypeAsNumpy()
+        if not characterGearExcel.MinStatValueIsNone():
+            if np is None:
+                self.minStatValue = []
+                for i in range(characterGearExcel.MinStatValueLength()):
+                    self.minStatValue.append(characterGearExcel.MinStatValue(i))
+            else:
+                self.minStatValue = characterGearExcel.MinStatValueAsNumpy()
+        if not characterGearExcel.MaxStatValueIsNone():
+            if np is None:
+                self.maxStatValue = []
+                for i in range(characterGearExcel.MaxStatValueLength()):
+                    self.maxStatValue.append(characterGearExcel.MaxStatValue(i))
+            else:
+                self.maxStatValue = characterGearExcel.MaxStatValueAsNumpy()
+        self.icon = characterGearExcel.Icon()
+        self.localizeEtcId = characterGearExcel.LocalizeEtcId()
+        if not characterGearExcel.TagsIsNone():
+            if np is None:
+                self.tags = []
+                for i in range(characterGearExcel.TagsLength()):
+                    self.tags.append(characterGearExcel.Tags(i))
+            else:
+                self.tags = characterGearExcel.TagsAsNumpy()
+
+    # CharacterGearExcelT
+    def Pack(self, builder):
+        if self.learnSkillSlot is not None:
+            learnSkillSlot = builder.CreateString(self.learnSkillSlot)
+        if self.statType is not None:
+            if np is not None and type(self.statType) is np.ndarray:
+                statType = builder.CreateNumpyVector(self.statType)
+            else:
+                CharacterGearExcelStartStatTypeVector(builder, len(self.statType))
+                for i in reversed(range(len(self.statType))):
+                    builder.PrependInt32(self.statType[i])
+                statType = builder.EndVector()
+        if self.minStatValue is not None:
+            if np is not None and type(self.minStatValue) is np.ndarray:
+                minStatValue = builder.CreateNumpyVector(self.minStatValue)
+            else:
+                CharacterGearExcelStartMinStatValueVector(builder, len(self.minStatValue))
+                for i in reversed(range(len(self.minStatValue))):
+                    builder.PrependInt64(self.minStatValue[i])
+                minStatValue = builder.EndVector()
+        if self.maxStatValue is not None:
+            if np is not None and type(self.maxStatValue) is np.ndarray:
+                maxStatValue = builder.CreateNumpyVector(self.maxStatValue)
+            else:
+                CharacterGearExcelStartMaxStatValueVector(builder, len(self.maxStatValue))
+                for i in reversed(range(len(self.maxStatValue))):
+                    builder.PrependInt64(self.maxStatValue[i])
+                maxStatValue = builder.EndVector()
+        if self.icon is not None:
+            icon = builder.CreateString(self.icon)
+        if self.tags is not None:
+            if np is not None and type(self.tags) is np.ndarray:
+                tags = builder.CreateNumpyVector(self.tags)
+            else:
+                CharacterGearExcelStartTagsVector(builder, len(self.tags))
+                for i in reversed(range(len(self.tags))):
+                    builder.PrependInt32(self.tags[i])
+                tags = builder.EndVector()
+        CharacterGearExcelStart(builder)
+        CharacterGearExcelAddId(builder, self.id)
+        CharacterGearExcelAddCharacterId(builder, self.characterId)
+        CharacterGearExcelAddStatLevelUpType(builder, self.statLevelUpType)
+        CharacterGearExcelAddTier(builder, self.tier)
+        CharacterGearExcelAddNextTierEquipment(builder, self.nextTierEquipment)
+        CharacterGearExcelAddRecipeId(builder, self.recipeId)
+        CharacterGearExcelAddOpenFavorLevel(builder, self.openFavorLevel)
+        CharacterGearExcelAddMaxLevel(builder, self.maxLevel)
+        if self.learnSkillSlot is not None:
+            CharacterGearExcelAddLearnSkillSlot(builder, learnSkillSlot)
+        if self.statType is not None:
+            CharacterGearExcelAddStatType(builder, statType)
+        if self.minStatValue is not None:
+            CharacterGearExcelAddMinStatValue(builder, minStatValue)
+        if self.maxStatValue is not None:
+            CharacterGearExcelAddMaxStatValue(builder, maxStatValue)
+        if self.icon is not None:
+            CharacterGearExcelAddIcon(builder, icon)
+        CharacterGearExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        if self.tags is not None:
+            CharacterGearExcelAddTags(builder, tags)
+        characterGearExcel = CharacterGearExcelEnd(builder)
+        return characterGearExcel

@@ -74,3 +74,51 @@ def BGMRaidExcelEnd(builder):
 
 def End(builder):
     return BGMRaidExcelEnd(builder)
+
+
+class BGMRaidExcelT(object):
+
+    # BGMRaidExcelT
+    def __init__(
+        self,
+        stageId = 0,
+        phaseIndex = 0,
+        bgmId = 0,
+    ):
+        self.stageId = stageId  # type: int
+        self.phaseIndex = phaseIndex  # type: int
+        self.bgmId = bgmId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        bgmraidExcel = BGMRaidExcel()
+        bgmraidExcel.Init(buf, pos)
+        return cls.InitFromObj(bgmraidExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, bgmraidExcel):
+        x = BGMRaidExcelT()
+        x._UnPack(bgmraidExcel)
+        return x
+
+    # BGMRaidExcelT
+    def _UnPack(self, bgmraidExcel):
+        if bgmraidExcel is None:
+            return
+        self.stageId = bgmraidExcel.StageId()
+        self.phaseIndex = bgmraidExcel.PhaseIndex()
+        self.bgmId = bgmraidExcel.BgmId()
+
+    # BGMRaidExcelT
+    def Pack(self, builder):
+        BGMRaidExcelStart(builder)
+        BGMRaidExcelAddStageId(builder, self.stageId)
+        BGMRaidExcelAddPhaseIndex(builder, self.phaseIndex)
+        BGMRaidExcelAddBgmId(builder, self.bgmId)
+        bgmraidExcel = BGMRaidExcelEnd(builder)
+        return bgmraidExcel

@@ -126,3 +126,85 @@ def CharacterGearLevelExcelEnd(builder):
 
 def End(builder):
     return CharacterGearLevelExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CharacterGearLevelExcelT(object):
+
+    # CharacterGearLevelExcelT
+    def __init__(
+        self,
+        level = 0,
+        tierLevelExp = None,
+        totalExp = None,
+    ):
+        self.level = level  # type: int
+        self.tierLevelExp = tierLevelExp  # type: Optional[List[int]]
+        self.totalExp = totalExp  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterGearLevelExcel = CharacterGearLevelExcel()
+        characterGearLevelExcel.Init(buf, pos)
+        return cls.InitFromObj(characterGearLevelExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterGearLevelExcel):
+        x = CharacterGearLevelExcelT()
+        x._UnPack(characterGearLevelExcel)
+        return x
+
+    # CharacterGearLevelExcelT
+    def _UnPack(self, characterGearLevelExcel):
+        if characterGearLevelExcel is None:
+            return
+        self.level = characterGearLevelExcel.Level()
+        if not characterGearLevelExcel.TierLevelExpIsNone():
+            if np is None:
+                self.tierLevelExp = []
+                for i in range(characterGearLevelExcel.TierLevelExpLength()):
+                    self.tierLevelExp.append(characterGearLevelExcel.TierLevelExp(i))
+            else:
+                self.tierLevelExp = characterGearLevelExcel.TierLevelExpAsNumpy()
+        if not characterGearLevelExcel.TotalExpIsNone():
+            if np is None:
+                self.totalExp = []
+                for i in range(characterGearLevelExcel.TotalExpLength()):
+                    self.totalExp.append(characterGearLevelExcel.TotalExp(i))
+            else:
+                self.totalExp = characterGearLevelExcel.TotalExpAsNumpy()
+
+    # CharacterGearLevelExcelT
+    def Pack(self, builder):
+        if self.tierLevelExp is not None:
+            if np is not None and type(self.tierLevelExp) is np.ndarray:
+                tierLevelExp = builder.CreateNumpyVector(self.tierLevelExp)
+            else:
+                CharacterGearLevelExcelStartTierLevelExpVector(builder, len(self.tierLevelExp))
+                for i in reversed(range(len(self.tierLevelExp))):
+                    builder.PrependInt64(self.tierLevelExp[i])
+                tierLevelExp = builder.EndVector()
+        if self.totalExp is not None:
+            if np is not None and type(self.totalExp) is np.ndarray:
+                totalExp = builder.CreateNumpyVector(self.totalExp)
+            else:
+                CharacterGearLevelExcelStartTotalExpVector(builder, len(self.totalExp))
+                for i in reversed(range(len(self.totalExp))):
+                    builder.PrependInt64(self.totalExp[i])
+                totalExp = builder.EndVector()
+        CharacterGearLevelExcelStart(builder)
+        CharacterGearLevelExcelAddLevel(builder, self.level)
+        if self.tierLevelExp is not None:
+            CharacterGearLevelExcelAddTierLevelExp(builder, tierLevelExp)
+        if self.totalExp is not None:
+            CharacterGearLevelExcelAddTotalExp(builder, totalExp)
+        characterGearLevelExcel = CharacterGearLevelExcelEnd(builder)
+        return characterGearLevelExcel
