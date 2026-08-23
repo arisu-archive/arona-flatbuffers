@@ -191,3 +191,96 @@ def MinigameTBGEncounterOptionExcelEnd(builder):
 
 def End(builder):
     return MinigameTBGEncounterOptionExcelEnd(builder)
+
+
+class MinigameTBGEncounterOptionExcelT(object):
+
+    # MinigameTBGEncounterOptionExcelT
+    def __init__(
+        self,
+        optionGroupId = 0,
+        uniqueId = 0,
+        slotIndex = 0,
+        optionTitleLocalize = None,
+        optionSuccessLocalize = None,
+        optionSuccessRewardGroupId = 0,
+        optionSuccessOrHigherDiceCount = 0,
+        optionGreatSuccessOrHigherDiceCount = 0,
+        optionFailLocalize = None,
+        optionFailLessDiceCount = 0,
+        runawayOrHigherDiceCount = 0,
+        rewardHide = False,
+    ):
+        self.optionGroupId = optionGroupId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.slotIndex = slotIndex  # type: int
+        self.optionTitleLocalize = optionTitleLocalize  # type: Optional[str]
+        self.optionSuccessLocalize = optionSuccessLocalize  # type: Optional[str]
+        self.optionSuccessRewardGroupId = optionSuccessRewardGroupId  # type: int
+        self.optionSuccessOrHigherDiceCount = optionSuccessOrHigherDiceCount  # type: int
+        self.optionGreatSuccessOrHigherDiceCount = optionGreatSuccessOrHigherDiceCount  # type: int
+        self.optionFailLocalize = optionFailLocalize  # type: Optional[str]
+        self.optionFailLessDiceCount = optionFailLessDiceCount  # type: int
+        self.runawayOrHigherDiceCount = runawayOrHigherDiceCount  # type: int
+        self.rewardHide = rewardHide  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameTbgencounterOptionExcel = MinigameTBGEncounterOptionExcel()
+        minigameTbgencounterOptionExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameTbgencounterOptionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameTbgencounterOptionExcel):
+        x = MinigameTBGEncounterOptionExcelT()
+        x._UnPack(minigameTbgencounterOptionExcel)
+        return x
+
+    # MinigameTBGEncounterOptionExcelT
+    def _UnPack(self, minigameTbgencounterOptionExcel):
+        if minigameTbgencounterOptionExcel is None:
+            return
+        self.optionGroupId = minigameTbgencounterOptionExcel.OptionGroupId()
+        self.uniqueId = minigameTbgencounterOptionExcel.UniqueId()
+        self.slotIndex = minigameTbgencounterOptionExcel.SlotIndex()
+        self.optionTitleLocalize = minigameTbgencounterOptionExcel.OptionTitleLocalize()
+        self.optionSuccessLocalize = minigameTbgencounterOptionExcel.OptionSuccessLocalize()
+        self.optionSuccessRewardGroupId = minigameTbgencounterOptionExcel.OptionSuccessRewardGroupId()
+        self.optionSuccessOrHigherDiceCount = minigameTbgencounterOptionExcel.OptionSuccessOrHigherDiceCount()
+        self.optionGreatSuccessOrHigherDiceCount = minigameTbgencounterOptionExcel.OptionGreatSuccessOrHigherDiceCount()
+        self.optionFailLocalize = minigameTbgencounterOptionExcel.OptionFailLocalize()
+        self.optionFailLessDiceCount = minigameTbgencounterOptionExcel.OptionFailLessDiceCount()
+        self.runawayOrHigherDiceCount = minigameTbgencounterOptionExcel.RunawayOrHigherDiceCount()
+        self.rewardHide = minigameTbgencounterOptionExcel.RewardHide()
+
+    # MinigameTBGEncounterOptionExcelT
+    def Pack(self, builder):
+        if self.optionTitleLocalize is not None:
+            optionTitleLocalize = builder.CreateString(self.optionTitleLocalize)
+        if self.optionSuccessLocalize is not None:
+            optionSuccessLocalize = builder.CreateString(self.optionSuccessLocalize)
+        if self.optionFailLocalize is not None:
+            optionFailLocalize = builder.CreateString(self.optionFailLocalize)
+        MinigameTBGEncounterOptionExcelStart(builder)
+        MinigameTBGEncounterOptionExcelAddOptionGroupId(builder, self.optionGroupId)
+        MinigameTBGEncounterOptionExcelAddUniqueId(builder, self.uniqueId)
+        MinigameTBGEncounterOptionExcelAddSlotIndex(builder, self.slotIndex)
+        if self.optionTitleLocalize is not None:
+            MinigameTBGEncounterOptionExcelAddOptionTitleLocalize(builder, optionTitleLocalize)
+        if self.optionSuccessLocalize is not None:
+            MinigameTBGEncounterOptionExcelAddOptionSuccessLocalize(builder, optionSuccessLocalize)
+        MinigameTBGEncounterOptionExcelAddOptionSuccessRewardGroupId(builder, self.optionSuccessRewardGroupId)
+        MinigameTBGEncounterOptionExcelAddOptionSuccessOrHigherDiceCount(builder, self.optionSuccessOrHigherDiceCount)
+        MinigameTBGEncounterOptionExcelAddOptionGreatSuccessOrHigherDiceCount(builder, self.optionGreatSuccessOrHigherDiceCount)
+        if self.optionFailLocalize is not None:
+            MinigameTBGEncounterOptionExcelAddOptionFailLocalize(builder, optionFailLocalize)
+        MinigameTBGEncounterOptionExcelAddOptionFailLessDiceCount(builder, self.optionFailLessDiceCount)
+        MinigameTBGEncounterOptionExcelAddRunawayOrHigherDiceCount(builder, self.runawayOrHigherDiceCount)
+        MinigameTBGEncounterOptionExcelAddRewardHide(builder, self.rewardHide)
+        minigameTbgencounterOptionExcel = MinigameTBGEncounterOptionExcelEnd(builder)
+        return minigameTbgencounterOptionExcel

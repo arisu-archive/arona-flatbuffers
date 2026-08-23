@@ -425,3 +425,177 @@ def SkillExcelEnd(builder):
 
 def End(builder):
     return SkillExcelEnd(builder)
+
+
+class SkillExcelT(object):
+
+    # SkillExcelT
+    def __init__(
+        self,
+        id = 0,
+        localizeSkillId = 0,
+        groupId = None,
+        skillDataKey = None,
+        visualDataKey = None,
+        level = 0,
+        skillCost = 0,
+        extraSkillCost = 0,
+        enemySkillCost = 0,
+        extraEnemySkillCost = 0,
+        npcSkillCost = 0,
+        extraNpcSkillCost = 0,
+        bulletType = 0,
+        startCoolTime = 0,
+        coolTime = 0,
+        enemyStartCoolTime = 0,
+        enemyCoolTime = 0,
+        npcStartCoolTime = 0,
+        npcCoolTime = 0,
+        useAtg = 0,
+        requireCharacterLevel = 0,
+        requireLevelUpMaterial = 0,
+        iconName = None,
+        isShowInfo = False,
+        isShowSpeechbubble = False,
+        publicSpeechDuration = 0,
+        additionalToolTipId = 0,
+        selectExSkillToolTipId = 0,
+        textureSkillCardForFormConversion = None,
+        skillCardLabelPath = None,
+    ):
+        self.id = id  # type: int
+        self.localizeSkillId = localizeSkillId  # type: int
+        self.groupId = groupId  # type: Optional[str]
+        self.skillDataKey = skillDataKey  # type: Optional[str]
+        self.visualDataKey = visualDataKey  # type: Optional[str]
+        self.level = level  # type: int
+        self.skillCost = skillCost  # type: int
+        self.extraSkillCost = extraSkillCost  # type: int
+        self.enemySkillCost = enemySkillCost  # type: int
+        self.extraEnemySkillCost = extraEnemySkillCost  # type: int
+        self.npcSkillCost = npcSkillCost  # type: int
+        self.extraNpcSkillCost = extraNpcSkillCost  # type: int
+        self.bulletType = bulletType  # type: int
+        self.startCoolTime = startCoolTime  # type: int
+        self.coolTime = coolTime  # type: int
+        self.enemyStartCoolTime = enemyStartCoolTime  # type: int
+        self.enemyCoolTime = enemyCoolTime  # type: int
+        self.npcStartCoolTime = npcStartCoolTime  # type: int
+        self.npcCoolTime = npcCoolTime  # type: int
+        self.useAtg = useAtg  # type: int
+        self.requireCharacterLevel = requireCharacterLevel  # type: int
+        self.requireLevelUpMaterial = requireLevelUpMaterial  # type: int
+        self.iconName = iconName  # type: Optional[str]
+        self.isShowInfo = isShowInfo  # type: bool
+        self.isShowSpeechbubble = isShowSpeechbubble  # type: bool
+        self.publicSpeechDuration = publicSpeechDuration  # type: int
+        self.additionalToolTipId = additionalToolTipId  # type: int
+        self.selectExSkillToolTipId = selectExSkillToolTipId  # type: int
+        self.textureSkillCardForFormConversion = textureSkillCardForFormConversion  # type: Optional[str]
+        self.skillCardLabelPath = skillCardLabelPath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        skillExcel = SkillExcel()
+        skillExcel.Init(buf, pos)
+        return cls.InitFromObj(skillExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, skillExcel):
+        x = SkillExcelT()
+        x._UnPack(skillExcel)
+        return x
+
+    # SkillExcelT
+    def _UnPack(self, skillExcel):
+        if skillExcel is None:
+            return
+        self.id = skillExcel.Id()
+        self.localizeSkillId = skillExcel.LocalizeSkillId()
+        self.groupId = skillExcel.GroupId()
+        self.skillDataKey = skillExcel.SkillDataKey()
+        self.visualDataKey = skillExcel.VisualDataKey()
+        self.level = skillExcel.Level()
+        self.skillCost = skillExcel.SkillCost()
+        self.extraSkillCost = skillExcel.ExtraSkillCost()
+        self.enemySkillCost = skillExcel.EnemySkillCost()
+        self.extraEnemySkillCost = skillExcel.ExtraEnemySkillCost()
+        self.npcSkillCost = skillExcel.NpcSkillCost()
+        self.extraNpcSkillCost = skillExcel.ExtraNpcSkillCost()
+        self.bulletType = skillExcel.BulletType()
+        self.startCoolTime = skillExcel.StartCoolTime()
+        self.coolTime = skillExcel.CoolTime()
+        self.enemyStartCoolTime = skillExcel.EnemyStartCoolTime()
+        self.enemyCoolTime = skillExcel.EnemyCoolTime()
+        self.npcStartCoolTime = skillExcel.NpcStartCoolTime()
+        self.npcCoolTime = skillExcel.NpcCoolTime()
+        self.useAtg = skillExcel.UseAtg()
+        self.requireCharacterLevel = skillExcel.RequireCharacterLevel()
+        self.requireLevelUpMaterial = skillExcel.RequireLevelUpMaterial()
+        self.iconName = skillExcel.IconName()
+        self.isShowInfo = skillExcel.IsShowInfo()
+        self.isShowSpeechbubble = skillExcel.IsShowSpeechbubble()
+        self.publicSpeechDuration = skillExcel.PublicSpeechDuration()
+        self.additionalToolTipId = skillExcel.AdditionalToolTipId()
+        self.selectExSkillToolTipId = skillExcel.SelectExSkillToolTipId()
+        self.textureSkillCardForFormConversion = skillExcel.TextureSkillCardForFormConversion()
+        self.skillCardLabelPath = skillExcel.SkillCardLabelPath()
+
+    # SkillExcelT
+    def Pack(self, builder):
+        if self.groupId is not None:
+            groupId = builder.CreateString(self.groupId)
+        if self.skillDataKey is not None:
+            skillDataKey = builder.CreateString(self.skillDataKey)
+        if self.visualDataKey is not None:
+            visualDataKey = builder.CreateString(self.visualDataKey)
+        if self.iconName is not None:
+            iconName = builder.CreateString(self.iconName)
+        if self.textureSkillCardForFormConversion is not None:
+            textureSkillCardForFormConversion = builder.CreateString(self.textureSkillCardForFormConversion)
+        if self.skillCardLabelPath is not None:
+            skillCardLabelPath = builder.CreateString(self.skillCardLabelPath)
+        SkillExcelStart(builder)
+        SkillExcelAddId(builder, self.id)
+        SkillExcelAddLocalizeSkillId(builder, self.localizeSkillId)
+        if self.groupId is not None:
+            SkillExcelAddGroupId(builder, groupId)
+        if self.skillDataKey is not None:
+            SkillExcelAddSkillDataKey(builder, skillDataKey)
+        if self.visualDataKey is not None:
+            SkillExcelAddVisualDataKey(builder, visualDataKey)
+        SkillExcelAddLevel(builder, self.level)
+        SkillExcelAddSkillCost(builder, self.skillCost)
+        SkillExcelAddExtraSkillCost(builder, self.extraSkillCost)
+        SkillExcelAddEnemySkillCost(builder, self.enemySkillCost)
+        SkillExcelAddExtraEnemySkillCost(builder, self.extraEnemySkillCost)
+        SkillExcelAddNpcSkillCost(builder, self.npcSkillCost)
+        SkillExcelAddExtraNpcSkillCost(builder, self.extraNpcSkillCost)
+        SkillExcelAddBulletType(builder, self.bulletType)
+        SkillExcelAddStartCoolTime(builder, self.startCoolTime)
+        SkillExcelAddCoolTime(builder, self.coolTime)
+        SkillExcelAddEnemyStartCoolTime(builder, self.enemyStartCoolTime)
+        SkillExcelAddEnemyCoolTime(builder, self.enemyCoolTime)
+        SkillExcelAddNpcStartCoolTime(builder, self.npcStartCoolTime)
+        SkillExcelAddNpcCoolTime(builder, self.npcCoolTime)
+        SkillExcelAddUseAtg(builder, self.useAtg)
+        SkillExcelAddRequireCharacterLevel(builder, self.requireCharacterLevel)
+        SkillExcelAddRequireLevelUpMaterial(builder, self.requireLevelUpMaterial)
+        if self.iconName is not None:
+            SkillExcelAddIconName(builder, iconName)
+        SkillExcelAddIsShowInfo(builder, self.isShowInfo)
+        SkillExcelAddIsShowSpeechbubble(builder, self.isShowSpeechbubble)
+        SkillExcelAddPublicSpeechDuration(builder, self.publicSpeechDuration)
+        SkillExcelAddAdditionalToolTipId(builder, self.additionalToolTipId)
+        SkillExcelAddSelectExSkillToolTipId(builder, self.selectExSkillToolTipId)
+        if self.textureSkillCardForFormConversion is not None:
+            SkillExcelAddTextureSkillCardForFormConversion(builder, textureSkillCardForFormConversion)
+        if self.skillCardLabelPath is not None:
+            SkillExcelAddSkillCardLabelPath(builder, skillCardLabelPath)
+        skillExcel = SkillExcelEnd(builder)
+        return skillExcel

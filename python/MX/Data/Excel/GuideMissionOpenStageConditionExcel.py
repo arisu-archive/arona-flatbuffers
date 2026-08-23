@@ -152,3 +152,90 @@ def GuideMissionOpenStageConditionExcelEnd(builder):
 
 def End(builder):
     return GuideMissionOpenStageConditionExcelEnd(builder)
+
+
+class GuideMissionOpenStageConditionExcelT(object):
+
+    # GuideMissionOpenStageConditionExcelT
+    def __init__(
+        self,
+        seasonId = 0,
+        orderNumber = 0,
+        tabLocalizeCode = None,
+        clearScenarioModeId = 0,
+        lockScenarioTextLocailzeCode = None,
+        shortcutScenarioUi = None,
+        clearStageId = 0,
+        lockStageTextLocailzeCode = None,
+        shortcutStageUi = None,
+    ):
+        self.seasonId = seasonId  # type: int
+        self.orderNumber = orderNumber  # type: int
+        self.tabLocalizeCode = tabLocalizeCode  # type: Optional[str]
+        self.clearScenarioModeId = clearScenarioModeId  # type: int
+        self.lockScenarioTextLocailzeCode = lockScenarioTextLocailzeCode  # type: Optional[str]
+        self.shortcutScenarioUi = shortcutScenarioUi  # type: Optional[str]
+        self.clearStageId = clearStageId  # type: int
+        self.lockStageTextLocailzeCode = lockStageTextLocailzeCode  # type: Optional[str]
+        self.shortcutStageUi = shortcutStageUi  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        guideMissionOpenStageConditionExcel = GuideMissionOpenStageConditionExcel()
+        guideMissionOpenStageConditionExcel.Init(buf, pos)
+        return cls.InitFromObj(guideMissionOpenStageConditionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, guideMissionOpenStageConditionExcel):
+        x = GuideMissionOpenStageConditionExcelT()
+        x._UnPack(guideMissionOpenStageConditionExcel)
+        return x
+
+    # GuideMissionOpenStageConditionExcelT
+    def _UnPack(self, guideMissionOpenStageConditionExcel):
+        if guideMissionOpenStageConditionExcel is None:
+            return
+        self.seasonId = guideMissionOpenStageConditionExcel.SeasonId()
+        self.orderNumber = guideMissionOpenStageConditionExcel.OrderNumber()
+        self.tabLocalizeCode = guideMissionOpenStageConditionExcel.TabLocalizeCode()
+        self.clearScenarioModeId = guideMissionOpenStageConditionExcel.ClearScenarioModeId()
+        self.lockScenarioTextLocailzeCode = guideMissionOpenStageConditionExcel.LockScenarioTextLocailzeCode()
+        self.shortcutScenarioUi = guideMissionOpenStageConditionExcel.ShortcutScenarioUi()
+        self.clearStageId = guideMissionOpenStageConditionExcel.ClearStageId()
+        self.lockStageTextLocailzeCode = guideMissionOpenStageConditionExcel.LockStageTextLocailzeCode()
+        self.shortcutStageUi = guideMissionOpenStageConditionExcel.ShortcutStageUi()
+
+    # GuideMissionOpenStageConditionExcelT
+    def Pack(self, builder):
+        if self.tabLocalizeCode is not None:
+            tabLocalizeCode = builder.CreateString(self.tabLocalizeCode)
+        if self.lockScenarioTextLocailzeCode is not None:
+            lockScenarioTextLocailzeCode = builder.CreateString(self.lockScenarioTextLocailzeCode)
+        if self.shortcutScenarioUi is not None:
+            shortcutScenarioUi = builder.CreateString(self.shortcutScenarioUi)
+        if self.lockStageTextLocailzeCode is not None:
+            lockStageTextLocailzeCode = builder.CreateString(self.lockStageTextLocailzeCode)
+        if self.shortcutStageUi is not None:
+            shortcutStageUi = builder.CreateString(self.shortcutStageUi)
+        GuideMissionOpenStageConditionExcelStart(builder)
+        GuideMissionOpenStageConditionExcelAddSeasonId(builder, self.seasonId)
+        GuideMissionOpenStageConditionExcelAddOrderNumber(builder, self.orderNumber)
+        if self.tabLocalizeCode is not None:
+            GuideMissionOpenStageConditionExcelAddTabLocalizeCode(builder, tabLocalizeCode)
+        GuideMissionOpenStageConditionExcelAddClearScenarioModeId(builder, self.clearScenarioModeId)
+        if self.lockScenarioTextLocailzeCode is not None:
+            GuideMissionOpenStageConditionExcelAddLockScenarioTextLocailzeCode(builder, lockScenarioTextLocailzeCode)
+        if self.shortcutScenarioUi is not None:
+            GuideMissionOpenStageConditionExcelAddShortcutScenarioUi(builder, shortcutScenarioUi)
+        GuideMissionOpenStageConditionExcelAddClearStageId(builder, self.clearStageId)
+        if self.lockStageTextLocailzeCode is not None:
+            GuideMissionOpenStageConditionExcelAddLockStageTextLocailzeCode(builder, lockStageTextLocailzeCode)
+        if self.shortcutStageUi is not None:
+            GuideMissionOpenStageConditionExcelAddShortcutStageUi(builder, shortcutStageUi)
+        guideMissionOpenStageConditionExcel = GuideMissionOpenStageConditionExcelEnd(builder)
+        return guideMissionOpenStageConditionExcel

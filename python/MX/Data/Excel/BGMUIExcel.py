@@ -100,3 +100,59 @@ def BGMUIExcelEnd(builder):
 
 def End(builder):
     return BGMUIExcelEnd(builder)
+
+
+class BGMUIExcelT(object):
+
+    # BGMUIExcelT
+    def __init__(
+        self,
+        uiPrefab = 0,
+        bgmId = 0,
+        bgmId2nd = 0,
+        bgmId3rd = 0,
+        eventContentId = 0,
+    ):
+        self.uiPrefab = uiPrefab  # type: int
+        self.bgmId = bgmId  # type: int
+        self.bgmId2nd = bgmId2nd  # type: int
+        self.bgmId3rd = bgmId3rd  # type: int
+        self.eventContentId = eventContentId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        bgmuiexcel = BGMUIExcel()
+        bgmuiexcel.Init(buf, pos)
+        return cls.InitFromObj(bgmuiexcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, bgmuiexcel):
+        x = BGMUIExcelT()
+        x._UnPack(bgmuiexcel)
+        return x
+
+    # BGMUIExcelT
+    def _UnPack(self, bgmuiexcel):
+        if bgmuiexcel is None:
+            return
+        self.uiPrefab = bgmuiexcel.UiPrefab()
+        self.bgmId = bgmuiexcel.BgmId()
+        self.bgmId2nd = bgmuiexcel.BgmId2nd()
+        self.bgmId3rd = bgmuiexcel.BgmId3rd()
+        self.eventContentId = bgmuiexcel.EventContentId()
+
+    # BGMUIExcelT
+    def Pack(self, builder):
+        BGMUIExcelStart(builder)
+        BGMUIExcelAddUiPrefab(builder, self.uiPrefab)
+        BGMUIExcelAddBgmId(builder, self.bgmId)
+        BGMUIExcelAddBgmId2nd(builder, self.bgmId2nd)
+        BGMUIExcelAddBgmId3rd(builder, self.bgmId3rd)
+        BGMUIExcelAddEventContentId(builder, self.eventContentId)
+        bgmuiexcel = BGMUIExcelEnd(builder)
+        return bgmuiexcel

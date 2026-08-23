@@ -53,7 +53,7 @@ class AttendanceExcel(object):
         return 0
 
     # AttendanceExcel
-    def AccountType(self):
+    def TargetGroup(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -194,11 +194,11 @@ def AttendanceExcelAddDisplayOrder(builder, displayOrder):
 def AddDisplayOrder(builder, displayOrder):
     AttendanceExcelAddDisplayOrder(builder, displayOrder)
 
-def AttendanceExcelAddAccountType(builder, accountType):
-    builder.PrependInt32Slot(4, accountType, 0)
+def AttendanceExcelAddTargetGroup(builder, targetGroup):
+    builder.PrependInt32Slot(4, targetGroup, 0)
 
-def AddAccountType(builder, accountType):
-    AttendanceExcelAddAccountType(builder, accountType)
+def AddTargetGroup(builder, targetGroup):
+    AttendanceExcelAddTargetGroup(builder, targetGroup)
 
 def AttendanceExcelAddAccountLevelLimit(builder, accountLevelLimit):
     builder.PrependInt64Slot(5, accountLevelLimit, 0)
@@ -295,3 +295,146 @@ def AttendanceExcelEnd(builder):
 
 def End(builder):
     return AttendanceExcelEnd(builder)
+
+
+class AttendanceExcelT(object):
+
+    # AttendanceExcelT
+    def __init__(
+        self,
+        id = 0,
+        type = 0,
+        countdownPrefab = None,
+        displayOrder = 0,
+        targetGroup = 0,
+        accountLevelLimit = 0,
+        title = None,
+        infomationLocalizeCode = None,
+        countRule = 0,
+        countReset = 0,
+        bookSize = 0,
+        startDate = None,
+        startableEndDate = None,
+        endDate = None,
+        expiryDate = 0,
+        mailType = 0,
+        dialogCategory = 0,
+        titleImagePath = None,
+        decorationImagePath = None,
+        decorationGarlandImagePath = None,
+    ):
+        self.id = id  # type: int
+        self.type = type  # type: int
+        self.countdownPrefab = countdownPrefab  # type: Optional[str]
+        self.displayOrder = displayOrder  # type: int
+        self.targetGroup = targetGroup  # type: int
+        self.accountLevelLimit = accountLevelLimit  # type: int
+        self.title = title  # type: Optional[str]
+        self.infomationLocalizeCode = infomationLocalizeCode  # type: Optional[str]
+        self.countRule = countRule  # type: int
+        self.countReset = countReset  # type: int
+        self.bookSize = bookSize  # type: int
+        self.startDate = startDate  # type: Optional[str]
+        self.startableEndDate = startableEndDate  # type: Optional[str]
+        self.endDate = endDate  # type: Optional[str]
+        self.expiryDate = expiryDate  # type: int
+        self.mailType = mailType  # type: int
+        self.dialogCategory = dialogCategory  # type: int
+        self.titleImagePath = titleImagePath  # type: Optional[str]
+        self.decorationImagePath = decorationImagePath  # type: Optional[str]
+        self.decorationGarlandImagePath = decorationGarlandImagePath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        attendanceExcel = AttendanceExcel()
+        attendanceExcel.Init(buf, pos)
+        return cls.InitFromObj(attendanceExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, attendanceExcel):
+        x = AttendanceExcelT()
+        x._UnPack(attendanceExcel)
+        return x
+
+    # AttendanceExcelT
+    def _UnPack(self, attendanceExcel):
+        if attendanceExcel is None:
+            return
+        self.id = attendanceExcel.Id()
+        self.type = attendanceExcel.Type()
+        self.countdownPrefab = attendanceExcel.CountdownPrefab()
+        self.displayOrder = attendanceExcel.DisplayOrder()
+        self.targetGroup = attendanceExcel.TargetGroup()
+        self.accountLevelLimit = attendanceExcel.AccountLevelLimit()
+        self.title = attendanceExcel.Title()
+        self.infomationLocalizeCode = attendanceExcel.InfomationLocalizeCode()
+        self.countRule = attendanceExcel.CountRule()
+        self.countReset = attendanceExcel.CountReset()
+        self.bookSize = attendanceExcel.BookSize()
+        self.startDate = attendanceExcel.StartDate()
+        self.startableEndDate = attendanceExcel.StartableEndDate()
+        self.endDate = attendanceExcel.EndDate()
+        self.expiryDate = attendanceExcel.ExpiryDate()
+        self.mailType = attendanceExcel.MailType()
+        self.dialogCategory = attendanceExcel.DialogCategory()
+        self.titleImagePath = attendanceExcel.TitleImagePath()
+        self.decorationImagePath = attendanceExcel.DecorationImagePath()
+        self.decorationGarlandImagePath = attendanceExcel.DecorationGarlandImagePath()
+
+    # AttendanceExcelT
+    def Pack(self, builder):
+        if self.countdownPrefab is not None:
+            countdownPrefab = builder.CreateString(self.countdownPrefab)
+        if self.title is not None:
+            title = builder.CreateString(self.title)
+        if self.infomationLocalizeCode is not None:
+            infomationLocalizeCode = builder.CreateString(self.infomationLocalizeCode)
+        if self.startDate is not None:
+            startDate = builder.CreateString(self.startDate)
+        if self.startableEndDate is not None:
+            startableEndDate = builder.CreateString(self.startableEndDate)
+        if self.endDate is not None:
+            endDate = builder.CreateString(self.endDate)
+        if self.titleImagePath is not None:
+            titleImagePath = builder.CreateString(self.titleImagePath)
+        if self.decorationImagePath is not None:
+            decorationImagePath = builder.CreateString(self.decorationImagePath)
+        if self.decorationGarlandImagePath is not None:
+            decorationGarlandImagePath = builder.CreateString(self.decorationGarlandImagePath)
+        AttendanceExcelStart(builder)
+        AttendanceExcelAddId(builder, self.id)
+        AttendanceExcelAddType(builder, self.type)
+        if self.countdownPrefab is not None:
+            AttendanceExcelAddCountdownPrefab(builder, countdownPrefab)
+        AttendanceExcelAddDisplayOrder(builder, self.displayOrder)
+        AttendanceExcelAddTargetGroup(builder, self.targetGroup)
+        AttendanceExcelAddAccountLevelLimit(builder, self.accountLevelLimit)
+        if self.title is not None:
+            AttendanceExcelAddTitle(builder, title)
+        if self.infomationLocalizeCode is not None:
+            AttendanceExcelAddInfomationLocalizeCode(builder, infomationLocalizeCode)
+        AttendanceExcelAddCountRule(builder, self.countRule)
+        AttendanceExcelAddCountReset(builder, self.countReset)
+        AttendanceExcelAddBookSize(builder, self.bookSize)
+        if self.startDate is not None:
+            AttendanceExcelAddStartDate(builder, startDate)
+        if self.startableEndDate is not None:
+            AttendanceExcelAddStartableEndDate(builder, startableEndDate)
+        if self.endDate is not None:
+            AttendanceExcelAddEndDate(builder, endDate)
+        AttendanceExcelAddExpiryDate(builder, self.expiryDate)
+        AttendanceExcelAddMailType(builder, self.mailType)
+        AttendanceExcelAddDialogCategory(builder, self.dialogCategory)
+        if self.titleImagePath is not None:
+            AttendanceExcelAddTitleImagePath(builder, titleImagePath)
+        if self.decorationImagePath is not None:
+            AttendanceExcelAddDecorationImagePath(builder, decorationImagePath)
+        if self.decorationGarlandImagePath is not None:
+            AttendanceExcelAddDecorationGarlandImagePath(builder, decorationGarlandImagePath)
+        attendanceExcel = AttendanceExcelEnd(builder)
+        return attendanceExcel

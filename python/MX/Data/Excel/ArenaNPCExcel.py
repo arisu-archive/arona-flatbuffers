@@ -269,3 +269,143 @@ def ArenaNPCExcelEnd(builder):
 
 def End(builder):
     return ArenaNPCExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ArenaNPCExcelT(object):
+
+    # ArenaNPCExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        rank = 0,
+        npcAccountLevel = 0,
+        npcLevel = 0,
+        npcLevelDeviation = 0,
+        npcStarGrade = 0,
+        exceptionCharacterRarities = None,
+        exceptionMainCharacterIds = None,
+        exceptionSupportCharacterIds = None,
+        exceptionTssIds = None,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.rank = rank  # type: int
+        self.npcAccountLevel = npcAccountLevel  # type: int
+        self.npcLevel = npcLevel  # type: int
+        self.npcLevelDeviation = npcLevelDeviation  # type: int
+        self.npcStarGrade = npcStarGrade  # type: int
+        self.exceptionCharacterRarities = exceptionCharacterRarities  # type: Optional[List[int]]
+        self.exceptionMainCharacterIds = exceptionMainCharacterIds  # type: Optional[List[int]]
+        self.exceptionSupportCharacterIds = exceptionSupportCharacterIds  # type: Optional[List[int]]
+        self.exceptionTssIds = exceptionTssIds  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        arenaNpcexcel = ArenaNPCExcel()
+        arenaNpcexcel.Init(buf, pos)
+        return cls.InitFromObj(arenaNpcexcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, arenaNpcexcel):
+        x = ArenaNPCExcelT()
+        x._UnPack(arenaNpcexcel)
+        return x
+
+    # ArenaNPCExcelT
+    def _UnPack(self, arenaNpcexcel):
+        if arenaNpcexcel is None:
+            return
+        self.uniqueId = arenaNpcexcel.UniqueId()
+        self.rank = arenaNpcexcel.Rank()
+        self.npcAccountLevel = arenaNpcexcel.NpcAccountLevel()
+        self.npcLevel = arenaNpcexcel.NpcLevel()
+        self.npcLevelDeviation = arenaNpcexcel.NpcLevelDeviation()
+        self.npcStarGrade = arenaNpcexcel.NpcStarGrade()
+        if not arenaNpcexcel.ExceptionCharacterRaritiesIsNone():
+            if np is None:
+                self.exceptionCharacterRarities = []
+                for i in range(arenaNpcexcel.ExceptionCharacterRaritiesLength()):
+                    self.exceptionCharacterRarities.append(arenaNpcexcel.ExceptionCharacterRarities(i))
+            else:
+                self.exceptionCharacterRarities = arenaNpcexcel.ExceptionCharacterRaritiesAsNumpy()
+        if not arenaNpcexcel.ExceptionMainCharacterIdsIsNone():
+            if np is None:
+                self.exceptionMainCharacterIds = []
+                for i in range(arenaNpcexcel.ExceptionMainCharacterIdsLength()):
+                    self.exceptionMainCharacterIds.append(arenaNpcexcel.ExceptionMainCharacterIds(i))
+            else:
+                self.exceptionMainCharacterIds = arenaNpcexcel.ExceptionMainCharacterIdsAsNumpy()
+        if not arenaNpcexcel.ExceptionSupportCharacterIdsIsNone():
+            if np is None:
+                self.exceptionSupportCharacterIds = []
+                for i in range(arenaNpcexcel.ExceptionSupportCharacterIdsLength()):
+                    self.exceptionSupportCharacterIds.append(arenaNpcexcel.ExceptionSupportCharacterIds(i))
+            else:
+                self.exceptionSupportCharacterIds = arenaNpcexcel.ExceptionSupportCharacterIdsAsNumpy()
+        if not arenaNpcexcel.ExceptionTssIdsIsNone():
+            if np is None:
+                self.exceptionTssIds = []
+                for i in range(arenaNpcexcel.ExceptionTssIdsLength()):
+                    self.exceptionTssIds.append(arenaNpcexcel.ExceptionTssIds(i))
+            else:
+                self.exceptionTssIds = arenaNpcexcel.ExceptionTssIdsAsNumpy()
+
+    # ArenaNPCExcelT
+    def Pack(self, builder):
+        if self.exceptionCharacterRarities is not None:
+            if np is not None and type(self.exceptionCharacterRarities) is np.ndarray:
+                exceptionCharacterRarities = builder.CreateNumpyVector(self.exceptionCharacterRarities)
+            else:
+                ArenaNPCExcelStartExceptionCharacterRaritiesVector(builder, len(self.exceptionCharacterRarities))
+                for i in reversed(range(len(self.exceptionCharacterRarities))):
+                    builder.PrependInt32(self.exceptionCharacterRarities[i])
+                exceptionCharacterRarities = builder.EndVector()
+        if self.exceptionMainCharacterIds is not None:
+            if np is not None and type(self.exceptionMainCharacterIds) is np.ndarray:
+                exceptionMainCharacterIds = builder.CreateNumpyVector(self.exceptionMainCharacterIds)
+            else:
+                ArenaNPCExcelStartExceptionMainCharacterIdsVector(builder, len(self.exceptionMainCharacterIds))
+                for i in reversed(range(len(self.exceptionMainCharacterIds))):
+                    builder.PrependInt64(self.exceptionMainCharacterIds[i])
+                exceptionMainCharacterIds = builder.EndVector()
+        if self.exceptionSupportCharacterIds is not None:
+            if np is not None and type(self.exceptionSupportCharacterIds) is np.ndarray:
+                exceptionSupportCharacterIds = builder.CreateNumpyVector(self.exceptionSupportCharacterIds)
+            else:
+                ArenaNPCExcelStartExceptionSupportCharacterIdsVector(builder, len(self.exceptionSupportCharacterIds))
+                for i in reversed(range(len(self.exceptionSupportCharacterIds))):
+                    builder.PrependInt64(self.exceptionSupportCharacterIds[i])
+                exceptionSupportCharacterIds = builder.EndVector()
+        if self.exceptionTssIds is not None:
+            if np is not None and type(self.exceptionTssIds) is np.ndarray:
+                exceptionTssIds = builder.CreateNumpyVector(self.exceptionTssIds)
+            else:
+                ArenaNPCExcelStartExceptionTssIdsVector(builder, len(self.exceptionTssIds))
+                for i in reversed(range(len(self.exceptionTssIds))):
+                    builder.PrependInt64(self.exceptionTssIds[i])
+                exceptionTssIds = builder.EndVector()
+        ArenaNPCExcelStart(builder)
+        ArenaNPCExcelAddUniqueId(builder, self.uniqueId)
+        ArenaNPCExcelAddRank(builder, self.rank)
+        ArenaNPCExcelAddNpcAccountLevel(builder, self.npcAccountLevel)
+        ArenaNPCExcelAddNpcLevel(builder, self.npcLevel)
+        ArenaNPCExcelAddNpcLevelDeviation(builder, self.npcLevelDeviation)
+        ArenaNPCExcelAddNpcStarGrade(builder, self.npcStarGrade)
+        if self.exceptionCharacterRarities is not None:
+            ArenaNPCExcelAddExceptionCharacterRarities(builder, exceptionCharacterRarities)
+        if self.exceptionMainCharacterIds is not None:
+            ArenaNPCExcelAddExceptionMainCharacterIds(builder, exceptionMainCharacterIds)
+        if self.exceptionSupportCharacterIds is not None:
+            ArenaNPCExcelAddExceptionSupportCharacterIds(builder, exceptionSupportCharacterIds)
+        if self.exceptionTssIds is not None:
+            ArenaNPCExcelAddExceptionTssIds(builder, exceptionTssIds)
+        arenaNpcexcel = ArenaNPCExcelEnd(builder)
+        return arenaNpcexcel

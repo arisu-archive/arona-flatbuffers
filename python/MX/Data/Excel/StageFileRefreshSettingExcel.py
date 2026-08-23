@@ -61,3 +61,47 @@ def StageFileRefreshSettingExcelEnd(builder):
 
 def End(builder):
     return StageFileRefreshSettingExcelEnd(builder)
+
+
+class StageFileRefreshSettingExcelT(object):
+
+    # StageFileRefreshSettingExcelT
+    def __init__(
+        self,
+        groundId = 0,
+        forceSave = False,
+    ):
+        self.groundId = groundId  # type: int
+        self.forceSave = forceSave  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        stageFileRefreshSettingExcel = StageFileRefreshSettingExcel()
+        stageFileRefreshSettingExcel.Init(buf, pos)
+        return cls.InitFromObj(stageFileRefreshSettingExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, stageFileRefreshSettingExcel):
+        x = StageFileRefreshSettingExcelT()
+        x._UnPack(stageFileRefreshSettingExcel)
+        return x
+
+    # StageFileRefreshSettingExcelT
+    def _UnPack(self, stageFileRefreshSettingExcel):
+        if stageFileRefreshSettingExcel is None:
+            return
+        self.groundId = stageFileRefreshSettingExcel.GroundId()
+        self.forceSave = stageFileRefreshSettingExcel.ForceSave()
+
+    # StageFileRefreshSettingExcelT
+    def Pack(self, builder):
+        StageFileRefreshSettingExcelStart(builder)
+        StageFileRefreshSettingExcelAddGroundId(builder, self.groundId)
+        StageFileRefreshSettingExcelAddForceSave(builder, self.forceSave)
+        stageFileRefreshSettingExcel = StageFileRefreshSettingExcelEnd(builder)
+        return stageFileRefreshSettingExcel

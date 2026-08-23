@@ -74,3 +74,57 @@ def SkillSelectExTooltipExcelEnd(builder):
 
 def End(builder):
     return SkillSelectExTooltipExcelEnd(builder)
+
+
+class SkillSelectExTooltipExcelT(object):
+
+    # SkillSelectExTooltipExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        selectableExSkillGroupId = None,
+        skillUseConditionLocalizeId = None,
+    ):
+        self.groupId = groupId  # type: int
+        self.selectableExSkillGroupId = selectableExSkillGroupId  # type: Optional[str]
+        self.skillUseConditionLocalizeId = skillUseConditionLocalizeId  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        skillSelectExTooltipExcel = SkillSelectExTooltipExcel()
+        skillSelectExTooltipExcel.Init(buf, pos)
+        return cls.InitFromObj(skillSelectExTooltipExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, skillSelectExTooltipExcel):
+        x = SkillSelectExTooltipExcelT()
+        x._UnPack(skillSelectExTooltipExcel)
+        return x
+
+    # SkillSelectExTooltipExcelT
+    def _UnPack(self, skillSelectExTooltipExcel):
+        if skillSelectExTooltipExcel is None:
+            return
+        self.groupId = skillSelectExTooltipExcel.GroupId()
+        self.selectableExSkillGroupId = skillSelectExTooltipExcel.SelectableExSkillGroupId()
+        self.skillUseConditionLocalizeId = skillSelectExTooltipExcel.SkillUseConditionLocalizeId()
+
+    # SkillSelectExTooltipExcelT
+    def Pack(self, builder):
+        if self.selectableExSkillGroupId is not None:
+            selectableExSkillGroupId = builder.CreateString(self.selectableExSkillGroupId)
+        if self.skillUseConditionLocalizeId is not None:
+            skillUseConditionLocalizeId = builder.CreateString(self.skillUseConditionLocalizeId)
+        SkillSelectExTooltipExcelStart(builder)
+        SkillSelectExTooltipExcelAddGroupId(builder, self.groupId)
+        if self.selectableExSkillGroupId is not None:
+            SkillSelectExTooltipExcelAddSelectableExSkillGroupId(builder, selectableExSkillGroupId)
+        if self.skillUseConditionLocalizeId is not None:
+            SkillSelectExTooltipExcelAddSkillUseConditionLocalizeId(builder, skillUseConditionLocalizeId)
+        skillSelectExTooltipExcel = SkillSelectExTooltipExcelEnd(builder)
+        return skillSelectExTooltipExcel

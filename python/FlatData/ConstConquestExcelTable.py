@@ -72,3 +72,68 @@ def ConstConquestExcelTableEnd(builder):
 
 def End(builder):
     return ConstConquestExcelTableEnd(builder)
+
+import FlatData.ConstConquestExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConstConquestExcelTableT(object):
+
+    # ConstConquestExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConstConquestExcel.ConstConquestExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        constConquestExcelTable = ConstConquestExcelTable()
+        constConquestExcelTable.Init(buf, pos)
+        return cls.InitFromObj(constConquestExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, constConquestExcelTable):
+        x = ConstConquestExcelTableT()
+        x._UnPack(constConquestExcelTable)
+        return x
+
+    # ConstConquestExcelTableT
+    def _UnPack(self, constConquestExcelTable):
+        if constConquestExcelTable is None:
+            return
+        if not constConquestExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(constConquestExcelTable.DataListLength()):
+                if constConquestExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    constConquestExcel_ = FlatData.ConstConquestExcel.ConstConquestExcelT.InitFromObj(constConquestExcelTable.DataList(i))
+                    self.dataList.append(constConquestExcel_)
+
+    # ConstConquestExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConstConquestExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConstConquestExcelTableStart(builder)
+        if self.dataList is not None:
+            ConstConquestExcelTableAddDataList(builder, dataList)
+        constConquestExcelTable = ConstConquestExcelTableEnd(builder)
+        return constConquestExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConstConquestExcelTableT, 'ConstConquestExcelTable', ())

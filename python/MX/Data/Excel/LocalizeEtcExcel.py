@@ -178,3 +178,113 @@ def LocalizeEtcExcelEnd(builder):
 
 def End(builder):
     return LocalizeEtcExcelEnd(builder)
+
+
+class LocalizeEtcExcelT(object):
+
+    # LocalizeEtcExcelT
+    def __init__(
+        self,
+        key = 0,
+        nameKr = None,
+        descriptionKr = None,
+        nameJp = None,
+        descriptionJp = None,
+        nameTh = None,
+        descriptionTh = None,
+        nameTw = None,
+        descriptionTw = None,
+        nameEn = None,
+        descriptionEn = None,
+    ):
+        self.key = key  # type: int
+        self.nameKr = nameKr  # type: Optional[str]
+        self.descriptionKr = descriptionKr  # type: Optional[str]
+        self.nameJp = nameJp  # type: Optional[str]
+        self.descriptionJp = descriptionJp  # type: Optional[str]
+        self.nameTh = nameTh  # type: Optional[str]
+        self.descriptionTh = descriptionTh  # type: Optional[str]
+        self.nameTw = nameTw  # type: Optional[str]
+        self.descriptionTw = descriptionTw  # type: Optional[str]
+        self.nameEn = nameEn  # type: Optional[str]
+        self.descriptionEn = descriptionEn  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        localizeEtcExcel = LocalizeEtcExcel()
+        localizeEtcExcel.Init(buf, pos)
+        return cls.InitFromObj(localizeEtcExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, localizeEtcExcel):
+        x = LocalizeEtcExcelT()
+        x._UnPack(localizeEtcExcel)
+        return x
+
+    # LocalizeEtcExcelT
+    def _UnPack(self, localizeEtcExcel):
+        if localizeEtcExcel is None:
+            return
+        self.key = localizeEtcExcel.Key()
+        self.nameKr = localizeEtcExcel.NameKr()
+        self.descriptionKr = localizeEtcExcel.DescriptionKr()
+        self.nameJp = localizeEtcExcel.NameJp()
+        self.descriptionJp = localizeEtcExcel.DescriptionJp()
+        self.nameTh = localizeEtcExcel.NameTh()
+        self.descriptionTh = localizeEtcExcel.DescriptionTh()
+        self.nameTw = localizeEtcExcel.NameTw()
+        self.descriptionTw = localizeEtcExcel.DescriptionTw()
+        self.nameEn = localizeEtcExcel.NameEn()
+        self.descriptionEn = localizeEtcExcel.DescriptionEn()
+
+    # LocalizeEtcExcelT
+    def Pack(self, builder):
+        if self.nameKr is not None:
+            nameKr = builder.CreateString(self.nameKr)
+        if self.descriptionKr is not None:
+            descriptionKr = builder.CreateString(self.descriptionKr)
+        if self.nameJp is not None:
+            nameJp = builder.CreateString(self.nameJp)
+        if self.descriptionJp is not None:
+            descriptionJp = builder.CreateString(self.descriptionJp)
+        if self.nameTh is not None:
+            nameTh = builder.CreateString(self.nameTh)
+        if self.descriptionTh is not None:
+            descriptionTh = builder.CreateString(self.descriptionTh)
+        if self.nameTw is not None:
+            nameTw = builder.CreateString(self.nameTw)
+        if self.descriptionTw is not None:
+            descriptionTw = builder.CreateString(self.descriptionTw)
+        if self.nameEn is not None:
+            nameEn = builder.CreateString(self.nameEn)
+        if self.descriptionEn is not None:
+            descriptionEn = builder.CreateString(self.descriptionEn)
+        LocalizeEtcExcelStart(builder)
+        LocalizeEtcExcelAddKey(builder, self.key)
+        if self.nameKr is not None:
+            LocalizeEtcExcelAddNameKr(builder, nameKr)
+        if self.descriptionKr is not None:
+            LocalizeEtcExcelAddDescriptionKr(builder, descriptionKr)
+        if self.nameJp is not None:
+            LocalizeEtcExcelAddNameJp(builder, nameJp)
+        if self.descriptionJp is not None:
+            LocalizeEtcExcelAddDescriptionJp(builder, descriptionJp)
+        if self.nameTh is not None:
+            LocalizeEtcExcelAddNameTh(builder, nameTh)
+        if self.descriptionTh is not None:
+            LocalizeEtcExcelAddDescriptionTh(builder, descriptionTh)
+        if self.nameTw is not None:
+            LocalizeEtcExcelAddNameTw(builder, nameTw)
+        if self.descriptionTw is not None:
+            LocalizeEtcExcelAddDescriptionTw(builder, descriptionTw)
+        if self.nameEn is not None:
+            LocalizeEtcExcelAddNameEn(builder, nameEn)
+        if self.descriptionEn is not None:
+            LocalizeEtcExcelAddDescriptionEn(builder, descriptionEn)
+        localizeEtcExcel = LocalizeEtcExcelEnd(builder)
+        return localizeEtcExcel

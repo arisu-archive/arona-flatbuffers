@@ -412,3 +412,173 @@ def MinigameTBGSeasonExcelEnd(builder):
 
 def End(builder):
     return MinigameTBGSeasonExcelEnd(builder)
+
+
+class MinigameTBGSeasonExcelT(object):
+
+    # MinigameTBGSeasonExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        itemSlot = 0,
+        defaultEchelonHp = 0,
+        defaultItemDiceId = 0,
+        echelonSlot1CharacterId = 0,
+        echelonSlot2CharacterId = 0,
+        echelonSlot3CharacterId = 0,
+        echelonSlot4CharacterId = 0,
+        echelonSlot1Portrait = None,
+        echelonSlot2Portrait = None,
+        echelonSlot3Portrait = None,
+        echelonSlot4Portrait = None,
+        eventUseCostType = 0,
+        eventUseCostId = 0,
+        echelonRevivalCostType = 0,
+        echelonRevivalCostId = 0,
+        echelonRevivalCostAmount = 0,
+        enemyBossHp = 0,
+        enemyMinionHp = 0,
+        attackDamage = 0,
+        criticalAttackDamage = 0,
+        roundItemSelectLimit = 0,
+        instantClearRound = 0,
+        maxHp = 0,
+        mapImagePath = None,
+        mapNameLocalize = None,
+        startThemaIndex = 0,
+        loopThemaIndex = 0,
+        maxDicePlus = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.itemSlot = itemSlot  # type: int
+        self.defaultEchelonHp = defaultEchelonHp  # type: int
+        self.defaultItemDiceId = defaultItemDiceId  # type: int
+        self.echelonSlot1CharacterId = echelonSlot1CharacterId  # type: int
+        self.echelonSlot2CharacterId = echelonSlot2CharacterId  # type: int
+        self.echelonSlot3CharacterId = echelonSlot3CharacterId  # type: int
+        self.echelonSlot4CharacterId = echelonSlot4CharacterId  # type: int
+        self.echelonSlot1Portrait = echelonSlot1Portrait  # type: Optional[str]
+        self.echelonSlot2Portrait = echelonSlot2Portrait  # type: Optional[str]
+        self.echelonSlot3Portrait = echelonSlot3Portrait  # type: Optional[str]
+        self.echelonSlot4Portrait = echelonSlot4Portrait  # type: Optional[str]
+        self.eventUseCostType = eventUseCostType  # type: int
+        self.eventUseCostId = eventUseCostId  # type: int
+        self.echelonRevivalCostType = echelonRevivalCostType  # type: int
+        self.echelonRevivalCostId = echelonRevivalCostId  # type: int
+        self.echelonRevivalCostAmount = echelonRevivalCostAmount  # type: int
+        self.enemyBossHp = enemyBossHp  # type: int
+        self.enemyMinionHp = enemyMinionHp  # type: int
+        self.attackDamage = attackDamage  # type: int
+        self.criticalAttackDamage = criticalAttackDamage  # type: int
+        self.roundItemSelectLimit = roundItemSelectLimit  # type: int
+        self.instantClearRound = instantClearRound  # type: int
+        self.maxHp = maxHp  # type: int
+        self.mapImagePath = mapImagePath  # type: Optional[str]
+        self.mapNameLocalize = mapNameLocalize  # type: Optional[str]
+        self.startThemaIndex = startThemaIndex  # type: int
+        self.loopThemaIndex = loopThemaIndex  # type: int
+        self.maxDicePlus = maxDicePlus  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameTbgseasonExcel = MinigameTBGSeasonExcel()
+        minigameTbgseasonExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameTbgseasonExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameTbgseasonExcel):
+        x = MinigameTBGSeasonExcelT()
+        x._UnPack(minigameTbgseasonExcel)
+        return x
+
+    # MinigameTBGSeasonExcelT
+    def _UnPack(self, minigameTbgseasonExcel):
+        if minigameTbgseasonExcel is None:
+            return
+        self.eventContentId = minigameTbgseasonExcel.EventContentId()
+        self.itemSlot = minigameTbgseasonExcel.ItemSlot()
+        self.defaultEchelonHp = minigameTbgseasonExcel.DefaultEchelonHp()
+        self.defaultItemDiceId = minigameTbgseasonExcel.DefaultItemDiceId()
+        self.echelonSlot1CharacterId = minigameTbgseasonExcel.EchelonSlot1CharacterId()
+        self.echelonSlot2CharacterId = minigameTbgseasonExcel.EchelonSlot2CharacterId()
+        self.echelonSlot3CharacterId = minigameTbgseasonExcel.EchelonSlot3CharacterId()
+        self.echelonSlot4CharacterId = minigameTbgseasonExcel.EchelonSlot4CharacterId()
+        self.echelonSlot1Portrait = minigameTbgseasonExcel.EchelonSlot1Portrait()
+        self.echelonSlot2Portrait = minigameTbgseasonExcel.EchelonSlot2Portrait()
+        self.echelonSlot3Portrait = minigameTbgseasonExcel.EchelonSlot3Portrait()
+        self.echelonSlot4Portrait = minigameTbgseasonExcel.EchelonSlot4Portrait()
+        self.eventUseCostType = minigameTbgseasonExcel.EventUseCostType()
+        self.eventUseCostId = minigameTbgseasonExcel.EventUseCostId()
+        self.echelonRevivalCostType = minigameTbgseasonExcel.EchelonRevivalCostType()
+        self.echelonRevivalCostId = minigameTbgseasonExcel.EchelonRevivalCostId()
+        self.echelonRevivalCostAmount = minigameTbgseasonExcel.EchelonRevivalCostAmount()
+        self.enemyBossHp = minigameTbgseasonExcel.EnemyBossHp()
+        self.enemyMinionHp = minigameTbgseasonExcel.EnemyMinionHp()
+        self.attackDamage = minigameTbgseasonExcel.AttackDamage()
+        self.criticalAttackDamage = minigameTbgseasonExcel.CriticalAttackDamage()
+        self.roundItemSelectLimit = minigameTbgseasonExcel.RoundItemSelectLimit()
+        self.instantClearRound = minigameTbgseasonExcel.InstantClearRound()
+        self.maxHp = minigameTbgseasonExcel.MaxHp()
+        self.mapImagePath = minigameTbgseasonExcel.MapImagePath()
+        self.mapNameLocalize = minigameTbgseasonExcel.MapNameLocalize()
+        self.startThemaIndex = minigameTbgseasonExcel.StartThemaIndex()
+        self.loopThemaIndex = minigameTbgseasonExcel.LoopThemaIndex()
+        self.maxDicePlus = minigameTbgseasonExcel.MaxDicePlus()
+
+    # MinigameTBGSeasonExcelT
+    def Pack(self, builder):
+        if self.echelonSlot1Portrait is not None:
+            echelonSlot1Portrait = builder.CreateString(self.echelonSlot1Portrait)
+        if self.echelonSlot2Portrait is not None:
+            echelonSlot2Portrait = builder.CreateString(self.echelonSlot2Portrait)
+        if self.echelonSlot3Portrait is not None:
+            echelonSlot3Portrait = builder.CreateString(self.echelonSlot3Portrait)
+        if self.echelonSlot4Portrait is not None:
+            echelonSlot4Portrait = builder.CreateString(self.echelonSlot4Portrait)
+        if self.mapImagePath is not None:
+            mapImagePath = builder.CreateString(self.mapImagePath)
+        if self.mapNameLocalize is not None:
+            mapNameLocalize = builder.CreateString(self.mapNameLocalize)
+        MinigameTBGSeasonExcelStart(builder)
+        MinigameTBGSeasonExcelAddEventContentId(builder, self.eventContentId)
+        MinigameTBGSeasonExcelAddItemSlot(builder, self.itemSlot)
+        MinigameTBGSeasonExcelAddDefaultEchelonHp(builder, self.defaultEchelonHp)
+        MinigameTBGSeasonExcelAddDefaultItemDiceId(builder, self.defaultItemDiceId)
+        MinigameTBGSeasonExcelAddEchelonSlot1CharacterId(builder, self.echelonSlot1CharacterId)
+        MinigameTBGSeasonExcelAddEchelonSlot2CharacterId(builder, self.echelonSlot2CharacterId)
+        MinigameTBGSeasonExcelAddEchelonSlot3CharacterId(builder, self.echelonSlot3CharacterId)
+        MinigameTBGSeasonExcelAddEchelonSlot4CharacterId(builder, self.echelonSlot4CharacterId)
+        if self.echelonSlot1Portrait is not None:
+            MinigameTBGSeasonExcelAddEchelonSlot1Portrait(builder, echelonSlot1Portrait)
+        if self.echelonSlot2Portrait is not None:
+            MinigameTBGSeasonExcelAddEchelonSlot2Portrait(builder, echelonSlot2Portrait)
+        if self.echelonSlot3Portrait is not None:
+            MinigameTBGSeasonExcelAddEchelonSlot3Portrait(builder, echelonSlot3Portrait)
+        if self.echelonSlot4Portrait is not None:
+            MinigameTBGSeasonExcelAddEchelonSlot4Portrait(builder, echelonSlot4Portrait)
+        MinigameTBGSeasonExcelAddEventUseCostType(builder, self.eventUseCostType)
+        MinigameTBGSeasonExcelAddEventUseCostId(builder, self.eventUseCostId)
+        MinigameTBGSeasonExcelAddEchelonRevivalCostType(builder, self.echelonRevivalCostType)
+        MinigameTBGSeasonExcelAddEchelonRevivalCostId(builder, self.echelonRevivalCostId)
+        MinigameTBGSeasonExcelAddEchelonRevivalCostAmount(builder, self.echelonRevivalCostAmount)
+        MinigameTBGSeasonExcelAddEnemyBossHp(builder, self.enemyBossHp)
+        MinigameTBGSeasonExcelAddEnemyMinionHp(builder, self.enemyMinionHp)
+        MinigameTBGSeasonExcelAddAttackDamage(builder, self.attackDamage)
+        MinigameTBGSeasonExcelAddCriticalAttackDamage(builder, self.criticalAttackDamage)
+        MinigameTBGSeasonExcelAddRoundItemSelectLimit(builder, self.roundItemSelectLimit)
+        MinigameTBGSeasonExcelAddInstantClearRound(builder, self.instantClearRound)
+        MinigameTBGSeasonExcelAddMaxHp(builder, self.maxHp)
+        if self.mapImagePath is not None:
+            MinigameTBGSeasonExcelAddMapImagePath(builder, mapImagePath)
+        if self.mapNameLocalize is not None:
+            MinigameTBGSeasonExcelAddMapNameLocalize(builder, mapNameLocalize)
+        MinigameTBGSeasonExcelAddStartThemaIndex(builder, self.startThemaIndex)
+        MinigameTBGSeasonExcelAddLoopThemaIndex(builder, self.loopThemaIndex)
+        MinigameTBGSeasonExcelAddMaxDicePlus(builder, self.maxDicePlus)
+        minigameTbgseasonExcel = MinigameTBGSeasonExcelEnd(builder)
+        return minigameTbgseasonExcel

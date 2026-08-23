@@ -139,3 +139,89 @@ def TutorialCharacterDialogExcelEnd(builder):
 
 def End(builder):
     return TutorialCharacterDialogExcelEnd(builder)
+
+
+class TutorialCharacterDialogExcelT(object):
+
+    # TutorialCharacterDialogExcelT
+    def __init__(
+        self,
+        talkId = 0,
+        animationName = None,
+        localizeKr = None,
+        localizeJp = None,
+        localizeTh = None,
+        localizeTw = None,
+        localizeEn = None,
+        voiceId = 0,
+    ):
+        self.talkId = talkId  # type: int
+        self.animationName = animationName  # type: Optional[str]
+        self.localizeKr = localizeKr  # type: Optional[str]
+        self.localizeJp = localizeJp  # type: Optional[str]
+        self.localizeTh = localizeTh  # type: Optional[str]
+        self.localizeTw = localizeTw  # type: Optional[str]
+        self.localizeEn = localizeEn  # type: Optional[str]
+        self.voiceId = voiceId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        tutorialCharacterDialogExcel = TutorialCharacterDialogExcel()
+        tutorialCharacterDialogExcel.Init(buf, pos)
+        return cls.InitFromObj(tutorialCharacterDialogExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, tutorialCharacterDialogExcel):
+        x = TutorialCharacterDialogExcelT()
+        x._UnPack(tutorialCharacterDialogExcel)
+        return x
+
+    # TutorialCharacterDialogExcelT
+    def _UnPack(self, tutorialCharacterDialogExcel):
+        if tutorialCharacterDialogExcel is None:
+            return
+        self.talkId = tutorialCharacterDialogExcel.TalkId()
+        self.animationName = tutorialCharacterDialogExcel.AnimationName()
+        self.localizeKr = tutorialCharacterDialogExcel.LocalizeKr()
+        self.localizeJp = tutorialCharacterDialogExcel.LocalizeJp()
+        self.localizeTh = tutorialCharacterDialogExcel.LocalizeTh()
+        self.localizeTw = tutorialCharacterDialogExcel.LocalizeTw()
+        self.localizeEn = tutorialCharacterDialogExcel.LocalizeEn()
+        self.voiceId = tutorialCharacterDialogExcel.VoiceId()
+
+    # TutorialCharacterDialogExcelT
+    def Pack(self, builder):
+        if self.animationName is not None:
+            animationName = builder.CreateString(self.animationName)
+        if self.localizeKr is not None:
+            localizeKr = builder.CreateString(self.localizeKr)
+        if self.localizeJp is not None:
+            localizeJp = builder.CreateString(self.localizeJp)
+        if self.localizeTh is not None:
+            localizeTh = builder.CreateString(self.localizeTh)
+        if self.localizeTw is not None:
+            localizeTw = builder.CreateString(self.localizeTw)
+        if self.localizeEn is not None:
+            localizeEn = builder.CreateString(self.localizeEn)
+        TutorialCharacterDialogExcelStart(builder)
+        TutorialCharacterDialogExcelAddTalkId(builder, self.talkId)
+        if self.animationName is not None:
+            TutorialCharacterDialogExcelAddAnimationName(builder, animationName)
+        if self.localizeKr is not None:
+            TutorialCharacterDialogExcelAddLocalizeKr(builder, localizeKr)
+        if self.localizeJp is not None:
+            TutorialCharacterDialogExcelAddLocalizeJp(builder, localizeJp)
+        if self.localizeTh is not None:
+            TutorialCharacterDialogExcelAddLocalizeTh(builder, localizeTh)
+        if self.localizeTw is not None:
+            TutorialCharacterDialogExcelAddLocalizeTw(builder, localizeTw)
+        if self.localizeEn is not None:
+            TutorialCharacterDialogExcelAddLocalizeEn(builder, localizeEn)
+        TutorialCharacterDialogExcelAddVoiceId(builder, self.voiceId)
+        tutorialCharacterDialogExcel = TutorialCharacterDialogExcelEnd(builder)
+        return tutorialCharacterDialogExcel

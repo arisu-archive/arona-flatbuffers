@@ -215,43 +215,50 @@ class GoodsExcel(object):
         return o == 0
 
     # GoodsExcel
-    def ProductIdAos(self):
+    def CombinedGachaCostId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GoodsExcel
-    def ProductIdiOs(self):
+    def ProductIdAos(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GoodsExcel
-    def ProductIdOne(self):
+    def ProductIdiOs(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GoodsExcel
-    def ProductIdSgs(self):
+    def ProductIdOne(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GoodsExcel
-    def ProductIdSteam(self):
+    def ProductIdSgs(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # GoodsExcel
-    def ConsumeExtraStep(self, j):
+    def ProductIdSteam(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # GoodsExcel
+    def ConsumeExtraStep(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -259,26 +266,26 @@ class GoodsExcel(object):
 
     # GoodsExcel
     def ConsumeExtraStepAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # GoodsExcel
     def ConsumeExtraStepLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # GoodsExcel
     def ConsumeExtraStepIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         return o == 0
 
     # GoodsExcel
     def ConsumeExtraAmount(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -286,33 +293,33 @@ class GoodsExcel(object):
 
     # GoodsExcel
     def ConsumeExtraAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # GoodsExcel
     def ConsumeExtraAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # GoodsExcel
     def ConsumeExtraAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         return o == 0
 
     # GoodsExcel
     def State(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # GoodsExcel
     def ParcelType(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -320,26 +327,26 @@ class GoodsExcel(object):
 
     # GoodsExcel
     def ParcelTypeAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # GoodsExcel
     def ParcelTypeLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # GoodsExcel
     def ParcelTypeIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
         return o == 0
 
     # GoodsExcel
     def ParcelId(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -347,26 +354,26 @@ class GoodsExcel(object):
 
     # GoodsExcel
     def ParcelIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # GoodsExcel
     def ParcelIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # GoodsExcel
     def ParcelIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         return o == 0
 
     # GoodsExcel
     def ParcelAmount(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -374,25 +381,25 @@ class GoodsExcel(object):
 
     # GoodsExcel
     def ParcelAmountAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # GoodsExcel
     def ParcelAmountLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # GoodsExcel
     def ParcelAmountIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         return o == 0
 
 def GoodsExcelStart(builder):
-    builder.StartObject(21)
+    builder.StartObject(22)
 
 def Start(builder):
     GoodsExcelStart(builder)
@@ -493,38 +500,44 @@ def GoodsExcelStartConsumeGachaTicketTypeAmountVector(builder, numElems):
 def StartConsumeGachaTicketTypeAmountVector(builder, numElems):
     return GoodsExcelStartConsumeGachaTicketTypeAmountVector(builder, numElems)
 
+def GoodsExcelAddCombinedGachaCostId(builder, combinedGachaCostId):
+    builder.PrependInt64Slot(10, combinedGachaCostId, 0)
+
+def AddCombinedGachaCostId(builder, combinedGachaCostId):
+    GoodsExcelAddCombinedGachaCostId(builder, combinedGachaCostId)
+
 def GoodsExcelAddProductIdAos(builder, productIdAos):
-    builder.PrependInt64Slot(10, productIdAos, 0)
+    builder.PrependInt64Slot(11, productIdAos, 0)
 
 def AddProductIdAos(builder, productIdAos):
     GoodsExcelAddProductIdAos(builder, productIdAos)
 
 def GoodsExcelAddProductIdiOs(builder, productIdiOs):
-    builder.PrependInt64Slot(11, productIdiOs, 0)
+    builder.PrependInt64Slot(12, productIdiOs, 0)
 
 def AddProductIdiOs(builder, productIdiOs):
     GoodsExcelAddProductIdiOs(builder, productIdiOs)
 
 def GoodsExcelAddProductIdOne(builder, productIdOne):
-    builder.PrependInt64Slot(12, productIdOne, 0)
+    builder.PrependInt64Slot(13, productIdOne, 0)
 
 def AddProductIdOne(builder, productIdOne):
     GoodsExcelAddProductIdOne(builder, productIdOne)
 
 def GoodsExcelAddProductIdSgs(builder, productIdSgs):
-    builder.PrependInt64Slot(13, productIdSgs, 0)
+    builder.PrependInt64Slot(14, productIdSgs, 0)
 
 def AddProductIdSgs(builder, productIdSgs):
     GoodsExcelAddProductIdSgs(builder, productIdSgs)
 
 def GoodsExcelAddProductIdSteam(builder, productIdSteam):
-    builder.PrependInt64Slot(14, productIdSteam, 0)
+    builder.PrependInt64Slot(15, productIdSteam, 0)
 
 def AddProductIdSteam(builder, productIdSteam):
     GoodsExcelAddProductIdSteam(builder, productIdSteam)
 
 def GoodsExcelAddConsumeExtraStep(builder, consumeExtraStep):
-    builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(consumeExtraStep), 0)
+    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(consumeExtraStep), 0)
 
 def AddConsumeExtraStep(builder, consumeExtraStep):
     GoodsExcelAddConsumeExtraStep(builder, consumeExtraStep)
@@ -536,7 +549,7 @@ def StartConsumeExtraStepVector(builder, numElems):
     return GoodsExcelStartConsumeExtraStepVector(builder, numElems)
 
 def GoodsExcelAddConsumeExtraAmount(builder, consumeExtraAmount):
-    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(consumeExtraAmount), 0)
+    builder.PrependUOffsetTRelativeSlot(17, flatbuffers.number_types.UOffsetTFlags.py_type(consumeExtraAmount), 0)
 
 def AddConsumeExtraAmount(builder, consumeExtraAmount):
     GoodsExcelAddConsumeExtraAmount(builder, consumeExtraAmount)
@@ -548,13 +561,13 @@ def StartConsumeExtraAmountVector(builder, numElems):
     return GoodsExcelStartConsumeExtraAmountVector(builder, numElems)
 
 def GoodsExcelAddState(builder, state):
-    builder.PrependInt32Slot(17, state, 0)
+    builder.PrependInt32Slot(18, state, 0)
 
 def AddState(builder, state):
     GoodsExcelAddState(builder, state)
 
 def GoodsExcelAddParcelType(builder, parcelType):
-    builder.PrependUOffsetTRelativeSlot(18, flatbuffers.number_types.UOffsetTFlags.py_type(parcelType), 0)
+    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(parcelType), 0)
 
 def AddParcelType(builder, parcelType):
     GoodsExcelAddParcelType(builder, parcelType)
@@ -566,7 +579,7 @@ def StartParcelTypeVector(builder, numElems):
     return GoodsExcelStartParcelTypeVector(builder, numElems)
 
 def GoodsExcelAddParcelId(builder, parcelId):
-    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(parcelId), 0)
+    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(parcelId), 0)
 
 def AddParcelId(builder, parcelId):
     GoodsExcelAddParcelId(builder, parcelId)
@@ -578,7 +591,7 @@ def StartParcelIdVector(builder, numElems):
     return GoodsExcelStartParcelIdVector(builder, numElems)
 
 def GoodsExcelAddParcelAmount(builder, parcelAmount):
-    builder.PrependUOffsetTRelativeSlot(20, flatbuffers.number_types.UOffsetTFlags.py_type(parcelAmount), 0)
+    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(parcelAmount), 0)
 
 def AddParcelAmount(builder, parcelAmount):
     GoodsExcelAddParcelAmount(builder, parcelAmount)
@@ -594,3 +607,299 @@ def GoodsExcelEnd(builder):
 
 def End(builder):
     return GoodsExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class GoodsExcelT(object):
+
+    # GoodsExcelT
+    def __init__(
+        self,
+        id = 0,
+        type = 0,
+        rarity = 0,
+        iconPath = None,
+        consumeParcelType = None,
+        consumeParcelId = None,
+        consumeParcelAmount = None,
+        consumeCondition = None,
+        consumeGachaTicketType = None,
+        consumeGachaTicketTypeAmount = None,
+        combinedGachaCostId = 0,
+        productIdAos = 0,
+        productIdiOs = 0,
+        productIdOne = 0,
+        productIdSgs = 0,
+        productIdSteam = 0,
+        consumeExtraStep = None,
+        consumeExtraAmount = None,
+        state = 0,
+        parcelType = None,
+        parcelId = None,
+        parcelAmount = None,
+    ):
+        self.id = id  # type: int
+        self.type = type  # type: int
+        self.rarity = rarity  # type: int
+        self.iconPath = iconPath  # type: Optional[str]
+        self.consumeParcelType = consumeParcelType  # type: Optional[List[int]]
+        self.consumeParcelId = consumeParcelId  # type: Optional[List[int]]
+        self.consumeParcelAmount = consumeParcelAmount  # type: Optional[List[int]]
+        self.consumeCondition = consumeCondition  # type: Optional[List[int]]
+        self.consumeGachaTicketType = consumeGachaTicketType  # type: Optional[List[int]]
+        self.consumeGachaTicketTypeAmount = consumeGachaTicketTypeAmount  # type: Optional[List[int]]
+        self.combinedGachaCostId = combinedGachaCostId  # type: int
+        self.productIdAos = productIdAos  # type: int
+        self.productIdiOs = productIdiOs  # type: int
+        self.productIdOne = productIdOne  # type: int
+        self.productIdSgs = productIdSgs  # type: int
+        self.productIdSteam = productIdSteam  # type: int
+        self.consumeExtraStep = consumeExtraStep  # type: Optional[List[int]]
+        self.consumeExtraAmount = consumeExtraAmount  # type: Optional[List[int]]
+        self.state = state  # type: int
+        self.parcelType = parcelType  # type: Optional[List[int]]
+        self.parcelId = parcelId  # type: Optional[List[int]]
+        self.parcelAmount = parcelAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        goodsExcel = GoodsExcel()
+        goodsExcel.Init(buf, pos)
+        return cls.InitFromObj(goodsExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, goodsExcel):
+        x = GoodsExcelT()
+        x._UnPack(goodsExcel)
+        return x
+
+    # GoodsExcelT
+    def _UnPack(self, goodsExcel):
+        if goodsExcel is None:
+            return
+        self.id = goodsExcel.Id()
+        self.type = goodsExcel.Type()
+        self.rarity = goodsExcel.Rarity()
+        self.iconPath = goodsExcel.IconPath()
+        if not goodsExcel.ConsumeParcelTypeIsNone():
+            if np is None:
+                self.consumeParcelType = []
+                for i in range(goodsExcel.ConsumeParcelTypeLength()):
+                    self.consumeParcelType.append(goodsExcel.ConsumeParcelType(i))
+            else:
+                self.consumeParcelType = goodsExcel.ConsumeParcelTypeAsNumpy()
+        if not goodsExcel.ConsumeParcelIdIsNone():
+            if np is None:
+                self.consumeParcelId = []
+                for i in range(goodsExcel.ConsumeParcelIdLength()):
+                    self.consumeParcelId.append(goodsExcel.ConsumeParcelId(i))
+            else:
+                self.consumeParcelId = goodsExcel.ConsumeParcelIdAsNumpy()
+        if not goodsExcel.ConsumeParcelAmountIsNone():
+            if np is None:
+                self.consumeParcelAmount = []
+                for i in range(goodsExcel.ConsumeParcelAmountLength()):
+                    self.consumeParcelAmount.append(goodsExcel.ConsumeParcelAmount(i))
+            else:
+                self.consumeParcelAmount = goodsExcel.ConsumeParcelAmountAsNumpy()
+        if not goodsExcel.ConsumeConditionIsNone():
+            if np is None:
+                self.consumeCondition = []
+                for i in range(goodsExcel.ConsumeConditionLength()):
+                    self.consumeCondition.append(goodsExcel.ConsumeCondition(i))
+            else:
+                self.consumeCondition = goodsExcel.ConsumeConditionAsNumpy()
+        if not goodsExcel.ConsumeGachaTicketTypeIsNone():
+            if np is None:
+                self.consumeGachaTicketType = []
+                for i in range(goodsExcel.ConsumeGachaTicketTypeLength()):
+                    self.consumeGachaTicketType.append(goodsExcel.ConsumeGachaTicketType(i))
+            else:
+                self.consumeGachaTicketType = goodsExcel.ConsumeGachaTicketTypeAsNumpy()
+        if not goodsExcel.ConsumeGachaTicketTypeAmountIsNone():
+            if np is None:
+                self.consumeGachaTicketTypeAmount = []
+                for i in range(goodsExcel.ConsumeGachaTicketTypeAmountLength()):
+                    self.consumeGachaTicketTypeAmount.append(goodsExcel.ConsumeGachaTicketTypeAmount(i))
+            else:
+                self.consumeGachaTicketTypeAmount = goodsExcel.ConsumeGachaTicketTypeAmountAsNumpy()
+        self.combinedGachaCostId = goodsExcel.CombinedGachaCostId()
+        self.productIdAos = goodsExcel.ProductIdAos()
+        self.productIdiOs = goodsExcel.ProductIdiOs()
+        self.productIdOne = goodsExcel.ProductIdOne()
+        self.productIdSgs = goodsExcel.ProductIdSgs()
+        self.productIdSteam = goodsExcel.ProductIdSteam()
+        if not goodsExcel.ConsumeExtraStepIsNone():
+            if np is None:
+                self.consumeExtraStep = []
+                for i in range(goodsExcel.ConsumeExtraStepLength()):
+                    self.consumeExtraStep.append(goodsExcel.ConsumeExtraStep(i))
+            else:
+                self.consumeExtraStep = goodsExcel.ConsumeExtraStepAsNumpy()
+        if not goodsExcel.ConsumeExtraAmountIsNone():
+            if np is None:
+                self.consumeExtraAmount = []
+                for i in range(goodsExcel.ConsumeExtraAmountLength()):
+                    self.consumeExtraAmount.append(goodsExcel.ConsumeExtraAmount(i))
+            else:
+                self.consumeExtraAmount = goodsExcel.ConsumeExtraAmountAsNumpy()
+        self.state = goodsExcel.State()
+        if not goodsExcel.ParcelTypeIsNone():
+            if np is None:
+                self.parcelType = []
+                for i in range(goodsExcel.ParcelTypeLength()):
+                    self.parcelType.append(goodsExcel.ParcelType(i))
+            else:
+                self.parcelType = goodsExcel.ParcelTypeAsNumpy()
+        if not goodsExcel.ParcelIdIsNone():
+            if np is None:
+                self.parcelId = []
+                for i in range(goodsExcel.ParcelIdLength()):
+                    self.parcelId.append(goodsExcel.ParcelId(i))
+            else:
+                self.parcelId = goodsExcel.ParcelIdAsNumpy()
+        if not goodsExcel.ParcelAmountIsNone():
+            if np is None:
+                self.parcelAmount = []
+                for i in range(goodsExcel.ParcelAmountLength()):
+                    self.parcelAmount.append(goodsExcel.ParcelAmount(i))
+            else:
+                self.parcelAmount = goodsExcel.ParcelAmountAsNumpy()
+
+    # GoodsExcelT
+    def Pack(self, builder):
+        if self.iconPath is not None:
+            iconPath = builder.CreateString(self.iconPath)
+        if self.consumeParcelType is not None:
+            if np is not None and type(self.consumeParcelType) is np.ndarray:
+                consumeParcelType = builder.CreateNumpyVector(self.consumeParcelType)
+            else:
+                GoodsExcelStartConsumeParcelTypeVector(builder, len(self.consumeParcelType))
+                for i in reversed(range(len(self.consumeParcelType))):
+                    builder.PrependInt32(self.consumeParcelType[i])
+                consumeParcelType = builder.EndVector()
+        if self.consumeParcelId is not None:
+            if np is not None and type(self.consumeParcelId) is np.ndarray:
+                consumeParcelId = builder.CreateNumpyVector(self.consumeParcelId)
+            else:
+                GoodsExcelStartConsumeParcelIdVector(builder, len(self.consumeParcelId))
+                for i in reversed(range(len(self.consumeParcelId))):
+                    builder.PrependInt64(self.consumeParcelId[i])
+                consumeParcelId = builder.EndVector()
+        if self.consumeParcelAmount is not None:
+            if np is not None and type(self.consumeParcelAmount) is np.ndarray:
+                consumeParcelAmount = builder.CreateNumpyVector(self.consumeParcelAmount)
+            else:
+                GoodsExcelStartConsumeParcelAmountVector(builder, len(self.consumeParcelAmount))
+                for i in reversed(range(len(self.consumeParcelAmount))):
+                    builder.PrependInt64(self.consumeParcelAmount[i])
+                consumeParcelAmount = builder.EndVector()
+        if self.consumeCondition is not None:
+            if np is not None and type(self.consumeCondition) is np.ndarray:
+                consumeCondition = builder.CreateNumpyVector(self.consumeCondition)
+            else:
+                GoodsExcelStartConsumeConditionVector(builder, len(self.consumeCondition))
+                for i in reversed(range(len(self.consumeCondition))):
+                    builder.PrependInt32(self.consumeCondition[i])
+                consumeCondition = builder.EndVector()
+        if self.consumeGachaTicketType is not None:
+            if np is not None and type(self.consumeGachaTicketType) is np.ndarray:
+                consumeGachaTicketType = builder.CreateNumpyVector(self.consumeGachaTicketType)
+            else:
+                GoodsExcelStartConsumeGachaTicketTypeVector(builder, len(self.consumeGachaTicketType))
+                for i in reversed(range(len(self.consumeGachaTicketType))):
+                    builder.PrependInt32(self.consumeGachaTicketType[i])
+                consumeGachaTicketType = builder.EndVector()
+        if self.consumeGachaTicketTypeAmount is not None:
+            if np is not None and type(self.consumeGachaTicketTypeAmount) is np.ndarray:
+                consumeGachaTicketTypeAmount = builder.CreateNumpyVector(self.consumeGachaTicketTypeAmount)
+            else:
+                GoodsExcelStartConsumeGachaTicketTypeAmountVector(builder, len(self.consumeGachaTicketTypeAmount))
+                for i in reversed(range(len(self.consumeGachaTicketTypeAmount))):
+                    builder.PrependInt64(self.consumeGachaTicketTypeAmount[i])
+                consumeGachaTicketTypeAmount = builder.EndVector()
+        if self.consumeExtraStep is not None:
+            if np is not None and type(self.consumeExtraStep) is np.ndarray:
+                consumeExtraStep = builder.CreateNumpyVector(self.consumeExtraStep)
+            else:
+                GoodsExcelStartConsumeExtraStepVector(builder, len(self.consumeExtraStep))
+                for i in reversed(range(len(self.consumeExtraStep))):
+                    builder.PrependInt64(self.consumeExtraStep[i])
+                consumeExtraStep = builder.EndVector()
+        if self.consumeExtraAmount is not None:
+            if np is not None and type(self.consumeExtraAmount) is np.ndarray:
+                consumeExtraAmount = builder.CreateNumpyVector(self.consumeExtraAmount)
+            else:
+                GoodsExcelStartConsumeExtraAmountVector(builder, len(self.consumeExtraAmount))
+                for i in reversed(range(len(self.consumeExtraAmount))):
+                    builder.PrependInt64(self.consumeExtraAmount[i])
+                consumeExtraAmount = builder.EndVector()
+        if self.parcelType is not None:
+            if np is not None and type(self.parcelType) is np.ndarray:
+                parcelType = builder.CreateNumpyVector(self.parcelType)
+            else:
+                GoodsExcelStartParcelTypeVector(builder, len(self.parcelType))
+                for i in reversed(range(len(self.parcelType))):
+                    builder.PrependInt32(self.parcelType[i])
+                parcelType = builder.EndVector()
+        if self.parcelId is not None:
+            if np is not None and type(self.parcelId) is np.ndarray:
+                parcelId = builder.CreateNumpyVector(self.parcelId)
+            else:
+                GoodsExcelStartParcelIdVector(builder, len(self.parcelId))
+                for i in reversed(range(len(self.parcelId))):
+                    builder.PrependInt64(self.parcelId[i])
+                parcelId = builder.EndVector()
+        if self.parcelAmount is not None:
+            if np is not None and type(self.parcelAmount) is np.ndarray:
+                parcelAmount = builder.CreateNumpyVector(self.parcelAmount)
+            else:
+                GoodsExcelStartParcelAmountVector(builder, len(self.parcelAmount))
+                for i in reversed(range(len(self.parcelAmount))):
+                    builder.PrependInt64(self.parcelAmount[i])
+                parcelAmount = builder.EndVector()
+        GoodsExcelStart(builder)
+        GoodsExcelAddId(builder, self.id)
+        GoodsExcelAddType(builder, self.type)
+        GoodsExcelAddRarity(builder, self.rarity)
+        if self.iconPath is not None:
+            GoodsExcelAddIconPath(builder, iconPath)
+        if self.consumeParcelType is not None:
+            GoodsExcelAddConsumeParcelType(builder, consumeParcelType)
+        if self.consumeParcelId is not None:
+            GoodsExcelAddConsumeParcelId(builder, consumeParcelId)
+        if self.consumeParcelAmount is not None:
+            GoodsExcelAddConsumeParcelAmount(builder, consumeParcelAmount)
+        if self.consumeCondition is not None:
+            GoodsExcelAddConsumeCondition(builder, consumeCondition)
+        if self.consumeGachaTicketType is not None:
+            GoodsExcelAddConsumeGachaTicketType(builder, consumeGachaTicketType)
+        if self.consumeGachaTicketTypeAmount is not None:
+            GoodsExcelAddConsumeGachaTicketTypeAmount(builder, consumeGachaTicketTypeAmount)
+        GoodsExcelAddCombinedGachaCostId(builder, self.combinedGachaCostId)
+        GoodsExcelAddProductIdAos(builder, self.productIdAos)
+        GoodsExcelAddProductIdiOs(builder, self.productIdiOs)
+        GoodsExcelAddProductIdOne(builder, self.productIdOne)
+        GoodsExcelAddProductIdSgs(builder, self.productIdSgs)
+        GoodsExcelAddProductIdSteam(builder, self.productIdSteam)
+        if self.consumeExtraStep is not None:
+            GoodsExcelAddConsumeExtraStep(builder, consumeExtraStep)
+        if self.consumeExtraAmount is not None:
+            GoodsExcelAddConsumeExtraAmount(builder, consumeExtraAmount)
+        GoodsExcelAddState(builder, self.state)
+        if self.parcelType is not None:
+            GoodsExcelAddParcelType(builder, parcelType)
+        if self.parcelId is not None:
+            GoodsExcelAddParcelId(builder, parcelId)
+        if self.parcelAmount is not None:
+            GoodsExcelAddParcelAmount(builder, parcelAmount)
+        goodsExcel = GoodsExcelEnd(builder)
+        return goodsExcel

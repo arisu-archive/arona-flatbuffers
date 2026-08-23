@@ -74,3 +74,66 @@ def GroundNodeLayerFlatEnd(builder):
 
 def End(builder):
     return GroundNodeLayerFlatEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class GroundNodeLayerFlatT(object):
+
+    # GroundNodeLayerFlatT
+    def __init__(
+        self,
+        layers = None,
+    ):
+        self.layers = layers  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        groundNodeLayerFlat = GroundNodeLayerFlat()
+        groundNodeLayerFlat.Init(buf, pos)
+        return cls.InitFromObj(groundNodeLayerFlat)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, groundNodeLayerFlat):
+        x = GroundNodeLayerFlatT()
+        x._UnPack(groundNodeLayerFlat)
+        return x
+
+    # GroundNodeLayerFlatT
+    def _UnPack(self, groundNodeLayerFlat):
+        if groundNodeLayerFlat is None:
+            return
+        if not groundNodeLayerFlat.LayersIsNone():
+            if np is None:
+                self.layers = []
+                for i in range(groundNodeLayerFlat.LayersLength()):
+                    self.layers.append(groundNodeLayerFlat.Layers(i))
+            else:
+                self.layers = groundNodeLayerFlat.LayersAsNumpy()
+
+    # GroundNodeLayerFlatT
+    def Pack(self, builder):
+        if self.layers is not None:
+            if np is not None and type(self.layers) is np.ndarray:
+                layers = builder.CreateNumpyVector(self.layers)
+            else:
+                GroundNodeLayerFlatStartLayersVector(builder, len(self.layers))
+                for i in reversed(range(len(self.layers))):
+                    builder.PrependByte(self.layers[i])
+                layers = builder.EndVector()
+        GroundNodeLayerFlatStart(builder)
+        if self.layers is not None:
+            GroundNodeLayerFlatAddLayers(builder, layers)
+        groundNodeLayerFlat = GroundNodeLayerFlatEnd(builder)
+        return groundNodeLayerFlat
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(GroundNodeLayerFlatT, 'GroundNodeLayerFlat', (('layers', 'int8', True),))

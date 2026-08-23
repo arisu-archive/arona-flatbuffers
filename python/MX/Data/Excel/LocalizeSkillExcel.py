@@ -243,3 +243,148 @@ def LocalizeSkillExcelEnd(builder):
 
 def End(builder):
     return LocalizeSkillExcelEnd(builder)
+
+
+class LocalizeSkillExcelT(object):
+
+    # LocalizeSkillExcelT
+    def __init__(
+        self,
+        key = 0,
+        nameKr = None,
+        descriptionKr = None,
+        skillInvokeLocalizeKr = None,
+        nameJp = None,
+        descriptionJp = None,
+        skillInvokeLocalizeJp = None,
+        nameTh = None,
+        descriptionTh = None,
+        skillInvokeLocalizeTh = None,
+        nameTw = None,
+        descriptionTw = None,
+        skillInvokeLocalizeTw = None,
+        nameEn = None,
+        descriptionEn = None,
+        skillInvokeLocalizeEn = None,
+    ):
+        self.key = key  # type: int
+        self.nameKr = nameKr  # type: Optional[str]
+        self.descriptionKr = descriptionKr  # type: Optional[str]
+        self.skillInvokeLocalizeKr = skillInvokeLocalizeKr  # type: Optional[str]
+        self.nameJp = nameJp  # type: Optional[str]
+        self.descriptionJp = descriptionJp  # type: Optional[str]
+        self.skillInvokeLocalizeJp = skillInvokeLocalizeJp  # type: Optional[str]
+        self.nameTh = nameTh  # type: Optional[str]
+        self.descriptionTh = descriptionTh  # type: Optional[str]
+        self.skillInvokeLocalizeTh = skillInvokeLocalizeTh  # type: Optional[str]
+        self.nameTw = nameTw  # type: Optional[str]
+        self.descriptionTw = descriptionTw  # type: Optional[str]
+        self.skillInvokeLocalizeTw = skillInvokeLocalizeTw  # type: Optional[str]
+        self.nameEn = nameEn  # type: Optional[str]
+        self.descriptionEn = descriptionEn  # type: Optional[str]
+        self.skillInvokeLocalizeEn = skillInvokeLocalizeEn  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        localizeSkillExcel = LocalizeSkillExcel()
+        localizeSkillExcel.Init(buf, pos)
+        return cls.InitFromObj(localizeSkillExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, localizeSkillExcel):
+        x = LocalizeSkillExcelT()
+        x._UnPack(localizeSkillExcel)
+        return x
+
+    # LocalizeSkillExcelT
+    def _UnPack(self, localizeSkillExcel):
+        if localizeSkillExcel is None:
+            return
+        self.key = localizeSkillExcel.Key()
+        self.nameKr = localizeSkillExcel.NameKr()
+        self.descriptionKr = localizeSkillExcel.DescriptionKr()
+        self.skillInvokeLocalizeKr = localizeSkillExcel.SkillInvokeLocalizeKr()
+        self.nameJp = localizeSkillExcel.NameJp()
+        self.descriptionJp = localizeSkillExcel.DescriptionJp()
+        self.skillInvokeLocalizeJp = localizeSkillExcel.SkillInvokeLocalizeJp()
+        self.nameTh = localizeSkillExcel.NameTh()
+        self.descriptionTh = localizeSkillExcel.DescriptionTh()
+        self.skillInvokeLocalizeTh = localizeSkillExcel.SkillInvokeLocalizeTh()
+        self.nameTw = localizeSkillExcel.NameTw()
+        self.descriptionTw = localizeSkillExcel.DescriptionTw()
+        self.skillInvokeLocalizeTw = localizeSkillExcel.SkillInvokeLocalizeTw()
+        self.nameEn = localizeSkillExcel.NameEn()
+        self.descriptionEn = localizeSkillExcel.DescriptionEn()
+        self.skillInvokeLocalizeEn = localizeSkillExcel.SkillInvokeLocalizeEn()
+
+    # LocalizeSkillExcelT
+    def Pack(self, builder):
+        if self.nameKr is not None:
+            nameKr = builder.CreateString(self.nameKr)
+        if self.descriptionKr is not None:
+            descriptionKr = builder.CreateString(self.descriptionKr)
+        if self.skillInvokeLocalizeKr is not None:
+            skillInvokeLocalizeKr = builder.CreateString(self.skillInvokeLocalizeKr)
+        if self.nameJp is not None:
+            nameJp = builder.CreateString(self.nameJp)
+        if self.descriptionJp is not None:
+            descriptionJp = builder.CreateString(self.descriptionJp)
+        if self.skillInvokeLocalizeJp is not None:
+            skillInvokeLocalizeJp = builder.CreateString(self.skillInvokeLocalizeJp)
+        if self.nameTh is not None:
+            nameTh = builder.CreateString(self.nameTh)
+        if self.descriptionTh is not None:
+            descriptionTh = builder.CreateString(self.descriptionTh)
+        if self.skillInvokeLocalizeTh is not None:
+            skillInvokeLocalizeTh = builder.CreateString(self.skillInvokeLocalizeTh)
+        if self.nameTw is not None:
+            nameTw = builder.CreateString(self.nameTw)
+        if self.descriptionTw is not None:
+            descriptionTw = builder.CreateString(self.descriptionTw)
+        if self.skillInvokeLocalizeTw is not None:
+            skillInvokeLocalizeTw = builder.CreateString(self.skillInvokeLocalizeTw)
+        if self.nameEn is not None:
+            nameEn = builder.CreateString(self.nameEn)
+        if self.descriptionEn is not None:
+            descriptionEn = builder.CreateString(self.descriptionEn)
+        if self.skillInvokeLocalizeEn is not None:
+            skillInvokeLocalizeEn = builder.CreateString(self.skillInvokeLocalizeEn)
+        LocalizeSkillExcelStart(builder)
+        LocalizeSkillExcelAddKey(builder, self.key)
+        if self.nameKr is not None:
+            LocalizeSkillExcelAddNameKr(builder, nameKr)
+        if self.descriptionKr is not None:
+            LocalizeSkillExcelAddDescriptionKr(builder, descriptionKr)
+        if self.skillInvokeLocalizeKr is not None:
+            LocalizeSkillExcelAddSkillInvokeLocalizeKr(builder, skillInvokeLocalizeKr)
+        if self.nameJp is not None:
+            LocalizeSkillExcelAddNameJp(builder, nameJp)
+        if self.descriptionJp is not None:
+            LocalizeSkillExcelAddDescriptionJp(builder, descriptionJp)
+        if self.skillInvokeLocalizeJp is not None:
+            LocalizeSkillExcelAddSkillInvokeLocalizeJp(builder, skillInvokeLocalizeJp)
+        if self.nameTh is not None:
+            LocalizeSkillExcelAddNameTh(builder, nameTh)
+        if self.descriptionTh is not None:
+            LocalizeSkillExcelAddDescriptionTh(builder, descriptionTh)
+        if self.skillInvokeLocalizeTh is not None:
+            LocalizeSkillExcelAddSkillInvokeLocalizeTh(builder, skillInvokeLocalizeTh)
+        if self.nameTw is not None:
+            LocalizeSkillExcelAddNameTw(builder, nameTw)
+        if self.descriptionTw is not None:
+            LocalizeSkillExcelAddDescriptionTw(builder, descriptionTw)
+        if self.skillInvokeLocalizeTw is not None:
+            LocalizeSkillExcelAddSkillInvokeLocalizeTw(builder, skillInvokeLocalizeTw)
+        if self.nameEn is not None:
+            LocalizeSkillExcelAddNameEn(builder, nameEn)
+        if self.descriptionEn is not None:
+            LocalizeSkillExcelAddDescriptionEn(builder, descriptionEn)
+        if self.skillInvokeLocalizeEn is not None:
+            LocalizeSkillExcelAddSkillInvokeLocalizeEn(builder, skillInvokeLocalizeEn)
+        localizeSkillExcel = LocalizeSkillExcelEnd(builder)
+        return localizeSkillExcel

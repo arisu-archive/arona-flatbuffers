@@ -230,3 +230,99 @@ def MiniGameDefenseFixedStatExcelEnd(builder):
 
 def End(builder):
     return MiniGameDefenseFixedStatExcelEnd(builder)
+
+
+class MiniGameDefenseFixedStatExcelT(object):
+
+    # MiniGameDefenseFixedStatExcelT
+    def __init__(
+        self,
+        minigameDefenseFixedStatId = 0,
+        level = 0,
+        grade = 0,
+        exSkillLevel = 0,
+        noneExSkillLevel = 0,
+        equipment1Tier = 0,
+        equipment1Level = 0,
+        equipment2Tier = 0,
+        equipment2Level = 0,
+        equipment3Tier = 0,
+        equipment3Level = 0,
+        characterWeaponGrade = 0,
+        characterWeaponLevel = 0,
+        characterGearTier = 0,
+        characterGearLevel = 0,
+    ):
+        self.minigameDefenseFixedStatId = minigameDefenseFixedStatId  # type: int
+        self.level = level  # type: int
+        self.grade = grade  # type: int
+        self.exSkillLevel = exSkillLevel  # type: int
+        self.noneExSkillLevel = noneExSkillLevel  # type: int
+        self.equipment1Tier = equipment1Tier  # type: int
+        self.equipment1Level = equipment1Level  # type: int
+        self.equipment2Tier = equipment2Tier  # type: int
+        self.equipment2Level = equipment2Level  # type: int
+        self.equipment3Tier = equipment3Tier  # type: int
+        self.equipment3Level = equipment3Level  # type: int
+        self.characterWeaponGrade = characterWeaponGrade  # type: int
+        self.characterWeaponLevel = characterWeaponLevel  # type: int
+        self.characterGearTier = characterGearTier  # type: int
+        self.characterGearLevel = characterGearLevel  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDefenseFixedStatExcel = MiniGameDefenseFixedStatExcel()
+        miniGameDefenseFixedStatExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDefenseFixedStatExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDefenseFixedStatExcel):
+        x = MiniGameDefenseFixedStatExcelT()
+        x._UnPack(miniGameDefenseFixedStatExcel)
+        return x
+
+    # MiniGameDefenseFixedStatExcelT
+    def _UnPack(self, miniGameDefenseFixedStatExcel):
+        if miniGameDefenseFixedStatExcel is None:
+            return
+        self.minigameDefenseFixedStatId = miniGameDefenseFixedStatExcel.MinigameDefenseFixedStatId()
+        self.level = miniGameDefenseFixedStatExcel.Level()
+        self.grade = miniGameDefenseFixedStatExcel.Grade()
+        self.exSkillLevel = miniGameDefenseFixedStatExcel.ExSkillLevel()
+        self.noneExSkillLevel = miniGameDefenseFixedStatExcel.NoneExSkillLevel()
+        self.equipment1Tier = miniGameDefenseFixedStatExcel.Equipment1Tier()
+        self.equipment1Level = miniGameDefenseFixedStatExcel.Equipment1Level()
+        self.equipment2Tier = miniGameDefenseFixedStatExcel.Equipment2Tier()
+        self.equipment2Level = miniGameDefenseFixedStatExcel.Equipment2Level()
+        self.equipment3Tier = miniGameDefenseFixedStatExcel.Equipment3Tier()
+        self.equipment3Level = miniGameDefenseFixedStatExcel.Equipment3Level()
+        self.characterWeaponGrade = miniGameDefenseFixedStatExcel.CharacterWeaponGrade()
+        self.characterWeaponLevel = miniGameDefenseFixedStatExcel.CharacterWeaponLevel()
+        self.characterGearTier = miniGameDefenseFixedStatExcel.CharacterGearTier()
+        self.characterGearLevel = miniGameDefenseFixedStatExcel.CharacterGearLevel()
+
+    # MiniGameDefenseFixedStatExcelT
+    def Pack(self, builder):
+        MiniGameDefenseFixedStatExcelStart(builder)
+        MiniGameDefenseFixedStatExcelAddMinigameDefenseFixedStatId(builder, self.minigameDefenseFixedStatId)
+        MiniGameDefenseFixedStatExcelAddLevel(builder, self.level)
+        MiniGameDefenseFixedStatExcelAddGrade(builder, self.grade)
+        MiniGameDefenseFixedStatExcelAddExSkillLevel(builder, self.exSkillLevel)
+        MiniGameDefenseFixedStatExcelAddNoneExSkillLevel(builder, self.noneExSkillLevel)
+        MiniGameDefenseFixedStatExcelAddEquipment1Tier(builder, self.equipment1Tier)
+        MiniGameDefenseFixedStatExcelAddEquipment1Level(builder, self.equipment1Level)
+        MiniGameDefenseFixedStatExcelAddEquipment2Tier(builder, self.equipment2Tier)
+        MiniGameDefenseFixedStatExcelAddEquipment2Level(builder, self.equipment2Level)
+        MiniGameDefenseFixedStatExcelAddEquipment3Tier(builder, self.equipment3Tier)
+        MiniGameDefenseFixedStatExcelAddEquipment3Level(builder, self.equipment3Level)
+        MiniGameDefenseFixedStatExcelAddCharacterWeaponGrade(builder, self.characterWeaponGrade)
+        MiniGameDefenseFixedStatExcelAddCharacterWeaponLevel(builder, self.characterWeaponLevel)
+        MiniGameDefenseFixedStatExcelAddCharacterGearTier(builder, self.characterGearTier)
+        MiniGameDefenseFixedStatExcelAddCharacterGearLevel(builder, self.characterGearLevel)
+        miniGameDefenseFixedStatExcel = MiniGameDefenseFixedStatExcelEnd(builder)
+        return miniGameDefenseFixedStatExcel

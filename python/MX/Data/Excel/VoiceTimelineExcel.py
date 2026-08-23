@@ -171,3 +171,105 @@ def VoiceTimelineExcelEnd(builder):
 
 def End(builder):
     return VoiceTimelineExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class VoiceTimelineExcelT(object):
+
+    # VoiceTimelineExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        id = 0,
+        nation = None,
+        path = None,
+        soundVolume = None,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.id = id  # type: int
+        self.nation = nation  # type: Optional[List[int]]
+        self.path = path  # type: Optional[List[Optional[str]]]
+        self.soundVolume = soundVolume  # type: Optional[List[float]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        voiceTimelineExcel = VoiceTimelineExcel()
+        voiceTimelineExcel.Init(buf, pos)
+        return cls.InitFromObj(voiceTimelineExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, voiceTimelineExcel):
+        x = VoiceTimelineExcelT()
+        x._UnPack(voiceTimelineExcel)
+        return x
+
+    # VoiceTimelineExcelT
+    def _UnPack(self, voiceTimelineExcel):
+        if voiceTimelineExcel is None:
+            return
+        self.uniqueId = voiceTimelineExcel.UniqueId()
+        self.id = voiceTimelineExcel.Id()
+        if not voiceTimelineExcel.NationIsNone():
+            if np is None:
+                self.nation = []
+                for i in range(voiceTimelineExcel.NationLength()):
+                    self.nation.append(voiceTimelineExcel.Nation(i))
+            else:
+                self.nation = voiceTimelineExcel.NationAsNumpy()
+        if not voiceTimelineExcel.PathIsNone():
+            self.path = []
+            for i in range(voiceTimelineExcel.PathLength()):
+                self.path.append(voiceTimelineExcel.Path(i))
+        if not voiceTimelineExcel.SoundVolumeIsNone():
+            if np is None:
+                self.soundVolume = []
+                for i in range(voiceTimelineExcel.SoundVolumeLength()):
+                    self.soundVolume.append(voiceTimelineExcel.SoundVolume(i))
+            else:
+                self.soundVolume = voiceTimelineExcel.SoundVolumeAsNumpy()
+
+    # VoiceTimelineExcelT
+    def Pack(self, builder):
+        if self.nation is not None:
+            if np is not None and type(self.nation) is np.ndarray:
+                nation = builder.CreateNumpyVector(self.nation)
+            else:
+                VoiceTimelineExcelStartNationVector(builder, len(self.nation))
+                for i in reversed(range(len(self.nation))):
+                    builder.PrependInt32(self.nation[i])
+                nation = builder.EndVector()
+        if self.path is not None:
+            pathlist = []
+            for i in range(len(self.path)):
+                pathlist.append(builder.CreateString(self.path[i]))
+            VoiceTimelineExcelStartPathVector(builder, len(self.path))
+            for i in reversed(range(len(self.path))):
+                builder.PrependUOffsetTRelative(pathlist[i])
+            path = builder.EndVector()
+        if self.soundVolume is not None:
+            if np is not None and type(self.soundVolume) is np.ndarray:
+                soundVolume = builder.CreateNumpyVector(self.soundVolume)
+            else:
+                VoiceTimelineExcelStartSoundVolumeVector(builder, len(self.soundVolume))
+                for i in reversed(range(len(self.soundVolume))):
+                    builder.PrependFloat32(self.soundVolume[i])
+                soundVolume = builder.EndVector()
+        VoiceTimelineExcelStart(builder)
+        VoiceTimelineExcelAddUniqueId(builder, self.uniqueId)
+        VoiceTimelineExcelAddId(builder, self.id)
+        if self.nation is not None:
+            VoiceTimelineExcelAddNation(builder, nation)
+        if self.path is not None:
+            VoiceTimelineExcelAddPath(builder, path)
+        if self.soundVolume is not None:
+            VoiceTimelineExcelAddSoundVolume(builder, soundVolume)
+        voiceTimelineExcel = VoiceTimelineExcelEnd(builder)
+        return voiceTimelineExcel

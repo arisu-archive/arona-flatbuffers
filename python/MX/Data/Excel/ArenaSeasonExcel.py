@@ -59,8 +59,15 @@ class ArenaSeasonExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
+    # ArenaSeasonExcel
+    def InformationGroupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
 def ArenaSeasonExcelStart(builder):
-    builder.StartObject(5)
+    builder.StartObject(6)
 
 def Start(builder):
     ArenaSeasonExcelStart(builder)
@@ -95,8 +102,80 @@ def ArenaSeasonExcelAddPrevSeasonId(builder, prevSeasonId):
 def AddPrevSeasonId(builder, prevSeasonId):
     ArenaSeasonExcelAddPrevSeasonId(builder, prevSeasonId)
 
+def ArenaSeasonExcelAddInformationGroupId(builder, informationGroupId):
+    builder.PrependInt64Slot(5, informationGroupId, 0)
+
+def AddInformationGroupId(builder, informationGroupId):
+    ArenaSeasonExcelAddInformationGroupId(builder, informationGroupId)
+
 def ArenaSeasonExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return ArenaSeasonExcelEnd(builder)
+
+
+class ArenaSeasonExcelT(object):
+
+    # ArenaSeasonExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        seasonStartDate = None,
+        seasonEndDate = None,
+        seasonGroupLimit = 0,
+        prevSeasonId = 0,
+        informationGroupId = 0,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.seasonStartDate = seasonStartDate  # type: Optional[str]
+        self.seasonEndDate = seasonEndDate  # type: Optional[str]
+        self.seasonGroupLimit = seasonGroupLimit  # type: int
+        self.prevSeasonId = prevSeasonId  # type: int
+        self.informationGroupId = informationGroupId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        arenaSeasonExcel = ArenaSeasonExcel()
+        arenaSeasonExcel.Init(buf, pos)
+        return cls.InitFromObj(arenaSeasonExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, arenaSeasonExcel):
+        x = ArenaSeasonExcelT()
+        x._UnPack(arenaSeasonExcel)
+        return x
+
+    # ArenaSeasonExcelT
+    def _UnPack(self, arenaSeasonExcel):
+        if arenaSeasonExcel is None:
+            return
+        self.uniqueId = arenaSeasonExcel.UniqueId()
+        self.seasonStartDate = arenaSeasonExcel.SeasonStartDate()
+        self.seasonEndDate = arenaSeasonExcel.SeasonEndDate()
+        self.seasonGroupLimit = arenaSeasonExcel.SeasonGroupLimit()
+        self.prevSeasonId = arenaSeasonExcel.PrevSeasonId()
+        self.informationGroupId = arenaSeasonExcel.InformationGroupId()
+
+    # ArenaSeasonExcelT
+    def Pack(self, builder):
+        if self.seasonStartDate is not None:
+            seasonStartDate = builder.CreateString(self.seasonStartDate)
+        if self.seasonEndDate is not None:
+            seasonEndDate = builder.CreateString(self.seasonEndDate)
+        ArenaSeasonExcelStart(builder)
+        ArenaSeasonExcelAddUniqueId(builder, self.uniqueId)
+        if self.seasonStartDate is not None:
+            ArenaSeasonExcelAddSeasonStartDate(builder, seasonStartDate)
+        if self.seasonEndDate is not None:
+            ArenaSeasonExcelAddSeasonEndDate(builder, seasonEndDate)
+        ArenaSeasonExcelAddSeasonGroupLimit(builder, self.seasonGroupLimit)
+        ArenaSeasonExcelAddPrevSeasonId(builder, self.prevSeasonId)
+        ArenaSeasonExcelAddInformationGroupId(builder, self.informationGroupId)
+        arenaSeasonExcel = ArenaSeasonExcelEnd(builder)
+        return arenaSeasonExcel

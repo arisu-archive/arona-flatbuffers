@@ -72,3 +72,68 @@ def SystemMailExcelTableEnd(builder):
 
 def End(builder):
     return SystemMailExcelTableEnd(builder)
+
+import FlatData.SystemMailExcel
+try:
+    from typing import List
+except:
+    pass
+
+class SystemMailExcelTableT(object):
+
+    # SystemMailExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.SystemMailExcel.SystemMailExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        systemMailExcelTable = SystemMailExcelTable()
+        systemMailExcelTable.Init(buf, pos)
+        return cls.InitFromObj(systemMailExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, systemMailExcelTable):
+        x = SystemMailExcelTableT()
+        x._UnPack(systemMailExcelTable)
+        return x
+
+    # SystemMailExcelTableT
+    def _UnPack(self, systemMailExcelTable):
+        if systemMailExcelTable is None:
+            return
+        if not systemMailExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(systemMailExcelTable.DataListLength()):
+                if systemMailExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    systemMailExcel_ = FlatData.SystemMailExcel.SystemMailExcelT.InitFromObj(systemMailExcelTable.DataList(i))
+                    self.dataList.append(systemMailExcel_)
+
+    # SystemMailExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            SystemMailExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        SystemMailExcelTableStart(builder)
+        if self.dataList is not None:
+            SystemMailExcelTableAddDataList(builder, dataList)
+        systemMailExcelTable = SystemMailExcelTableEnd(builder)
+        return systemMailExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(SystemMailExcelTableT, 'SystemMailExcelTable', ())

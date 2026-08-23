@@ -178,3 +178,83 @@ def ConquestCameraSettingExcelEnd(builder):
 
 def End(builder):
     return ConquestCameraSettingExcelEnd(builder)
+
+
+class ConquestCameraSettingExcelT(object):
+
+    # ConquestCameraSettingExcelT
+    def __init__(
+        self,
+        id = 0,
+        conquestMapBoundaryOffsetLeft = 0.0,
+        conquestMapBoundaryOffsetRight = 0.0,
+        conquestMapBoundaryOffsetTop = 0.0,
+        conquestMapBoundaryOffsetBottom = 0.0,
+        conquestMapCenterOffsetX = 0.0,
+        conquestMapCenterOffsetY = 0.0,
+        cameraAngle = 0.0,
+        cameraZoomMax = 0.0,
+        cameraZoomMin = 0.0,
+        cameraZoomDefault = 0.0,
+    ):
+        self.id = id  # type: int
+        self.conquestMapBoundaryOffsetLeft = conquestMapBoundaryOffsetLeft  # type: float
+        self.conquestMapBoundaryOffsetRight = conquestMapBoundaryOffsetRight  # type: float
+        self.conquestMapBoundaryOffsetTop = conquestMapBoundaryOffsetTop  # type: float
+        self.conquestMapBoundaryOffsetBottom = conquestMapBoundaryOffsetBottom  # type: float
+        self.conquestMapCenterOffsetX = conquestMapCenterOffsetX  # type: float
+        self.conquestMapCenterOffsetY = conquestMapCenterOffsetY  # type: float
+        self.cameraAngle = cameraAngle  # type: float
+        self.cameraZoomMax = cameraZoomMax  # type: float
+        self.cameraZoomMin = cameraZoomMin  # type: float
+        self.cameraZoomDefault = cameraZoomDefault  # type: float
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestCameraSettingExcel = ConquestCameraSettingExcel()
+        conquestCameraSettingExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestCameraSettingExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestCameraSettingExcel):
+        x = ConquestCameraSettingExcelT()
+        x._UnPack(conquestCameraSettingExcel)
+        return x
+
+    # ConquestCameraSettingExcelT
+    def _UnPack(self, conquestCameraSettingExcel):
+        if conquestCameraSettingExcel is None:
+            return
+        self.id = conquestCameraSettingExcel.Id()
+        self.conquestMapBoundaryOffsetLeft = conquestCameraSettingExcel.ConquestMapBoundaryOffsetLeft()
+        self.conquestMapBoundaryOffsetRight = conquestCameraSettingExcel.ConquestMapBoundaryOffsetRight()
+        self.conquestMapBoundaryOffsetTop = conquestCameraSettingExcel.ConquestMapBoundaryOffsetTop()
+        self.conquestMapBoundaryOffsetBottom = conquestCameraSettingExcel.ConquestMapBoundaryOffsetBottom()
+        self.conquestMapCenterOffsetX = conquestCameraSettingExcel.ConquestMapCenterOffsetX()
+        self.conquestMapCenterOffsetY = conquestCameraSettingExcel.ConquestMapCenterOffsetY()
+        self.cameraAngle = conquestCameraSettingExcel.CameraAngle()
+        self.cameraZoomMax = conquestCameraSettingExcel.CameraZoomMax()
+        self.cameraZoomMin = conquestCameraSettingExcel.CameraZoomMin()
+        self.cameraZoomDefault = conquestCameraSettingExcel.CameraZoomDefault()
+
+    # ConquestCameraSettingExcelT
+    def Pack(self, builder):
+        ConquestCameraSettingExcelStart(builder)
+        ConquestCameraSettingExcelAddId(builder, self.id)
+        ConquestCameraSettingExcelAddConquestMapBoundaryOffsetLeft(builder, self.conquestMapBoundaryOffsetLeft)
+        ConquestCameraSettingExcelAddConquestMapBoundaryOffsetRight(builder, self.conquestMapBoundaryOffsetRight)
+        ConquestCameraSettingExcelAddConquestMapBoundaryOffsetTop(builder, self.conquestMapBoundaryOffsetTop)
+        ConquestCameraSettingExcelAddConquestMapBoundaryOffsetBottom(builder, self.conquestMapBoundaryOffsetBottom)
+        ConquestCameraSettingExcelAddConquestMapCenterOffsetX(builder, self.conquestMapCenterOffsetX)
+        ConquestCameraSettingExcelAddConquestMapCenterOffsetY(builder, self.conquestMapCenterOffsetY)
+        ConquestCameraSettingExcelAddCameraAngle(builder, self.cameraAngle)
+        ConquestCameraSettingExcelAddCameraZoomMax(builder, self.cameraZoomMax)
+        ConquestCameraSettingExcelAddCameraZoomMin(builder, self.cameraZoomMin)
+        ConquestCameraSettingExcelAddCameraZoomDefault(builder, self.cameraZoomDefault)
+        conquestCameraSettingExcel = ConquestCameraSettingExcelEnd(builder)
+        return conquestCameraSettingExcel

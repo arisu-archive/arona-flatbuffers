@@ -113,3 +113,74 @@ def ShopTabGroupExcelEnd(builder):
 
 def End(builder):
     return ShopTabGroupExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ShopTabGroupExcelT(object):
+
+    # ShopTabGroupExcelT
+    def __init__(
+        self,
+        id = 0,
+        shopGroupType = 0,
+        displayOrder = 0,
+        shopCategoryTypes = None,
+    ):
+        self.id = id  # type: int
+        self.shopGroupType = shopGroupType  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.shopCategoryTypes = shopCategoryTypes  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        shopTabGroupExcel = ShopTabGroupExcel()
+        shopTabGroupExcel.Init(buf, pos)
+        return cls.InitFromObj(shopTabGroupExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, shopTabGroupExcel):
+        x = ShopTabGroupExcelT()
+        x._UnPack(shopTabGroupExcel)
+        return x
+
+    # ShopTabGroupExcelT
+    def _UnPack(self, shopTabGroupExcel):
+        if shopTabGroupExcel is None:
+            return
+        self.id = shopTabGroupExcel.Id()
+        self.shopGroupType = shopTabGroupExcel.ShopGroupType()
+        self.displayOrder = shopTabGroupExcel.DisplayOrder()
+        if not shopTabGroupExcel.ShopCategoryTypesIsNone():
+            if np is None:
+                self.shopCategoryTypes = []
+                for i in range(shopTabGroupExcel.ShopCategoryTypesLength()):
+                    self.shopCategoryTypes.append(shopTabGroupExcel.ShopCategoryTypes(i))
+            else:
+                self.shopCategoryTypes = shopTabGroupExcel.ShopCategoryTypesAsNumpy()
+
+    # ShopTabGroupExcelT
+    def Pack(self, builder):
+        if self.shopCategoryTypes is not None:
+            if np is not None and type(self.shopCategoryTypes) is np.ndarray:
+                shopCategoryTypes = builder.CreateNumpyVector(self.shopCategoryTypes)
+            else:
+                ShopTabGroupExcelStartShopCategoryTypesVector(builder, len(self.shopCategoryTypes))
+                for i in reversed(range(len(self.shopCategoryTypes))):
+                    builder.PrependInt32(self.shopCategoryTypes[i])
+                shopCategoryTypes = builder.EndVector()
+        ShopTabGroupExcelStart(builder)
+        ShopTabGroupExcelAddId(builder, self.id)
+        ShopTabGroupExcelAddShopGroupType(builder, self.shopGroupType)
+        ShopTabGroupExcelAddDisplayOrder(builder, self.displayOrder)
+        if self.shopCategoryTypes is not None:
+            ShopTabGroupExcelAddShopCategoryTypes(builder, shopCategoryTypes)
+        shopTabGroupExcel = ShopTabGroupExcelEnd(builder)
+        return shopTabGroupExcel

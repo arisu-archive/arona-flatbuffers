@@ -256,3 +256,125 @@ def AcademyMessangerExcelEnd(builder):
 
 def End(builder):
     return AcademyMessangerExcelEnd(builder)
+
+
+class AcademyMessangerExcelT(object):
+
+    # AcademyMessangerExcelT
+    def __init__(
+        self,
+        messageGroupId = 0,
+        id = 0,
+        characterId = 0,
+        messageCondition = 0,
+        conditionValue = 0,
+        preConditionGroupId = 0,
+        preConditionFavorScheduleId = 0,
+        favorScheduleId = 0,
+        nextGroupId = 0,
+        feedbackTimeMillisec = 0,
+        messageType = 0,
+        imagePath = None,
+        messageKr = None,
+        messageJp = None,
+        messageTh = None,
+        messageTw = None,
+        messageEn = None,
+    ):
+        self.messageGroupId = messageGroupId  # type: int
+        self.id = id  # type: int
+        self.characterId = characterId  # type: int
+        self.messageCondition = messageCondition  # type: int
+        self.conditionValue = conditionValue  # type: int
+        self.preConditionGroupId = preConditionGroupId  # type: int
+        self.preConditionFavorScheduleId = preConditionFavorScheduleId  # type: int
+        self.favorScheduleId = favorScheduleId  # type: int
+        self.nextGroupId = nextGroupId  # type: int
+        self.feedbackTimeMillisec = feedbackTimeMillisec  # type: int
+        self.messageType = messageType  # type: int
+        self.imagePath = imagePath  # type: Optional[str]
+        self.messageKr = messageKr  # type: Optional[str]
+        self.messageJp = messageJp  # type: Optional[str]
+        self.messageTh = messageTh  # type: Optional[str]
+        self.messageTw = messageTw  # type: Optional[str]
+        self.messageEn = messageEn  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        academyMessangerExcel = AcademyMessangerExcel()
+        academyMessangerExcel.Init(buf, pos)
+        return cls.InitFromObj(academyMessangerExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, academyMessangerExcel):
+        x = AcademyMessangerExcelT()
+        x._UnPack(academyMessangerExcel)
+        return x
+
+    # AcademyMessangerExcelT
+    def _UnPack(self, academyMessangerExcel):
+        if academyMessangerExcel is None:
+            return
+        self.messageGroupId = academyMessangerExcel.MessageGroupId()
+        self.id = academyMessangerExcel.Id()
+        self.characterId = academyMessangerExcel.CharacterId()
+        self.messageCondition = academyMessangerExcel.MessageCondition()
+        self.conditionValue = academyMessangerExcel.ConditionValue()
+        self.preConditionGroupId = academyMessangerExcel.PreConditionGroupId()
+        self.preConditionFavorScheduleId = academyMessangerExcel.PreConditionFavorScheduleId()
+        self.favorScheduleId = academyMessangerExcel.FavorScheduleId()
+        self.nextGroupId = academyMessangerExcel.NextGroupId()
+        self.feedbackTimeMillisec = academyMessangerExcel.FeedbackTimeMillisec()
+        self.messageType = academyMessangerExcel.MessageType()
+        self.imagePath = academyMessangerExcel.ImagePath()
+        self.messageKr = academyMessangerExcel.MessageKr()
+        self.messageJp = academyMessangerExcel.MessageJp()
+        self.messageTh = academyMessangerExcel.MessageTh()
+        self.messageTw = academyMessangerExcel.MessageTw()
+        self.messageEn = academyMessangerExcel.MessageEn()
+
+    # AcademyMessangerExcelT
+    def Pack(self, builder):
+        if self.imagePath is not None:
+            imagePath = builder.CreateString(self.imagePath)
+        if self.messageKr is not None:
+            messageKr = builder.CreateString(self.messageKr)
+        if self.messageJp is not None:
+            messageJp = builder.CreateString(self.messageJp)
+        if self.messageTh is not None:
+            messageTh = builder.CreateString(self.messageTh)
+        if self.messageTw is not None:
+            messageTw = builder.CreateString(self.messageTw)
+        if self.messageEn is not None:
+            messageEn = builder.CreateString(self.messageEn)
+        AcademyMessangerExcelStart(builder)
+        AcademyMessangerExcelAddMessageGroupId(builder, self.messageGroupId)
+        AcademyMessangerExcelAddId(builder, self.id)
+        AcademyMessangerExcelAddCharacterId(builder, self.characterId)
+        AcademyMessangerExcelAddMessageCondition(builder, self.messageCondition)
+        AcademyMessangerExcelAddConditionValue(builder, self.conditionValue)
+        AcademyMessangerExcelAddPreConditionGroupId(builder, self.preConditionGroupId)
+        AcademyMessangerExcelAddPreConditionFavorScheduleId(builder, self.preConditionFavorScheduleId)
+        AcademyMessangerExcelAddFavorScheduleId(builder, self.favorScheduleId)
+        AcademyMessangerExcelAddNextGroupId(builder, self.nextGroupId)
+        AcademyMessangerExcelAddFeedbackTimeMillisec(builder, self.feedbackTimeMillisec)
+        AcademyMessangerExcelAddMessageType(builder, self.messageType)
+        if self.imagePath is not None:
+            AcademyMessangerExcelAddImagePath(builder, imagePath)
+        if self.messageKr is not None:
+            AcademyMessangerExcelAddMessageKr(builder, messageKr)
+        if self.messageJp is not None:
+            AcademyMessangerExcelAddMessageJp(builder, messageJp)
+        if self.messageTh is not None:
+            AcademyMessangerExcelAddMessageTh(builder, messageTh)
+        if self.messageTw is not None:
+            AcademyMessangerExcelAddMessageTw(builder, messageTw)
+        if self.messageEn is not None:
+            AcademyMessangerExcelAddMessageEn(builder, messageEn)
+        academyMessangerExcel = AcademyMessangerExcelEnd(builder)
+        return academyMessangerExcel

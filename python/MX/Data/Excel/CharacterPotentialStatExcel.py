@@ -87,3 +87,55 @@ def CharacterPotentialStatExcelEnd(builder):
 
 def End(builder):
     return CharacterPotentialStatExcelEnd(builder)
+
+
+class CharacterPotentialStatExcelT(object):
+
+    # CharacterPotentialStatExcelT
+    def __init__(
+        self,
+        potentialStatGroupId = 0,
+        potentialLevel = 0,
+        recipeId = 0,
+        statBonusRate = 0,
+    ):
+        self.potentialStatGroupId = potentialStatGroupId  # type: int
+        self.potentialLevel = potentialLevel  # type: int
+        self.recipeId = recipeId  # type: int
+        self.statBonusRate = statBonusRate  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterPotentialStatExcel = CharacterPotentialStatExcel()
+        characterPotentialStatExcel.Init(buf, pos)
+        return cls.InitFromObj(characterPotentialStatExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterPotentialStatExcel):
+        x = CharacterPotentialStatExcelT()
+        x._UnPack(characterPotentialStatExcel)
+        return x
+
+    # CharacterPotentialStatExcelT
+    def _UnPack(self, characterPotentialStatExcel):
+        if characterPotentialStatExcel is None:
+            return
+        self.potentialStatGroupId = characterPotentialStatExcel.PotentialStatGroupId()
+        self.potentialLevel = characterPotentialStatExcel.PotentialLevel()
+        self.recipeId = characterPotentialStatExcel.RecipeId()
+        self.statBonusRate = characterPotentialStatExcel.StatBonusRate()
+
+    # CharacterPotentialStatExcelT
+    def Pack(self, builder):
+        CharacterPotentialStatExcelStart(builder)
+        CharacterPotentialStatExcelAddPotentialStatGroupId(builder, self.potentialStatGroupId)
+        CharacterPotentialStatExcelAddPotentialLevel(builder, self.potentialLevel)
+        CharacterPotentialStatExcelAddRecipeId(builder, self.recipeId)
+        CharacterPotentialStatExcelAddStatBonusRate(builder, self.statBonusRate)
+        characterPotentialStatExcel = CharacterPotentialStatExcelEnd(builder)
+        return characterPotentialStatExcel

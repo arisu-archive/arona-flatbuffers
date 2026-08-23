@@ -126,3 +126,85 @@ def EquipmentLevelExcelEnd(builder):
 
 def End(builder):
     return EquipmentLevelExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class EquipmentLevelExcelT(object):
+
+    # EquipmentLevelExcelT
+    def __init__(
+        self,
+        level = 0,
+        tierLevelExp = None,
+        totalExp = None,
+    ):
+        self.level = level  # type: int
+        self.tierLevelExp = tierLevelExp  # type: Optional[List[int]]
+        self.totalExp = totalExp  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        equipmentLevelExcel = EquipmentLevelExcel()
+        equipmentLevelExcel.Init(buf, pos)
+        return cls.InitFromObj(equipmentLevelExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, equipmentLevelExcel):
+        x = EquipmentLevelExcelT()
+        x._UnPack(equipmentLevelExcel)
+        return x
+
+    # EquipmentLevelExcelT
+    def _UnPack(self, equipmentLevelExcel):
+        if equipmentLevelExcel is None:
+            return
+        self.level = equipmentLevelExcel.Level()
+        if not equipmentLevelExcel.TierLevelExpIsNone():
+            if np is None:
+                self.tierLevelExp = []
+                for i in range(equipmentLevelExcel.TierLevelExpLength()):
+                    self.tierLevelExp.append(equipmentLevelExcel.TierLevelExp(i))
+            else:
+                self.tierLevelExp = equipmentLevelExcel.TierLevelExpAsNumpy()
+        if not equipmentLevelExcel.TotalExpIsNone():
+            if np is None:
+                self.totalExp = []
+                for i in range(equipmentLevelExcel.TotalExpLength()):
+                    self.totalExp.append(equipmentLevelExcel.TotalExp(i))
+            else:
+                self.totalExp = equipmentLevelExcel.TotalExpAsNumpy()
+
+    # EquipmentLevelExcelT
+    def Pack(self, builder):
+        if self.tierLevelExp is not None:
+            if np is not None and type(self.tierLevelExp) is np.ndarray:
+                tierLevelExp = builder.CreateNumpyVector(self.tierLevelExp)
+            else:
+                EquipmentLevelExcelStartTierLevelExpVector(builder, len(self.tierLevelExp))
+                for i in reversed(range(len(self.tierLevelExp))):
+                    builder.PrependInt64(self.tierLevelExp[i])
+                tierLevelExp = builder.EndVector()
+        if self.totalExp is not None:
+            if np is not None and type(self.totalExp) is np.ndarray:
+                totalExp = builder.CreateNumpyVector(self.totalExp)
+            else:
+                EquipmentLevelExcelStartTotalExpVector(builder, len(self.totalExp))
+                for i in reversed(range(len(self.totalExp))):
+                    builder.PrependInt64(self.totalExp[i])
+                totalExp = builder.EndVector()
+        EquipmentLevelExcelStart(builder)
+        EquipmentLevelExcelAddLevel(builder, self.level)
+        if self.tierLevelExp is not None:
+            EquipmentLevelExcelAddTierLevelExp(builder, tierLevelExp)
+        if self.totalExp is not None:
+            EquipmentLevelExcelAddTotalExp(builder, totalExp)
+        equipmentLevelExcel = EquipmentLevelExcelEnd(builder)
+        return equipmentLevelExcel

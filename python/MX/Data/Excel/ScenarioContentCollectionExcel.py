@@ -230,3 +230,122 @@ def ScenarioContentCollectionExcelEnd(builder):
 
 def End(builder):
     return ScenarioContentCollectionExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ScenarioContentCollectionExcelT(object):
+
+    # ScenarioContentCollectionExcelT
+    def __init__(
+        self,
+        id = 0,
+        groupId = 0,
+        unlockConditionType = 0,
+        unlockConditionParameter = None,
+        multipleConditionCheckType = 0,
+        unlockConditionCount = 0,
+        isObject = False,
+        isHorizon = False,
+        emblemResource = None,
+        thumbResource = None,
+        fullResource = None,
+        localizeEtcId = 0,
+        subNameLocalizeCodeId = None,
+    ):
+        self.id = id  # type: int
+        self.groupId = groupId  # type: int
+        self.unlockConditionType = unlockConditionType  # type: int
+        self.unlockConditionParameter = unlockConditionParameter  # type: Optional[List[int]]
+        self.multipleConditionCheckType = multipleConditionCheckType  # type: int
+        self.unlockConditionCount = unlockConditionCount  # type: int
+        self.isObject = isObject  # type: bool
+        self.isHorizon = isHorizon  # type: bool
+        self.emblemResource = emblemResource  # type: Optional[str]
+        self.thumbResource = thumbResource  # type: Optional[str]
+        self.fullResource = fullResource  # type: Optional[str]
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.subNameLocalizeCodeId = subNameLocalizeCodeId  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        scenarioContentCollectionExcel = ScenarioContentCollectionExcel()
+        scenarioContentCollectionExcel.Init(buf, pos)
+        return cls.InitFromObj(scenarioContentCollectionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, scenarioContentCollectionExcel):
+        x = ScenarioContentCollectionExcelT()
+        x._UnPack(scenarioContentCollectionExcel)
+        return x
+
+    # ScenarioContentCollectionExcelT
+    def _UnPack(self, scenarioContentCollectionExcel):
+        if scenarioContentCollectionExcel is None:
+            return
+        self.id = scenarioContentCollectionExcel.Id()
+        self.groupId = scenarioContentCollectionExcel.GroupId()
+        self.unlockConditionType = scenarioContentCollectionExcel.UnlockConditionType()
+        if not scenarioContentCollectionExcel.UnlockConditionParameterIsNone():
+            if np is None:
+                self.unlockConditionParameter = []
+                for i in range(scenarioContentCollectionExcel.UnlockConditionParameterLength()):
+                    self.unlockConditionParameter.append(scenarioContentCollectionExcel.UnlockConditionParameter(i))
+            else:
+                self.unlockConditionParameter = scenarioContentCollectionExcel.UnlockConditionParameterAsNumpy()
+        self.multipleConditionCheckType = scenarioContentCollectionExcel.MultipleConditionCheckType()
+        self.unlockConditionCount = scenarioContentCollectionExcel.UnlockConditionCount()
+        self.isObject = scenarioContentCollectionExcel.IsObject()
+        self.isHorizon = scenarioContentCollectionExcel.IsHorizon()
+        self.emblemResource = scenarioContentCollectionExcel.EmblemResource()
+        self.thumbResource = scenarioContentCollectionExcel.ThumbResource()
+        self.fullResource = scenarioContentCollectionExcel.FullResource()
+        self.localizeEtcId = scenarioContentCollectionExcel.LocalizeEtcId()
+        self.subNameLocalizeCodeId = scenarioContentCollectionExcel.SubNameLocalizeCodeId()
+
+    # ScenarioContentCollectionExcelT
+    def Pack(self, builder):
+        if self.unlockConditionParameter is not None:
+            if np is not None and type(self.unlockConditionParameter) is np.ndarray:
+                unlockConditionParameter = builder.CreateNumpyVector(self.unlockConditionParameter)
+            else:
+                ScenarioContentCollectionExcelStartUnlockConditionParameterVector(builder, len(self.unlockConditionParameter))
+                for i in reversed(range(len(self.unlockConditionParameter))):
+                    builder.PrependInt64(self.unlockConditionParameter[i])
+                unlockConditionParameter = builder.EndVector()
+        if self.emblemResource is not None:
+            emblemResource = builder.CreateString(self.emblemResource)
+        if self.thumbResource is not None:
+            thumbResource = builder.CreateString(self.thumbResource)
+        if self.fullResource is not None:
+            fullResource = builder.CreateString(self.fullResource)
+        if self.subNameLocalizeCodeId is not None:
+            subNameLocalizeCodeId = builder.CreateString(self.subNameLocalizeCodeId)
+        ScenarioContentCollectionExcelStart(builder)
+        ScenarioContentCollectionExcelAddId(builder, self.id)
+        ScenarioContentCollectionExcelAddGroupId(builder, self.groupId)
+        ScenarioContentCollectionExcelAddUnlockConditionType(builder, self.unlockConditionType)
+        if self.unlockConditionParameter is not None:
+            ScenarioContentCollectionExcelAddUnlockConditionParameter(builder, unlockConditionParameter)
+        ScenarioContentCollectionExcelAddMultipleConditionCheckType(builder, self.multipleConditionCheckType)
+        ScenarioContentCollectionExcelAddUnlockConditionCount(builder, self.unlockConditionCount)
+        ScenarioContentCollectionExcelAddIsObject(builder, self.isObject)
+        ScenarioContentCollectionExcelAddIsHorizon(builder, self.isHorizon)
+        if self.emblemResource is not None:
+            ScenarioContentCollectionExcelAddEmblemResource(builder, emblemResource)
+        if self.thumbResource is not None:
+            ScenarioContentCollectionExcelAddThumbResource(builder, thumbResource)
+        if self.fullResource is not None:
+            ScenarioContentCollectionExcelAddFullResource(builder, fullResource)
+        ScenarioContentCollectionExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        if self.subNameLocalizeCodeId is not None:
+            ScenarioContentCollectionExcelAddSubNameLocalizeCodeId(builder, subNameLocalizeCodeId)
+        scenarioContentCollectionExcel = ScenarioContentCollectionExcelEnd(builder)
+        return scenarioContentCollectionExcel

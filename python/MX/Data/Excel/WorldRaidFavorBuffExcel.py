@@ -61,3 +61,47 @@ def WorldRaidFavorBuffExcelEnd(builder):
 
 def End(builder):
     return WorldRaidFavorBuffExcelEnd(builder)
+
+
+class WorldRaidFavorBuffExcelT(object):
+
+    # WorldRaidFavorBuffExcelT
+    def __init__(
+        self,
+        worldRaidFavorRank = 0,
+        worldRaidFavorRankBonus = 0,
+    ):
+        self.worldRaidFavorRank = worldRaidFavorRank  # type: int
+        self.worldRaidFavorRankBonus = worldRaidFavorRankBonus  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        worldRaidFavorBuffExcel = WorldRaidFavorBuffExcel()
+        worldRaidFavorBuffExcel.Init(buf, pos)
+        return cls.InitFromObj(worldRaidFavorBuffExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, worldRaidFavorBuffExcel):
+        x = WorldRaidFavorBuffExcelT()
+        x._UnPack(worldRaidFavorBuffExcel)
+        return x
+
+    # WorldRaidFavorBuffExcelT
+    def _UnPack(self, worldRaidFavorBuffExcel):
+        if worldRaidFavorBuffExcel is None:
+            return
+        self.worldRaidFavorRank = worldRaidFavorBuffExcel.WorldRaidFavorRank()
+        self.worldRaidFavorRankBonus = worldRaidFavorBuffExcel.WorldRaidFavorRankBonus()
+
+    # WorldRaidFavorBuffExcelT
+    def Pack(self, builder):
+        WorldRaidFavorBuffExcelStart(builder)
+        WorldRaidFavorBuffExcelAddWorldRaidFavorRank(builder, self.worldRaidFavorRank)
+        WorldRaidFavorBuffExcelAddWorldRaidFavorRankBonus(builder, self.worldRaidFavorRankBonus)
+        worldRaidFavorBuffExcel = WorldRaidFavorBuffExcelEnd(builder)
+        return worldRaidFavorBuffExcel

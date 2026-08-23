@@ -215,3 +215,130 @@ def AniStateDataEnd(builder):
 
 def End(builder):
     return AniStateDataEnd(builder)
+
+import FlatData.AniEventData
+try:
+    from typing import List
+except:
+    pass
+
+class AniStateDataT(object):
+
+    # AniStateDataT
+    def __init__(
+        self,
+        stateName = None,
+        statePrefix = None,
+        stateNameWithPrefix = None,
+        tag = None,
+        speedParameterName = None,
+        speedParamter = 0.0,
+        stateSpeed = 0.0,
+        clipName = None,
+        length = 0.0,
+        frameRate = 0.0,
+        isLooping = False,
+        events = None,
+    ):
+        self.stateName = stateName  # type: Optional[str]
+        self.statePrefix = statePrefix  # type: Optional[str]
+        self.stateNameWithPrefix = stateNameWithPrefix  # type: Optional[str]
+        self.tag = tag  # type: Optional[str]
+        self.speedParameterName = speedParameterName  # type: Optional[str]
+        self.speedParamter = speedParamter  # type: float
+        self.stateSpeed = stateSpeed  # type: float
+        self.clipName = clipName  # type: Optional[str]
+        self.length = length  # type: float
+        self.frameRate = frameRate  # type: float
+        self.isLooping = isLooping  # type: bool
+        self.events = events  # type: Optional[List[FlatData.AniEventData.AniEventDataT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        aniStateData = AniStateData()
+        aniStateData.Init(buf, pos)
+        return cls.InitFromObj(aniStateData)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, aniStateData):
+        x = AniStateDataT()
+        x._UnPack(aniStateData)
+        return x
+
+    # AniStateDataT
+    def _UnPack(self, aniStateData):
+        if aniStateData is None:
+            return
+        self.stateName = aniStateData.StateName()
+        self.statePrefix = aniStateData.StatePrefix()
+        self.stateNameWithPrefix = aniStateData.StateNameWithPrefix()
+        self.tag = aniStateData.Tag()
+        self.speedParameterName = aniStateData.SpeedParameterName()
+        self.speedParamter = aniStateData.SpeedParamter()
+        self.stateSpeed = aniStateData.StateSpeed()
+        self.clipName = aniStateData.ClipName()
+        self.length = aniStateData.Length()
+        self.frameRate = aniStateData.FrameRate()
+        self.isLooping = aniStateData.IsLooping()
+        if not aniStateData.EventsIsNone():
+            self.events = []
+            for i in range(aniStateData.EventsLength()):
+                if aniStateData.Events(i) is None:
+                    self.events.append(None)
+                else:
+                    aniEventData_ = FlatData.AniEventData.AniEventDataT.InitFromObj(aniStateData.Events(i))
+                    self.events.append(aniEventData_)
+
+    # AniStateDataT
+    def Pack(self, builder):
+        if self.stateName is not None:
+            stateName = builder.CreateString(self.stateName)
+        if self.statePrefix is not None:
+            statePrefix = builder.CreateString(self.statePrefix)
+        if self.stateNameWithPrefix is not None:
+            stateNameWithPrefix = builder.CreateString(self.stateNameWithPrefix)
+        if self.tag is not None:
+            tag = builder.CreateString(self.tag)
+        if self.speedParameterName is not None:
+            speedParameterName = builder.CreateString(self.speedParameterName)
+        if self.clipName is not None:
+            clipName = builder.CreateString(self.clipName)
+        if self.events is not None:
+            eventslist = []
+            for i in range(len(self.events)):
+                eventslist.append(self.events[i].Pack(builder))
+            AniStateDataStartEventsVector(builder, len(self.events))
+            for i in reversed(range(len(self.events))):
+                builder.PrependUOffsetTRelative(eventslist[i])
+            events = builder.EndVector()
+        AniStateDataStart(builder)
+        if self.stateName is not None:
+            AniStateDataAddStateName(builder, stateName)
+        if self.statePrefix is not None:
+            AniStateDataAddStatePrefix(builder, statePrefix)
+        if self.stateNameWithPrefix is not None:
+            AniStateDataAddStateNameWithPrefix(builder, stateNameWithPrefix)
+        if self.tag is not None:
+            AniStateDataAddTag(builder, tag)
+        if self.speedParameterName is not None:
+            AniStateDataAddSpeedParameterName(builder, speedParameterName)
+        AniStateDataAddSpeedParamter(builder, self.speedParamter)
+        AniStateDataAddStateSpeed(builder, self.stateSpeed)
+        if self.clipName is not None:
+            AniStateDataAddClipName(builder, clipName)
+        AniStateDataAddLength(builder, self.length)
+        AniStateDataAddFrameRate(builder, self.frameRate)
+        AniStateDataAddIsLooping(builder, self.isLooping)
+        if self.events is not None:
+            AniStateDataAddEvents(builder, events)
+        aniStateData = AniStateDataEnd(builder)
+        return aniStateData
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(AniStateDataT, 'AniStateData', (('stateName', 'string', False), ('statePrefix', 'string', False), ('stateNameWithPrefix', 'string', False), ('tag', 'string', False), ('speedParameterName', 'string', False), ('speedParamter', 'float32', False), ('stateSpeed', 'float32', False), ('clipName', 'string', False), ('length', 'float32', False), ('frameRate', 'float32', False)))

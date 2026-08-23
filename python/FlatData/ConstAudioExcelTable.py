@@ -72,3 +72,68 @@ def ConstAudioExcelTableEnd(builder):
 
 def End(builder):
     return ConstAudioExcelTableEnd(builder)
+
+import FlatData.ConstAudioExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConstAudioExcelTableT(object):
+
+    # ConstAudioExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConstAudioExcel.ConstAudioExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        constAudioExcelTable = ConstAudioExcelTable()
+        constAudioExcelTable.Init(buf, pos)
+        return cls.InitFromObj(constAudioExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, constAudioExcelTable):
+        x = ConstAudioExcelTableT()
+        x._UnPack(constAudioExcelTable)
+        return x
+
+    # ConstAudioExcelTableT
+    def _UnPack(self, constAudioExcelTable):
+        if constAudioExcelTable is None:
+            return
+        if not constAudioExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(constAudioExcelTable.DataListLength()):
+                if constAudioExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    constAudioExcel_ = FlatData.ConstAudioExcel.ConstAudioExcelT.InitFromObj(constAudioExcelTable.DataList(i))
+                    self.dataList.append(constAudioExcel_)
+
+    # ConstAudioExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConstAudioExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConstAudioExcelTableStart(builder)
+        if self.dataList is not None:
+            ConstAudioExcelTableAddDataList(builder, dataList)
+        constAudioExcelTable = ConstAudioExcelTableEnd(builder)
+        return constAudioExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConstAudioExcelTableT, 'ConstAudioExcelTable', ())

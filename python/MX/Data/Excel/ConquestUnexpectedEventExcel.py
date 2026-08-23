@@ -184,3 +184,102 @@ def ConquestUnexpectedEventExcelEnd(builder):
 
 def End(builder):
     return ConquestUnexpectedEventExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ConquestUnexpectedEventExcelT(object):
+
+    # ConquestUnexpectedEventExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        unexpectedEventConditionType = 0,
+        unexpectedEventConditionUniqueId = 0,
+        unexpectedEventConditionAmount = 0,
+        unexpectedEventOccurDailyLimitCount = 0,
+        unitCountPerStep = 0,
+        unexpectedEventPrefab = None,
+        unexpectedEventUnitId = None,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.unexpectedEventConditionType = unexpectedEventConditionType  # type: int
+        self.unexpectedEventConditionUniqueId = unexpectedEventConditionUniqueId  # type: int
+        self.unexpectedEventConditionAmount = unexpectedEventConditionAmount  # type: int
+        self.unexpectedEventOccurDailyLimitCount = unexpectedEventOccurDailyLimitCount  # type: int
+        self.unitCountPerStep = unitCountPerStep  # type: int
+        self.unexpectedEventPrefab = unexpectedEventPrefab  # type: Optional[List[Optional[str]]]
+        self.unexpectedEventUnitId = unexpectedEventUnitId  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestUnexpectedEventExcel = ConquestUnexpectedEventExcel()
+        conquestUnexpectedEventExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestUnexpectedEventExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestUnexpectedEventExcel):
+        x = ConquestUnexpectedEventExcelT()
+        x._UnPack(conquestUnexpectedEventExcel)
+        return x
+
+    # ConquestUnexpectedEventExcelT
+    def _UnPack(self, conquestUnexpectedEventExcel):
+        if conquestUnexpectedEventExcel is None:
+            return
+        self.eventContentId = conquestUnexpectedEventExcel.EventContentId()
+        self.unexpectedEventConditionType = conquestUnexpectedEventExcel.UnexpectedEventConditionType()
+        self.unexpectedEventConditionUniqueId = conquestUnexpectedEventExcel.UnexpectedEventConditionUniqueId()
+        self.unexpectedEventConditionAmount = conquestUnexpectedEventExcel.UnexpectedEventConditionAmount()
+        self.unexpectedEventOccurDailyLimitCount = conquestUnexpectedEventExcel.UnexpectedEventOccurDailyLimitCount()
+        self.unitCountPerStep = conquestUnexpectedEventExcel.UnitCountPerStep()
+        if not conquestUnexpectedEventExcel.UnexpectedEventPrefabIsNone():
+            self.unexpectedEventPrefab = []
+            for i in range(conquestUnexpectedEventExcel.UnexpectedEventPrefabLength()):
+                self.unexpectedEventPrefab.append(conquestUnexpectedEventExcel.UnexpectedEventPrefab(i))
+        if not conquestUnexpectedEventExcel.UnexpectedEventUnitIdIsNone():
+            if np is None:
+                self.unexpectedEventUnitId = []
+                for i in range(conquestUnexpectedEventExcel.UnexpectedEventUnitIdLength()):
+                    self.unexpectedEventUnitId.append(conquestUnexpectedEventExcel.UnexpectedEventUnitId(i))
+            else:
+                self.unexpectedEventUnitId = conquestUnexpectedEventExcel.UnexpectedEventUnitIdAsNumpy()
+
+    # ConquestUnexpectedEventExcelT
+    def Pack(self, builder):
+        if self.unexpectedEventPrefab is not None:
+            unexpectedEventPrefablist = []
+            for i in range(len(self.unexpectedEventPrefab)):
+                unexpectedEventPrefablist.append(builder.CreateString(self.unexpectedEventPrefab[i]))
+            ConquestUnexpectedEventExcelStartUnexpectedEventPrefabVector(builder, len(self.unexpectedEventPrefab))
+            for i in reversed(range(len(self.unexpectedEventPrefab))):
+                builder.PrependUOffsetTRelative(unexpectedEventPrefablist[i])
+            unexpectedEventPrefab = builder.EndVector()
+        if self.unexpectedEventUnitId is not None:
+            if np is not None and type(self.unexpectedEventUnitId) is np.ndarray:
+                unexpectedEventUnitId = builder.CreateNumpyVector(self.unexpectedEventUnitId)
+            else:
+                ConquestUnexpectedEventExcelStartUnexpectedEventUnitIdVector(builder, len(self.unexpectedEventUnitId))
+                for i in reversed(range(len(self.unexpectedEventUnitId))):
+                    builder.PrependInt64(self.unexpectedEventUnitId[i])
+                unexpectedEventUnitId = builder.EndVector()
+        ConquestUnexpectedEventExcelStart(builder)
+        ConquestUnexpectedEventExcelAddEventContentId(builder, self.eventContentId)
+        ConquestUnexpectedEventExcelAddUnexpectedEventConditionType(builder, self.unexpectedEventConditionType)
+        ConquestUnexpectedEventExcelAddUnexpectedEventConditionUniqueId(builder, self.unexpectedEventConditionUniqueId)
+        ConquestUnexpectedEventExcelAddUnexpectedEventConditionAmount(builder, self.unexpectedEventConditionAmount)
+        ConquestUnexpectedEventExcelAddUnexpectedEventOccurDailyLimitCount(builder, self.unexpectedEventOccurDailyLimitCount)
+        ConquestUnexpectedEventExcelAddUnitCountPerStep(builder, self.unitCountPerStep)
+        if self.unexpectedEventPrefab is not None:
+            ConquestUnexpectedEventExcelAddUnexpectedEventPrefab(builder, unexpectedEventPrefab)
+        if self.unexpectedEventUnitId is not None:
+            ConquestUnexpectedEventExcelAddUnexpectedEventUnitId(builder, unexpectedEventUnitId)
+        conquestUnexpectedEventExcel = ConquestUnexpectedEventExcelEnd(builder)
+        return conquestUnexpectedEventExcel

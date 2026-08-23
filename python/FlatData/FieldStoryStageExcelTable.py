@@ -72,3 +72,68 @@ def FieldStoryStageExcelTableEnd(builder):
 
 def End(builder):
     return FieldStoryStageExcelTableEnd(builder)
+
+import FlatData.FieldStoryStageExcel
+try:
+    from typing import List
+except:
+    pass
+
+class FieldStoryStageExcelTableT(object):
+
+    # FieldStoryStageExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.FieldStoryStageExcel.FieldStoryStageExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        fieldStoryStageExcelTable = FieldStoryStageExcelTable()
+        fieldStoryStageExcelTable.Init(buf, pos)
+        return cls.InitFromObj(fieldStoryStageExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, fieldStoryStageExcelTable):
+        x = FieldStoryStageExcelTableT()
+        x._UnPack(fieldStoryStageExcelTable)
+        return x
+
+    # FieldStoryStageExcelTableT
+    def _UnPack(self, fieldStoryStageExcelTable):
+        if fieldStoryStageExcelTable is None:
+            return
+        if not fieldStoryStageExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(fieldStoryStageExcelTable.DataListLength()):
+                if fieldStoryStageExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    fieldStoryStageExcel_ = FlatData.FieldStoryStageExcel.FieldStoryStageExcelT.InitFromObj(fieldStoryStageExcelTable.DataList(i))
+                    self.dataList.append(fieldStoryStageExcel_)
+
+    # FieldStoryStageExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            FieldStoryStageExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        FieldStoryStageExcelTableStart(builder)
+        if self.dataList is not None:
+            FieldStoryStageExcelTableAddDataList(builder, dataList)
+        fieldStoryStageExcelTable = FieldStoryStageExcelTableEnd(builder)
+        return fieldStoryStageExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(FieldStoryStageExcelTableT, 'FieldStoryStageExcelTable', ())

@@ -87,3 +87,55 @@ def ConquestCalculateExcelEnd(builder):
 
 def End(builder):
     return ConquestCalculateExcelEnd(builder)
+
+
+class ConquestCalculateExcelT(object):
+
+    # ConquestCalculateExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        calculateConditionParcelType = 0,
+        calculateConditionParcelUniqueId = 0,
+        calculateConditionParcelAmount = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.calculateConditionParcelType = calculateConditionParcelType  # type: int
+        self.calculateConditionParcelUniqueId = calculateConditionParcelUniqueId  # type: int
+        self.calculateConditionParcelAmount = calculateConditionParcelAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestCalculateExcel = ConquestCalculateExcel()
+        conquestCalculateExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestCalculateExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestCalculateExcel):
+        x = ConquestCalculateExcelT()
+        x._UnPack(conquestCalculateExcel)
+        return x
+
+    # ConquestCalculateExcelT
+    def _UnPack(self, conquestCalculateExcel):
+        if conquestCalculateExcel is None:
+            return
+        self.eventContentId = conquestCalculateExcel.EventContentId()
+        self.calculateConditionParcelType = conquestCalculateExcel.CalculateConditionParcelType()
+        self.calculateConditionParcelUniqueId = conquestCalculateExcel.CalculateConditionParcelUniqueId()
+        self.calculateConditionParcelAmount = conquestCalculateExcel.CalculateConditionParcelAmount()
+
+    # ConquestCalculateExcelT
+    def Pack(self, builder):
+        ConquestCalculateExcelStart(builder)
+        ConquestCalculateExcelAddEventContentId(builder, self.eventContentId)
+        ConquestCalculateExcelAddCalculateConditionParcelType(builder, self.calculateConditionParcelType)
+        ConquestCalculateExcelAddCalculateConditionParcelUniqueId(builder, self.calculateConditionParcelUniqueId)
+        ConquestCalculateExcelAddCalculateConditionParcelAmount(builder, self.calculateConditionParcelAmount)
+        conquestCalculateExcel = ConquestCalculateExcelEnd(builder)
+        return conquestCalculateExcel

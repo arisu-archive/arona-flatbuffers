@@ -126,3 +126,73 @@ def ScenarioBGEffectExcelEnd(builder):
 
 def End(builder):
     return ScenarioBGEffectExcelEnd(builder)
+
+
+class ScenarioBGEffectExcelT(object):
+
+    # ScenarioBGEffectExcelT
+    def __init__(
+        self,
+        name = 0,
+        effect = None,
+        effect2 = None,
+        scroll = 0,
+        scrollTime = 0,
+        scrollFrom = 0,
+        scrollTo = 0,
+    ):
+        self.name = name  # type: int
+        self.effect = effect  # type: Optional[str]
+        self.effect2 = effect2  # type: Optional[str]
+        self.scroll = scroll  # type: int
+        self.scrollTime = scrollTime  # type: int
+        self.scrollFrom = scrollFrom  # type: int
+        self.scrollTo = scrollTo  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        scenarioBgeffectExcel = ScenarioBGEffectExcel()
+        scenarioBgeffectExcel.Init(buf, pos)
+        return cls.InitFromObj(scenarioBgeffectExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, scenarioBgeffectExcel):
+        x = ScenarioBGEffectExcelT()
+        x._UnPack(scenarioBgeffectExcel)
+        return x
+
+    # ScenarioBGEffectExcelT
+    def _UnPack(self, scenarioBgeffectExcel):
+        if scenarioBgeffectExcel is None:
+            return
+        self.name = scenarioBgeffectExcel.Name()
+        self.effect = scenarioBgeffectExcel.Effect()
+        self.effect2 = scenarioBgeffectExcel.Effect2()
+        self.scroll = scenarioBgeffectExcel.Scroll()
+        self.scrollTime = scenarioBgeffectExcel.ScrollTime()
+        self.scrollFrom = scenarioBgeffectExcel.ScrollFrom()
+        self.scrollTo = scenarioBgeffectExcel.ScrollTo()
+
+    # ScenarioBGEffectExcelT
+    def Pack(self, builder):
+        if self.effect is not None:
+            effect = builder.CreateString(self.effect)
+        if self.effect2 is not None:
+            effect2 = builder.CreateString(self.effect2)
+        ScenarioBGEffectExcelStart(builder)
+        ScenarioBGEffectExcelAddName(builder, self.name)
+        if self.effect is not None:
+            ScenarioBGEffectExcelAddEffect(builder, effect)
+        if self.effect2 is not None:
+            ScenarioBGEffectExcelAddEffect2(builder, effect2)
+        ScenarioBGEffectExcelAddScroll(builder, self.scroll)
+        ScenarioBGEffectExcelAddScrollTime(builder, self.scrollTime)
+        ScenarioBGEffectExcelAddScrollFrom(builder, self.scrollFrom)
+        ScenarioBGEffectExcelAddScrollTo(builder, self.scrollTo)
+        scenarioBgeffectExcel = ScenarioBGEffectExcelEnd(builder)
+        return scenarioBgeffectExcel

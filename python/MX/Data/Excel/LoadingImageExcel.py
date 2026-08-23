@@ -126,3 +126,82 @@ def LoadingImageExcelEnd(builder):
 
 def End(builder):
     return LoadingImageExcelEnd(builder)
+
+
+class LoadingImageExcelT(object):
+
+    # LoadingImageExcelT
+    def __init__(
+        self,
+        id = 0,
+        imagePathKr = None,
+        imagePathJp = None,
+        displayWeight = 0,
+        imagePathTh = None,
+        imagePathTw = None,
+        imagePathEn = None,
+    ):
+        self.id = id  # type: int
+        self.imagePathKr = imagePathKr  # type: Optional[str]
+        self.imagePathJp = imagePathJp  # type: Optional[str]
+        self.displayWeight = displayWeight  # type: int
+        self.imagePathTh = imagePathTh  # type: Optional[str]
+        self.imagePathTw = imagePathTw  # type: Optional[str]
+        self.imagePathEn = imagePathEn  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        loadingImageExcel = LoadingImageExcel()
+        loadingImageExcel.Init(buf, pos)
+        return cls.InitFromObj(loadingImageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, loadingImageExcel):
+        x = LoadingImageExcelT()
+        x._UnPack(loadingImageExcel)
+        return x
+
+    # LoadingImageExcelT
+    def _UnPack(self, loadingImageExcel):
+        if loadingImageExcel is None:
+            return
+        self.id = loadingImageExcel.Id()
+        self.imagePathKr = loadingImageExcel.ImagePathKr()
+        self.imagePathJp = loadingImageExcel.ImagePathJp()
+        self.displayWeight = loadingImageExcel.DisplayWeight()
+        self.imagePathTh = loadingImageExcel.ImagePathTh()
+        self.imagePathTw = loadingImageExcel.ImagePathTw()
+        self.imagePathEn = loadingImageExcel.ImagePathEn()
+
+    # LoadingImageExcelT
+    def Pack(self, builder):
+        if self.imagePathKr is not None:
+            imagePathKr = builder.CreateString(self.imagePathKr)
+        if self.imagePathJp is not None:
+            imagePathJp = builder.CreateString(self.imagePathJp)
+        if self.imagePathTh is not None:
+            imagePathTh = builder.CreateString(self.imagePathTh)
+        if self.imagePathTw is not None:
+            imagePathTw = builder.CreateString(self.imagePathTw)
+        if self.imagePathEn is not None:
+            imagePathEn = builder.CreateString(self.imagePathEn)
+        LoadingImageExcelStart(builder)
+        LoadingImageExcelAddId(builder, self.id)
+        if self.imagePathKr is not None:
+            LoadingImageExcelAddImagePathKr(builder, imagePathKr)
+        if self.imagePathJp is not None:
+            LoadingImageExcelAddImagePathJp(builder, imagePathJp)
+        LoadingImageExcelAddDisplayWeight(builder, self.displayWeight)
+        if self.imagePathTh is not None:
+            LoadingImageExcelAddImagePathTh(builder, imagePathTh)
+        if self.imagePathTw is not None:
+            LoadingImageExcelAddImagePathTw(builder, imagePathTw)
+        if self.imagePathEn is not None:
+            LoadingImageExcelAddImagePathEn(builder, imagePathEn)
+        loadingImageExcel = LoadingImageExcelEnd(builder)
+        return loadingImageExcel

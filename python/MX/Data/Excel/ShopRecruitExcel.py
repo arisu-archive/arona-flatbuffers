@@ -205,77 +205,98 @@ class ShopRecruitExcel(object):
         return 0
 
     # ShopRecruitExcel
-    def IsNewbie(self):
+    def SalePeriodDayParameter(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
         if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
 
     # ShopRecruitExcel
-    def IsSelectRecruit(self):
+    def IsOverrideSalePeriodTo(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # ShopRecruitExcel
-    def DirectPayInvisibleTokenId(self):
+    def IsNewbie(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # ShopRecruitExcel
-    def DirectPayAndroidShopCashId(self):
+    def IsSelectRecruit(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # ShopRecruitExcel
-    def DirectPayAppleShopCashId(self):
+    def DirectPayInvisibleTokenId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopRecruitExcel
-    def SelectAbleGachaGroupId(self):
+    def DirectPayProductId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return self._tab.String(o + self._tab.Pos)
+        return None
 
     # ShopRecruitExcel
-    def MaxSelectCharacterNum(self):
+    def DirectPayAndroidShopCashId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopRecruitExcel
-    def DirectPayOneStoreShopCashId(self):
+    def DirectPayAppleShopCashId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopRecruitExcel
-    def ProbabilityUrlDev(self):
+    def SelectAbleGachaGroupId(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopRecruitExcel
+    def MaxSelectCharacterNum(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopRecruitExcel
+    def DirectPayOneStoreShopCashId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopRecruitExcel
+    def ProbabilityUrlDev(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ShopRecruitExcel
     def ProbabilityUrlLive(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
 def ShopRecruitExcelStart(builder):
-    builder.StartObject(30)
+    builder.StartObject(33)
 
 def Start(builder):
     ShopRecruitExcelStart(builder)
@@ -412,62 +433,80 @@ def ShopRecruitExcelAddPurchaseCountResetType(builder, purchaseCountResetType):
 def AddPurchaseCountResetType(builder, purchaseCountResetType):
     ShopRecruitExcelAddPurchaseCountResetType(builder, purchaseCountResetType)
 
+def ShopRecruitExcelAddSalePeriodDayParameter(builder, salePeriodDayParameter):
+    builder.PrependInt64Slot(20, salePeriodDayParameter, 0)
+
+def AddSalePeriodDayParameter(builder, salePeriodDayParameter):
+    ShopRecruitExcelAddSalePeriodDayParameter(builder, salePeriodDayParameter)
+
+def ShopRecruitExcelAddIsOverrideSalePeriodTo(builder, isOverrideSalePeriodTo):
+    builder.PrependBoolSlot(21, isOverrideSalePeriodTo, 0)
+
+def AddIsOverrideSalePeriodTo(builder, isOverrideSalePeriodTo):
+    ShopRecruitExcelAddIsOverrideSalePeriodTo(builder, isOverrideSalePeriodTo)
+
 def ShopRecruitExcelAddIsNewbie(builder, isNewbie):
-    builder.PrependBoolSlot(20, isNewbie, 0)
+    builder.PrependBoolSlot(22, isNewbie, 0)
 
 def AddIsNewbie(builder, isNewbie):
     ShopRecruitExcelAddIsNewbie(builder, isNewbie)
 
 def ShopRecruitExcelAddIsSelectRecruit(builder, isSelectRecruit):
-    builder.PrependBoolSlot(21, isSelectRecruit, 0)
+    builder.PrependBoolSlot(23, isSelectRecruit, 0)
 
 def AddIsSelectRecruit(builder, isSelectRecruit):
     ShopRecruitExcelAddIsSelectRecruit(builder, isSelectRecruit)
 
 def ShopRecruitExcelAddDirectPayInvisibleTokenId(builder, directPayInvisibleTokenId):
-    builder.PrependInt64Slot(22, directPayInvisibleTokenId, 0)
+    builder.PrependInt64Slot(24, directPayInvisibleTokenId, 0)
 
 def AddDirectPayInvisibleTokenId(builder, directPayInvisibleTokenId):
     ShopRecruitExcelAddDirectPayInvisibleTokenId(builder, directPayInvisibleTokenId)
 
+def ShopRecruitExcelAddDirectPayProductId(builder, directPayProductId):
+    builder.PrependUOffsetTRelativeSlot(25, flatbuffers.number_types.UOffsetTFlags.py_type(directPayProductId), 0)
+
+def AddDirectPayProductId(builder, directPayProductId):
+    ShopRecruitExcelAddDirectPayProductId(builder, directPayProductId)
+
 def ShopRecruitExcelAddDirectPayAndroidShopCashId(builder, directPayAndroidShopCashId):
-    builder.PrependInt64Slot(23, directPayAndroidShopCashId, 0)
+    builder.PrependInt64Slot(26, directPayAndroidShopCashId, 0)
 
 def AddDirectPayAndroidShopCashId(builder, directPayAndroidShopCashId):
     ShopRecruitExcelAddDirectPayAndroidShopCashId(builder, directPayAndroidShopCashId)
 
 def ShopRecruitExcelAddDirectPayAppleShopCashId(builder, directPayAppleShopCashId):
-    builder.PrependInt64Slot(24, directPayAppleShopCashId, 0)
+    builder.PrependInt64Slot(27, directPayAppleShopCashId, 0)
 
 def AddDirectPayAppleShopCashId(builder, directPayAppleShopCashId):
     ShopRecruitExcelAddDirectPayAppleShopCashId(builder, directPayAppleShopCashId)
 
 def ShopRecruitExcelAddSelectAbleGachaGroupId(builder, selectAbleGachaGroupId):
-    builder.PrependInt64Slot(25, selectAbleGachaGroupId, 0)
+    builder.PrependInt64Slot(28, selectAbleGachaGroupId, 0)
 
 def AddSelectAbleGachaGroupId(builder, selectAbleGachaGroupId):
     ShopRecruitExcelAddSelectAbleGachaGroupId(builder, selectAbleGachaGroupId)
 
 def ShopRecruitExcelAddMaxSelectCharacterNum(builder, maxSelectCharacterNum):
-    builder.PrependInt64Slot(26, maxSelectCharacterNum, 0)
+    builder.PrependInt64Slot(29, maxSelectCharacterNum, 0)
 
 def AddMaxSelectCharacterNum(builder, maxSelectCharacterNum):
     ShopRecruitExcelAddMaxSelectCharacterNum(builder, maxSelectCharacterNum)
 
 def ShopRecruitExcelAddDirectPayOneStoreShopCashId(builder, directPayOneStoreShopCashId):
-    builder.PrependInt64Slot(27, directPayOneStoreShopCashId, 0)
+    builder.PrependInt64Slot(30, directPayOneStoreShopCashId, 0)
 
 def AddDirectPayOneStoreShopCashId(builder, directPayOneStoreShopCashId):
     ShopRecruitExcelAddDirectPayOneStoreShopCashId(builder, directPayOneStoreShopCashId)
 
 def ShopRecruitExcelAddProbabilityUrlDev(builder, probabilityUrlDev):
-    builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(probabilityUrlDev), 0)
+    builder.PrependUOffsetTRelativeSlot(31, flatbuffers.number_types.UOffsetTFlags.py_type(probabilityUrlDev), 0)
 
 def AddProbabilityUrlDev(builder, probabilityUrlDev):
     ShopRecruitExcelAddProbabilityUrlDev(builder, probabilityUrlDev)
 
 def ShopRecruitExcelAddProbabilityUrlLive(builder, probabilityUrlLive):
-    builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(probabilityUrlLive), 0)
+    builder.PrependUOffsetTRelativeSlot(32, flatbuffers.number_types.UOffsetTFlags.py_type(probabilityUrlLive), 0)
 
 def AddProbabilityUrlLive(builder, probabilityUrlLive):
     ShopRecruitExcelAddProbabilityUrlLive(builder, probabilityUrlLive)
@@ -477,3 +516,226 @@ def ShopRecruitExcelEnd(builder):
 
 def End(builder):
     return ShopRecruitExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ShopRecruitExcelT(object):
+
+    # ShopRecruitExcelT
+    def __init__(
+        self,
+        id = 0,
+        categoryType = 0,
+        isLegacy = False,
+        oneGachaGoodsId = 0,
+        tenGachaGoodsId = 0,
+        goodsDevName = None,
+        displayTag = 0,
+        displayOrder = 0,
+        gachaBannerPath = None,
+        videoId = None,
+        linkedRobbyBannerId = 0,
+        infoCharacterId = None,
+        salePeriodVisible = False,
+        salePeriodFrom = None,
+        salePeriodTo = None,
+        recruitCoinId = 0,
+        recruitSellectionShopId = 0,
+        purchaseCooltimeMin = 0,
+        purchaseCountLimit = 0,
+        purchaseCountResetType = 0,
+        salePeriodDayParameter = 0,
+        isOverrideSalePeriodTo = False,
+        isNewbie = False,
+        isSelectRecruit = False,
+        directPayInvisibleTokenId = 0,
+        directPayProductId = None,
+        directPayAndroidShopCashId = 0,
+        directPayAppleShopCashId = 0,
+        selectAbleGachaGroupId = 0,
+        maxSelectCharacterNum = 0,
+        directPayOneStoreShopCashId = 0,
+        probabilityUrlDev = None,
+        probabilityUrlLive = None,
+    ):
+        self.id = id  # type: int
+        self.categoryType = categoryType  # type: int
+        self.isLegacy = isLegacy  # type: bool
+        self.oneGachaGoodsId = oneGachaGoodsId  # type: int
+        self.tenGachaGoodsId = tenGachaGoodsId  # type: int
+        self.goodsDevName = goodsDevName  # type: Optional[str]
+        self.displayTag = displayTag  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.gachaBannerPath = gachaBannerPath  # type: Optional[str]
+        self.videoId = videoId  # type: Optional[List[int]]
+        self.linkedRobbyBannerId = linkedRobbyBannerId  # type: int
+        self.infoCharacterId = infoCharacterId  # type: Optional[List[int]]
+        self.salePeriodVisible = salePeriodVisible  # type: bool
+        self.salePeriodFrom = salePeriodFrom  # type: Optional[str]
+        self.salePeriodTo = salePeriodTo  # type: Optional[str]
+        self.recruitCoinId = recruitCoinId  # type: int
+        self.recruitSellectionShopId = recruitSellectionShopId  # type: int
+        self.purchaseCooltimeMin = purchaseCooltimeMin  # type: int
+        self.purchaseCountLimit = purchaseCountLimit  # type: int
+        self.purchaseCountResetType = purchaseCountResetType  # type: int
+        self.salePeriodDayParameter = salePeriodDayParameter  # type: int
+        self.isOverrideSalePeriodTo = isOverrideSalePeriodTo  # type: bool
+        self.isNewbie = isNewbie  # type: bool
+        self.isSelectRecruit = isSelectRecruit  # type: bool
+        self.directPayInvisibleTokenId = directPayInvisibleTokenId  # type: int
+        self.directPayProductId = directPayProductId  # type: Optional[str]
+        self.directPayAndroidShopCashId = directPayAndroidShopCashId  # type: int
+        self.directPayAppleShopCashId = directPayAppleShopCashId  # type: int
+        self.selectAbleGachaGroupId = selectAbleGachaGroupId  # type: int
+        self.maxSelectCharacterNum = maxSelectCharacterNum  # type: int
+        self.directPayOneStoreShopCashId = directPayOneStoreShopCashId  # type: int
+        self.probabilityUrlDev = probabilityUrlDev  # type: Optional[str]
+        self.probabilityUrlLive = probabilityUrlLive  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        shopRecruitExcel = ShopRecruitExcel()
+        shopRecruitExcel.Init(buf, pos)
+        return cls.InitFromObj(shopRecruitExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, shopRecruitExcel):
+        x = ShopRecruitExcelT()
+        x._UnPack(shopRecruitExcel)
+        return x
+
+    # ShopRecruitExcelT
+    def _UnPack(self, shopRecruitExcel):
+        if shopRecruitExcel is None:
+            return
+        self.id = shopRecruitExcel.Id()
+        self.categoryType = shopRecruitExcel.CategoryType()
+        self.isLegacy = shopRecruitExcel.IsLegacy()
+        self.oneGachaGoodsId = shopRecruitExcel.OneGachaGoodsId()
+        self.tenGachaGoodsId = shopRecruitExcel.TenGachaGoodsId()
+        self.goodsDevName = shopRecruitExcel.GoodsDevName()
+        self.displayTag = shopRecruitExcel.DisplayTag()
+        self.displayOrder = shopRecruitExcel.DisplayOrder()
+        self.gachaBannerPath = shopRecruitExcel.GachaBannerPath()
+        if not shopRecruitExcel.VideoIdIsNone():
+            if np is None:
+                self.videoId = []
+                for i in range(shopRecruitExcel.VideoIdLength()):
+                    self.videoId.append(shopRecruitExcel.VideoId(i))
+            else:
+                self.videoId = shopRecruitExcel.VideoIdAsNumpy()
+        self.linkedRobbyBannerId = shopRecruitExcel.LinkedRobbyBannerId()
+        if not shopRecruitExcel.InfoCharacterIdIsNone():
+            if np is None:
+                self.infoCharacterId = []
+                for i in range(shopRecruitExcel.InfoCharacterIdLength()):
+                    self.infoCharacterId.append(shopRecruitExcel.InfoCharacterId(i))
+            else:
+                self.infoCharacterId = shopRecruitExcel.InfoCharacterIdAsNumpy()
+        self.salePeriodVisible = shopRecruitExcel.SalePeriodVisible()
+        self.salePeriodFrom = shopRecruitExcel.SalePeriodFrom()
+        self.salePeriodTo = shopRecruitExcel.SalePeriodTo()
+        self.recruitCoinId = shopRecruitExcel.RecruitCoinId()
+        self.recruitSellectionShopId = shopRecruitExcel.RecruitSellectionShopId()
+        self.purchaseCooltimeMin = shopRecruitExcel.PurchaseCooltimeMin()
+        self.purchaseCountLimit = shopRecruitExcel.PurchaseCountLimit()
+        self.purchaseCountResetType = shopRecruitExcel.PurchaseCountResetType()
+        self.salePeriodDayParameter = shopRecruitExcel.SalePeriodDayParameter()
+        self.isOverrideSalePeriodTo = shopRecruitExcel.IsOverrideSalePeriodTo()
+        self.isNewbie = shopRecruitExcel.IsNewbie()
+        self.isSelectRecruit = shopRecruitExcel.IsSelectRecruit()
+        self.directPayInvisibleTokenId = shopRecruitExcel.DirectPayInvisibleTokenId()
+        self.directPayProductId = shopRecruitExcel.DirectPayProductId()
+        self.directPayAndroidShopCashId = shopRecruitExcel.DirectPayAndroidShopCashId()
+        self.directPayAppleShopCashId = shopRecruitExcel.DirectPayAppleShopCashId()
+        self.selectAbleGachaGroupId = shopRecruitExcel.SelectAbleGachaGroupId()
+        self.maxSelectCharacterNum = shopRecruitExcel.MaxSelectCharacterNum()
+        self.directPayOneStoreShopCashId = shopRecruitExcel.DirectPayOneStoreShopCashId()
+        self.probabilityUrlDev = shopRecruitExcel.ProbabilityUrlDev()
+        self.probabilityUrlLive = shopRecruitExcel.ProbabilityUrlLive()
+
+    # ShopRecruitExcelT
+    def Pack(self, builder):
+        if self.goodsDevName is not None:
+            goodsDevName = builder.CreateString(self.goodsDevName)
+        if self.gachaBannerPath is not None:
+            gachaBannerPath = builder.CreateString(self.gachaBannerPath)
+        if self.videoId is not None:
+            if np is not None and type(self.videoId) is np.ndarray:
+                videoId = builder.CreateNumpyVector(self.videoId)
+            else:
+                ShopRecruitExcelStartVideoIdVector(builder, len(self.videoId))
+                for i in reversed(range(len(self.videoId))):
+                    builder.PrependInt64(self.videoId[i])
+                videoId = builder.EndVector()
+        if self.infoCharacterId is not None:
+            if np is not None and type(self.infoCharacterId) is np.ndarray:
+                infoCharacterId = builder.CreateNumpyVector(self.infoCharacterId)
+            else:
+                ShopRecruitExcelStartInfoCharacterIdVector(builder, len(self.infoCharacterId))
+                for i in reversed(range(len(self.infoCharacterId))):
+                    builder.PrependInt64(self.infoCharacterId[i])
+                infoCharacterId = builder.EndVector()
+        if self.salePeriodFrom is not None:
+            salePeriodFrom = builder.CreateString(self.salePeriodFrom)
+        if self.salePeriodTo is not None:
+            salePeriodTo = builder.CreateString(self.salePeriodTo)
+        if self.directPayProductId is not None:
+            directPayProductId = builder.CreateString(self.directPayProductId)
+        if self.probabilityUrlDev is not None:
+            probabilityUrlDev = builder.CreateString(self.probabilityUrlDev)
+        if self.probabilityUrlLive is not None:
+            probabilityUrlLive = builder.CreateString(self.probabilityUrlLive)
+        ShopRecruitExcelStart(builder)
+        ShopRecruitExcelAddId(builder, self.id)
+        ShopRecruitExcelAddCategoryType(builder, self.categoryType)
+        ShopRecruitExcelAddIsLegacy(builder, self.isLegacy)
+        ShopRecruitExcelAddOneGachaGoodsId(builder, self.oneGachaGoodsId)
+        ShopRecruitExcelAddTenGachaGoodsId(builder, self.tenGachaGoodsId)
+        if self.goodsDevName is not None:
+            ShopRecruitExcelAddGoodsDevName(builder, goodsDevName)
+        ShopRecruitExcelAddDisplayTag(builder, self.displayTag)
+        ShopRecruitExcelAddDisplayOrder(builder, self.displayOrder)
+        if self.gachaBannerPath is not None:
+            ShopRecruitExcelAddGachaBannerPath(builder, gachaBannerPath)
+        if self.videoId is not None:
+            ShopRecruitExcelAddVideoId(builder, videoId)
+        ShopRecruitExcelAddLinkedRobbyBannerId(builder, self.linkedRobbyBannerId)
+        if self.infoCharacterId is not None:
+            ShopRecruitExcelAddInfoCharacterId(builder, infoCharacterId)
+        ShopRecruitExcelAddSalePeriodVisible(builder, self.salePeriodVisible)
+        if self.salePeriodFrom is not None:
+            ShopRecruitExcelAddSalePeriodFrom(builder, salePeriodFrom)
+        if self.salePeriodTo is not None:
+            ShopRecruitExcelAddSalePeriodTo(builder, salePeriodTo)
+        ShopRecruitExcelAddRecruitCoinId(builder, self.recruitCoinId)
+        ShopRecruitExcelAddRecruitSellectionShopId(builder, self.recruitSellectionShopId)
+        ShopRecruitExcelAddPurchaseCooltimeMin(builder, self.purchaseCooltimeMin)
+        ShopRecruitExcelAddPurchaseCountLimit(builder, self.purchaseCountLimit)
+        ShopRecruitExcelAddPurchaseCountResetType(builder, self.purchaseCountResetType)
+        ShopRecruitExcelAddSalePeriodDayParameter(builder, self.salePeriodDayParameter)
+        ShopRecruitExcelAddIsOverrideSalePeriodTo(builder, self.isOverrideSalePeriodTo)
+        ShopRecruitExcelAddIsNewbie(builder, self.isNewbie)
+        ShopRecruitExcelAddIsSelectRecruit(builder, self.isSelectRecruit)
+        ShopRecruitExcelAddDirectPayInvisibleTokenId(builder, self.directPayInvisibleTokenId)
+        if self.directPayProductId is not None:
+            ShopRecruitExcelAddDirectPayProductId(builder, directPayProductId)
+        ShopRecruitExcelAddDirectPayAndroidShopCashId(builder, self.directPayAndroidShopCashId)
+        ShopRecruitExcelAddDirectPayAppleShopCashId(builder, self.directPayAppleShopCashId)
+        ShopRecruitExcelAddSelectAbleGachaGroupId(builder, self.selectAbleGachaGroupId)
+        ShopRecruitExcelAddMaxSelectCharacterNum(builder, self.maxSelectCharacterNum)
+        ShopRecruitExcelAddDirectPayOneStoreShopCashId(builder, self.directPayOneStoreShopCashId)
+        if self.probabilityUrlDev is not None:
+            ShopRecruitExcelAddProbabilityUrlDev(builder, probabilityUrlDev)
+        if self.probabilityUrlLive is not None:
+            ShopRecruitExcelAddProbabilityUrlLive(builder, probabilityUrlLive)
+        shopRecruitExcel = ShopRecruitExcelEnd(builder)
+        return shopRecruitExcel

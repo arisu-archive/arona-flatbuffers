@@ -178,3 +178,95 @@ def StickerGroupExcelEnd(builder):
 
 def End(builder):
     return StickerGroupExcelEnd(builder)
+
+
+class StickerGroupExcelT(object):
+
+    # StickerGroupExcelT
+    def __init__(
+        self,
+        id = 0,
+        layout = None,
+        uniqueLayoutPath = None,
+        stickerGroupIconpath = None,
+        pageCompleteSlot = 0,
+        pageCompleteRewardParcelType = 0,
+        pageCompleteRewardParcelId = 0,
+        pageCompleteRewardAmount = 0,
+        localizeTitle = 0,
+        localizeDescription = 0,
+        stickerGroupCoverpath = None,
+    ):
+        self.id = id  # type: int
+        self.layout = layout  # type: Optional[str]
+        self.uniqueLayoutPath = uniqueLayoutPath  # type: Optional[str]
+        self.stickerGroupIconpath = stickerGroupIconpath  # type: Optional[str]
+        self.pageCompleteSlot = pageCompleteSlot  # type: int
+        self.pageCompleteRewardParcelType = pageCompleteRewardParcelType  # type: int
+        self.pageCompleteRewardParcelId = pageCompleteRewardParcelId  # type: int
+        self.pageCompleteRewardAmount = pageCompleteRewardAmount  # type: int
+        self.localizeTitle = localizeTitle  # type: int
+        self.localizeDescription = localizeDescription  # type: int
+        self.stickerGroupCoverpath = stickerGroupCoverpath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        stickerGroupExcel = StickerGroupExcel()
+        stickerGroupExcel.Init(buf, pos)
+        return cls.InitFromObj(stickerGroupExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, stickerGroupExcel):
+        x = StickerGroupExcelT()
+        x._UnPack(stickerGroupExcel)
+        return x
+
+    # StickerGroupExcelT
+    def _UnPack(self, stickerGroupExcel):
+        if stickerGroupExcel is None:
+            return
+        self.id = stickerGroupExcel.Id()
+        self.layout = stickerGroupExcel.Layout()
+        self.uniqueLayoutPath = stickerGroupExcel.UniqueLayoutPath()
+        self.stickerGroupIconpath = stickerGroupExcel.StickerGroupIconpath()
+        self.pageCompleteSlot = stickerGroupExcel.PageCompleteSlot()
+        self.pageCompleteRewardParcelType = stickerGroupExcel.PageCompleteRewardParcelType()
+        self.pageCompleteRewardParcelId = stickerGroupExcel.PageCompleteRewardParcelId()
+        self.pageCompleteRewardAmount = stickerGroupExcel.PageCompleteRewardAmount()
+        self.localizeTitle = stickerGroupExcel.LocalizeTitle()
+        self.localizeDescription = stickerGroupExcel.LocalizeDescription()
+        self.stickerGroupCoverpath = stickerGroupExcel.StickerGroupCoverpath()
+
+    # StickerGroupExcelT
+    def Pack(self, builder):
+        if self.layout is not None:
+            layout = builder.CreateString(self.layout)
+        if self.uniqueLayoutPath is not None:
+            uniqueLayoutPath = builder.CreateString(self.uniqueLayoutPath)
+        if self.stickerGroupIconpath is not None:
+            stickerGroupIconpath = builder.CreateString(self.stickerGroupIconpath)
+        if self.stickerGroupCoverpath is not None:
+            stickerGroupCoverpath = builder.CreateString(self.stickerGroupCoverpath)
+        StickerGroupExcelStart(builder)
+        StickerGroupExcelAddId(builder, self.id)
+        if self.layout is not None:
+            StickerGroupExcelAddLayout(builder, layout)
+        if self.uniqueLayoutPath is not None:
+            StickerGroupExcelAddUniqueLayoutPath(builder, uniqueLayoutPath)
+        if self.stickerGroupIconpath is not None:
+            StickerGroupExcelAddStickerGroupIconpath(builder, stickerGroupIconpath)
+        StickerGroupExcelAddPageCompleteSlot(builder, self.pageCompleteSlot)
+        StickerGroupExcelAddPageCompleteRewardParcelType(builder, self.pageCompleteRewardParcelType)
+        StickerGroupExcelAddPageCompleteRewardParcelId(builder, self.pageCompleteRewardParcelId)
+        StickerGroupExcelAddPageCompleteRewardAmount(builder, self.pageCompleteRewardAmount)
+        StickerGroupExcelAddLocalizeTitle(builder, self.localizeTitle)
+        StickerGroupExcelAddLocalizeDescription(builder, self.localizeDescription)
+        if self.stickerGroupCoverpath is not None:
+            StickerGroupExcelAddStickerGroupCoverpath(builder, stickerGroupCoverpath)
+        stickerGroupExcel = StickerGroupExcelEnd(builder)
+        return stickerGroupExcel

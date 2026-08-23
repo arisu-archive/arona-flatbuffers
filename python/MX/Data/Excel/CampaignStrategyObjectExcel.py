@@ -230,3 +230,108 @@ def CampaignStrategyObjectExcelEnd(builder):
 
 def End(builder):
     return CampaignStrategyObjectExcelEnd(builder)
+
+
+class CampaignStrategyObjectExcelT(object):
+
+    # CampaignStrategyObjectExcelT
+    def __init__(
+        self,
+        id = 0,
+        key = 0,
+        name = None,
+        prefabName = None,
+        strategyObjectType = 0,
+        strategyRewardParcelType = 0,
+        strategyRewardId = 0,
+        strategyRewardName = None,
+        strategyRewardAmount = 0,
+        strategySightRange = 0,
+        portalId = 0,
+        healValue = 0,
+        swithId = 0,
+        buffId = 0,
+        disposable = False,
+    ):
+        self.id = id  # type: int
+        self.key = key  # type: int
+        self.name = name  # type: Optional[str]
+        self.prefabName = prefabName  # type: Optional[str]
+        self.strategyObjectType = strategyObjectType  # type: int
+        self.strategyRewardParcelType = strategyRewardParcelType  # type: int
+        self.strategyRewardId = strategyRewardId  # type: int
+        self.strategyRewardName = strategyRewardName  # type: Optional[str]
+        self.strategyRewardAmount = strategyRewardAmount  # type: int
+        self.strategySightRange = strategySightRange  # type: int
+        self.portalId = portalId  # type: int
+        self.healValue = healValue  # type: int
+        self.swithId = swithId  # type: int
+        self.buffId = buffId  # type: int
+        self.disposable = disposable  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        campaignStrategyObjectExcel = CampaignStrategyObjectExcel()
+        campaignStrategyObjectExcel.Init(buf, pos)
+        return cls.InitFromObj(campaignStrategyObjectExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, campaignStrategyObjectExcel):
+        x = CampaignStrategyObjectExcelT()
+        x._UnPack(campaignStrategyObjectExcel)
+        return x
+
+    # CampaignStrategyObjectExcelT
+    def _UnPack(self, campaignStrategyObjectExcel):
+        if campaignStrategyObjectExcel is None:
+            return
+        self.id = campaignStrategyObjectExcel.Id()
+        self.key = campaignStrategyObjectExcel.Key()
+        self.name = campaignStrategyObjectExcel.Name()
+        self.prefabName = campaignStrategyObjectExcel.PrefabName()
+        self.strategyObjectType = campaignStrategyObjectExcel.StrategyObjectType()
+        self.strategyRewardParcelType = campaignStrategyObjectExcel.StrategyRewardParcelType()
+        self.strategyRewardId = campaignStrategyObjectExcel.StrategyRewardId()
+        self.strategyRewardName = campaignStrategyObjectExcel.StrategyRewardName()
+        self.strategyRewardAmount = campaignStrategyObjectExcel.StrategyRewardAmount()
+        self.strategySightRange = campaignStrategyObjectExcel.StrategySightRange()
+        self.portalId = campaignStrategyObjectExcel.PortalId()
+        self.healValue = campaignStrategyObjectExcel.HealValue()
+        self.swithId = campaignStrategyObjectExcel.SwithId()
+        self.buffId = campaignStrategyObjectExcel.BuffId()
+        self.disposable = campaignStrategyObjectExcel.Disposable()
+
+    # CampaignStrategyObjectExcelT
+    def Pack(self, builder):
+        if self.name is not None:
+            name = builder.CreateString(self.name)
+        if self.prefabName is not None:
+            prefabName = builder.CreateString(self.prefabName)
+        if self.strategyRewardName is not None:
+            strategyRewardName = builder.CreateString(self.strategyRewardName)
+        CampaignStrategyObjectExcelStart(builder)
+        CampaignStrategyObjectExcelAddId(builder, self.id)
+        CampaignStrategyObjectExcelAddKey(builder, self.key)
+        if self.name is not None:
+            CampaignStrategyObjectExcelAddName(builder, name)
+        if self.prefabName is not None:
+            CampaignStrategyObjectExcelAddPrefabName(builder, prefabName)
+        CampaignStrategyObjectExcelAddStrategyObjectType(builder, self.strategyObjectType)
+        CampaignStrategyObjectExcelAddStrategyRewardParcelType(builder, self.strategyRewardParcelType)
+        CampaignStrategyObjectExcelAddStrategyRewardId(builder, self.strategyRewardId)
+        if self.strategyRewardName is not None:
+            CampaignStrategyObjectExcelAddStrategyRewardName(builder, strategyRewardName)
+        CampaignStrategyObjectExcelAddStrategyRewardAmount(builder, self.strategyRewardAmount)
+        CampaignStrategyObjectExcelAddStrategySightRange(builder, self.strategySightRange)
+        CampaignStrategyObjectExcelAddPortalId(builder, self.portalId)
+        CampaignStrategyObjectExcelAddHealValue(builder, self.healValue)
+        CampaignStrategyObjectExcelAddSwithId(builder, self.swithId)
+        CampaignStrategyObjectExcelAddBuffId(builder, self.buffId)
+        CampaignStrategyObjectExcelAddDisposable(builder, self.disposable)
+        campaignStrategyObjectExcel = CampaignStrategyObjectExcelEnd(builder)
+        return campaignStrategyObjectExcel

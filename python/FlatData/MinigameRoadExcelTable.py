@@ -72,3 +72,68 @@ def MinigameRoadExcelTableEnd(builder):
 
 def End(builder):
     return MinigameRoadExcelTableEnd(builder)
+
+import FlatData.MinigameRoadExcel
+try:
+    from typing import List
+except:
+    pass
+
+class MinigameRoadExcelTableT(object):
+
+    # MinigameRoadExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.MinigameRoadExcel.MinigameRoadExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameRoadExcelTable = MinigameRoadExcelTable()
+        minigameRoadExcelTable.Init(buf, pos)
+        return cls.InitFromObj(minigameRoadExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameRoadExcelTable):
+        x = MinigameRoadExcelTableT()
+        x._UnPack(minigameRoadExcelTable)
+        return x
+
+    # MinigameRoadExcelTableT
+    def _UnPack(self, minigameRoadExcelTable):
+        if minigameRoadExcelTable is None:
+            return
+        if not minigameRoadExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(minigameRoadExcelTable.DataListLength()):
+                if minigameRoadExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    minigameRoadExcel_ = FlatData.MinigameRoadExcel.MinigameRoadExcelT.InitFromObj(minigameRoadExcelTable.DataList(i))
+                    self.dataList.append(minigameRoadExcel_)
+
+    # MinigameRoadExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            MinigameRoadExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        MinigameRoadExcelTableStart(builder)
+        if self.dataList is not None:
+            MinigameRoadExcelTableAddDataList(builder, dataList)
+        minigameRoadExcelTable = MinigameRoadExcelTableEnd(builder)
+        return minigameRoadExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(MinigameRoadExcelTableT, 'MinigameRoadExcelTable', ())

@@ -152,3 +152,75 @@ def ParcelAutoSynthExcelEnd(builder):
 
 def End(builder):
     return ParcelAutoSynthExcelEnd(builder)
+
+
+class ParcelAutoSynthExcelT(object):
+
+    # ParcelAutoSynthExcelT
+    def __init__(
+        self,
+        requireParcelType = 0,
+        requireParcelId = 0,
+        requireParcelAmount = 0,
+        synthStartAmount = 0,
+        synthEndAmount = 0,
+        synthMaxItem = False,
+        resultParcelType = 0,
+        resultParcelId = 0,
+        resultParcelAmount = 0,
+    ):
+        self.requireParcelType = requireParcelType  # type: int
+        self.requireParcelId = requireParcelId  # type: int
+        self.requireParcelAmount = requireParcelAmount  # type: int
+        self.synthStartAmount = synthStartAmount  # type: int
+        self.synthEndAmount = synthEndAmount  # type: int
+        self.synthMaxItem = synthMaxItem  # type: bool
+        self.resultParcelType = resultParcelType  # type: int
+        self.resultParcelId = resultParcelId  # type: int
+        self.resultParcelAmount = resultParcelAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        parcelAutoSynthExcel = ParcelAutoSynthExcel()
+        parcelAutoSynthExcel.Init(buf, pos)
+        return cls.InitFromObj(parcelAutoSynthExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, parcelAutoSynthExcel):
+        x = ParcelAutoSynthExcelT()
+        x._UnPack(parcelAutoSynthExcel)
+        return x
+
+    # ParcelAutoSynthExcelT
+    def _UnPack(self, parcelAutoSynthExcel):
+        if parcelAutoSynthExcel is None:
+            return
+        self.requireParcelType = parcelAutoSynthExcel.RequireParcelType()
+        self.requireParcelId = parcelAutoSynthExcel.RequireParcelId()
+        self.requireParcelAmount = parcelAutoSynthExcel.RequireParcelAmount()
+        self.synthStartAmount = parcelAutoSynthExcel.SynthStartAmount()
+        self.synthEndAmount = parcelAutoSynthExcel.SynthEndAmount()
+        self.synthMaxItem = parcelAutoSynthExcel.SynthMaxItem()
+        self.resultParcelType = parcelAutoSynthExcel.ResultParcelType()
+        self.resultParcelId = parcelAutoSynthExcel.ResultParcelId()
+        self.resultParcelAmount = parcelAutoSynthExcel.ResultParcelAmount()
+
+    # ParcelAutoSynthExcelT
+    def Pack(self, builder):
+        ParcelAutoSynthExcelStart(builder)
+        ParcelAutoSynthExcelAddRequireParcelType(builder, self.requireParcelType)
+        ParcelAutoSynthExcelAddRequireParcelId(builder, self.requireParcelId)
+        ParcelAutoSynthExcelAddRequireParcelAmount(builder, self.requireParcelAmount)
+        ParcelAutoSynthExcelAddSynthStartAmount(builder, self.synthStartAmount)
+        ParcelAutoSynthExcelAddSynthEndAmount(builder, self.synthEndAmount)
+        ParcelAutoSynthExcelAddSynthMaxItem(builder, self.synthMaxItem)
+        ParcelAutoSynthExcelAddResultParcelType(builder, self.resultParcelType)
+        ParcelAutoSynthExcelAddResultParcelId(builder, self.resultParcelId)
+        ParcelAutoSynthExcelAddResultParcelAmount(builder, self.resultParcelAmount)
+        parcelAutoSynthExcel = ParcelAutoSynthExcelEnd(builder)
+        return parcelAutoSynthExcel

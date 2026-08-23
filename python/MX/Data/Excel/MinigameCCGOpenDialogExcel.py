@@ -60,14 +60,21 @@ class MinigameCCGOpenDialogExcel(object):
         return 0
 
     # MinigameCCGOpenDialogExcel
-    def Voice(self):
+    def DurationKr(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # MinigameCCGOpenDialogExcel
+    def Voice(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
 def MinigameCCGOpenDialogExcelStart(builder):
-    builder.StartObject(6)
+    builder.StartObject(7)
 
 def Start(builder):
     MinigameCCGOpenDialogExcelStart(builder)
@@ -102,8 +109,14 @@ def MinigameCCGOpenDialogExcelAddDuration(builder, duration):
 def AddDuration(builder, duration):
     MinigameCCGOpenDialogExcelAddDuration(builder, duration)
 
+def MinigameCCGOpenDialogExcelAddDurationKr(builder, durationKr):
+    builder.PrependInt64Slot(5, durationKr, 0)
+
+def AddDurationKr(builder, durationKr):
+    MinigameCCGOpenDialogExcelAddDurationKr(builder, durationKr)
+
 def MinigameCCGOpenDialogExcelAddVoice(builder, voice):
-    builder.PrependUint32Slot(5, voice, 0)
+    builder.PrependUint32Slot(6, voice, 0)
 
 def AddVoice(builder, voice):
     MinigameCCGOpenDialogExcelAddVoice(builder, voice)
@@ -113,3 +126,67 @@ def MinigameCCGOpenDialogExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGOpenDialogExcelEnd(builder)
+
+
+class MinigameCCGOpenDialogExcelT(object):
+
+    # MinigameCCGOpenDialogExcelT
+    def __init__(
+        self,
+        dialogId = 0,
+        playOrder = 0,
+        conditionCard = 0,
+        dialog = 0,
+        duration = 0,
+        durationKr = 0,
+        voice = 0,
+    ):
+        self.dialogId = dialogId  # type: int
+        self.playOrder = playOrder  # type: int
+        self.conditionCard = conditionCard  # type: int
+        self.dialog = dialog  # type: int
+        self.duration = duration  # type: int
+        self.durationKr = durationKr  # type: int
+        self.voice = voice  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcgopenDialogExcel = MinigameCCGOpenDialogExcel()
+        minigameCcgopenDialogExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcgopenDialogExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcgopenDialogExcel):
+        x = MinigameCCGOpenDialogExcelT()
+        x._UnPack(minigameCcgopenDialogExcel)
+        return x
+
+    # MinigameCCGOpenDialogExcelT
+    def _UnPack(self, minigameCcgopenDialogExcel):
+        if minigameCcgopenDialogExcel is None:
+            return
+        self.dialogId = minigameCcgopenDialogExcel.DialogId()
+        self.playOrder = minigameCcgopenDialogExcel.PlayOrder()
+        self.conditionCard = minigameCcgopenDialogExcel.ConditionCard()
+        self.dialog = minigameCcgopenDialogExcel.Dialog()
+        self.duration = minigameCcgopenDialogExcel.Duration()
+        self.durationKr = minigameCcgopenDialogExcel.DurationKr()
+        self.voice = minigameCcgopenDialogExcel.Voice()
+
+    # MinigameCCGOpenDialogExcelT
+    def Pack(self, builder):
+        MinigameCCGOpenDialogExcelStart(builder)
+        MinigameCCGOpenDialogExcelAddDialogId(builder, self.dialogId)
+        MinigameCCGOpenDialogExcelAddPlayOrder(builder, self.playOrder)
+        MinigameCCGOpenDialogExcelAddConditionCard(builder, self.conditionCard)
+        MinigameCCGOpenDialogExcelAddDialog(builder, self.dialog)
+        MinigameCCGOpenDialogExcelAddDuration(builder, self.duration)
+        MinigameCCGOpenDialogExcelAddDurationKr(builder, self.durationKr)
+        MinigameCCGOpenDialogExcelAddVoice(builder, self.voice)
+        minigameCcgopenDialogExcel = MinigameCCGOpenDialogExcelEnd(builder)
+        return minigameCcgopenDialogExcel

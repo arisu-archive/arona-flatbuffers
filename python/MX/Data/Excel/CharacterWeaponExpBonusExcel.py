@@ -100,3 +100,59 @@ def CharacterWeaponExpBonusExcelEnd(builder):
 
 def End(builder):
     return CharacterWeaponExpBonusExcelEnd(builder)
+
+
+class CharacterWeaponExpBonusExcelT(object):
+
+    # CharacterWeaponExpBonusExcelT
+    def __init__(
+        self,
+        weaponType = 0,
+        weaponExpGrowthA = 0,
+        weaponExpGrowthB = 0,
+        weaponExpGrowthC = 0,
+        weaponExpGrowthZ = 0,
+    ):
+        self.weaponType = weaponType  # type: int
+        self.weaponExpGrowthA = weaponExpGrowthA  # type: int
+        self.weaponExpGrowthB = weaponExpGrowthB  # type: int
+        self.weaponExpGrowthC = weaponExpGrowthC  # type: int
+        self.weaponExpGrowthZ = weaponExpGrowthZ  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterWeaponExpBonusExcel = CharacterWeaponExpBonusExcel()
+        characterWeaponExpBonusExcel.Init(buf, pos)
+        return cls.InitFromObj(characterWeaponExpBonusExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterWeaponExpBonusExcel):
+        x = CharacterWeaponExpBonusExcelT()
+        x._UnPack(characterWeaponExpBonusExcel)
+        return x
+
+    # CharacterWeaponExpBonusExcelT
+    def _UnPack(self, characterWeaponExpBonusExcel):
+        if characterWeaponExpBonusExcel is None:
+            return
+        self.weaponType = characterWeaponExpBonusExcel.WeaponType()
+        self.weaponExpGrowthA = characterWeaponExpBonusExcel.WeaponExpGrowthA()
+        self.weaponExpGrowthB = characterWeaponExpBonusExcel.WeaponExpGrowthB()
+        self.weaponExpGrowthC = characterWeaponExpBonusExcel.WeaponExpGrowthC()
+        self.weaponExpGrowthZ = characterWeaponExpBonusExcel.WeaponExpGrowthZ()
+
+    # CharacterWeaponExpBonusExcelT
+    def Pack(self, builder):
+        CharacterWeaponExpBonusExcelStart(builder)
+        CharacterWeaponExpBonusExcelAddWeaponType(builder, self.weaponType)
+        CharacterWeaponExpBonusExcelAddWeaponExpGrowthA(builder, self.weaponExpGrowthA)
+        CharacterWeaponExpBonusExcelAddWeaponExpGrowthB(builder, self.weaponExpGrowthB)
+        CharacterWeaponExpBonusExcelAddWeaponExpGrowthC(builder, self.weaponExpGrowthC)
+        CharacterWeaponExpBonusExcelAddWeaponExpGrowthZ(builder, self.weaponExpGrowthZ)
+        characterWeaponExpBonusExcel = CharacterWeaponExpBonusExcelEnd(builder)
+        return characterWeaponExpBonusExcel

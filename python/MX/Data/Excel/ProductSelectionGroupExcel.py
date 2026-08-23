@@ -139,3 +139,71 @@ def ProductSelectionGroupExcelEnd(builder):
 
 def End(builder):
     return ProductSelectionGroupExcelEnd(builder)
+
+
+class ProductSelectionGroupExcelT(object):
+
+    # ProductSelectionGroupExcelT
+    def __init__(
+        self,
+        productSelectionGroupId = 0,
+        productSelectionGroupComponentId = 0,
+        displayOrder = 0,
+        parcelType = 0,
+        parcelId = 0,
+        resultAmount = 0,
+        conditionParcelType = 0,
+        conditionParcelId = 0,
+    ):
+        self.productSelectionGroupId = productSelectionGroupId  # type: int
+        self.productSelectionGroupComponentId = productSelectionGroupComponentId  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.parcelType = parcelType  # type: int
+        self.parcelId = parcelId  # type: int
+        self.resultAmount = resultAmount  # type: int
+        self.conditionParcelType = conditionParcelType  # type: int
+        self.conditionParcelId = conditionParcelId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        productSelectionGroupExcel = ProductSelectionGroupExcel()
+        productSelectionGroupExcel.Init(buf, pos)
+        return cls.InitFromObj(productSelectionGroupExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, productSelectionGroupExcel):
+        x = ProductSelectionGroupExcelT()
+        x._UnPack(productSelectionGroupExcel)
+        return x
+
+    # ProductSelectionGroupExcelT
+    def _UnPack(self, productSelectionGroupExcel):
+        if productSelectionGroupExcel is None:
+            return
+        self.productSelectionGroupId = productSelectionGroupExcel.ProductSelectionGroupId()
+        self.productSelectionGroupComponentId = productSelectionGroupExcel.ProductSelectionGroupComponentId()
+        self.displayOrder = productSelectionGroupExcel.DisplayOrder()
+        self.parcelType = productSelectionGroupExcel.ParcelType()
+        self.parcelId = productSelectionGroupExcel.ParcelId()
+        self.resultAmount = productSelectionGroupExcel.ResultAmount()
+        self.conditionParcelType = productSelectionGroupExcel.ConditionParcelType()
+        self.conditionParcelId = productSelectionGroupExcel.ConditionParcelId()
+
+    # ProductSelectionGroupExcelT
+    def Pack(self, builder):
+        ProductSelectionGroupExcelStart(builder)
+        ProductSelectionGroupExcelAddProductSelectionGroupId(builder, self.productSelectionGroupId)
+        ProductSelectionGroupExcelAddProductSelectionGroupComponentId(builder, self.productSelectionGroupComponentId)
+        ProductSelectionGroupExcelAddDisplayOrder(builder, self.displayOrder)
+        ProductSelectionGroupExcelAddParcelType(builder, self.parcelType)
+        ProductSelectionGroupExcelAddParcelId(builder, self.parcelId)
+        ProductSelectionGroupExcelAddResultAmount(builder, self.resultAmount)
+        ProductSelectionGroupExcelAddConditionParcelType(builder, self.conditionParcelType)
+        ProductSelectionGroupExcelAddConditionParcelId(builder, self.conditionParcelId)
+        productSelectionGroupExcel = ProductSelectionGroupExcelEnd(builder)
+        return productSelectionGroupExcel

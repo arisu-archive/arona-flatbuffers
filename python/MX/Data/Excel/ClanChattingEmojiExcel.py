@@ -139,3 +139,86 @@ def ClanChattingEmojiExcelEnd(builder):
 
 def End(builder):
     return ClanChattingEmojiExcelEnd(builder)
+
+
+class ClanChattingEmojiExcelT(object):
+
+    # ClanChattingEmojiExcelT
+    def __init__(
+        self,
+        id = 0,
+        tabGroupId = 0,
+        displayOrder = 0,
+        imagePathKr = None,
+        imagePathJp = None,
+        imagePathTh = None,
+        imagePathTw = None,
+        imagePathEn = None,
+    ):
+        self.id = id  # type: int
+        self.tabGroupId = tabGroupId  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.imagePathKr = imagePathKr  # type: Optional[str]
+        self.imagePathJp = imagePathJp  # type: Optional[str]
+        self.imagePathTh = imagePathTh  # type: Optional[str]
+        self.imagePathTw = imagePathTw  # type: Optional[str]
+        self.imagePathEn = imagePathEn  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        clanChattingEmojiExcel = ClanChattingEmojiExcel()
+        clanChattingEmojiExcel.Init(buf, pos)
+        return cls.InitFromObj(clanChattingEmojiExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, clanChattingEmojiExcel):
+        x = ClanChattingEmojiExcelT()
+        x._UnPack(clanChattingEmojiExcel)
+        return x
+
+    # ClanChattingEmojiExcelT
+    def _UnPack(self, clanChattingEmojiExcel):
+        if clanChattingEmojiExcel is None:
+            return
+        self.id = clanChattingEmojiExcel.Id()
+        self.tabGroupId = clanChattingEmojiExcel.TabGroupId()
+        self.displayOrder = clanChattingEmojiExcel.DisplayOrder()
+        self.imagePathKr = clanChattingEmojiExcel.ImagePathKr()
+        self.imagePathJp = clanChattingEmojiExcel.ImagePathJp()
+        self.imagePathTh = clanChattingEmojiExcel.ImagePathTh()
+        self.imagePathTw = clanChattingEmojiExcel.ImagePathTw()
+        self.imagePathEn = clanChattingEmojiExcel.ImagePathEn()
+
+    # ClanChattingEmojiExcelT
+    def Pack(self, builder):
+        if self.imagePathKr is not None:
+            imagePathKr = builder.CreateString(self.imagePathKr)
+        if self.imagePathJp is not None:
+            imagePathJp = builder.CreateString(self.imagePathJp)
+        if self.imagePathTh is not None:
+            imagePathTh = builder.CreateString(self.imagePathTh)
+        if self.imagePathTw is not None:
+            imagePathTw = builder.CreateString(self.imagePathTw)
+        if self.imagePathEn is not None:
+            imagePathEn = builder.CreateString(self.imagePathEn)
+        ClanChattingEmojiExcelStart(builder)
+        ClanChattingEmojiExcelAddId(builder, self.id)
+        ClanChattingEmojiExcelAddTabGroupId(builder, self.tabGroupId)
+        ClanChattingEmojiExcelAddDisplayOrder(builder, self.displayOrder)
+        if self.imagePathKr is not None:
+            ClanChattingEmojiExcelAddImagePathKr(builder, imagePathKr)
+        if self.imagePathJp is not None:
+            ClanChattingEmojiExcelAddImagePathJp(builder, imagePathJp)
+        if self.imagePathTh is not None:
+            ClanChattingEmojiExcelAddImagePathTh(builder, imagePathTh)
+        if self.imagePathTw is not None:
+            ClanChattingEmojiExcelAddImagePathTw(builder, imagePathTw)
+        if self.imagePathEn is not None:
+            ClanChattingEmojiExcelAddImagePathEn(builder, imagePathEn)
+        clanChattingEmojiExcel = ClanChattingEmojiExcelEnd(builder)
+        return clanChattingEmojiExcel

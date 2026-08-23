@@ -2,4 +2,7 @@
 
 # namespace: FlatData
 
-# NOTE ActionType.py does not declare any structs or enums
+class ActionType(object):
+    Crush = 0
+    Courage = 1
+    Tactic = 2

@@ -72,3 +72,68 @@ def FieldWorldMapZoneExcelTableEnd(builder):
 
 def End(builder):
     return FieldWorldMapZoneExcelTableEnd(builder)
+
+import FlatData.FieldWorldMapZoneExcel
+try:
+    from typing import List
+except:
+    pass
+
+class FieldWorldMapZoneExcelTableT(object):
+
+    # FieldWorldMapZoneExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.FieldWorldMapZoneExcel.FieldWorldMapZoneExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        fieldWorldMapZoneExcelTable = FieldWorldMapZoneExcelTable()
+        fieldWorldMapZoneExcelTable.Init(buf, pos)
+        return cls.InitFromObj(fieldWorldMapZoneExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, fieldWorldMapZoneExcelTable):
+        x = FieldWorldMapZoneExcelTableT()
+        x._UnPack(fieldWorldMapZoneExcelTable)
+        return x
+
+    # FieldWorldMapZoneExcelTableT
+    def _UnPack(self, fieldWorldMapZoneExcelTable):
+        if fieldWorldMapZoneExcelTable is None:
+            return
+        if not fieldWorldMapZoneExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(fieldWorldMapZoneExcelTable.DataListLength()):
+                if fieldWorldMapZoneExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    fieldWorldMapZoneExcel_ = FlatData.FieldWorldMapZoneExcel.FieldWorldMapZoneExcelT.InitFromObj(fieldWorldMapZoneExcelTable.DataList(i))
+                    self.dataList.append(fieldWorldMapZoneExcel_)
+
+    # FieldWorldMapZoneExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            FieldWorldMapZoneExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        FieldWorldMapZoneExcelTableStart(builder)
+        if self.dataList is not None:
+            FieldWorldMapZoneExcelTableAddDataList(builder, dataList)
+        fieldWorldMapZoneExcelTable = FieldWorldMapZoneExcelTableEnd(builder)
+        return fieldWorldMapZoneExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(FieldWorldMapZoneExcelTableT, 'FieldWorldMapZoneExcelTable', ())

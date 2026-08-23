@@ -126,3 +126,67 @@ def ScenarioModeRewardExcelEnd(builder):
 
 def End(builder):
     return ScenarioModeRewardExcelEnd(builder)
+
+
+class ScenarioModeRewardExcelT(object):
+
+    # ScenarioModeRewardExcelT
+    def __init__(
+        self,
+        scenarioModeRewardId = 0,
+        rewardTag = 0,
+        rewardProb = 0,
+        rewardParcelType = 0,
+        rewardParcelId = 0,
+        rewardParcelAmount = 0,
+        isDisplayed = False,
+    ):
+        self.scenarioModeRewardId = scenarioModeRewardId  # type: int
+        self.rewardTag = rewardTag  # type: int
+        self.rewardProb = rewardProb  # type: int
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelId = rewardParcelId  # type: int
+        self.rewardParcelAmount = rewardParcelAmount  # type: int
+        self.isDisplayed = isDisplayed  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        scenarioModeRewardExcel = ScenarioModeRewardExcel()
+        scenarioModeRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(scenarioModeRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, scenarioModeRewardExcel):
+        x = ScenarioModeRewardExcelT()
+        x._UnPack(scenarioModeRewardExcel)
+        return x
+
+    # ScenarioModeRewardExcelT
+    def _UnPack(self, scenarioModeRewardExcel):
+        if scenarioModeRewardExcel is None:
+            return
+        self.scenarioModeRewardId = scenarioModeRewardExcel.ScenarioModeRewardId()
+        self.rewardTag = scenarioModeRewardExcel.RewardTag()
+        self.rewardProb = scenarioModeRewardExcel.RewardProb()
+        self.rewardParcelType = scenarioModeRewardExcel.RewardParcelType()
+        self.rewardParcelId = scenarioModeRewardExcel.RewardParcelId()
+        self.rewardParcelAmount = scenarioModeRewardExcel.RewardParcelAmount()
+        self.isDisplayed = scenarioModeRewardExcel.IsDisplayed()
+
+    # ScenarioModeRewardExcelT
+    def Pack(self, builder):
+        ScenarioModeRewardExcelStart(builder)
+        ScenarioModeRewardExcelAddScenarioModeRewardId(builder, self.scenarioModeRewardId)
+        ScenarioModeRewardExcelAddRewardTag(builder, self.rewardTag)
+        ScenarioModeRewardExcelAddRewardProb(builder, self.rewardProb)
+        ScenarioModeRewardExcelAddRewardParcelType(builder, self.rewardParcelType)
+        ScenarioModeRewardExcelAddRewardParcelId(builder, self.rewardParcelId)
+        ScenarioModeRewardExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        ScenarioModeRewardExcelAddIsDisplayed(builder, self.isDisplayed)
+        scenarioModeRewardExcel = ScenarioModeRewardExcelEnd(builder)
+        return scenarioModeRewardExcel

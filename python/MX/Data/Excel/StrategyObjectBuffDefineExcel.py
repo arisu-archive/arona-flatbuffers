@@ -100,3 +100,65 @@ def StrategyObjectBuffDefineExcelEnd(builder):
 
 def End(builder):
     return StrategyObjectBuffDefineExcelEnd(builder)
+
+
+class StrategyObjectBuffDefineExcelT(object):
+
+    # StrategyObjectBuffDefineExcelT
+    def __init__(
+        self,
+        strategyObjectBuffId = 0,
+        strategyObjectTurn = 0,
+        skillGroupId = None,
+        localizeCodeId = 0,
+        iconPath = None,
+    ):
+        self.strategyObjectBuffId = strategyObjectBuffId  # type: int
+        self.strategyObjectTurn = strategyObjectTurn  # type: int
+        self.skillGroupId = skillGroupId  # type: Optional[str]
+        self.localizeCodeId = localizeCodeId  # type: int
+        self.iconPath = iconPath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        strategyObjectBuffDefineExcel = StrategyObjectBuffDefineExcel()
+        strategyObjectBuffDefineExcel.Init(buf, pos)
+        return cls.InitFromObj(strategyObjectBuffDefineExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, strategyObjectBuffDefineExcel):
+        x = StrategyObjectBuffDefineExcelT()
+        x._UnPack(strategyObjectBuffDefineExcel)
+        return x
+
+    # StrategyObjectBuffDefineExcelT
+    def _UnPack(self, strategyObjectBuffDefineExcel):
+        if strategyObjectBuffDefineExcel is None:
+            return
+        self.strategyObjectBuffId = strategyObjectBuffDefineExcel.StrategyObjectBuffId()
+        self.strategyObjectTurn = strategyObjectBuffDefineExcel.StrategyObjectTurn()
+        self.skillGroupId = strategyObjectBuffDefineExcel.SkillGroupId()
+        self.localizeCodeId = strategyObjectBuffDefineExcel.LocalizeCodeId()
+        self.iconPath = strategyObjectBuffDefineExcel.IconPath()
+
+    # StrategyObjectBuffDefineExcelT
+    def Pack(self, builder):
+        if self.skillGroupId is not None:
+            skillGroupId = builder.CreateString(self.skillGroupId)
+        if self.iconPath is not None:
+            iconPath = builder.CreateString(self.iconPath)
+        StrategyObjectBuffDefineExcelStart(builder)
+        StrategyObjectBuffDefineExcelAddStrategyObjectBuffId(builder, self.strategyObjectBuffId)
+        StrategyObjectBuffDefineExcelAddStrategyObjectTurn(builder, self.strategyObjectTurn)
+        if self.skillGroupId is not None:
+            StrategyObjectBuffDefineExcelAddSkillGroupId(builder, skillGroupId)
+        StrategyObjectBuffDefineExcelAddLocalizeCodeId(builder, self.localizeCodeId)
+        if self.iconPath is not None:
+            StrategyObjectBuffDefineExcelAddIconPath(builder, iconPath)
+        strategyObjectBuffDefineExcel = StrategyObjectBuffDefineExcelEnd(builder)
+        return strategyObjectBuffDefineExcel

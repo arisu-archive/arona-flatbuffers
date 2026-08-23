@@ -113,3 +113,63 @@ def RecipeSelectionGroupExcelEnd(builder):
 
 def End(builder):
     return RecipeSelectionGroupExcelEnd(builder)
+
+
+class RecipeSelectionGroupExcelT(object):
+
+    # RecipeSelectionGroupExcelT
+    def __init__(
+        self,
+        recipeSelectionGroupId = 0,
+        recipeSelectionGroupComponentId = 0,
+        parcelType = 0,
+        parcelId = 0,
+        resultAmountMin = 0,
+        resultAmountMax = 0,
+    ):
+        self.recipeSelectionGroupId = recipeSelectionGroupId  # type: int
+        self.recipeSelectionGroupComponentId = recipeSelectionGroupComponentId  # type: int
+        self.parcelType = parcelType  # type: int
+        self.parcelId = parcelId  # type: int
+        self.resultAmountMin = resultAmountMin  # type: int
+        self.resultAmountMax = resultAmountMax  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        recipeSelectionGroupExcel = RecipeSelectionGroupExcel()
+        recipeSelectionGroupExcel.Init(buf, pos)
+        return cls.InitFromObj(recipeSelectionGroupExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, recipeSelectionGroupExcel):
+        x = RecipeSelectionGroupExcelT()
+        x._UnPack(recipeSelectionGroupExcel)
+        return x
+
+    # RecipeSelectionGroupExcelT
+    def _UnPack(self, recipeSelectionGroupExcel):
+        if recipeSelectionGroupExcel is None:
+            return
+        self.recipeSelectionGroupId = recipeSelectionGroupExcel.RecipeSelectionGroupId()
+        self.recipeSelectionGroupComponentId = recipeSelectionGroupExcel.RecipeSelectionGroupComponentId()
+        self.parcelType = recipeSelectionGroupExcel.ParcelType()
+        self.parcelId = recipeSelectionGroupExcel.ParcelId()
+        self.resultAmountMin = recipeSelectionGroupExcel.ResultAmountMin()
+        self.resultAmountMax = recipeSelectionGroupExcel.ResultAmountMax()
+
+    # RecipeSelectionGroupExcelT
+    def Pack(self, builder):
+        RecipeSelectionGroupExcelStart(builder)
+        RecipeSelectionGroupExcelAddRecipeSelectionGroupId(builder, self.recipeSelectionGroupId)
+        RecipeSelectionGroupExcelAddRecipeSelectionGroupComponentId(builder, self.recipeSelectionGroupComponentId)
+        RecipeSelectionGroupExcelAddParcelType(builder, self.parcelType)
+        RecipeSelectionGroupExcelAddParcelId(builder, self.parcelId)
+        RecipeSelectionGroupExcelAddResultAmountMin(builder, self.resultAmountMin)
+        RecipeSelectionGroupExcelAddResultAmountMax(builder, self.resultAmountMax)
+        recipeSelectionGroupExcel = RecipeSelectionGroupExcelEnd(builder)
+        return recipeSelectionGroupExcel

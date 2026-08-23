@@ -113,3 +113,63 @@ def BattlePassRewardExcelEnd(builder):
 
 def End(builder):
     return BattlePassRewardExcelEnd(builder)
+
+
+class BattlePassRewardExcelT(object):
+
+    # BattlePassRewardExcelT
+    def __init__(
+        self,
+        id = 0,
+        rewardGroupId = 0,
+        level = 0,
+        rewardParcelType = 0,
+        rewardParcelUniqueId = 0,
+        rewardParcelAmount = 0,
+    ):
+        self.id = id  # type: int
+        self.rewardGroupId = rewardGroupId  # type: int
+        self.level = level  # type: int
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelUniqueId = rewardParcelUniqueId  # type: int
+        self.rewardParcelAmount = rewardParcelAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        battlePassRewardExcel = BattlePassRewardExcel()
+        battlePassRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(battlePassRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, battlePassRewardExcel):
+        x = BattlePassRewardExcelT()
+        x._UnPack(battlePassRewardExcel)
+        return x
+
+    # BattlePassRewardExcelT
+    def _UnPack(self, battlePassRewardExcel):
+        if battlePassRewardExcel is None:
+            return
+        self.id = battlePassRewardExcel.Id()
+        self.rewardGroupId = battlePassRewardExcel.RewardGroupId()
+        self.level = battlePassRewardExcel.Level()
+        self.rewardParcelType = battlePassRewardExcel.RewardParcelType()
+        self.rewardParcelUniqueId = battlePassRewardExcel.RewardParcelUniqueId()
+        self.rewardParcelAmount = battlePassRewardExcel.RewardParcelAmount()
+
+    # BattlePassRewardExcelT
+    def Pack(self, builder):
+        BattlePassRewardExcelStart(builder)
+        BattlePassRewardExcelAddId(builder, self.id)
+        BattlePassRewardExcelAddRewardGroupId(builder, self.rewardGroupId)
+        BattlePassRewardExcelAddLevel(builder, self.level)
+        BattlePassRewardExcelAddRewardParcelType(builder, self.rewardParcelType)
+        BattlePassRewardExcelAddRewardParcelUniqueId(builder, self.rewardParcelUniqueId)
+        BattlePassRewardExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        battlePassRewardExcel = BattlePassRewardExcelEnd(builder)
+        return battlePassRewardExcel

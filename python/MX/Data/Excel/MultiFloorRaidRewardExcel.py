@@ -100,3 +100,59 @@ def MultiFloorRaidRewardExcelEnd(builder):
 
 def End(builder):
     return MultiFloorRaidRewardExcelEnd(builder)
+
+
+class MultiFloorRaidRewardExcelT(object):
+
+    # MultiFloorRaidRewardExcelT
+    def __init__(
+        self,
+        rewardGroupId = 0,
+        clearStageRewardProb = 0,
+        clearStageRewardParcelType = 0,
+        clearStageRewardParcelUniqueId = 0,
+        clearStageRewardAmount = 0,
+    ):
+        self.rewardGroupId = rewardGroupId  # type: int
+        self.clearStageRewardProb = clearStageRewardProb  # type: int
+        self.clearStageRewardParcelType = clearStageRewardParcelType  # type: int
+        self.clearStageRewardParcelUniqueId = clearStageRewardParcelUniqueId  # type: int
+        self.clearStageRewardAmount = clearStageRewardAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        multiFloorRaidRewardExcel = MultiFloorRaidRewardExcel()
+        multiFloorRaidRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(multiFloorRaidRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, multiFloorRaidRewardExcel):
+        x = MultiFloorRaidRewardExcelT()
+        x._UnPack(multiFloorRaidRewardExcel)
+        return x
+
+    # MultiFloorRaidRewardExcelT
+    def _UnPack(self, multiFloorRaidRewardExcel):
+        if multiFloorRaidRewardExcel is None:
+            return
+        self.rewardGroupId = multiFloorRaidRewardExcel.RewardGroupId()
+        self.clearStageRewardProb = multiFloorRaidRewardExcel.ClearStageRewardProb()
+        self.clearStageRewardParcelType = multiFloorRaidRewardExcel.ClearStageRewardParcelType()
+        self.clearStageRewardParcelUniqueId = multiFloorRaidRewardExcel.ClearStageRewardParcelUniqueId()
+        self.clearStageRewardAmount = multiFloorRaidRewardExcel.ClearStageRewardAmount()
+
+    # MultiFloorRaidRewardExcelT
+    def Pack(self, builder):
+        MultiFloorRaidRewardExcelStart(builder)
+        MultiFloorRaidRewardExcelAddRewardGroupId(builder, self.rewardGroupId)
+        MultiFloorRaidRewardExcelAddClearStageRewardProb(builder, self.clearStageRewardProb)
+        MultiFloorRaidRewardExcelAddClearStageRewardParcelType(builder, self.clearStageRewardParcelType)
+        MultiFloorRaidRewardExcelAddClearStageRewardParcelUniqueId(builder, self.clearStageRewardParcelUniqueId)
+        MultiFloorRaidRewardExcelAddClearStageRewardAmount(builder, self.clearStageRewardAmount)
+        multiFloorRaidRewardExcel = MultiFloorRaidRewardExcelEnd(builder)
+        return multiFloorRaidRewardExcel

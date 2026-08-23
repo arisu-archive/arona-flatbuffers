@@ -295,3 +295,131 @@ def MiniGameRhythmExcelEnd(builder):
 
 def End(builder):
     return MiniGameRhythmExcelEnd(builder)
+
+
+class MiniGameRhythmExcelT(object):
+
+    # MiniGameRhythmExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        rhythmBgmId = 0,
+        presetName = None,
+        stageDifficulty = 0,
+        isSpecial = False,
+        openStageScoreAmount = 0,
+        maxHp = 0,
+        missDamage = 0,
+        criticalHpRestoreValue = 0,
+        maxScore = 0,
+        feverScoreRate = 0,
+        noteScoreRate = 0,
+        comboScoreRate = 0,
+        attackScoreRate = 0,
+        feverCriticalRate = 0.0,
+        feverAttackRate = 0.0,
+        maxHpScore = 0,
+        rhythmFileName = None,
+        artLevelSceneName = None,
+        comboImagePath = None,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.rhythmBgmId = rhythmBgmId  # type: int
+        self.presetName = presetName  # type: Optional[str]
+        self.stageDifficulty = stageDifficulty  # type: int
+        self.isSpecial = isSpecial  # type: bool
+        self.openStageScoreAmount = openStageScoreAmount  # type: int
+        self.maxHp = maxHp  # type: int
+        self.missDamage = missDamage  # type: int
+        self.criticalHpRestoreValue = criticalHpRestoreValue  # type: int
+        self.maxScore = maxScore  # type: int
+        self.feverScoreRate = feverScoreRate  # type: int
+        self.noteScoreRate = noteScoreRate  # type: int
+        self.comboScoreRate = comboScoreRate  # type: int
+        self.attackScoreRate = attackScoreRate  # type: int
+        self.feverCriticalRate = feverCriticalRate  # type: float
+        self.feverAttackRate = feverAttackRate  # type: float
+        self.maxHpScore = maxHpScore  # type: int
+        self.rhythmFileName = rhythmFileName  # type: Optional[str]
+        self.artLevelSceneName = artLevelSceneName  # type: Optional[str]
+        self.comboImagePath = comboImagePath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameRhythmExcel = MiniGameRhythmExcel()
+        miniGameRhythmExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameRhythmExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameRhythmExcel):
+        x = MiniGameRhythmExcelT()
+        x._UnPack(miniGameRhythmExcel)
+        return x
+
+    # MiniGameRhythmExcelT
+    def _UnPack(self, miniGameRhythmExcel):
+        if miniGameRhythmExcel is None:
+            return
+        self.uniqueId = miniGameRhythmExcel.UniqueId()
+        self.rhythmBgmId = miniGameRhythmExcel.RhythmBgmId()
+        self.presetName = miniGameRhythmExcel.PresetName()
+        self.stageDifficulty = miniGameRhythmExcel.StageDifficulty()
+        self.isSpecial = miniGameRhythmExcel.IsSpecial()
+        self.openStageScoreAmount = miniGameRhythmExcel.OpenStageScoreAmount()
+        self.maxHp = miniGameRhythmExcel.MaxHp()
+        self.missDamage = miniGameRhythmExcel.MissDamage()
+        self.criticalHpRestoreValue = miniGameRhythmExcel.CriticalHpRestoreValue()
+        self.maxScore = miniGameRhythmExcel.MaxScore()
+        self.feverScoreRate = miniGameRhythmExcel.FeverScoreRate()
+        self.noteScoreRate = miniGameRhythmExcel.NoteScoreRate()
+        self.comboScoreRate = miniGameRhythmExcel.ComboScoreRate()
+        self.attackScoreRate = miniGameRhythmExcel.AttackScoreRate()
+        self.feverCriticalRate = miniGameRhythmExcel.FeverCriticalRate()
+        self.feverAttackRate = miniGameRhythmExcel.FeverAttackRate()
+        self.maxHpScore = miniGameRhythmExcel.MaxHpScore()
+        self.rhythmFileName = miniGameRhythmExcel.RhythmFileName()
+        self.artLevelSceneName = miniGameRhythmExcel.ArtLevelSceneName()
+        self.comboImagePath = miniGameRhythmExcel.ComboImagePath()
+
+    # MiniGameRhythmExcelT
+    def Pack(self, builder):
+        if self.presetName is not None:
+            presetName = builder.CreateString(self.presetName)
+        if self.rhythmFileName is not None:
+            rhythmFileName = builder.CreateString(self.rhythmFileName)
+        if self.artLevelSceneName is not None:
+            artLevelSceneName = builder.CreateString(self.artLevelSceneName)
+        if self.comboImagePath is not None:
+            comboImagePath = builder.CreateString(self.comboImagePath)
+        MiniGameRhythmExcelStart(builder)
+        MiniGameRhythmExcelAddUniqueId(builder, self.uniqueId)
+        MiniGameRhythmExcelAddRhythmBgmId(builder, self.rhythmBgmId)
+        if self.presetName is not None:
+            MiniGameRhythmExcelAddPresetName(builder, presetName)
+        MiniGameRhythmExcelAddStageDifficulty(builder, self.stageDifficulty)
+        MiniGameRhythmExcelAddIsSpecial(builder, self.isSpecial)
+        MiniGameRhythmExcelAddOpenStageScoreAmount(builder, self.openStageScoreAmount)
+        MiniGameRhythmExcelAddMaxHp(builder, self.maxHp)
+        MiniGameRhythmExcelAddMissDamage(builder, self.missDamage)
+        MiniGameRhythmExcelAddCriticalHpRestoreValue(builder, self.criticalHpRestoreValue)
+        MiniGameRhythmExcelAddMaxScore(builder, self.maxScore)
+        MiniGameRhythmExcelAddFeverScoreRate(builder, self.feverScoreRate)
+        MiniGameRhythmExcelAddNoteScoreRate(builder, self.noteScoreRate)
+        MiniGameRhythmExcelAddComboScoreRate(builder, self.comboScoreRate)
+        MiniGameRhythmExcelAddAttackScoreRate(builder, self.attackScoreRate)
+        MiniGameRhythmExcelAddFeverCriticalRate(builder, self.feverCriticalRate)
+        MiniGameRhythmExcelAddFeverAttackRate(builder, self.feverAttackRate)
+        MiniGameRhythmExcelAddMaxHpScore(builder, self.maxHpScore)
+        if self.rhythmFileName is not None:
+            MiniGameRhythmExcelAddRhythmFileName(builder, rhythmFileName)
+        if self.artLevelSceneName is not None:
+            MiniGameRhythmExcelAddArtLevelSceneName(builder, artLevelSceneName)
+        if self.comboImagePath is not None:
+            MiniGameRhythmExcelAddComboImagePath(builder, comboImagePath)
+        miniGameRhythmExcel = MiniGameRhythmExcelEnd(builder)
+        return miniGameRhythmExcel

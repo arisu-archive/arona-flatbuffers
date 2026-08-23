@@ -191,3 +191,115 @@ def MiniGameRoadPuzzleRailSetRewardExcelEnd(builder):
 
 def End(builder):
     return MiniGameRoadPuzzleRailSetRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MiniGameRoadPuzzleRailSetRewardExcelT(object):
+
+    # MiniGameRoadPuzzleRailSetRewardExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        uniqueId = 0,
+        localizePrefabId = None,
+        rewardParcelType = None,
+        rewardParcelId = None,
+        rewardParcelAmount = None,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.localizePrefabId = localizePrefabId  # type: Optional[str]
+        self.rewardParcelType = rewardParcelType  # type: Optional[List[int]]
+        self.rewardParcelId = rewardParcelId  # type: Optional[List[int]]
+        self.rewardParcelAmount = rewardParcelAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameRoadPuzzleRailSetRewardExcel = MiniGameRoadPuzzleRailSetRewardExcel()
+        miniGameRoadPuzzleRailSetRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameRoadPuzzleRailSetRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameRoadPuzzleRailSetRewardExcel):
+        x = MiniGameRoadPuzzleRailSetRewardExcelT()
+        x._UnPack(miniGameRoadPuzzleRailSetRewardExcel)
+        return x
+
+    # MiniGameRoadPuzzleRailSetRewardExcelT
+    def _UnPack(self, miniGameRoadPuzzleRailSetRewardExcel):
+        if miniGameRoadPuzzleRailSetRewardExcel is None:
+            return
+        self.eventContentId = miniGameRoadPuzzleRailSetRewardExcel.EventContentId()
+        self.uniqueId = miniGameRoadPuzzleRailSetRewardExcel.UniqueId()
+        self.localizePrefabId = miniGameRoadPuzzleRailSetRewardExcel.LocalizePrefabId()
+        if not miniGameRoadPuzzleRailSetRewardExcel.RewardParcelTypeIsNone():
+            if np is None:
+                self.rewardParcelType = []
+                for i in range(miniGameRoadPuzzleRailSetRewardExcel.RewardParcelTypeLength()):
+                    self.rewardParcelType.append(miniGameRoadPuzzleRailSetRewardExcel.RewardParcelType(i))
+            else:
+                self.rewardParcelType = miniGameRoadPuzzleRailSetRewardExcel.RewardParcelTypeAsNumpy()
+        if not miniGameRoadPuzzleRailSetRewardExcel.RewardParcelIdIsNone():
+            if np is None:
+                self.rewardParcelId = []
+                for i in range(miniGameRoadPuzzleRailSetRewardExcel.RewardParcelIdLength()):
+                    self.rewardParcelId.append(miniGameRoadPuzzleRailSetRewardExcel.RewardParcelId(i))
+            else:
+                self.rewardParcelId = miniGameRoadPuzzleRailSetRewardExcel.RewardParcelIdAsNumpy()
+        if not miniGameRoadPuzzleRailSetRewardExcel.RewardParcelAmountIsNone():
+            if np is None:
+                self.rewardParcelAmount = []
+                for i in range(miniGameRoadPuzzleRailSetRewardExcel.RewardParcelAmountLength()):
+                    self.rewardParcelAmount.append(miniGameRoadPuzzleRailSetRewardExcel.RewardParcelAmount(i))
+            else:
+                self.rewardParcelAmount = miniGameRoadPuzzleRailSetRewardExcel.RewardParcelAmountAsNumpy()
+
+    # MiniGameRoadPuzzleRailSetRewardExcelT
+    def Pack(self, builder):
+        if self.localizePrefabId is not None:
+            localizePrefabId = builder.CreateString(self.localizePrefabId)
+        if self.rewardParcelType is not None:
+            if np is not None and type(self.rewardParcelType) is np.ndarray:
+                rewardParcelType = builder.CreateNumpyVector(self.rewardParcelType)
+            else:
+                MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelTypeVector(builder, len(self.rewardParcelType))
+                for i in reversed(range(len(self.rewardParcelType))):
+                    builder.PrependInt32(self.rewardParcelType[i])
+                rewardParcelType = builder.EndVector()
+        if self.rewardParcelId is not None:
+            if np is not None and type(self.rewardParcelId) is np.ndarray:
+                rewardParcelId = builder.CreateNumpyVector(self.rewardParcelId)
+            else:
+                MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelIdVector(builder, len(self.rewardParcelId))
+                for i in reversed(range(len(self.rewardParcelId))):
+                    builder.PrependInt64(self.rewardParcelId[i])
+                rewardParcelId = builder.EndVector()
+        if self.rewardParcelAmount is not None:
+            if np is not None and type(self.rewardParcelAmount) is np.ndarray:
+                rewardParcelAmount = builder.CreateNumpyVector(self.rewardParcelAmount)
+            else:
+                MiniGameRoadPuzzleRailSetRewardExcelStartRewardParcelAmountVector(builder, len(self.rewardParcelAmount))
+                for i in reversed(range(len(self.rewardParcelAmount))):
+                    builder.PrependInt64(self.rewardParcelAmount[i])
+                rewardParcelAmount = builder.EndVector()
+        MiniGameRoadPuzzleRailSetRewardExcelStart(builder)
+        MiniGameRoadPuzzleRailSetRewardExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameRoadPuzzleRailSetRewardExcelAddUniqueId(builder, self.uniqueId)
+        if self.localizePrefabId is not None:
+            MiniGameRoadPuzzleRailSetRewardExcelAddLocalizePrefabId(builder, localizePrefabId)
+        if self.rewardParcelType is not None:
+            MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelType(builder, rewardParcelType)
+        if self.rewardParcelId is not None:
+            MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelId(builder, rewardParcelId)
+        if self.rewardParcelAmount is not None:
+            MiniGameRoadPuzzleRailSetRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+        miniGameRoadPuzzleRailSetRewardExcel = MiniGameRoadPuzzleRailSetRewardExcelEnd(builder)
+        return miniGameRoadPuzzleRailSetRewardExcel

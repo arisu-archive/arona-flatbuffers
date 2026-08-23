@@ -333,3 +333,153 @@ def OpenConditionExcelEnd(builder):
 
 def End(builder):
     return OpenConditionExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class OpenConditionExcelT(object):
+
+    # OpenConditionExcelT
+    def __init__(
+        self,
+        openConditionContentType = 0,
+        lockUi = None,
+        shortcutPopupPriority = 0,
+        shortcutUiName = None,
+        shortcutParam = 0,
+        scene = None,
+        hideWhenLocked = False,
+        accountLevel = 0,
+        scenarioModeId = 0,
+        campaignStageId = 0,
+        multipleConditionCheckType = 0,
+        openDayOfWeek = 0,
+        openHour = 0,
+        closeDayOfWeek = 0,
+        closeHour = 0,
+        openedCafeId = 0,
+        cafeIdforCafeRank = 0,
+        cafeRank = 0,
+        contentsOpenShow = False,
+        contentsOpenShortcutUi = None,
+    ):
+        self.openConditionContentType = openConditionContentType  # type: int
+        self.lockUi = lockUi  # type: Optional[List[Optional[str]]]
+        self.shortcutPopupPriority = shortcutPopupPriority  # type: int
+        self.shortcutUiName = shortcutUiName  # type: Optional[List[Optional[str]]]
+        self.shortcutParam = shortcutParam  # type: int
+        self.scene = scene  # type: Optional[str]
+        self.hideWhenLocked = hideWhenLocked  # type: bool
+        self.accountLevel = accountLevel  # type: int
+        self.scenarioModeId = scenarioModeId  # type: int
+        self.campaignStageId = campaignStageId  # type: int
+        self.multipleConditionCheckType = multipleConditionCheckType  # type: int
+        self.openDayOfWeek = openDayOfWeek  # type: int
+        self.openHour = openHour  # type: int
+        self.closeDayOfWeek = closeDayOfWeek  # type: int
+        self.closeHour = closeHour  # type: int
+        self.openedCafeId = openedCafeId  # type: int
+        self.cafeIdforCafeRank = cafeIdforCafeRank  # type: int
+        self.cafeRank = cafeRank  # type: int
+        self.contentsOpenShow = contentsOpenShow  # type: bool
+        self.contentsOpenShortcutUi = contentsOpenShortcutUi  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        openConditionExcel = OpenConditionExcel()
+        openConditionExcel.Init(buf, pos)
+        return cls.InitFromObj(openConditionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, openConditionExcel):
+        x = OpenConditionExcelT()
+        x._UnPack(openConditionExcel)
+        return x
+
+    # OpenConditionExcelT
+    def _UnPack(self, openConditionExcel):
+        if openConditionExcel is None:
+            return
+        self.openConditionContentType = openConditionExcel.OpenConditionContentType()
+        if not openConditionExcel.LockUiIsNone():
+            self.lockUi = []
+            for i in range(openConditionExcel.LockUiLength()):
+                self.lockUi.append(openConditionExcel.LockUi(i))
+        self.shortcutPopupPriority = openConditionExcel.ShortcutPopupPriority()
+        if not openConditionExcel.ShortcutUiNameIsNone():
+            self.shortcutUiName = []
+            for i in range(openConditionExcel.ShortcutUiNameLength()):
+                self.shortcutUiName.append(openConditionExcel.ShortcutUiName(i))
+        self.shortcutParam = openConditionExcel.ShortcutParam()
+        self.scene = openConditionExcel.Scene()
+        self.hideWhenLocked = openConditionExcel.HideWhenLocked()
+        self.accountLevel = openConditionExcel.AccountLevel()
+        self.scenarioModeId = openConditionExcel.ScenarioModeId()
+        self.campaignStageId = openConditionExcel.CampaignStageId()
+        self.multipleConditionCheckType = openConditionExcel.MultipleConditionCheckType()
+        self.openDayOfWeek = openConditionExcel.OpenDayOfWeek()
+        self.openHour = openConditionExcel.OpenHour()
+        self.closeDayOfWeek = openConditionExcel.CloseDayOfWeek()
+        self.closeHour = openConditionExcel.CloseHour()
+        self.openedCafeId = openConditionExcel.OpenedCafeId()
+        self.cafeIdforCafeRank = openConditionExcel.CafeIdforCafeRank()
+        self.cafeRank = openConditionExcel.CafeRank()
+        self.contentsOpenShow = openConditionExcel.ContentsOpenShow()
+        self.contentsOpenShortcutUi = openConditionExcel.ContentsOpenShortcutUi()
+
+    # OpenConditionExcelT
+    def Pack(self, builder):
+        if self.lockUi is not None:
+            lockUilist = []
+            for i in range(len(self.lockUi)):
+                lockUilist.append(builder.CreateString(self.lockUi[i]))
+            OpenConditionExcelStartLockUiVector(builder, len(self.lockUi))
+            for i in reversed(range(len(self.lockUi))):
+                builder.PrependUOffsetTRelative(lockUilist[i])
+            lockUi = builder.EndVector()
+        if self.shortcutUiName is not None:
+            shortcutUiNamelist = []
+            for i in range(len(self.shortcutUiName)):
+                shortcutUiNamelist.append(builder.CreateString(self.shortcutUiName[i]))
+            OpenConditionExcelStartShortcutUiNameVector(builder, len(self.shortcutUiName))
+            for i in reversed(range(len(self.shortcutUiName))):
+                builder.PrependUOffsetTRelative(shortcutUiNamelist[i])
+            shortcutUiName = builder.EndVector()
+        if self.scene is not None:
+            scene = builder.CreateString(self.scene)
+        if self.contentsOpenShortcutUi is not None:
+            contentsOpenShortcutUi = builder.CreateString(self.contentsOpenShortcutUi)
+        OpenConditionExcelStart(builder)
+        OpenConditionExcelAddOpenConditionContentType(builder, self.openConditionContentType)
+        if self.lockUi is not None:
+            OpenConditionExcelAddLockUi(builder, lockUi)
+        OpenConditionExcelAddShortcutPopupPriority(builder, self.shortcutPopupPriority)
+        if self.shortcutUiName is not None:
+            OpenConditionExcelAddShortcutUiName(builder, shortcutUiName)
+        OpenConditionExcelAddShortcutParam(builder, self.shortcutParam)
+        if self.scene is not None:
+            OpenConditionExcelAddScene(builder, scene)
+        OpenConditionExcelAddHideWhenLocked(builder, self.hideWhenLocked)
+        OpenConditionExcelAddAccountLevel(builder, self.accountLevel)
+        OpenConditionExcelAddScenarioModeId(builder, self.scenarioModeId)
+        OpenConditionExcelAddCampaignStageId(builder, self.campaignStageId)
+        OpenConditionExcelAddMultipleConditionCheckType(builder, self.multipleConditionCheckType)
+        OpenConditionExcelAddOpenDayOfWeek(builder, self.openDayOfWeek)
+        OpenConditionExcelAddOpenHour(builder, self.openHour)
+        OpenConditionExcelAddCloseDayOfWeek(builder, self.closeDayOfWeek)
+        OpenConditionExcelAddCloseHour(builder, self.closeHour)
+        OpenConditionExcelAddOpenedCafeId(builder, self.openedCafeId)
+        OpenConditionExcelAddCafeIdforCafeRank(builder, self.cafeIdforCafeRank)
+        OpenConditionExcelAddCafeRank(builder, self.cafeRank)
+        OpenConditionExcelAddContentsOpenShow(builder, self.contentsOpenShow)
+        if self.contentsOpenShortcutUi is not None:
+            OpenConditionExcelAddContentsOpenShortcutUi(builder, contentsOpenShortcutUi)
+        openConditionExcel = OpenConditionExcelEnd(builder)
+        return openConditionExcel

@@ -2,4 +2,193 @@
 
 # namespace: FlatData
 
-# NOTE AddressableBlackListExcel.py does not declare any structs or enums
+import flatbuffers
+from flatbuffers.compat import import_numpy
+np = import_numpy()
+
+class AddressableBlackListExcel(object):
+    __slots__ = ['_tab']
+
+    @classmethod
+    def GetRootAs(cls, buf, offset=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, offset)
+        x = AddressableBlackListExcel()
+        x.Init(buf, n + offset)
+        return x
+
+    @classmethod
+    def GetRootAsAddressableBlackListExcel(cls, buf, offset=0):
+        """This method is deprecated. Please switch to GetRootAs."""
+        return cls.GetRootAs(buf, offset)
+    # AddressableBlackListExcel
+    def Init(self, buf, pos):
+        self._tab = flatbuffers.table.Table(buf, pos)
+
+    # AddressableBlackListExcel
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # AddressableBlackListExcel
+    def FolderPath(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # AddressableBlackListExcel
+    def FolderPathLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # AddressableBlackListExcel
+    def FolderPathIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        return o == 0
+
+    # AddressableBlackListExcel
+    def ResourcePath(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # AddressableBlackListExcel
+    def ResourcePathLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # AddressableBlackListExcel
+    def ResourcePathIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        return o == 0
+
+def AddressableBlackListExcelStart(builder):
+    builder.StartObject(3)
+
+def Start(builder):
+    AddressableBlackListExcelStart(builder)
+
+def AddressableBlackListExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
+def AddId(builder, id):
+    AddressableBlackListExcelAddId(builder, id)
+
+def AddressableBlackListExcelAddFolderPath(builder, folderPath):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(folderPath), 0)
+
+def AddFolderPath(builder, folderPath):
+    AddressableBlackListExcelAddFolderPath(builder, folderPath)
+
+def AddressableBlackListExcelStartFolderPathVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartFolderPathVector(builder, numElems):
+    return AddressableBlackListExcelStartFolderPathVector(builder, numElems)
+
+def AddressableBlackListExcelAddResourcePath(builder, resourcePath):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(resourcePath), 0)
+
+def AddResourcePath(builder, resourcePath):
+    AddressableBlackListExcelAddResourcePath(builder, resourcePath)
+
+def AddressableBlackListExcelStartResourcePathVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartResourcePathVector(builder, numElems):
+    return AddressableBlackListExcelStartResourcePathVector(builder, numElems)
+
+def AddressableBlackListExcelEnd(builder):
+    return builder.EndObject()
+
+def End(builder):
+    return AddressableBlackListExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class AddressableBlackListExcelT(object):
+
+    # AddressableBlackListExcelT
+    def __init__(
+        self,
+        id = 0,
+        folderPath = None,
+        resourcePath = None,
+    ):
+        self.id = id  # type: int
+        self.folderPath = folderPath  # type: Optional[List[Optional[str]]]
+        self.resourcePath = resourcePath  # type: Optional[List[Optional[str]]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        addressableBlackListExcel = AddressableBlackListExcel()
+        addressableBlackListExcel.Init(buf, pos)
+        return cls.InitFromObj(addressableBlackListExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, addressableBlackListExcel):
+        x = AddressableBlackListExcelT()
+        x._UnPack(addressableBlackListExcel)
+        return x
+
+    # AddressableBlackListExcelT
+    def _UnPack(self, addressableBlackListExcel):
+        if addressableBlackListExcel is None:
+            return
+        self.id = addressableBlackListExcel.Id()
+        if not addressableBlackListExcel.FolderPathIsNone():
+            self.folderPath = []
+            for i in range(addressableBlackListExcel.FolderPathLength()):
+                self.folderPath.append(addressableBlackListExcel.FolderPath(i))
+        if not addressableBlackListExcel.ResourcePathIsNone():
+            self.resourcePath = []
+            for i in range(addressableBlackListExcel.ResourcePathLength()):
+                self.resourcePath.append(addressableBlackListExcel.ResourcePath(i))
+
+    # AddressableBlackListExcelT
+    def Pack(self, builder):
+        if self.folderPath is not None:
+            folderPathlist = []
+            for i in range(len(self.folderPath)):
+                folderPathlist.append(builder.CreateString(self.folderPath[i]))
+            AddressableBlackListExcelStartFolderPathVector(builder, len(self.folderPath))
+            for i in reversed(range(len(self.folderPath))):
+                builder.PrependUOffsetTRelative(folderPathlist[i])
+            folderPath = builder.EndVector()
+        if self.resourcePath is not None:
+            resourcePathlist = []
+            for i in range(len(self.resourcePath)):
+                resourcePathlist.append(builder.CreateString(self.resourcePath[i]))
+            AddressableBlackListExcelStartResourcePathVector(builder, len(self.resourcePath))
+            for i in reversed(range(len(self.resourcePath))):
+                builder.PrependUOffsetTRelative(resourcePathlist[i])
+            resourcePath = builder.EndVector()
+        AddressableBlackListExcelStart(builder)
+        AddressableBlackListExcelAddId(builder, self.id)
+        if self.folderPath is not None:
+            AddressableBlackListExcelAddFolderPath(builder, folderPath)
+        if self.resourcePath is not None:
+            AddressableBlackListExcelAddResourcePath(builder, resourcePath)
+        addressableBlackListExcel = AddressableBlackListExcelEnd(builder)
+        return addressableBlackListExcel
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(AddressableBlackListExcelT, 'AddressableBlackListExcel', (('id', 'int64', False), ('folderPath', 'string', True), ('resourcePath', 'string', True)))

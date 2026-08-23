@@ -230,3 +230,128 @@ def LogicEffectCommonVisualExcelEnd(builder):
 
 def End(builder):
     return LogicEffectCommonVisualExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class LogicEffectCommonVisualExcelT(object):
+
+    # LogicEffectCommonVisualExcelT
+    def __init__(
+        self,
+        stringId = 0,
+        iconSpriteName = None,
+        iconDispelColor = None,
+        particleEnterPath = None,
+        particleEnterSocket = 0,
+        particleLoopPath = None,
+        particleLoopSocket = 0,
+        particleEndPath = None,
+        particleEndSocket = 0,
+        particleApplyPath = None,
+        particleApplySocket = 0,
+        particleRemovedPath = None,
+        particleRemovedSocket = 0,
+    ):
+        self.stringId = stringId  # type: int
+        self.iconSpriteName = iconSpriteName  # type: Optional[str]
+        self.iconDispelColor = iconDispelColor  # type: Optional[List[float]]
+        self.particleEnterPath = particleEnterPath  # type: Optional[str]
+        self.particleEnterSocket = particleEnterSocket  # type: int
+        self.particleLoopPath = particleLoopPath  # type: Optional[str]
+        self.particleLoopSocket = particleLoopSocket  # type: int
+        self.particleEndPath = particleEndPath  # type: Optional[str]
+        self.particleEndSocket = particleEndSocket  # type: int
+        self.particleApplyPath = particleApplyPath  # type: Optional[str]
+        self.particleApplySocket = particleApplySocket  # type: int
+        self.particleRemovedPath = particleRemovedPath  # type: Optional[str]
+        self.particleRemovedSocket = particleRemovedSocket  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        logicEffectCommonVisualExcel = LogicEffectCommonVisualExcel()
+        logicEffectCommonVisualExcel.Init(buf, pos)
+        return cls.InitFromObj(logicEffectCommonVisualExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, logicEffectCommonVisualExcel):
+        x = LogicEffectCommonVisualExcelT()
+        x._UnPack(logicEffectCommonVisualExcel)
+        return x
+
+    # LogicEffectCommonVisualExcelT
+    def _UnPack(self, logicEffectCommonVisualExcel):
+        if logicEffectCommonVisualExcel is None:
+            return
+        self.stringId = logicEffectCommonVisualExcel.StringId()
+        self.iconSpriteName = logicEffectCommonVisualExcel.IconSpriteName()
+        if not logicEffectCommonVisualExcel.IconDispelColorIsNone():
+            if np is None:
+                self.iconDispelColor = []
+                for i in range(logicEffectCommonVisualExcel.IconDispelColorLength()):
+                    self.iconDispelColor.append(logicEffectCommonVisualExcel.IconDispelColor(i))
+            else:
+                self.iconDispelColor = logicEffectCommonVisualExcel.IconDispelColorAsNumpy()
+        self.particleEnterPath = logicEffectCommonVisualExcel.ParticleEnterPath()
+        self.particleEnterSocket = logicEffectCommonVisualExcel.ParticleEnterSocket()
+        self.particleLoopPath = logicEffectCommonVisualExcel.ParticleLoopPath()
+        self.particleLoopSocket = logicEffectCommonVisualExcel.ParticleLoopSocket()
+        self.particleEndPath = logicEffectCommonVisualExcel.ParticleEndPath()
+        self.particleEndSocket = logicEffectCommonVisualExcel.ParticleEndSocket()
+        self.particleApplyPath = logicEffectCommonVisualExcel.ParticleApplyPath()
+        self.particleApplySocket = logicEffectCommonVisualExcel.ParticleApplySocket()
+        self.particleRemovedPath = logicEffectCommonVisualExcel.ParticleRemovedPath()
+        self.particleRemovedSocket = logicEffectCommonVisualExcel.ParticleRemovedSocket()
+
+    # LogicEffectCommonVisualExcelT
+    def Pack(self, builder):
+        if self.iconSpriteName is not None:
+            iconSpriteName = builder.CreateString(self.iconSpriteName)
+        if self.iconDispelColor is not None:
+            if np is not None and type(self.iconDispelColor) is np.ndarray:
+                iconDispelColor = builder.CreateNumpyVector(self.iconDispelColor)
+            else:
+                LogicEffectCommonVisualExcelStartIconDispelColorVector(builder, len(self.iconDispelColor))
+                for i in reversed(range(len(self.iconDispelColor))):
+                    builder.PrependFloat32(self.iconDispelColor[i])
+                iconDispelColor = builder.EndVector()
+        if self.particleEnterPath is not None:
+            particleEnterPath = builder.CreateString(self.particleEnterPath)
+        if self.particleLoopPath is not None:
+            particleLoopPath = builder.CreateString(self.particleLoopPath)
+        if self.particleEndPath is not None:
+            particleEndPath = builder.CreateString(self.particleEndPath)
+        if self.particleApplyPath is not None:
+            particleApplyPath = builder.CreateString(self.particleApplyPath)
+        if self.particleRemovedPath is not None:
+            particleRemovedPath = builder.CreateString(self.particleRemovedPath)
+        LogicEffectCommonVisualExcelStart(builder)
+        LogicEffectCommonVisualExcelAddStringId(builder, self.stringId)
+        if self.iconSpriteName is not None:
+            LogicEffectCommonVisualExcelAddIconSpriteName(builder, iconSpriteName)
+        if self.iconDispelColor is not None:
+            LogicEffectCommonVisualExcelAddIconDispelColor(builder, iconDispelColor)
+        if self.particleEnterPath is not None:
+            LogicEffectCommonVisualExcelAddParticleEnterPath(builder, particleEnterPath)
+        LogicEffectCommonVisualExcelAddParticleEnterSocket(builder, self.particleEnterSocket)
+        if self.particleLoopPath is not None:
+            LogicEffectCommonVisualExcelAddParticleLoopPath(builder, particleLoopPath)
+        LogicEffectCommonVisualExcelAddParticleLoopSocket(builder, self.particleLoopSocket)
+        if self.particleEndPath is not None:
+            LogicEffectCommonVisualExcelAddParticleEndPath(builder, particleEndPath)
+        LogicEffectCommonVisualExcelAddParticleEndSocket(builder, self.particleEndSocket)
+        if self.particleApplyPath is not None:
+            LogicEffectCommonVisualExcelAddParticleApplyPath(builder, particleApplyPath)
+        LogicEffectCommonVisualExcelAddParticleApplySocket(builder, self.particleApplySocket)
+        if self.particleRemovedPath is not None:
+            LogicEffectCommonVisualExcelAddParticleRemovedPath(builder, particleRemovedPath)
+        LogicEffectCommonVisualExcelAddParticleRemovedSocket(builder, self.particleRemovedSocket)
+        logicEffectCommonVisualExcel = LogicEffectCommonVisualExcelEnd(builder)
+        return logicEffectCommonVisualExcel

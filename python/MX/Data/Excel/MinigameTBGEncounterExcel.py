@@ -334,3 +334,176 @@ def MinigameTBGEncounterExcelEnd(builder):
 
 def End(builder):
     return MinigameTBGEncounterExcelEnd(builder)
+
+
+class MinigameTBGEncounterExcelT(object):
+
+    # MinigameTBGEncounterExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        uniqueId = 0,
+        allThema = False,
+        themaIndex = 0,
+        themaType = 0,
+        objectType = 0,
+        enemyImagePath = None,
+        enemyPrefabName = None,
+        enemyNameLocalize = None,
+        optionGroupId = 0,
+        rewardHide = False,
+        encounterTitleLocalize = None,
+        storyImagePath = None,
+        beforeStoryLocalize = None,
+        beforeStoryOption1Localize = None,
+        beforeStoryOption2Localize = None,
+        beforeStoryOption3Localize = None,
+        allyAttackLocalize = None,
+        enemyAttackLocalize = None,
+        attackDefenceLocalize = None,
+        clearStoryLocalize = None,
+        defeatStoryLocalize = None,
+        runawayStoryLocalize = None,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.allThema = allThema  # type: bool
+        self.themaIndex = themaIndex  # type: int
+        self.themaType = themaType  # type: int
+        self.objectType = objectType  # type: int
+        self.enemyImagePath = enemyImagePath  # type: Optional[str]
+        self.enemyPrefabName = enemyPrefabName  # type: Optional[str]
+        self.enemyNameLocalize = enemyNameLocalize  # type: Optional[str]
+        self.optionGroupId = optionGroupId  # type: int
+        self.rewardHide = rewardHide  # type: bool
+        self.encounterTitleLocalize = encounterTitleLocalize  # type: Optional[str]
+        self.storyImagePath = storyImagePath  # type: Optional[str]
+        self.beforeStoryLocalize = beforeStoryLocalize  # type: Optional[str]
+        self.beforeStoryOption1Localize = beforeStoryOption1Localize  # type: Optional[str]
+        self.beforeStoryOption2Localize = beforeStoryOption2Localize  # type: Optional[str]
+        self.beforeStoryOption3Localize = beforeStoryOption3Localize  # type: Optional[str]
+        self.allyAttackLocalize = allyAttackLocalize  # type: Optional[str]
+        self.enemyAttackLocalize = enemyAttackLocalize  # type: Optional[str]
+        self.attackDefenceLocalize = attackDefenceLocalize  # type: Optional[str]
+        self.clearStoryLocalize = clearStoryLocalize  # type: Optional[str]
+        self.defeatStoryLocalize = defeatStoryLocalize  # type: Optional[str]
+        self.runawayStoryLocalize = runawayStoryLocalize  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameTbgencounterExcel = MinigameTBGEncounterExcel()
+        minigameTbgencounterExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameTbgencounterExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameTbgencounterExcel):
+        x = MinigameTBGEncounterExcelT()
+        x._UnPack(minigameTbgencounterExcel)
+        return x
+
+    # MinigameTBGEncounterExcelT
+    def _UnPack(self, minigameTbgencounterExcel):
+        if minigameTbgencounterExcel is None:
+            return
+        self.eventContentId = minigameTbgencounterExcel.EventContentId()
+        self.uniqueId = minigameTbgencounterExcel.UniqueId()
+        self.allThema = minigameTbgencounterExcel.AllThema()
+        self.themaIndex = minigameTbgencounterExcel.ThemaIndex()
+        self.themaType = minigameTbgencounterExcel.ThemaType()
+        self.objectType = minigameTbgencounterExcel.ObjectType()
+        self.enemyImagePath = minigameTbgencounterExcel.EnemyImagePath()
+        self.enemyPrefabName = minigameTbgencounterExcel.EnemyPrefabName()
+        self.enemyNameLocalize = minigameTbgencounterExcel.EnemyNameLocalize()
+        self.optionGroupId = minigameTbgencounterExcel.OptionGroupId()
+        self.rewardHide = minigameTbgencounterExcel.RewardHide()
+        self.encounterTitleLocalize = minigameTbgencounterExcel.EncounterTitleLocalize()
+        self.storyImagePath = minigameTbgencounterExcel.StoryImagePath()
+        self.beforeStoryLocalize = minigameTbgencounterExcel.BeforeStoryLocalize()
+        self.beforeStoryOption1Localize = minigameTbgencounterExcel.BeforeStoryOption1Localize()
+        self.beforeStoryOption2Localize = minigameTbgencounterExcel.BeforeStoryOption2Localize()
+        self.beforeStoryOption3Localize = minigameTbgencounterExcel.BeforeStoryOption3Localize()
+        self.allyAttackLocalize = minigameTbgencounterExcel.AllyAttackLocalize()
+        self.enemyAttackLocalize = minigameTbgencounterExcel.EnemyAttackLocalize()
+        self.attackDefenceLocalize = minigameTbgencounterExcel.AttackDefenceLocalize()
+        self.clearStoryLocalize = minigameTbgencounterExcel.ClearStoryLocalize()
+        self.defeatStoryLocalize = minigameTbgencounterExcel.DefeatStoryLocalize()
+        self.runawayStoryLocalize = minigameTbgencounterExcel.RunawayStoryLocalize()
+
+    # MinigameTBGEncounterExcelT
+    def Pack(self, builder):
+        if self.enemyImagePath is not None:
+            enemyImagePath = builder.CreateString(self.enemyImagePath)
+        if self.enemyPrefabName is not None:
+            enemyPrefabName = builder.CreateString(self.enemyPrefabName)
+        if self.enemyNameLocalize is not None:
+            enemyNameLocalize = builder.CreateString(self.enemyNameLocalize)
+        if self.encounterTitleLocalize is not None:
+            encounterTitleLocalize = builder.CreateString(self.encounterTitleLocalize)
+        if self.storyImagePath is not None:
+            storyImagePath = builder.CreateString(self.storyImagePath)
+        if self.beforeStoryLocalize is not None:
+            beforeStoryLocalize = builder.CreateString(self.beforeStoryLocalize)
+        if self.beforeStoryOption1Localize is not None:
+            beforeStoryOption1Localize = builder.CreateString(self.beforeStoryOption1Localize)
+        if self.beforeStoryOption2Localize is not None:
+            beforeStoryOption2Localize = builder.CreateString(self.beforeStoryOption2Localize)
+        if self.beforeStoryOption3Localize is not None:
+            beforeStoryOption3Localize = builder.CreateString(self.beforeStoryOption3Localize)
+        if self.allyAttackLocalize is not None:
+            allyAttackLocalize = builder.CreateString(self.allyAttackLocalize)
+        if self.enemyAttackLocalize is not None:
+            enemyAttackLocalize = builder.CreateString(self.enemyAttackLocalize)
+        if self.attackDefenceLocalize is not None:
+            attackDefenceLocalize = builder.CreateString(self.attackDefenceLocalize)
+        if self.clearStoryLocalize is not None:
+            clearStoryLocalize = builder.CreateString(self.clearStoryLocalize)
+        if self.defeatStoryLocalize is not None:
+            defeatStoryLocalize = builder.CreateString(self.defeatStoryLocalize)
+        if self.runawayStoryLocalize is not None:
+            runawayStoryLocalize = builder.CreateString(self.runawayStoryLocalize)
+        MinigameTBGEncounterExcelStart(builder)
+        MinigameTBGEncounterExcelAddEventContentId(builder, self.eventContentId)
+        MinigameTBGEncounterExcelAddUniqueId(builder, self.uniqueId)
+        MinigameTBGEncounterExcelAddAllThema(builder, self.allThema)
+        MinigameTBGEncounterExcelAddThemaIndex(builder, self.themaIndex)
+        MinigameTBGEncounterExcelAddThemaType(builder, self.themaType)
+        MinigameTBGEncounterExcelAddObjectType(builder, self.objectType)
+        if self.enemyImagePath is not None:
+            MinigameTBGEncounterExcelAddEnemyImagePath(builder, enemyImagePath)
+        if self.enemyPrefabName is not None:
+            MinigameTBGEncounterExcelAddEnemyPrefabName(builder, enemyPrefabName)
+        if self.enemyNameLocalize is not None:
+            MinigameTBGEncounterExcelAddEnemyNameLocalize(builder, enemyNameLocalize)
+        MinigameTBGEncounterExcelAddOptionGroupId(builder, self.optionGroupId)
+        MinigameTBGEncounterExcelAddRewardHide(builder, self.rewardHide)
+        if self.encounterTitleLocalize is not None:
+            MinigameTBGEncounterExcelAddEncounterTitleLocalize(builder, encounterTitleLocalize)
+        if self.storyImagePath is not None:
+            MinigameTBGEncounterExcelAddStoryImagePath(builder, storyImagePath)
+        if self.beforeStoryLocalize is not None:
+            MinigameTBGEncounterExcelAddBeforeStoryLocalize(builder, beforeStoryLocalize)
+        if self.beforeStoryOption1Localize is not None:
+            MinigameTBGEncounterExcelAddBeforeStoryOption1Localize(builder, beforeStoryOption1Localize)
+        if self.beforeStoryOption2Localize is not None:
+            MinigameTBGEncounterExcelAddBeforeStoryOption2Localize(builder, beforeStoryOption2Localize)
+        if self.beforeStoryOption3Localize is not None:
+            MinigameTBGEncounterExcelAddBeforeStoryOption3Localize(builder, beforeStoryOption3Localize)
+        if self.allyAttackLocalize is not None:
+            MinigameTBGEncounterExcelAddAllyAttackLocalize(builder, allyAttackLocalize)
+        if self.enemyAttackLocalize is not None:
+            MinigameTBGEncounterExcelAddEnemyAttackLocalize(builder, enemyAttackLocalize)
+        if self.attackDefenceLocalize is not None:
+            MinigameTBGEncounterExcelAddAttackDefenceLocalize(builder, attackDefenceLocalize)
+        if self.clearStoryLocalize is not None:
+            MinigameTBGEncounterExcelAddClearStoryLocalize(builder, clearStoryLocalize)
+        if self.defeatStoryLocalize is not None:
+            MinigameTBGEncounterExcelAddDefeatStoryLocalize(builder, defeatStoryLocalize)
+        if self.runawayStoryLocalize is not None:
+            MinigameTBGEncounterExcelAddRunawayStoryLocalize(builder, runawayStoryLocalize)
+        minigameTbgencounterExcel = MinigameTBGEncounterExcelEnd(builder)
+        return minigameTbgencounterExcel

@@ -72,3 +72,68 @@ def ConstMiniGameShootingExcelTableEnd(builder):
 
 def End(builder):
     return ConstMiniGameShootingExcelTableEnd(builder)
+
+import FlatData.ConstMiniGameShootingExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConstMiniGameShootingExcelTableT(object):
+
+    # ConstMiniGameShootingExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConstMiniGameShootingExcel.ConstMiniGameShootingExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        constMiniGameShootingExcelTable = ConstMiniGameShootingExcelTable()
+        constMiniGameShootingExcelTable.Init(buf, pos)
+        return cls.InitFromObj(constMiniGameShootingExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, constMiniGameShootingExcelTable):
+        x = ConstMiniGameShootingExcelTableT()
+        x._UnPack(constMiniGameShootingExcelTable)
+        return x
+
+    # ConstMiniGameShootingExcelTableT
+    def _UnPack(self, constMiniGameShootingExcelTable):
+        if constMiniGameShootingExcelTable is None:
+            return
+        if not constMiniGameShootingExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(constMiniGameShootingExcelTable.DataListLength()):
+                if constMiniGameShootingExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    constMiniGameShootingExcel_ = FlatData.ConstMiniGameShootingExcel.ConstMiniGameShootingExcelT.InitFromObj(constMiniGameShootingExcelTable.DataList(i))
+                    self.dataList.append(constMiniGameShootingExcel_)
+
+    # ConstMiniGameShootingExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConstMiniGameShootingExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConstMiniGameShootingExcelTableStart(builder)
+        if self.dataList is not None:
+            ConstMiniGameShootingExcelTableAddDataList(builder, dataList)
+        constMiniGameShootingExcelTable = ConstMiniGameShootingExcelTableEnd(builder)
+        return constMiniGameShootingExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConstMiniGameShootingExcelTableT, 'ConstMiniGameShootingExcelTable', ())

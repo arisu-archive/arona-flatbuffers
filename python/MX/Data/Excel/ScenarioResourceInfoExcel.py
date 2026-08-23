@@ -102,14 +102,68 @@ class ScenarioResourceInfoExcel(object):
         return None
 
     # ScenarioResourceInfoExcel
-    def LocalizeId(self):
+    def ScenarioForceEnter(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ScenarioResourceInfoExcel
+    def LocalizeId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
+    # ScenarioResourceInfoExcel
+    def AcademyLobbyCharacterId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # ScenarioResourceInfoExcel
+    def AcademyLobbyCharacterIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # ScenarioResourceInfoExcel
+    def AcademyLobbyCharacterIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ScenarioResourceInfoExcel
+    def AcademyLobbyCharacterIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
+        return o == 0
+
+    # ScenarioResourceInfoExcel
+    def SweepAnimation(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.String(a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return ""
+
+    # ScenarioResourceInfoExcel
+    def SweepAnimationLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # ScenarioResourceInfoExcel
+    def SweepAnimationIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
+        return o == 0
+
 def ScenarioResourceInfoExcelStart(builder):
-    builder.StartObject(12)
+    builder.StartObject(15)
 
 def Start(builder):
     ScenarioResourceInfoExcelStart(builder)
@@ -180,14 +234,183 @@ def ScenarioResourceInfoExcelAddMovieCgPath(builder, movieCgPath):
 def AddMovieCgPath(builder, movieCgPath):
     ScenarioResourceInfoExcelAddMovieCgPath(builder, movieCgPath)
 
+def ScenarioResourceInfoExcelAddScenarioForceEnter(builder, scenarioForceEnter):
+    builder.PrependInt32Slot(11, scenarioForceEnter, 0)
+
+def AddScenarioForceEnter(builder, scenarioForceEnter):
+    ScenarioResourceInfoExcelAddScenarioForceEnter(builder, scenarioForceEnter)
+
 def ScenarioResourceInfoExcelAddLocalizeId(builder, localizeId):
-    builder.PrependUint32Slot(11, localizeId, 0)
+    builder.PrependUint32Slot(12, localizeId, 0)
 
 def AddLocalizeId(builder, localizeId):
     ScenarioResourceInfoExcelAddLocalizeId(builder, localizeId)
+
+def ScenarioResourceInfoExcelAddAcademyLobbyCharacterId(builder, academyLobbyCharacterId):
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(academyLobbyCharacterId), 0)
+
+def AddAcademyLobbyCharacterId(builder, academyLobbyCharacterId):
+    ScenarioResourceInfoExcelAddAcademyLobbyCharacterId(builder, academyLobbyCharacterId)
+
+def ScenarioResourceInfoExcelStartAcademyLobbyCharacterIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartAcademyLobbyCharacterIdVector(builder, numElems):
+    return ScenarioResourceInfoExcelStartAcademyLobbyCharacterIdVector(builder, numElems)
+
+def ScenarioResourceInfoExcelAddSweepAnimation(builder, sweepAnimation):
+    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(sweepAnimation), 0)
+
+def AddSweepAnimation(builder, sweepAnimation):
+    ScenarioResourceInfoExcelAddSweepAnimation(builder, sweepAnimation)
+
+def ScenarioResourceInfoExcelStartSweepAnimationVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartSweepAnimationVector(builder, numElems):
+    return ScenarioResourceInfoExcelStartSweepAnimationVector(builder, numElems)
 
 def ScenarioResourceInfoExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return ScenarioResourceInfoExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ScenarioResourceInfoExcelT(object):
+
+    # ScenarioResourceInfoExcelT
+    def __init__(
+        self,
+        id = 0,
+        scenarioModeId = 0,
+        priorityOrder = 0,
+        pvDisplayOrder = 0,
+        videoId = 0,
+        bgmId = 0,
+        audioName = None,
+        spinePath = None,
+        ratio = 0,
+        lobbyAniPath = None,
+        movieCgPath = None,
+        scenarioForceEnter = 0,
+        localizeId = 0,
+        academyLobbyCharacterId = None,
+        sweepAnimation = None,
+    ):
+        self.id = id  # type: int
+        self.scenarioModeId = scenarioModeId  # type: int
+        self.priorityOrder = priorityOrder  # type: int
+        self.pvDisplayOrder = pvDisplayOrder  # type: int
+        self.videoId = videoId  # type: int
+        self.bgmId = bgmId  # type: int
+        self.audioName = audioName  # type: Optional[str]
+        self.spinePath = spinePath  # type: Optional[str]
+        self.ratio = ratio  # type: int
+        self.lobbyAniPath = lobbyAniPath  # type: Optional[str]
+        self.movieCgPath = movieCgPath  # type: Optional[str]
+        self.scenarioForceEnter = scenarioForceEnter  # type: int
+        self.localizeId = localizeId  # type: int
+        self.academyLobbyCharacterId = academyLobbyCharacterId  # type: Optional[List[int]]
+        self.sweepAnimation = sweepAnimation  # type: Optional[List[Optional[str]]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        scenarioResourceInfoExcel = ScenarioResourceInfoExcel()
+        scenarioResourceInfoExcel.Init(buf, pos)
+        return cls.InitFromObj(scenarioResourceInfoExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, scenarioResourceInfoExcel):
+        x = ScenarioResourceInfoExcelT()
+        x._UnPack(scenarioResourceInfoExcel)
+        return x
+
+    # ScenarioResourceInfoExcelT
+    def _UnPack(self, scenarioResourceInfoExcel):
+        if scenarioResourceInfoExcel is None:
+            return
+        self.id = scenarioResourceInfoExcel.Id()
+        self.scenarioModeId = scenarioResourceInfoExcel.ScenarioModeId()
+        self.priorityOrder = scenarioResourceInfoExcel.PriorityOrder()
+        self.pvDisplayOrder = scenarioResourceInfoExcel.PvDisplayOrder()
+        self.videoId = scenarioResourceInfoExcel.VideoId()
+        self.bgmId = scenarioResourceInfoExcel.BgmId()
+        self.audioName = scenarioResourceInfoExcel.AudioName()
+        self.spinePath = scenarioResourceInfoExcel.SpinePath()
+        self.ratio = scenarioResourceInfoExcel.Ratio()
+        self.lobbyAniPath = scenarioResourceInfoExcel.LobbyAniPath()
+        self.movieCgPath = scenarioResourceInfoExcel.MovieCgPath()
+        self.scenarioForceEnter = scenarioResourceInfoExcel.ScenarioForceEnter()
+        self.localizeId = scenarioResourceInfoExcel.LocalizeId()
+        if not scenarioResourceInfoExcel.AcademyLobbyCharacterIdIsNone():
+            if np is None:
+                self.academyLobbyCharacterId = []
+                for i in range(scenarioResourceInfoExcel.AcademyLobbyCharacterIdLength()):
+                    self.academyLobbyCharacterId.append(scenarioResourceInfoExcel.AcademyLobbyCharacterId(i))
+            else:
+                self.academyLobbyCharacterId = scenarioResourceInfoExcel.AcademyLobbyCharacterIdAsNumpy()
+        if not scenarioResourceInfoExcel.SweepAnimationIsNone():
+            self.sweepAnimation = []
+            for i in range(scenarioResourceInfoExcel.SweepAnimationLength()):
+                self.sweepAnimation.append(scenarioResourceInfoExcel.SweepAnimation(i))
+
+    # ScenarioResourceInfoExcelT
+    def Pack(self, builder):
+        if self.audioName is not None:
+            audioName = builder.CreateString(self.audioName)
+        if self.spinePath is not None:
+            spinePath = builder.CreateString(self.spinePath)
+        if self.lobbyAniPath is not None:
+            lobbyAniPath = builder.CreateString(self.lobbyAniPath)
+        if self.movieCgPath is not None:
+            movieCgPath = builder.CreateString(self.movieCgPath)
+        if self.academyLobbyCharacterId is not None:
+            if np is not None and type(self.academyLobbyCharacterId) is np.ndarray:
+                academyLobbyCharacterId = builder.CreateNumpyVector(self.academyLobbyCharacterId)
+            else:
+                ScenarioResourceInfoExcelStartAcademyLobbyCharacterIdVector(builder, len(self.academyLobbyCharacterId))
+                for i in reversed(range(len(self.academyLobbyCharacterId))):
+                    builder.PrependInt64(self.academyLobbyCharacterId[i])
+                academyLobbyCharacterId = builder.EndVector()
+        if self.sweepAnimation is not None:
+            sweepAnimationlist = []
+            for i in range(len(self.sweepAnimation)):
+                sweepAnimationlist.append(builder.CreateString(self.sweepAnimation[i]))
+            ScenarioResourceInfoExcelStartSweepAnimationVector(builder, len(self.sweepAnimation))
+            for i in reversed(range(len(self.sweepAnimation))):
+                builder.PrependUOffsetTRelative(sweepAnimationlist[i])
+            sweepAnimation = builder.EndVector()
+        ScenarioResourceInfoExcelStart(builder)
+        ScenarioResourceInfoExcelAddId(builder, self.id)
+        ScenarioResourceInfoExcelAddScenarioModeId(builder, self.scenarioModeId)
+        ScenarioResourceInfoExcelAddPriorityOrder(builder, self.priorityOrder)
+        ScenarioResourceInfoExcelAddPvDisplayOrder(builder, self.pvDisplayOrder)
+        ScenarioResourceInfoExcelAddVideoId(builder, self.videoId)
+        ScenarioResourceInfoExcelAddBgmId(builder, self.bgmId)
+        if self.audioName is not None:
+            ScenarioResourceInfoExcelAddAudioName(builder, audioName)
+        if self.spinePath is not None:
+            ScenarioResourceInfoExcelAddSpinePath(builder, spinePath)
+        ScenarioResourceInfoExcelAddRatio(builder, self.ratio)
+        if self.lobbyAniPath is not None:
+            ScenarioResourceInfoExcelAddLobbyAniPath(builder, lobbyAniPath)
+        if self.movieCgPath is not None:
+            ScenarioResourceInfoExcelAddMovieCgPath(builder, movieCgPath)
+        ScenarioResourceInfoExcelAddScenarioForceEnter(builder, self.scenarioForceEnter)
+        ScenarioResourceInfoExcelAddLocalizeId(builder, self.localizeId)
+        if self.academyLobbyCharacterId is not None:
+            ScenarioResourceInfoExcelAddAcademyLobbyCharacterId(builder, academyLobbyCharacterId)
+        if self.sweepAnimation is not None:
+            ScenarioResourceInfoExcelAddSweepAnimation(builder, sweepAnimation)
+        scenarioResourceInfoExcel = ScenarioResourceInfoExcelEnd(builder)
+        return scenarioResourceInfoExcel

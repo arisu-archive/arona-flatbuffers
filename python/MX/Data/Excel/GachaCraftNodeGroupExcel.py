@@ -74,3 +74,51 @@ def GachaCraftNodeGroupExcelEnd(builder):
 
 def End(builder):
     return GachaCraftNodeGroupExcelEnd(builder)
+
+
+class GachaCraftNodeGroupExcelT(object):
+
+    # GachaCraftNodeGroupExcelT
+    def __init__(
+        self,
+        nodeId = 0,
+        gachaGroupId = 0,
+        probWeight = 0,
+    ):
+        self.nodeId = nodeId  # type: int
+        self.gachaGroupId = gachaGroupId  # type: int
+        self.probWeight = probWeight  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        gachaCraftNodeGroupExcel = GachaCraftNodeGroupExcel()
+        gachaCraftNodeGroupExcel.Init(buf, pos)
+        return cls.InitFromObj(gachaCraftNodeGroupExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, gachaCraftNodeGroupExcel):
+        x = GachaCraftNodeGroupExcelT()
+        x._UnPack(gachaCraftNodeGroupExcel)
+        return x
+
+    # GachaCraftNodeGroupExcelT
+    def _UnPack(self, gachaCraftNodeGroupExcel):
+        if gachaCraftNodeGroupExcel is None:
+            return
+        self.nodeId = gachaCraftNodeGroupExcel.NodeId()
+        self.gachaGroupId = gachaCraftNodeGroupExcel.GachaGroupId()
+        self.probWeight = gachaCraftNodeGroupExcel.ProbWeight()
+
+    # GachaCraftNodeGroupExcelT
+    def Pack(self, builder):
+        GachaCraftNodeGroupExcelStart(builder)
+        GachaCraftNodeGroupExcelAddNodeId(builder, self.nodeId)
+        GachaCraftNodeGroupExcelAddGachaGroupId(builder, self.gachaGroupId)
+        GachaCraftNodeGroupExcelAddProbWeight(builder, self.probWeight)
+        gachaCraftNodeGroupExcel = GachaCraftNodeGroupExcelEnd(builder)
+        return gachaCraftNodeGroupExcel

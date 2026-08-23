@@ -72,3 +72,68 @@ def DefaultParcelExcelTableEnd(builder):
 
 def End(builder):
     return DefaultParcelExcelTableEnd(builder)
+
+import FlatData.DefaultParcelExcel
+try:
+    from typing import List
+except:
+    pass
+
+class DefaultParcelExcelTableT(object):
+
+    # DefaultParcelExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.DefaultParcelExcel.DefaultParcelExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        defaultParcelExcelTable = DefaultParcelExcelTable()
+        defaultParcelExcelTable.Init(buf, pos)
+        return cls.InitFromObj(defaultParcelExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, defaultParcelExcelTable):
+        x = DefaultParcelExcelTableT()
+        x._UnPack(defaultParcelExcelTable)
+        return x
+
+    # DefaultParcelExcelTableT
+    def _UnPack(self, defaultParcelExcelTable):
+        if defaultParcelExcelTable is None:
+            return
+        if not defaultParcelExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(defaultParcelExcelTable.DataListLength()):
+                if defaultParcelExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    defaultParcelExcel_ = FlatData.DefaultParcelExcel.DefaultParcelExcelT.InitFromObj(defaultParcelExcelTable.DataList(i))
+                    self.dataList.append(defaultParcelExcel_)
+
+    # DefaultParcelExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            DefaultParcelExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        DefaultParcelExcelTableStart(builder)
+        if self.dataList is not None:
+            DefaultParcelExcelTableAddDataList(builder, dataList)
+        defaultParcelExcelTable = DefaultParcelExcelTableEnd(builder)
+        return defaultParcelExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(DefaultParcelExcelTableT, 'DefaultParcelExcelTable', ())

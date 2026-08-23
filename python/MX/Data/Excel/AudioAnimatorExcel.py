@@ -262,3 +262,132 @@ def AudioAnimatorExcelEnd(builder):
 
 def End(builder):
     return AudioAnimatorExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class AudioAnimatorExcelT(object):
+
+    # AudioAnimatorExcelT
+    def __init__(
+        self,
+        controllerNameHash = 0,
+        voiceNamePrefix = None,
+        stateNameHash = 0,
+        stateName = None,
+        ignoreInterruptDelay = False,
+        ignoreInterruptPlay = False,
+        ignoreVelocity = False,
+        volume = 0.0,
+        delay = 0.0,
+        randomPitchMin = 0,
+        randomPitchMax = 0,
+        audioPriority = 0,
+        audioClipPath = None,
+        voiceHash = None,
+    ):
+        self.controllerNameHash = controllerNameHash  # type: int
+        self.voiceNamePrefix = voiceNamePrefix  # type: Optional[str]
+        self.stateNameHash = stateNameHash  # type: int
+        self.stateName = stateName  # type: Optional[str]
+        self.ignoreInterruptDelay = ignoreInterruptDelay  # type: bool
+        self.ignoreInterruptPlay = ignoreInterruptPlay  # type: bool
+        self.ignoreVelocity = ignoreVelocity  # type: bool
+        self.volume = volume  # type: float
+        self.delay = delay  # type: float
+        self.randomPitchMin = randomPitchMin  # type: int
+        self.randomPitchMax = randomPitchMax  # type: int
+        self.audioPriority = audioPriority  # type: int
+        self.audioClipPath = audioClipPath  # type: Optional[List[Optional[str]]]
+        self.voiceHash = voiceHash  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        audioAnimatorExcel = AudioAnimatorExcel()
+        audioAnimatorExcel.Init(buf, pos)
+        return cls.InitFromObj(audioAnimatorExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, audioAnimatorExcel):
+        x = AudioAnimatorExcelT()
+        x._UnPack(audioAnimatorExcel)
+        return x
+
+    # AudioAnimatorExcelT
+    def _UnPack(self, audioAnimatorExcel):
+        if audioAnimatorExcel is None:
+            return
+        self.controllerNameHash = audioAnimatorExcel.ControllerNameHash()
+        self.voiceNamePrefix = audioAnimatorExcel.VoiceNamePrefix()
+        self.stateNameHash = audioAnimatorExcel.StateNameHash()
+        self.stateName = audioAnimatorExcel.StateName()
+        self.ignoreInterruptDelay = audioAnimatorExcel.IgnoreInterruptDelay()
+        self.ignoreInterruptPlay = audioAnimatorExcel.IgnoreInterruptPlay()
+        self.ignoreVelocity = audioAnimatorExcel.IgnoreVelocity()
+        self.volume = audioAnimatorExcel.Volume()
+        self.delay = audioAnimatorExcel.Delay()
+        self.randomPitchMin = audioAnimatorExcel.RandomPitchMin()
+        self.randomPitchMax = audioAnimatorExcel.RandomPitchMax()
+        self.audioPriority = audioAnimatorExcel.AudioPriority()
+        if not audioAnimatorExcel.AudioClipPathIsNone():
+            self.audioClipPath = []
+            for i in range(audioAnimatorExcel.AudioClipPathLength()):
+                self.audioClipPath.append(audioAnimatorExcel.AudioClipPath(i))
+        if not audioAnimatorExcel.VoiceHashIsNone():
+            if np is None:
+                self.voiceHash = []
+                for i in range(audioAnimatorExcel.VoiceHashLength()):
+                    self.voiceHash.append(audioAnimatorExcel.VoiceHash(i))
+            else:
+                self.voiceHash = audioAnimatorExcel.VoiceHashAsNumpy()
+
+    # AudioAnimatorExcelT
+    def Pack(self, builder):
+        if self.voiceNamePrefix is not None:
+            voiceNamePrefix = builder.CreateString(self.voiceNamePrefix)
+        if self.stateName is not None:
+            stateName = builder.CreateString(self.stateName)
+        if self.audioClipPath is not None:
+            audioClipPathlist = []
+            for i in range(len(self.audioClipPath)):
+                audioClipPathlist.append(builder.CreateString(self.audioClipPath[i]))
+            AudioAnimatorExcelStartAudioClipPathVector(builder, len(self.audioClipPath))
+            for i in reversed(range(len(self.audioClipPath))):
+                builder.PrependUOffsetTRelative(audioClipPathlist[i])
+            audioClipPath = builder.EndVector()
+        if self.voiceHash is not None:
+            if np is not None and type(self.voiceHash) is np.ndarray:
+                voiceHash = builder.CreateNumpyVector(self.voiceHash)
+            else:
+                AudioAnimatorExcelStartVoiceHashVector(builder, len(self.voiceHash))
+                for i in reversed(range(len(self.voiceHash))):
+                    builder.PrependUint32(self.voiceHash[i])
+                voiceHash = builder.EndVector()
+        AudioAnimatorExcelStart(builder)
+        AudioAnimatorExcelAddControllerNameHash(builder, self.controllerNameHash)
+        if self.voiceNamePrefix is not None:
+            AudioAnimatorExcelAddVoiceNamePrefix(builder, voiceNamePrefix)
+        AudioAnimatorExcelAddStateNameHash(builder, self.stateNameHash)
+        if self.stateName is not None:
+            AudioAnimatorExcelAddStateName(builder, stateName)
+        AudioAnimatorExcelAddIgnoreInterruptDelay(builder, self.ignoreInterruptDelay)
+        AudioAnimatorExcelAddIgnoreInterruptPlay(builder, self.ignoreInterruptPlay)
+        AudioAnimatorExcelAddIgnoreVelocity(builder, self.ignoreVelocity)
+        AudioAnimatorExcelAddVolume(builder, self.volume)
+        AudioAnimatorExcelAddDelay(builder, self.delay)
+        AudioAnimatorExcelAddRandomPitchMin(builder, self.randomPitchMin)
+        AudioAnimatorExcelAddRandomPitchMax(builder, self.randomPitchMax)
+        AudioAnimatorExcelAddAudioPriority(builder, self.audioPriority)
+        if self.audioClipPath is not None:
+            AudioAnimatorExcelAddAudioClipPath(builder, audioClipPath)
+        if self.voiceHash is not None:
+            AudioAnimatorExcelAddVoiceHash(builder, voiceHash)
+        audioAnimatorExcel = AudioAnimatorExcelEnd(builder)
+        return audioAnimatorExcel

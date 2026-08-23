@@ -152,3 +152,84 @@ def ScenarioBGNameExcelEnd(builder):
 
 def End(builder):
     return ScenarioBGNameExcelEnd(builder)
+
+
+class ScenarioBGNameExcelT(object):
+
+    # ScenarioBGNameExcelT
+    def __init__(
+        self,
+        name = 0,
+        productionStep = 0,
+        bgFileName = None,
+        bgType = 0,
+        animationRoot = None,
+        animationName = None,
+        spineScale = 0.0,
+        spineLocalPosX = 0,
+        spineLocalPosY = 0,
+    ):
+        self.name = name  # type: int
+        self.productionStep = productionStep  # type: int
+        self.bgFileName = bgFileName  # type: Optional[str]
+        self.bgType = bgType  # type: int
+        self.animationRoot = animationRoot  # type: Optional[str]
+        self.animationName = animationName  # type: Optional[str]
+        self.spineScale = spineScale  # type: float
+        self.spineLocalPosX = spineLocalPosX  # type: int
+        self.spineLocalPosY = spineLocalPosY  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        scenarioBgnameExcel = ScenarioBGNameExcel()
+        scenarioBgnameExcel.Init(buf, pos)
+        return cls.InitFromObj(scenarioBgnameExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, scenarioBgnameExcel):
+        x = ScenarioBGNameExcelT()
+        x._UnPack(scenarioBgnameExcel)
+        return x
+
+    # ScenarioBGNameExcelT
+    def _UnPack(self, scenarioBgnameExcel):
+        if scenarioBgnameExcel is None:
+            return
+        self.name = scenarioBgnameExcel.Name()
+        self.productionStep = scenarioBgnameExcel.ProductionStep()
+        self.bgFileName = scenarioBgnameExcel.BgFileName()
+        self.bgType = scenarioBgnameExcel.BgType()
+        self.animationRoot = scenarioBgnameExcel.AnimationRoot()
+        self.animationName = scenarioBgnameExcel.AnimationName()
+        self.spineScale = scenarioBgnameExcel.SpineScale()
+        self.spineLocalPosX = scenarioBgnameExcel.SpineLocalPosX()
+        self.spineLocalPosY = scenarioBgnameExcel.SpineLocalPosY()
+
+    # ScenarioBGNameExcelT
+    def Pack(self, builder):
+        if self.bgFileName is not None:
+            bgFileName = builder.CreateString(self.bgFileName)
+        if self.animationRoot is not None:
+            animationRoot = builder.CreateString(self.animationRoot)
+        if self.animationName is not None:
+            animationName = builder.CreateString(self.animationName)
+        ScenarioBGNameExcelStart(builder)
+        ScenarioBGNameExcelAddName(builder, self.name)
+        ScenarioBGNameExcelAddProductionStep(builder, self.productionStep)
+        if self.bgFileName is not None:
+            ScenarioBGNameExcelAddBgFileName(builder, bgFileName)
+        ScenarioBGNameExcelAddBgType(builder, self.bgType)
+        if self.animationRoot is not None:
+            ScenarioBGNameExcelAddAnimationRoot(builder, animationRoot)
+        if self.animationName is not None:
+            ScenarioBGNameExcelAddAnimationName(builder, animationName)
+        ScenarioBGNameExcelAddSpineScale(builder, self.spineScale)
+        ScenarioBGNameExcelAddSpineLocalPosX(builder, self.spineLocalPosX)
+        ScenarioBGNameExcelAddSpineLocalPosY(builder, self.spineLocalPosY)
+        scenarioBgnameExcel = ScenarioBGNameExcelEnd(builder)
+        return scenarioBgnameExcel

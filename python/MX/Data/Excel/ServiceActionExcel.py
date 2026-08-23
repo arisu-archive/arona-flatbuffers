@@ -74,3 +74,51 @@ def ServiceActionExcelEnd(builder):
 
 def End(builder):
     return ServiceActionExcelEnd(builder)
+
+
+class ServiceActionExcelT(object):
+
+    # ServiceActionExcelT
+    def __init__(
+        self,
+        serviceActionType = 0,
+        isLegacy = False,
+        goodsId = 0,
+    ):
+        self.serviceActionType = serviceActionType  # type: int
+        self.isLegacy = isLegacy  # type: bool
+        self.goodsId = goodsId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        serviceActionExcel = ServiceActionExcel()
+        serviceActionExcel.Init(buf, pos)
+        return cls.InitFromObj(serviceActionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, serviceActionExcel):
+        x = ServiceActionExcelT()
+        x._UnPack(serviceActionExcel)
+        return x
+
+    # ServiceActionExcelT
+    def _UnPack(self, serviceActionExcel):
+        if serviceActionExcel is None:
+            return
+        self.serviceActionType = serviceActionExcel.ServiceActionType()
+        self.isLegacy = serviceActionExcel.IsLegacy()
+        self.goodsId = serviceActionExcel.GoodsId()
+
+    # ServiceActionExcelT
+    def Pack(self, builder):
+        ServiceActionExcelStart(builder)
+        ServiceActionExcelAddServiceActionType(builder, self.serviceActionType)
+        ServiceActionExcelAddIsLegacy(builder, self.isLegacy)
+        ServiceActionExcelAddGoodsId(builder, self.goodsId)
+        serviceActionExcel = ServiceActionExcelEnd(builder)
+        return serviceActionExcel

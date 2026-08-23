@@ -72,3 +72,68 @@ def LimitedStageExcelTableEnd(builder):
 
 def End(builder):
     return LimitedStageExcelTableEnd(builder)
+
+import FlatData.LimitedStageExcel
+try:
+    from typing import List
+except:
+    pass
+
+class LimitedStageExcelTableT(object):
+
+    # LimitedStageExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.LimitedStageExcel.LimitedStageExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        limitedStageExcelTable = LimitedStageExcelTable()
+        limitedStageExcelTable.Init(buf, pos)
+        return cls.InitFromObj(limitedStageExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, limitedStageExcelTable):
+        x = LimitedStageExcelTableT()
+        x._UnPack(limitedStageExcelTable)
+        return x
+
+    # LimitedStageExcelTableT
+    def _UnPack(self, limitedStageExcelTable):
+        if limitedStageExcelTable is None:
+            return
+        if not limitedStageExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(limitedStageExcelTable.DataListLength()):
+                if limitedStageExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    limitedStageExcel_ = FlatData.LimitedStageExcel.LimitedStageExcelT.InitFromObj(limitedStageExcelTable.DataList(i))
+                    self.dataList.append(limitedStageExcel_)
+
+    # LimitedStageExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            LimitedStageExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        LimitedStageExcelTableStart(builder)
+        if self.dataList is not None:
+            LimitedStageExcelTableAddDataList(builder, dataList)
+        limitedStageExcelTable = LimitedStageExcelTableEnd(builder)
+        return limitedStageExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(LimitedStageExcelTableT, 'LimitedStageExcelTable', ())

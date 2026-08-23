@@ -113,3 +113,63 @@ def PickupFirstGetBonusExcelEnd(builder):
 
 def End(builder):
     return PickupFirstGetBonusExcelEnd(builder)
+
+
+class PickupFirstGetBonusExcelT(object):
+
+    # PickupFirstGetBonusExcelT
+    def __init__(
+        self,
+        shopRecruitId = 0,
+        recruitSellectionShopId = 0,
+        pickupCharacterId = 0,
+        rewardParcelType = 0,
+        rewardParcelId = 0,
+        rewardParcelAmount = 0,
+    ):
+        self.shopRecruitId = shopRecruitId  # type: int
+        self.recruitSellectionShopId = recruitSellectionShopId  # type: int
+        self.pickupCharacterId = pickupCharacterId  # type: int
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelId = rewardParcelId  # type: int
+        self.rewardParcelAmount = rewardParcelAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        pickupFirstGetBonusExcel = PickupFirstGetBonusExcel()
+        pickupFirstGetBonusExcel.Init(buf, pos)
+        return cls.InitFromObj(pickupFirstGetBonusExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, pickupFirstGetBonusExcel):
+        x = PickupFirstGetBonusExcelT()
+        x._UnPack(pickupFirstGetBonusExcel)
+        return x
+
+    # PickupFirstGetBonusExcelT
+    def _UnPack(self, pickupFirstGetBonusExcel):
+        if pickupFirstGetBonusExcel is None:
+            return
+        self.shopRecruitId = pickupFirstGetBonusExcel.ShopRecruitId()
+        self.recruitSellectionShopId = pickupFirstGetBonusExcel.RecruitSellectionShopId()
+        self.pickupCharacterId = pickupFirstGetBonusExcel.PickupCharacterId()
+        self.rewardParcelType = pickupFirstGetBonusExcel.RewardParcelType()
+        self.rewardParcelId = pickupFirstGetBonusExcel.RewardParcelId()
+        self.rewardParcelAmount = pickupFirstGetBonusExcel.RewardParcelAmount()
+
+    # PickupFirstGetBonusExcelT
+    def Pack(self, builder):
+        PickupFirstGetBonusExcelStart(builder)
+        PickupFirstGetBonusExcelAddShopRecruitId(builder, self.shopRecruitId)
+        PickupFirstGetBonusExcelAddRecruitSellectionShopId(builder, self.recruitSellectionShopId)
+        PickupFirstGetBonusExcelAddPickupCharacterId(builder, self.pickupCharacterId)
+        PickupFirstGetBonusExcelAddRewardParcelType(builder, self.rewardParcelType)
+        PickupFirstGetBonusExcelAddRewardParcelId(builder, self.rewardParcelId)
+        PickupFirstGetBonusExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        pickupFirstGetBonusExcel = PickupFirstGetBonusExcelEnd(builder)
+        return pickupFirstGetBonusExcel

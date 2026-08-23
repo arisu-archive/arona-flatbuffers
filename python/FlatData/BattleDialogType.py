@@ -2,4 +2,7 @@
 
 # namespace: FlatData
 
-# NOTE BattleDialogType.py does not declare any structs or enums
+class BattleDialogType(object):
+    Talk = 0
+    Think = 1
+    Shout = 2

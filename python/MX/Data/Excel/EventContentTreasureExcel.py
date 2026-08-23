@@ -100,3 +100,68 @@ def EventContentTreasureExcelEnd(builder):
 
 def End(builder):
     return EventContentTreasureExcelEnd(builder)
+
+
+class EventContentTreasureExcelT(object):
+
+    # EventContentTreasureExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        titleLocalize = None,
+        loopRound = 0,
+        usePrefabName = None,
+        treasureBgImagePath = None,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.titleLocalize = titleLocalize  # type: Optional[str]
+        self.loopRound = loopRound  # type: int
+        self.usePrefabName = usePrefabName  # type: Optional[str]
+        self.treasureBgImagePath = treasureBgImagePath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        eventContentTreasureExcel = EventContentTreasureExcel()
+        eventContentTreasureExcel.Init(buf, pos)
+        return cls.InitFromObj(eventContentTreasureExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, eventContentTreasureExcel):
+        x = EventContentTreasureExcelT()
+        x._UnPack(eventContentTreasureExcel)
+        return x
+
+    # EventContentTreasureExcelT
+    def _UnPack(self, eventContentTreasureExcel):
+        if eventContentTreasureExcel is None:
+            return
+        self.eventContentId = eventContentTreasureExcel.EventContentId()
+        self.titleLocalize = eventContentTreasureExcel.TitleLocalize()
+        self.loopRound = eventContentTreasureExcel.LoopRound()
+        self.usePrefabName = eventContentTreasureExcel.UsePrefabName()
+        self.treasureBgImagePath = eventContentTreasureExcel.TreasureBgImagePath()
+
+    # EventContentTreasureExcelT
+    def Pack(self, builder):
+        if self.titleLocalize is not None:
+            titleLocalize = builder.CreateString(self.titleLocalize)
+        if self.usePrefabName is not None:
+            usePrefabName = builder.CreateString(self.usePrefabName)
+        if self.treasureBgImagePath is not None:
+            treasureBgImagePath = builder.CreateString(self.treasureBgImagePath)
+        EventContentTreasureExcelStart(builder)
+        EventContentTreasureExcelAddEventContentId(builder, self.eventContentId)
+        if self.titleLocalize is not None:
+            EventContentTreasureExcelAddTitleLocalize(builder, titleLocalize)
+        EventContentTreasureExcelAddLoopRound(builder, self.loopRound)
+        if self.usePrefabName is not None:
+            EventContentTreasureExcelAddUsePrefabName(builder, usePrefabName)
+        if self.treasureBgImagePath is not None:
+            EventContentTreasureExcelAddTreasureBgImagePath(builder, treasureBgImagePath)
+        eventContentTreasureExcel = EventContentTreasureExcelEnd(builder)
+        return eventContentTreasureExcel

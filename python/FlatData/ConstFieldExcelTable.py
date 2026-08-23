@@ -72,3 +72,68 @@ def ConstFieldExcelTableEnd(builder):
 
 def End(builder):
     return ConstFieldExcelTableEnd(builder)
+
+import FlatData.ConstFieldExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConstFieldExcelTableT(object):
+
+    # ConstFieldExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConstFieldExcel.ConstFieldExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        constFieldExcelTable = ConstFieldExcelTable()
+        constFieldExcelTable.Init(buf, pos)
+        return cls.InitFromObj(constFieldExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, constFieldExcelTable):
+        x = ConstFieldExcelTableT()
+        x._UnPack(constFieldExcelTable)
+        return x
+
+    # ConstFieldExcelTableT
+    def _UnPack(self, constFieldExcelTable):
+        if constFieldExcelTable is None:
+            return
+        if not constFieldExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(constFieldExcelTable.DataListLength()):
+                if constFieldExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    constFieldExcel_ = FlatData.ConstFieldExcel.ConstFieldExcelT.InitFromObj(constFieldExcelTable.DataList(i))
+                    self.dataList.append(constFieldExcel_)
+
+    # ConstFieldExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConstFieldExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConstFieldExcelTableStart(builder)
+        if self.dataList is not None:
+            ConstFieldExcelTableAddDataList(builder, dataList)
+        constFieldExcelTable = ConstFieldExcelTableEnd(builder)
+        return constFieldExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConstFieldExcelTableT, 'ConstFieldExcelTable', ())

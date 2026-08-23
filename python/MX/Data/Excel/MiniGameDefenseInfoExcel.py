@@ -100,3 +100,59 @@ def MiniGameDefenseInfoExcelEnd(builder):
 
 def End(builder):
     return MiniGameDefenseInfoExcelEnd(builder)
+
+
+class MiniGameDefenseInfoExcelT(object):
+
+    # MiniGameDefenseInfoExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        defenseBattleParcelType = 0,
+        defenseBattleParcelId = 0,
+        defenseBattleMultiplierMax = 0,
+        disableRootMotion = False,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.defenseBattleParcelType = defenseBattleParcelType  # type: int
+        self.defenseBattleParcelId = defenseBattleParcelId  # type: int
+        self.defenseBattleMultiplierMax = defenseBattleMultiplierMax  # type: int
+        self.disableRootMotion = disableRootMotion  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDefenseInfoExcel = MiniGameDefenseInfoExcel()
+        miniGameDefenseInfoExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDefenseInfoExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDefenseInfoExcel):
+        x = MiniGameDefenseInfoExcelT()
+        x._UnPack(miniGameDefenseInfoExcel)
+        return x
+
+    # MiniGameDefenseInfoExcelT
+    def _UnPack(self, miniGameDefenseInfoExcel):
+        if miniGameDefenseInfoExcel is None:
+            return
+        self.eventContentId = miniGameDefenseInfoExcel.EventContentId()
+        self.defenseBattleParcelType = miniGameDefenseInfoExcel.DefenseBattleParcelType()
+        self.defenseBattleParcelId = miniGameDefenseInfoExcel.DefenseBattleParcelId()
+        self.defenseBattleMultiplierMax = miniGameDefenseInfoExcel.DefenseBattleMultiplierMax()
+        self.disableRootMotion = miniGameDefenseInfoExcel.DisableRootMotion()
+
+    # MiniGameDefenseInfoExcelT
+    def Pack(self, builder):
+        MiniGameDefenseInfoExcelStart(builder)
+        MiniGameDefenseInfoExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameDefenseInfoExcelAddDefenseBattleParcelType(builder, self.defenseBattleParcelType)
+        MiniGameDefenseInfoExcelAddDefenseBattleParcelId(builder, self.defenseBattleParcelId)
+        MiniGameDefenseInfoExcelAddDefenseBattleMultiplierMax(builder, self.defenseBattleMultiplierMax)
+        MiniGameDefenseInfoExcelAddDisableRootMotion(builder, self.disableRootMotion)
+        miniGameDefenseInfoExcel = MiniGameDefenseInfoExcelEnd(builder)
+        return miniGameDefenseInfoExcel

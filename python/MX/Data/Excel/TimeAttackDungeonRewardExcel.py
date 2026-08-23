@@ -295,3 +295,165 @@ def TimeAttackDungeonRewardExcelEnd(builder):
 
 def End(builder):
     return TimeAttackDungeonRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class TimeAttackDungeonRewardExcelT(object):
+
+    # TimeAttackDungeonRewardExcelT
+    def __init__(
+        self,
+        id = 0,
+        rewardMaxPoint = 0,
+        rewardType = None,
+        rewardMinPoint = None,
+        rewardParcelType = None,
+        rewardParcelId = None,
+        rewardParcelDefaultAmount = None,
+        rewardParcelMaxAmount = None,
+    ):
+        self.id = id  # type: int
+        self.rewardMaxPoint = rewardMaxPoint  # type: int
+        self.rewardType = rewardType  # type: Optional[List[int]]
+        self.rewardMinPoint = rewardMinPoint  # type: Optional[List[int]]
+        self.rewardParcelType = rewardParcelType  # type: Optional[List[int]]
+        self.rewardParcelId = rewardParcelId  # type: Optional[List[int]]
+        self.rewardParcelDefaultAmount = rewardParcelDefaultAmount  # type: Optional[List[int]]
+        self.rewardParcelMaxAmount = rewardParcelMaxAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        timeAttackDungeonRewardExcel = TimeAttackDungeonRewardExcel()
+        timeAttackDungeonRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(timeAttackDungeonRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, timeAttackDungeonRewardExcel):
+        x = TimeAttackDungeonRewardExcelT()
+        x._UnPack(timeAttackDungeonRewardExcel)
+        return x
+
+    # TimeAttackDungeonRewardExcelT
+    def _UnPack(self, timeAttackDungeonRewardExcel):
+        if timeAttackDungeonRewardExcel is None:
+            return
+        self.id = timeAttackDungeonRewardExcel.Id()
+        self.rewardMaxPoint = timeAttackDungeonRewardExcel.RewardMaxPoint()
+        if not timeAttackDungeonRewardExcel.RewardTypeIsNone():
+            if np is None:
+                self.rewardType = []
+                for i in range(timeAttackDungeonRewardExcel.RewardTypeLength()):
+                    self.rewardType.append(timeAttackDungeonRewardExcel.RewardType(i))
+            else:
+                self.rewardType = timeAttackDungeonRewardExcel.RewardTypeAsNumpy()
+        if not timeAttackDungeonRewardExcel.RewardMinPointIsNone():
+            if np is None:
+                self.rewardMinPoint = []
+                for i in range(timeAttackDungeonRewardExcel.RewardMinPointLength()):
+                    self.rewardMinPoint.append(timeAttackDungeonRewardExcel.RewardMinPoint(i))
+            else:
+                self.rewardMinPoint = timeAttackDungeonRewardExcel.RewardMinPointAsNumpy()
+        if not timeAttackDungeonRewardExcel.RewardParcelTypeIsNone():
+            if np is None:
+                self.rewardParcelType = []
+                for i in range(timeAttackDungeonRewardExcel.RewardParcelTypeLength()):
+                    self.rewardParcelType.append(timeAttackDungeonRewardExcel.RewardParcelType(i))
+            else:
+                self.rewardParcelType = timeAttackDungeonRewardExcel.RewardParcelTypeAsNumpy()
+        if not timeAttackDungeonRewardExcel.RewardParcelIdIsNone():
+            if np is None:
+                self.rewardParcelId = []
+                for i in range(timeAttackDungeonRewardExcel.RewardParcelIdLength()):
+                    self.rewardParcelId.append(timeAttackDungeonRewardExcel.RewardParcelId(i))
+            else:
+                self.rewardParcelId = timeAttackDungeonRewardExcel.RewardParcelIdAsNumpy()
+        if not timeAttackDungeonRewardExcel.RewardParcelDefaultAmountIsNone():
+            if np is None:
+                self.rewardParcelDefaultAmount = []
+                for i in range(timeAttackDungeonRewardExcel.RewardParcelDefaultAmountLength()):
+                    self.rewardParcelDefaultAmount.append(timeAttackDungeonRewardExcel.RewardParcelDefaultAmount(i))
+            else:
+                self.rewardParcelDefaultAmount = timeAttackDungeonRewardExcel.RewardParcelDefaultAmountAsNumpy()
+        if not timeAttackDungeonRewardExcel.RewardParcelMaxAmountIsNone():
+            if np is None:
+                self.rewardParcelMaxAmount = []
+                for i in range(timeAttackDungeonRewardExcel.RewardParcelMaxAmountLength()):
+                    self.rewardParcelMaxAmount.append(timeAttackDungeonRewardExcel.RewardParcelMaxAmount(i))
+            else:
+                self.rewardParcelMaxAmount = timeAttackDungeonRewardExcel.RewardParcelMaxAmountAsNumpy()
+
+    # TimeAttackDungeonRewardExcelT
+    def Pack(self, builder):
+        if self.rewardType is not None:
+            if np is not None and type(self.rewardType) is np.ndarray:
+                rewardType = builder.CreateNumpyVector(self.rewardType)
+            else:
+                TimeAttackDungeonRewardExcelStartRewardTypeVector(builder, len(self.rewardType))
+                for i in reversed(range(len(self.rewardType))):
+                    builder.PrependInt32(self.rewardType[i])
+                rewardType = builder.EndVector()
+        if self.rewardMinPoint is not None:
+            if np is not None and type(self.rewardMinPoint) is np.ndarray:
+                rewardMinPoint = builder.CreateNumpyVector(self.rewardMinPoint)
+            else:
+                TimeAttackDungeonRewardExcelStartRewardMinPointVector(builder, len(self.rewardMinPoint))
+                for i in reversed(range(len(self.rewardMinPoint))):
+                    builder.PrependInt64(self.rewardMinPoint[i])
+                rewardMinPoint = builder.EndVector()
+        if self.rewardParcelType is not None:
+            if np is not None and type(self.rewardParcelType) is np.ndarray:
+                rewardParcelType = builder.CreateNumpyVector(self.rewardParcelType)
+            else:
+                TimeAttackDungeonRewardExcelStartRewardParcelTypeVector(builder, len(self.rewardParcelType))
+                for i in reversed(range(len(self.rewardParcelType))):
+                    builder.PrependInt32(self.rewardParcelType[i])
+                rewardParcelType = builder.EndVector()
+        if self.rewardParcelId is not None:
+            if np is not None and type(self.rewardParcelId) is np.ndarray:
+                rewardParcelId = builder.CreateNumpyVector(self.rewardParcelId)
+            else:
+                TimeAttackDungeonRewardExcelStartRewardParcelIdVector(builder, len(self.rewardParcelId))
+                for i in reversed(range(len(self.rewardParcelId))):
+                    builder.PrependInt64(self.rewardParcelId[i])
+                rewardParcelId = builder.EndVector()
+        if self.rewardParcelDefaultAmount is not None:
+            if np is not None and type(self.rewardParcelDefaultAmount) is np.ndarray:
+                rewardParcelDefaultAmount = builder.CreateNumpyVector(self.rewardParcelDefaultAmount)
+            else:
+                TimeAttackDungeonRewardExcelStartRewardParcelDefaultAmountVector(builder, len(self.rewardParcelDefaultAmount))
+                for i in reversed(range(len(self.rewardParcelDefaultAmount))):
+                    builder.PrependInt64(self.rewardParcelDefaultAmount[i])
+                rewardParcelDefaultAmount = builder.EndVector()
+        if self.rewardParcelMaxAmount is not None:
+            if np is not None and type(self.rewardParcelMaxAmount) is np.ndarray:
+                rewardParcelMaxAmount = builder.CreateNumpyVector(self.rewardParcelMaxAmount)
+            else:
+                TimeAttackDungeonRewardExcelStartRewardParcelMaxAmountVector(builder, len(self.rewardParcelMaxAmount))
+                for i in reversed(range(len(self.rewardParcelMaxAmount))):
+                    builder.PrependInt64(self.rewardParcelMaxAmount[i])
+                rewardParcelMaxAmount = builder.EndVector()
+        TimeAttackDungeonRewardExcelStart(builder)
+        TimeAttackDungeonRewardExcelAddId(builder, self.id)
+        TimeAttackDungeonRewardExcelAddRewardMaxPoint(builder, self.rewardMaxPoint)
+        if self.rewardType is not None:
+            TimeAttackDungeonRewardExcelAddRewardType(builder, rewardType)
+        if self.rewardMinPoint is not None:
+            TimeAttackDungeonRewardExcelAddRewardMinPoint(builder, rewardMinPoint)
+        if self.rewardParcelType is not None:
+            TimeAttackDungeonRewardExcelAddRewardParcelType(builder, rewardParcelType)
+        if self.rewardParcelId is not None:
+            TimeAttackDungeonRewardExcelAddRewardParcelId(builder, rewardParcelId)
+        if self.rewardParcelDefaultAmount is not None:
+            TimeAttackDungeonRewardExcelAddRewardParcelDefaultAmount(builder, rewardParcelDefaultAmount)
+        if self.rewardParcelMaxAmount is not None:
+            TimeAttackDungeonRewardExcelAddRewardParcelMaxAmount(builder, rewardParcelMaxAmount)
+        timeAttackDungeonRewardExcel = TimeAttackDungeonRewardExcelEnd(builder)
+        return timeAttackDungeonRewardExcel

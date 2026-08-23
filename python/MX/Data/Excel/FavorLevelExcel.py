@@ -87,3 +87,66 @@ def FavorLevelExcelEnd(builder):
 
 def End(builder):
     return FavorLevelExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class FavorLevelExcelT(object):
+
+    # FavorLevelExcelT
+    def __init__(
+        self,
+        level = 0,
+        expType = None,
+    ):
+        self.level = level  # type: int
+        self.expType = expType  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        favorLevelExcel = FavorLevelExcel()
+        favorLevelExcel.Init(buf, pos)
+        return cls.InitFromObj(favorLevelExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, favorLevelExcel):
+        x = FavorLevelExcelT()
+        x._UnPack(favorLevelExcel)
+        return x
+
+    # FavorLevelExcelT
+    def _UnPack(self, favorLevelExcel):
+        if favorLevelExcel is None:
+            return
+        self.level = favorLevelExcel.Level()
+        if not favorLevelExcel.ExpTypeIsNone():
+            if np is None:
+                self.expType = []
+                for i in range(favorLevelExcel.ExpTypeLength()):
+                    self.expType.append(favorLevelExcel.ExpType(i))
+            else:
+                self.expType = favorLevelExcel.ExpTypeAsNumpy()
+
+    # FavorLevelExcelT
+    def Pack(self, builder):
+        if self.expType is not None:
+            if np is not None and type(self.expType) is np.ndarray:
+                expType = builder.CreateNumpyVector(self.expType)
+            else:
+                FavorLevelExcelStartExpTypeVector(builder, len(self.expType))
+                for i in reversed(range(len(self.expType))):
+                    builder.PrependInt64(self.expType[i])
+                expType = builder.EndVector()
+        FavorLevelExcelStart(builder)
+        FavorLevelExcelAddLevel(builder, self.level)
+        if self.expType is not None:
+            FavorLevelExcelAddExpType(builder, expType)
+        favorLevelExcel = FavorLevelExcelEnd(builder)
+        return favorLevelExcel

@@ -139,3 +139,74 @@ def UnderCoverStageExcelEnd(builder):
 
 def End(builder):
     return UnderCoverStageExcelEnd(builder)
+
+
+class UnderCoverStageExcelT(object):
+
+    # UnderCoverStageExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        stageNameFile = None,
+        stageTryCount = 0,
+        applySkip = False,
+        skipCount = 0,
+        showClearScene = False,
+        stageTips = 0,
+        stageName = 0,
+    ):
+        self.groupId = groupId  # type: int
+        self.stageNameFile = stageNameFile  # type: Optional[str]
+        self.stageTryCount = stageTryCount  # type: int
+        self.applySkip = applySkip  # type: bool
+        self.skipCount = skipCount  # type: int
+        self.showClearScene = showClearScene  # type: bool
+        self.stageTips = stageTips  # type: int
+        self.stageName = stageName  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        underCoverStageExcel = UnderCoverStageExcel()
+        underCoverStageExcel.Init(buf, pos)
+        return cls.InitFromObj(underCoverStageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, underCoverStageExcel):
+        x = UnderCoverStageExcelT()
+        x._UnPack(underCoverStageExcel)
+        return x
+
+    # UnderCoverStageExcelT
+    def _UnPack(self, underCoverStageExcel):
+        if underCoverStageExcel is None:
+            return
+        self.groupId = underCoverStageExcel.GroupId()
+        self.stageNameFile = underCoverStageExcel.StageNameFile()
+        self.stageTryCount = underCoverStageExcel.StageTryCount()
+        self.applySkip = underCoverStageExcel.ApplySkip()
+        self.skipCount = underCoverStageExcel.SkipCount()
+        self.showClearScene = underCoverStageExcel.ShowClearScene()
+        self.stageTips = underCoverStageExcel.StageTips()
+        self.stageName = underCoverStageExcel.StageName()
+
+    # UnderCoverStageExcelT
+    def Pack(self, builder):
+        if self.stageNameFile is not None:
+            stageNameFile = builder.CreateString(self.stageNameFile)
+        UnderCoverStageExcelStart(builder)
+        UnderCoverStageExcelAddGroupId(builder, self.groupId)
+        if self.stageNameFile is not None:
+            UnderCoverStageExcelAddStageNameFile(builder, stageNameFile)
+        UnderCoverStageExcelAddStageTryCount(builder, self.stageTryCount)
+        UnderCoverStageExcelAddApplySkip(builder, self.applySkip)
+        UnderCoverStageExcelAddSkipCount(builder, self.skipCount)
+        UnderCoverStageExcelAddShowClearScene(builder, self.showClearScene)
+        UnderCoverStageExcelAddStageTips(builder, self.stageTips)
+        UnderCoverStageExcelAddStageName(builder, self.stageName)
+        underCoverStageExcel = UnderCoverStageExcelEnd(builder)
+        return underCoverStageExcel

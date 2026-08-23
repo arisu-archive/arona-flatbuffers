@@ -113,3 +113,63 @@ def ShopFilterClassifiedExcelEnd(builder):
 
 def End(builder):
     return ShopFilterClassifiedExcelEnd(builder)
+
+
+class ShopFilterClassifiedExcelT(object):
+
+    # ShopFilterClassifiedExcelT
+    def __init__(
+        self,
+        id = 0,
+        categoryType = 0,
+        consumeParcelType = 0,
+        consumeParcelId = 0,
+        shopFilterType = 0,
+        goodsId = 0,
+    ):
+        self.id = id  # type: int
+        self.categoryType = categoryType  # type: int
+        self.consumeParcelType = consumeParcelType  # type: int
+        self.consumeParcelId = consumeParcelId  # type: int
+        self.shopFilterType = shopFilterType  # type: int
+        self.goodsId = goodsId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        shopFilterClassifiedExcel = ShopFilterClassifiedExcel()
+        shopFilterClassifiedExcel.Init(buf, pos)
+        return cls.InitFromObj(shopFilterClassifiedExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, shopFilterClassifiedExcel):
+        x = ShopFilterClassifiedExcelT()
+        x._UnPack(shopFilterClassifiedExcel)
+        return x
+
+    # ShopFilterClassifiedExcelT
+    def _UnPack(self, shopFilterClassifiedExcel):
+        if shopFilterClassifiedExcel is None:
+            return
+        self.id = shopFilterClassifiedExcel.Id()
+        self.categoryType = shopFilterClassifiedExcel.CategoryType()
+        self.consumeParcelType = shopFilterClassifiedExcel.ConsumeParcelType()
+        self.consumeParcelId = shopFilterClassifiedExcel.ConsumeParcelId()
+        self.shopFilterType = shopFilterClassifiedExcel.ShopFilterType()
+        self.goodsId = shopFilterClassifiedExcel.GoodsId()
+
+    # ShopFilterClassifiedExcelT
+    def Pack(self, builder):
+        ShopFilterClassifiedExcelStart(builder)
+        ShopFilterClassifiedExcelAddId(builder, self.id)
+        ShopFilterClassifiedExcelAddCategoryType(builder, self.categoryType)
+        ShopFilterClassifiedExcelAddConsumeParcelType(builder, self.consumeParcelType)
+        ShopFilterClassifiedExcelAddConsumeParcelId(builder, self.consumeParcelId)
+        ShopFilterClassifiedExcelAddShopFilterType(builder, self.shopFilterType)
+        ShopFilterClassifiedExcelAddGoodsId(builder, self.goodsId)
+        shopFilterClassifiedExcel = ShopFilterClassifiedExcelEnd(builder)
+        return shopFilterClassifiedExcel

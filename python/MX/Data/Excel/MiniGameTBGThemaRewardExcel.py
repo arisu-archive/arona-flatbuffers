@@ -217,3 +217,120 @@ def MiniGameTBGThemaRewardExcelEnd(builder):
 
 def End(builder):
     return MiniGameTBGThemaRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MiniGameTBGThemaRewardExcelT(object):
+
+    # MiniGameTBGThemaRewardExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        themaRound = 0,
+        themaUniqueId = 0,
+        isLoop = False,
+        miniGameTbgThemaRewardType = 0,
+        rewardParcelType = None,
+        rewardParcelId = None,
+        rewardParcelAmount = None,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.themaRound = themaRound  # type: int
+        self.themaUniqueId = themaUniqueId  # type: int
+        self.isLoop = isLoop  # type: bool
+        self.miniGameTbgThemaRewardType = miniGameTbgThemaRewardType  # type: int
+        self.rewardParcelType = rewardParcelType  # type: Optional[List[int]]
+        self.rewardParcelId = rewardParcelId  # type: Optional[List[int]]
+        self.rewardParcelAmount = rewardParcelAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameTbgthemaRewardExcel = MiniGameTBGThemaRewardExcel()
+        miniGameTbgthemaRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameTbgthemaRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameTbgthemaRewardExcel):
+        x = MiniGameTBGThemaRewardExcelT()
+        x._UnPack(miniGameTbgthemaRewardExcel)
+        return x
+
+    # MiniGameTBGThemaRewardExcelT
+    def _UnPack(self, miniGameTbgthemaRewardExcel):
+        if miniGameTbgthemaRewardExcel is None:
+            return
+        self.eventContentId = miniGameTbgthemaRewardExcel.EventContentId()
+        self.themaRound = miniGameTbgthemaRewardExcel.ThemaRound()
+        self.themaUniqueId = miniGameTbgthemaRewardExcel.ThemaUniqueId()
+        self.isLoop = miniGameTbgthemaRewardExcel.IsLoop()
+        self.miniGameTbgThemaRewardType = miniGameTbgthemaRewardExcel.MiniGameTbgThemaRewardType()
+        if not miniGameTbgthemaRewardExcel.RewardParcelTypeIsNone():
+            if np is None:
+                self.rewardParcelType = []
+                for i in range(miniGameTbgthemaRewardExcel.RewardParcelTypeLength()):
+                    self.rewardParcelType.append(miniGameTbgthemaRewardExcel.RewardParcelType(i))
+            else:
+                self.rewardParcelType = miniGameTbgthemaRewardExcel.RewardParcelTypeAsNumpy()
+        if not miniGameTbgthemaRewardExcel.RewardParcelIdIsNone():
+            if np is None:
+                self.rewardParcelId = []
+                for i in range(miniGameTbgthemaRewardExcel.RewardParcelIdLength()):
+                    self.rewardParcelId.append(miniGameTbgthemaRewardExcel.RewardParcelId(i))
+            else:
+                self.rewardParcelId = miniGameTbgthemaRewardExcel.RewardParcelIdAsNumpy()
+        if not miniGameTbgthemaRewardExcel.RewardParcelAmountIsNone():
+            if np is None:
+                self.rewardParcelAmount = []
+                for i in range(miniGameTbgthemaRewardExcel.RewardParcelAmountLength()):
+                    self.rewardParcelAmount.append(miniGameTbgthemaRewardExcel.RewardParcelAmount(i))
+            else:
+                self.rewardParcelAmount = miniGameTbgthemaRewardExcel.RewardParcelAmountAsNumpy()
+
+    # MiniGameTBGThemaRewardExcelT
+    def Pack(self, builder):
+        if self.rewardParcelType is not None:
+            if np is not None and type(self.rewardParcelType) is np.ndarray:
+                rewardParcelType = builder.CreateNumpyVector(self.rewardParcelType)
+            else:
+                MiniGameTBGThemaRewardExcelStartRewardParcelTypeVector(builder, len(self.rewardParcelType))
+                for i in reversed(range(len(self.rewardParcelType))):
+                    builder.PrependInt32(self.rewardParcelType[i])
+                rewardParcelType = builder.EndVector()
+        if self.rewardParcelId is not None:
+            if np is not None and type(self.rewardParcelId) is np.ndarray:
+                rewardParcelId = builder.CreateNumpyVector(self.rewardParcelId)
+            else:
+                MiniGameTBGThemaRewardExcelStartRewardParcelIdVector(builder, len(self.rewardParcelId))
+                for i in reversed(range(len(self.rewardParcelId))):
+                    builder.PrependInt64(self.rewardParcelId[i])
+                rewardParcelId = builder.EndVector()
+        if self.rewardParcelAmount is not None:
+            if np is not None and type(self.rewardParcelAmount) is np.ndarray:
+                rewardParcelAmount = builder.CreateNumpyVector(self.rewardParcelAmount)
+            else:
+                MiniGameTBGThemaRewardExcelStartRewardParcelAmountVector(builder, len(self.rewardParcelAmount))
+                for i in reversed(range(len(self.rewardParcelAmount))):
+                    builder.PrependInt32(self.rewardParcelAmount[i])
+                rewardParcelAmount = builder.EndVector()
+        MiniGameTBGThemaRewardExcelStart(builder)
+        MiniGameTBGThemaRewardExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameTBGThemaRewardExcelAddThemaRound(builder, self.themaRound)
+        MiniGameTBGThemaRewardExcelAddThemaUniqueId(builder, self.themaUniqueId)
+        MiniGameTBGThemaRewardExcelAddIsLoop(builder, self.isLoop)
+        MiniGameTBGThemaRewardExcelAddMiniGameTbgThemaRewardType(builder, self.miniGameTbgThemaRewardType)
+        if self.rewardParcelType is not None:
+            MiniGameTBGThemaRewardExcelAddRewardParcelType(builder, rewardParcelType)
+        if self.rewardParcelId is not None:
+            MiniGameTBGThemaRewardExcelAddRewardParcelId(builder, rewardParcelId)
+        if self.rewardParcelAmount is not None:
+            MiniGameTBGThemaRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+        miniGameTbgthemaRewardExcel = MiniGameTBGThemaRewardExcelEnd(builder)
+        return miniGameTbgthemaRewardExcel

@@ -74,3 +74,57 @@ def SpineLipsyncExcelEnd(builder):
 
 def End(builder):
     return SpineLipsyncExcelEnd(builder)
+
+
+class SpineLipsyncExcelT(object):
+
+    # SpineLipsyncExcelT
+    def __init__(
+        self,
+        voiceId = 0,
+        animJson = None,
+        animJsonKr = None,
+    ):
+        self.voiceId = voiceId  # type: int
+        self.animJson = animJson  # type: Optional[str]
+        self.animJsonKr = animJsonKr  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        spineLipsyncExcel = SpineLipsyncExcel()
+        spineLipsyncExcel.Init(buf, pos)
+        return cls.InitFromObj(spineLipsyncExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, spineLipsyncExcel):
+        x = SpineLipsyncExcelT()
+        x._UnPack(spineLipsyncExcel)
+        return x
+
+    # SpineLipsyncExcelT
+    def _UnPack(self, spineLipsyncExcel):
+        if spineLipsyncExcel is None:
+            return
+        self.voiceId = spineLipsyncExcel.VoiceId()
+        self.animJson = spineLipsyncExcel.AnimJson()
+        self.animJsonKr = spineLipsyncExcel.AnimJsonKr()
+
+    # SpineLipsyncExcelT
+    def Pack(self, builder):
+        if self.animJson is not None:
+            animJson = builder.CreateString(self.animJson)
+        if self.animJsonKr is not None:
+            animJsonKr = builder.CreateString(self.animJsonKr)
+        SpineLipsyncExcelStart(builder)
+        SpineLipsyncExcelAddVoiceId(builder, self.voiceId)
+        if self.animJson is not None:
+            SpineLipsyncExcelAddAnimJson(builder, animJson)
+        if self.animJsonKr is not None:
+            SpineLipsyncExcelAddAnimJsonKr(builder, animJsonKr)
+        spineLipsyncExcel = SpineLipsyncExcelEnd(builder)
+        return spineLipsyncExcel

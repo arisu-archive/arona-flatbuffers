@@ -177,15 +177,8 @@ class BattlePassInfoExcel(object):
             return self._tab.String(o + self._tab.Pos)
         return None
 
-    # BattlePassInfoExcel
-    def PurchaseStepBgImagePath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
 def BattlePassInfoExcelStart(builder):
-    builder.StartObject(20)
+    builder.StartObject(19)
 
 def Start(builder):
     BattlePassInfoExcelStart(builder)
@@ -310,14 +303,154 @@ def BattlePassInfoExcelAddPurchaseStepProductImagePath(builder, purchaseStepProd
 def AddPurchaseStepProductImagePath(builder, purchaseStepProductImagePath):
     BattlePassInfoExcelAddPurchaseStepProductImagePath(builder, purchaseStepProductImagePath)
 
-def BattlePassInfoExcelAddPurchaseStepBgImagePath(builder, purchaseStepBgImagePath):
-    builder.PrependUOffsetTRelativeSlot(19, flatbuffers.number_types.UOffsetTFlags.py_type(purchaseStepBgImagePath), 0)
-
-def AddPurchaseStepBgImagePath(builder, purchaseStepBgImagePath):
-    BattlePassInfoExcelAddPurchaseStepBgImagePath(builder, purchaseStepBgImagePath)
-
 def BattlePassInfoExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return BattlePassInfoExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class BattlePassInfoExcelT(object):
+
+    # BattlePassInfoExcelT
+    def __init__(
+        self,
+        id = 0,
+        freeRewardGroupId = 0,
+        purchaseRewardGroupId = 0,
+        normalProductGroupId = 0,
+        premiumProductGroupId = 0,
+        discountPremiumProductGroupId = 0,
+        nextLvNeedExp = 0,
+        passLvUpGoodsId = 0,
+        buyPremiumLvUpAmount = 0,
+        salePeriodFrom = None,
+        salePeriodTo = None,
+        videoId = None,
+        flavorTextGroupId = 0,
+        exclusiveRewardId = 0,
+        exclusiveEmblemId = 0,
+        passExpLocalizeEtcId = 0,
+        lobbyBannerPath = None,
+        mainIconParcelPath = None,
+        purchaseStepProductImagePath = None,
+    ):
+        self.id = id  # type: int
+        self.freeRewardGroupId = freeRewardGroupId  # type: int
+        self.purchaseRewardGroupId = purchaseRewardGroupId  # type: int
+        self.normalProductGroupId = normalProductGroupId  # type: int
+        self.premiumProductGroupId = premiumProductGroupId  # type: int
+        self.discountPremiumProductGroupId = discountPremiumProductGroupId  # type: int
+        self.nextLvNeedExp = nextLvNeedExp  # type: int
+        self.passLvUpGoodsId = passLvUpGoodsId  # type: int
+        self.buyPremiumLvUpAmount = buyPremiumLvUpAmount  # type: int
+        self.salePeriodFrom = salePeriodFrom  # type: Optional[str]
+        self.salePeriodTo = salePeriodTo  # type: Optional[str]
+        self.videoId = videoId  # type: Optional[List[int]]
+        self.flavorTextGroupId = flavorTextGroupId  # type: int
+        self.exclusiveRewardId = exclusiveRewardId  # type: int
+        self.exclusiveEmblemId = exclusiveEmblemId  # type: int
+        self.passExpLocalizeEtcId = passExpLocalizeEtcId  # type: int
+        self.lobbyBannerPath = lobbyBannerPath  # type: Optional[str]
+        self.mainIconParcelPath = mainIconParcelPath  # type: Optional[str]
+        self.purchaseStepProductImagePath = purchaseStepProductImagePath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        battlePassInfoExcel = BattlePassInfoExcel()
+        battlePassInfoExcel.Init(buf, pos)
+        return cls.InitFromObj(battlePassInfoExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, battlePassInfoExcel):
+        x = BattlePassInfoExcelT()
+        x._UnPack(battlePassInfoExcel)
+        return x
+
+    # BattlePassInfoExcelT
+    def _UnPack(self, battlePassInfoExcel):
+        if battlePassInfoExcel is None:
+            return
+        self.id = battlePassInfoExcel.Id()
+        self.freeRewardGroupId = battlePassInfoExcel.FreeRewardGroupId()
+        self.purchaseRewardGroupId = battlePassInfoExcel.PurchaseRewardGroupId()
+        self.normalProductGroupId = battlePassInfoExcel.NormalProductGroupId()
+        self.premiumProductGroupId = battlePassInfoExcel.PremiumProductGroupId()
+        self.discountPremiumProductGroupId = battlePassInfoExcel.DiscountPremiumProductGroupId()
+        self.nextLvNeedExp = battlePassInfoExcel.NextLvNeedExp()
+        self.passLvUpGoodsId = battlePassInfoExcel.PassLvUpGoodsId()
+        self.buyPremiumLvUpAmount = battlePassInfoExcel.BuyPremiumLvUpAmount()
+        self.salePeriodFrom = battlePassInfoExcel.SalePeriodFrom()
+        self.salePeriodTo = battlePassInfoExcel.SalePeriodTo()
+        if not battlePassInfoExcel.VideoIdIsNone():
+            if np is None:
+                self.videoId = []
+                for i in range(battlePassInfoExcel.VideoIdLength()):
+                    self.videoId.append(battlePassInfoExcel.VideoId(i))
+            else:
+                self.videoId = battlePassInfoExcel.VideoIdAsNumpy()
+        self.flavorTextGroupId = battlePassInfoExcel.FlavorTextGroupId()
+        self.exclusiveRewardId = battlePassInfoExcel.ExclusiveRewardId()
+        self.exclusiveEmblemId = battlePassInfoExcel.ExclusiveEmblemId()
+        self.passExpLocalizeEtcId = battlePassInfoExcel.PassExpLocalizeEtcId()
+        self.lobbyBannerPath = battlePassInfoExcel.LobbyBannerPath()
+        self.mainIconParcelPath = battlePassInfoExcel.MainIconParcelPath()
+        self.purchaseStepProductImagePath = battlePassInfoExcel.PurchaseStepProductImagePath()
+
+    # BattlePassInfoExcelT
+    def Pack(self, builder):
+        if self.salePeriodFrom is not None:
+            salePeriodFrom = builder.CreateString(self.salePeriodFrom)
+        if self.salePeriodTo is not None:
+            salePeriodTo = builder.CreateString(self.salePeriodTo)
+        if self.videoId is not None:
+            if np is not None and type(self.videoId) is np.ndarray:
+                videoId = builder.CreateNumpyVector(self.videoId)
+            else:
+                BattlePassInfoExcelStartVideoIdVector(builder, len(self.videoId))
+                for i in reversed(range(len(self.videoId))):
+                    builder.PrependInt64(self.videoId[i])
+                videoId = builder.EndVector()
+        if self.lobbyBannerPath is not None:
+            lobbyBannerPath = builder.CreateString(self.lobbyBannerPath)
+        if self.mainIconParcelPath is not None:
+            mainIconParcelPath = builder.CreateString(self.mainIconParcelPath)
+        if self.purchaseStepProductImagePath is not None:
+            purchaseStepProductImagePath = builder.CreateString(self.purchaseStepProductImagePath)
+        BattlePassInfoExcelStart(builder)
+        BattlePassInfoExcelAddId(builder, self.id)
+        BattlePassInfoExcelAddFreeRewardGroupId(builder, self.freeRewardGroupId)
+        BattlePassInfoExcelAddPurchaseRewardGroupId(builder, self.purchaseRewardGroupId)
+        BattlePassInfoExcelAddNormalProductGroupId(builder, self.normalProductGroupId)
+        BattlePassInfoExcelAddPremiumProductGroupId(builder, self.premiumProductGroupId)
+        BattlePassInfoExcelAddDiscountPremiumProductGroupId(builder, self.discountPremiumProductGroupId)
+        BattlePassInfoExcelAddNextLvNeedExp(builder, self.nextLvNeedExp)
+        BattlePassInfoExcelAddPassLvUpGoodsId(builder, self.passLvUpGoodsId)
+        BattlePassInfoExcelAddBuyPremiumLvUpAmount(builder, self.buyPremiumLvUpAmount)
+        if self.salePeriodFrom is not None:
+            BattlePassInfoExcelAddSalePeriodFrom(builder, salePeriodFrom)
+        if self.salePeriodTo is not None:
+            BattlePassInfoExcelAddSalePeriodTo(builder, salePeriodTo)
+        if self.videoId is not None:
+            BattlePassInfoExcelAddVideoId(builder, videoId)
+        BattlePassInfoExcelAddFlavorTextGroupId(builder, self.flavorTextGroupId)
+        BattlePassInfoExcelAddExclusiveRewardId(builder, self.exclusiveRewardId)
+        BattlePassInfoExcelAddExclusiveEmblemId(builder, self.exclusiveEmblemId)
+        BattlePassInfoExcelAddPassExpLocalizeEtcId(builder, self.passExpLocalizeEtcId)
+        if self.lobbyBannerPath is not None:
+            BattlePassInfoExcelAddLobbyBannerPath(builder, lobbyBannerPath)
+        if self.mainIconParcelPath is not None:
+            BattlePassInfoExcelAddMainIconParcelPath(builder, mainIconParcelPath)
+        if self.purchaseStepProductImagePath is not None:
+            BattlePassInfoExcelAddPurchaseStepProductImagePath(builder, purchaseStepProductImagePath)
+        battlePassInfoExcel = BattlePassInfoExcelEnd(builder)
+        return battlePassInfoExcel

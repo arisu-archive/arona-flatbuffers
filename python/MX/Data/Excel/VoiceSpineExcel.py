@@ -171,3 +171,105 @@ def VoiceSpineExcelEnd(builder):
 
 def End(builder):
     return VoiceSpineExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class VoiceSpineExcelT(object):
+
+    # VoiceSpineExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        id = 0,
+        nation = None,
+        path = None,
+        soundVolume = None,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.id = id  # type: int
+        self.nation = nation  # type: Optional[List[int]]
+        self.path = path  # type: Optional[List[Optional[str]]]
+        self.soundVolume = soundVolume  # type: Optional[List[float]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        voiceSpineExcel = VoiceSpineExcel()
+        voiceSpineExcel.Init(buf, pos)
+        return cls.InitFromObj(voiceSpineExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, voiceSpineExcel):
+        x = VoiceSpineExcelT()
+        x._UnPack(voiceSpineExcel)
+        return x
+
+    # VoiceSpineExcelT
+    def _UnPack(self, voiceSpineExcel):
+        if voiceSpineExcel is None:
+            return
+        self.uniqueId = voiceSpineExcel.UniqueId()
+        self.id = voiceSpineExcel.Id()
+        if not voiceSpineExcel.NationIsNone():
+            if np is None:
+                self.nation = []
+                for i in range(voiceSpineExcel.NationLength()):
+                    self.nation.append(voiceSpineExcel.Nation(i))
+            else:
+                self.nation = voiceSpineExcel.NationAsNumpy()
+        if not voiceSpineExcel.PathIsNone():
+            self.path = []
+            for i in range(voiceSpineExcel.PathLength()):
+                self.path.append(voiceSpineExcel.Path(i))
+        if not voiceSpineExcel.SoundVolumeIsNone():
+            if np is None:
+                self.soundVolume = []
+                for i in range(voiceSpineExcel.SoundVolumeLength()):
+                    self.soundVolume.append(voiceSpineExcel.SoundVolume(i))
+            else:
+                self.soundVolume = voiceSpineExcel.SoundVolumeAsNumpy()
+
+    # VoiceSpineExcelT
+    def Pack(self, builder):
+        if self.nation is not None:
+            if np is not None and type(self.nation) is np.ndarray:
+                nation = builder.CreateNumpyVector(self.nation)
+            else:
+                VoiceSpineExcelStartNationVector(builder, len(self.nation))
+                for i in reversed(range(len(self.nation))):
+                    builder.PrependInt32(self.nation[i])
+                nation = builder.EndVector()
+        if self.path is not None:
+            pathlist = []
+            for i in range(len(self.path)):
+                pathlist.append(builder.CreateString(self.path[i]))
+            VoiceSpineExcelStartPathVector(builder, len(self.path))
+            for i in reversed(range(len(self.path))):
+                builder.PrependUOffsetTRelative(pathlist[i])
+            path = builder.EndVector()
+        if self.soundVolume is not None:
+            if np is not None and type(self.soundVolume) is np.ndarray:
+                soundVolume = builder.CreateNumpyVector(self.soundVolume)
+            else:
+                VoiceSpineExcelStartSoundVolumeVector(builder, len(self.soundVolume))
+                for i in reversed(range(len(self.soundVolume))):
+                    builder.PrependFloat32(self.soundVolume[i])
+                soundVolume = builder.EndVector()
+        VoiceSpineExcelStart(builder)
+        VoiceSpineExcelAddUniqueId(builder, self.uniqueId)
+        VoiceSpineExcelAddId(builder, self.id)
+        if self.nation is not None:
+            VoiceSpineExcelAddNation(builder, nation)
+        if self.path is not None:
+            VoiceSpineExcelAddPath(builder, path)
+        if self.soundVolume is not None:
+            VoiceSpineExcelAddSoundVolume(builder, soundVolume)
+        voiceSpineExcel = VoiceSpineExcelEnd(builder)
+        return voiceSpineExcel

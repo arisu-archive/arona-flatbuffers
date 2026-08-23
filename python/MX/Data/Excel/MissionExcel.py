@@ -150,7 +150,7 @@ class MissionExcel(object):
         return o == 0
 
     # MissionExcel
-    def AccountType(self):
+    def TargetGroup(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
@@ -475,11 +475,11 @@ def MissionExcelStartPreMissionIdVector(builder, numElems):
 def StartPreMissionIdVector(builder, numElems):
     return MissionExcelStartPreMissionIdVector(builder, numElems)
 
-def MissionExcelAddAccountType(builder, accountType):
-    builder.PrependInt32Slot(15, accountType, 0)
+def MissionExcelAddTargetGroup(builder, targetGroup):
+    builder.PrependInt32Slot(15, targetGroup, 0)
 
-def AddAccountType(builder, accountType):
-    MissionExcelAddAccountType(builder, accountType)
+def AddTargetGroup(builder, targetGroup):
+    MissionExcelAddTargetGroup(builder, targetGroup)
 
 def MissionExcelAddAccountLevel(builder, accountLevel):
     builder.PrependInt64Slot(16, accountLevel, 0)
@@ -600,3 +600,287 @@ def MissionExcelEnd(builder):
 
 def End(builder):
     return MissionExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MissionExcelT(object):
+
+    # MissionExcelT
+    def __init__(
+        self,
+        id = 0,
+        category = 0,
+        description = 0,
+        resetType = 0,
+        toastDisplayType = 0,
+        toastImagePath = None,
+        viewFlag = False,
+        limit = False,
+        startDate = None,
+        endDate = None,
+        endDay = 0,
+        startableEndDate = None,
+        dateAutoRefer = 0,
+        displayOrder = 0,
+        preMissionId = None,
+        targetGroup = 0,
+        accountLevel = 0,
+        contentTags = None,
+        shortcutUi = None,
+        challengeStageShortcut = 0,
+        completeConditionType = 0,
+        completeConditionCount = 0,
+        completeConditionParameter = None,
+        completeConditionParameterTag = None,
+        rewardIcon = None,
+        missionRewardParcelType = None,
+        missionRewardParcelId = None,
+        missionRewardAmount = None,
+    ):
+        self.id = id  # type: int
+        self.category = category  # type: int
+        self.description = description  # type: int
+        self.resetType = resetType  # type: int
+        self.toastDisplayType = toastDisplayType  # type: int
+        self.toastImagePath = toastImagePath  # type: Optional[str]
+        self.viewFlag = viewFlag  # type: bool
+        self.limit = limit  # type: bool
+        self.startDate = startDate  # type: Optional[str]
+        self.endDate = endDate  # type: Optional[str]
+        self.endDay = endDay  # type: int
+        self.startableEndDate = startableEndDate  # type: Optional[str]
+        self.dateAutoRefer = dateAutoRefer  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.preMissionId = preMissionId  # type: Optional[List[int]]
+        self.targetGroup = targetGroup  # type: int
+        self.accountLevel = accountLevel  # type: int
+        self.contentTags = contentTags  # type: Optional[List[int]]
+        self.shortcutUi = shortcutUi  # type: Optional[List[Optional[str]]]
+        self.challengeStageShortcut = challengeStageShortcut  # type: int
+        self.completeConditionType = completeConditionType  # type: int
+        self.completeConditionCount = completeConditionCount  # type: int
+        self.completeConditionParameter = completeConditionParameter  # type: Optional[List[int]]
+        self.completeConditionParameterTag = completeConditionParameterTag  # type: Optional[List[int]]
+        self.rewardIcon = rewardIcon  # type: Optional[str]
+        self.missionRewardParcelType = missionRewardParcelType  # type: Optional[List[int]]
+        self.missionRewardParcelId = missionRewardParcelId  # type: Optional[List[int]]
+        self.missionRewardAmount = missionRewardAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        missionExcel = MissionExcel()
+        missionExcel.Init(buf, pos)
+        return cls.InitFromObj(missionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, missionExcel):
+        x = MissionExcelT()
+        x._UnPack(missionExcel)
+        return x
+
+    # MissionExcelT
+    def _UnPack(self, missionExcel):
+        if missionExcel is None:
+            return
+        self.id = missionExcel.Id()
+        self.category = missionExcel.Category()
+        self.description = missionExcel.Description()
+        self.resetType = missionExcel.ResetType()
+        self.toastDisplayType = missionExcel.ToastDisplayType()
+        self.toastImagePath = missionExcel.ToastImagePath()
+        self.viewFlag = missionExcel.ViewFlag()
+        self.limit = missionExcel.Limit()
+        self.startDate = missionExcel.StartDate()
+        self.endDate = missionExcel.EndDate()
+        self.endDay = missionExcel.EndDay()
+        self.startableEndDate = missionExcel.StartableEndDate()
+        self.dateAutoRefer = missionExcel.DateAutoRefer()
+        self.displayOrder = missionExcel.DisplayOrder()
+        if not missionExcel.PreMissionIdIsNone():
+            if np is None:
+                self.preMissionId = []
+                for i in range(missionExcel.PreMissionIdLength()):
+                    self.preMissionId.append(missionExcel.PreMissionId(i))
+            else:
+                self.preMissionId = missionExcel.PreMissionIdAsNumpy()
+        self.targetGroup = missionExcel.TargetGroup()
+        self.accountLevel = missionExcel.AccountLevel()
+        if not missionExcel.ContentTagsIsNone():
+            if np is None:
+                self.contentTags = []
+                for i in range(missionExcel.ContentTagsLength()):
+                    self.contentTags.append(missionExcel.ContentTags(i))
+            else:
+                self.contentTags = missionExcel.ContentTagsAsNumpy()
+        if not missionExcel.ShortcutUiIsNone():
+            self.shortcutUi = []
+            for i in range(missionExcel.ShortcutUiLength()):
+                self.shortcutUi.append(missionExcel.ShortcutUi(i))
+        self.challengeStageShortcut = missionExcel.ChallengeStageShortcut()
+        self.completeConditionType = missionExcel.CompleteConditionType()
+        self.completeConditionCount = missionExcel.CompleteConditionCount()
+        if not missionExcel.CompleteConditionParameterIsNone():
+            if np is None:
+                self.completeConditionParameter = []
+                for i in range(missionExcel.CompleteConditionParameterLength()):
+                    self.completeConditionParameter.append(missionExcel.CompleteConditionParameter(i))
+            else:
+                self.completeConditionParameter = missionExcel.CompleteConditionParameterAsNumpy()
+        if not missionExcel.CompleteConditionParameterTagIsNone():
+            if np is None:
+                self.completeConditionParameterTag = []
+                for i in range(missionExcel.CompleteConditionParameterTagLength()):
+                    self.completeConditionParameterTag.append(missionExcel.CompleteConditionParameterTag(i))
+            else:
+                self.completeConditionParameterTag = missionExcel.CompleteConditionParameterTagAsNumpy()
+        self.rewardIcon = missionExcel.RewardIcon()
+        if not missionExcel.MissionRewardParcelTypeIsNone():
+            if np is None:
+                self.missionRewardParcelType = []
+                for i in range(missionExcel.MissionRewardParcelTypeLength()):
+                    self.missionRewardParcelType.append(missionExcel.MissionRewardParcelType(i))
+            else:
+                self.missionRewardParcelType = missionExcel.MissionRewardParcelTypeAsNumpy()
+        if not missionExcel.MissionRewardParcelIdIsNone():
+            if np is None:
+                self.missionRewardParcelId = []
+                for i in range(missionExcel.MissionRewardParcelIdLength()):
+                    self.missionRewardParcelId.append(missionExcel.MissionRewardParcelId(i))
+            else:
+                self.missionRewardParcelId = missionExcel.MissionRewardParcelIdAsNumpy()
+        if not missionExcel.MissionRewardAmountIsNone():
+            if np is None:
+                self.missionRewardAmount = []
+                for i in range(missionExcel.MissionRewardAmountLength()):
+                    self.missionRewardAmount.append(missionExcel.MissionRewardAmount(i))
+            else:
+                self.missionRewardAmount = missionExcel.MissionRewardAmountAsNumpy()
+
+    # MissionExcelT
+    def Pack(self, builder):
+        if self.toastImagePath is not None:
+            toastImagePath = builder.CreateString(self.toastImagePath)
+        if self.startDate is not None:
+            startDate = builder.CreateString(self.startDate)
+        if self.endDate is not None:
+            endDate = builder.CreateString(self.endDate)
+        if self.startableEndDate is not None:
+            startableEndDate = builder.CreateString(self.startableEndDate)
+        if self.preMissionId is not None:
+            if np is not None and type(self.preMissionId) is np.ndarray:
+                preMissionId = builder.CreateNumpyVector(self.preMissionId)
+            else:
+                MissionExcelStartPreMissionIdVector(builder, len(self.preMissionId))
+                for i in reversed(range(len(self.preMissionId))):
+                    builder.PrependInt64(self.preMissionId[i])
+                preMissionId = builder.EndVector()
+        if self.contentTags is not None:
+            if np is not None and type(self.contentTags) is np.ndarray:
+                contentTags = builder.CreateNumpyVector(self.contentTags)
+            else:
+                MissionExcelStartContentTagsVector(builder, len(self.contentTags))
+                for i in reversed(range(len(self.contentTags))):
+                    builder.PrependInt32(self.contentTags[i])
+                contentTags = builder.EndVector()
+        if self.shortcutUi is not None:
+            shortcutUilist = []
+            for i in range(len(self.shortcutUi)):
+                shortcutUilist.append(builder.CreateString(self.shortcutUi[i]))
+            MissionExcelStartShortcutUiVector(builder, len(self.shortcutUi))
+            for i in reversed(range(len(self.shortcutUi))):
+                builder.PrependUOffsetTRelative(shortcutUilist[i])
+            shortcutUi = builder.EndVector()
+        if self.completeConditionParameter is not None:
+            if np is not None and type(self.completeConditionParameter) is np.ndarray:
+                completeConditionParameter = builder.CreateNumpyVector(self.completeConditionParameter)
+            else:
+                MissionExcelStartCompleteConditionParameterVector(builder, len(self.completeConditionParameter))
+                for i in reversed(range(len(self.completeConditionParameter))):
+                    builder.PrependInt64(self.completeConditionParameter[i])
+                completeConditionParameter = builder.EndVector()
+        if self.completeConditionParameterTag is not None:
+            if np is not None and type(self.completeConditionParameterTag) is np.ndarray:
+                completeConditionParameterTag = builder.CreateNumpyVector(self.completeConditionParameterTag)
+            else:
+                MissionExcelStartCompleteConditionParameterTagVector(builder, len(self.completeConditionParameterTag))
+                for i in reversed(range(len(self.completeConditionParameterTag))):
+                    builder.PrependInt32(self.completeConditionParameterTag[i])
+                completeConditionParameterTag = builder.EndVector()
+        if self.rewardIcon is not None:
+            rewardIcon = builder.CreateString(self.rewardIcon)
+        if self.missionRewardParcelType is not None:
+            if np is not None and type(self.missionRewardParcelType) is np.ndarray:
+                missionRewardParcelType = builder.CreateNumpyVector(self.missionRewardParcelType)
+            else:
+                MissionExcelStartMissionRewardParcelTypeVector(builder, len(self.missionRewardParcelType))
+                for i in reversed(range(len(self.missionRewardParcelType))):
+                    builder.PrependInt32(self.missionRewardParcelType[i])
+                missionRewardParcelType = builder.EndVector()
+        if self.missionRewardParcelId is not None:
+            if np is not None and type(self.missionRewardParcelId) is np.ndarray:
+                missionRewardParcelId = builder.CreateNumpyVector(self.missionRewardParcelId)
+            else:
+                MissionExcelStartMissionRewardParcelIdVector(builder, len(self.missionRewardParcelId))
+                for i in reversed(range(len(self.missionRewardParcelId))):
+                    builder.PrependInt64(self.missionRewardParcelId[i])
+                missionRewardParcelId = builder.EndVector()
+        if self.missionRewardAmount is not None:
+            if np is not None and type(self.missionRewardAmount) is np.ndarray:
+                missionRewardAmount = builder.CreateNumpyVector(self.missionRewardAmount)
+            else:
+                MissionExcelStartMissionRewardAmountVector(builder, len(self.missionRewardAmount))
+                for i in reversed(range(len(self.missionRewardAmount))):
+                    builder.PrependInt32(self.missionRewardAmount[i])
+                missionRewardAmount = builder.EndVector()
+        MissionExcelStart(builder)
+        MissionExcelAddId(builder, self.id)
+        MissionExcelAddCategory(builder, self.category)
+        MissionExcelAddDescription(builder, self.description)
+        MissionExcelAddResetType(builder, self.resetType)
+        MissionExcelAddToastDisplayType(builder, self.toastDisplayType)
+        if self.toastImagePath is not None:
+            MissionExcelAddToastImagePath(builder, toastImagePath)
+        MissionExcelAddViewFlag(builder, self.viewFlag)
+        MissionExcelAddLimit(builder, self.limit)
+        if self.startDate is not None:
+            MissionExcelAddStartDate(builder, startDate)
+        if self.endDate is not None:
+            MissionExcelAddEndDate(builder, endDate)
+        MissionExcelAddEndDay(builder, self.endDay)
+        if self.startableEndDate is not None:
+            MissionExcelAddStartableEndDate(builder, startableEndDate)
+        MissionExcelAddDateAutoRefer(builder, self.dateAutoRefer)
+        MissionExcelAddDisplayOrder(builder, self.displayOrder)
+        if self.preMissionId is not None:
+            MissionExcelAddPreMissionId(builder, preMissionId)
+        MissionExcelAddTargetGroup(builder, self.targetGroup)
+        MissionExcelAddAccountLevel(builder, self.accountLevel)
+        if self.contentTags is not None:
+            MissionExcelAddContentTags(builder, contentTags)
+        if self.shortcutUi is not None:
+            MissionExcelAddShortcutUi(builder, shortcutUi)
+        MissionExcelAddChallengeStageShortcut(builder, self.challengeStageShortcut)
+        MissionExcelAddCompleteConditionType(builder, self.completeConditionType)
+        MissionExcelAddCompleteConditionCount(builder, self.completeConditionCount)
+        if self.completeConditionParameter is not None:
+            MissionExcelAddCompleteConditionParameter(builder, completeConditionParameter)
+        if self.completeConditionParameterTag is not None:
+            MissionExcelAddCompleteConditionParameterTag(builder, completeConditionParameterTag)
+        if self.rewardIcon is not None:
+            MissionExcelAddRewardIcon(builder, rewardIcon)
+        if self.missionRewardParcelType is not None:
+            MissionExcelAddMissionRewardParcelType(builder, missionRewardParcelType)
+        if self.missionRewardParcelId is not None:
+            MissionExcelAddMissionRewardParcelId(builder, missionRewardParcelId)
+        if self.missionRewardAmount is not None:
+            MissionExcelAddMissionRewardAmount(builder, missionRewardAmount)
+        missionExcel = MissionExcelEnd(builder)
+        return missionExcel

@@ -74,3 +74,57 @@ def MinigameCCGLogicEffectExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGLogicEffectExcelEnd(builder)
+
+
+class MinigameCCGLogicEffectExcelT(object):
+
+    # MinigameCCGLogicEffectExcelT
+    def __init__(
+        self,
+        id = 0,
+        dataLoadPath = None,
+        icon = None,
+    ):
+        self.id = id  # type: int
+        self.dataLoadPath = dataLoadPath  # type: Optional[str]
+        self.icon = icon  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcglogicEffectExcel = MinigameCCGLogicEffectExcel()
+        minigameCcglogicEffectExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcglogicEffectExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcglogicEffectExcel):
+        x = MinigameCCGLogicEffectExcelT()
+        x._UnPack(minigameCcglogicEffectExcel)
+        return x
+
+    # MinigameCCGLogicEffectExcelT
+    def _UnPack(self, minigameCcglogicEffectExcel):
+        if minigameCcglogicEffectExcel is None:
+            return
+        self.id = minigameCcglogicEffectExcel.Id()
+        self.dataLoadPath = minigameCcglogicEffectExcel.DataLoadPath()
+        self.icon = minigameCcglogicEffectExcel.Icon()
+
+    # MinigameCCGLogicEffectExcelT
+    def Pack(self, builder):
+        if self.dataLoadPath is not None:
+            dataLoadPath = builder.CreateString(self.dataLoadPath)
+        if self.icon is not None:
+            icon = builder.CreateString(self.icon)
+        MinigameCCGLogicEffectExcelStart(builder)
+        MinigameCCGLogicEffectExcelAddId(builder, self.id)
+        if self.dataLoadPath is not None:
+            MinigameCCGLogicEffectExcelAddDataLoadPath(builder, dataLoadPath)
+        if self.icon is not None:
+            MinigameCCGLogicEffectExcelAddIcon(builder, icon)
+        minigameCcglogicEffectExcel = MinigameCCGLogicEffectExcelEnd(builder)
+        return minigameCcglogicEffectExcel

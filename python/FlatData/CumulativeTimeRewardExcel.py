@@ -2,4 +2,389 @@
 
 # namespace: FlatData
 
-# NOTE CumulativeTimeRewardExcel.py does not declare any structs or enums
+import flatbuffers
+from flatbuffers.compat import import_numpy
+np = import_numpy()
+
+class CumulativeTimeRewardExcel(object):
+    __slots__ = ['_tab']
+
+    @classmethod
+    def GetRootAs(cls, buf, offset=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, offset)
+        x = CumulativeTimeRewardExcel()
+        x.Init(buf, n + offset)
+        return x
+
+    @classmethod
+    def GetRootAsCumulativeTimeRewardExcel(cls, buf, offset=0):
+        """This method is deprecated. Please switch to GetRootAs."""
+        return cls.GetRootAs(buf, offset)
+    # CumulativeTimeRewardExcel
+    def Init(self, buf, pos):
+        self._tab = flatbuffers.table.Table(buf, pos)
+
+    # CumulativeTimeRewardExcel
+    def Id(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(4))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # CumulativeTimeRewardExcel
+    def Description(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(6))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CumulativeTimeRewardExcel
+    def StartDate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(8))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CumulativeTimeRewardExcel
+    def EndDate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # CumulativeTimeRewardExcel
+    def TimeCondition(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # CumulativeTimeRewardExcel
+    def TimeConditionAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # CumulativeTimeRewardExcel
+    def TimeConditionLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CumulativeTimeRewardExcel
+    def TimeConditionIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        return o == 0
+
+    # CumulativeTimeRewardExcel
+    def RewardParcelType(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # CumulativeTimeRewardExcel
+    def RewardParcelTypeAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # CumulativeTimeRewardExcel
+    def RewardParcelTypeLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CumulativeTimeRewardExcel
+    def RewardParcelTypeIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        return o == 0
+
+    # CumulativeTimeRewardExcel
+    def RewardId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
+        return 0
+
+    # CumulativeTimeRewardExcel
+    def RewardIdAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
+        return 0
+
+    # CumulativeTimeRewardExcel
+    def RewardIdLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CumulativeTimeRewardExcel
+    def RewardIdIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        return o == 0
+
+    # CumulativeTimeRewardExcel
+    def RewardAmount(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            a = self._tab.Vector(o)
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
+        return 0
+
+    # CumulativeTimeRewardExcel
+    def RewardAmountAsNumpy(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
+        return 0
+
+    # CumulativeTimeRewardExcel
+    def RewardAmountLength(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        if o != 0:
+            return self._tab.VectorLen(o)
+        return 0
+
+    # CumulativeTimeRewardExcel
+    def RewardAmountIsNone(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        return o == 0
+
+def CumulativeTimeRewardExcelStart(builder):
+    builder.StartObject(8)
+
+def Start(builder):
+    CumulativeTimeRewardExcelStart(builder)
+
+def CumulativeTimeRewardExcelAddId(builder, id):
+    builder.PrependInt64Slot(0, id, 0)
+
+def AddId(builder, id):
+    CumulativeTimeRewardExcelAddId(builder, id)
+
+def CumulativeTimeRewardExcelAddDescription(builder, description):
+    builder.PrependUOffsetTRelativeSlot(1, flatbuffers.number_types.UOffsetTFlags.py_type(description), 0)
+
+def AddDescription(builder, description):
+    CumulativeTimeRewardExcelAddDescription(builder, description)
+
+def CumulativeTimeRewardExcelAddStartDate(builder, startDate):
+    builder.PrependUOffsetTRelativeSlot(2, flatbuffers.number_types.UOffsetTFlags.py_type(startDate), 0)
+
+def AddStartDate(builder, startDate):
+    CumulativeTimeRewardExcelAddStartDate(builder, startDate)
+
+def CumulativeTimeRewardExcelAddEndDate(builder, endDate):
+    builder.PrependUOffsetTRelativeSlot(3, flatbuffers.number_types.UOffsetTFlags.py_type(endDate), 0)
+
+def AddEndDate(builder, endDate):
+    CumulativeTimeRewardExcelAddEndDate(builder, endDate)
+
+def CumulativeTimeRewardExcelAddTimeCondition(builder, timeCondition):
+    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(timeCondition), 0)
+
+def AddTimeCondition(builder, timeCondition):
+    CumulativeTimeRewardExcelAddTimeCondition(builder, timeCondition)
+
+def CumulativeTimeRewardExcelStartTimeConditionVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartTimeConditionVector(builder, numElems):
+    return CumulativeTimeRewardExcelStartTimeConditionVector(builder, numElems)
+
+def CumulativeTimeRewardExcelAddRewardParcelType(builder, rewardParcelType):
+    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(rewardParcelType), 0)
+
+def AddRewardParcelType(builder, rewardParcelType):
+    CumulativeTimeRewardExcelAddRewardParcelType(builder, rewardParcelType)
+
+def CumulativeTimeRewardExcelStartRewardParcelTypeVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartRewardParcelTypeVector(builder, numElems):
+    return CumulativeTimeRewardExcelStartRewardParcelTypeVector(builder, numElems)
+
+def CumulativeTimeRewardExcelAddRewardId(builder, rewardId):
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(rewardId), 0)
+
+def AddRewardId(builder, rewardId):
+    CumulativeTimeRewardExcelAddRewardId(builder, rewardId)
+
+def CumulativeTimeRewardExcelStartRewardIdVector(builder, numElems):
+    return builder.StartVector(8, numElems, 8)
+
+def StartRewardIdVector(builder, numElems):
+    return CumulativeTimeRewardExcelStartRewardIdVector(builder, numElems)
+
+def CumulativeTimeRewardExcelAddRewardAmount(builder, rewardAmount):
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(rewardAmount), 0)
+
+def AddRewardAmount(builder, rewardAmount):
+    CumulativeTimeRewardExcelAddRewardAmount(builder, rewardAmount)
+
+def CumulativeTimeRewardExcelStartRewardAmountVector(builder, numElems):
+    return builder.StartVector(4, numElems, 4)
+
+def StartRewardAmountVector(builder, numElems):
+    return CumulativeTimeRewardExcelStartRewardAmountVector(builder, numElems)
+
+def CumulativeTimeRewardExcelEnd(builder):
+    return builder.EndObject()
+
+def End(builder):
+    return CumulativeTimeRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CumulativeTimeRewardExcelT(object):
+
+    # CumulativeTimeRewardExcelT
+    def __init__(
+        self,
+        id = 0,
+        description = None,
+        startDate = None,
+        endDate = None,
+        timeCondition = None,
+        rewardParcelType = None,
+        rewardId = None,
+        rewardAmount = None,
+    ):
+        self.id = id  # type: int
+        self.description = description  # type: Optional[str]
+        self.startDate = startDate  # type: Optional[str]
+        self.endDate = endDate  # type: Optional[str]
+        self.timeCondition = timeCondition  # type: Optional[List[int]]
+        self.rewardParcelType = rewardParcelType  # type: Optional[List[int]]
+        self.rewardId = rewardId  # type: Optional[List[int]]
+        self.rewardAmount = rewardAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        cumulativeTimeRewardExcel = CumulativeTimeRewardExcel()
+        cumulativeTimeRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(cumulativeTimeRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, cumulativeTimeRewardExcel):
+        x = CumulativeTimeRewardExcelT()
+        x._UnPack(cumulativeTimeRewardExcel)
+        return x
+
+    # CumulativeTimeRewardExcelT
+    def _UnPack(self, cumulativeTimeRewardExcel):
+        if cumulativeTimeRewardExcel is None:
+            return
+        self.id = cumulativeTimeRewardExcel.Id()
+        self.description = cumulativeTimeRewardExcel.Description()
+        self.startDate = cumulativeTimeRewardExcel.StartDate()
+        self.endDate = cumulativeTimeRewardExcel.EndDate()
+        if not cumulativeTimeRewardExcel.TimeConditionIsNone():
+            if np is None:
+                self.timeCondition = []
+                for i in range(cumulativeTimeRewardExcel.TimeConditionLength()):
+                    self.timeCondition.append(cumulativeTimeRewardExcel.TimeCondition(i))
+            else:
+                self.timeCondition = cumulativeTimeRewardExcel.TimeConditionAsNumpy()
+        if not cumulativeTimeRewardExcel.RewardParcelTypeIsNone():
+            if np is None:
+                self.rewardParcelType = []
+                for i in range(cumulativeTimeRewardExcel.RewardParcelTypeLength()):
+                    self.rewardParcelType.append(cumulativeTimeRewardExcel.RewardParcelType(i))
+            else:
+                self.rewardParcelType = cumulativeTimeRewardExcel.RewardParcelTypeAsNumpy()
+        if not cumulativeTimeRewardExcel.RewardIdIsNone():
+            if np is None:
+                self.rewardId = []
+                for i in range(cumulativeTimeRewardExcel.RewardIdLength()):
+                    self.rewardId.append(cumulativeTimeRewardExcel.RewardId(i))
+            else:
+                self.rewardId = cumulativeTimeRewardExcel.RewardIdAsNumpy()
+        if not cumulativeTimeRewardExcel.RewardAmountIsNone():
+            if np is None:
+                self.rewardAmount = []
+                for i in range(cumulativeTimeRewardExcel.RewardAmountLength()):
+                    self.rewardAmount.append(cumulativeTimeRewardExcel.RewardAmount(i))
+            else:
+                self.rewardAmount = cumulativeTimeRewardExcel.RewardAmountAsNumpy()
+
+    # CumulativeTimeRewardExcelT
+    def Pack(self, builder):
+        if self.description is not None:
+            description = builder.CreateString(self.description)
+        if self.startDate is not None:
+            startDate = builder.CreateString(self.startDate)
+        if self.endDate is not None:
+            endDate = builder.CreateString(self.endDate)
+        if self.timeCondition is not None:
+            if np is not None and type(self.timeCondition) is np.ndarray:
+                timeCondition = builder.CreateNumpyVector(self.timeCondition)
+            else:
+                CumulativeTimeRewardExcelStartTimeConditionVector(builder, len(self.timeCondition))
+                for i in reversed(range(len(self.timeCondition))):
+                    builder.PrependInt64(self.timeCondition[i])
+                timeCondition = builder.EndVector()
+        if self.rewardParcelType is not None:
+            if np is not None and type(self.rewardParcelType) is np.ndarray:
+                rewardParcelType = builder.CreateNumpyVector(self.rewardParcelType)
+            else:
+                CumulativeTimeRewardExcelStartRewardParcelTypeVector(builder, len(self.rewardParcelType))
+                for i in reversed(range(len(self.rewardParcelType))):
+                    builder.PrependInt32(self.rewardParcelType[i])
+                rewardParcelType = builder.EndVector()
+        if self.rewardId is not None:
+            if np is not None and type(self.rewardId) is np.ndarray:
+                rewardId = builder.CreateNumpyVector(self.rewardId)
+            else:
+                CumulativeTimeRewardExcelStartRewardIdVector(builder, len(self.rewardId))
+                for i in reversed(range(len(self.rewardId))):
+                    builder.PrependInt64(self.rewardId[i])
+                rewardId = builder.EndVector()
+        if self.rewardAmount is not None:
+            if np is not None and type(self.rewardAmount) is np.ndarray:
+                rewardAmount = builder.CreateNumpyVector(self.rewardAmount)
+            else:
+                CumulativeTimeRewardExcelStartRewardAmountVector(builder, len(self.rewardAmount))
+                for i in reversed(range(len(self.rewardAmount))):
+                    builder.PrependInt32(self.rewardAmount[i])
+                rewardAmount = builder.EndVector()
+        CumulativeTimeRewardExcelStart(builder)
+        CumulativeTimeRewardExcelAddId(builder, self.id)
+        if self.description is not None:
+            CumulativeTimeRewardExcelAddDescription(builder, description)
+        if self.startDate is not None:
+            CumulativeTimeRewardExcelAddStartDate(builder, startDate)
+        if self.endDate is not None:
+            CumulativeTimeRewardExcelAddEndDate(builder, endDate)
+        if self.timeCondition is not None:
+            CumulativeTimeRewardExcelAddTimeCondition(builder, timeCondition)
+        if self.rewardParcelType is not None:
+            CumulativeTimeRewardExcelAddRewardParcelType(builder, rewardParcelType)
+        if self.rewardId is not None:
+            CumulativeTimeRewardExcelAddRewardId(builder, rewardId)
+        if self.rewardAmount is not None:
+            CumulativeTimeRewardExcelAddRewardAmount(builder, rewardAmount)
+        cumulativeTimeRewardExcel = CumulativeTimeRewardExcelEnd(builder)
+        return cumulativeTimeRewardExcel
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(CumulativeTimeRewardExcelT, 'CumulativeTimeRewardExcel', (('id', 'int64', False), ('description', 'string', False), ('startDate', 'string', False), ('endDate', 'string', False), ('timeCondition', 'int64', True), ('rewardParcelType', 'int32', True), ('rewardId', 'int64', True), ('rewardAmount', 'int32', True)))

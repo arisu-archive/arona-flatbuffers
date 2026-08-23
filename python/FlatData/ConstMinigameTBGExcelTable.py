@@ -72,3 +72,68 @@ def ConstMinigameTBGExcelTableEnd(builder):
 
 def End(builder):
     return ConstMinigameTBGExcelTableEnd(builder)
+
+import FlatData.ConstMinigameTBGExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConstMinigameTBGExcelTableT(object):
+
+    # ConstMinigameTBGExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConstMinigameTBGExcel.ConstMinigameTBGExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        constMinigameTbgexcelTable = ConstMinigameTBGExcelTable()
+        constMinigameTbgexcelTable.Init(buf, pos)
+        return cls.InitFromObj(constMinigameTbgexcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, constMinigameTbgexcelTable):
+        x = ConstMinigameTBGExcelTableT()
+        x._UnPack(constMinigameTbgexcelTable)
+        return x
+
+    # ConstMinigameTBGExcelTableT
+    def _UnPack(self, constMinigameTbgexcelTable):
+        if constMinigameTbgexcelTable is None:
+            return
+        if not constMinigameTbgexcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(constMinigameTbgexcelTable.DataListLength()):
+                if constMinigameTbgexcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    constMinigameTBGExcel_ = FlatData.ConstMinigameTBGExcel.ConstMinigameTBGExcelT.InitFromObj(constMinigameTbgexcelTable.DataList(i))
+                    self.dataList.append(constMinigameTBGExcel_)
+
+    # ConstMinigameTBGExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConstMinigameTBGExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConstMinigameTBGExcelTableStart(builder)
+        if self.dataList is not None:
+            ConstMinigameTBGExcelTableAddDataList(builder, dataList)
+        constMinigameTbgexcelTable = ConstMinigameTBGExcelTableEnd(builder)
+        return constMinigameTbgexcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConstMinigameTBGExcelTableT, 'ConstMinigameTBGExcelTable', ())

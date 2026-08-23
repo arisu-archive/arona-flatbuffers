@@ -126,3 +126,67 @@ def PickupDuplicateBonusExcelEnd(builder):
 
 def End(builder):
     return PickupDuplicateBonusExcelEnd(builder)
+
+
+class PickupDuplicateBonusExcelT(object):
+
+    # PickupDuplicateBonusExcelT
+    def __init__(
+        self,
+        id = 0,
+        shopCategoryType = 0,
+        shopId = 0,
+        pickupCharacterId = 0,
+        rewardParcelType = 0,
+        rewardParcelId = 0,
+        rewardParcelAmount = 0,
+    ):
+        self.id = id  # type: int
+        self.shopCategoryType = shopCategoryType  # type: int
+        self.shopId = shopId  # type: int
+        self.pickupCharacterId = pickupCharacterId  # type: int
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelId = rewardParcelId  # type: int
+        self.rewardParcelAmount = rewardParcelAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        pickupDuplicateBonusExcel = PickupDuplicateBonusExcel()
+        pickupDuplicateBonusExcel.Init(buf, pos)
+        return cls.InitFromObj(pickupDuplicateBonusExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, pickupDuplicateBonusExcel):
+        x = PickupDuplicateBonusExcelT()
+        x._UnPack(pickupDuplicateBonusExcel)
+        return x
+
+    # PickupDuplicateBonusExcelT
+    def _UnPack(self, pickupDuplicateBonusExcel):
+        if pickupDuplicateBonusExcel is None:
+            return
+        self.id = pickupDuplicateBonusExcel.Id()
+        self.shopCategoryType = pickupDuplicateBonusExcel.ShopCategoryType()
+        self.shopId = pickupDuplicateBonusExcel.ShopId()
+        self.pickupCharacterId = pickupDuplicateBonusExcel.PickupCharacterId()
+        self.rewardParcelType = pickupDuplicateBonusExcel.RewardParcelType()
+        self.rewardParcelId = pickupDuplicateBonusExcel.RewardParcelId()
+        self.rewardParcelAmount = pickupDuplicateBonusExcel.RewardParcelAmount()
+
+    # PickupDuplicateBonusExcelT
+    def Pack(self, builder):
+        PickupDuplicateBonusExcelStart(builder)
+        PickupDuplicateBonusExcelAddId(builder, self.id)
+        PickupDuplicateBonusExcelAddShopCategoryType(builder, self.shopCategoryType)
+        PickupDuplicateBonusExcelAddShopId(builder, self.shopId)
+        PickupDuplicateBonusExcelAddPickupCharacterId(builder, self.pickupCharacterId)
+        PickupDuplicateBonusExcelAddRewardParcelType(builder, self.rewardParcelType)
+        PickupDuplicateBonusExcelAddRewardParcelId(builder, self.rewardParcelId)
+        PickupDuplicateBonusExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        pickupDuplicateBonusExcel = PickupDuplicateBonusExcelEnd(builder)
+        return pickupDuplicateBonusExcel

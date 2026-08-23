@@ -61,3 +61,47 @@ def AcademyTicketExcelEnd(builder):
 
 def End(builder):
     return AcademyTicketExcelEnd(builder)
+
+
+class AcademyTicketExcelT(object):
+
+    # AcademyTicketExcelT
+    def __init__(
+        self,
+        locationRankSum = 0,
+        scheduleTicktetMax = 0,
+    ):
+        self.locationRankSum = locationRankSum  # type: int
+        self.scheduleTicktetMax = scheduleTicktetMax  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        academyTicketExcel = AcademyTicketExcel()
+        academyTicketExcel.Init(buf, pos)
+        return cls.InitFromObj(academyTicketExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, academyTicketExcel):
+        x = AcademyTicketExcelT()
+        x._UnPack(academyTicketExcel)
+        return x
+
+    # AcademyTicketExcelT
+    def _UnPack(self, academyTicketExcel):
+        if academyTicketExcel is None:
+            return
+        self.locationRankSum = academyTicketExcel.LocationRankSum()
+        self.scheduleTicktetMax = academyTicketExcel.ScheduleTicktetMax()
+
+    # AcademyTicketExcelT
+    def Pack(self, builder):
+        AcademyTicketExcelStart(builder)
+        AcademyTicketExcelAddLocationRankSum(builder, self.locationRankSum)
+        AcademyTicketExcelAddScheduleTicktetMax(builder, self.scheduleTicktetMax)
+        academyTicketExcel = AcademyTicketExcelEnd(builder)
+        return academyTicketExcel

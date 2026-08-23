@@ -139,3 +139,88 @@ def ConquestProgressResourceExcelEnd(builder):
 
 def End(builder):
     return ConquestProgressResourceExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ConquestProgressResourceExcelT(object):
+
+    # ConquestProgressResourceExcelT
+    def __init__(
+        self,
+        id = 0,
+        eventContentId = 0,
+        group = 0,
+        progressResource = None,
+        voiceId = None,
+        progressLocalizeCode = None,
+    ):
+        self.id = id  # type: int
+        self.eventContentId = eventContentId  # type: int
+        self.group = group  # type: int
+        self.progressResource = progressResource  # type: Optional[str]
+        self.voiceId = voiceId  # type: Optional[List[int]]
+        self.progressLocalizeCode = progressLocalizeCode  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestProgressResourceExcel = ConquestProgressResourceExcel()
+        conquestProgressResourceExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestProgressResourceExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestProgressResourceExcel):
+        x = ConquestProgressResourceExcelT()
+        x._UnPack(conquestProgressResourceExcel)
+        return x
+
+    # ConquestProgressResourceExcelT
+    def _UnPack(self, conquestProgressResourceExcel):
+        if conquestProgressResourceExcel is None:
+            return
+        self.id = conquestProgressResourceExcel.Id()
+        self.eventContentId = conquestProgressResourceExcel.EventContentId()
+        self.group = conquestProgressResourceExcel.Group()
+        self.progressResource = conquestProgressResourceExcel.ProgressResource()
+        if not conquestProgressResourceExcel.VoiceIdIsNone():
+            if np is None:
+                self.voiceId = []
+                for i in range(conquestProgressResourceExcel.VoiceIdLength()):
+                    self.voiceId.append(conquestProgressResourceExcel.VoiceId(i))
+            else:
+                self.voiceId = conquestProgressResourceExcel.VoiceIdAsNumpy()
+        self.progressLocalizeCode = conquestProgressResourceExcel.ProgressLocalizeCode()
+
+    # ConquestProgressResourceExcelT
+    def Pack(self, builder):
+        if self.progressResource is not None:
+            progressResource = builder.CreateString(self.progressResource)
+        if self.voiceId is not None:
+            if np is not None and type(self.voiceId) is np.ndarray:
+                voiceId = builder.CreateNumpyVector(self.voiceId)
+            else:
+                ConquestProgressResourceExcelStartVoiceIdVector(builder, len(self.voiceId))
+                for i in reversed(range(len(self.voiceId))):
+                    builder.PrependUint32(self.voiceId[i])
+                voiceId = builder.EndVector()
+        if self.progressLocalizeCode is not None:
+            progressLocalizeCode = builder.CreateString(self.progressLocalizeCode)
+        ConquestProgressResourceExcelStart(builder)
+        ConquestProgressResourceExcelAddId(builder, self.id)
+        ConquestProgressResourceExcelAddEventContentId(builder, self.eventContentId)
+        ConquestProgressResourceExcelAddGroup(builder, self.group)
+        if self.progressResource is not None:
+            ConquestProgressResourceExcelAddProgressResource(builder, progressResource)
+        if self.voiceId is not None:
+            ConquestProgressResourceExcelAddVoiceId(builder, voiceId)
+        if self.progressLocalizeCode is not None:
+            ConquestProgressResourceExcelAddProgressLocalizeCode(builder, progressLocalizeCode)
+        conquestProgressResourceExcel = ConquestProgressResourceExcelEnd(builder)
+        return conquestProgressResourceExcel

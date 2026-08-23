@@ -256,3 +256,124 @@ def MinigameCCGLevelStageExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGLevelStageExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MinigameCCGLevelStageExcelT(object):
+
+    # MinigameCCGLevelStageExcelT
+    def __init__(
+        self,
+        id = 0,
+        groupId = 0,
+        enemyGroupId = None,
+        stageType = 0,
+        campDiscardCardCount = 0,
+        campSprPath = None,
+        campBackgroundPath = None,
+        rewardType = 0,
+        rewardCount = 0,
+        rewardCardGroupId = 0,
+        cardRarityGroupId = 0,
+        isSkipIntroScenario = False,
+        introScenarioGroupId = 0,
+        isSkipOutroScenario = False,
+        outroScenarioGroupId = 0,
+    ):
+        self.id = id  # type: int
+        self.groupId = groupId  # type: int
+        self.enemyGroupId = enemyGroupId  # type: Optional[List[int]]
+        self.stageType = stageType  # type: int
+        self.campDiscardCardCount = campDiscardCardCount  # type: int
+        self.campSprPath = campSprPath  # type: Optional[str]
+        self.campBackgroundPath = campBackgroundPath  # type: Optional[str]
+        self.rewardType = rewardType  # type: int
+        self.rewardCount = rewardCount  # type: int
+        self.rewardCardGroupId = rewardCardGroupId  # type: int
+        self.cardRarityGroupId = cardRarityGroupId  # type: int
+        self.isSkipIntroScenario = isSkipIntroScenario  # type: bool
+        self.introScenarioGroupId = introScenarioGroupId  # type: int
+        self.isSkipOutroScenario = isSkipOutroScenario  # type: bool
+        self.outroScenarioGroupId = outroScenarioGroupId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcglevelStageExcel = MinigameCCGLevelStageExcel()
+        minigameCcglevelStageExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcglevelStageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcglevelStageExcel):
+        x = MinigameCCGLevelStageExcelT()
+        x._UnPack(minigameCcglevelStageExcel)
+        return x
+
+    # MinigameCCGLevelStageExcelT
+    def _UnPack(self, minigameCcglevelStageExcel):
+        if minigameCcglevelStageExcel is None:
+            return
+        self.id = minigameCcglevelStageExcel.Id()
+        self.groupId = minigameCcglevelStageExcel.GroupId()
+        if not minigameCcglevelStageExcel.EnemyGroupIdIsNone():
+            if np is None:
+                self.enemyGroupId = []
+                for i in range(minigameCcglevelStageExcel.EnemyGroupIdLength()):
+                    self.enemyGroupId.append(minigameCcglevelStageExcel.EnemyGroupId(i))
+            else:
+                self.enemyGroupId = minigameCcglevelStageExcel.EnemyGroupIdAsNumpy()
+        self.stageType = minigameCcglevelStageExcel.StageType()
+        self.campDiscardCardCount = minigameCcglevelStageExcel.CampDiscardCardCount()
+        self.campSprPath = minigameCcglevelStageExcel.CampSprPath()
+        self.campBackgroundPath = minigameCcglevelStageExcel.CampBackgroundPath()
+        self.rewardType = minigameCcglevelStageExcel.RewardType()
+        self.rewardCount = minigameCcglevelStageExcel.RewardCount()
+        self.rewardCardGroupId = minigameCcglevelStageExcel.RewardCardGroupId()
+        self.cardRarityGroupId = minigameCcglevelStageExcel.CardRarityGroupId()
+        self.isSkipIntroScenario = minigameCcglevelStageExcel.IsSkipIntroScenario()
+        self.introScenarioGroupId = minigameCcglevelStageExcel.IntroScenarioGroupId()
+        self.isSkipOutroScenario = minigameCcglevelStageExcel.IsSkipOutroScenario()
+        self.outroScenarioGroupId = minigameCcglevelStageExcel.OutroScenarioGroupId()
+
+    # MinigameCCGLevelStageExcelT
+    def Pack(self, builder):
+        if self.enemyGroupId is not None:
+            if np is not None and type(self.enemyGroupId) is np.ndarray:
+                enemyGroupId = builder.CreateNumpyVector(self.enemyGroupId)
+            else:
+                MinigameCCGLevelStageExcelStartEnemyGroupIdVector(builder, len(self.enemyGroupId))
+                for i in reversed(range(len(self.enemyGroupId))):
+                    builder.PrependInt64(self.enemyGroupId[i])
+                enemyGroupId = builder.EndVector()
+        if self.campSprPath is not None:
+            campSprPath = builder.CreateString(self.campSprPath)
+        if self.campBackgroundPath is not None:
+            campBackgroundPath = builder.CreateString(self.campBackgroundPath)
+        MinigameCCGLevelStageExcelStart(builder)
+        MinigameCCGLevelStageExcelAddId(builder, self.id)
+        MinigameCCGLevelStageExcelAddGroupId(builder, self.groupId)
+        if self.enemyGroupId is not None:
+            MinigameCCGLevelStageExcelAddEnemyGroupId(builder, enemyGroupId)
+        MinigameCCGLevelStageExcelAddStageType(builder, self.stageType)
+        MinigameCCGLevelStageExcelAddCampDiscardCardCount(builder, self.campDiscardCardCount)
+        if self.campSprPath is not None:
+            MinigameCCGLevelStageExcelAddCampSprPath(builder, campSprPath)
+        if self.campBackgroundPath is not None:
+            MinigameCCGLevelStageExcelAddCampBackgroundPath(builder, campBackgroundPath)
+        MinigameCCGLevelStageExcelAddRewardType(builder, self.rewardType)
+        MinigameCCGLevelStageExcelAddRewardCount(builder, self.rewardCount)
+        MinigameCCGLevelStageExcelAddRewardCardGroupId(builder, self.rewardCardGroupId)
+        MinigameCCGLevelStageExcelAddCardRarityGroupId(builder, self.cardRarityGroupId)
+        MinigameCCGLevelStageExcelAddIsSkipIntroScenario(builder, self.isSkipIntroScenario)
+        MinigameCCGLevelStageExcelAddIntroScenarioGroupId(builder, self.introScenarioGroupId)
+        MinigameCCGLevelStageExcelAddIsSkipOutroScenario(builder, self.isSkipOutroScenario)
+        MinigameCCGLevelStageExcelAddOutroScenarioGroupId(builder, self.outroScenarioGroupId)
+        minigameCcglevelStageExcel = MinigameCCGLevelStageExcelEnd(builder)
+        return minigameCcglevelStageExcel

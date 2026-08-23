@@ -72,3 +72,68 @@ def CumulativeTimeRewardExcelTableEnd(builder):
 
 def End(builder):
     return CumulativeTimeRewardExcelTableEnd(builder)
+
+import FlatData.CumulativeTimeRewardExcel
+try:
+    from typing import List
+except:
+    pass
+
+class CumulativeTimeRewardExcelTableT(object):
+
+    # CumulativeTimeRewardExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.CumulativeTimeRewardExcel.CumulativeTimeRewardExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        cumulativeTimeRewardExcelTable = CumulativeTimeRewardExcelTable()
+        cumulativeTimeRewardExcelTable.Init(buf, pos)
+        return cls.InitFromObj(cumulativeTimeRewardExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, cumulativeTimeRewardExcelTable):
+        x = CumulativeTimeRewardExcelTableT()
+        x._UnPack(cumulativeTimeRewardExcelTable)
+        return x
+
+    # CumulativeTimeRewardExcelTableT
+    def _UnPack(self, cumulativeTimeRewardExcelTable):
+        if cumulativeTimeRewardExcelTable is None:
+            return
+        if not cumulativeTimeRewardExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(cumulativeTimeRewardExcelTable.DataListLength()):
+                if cumulativeTimeRewardExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    cumulativeTimeRewardExcel_ = FlatData.CumulativeTimeRewardExcel.CumulativeTimeRewardExcelT.InitFromObj(cumulativeTimeRewardExcelTable.DataList(i))
+                    self.dataList.append(cumulativeTimeRewardExcel_)
+
+    # CumulativeTimeRewardExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            CumulativeTimeRewardExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        CumulativeTimeRewardExcelTableStart(builder)
+        if self.dataList is not None:
+            CumulativeTimeRewardExcelTableAddDataList(builder, dataList)
+        cumulativeTimeRewardExcelTable = CumulativeTimeRewardExcelTableEnd(builder)
+        return cumulativeTimeRewardExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(CumulativeTimeRewardExcelTableT, 'CumulativeTimeRewardExcelTable', ())

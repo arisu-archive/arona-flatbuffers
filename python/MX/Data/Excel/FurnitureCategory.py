@@ -2,4 +2,7 @@
 
 # namespace: Excel
 
-# NOTE FurnitureCategory.py does not declare any structs or enums
+class FurnitureCategory(object):
+    Furnitures = 0
+    Decorations = 1
+    Interiors = 2

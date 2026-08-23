@@ -230,3 +230,120 @@ def ScenarioScriptExcelEnd(builder):
 
 def End(builder):
     return ScenarioScriptExcelEnd(builder)
+
+
+class ScenarioScriptExcelT(object):
+
+    # ScenarioScriptExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        selectionGroup = 0,
+        bgmId = 0,
+        sound = None,
+        transition = 0,
+        bgName = 0,
+        bgEffect = 0,
+        popupFileName = None,
+        scriptKr = None,
+        textJp = None,
+        textTh = None,
+        textTw = None,
+        textEn = None,
+        voiceId = 0,
+        teenMode = False,
+    ):
+        self.groupId = groupId  # type: int
+        self.selectionGroup = selectionGroup  # type: int
+        self.bgmId = bgmId  # type: int
+        self.sound = sound  # type: Optional[str]
+        self.transition = transition  # type: int
+        self.bgName = bgName  # type: int
+        self.bgEffect = bgEffect  # type: int
+        self.popupFileName = popupFileName  # type: Optional[str]
+        self.scriptKr = scriptKr  # type: Optional[str]
+        self.textJp = textJp  # type: Optional[str]
+        self.textTh = textTh  # type: Optional[str]
+        self.textTw = textTw  # type: Optional[str]
+        self.textEn = textEn  # type: Optional[str]
+        self.voiceId = voiceId  # type: int
+        self.teenMode = teenMode  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        scenarioScriptExcel = ScenarioScriptExcel()
+        scenarioScriptExcel.Init(buf, pos)
+        return cls.InitFromObj(scenarioScriptExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, scenarioScriptExcel):
+        x = ScenarioScriptExcelT()
+        x._UnPack(scenarioScriptExcel)
+        return x
+
+    # ScenarioScriptExcelT
+    def _UnPack(self, scenarioScriptExcel):
+        if scenarioScriptExcel is None:
+            return
+        self.groupId = scenarioScriptExcel.GroupId()
+        self.selectionGroup = scenarioScriptExcel.SelectionGroup()
+        self.bgmId = scenarioScriptExcel.BgmId()
+        self.sound = scenarioScriptExcel.Sound()
+        self.transition = scenarioScriptExcel.Transition()
+        self.bgName = scenarioScriptExcel.BgName()
+        self.bgEffect = scenarioScriptExcel.BgEffect()
+        self.popupFileName = scenarioScriptExcel.PopupFileName()
+        self.scriptKr = scenarioScriptExcel.ScriptKr()
+        self.textJp = scenarioScriptExcel.TextJp()
+        self.textTh = scenarioScriptExcel.TextTh()
+        self.textTw = scenarioScriptExcel.TextTw()
+        self.textEn = scenarioScriptExcel.TextEn()
+        self.voiceId = scenarioScriptExcel.VoiceId()
+        self.teenMode = scenarioScriptExcel.TeenMode()
+
+    # ScenarioScriptExcelT
+    def Pack(self, builder):
+        if self.sound is not None:
+            sound = builder.CreateString(self.sound)
+        if self.popupFileName is not None:
+            popupFileName = builder.CreateString(self.popupFileName)
+        if self.scriptKr is not None:
+            scriptKr = builder.CreateString(self.scriptKr)
+        if self.textJp is not None:
+            textJp = builder.CreateString(self.textJp)
+        if self.textTh is not None:
+            textTh = builder.CreateString(self.textTh)
+        if self.textTw is not None:
+            textTw = builder.CreateString(self.textTw)
+        if self.textEn is not None:
+            textEn = builder.CreateString(self.textEn)
+        ScenarioScriptExcelStart(builder)
+        ScenarioScriptExcelAddGroupId(builder, self.groupId)
+        ScenarioScriptExcelAddSelectionGroup(builder, self.selectionGroup)
+        ScenarioScriptExcelAddBgmId(builder, self.bgmId)
+        if self.sound is not None:
+            ScenarioScriptExcelAddSound(builder, sound)
+        ScenarioScriptExcelAddTransition(builder, self.transition)
+        ScenarioScriptExcelAddBgName(builder, self.bgName)
+        ScenarioScriptExcelAddBgEffect(builder, self.bgEffect)
+        if self.popupFileName is not None:
+            ScenarioScriptExcelAddPopupFileName(builder, popupFileName)
+        if self.scriptKr is not None:
+            ScenarioScriptExcelAddScriptKr(builder, scriptKr)
+        if self.textJp is not None:
+            ScenarioScriptExcelAddTextJp(builder, textJp)
+        if self.textTh is not None:
+            ScenarioScriptExcelAddTextTh(builder, textTh)
+        if self.textTw is not None:
+            ScenarioScriptExcelAddTextTw(builder, textTw)
+        if self.textEn is not None:
+            ScenarioScriptExcelAddTextEn(builder, textEn)
+        ScenarioScriptExcelAddVoiceId(builder, self.voiceId)
+        ScenarioScriptExcelAddTeenMode(builder, self.teenMode)
+        scenarioScriptExcel = ScenarioScriptExcelEnd(builder)
+        return scenarioScriptExcel

@@ -126,3 +126,78 @@ def MinigameCCGLevelNodeExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGLevelNodeExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MinigameCCGLevelNodeExcelT(object):
+
+    # MinigameCCGLevelNodeExcelT
+    def __init__(
+        self,
+        levelId = 0,
+        nodeId = 0,
+        nodeIcon = 0,
+        stageGroupId = 0,
+        nextNodeId = None,
+    ):
+        self.levelId = levelId  # type: int
+        self.nodeId = nodeId  # type: int
+        self.nodeIcon = nodeIcon  # type: int
+        self.stageGroupId = stageGroupId  # type: int
+        self.nextNodeId = nextNodeId  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcglevelNodeExcel = MinigameCCGLevelNodeExcel()
+        minigameCcglevelNodeExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcglevelNodeExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcglevelNodeExcel):
+        x = MinigameCCGLevelNodeExcelT()
+        x._UnPack(minigameCcglevelNodeExcel)
+        return x
+
+    # MinigameCCGLevelNodeExcelT
+    def _UnPack(self, minigameCcglevelNodeExcel):
+        if minigameCcglevelNodeExcel is None:
+            return
+        self.levelId = minigameCcglevelNodeExcel.LevelId()
+        self.nodeId = minigameCcglevelNodeExcel.NodeId()
+        self.nodeIcon = minigameCcglevelNodeExcel.NodeIcon()
+        self.stageGroupId = minigameCcglevelNodeExcel.StageGroupId()
+        if not minigameCcglevelNodeExcel.NextNodeIdIsNone():
+            if np is None:
+                self.nextNodeId = []
+                for i in range(minigameCcglevelNodeExcel.NextNodeIdLength()):
+                    self.nextNodeId.append(minigameCcglevelNodeExcel.NextNodeId(i))
+            else:
+                self.nextNodeId = minigameCcglevelNodeExcel.NextNodeIdAsNumpy()
+
+    # MinigameCCGLevelNodeExcelT
+    def Pack(self, builder):
+        if self.nextNodeId is not None:
+            if np is not None and type(self.nextNodeId) is np.ndarray:
+                nextNodeId = builder.CreateNumpyVector(self.nextNodeId)
+            else:
+                MinigameCCGLevelNodeExcelStartNextNodeIdVector(builder, len(self.nextNodeId))
+                for i in reversed(range(len(self.nextNodeId))):
+                    builder.PrependInt64(self.nextNodeId[i])
+                nextNodeId = builder.EndVector()
+        MinigameCCGLevelNodeExcelStart(builder)
+        MinigameCCGLevelNodeExcelAddLevelId(builder, self.levelId)
+        MinigameCCGLevelNodeExcelAddNodeId(builder, self.nodeId)
+        MinigameCCGLevelNodeExcelAddNodeIcon(builder, self.nodeIcon)
+        MinigameCCGLevelNodeExcelAddStageGroupId(builder, self.stageGroupId)
+        if self.nextNodeId is not None:
+            MinigameCCGLevelNodeExcelAddNextNodeId(builder, nextNodeId)
+        minigameCcglevelNodeExcel = MinigameCCGLevelNodeExcelEnd(builder)
+        return minigameCcglevelNodeExcel

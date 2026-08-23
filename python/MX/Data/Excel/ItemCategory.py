@@ -2,4 +2,17 @@
 
 # namespace: Excel
 
-# NOTE ItemCategory.py does not declare any structs or enums
+class ItemCategory(object):
+    Coin = 0
+    CharacterExpGrowth = 1
+    SecretStone = 2
+    Material = 3
+    Consumable = 4
+    Collectible = 5
+    Favor = 6
+    RecruitCoin = 7
+    MonthlyBonus = 8
+    InvisibleToken = 9
+    BattlePass = 10
+    ProductSelect = 11
+    ProductDailyRecord = 12

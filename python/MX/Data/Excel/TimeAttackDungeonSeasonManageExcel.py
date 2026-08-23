@@ -178,3 +178,103 @@ def TimeAttackDungeonSeasonManageExcelEnd(builder):
 
 def End(builder):
     return TimeAttackDungeonSeasonManageExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class TimeAttackDungeonSeasonManageExcelT(object):
+
+    # TimeAttackDungeonSeasonManageExcelT
+    def __init__(
+        self,
+        id = 0,
+        startDate = None,
+        endNoteLabelStartDate = None,
+        endDate = None,
+        uiSlot = 0,
+        dungeonId = 0,
+        difficultyGeas = None,
+        timeAttackDungeonRewardId = 0,
+        roomLifeTimeInSeconds = 0,
+    ):
+        self.id = id  # type: int
+        self.startDate = startDate  # type: Optional[str]
+        self.endNoteLabelStartDate = endNoteLabelStartDate  # type: Optional[str]
+        self.endDate = endDate  # type: Optional[str]
+        self.uiSlot = uiSlot  # type: int
+        self.dungeonId = dungeonId  # type: int
+        self.difficultyGeas = difficultyGeas  # type: Optional[List[int]]
+        self.timeAttackDungeonRewardId = timeAttackDungeonRewardId  # type: int
+        self.roomLifeTimeInSeconds = roomLifeTimeInSeconds  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        timeAttackDungeonSeasonManageExcel = TimeAttackDungeonSeasonManageExcel()
+        timeAttackDungeonSeasonManageExcel.Init(buf, pos)
+        return cls.InitFromObj(timeAttackDungeonSeasonManageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, timeAttackDungeonSeasonManageExcel):
+        x = TimeAttackDungeonSeasonManageExcelT()
+        x._UnPack(timeAttackDungeonSeasonManageExcel)
+        return x
+
+    # TimeAttackDungeonSeasonManageExcelT
+    def _UnPack(self, timeAttackDungeonSeasonManageExcel):
+        if timeAttackDungeonSeasonManageExcel is None:
+            return
+        self.id = timeAttackDungeonSeasonManageExcel.Id()
+        self.startDate = timeAttackDungeonSeasonManageExcel.StartDate()
+        self.endNoteLabelStartDate = timeAttackDungeonSeasonManageExcel.EndNoteLabelStartDate()
+        self.endDate = timeAttackDungeonSeasonManageExcel.EndDate()
+        self.uiSlot = timeAttackDungeonSeasonManageExcel.UiSlot()
+        self.dungeonId = timeAttackDungeonSeasonManageExcel.DungeonId()
+        if not timeAttackDungeonSeasonManageExcel.DifficultyGeasIsNone():
+            if np is None:
+                self.difficultyGeas = []
+                for i in range(timeAttackDungeonSeasonManageExcel.DifficultyGeasLength()):
+                    self.difficultyGeas.append(timeAttackDungeonSeasonManageExcel.DifficultyGeas(i))
+            else:
+                self.difficultyGeas = timeAttackDungeonSeasonManageExcel.DifficultyGeasAsNumpy()
+        self.timeAttackDungeonRewardId = timeAttackDungeonSeasonManageExcel.TimeAttackDungeonRewardId()
+        self.roomLifeTimeInSeconds = timeAttackDungeonSeasonManageExcel.RoomLifeTimeInSeconds()
+
+    # TimeAttackDungeonSeasonManageExcelT
+    def Pack(self, builder):
+        if self.startDate is not None:
+            startDate = builder.CreateString(self.startDate)
+        if self.endNoteLabelStartDate is not None:
+            endNoteLabelStartDate = builder.CreateString(self.endNoteLabelStartDate)
+        if self.endDate is not None:
+            endDate = builder.CreateString(self.endDate)
+        if self.difficultyGeas is not None:
+            if np is not None and type(self.difficultyGeas) is np.ndarray:
+                difficultyGeas = builder.CreateNumpyVector(self.difficultyGeas)
+            else:
+                TimeAttackDungeonSeasonManageExcelStartDifficultyGeasVector(builder, len(self.difficultyGeas))
+                for i in reversed(range(len(self.difficultyGeas))):
+                    builder.PrependInt64(self.difficultyGeas[i])
+                difficultyGeas = builder.EndVector()
+        TimeAttackDungeonSeasonManageExcelStart(builder)
+        TimeAttackDungeonSeasonManageExcelAddId(builder, self.id)
+        if self.startDate is not None:
+            TimeAttackDungeonSeasonManageExcelAddStartDate(builder, startDate)
+        if self.endNoteLabelStartDate is not None:
+            TimeAttackDungeonSeasonManageExcelAddEndNoteLabelStartDate(builder, endNoteLabelStartDate)
+        if self.endDate is not None:
+            TimeAttackDungeonSeasonManageExcelAddEndDate(builder, endDate)
+        TimeAttackDungeonSeasonManageExcelAddUiSlot(builder, self.uiSlot)
+        TimeAttackDungeonSeasonManageExcelAddDungeonId(builder, self.dungeonId)
+        if self.difficultyGeas is not None:
+            TimeAttackDungeonSeasonManageExcelAddDifficultyGeas(builder, difficultyGeas)
+        TimeAttackDungeonSeasonManageExcelAddTimeAttackDungeonRewardId(builder, self.timeAttackDungeonRewardId)
+        TimeAttackDungeonSeasonManageExcelAddRoomLifeTimeInSeconds(builder, self.roomLifeTimeInSeconds)
+        timeAttackDungeonSeasonManageExcel = TimeAttackDungeonSeasonManageExcelEnd(builder)
+        return timeAttackDungeonSeasonManageExcel

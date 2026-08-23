@@ -46,126 +46,161 @@ class ShopCashExcel(object):
         return 0
 
     # ShopCashExcel
-    def LocalizeEtcId(self):
+    def TargetGroup(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(10))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopCashExcel
+    def LocalizeEtcId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Uint32Flags, o + self._tab.Pos)
         return 0
 
     # ShopCashExcel
+    def InMailPurchaseLock(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # ShopCashExcel
+    def UseMailParcel(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # ShopCashExcel
     def IconPath(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(12))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ShopCashExcel
     def DisplayOrder(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopCashExcel
     def RenewalDisplayOrder(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopCashExcel
     def CategoryType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(18))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ShopCashExcel
     def DisplayTag(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(20))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopCashExcel
+    def ProductSaleType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ShopCashExcel
     def SalePeriodFrom(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(22))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ShopCashExcel
     def SalePeriodTo(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(24))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ShopCashExcel
+    def ProductSaleDay(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopCashExcel
     def PeriodTag(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(26))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # ShopCashExcel
     def AccountLevelLimit(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ShopCashExcel
     def AccountLevelHide(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # ShopCashExcel
-    def ClearMissionLimit(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
-
-    # ShopCashExcel
-    def ClearMissionHide(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
-        if o != 0:
-            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
-        return False
-
-    # ShopCashExcel
-    def PurchaseReportEventName(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
-        if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
-
-    # ShopCashExcel
-    def PackageClientType(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
-        if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
-        return 0
-
-    # ShopCashExcel
-    def IsStartDash(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
     # ShopCashExcel
-    def ViewFlag(self):
+    def ClearMissionLimit(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopCashExcel
+    def ClearMissionHide(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # ShopCashExcel
+    def PurchaseReportEventName(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            return self._tab.String(o + self._tab.Pos)
+        return None
+
+    # ShopCashExcel
+    def PackageClientType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # ShopCashExcel
+    def IsStartDash(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # ShopCashExcel
+    def ViewFlag(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
             return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
         return False
 
 def ShopCashExcelStart(builder):
-    builder.StartObject(20)
+    builder.StartObject(25)
 
 def Start(builder):
     ShopCashExcelStart(builder)
@@ -188,104 +223,134 @@ def ShopCashExcelAddPackageType(builder, packageType):
 def AddPackageType(builder, packageType):
     ShopCashExcelAddPackageType(builder, packageType)
 
+def ShopCashExcelAddTargetGroup(builder, targetGroup):
+    builder.PrependInt32Slot(3, targetGroup, 0)
+
+def AddTargetGroup(builder, targetGroup):
+    ShopCashExcelAddTargetGroup(builder, targetGroup)
+
 def ShopCashExcelAddLocalizeEtcId(builder, localizeEtcId):
-    builder.PrependUint32Slot(3, localizeEtcId, 0)
+    builder.PrependUint32Slot(4, localizeEtcId, 0)
 
 def AddLocalizeEtcId(builder, localizeEtcId):
     ShopCashExcelAddLocalizeEtcId(builder, localizeEtcId)
 
+def ShopCashExcelAddInMailPurchaseLock(builder, inMailPurchaseLock):
+    builder.PrependBoolSlot(5, inMailPurchaseLock, 0)
+
+def AddInMailPurchaseLock(builder, inMailPurchaseLock):
+    ShopCashExcelAddInMailPurchaseLock(builder, inMailPurchaseLock)
+
+def ShopCashExcelAddUseMailParcel(builder, useMailParcel):
+    builder.PrependBoolSlot(6, useMailParcel, 0)
+
+def AddUseMailParcel(builder, useMailParcel):
+    ShopCashExcelAddUseMailParcel(builder, useMailParcel)
+
 def ShopCashExcelAddIconPath(builder, iconPath):
-    builder.PrependUOffsetTRelativeSlot(4, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
+    builder.PrependUOffsetTRelativeSlot(7, flatbuffers.number_types.UOffsetTFlags.py_type(iconPath), 0)
 
 def AddIconPath(builder, iconPath):
     ShopCashExcelAddIconPath(builder, iconPath)
 
 def ShopCashExcelAddDisplayOrder(builder, displayOrder):
-    builder.PrependInt64Slot(5, displayOrder, 0)
+    builder.PrependInt64Slot(8, displayOrder, 0)
 
 def AddDisplayOrder(builder, displayOrder):
     ShopCashExcelAddDisplayOrder(builder, displayOrder)
 
 def ShopCashExcelAddRenewalDisplayOrder(builder, renewalDisplayOrder):
-    builder.PrependInt64Slot(6, renewalDisplayOrder, 0)
+    builder.PrependInt64Slot(9, renewalDisplayOrder, 0)
 
 def AddRenewalDisplayOrder(builder, renewalDisplayOrder):
     ShopCashExcelAddRenewalDisplayOrder(builder, renewalDisplayOrder)
 
 def ShopCashExcelAddCategoryType(builder, categoryType):
-    builder.PrependInt32Slot(7, categoryType, 0)
+    builder.PrependInt32Slot(10, categoryType, 0)
 
 def AddCategoryType(builder, categoryType):
     ShopCashExcelAddCategoryType(builder, categoryType)
 
 def ShopCashExcelAddDisplayTag(builder, displayTag):
-    builder.PrependInt32Slot(8, displayTag, 0)
+    builder.PrependInt32Slot(11, displayTag, 0)
 
 def AddDisplayTag(builder, displayTag):
     ShopCashExcelAddDisplayTag(builder, displayTag)
 
+def ShopCashExcelAddProductSaleType(builder, productSaleType):
+    builder.PrependInt32Slot(12, productSaleType, 0)
+
+def AddProductSaleType(builder, productSaleType):
+    ShopCashExcelAddProductSaleType(builder, productSaleType)
+
 def ShopCashExcelAddSalePeriodFrom(builder, salePeriodFrom):
-    builder.PrependUOffsetTRelativeSlot(9, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodFrom), 0)
+    builder.PrependUOffsetTRelativeSlot(13, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodFrom), 0)
 
 def AddSalePeriodFrom(builder, salePeriodFrom):
     ShopCashExcelAddSalePeriodFrom(builder, salePeriodFrom)
 
 def ShopCashExcelAddSalePeriodTo(builder, salePeriodTo):
-    builder.PrependUOffsetTRelativeSlot(10, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodTo), 0)
+    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(salePeriodTo), 0)
 
 def AddSalePeriodTo(builder, salePeriodTo):
     ShopCashExcelAddSalePeriodTo(builder, salePeriodTo)
 
+def ShopCashExcelAddProductSaleDay(builder, productSaleDay):
+    builder.PrependInt64Slot(15, productSaleDay, 0)
+
+def AddProductSaleDay(builder, productSaleDay):
+    ShopCashExcelAddProductSaleDay(builder, productSaleDay)
+
 def ShopCashExcelAddPeriodTag(builder, periodTag):
-    builder.PrependBoolSlot(11, periodTag, 0)
+    builder.PrependBoolSlot(16, periodTag, 0)
 
 def AddPeriodTag(builder, periodTag):
     ShopCashExcelAddPeriodTag(builder, periodTag)
 
 def ShopCashExcelAddAccountLevelLimit(builder, accountLevelLimit):
-    builder.PrependInt64Slot(12, accountLevelLimit, 0)
+    builder.PrependInt64Slot(17, accountLevelLimit, 0)
 
 def AddAccountLevelLimit(builder, accountLevelLimit):
     ShopCashExcelAddAccountLevelLimit(builder, accountLevelLimit)
 
 def ShopCashExcelAddAccountLevelHide(builder, accountLevelHide):
-    builder.PrependBoolSlot(13, accountLevelHide, 0)
+    builder.PrependBoolSlot(18, accountLevelHide, 0)
 
 def AddAccountLevelHide(builder, accountLevelHide):
     ShopCashExcelAddAccountLevelHide(builder, accountLevelHide)
 
 def ShopCashExcelAddClearMissionLimit(builder, clearMissionLimit):
-    builder.PrependInt64Slot(14, clearMissionLimit, 0)
+    builder.PrependInt64Slot(19, clearMissionLimit, 0)
 
 def AddClearMissionLimit(builder, clearMissionLimit):
     ShopCashExcelAddClearMissionLimit(builder, clearMissionLimit)
 
 def ShopCashExcelAddClearMissionHide(builder, clearMissionHide):
-    builder.PrependBoolSlot(15, clearMissionHide, 0)
+    builder.PrependBoolSlot(20, clearMissionHide, 0)
 
 def AddClearMissionHide(builder, clearMissionHide):
     ShopCashExcelAddClearMissionHide(builder, clearMissionHide)
 
 def ShopCashExcelAddPurchaseReportEventName(builder, purchaseReportEventName):
-    builder.PrependUOffsetTRelativeSlot(16, flatbuffers.number_types.UOffsetTFlags.py_type(purchaseReportEventName), 0)
+    builder.PrependUOffsetTRelativeSlot(21, flatbuffers.number_types.UOffsetTFlags.py_type(purchaseReportEventName), 0)
 
 def AddPurchaseReportEventName(builder, purchaseReportEventName):
     ShopCashExcelAddPurchaseReportEventName(builder, purchaseReportEventName)
 
 def ShopCashExcelAddPackageClientType(builder, packageClientType):
-    builder.PrependInt32Slot(17, packageClientType, 0)
+    builder.PrependInt32Slot(22, packageClientType, 0)
 
 def AddPackageClientType(builder, packageClientType):
     ShopCashExcelAddPackageClientType(builder, packageClientType)
 
 def ShopCashExcelAddIsStartDash(builder, isStartDash):
-    builder.PrependBoolSlot(18, isStartDash, 0)
+    builder.PrependBoolSlot(23, isStartDash, 0)
 
 def AddIsStartDash(builder, isStartDash):
     ShopCashExcelAddIsStartDash(builder, isStartDash)
 
 def ShopCashExcelAddViewFlag(builder, viewFlag):
-    builder.PrependBoolSlot(19, viewFlag, 0)
+    builder.PrependBoolSlot(24, viewFlag, 0)
 
 def AddViewFlag(builder, viewFlag):
     ShopCashExcelAddViewFlag(builder, viewFlag)
@@ -295,3 +360,151 @@ def ShopCashExcelEnd(builder):
 
 def End(builder):
     return ShopCashExcelEnd(builder)
+
+
+class ShopCashExcelT(object):
+
+    # ShopCashExcelT
+    def __init__(
+        self,
+        id = 0,
+        cashProductId = 0,
+        packageType = 0,
+        targetGroup = 0,
+        localizeEtcId = 0,
+        inMailPurchaseLock = False,
+        useMailParcel = False,
+        iconPath = None,
+        displayOrder = 0,
+        renewalDisplayOrder = 0,
+        categoryType = 0,
+        displayTag = 0,
+        productSaleType = 0,
+        salePeriodFrom = None,
+        salePeriodTo = None,
+        productSaleDay = 0,
+        periodTag = False,
+        accountLevelLimit = 0,
+        accountLevelHide = False,
+        clearMissionLimit = 0,
+        clearMissionHide = False,
+        purchaseReportEventName = None,
+        packageClientType = 0,
+        isStartDash = False,
+        viewFlag = False,
+    ):
+        self.id = id  # type: int
+        self.cashProductId = cashProductId  # type: int
+        self.packageType = packageType  # type: int
+        self.targetGroup = targetGroup  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.inMailPurchaseLock = inMailPurchaseLock  # type: bool
+        self.useMailParcel = useMailParcel  # type: bool
+        self.iconPath = iconPath  # type: Optional[str]
+        self.displayOrder = displayOrder  # type: int
+        self.renewalDisplayOrder = renewalDisplayOrder  # type: int
+        self.categoryType = categoryType  # type: int
+        self.displayTag = displayTag  # type: int
+        self.productSaleType = productSaleType  # type: int
+        self.salePeriodFrom = salePeriodFrom  # type: Optional[str]
+        self.salePeriodTo = salePeriodTo  # type: Optional[str]
+        self.productSaleDay = productSaleDay  # type: int
+        self.periodTag = periodTag  # type: bool
+        self.accountLevelLimit = accountLevelLimit  # type: int
+        self.accountLevelHide = accountLevelHide  # type: bool
+        self.clearMissionLimit = clearMissionLimit  # type: int
+        self.clearMissionHide = clearMissionHide  # type: bool
+        self.purchaseReportEventName = purchaseReportEventName  # type: Optional[str]
+        self.packageClientType = packageClientType  # type: int
+        self.isStartDash = isStartDash  # type: bool
+        self.viewFlag = viewFlag  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        shopCashExcel = ShopCashExcel()
+        shopCashExcel.Init(buf, pos)
+        return cls.InitFromObj(shopCashExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, shopCashExcel):
+        x = ShopCashExcelT()
+        x._UnPack(shopCashExcel)
+        return x
+
+    # ShopCashExcelT
+    def _UnPack(self, shopCashExcel):
+        if shopCashExcel is None:
+            return
+        self.id = shopCashExcel.Id()
+        self.cashProductId = shopCashExcel.CashProductId()
+        self.packageType = shopCashExcel.PackageType()
+        self.targetGroup = shopCashExcel.TargetGroup()
+        self.localizeEtcId = shopCashExcel.LocalizeEtcId()
+        self.inMailPurchaseLock = shopCashExcel.InMailPurchaseLock()
+        self.useMailParcel = shopCashExcel.UseMailParcel()
+        self.iconPath = shopCashExcel.IconPath()
+        self.displayOrder = shopCashExcel.DisplayOrder()
+        self.renewalDisplayOrder = shopCashExcel.RenewalDisplayOrder()
+        self.categoryType = shopCashExcel.CategoryType()
+        self.displayTag = shopCashExcel.DisplayTag()
+        self.productSaleType = shopCashExcel.ProductSaleType()
+        self.salePeriodFrom = shopCashExcel.SalePeriodFrom()
+        self.salePeriodTo = shopCashExcel.SalePeriodTo()
+        self.productSaleDay = shopCashExcel.ProductSaleDay()
+        self.periodTag = shopCashExcel.PeriodTag()
+        self.accountLevelLimit = shopCashExcel.AccountLevelLimit()
+        self.accountLevelHide = shopCashExcel.AccountLevelHide()
+        self.clearMissionLimit = shopCashExcel.ClearMissionLimit()
+        self.clearMissionHide = shopCashExcel.ClearMissionHide()
+        self.purchaseReportEventName = shopCashExcel.PurchaseReportEventName()
+        self.packageClientType = shopCashExcel.PackageClientType()
+        self.isStartDash = shopCashExcel.IsStartDash()
+        self.viewFlag = shopCashExcel.ViewFlag()
+
+    # ShopCashExcelT
+    def Pack(self, builder):
+        if self.iconPath is not None:
+            iconPath = builder.CreateString(self.iconPath)
+        if self.salePeriodFrom is not None:
+            salePeriodFrom = builder.CreateString(self.salePeriodFrom)
+        if self.salePeriodTo is not None:
+            salePeriodTo = builder.CreateString(self.salePeriodTo)
+        if self.purchaseReportEventName is not None:
+            purchaseReportEventName = builder.CreateString(self.purchaseReportEventName)
+        ShopCashExcelStart(builder)
+        ShopCashExcelAddId(builder, self.id)
+        ShopCashExcelAddCashProductId(builder, self.cashProductId)
+        ShopCashExcelAddPackageType(builder, self.packageType)
+        ShopCashExcelAddTargetGroup(builder, self.targetGroup)
+        ShopCashExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        ShopCashExcelAddInMailPurchaseLock(builder, self.inMailPurchaseLock)
+        ShopCashExcelAddUseMailParcel(builder, self.useMailParcel)
+        if self.iconPath is not None:
+            ShopCashExcelAddIconPath(builder, iconPath)
+        ShopCashExcelAddDisplayOrder(builder, self.displayOrder)
+        ShopCashExcelAddRenewalDisplayOrder(builder, self.renewalDisplayOrder)
+        ShopCashExcelAddCategoryType(builder, self.categoryType)
+        ShopCashExcelAddDisplayTag(builder, self.displayTag)
+        ShopCashExcelAddProductSaleType(builder, self.productSaleType)
+        if self.salePeriodFrom is not None:
+            ShopCashExcelAddSalePeriodFrom(builder, salePeriodFrom)
+        if self.salePeriodTo is not None:
+            ShopCashExcelAddSalePeriodTo(builder, salePeriodTo)
+        ShopCashExcelAddProductSaleDay(builder, self.productSaleDay)
+        ShopCashExcelAddPeriodTag(builder, self.periodTag)
+        ShopCashExcelAddAccountLevelLimit(builder, self.accountLevelLimit)
+        ShopCashExcelAddAccountLevelHide(builder, self.accountLevelHide)
+        ShopCashExcelAddClearMissionLimit(builder, self.clearMissionLimit)
+        ShopCashExcelAddClearMissionHide(builder, self.clearMissionHide)
+        if self.purchaseReportEventName is not None:
+            ShopCashExcelAddPurchaseReportEventName(builder, purchaseReportEventName)
+        ShopCashExcelAddPackageClientType(builder, self.packageClientType)
+        ShopCashExcelAddIsStartDash(builder, self.isStartDash)
+        ShopCashExcelAddViewFlag(builder, self.viewFlag)
+        shopCashExcel = ShopCashExcelEnd(builder)
+        return shopCashExcel

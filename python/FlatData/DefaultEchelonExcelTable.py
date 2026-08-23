@@ -72,3 +72,68 @@ def DefaultEchelonExcelTableEnd(builder):
 
 def End(builder):
     return DefaultEchelonExcelTableEnd(builder)
+
+import FlatData.DefaultEchelonExcel
+try:
+    from typing import List
+except:
+    pass
+
+class DefaultEchelonExcelTableT(object):
+
+    # DefaultEchelonExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.DefaultEchelonExcel.DefaultEchelonExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        defaultEchelonExcelTable = DefaultEchelonExcelTable()
+        defaultEchelonExcelTable.Init(buf, pos)
+        return cls.InitFromObj(defaultEchelonExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, defaultEchelonExcelTable):
+        x = DefaultEchelonExcelTableT()
+        x._UnPack(defaultEchelonExcelTable)
+        return x
+
+    # DefaultEchelonExcelTableT
+    def _UnPack(self, defaultEchelonExcelTable):
+        if defaultEchelonExcelTable is None:
+            return
+        if not defaultEchelonExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(defaultEchelonExcelTable.DataListLength()):
+                if defaultEchelonExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    defaultEchelonExcel_ = FlatData.DefaultEchelonExcel.DefaultEchelonExcelT.InitFromObj(defaultEchelonExcelTable.DataList(i))
+                    self.dataList.append(defaultEchelonExcel_)
+
+    # DefaultEchelonExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            DefaultEchelonExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        DefaultEchelonExcelTableStart(builder)
+        if self.dataList is not None:
+            DefaultEchelonExcelTableAddDataList(builder, dataList)
+        defaultEchelonExcelTable = DefaultEchelonExcelTableEnd(builder)
+        return defaultEchelonExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(DefaultEchelonExcelTableT, 'DefaultEchelonExcelTable', ())

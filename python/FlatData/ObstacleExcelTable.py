@@ -72,3 +72,68 @@ def ObstacleExcelTableEnd(builder):
 
 def End(builder):
     return ObstacleExcelTableEnd(builder)
+
+import FlatData.ObstacleExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ObstacleExcelTableT(object):
+
+    # ObstacleExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ObstacleExcel.ObstacleExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        obstacleExcelTable = ObstacleExcelTable()
+        obstacleExcelTable.Init(buf, pos)
+        return cls.InitFromObj(obstacleExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, obstacleExcelTable):
+        x = ObstacleExcelTableT()
+        x._UnPack(obstacleExcelTable)
+        return x
+
+    # ObstacleExcelTableT
+    def _UnPack(self, obstacleExcelTable):
+        if obstacleExcelTable is None:
+            return
+        if not obstacleExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(obstacleExcelTable.DataListLength()):
+                if obstacleExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    obstacleExcel_ = FlatData.ObstacleExcel.ObstacleExcelT.InitFromObj(obstacleExcelTable.DataList(i))
+                    self.dataList.append(obstacleExcel_)
+
+    # ObstacleExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ObstacleExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ObstacleExcelTableStart(builder)
+        if self.dataList is not None:
+            ObstacleExcelTableAddDataList(builder, dataList)
+        obstacleExcelTable = ObstacleExcelTableEnd(builder)
+        return obstacleExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ObstacleExcelTableT, 'ObstacleExcelTable', ())

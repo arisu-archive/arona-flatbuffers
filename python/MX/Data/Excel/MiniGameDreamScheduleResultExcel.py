@@ -256,3 +256,132 @@ def MiniGameDreamScheduleResultExcelEnd(builder):
 
 def End(builder):
     return MiniGameDreamScheduleResultExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MiniGameDreamScheduleResultExcelT(object):
+
+    # MiniGameDreamScheduleResultExcelT
+    def __init__(
+        self,
+        id = 0,
+        eventContentId = 0,
+        dreamMakerResult = 0,
+        dreamMakerScheduleGroup = 0,
+        prob = 0,
+        rewardParameter = None,
+        rewardParameterOperationType = None,
+        rewardParameterAmount = None,
+        rewardParcelType = 0,
+        rewardParcelId = 0,
+        rewardParcelAmount = 0,
+    ):
+        self.id = id  # type: int
+        self.eventContentId = eventContentId  # type: int
+        self.dreamMakerResult = dreamMakerResult  # type: int
+        self.dreamMakerScheduleGroup = dreamMakerScheduleGroup  # type: int
+        self.prob = prob  # type: int
+        self.rewardParameter = rewardParameter  # type: Optional[List[int]]
+        self.rewardParameterOperationType = rewardParameterOperationType  # type: Optional[List[int]]
+        self.rewardParameterAmount = rewardParameterAmount  # type: Optional[List[int]]
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelId = rewardParcelId  # type: int
+        self.rewardParcelAmount = rewardParcelAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDreamScheduleResultExcel = MiniGameDreamScheduleResultExcel()
+        miniGameDreamScheduleResultExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDreamScheduleResultExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDreamScheduleResultExcel):
+        x = MiniGameDreamScheduleResultExcelT()
+        x._UnPack(miniGameDreamScheduleResultExcel)
+        return x
+
+    # MiniGameDreamScheduleResultExcelT
+    def _UnPack(self, miniGameDreamScheduleResultExcel):
+        if miniGameDreamScheduleResultExcel is None:
+            return
+        self.id = miniGameDreamScheduleResultExcel.Id()
+        self.eventContentId = miniGameDreamScheduleResultExcel.EventContentId()
+        self.dreamMakerResult = miniGameDreamScheduleResultExcel.DreamMakerResult()
+        self.dreamMakerScheduleGroup = miniGameDreamScheduleResultExcel.DreamMakerScheduleGroup()
+        self.prob = miniGameDreamScheduleResultExcel.Prob()
+        if not miniGameDreamScheduleResultExcel.RewardParameterIsNone():
+            if np is None:
+                self.rewardParameter = []
+                for i in range(miniGameDreamScheduleResultExcel.RewardParameterLength()):
+                    self.rewardParameter.append(miniGameDreamScheduleResultExcel.RewardParameter(i))
+            else:
+                self.rewardParameter = miniGameDreamScheduleResultExcel.RewardParameterAsNumpy()
+        if not miniGameDreamScheduleResultExcel.RewardParameterOperationTypeIsNone():
+            if np is None:
+                self.rewardParameterOperationType = []
+                for i in range(miniGameDreamScheduleResultExcel.RewardParameterOperationTypeLength()):
+                    self.rewardParameterOperationType.append(miniGameDreamScheduleResultExcel.RewardParameterOperationType(i))
+            else:
+                self.rewardParameterOperationType = miniGameDreamScheduleResultExcel.RewardParameterOperationTypeAsNumpy()
+        if not miniGameDreamScheduleResultExcel.RewardParameterAmountIsNone():
+            if np is None:
+                self.rewardParameterAmount = []
+                for i in range(miniGameDreamScheduleResultExcel.RewardParameterAmountLength()):
+                    self.rewardParameterAmount.append(miniGameDreamScheduleResultExcel.RewardParameterAmount(i))
+            else:
+                self.rewardParameterAmount = miniGameDreamScheduleResultExcel.RewardParameterAmountAsNumpy()
+        self.rewardParcelType = miniGameDreamScheduleResultExcel.RewardParcelType()
+        self.rewardParcelId = miniGameDreamScheduleResultExcel.RewardParcelId()
+        self.rewardParcelAmount = miniGameDreamScheduleResultExcel.RewardParcelAmount()
+
+    # MiniGameDreamScheduleResultExcelT
+    def Pack(self, builder):
+        if self.rewardParameter is not None:
+            if np is not None and type(self.rewardParameter) is np.ndarray:
+                rewardParameter = builder.CreateNumpyVector(self.rewardParameter)
+            else:
+                MiniGameDreamScheduleResultExcelStartRewardParameterVector(builder, len(self.rewardParameter))
+                for i in reversed(range(len(self.rewardParameter))):
+                    builder.PrependInt32(self.rewardParameter[i])
+                rewardParameter = builder.EndVector()
+        if self.rewardParameterOperationType is not None:
+            if np is not None and type(self.rewardParameterOperationType) is np.ndarray:
+                rewardParameterOperationType = builder.CreateNumpyVector(self.rewardParameterOperationType)
+            else:
+                MiniGameDreamScheduleResultExcelStartRewardParameterOperationTypeVector(builder, len(self.rewardParameterOperationType))
+                for i in reversed(range(len(self.rewardParameterOperationType))):
+                    builder.PrependInt32(self.rewardParameterOperationType[i])
+                rewardParameterOperationType = builder.EndVector()
+        if self.rewardParameterAmount is not None:
+            if np is not None and type(self.rewardParameterAmount) is np.ndarray:
+                rewardParameterAmount = builder.CreateNumpyVector(self.rewardParameterAmount)
+            else:
+                MiniGameDreamScheduleResultExcelStartRewardParameterAmountVector(builder, len(self.rewardParameterAmount))
+                for i in reversed(range(len(self.rewardParameterAmount))):
+                    builder.PrependInt64(self.rewardParameterAmount[i])
+                rewardParameterAmount = builder.EndVector()
+        MiniGameDreamScheduleResultExcelStart(builder)
+        MiniGameDreamScheduleResultExcelAddId(builder, self.id)
+        MiniGameDreamScheduleResultExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameDreamScheduleResultExcelAddDreamMakerResult(builder, self.dreamMakerResult)
+        MiniGameDreamScheduleResultExcelAddDreamMakerScheduleGroup(builder, self.dreamMakerScheduleGroup)
+        MiniGameDreamScheduleResultExcelAddProb(builder, self.prob)
+        if self.rewardParameter is not None:
+            MiniGameDreamScheduleResultExcelAddRewardParameter(builder, rewardParameter)
+        if self.rewardParameterOperationType is not None:
+            MiniGameDreamScheduleResultExcelAddRewardParameterOperationType(builder, rewardParameterOperationType)
+        if self.rewardParameterAmount is not None:
+            MiniGameDreamScheduleResultExcelAddRewardParameterAmount(builder, rewardParameterAmount)
+        MiniGameDreamScheduleResultExcelAddRewardParcelType(builder, self.rewardParcelType)
+        MiniGameDreamScheduleResultExcelAddRewardParcelId(builder, self.rewardParcelId)
+        MiniGameDreamScheduleResultExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        miniGameDreamScheduleResultExcel = MiniGameDreamScheduleResultExcelEnd(builder)
+        return miniGameDreamScheduleResultExcel

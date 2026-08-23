@@ -72,3 +72,68 @@ def TacticSimulatorSettingExcelTableEnd(builder):
 
 def End(builder):
     return TacticSimulatorSettingExcelTableEnd(builder)
+
+import FlatData.TacticSimulatorSettingExcel
+try:
+    from typing import List
+except:
+    pass
+
+class TacticSimulatorSettingExcelTableT(object):
+
+    # TacticSimulatorSettingExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.TacticSimulatorSettingExcel.TacticSimulatorSettingExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        tacticSimulatorSettingExcelTable = TacticSimulatorSettingExcelTable()
+        tacticSimulatorSettingExcelTable.Init(buf, pos)
+        return cls.InitFromObj(tacticSimulatorSettingExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, tacticSimulatorSettingExcelTable):
+        x = TacticSimulatorSettingExcelTableT()
+        x._UnPack(tacticSimulatorSettingExcelTable)
+        return x
+
+    # TacticSimulatorSettingExcelTableT
+    def _UnPack(self, tacticSimulatorSettingExcelTable):
+        if tacticSimulatorSettingExcelTable is None:
+            return
+        if not tacticSimulatorSettingExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(tacticSimulatorSettingExcelTable.DataListLength()):
+                if tacticSimulatorSettingExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    tacticSimulatorSettingExcel_ = FlatData.TacticSimulatorSettingExcel.TacticSimulatorSettingExcelT.InitFromObj(tacticSimulatorSettingExcelTable.DataList(i))
+                    self.dataList.append(tacticSimulatorSettingExcel_)
+
+    # TacticSimulatorSettingExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            TacticSimulatorSettingExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        TacticSimulatorSettingExcelTableStart(builder)
+        if self.dataList is not None:
+            TacticSimulatorSettingExcelTableAddDataList(builder, dataList)
+        tacticSimulatorSettingExcelTable = TacticSimulatorSettingExcelTableEnd(builder)
+        return tacticSimulatorSettingExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(TacticSimulatorSettingExcelTableT, 'TacticSimulatorSettingExcelTable', ())

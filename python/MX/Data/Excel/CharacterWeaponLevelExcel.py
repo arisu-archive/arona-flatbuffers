@@ -74,3 +74,51 @@ def CharacterWeaponLevelExcelEnd(builder):
 
 def End(builder):
     return CharacterWeaponLevelExcelEnd(builder)
+
+
+class CharacterWeaponLevelExcelT(object):
+
+    # CharacterWeaponLevelExcelT
+    def __init__(
+        self,
+        level = 0,
+        exp = 0,
+        totalExp = 0,
+    ):
+        self.level = level  # type: int
+        self.exp = exp  # type: int
+        self.totalExp = totalExp  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterWeaponLevelExcel = CharacterWeaponLevelExcel()
+        characterWeaponLevelExcel.Init(buf, pos)
+        return cls.InitFromObj(characterWeaponLevelExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterWeaponLevelExcel):
+        x = CharacterWeaponLevelExcelT()
+        x._UnPack(characterWeaponLevelExcel)
+        return x
+
+    # CharacterWeaponLevelExcelT
+    def _UnPack(self, characterWeaponLevelExcel):
+        if characterWeaponLevelExcel is None:
+            return
+        self.level = characterWeaponLevelExcel.Level()
+        self.exp = characterWeaponLevelExcel.Exp()
+        self.totalExp = characterWeaponLevelExcel.TotalExp()
+
+    # CharacterWeaponLevelExcelT
+    def Pack(self, builder):
+        CharacterWeaponLevelExcelStart(builder)
+        CharacterWeaponLevelExcelAddLevel(builder, self.level)
+        CharacterWeaponLevelExcelAddExp(builder, self.exp)
+        CharacterWeaponLevelExcelAddTotalExp(builder, self.totalExp)
+        characterWeaponLevelExcel = CharacterWeaponLevelExcelEnd(builder)
+        return characterWeaponLevelExcel

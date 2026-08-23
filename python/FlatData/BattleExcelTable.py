@@ -72,3 +72,68 @@ def BattleExcelTableEnd(builder):
 
 def End(builder):
     return BattleExcelTableEnd(builder)
+
+import FlatData.BattleExcel
+try:
+    from typing import List
+except:
+    pass
+
+class BattleExcelTableT(object):
+
+    # BattleExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.BattleExcel.BattleExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        battleExcelTable = BattleExcelTable()
+        battleExcelTable.Init(buf, pos)
+        return cls.InitFromObj(battleExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, battleExcelTable):
+        x = BattleExcelTableT()
+        x._UnPack(battleExcelTable)
+        return x
+
+    # BattleExcelTableT
+    def _UnPack(self, battleExcelTable):
+        if battleExcelTable is None:
+            return
+        if not battleExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(battleExcelTable.DataListLength()):
+                if battleExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    battleExcel_ = FlatData.BattleExcel.BattleExcelT.InitFromObj(battleExcelTable.DataList(i))
+                    self.dataList.append(battleExcel_)
+
+    # BattleExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            BattleExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        BattleExcelTableStart(builder)
+        if self.dataList is not None:
+            BattleExcelTableAddDataList(builder, dataList)
+        battleExcelTable = BattleExcelTableEnd(builder)
+        return battleExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(BattleExcelTableT, 'BattleExcelTable', ())

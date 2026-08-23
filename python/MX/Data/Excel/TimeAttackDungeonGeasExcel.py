@@ -378,3 +378,188 @@ def TimeAttackDungeonGeasExcelEnd(builder):
 
 def End(builder):
     return TimeAttackDungeonGeasExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class TimeAttackDungeonGeasExcelT(object):
+
+    # TimeAttackDungeonGeasExcelT
+    def __init__(
+        self,
+        id = 0,
+        timeAttackDungeonType = 0,
+        localizeEtcKey = 0,
+        battleDuration = 0,
+        clearDefaultPoint = 0,
+        clearTimeWeightPoint = 0,
+        timeWeightConst = 0,
+        difficulty = 0,
+        recommandLevel = 0,
+        groundId = 0,
+        allyPassiveSkillId = None,
+        allyPassiveSkillLevel = None,
+        enemyPassiveSkillId = None,
+        enemyPassiveSkillLevel = None,
+        geasIconPath = None,
+        geasLocalizeEtcKey = None,
+    ):
+        self.id = id  # type: int
+        self.timeAttackDungeonType = timeAttackDungeonType  # type: int
+        self.localizeEtcKey = localizeEtcKey  # type: int
+        self.battleDuration = battleDuration  # type: int
+        self.clearDefaultPoint = clearDefaultPoint  # type: int
+        self.clearTimeWeightPoint = clearTimeWeightPoint  # type: int
+        self.timeWeightConst = timeWeightConst  # type: int
+        self.difficulty = difficulty  # type: int
+        self.recommandLevel = recommandLevel  # type: int
+        self.groundId = groundId  # type: int
+        self.allyPassiveSkillId = allyPassiveSkillId  # type: Optional[List[Optional[str]]]
+        self.allyPassiveSkillLevel = allyPassiveSkillLevel  # type: Optional[List[int]]
+        self.enemyPassiveSkillId = enemyPassiveSkillId  # type: Optional[List[Optional[str]]]
+        self.enemyPassiveSkillLevel = enemyPassiveSkillLevel  # type: Optional[List[int]]
+        self.geasIconPath = geasIconPath  # type: Optional[List[Optional[str]]]
+        self.geasLocalizeEtcKey = geasLocalizeEtcKey  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        timeAttackDungeonGeasExcel = TimeAttackDungeonGeasExcel()
+        timeAttackDungeonGeasExcel.Init(buf, pos)
+        return cls.InitFromObj(timeAttackDungeonGeasExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, timeAttackDungeonGeasExcel):
+        x = TimeAttackDungeonGeasExcelT()
+        x._UnPack(timeAttackDungeonGeasExcel)
+        return x
+
+    # TimeAttackDungeonGeasExcelT
+    def _UnPack(self, timeAttackDungeonGeasExcel):
+        if timeAttackDungeonGeasExcel is None:
+            return
+        self.id = timeAttackDungeonGeasExcel.Id()
+        self.timeAttackDungeonType = timeAttackDungeonGeasExcel.TimeAttackDungeonType()
+        self.localizeEtcKey = timeAttackDungeonGeasExcel.LocalizeEtcKey()
+        self.battleDuration = timeAttackDungeonGeasExcel.BattleDuration()
+        self.clearDefaultPoint = timeAttackDungeonGeasExcel.ClearDefaultPoint()
+        self.clearTimeWeightPoint = timeAttackDungeonGeasExcel.ClearTimeWeightPoint()
+        self.timeWeightConst = timeAttackDungeonGeasExcel.TimeWeightConst()
+        self.difficulty = timeAttackDungeonGeasExcel.Difficulty()
+        self.recommandLevel = timeAttackDungeonGeasExcel.RecommandLevel()
+        self.groundId = timeAttackDungeonGeasExcel.GroundId()
+        if not timeAttackDungeonGeasExcel.AllyPassiveSkillIdIsNone():
+            self.allyPassiveSkillId = []
+            for i in range(timeAttackDungeonGeasExcel.AllyPassiveSkillIdLength()):
+                self.allyPassiveSkillId.append(timeAttackDungeonGeasExcel.AllyPassiveSkillId(i))
+        if not timeAttackDungeonGeasExcel.AllyPassiveSkillLevelIsNone():
+            if np is None:
+                self.allyPassiveSkillLevel = []
+                for i in range(timeAttackDungeonGeasExcel.AllyPassiveSkillLevelLength()):
+                    self.allyPassiveSkillLevel.append(timeAttackDungeonGeasExcel.AllyPassiveSkillLevel(i))
+            else:
+                self.allyPassiveSkillLevel = timeAttackDungeonGeasExcel.AllyPassiveSkillLevelAsNumpy()
+        if not timeAttackDungeonGeasExcel.EnemyPassiveSkillIdIsNone():
+            self.enemyPassiveSkillId = []
+            for i in range(timeAttackDungeonGeasExcel.EnemyPassiveSkillIdLength()):
+                self.enemyPassiveSkillId.append(timeAttackDungeonGeasExcel.EnemyPassiveSkillId(i))
+        if not timeAttackDungeonGeasExcel.EnemyPassiveSkillLevelIsNone():
+            if np is None:
+                self.enemyPassiveSkillLevel = []
+                for i in range(timeAttackDungeonGeasExcel.EnemyPassiveSkillLevelLength()):
+                    self.enemyPassiveSkillLevel.append(timeAttackDungeonGeasExcel.EnemyPassiveSkillLevel(i))
+            else:
+                self.enemyPassiveSkillLevel = timeAttackDungeonGeasExcel.EnemyPassiveSkillLevelAsNumpy()
+        if not timeAttackDungeonGeasExcel.GeasIconPathIsNone():
+            self.geasIconPath = []
+            for i in range(timeAttackDungeonGeasExcel.GeasIconPathLength()):
+                self.geasIconPath.append(timeAttackDungeonGeasExcel.GeasIconPath(i))
+        if not timeAttackDungeonGeasExcel.GeasLocalizeEtcKeyIsNone():
+            if np is None:
+                self.geasLocalizeEtcKey = []
+                for i in range(timeAttackDungeonGeasExcel.GeasLocalizeEtcKeyLength()):
+                    self.geasLocalizeEtcKey.append(timeAttackDungeonGeasExcel.GeasLocalizeEtcKey(i))
+            else:
+                self.geasLocalizeEtcKey = timeAttackDungeonGeasExcel.GeasLocalizeEtcKeyAsNumpy()
+
+    # TimeAttackDungeonGeasExcelT
+    def Pack(self, builder):
+        if self.allyPassiveSkillId is not None:
+            allyPassiveSkillIdlist = []
+            for i in range(len(self.allyPassiveSkillId)):
+                allyPassiveSkillIdlist.append(builder.CreateString(self.allyPassiveSkillId[i]))
+            TimeAttackDungeonGeasExcelStartAllyPassiveSkillIdVector(builder, len(self.allyPassiveSkillId))
+            for i in reversed(range(len(self.allyPassiveSkillId))):
+                builder.PrependUOffsetTRelative(allyPassiveSkillIdlist[i])
+            allyPassiveSkillId = builder.EndVector()
+        if self.allyPassiveSkillLevel is not None:
+            if np is not None and type(self.allyPassiveSkillLevel) is np.ndarray:
+                allyPassiveSkillLevel = builder.CreateNumpyVector(self.allyPassiveSkillLevel)
+            else:
+                TimeAttackDungeonGeasExcelStartAllyPassiveSkillLevelVector(builder, len(self.allyPassiveSkillLevel))
+                for i in reversed(range(len(self.allyPassiveSkillLevel))):
+                    builder.PrependInt32(self.allyPassiveSkillLevel[i])
+                allyPassiveSkillLevel = builder.EndVector()
+        if self.enemyPassiveSkillId is not None:
+            enemyPassiveSkillIdlist = []
+            for i in range(len(self.enemyPassiveSkillId)):
+                enemyPassiveSkillIdlist.append(builder.CreateString(self.enemyPassiveSkillId[i]))
+            TimeAttackDungeonGeasExcelStartEnemyPassiveSkillIdVector(builder, len(self.enemyPassiveSkillId))
+            for i in reversed(range(len(self.enemyPassiveSkillId))):
+                builder.PrependUOffsetTRelative(enemyPassiveSkillIdlist[i])
+            enemyPassiveSkillId = builder.EndVector()
+        if self.enemyPassiveSkillLevel is not None:
+            if np is not None and type(self.enemyPassiveSkillLevel) is np.ndarray:
+                enemyPassiveSkillLevel = builder.CreateNumpyVector(self.enemyPassiveSkillLevel)
+            else:
+                TimeAttackDungeonGeasExcelStartEnemyPassiveSkillLevelVector(builder, len(self.enemyPassiveSkillLevel))
+                for i in reversed(range(len(self.enemyPassiveSkillLevel))):
+                    builder.PrependInt32(self.enemyPassiveSkillLevel[i])
+                enemyPassiveSkillLevel = builder.EndVector()
+        if self.geasIconPath is not None:
+            geasIconPathlist = []
+            for i in range(len(self.geasIconPath)):
+                geasIconPathlist.append(builder.CreateString(self.geasIconPath[i]))
+            TimeAttackDungeonGeasExcelStartGeasIconPathVector(builder, len(self.geasIconPath))
+            for i in reversed(range(len(self.geasIconPath))):
+                builder.PrependUOffsetTRelative(geasIconPathlist[i])
+            geasIconPath = builder.EndVector()
+        if self.geasLocalizeEtcKey is not None:
+            if np is not None and type(self.geasLocalizeEtcKey) is np.ndarray:
+                geasLocalizeEtcKey = builder.CreateNumpyVector(self.geasLocalizeEtcKey)
+            else:
+                TimeAttackDungeonGeasExcelStartGeasLocalizeEtcKeyVector(builder, len(self.geasLocalizeEtcKey))
+                for i in reversed(range(len(self.geasLocalizeEtcKey))):
+                    builder.PrependUint32(self.geasLocalizeEtcKey[i])
+                geasLocalizeEtcKey = builder.EndVector()
+        TimeAttackDungeonGeasExcelStart(builder)
+        TimeAttackDungeonGeasExcelAddId(builder, self.id)
+        TimeAttackDungeonGeasExcelAddTimeAttackDungeonType(builder, self.timeAttackDungeonType)
+        TimeAttackDungeonGeasExcelAddLocalizeEtcKey(builder, self.localizeEtcKey)
+        TimeAttackDungeonGeasExcelAddBattleDuration(builder, self.battleDuration)
+        TimeAttackDungeonGeasExcelAddClearDefaultPoint(builder, self.clearDefaultPoint)
+        TimeAttackDungeonGeasExcelAddClearTimeWeightPoint(builder, self.clearTimeWeightPoint)
+        TimeAttackDungeonGeasExcelAddTimeWeightConst(builder, self.timeWeightConst)
+        TimeAttackDungeonGeasExcelAddDifficulty(builder, self.difficulty)
+        TimeAttackDungeonGeasExcelAddRecommandLevel(builder, self.recommandLevel)
+        TimeAttackDungeonGeasExcelAddGroundId(builder, self.groundId)
+        if self.allyPassiveSkillId is not None:
+            TimeAttackDungeonGeasExcelAddAllyPassiveSkillId(builder, allyPassiveSkillId)
+        if self.allyPassiveSkillLevel is not None:
+            TimeAttackDungeonGeasExcelAddAllyPassiveSkillLevel(builder, allyPassiveSkillLevel)
+        if self.enemyPassiveSkillId is not None:
+            TimeAttackDungeonGeasExcelAddEnemyPassiveSkillId(builder, enemyPassiveSkillId)
+        if self.enemyPassiveSkillLevel is not None:
+            TimeAttackDungeonGeasExcelAddEnemyPassiveSkillLevel(builder, enemyPassiveSkillLevel)
+        if self.geasIconPath is not None:
+            TimeAttackDungeonGeasExcelAddGeasIconPath(builder, geasIconPath)
+        if self.geasLocalizeEtcKey is not None:
+            TimeAttackDungeonGeasExcelAddGeasLocalizeEtcKey(builder, geasLocalizeEtcKey)
+        timeAttackDungeonGeasExcel = TimeAttackDungeonGeasExcelEnd(builder)
+        return timeAttackDungeonGeasExcel

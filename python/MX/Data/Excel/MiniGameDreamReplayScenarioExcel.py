@@ -126,3 +126,70 @@ def MiniGameDreamReplayScenarioExcelEnd(builder):
 
 def End(builder):
     return MiniGameDreamReplayScenarioExcelEnd(builder)
+
+
+class MiniGameDreamReplayScenarioExcelT(object):
+
+    # MiniGameDreamReplayScenarioExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        scenarioGroupId = 0,
+        order = 0,
+        replaySummaryTitleLocalize = 0,
+        replaySummaryLocalizeScenarioId = 0,
+        replayScenarioResource = None,
+        isReplayScenarioHorizon = False,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.scenarioGroupId = scenarioGroupId  # type: int
+        self.order = order  # type: int
+        self.replaySummaryTitleLocalize = replaySummaryTitleLocalize  # type: int
+        self.replaySummaryLocalizeScenarioId = replaySummaryLocalizeScenarioId  # type: int
+        self.replayScenarioResource = replayScenarioResource  # type: Optional[str]
+        self.isReplayScenarioHorizon = isReplayScenarioHorizon  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDreamReplayScenarioExcel = MiniGameDreamReplayScenarioExcel()
+        miniGameDreamReplayScenarioExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDreamReplayScenarioExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDreamReplayScenarioExcel):
+        x = MiniGameDreamReplayScenarioExcelT()
+        x._UnPack(miniGameDreamReplayScenarioExcel)
+        return x
+
+    # MiniGameDreamReplayScenarioExcelT
+    def _UnPack(self, miniGameDreamReplayScenarioExcel):
+        if miniGameDreamReplayScenarioExcel is None:
+            return
+        self.eventContentId = miniGameDreamReplayScenarioExcel.EventContentId()
+        self.scenarioGroupId = miniGameDreamReplayScenarioExcel.ScenarioGroupId()
+        self.order = miniGameDreamReplayScenarioExcel.Order()
+        self.replaySummaryTitleLocalize = miniGameDreamReplayScenarioExcel.ReplaySummaryTitleLocalize()
+        self.replaySummaryLocalizeScenarioId = miniGameDreamReplayScenarioExcel.ReplaySummaryLocalizeScenarioId()
+        self.replayScenarioResource = miniGameDreamReplayScenarioExcel.ReplayScenarioResource()
+        self.isReplayScenarioHorizon = miniGameDreamReplayScenarioExcel.IsReplayScenarioHorizon()
+
+    # MiniGameDreamReplayScenarioExcelT
+    def Pack(self, builder):
+        if self.replayScenarioResource is not None:
+            replayScenarioResource = builder.CreateString(self.replayScenarioResource)
+        MiniGameDreamReplayScenarioExcelStart(builder)
+        MiniGameDreamReplayScenarioExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameDreamReplayScenarioExcelAddScenarioGroupId(builder, self.scenarioGroupId)
+        MiniGameDreamReplayScenarioExcelAddOrder(builder, self.order)
+        MiniGameDreamReplayScenarioExcelAddReplaySummaryTitleLocalize(builder, self.replaySummaryTitleLocalize)
+        MiniGameDreamReplayScenarioExcelAddReplaySummaryLocalizeScenarioId(builder, self.replaySummaryLocalizeScenarioId)
+        if self.replayScenarioResource is not None:
+            MiniGameDreamReplayScenarioExcelAddReplayScenarioResource(builder, replayScenarioResource)
+        MiniGameDreamReplayScenarioExcelAddIsReplayScenarioHorizon(builder, self.isReplayScenarioHorizon)
+        miniGameDreamReplayScenarioExcel = MiniGameDreamReplayScenarioExcelEnd(builder)
+        return miniGameDreamReplayScenarioExcel

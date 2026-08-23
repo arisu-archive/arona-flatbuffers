@@ -152,3 +152,81 @@ def MiniGameDreamTimelineExcelEnd(builder):
 
 def End(builder):
     return MiniGameDreamTimelineExcelEnd(builder)
+
+
+class MiniGameDreamTimelineExcelT(object):
+
+    # MiniGameDreamTimelineExcelT
+    def __init__(
+        self,
+        id = 0,
+        eventContentId = 0,
+        groupId = 0,
+        dreamMakerDays = 0,
+        dreamMakerActionPoint = 0,
+        enterScenarioGroupId = 0,
+        bgm = 0,
+        artLevelPath = None,
+        designLevelPath = None,
+    ):
+        self.id = id  # type: int
+        self.eventContentId = eventContentId  # type: int
+        self.groupId = groupId  # type: int
+        self.dreamMakerDays = dreamMakerDays  # type: int
+        self.dreamMakerActionPoint = dreamMakerActionPoint  # type: int
+        self.enterScenarioGroupId = enterScenarioGroupId  # type: int
+        self.bgm = bgm  # type: int
+        self.artLevelPath = artLevelPath  # type: Optional[str]
+        self.designLevelPath = designLevelPath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDreamTimelineExcel = MiniGameDreamTimelineExcel()
+        miniGameDreamTimelineExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDreamTimelineExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDreamTimelineExcel):
+        x = MiniGameDreamTimelineExcelT()
+        x._UnPack(miniGameDreamTimelineExcel)
+        return x
+
+    # MiniGameDreamTimelineExcelT
+    def _UnPack(self, miniGameDreamTimelineExcel):
+        if miniGameDreamTimelineExcel is None:
+            return
+        self.id = miniGameDreamTimelineExcel.Id()
+        self.eventContentId = miniGameDreamTimelineExcel.EventContentId()
+        self.groupId = miniGameDreamTimelineExcel.GroupId()
+        self.dreamMakerDays = miniGameDreamTimelineExcel.DreamMakerDays()
+        self.dreamMakerActionPoint = miniGameDreamTimelineExcel.DreamMakerActionPoint()
+        self.enterScenarioGroupId = miniGameDreamTimelineExcel.EnterScenarioGroupId()
+        self.bgm = miniGameDreamTimelineExcel.Bgm()
+        self.artLevelPath = miniGameDreamTimelineExcel.ArtLevelPath()
+        self.designLevelPath = miniGameDreamTimelineExcel.DesignLevelPath()
+
+    # MiniGameDreamTimelineExcelT
+    def Pack(self, builder):
+        if self.artLevelPath is not None:
+            artLevelPath = builder.CreateString(self.artLevelPath)
+        if self.designLevelPath is not None:
+            designLevelPath = builder.CreateString(self.designLevelPath)
+        MiniGameDreamTimelineExcelStart(builder)
+        MiniGameDreamTimelineExcelAddId(builder, self.id)
+        MiniGameDreamTimelineExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameDreamTimelineExcelAddGroupId(builder, self.groupId)
+        MiniGameDreamTimelineExcelAddDreamMakerDays(builder, self.dreamMakerDays)
+        MiniGameDreamTimelineExcelAddDreamMakerActionPoint(builder, self.dreamMakerActionPoint)
+        MiniGameDreamTimelineExcelAddEnterScenarioGroupId(builder, self.enterScenarioGroupId)
+        MiniGameDreamTimelineExcelAddBgm(builder, self.bgm)
+        if self.artLevelPath is not None:
+            MiniGameDreamTimelineExcelAddArtLevelPath(builder, artLevelPath)
+        if self.designLevelPath is not None:
+            MiniGameDreamTimelineExcelAddDesignLevelPath(builder, designLevelPath)
+        miniGameDreamTimelineExcel = MiniGameDreamTimelineExcelEnd(builder)
+        return miniGameDreamTimelineExcel

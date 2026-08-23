@@ -72,3 +72,68 @@ def FieldMasteryLevelExcelTableEnd(builder):
 
 def End(builder):
     return FieldMasteryLevelExcelTableEnd(builder)
+
+import FlatData.FieldMasteryLevelExcel
+try:
+    from typing import List
+except:
+    pass
+
+class FieldMasteryLevelExcelTableT(object):
+
+    # FieldMasteryLevelExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.FieldMasteryLevelExcel.FieldMasteryLevelExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        fieldMasteryLevelExcelTable = FieldMasteryLevelExcelTable()
+        fieldMasteryLevelExcelTable.Init(buf, pos)
+        return cls.InitFromObj(fieldMasteryLevelExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, fieldMasteryLevelExcelTable):
+        x = FieldMasteryLevelExcelTableT()
+        x._UnPack(fieldMasteryLevelExcelTable)
+        return x
+
+    # FieldMasteryLevelExcelTableT
+    def _UnPack(self, fieldMasteryLevelExcelTable):
+        if fieldMasteryLevelExcelTable is None:
+            return
+        if not fieldMasteryLevelExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(fieldMasteryLevelExcelTable.DataListLength()):
+                if fieldMasteryLevelExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    fieldMasteryLevelExcel_ = FlatData.FieldMasteryLevelExcel.FieldMasteryLevelExcelT.InitFromObj(fieldMasteryLevelExcelTable.DataList(i))
+                    self.dataList.append(fieldMasteryLevelExcel_)
+
+    # FieldMasteryLevelExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            FieldMasteryLevelExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        FieldMasteryLevelExcelTableStart(builder)
+        if self.dataList is not None:
+            FieldMasteryLevelExcelTableAddDataList(builder, dataList)
+        fieldMasteryLevelExcelTable = FieldMasteryLevelExcelTableEnd(builder)
+        return fieldMasteryLevelExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(FieldMasteryLevelExcelTableT, 'FieldMasteryLevelExcelTable', ())

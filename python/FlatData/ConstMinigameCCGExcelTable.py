@@ -72,3 +72,68 @@ def ConstMinigameCCGExcelTableEnd(builder):
 
 def End(builder):
     return ConstMinigameCCGExcelTableEnd(builder)
+
+import FlatData.ConstMinigameCCGExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConstMinigameCCGExcelTableT(object):
+
+    # ConstMinigameCCGExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConstMinigameCCGExcel.ConstMinigameCCGExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        constMinigameCcgexcelTable = ConstMinigameCCGExcelTable()
+        constMinigameCcgexcelTable.Init(buf, pos)
+        return cls.InitFromObj(constMinigameCcgexcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, constMinigameCcgexcelTable):
+        x = ConstMinigameCCGExcelTableT()
+        x._UnPack(constMinigameCcgexcelTable)
+        return x
+
+    # ConstMinigameCCGExcelTableT
+    def _UnPack(self, constMinigameCcgexcelTable):
+        if constMinigameCcgexcelTable is None:
+            return
+        if not constMinigameCcgexcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(constMinigameCcgexcelTable.DataListLength()):
+                if constMinigameCcgexcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    constMinigameCCGExcel_ = FlatData.ConstMinigameCCGExcel.ConstMinigameCCGExcelT.InitFromObj(constMinigameCcgexcelTable.DataList(i))
+                    self.dataList.append(constMinigameCCGExcel_)
+
+    # ConstMinigameCCGExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConstMinigameCCGExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConstMinigameCCGExcelTableStart(builder)
+        if self.dataList is not None:
+            ConstMinigameCCGExcelTableAddDataList(builder, dataList)
+        constMinigameCcgexcelTable = ConstMinigameCCGExcelTableEnd(builder)
+        return constMinigameCcgexcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConstMinigameCCGExcelTableT, 'ConstMinigameCCGExcelTable', ())

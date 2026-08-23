@@ -72,3 +72,68 @@ def CharacterDialogFieldExcelTableEnd(builder):
 
 def End(builder):
     return CharacterDialogFieldExcelTableEnd(builder)
+
+import FlatData.CharacterDialogFieldExcel
+try:
+    from typing import List
+except:
+    pass
+
+class CharacterDialogFieldExcelTableT(object):
+
+    # CharacterDialogFieldExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.CharacterDialogFieldExcel.CharacterDialogFieldExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterDialogFieldExcelTable = CharacterDialogFieldExcelTable()
+        characterDialogFieldExcelTable.Init(buf, pos)
+        return cls.InitFromObj(characterDialogFieldExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterDialogFieldExcelTable):
+        x = CharacterDialogFieldExcelTableT()
+        x._UnPack(characterDialogFieldExcelTable)
+        return x
+
+    # CharacterDialogFieldExcelTableT
+    def _UnPack(self, characterDialogFieldExcelTable):
+        if characterDialogFieldExcelTable is None:
+            return
+        if not characterDialogFieldExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(characterDialogFieldExcelTable.DataListLength()):
+                if characterDialogFieldExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    characterDialogFieldExcel_ = FlatData.CharacterDialogFieldExcel.CharacterDialogFieldExcelT.InitFromObj(characterDialogFieldExcelTable.DataList(i))
+                    self.dataList.append(characterDialogFieldExcel_)
+
+    # CharacterDialogFieldExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            CharacterDialogFieldExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        CharacterDialogFieldExcelTableStart(builder)
+        if self.dataList is not None:
+            CharacterDialogFieldExcelTableAddDataList(builder, dataList)
+        characterDialogFieldExcelTable = CharacterDialogFieldExcelTableEnd(builder)
+        return characterDialogFieldExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(CharacterDialogFieldExcelTableT, 'CharacterDialogFieldExcelTable', ())

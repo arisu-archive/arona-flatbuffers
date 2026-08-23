@@ -126,3 +126,78 @@ def ContentsScenarioExcelEnd(builder):
 
 def End(builder):
     return ContentsScenarioExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ContentsScenarioExcelT(object):
+
+    # ContentsScenarioExcelT
+    def __init__(
+        self,
+        id = 0,
+        localizeId = 0,
+        displayOrder = 0,
+        scenarioContentType = 0,
+        scenarioGroupId = None,
+    ):
+        self.id = id  # type: int
+        self.localizeId = localizeId  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.scenarioContentType = scenarioContentType  # type: int
+        self.scenarioGroupId = scenarioGroupId  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        contentsScenarioExcel = ContentsScenarioExcel()
+        contentsScenarioExcel.Init(buf, pos)
+        return cls.InitFromObj(contentsScenarioExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, contentsScenarioExcel):
+        x = ContentsScenarioExcelT()
+        x._UnPack(contentsScenarioExcel)
+        return x
+
+    # ContentsScenarioExcelT
+    def _UnPack(self, contentsScenarioExcel):
+        if contentsScenarioExcel is None:
+            return
+        self.id = contentsScenarioExcel.Id()
+        self.localizeId = contentsScenarioExcel.LocalizeId()
+        self.displayOrder = contentsScenarioExcel.DisplayOrder()
+        self.scenarioContentType = contentsScenarioExcel.ScenarioContentType()
+        if not contentsScenarioExcel.ScenarioGroupIdIsNone():
+            if np is None:
+                self.scenarioGroupId = []
+                for i in range(contentsScenarioExcel.ScenarioGroupIdLength()):
+                    self.scenarioGroupId.append(contentsScenarioExcel.ScenarioGroupId(i))
+            else:
+                self.scenarioGroupId = contentsScenarioExcel.ScenarioGroupIdAsNumpy()
+
+    # ContentsScenarioExcelT
+    def Pack(self, builder):
+        if self.scenarioGroupId is not None:
+            if np is not None and type(self.scenarioGroupId) is np.ndarray:
+                scenarioGroupId = builder.CreateNumpyVector(self.scenarioGroupId)
+            else:
+                ContentsScenarioExcelStartScenarioGroupIdVector(builder, len(self.scenarioGroupId))
+                for i in reversed(range(len(self.scenarioGroupId))):
+                    builder.PrependInt64(self.scenarioGroupId[i])
+                scenarioGroupId = builder.EndVector()
+        ContentsScenarioExcelStart(builder)
+        ContentsScenarioExcelAddId(builder, self.id)
+        ContentsScenarioExcelAddLocalizeId(builder, self.localizeId)
+        ContentsScenarioExcelAddDisplayOrder(builder, self.displayOrder)
+        ContentsScenarioExcelAddScenarioContentType(builder, self.scenarioContentType)
+        if self.scenarioGroupId is not None:
+            ContentsScenarioExcelAddScenarioGroupId(builder, scenarioGroupId)
+        contentsScenarioExcel = ContentsScenarioExcelEnd(builder)
+        return contentsScenarioExcel

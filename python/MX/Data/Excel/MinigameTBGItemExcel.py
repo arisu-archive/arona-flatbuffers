@@ -165,3 +165,91 @@ def MinigameTBGItemExcelEnd(builder):
 
 def End(builder):
     return MinigameTBGItemExcelEnd(builder)
+
+
+class MinigameTBGItemExcelT(object):
+
+    # MinigameTBGItemExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        itemType = 0,
+        tbgItemEffectType = 0,
+        itemParameter = 0,
+        localizeEtcId = None,
+        icon = None,
+        buffIcon = None,
+        encounterCount = 0,
+        diceEffectAniClip = None,
+        buffIconHudVisible = False,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.itemType = itemType  # type: int
+        self.tbgItemEffectType = tbgItemEffectType  # type: int
+        self.itemParameter = itemParameter  # type: int
+        self.localizeEtcId = localizeEtcId  # type: Optional[str]
+        self.icon = icon  # type: Optional[str]
+        self.buffIcon = buffIcon  # type: Optional[str]
+        self.encounterCount = encounterCount  # type: int
+        self.diceEffectAniClip = diceEffectAniClip  # type: Optional[str]
+        self.buffIconHudVisible = buffIconHudVisible  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameTbgitemExcel = MinigameTBGItemExcel()
+        minigameTbgitemExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameTbgitemExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameTbgitemExcel):
+        x = MinigameTBGItemExcelT()
+        x._UnPack(minigameTbgitemExcel)
+        return x
+
+    # MinigameTBGItemExcelT
+    def _UnPack(self, minigameTbgitemExcel):
+        if minigameTbgitemExcel is None:
+            return
+        self.uniqueId = minigameTbgitemExcel.UniqueId()
+        self.itemType = minigameTbgitemExcel.ItemType()
+        self.tbgItemEffectType = minigameTbgitemExcel.TbgItemEffectType()
+        self.itemParameter = minigameTbgitemExcel.ItemParameter()
+        self.localizeEtcId = minigameTbgitemExcel.LocalizeEtcId()
+        self.icon = minigameTbgitemExcel.Icon()
+        self.buffIcon = minigameTbgitemExcel.BuffIcon()
+        self.encounterCount = minigameTbgitemExcel.EncounterCount()
+        self.diceEffectAniClip = minigameTbgitemExcel.DiceEffectAniClip()
+        self.buffIconHudVisible = minigameTbgitemExcel.BuffIconHudVisible()
+
+    # MinigameTBGItemExcelT
+    def Pack(self, builder):
+        if self.localizeEtcId is not None:
+            localizeEtcId = builder.CreateString(self.localizeEtcId)
+        if self.icon is not None:
+            icon = builder.CreateString(self.icon)
+        if self.buffIcon is not None:
+            buffIcon = builder.CreateString(self.buffIcon)
+        if self.diceEffectAniClip is not None:
+            diceEffectAniClip = builder.CreateString(self.diceEffectAniClip)
+        MinigameTBGItemExcelStart(builder)
+        MinigameTBGItemExcelAddUniqueId(builder, self.uniqueId)
+        MinigameTBGItemExcelAddItemType(builder, self.itemType)
+        MinigameTBGItemExcelAddTbgItemEffectType(builder, self.tbgItemEffectType)
+        MinigameTBGItemExcelAddItemParameter(builder, self.itemParameter)
+        if self.localizeEtcId is not None:
+            MinigameTBGItemExcelAddLocalizeEtcId(builder, localizeEtcId)
+        if self.icon is not None:
+            MinigameTBGItemExcelAddIcon(builder, icon)
+        if self.buffIcon is not None:
+            MinigameTBGItemExcelAddBuffIcon(builder, buffIcon)
+        MinigameTBGItemExcelAddEncounterCount(builder, self.encounterCount)
+        if self.diceEffectAniClip is not None:
+            MinigameTBGItemExcelAddDiceEffectAniClip(builder, diceEffectAniClip)
+        MinigameTBGItemExcelAddBuffIconHudVisible(builder, self.buffIconHudVisible)
+        minigameTbgitemExcel = MinigameTBGItemExcelEnd(builder)
+        return minigameTbgitemExcel

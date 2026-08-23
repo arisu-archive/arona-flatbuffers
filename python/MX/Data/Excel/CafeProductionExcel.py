@@ -126,3 +126,67 @@ def CafeProductionExcelEnd(builder):
 
 def End(builder):
     return CafeProductionExcelEnd(builder)
+
+
+class CafeProductionExcelT(object):
+
+    # CafeProductionExcelT
+    def __init__(
+        self,
+        cafeId = 0,
+        rank = 0,
+        cafeProductionParcelType = 0,
+        cafeProductionParcelId = 0,
+        parcelProductionCoefficient = 0,
+        parcelProductionCorrectionValue = 0,
+        parcelStorageMax = 0,
+    ):
+        self.cafeId = cafeId  # type: int
+        self.rank = rank  # type: int
+        self.cafeProductionParcelType = cafeProductionParcelType  # type: int
+        self.cafeProductionParcelId = cafeProductionParcelId  # type: int
+        self.parcelProductionCoefficient = parcelProductionCoefficient  # type: int
+        self.parcelProductionCorrectionValue = parcelProductionCorrectionValue  # type: int
+        self.parcelStorageMax = parcelStorageMax  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        cafeProductionExcel = CafeProductionExcel()
+        cafeProductionExcel.Init(buf, pos)
+        return cls.InitFromObj(cafeProductionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, cafeProductionExcel):
+        x = CafeProductionExcelT()
+        x._UnPack(cafeProductionExcel)
+        return x
+
+    # CafeProductionExcelT
+    def _UnPack(self, cafeProductionExcel):
+        if cafeProductionExcel is None:
+            return
+        self.cafeId = cafeProductionExcel.CafeId()
+        self.rank = cafeProductionExcel.Rank()
+        self.cafeProductionParcelType = cafeProductionExcel.CafeProductionParcelType()
+        self.cafeProductionParcelId = cafeProductionExcel.CafeProductionParcelId()
+        self.parcelProductionCoefficient = cafeProductionExcel.ParcelProductionCoefficient()
+        self.parcelProductionCorrectionValue = cafeProductionExcel.ParcelProductionCorrectionValue()
+        self.parcelStorageMax = cafeProductionExcel.ParcelStorageMax()
+
+    # CafeProductionExcelT
+    def Pack(self, builder):
+        CafeProductionExcelStart(builder)
+        CafeProductionExcelAddCafeId(builder, self.cafeId)
+        CafeProductionExcelAddRank(builder, self.rank)
+        CafeProductionExcelAddCafeProductionParcelType(builder, self.cafeProductionParcelType)
+        CafeProductionExcelAddCafeProductionParcelId(builder, self.cafeProductionParcelId)
+        CafeProductionExcelAddParcelProductionCoefficient(builder, self.parcelProductionCoefficient)
+        CafeProductionExcelAddParcelProductionCorrectionValue(builder, self.parcelProductionCorrectionValue)
+        CafeProductionExcelAddParcelStorageMax(builder, self.parcelStorageMax)
+        cafeProductionExcel = CafeProductionExcelEnd(builder)
+        return cafeProductionExcel

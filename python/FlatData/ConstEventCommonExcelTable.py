@@ -72,3 +72,68 @@ def ConstEventCommonExcelTableEnd(builder):
 
 def End(builder):
     return ConstEventCommonExcelTableEnd(builder)
+
+import FlatData.ConstEventCommonExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConstEventCommonExcelTableT(object):
+
+    # ConstEventCommonExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConstEventCommonExcel.ConstEventCommonExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        constEventCommonExcelTable = ConstEventCommonExcelTable()
+        constEventCommonExcelTable.Init(buf, pos)
+        return cls.InitFromObj(constEventCommonExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, constEventCommonExcelTable):
+        x = ConstEventCommonExcelTableT()
+        x._UnPack(constEventCommonExcelTable)
+        return x
+
+    # ConstEventCommonExcelTableT
+    def _UnPack(self, constEventCommonExcelTable):
+        if constEventCommonExcelTable is None:
+            return
+        if not constEventCommonExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(constEventCommonExcelTable.DataListLength()):
+                if constEventCommonExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    constEventCommonExcel_ = FlatData.ConstEventCommonExcel.ConstEventCommonExcelT.InitFromObj(constEventCommonExcelTable.DataList(i))
+                    self.dataList.append(constEventCommonExcel_)
+
+    # ConstEventCommonExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConstEventCommonExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConstEventCommonExcelTableStart(builder)
+        if self.dataList is not None:
+            ConstEventCommonExcelTableAddDataList(builder, dataList)
+        constEventCommonExcelTable = ConstEventCommonExcelTableEnd(builder)
+        return constEventCommonExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConstEventCommonExcelTableT, 'ConstEventCommonExcelTable', ())

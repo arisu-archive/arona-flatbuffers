@@ -301,3 +301,143 @@ def MiniGameShootingCharacterExcelEnd(builder):
 
 def End(builder):
     return MiniGameShootingCharacterExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MiniGameShootingCharacterExcelT(object):
+
+    # MiniGameShootingCharacterExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        spineResourceName = None,
+        bodyRadius = 0.0,
+        modelPrefabName = None,
+        normalAttackSkillData = None,
+        publicSkillData = None,
+        deathSkillData = None,
+        maxHp = 0,
+        attackPower = 0,
+        defensePower = 0,
+        criticalRate = 0,
+        criticalDamageRate = 0,
+        attackRange = 0,
+        moveSpeed = 0,
+        shotTime = 0,
+        isBoss = False,
+        scale = 0.0,
+        ignoreObstacleCheck = False,
+        characterVoiceGroupId = 0,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.spineResourceName = spineResourceName  # type: Optional[str]
+        self.bodyRadius = bodyRadius  # type: float
+        self.modelPrefabName = modelPrefabName  # type: Optional[str]
+        self.normalAttackSkillData = normalAttackSkillData  # type: Optional[str]
+        self.publicSkillData = publicSkillData  # type: Optional[List[Optional[str]]]
+        self.deathSkillData = deathSkillData  # type: Optional[str]
+        self.maxHp = maxHp  # type: int
+        self.attackPower = attackPower  # type: int
+        self.defensePower = defensePower  # type: int
+        self.criticalRate = criticalRate  # type: int
+        self.criticalDamageRate = criticalDamageRate  # type: int
+        self.attackRange = attackRange  # type: int
+        self.moveSpeed = moveSpeed  # type: int
+        self.shotTime = shotTime  # type: int
+        self.isBoss = isBoss  # type: bool
+        self.scale = scale  # type: float
+        self.ignoreObstacleCheck = ignoreObstacleCheck  # type: bool
+        self.characterVoiceGroupId = characterVoiceGroupId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameShootingCharacterExcel = MiniGameShootingCharacterExcel()
+        miniGameShootingCharacterExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameShootingCharacterExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameShootingCharacterExcel):
+        x = MiniGameShootingCharacterExcelT()
+        x._UnPack(miniGameShootingCharacterExcel)
+        return x
+
+    # MiniGameShootingCharacterExcelT
+    def _UnPack(self, miniGameShootingCharacterExcel):
+        if miniGameShootingCharacterExcel is None:
+            return
+        self.uniqueId = miniGameShootingCharacterExcel.UniqueId()
+        self.spineResourceName = miniGameShootingCharacterExcel.SpineResourceName()
+        self.bodyRadius = miniGameShootingCharacterExcel.BodyRadius()
+        self.modelPrefabName = miniGameShootingCharacterExcel.ModelPrefabName()
+        self.normalAttackSkillData = miniGameShootingCharacterExcel.NormalAttackSkillData()
+        if not miniGameShootingCharacterExcel.PublicSkillDataIsNone():
+            self.publicSkillData = []
+            for i in range(miniGameShootingCharacterExcel.PublicSkillDataLength()):
+                self.publicSkillData.append(miniGameShootingCharacterExcel.PublicSkillData(i))
+        self.deathSkillData = miniGameShootingCharacterExcel.DeathSkillData()
+        self.maxHp = miniGameShootingCharacterExcel.MaxHp()
+        self.attackPower = miniGameShootingCharacterExcel.AttackPower()
+        self.defensePower = miniGameShootingCharacterExcel.DefensePower()
+        self.criticalRate = miniGameShootingCharacterExcel.CriticalRate()
+        self.criticalDamageRate = miniGameShootingCharacterExcel.CriticalDamageRate()
+        self.attackRange = miniGameShootingCharacterExcel.AttackRange()
+        self.moveSpeed = miniGameShootingCharacterExcel.MoveSpeed()
+        self.shotTime = miniGameShootingCharacterExcel.ShotTime()
+        self.isBoss = miniGameShootingCharacterExcel.IsBoss()
+        self.scale = miniGameShootingCharacterExcel.Scale()
+        self.ignoreObstacleCheck = miniGameShootingCharacterExcel.IgnoreObstacleCheck()
+        self.characterVoiceGroupId = miniGameShootingCharacterExcel.CharacterVoiceGroupId()
+
+    # MiniGameShootingCharacterExcelT
+    def Pack(self, builder):
+        if self.spineResourceName is not None:
+            spineResourceName = builder.CreateString(self.spineResourceName)
+        if self.modelPrefabName is not None:
+            modelPrefabName = builder.CreateString(self.modelPrefabName)
+        if self.normalAttackSkillData is not None:
+            normalAttackSkillData = builder.CreateString(self.normalAttackSkillData)
+        if self.publicSkillData is not None:
+            publicSkillDatalist = []
+            for i in range(len(self.publicSkillData)):
+                publicSkillDatalist.append(builder.CreateString(self.publicSkillData[i]))
+            MiniGameShootingCharacterExcelStartPublicSkillDataVector(builder, len(self.publicSkillData))
+            for i in reversed(range(len(self.publicSkillData))):
+                builder.PrependUOffsetTRelative(publicSkillDatalist[i])
+            publicSkillData = builder.EndVector()
+        if self.deathSkillData is not None:
+            deathSkillData = builder.CreateString(self.deathSkillData)
+        MiniGameShootingCharacterExcelStart(builder)
+        MiniGameShootingCharacterExcelAddUniqueId(builder, self.uniqueId)
+        if self.spineResourceName is not None:
+            MiniGameShootingCharacterExcelAddSpineResourceName(builder, spineResourceName)
+        MiniGameShootingCharacterExcelAddBodyRadius(builder, self.bodyRadius)
+        if self.modelPrefabName is not None:
+            MiniGameShootingCharacterExcelAddModelPrefabName(builder, modelPrefabName)
+        if self.normalAttackSkillData is not None:
+            MiniGameShootingCharacterExcelAddNormalAttackSkillData(builder, normalAttackSkillData)
+        if self.publicSkillData is not None:
+            MiniGameShootingCharacterExcelAddPublicSkillData(builder, publicSkillData)
+        if self.deathSkillData is not None:
+            MiniGameShootingCharacterExcelAddDeathSkillData(builder, deathSkillData)
+        MiniGameShootingCharacterExcelAddMaxHp(builder, self.maxHp)
+        MiniGameShootingCharacterExcelAddAttackPower(builder, self.attackPower)
+        MiniGameShootingCharacterExcelAddDefensePower(builder, self.defensePower)
+        MiniGameShootingCharacterExcelAddCriticalRate(builder, self.criticalRate)
+        MiniGameShootingCharacterExcelAddCriticalDamageRate(builder, self.criticalDamageRate)
+        MiniGameShootingCharacterExcelAddAttackRange(builder, self.attackRange)
+        MiniGameShootingCharacterExcelAddMoveSpeed(builder, self.moveSpeed)
+        MiniGameShootingCharacterExcelAddShotTime(builder, self.shotTime)
+        MiniGameShootingCharacterExcelAddIsBoss(builder, self.isBoss)
+        MiniGameShootingCharacterExcelAddScale(builder, self.scale)
+        MiniGameShootingCharacterExcelAddIgnoreObstacleCheck(builder, self.ignoreObstacleCheck)
+        MiniGameShootingCharacterExcelAddCharacterVoiceGroupId(builder, self.characterVoiceGroupId)
+        miniGameShootingCharacterExcel = MiniGameShootingCharacterExcelEnd(builder)
+        return miniGameShootingCharacterExcel

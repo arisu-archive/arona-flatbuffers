@@ -72,3 +72,68 @@ def AddressableWhiteListExcelTableEnd(builder):
 
 def End(builder):
     return AddressableWhiteListExcelTableEnd(builder)
+
+import FlatData.AddressableWhiteListExcel
+try:
+    from typing import List
+except:
+    pass
+
+class AddressableWhiteListExcelTableT(object):
+
+    # AddressableWhiteListExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.AddressableWhiteListExcel.AddressableWhiteListExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        addressableWhiteListExcelTable = AddressableWhiteListExcelTable()
+        addressableWhiteListExcelTable.Init(buf, pos)
+        return cls.InitFromObj(addressableWhiteListExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, addressableWhiteListExcelTable):
+        x = AddressableWhiteListExcelTableT()
+        x._UnPack(addressableWhiteListExcelTable)
+        return x
+
+    # AddressableWhiteListExcelTableT
+    def _UnPack(self, addressableWhiteListExcelTable):
+        if addressableWhiteListExcelTable is None:
+            return
+        if not addressableWhiteListExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(addressableWhiteListExcelTable.DataListLength()):
+                if addressableWhiteListExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    addressableWhiteListExcel_ = FlatData.AddressableWhiteListExcel.AddressableWhiteListExcelT.InitFromObj(addressableWhiteListExcelTable.DataList(i))
+                    self.dataList.append(addressableWhiteListExcel_)
+
+    # AddressableWhiteListExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            AddressableWhiteListExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        AddressableWhiteListExcelTableStart(builder)
+        if self.dataList is not None:
+            AddressableWhiteListExcelTableAddDataList(builder, dataList)
+        addressableWhiteListExcelTable = AddressableWhiteListExcelTableEnd(builder)
+        return addressableWhiteListExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(AddressableWhiteListExcelTableT, 'AddressableWhiteListExcelTable', ())

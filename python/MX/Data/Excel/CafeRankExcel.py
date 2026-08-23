@@ -217,3 +217,113 @@ def CafeRankExcelEnd(builder):
 
 def End(builder):
     return CafeRankExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CafeRankExcelT(object):
+
+    # CafeRankExcelT
+    def __init__(
+        self,
+        cafeId = 0,
+        rank = 0,
+        recipeId = 0,
+        comfortMax = 0,
+        tagCountMax = 0,
+        characterVisitMin = 0,
+        characterVisitMax = 0,
+        cafeVisitWeightBase = 0,
+        cafeVisitWeightTagBonusStep = None,
+        cafeVisitWeightTagBonus = None,
+    ):
+        self.cafeId = cafeId  # type: int
+        self.rank = rank  # type: int
+        self.recipeId = recipeId  # type: int
+        self.comfortMax = comfortMax  # type: int
+        self.tagCountMax = tagCountMax  # type: int
+        self.characterVisitMin = characterVisitMin  # type: int
+        self.characterVisitMax = characterVisitMax  # type: int
+        self.cafeVisitWeightBase = cafeVisitWeightBase  # type: int
+        self.cafeVisitWeightTagBonusStep = cafeVisitWeightTagBonusStep  # type: Optional[List[int]]
+        self.cafeVisitWeightTagBonus = cafeVisitWeightTagBonus  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        cafeRankExcel = CafeRankExcel()
+        cafeRankExcel.Init(buf, pos)
+        return cls.InitFromObj(cafeRankExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, cafeRankExcel):
+        x = CafeRankExcelT()
+        x._UnPack(cafeRankExcel)
+        return x
+
+    # CafeRankExcelT
+    def _UnPack(self, cafeRankExcel):
+        if cafeRankExcel is None:
+            return
+        self.cafeId = cafeRankExcel.CafeId()
+        self.rank = cafeRankExcel.Rank()
+        self.recipeId = cafeRankExcel.RecipeId()
+        self.comfortMax = cafeRankExcel.ComfortMax()
+        self.tagCountMax = cafeRankExcel.TagCountMax()
+        self.characterVisitMin = cafeRankExcel.CharacterVisitMin()
+        self.characterVisitMax = cafeRankExcel.CharacterVisitMax()
+        self.cafeVisitWeightBase = cafeRankExcel.CafeVisitWeightBase()
+        if not cafeRankExcel.CafeVisitWeightTagBonusStepIsNone():
+            if np is None:
+                self.cafeVisitWeightTagBonusStep = []
+                for i in range(cafeRankExcel.CafeVisitWeightTagBonusStepLength()):
+                    self.cafeVisitWeightTagBonusStep.append(cafeRankExcel.CafeVisitWeightTagBonusStep(i))
+            else:
+                self.cafeVisitWeightTagBonusStep = cafeRankExcel.CafeVisitWeightTagBonusStepAsNumpy()
+        if not cafeRankExcel.CafeVisitWeightTagBonusIsNone():
+            if np is None:
+                self.cafeVisitWeightTagBonus = []
+                for i in range(cafeRankExcel.CafeVisitWeightTagBonusLength()):
+                    self.cafeVisitWeightTagBonus.append(cafeRankExcel.CafeVisitWeightTagBonus(i))
+            else:
+                self.cafeVisitWeightTagBonus = cafeRankExcel.CafeVisitWeightTagBonusAsNumpy()
+
+    # CafeRankExcelT
+    def Pack(self, builder):
+        if self.cafeVisitWeightTagBonusStep is not None:
+            if np is not None and type(self.cafeVisitWeightTagBonusStep) is np.ndarray:
+                cafeVisitWeightTagBonusStep = builder.CreateNumpyVector(self.cafeVisitWeightTagBonusStep)
+            else:
+                CafeRankExcelStartCafeVisitWeightTagBonusStepVector(builder, len(self.cafeVisitWeightTagBonusStep))
+                for i in reversed(range(len(self.cafeVisitWeightTagBonusStep))):
+                    builder.PrependInt32(self.cafeVisitWeightTagBonusStep[i])
+                cafeVisitWeightTagBonusStep = builder.EndVector()
+        if self.cafeVisitWeightTagBonus is not None:
+            if np is not None and type(self.cafeVisitWeightTagBonus) is np.ndarray:
+                cafeVisitWeightTagBonus = builder.CreateNumpyVector(self.cafeVisitWeightTagBonus)
+            else:
+                CafeRankExcelStartCafeVisitWeightTagBonusVector(builder, len(self.cafeVisitWeightTagBonus))
+                for i in reversed(range(len(self.cafeVisitWeightTagBonus))):
+                    builder.PrependInt32(self.cafeVisitWeightTagBonus[i])
+                cafeVisitWeightTagBonus = builder.EndVector()
+        CafeRankExcelStart(builder)
+        CafeRankExcelAddCafeId(builder, self.cafeId)
+        CafeRankExcelAddRank(builder, self.rank)
+        CafeRankExcelAddRecipeId(builder, self.recipeId)
+        CafeRankExcelAddComfortMax(builder, self.comfortMax)
+        CafeRankExcelAddTagCountMax(builder, self.tagCountMax)
+        CafeRankExcelAddCharacterVisitMin(builder, self.characterVisitMin)
+        CafeRankExcelAddCharacterVisitMax(builder, self.characterVisitMax)
+        CafeRankExcelAddCafeVisitWeightBase(builder, self.cafeVisitWeightBase)
+        if self.cafeVisitWeightTagBonusStep is not None:
+            CafeRankExcelAddCafeVisitWeightTagBonusStep(builder, cafeVisitWeightTagBonusStep)
+        if self.cafeVisitWeightTagBonus is not None:
+            CafeRankExcelAddCafeVisitWeightTagBonus(builder, cafeVisitWeightTagBonus)
+        cafeRankExcel = CafeRankExcelEnd(builder)
+        return cafeRankExcel

@@ -191,3 +191,112 @@ def MiniGameShootingStageRewardExcelEnd(builder):
 
 def End(builder):
     return MiniGameShootingStageRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MiniGameShootingStageRewardExcelT(object):
+
+    # MiniGameShootingStageRewardExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        rewardId = 0,
+        clearSection = 0,
+        rewardParcelType = None,
+        rewardParcelId = None,
+        rewardParcelAmount = None,
+    ):
+        self.groupId = groupId  # type: int
+        self.rewardId = rewardId  # type: int
+        self.clearSection = clearSection  # type: int
+        self.rewardParcelType = rewardParcelType  # type: Optional[List[int]]
+        self.rewardParcelId = rewardParcelId  # type: Optional[List[int]]
+        self.rewardParcelAmount = rewardParcelAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameShootingStageRewardExcel = MiniGameShootingStageRewardExcel()
+        miniGameShootingStageRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameShootingStageRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameShootingStageRewardExcel):
+        x = MiniGameShootingStageRewardExcelT()
+        x._UnPack(miniGameShootingStageRewardExcel)
+        return x
+
+    # MiniGameShootingStageRewardExcelT
+    def _UnPack(self, miniGameShootingStageRewardExcel):
+        if miniGameShootingStageRewardExcel is None:
+            return
+        self.groupId = miniGameShootingStageRewardExcel.GroupId()
+        self.rewardId = miniGameShootingStageRewardExcel.RewardId()
+        self.clearSection = miniGameShootingStageRewardExcel.ClearSection()
+        if not miniGameShootingStageRewardExcel.RewardParcelTypeIsNone():
+            if np is None:
+                self.rewardParcelType = []
+                for i in range(miniGameShootingStageRewardExcel.RewardParcelTypeLength()):
+                    self.rewardParcelType.append(miniGameShootingStageRewardExcel.RewardParcelType(i))
+            else:
+                self.rewardParcelType = miniGameShootingStageRewardExcel.RewardParcelTypeAsNumpy()
+        if not miniGameShootingStageRewardExcel.RewardParcelIdIsNone():
+            if np is None:
+                self.rewardParcelId = []
+                for i in range(miniGameShootingStageRewardExcel.RewardParcelIdLength()):
+                    self.rewardParcelId.append(miniGameShootingStageRewardExcel.RewardParcelId(i))
+            else:
+                self.rewardParcelId = miniGameShootingStageRewardExcel.RewardParcelIdAsNumpy()
+        if not miniGameShootingStageRewardExcel.RewardParcelAmountIsNone():
+            if np is None:
+                self.rewardParcelAmount = []
+                for i in range(miniGameShootingStageRewardExcel.RewardParcelAmountLength()):
+                    self.rewardParcelAmount.append(miniGameShootingStageRewardExcel.RewardParcelAmount(i))
+            else:
+                self.rewardParcelAmount = miniGameShootingStageRewardExcel.RewardParcelAmountAsNumpy()
+
+    # MiniGameShootingStageRewardExcelT
+    def Pack(self, builder):
+        if self.rewardParcelType is not None:
+            if np is not None and type(self.rewardParcelType) is np.ndarray:
+                rewardParcelType = builder.CreateNumpyVector(self.rewardParcelType)
+            else:
+                MiniGameShootingStageRewardExcelStartRewardParcelTypeVector(builder, len(self.rewardParcelType))
+                for i in reversed(range(len(self.rewardParcelType))):
+                    builder.PrependInt32(self.rewardParcelType[i])
+                rewardParcelType = builder.EndVector()
+        if self.rewardParcelId is not None:
+            if np is not None and type(self.rewardParcelId) is np.ndarray:
+                rewardParcelId = builder.CreateNumpyVector(self.rewardParcelId)
+            else:
+                MiniGameShootingStageRewardExcelStartRewardParcelIdVector(builder, len(self.rewardParcelId))
+                for i in reversed(range(len(self.rewardParcelId))):
+                    builder.PrependInt64(self.rewardParcelId[i])
+                rewardParcelId = builder.EndVector()
+        if self.rewardParcelAmount is not None:
+            if np is not None and type(self.rewardParcelAmount) is np.ndarray:
+                rewardParcelAmount = builder.CreateNumpyVector(self.rewardParcelAmount)
+            else:
+                MiniGameShootingStageRewardExcelStartRewardParcelAmountVector(builder, len(self.rewardParcelAmount))
+                for i in reversed(range(len(self.rewardParcelAmount))):
+                    builder.PrependInt32(self.rewardParcelAmount[i])
+                rewardParcelAmount = builder.EndVector()
+        MiniGameShootingStageRewardExcelStart(builder)
+        MiniGameShootingStageRewardExcelAddGroupId(builder, self.groupId)
+        MiniGameShootingStageRewardExcelAddRewardId(builder, self.rewardId)
+        MiniGameShootingStageRewardExcelAddClearSection(builder, self.clearSection)
+        if self.rewardParcelType is not None:
+            MiniGameShootingStageRewardExcelAddRewardParcelType(builder, rewardParcelType)
+        if self.rewardParcelId is not None:
+            MiniGameShootingStageRewardExcelAddRewardParcelId(builder, rewardParcelId)
+        if self.rewardParcelAmount is not None:
+            MiniGameShootingStageRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+        miniGameShootingStageRewardExcel = MiniGameShootingStageRewardExcelEnd(builder)
+        return miniGameShootingStageRewardExcel

@@ -249,3 +249,139 @@ def WorldRaidConditionExcelEnd(builder):
 
 def End(builder):
     return WorldRaidConditionExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class WorldRaidConditionExcelT(object):
+
+    # WorldRaidConditionExcelT
+    def __init__(
+        self,
+        id = 0,
+        lockUi = None,
+        hideWhenLocked = False,
+        accountLevel = 0,
+        scenarioModeId = None,
+        campaignStageId = None,
+        multipleConditionCheckType = 0,
+        afterWhenDate = None,
+        worldRaidBossKill = None,
+    ):
+        self.id = id  # type: int
+        self.lockUi = lockUi  # type: Optional[List[Optional[str]]]
+        self.hideWhenLocked = hideWhenLocked  # type: bool
+        self.accountLevel = accountLevel  # type: int
+        self.scenarioModeId = scenarioModeId  # type: Optional[List[int]]
+        self.campaignStageId = campaignStageId  # type: Optional[List[int]]
+        self.multipleConditionCheckType = multipleConditionCheckType  # type: int
+        self.afterWhenDate = afterWhenDate  # type: Optional[str]
+        self.worldRaidBossKill = worldRaidBossKill  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        worldRaidConditionExcel = WorldRaidConditionExcel()
+        worldRaidConditionExcel.Init(buf, pos)
+        return cls.InitFromObj(worldRaidConditionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, worldRaidConditionExcel):
+        x = WorldRaidConditionExcelT()
+        x._UnPack(worldRaidConditionExcel)
+        return x
+
+    # WorldRaidConditionExcelT
+    def _UnPack(self, worldRaidConditionExcel):
+        if worldRaidConditionExcel is None:
+            return
+        self.id = worldRaidConditionExcel.Id()
+        if not worldRaidConditionExcel.LockUiIsNone():
+            self.lockUi = []
+            for i in range(worldRaidConditionExcel.LockUiLength()):
+                self.lockUi.append(worldRaidConditionExcel.LockUi(i))
+        self.hideWhenLocked = worldRaidConditionExcel.HideWhenLocked()
+        self.accountLevel = worldRaidConditionExcel.AccountLevel()
+        if not worldRaidConditionExcel.ScenarioModeIdIsNone():
+            if np is None:
+                self.scenarioModeId = []
+                for i in range(worldRaidConditionExcel.ScenarioModeIdLength()):
+                    self.scenarioModeId.append(worldRaidConditionExcel.ScenarioModeId(i))
+            else:
+                self.scenarioModeId = worldRaidConditionExcel.ScenarioModeIdAsNumpy()
+        if not worldRaidConditionExcel.CampaignStageIdIsNone():
+            if np is None:
+                self.campaignStageId = []
+                for i in range(worldRaidConditionExcel.CampaignStageIdLength()):
+                    self.campaignStageId.append(worldRaidConditionExcel.CampaignStageId(i))
+            else:
+                self.campaignStageId = worldRaidConditionExcel.CampaignStageIdAsNumpy()
+        self.multipleConditionCheckType = worldRaidConditionExcel.MultipleConditionCheckType()
+        self.afterWhenDate = worldRaidConditionExcel.AfterWhenDate()
+        if not worldRaidConditionExcel.WorldRaidBossKillIsNone():
+            if np is None:
+                self.worldRaidBossKill = []
+                for i in range(worldRaidConditionExcel.WorldRaidBossKillLength()):
+                    self.worldRaidBossKill.append(worldRaidConditionExcel.WorldRaidBossKill(i))
+            else:
+                self.worldRaidBossKill = worldRaidConditionExcel.WorldRaidBossKillAsNumpy()
+
+    # WorldRaidConditionExcelT
+    def Pack(self, builder):
+        if self.lockUi is not None:
+            lockUilist = []
+            for i in range(len(self.lockUi)):
+                lockUilist.append(builder.CreateString(self.lockUi[i]))
+            WorldRaidConditionExcelStartLockUiVector(builder, len(self.lockUi))
+            for i in reversed(range(len(self.lockUi))):
+                builder.PrependUOffsetTRelative(lockUilist[i])
+            lockUi = builder.EndVector()
+        if self.scenarioModeId is not None:
+            if np is not None and type(self.scenarioModeId) is np.ndarray:
+                scenarioModeId = builder.CreateNumpyVector(self.scenarioModeId)
+            else:
+                WorldRaidConditionExcelStartScenarioModeIdVector(builder, len(self.scenarioModeId))
+                for i in reversed(range(len(self.scenarioModeId))):
+                    builder.PrependInt64(self.scenarioModeId[i])
+                scenarioModeId = builder.EndVector()
+        if self.campaignStageId is not None:
+            if np is not None and type(self.campaignStageId) is np.ndarray:
+                campaignStageId = builder.CreateNumpyVector(self.campaignStageId)
+            else:
+                WorldRaidConditionExcelStartCampaignStageIdVector(builder, len(self.campaignStageId))
+                for i in reversed(range(len(self.campaignStageId))):
+                    builder.PrependInt64(self.campaignStageId[i])
+                campaignStageId = builder.EndVector()
+        if self.afterWhenDate is not None:
+            afterWhenDate = builder.CreateString(self.afterWhenDate)
+        if self.worldRaidBossKill is not None:
+            if np is not None and type(self.worldRaidBossKill) is np.ndarray:
+                worldRaidBossKill = builder.CreateNumpyVector(self.worldRaidBossKill)
+            else:
+                WorldRaidConditionExcelStartWorldRaidBossKillVector(builder, len(self.worldRaidBossKill))
+                for i in reversed(range(len(self.worldRaidBossKill))):
+                    builder.PrependInt64(self.worldRaidBossKill[i])
+                worldRaidBossKill = builder.EndVector()
+        WorldRaidConditionExcelStart(builder)
+        WorldRaidConditionExcelAddId(builder, self.id)
+        if self.lockUi is not None:
+            WorldRaidConditionExcelAddLockUi(builder, lockUi)
+        WorldRaidConditionExcelAddHideWhenLocked(builder, self.hideWhenLocked)
+        WorldRaidConditionExcelAddAccountLevel(builder, self.accountLevel)
+        if self.scenarioModeId is not None:
+            WorldRaidConditionExcelAddScenarioModeId(builder, scenarioModeId)
+        if self.campaignStageId is not None:
+            WorldRaidConditionExcelAddCampaignStageId(builder, campaignStageId)
+        WorldRaidConditionExcelAddMultipleConditionCheckType(builder, self.multipleConditionCheckType)
+        if self.afterWhenDate is not None:
+            WorldRaidConditionExcelAddAfterWhenDate(builder, afterWhenDate)
+        if self.worldRaidBossKill is not None:
+            WorldRaidConditionExcelAddWorldRaidBossKill(builder, worldRaidBossKill)
+        worldRaidConditionExcel = WorldRaidConditionExcelEnd(builder)
+        return worldRaidConditionExcel

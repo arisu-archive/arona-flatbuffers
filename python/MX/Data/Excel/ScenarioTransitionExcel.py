@@ -126,3 +126,79 @@ def ScenarioTransitionExcelEnd(builder):
 
 def End(builder):
     return ScenarioTransitionExcelEnd(builder)
+
+
+class ScenarioTransitionExcelT(object):
+
+    # ScenarioTransitionExcelT
+    def __init__(
+        self,
+        name = 0,
+        transitionOut = None,
+        transitionOutDuration = 0,
+        transitionOutResource = None,
+        transitionIn = None,
+        transitionInDuration = 0,
+        transitionInResource = None,
+    ):
+        self.name = name  # type: int
+        self.transitionOut = transitionOut  # type: Optional[str]
+        self.transitionOutDuration = transitionOutDuration  # type: int
+        self.transitionOutResource = transitionOutResource  # type: Optional[str]
+        self.transitionIn = transitionIn  # type: Optional[str]
+        self.transitionInDuration = transitionInDuration  # type: int
+        self.transitionInResource = transitionInResource  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        scenarioTransitionExcel = ScenarioTransitionExcel()
+        scenarioTransitionExcel.Init(buf, pos)
+        return cls.InitFromObj(scenarioTransitionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, scenarioTransitionExcel):
+        x = ScenarioTransitionExcelT()
+        x._UnPack(scenarioTransitionExcel)
+        return x
+
+    # ScenarioTransitionExcelT
+    def _UnPack(self, scenarioTransitionExcel):
+        if scenarioTransitionExcel is None:
+            return
+        self.name = scenarioTransitionExcel.Name()
+        self.transitionOut = scenarioTransitionExcel.TransitionOut()
+        self.transitionOutDuration = scenarioTransitionExcel.TransitionOutDuration()
+        self.transitionOutResource = scenarioTransitionExcel.TransitionOutResource()
+        self.transitionIn = scenarioTransitionExcel.TransitionIn()
+        self.transitionInDuration = scenarioTransitionExcel.TransitionInDuration()
+        self.transitionInResource = scenarioTransitionExcel.TransitionInResource()
+
+    # ScenarioTransitionExcelT
+    def Pack(self, builder):
+        if self.transitionOut is not None:
+            transitionOut = builder.CreateString(self.transitionOut)
+        if self.transitionOutResource is not None:
+            transitionOutResource = builder.CreateString(self.transitionOutResource)
+        if self.transitionIn is not None:
+            transitionIn = builder.CreateString(self.transitionIn)
+        if self.transitionInResource is not None:
+            transitionInResource = builder.CreateString(self.transitionInResource)
+        ScenarioTransitionExcelStart(builder)
+        ScenarioTransitionExcelAddName(builder, self.name)
+        if self.transitionOut is not None:
+            ScenarioTransitionExcelAddTransitionOut(builder, transitionOut)
+        ScenarioTransitionExcelAddTransitionOutDuration(builder, self.transitionOutDuration)
+        if self.transitionOutResource is not None:
+            ScenarioTransitionExcelAddTransitionOutResource(builder, transitionOutResource)
+        if self.transitionIn is not None:
+            ScenarioTransitionExcelAddTransitionIn(builder, transitionIn)
+        ScenarioTransitionExcelAddTransitionInDuration(builder, self.transitionInDuration)
+        if self.transitionInResource is not None:
+            ScenarioTransitionExcelAddTransitionInResource(builder, transitionInResource)
+        scenarioTransitionExcel = ScenarioTransitionExcelEnd(builder)
+        return scenarioTransitionExcel

@@ -87,3 +87,66 @@ def StatLevelInterpolationExcelEnd(builder):
 
 def End(builder):
     return StatLevelInterpolationExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class StatLevelInterpolationExcelT(object):
+
+    # StatLevelInterpolationExcelT
+    def __init__(
+        self,
+        level = 0,
+        statTypeIndex = None,
+    ):
+        self.level = level  # type: int
+        self.statTypeIndex = statTypeIndex  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        statLevelInterpolationExcel = StatLevelInterpolationExcel()
+        statLevelInterpolationExcel.Init(buf, pos)
+        return cls.InitFromObj(statLevelInterpolationExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, statLevelInterpolationExcel):
+        x = StatLevelInterpolationExcelT()
+        x._UnPack(statLevelInterpolationExcel)
+        return x
+
+    # StatLevelInterpolationExcelT
+    def _UnPack(self, statLevelInterpolationExcel):
+        if statLevelInterpolationExcel is None:
+            return
+        self.level = statLevelInterpolationExcel.Level()
+        if not statLevelInterpolationExcel.StatTypeIndexIsNone():
+            if np is None:
+                self.statTypeIndex = []
+                for i in range(statLevelInterpolationExcel.StatTypeIndexLength()):
+                    self.statTypeIndex.append(statLevelInterpolationExcel.StatTypeIndex(i))
+            else:
+                self.statTypeIndex = statLevelInterpolationExcel.StatTypeIndexAsNumpy()
+
+    # StatLevelInterpolationExcelT
+    def Pack(self, builder):
+        if self.statTypeIndex is not None:
+            if np is not None and type(self.statTypeIndex) is np.ndarray:
+                statTypeIndex = builder.CreateNumpyVector(self.statTypeIndex)
+            else:
+                StatLevelInterpolationExcelStartStatTypeIndexVector(builder, len(self.statTypeIndex))
+                for i in reversed(range(len(self.statTypeIndex))):
+                    builder.PrependInt64(self.statTypeIndex[i])
+                statTypeIndex = builder.EndVector()
+        StatLevelInterpolationExcelStart(builder)
+        StatLevelInterpolationExcelAddLevel(builder, self.level)
+        if self.statTypeIndex is not None:
+            StatLevelInterpolationExcelAddStatTypeIndex(builder, statTypeIndex)
+        statLevelInterpolationExcel = StatLevelInterpolationExcelEnd(builder)
+        return statLevelInterpolationExcel

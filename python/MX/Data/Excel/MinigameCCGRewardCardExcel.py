@@ -100,3 +100,59 @@ def MinigameCCGRewardCardExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGRewardCardExcelEnd(builder)
+
+
+class MinigameCCGRewardCardExcelT(object):
+
+    # MinigameCCGRewardCardExcelT
+    def __init__(
+        self,
+        id = 0,
+        groupId = 0,
+        entityType = 0,
+        cardId = 0,
+        cardRarity = 0,
+    ):
+        self.id = id  # type: int
+        self.groupId = groupId  # type: int
+        self.entityType = entityType  # type: int
+        self.cardId = cardId  # type: int
+        self.cardRarity = cardRarity  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcgrewardCardExcel = MinigameCCGRewardCardExcel()
+        minigameCcgrewardCardExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcgrewardCardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcgrewardCardExcel):
+        x = MinigameCCGRewardCardExcelT()
+        x._UnPack(minigameCcgrewardCardExcel)
+        return x
+
+    # MinigameCCGRewardCardExcelT
+    def _UnPack(self, minigameCcgrewardCardExcel):
+        if minigameCcgrewardCardExcel is None:
+            return
+        self.id = minigameCcgrewardCardExcel.Id()
+        self.groupId = minigameCcgrewardCardExcel.GroupId()
+        self.entityType = minigameCcgrewardCardExcel.EntityType()
+        self.cardId = minigameCcgrewardCardExcel.CardId()
+        self.cardRarity = minigameCcgrewardCardExcel.CardRarity()
+
+    # MinigameCCGRewardCardExcelT
+    def Pack(self, builder):
+        MinigameCCGRewardCardExcelStart(builder)
+        MinigameCCGRewardCardExcelAddId(builder, self.id)
+        MinigameCCGRewardCardExcelAddGroupId(builder, self.groupId)
+        MinigameCCGRewardCardExcelAddEntityType(builder, self.entityType)
+        MinigameCCGRewardCardExcelAddCardId(builder, self.cardId)
+        MinigameCCGRewardCardExcelAddCardRarity(builder, self.cardRarity)
+        minigameCcgrewardCardExcel = MinigameCCGRewardCardExcelEnd(builder)
+        return minigameCcgrewardCardExcel

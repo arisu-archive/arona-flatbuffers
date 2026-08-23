@@ -100,3 +100,62 @@ def MinigameCCGLevelExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGLevelExcelEnd(builder)
+
+
+class MinigameCCGLevelExcelT(object):
+
+    # MinigameCCGLevelExcelT
+    def __init__(
+        self,
+        levelId = 0,
+        ccgId = 0,
+        floorIndex = 0,
+        backgroundPath = None,
+        bgmId = 0,
+    ):
+        self.levelId = levelId  # type: int
+        self.ccgId = ccgId  # type: int
+        self.floorIndex = floorIndex  # type: int
+        self.backgroundPath = backgroundPath  # type: Optional[str]
+        self.bgmId = bgmId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcglevelExcel = MinigameCCGLevelExcel()
+        minigameCcglevelExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcglevelExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcglevelExcel):
+        x = MinigameCCGLevelExcelT()
+        x._UnPack(minigameCcglevelExcel)
+        return x
+
+    # MinigameCCGLevelExcelT
+    def _UnPack(self, minigameCcglevelExcel):
+        if minigameCcglevelExcel is None:
+            return
+        self.levelId = minigameCcglevelExcel.LevelId()
+        self.ccgId = minigameCcglevelExcel.CcgId()
+        self.floorIndex = minigameCcglevelExcel.FloorIndex()
+        self.backgroundPath = minigameCcglevelExcel.BackgroundPath()
+        self.bgmId = minigameCcglevelExcel.BgmId()
+
+    # MinigameCCGLevelExcelT
+    def Pack(self, builder):
+        if self.backgroundPath is not None:
+            backgroundPath = builder.CreateString(self.backgroundPath)
+        MinigameCCGLevelExcelStart(builder)
+        MinigameCCGLevelExcelAddLevelId(builder, self.levelId)
+        MinigameCCGLevelExcelAddCcgId(builder, self.ccgId)
+        MinigameCCGLevelExcelAddFloorIndex(builder, self.floorIndex)
+        if self.backgroundPath is not None:
+            MinigameCCGLevelExcelAddBackgroundPath(builder, backgroundPath)
+        MinigameCCGLevelExcelAddBgmId(builder, self.bgmId)
+        minigameCcglevelExcel = MinigameCCGLevelExcelEnd(builder)
+        return minigameCcglevelExcel

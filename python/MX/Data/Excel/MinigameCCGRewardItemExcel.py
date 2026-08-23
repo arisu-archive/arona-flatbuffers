@@ -126,3 +126,67 @@ def MinigameCCGRewardItemExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGRewardItemExcelEnd(builder)
+
+
+class MinigameCCGRewardItemExcelT(object):
+
+    # MinigameCCGRewardItemExcelT
+    def __init__(
+        self,
+        id = 0,
+        ccgId = 0,
+        minPoint = 0,
+        rewardParcelType = 0,
+        rewardParcelId = 0,
+        rewardParcelAmount = 0,
+        displayOrder = 0,
+    ):
+        self.id = id  # type: int
+        self.ccgId = ccgId  # type: int
+        self.minPoint = minPoint  # type: int
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelId = rewardParcelId  # type: int
+        self.rewardParcelAmount = rewardParcelAmount  # type: int
+        self.displayOrder = displayOrder  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcgrewardItemExcel = MinigameCCGRewardItemExcel()
+        minigameCcgrewardItemExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcgrewardItemExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcgrewardItemExcel):
+        x = MinigameCCGRewardItemExcelT()
+        x._UnPack(minigameCcgrewardItemExcel)
+        return x
+
+    # MinigameCCGRewardItemExcelT
+    def _UnPack(self, minigameCcgrewardItemExcel):
+        if minigameCcgrewardItemExcel is None:
+            return
+        self.id = minigameCcgrewardItemExcel.Id()
+        self.ccgId = minigameCcgrewardItemExcel.CcgId()
+        self.minPoint = minigameCcgrewardItemExcel.MinPoint()
+        self.rewardParcelType = minigameCcgrewardItemExcel.RewardParcelType()
+        self.rewardParcelId = minigameCcgrewardItemExcel.RewardParcelId()
+        self.rewardParcelAmount = minigameCcgrewardItemExcel.RewardParcelAmount()
+        self.displayOrder = minigameCcgrewardItemExcel.DisplayOrder()
+
+    # MinigameCCGRewardItemExcelT
+    def Pack(self, builder):
+        MinigameCCGRewardItemExcelStart(builder)
+        MinigameCCGRewardItemExcelAddId(builder, self.id)
+        MinigameCCGRewardItemExcelAddCcgId(builder, self.ccgId)
+        MinigameCCGRewardItemExcelAddMinPoint(builder, self.minPoint)
+        MinigameCCGRewardItemExcelAddRewardParcelType(builder, self.rewardParcelType)
+        MinigameCCGRewardItemExcelAddRewardParcelId(builder, self.rewardParcelId)
+        MinigameCCGRewardItemExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        MinigameCCGRewardItemExcelAddDisplayOrder(builder, self.displayOrder)
+        minigameCcgrewardItemExcel = MinigameCCGRewardItemExcelEnd(builder)
+        return minigameCcgrewardItemExcel

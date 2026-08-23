@@ -87,3 +87,55 @@ def CharacterPotentialExcelEnd(builder):
 
 def End(builder):
     return CharacterPotentialExcelEnd(builder)
+
+
+class CharacterPotentialExcelT(object):
+
+    # CharacterPotentialExcelT
+    def __init__(
+        self,
+        id = 0,
+        potentialStatGroupId = 0,
+        potentialStatBonusRateType = 0,
+        isUnnecessaryStat = False,
+    ):
+        self.id = id  # type: int
+        self.potentialStatGroupId = potentialStatGroupId  # type: int
+        self.potentialStatBonusRateType = potentialStatBonusRateType  # type: int
+        self.isUnnecessaryStat = isUnnecessaryStat  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterPotentialExcel = CharacterPotentialExcel()
+        characterPotentialExcel.Init(buf, pos)
+        return cls.InitFromObj(characterPotentialExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterPotentialExcel):
+        x = CharacterPotentialExcelT()
+        x._UnPack(characterPotentialExcel)
+        return x
+
+    # CharacterPotentialExcelT
+    def _UnPack(self, characterPotentialExcel):
+        if characterPotentialExcel is None:
+            return
+        self.id = characterPotentialExcel.Id()
+        self.potentialStatGroupId = characterPotentialExcel.PotentialStatGroupId()
+        self.potentialStatBonusRateType = characterPotentialExcel.PotentialStatBonusRateType()
+        self.isUnnecessaryStat = characterPotentialExcel.IsUnnecessaryStat()
+
+    # CharacterPotentialExcelT
+    def Pack(self, builder):
+        CharacterPotentialExcelStart(builder)
+        CharacterPotentialExcelAddId(builder, self.id)
+        CharacterPotentialExcelAddPotentialStatGroupId(builder, self.potentialStatGroupId)
+        CharacterPotentialExcelAddPotentialStatBonusRateType(builder, self.potentialStatBonusRateType)
+        CharacterPotentialExcelAddIsUnnecessaryStat(builder, self.isUnnecessaryStat)
+        characterPotentialExcel = CharacterPotentialExcelEnd(builder)
+        return characterPotentialExcel

@@ -74,3 +74,55 @@ def BlendInfoEnd(builder):
 
 def End(builder):
     return BlendInfoEnd(builder)
+
+
+class BlendInfoT(object):
+
+    # BlendInfoT
+    def __init__(
+        self,
+        from_ = 0,
+        to = 0,
+        blend = 0.0,
+    ):
+        self.from_ = from_  # type: int
+        self.to = to  # type: int
+        self.blend = blend  # type: float
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        blendInfo = BlendInfo()
+        blendInfo.Init(buf, pos)
+        return cls.InitFromObj(blendInfo)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, blendInfo):
+        x = BlendInfoT()
+        x._UnPack(blendInfo)
+        return x
+
+    # BlendInfoT
+    def _UnPack(self, blendInfo):
+        if blendInfo is None:
+            return
+        self.from_ = blendInfo.From()
+        self.to = blendInfo.To()
+        self.blend = blendInfo.Blend()
+
+    # BlendInfoT
+    def Pack(self, builder):
+        BlendInfoStart(builder)
+        BlendInfoAddFrom(builder, self.from_)
+        BlendInfoAddTo(builder, self.to)
+        BlendInfoAddBlend(builder, self.blend)
+        blendInfo = BlendInfoEnd(builder)
+        return blendInfo
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(BlendInfoT, 'BlendInfo', (('from_', 'int32', False), ('to', 'int32', False), ('blend', 'float32', False)))

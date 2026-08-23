@@ -295,3 +295,147 @@ def EquipmentStatExcelEnd(builder):
 
 def End(builder):
     return EquipmentStatExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class EquipmentStatExcelT(object):
+
+    # EquipmentStatExcelT
+    def __init__(
+        self,
+        equipmentId = 0,
+        statLevelUpType = 0,
+        statType = None,
+        minStat = None,
+        maxStat = None,
+        levelUpInsertLimit = 0,
+        levelUpFeedExp = 0,
+        levelUpFeedCostCurrency = 0,
+        levelUpFeedCostAmount = 0,
+        equipmentCategory = 0,
+        levelUpFeedAddExp = 0,
+        defaultMaxLevel = 0,
+        transcendenceMax = 0,
+        damageFactorGroupId = None,
+    ):
+        self.equipmentId = equipmentId  # type: int
+        self.statLevelUpType = statLevelUpType  # type: int
+        self.statType = statType  # type: Optional[List[int]]
+        self.minStat = minStat  # type: Optional[List[int]]
+        self.maxStat = maxStat  # type: Optional[List[int]]
+        self.levelUpInsertLimit = levelUpInsertLimit  # type: int
+        self.levelUpFeedExp = levelUpFeedExp  # type: int
+        self.levelUpFeedCostCurrency = levelUpFeedCostCurrency  # type: int
+        self.levelUpFeedCostAmount = levelUpFeedCostAmount  # type: int
+        self.equipmentCategory = equipmentCategory  # type: int
+        self.levelUpFeedAddExp = levelUpFeedAddExp  # type: int
+        self.defaultMaxLevel = defaultMaxLevel  # type: int
+        self.transcendenceMax = transcendenceMax  # type: int
+        self.damageFactorGroupId = damageFactorGroupId  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        equipmentStatExcel = EquipmentStatExcel()
+        equipmentStatExcel.Init(buf, pos)
+        return cls.InitFromObj(equipmentStatExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, equipmentStatExcel):
+        x = EquipmentStatExcelT()
+        x._UnPack(equipmentStatExcel)
+        return x
+
+    # EquipmentStatExcelT
+    def _UnPack(self, equipmentStatExcel):
+        if equipmentStatExcel is None:
+            return
+        self.equipmentId = equipmentStatExcel.EquipmentId()
+        self.statLevelUpType = equipmentStatExcel.StatLevelUpType()
+        if not equipmentStatExcel.StatTypeIsNone():
+            if np is None:
+                self.statType = []
+                for i in range(equipmentStatExcel.StatTypeLength()):
+                    self.statType.append(equipmentStatExcel.StatType(i))
+            else:
+                self.statType = equipmentStatExcel.StatTypeAsNumpy()
+        if not equipmentStatExcel.MinStatIsNone():
+            if np is None:
+                self.minStat = []
+                for i in range(equipmentStatExcel.MinStatLength()):
+                    self.minStat.append(equipmentStatExcel.MinStat(i))
+            else:
+                self.minStat = equipmentStatExcel.MinStatAsNumpy()
+        if not equipmentStatExcel.MaxStatIsNone():
+            if np is None:
+                self.maxStat = []
+                for i in range(equipmentStatExcel.MaxStatLength()):
+                    self.maxStat.append(equipmentStatExcel.MaxStat(i))
+            else:
+                self.maxStat = equipmentStatExcel.MaxStatAsNumpy()
+        self.levelUpInsertLimit = equipmentStatExcel.LevelUpInsertLimit()
+        self.levelUpFeedExp = equipmentStatExcel.LevelUpFeedExp()
+        self.levelUpFeedCostCurrency = equipmentStatExcel.LevelUpFeedCostCurrency()
+        self.levelUpFeedCostAmount = equipmentStatExcel.LevelUpFeedCostAmount()
+        self.equipmentCategory = equipmentStatExcel.EquipmentCategory()
+        self.levelUpFeedAddExp = equipmentStatExcel.LevelUpFeedAddExp()
+        self.defaultMaxLevel = equipmentStatExcel.DefaultMaxLevel()
+        self.transcendenceMax = equipmentStatExcel.TranscendenceMax()
+        self.damageFactorGroupId = equipmentStatExcel.DamageFactorGroupId()
+
+    # EquipmentStatExcelT
+    def Pack(self, builder):
+        if self.statType is not None:
+            if np is not None and type(self.statType) is np.ndarray:
+                statType = builder.CreateNumpyVector(self.statType)
+            else:
+                EquipmentStatExcelStartStatTypeVector(builder, len(self.statType))
+                for i in reversed(range(len(self.statType))):
+                    builder.PrependInt32(self.statType[i])
+                statType = builder.EndVector()
+        if self.minStat is not None:
+            if np is not None and type(self.minStat) is np.ndarray:
+                minStat = builder.CreateNumpyVector(self.minStat)
+            else:
+                EquipmentStatExcelStartMinStatVector(builder, len(self.minStat))
+                for i in reversed(range(len(self.minStat))):
+                    builder.PrependInt64(self.minStat[i])
+                minStat = builder.EndVector()
+        if self.maxStat is not None:
+            if np is not None and type(self.maxStat) is np.ndarray:
+                maxStat = builder.CreateNumpyVector(self.maxStat)
+            else:
+                EquipmentStatExcelStartMaxStatVector(builder, len(self.maxStat))
+                for i in reversed(range(len(self.maxStat))):
+                    builder.PrependInt64(self.maxStat[i])
+                maxStat = builder.EndVector()
+        if self.damageFactorGroupId is not None:
+            damageFactorGroupId = builder.CreateString(self.damageFactorGroupId)
+        EquipmentStatExcelStart(builder)
+        EquipmentStatExcelAddEquipmentId(builder, self.equipmentId)
+        EquipmentStatExcelAddStatLevelUpType(builder, self.statLevelUpType)
+        if self.statType is not None:
+            EquipmentStatExcelAddStatType(builder, statType)
+        if self.minStat is not None:
+            EquipmentStatExcelAddMinStat(builder, minStat)
+        if self.maxStat is not None:
+            EquipmentStatExcelAddMaxStat(builder, maxStat)
+        EquipmentStatExcelAddLevelUpInsertLimit(builder, self.levelUpInsertLimit)
+        EquipmentStatExcelAddLevelUpFeedExp(builder, self.levelUpFeedExp)
+        EquipmentStatExcelAddLevelUpFeedCostCurrency(builder, self.levelUpFeedCostCurrency)
+        EquipmentStatExcelAddLevelUpFeedCostAmount(builder, self.levelUpFeedCostAmount)
+        EquipmentStatExcelAddEquipmentCategory(builder, self.equipmentCategory)
+        EquipmentStatExcelAddLevelUpFeedAddExp(builder, self.levelUpFeedAddExp)
+        EquipmentStatExcelAddDefaultMaxLevel(builder, self.defaultMaxLevel)
+        EquipmentStatExcelAddTranscendenceMax(builder, self.transcendenceMax)
+        if self.damageFactorGroupId is not None:
+            EquipmentStatExcelAddDamageFactorGroupId(builder, damageFactorGroupId)
+        equipmentStatExcel = EquipmentStatExcelEnd(builder)
+        return equipmentStatExcel

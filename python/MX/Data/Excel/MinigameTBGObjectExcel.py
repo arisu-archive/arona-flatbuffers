@@ -152,3 +152,81 @@ def MinigameTBGObjectExcelEnd(builder):
 
 def End(builder):
     return MinigameTBGObjectExcelEnd(builder)
+
+
+class MinigameTBGObjectExcelT(object):
+
+    # MinigameTBGObjectExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        key = None,
+        prefabName = None,
+        objectType = 0,
+        objectCostType = 0,
+        objectCostId = 0,
+        objectCostAmount = 0,
+        disposable = False,
+        reEncounterCost = False,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.key = key  # type: Optional[str]
+        self.prefabName = prefabName  # type: Optional[str]
+        self.objectType = objectType  # type: int
+        self.objectCostType = objectCostType  # type: int
+        self.objectCostId = objectCostId  # type: int
+        self.objectCostAmount = objectCostAmount  # type: int
+        self.disposable = disposable  # type: bool
+        self.reEncounterCost = reEncounterCost  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameTbgobjectExcel = MinigameTBGObjectExcel()
+        minigameTbgobjectExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameTbgobjectExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameTbgobjectExcel):
+        x = MinigameTBGObjectExcelT()
+        x._UnPack(minigameTbgobjectExcel)
+        return x
+
+    # MinigameTBGObjectExcelT
+    def _UnPack(self, minigameTbgobjectExcel):
+        if minigameTbgobjectExcel is None:
+            return
+        self.uniqueId = minigameTbgobjectExcel.UniqueId()
+        self.key = minigameTbgobjectExcel.Key()
+        self.prefabName = minigameTbgobjectExcel.PrefabName()
+        self.objectType = minigameTbgobjectExcel.ObjectType()
+        self.objectCostType = minigameTbgobjectExcel.ObjectCostType()
+        self.objectCostId = minigameTbgobjectExcel.ObjectCostId()
+        self.objectCostAmount = minigameTbgobjectExcel.ObjectCostAmount()
+        self.disposable = minigameTbgobjectExcel.Disposable()
+        self.reEncounterCost = minigameTbgobjectExcel.ReEncounterCost()
+
+    # MinigameTBGObjectExcelT
+    def Pack(self, builder):
+        if self.key is not None:
+            key = builder.CreateString(self.key)
+        if self.prefabName is not None:
+            prefabName = builder.CreateString(self.prefabName)
+        MinigameTBGObjectExcelStart(builder)
+        MinigameTBGObjectExcelAddUniqueId(builder, self.uniqueId)
+        if self.key is not None:
+            MinigameTBGObjectExcelAddKey(builder, key)
+        if self.prefabName is not None:
+            MinigameTBGObjectExcelAddPrefabName(builder, prefabName)
+        MinigameTBGObjectExcelAddObjectType(builder, self.objectType)
+        MinigameTBGObjectExcelAddObjectCostType(builder, self.objectCostType)
+        MinigameTBGObjectExcelAddObjectCostId(builder, self.objectCostId)
+        MinigameTBGObjectExcelAddObjectCostAmount(builder, self.objectCostAmount)
+        MinigameTBGObjectExcelAddDisposable(builder, self.disposable)
+        MinigameTBGObjectExcelAddReEncounterCost(builder, self.reEncounterCost)
+        minigameTbgobjectExcel = MinigameTBGObjectExcelEnd(builder)
+        return minigameTbgobjectExcel

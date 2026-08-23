@@ -11,3 +11,7 @@ class StoreType(object):
     GalaxyStore = 5
     STEAM = 6
     FreeProduct = 7
+    Twitch = 8
+    Chzzk = 9
+    PaymentCenter = 10
+    PCStore = 11

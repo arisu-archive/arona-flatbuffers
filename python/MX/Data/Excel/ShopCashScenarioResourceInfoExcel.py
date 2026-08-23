@@ -74,3 +74,54 @@ def ShopCashScenarioResourceInfoExcelEnd(builder):
 
 def End(builder):
     return ShopCashScenarioResourceInfoExcelEnd(builder)
+
+
+class ShopCashScenarioResourceInfoExcelT(object):
+
+    # ShopCashScenarioResourceInfoExcelT
+    def __init__(
+        self,
+        scenarioResrouceInfoId = 0,
+        shopCashId = 0,
+        iconPath = None,
+    ):
+        self.scenarioResrouceInfoId = scenarioResrouceInfoId  # type: int
+        self.shopCashId = shopCashId  # type: int
+        self.iconPath = iconPath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        shopCashScenarioResourceInfoExcel = ShopCashScenarioResourceInfoExcel()
+        shopCashScenarioResourceInfoExcel.Init(buf, pos)
+        return cls.InitFromObj(shopCashScenarioResourceInfoExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, shopCashScenarioResourceInfoExcel):
+        x = ShopCashScenarioResourceInfoExcelT()
+        x._UnPack(shopCashScenarioResourceInfoExcel)
+        return x
+
+    # ShopCashScenarioResourceInfoExcelT
+    def _UnPack(self, shopCashScenarioResourceInfoExcel):
+        if shopCashScenarioResourceInfoExcel is None:
+            return
+        self.scenarioResrouceInfoId = shopCashScenarioResourceInfoExcel.ScenarioResrouceInfoId()
+        self.shopCashId = shopCashScenarioResourceInfoExcel.ShopCashId()
+        self.iconPath = shopCashScenarioResourceInfoExcel.IconPath()
+
+    # ShopCashScenarioResourceInfoExcelT
+    def Pack(self, builder):
+        if self.iconPath is not None:
+            iconPath = builder.CreateString(self.iconPath)
+        ShopCashScenarioResourceInfoExcelStart(builder)
+        ShopCashScenarioResourceInfoExcelAddScenarioResrouceInfoId(builder, self.scenarioResrouceInfoId)
+        ShopCashScenarioResourceInfoExcelAddShopCashId(builder, self.shopCashId)
+        if self.iconPath is not None:
+            ShopCashScenarioResourceInfoExcelAddIconPath(builder, iconPath)
+        shopCashScenarioResourceInfoExcel = ShopCashScenarioResourceInfoExcelEnd(builder)
+        return shopCashScenarioResourceInfoExcel

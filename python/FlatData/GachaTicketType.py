@@ -17,3 +17,7 @@ class GachaTicketType(object):
     SelectPickup = 11
     SelectPickupOnce = 12
     PackageLimitedThreeStar = 13
+    PackageThreeStar_R88_Explosion = 14
+    PackageThreeStar_R88_Mystic = 15
+    PackageThreeStar_R88_Pierce = 16
+    PackageThreeStar_R88_Sonic = 17

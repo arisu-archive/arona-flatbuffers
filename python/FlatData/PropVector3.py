@@ -74,3 +74,55 @@ def PropVector3End(builder):
 
 def End(builder):
     return PropVector3End(builder)
+
+
+class PropVector3T(object):
+
+    # PropVector3T
+    def __init__(
+        self,
+        x = 0.0,
+        y = 0.0,
+        z = 0.0,
+    ):
+        self.x = x  # type: float
+        self.y = y  # type: float
+        self.z = z  # type: float
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        propVector3 = PropVector3()
+        propVector3.Init(buf, pos)
+        return cls.InitFromObj(propVector3)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, propVector3):
+        x = PropVector3T()
+        x._UnPack(propVector3)
+        return x
+
+    # PropVector3T
+    def _UnPack(self, propVector3):
+        if propVector3 is None:
+            return
+        self.x = propVector3.X()
+        self.y = propVector3.Y()
+        self.z = propVector3.Z()
+
+    # PropVector3T
+    def Pack(self, builder):
+        PropVector3Start(builder)
+        PropVector3AddX(builder, self.x)
+        PropVector3AddY(builder, self.y)
+        PropVector3AddZ(builder, self.z)
+        propVector3 = PropVector3End(builder)
+        return propVector3
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(PropVector3T, 'PropVector3', (('x', 'float32', False), ('y', 'float32', False), ('z', 'float32', False)))

@@ -139,3 +139,89 @@ def FormationLocationExcelEnd(builder):
 
 def End(builder):
     return FormationLocationExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class FormationLocationExcelT(object):
+
+    # FormationLocationExcelT
+    def __init__(
+        self,
+        id = 0,
+        groupId = 0,
+        slotZ = None,
+        slotX = None,
+    ):
+        self.id = id  # type: int
+        self.groupId = groupId  # type: int
+        self.slotZ = slotZ  # type: Optional[List[float]]
+        self.slotX = slotX  # type: Optional[List[float]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        formationLocationExcel = FormationLocationExcel()
+        formationLocationExcel.Init(buf, pos)
+        return cls.InitFromObj(formationLocationExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, formationLocationExcel):
+        x = FormationLocationExcelT()
+        x._UnPack(formationLocationExcel)
+        return x
+
+    # FormationLocationExcelT
+    def _UnPack(self, formationLocationExcel):
+        if formationLocationExcel is None:
+            return
+        self.id = formationLocationExcel.Id()
+        self.groupId = formationLocationExcel.GroupId()
+        if not formationLocationExcel.SlotZIsNone():
+            if np is None:
+                self.slotZ = []
+                for i in range(formationLocationExcel.SlotZLength()):
+                    self.slotZ.append(formationLocationExcel.SlotZ(i))
+            else:
+                self.slotZ = formationLocationExcel.SlotZAsNumpy()
+        if not formationLocationExcel.SlotXIsNone():
+            if np is None:
+                self.slotX = []
+                for i in range(formationLocationExcel.SlotXLength()):
+                    self.slotX.append(formationLocationExcel.SlotX(i))
+            else:
+                self.slotX = formationLocationExcel.SlotXAsNumpy()
+
+    # FormationLocationExcelT
+    def Pack(self, builder):
+        if self.slotZ is not None:
+            if np is not None and type(self.slotZ) is np.ndarray:
+                slotZ = builder.CreateNumpyVector(self.slotZ)
+            else:
+                FormationLocationExcelStartSlotZVector(builder, len(self.slotZ))
+                for i in reversed(range(len(self.slotZ))):
+                    builder.PrependFloat32(self.slotZ[i])
+                slotZ = builder.EndVector()
+        if self.slotX is not None:
+            if np is not None and type(self.slotX) is np.ndarray:
+                slotX = builder.CreateNumpyVector(self.slotX)
+            else:
+                FormationLocationExcelStartSlotXVector(builder, len(self.slotX))
+                for i in reversed(range(len(self.slotX))):
+                    builder.PrependFloat32(self.slotX[i])
+                slotX = builder.EndVector()
+        FormationLocationExcelStart(builder)
+        FormationLocationExcelAddId(builder, self.id)
+        FormationLocationExcelAddGroupId(builder, self.groupId)
+        if self.slotZ is not None:
+            FormationLocationExcelAddSlotZ(builder, slotZ)
+        if self.slotX is not None:
+            FormationLocationExcelAddSlotX(builder, slotX)
+        formationLocationExcel = FormationLocationExcelEnd(builder)
+        return formationLocationExcel

@@ -87,3 +87,61 @@ def InformationStrategyObjectExcelEnd(builder):
 
 def End(builder):
     return InformationStrategyObjectExcelEnd(builder)
+
+
+class InformationStrategyObjectExcelT(object):
+
+    # InformationStrategyObjectExcelT
+    def __init__(
+        self,
+        id = 0,
+        stageId = 0,
+        pageName = None,
+        localizeCodeId = None,
+    ):
+        self.id = id  # type: int
+        self.stageId = stageId  # type: int
+        self.pageName = pageName  # type: Optional[str]
+        self.localizeCodeId = localizeCodeId  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        informationStrategyObjectExcel = InformationStrategyObjectExcel()
+        informationStrategyObjectExcel.Init(buf, pos)
+        return cls.InitFromObj(informationStrategyObjectExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, informationStrategyObjectExcel):
+        x = InformationStrategyObjectExcelT()
+        x._UnPack(informationStrategyObjectExcel)
+        return x
+
+    # InformationStrategyObjectExcelT
+    def _UnPack(self, informationStrategyObjectExcel):
+        if informationStrategyObjectExcel is None:
+            return
+        self.id = informationStrategyObjectExcel.Id()
+        self.stageId = informationStrategyObjectExcel.StageId()
+        self.pageName = informationStrategyObjectExcel.PageName()
+        self.localizeCodeId = informationStrategyObjectExcel.LocalizeCodeId()
+
+    # InformationStrategyObjectExcelT
+    def Pack(self, builder):
+        if self.pageName is not None:
+            pageName = builder.CreateString(self.pageName)
+        if self.localizeCodeId is not None:
+            localizeCodeId = builder.CreateString(self.localizeCodeId)
+        InformationStrategyObjectExcelStart(builder)
+        InformationStrategyObjectExcelAddId(builder, self.id)
+        InformationStrategyObjectExcelAddStageId(builder, self.stageId)
+        if self.pageName is not None:
+            InformationStrategyObjectExcelAddPageName(builder, pageName)
+        if self.localizeCodeId is not None:
+            InformationStrategyObjectExcelAddLocalizeCodeId(builder, localizeCodeId)
+        informationStrategyObjectExcel = InformationStrategyObjectExcelEnd(builder)
+        return informationStrategyObjectExcel

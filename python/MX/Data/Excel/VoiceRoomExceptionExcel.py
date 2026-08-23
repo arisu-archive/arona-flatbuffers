@@ -74,3 +74,51 @@ def VoiceRoomExceptionExcelEnd(builder):
 
 def End(builder):
     return VoiceRoomExceptionExcelEnd(builder)
+
+
+class VoiceRoomExceptionExcelT(object):
+
+    # VoiceRoomExceptionExcelT
+    def __init__(
+        self,
+        costumeUniqueId = 0,
+        linkedCharacterVoicePrintType = 0,
+        linkedCostumeUniqueId = 0,
+    ):
+        self.costumeUniqueId = costumeUniqueId  # type: int
+        self.linkedCharacterVoicePrintType = linkedCharacterVoicePrintType  # type: int
+        self.linkedCostumeUniqueId = linkedCostumeUniqueId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        voiceRoomExceptionExcel = VoiceRoomExceptionExcel()
+        voiceRoomExceptionExcel.Init(buf, pos)
+        return cls.InitFromObj(voiceRoomExceptionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, voiceRoomExceptionExcel):
+        x = VoiceRoomExceptionExcelT()
+        x._UnPack(voiceRoomExceptionExcel)
+        return x
+
+    # VoiceRoomExceptionExcelT
+    def _UnPack(self, voiceRoomExceptionExcel):
+        if voiceRoomExceptionExcel is None:
+            return
+        self.costumeUniqueId = voiceRoomExceptionExcel.CostumeUniqueId()
+        self.linkedCharacterVoicePrintType = voiceRoomExceptionExcel.LinkedCharacterVoicePrintType()
+        self.linkedCostumeUniqueId = voiceRoomExceptionExcel.LinkedCostumeUniqueId()
+
+    # VoiceRoomExceptionExcelT
+    def Pack(self, builder):
+        VoiceRoomExceptionExcelStart(builder)
+        VoiceRoomExceptionExcelAddCostumeUniqueId(builder, self.costumeUniqueId)
+        VoiceRoomExceptionExcelAddLinkedCharacterVoicePrintType(builder, self.linkedCharacterVoicePrintType)
+        VoiceRoomExceptionExcelAddLinkedCostumeUniqueId(builder, self.linkedCostumeUniqueId)
+        voiceRoomExceptionExcel = VoiceRoomExceptionExcelEnd(builder)
+        return voiceRoomExceptionExcel

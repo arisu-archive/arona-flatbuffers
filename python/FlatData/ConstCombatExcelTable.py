@@ -72,3 +72,68 @@ def ConstCombatExcelTableEnd(builder):
 
 def End(builder):
     return ConstCombatExcelTableEnd(builder)
+
+import FlatData.ConstCombatExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConstCombatExcelTableT(object):
+
+    # ConstCombatExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConstCombatExcel.ConstCombatExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        constCombatExcelTable = ConstCombatExcelTable()
+        constCombatExcelTable.Init(buf, pos)
+        return cls.InitFromObj(constCombatExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, constCombatExcelTable):
+        x = ConstCombatExcelTableT()
+        x._UnPack(constCombatExcelTable)
+        return x
+
+    # ConstCombatExcelTableT
+    def _UnPack(self, constCombatExcelTable):
+        if constCombatExcelTable is None:
+            return
+        if not constCombatExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(constCombatExcelTable.DataListLength()):
+                if constCombatExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    constCombatExcel_ = FlatData.ConstCombatExcel.ConstCombatExcelT.InitFromObj(constCombatExcelTable.DataList(i))
+                    self.dataList.append(constCombatExcel_)
+
+    # ConstCombatExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConstCombatExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConstCombatExcelTableStart(builder)
+        if self.dataList is not None:
+            ConstCombatExcelTableAddDataList(builder, dataList)
+        constCombatExcelTable = ConstCombatExcelTableEnd(builder)
+        return constCombatExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConstCombatExcelTableT, 'ConstCombatExcelTable', ())

@@ -431,3 +431,216 @@ def CharacterWeaponExcelEnd(builder):
 
 def End(builder):
     return CharacterWeaponExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CharacterWeaponExcelT(object):
+
+    # CharacterWeaponExcelT
+    def __init__(
+        self,
+        id = 0,
+        imagePath = None,
+        setRecipe = 0,
+        statLevelUpType = 0,
+        attackPower = 0,
+        attackPower100 = 0,
+        maxHp = 0,
+        maxHp100 = 0,
+        healPower = 0,
+        healPower100 = 0,
+        tags = None,
+        unlock = None,
+        recipeId = None,
+        maxLevel = None,
+        learnSkillSlot = None,
+        statType = None,
+        statValue = None,
+    ):
+        self.id = id  # type: int
+        self.imagePath = imagePath  # type: Optional[str]
+        self.setRecipe = setRecipe  # type: int
+        self.statLevelUpType = statLevelUpType  # type: int
+        self.attackPower = attackPower  # type: int
+        self.attackPower100 = attackPower100  # type: int
+        self.maxHp = maxHp  # type: int
+        self.maxHp100 = maxHp100  # type: int
+        self.healPower = healPower  # type: int
+        self.healPower100 = healPower100  # type: int
+        self.tags = tags  # type: Optional[List[int]]
+        self.unlock = unlock  # type: Optional[List[bool]]
+        self.recipeId = recipeId  # type: Optional[List[int]]
+        self.maxLevel = maxLevel  # type: Optional[List[int]]
+        self.learnSkillSlot = learnSkillSlot  # type: Optional[List[Optional[str]]]
+        self.statType = statType  # type: Optional[List[int]]
+        self.statValue = statValue  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterWeaponExcel = CharacterWeaponExcel()
+        characterWeaponExcel.Init(buf, pos)
+        return cls.InitFromObj(characterWeaponExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterWeaponExcel):
+        x = CharacterWeaponExcelT()
+        x._UnPack(characterWeaponExcel)
+        return x
+
+    # CharacterWeaponExcelT
+    def _UnPack(self, characterWeaponExcel):
+        if characterWeaponExcel is None:
+            return
+        self.id = characterWeaponExcel.Id()
+        self.imagePath = characterWeaponExcel.ImagePath()
+        self.setRecipe = characterWeaponExcel.SetRecipe()
+        self.statLevelUpType = characterWeaponExcel.StatLevelUpType()
+        self.attackPower = characterWeaponExcel.AttackPower()
+        self.attackPower100 = characterWeaponExcel.AttackPower100()
+        self.maxHp = characterWeaponExcel.MaxHp()
+        self.maxHp100 = characterWeaponExcel.MaxHp100()
+        self.healPower = characterWeaponExcel.HealPower()
+        self.healPower100 = characterWeaponExcel.HealPower100()
+        if not characterWeaponExcel.TagsIsNone():
+            if np is None:
+                self.tags = []
+                for i in range(characterWeaponExcel.TagsLength()):
+                    self.tags.append(characterWeaponExcel.Tags(i))
+            else:
+                self.tags = characterWeaponExcel.TagsAsNumpy()
+        if not characterWeaponExcel.UnlockIsNone():
+            if np is None:
+                self.unlock = []
+                for i in range(characterWeaponExcel.UnlockLength()):
+                    self.unlock.append(characterWeaponExcel.Unlock(i))
+            else:
+                self.unlock = characterWeaponExcel.UnlockAsNumpy()
+        if not characterWeaponExcel.RecipeIdIsNone():
+            if np is None:
+                self.recipeId = []
+                for i in range(characterWeaponExcel.RecipeIdLength()):
+                    self.recipeId.append(characterWeaponExcel.RecipeId(i))
+            else:
+                self.recipeId = characterWeaponExcel.RecipeIdAsNumpy()
+        if not characterWeaponExcel.MaxLevelIsNone():
+            if np is None:
+                self.maxLevel = []
+                for i in range(characterWeaponExcel.MaxLevelLength()):
+                    self.maxLevel.append(characterWeaponExcel.MaxLevel(i))
+            else:
+                self.maxLevel = characterWeaponExcel.MaxLevelAsNumpy()
+        if not characterWeaponExcel.LearnSkillSlotIsNone():
+            self.learnSkillSlot = []
+            for i in range(characterWeaponExcel.LearnSkillSlotLength()):
+                self.learnSkillSlot.append(characterWeaponExcel.LearnSkillSlot(i))
+        if not characterWeaponExcel.StatTypeIsNone():
+            if np is None:
+                self.statType = []
+                for i in range(characterWeaponExcel.StatTypeLength()):
+                    self.statType.append(characterWeaponExcel.StatType(i))
+            else:
+                self.statType = characterWeaponExcel.StatTypeAsNumpy()
+        if not characterWeaponExcel.StatValueIsNone():
+            if np is None:
+                self.statValue = []
+                for i in range(characterWeaponExcel.StatValueLength()):
+                    self.statValue.append(characterWeaponExcel.StatValue(i))
+            else:
+                self.statValue = characterWeaponExcel.StatValueAsNumpy()
+
+    # CharacterWeaponExcelT
+    def Pack(self, builder):
+        if self.imagePath is not None:
+            imagePath = builder.CreateString(self.imagePath)
+        if self.tags is not None:
+            if np is not None and type(self.tags) is np.ndarray:
+                tags = builder.CreateNumpyVector(self.tags)
+            else:
+                CharacterWeaponExcelStartTagsVector(builder, len(self.tags))
+                for i in reversed(range(len(self.tags))):
+                    builder.PrependInt32(self.tags[i])
+                tags = builder.EndVector()
+        if self.unlock is not None:
+            if np is not None and type(self.unlock) is np.ndarray:
+                unlock = builder.CreateNumpyVector(self.unlock)
+            else:
+                CharacterWeaponExcelStartUnlockVector(builder, len(self.unlock))
+                for i in reversed(range(len(self.unlock))):
+                    builder.PrependBool(self.unlock[i])
+                unlock = builder.EndVector()
+        if self.recipeId is not None:
+            if np is not None and type(self.recipeId) is np.ndarray:
+                recipeId = builder.CreateNumpyVector(self.recipeId)
+            else:
+                CharacterWeaponExcelStartRecipeIdVector(builder, len(self.recipeId))
+                for i in reversed(range(len(self.recipeId))):
+                    builder.PrependInt64(self.recipeId[i])
+                recipeId = builder.EndVector()
+        if self.maxLevel is not None:
+            if np is not None and type(self.maxLevel) is np.ndarray:
+                maxLevel = builder.CreateNumpyVector(self.maxLevel)
+            else:
+                CharacterWeaponExcelStartMaxLevelVector(builder, len(self.maxLevel))
+                for i in reversed(range(len(self.maxLevel))):
+                    builder.PrependInt32(self.maxLevel[i])
+                maxLevel = builder.EndVector()
+        if self.learnSkillSlot is not None:
+            learnSkillSlotlist = []
+            for i in range(len(self.learnSkillSlot)):
+                learnSkillSlotlist.append(builder.CreateString(self.learnSkillSlot[i]))
+            CharacterWeaponExcelStartLearnSkillSlotVector(builder, len(self.learnSkillSlot))
+            for i in reversed(range(len(self.learnSkillSlot))):
+                builder.PrependUOffsetTRelative(learnSkillSlotlist[i])
+            learnSkillSlot = builder.EndVector()
+        if self.statType is not None:
+            if np is not None and type(self.statType) is np.ndarray:
+                statType = builder.CreateNumpyVector(self.statType)
+            else:
+                CharacterWeaponExcelStartStatTypeVector(builder, len(self.statType))
+                for i in reversed(range(len(self.statType))):
+                    builder.PrependInt32(self.statType[i])
+                statType = builder.EndVector()
+        if self.statValue is not None:
+            if np is not None and type(self.statValue) is np.ndarray:
+                statValue = builder.CreateNumpyVector(self.statValue)
+            else:
+                CharacterWeaponExcelStartStatValueVector(builder, len(self.statValue))
+                for i in reversed(range(len(self.statValue))):
+                    builder.PrependInt64(self.statValue[i])
+                statValue = builder.EndVector()
+        CharacterWeaponExcelStart(builder)
+        CharacterWeaponExcelAddId(builder, self.id)
+        if self.imagePath is not None:
+            CharacterWeaponExcelAddImagePath(builder, imagePath)
+        CharacterWeaponExcelAddSetRecipe(builder, self.setRecipe)
+        CharacterWeaponExcelAddStatLevelUpType(builder, self.statLevelUpType)
+        CharacterWeaponExcelAddAttackPower(builder, self.attackPower)
+        CharacterWeaponExcelAddAttackPower100(builder, self.attackPower100)
+        CharacterWeaponExcelAddMaxHp(builder, self.maxHp)
+        CharacterWeaponExcelAddMaxHp100(builder, self.maxHp100)
+        CharacterWeaponExcelAddHealPower(builder, self.healPower)
+        CharacterWeaponExcelAddHealPower100(builder, self.healPower100)
+        if self.tags is not None:
+            CharacterWeaponExcelAddTags(builder, tags)
+        if self.unlock is not None:
+            CharacterWeaponExcelAddUnlock(builder, unlock)
+        if self.recipeId is not None:
+            CharacterWeaponExcelAddRecipeId(builder, recipeId)
+        if self.maxLevel is not None:
+            CharacterWeaponExcelAddMaxLevel(builder, maxLevel)
+        if self.learnSkillSlot is not None:
+            CharacterWeaponExcelAddLearnSkillSlot(builder, learnSkillSlot)
+        if self.statType is not None:
+            CharacterWeaponExcelAddStatType(builder, statType)
+        if self.statValue is not None:
+            CharacterWeaponExcelAddStatValue(builder, statValue)
+        characterWeaponExcel = CharacterWeaponExcelEnd(builder)
+        return characterWeaponExcel

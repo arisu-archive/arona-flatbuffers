@@ -72,3 +72,68 @@ def CheatCodeListExcelTableEnd(builder):
 
 def End(builder):
     return CheatCodeListExcelTableEnd(builder)
+
+import FlatData.CheatCodeListExcel
+try:
+    from typing import List
+except:
+    pass
+
+class CheatCodeListExcelTableT(object):
+
+    # CheatCodeListExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.CheatCodeListExcel.CheatCodeListExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        cheatCodeListExcelTable = CheatCodeListExcelTable()
+        cheatCodeListExcelTable.Init(buf, pos)
+        return cls.InitFromObj(cheatCodeListExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, cheatCodeListExcelTable):
+        x = CheatCodeListExcelTableT()
+        x._UnPack(cheatCodeListExcelTable)
+        return x
+
+    # CheatCodeListExcelTableT
+    def _UnPack(self, cheatCodeListExcelTable):
+        if cheatCodeListExcelTable is None:
+            return
+        if not cheatCodeListExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(cheatCodeListExcelTable.DataListLength()):
+                if cheatCodeListExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    cheatCodeListExcel_ = FlatData.CheatCodeListExcel.CheatCodeListExcelT.InitFromObj(cheatCodeListExcelTable.DataList(i))
+                    self.dataList.append(cheatCodeListExcel_)
+
+    # CheatCodeListExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            CheatCodeListExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        CheatCodeListExcelTableStart(builder)
+        if self.dataList is not None:
+            CheatCodeListExcelTableAddDataList(builder, dataList)
+        cheatCodeListExcelTable = CheatCodeListExcelTableEnd(builder)
+        return cheatCodeListExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(CheatCodeListExcelTableT, 'CheatCodeListExcelTable', ())

@@ -217,3 +217,113 @@ def MinigameRoadPuzzleRoadRoundExcelEnd(builder):
 
 def End(builder):
     return MinigameRoadPuzzleRoadRoundExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MinigameRoadPuzzleRoadRoundExcelT(object):
+
+    # MinigameRoadPuzzleRoadRoundExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        uniqueId = 0,
+        round = 0,
+        isLoop = False,
+        enterScenarioGroupId = 0,
+        endScenarioGroupId = 0,
+        mapGroupId = 0,
+        roundReward = 0,
+        additionalRewardId = None,
+        additionalRewardAmount = None,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.round = round  # type: int
+        self.isLoop = isLoop  # type: bool
+        self.enterScenarioGroupId = enterScenarioGroupId  # type: int
+        self.endScenarioGroupId = endScenarioGroupId  # type: int
+        self.mapGroupId = mapGroupId  # type: int
+        self.roundReward = roundReward  # type: int
+        self.additionalRewardId = additionalRewardId  # type: Optional[List[int]]
+        self.additionalRewardAmount = additionalRewardAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameRoadPuzzleRoadRoundExcel = MinigameRoadPuzzleRoadRoundExcel()
+        minigameRoadPuzzleRoadRoundExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameRoadPuzzleRoadRoundExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameRoadPuzzleRoadRoundExcel):
+        x = MinigameRoadPuzzleRoadRoundExcelT()
+        x._UnPack(minigameRoadPuzzleRoadRoundExcel)
+        return x
+
+    # MinigameRoadPuzzleRoadRoundExcelT
+    def _UnPack(self, minigameRoadPuzzleRoadRoundExcel):
+        if minigameRoadPuzzleRoadRoundExcel is None:
+            return
+        self.eventContentId = minigameRoadPuzzleRoadRoundExcel.EventContentId()
+        self.uniqueId = minigameRoadPuzzleRoadRoundExcel.UniqueId()
+        self.round = minigameRoadPuzzleRoadRoundExcel.Round()
+        self.isLoop = minigameRoadPuzzleRoadRoundExcel.IsLoop()
+        self.enterScenarioGroupId = minigameRoadPuzzleRoadRoundExcel.EnterScenarioGroupId()
+        self.endScenarioGroupId = minigameRoadPuzzleRoadRoundExcel.EndScenarioGroupId()
+        self.mapGroupId = minigameRoadPuzzleRoadRoundExcel.MapGroupId()
+        self.roundReward = minigameRoadPuzzleRoadRoundExcel.RoundReward()
+        if not minigameRoadPuzzleRoadRoundExcel.AdditionalRewardIdIsNone():
+            if np is None:
+                self.additionalRewardId = []
+                for i in range(minigameRoadPuzzleRoadRoundExcel.AdditionalRewardIdLength()):
+                    self.additionalRewardId.append(minigameRoadPuzzleRoadRoundExcel.AdditionalRewardId(i))
+            else:
+                self.additionalRewardId = minigameRoadPuzzleRoadRoundExcel.AdditionalRewardIdAsNumpy()
+        if not minigameRoadPuzzleRoadRoundExcel.AdditionalRewardAmountIsNone():
+            if np is None:
+                self.additionalRewardAmount = []
+                for i in range(minigameRoadPuzzleRoadRoundExcel.AdditionalRewardAmountLength()):
+                    self.additionalRewardAmount.append(minigameRoadPuzzleRoadRoundExcel.AdditionalRewardAmount(i))
+            else:
+                self.additionalRewardAmount = minigameRoadPuzzleRoadRoundExcel.AdditionalRewardAmountAsNumpy()
+
+    # MinigameRoadPuzzleRoadRoundExcelT
+    def Pack(self, builder):
+        if self.additionalRewardId is not None:
+            if np is not None and type(self.additionalRewardId) is np.ndarray:
+                additionalRewardId = builder.CreateNumpyVector(self.additionalRewardId)
+            else:
+                MinigameRoadPuzzleRoadRoundExcelStartAdditionalRewardIdVector(builder, len(self.additionalRewardId))
+                for i in reversed(range(len(self.additionalRewardId))):
+                    builder.PrependInt64(self.additionalRewardId[i])
+                additionalRewardId = builder.EndVector()
+        if self.additionalRewardAmount is not None:
+            if np is not None and type(self.additionalRewardAmount) is np.ndarray:
+                additionalRewardAmount = builder.CreateNumpyVector(self.additionalRewardAmount)
+            else:
+                MinigameRoadPuzzleRoadRoundExcelStartAdditionalRewardAmountVector(builder, len(self.additionalRewardAmount))
+                for i in reversed(range(len(self.additionalRewardAmount))):
+                    builder.PrependInt32(self.additionalRewardAmount[i])
+                additionalRewardAmount = builder.EndVector()
+        MinigameRoadPuzzleRoadRoundExcelStart(builder)
+        MinigameRoadPuzzleRoadRoundExcelAddEventContentId(builder, self.eventContentId)
+        MinigameRoadPuzzleRoadRoundExcelAddUniqueId(builder, self.uniqueId)
+        MinigameRoadPuzzleRoadRoundExcelAddRound(builder, self.round)
+        MinigameRoadPuzzleRoadRoundExcelAddIsLoop(builder, self.isLoop)
+        MinigameRoadPuzzleRoadRoundExcelAddEnterScenarioGroupId(builder, self.enterScenarioGroupId)
+        MinigameRoadPuzzleRoadRoundExcelAddEndScenarioGroupId(builder, self.endScenarioGroupId)
+        MinigameRoadPuzzleRoadRoundExcelAddMapGroupId(builder, self.mapGroupId)
+        MinigameRoadPuzzleRoadRoundExcelAddRoundReward(builder, self.roundReward)
+        if self.additionalRewardId is not None:
+            MinigameRoadPuzzleRoadRoundExcelAddAdditionalRewardId(builder, additionalRewardId)
+        if self.additionalRewardAmount is not None:
+            MinigameRoadPuzzleRoadRoundExcelAddAdditionalRewardAmount(builder, additionalRewardAmount)
+        minigameRoadPuzzleRoadRoundExcel = MinigameRoadPuzzleRoadRoundExcelEnd(builder)
+        return minigameRoadPuzzleRoadRoundExcel

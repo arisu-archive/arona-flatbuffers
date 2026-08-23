@@ -199,43 +199,50 @@ class ItemExcel(object):
         return o == 0
 
     # ItemExcel
-    def CraftQualityTier0(self):
+    def IsCollaboration(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
         if o != 0:
-            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
-        return 0
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
 
     # ItemExcel
-    def CraftQualityTier1(self):
+    def CraftQualityTier0(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(50))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ItemExcel
-    def CraftQualityTier2(self):
+    def CraftQualityTier1(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(52))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ItemExcel
-    def ShiftingCraftQuality(self):
+    def CraftQualityTier2(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(54))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ItemExcel
-    def MaxGiftTags(self):
+    def ShiftingCraftQuality(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(56))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ItemExcel
+    def MaxGiftTags(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ItemExcel
     def ShopCategory(self, j):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int32Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 4))
@@ -243,53 +250,74 @@ class ItemExcel(object):
 
     # ItemExcel
     def ShopCategoryAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int32Flags, o)
         return 0
 
     # ItemExcel
     def ShopCategoryLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # ItemExcel
     def ShopCategoryIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(58))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
         return o == 0
 
     # ItemExcel
     def ExpirationDateTime(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(60))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
         if o != 0:
             return self._tab.String(o + self._tab.Pos)
         return None
 
     # ItemExcel
     def ExpirationNotifyDateIn(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(62))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
     # ItemExcel
+    def IsOverrideExpiration(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # ItemExcel
     def ShortcutTypeId(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(64))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(68))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ItemExcel
     def GachaTicket(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(66))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(70))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
         return 0
 
+    # ItemExcel
+    def AlertPopupId(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(72))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ItemExcel
+    def ShiftingCraftRecipe(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(74))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
 def ItemExcelStart(builder):
-    builder.StartObject(32)
+    builder.StartObject(36)
 
 def Start(builder):
     ItemExcelStart(builder)
@@ -432,38 +460,44 @@ def ItemExcelStartTagsVector(builder, numElems):
 def StartTagsVector(builder, numElems):
     return ItemExcelStartTagsVector(builder, numElems)
 
+def ItemExcelAddIsCollaboration(builder, isCollaboration):
+    builder.PrependBoolSlot(22, isCollaboration, 0)
+
+def AddIsCollaboration(builder, isCollaboration):
+    ItemExcelAddIsCollaboration(builder, isCollaboration)
+
 def ItemExcelAddCraftQualityTier0(builder, craftQualityTier0):
-    builder.PrependInt64Slot(22, craftQualityTier0, 0)
+    builder.PrependInt64Slot(23, craftQualityTier0, 0)
 
 def AddCraftQualityTier0(builder, craftQualityTier0):
     ItemExcelAddCraftQualityTier0(builder, craftQualityTier0)
 
 def ItemExcelAddCraftQualityTier1(builder, craftQualityTier1):
-    builder.PrependInt64Slot(23, craftQualityTier1, 0)
+    builder.PrependInt64Slot(24, craftQualityTier1, 0)
 
 def AddCraftQualityTier1(builder, craftQualityTier1):
     ItemExcelAddCraftQualityTier1(builder, craftQualityTier1)
 
 def ItemExcelAddCraftQualityTier2(builder, craftQualityTier2):
-    builder.PrependInt64Slot(24, craftQualityTier2, 0)
+    builder.PrependInt64Slot(25, craftQualityTier2, 0)
 
 def AddCraftQualityTier2(builder, craftQualityTier2):
     ItemExcelAddCraftQualityTier2(builder, craftQualityTier2)
 
 def ItemExcelAddShiftingCraftQuality(builder, shiftingCraftQuality):
-    builder.PrependInt64Slot(25, shiftingCraftQuality, 0)
+    builder.PrependInt64Slot(26, shiftingCraftQuality, 0)
 
 def AddShiftingCraftQuality(builder, shiftingCraftQuality):
     ItemExcelAddShiftingCraftQuality(builder, shiftingCraftQuality)
 
 def ItemExcelAddMaxGiftTags(builder, maxGiftTags):
-    builder.PrependInt32Slot(26, maxGiftTags, 0)
+    builder.PrependInt32Slot(27, maxGiftTags, 0)
 
 def AddMaxGiftTags(builder, maxGiftTags):
     ItemExcelAddMaxGiftTags(builder, maxGiftTags)
 
 def ItemExcelAddShopCategory(builder, shopCategory):
-    builder.PrependUOffsetTRelativeSlot(27, flatbuffers.number_types.UOffsetTFlags.py_type(shopCategory), 0)
+    builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(shopCategory), 0)
 
 def AddShopCategory(builder, shopCategory):
     ItemExcelAddShopCategory(builder, shopCategory)
@@ -475,31 +509,272 @@ def StartShopCategoryVector(builder, numElems):
     return ItemExcelStartShopCategoryVector(builder, numElems)
 
 def ItemExcelAddExpirationDateTime(builder, expirationDateTime):
-    builder.PrependUOffsetTRelativeSlot(28, flatbuffers.number_types.UOffsetTFlags.py_type(expirationDateTime), 0)
+    builder.PrependUOffsetTRelativeSlot(29, flatbuffers.number_types.UOffsetTFlags.py_type(expirationDateTime), 0)
 
 def AddExpirationDateTime(builder, expirationDateTime):
     ItemExcelAddExpirationDateTime(builder, expirationDateTime)
 
 def ItemExcelAddExpirationNotifyDateIn(builder, expirationNotifyDateIn):
-    builder.PrependInt32Slot(29, expirationNotifyDateIn, 0)
+    builder.PrependInt32Slot(30, expirationNotifyDateIn, 0)
 
 def AddExpirationNotifyDateIn(builder, expirationNotifyDateIn):
     ItemExcelAddExpirationNotifyDateIn(builder, expirationNotifyDateIn)
 
+def ItemExcelAddIsOverrideExpiration(builder, isOverrideExpiration):
+    builder.PrependBoolSlot(31, isOverrideExpiration, 0)
+
+def AddIsOverrideExpiration(builder, isOverrideExpiration):
+    ItemExcelAddIsOverrideExpiration(builder, isOverrideExpiration)
+
 def ItemExcelAddShortcutTypeId(builder, shortcutTypeId):
-    builder.PrependInt64Slot(30, shortcutTypeId, 0)
+    builder.PrependInt64Slot(32, shortcutTypeId, 0)
 
 def AddShortcutTypeId(builder, shortcutTypeId):
     ItemExcelAddShortcutTypeId(builder, shortcutTypeId)
 
 def ItemExcelAddGachaTicket(builder, gachaTicket):
-    builder.PrependInt32Slot(31, gachaTicket, 0)
+    builder.PrependInt32Slot(33, gachaTicket, 0)
 
 def AddGachaTicket(builder, gachaTicket):
     ItemExcelAddGachaTicket(builder, gachaTicket)
+
+def ItemExcelAddAlertPopupId(builder, alertPopupId):
+    builder.PrependInt64Slot(34, alertPopupId, 0)
+
+def AddAlertPopupId(builder, alertPopupId):
+    ItemExcelAddAlertPopupId(builder, alertPopupId)
+
+def ItemExcelAddShiftingCraftRecipe(builder, shiftingCraftRecipe):
+    builder.PrependInt64Slot(35, shiftingCraftRecipe, 0)
+
+def AddShiftingCraftRecipe(builder, shiftingCraftRecipe):
+    ItemExcelAddShiftingCraftRecipe(builder, shiftingCraftRecipe)
 
 def ItemExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return ItemExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ItemExcelT(object):
+
+    # ItemExcelT
+    def __init__(
+        self,
+        id = 0,
+        groupId = 0,
+        rarity = 0,
+        productionStep = 0,
+        localizeEtcId = 0,
+        itemCategory = 0,
+        quality = 0,
+        icon = None,
+        spriteName = None,
+        stackableMax = 0,
+        stackableFunction = 0,
+        immediateUse = False,
+        usingResultParcelType = 0,
+        usingResultId = 0,
+        usingResultAmount = 0,
+        mailType = 0,
+        expiryChangeParcelType = 0,
+        expiryChangeId = 0,
+        expiryChangeAmount = 0,
+        canTierUpgrade = False,
+        tierUpgradeRecipeCraftId = 0,
+        tags = None,
+        isCollaboration = False,
+        craftQualityTier0 = 0,
+        craftQualityTier1 = 0,
+        craftQualityTier2 = 0,
+        shiftingCraftQuality = 0,
+        maxGiftTags = 0,
+        shopCategory = None,
+        expirationDateTime = None,
+        expirationNotifyDateIn = 0,
+        isOverrideExpiration = False,
+        shortcutTypeId = 0,
+        gachaTicket = 0,
+        alertPopupId = 0,
+        shiftingCraftRecipe = 0,
+    ):
+        self.id = id  # type: int
+        self.groupId = groupId  # type: int
+        self.rarity = rarity  # type: int
+        self.productionStep = productionStep  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.itemCategory = itemCategory  # type: int
+        self.quality = quality  # type: int
+        self.icon = icon  # type: Optional[str]
+        self.spriteName = spriteName  # type: Optional[str]
+        self.stackableMax = stackableMax  # type: int
+        self.stackableFunction = stackableFunction  # type: int
+        self.immediateUse = immediateUse  # type: bool
+        self.usingResultParcelType = usingResultParcelType  # type: int
+        self.usingResultId = usingResultId  # type: int
+        self.usingResultAmount = usingResultAmount  # type: int
+        self.mailType = mailType  # type: int
+        self.expiryChangeParcelType = expiryChangeParcelType  # type: int
+        self.expiryChangeId = expiryChangeId  # type: int
+        self.expiryChangeAmount = expiryChangeAmount  # type: int
+        self.canTierUpgrade = canTierUpgrade  # type: bool
+        self.tierUpgradeRecipeCraftId = tierUpgradeRecipeCraftId  # type: int
+        self.tags = tags  # type: Optional[List[int]]
+        self.isCollaboration = isCollaboration  # type: bool
+        self.craftQualityTier0 = craftQualityTier0  # type: int
+        self.craftQualityTier1 = craftQualityTier1  # type: int
+        self.craftQualityTier2 = craftQualityTier2  # type: int
+        self.shiftingCraftQuality = shiftingCraftQuality  # type: int
+        self.maxGiftTags = maxGiftTags  # type: int
+        self.shopCategory = shopCategory  # type: Optional[List[int]]
+        self.expirationDateTime = expirationDateTime  # type: Optional[str]
+        self.expirationNotifyDateIn = expirationNotifyDateIn  # type: int
+        self.isOverrideExpiration = isOverrideExpiration  # type: bool
+        self.shortcutTypeId = shortcutTypeId  # type: int
+        self.gachaTicket = gachaTicket  # type: int
+        self.alertPopupId = alertPopupId  # type: int
+        self.shiftingCraftRecipe = shiftingCraftRecipe  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        itemExcel = ItemExcel()
+        itemExcel.Init(buf, pos)
+        return cls.InitFromObj(itemExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, itemExcel):
+        x = ItemExcelT()
+        x._UnPack(itemExcel)
+        return x
+
+    # ItemExcelT
+    def _UnPack(self, itemExcel):
+        if itemExcel is None:
+            return
+        self.id = itemExcel.Id()
+        self.groupId = itemExcel.GroupId()
+        self.rarity = itemExcel.Rarity()
+        self.productionStep = itemExcel.ProductionStep()
+        self.localizeEtcId = itemExcel.LocalizeEtcId()
+        self.itemCategory = itemExcel.ItemCategory()
+        self.quality = itemExcel.Quality()
+        self.icon = itemExcel.Icon()
+        self.spriteName = itemExcel.SpriteName()
+        self.stackableMax = itemExcel.StackableMax()
+        self.stackableFunction = itemExcel.StackableFunction()
+        self.immediateUse = itemExcel.ImmediateUse()
+        self.usingResultParcelType = itemExcel.UsingResultParcelType()
+        self.usingResultId = itemExcel.UsingResultId()
+        self.usingResultAmount = itemExcel.UsingResultAmount()
+        self.mailType = itemExcel.MailType()
+        self.expiryChangeParcelType = itemExcel.ExpiryChangeParcelType()
+        self.expiryChangeId = itemExcel.ExpiryChangeId()
+        self.expiryChangeAmount = itemExcel.ExpiryChangeAmount()
+        self.canTierUpgrade = itemExcel.CanTierUpgrade()
+        self.tierUpgradeRecipeCraftId = itemExcel.TierUpgradeRecipeCraftId()
+        if not itemExcel.TagsIsNone():
+            if np is None:
+                self.tags = []
+                for i in range(itemExcel.TagsLength()):
+                    self.tags.append(itemExcel.Tags(i))
+            else:
+                self.tags = itemExcel.TagsAsNumpy()
+        self.isCollaboration = itemExcel.IsCollaboration()
+        self.craftQualityTier0 = itemExcel.CraftQualityTier0()
+        self.craftQualityTier1 = itemExcel.CraftQualityTier1()
+        self.craftQualityTier2 = itemExcel.CraftQualityTier2()
+        self.shiftingCraftQuality = itemExcel.ShiftingCraftQuality()
+        self.maxGiftTags = itemExcel.MaxGiftTags()
+        if not itemExcel.ShopCategoryIsNone():
+            if np is None:
+                self.shopCategory = []
+                for i in range(itemExcel.ShopCategoryLength()):
+                    self.shopCategory.append(itemExcel.ShopCategory(i))
+            else:
+                self.shopCategory = itemExcel.ShopCategoryAsNumpy()
+        self.expirationDateTime = itemExcel.ExpirationDateTime()
+        self.expirationNotifyDateIn = itemExcel.ExpirationNotifyDateIn()
+        self.isOverrideExpiration = itemExcel.IsOverrideExpiration()
+        self.shortcutTypeId = itemExcel.ShortcutTypeId()
+        self.gachaTicket = itemExcel.GachaTicket()
+        self.alertPopupId = itemExcel.AlertPopupId()
+        self.shiftingCraftRecipe = itemExcel.ShiftingCraftRecipe()
+
+    # ItemExcelT
+    def Pack(self, builder):
+        if self.icon is not None:
+            icon = builder.CreateString(self.icon)
+        if self.spriteName is not None:
+            spriteName = builder.CreateString(self.spriteName)
+        if self.tags is not None:
+            if np is not None and type(self.tags) is np.ndarray:
+                tags = builder.CreateNumpyVector(self.tags)
+            else:
+                ItemExcelStartTagsVector(builder, len(self.tags))
+                for i in reversed(range(len(self.tags))):
+                    builder.PrependInt32(self.tags[i])
+                tags = builder.EndVector()
+        if self.shopCategory is not None:
+            if np is not None and type(self.shopCategory) is np.ndarray:
+                shopCategory = builder.CreateNumpyVector(self.shopCategory)
+            else:
+                ItemExcelStartShopCategoryVector(builder, len(self.shopCategory))
+                for i in reversed(range(len(self.shopCategory))):
+                    builder.PrependInt32(self.shopCategory[i])
+                shopCategory = builder.EndVector()
+        if self.expirationDateTime is not None:
+            expirationDateTime = builder.CreateString(self.expirationDateTime)
+        ItemExcelStart(builder)
+        ItemExcelAddId(builder, self.id)
+        ItemExcelAddGroupId(builder, self.groupId)
+        ItemExcelAddRarity(builder, self.rarity)
+        ItemExcelAddProductionStep(builder, self.productionStep)
+        ItemExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        ItemExcelAddItemCategory(builder, self.itemCategory)
+        ItemExcelAddQuality(builder, self.quality)
+        if self.icon is not None:
+            ItemExcelAddIcon(builder, icon)
+        if self.spriteName is not None:
+            ItemExcelAddSpriteName(builder, spriteName)
+        ItemExcelAddStackableMax(builder, self.stackableMax)
+        ItemExcelAddStackableFunction(builder, self.stackableFunction)
+        ItemExcelAddImmediateUse(builder, self.immediateUse)
+        ItemExcelAddUsingResultParcelType(builder, self.usingResultParcelType)
+        ItemExcelAddUsingResultId(builder, self.usingResultId)
+        ItemExcelAddUsingResultAmount(builder, self.usingResultAmount)
+        ItemExcelAddMailType(builder, self.mailType)
+        ItemExcelAddExpiryChangeParcelType(builder, self.expiryChangeParcelType)
+        ItemExcelAddExpiryChangeId(builder, self.expiryChangeId)
+        ItemExcelAddExpiryChangeAmount(builder, self.expiryChangeAmount)
+        ItemExcelAddCanTierUpgrade(builder, self.canTierUpgrade)
+        ItemExcelAddTierUpgradeRecipeCraftId(builder, self.tierUpgradeRecipeCraftId)
+        if self.tags is not None:
+            ItemExcelAddTags(builder, tags)
+        ItemExcelAddIsCollaboration(builder, self.isCollaboration)
+        ItemExcelAddCraftQualityTier0(builder, self.craftQualityTier0)
+        ItemExcelAddCraftQualityTier1(builder, self.craftQualityTier1)
+        ItemExcelAddCraftQualityTier2(builder, self.craftQualityTier2)
+        ItemExcelAddShiftingCraftQuality(builder, self.shiftingCraftQuality)
+        ItemExcelAddMaxGiftTags(builder, self.maxGiftTags)
+        if self.shopCategory is not None:
+            ItemExcelAddShopCategory(builder, shopCategory)
+        if self.expirationDateTime is not None:
+            ItemExcelAddExpirationDateTime(builder, expirationDateTime)
+        ItemExcelAddExpirationNotifyDateIn(builder, self.expirationNotifyDateIn)
+        ItemExcelAddIsOverrideExpiration(builder, self.isOverrideExpiration)
+        ItemExcelAddShortcutTypeId(builder, self.shortcutTypeId)
+        ItemExcelAddGachaTicket(builder, self.gachaTicket)
+        ItemExcelAddAlertPopupId(builder, self.alertPopupId)
+        ItemExcelAddShiftingCraftRecipe(builder, self.shiftingCraftRecipe)
+        itemExcel = ItemExcelEnd(builder)
+        return itemExcel

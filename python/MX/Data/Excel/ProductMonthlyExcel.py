@@ -412,3 +412,210 @@ def ProductMonthlyExcelEnd(builder):
 
 def End(builder):
     return ProductMonthlyExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ProductMonthlyExcelT(object):
+
+    # ProductMonthlyExcelT
+    def __init__(
+        self,
+        id = 0,
+        productId = None,
+        teenProductId = None,
+        storeType = 0,
+        price = 0,
+        priceReference = None,
+        productTagType = 0,
+        monthlyDays = 0,
+        useMonthlyProductCheck = False,
+        purchaseCountLimit = 0,
+        parcelType = None,
+        parcelId = None,
+        parcelAmount = None,
+        enterCostReduceGroupId = 0,
+        dailyParcelType = None,
+        dailyParcelId = None,
+        dailyParcelAmount = None,
+    ):
+        self.id = id  # type: int
+        self.productId = productId  # type: Optional[str]
+        self.teenProductId = teenProductId  # type: Optional[str]
+        self.storeType = storeType  # type: int
+        self.price = price  # type: int
+        self.priceReference = priceReference  # type: Optional[str]
+        self.productTagType = productTagType  # type: int
+        self.monthlyDays = monthlyDays  # type: int
+        self.useMonthlyProductCheck = useMonthlyProductCheck  # type: bool
+        self.purchaseCountLimit = purchaseCountLimit  # type: int
+        self.parcelType = parcelType  # type: Optional[List[int]]
+        self.parcelId = parcelId  # type: Optional[List[int]]
+        self.parcelAmount = parcelAmount  # type: Optional[List[int]]
+        self.enterCostReduceGroupId = enterCostReduceGroupId  # type: int
+        self.dailyParcelType = dailyParcelType  # type: Optional[List[int]]
+        self.dailyParcelId = dailyParcelId  # type: Optional[List[int]]
+        self.dailyParcelAmount = dailyParcelAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        productMonthlyExcel = ProductMonthlyExcel()
+        productMonthlyExcel.Init(buf, pos)
+        return cls.InitFromObj(productMonthlyExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, productMonthlyExcel):
+        x = ProductMonthlyExcelT()
+        x._UnPack(productMonthlyExcel)
+        return x
+
+    # ProductMonthlyExcelT
+    def _UnPack(self, productMonthlyExcel):
+        if productMonthlyExcel is None:
+            return
+        self.id = productMonthlyExcel.Id()
+        self.productId = productMonthlyExcel.ProductId()
+        self.teenProductId = productMonthlyExcel.TeenProductId()
+        self.storeType = productMonthlyExcel.StoreType()
+        self.price = productMonthlyExcel.Price()
+        self.priceReference = productMonthlyExcel.PriceReference()
+        self.productTagType = productMonthlyExcel.ProductTagType()
+        self.monthlyDays = productMonthlyExcel.MonthlyDays()
+        self.useMonthlyProductCheck = productMonthlyExcel.UseMonthlyProductCheck()
+        self.purchaseCountLimit = productMonthlyExcel.PurchaseCountLimit()
+        if not productMonthlyExcel.ParcelTypeIsNone():
+            if np is None:
+                self.parcelType = []
+                for i in range(productMonthlyExcel.ParcelTypeLength()):
+                    self.parcelType.append(productMonthlyExcel.ParcelType(i))
+            else:
+                self.parcelType = productMonthlyExcel.ParcelTypeAsNumpy()
+        if not productMonthlyExcel.ParcelIdIsNone():
+            if np is None:
+                self.parcelId = []
+                for i in range(productMonthlyExcel.ParcelIdLength()):
+                    self.parcelId.append(productMonthlyExcel.ParcelId(i))
+            else:
+                self.parcelId = productMonthlyExcel.ParcelIdAsNumpy()
+        if not productMonthlyExcel.ParcelAmountIsNone():
+            if np is None:
+                self.parcelAmount = []
+                for i in range(productMonthlyExcel.ParcelAmountLength()):
+                    self.parcelAmount.append(productMonthlyExcel.ParcelAmount(i))
+            else:
+                self.parcelAmount = productMonthlyExcel.ParcelAmountAsNumpy()
+        self.enterCostReduceGroupId = productMonthlyExcel.EnterCostReduceGroupId()
+        if not productMonthlyExcel.DailyParcelTypeIsNone():
+            if np is None:
+                self.dailyParcelType = []
+                for i in range(productMonthlyExcel.DailyParcelTypeLength()):
+                    self.dailyParcelType.append(productMonthlyExcel.DailyParcelType(i))
+            else:
+                self.dailyParcelType = productMonthlyExcel.DailyParcelTypeAsNumpy()
+        if not productMonthlyExcel.DailyParcelIdIsNone():
+            if np is None:
+                self.dailyParcelId = []
+                for i in range(productMonthlyExcel.DailyParcelIdLength()):
+                    self.dailyParcelId.append(productMonthlyExcel.DailyParcelId(i))
+            else:
+                self.dailyParcelId = productMonthlyExcel.DailyParcelIdAsNumpy()
+        if not productMonthlyExcel.DailyParcelAmountIsNone():
+            if np is None:
+                self.dailyParcelAmount = []
+                for i in range(productMonthlyExcel.DailyParcelAmountLength()):
+                    self.dailyParcelAmount.append(productMonthlyExcel.DailyParcelAmount(i))
+            else:
+                self.dailyParcelAmount = productMonthlyExcel.DailyParcelAmountAsNumpy()
+
+    # ProductMonthlyExcelT
+    def Pack(self, builder):
+        if self.productId is not None:
+            productId = builder.CreateString(self.productId)
+        if self.teenProductId is not None:
+            teenProductId = builder.CreateString(self.teenProductId)
+        if self.priceReference is not None:
+            priceReference = builder.CreateString(self.priceReference)
+        if self.parcelType is not None:
+            if np is not None and type(self.parcelType) is np.ndarray:
+                parcelType = builder.CreateNumpyVector(self.parcelType)
+            else:
+                ProductMonthlyExcelStartParcelTypeVector(builder, len(self.parcelType))
+                for i in reversed(range(len(self.parcelType))):
+                    builder.PrependInt32(self.parcelType[i])
+                parcelType = builder.EndVector()
+        if self.parcelId is not None:
+            if np is not None and type(self.parcelId) is np.ndarray:
+                parcelId = builder.CreateNumpyVector(self.parcelId)
+            else:
+                ProductMonthlyExcelStartParcelIdVector(builder, len(self.parcelId))
+                for i in reversed(range(len(self.parcelId))):
+                    builder.PrependInt64(self.parcelId[i])
+                parcelId = builder.EndVector()
+        if self.parcelAmount is not None:
+            if np is not None and type(self.parcelAmount) is np.ndarray:
+                parcelAmount = builder.CreateNumpyVector(self.parcelAmount)
+            else:
+                ProductMonthlyExcelStartParcelAmountVector(builder, len(self.parcelAmount))
+                for i in reversed(range(len(self.parcelAmount))):
+                    builder.PrependInt64(self.parcelAmount[i])
+                parcelAmount = builder.EndVector()
+        if self.dailyParcelType is not None:
+            if np is not None and type(self.dailyParcelType) is np.ndarray:
+                dailyParcelType = builder.CreateNumpyVector(self.dailyParcelType)
+            else:
+                ProductMonthlyExcelStartDailyParcelTypeVector(builder, len(self.dailyParcelType))
+                for i in reversed(range(len(self.dailyParcelType))):
+                    builder.PrependInt32(self.dailyParcelType[i])
+                dailyParcelType = builder.EndVector()
+        if self.dailyParcelId is not None:
+            if np is not None and type(self.dailyParcelId) is np.ndarray:
+                dailyParcelId = builder.CreateNumpyVector(self.dailyParcelId)
+            else:
+                ProductMonthlyExcelStartDailyParcelIdVector(builder, len(self.dailyParcelId))
+                for i in reversed(range(len(self.dailyParcelId))):
+                    builder.PrependInt64(self.dailyParcelId[i])
+                dailyParcelId = builder.EndVector()
+        if self.dailyParcelAmount is not None:
+            if np is not None and type(self.dailyParcelAmount) is np.ndarray:
+                dailyParcelAmount = builder.CreateNumpyVector(self.dailyParcelAmount)
+            else:
+                ProductMonthlyExcelStartDailyParcelAmountVector(builder, len(self.dailyParcelAmount))
+                for i in reversed(range(len(self.dailyParcelAmount))):
+                    builder.PrependInt64(self.dailyParcelAmount[i])
+                dailyParcelAmount = builder.EndVector()
+        ProductMonthlyExcelStart(builder)
+        ProductMonthlyExcelAddId(builder, self.id)
+        if self.productId is not None:
+            ProductMonthlyExcelAddProductId(builder, productId)
+        if self.teenProductId is not None:
+            ProductMonthlyExcelAddTeenProductId(builder, teenProductId)
+        ProductMonthlyExcelAddStoreType(builder, self.storeType)
+        ProductMonthlyExcelAddPrice(builder, self.price)
+        if self.priceReference is not None:
+            ProductMonthlyExcelAddPriceReference(builder, priceReference)
+        ProductMonthlyExcelAddProductTagType(builder, self.productTagType)
+        ProductMonthlyExcelAddMonthlyDays(builder, self.monthlyDays)
+        ProductMonthlyExcelAddUseMonthlyProductCheck(builder, self.useMonthlyProductCheck)
+        ProductMonthlyExcelAddPurchaseCountLimit(builder, self.purchaseCountLimit)
+        if self.parcelType is not None:
+            ProductMonthlyExcelAddParcelType(builder, parcelType)
+        if self.parcelId is not None:
+            ProductMonthlyExcelAddParcelId(builder, parcelId)
+        if self.parcelAmount is not None:
+            ProductMonthlyExcelAddParcelAmount(builder, parcelAmount)
+        ProductMonthlyExcelAddEnterCostReduceGroupId(builder, self.enterCostReduceGroupId)
+        if self.dailyParcelType is not None:
+            ProductMonthlyExcelAddDailyParcelType(builder, dailyParcelType)
+        if self.dailyParcelId is not None:
+            ProductMonthlyExcelAddDailyParcelId(builder, dailyParcelId)
+        if self.dailyParcelAmount is not None:
+            ProductMonthlyExcelAddDailyParcelAmount(builder, dailyParcelAmount)
+        productMonthlyExcel = ProductMonthlyExcelEnd(builder)
+        return productMonthlyExcel

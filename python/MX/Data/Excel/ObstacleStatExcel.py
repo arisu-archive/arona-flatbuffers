@@ -109,28 +109,77 @@ class ObstacleStatExcel(object):
         return 0
 
     # ObstacleStatExcel
-    def EnhanceStructureRate(self):
+    def EnhanceCompositeArmorRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(28))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ObstacleStatExcel
-    def EnhanceNormalArmorRate(self):
+    def EnhanceStructureRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(30))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
     # ObstacleStatExcel
-    def ReduceExDamagedRate(self):
+    def EnhanceNormalArmorRate(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
+    # ObstacleStatExcel
+    def ReduceExDamagedRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(34))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ObstacleStatExcel
+    def ReduceBasicsDamagedRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(36))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ObstacleStatExcel
+    def ReduceWeakDamagedRate(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(38))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ObstacleStatExcel
+    def WeakDamagedRatio(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(40))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ObstacleStatExcel
+    def EffectiveDamagedRatio(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(42))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ObstacleStatExcel
+    def NormalDamagedRatio(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(44))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
+    # ObstacleStatExcel
+    def ResistDamagedRatio(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
 def ObstacleStatExcelStart(builder):
-    builder.StartObject(15)
+    builder.StartObject(22)
 
 def Start(builder):
     ObstacleStatExcelStart(builder)
@@ -207,26 +256,195 @@ def ObstacleStatExcelAddEnhanceElasticArmorRate(builder, enhanceElasticArmorRate
 def AddEnhanceElasticArmorRate(builder, enhanceElasticArmorRate):
     ObstacleStatExcelAddEnhanceElasticArmorRate(builder, enhanceElasticArmorRate)
 
+def ObstacleStatExcelAddEnhanceCompositeArmorRate(builder, enhanceCompositeArmorRate):
+    builder.PrependInt64Slot(12, enhanceCompositeArmorRate, 0)
+
+def AddEnhanceCompositeArmorRate(builder, enhanceCompositeArmorRate):
+    ObstacleStatExcelAddEnhanceCompositeArmorRate(builder, enhanceCompositeArmorRate)
+
 def ObstacleStatExcelAddEnhanceStructureRate(builder, enhanceStructureRate):
-    builder.PrependInt64Slot(12, enhanceStructureRate, 0)
+    builder.PrependInt64Slot(13, enhanceStructureRate, 0)
 
 def AddEnhanceStructureRate(builder, enhanceStructureRate):
     ObstacleStatExcelAddEnhanceStructureRate(builder, enhanceStructureRate)
 
 def ObstacleStatExcelAddEnhanceNormalArmorRate(builder, enhanceNormalArmorRate):
-    builder.PrependInt64Slot(13, enhanceNormalArmorRate, 0)
+    builder.PrependInt64Slot(14, enhanceNormalArmorRate, 0)
 
 def AddEnhanceNormalArmorRate(builder, enhanceNormalArmorRate):
     ObstacleStatExcelAddEnhanceNormalArmorRate(builder, enhanceNormalArmorRate)
 
 def ObstacleStatExcelAddReduceExDamagedRate(builder, reduceExDamagedRate):
-    builder.PrependInt64Slot(14, reduceExDamagedRate, 0)
+    builder.PrependInt64Slot(15, reduceExDamagedRate, 0)
 
 def AddReduceExDamagedRate(builder, reduceExDamagedRate):
     ObstacleStatExcelAddReduceExDamagedRate(builder, reduceExDamagedRate)
+
+def ObstacleStatExcelAddReduceBasicsDamagedRate(builder, reduceBasicsDamagedRate):
+    builder.PrependInt64Slot(16, reduceBasicsDamagedRate, 0)
+
+def AddReduceBasicsDamagedRate(builder, reduceBasicsDamagedRate):
+    ObstacleStatExcelAddReduceBasicsDamagedRate(builder, reduceBasicsDamagedRate)
+
+def ObstacleStatExcelAddReduceWeakDamagedRate(builder, reduceWeakDamagedRate):
+    builder.PrependInt64Slot(17, reduceWeakDamagedRate, 0)
+
+def AddReduceWeakDamagedRate(builder, reduceWeakDamagedRate):
+    ObstacleStatExcelAddReduceWeakDamagedRate(builder, reduceWeakDamagedRate)
+
+def ObstacleStatExcelAddWeakDamagedRatio(builder, weakDamagedRatio):
+    builder.PrependInt64Slot(18, weakDamagedRatio, 0)
+
+def AddWeakDamagedRatio(builder, weakDamagedRatio):
+    ObstacleStatExcelAddWeakDamagedRatio(builder, weakDamagedRatio)
+
+def ObstacleStatExcelAddEffectiveDamagedRatio(builder, effectiveDamagedRatio):
+    builder.PrependInt64Slot(19, effectiveDamagedRatio, 0)
+
+def AddEffectiveDamagedRatio(builder, effectiveDamagedRatio):
+    ObstacleStatExcelAddEffectiveDamagedRatio(builder, effectiveDamagedRatio)
+
+def ObstacleStatExcelAddNormalDamagedRatio(builder, normalDamagedRatio):
+    builder.PrependInt64Slot(20, normalDamagedRatio, 0)
+
+def AddNormalDamagedRatio(builder, normalDamagedRatio):
+    ObstacleStatExcelAddNormalDamagedRatio(builder, normalDamagedRatio)
+
+def ObstacleStatExcelAddResistDamagedRatio(builder, resistDamagedRatio):
+    builder.PrependInt64Slot(21, resistDamagedRatio, 0)
+
+def AddResistDamagedRatio(builder, resistDamagedRatio):
+    ObstacleStatExcelAddResistDamagedRatio(builder, resistDamagedRatio)
 
 def ObstacleStatExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return ObstacleStatExcelEnd(builder)
+
+
+class ObstacleStatExcelT(object):
+
+    # ObstacleStatExcelT
+    def __init__(
+        self,
+        stringId = 0,
+        name = None,
+        maxHp1 = 0,
+        maxHp100 = 0,
+        blockRate = 0,
+        dodge = 0,
+        canNotStandRange = 0,
+        highlightFloaterHeight = 0.0,
+        enhanceLightArmorRate = 0,
+        enhanceHeavyArmorRate = 0,
+        enhanceUnarmedRate = 0,
+        enhanceElasticArmorRate = 0,
+        enhanceCompositeArmorRate = 0,
+        enhanceStructureRate = 0,
+        enhanceNormalArmorRate = 0,
+        reduceExDamagedRate = 0,
+        reduceBasicsDamagedRate = 0,
+        reduceWeakDamagedRate = 0,
+        weakDamagedRatio = 0,
+        effectiveDamagedRatio = 0,
+        normalDamagedRatio = 0,
+        resistDamagedRatio = 0,
+    ):
+        self.stringId = stringId  # type: int
+        self.name = name  # type: Optional[str]
+        self.maxHp1 = maxHp1  # type: int
+        self.maxHp100 = maxHp100  # type: int
+        self.blockRate = blockRate  # type: int
+        self.dodge = dodge  # type: int
+        self.canNotStandRange = canNotStandRange  # type: int
+        self.highlightFloaterHeight = highlightFloaterHeight  # type: float
+        self.enhanceLightArmorRate = enhanceLightArmorRate  # type: int
+        self.enhanceHeavyArmorRate = enhanceHeavyArmorRate  # type: int
+        self.enhanceUnarmedRate = enhanceUnarmedRate  # type: int
+        self.enhanceElasticArmorRate = enhanceElasticArmorRate  # type: int
+        self.enhanceCompositeArmorRate = enhanceCompositeArmorRate  # type: int
+        self.enhanceStructureRate = enhanceStructureRate  # type: int
+        self.enhanceNormalArmorRate = enhanceNormalArmorRate  # type: int
+        self.reduceExDamagedRate = reduceExDamagedRate  # type: int
+        self.reduceBasicsDamagedRate = reduceBasicsDamagedRate  # type: int
+        self.reduceWeakDamagedRate = reduceWeakDamagedRate  # type: int
+        self.weakDamagedRatio = weakDamagedRatio  # type: int
+        self.effectiveDamagedRatio = effectiveDamagedRatio  # type: int
+        self.normalDamagedRatio = normalDamagedRatio  # type: int
+        self.resistDamagedRatio = resistDamagedRatio  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        obstacleStatExcel = ObstacleStatExcel()
+        obstacleStatExcel.Init(buf, pos)
+        return cls.InitFromObj(obstacleStatExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, obstacleStatExcel):
+        x = ObstacleStatExcelT()
+        x._UnPack(obstacleStatExcel)
+        return x
+
+    # ObstacleStatExcelT
+    def _UnPack(self, obstacleStatExcel):
+        if obstacleStatExcel is None:
+            return
+        self.stringId = obstacleStatExcel.StringId()
+        self.name = obstacleStatExcel.Name()
+        self.maxHp1 = obstacleStatExcel.MaxHp1()
+        self.maxHp100 = obstacleStatExcel.MaxHp100()
+        self.blockRate = obstacleStatExcel.BlockRate()
+        self.dodge = obstacleStatExcel.Dodge()
+        self.canNotStandRange = obstacleStatExcel.CanNotStandRange()
+        self.highlightFloaterHeight = obstacleStatExcel.HighlightFloaterHeight()
+        self.enhanceLightArmorRate = obstacleStatExcel.EnhanceLightArmorRate()
+        self.enhanceHeavyArmorRate = obstacleStatExcel.EnhanceHeavyArmorRate()
+        self.enhanceUnarmedRate = obstacleStatExcel.EnhanceUnarmedRate()
+        self.enhanceElasticArmorRate = obstacleStatExcel.EnhanceElasticArmorRate()
+        self.enhanceCompositeArmorRate = obstacleStatExcel.EnhanceCompositeArmorRate()
+        self.enhanceStructureRate = obstacleStatExcel.EnhanceStructureRate()
+        self.enhanceNormalArmorRate = obstacleStatExcel.EnhanceNormalArmorRate()
+        self.reduceExDamagedRate = obstacleStatExcel.ReduceExDamagedRate()
+        self.reduceBasicsDamagedRate = obstacleStatExcel.ReduceBasicsDamagedRate()
+        self.reduceWeakDamagedRate = obstacleStatExcel.ReduceWeakDamagedRate()
+        self.weakDamagedRatio = obstacleStatExcel.WeakDamagedRatio()
+        self.effectiveDamagedRatio = obstacleStatExcel.EffectiveDamagedRatio()
+        self.normalDamagedRatio = obstacleStatExcel.NormalDamagedRatio()
+        self.resistDamagedRatio = obstacleStatExcel.ResistDamagedRatio()
+
+    # ObstacleStatExcelT
+    def Pack(self, builder):
+        if self.name is not None:
+            name = builder.CreateString(self.name)
+        ObstacleStatExcelStart(builder)
+        ObstacleStatExcelAddStringId(builder, self.stringId)
+        if self.name is not None:
+            ObstacleStatExcelAddName(builder, name)
+        ObstacleStatExcelAddMaxHp1(builder, self.maxHp1)
+        ObstacleStatExcelAddMaxHp100(builder, self.maxHp100)
+        ObstacleStatExcelAddBlockRate(builder, self.blockRate)
+        ObstacleStatExcelAddDodge(builder, self.dodge)
+        ObstacleStatExcelAddCanNotStandRange(builder, self.canNotStandRange)
+        ObstacleStatExcelAddHighlightFloaterHeight(builder, self.highlightFloaterHeight)
+        ObstacleStatExcelAddEnhanceLightArmorRate(builder, self.enhanceLightArmorRate)
+        ObstacleStatExcelAddEnhanceHeavyArmorRate(builder, self.enhanceHeavyArmorRate)
+        ObstacleStatExcelAddEnhanceUnarmedRate(builder, self.enhanceUnarmedRate)
+        ObstacleStatExcelAddEnhanceElasticArmorRate(builder, self.enhanceElasticArmorRate)
+        ObstacleStatExcelAddEnhanceCompositeArmorRate(builder, self.enhanceCompositeArmorRate)
+        ObstacleStatExcelAddEnhanceStructureRate(builder, self.enhanceStructureRate)
+        ObstacleStatExcelAddEnhanceNormalArmorRate(builder, self.enhanceNormalArmorRate)
+        ObstacleStatExcelAddReduceExDamagedRate(builder, self.reduceExDamagedRate)
+        ObstacleStatExcelAddReduceBasicsDamagedRate(builder, self.reduceBasicsDamagedRate)
+        ObstacleStatExcelAddReduceWeakDamagedRate(builder, self.reduceWeakDamagedRate)
+        ObstacleStatExcelAddWeakDamagedRatio(builder, self.weakDamagedRatio)
+        ObstacleStatExcelAddEffectiveDamagedRatio(builder, self.effectiveDamagedRatio)
+        ObstacleStatExcelAddNormalDamagedRatio(builder, self.normalDamagedRatio)
+        ObstacleStatExcelAddResistDamagedRatio(builder, self.resistDamagedRatio)
+        obstacleStatExcel = ObstacleStatExcelEnd(builder)
+        return obstacleStatExcel

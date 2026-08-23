@@ -164,3 +164,98 @@ def TutorialExcelEnd(builder):
 
 def End(builder):
     return TutorialExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class TutorialExcelT(object):
+
+    # TutorialExcelT
+    def __init__(
+        self,
+        id = 0,
+        completionReportEventName = None,
+        compulsoryTutorial = False,
+        descriptionTutorial = False,
+        tutorialStageId = 0,
+        uiName = None,
+        tutorialParentName = None,
+    ):
+        self.id = id  # type: int
+        self.completionReportEventName = completionReportEventName  # type: Optional[str]
+        self.compulsoryTutorial = compulsoryTutorial  # type: bool
+        self.descriptionTutorial = descriptionTutorial  # type: bool
+        self.tutorialStageId = tutorialStageId  # type: int
+        self.uiName = uiName  # type: Optional[List[Optional[str]]]
+        self.tutorialParentName = tutorialParentName  # type: Optional[List[Optional[str]]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        tutorialExcel = TutorialExcel()
+        tutorialExcel.Init(buf, pos)
+        return cls.InitFromObj(tutorialExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, tutorialExcel):
+        x = TutorialExcelT()
+        x._UnPack(tutorialExcel)
+        return x
+
+    # TutorialExcelT
+    def _UnPack(self, tutorialExcel):
+        if tutorialExcel is None:
+            return
+        self.id = tutorialExcel.Id()
+        self.completionReportEventName = tutorialExcel.CompletionReportEventName()
+        self.compulsoryTutorial = tutorialExcel.CompulsoryTutorial()
+        self.descriptionTutorial = tutorialExcel.DescriptionTutorial()
+        self.tutorialStageId = tutorialExcel.TutorialStageId()
+        if not tutorialExcel.UiNameIsNone():
+            self.uiName = []
+            for i in range(tutorialExcel.UiNameLength()):
+                self.uiName.append(tutorialExcel.UiName(i))
+        if not tutorialExcel.TutorialParentNameIsNone():
+            self.tutorialParentName = []
+            for i in range(tutorialExcel.TutorialParentNameLength()):
+                self.tutorialParentName.append(tutorialExcel.TutorialParentName(i))
+
+    # TutorialExcelT
+    def Pack(self, builder):
+        if self.completionReportEventName is not None:
+            completionReportEventName = builder.CreateString(self.completionReportEventName)
+        if self.uiName is not None:
+            uiNamelist = []
+            for i in range(len(self.uiName)):
+                uiNamelist.append(builder.CreateString(self.uiName[i]))
+            TutorialExcelStartUiNameVector(builder, len(self.uiName))
+            for i in reversed(range(len(self.uiName))):
+                builder.PrependUOffsetTRelative(uiNamelist[i])
+            uiName = builder.EndVector()
+        if self.tutorialParentName is not None:
+            tutorialParentNamelist = []
+            for i in range(len(self.tutorialParentName)):
+                tutorialParentNamelist.append(builder.CreateString(self.tutorialParentName[i]))
+            TutorialExcelStartTutorialParentNameVector(builder, len(self.tutorialParentName))
+            for i in reversed(range(len(self.tutorialParentName))):
+                builder.PrependUOffsetTRelative(tutorialParentNamelist[i])
+            tutorialParentName = builder.EndVector()
+        TutorialExcelStart(builder)
+        TutorialExcelAddId(builder, self.id)
+        if self.completionReportEventName is not None:
+            TutorialExcelAddCompletionReportEventName(builder, completionReportEventName)
+        TutorialExcelAddCompulsoryTutorial(builder, self.compulsoryTutorial)
+        TutorialExcelAddDescriptionTutorial(builder, self.descriptionTutorial)
+        TutorialExcelAddTutorialStageId(builder, self.tutorialStageId)
+        if self.uiName is not None:
+            TutorialExcelAddUiName(builder, uiName)
+        if self.tutorialParentName is not None:
+            TutorialExcelAddTutorialParentName(builder, tutorialParentName)
+        tutorialExcel = TutorialExcelEnd(builder)
+        return tutorialExcel

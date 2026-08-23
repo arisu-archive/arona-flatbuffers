@@ -61,3 +61,47 @@ def MissionEmergencyCompleteExcelEnd(builder):
 
 def End(builder):
     return MissionEmergencyCompleteExcelEnd(builder)
+
+
+class MissionEmergencyCompleteExcelT(object):
+
+    # MissionEmergencyCompleteExcelT
+    def __init__(
+        self,
+        missionId = 0,
+        emergencyComplete = False,
+    ):
+        self.missionId = missionId  # type: int
+        self.emergencyComplete = emergencyComplete  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        missionEmergencyCompleteExcel = MissionEmergencyCompleteExcel()
+        missionEmergencyCompleteExcel.Init(buf, pos)
+        return cls.InitFromObj(missionEmergencyCompleteExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, missionEmergencyCompleteExcel):
+        x = MissionEmergencyCompleteExcelT()
+        x._UnPack(missionEmergencyCompleteExcel)
+        return x
+
+    # MissionEmergencyCompleteExcelT
+    def _UnPack(self, missionEmergencyCompleteExcel):
+        if missionEmergencyCompleteExcel is None:
+            return
+        self.missionId = missionEmergencyCompleteExcel.MissionId()
+        self.emergencyComplete = missionEmergencyCompleteExcel.EmergencyComplete()
+
+    # MissionEmergencyCompleteExcelT
+    def Pack(self, builder):
+        MissionEmergencyCompleteExcelStart(builder)
+        MissionEmergencyCompleteExcelAddMissionId(builder, self.missionId)
+        MissionEmergencyCompleteExcelAddEmergencyComplete(builder, self.emergencyComplete)
+        missionEmergencyCompleteExcel = MissionEmergencyCompleteExcelEnd(builder)
+        return missionEmergencyCompleteExcel

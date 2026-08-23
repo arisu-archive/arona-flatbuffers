@@ -113,3 +113,66 @@ def MinigameRoadPuzzleRailTileExcelEnd(builder):
 
 def End(builder):
     return MinigameRoadPuzzleRailTileExcelEnd(builder)
+
+
+class MinigameRoadPuzzleRailTileExcelT(object):
+
+    # MinigameRoadPuzzleRailTileExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        uniqueId = 0,
+        groupId = 0,
+        originalTile = False,
+        prefabName = None,
+        railTileType = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.groupId = groupId  # type: int
+        self.originalTile = originalTile  # type: bool
+        self.prefabName = prefabName  # type: Optional[str]
+        self.railTileType = railTileType  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameRoadPuzzleRailTileExcel = MinigameRoadPuzzleRailTileExcel()
+        minigameRoadPuzzleRailTileExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameRoadPuzzleRailTileExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameRoadPuzzleRailTileExcel):
+        x = MinigameRoadPuzzleRailTileExcelT()
+        x._UnPack(minigameRoadPuzzleRailTileExcel)
+        return x
+
+    # MinigameRoadPuzzleRailTileExcelT
+    def _UnPack(self, minigameRoadPuzzleRailTileExcel):
+        if minigameRoadPuzzleRailTileExcel is None:
+            return
+        self.eventContentId = minigameRoadPuzzleRailTileExcel.EventContentId()
+        self.uniqueId = minigameRoadPuzzleRailTileExcel.UniqueId()
+        self.groupId = minigameRoadPuzzleRailTileExcel.GroupId()
+        self.originalTile = minigameRoadPuzzleRailTileExcel.OriginalTile()
+        self.prefabName = minigameRoadPuzzleRailTileExcel.PrefabName()
+        self.railTileType = minigameRoadPuzzleRailTileExcel.RailTileType()
+
+    # MinigameRoadPuzzleRailTileExcelT
+    def Pack(self, builder):
+        if self.prefabName is not None:
+            prefabName = builder.CreateString(self.prefabName)
+        MinigameRoadPuzzleRailTileExcelStart(builder)
+        MinigameRoadPuzzleRailTileExcelAddEventContentId(builder, self.eventContentId)
+        MinigameRoadPuzzleRailTileExcelAddUniqueId(builder, self.uniqueId)
+        MinigameRoadPuzzleRailTileExcelAddGroupId(builder, self.groupId)
+        MinigameRoadPuzzleRailTileExcelAddOriginalTile(builder, self.originalTile)
+        if self.prefabName is not None:
+            MinigameRoadPuzzleRailTileExcelAddPrefabName(builder, prefabName)
+        MinigameRoadPuzzleRailTileExcelAddRailTileType(builder, self.railTileType)
+        minigameRoadPuzzleRailTileExcel = MinigameRoadPuzzleRailTileExcelEnd(builder)
+        return minigameRoadPuzzleRailTileExcel

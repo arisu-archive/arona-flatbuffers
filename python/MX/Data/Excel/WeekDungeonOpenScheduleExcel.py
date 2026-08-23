@@ -87,3 +87,66 @@ def WeekDungeonOpenScheduleExcelEnd(builder):
 
 def End(builder):
     return WeekDungeonOpenScheduleExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class WeekDungeonOpenScheduleExcelT(object):
+
+    # WeekDungeonOpenScheduleExcelT
+    def __init__(
+        self,
+        weekDay = 0,
+        open = None,
+    ):
+        self.weekDay = weekDay  # type: int
+        self.open = open  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        weekDungeonOpenScheduleExcel = WeekDungeonOpenScheduleExcel()
+        weekDungeonOpenScheduleExcel.Init(buf, pos)
+        return cls.InitFromObj(weekDungeonOpenScheduleExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, weekDungeonOpenScheduleExcel):
+        x = WeekDungeonOpenScheduleExcelT()
+        x._UnPack(weekDungeonOpenScheduleExcel)
+        return x
+
+    # WeekDungeonOpenScheduleExcelT
+    def _UnPack(self, weekDungeonOpenScheduleExcel):
+        if weekDungeonOpenScheduleExcel is None:
+            return
+        self.weekDay = weekDungeonOpenScheduleExcel.WeekDay()
+        if not weekDungeonOpenScheduleExcel.OpenIsNone():
+            if np is None:
+                self.open = []
+                for i in range(weekDungeonOpenScheduleExcel.OpenLength()):
+                    self.open.append(weekDungeonOpenScheduleExcel.Open(i))
+            else:
+                self.open = weekDungeonOpenScheduleExcel.OpenAsNumpy()
+
+    # WeekDungeonOpenScheduleExcelT
+    def Pack(self, builder):
+        if self.open is not None:
+            if np is not None and type(self.open) is np.ndarray:
+                open = builder.CreateNumpyVector(self.open)
+            else:
+                WeekDungeonOpenScheduleExcelStartOpenVector(builder, len(self.open))
+                for i in reversed(range(len(self.open))):
+                    builder.PrependInt32(self.open[i])
+                open = builder.EndVector()
+        WeekDungeonOpenScheduleExcelStart(builder)
+        WeekDungeonOpenScheduleExcelAddWeekDay(builder, self.weekDay)
+        if self.open is not None:
+            WeekDungeonOpenScheduleExcelAddOpen(builder, open)
+        weekDungeonOpenScheduleExcel = WeekDungeonOpenScheduleExcelEnd(builder)
+        return weekDungeonOpenScheduleExcel

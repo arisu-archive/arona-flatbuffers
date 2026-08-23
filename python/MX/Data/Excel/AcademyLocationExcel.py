@@ -204,3 +204,115 @@ def AcademyLocationExcelEnd(builder):
 
 def End(builder):
     return AcademyLocationExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class AcademyLocationExcelT(object):
+
+    # AcademyLocationExcelT
+    def __init__(
+        self,
+        id = 0,
+        localizeEtcId = 0,
+        prefabPath = None,
+        iconImagePath = None,
+        openCondition = None,
+        openConditionCount = None,
+        rewardParcelType = 0,
+        rewardParcelId = 0,
+        openTeacherRank = 0,
+    ):
+        self.id = id  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.prefabPath = prefabPath  # type: Optional[str]
+        self.iconImagePath = iconImagePath  # type: Optional[str]
+        self.openCondition = openCondition  # type: Optional[List[int]]
+        self.openConditionCount = openConditionCount  # type: Optional[List[int]]
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelId = rewardParcelId  # type: int
+        self.openTeacherRank = openTeacherRank  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        academyLocationExcel = AcademyLocationExcel()
+        academyLocationExcel.Init(buf, pos)
+        return cls.InitFromObj(academyLocationExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, academyLocationExcel):
+        x = AcademyLocationExcelT()
+        x._UnPack(academyLocationExcel)
+        return x
+
+    # AcademyLocationExcelT
+    def _UnPack(self, academyLocationExcel):
+        if academyLocationExcel is None:
+            return
+        self.id = academyLocationExcel.Id()
+        self.localizeEtcId = academyLocationExcel.LocalizeEtcId()
+        self.prefabPath = academyLocationExcel.PrefabPath()
+        self.iconImagePath = academyLocationExcel.IconImagePath()
+        if not academyLocationExcel.OpenConditionIsNone():
+            if np is None:
+                self.openCondition = []
+                for i in range(academyLocationExcel.OpenConditionLength()):
+                    self.openCondition.append(academyLocationExcel.OpenCondition(i))
+            else:
+                self.openCondition = academyLocationExcel.OpenConditionAsNumpy()
+        if not academyLocationExcel.OpenConditionCountIsNone():
+            if np is None:
+                self.openConditionCount = []
+                for i in range(academyLocationExcel.OpenConditionCountLength()):
+                    self.openConditionCount.append(academyLocationExcel.OpenConditionCount(i))
+            else:
+                self.openConditionCount = academyLocationExcel.OpenConditionCountAsNumpy()
+        self.rewardParcelType = academyLocationExcel.RewardParcelType()
+        self.rewardParcelId = academyLocationExcel.RewardParcelId()
+        self.openTeacherRank = academyLocationExcel.OpenTeacherRank()
+
+    # AcademyLocationExcelT
+    def Pack(self, builder):
+        if self.prefabPath is not None:
+            prefabPath = builder.CreateString(self.prefabPath)
+        if self.iconImagePath is not None:
+            iconImagePath = builder.CreateString(self.iconImagePath)
+        if self.openCondition is not None:
+            if np is not None and type(self.openCondition) is np.ndarray:
+                openCondition = builder.CreateNumpyVector(self.openCondition)
+            else:
+                AcademyLocationExcelStartOpenConditionVector(builder, len(self.openCondition))
+                for i in reversed(range(len(self.openCondition))):
+                    builder.PrependInt32(self.openCondition[i])
+                openCondition = builder.EndVector()
+        if self.openConditionCount is not None:
+            if np is not None and type(self.openConditionCount) is np.ndarray:
+                openConditionCount = builder.CreateNumpyVector(self.openConditionCount)
+            else:
+                AcademyLocationExcelStartOpenConditionCountVector(builder, len(self.openConditionCount))
+                for i in reversed(range(len(self.openConditionCount))):
+                    builder.PrependInt64(self.openConditionCount[i])
+                openConditionCount = builder.EndVector()
+        AcademyLocationExcelStart(builder)
+        AcademyLocationExcelAddId(builder, self.id)
+        AcademyLocationExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        if self.prefabPath is not None:
+            AcademyLocationExcelAddPrefabPath(builder, prefabPath)
+        if self.iconImagePath is not None:
+            AcademyLocationExcelAddIconImagePath(builder, iconImagePath)
+        if self.openCondition is not None:
+            AcademyLocationExcelAddOpenCondition(builder, openCondition)
+        if self.openConditionCount is not None:
+            AcademyLocationExcelAddOpenConditionCount(builder, openConditionCount)
+        AcademyLocationExcelAddRewardParcelType(builder, self.rewardParcelType)
+        AcademyLocationExcelAddRewardParcelId(builder, self.rewardParcelId)
+        AcademyLocationExcelAddOpenTeacherRank(builder, self.openTeacherRank)
+        academyLocationExcel = AcademyLocationExcelEnd(builder)
+        return academyLocationExcel

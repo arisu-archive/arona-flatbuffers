@@ -113,3 +113,72 @@ def ConquestPlayGuideExcelEnd(builder):
 
 def End(builder):
     return ConquestPlayGuideExcelEnd(builder)
+
+
+class ConquestPlayGuideExcelT(object):
+
+    # ConquestPlayGuideExcelT
+    def __init__(
+        self,
+        id = 0,
+        eventContentId = 0,
+        displayOrder = 0,
+        guideTitle = None,
+        guideImagePath = None,
+        guideText = None,
+    ):
+        self.id = id  # type: int
+        self.eventContentId = eventContentId  # type: int
+        self.displayOrder = displayOrder  # type: int
+        self.guideTitle = guideTitle  # type: Optional[str]
+        self.guideImagePath = guideImagePath  # type: Optional[str]
+        self.guideText = guideText  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestPlayGuideExcel = ConquestPlayGuideExcel()
+        conquestPlayGuideExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestPlayGuideExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestPlayGuideExcel):
+        x = ConquestPlayGuideExcelT()
+        x._UnPack(conquestPlayGuideExcel)
+        return x
+
+    # ConquestPlayGuideExcelT
+    def _UnPack(self, conquestPlayGuideExcel):
+        if conquestPlayGuideExcel is None:
+            return
+        self.id = conquestPlayGuideExcel.Id()
+        self.eventContentId = conquestPlayGuideExcel.EventContentId()
+        self.displayOrder = conquestPlayGuideExcel.DisplayOrder()
+        self.guideTitle = conquestPlayGuideExcel.GuideTitle()
+        self.guideImagePath = conquestPlayGuideExcel.GuideImagePath()
+        self.guideText = conquestPlayGuideExcel.GuideText()
+
+    # ConquestPlayGuideExcelT
+    def Pack(self, builder):
+        if self.guideTitle is not None:
+            guideTitle = builder.CreateString(self.guideTitle)
+        if self.guideImagePath is not None:
+            guideImagePath = builder.CreateString(self.guideImagePath)
+        if self.guideText is not None:
+            guideText = builder.CreateString(self.guideText)
+        ConquestPlayGuideExcelStart(builder)
+        ConquestPlayGuideExcelAddId(builder, self.id)
+        ConquestPlayGuideExcelAddEventContentId(builder, self.eventContentId)
+        ConquestPlayGuideExcelAddDisplayOrder(builder, self.displayOrder)
+        if self.guideTitle is not None:
+            ConquestPlayGuideExcelAddGuideTitle(builder, guideTitle)
+        if self.guideImagePath is not None:
+            ConquestPlayGuideExcelAddGuideImagePath(builder, guideImagePath)
+        if self.guideText is not None:
+            ConquestPlayGuideExcelAddGuideText(builder, guideText)
+        conquestPlayGuideExcel = ConquestPlayGuideExcelEnd(builder)
+        return conquestPlayGuideExcel

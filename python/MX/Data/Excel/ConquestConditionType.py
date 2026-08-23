@@ -2,4 +2,13 @@
 
 # namespace: Excel
 
-# NOTE ConquestConditionType.py does not declare any structs or enums
+class ConquestConditionType(object):
+    None_ = 0
+    TileFriendlyTerritory = 1
+    StepTileComplete = 2
+    StepBossDead = 3
+    StepOpen = 4
+    DeadUnitLeader = 5
+    TileUniqueId = 6
+    UnitOpen = 7
+    StepObjectComplete = 8

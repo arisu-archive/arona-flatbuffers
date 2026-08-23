@@ -438,3 +438,209 @@ def WeekDungeonExcelEnd(builder):
 
 def End(builder):
     return WeekDungeonExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class WeekDungeonExcelT(object):
+
+    # WeekDungeonExcelT
+    def __init__(
+        self,
+        stageId = 0,
+        weekDungeonType = 0,
+        difficulty = 0,
+        battleDuration = 0,
+        prevStageId = 0,
+        stageEnterCostType = None,
+        stageEnterCostId = None,
+        stageEnterCostAmount = None,
+        groundId = 0,
+        starGoal = None,
+        starGoalAmount = None,
+        stageTopography = 0,
+        recommandLevel = 0,
+        stageRewardId = 0,
+        playTimeLimitInSeconds = 0,
+        battleRewardExp = 0,
+        battleRewardPlayerExp = 0,
+        groupBuffId = None,
+        echelonExtensionType = 0,
+    ):
+        self.stageId = stageId  # type: int
+        self.weekDungeonType = weekDungeonType  # type: int
+        self.difficulty = difficulty  # type: int
+        self.battleDuration = battleDuration  # type: int
+        self.prevStageId = prevStageId  # type: int
+        self.stageEnterCostType = stageEnterCostType  # type: Optional[List[int]]
+        self.stageEnterCostId = stageEnterCostId  # type: Optional[List[int]]
+        self.stageEnterCostAmount = stageEnterCostAmount  # type: Optional[List[int]]
+        self.groundId = groundId  # type: int
+        self.starGoal = starGoal  # type: Optional[List[int]]
+        self.starGoalAmount = starGoalAmount  # type: Optional[List[int]]
+        self.stageTopography = stageTopography  # type: int
+        self.recommandLevel = recommandLevel  # type: int
+        self.stageRewardId = stageRewardId  # type: int
+        self.playTimeLimitInSeconds = playTimeLimitInSeconds  # type: int
+        self.battleRewardExp = battleRewardExp  # type: int
+        self.battleRewardPlayerExp = battleRewardPlayerExp  # type: int
+        self.groupBuffId = groupBuffId  # type: Optional[List[int]]
+        self.echelonExtensionType = echelonExtensionType  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        weekDungeonExcel = WeekDungeonExcel()
+        weekDungeonExcel.Init(buf, pos)
+        return cls.InitFromObj(weekDungeonExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, weekDungeonExcel):
+        x = WeekDungeonExcelT()
+        x._UnPack(weekDungeonExcel)
+        return x
+
+    # WeekDungeonExcelT
+    def _UnPack(self, weekDungeonExcel):
+        if weekDungeonExcel is None:
+            return
+        self.stageId = weekDungeonExcel.StageId()
+        self.weekDungeonType = weekDungeonExcel.WeekDungeonType()
+        self.difficulty = weekDungeonExcel.Difficulty()
+        self.battleDuration = weekDungeonExcel.BattleDuration()
+        self.prevStageId = weekDungeonExcel.PrevStageId()
+        if not weekDungeonExcel.StageEnterCostTypeIsNone():
+            if np is None:
+                self.stageEnterCostType = []
+                for i in range(weekDungeonExcel.StageEnterCostTypeLength()):
+                    self.stageEnterCostType.append(weekDungeonExcel.StageEnterCostType(i))
+            else:
+                self.stageEnterCostType = weekDungeonExcel.StageEnterCostTypeAsNumpy()
+        if not weekDungeonExcel.StageEnterCostIdIsNone():
+            if np is None:
+                self.stageEnterCostId = []
+                for i in range(weekDungeonExcel.StageEnterCostIdLength()):
+                    self.stageEnterCostId.append(weekDungeonExcel.StageEnterCostId(i))
+            else:
+                self.stageEnterCostId = weekDungeonExcel.StageEnterCostIdAsNumpy()
+        if not weekDungeonExcel.StageEnterCostAmountIsNone():
+            if np is None:
+                self.stageEnterCostAmount = []
+                for i in range(weekDungeonExcel.StageEnterCostAmountLength()):
+                    self.stageEnterCostAmount.append(weekDungeonExcel.StageEnterCostAmount(i))
+            else:
+                self.stageEnterCostAmount = weekDungeonExcel.StageEnterCostAmountAsNumpy()
+        self.groundId = weekDungeonExcel.GroundId()
+        if not weekDungeonExcel.StarGoalIsNone():
+            if np is None:
+                self.starGoal = []
+                for i in range(weekDungeonExcel.StarGoalLength()):
+                    self.starGoal.append(weekDungeonExcel.StarGoal(i))
+            else:
+                self.starGoal = weekDungeonExcel.StarGoalAsNumpy()
+        if not weekDungeonExcel.StarGoalAmountIsNone():
+            if np is None:
+                self.starGoalAmount = []
+                for i in range(weekDungeonExcel.StarGoalAmountLength()):
+                    self.starGoalAmount.append(weekDungeonExcel.StarGoalAmount(i))
+            else:
+                self.starGoalAmount = weekDungeonExcel.StarGoalAmountAsNumpy()
+        self.stageTopography = weekDungeonExcel.StageTopography()
+        self.recommandLevel = weekDungeonExcel.RecommandLevel()
+        self.stageRewardId = weekDungeonExcel.StageRewardId()
+        self.playTimeLimitInSeconds = weekDungeonExcel.PlayTimeLimitInSeconds()
+        self.battleRewardExp = weekDungeonExcel.BattleRewardExp()
+        self.battleRewardPlayerExp = weekDungeonExcel.BattleRewardPlayerExp()
+        if not weekDungeonExcel.GroupBuffIdIsNone():
+            if np is None:
+                self.groupBuffId = []
+                for i in range(weekDungeonExcel.GroupBuffIdLength()):
+                    self.groupBuffId.append(weekDungeonExcel.GroupBuffId(i))
+            else:
+                self.groupBuffId = weekDungeonExcel.GroupBuffIdAsNumpy()
+        self.echelonExtensionType = weekDungeonExcel.EchelonExtensionType()
+
+    # WeekDungeonExcelT
+    def Pack(self, builder):
+        if self.stageEnterCostType is not None:
+            if np is not None and type(self.stageEnterCostType) is np.ndarray:
+                stageEnterCostType = builder.CreateNumpyVector(self.stageEnterCostType)
+            else:
+                WeekDungeonExcelStartStageEnterCostTypeVector(builder, len(self.stageEnterCostType))
+                for i in reversed(range(len(self.stageEnterCostType))):
+                    builder.PrependInt32(self.stageEnterCostType[i])
+                stageEnterCostType = builder.EndVector()
+        if self.stageEnterCostId is not None:
+            if np is not None and type(self.stageEnterCostId) is np.ndarray:
+                stageEnterCostId = builder.CreateNumpyVector(self.stageEnterCostId)
+            else:
+                WeekDungeonExcelStartStageEnterCostIdVector(builder, len(self.stageEnterCostId))
+                for i in reversed(range(len(self.stageEnterCostId))):
+                    builder.PrependInt64(self.stageEnterCostId[i])
+                stageEnterCostId = builder.EndVector()
+        if self.stageEnterCostAmount is not None:
+            if np is not None and type(self.stageEnterCostAmount) is np.ndarray:
+                stageEnterCostAmount = builder.CreateNumpyVector(self.stageEnterCostAmount)
+            else:
+                WeekDungeonExcelStartStageEnterCostAmountVector(builder, len(self.stageEnterCostAmount))
+                for i in reversed(range(len(self.stageEnterCostAmount))):
+                    builder.PrependInt32(self.stageEnterCostAmount[i])
+                stageEnterCostAmount = builder.EndVector()
+        if self.starGoal is not None:
+            if np is not None and type(self.starGoal) is np.ndarray:
+                starGoal = builder.CreateNumpyVector(self.starGoal)
+            else:
+                WeekDungeonExcelStartStarGoalVector(builder, len(self.starGoal))
+                for i in reversed(range(len(self.starGoal))):
+                    builder.PrependInt32(self.starGoal[i])
+                starGoal = builder.EndVector()
+        if self.starGoalAmount is not None:
+            if np is not None and type(self.starGoalAmount) is np.ndarray:
+                starGoalAmount = builder.CreateNumpyVector(self.starGoalAmount)
+            else:
+                WeekDungeonExcelStartStarGoalAmountVector(builder, len(self.starGoalAmount))
+                for i in reversed(range(len(self.starGoalAmount))):
+                    builder.PrependInt32(self.starGoalAmount[i])
+                starGoalAmount = builder.EndVector()
+        if self.groupBuffId is not None:
+            if np is not None and type(self.groupBuffId) is np.ndarray:
+                groupBuffId = builder.CreateNumpyVector(self.groupBuffId)
+            else:
+                WeekDungeonExcelStartGroupBuffIdVector(builder, len(self.groupBuffId))
+                for i in reversed(range(len(self.groupBuffId))):
+                    builder.PrependInt64(self.groupBuffId[i])
+                groupBuffId = builder.EndVector()
+        WeekDungeonExcelStart(builder)
+        WeekDungeonExcelAddStageId(builder, self.stageId)
+        WeekDungeonExcelAddWeekDungeonType(builder, self.weekDungeonType)
+        WeekDungeonExcelAddDifficulty(builder, self.difficulty)
+        WeekDungeonExcelAddBattleDuration(builder, self.battleDuration)
+        WeekDungeonExcelAddPrevStageId(builder, self.prevStageId)
+        if self.stageEnterCostType is not None:
+            WeekDungeonExcelAddStageEnterCostType(builder, stageEnterCostType)
+        if self.stageEnterCostId is not None:
+            WeekDungeonExcelAddStageEnterCostId(builder, stageEnterCostId)
+        if self.stageEnterCostAmount is not None:
+            WeekDungeonExcelAddStageEnterCostAmount(builder, stageEnterCostAmount)
+        WeekDungeonExcelAddGroundId(builder, self.groundId)
+        if self.starGoal is not None:
+            WeekDungeonExcelAddStarGoal(builder, starGoal)
+        if self.starGoalAmount is not None:
+            WeekDungeonExcelAddStarGoalAmount(builder, starGoalAmount)
+        WeekDungeonExcelAddStageTopography(builder, self.stageTopography)
+        WeekDungeonExcelAddRecommandLevel(builder, self.recommandLevel)
+        WeekDungeonExcelAddStageRewardId(builder, self.stageRewardId)
+        WeekDungeonExcelAddPlayTimeLimitInSeconds(builder, self.playTimeLimitInSeconds)
+        WeekDungeonExcelAddBattleRewardExp(builder, self.battleRewardExp)
+        WeekDungeonExcelAddBattleRewardPlayerExp(builder, self.battleRewardPlayerExp)
+        if self.groupBuffId is not None:
+            WeekDungeonExcelAddGroupBuffId(builder, groupBuffId)
+        WeekDungeonExcelAddEchelonExtensionType(builder, self.echelonExtensionType)
+        weekDungeonExcel = WeekDungeonExcelEnd(builder)
+        return weekDungeonExcel

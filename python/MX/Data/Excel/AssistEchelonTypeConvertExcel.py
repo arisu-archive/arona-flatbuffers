@@ -61,3 +61,47 @@ def AssistEchelonTypeConvertExcelEnd(builder):
 
 def End(builder):
     return AssistEchelonTypeConvertExcelEnd(builder)
+
+
+class AssistEchelonTypeConvertExcelT(object):
+
+    # AssistEchelonTypeConvertExcelT
+    def __init__(
+        self,
+        contents = 0,
+        convertTo = 0,
+    ):
+        self.contents = contents  # type: int
+        self.convertTo = convertTo  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        assistEchelonTypeConvertExcel = AssistEchelonTypeConvertExcel()
+        assistEchelonTypeConvertExcel.Init(buf, pos)
+        return cls.InitFromObj(assistEchelonTypeConvertExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, assistEchelonTypeConvertExcel):
+        x = AssistEchelonTypeConvertExcelT()
+        x._UnPack(assistEchelonTypeConvertExcel)
+        return x
+
+    # AssistEchelonTypeConvertExcelT
+    def _UnPack(self, assistEchelonTypeConvertExcel):
+        if assistEchelonTypeConvertExcel is None:
+            return
+        self.contents = assistEchelonTypeConvertExcel.Contents()
+        self.convertTo = assistEchelonTypeConvertExcel.ConvertTo()
+
+    # AssistEchelonTypeConvertExcelT
+    def Pack(self, builder):
+        AssistEchelonTypeConvertExcelStart(builder)
+        AssistEchelonTypeConvertExcelAddContents(builder, self.contents)
+        AssistEchelonTypeConvertExcelAddConvertTo(builder, self.convertTo)
+        assistEchelonTypeConvertExcel = AssistEchelonTypeConvertExcelEnd(builder)
+        return assistEchelonTypeConvertExcel

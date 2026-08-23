@@ -143,11 +143,11 @@ class RaidStageExcel(object):
         return 0
 
     # RaidStageExcel
-    def GroundDevName(self):
+    def RaidBossGroupType(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(32))
         if o != 0:
-            return self._tab.String(o + self._tab.Pos)
-        return None
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
 
     # RaidStageExcel
     def EnterTimeLine(self):
@@ -438,11 +438,11 @@ def RaidStageExcelAddGroundId(builder, groundId):
 def AddGroundId(builder, groundId):
     RaidStageExcelAddGroundId(builder, groundId)
 
-def RaidStageExcelAddGroundDevName(builder, groundDevName):
-    builder.PrependUOffsetTRelativeSlot(14, flatbuffers.number_types.UOffsetTFlags.py_type(groundDevName), 0)
+def RaidStageExcelAddRaidBossGroupType(builder, raidBossGroupType):
+    builder.PrependInt32Slot(14, raidBossGroupType, 0)
 
-def AddGroundDevName(builder, groundDevName):
-    RaidStageExcelAddGroundDevName(builder, groundDevName)
+def AddRaidBossGroupType(builder, raidBossGroupType):
+    RaidStageExcelAddRaidBossGroupType(builder, raidBossGroupType)
 
 def RaidStageExcelAddEnterTimeLine(builder, enterTimeLine):
     builder.PrependUOffsetTRelativeSlot(15, flatbuffers.number_types.UOffsetTFlags.py_type(enterTimeLine), 0)
@@ -587,3 +587,258 @@ def RaidStageExcelEnd(builder):
 
 def End(builder):
     return RaidStageExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class RaidStageExcelT(object):
+
+    # RaidStageExcelT
+    def __init__(
+        self,
+        id = 0,
+        useBossIndex = False,
+        useBossAiPhaseSync = False,
+        raidBossGroup = None,
+        portraitPath = None,
+        bgPath = None,
+        raidCharacterId = 0,
+        bossCharacterId = None,
+        difficulty = 0,
+        difficultyOpenCondition = False,
+        maxPlayerCount = 0,
+        raidRoomLifeTime = 0,
+        battleDuration = 0,
+        groundId = 0,
+        raidBossGroupType = 0,
+        enterTimeLine = None,
+        tacticEnvironment = 0,
+        defaultClearScore = 0,
+        maximumScore = 0,
+        perSecondMinusScore = 0,
+        hpPercentScore = 0,
+        minimumAcquisitionScore = 0,
+        maximumAcquisitionScore = 0,
+        raidRewardGroupId = 0,
+        battleReadyTimelinePath = None,
+        battleReadyTimelinePhaseStart = None,
+        battleReadyTimelinePhaseEnd = None,
+        victoryTimelinePath = None,
+        phaseChangeTimelinePath = None,
+        timeLinePhase = 0,
+        enterScenarioKey = 0,
+        clearScenarioKey = 0,
+        showSkillCard = False,
+        bossBgInfoKey = 0,
+        echelonExtensionType = 0,
+    ):
+        self.id = id  # type: int
+        self.useBossIndex = useBossIndex  # type: bool
+        self.useBossAiPhaseSync = useBossAiPhaseSync  # type: bool
+        self.raidBossGroup = raidBossGroup  # type: Optional[str]
+        self.portraitPath = portraitPath  # type: Optional[str]
+        self.bgPath = bgPath  # type: Optional[str]
+        self.raidCharacterId = raidCharacterId  # type: int
+        self.bossCharacterId = bossCharacterId  # type: Optional[List[int]]
+        self.difficulty = difficulty  # type: int
+        self.difficultyOpenCondition = difficultyOpenCondition  # type: bool
+        self.maxPlayerCount = maxPlayerCount  # type: int
+        self.raidRoomLifeTime = raidRoomLifeTime  # type: int
+        self.battleDuration = battleDuration  # type: int
+        self.groundId = groundId  # type: int
+        self.raidBossGroupType = raidBossGroupType  # type: int
+        self.enterTimeLine = enterTimeLine  # type: Optional[str]
+        self.tacticEnvironment = tacticEnvironment  # type: int
+        self.defaultClearScore = defaultClearScore  # type: int
+        self.maximumScore = maximumScore  # type: int
+        self.perSecondMinusScore = perSecondMinusScore  # type: int
+        self.hpPercentScore = hpPercentScore  # type: int
+        self.minimumAcquisitionScore = minimumAcquisitionScore  # type: int
+        self.maximumAcquisitionScore = maximumAcquisitionScore  # type: int
+        self.raidRewardGroupId = raidRewardGroupId  # type: int
+        self.battleReadyTimelinePath = battleReadyTimelinePath  # type: Optional[List[Optional[str]]]
+        self.battleReadyTimelinePhaseStart = battleReadyTimelinePhaseStart  # type: Optional[List[int]]
+        self.battleReadyTimelinePhaseEnd = battleReadyTimelinePhaseEnd  # type: Optional[List[int]]
+        self.victoryTimelinePath = victoryTimelinePath  # type: Optional[str]
+        self.phaseChangeTimelinePath = phaseChangeTimelinePath  # type: Optional[str]
+        self.timeLinePhase = timeLinePhase  # type: int
+        self.enterScenarioKey = enterScenarioKey  # type: int
+        self.clearScenarioKey = clearScenarioKey  # type: int
+        self.showSkillCard = showSkillCard  # type: bool
+        self.bossBgInfoKey = bossBgInfoKey  # type: int
+        self.echelonExtensionType = echelonExtensionType  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        raidStageExcel = RaidStageExcel()
+        raidStageExcel.Init(buf, pos)
+        return cls.InitFromObj(raidStageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, raidStageExcel):
+        x = RaidStageExcelT()
+        x._UnPack(raidStageExcel)
+        return x
+
+    # RaidStageExcelT
+    def _UnPack(self, raidStageExcel):
+        if raidStageExcel is None:
+            return
+        self.id = raidStageExcel.Id()
+        self.useBossIndex = raidStageExcel.UseBossIndex()
+        self.useBossAiPhaseSync = raidStageExcel.UseBossAiPhaseSync()
+        self.raidBossGroup = raidStageExcel.RaidBossGroup()
+        self.portraitPath = raidStageExcel.PortraitPath()
+        self.bgPath = raidStageExcel.BgPath()
+        self.raidCharacterId = raidStageExcel.RaidCharacterId()
+        if not raidStageExcel.BossCharacterIdIsNone():
+            if np is None:
+                self.bossCharacterId = []
+                for i in range(raidStageExcel.BossCharacterIdLength()):
+                    self.bossCharacterId.append(raidStageExcel.BossCharacterId(i))
+            else:
+                self.bossCharacterId = raidStageExcel.BossCharacterIdAsNumpy()
+        self.difficulty = raidStageExcel.Difficulty()
+        self.difficultyOpenCondition = raidStageExcel.DifficultyOpenCondition()
+        self.maxPlayerCount = raidStageExcel.MaxPlayerCount()
+        self.raidRoomLifeTime = raidStageExcel.RaidRoomLifeTime()
+        self.battleDuration = raidStageExcel.BattleDuration()
+        self.groundId = raidStageExcel.GroundId()
+        self.raidBossGroupType = raidStageExcel.RaidBossGroupType()
+        self.enterTimeLine = raidStageExcel.EnterTimeLine()
+        self.tacticEnvironment = raidStageExcel.TacticEnvironment()
+        self.defaultClearScore = raidStageExcel.DefaultClearScore()
+        self.maximumScore = raidStageExcel.MaximumScore()
+        self.perSecondMinusScore = raidStageExcel.PerSecondMinusScore()
+        self.hpPercentScore = raidStageExcel.HpPercentScore()
+        self.minimumAcquisitionScore = raidStageExcel.MinimumAcquisitionScore()
+        self.maximumAcquisitionScore = raidStageExcel.MaximumAcquisitionScore()
+        self.raidRewardGroupId = raidStageExcel.RaidRewardGroupId()
+        if not raidStageExcel.BattleReadyTimelinePathIsNone():
+            self.battleReadyTimelinePath = []
+            for i in range(raidStageExcel.BattleReadyTimelinePathLength()):
+                self.battleReadyTimelinePath.append(raidStageExcel.BattleReadyTimelinePath(i))
+        if not raidStageExcel.BattleReadyTimelinePhaseStartIsNone():
+            if np is None:
+                self.battleReadyTimelinePhaseStart = []
+                for i in range(raidStageExcel.BattleReadyTimelinePhaseStartLength()):
+                    self.battleReadyTimelinePhaseStart.append(raidStageExcel.BattleReadyTimelinePhaseStart(i))
+            else:
+                self.battleReadyTimelinePhaseStart = raidStageExcel.BattleReadyTimelinePhaseStartAsNumpy()
+        if not raidStageExcel.BattleReadyTimelinePhaseEndIsNone():
+            if np is None:
+                self.battleReadyTimelinePhaseEnd = []
+                for i in range(raidStageExcel.BattleReadyTimelinePhaseEndLength()):
+                    self.battleReadyTimelinePhaseEnd.append(raidStageExcel.BattleReadyTimelinePhaseEnd(i))
+            else:
+                self.battleReadyTimelinePhaseEnd = raidStageExcel.BattleReadyTimelinePhaseEndAsNumpy()
+        self.victoryTimelinePath = raidStageExcel.VictoryTimelinePath()
+        self.phaseChangeTimelinePath = raidStageExcel.PhaseChangeTimelinePath()
+        self.timeLinePhase = raidStageExcel.TimeLinePhase()
+        self.enterScenarioKey = raidStageExcel.EnterScenarioKey()
+        self.clearScenarioKey = raidStageExcel.ClearScenarioKey()
+        self.showSkillCard = raidStageExcel.ShowSkillCard()
+        self.bossBgInfoKey = raidStageExcel.BossBgInfoKey()
+        self.echelonExtensionType = raidStageExcel.EchelonExtensionType()
+
+    # RaidStageExcelT
+    def Pack(self, builder):
+        if self.raidBossGroup is not None:
+            raidBossGroup = builder.CreateString(self.raidBossGroup)
+        if self.portraitPath is not None:
+            portraitPath = builder.CreateString(self.portraitPath)
+        if self.bgPath is not None:
+            bgPath = builder.CreateString(self.bgPath)
+        if self.bossCharacterId is not None:
+            if np is not None and type(self.bossCharacterId) is np.ndarray:
+                bossCharacterId = builder.CreateNumpyVector(self.bossCharacterId)
+            else:
+                RaidStageExcelStartBossCharacterIdVector(builder, len(self.bossCharacterId))
+                for i in reversed(range(len(self.bossCharacterId))):
+                    builder.PrependInt64(self.bossCharacterId[i])
+                bossCharacterId = builder.EndVector()
+        if self.enterTimeLine is not None:
+            enterTimeLine = builder.CreateString(self.enterTimeLine)
+        if self.battleReadyTimelinePath is not None:
+            battleReadyTimelinePathlist = []
+            for i in range(len(self.battleReadyTimelinePath)):
+                battleReadyTimelinePathlist.append(builder.CreateString(self.battleReadyTimelinePath[i]))
+            RaidStageExcelStartBattleReadyTimelinePathVector(builder, len(self.battleReadyTimelinePath))
+            for i in reversed(range(len(self.battleReadyTimelinePath))):
+                builder.PrependUOffsetTRelative(battleReadyTimelinePathlist[i])
+            battleReadyTimelinePath = builder.EndVector()
+        if self.battleReadyTimelinePhaseStart is not None:
+            if np is not None and type(self.battleReadyTimelinePhaseStart) is np.ndarray:
+                battleReadyTimelinePhaseStart = builder.CreateNumpyVector(self.battleReadyTimelinePhaseStart)
+            else:
+                RaidStageExcelStartBattleReadyTimelinePhaseStartVector(builder, len(self.battleReadyTimelinePhaseStart))
+                for i in reversed(range(len(self.battleReadyTimelinePhaseStart))):
+                    builder.PrependInt32(self.battleReadyTimelinePhaseStart[i])
+                battleReadyTimelinePhaseStart = builder.EndVector()
+        if self.battleReadyTimelinePhaseEnd is not None:
+            if np is not None and type(self.battleReadyTimelinePhaseEnd) is np.ndarray:
+                battleReadyTimelinePhaseEnd = builder.CreateNumpyVector(self.battleReadyTimelinePhaseEnd)
+            else:
+                RaidStageExcelStartBattleReadyTimelinePhaseEndVector(builder, len(self.battleReadyTimelinePhaseEnd))
+                for i in reversed(range(len(self.battleReadyTimelinePhaseEnd))):
+                    builder.PrependInt32(self.battleReadyTimelinePhaseEnd[i])
+                battleReadyTimelinePhaseEnd = builder.EndVector()
+        if self.victoryTimelinePath is not None:
+            victoryTimelinePath = builder.CreateString(self.victoryTimelinePath)
+        if self.phaseChangeTimelinePath is not None:
+            phaseChangeTimelinePath = builder.CreateString(self.phaseChangeTimelinePath)
+        RaidStageExcelStart(builder)
+        RaidStageExcelAddId(builder, self.id)
+        RaidStageExcelAddUseBossIndex(builder, self.useBossIndex)
+        RaidStageExcelAddUseBossAiPhaseSync(builder, self.useBossAiPhaseSync)
+        if self.raidBossGroup is not None:
+            RaidStageExcelAddRaidBossGroup(builder, raidBossGroup)
+        if self.portraitPath is not None:
+            RaidStageExcelAddPortraitPath(builder, portraitPath)
+        if self.bgPath is not None:
+            RaidStageExcelAddBgPath(builder, bgPath)
+        RaidStageExcelAddRaidCharacterId(builder, self.raidCharacterId)
+        if self.bossCharacterId is not None:
+            RaidStageExcelAddBossCharacterId(builder, bossCharacterId)
+        RaidStageExcelAddDifficulty(builder, self.difficulty)
+        RaidStageExcelAddDifficultyOpenCondition(builder, self.difficultyOpenCondition)
+        RaidStageExcelAddMaxPlayerCount(builder, self.maxPlayerCount)
+        RaidStageExcelAddRaidRoomLifeTime(builder, self.raidRoomLifeTime)
+        RaidStageExcelAddBattleDuration(builder, self.battleDuration)
+        RaidStageExcelAddGroundId(builder, self.groundId)
+        RaidStageExcelAddRaidBossGroupType(builder, self.raidBossGroupType)
+        if self.enterTimeLine is not None:
+            RaidStageExcelAddEnterTimeLine(builder, enterTimeLine)
+        RaidStageExcelAddTacticEnvironment(builder, self.tacticEnvironment)
+        RaidStageExcelAddDefaultClearScore(builder, self.defaultClearScore)
+        RaidStageExcelAddMaximumScore(builder, self.maximumScore)
+        RaidStageExcelAddPerSecondMinusScore(builder, self.perSecondMinusScore)
+        RaidStageExcelAddHpPercentScore(builder, self.hpPercentScore)
+        RaidStageExcelAddMinimumAcquisitionScore(builder, self.minimumAcquisitionScore)
+        RaidStageExcelAddMaximumAcquisitionScore(builder, self.maximumAcquisitionScore)
+        RaidStageExcelAddRaidRewardGroupId(builder, self.raidRewardGroupId)
+        if self.battleReadyTimelinePath is not None:
+            RaidStageExcelAddBattleReadyTimelinePath(builder, battleReadyTimelinePath)
+        if self.battleReadyTimelinePhaseStart is not None:
+            RaidStageExcelAddBattleReadyTimelinePhaseStart(builder, battleReadyTimelinePhaseStart)
+        if self.battleReadyTimelinePhaseEnd is not None:
+            RaidStageExcelAddBattleReadyTimelinePhaseEnd(builder, battleReadyTimelinePhaseEnd)
+        if self.victoryTimelinePath is not None:
+            RaidStageExcelAddVictoryTimelinePath(builder, victoryTimelinePath)
+        if self.phaseChangeTimelinePath is not None:
+            RaidStageExcelAddPhaseChangeTimelinePath(builder, phaseChangeTimelinePath)
+        RaidStageExcelAddTimeLinePhase(builder, self.timeLinePhase)
+        RaidStageExcelAddEnterScenarioKey(builder, self.enterScenarioKey)
+        RaidStageExcelAddClearScenarioKey(builder, self.clearScenarioKey)
+        RaidStageExcelAddShowSkillCard(builder, self.showSkillCard)
+        RaidStageExcelAddBossBgInfoKey(builder, self.bossBgInfoKey)
+        RaidStageExcelAddEchelonExtensionType(builder, self.echelonExtensionType)
+        raidStageExcel = RaidStageExcelEnd(builder)
+        return raidStageExcel

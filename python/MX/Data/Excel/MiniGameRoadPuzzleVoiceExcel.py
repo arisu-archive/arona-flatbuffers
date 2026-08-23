@@ -87,3 +87,55 @@ def MiniGameRoadPuzzleVoiceExcelEnd(builder):
 
 def End(builder):
     return MiniGameRoadPuzzleVoiceExcelEnd(builder)
+
+
+class MiniGameRoadPuzzleVoiceExcelT(object):
+
+    # MiniGameRoadPuzzleVoiceExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        uniqueId = 0,
+        voiceCondition = 0,
+        voiceClip = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.voiceCondition = voiceCondition  # type: int
+        self.voiceClip = voiceClip  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameRoadPuzzleVoiceExcel = MiniGameRoadPuzzleVoiceExcel()
+        miniGameRoadPuzzleVoiceExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameRoadPuzzleVoiceExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameRoadPuzzleVoiceExcel):
+        x = MiniGameRoadPuzzleVoiceExcelT()
+        x._UnPack(miniGameRoadPuzzleVoiceExcel)
+        return x
+
+    # MiniGameRoadPuzzleVoiceExcelT
+    def _UnPack(self, miniGameRoadPuzzleVoiceExcel):
+        if miniGameRoadPuzzleVoiceExcel is None:
+            return
+        self.eventContentId = miniGameRoadPuzzleVoiceExcel.EventContentId()
+        self.uniqueId = miniGameRoadPuzzleVoiceExcel.UniqueId()
+        self.voiceCondition = miniGameRoadPuzzleVoiceExcel.VoiceCondition()
+        self.voiceClip = miniGameRoadPuzzleVoiceExcel.VoiceClip()
+
+    # MiniGameRoadPuzzleVoiceExcelT
+    def Pack(self, builder):
+        MiniGameRoadPuzzleVoiceExcelStart(builder)
+        MiniGameRoadPuzzleVoiceExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameRoadPuzzleVoiceExcelAddUniqueId(builder, self.uniqueId)
+        MiniGameRoadPuzzleVoiceExcelAddVoiceCondition(builder, self.voiceCondition)
+        MiniGameRoadPuzzleVoiceExcelAddVoiceClip(builder, self.voiceClip)
+        miniGameRoadPuzzleVoiceExcel = MiniGameRoadPuzzleVoiceExcelEnd(builder)
+        return miniGameRoadPuzzleVoiceExcel

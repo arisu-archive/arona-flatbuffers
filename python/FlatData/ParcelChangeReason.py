@@ -168,7 +168,7 @@ class ParcelChangeReason(object):
     Craft_RewardAll = 162
     ShiftingCraft_CompleteProcessAll = 163
     ShiftingCraft_RewardAll = 164
-    Temp_1 = 165
+    DailyRecord_Reward = 165
     Temp_2 = 166
     Temp_3 = 167
     Temp_4 = 168
@@ -197,3 +197,14 @@ class ParcelChangeReason(object):
     Account_LevelReward = 191
     MiniGame_CCGCompleteGame = 192
     MiniGame_CCGBuyPerk = 193
+    Cafe_SummonCharacterTicketUse = 194
+    WorldRaid_UpdateCarrierLevel = 195
+    Concentration_FlipCard = 196
+    Concentration_RoundComplete = 197
+    Concentration_RoundSkip = 198
+    Mail_ReceiveSemiPermanentMail = 199
+    ClueSearch_Submit = 200
+    ClueSearch_RoundComplete = 201
+    WelcomeCampaign_EnterReward = 202
+    WelcomeCampaign_AttendanceReward = 203
+    WelcomeCampaign_MissionClear = 204

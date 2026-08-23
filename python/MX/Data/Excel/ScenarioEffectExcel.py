@@ -61,3 +61,50 @@ def ScenarioEffectExcelEnd(builder):
 
 def End(builder):
     return ScenarioEffectExcelEnd(builder)
+
+
+class ScenarioEffectExcelT(object):
+
+    # ScenarioEffectExcelT
+    def __init__(
+        self,
+        effectName = None,
+        name = 0,
+    ):
+        self.effectName = effectName  # type: Optional[str]
+        self.name = name  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        scenarioEffectExcel = ScenarioEffectExcel()
+        scenarioEffectExcel.Init(buf, pos)
+        return cls.InitFromObj(scenarioEffectExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, scenarioEffectExcel):
+        x = ScenarioEffectExcelT()
+        x._UnPack(scenarioEffectExcel)
+        return x
+
+    # ScenarioEffectExcelT
+    def _UnPack(self, scenarioEffectExcel):
+        if scenarioEffectExcel is None:
+            return
+        self.effectName = scenarioEffectExcel.EffectName()
+        self.name = scenarioEffectExcel.Name()
+
+    # ScenarioEffectExcelT
+    def Pack(self, builder):
+        if self.effectName is not None:
+            effectName = builder.CreateString(self.effectName)
+        ScenarioEffectExcelStart(builder)
+        if self.effectName is not None:
+            ScenarioEffectExcelAddEffectName(builder, effectName)
+        ScenarioEffectExcelAddName(builder, self.name)
+        scenarioEffectExcel = ScenarioEffectExcelEnd(builder)
+        return scenarioEffectExcel

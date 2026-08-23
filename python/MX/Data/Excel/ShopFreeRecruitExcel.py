@@ -60,8 +60,15 @@ class ShopFreeRecruitExcel(object):
         return None
 
     # ShopFreeRecruitExcel
-    def ShopRecruitId(self, j):
+    def TenRecruitCountOnly(self):
         o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        if o != 0:
+            return bool(self._tab.Get(flatbuffers.number_types.BoolFlags, o + self._tab.Pos))
+        return False
+
+    # ShopFreeRecruitExcel
+    def ShopRecruitId(self, j):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             a = self._tab.Vector(o)
             return self._tab.Get(flatbuffers.number_types.Int64Flags, a + flatbuffers.number_types.UOffsetTFlags.py_type(j * 8))
@@ -69,25 +76,25 @@ class ShopFreeRecruitExcel(object):
 
     # ShopFreeRecruitExcel
     def ShopRecruitIdAsNumpy(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.GetVectorAsNumpy(flatbuffers.number_types.Int64Flags, o)
         return 0
 
     # ShopFreeRecruitExcel
     def ShopRecruitIdLength(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         if o != 0:
             return self._tab.VectorLen(o)
         return 0
 
     # ShopFreeRecruitExcel
     def ShopRecruitIdIsNone(self):
-        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(14))
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(16))
         return o == 0
 
 def ShopFreeRecruitExcelStart(builder):
-    builder.StartObject(6)
+    builder.StartObject(7)
 
 def Start(builder):
     ShopFreeRecruitExcelStart(builder)
@@ -122,8 +129,14 @@ def ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(builder, freeRecruitDe
 def AddFreeRecruitDecorationImagePath(builder, freeRecruitDecorationImagePath):
     ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(builder, freeRecruitDecorationImagePath)
 
+def ShopFreeRecruitExcelAddTenRecruitCountOnly(builder, tenRecruitCountOnly):
+    builder.PrependBoolSlot(5, tenRecruitCountOnly, 0)
+
+def AddTenRecruitCountOnly(builder, tenRecruitCountOnly):
+    ShopFreeRecruitExcelAddTenRecruitCountOnly(builder, tenRecruitCountOnly)
+
 def ShopFreeRecruitExcelAddShopRecruitId(builder, shopRecruitId):
-    builder.PrependUOffsetTRelativeSlot(5, flatbuffers.number_types.UOffsetTFlags.py_type(shopRecruitId), 0)
+    builder.PrependUOffsetTRelativeSlot(6, flatbuffers.number_types.UOffsetTFlags.py_type(shopRecruitId), 0)
 
 def AddShopRecruitId(builder, shopRecruitId):
     ShopFreeRecruitExcelAddShopRecruitId(builder, shopRecruitId)
@@ -139,3 +152,95 @@ def ShopFreeRecruitExcelEnd(builder):
 
 def End(builder):
     return ShopFreeRecruitExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ShopFreeRecruitExcelT(object):
+
+    # ShopFreeRecruitExcelT
+    def __init__(
+        self,
+        id = 0,
+        freeRecruitPeriodFrom = None,
+        freeRecruitPeriodTo = None,
+        freeRecruitType = 0,
+        freeRecruitDecorationImagePath = None,
+        tenRecruitCountOnly = False,
+        shopRecruitId = None,
+    ):
+        self.id = id  # type: int
+        self.freeRecruitPeriodFrom = freeRecruitPeriodFrom  # type: Optional[str]
+        self.freeRecruitPeriodTo = freeRecruitPeriodTo  # type: Optional[str]
+        self.freeRecruitType = freeRecruitType  # type: int
+        self.freeRecruitDecorationImagePath = freeRecruitDecorationImagePath  # type: Optional[str]
+        self.tenRecruitCountOnly = tenRecruitCountOnly  # type: bool
+        self.shopRecruitId = shopRecruitId  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        shopFreeRecruitExcel = ShopFreeRecruitExcel()
+        shopFreeRecruitExcel.Init(buf, pos)
+        return cls.InitFromObj(shopFreeRecruitExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, shopFreeRecruitExcel):
+        x = ShopFreeRecruitExcelT()
+        x._UnPack(shopFreeRecruitExcel)
+        return x
+
+    # ShopFreeRecruitExcelT
+    def _UnPack(self, shopFreeRecruitExcel):
+        if shopFreeRecruitExcel is None:
+            return
+        self.id = shopFreeRecruitExcel.Id()
+        self.freeRecruitPeriodFrom = shopFreeRecruitExcel.FreeRecruitPeriodFrom()
+        self.freeRecruitPeriodTo = shopFreeRecruitExcel.FreeRecruitPeriodTo()
+        self.freeRecruitType = shopFreeRecruitExcel.FreeRecruitType()
+        self.freeRecruitDecorationImagePath = shopFreeRecruitExcel.FreeRecruitDecorationImagePath()
+        self.tenRecruitCountOnly = shopFreeRecruitExcel.TenRecruitCountOnly()
+        if not shopFreeRecruitExcel.ShopRecruitIdIsNone():
+            if np is None:
+                self.shopRecruitId = []
+                for i in range(shopFreeRecruitExcel.ShopRecruitIdLength()):
+                    self.shopRecruitId.append(shopFreeRecruitExcel.ShopRecruitId(i))
+            else:
+                self.shopRecruitId = shopFreeRecruitExcel.ShopRecruitIdAsNumpy()
+
+    # ShopFreeRecruitExcelT
+    def Pack(self, builder):
+        if self.freeRecruitPeriodFrom is not None:
+            freeRecruitPeriodFrom = builder.CreateString(self.freeRecruitPeriodFrom)
+        if self.freeRecruitPeriodTo is not None:
+            freeRecruitPeriodTo = builder.CreateString(self.freeRecruitPeriodTo)
+        if self.freeRecruitDecorationImagePath is not None:
+            freeRecruitDecorationImagePath = builder.CreateString(self.freeRecruitDecorationImagePath)
+        if self.shopRecruitId is not None:
+            if np is not None and type(self.shopRecruitId) is np.ndarray:
+                shopRecruitId = builder.CreateNumpyVector(self.shopRecruitId)
+            else:
+                ShopFreeRecruitExcelStartShopRecruitIdVector(builder, len(self.shopRecruitId))
+                for i in reversed(range(len(self.shopRecruitId))):
+                    builder.PrependInt64(self.shopRecruitId[i])
+                shopRecruitId = builder.EndVector()
+        ShopFreeRecruitExcelStart(builder)
+        ShopFreeRecruitExcelAddId(builder, self.id)
+        if self.freeRecruitPeriodFrom is not None:
+            ShopFreeRecruitExcelAddFreeRecruitPeriodFrom(builder, freeRecruitPeriodFrom)
+        if self.freeRecruitPeriodTo is not None:
+            ShopFreeRecruitExcelAddFreeRecruitPeriodTo(builder, freeRecruitPeriodTo)
+        ShopFreeRecruitExcelAddFreeRecruitType(builder, self.freeRecruitType)
+        if self.freeRecruitDecorationImagePath is not None:
+            ShopFreeRecruitExcelAddFreeRecruitDecorationImagePath(builder, freeRecruitDecorationImagePath)
+        ShopFreeRecruitExcelAddTenRecruitCountOnly(builder, self.tenRecruitCountOnly)
+        if self.shopRecruitId is not None:
+            ShopFreeRecruitExcelAddShopRecruitId(builder, shopRecruitId)
+        shopFreeRecruitExcel = ShopFreeRecruitExcelEnd(builder)
+        return shopFreeRecruitExcel

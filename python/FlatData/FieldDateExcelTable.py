@@ -72,3 +72,68 @@ def FieldDateExcelTableEnd(builder):
 
 def End(builder):
     return FieldDateExcelTableEnd(builder)
+
+import FlatData.FieldDateExcel
+try:
+    from typing import List
+except:
+    pass
+
+class FieldDateExcelTableT(object):
+
+    # FieldDateExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.FieldDateExcel.FieldDateExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        fieldDateExcelTable = FieldDateExcelTable()
+        fieldDateExcelTable.Init(buf, pos)
+        return cls.InitFromObj(fieldDateExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, fieldDateExcelTable):
+        x = FieldDateExcelTableT()
+        x._UnPack(fieldDateExcelTable)
+        return x
+
+    # FieldDateExcelTableT
+    def _UnPack(self, fieldDateExcelTable):
+        if fieldDateExcelTable is None:
+            return
+        if not fieldDateExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(fieldDateExcelTable.DataListLength()):
+                if fieldDateExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    fieldDateExcel_ = FlatData.FieldDateExcel.FieldDateExcelT.InitFromObj(fieldDateExcelTable.DataList(i))
+                    self.dataList.append(fieldDateExcel_)
+
+    # FieldDateExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            FieldDateExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        FieldDateExcelTableStart(builder)
+        if self.dataList is not None:
+            FieldDateExcelTableAddDataList(builder, dataList)
+        fieldDateExcelTable = FieldDateExcelTableEnd(builder)
+        return fieldDateExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(FieldDateExcelTableT, 'FieldDateExcelTable', ())

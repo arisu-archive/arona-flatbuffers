@@ -72,3 +72,68 @@ def VoiceSkillUseExcelTableEnd(builder):
 
 def End(builder):
     return VoiceSkillUseExcelTableEnd(builder)
+
+import FlatData.VoiceSkillUseExcel
+try:
+    from typing import List
+except:
+    pass
+
+class VoiceSkillUseExcelTableT(object):
+
+    # VoiceSkillUseExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.VoiceSkillUseExcel.VoiceSkillUseExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        voiceSkillUseExcelTable = VoiceSkillUseExcelTable()
+        voiceSkillUseExcelTable.Init(buf, pos)
+        return cls.InitFromObj(voiceSkillUseExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, voiceSkillUseExcelTable):
+        x = VoiceSkillUseExcelTableT()
+        x._UnPack(voiceSkillUseExcelTable)
+        return x
+
+    # VoiceSkillUseExcelTableT
+    def _UnPack(self, voiceSkillUseExcelTable):
+        if voiceSkillUseExcelTable is None:
+            return
+        if not voiceSkillUseExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(voiceSkillUseExcelTable.DataListLength()):
+                if voiceSkillUseExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    voiceSkillUseExcel_ = FlatData.VoiceSkillUseExcel.VoiceSkillUseExcelT.InitFromObj(voiceSkillUseExcelTable.DataList(i))
+                    self.dataList.append(voiceSkillUseExcel_)
+
+    # VoiceSkillUseExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            VoiceSkillUseExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        VoiceSkillUseExcelTableStart(builder)
+        if self.dataList is not None:
+            VoiceSkillUseExcelTableAddDataList(builder, dataList)
+        voiceSkillUseExcelTable = VoiceSkillUseExcelTableEnd(builder)
+        return voiceSkillUseExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(VoiceSkillUseExcelTableT, 'VoiceSkillUseExcelTable', ())

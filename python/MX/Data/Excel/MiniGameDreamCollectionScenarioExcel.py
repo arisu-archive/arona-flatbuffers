@@ -165,3 +165,97 @@ def MiniGameDreamCollectionScenarioExcelEnd(builder):
 
 def End(builder):
     return MiniGameDreamCollectionScenarioExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MiniGameDreamCollectionScenarioExcelT(object):
+
+    # MiniGameDreamCollectionScenarioExcelT
+    def __init__(
+        self,
+        id = 0,
+        isSkip = False,
+        eventContentId = 0,
+        parameter = None,
+        parameterAmount = None,
+        scenarioGroupId = 0,
+    ):
+        self.id = id  # type: int
+        self.isSkip = isSkip  # type: bool
+        self.eventContentId = eventContentId  # type: int
+        self.parameter = parameter  # type: Optional[List[int]]
+        self.parameterAmount = parameterAmount  # type: Optional[List[int]]
+        self.scenarioGroupId = scenarioGroupId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDreamCollectionScenarioExcel = MiniGameDreamCollectionScenarioExcel()
+        miniGameDreamCollectionScenarioExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDreamCollectionScenarioExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDreamCollectionScenarioExcel):
+        x = MiniGameDreamCollectionScenarioExcelT()
+        x._UnPack(miniGameDreamCollectionScenarioExcel)
+        return x
+
+    # MiniGameDreamCollectionScenarioExcelT
+    def _UnPack(self, miniGameDreamCollectionScenarioExcel):
+        if miniGameDreamCollectionScenarioExcel is None:
+            return
+        self.id = miniGameDreamCollectionScenarioExcel.Id()
+        self.isSkip = miniGameDreamCollectionScenarioExcel.IsSkip()
+        self.eventContentId = miniGameDreamCollectionScenarioExcel.EventContentId()
+        if not miniGameDreamCollectionScenarioExcel.ParameterIsNone():
+            if np is None:
+                self.parameter = []
+                for i in range(miniGameDreamCollectionScenarioExcel.ParameterLength()):
+                    self.parameter.append(miniGameDreamCollectionScenarioExcel.Parameter(i))
+            else:
+                self.parameter = miniGameDreamCollectionScenarioExcel.ParameterAsNumpy()
+        if not miniGameDreamCollectionScenarioExcel.ParameterAmountIsNone():
+            if np is None:
+                self.parameterAmount = []
+                for i in range(miniGameDreamCollectionScenarioExcel.ParameterAmountLength()):
+                    self.parameterAmount.append(miniGameDreamCollectionScenarioExcel.ParameterAmount(i))
+            else:
+                self.parameterAmount = miniGameDreamCollectionScenarioExcel.ParameterAmountAsNumpy()
+        self.scenarioGroupId = miniGameDreamCollectionScenarioExcel.ScenarioGroupId()
+
+    # MiniGameDreamCollectionScenarioExcelT
+    def Pack(self, builder):
+        if self.parameter is not None:
+            if np is not None and type(self.parameter) is np.ndarray:
+                parameter = builder.CreateNumpyVector(self.parameter)
+            else:
+                MiniGameDreamCollectionScenarioExcelStartParameterVector(builder, len(self.parameter))
+                for i in reversed(range(len(self.parameter))):
+                    builder.PrependInt32(self.parameter[i])
+                parameter = builder.EndVector()
+        if self.parameterAmount is not None:
+            if np is not None and type(self.parameterAmount) is np.ndarray:
+                parameterAmount = builder.CreateNumpyVector(self.parameterAmount)
+            else:
+                MiniGameDreamCollectionScenarioExcelStartParameterAmountVector(builder, len(self.parameterAmount))
+                for i in reversed(range(len(self.parameterAmount))):
+                    builder.PrependInt64(self.parameterAmount[i])
+                parameterAmount = builder.EndVector()
+        MiniGameDreamCollectionScenarioExcelStart(builder)
+        MiniGameDreamCollectionScenarioExcelAddId(builder, self.id)
+        MiniGameDreamCollectionScenarioExcelAddIsSkip(builder, self.isSkip)
+        MiniGameDreamCollectionScenarioExcelAddEventContentId(builder, self.eventContentId)
+        if self.parameter is not None:
+            MiniGameDreamCollectionScenarioExcelAddParameter(builder, parameter)
+        if self.parameterAmount is not None:
+            MiniGameDreamCollectionScenarioExcelAddParameterAmount(builder, parameterAmount)
+        MiniGameDreamCollectionScenarioExcelAddScenarioGroupId(builder, self.scenarioGroupId)
+        miniGameDreamCollectionScenarioExcel = MiniGameDreamCollectionScenarioExcelEnd(builder)
+        return miniGameDreamCollectionScenarioExcel

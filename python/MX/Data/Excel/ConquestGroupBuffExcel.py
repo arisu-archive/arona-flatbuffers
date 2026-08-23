@@ -113,3 +113,77 @@ def ConquestGroupBuffExcelEnd(builder):
 
 def End(builder):
     return ConquestGroupBuffExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ConquestGroupBuffExcelT(object):
+
+    # ConquestGroupBuffExcelT
+    def __init__(
+        self,
+        conquestBuffId = 0,
+        school = None,
+        recommandLocalizeEtcId = 0,
+        skillGroupId = None,
+    ):
+        self.conquestBuffId = conquestBuffId  # type: int
+        self.school = school  # type: Optional[List[int]]
+        self.recommandLocalizeEtcId = recommandLocalizeEtcId  # type: int
+        self.skillGroupId = skillGroupId  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestGroupBuffExcel = ConquestGroupBuffExcel()
+        conquestGroupBuffExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestGroupBuffExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestGroupBuffExcel):
+        x = ConquestGroupBuffExcelT()
+        x._UnPack(conquestGroupBuffExcel)
+        return x
+
+    # ConquestGroupBuffExcelT
+    def _UnPack(self, conquestGroupBuffExcel):
+        if conquestGroupBuffExcel is None:
+            return
+        self.conquestBuffId = conquestGroupBuffExcel.ConquestBuffId()
+        if not conquestGroupBuffExcel.SchoolIsNone():
+            if np is None:
+                self.school = []
+                for i in range(conquestGroupBuffExcel.SchoolLength()):
+                    self.school.append(conquestGroupBuffExcel.School(i))
+            else:
+                self.school = conquestGroupBuffExcel.SchoolAsNumpy()
+        self.recommandLocalizeEtcId = conquestGroupBuffExcel.RecommandLocalizeEtcId()
+        self.skillGroupId = conquestGroupBuffExcel.SkillGroupId()
+
+    # ConquestGroupBuffExcelT
+    def Pack(self, builder):
+        if self.school is not None:
+            if np is not None and type(self.school) is np.ndarray:
+                school = builder.CreateNumpyVector(self.school)
+            else:
+                ConquestGroupBuffExcelStartSchoolVector(builder, len(self.school))
+                for i in reversed(range(len(self.school))):
+                    builder.PrependInt32(self.school[i])
+                school = builder.EndVector()
+        if self.skillGroupId is not None:
+            skillGroupId = builder.CreateString(self.skillGroupId)
+        ConquestGroupBuffExcelStart(builder)
+        ConquestGroupBuffExcelAddConquestBuffId(builder, self.conquestBuffId)
+        if self.school is not None:
+            ConquestGroupBuffExcelAddSchool(builder, school)
+        ConquestGroupBuffExcelAddRecommandLocalizeEtcId(builder, self.recommandLocalizeEtcId)
+        if self.skillGroupId is not None:
+            ConquestGroupBuffExcelAddSkillGroupId(builder, skillGroupId)
+        conquestGroupBuffExcel = ConquestGroupBuffExcelEnd(builder)
+        return conquestGroupBuffExcel

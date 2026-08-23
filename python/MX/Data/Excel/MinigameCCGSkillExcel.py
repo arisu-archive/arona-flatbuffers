@@ -113,3 +113,72 @@ def MinigameCCGSkillExcelEnd(builder):
 
 def End(builder):
     return MinigameCCGSkillExcelEnd(builder)
+
+
+class MinigameCCGSkillExcelT(object):
+
+    # MinigameCCGSkillExcelT
+    def __init__(
+        self,
+        id = 0,
+        skillType = None,
+        dataLoadPath = None,
+        name = 0,
+        description = 0,
+        skillIcon = None,
+    ):
+        self.id = id  # type: int
+        self.skillType = skillType  # type: Optional[str]
+        self.dataLoadPath = dataLoadPath  # type: Optional[str]
+        self.name = name  # type: int
+        self.description = description  # type: int
+        self.skillIcon = skillIcon  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameCcgskillExcel = MinigameCCGSkillExcel()
+        minigameCcgskillExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameCcgskillExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameCcgskillExcel):
+        x = MinigameCCGSkillExcelT()
+        x._UnPack(minigameCcgskillExcel)
+        return x
+
+    # MinigameCCGSkillExcelT
+    def _UnPack(self, minigameCcgskillExcel):
+        if minigameCcgskillExcel is None:
+            return
+        self.id = minigameCcgskillExcel.Id()
+        self.skillType = minigameCcgskillExcel.SkillType()
+        self.dataLoadPath = minigameCcgskillExcel.DataLoadPath()
+        self.name = minigameCcgskillExcel.Name()
+        self.description = minigameCcgskillExcel.Description()
+        self.skillIcon = minigameCcgskillExcel.SkillIcon()
+
+    # MinigameCCGSkillExcelT
+    def Pack(self, builder):
+        if self.skillType is not None:
+            skillType = builder.CreateString(self.skillType)
+        if self.dataLoadPath is not None:
+            dataLoadPath = builder.CreateString(self.dataLoadPath)
+        if self.skillIcon is not None:
+            skillIcon = builder.CreateString(self.skillIcon)
+        MinigameCCGSkillExcelStart(builder)
+        MinigameCCGSkillExcelAddId(builder, self.id)
+        if self.skillType is not None:
+            MinigameCCGSkillExcelAddSkillType(builder, skillType)
+        if self.dataLoadPath is not None:
+            MinigameCCGSkillExcelAddDataLoadPath(builder, dataLoadPath)
+        MinigameCCGSkillExcelAddName(builder, self.name)
+        MinigameCCGSkillExcelAddDescription(builder, self.description)
+        if self.skillIcon is not None:
+            MinigameCCGSkillExcelAddSkillIcon(builder, skillIcon)
+        minigameCcgskillExcel = MinigameCCGSkillExcelEnd(builder)
+        return minigameCcgskillExcel

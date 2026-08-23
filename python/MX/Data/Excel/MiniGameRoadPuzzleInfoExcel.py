@@ -113,3 +113,63 @@ def MiniGameRoadPuzzleInfoExcelEnd(builder):
 
 def End(builder):
     return MiniGameRoadPuzzleInfoExcelEnd(builder)
+
+
+class MiniGameRoadPuzzleInfoExcelT(object):
+
+    # MiniGameRoadPuzzleInfoExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        eventUseCostType = 0,
+        eventUseCostId = 0,
+        costGoodsId = 0,
+        railSetRewardId = 0,
+        instantClearRound = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.eventUseCostType = eventUseCostType  # type: int
+        self.eventUseCostId = eventUseCostId  # type: int
+        self.costGoodsId = costGoodsId  # type: int
+        self.railSetRewardId = railSetRewardId  # type: int
+        self.instantClearRound = instantClearRound  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameRoadPuzzleInfoExcel = MiniGameRoadPuzzleInfoExcel()
+        miniGameRoadPuzzleInfoExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameRoadPuzzleInfoExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameRoadPuzzleInfoExcel):
+        x = MiniGameRoadPuzzleInfoExcelT()
+        x._UnPack(miniGameRoadPuzzleInfoExcel)
+        return x
+
+    # MiniGameRoadPuzzleInfoExcelT
+    def _UnPack(self, miniGameRoadPuzzleInfoExcel):
+        if miniGameRoadPuzzleInfoExcel is None:
+            return
+        self.eventContentId = miniGameRoadPuzzleInfoExcel.EventContentId()
+        self.eventUseCostType = miniGameRoadPuzzleInfoExcel.EventUseCostType()
+        self.eventUseCostId = miniGameRoadPuzzleInfoExcel.EventUseCostId()
+        self.costGoodsId = miniGameRoadPuzzleInfoExcel.CostGoodsId()
+        self.railSetRewardId = miniGameRoadPuzzleInfoExcel.RailSetRewardId()
+        self.instantClearRound = miniGameRoadPuzzleInfoExcel.InstantClearRound()
+
+    # MiniGameRoadPuzzleInfoExcelT
+    def Pack(self, builder):
+        MiniGameRoadPuzzleInfoExcelStart(builder)
+        MiniGameRoadPuzzleInfoExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameRoadPuzzleInfoExcelAddEventUseCostType(builder, self.eventUseCostType)
+        MiniGameRoadPuzzleInfoExcelAddEventUseCostId(builder, self.eventUseCostId)
+        MiniGameRoadPuzzleInfoExcelAddCostGoodsId(builder, self.costGoodsId)
+        MiniGameRoadPuzzleInfoExcelAddRailSetRewardId(builder, self.railSetRewardId)
+        MiniGameRoadPuzzleInfoExcelAddInstantClearRound(builder, self.instantClearRound)
+        miniGameRoadPuzzleInfoExcel = MiniGameRoadPuzzleInfoExcelEnd(builder)
+        return miniGameRoadPuzzleInfoExcel

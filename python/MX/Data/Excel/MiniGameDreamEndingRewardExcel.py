@@ -217,3 +217,120 @@ def MiniGameDreamEndingRewardExcelEnd(builder):
 
 def End(builder):
     return MiniGameDreamEndingRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MiniGameDreamEndingRewardExcelT(object):
+
+    # MiniGameDreamEndingRewardExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        endingId = 0,
+        localizeEtcId = 0,
+        dreamMakerEndingRewardType = 0,
+        dreamMakerEndingType = 0,
+        rewardParcelType = None,
+        rewardParcelId = None,
+        rewardParcelAmount = None,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.endingId = endingId  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.dreamMakerEndingRewardType = dreamMakerEndingRewardType  # type: int
+        self.dreamMakerEndingType = dreamMakerEndingType  # type: int
+        self.rewardParcelType = rewardParcelType  # type: Optional[List[int]]
+        self.rewardParcelId = rewardParcelId  # type: Optional[List[int]]
+        self.rewardParcelAmount = rewardParcelAmount  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDreamEndingRewardExcel = MiniGameDreamEndingRewardExcel()
+        miniGameDreamEndingRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDreamEndingRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDreamEndingRewardExcel):
+        x = MiniGameDreamEndingRewardExcelT()
+        x._UnPack(miniGameDreamEndingRewardExcel)
+        return x
+
+    # MiniGameDreamEndingRewardExcelT
+    def _UnPack(self, miniGameDreamEndingRewardExcel):
+        if miniGameDreamEndingRewardExcel is None:
+            return
+        self.eventContentId = miniGameDreamEndingRewardExcel.EventContentId()
+        self.endingId = miniGameDreamEndingRewardExcel.EndingId()
+        self.localizeEtcId = miniGameDreamEndingRewardExcel.LocalizeEtcId()
+        self.dreamMakerEndingRewardType = miniGameDreamEndingRewardExcel.DreamMakerEndingRewardType()
+        self.dreamMakerEndingType = miniGameDreamEndingRewardExcel.DreamMakerEndingType()
+        if not miniGameDreamEndingRewardExcel.RewardParcelTypeIsNone():
+            if np is None:
+                self.rewardParcelType = []
+                for i in range(miniGameDreamEndingRewardExcel.RewardParcelTypeLength()):
+                    self.rewardParcelType.append(miniGameDreamEndingRewardExcel.RewardParcelType(i))
+            else:
+                self.rewardParcelType = miniGameDreamEndingRewardExcel.RewardParcelTypeAsNumpy()
+        if not miniGameDreamEndingRewardExcel.RewardParcelIdIsNone():
+            if np is None:
+                self.rewardParcelId = []
+                for i in range(miniGameDreamEndingRewardExcel.RewardParcelIdLength()):
+                    self.rewardParcelId.append(miniGameDreamEndingRewardExcel.RewardParcelId(i))
+            else:
+                self.rewardParcelId = miniGameDreamEndingRewardExcel.RewardParcelIdAsNumpy()
+        if not miniGameDreamEndingRewardExcel.RewardParcelAmountIsNone():
+            if np is None:
+                self.rewardParcelAmount = []
+                for i in range(miniGameDreamEndingRewardExcel.RewardParcelAmountLength()):
+                    self.rewardParcelAmount.append(miniGameDreamEndingRewardExcel.RewardParcelAmount(i))
+            else:
+                self.rewardParcelAmount = miniGameDreamEndingRewardExcel.RewardParcelAmountAsNumpy()
+
+    # MiniGameDreamEndingRewardExcelT
+    def Pack(self, builder):
+        if self.rewardParcelType is not None:
+            if np is not None and type(self.rewardParcelType) is np.ndarray:
+                rewardParcelType = builder.CreateNumpyVector(self.rewardParcelType)
+            else:
+                MiniGameDreamEndingRewardExcelStartRewardParcelTypeVector(builder, len(self.rewardParcelType))
+                for i in reversed(range(len(self.rewardParcelType))):
+                    builder.PrependInt32(self.rewardParcelType[i])
+                rewardParcelType = builder.EndVector()
+        if self.rewardParcelId is not None:
+            if np is not None and type(self.rewardParcelId) is np.ndarray:
+                rewardParcelId = builder.CreateNumpyVector(self.rewardParcelId)
+            else:
+                MiniGameDreamEndingRewardExcelStartRewardParcelIdVector(builder, len(self.rewardParcelId))
+                for i in reversed(range(len(self.rewardParcelId))):
+                    builder.PrependInt64(self.rewardParcelId[i])
+                rewardParcelId = builder.EndVector()
+        if self.rewardParcelAmount is not None:
+            if np is not None and type(self.rewardParcelAmount) is np.ndarray:
+                rewardParcelAmount = builder.CreateNumpyVector(self.rewardParcelAmount)
+            else:
+                MiniGameDreamEndingRewardExcelStartRewardParcelAmountVector(builder, len(self.rewardParcelAmount))
+                for i in reversed(range(len(self.rewardParcelAmount))):
+                    builder.PrependInt64(self.rewardParcelAmount[i])
+                rewardParcelAmount = builder.EndVector()
+        MiniGameDreamEndingRewardExcelStart(builder)
+        MiniGameDreamEndingRewardExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameDreamEndingRewardExcelAddEndingId(builder, self.endingId)
+        MiniGameDreamEndingRewardExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        MiniGameDreamEndingRewardExcelAddDreamMakerEndingRewardType(builder, self.dreamMakerEndingRewardType)
+        MiniGameDreamEndingRewardExcelAddDreamMakerEndingType(builder, self.dreamMakerEndingType)
+        if self.rewardParcelType is not None:
+            MiniGameDreamEndingRewardExcelAddRewardParcelType(builder, rewardParcelType)
+        if self.rewardParcelId is not None:
+            MiniGameDreamEndingRewardExcelAddRewardParcelId(builder, rewardParcelId)
+        if self.rewardParcelAmount is not None:
+            MiniGameDreamEndingRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+        miniGameDreamEndingRewardExcel = MiniGameDreamEndingRewardExcelEnd(builder)
+        return miniGameDreamEndingRewardExcel

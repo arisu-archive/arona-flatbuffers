@@ -143,3 +143,105 @@ def RootMotionFlatEnd(builder):
 
 def End(builder):
     return RootMotionFlatEnd(builder)
+
+import FlatData.Form
+import FlatData.Motion
+try:
+    from typing import List, Optional
+except:
+    pass
+
+class RootMotionFlatT(object):
+
+    # RootMotionFlatT
+    def __init__(
+        self,
+        forms = None,
+        exSkills = None,
+        moveLeft = None,
+        moveRight = None,
+    ):
+        self.forms = forms  # type: Optional[List[FlatData.Form.FormT]]
+        self.exSkills = exSkills  # type: Optional[List[FlatData.Motion.MotionT]]
+        self.moveLeft = moveLeft  # type: Optional[FlatData.Motion.MotionT]
+        self.moveRight = moveRight  # type: Optional[FlatData.Motion.MotionT]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        rootMotionFlat = RootMotionFlat()
+        rootMotionFlat.Init(buf, pos)
+        return cls.InitFromObj(rootMotionFlat)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, rootMotionFlat):
+        x = RootMotionFlatT()
+        x._UnPack(rootMotionFlat)
+        return x
+
+    # RootMotionFlatT
+    def _UnPack(self, rootMotionFlat):
+        if rootMotionFlat is None:
+            return
+        if not rootMotionFlat.FormsIsNone():
+            self.forms = []
+            for i in range(rootMotionFlat.FormsLength()):
+                if rootMotionFlat.Forms(i) is None:
+                    self.forms.append(None)
+                else:
+                    form_ = FlatData.Form.FormT.InitFromObj(rootMotionFlat.Forms(i))
+                    self.forms.append(form_)
+        if not rootMotionFlat.ExSkillsIsNone():
+            self.exSkills = []
+            for i in range(rootMotionFlat.ExSkillsLength()):
+                if rootMotionFlat.ExSkills(i) is None:
+                    self.exSkills.append(None)
+                else:
+                    motion_ = FlatData.Motion.MotionT.InitFromObj(rootMotionFlat.ExSkills(i))
+                    self.exSkills.append(motion_)
+        if rootMotionFlat.MoveLeft() is not None:
+            self.moveLeft = FlatData.Motion.MotionT.InitFromObj(rootMotionFlat.MoveLeft())
+        if rootMotionFlat.MoveRight() is not None:
+            self.moveRight = FlatData.Motion.MotionT.InitFromObj(rootMotionFlat.MoveRight())
+
+    # RootMotionFlatT
+    def Pack(self, builder):
+        if self.forms is not None:
+            formslist = []
+            for i in range(len(self.forms)):
+                formslist.append(self.forms[i].Pack(builder))
+            RootMotionFlatStartFormsVector(builder, len(self.forms))
+            for i in reversed(range(len(self.forms))):
+                builder.PrependUOffsetTRelative(formslist[i])
+            forms = builder.EndVector()
+        if self.exSkills is not None:
+            exSkillslist = []
+            for i in range(len(self.exSkills)):
+                exSkillslist.append(self.exSkills[i].Pack(builder))
+            RootMotionFlatStartExSkillsVector(builder, len(self.exSkills))
+            for i in reversed(range(len(self.exSkills))):
+                builder.PrependUOffsetTRelative(exSkillslist[i])
+            exSkills = builder.EndVector()
+        if self.moveLeft is not None:
+            moveLeft = self.moveLeft.Pack(builder)
+        if self.moveRight is not None:
+            moveRight = self.moveRight.Pack(builder)
+        RootMotionFlatStart(builder)
+        if self.forms is not None:
+            RootMotionFlatAddForms(builder, forms)
+        if self.exSkills is not None:
+            RootMotionFlatAddExSkills(builder, exSkills)
+        if self.moveLeft is not None:
+            RootMotionFlatAddMoveLeft(builder, moveLeft)
+        if self.moveRight is not None:
+            RootMotionFlatAddMoveRight(builder, moveRight)
+        rootMotionFlat = RootMotionFlatEnd(builder)
+        return rootMotionFlat
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(RootMotionFlatT, 'RootMotionFlat', ())

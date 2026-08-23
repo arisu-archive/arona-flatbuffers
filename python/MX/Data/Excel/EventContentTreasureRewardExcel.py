@@ -256,3 +256,144 @@ def EventContentTreasureRewardExcelEnd(builder):
 
 def End(builder):
     return EventContentTreasureRewardExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class EventContentTreasureRewardExcelT(object):
+
+    # EventContentTreasureRewardExcelT
+    def __init__(
+        self,
+        id = 0,
+        localizeCodeId = None,
+        cellUnderImageWidth = 0,
+        cellUnderImageHeight = 0,
+        hiddenImage = False,
+        rewardParcelType = None,
+        rewardParcelId = None,
+        rewardParcelAmount = None,
+        cellUnderImagePath = None,
+        treasureSmallImagePath = None,
+        treasureSizeIconPath = None,
+    ):
+        self.id = id  # type: int
+        self.localizeCodeId = localizeCodeId  # type: Optional[str]
+        self.cellUnderImageWidth = cellUnderImageWidth  # type: int
+        self.cellUnderImageHeight = cellUnderImageHeight  # type: int
+        self.hiddenImage = hiddenImage  # type: bool
+        self.rewardParcelType = rewardParcelType  # type: Optional[List[int]]
+        self.rewardParcelId = rewardParcelId  # type: Optional[List[int]]
+        self.rewardParcelAmount = rewardParcelAmount  # type: Optional[List[int]]
+        self.cellUnderImagePath = cellUnderImagePath  # type: Optional[str]
+        self.treasureSmallImagePath = treasureSmallImagePath  # type: Optional[str]
+        self.treasureSizeIconPath = treasureSizeIconPath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        eventContentTreasureRewardExcel = EventContentTreasureRewardExcel()
+        eventContentTreasureRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(eventContentTreasureRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, eventContentTreasureRewardExcel):
+        x = EventContentTreasureRewardExcelT()
+        x._UnPack(eventContentTreasureRewardExcel)
+        return x
+
+    # EventContentTreasureRewardExcelT
+    def _UnPack(self, eventContentTreasureRewardExcel):
+        if eventContentTreasureRewardExcel is None:
+            return
+        self.id = eventContentTreasureRewardExcel.Id()
+        self.localizeCodeId = eventContentTreasureRewardExcel.LocalizeCodeId()
+        self.cellUnderImageWidth = eventContentTreasureRewardExcel.CellUnderImageWidth()
+        self.cellUnderImageHeight = eventContentTreasureRewardExcel.CellUnderImageHeight()
+        self.hiddenImage = eventContentTreasureRewardExcel.HiddenImage()
+        if not eventContentTreasureRewardExcel.RewardParcelTypeIsNone():
+            if np is None:
+                self.rewardParcelType = []
+                for i in range(eventContentTreasureRewardExcel.RewardParcelTypeLength()):
+                    self.rewardParcelType.append(eventContentTreasureRewardExcel.RewardParcelType(i))
+            else:
+                self.rewardParcelType = eventContentTreasureRewardExcel.RewardParcelTypeAsNumpy()
+        if not eventContentTreasureRewardExcel.RewardParcelIdIsNone():
+            if np is None:
+                self.rewardParcelId = []
+                for i in range(eventContentTreasureRewardExcel.RewardParcelIdLength()):
+                    self.rewardParcelId.append(eventContentTreasureRewardExcel.RewardParcelId(i))
+            else:
+                self.rewardParcelId = eventContentTreasureRewardExcel.RewardParcelIdAsNumpy()
+        if not eventContentTreasureRewardExcel.RewardParcelAmountIsNone():
+            if np is None:
+                self.rewardParcelAmount = []
+                for i in range(eventContentTreasureRewardExcel.RewardParcelAmountLength()):
+                    self.rewardParcelAmount.append(eventContentTreasureRewardExcel.RewardParcelAmount(i))
+            else:
+                self.rewardParcelAmount = eventContentTreasureRewardExcel.RewardParcelAmountAsNumpy()
+        self.cellUnderImagePath = eventContentTreasureRewardExcel.CellUnderImagePath()
+        self.treasureSmallImagePath = eventContentTreasureRewardExcel.TreasureSmallImagePath()
+        self.treasureSizeIconPath = eventContentTreasureRewardExcel.TreasureSizeIconPath()
+
+    # EventContentTreasureRewardExcelT
+    def Pack(self, builder):
+        if self.localizeCodeId is not None:
+            localizeCodeId = builder.CreateString(self.localizeCodeId)
+        if self.rewardParcelType is not None:
+            if np is not None and type(self.rewardParcelType) is np.ndarray:
+                rewardParcelType = builder.CreateNumpyVector(self.rewardParcelType)
+            else:
+                EventContentTreasureRewardExcelStartRewardParcelTypeVector(builder, len(self.rewardParcelType))
+                for i in reversed(range(len(self.rewardParcelType))):
+                    builder.PrependInt32(self.rewardParcelType[i])
+                rewardParcelType = builder.EndVector()
+        if self.rewardParcelId is not None:
+            if np is not None and type(self.rewardParcelId) is np.ndarray:
+                rewardParcelId = builder.CreateNumpyVector(self.rewardParcelId)
+            else:
+                EventContentTreasureRewardExcelStartRewardParcelIdVector(builder, len(self.rewardParcelId))
+                for i in reversed(range(len(self.rewardParcelId))):
+                    builder.PrependInt64(self.rewardParcelId[i])
+                rewardParcelId = builder.EndVector()
+        if self.rewardParcelAmount is not None:
+            if np is not None and type(self.rewardParcelAmount) is np.ndarray:
+                rewardParcelAmount = builder.CreateNumpyVector(self.rewardParcelAmount)
+            else:
+                EventContentTreasureRewardExcelStartRewardParcelAmountVector(builder, len(self.rewardParcelAmount))
+                for i in reversed(range(len(self.rewardParcelAmount))):
+                    builder.PrependInt64(self.rewardParcelAmount[i])
+                rewardParcelAmount = builder.EndVector()
+        if self.cellUnderImagePath is not None:
+            cellUnderImagePath = builder.CreateString(self.cellUnderImagePath)
+        if self.treasureSmallImagePath is not None:
+            treasureSmallImagePath = builder.CreateString(self.treasureSmallImagePath)
+        if self.treasureSizeIconPath is not None:
+            treasureSizeIconPath = builder.CreateString(self.treasureSizeIconPath)
+        EventContentTreasureRewardExcelStart(builder)
+        EventContentTreasureRewardExcelAddId(builder, self.id)
+        if self.localizeCodeId is not None:
+            EventContentTreasureRewardExcelAddLocalizeCodeId(builder, localizeCodeId)
+        EventContentTreasureRewardExcelAddCellUnderImageWidth(builder, self.cellUnderImageWidth)
+        EventContentTreasureRewardExcelAddCellUnderImageHeight(builder, self.cellUnderImageHeight)
+        EventContentTreasureRewardExcelAddHiddenImage(builder, self.hiddenImage)
+        if self.rewardParcelType is not None:
+            EventContentTreasureRewardExcelAddRewardParcelType(builder, rewardParcelType)
+        if self.rewardParcelId is not None:
+            EventContentTreasureRewardExcelAddRewardParcelId(builder, rewardParcelId)
+        if self.rewardParcelAmount is not None:
+            EventContentTreasureRewardExcelAddRewardParcelAmount(builder, rewardParcelAmount)
+        if self.cellUnderImagePath is not None:
+            EventContentTreasureRewardExcelAddCellUnderImagePath(builder, cellUnderImagePath)
+        if self.treasureSmallImagePath is not None:
+            EventContentTreasureRewardExcelAddTreasureSmallImagePath(builder, treasureSmallImagePath)
+        if self.treasureSizeIconPath is not None:
+            EventContentTreasureRewardExcelAddTreasureSizeIconPath(builder, treasureSizeIconPath)
+        eventContentTreasureRewardExcel = EventContentTreasureRewardExcelEnd(builder)
+        return eventContentTreasureRewardExcel

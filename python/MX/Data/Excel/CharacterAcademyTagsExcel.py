@@ -243,3 +243,142 @@ def CharacterAcademyTagsExcelEnd(builder):
 
 def End(builder):
     return CharacterAcademyTagsExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CharacterAcademyTagsExcelT(object):
+
+    # CharacterAcademyTagsExcelT
+    def __init__(
+        self,
+        id = 0,
+        favorTags = None,
+        favorItemTags = None,
+        favorItemUniqueTags = None,
+        forbiddenTags = None,
+        zoneWhiteListTags = None,
+    ):
+        self.id = id  # type: int
+        self.favorTags = favorTags  # type: Optional[List[int]]
+        self.favorItemTags = favorItemTags  # type: Optional[List[int]]
+        self.favorItemUniqueTags = favorItemUniqueTags  # type: Optional[List[int]]
+        self.forbiddenTags = forbiddenTags  # type: Optional[List[int]]
+        self.zoneWhiteListTags = zoneWhiteListTags  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        characterAcademyTagsExcel = CharacterAcademyTagsExcel()
+        characterAcademyTagsExcel.Init(buf, pos)
+        return cls.InitFromObj(characterAcademyTagsExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, characterAcademyTagsExcel):
+        x = CharacterAcademyTagsExcelT()
+        x._UnPack(characterAcademyTagsExcel)
+        return x
+
+    # CharacterAcademyTagsExcelT
+    def _UnPack(self, characterAcademyTagsExcel):
+        if characterAcademyTagsExcel is None:
+            return
+        self.id = characterAcademyTagsExcel.Id()
+        if not characterAcademyTagsExcel.FavorTagsIsNone():
+            if np is None:
+                self.favorTags = []
+                for i in range(characterAcademyTagsExcel.FavorTagsLength()):
+                    self.favorTags.append(characterAcademyTagsExcel.FavorTags(i))
+            else:
+                self.favorTags = characterAcademyTagsExcel.FavorTagsAsNumpy()
+        if not characterAcademyTagsExcel.FavorItemTagsIsNone():
+            if np is None:
+                self.favorItemTags = []
+                for i in range(characterAcademyTagsExcel.FavorItemTagsLength()):
+                    self.favorItemTags.append(characterAcademyTagsExcel.FavorItemTags(i))
+            else:
+                self.favorItemTags = characterAcademyTagsExcel.FavorItemTagsAsNumpy()
+        if not characterAcademyTagsExcel.FavorItemUniqueTagsIsNone():
+            if np is None:
+                self.favorItemUniqueTags = []
+                for i in range(characterAcademyTagsExcel.FavorItemUniqueTagsLength()):
+                    self.favorItemUniqueTags.append(characterAcademyTagsExcel.FavorItemUniqueTags(i))
+            else:
+                self.favorItemUniqueTags = characterAcademyTagsExcel.FavorItemUniqueTagsAsNumpy()
+        if not characterAcademyTagsExcel.ForbiddenTagsIsNone():
+            if np is None:
+                self.forbiddenTags = []
+                for i in range(characterAcademyTagsExcel.ForbiddenTagsLength()):
+                    self.forbiddenTags.append(characterAcademyTagsExcel.ForbiddenTags(i))
+            else:
+                self.forbiddenTags = characterAcademyTagsExcel.ForbiddenTagsAsNumpy()
+        if not characterAcademyTagsExcel.ZoneWhiteListTagsIsNone():
+            if np is None:
+                self.zoneWhiteListTags = []
+                for i in range(characterAcademyTagsExcel.ZoneWhiteListTagsLength()):
+                    self.zoneWhiteListTags.append(characterAcademyTagsExcel.ZoneWhiteListTags(i))
+            else:
+                self.zoneWhiteListTags = characterAcademyTagsExcel.ZoneWhiteListTagsAsNumpy()
+
+    # CharacterAcademyTagsExcelT
+    def Pack(self, builder):
+        if self.favorTags is not None:
+            if np is not None and type(self.favorTags) is np.ndarray:
+                favorTags = builder.CreateNumpyVector(self.favorTags)
+            else:
+                CharacterAcademyTagsExcelStartFavorTagsVector(builder, len(self.favorTags))
+                for i in reversed(range(len(self.favorTags))):
+                    builder.PrependInt32(self.favorTags[i])
+                favorTags = builder.EndVector()
+        if self.favorItemTags is not None:
+            if np is not None and type(self.favorItemTags) is np.ndarray:
+                favorItemTags = builder.CreateNumpyVector(self.favorItemTags)
+            else:
+                CharacterAcademyTagsExcelStartFavorItemTagsVector(builder, len(self.favorItemTags))
+                for i in reversed(range(len(self.favorItemTags))):
+                    builder.PrependInt32(self.favorItemTags[i])
+                favorItemTags = builder.EndVector()
+        if self.favorItemUniqueTags is not None:
+            if np is not None and type(self.favorItemUniqueTags) is np.ndarray:
+                favorItemUniqueTags = builder.CreateNumpyVector(self.favorItemUniqueTags)
+            else:
+                CharacterAcademyTagsExcelStartFavorItemUniqueTagsVector(builder, len(self.favorItemUniqueTags))
+                for i in reversed(range(len(self.favorItemUniqueTags))):
+                    builder.PrependInt32(self.favorItemUniqueTags[i])
+                favorItemUniqueTags = builder.EndVector()
+        if self.forbiddenTags is not None:
+            if np is not None and type(self.forbiddenTags) is np.ndarray:
+                forbiddenTags = builder.CreateNumpyVector(self.forbiddenTags)
+            else:
+                CharacterAcademyTagsExcelStartForbiddenTagsVector(builder, len(self.forbiddenTags))
+                for i in reversed(range(len(self.forbiddenTags))):
+                    builder.PrependInt32(self.forbiddenTags[i])
+                forbiddenTags = builder.EndVector()
+        if self.zoneWhiteListTags is not None:
+            if np is not None and type(self.zoneWhiteListTags) is np.ndarray:
+                zoneWhiteListTags = builder.CreateNumpyVector(self.zoneWhiteListTags)
+            else:
+                CharacterAcademyTagsExcelStartZoneWhiteListTagsVector(builder, len(self.zoneWhiteListTags))
+                for i in reversed(range(len(self.zoneWhiteListTags))):
+                    builder.PrependInt32(self.zoneWhiteListTags[i])
+                zoneWhiteListTags = builder.EndVector()
+        CharacterAcademyTagsExcelStart(builder)
+        CharacterAcademyTagsExcelAddId(builder, self.id)
+        if self.favorTags is not None:
+            CharacterAcademyTagsExcelAddFavorTags(builder, favorTags)
+        if self.favorItemTags is not None:
+            CharacterAcademyTagsExcelAddFavorItemTags(builder, favorItemTags)
+        if self.favorItemUniqueTags is not None:
+            CharacterAcademyTagsExcelAddFavorItemUniqueTags(builder, favorItemUniqueTags)
+        if self.forbiddenTags is not None:
+            CharacterAcademyTagsExcelAddForbiddenTags(builder, forbiddenTags)
+        if self.zoneWhiteListTags is not None:
+            CharacterAcademyTagsExcelAddZoneWhiteListTags(builder, zoneWhiteListTags)
+        characterAcademyTagsExcel = CharacterAcademyTagsExcelEnd(builder)
+        return characterAcademyTagsExcel

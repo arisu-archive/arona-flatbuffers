@@ -72,3 +72,68 @@ def ConstStrategyExcelTableEnd(builder):
 
 def End(builder):
     return ConstStrategyExcelTableEnd(builder)
+
+import FlatData.ConstStrategyExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConstStrategyExcelTableT(object):
+
+    # ConstStrategyExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConstStrategyExcel.ConstStrategyExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        constStrategyExcelTable = ConstStrategyExcelTable()
+        constStrategyExcelTable.Init(buf, pos)
+        return cls.InitFromObj(constStrategyExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, constStrategyExcelTable):
+        x = ConstStrategyExcelTableT()
+        x._UnPack(constStrategyExcelTable)
+        return x
+
+    # ConstStrategyExcelTableT
+    def _UnPack(self, constStrategyExcelTable):
+        if constStrategyExcelTable is None:
+            return
+        if not constStrategyExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(constStrategyExcelTable.DataListLength()):
+                if constStrategyExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    constStrategyExcel_ = FlatData.ConstStrategyExcel.ConstStrategyExcelT.InitFromObj(constStrategyExcelTable.DataList(i))
+                    self.dataList.append(constStrategyExcel_)
+
+    # ConstStrategyExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConstStrategyExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConstStrategyExcelTableStart(builder)
+        if self.dataList is not None:
+            ConstStrategyExcelTableAddDataList(builder, dataList)
+        constStrategyExcelTable = ConstStrategyExcelTableEnd(builder)
+        return constStrategyExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConstStrategyExcelTableT, 'ConstStrategyExcelTable', ())

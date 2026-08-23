@@ -87,3 +87,55 @@ def MinigameTBGVoiceExcelEnd(builder):
 
 def End(builder):
     return MinigameTBGVoiceExcelEnd(builder)
+
+
+class MinigameTBGVoiceExcelT(object):
+
+    # MinigameTBGVoiceExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        uniqueId = 0,
+        voiceCondition = 0,
+        voiceId = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.uniqueId = uniqueId  # type: int
+        self.voiceCondition = voiceCondition  # type: int
+        self.voiceId = voiceId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        minigameTbgvoiceExcel = MinigameTBGVoiceExcel()
+        minigameTbgvoiceExcel.Init(buf, pos)
+        return cls.InitFromObj(minigameTbgvoiceExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, minigameTbgvoiceExcel):
+        x = MinigameTBGVoiceExcelT()
+        x._UnPack(minigameTbgvoiceExcel)
+        return x
+
+    # MinigameTBGVoiceExcelT
+    def _UnPack(self, minigameTbgvoiceExcel):
+        if minigameTbgvoiceExcel is None:
+            return
+        self.eventContentId = minigameTbgvoiceExcel.EventContentId()
+        self.uniqueId = minigameTbgvoiceExcel.UniqueId()
+        self.voiceCondition = minigameTbgvoiceExcel.VoiceCondition()
+        self.voiceId = minigameTbgvoiceExcel.VoiceId()
+
+    # MinigameTBGVoiceExcelT
+    def Pack(self, builder):
+        MinigameTBGVoiceExcelStart(builder)
+        MinigameTBGVoiceExcelAddEventContentId(builder, self.eventContentId)
+        MinigameTBGVoiceExcelAddUniqueId(builder, self.uniqueId)
+        MinigameTBGVoiceExcelAddVoiceCondition(builder, self.voiceCondition)
+        MinigameTBGVoiceExcelAddVoiceId(builder, self.voiceId)
+        minigameTbgvoiceExcel = MinigameTBGVoiceExcelEnd(builder)
+        return minigameTbgvoiceExcel

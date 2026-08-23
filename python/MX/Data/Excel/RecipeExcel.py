@@ -243,3 +243,135 @@ def RecipeExcelEnd(builder):
 
 def End(builder):
     return RecipeExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class RecipeExcelT(object):
+
+    # RecipeExcelT
+    def __init__(
+        self,
+        id = 0,
+        recipeType = 0,
+        recipeIngredientId = 0,
+        recipeSelectionGroupId = 0,
+        parcelType = None,
+        parcelId = None,
+        resultAmountMin = None,
+        resultAmountMax = None,
+    ):
+        self.id = id  # type: int
+        self.recipeType = recipeType  # type: int
+        self.recipeIngredientId = recipeIngredientId  # type: int
+        self.recipeSelectionGroupId = recipeSelectionGroupId  # type: int
+        self.parcelType = parcelType  # type: Optional[List[int]]
+        self.parcelId = parcelId  # type: Optional[List[int]]
+        self.resultAmountMin = resultAmountMin  # type: Optional[List[int]]
+        self.resultAmountMax = resultAmountMax  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        recipeExcel = RecipeExcel()
+        recipeExcel.Init(buf, pos)
+        return cls.InitFromObj(recipeExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, recipeExcel):
+        x = RecipeExcelT()
+        x._UnPack(recipeExcel)
+        return x
+
+    # RecipeExcelT
+    def _UnPack(self, recipeExcel):
+        if recipeExcel is None:
+            return
+        self.id = recipeExcel.Id()
+        self.recipeType = recipeExcel.RecipeType()
+        self.recipeIngredientId = recipeExcel.RecipeIngredientId()
+        self.recipeSelectionGroupId = recipeExcel.RecipeSelectionGroupId()
+        if not recipeExcel.ParcelTypeIsNone():
+            if np is None:
+                self.parcelType = []
+                for i in range(recipeExcel.ParcelTypeLength()):
+                    self.parcelType.append(recipeExcel.ParcelType(i))
+            else:
+                self.parcelType = recipeExcel.ParcelTypeAsNumpy()
+        if not recipeExcel.ParcelIdIsNone():
+            if np is None:
+                self.parcelId = []
+                for i in range(recipeExcel.ParcelIdLength()):
+                    self.parcelId.append(recipeExcel.ParcelId(i))
+            else:
+                self.parcelId = recipeExcel.ParcelIdAsNumpy()
+        if not recipeExcel.ResultAmountMinIsNone():
+            if np is None:
+                self.resultAmountMin = []
+                for i in range(recipeExcel.ResultAmountMinLength()):
+                    self.resultAmountMin.append(recipeExcel.ResultAmountMin(i))
+            else:
+                self.resultAmountMin = recipeExcel.ResultAmountMinAsNumpy()
+        if not recipeExcel.ResultAmountMaxIsNone():
+            if np is None:
+                self.resultAmountMax = []
+                for i in range(recipeExcel.ResultAmountMaxLength()):
+                    self.resultAmountMax.append(recipeExcel.ResultAmountMax(i))
+            else:
+                self.resultAmountMax = recipeExcel.ResultAmountMaxAsNumpy()
+
+    # RecipeExcelT
+    def Pack(self, builder):
+        if self.parcelType is not None:
+            if np is not None and type(self.parcelType) is np.ndarray:
+                parcelType = builder.CreateNumpyVector(self.parcelType)
+            else:
+                RecipeExcelStartParcelTypeVector(builder, len(self.parcelType))
+                for i in reversed(range(len(self.parcelType))):
+                    builder.PrependInt32(self.parcelType[i])
+                parcelType = builder.EndVector()
+        if self.parcelId is not None:
+            if np is not None and type(self.parcelId) is np.ndarray:
+                parcelId = builder.CreateNumpyVector(self.parcelId)
+            else:
+                RecipeExcelStartParcelIdVector(builder, len(self.parcelId))
+                for i in reversed(range(len(self.parcelId))):
+                    builder.PrependInt64(self.parcelId[i])
+                parcelId = builder.EndVector()
+        if self.resultAmountMin is not None:
+            if np is not None and type(self.resultAmountMin) is np.ndarray:
+                resultAmountMin = builder.CreateNumpyVector(self.resultAmountMin)
+            else:
+                RecipeExcelStartResultAmountMinVector(builder, len(self.resultAmountMin))
+                for i in reversed(range(len(self.resultAmountMin))):
+                    builder.PrependInt64(self.resultAmountMin[i])
+                resultAmountMin = builder.EndVector()
+        if self.resultAmountMax is not None:
+            if np is not None and type(self.resultAmountMax) is np.ndarray:
+                resultAmountMax = builder.CreateNumpyVector(self.resultAmountMax)
+            else:
+                RecipeExcelStartResultAmountMaxVector(builder, len(self.resultAmountMax))
+                for i in reversed(range(len(self.resultAmountMax))):
+                    builder.PrependInt64(self.resultAmountMax[i])
+                resultAmountMax = builder.EndVector()
+        RecipeExcelStart(builder)
+        RecipeExcelAddId(builder, self.id)
+        RecipeExcelAddRecipeType(builder, self.recipeType)
+        RecipeExcelAddRecipeIngredientId(builder, self.recipeIngredientId)
+        RecipeExcelAddRecipeSelectionGroupId(builder, self.recipeSelectionGroupId)
+        if self.parcelType is not None:
+            RecipeExcelAddParcelType(builder, parcelType)
+        if self.parcelId is not None:
+            RecipeExcelAddParcelId(builder, parcelId)
+        if self.resultAmountMin is not None:
+            RecipeExcelAddResultAmountMin(builder, resultAmountMin)
+        if self.resultAmountMax is not None:
+            RecipeExcelAddResultAmountMax(builder, resultAmountMax)
+        recipeExcel = RecipeExcelEnd(builder)
+        return recipeExcel

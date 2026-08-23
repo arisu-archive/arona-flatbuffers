@@ -100,3 +100,59 @@ def ToastExcelEnd(builder):
 
 def End(builder):
     return ToastExcelEnd(builder)
+
+
+class ToastExcelT(object):
+
+    # ToastExcelT
+    def __init__(
+        self,
+        id = 0,
+        toastType = 0,
+        missionId = 0,
+        textId = 0,
+        lifeTime = 0,
+    ):
+        self.id = id  # type: int
+        self.toastType = toastType  # type: int
+        self.missionId = missionId  # type: int
+        self.textId = textId  # type: int
+        self.lifeTime = lifeTime  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        toastExcel = ToastExcel()
+        toastExcel.Init(buf, pos)
+        return cls.InitFromObj(toastExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, toastExcel):
+        x = ToastExcelT()
+        x._UnPack(toastExcel)
+        return x
+
+    # ToastExcelT
+    def _UnPack(self, toastExcel):
+        if toastExcel is None:
+            return
+        self.id = toastExcel.Id()
+        self.toastType = toastExcel.ToastType()
+        self.missionId = toastExcel.MissionId()
+        self.textId = toastExcel.TextId()
+        self.lifeTime = toastExcel.LifeTime()
+
+    # ToastExcelT
+    def Pack(self, builder):
+        ToastExcelStart(builder)
+        ToastExcelAddId(builder, self.id)
+        ToastExcelAddToastType(builder, self.toastType)
+        ToastExcelAddMissionId(builder, self.missionId)
+        ToastExcelAddTextId(builder, self.textId)
+        ToastExcelAddLifeTime(builder, self.lifeTime)
+        toastExcel = ToastExcelEnd(builder)
+        return toastExcel

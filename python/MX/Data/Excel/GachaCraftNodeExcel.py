@@ -126,3 +126,70 @@ def GachaCraftNodeExcelEnd(builder):
 
 def End(builder):
     return GachaCraftNodeExcelEnd(builder)
+
+
+class GachaCraftNodeExcelT(object):
+
+    # GachaCraftNodeExcelT
+    def __init__(
+        self,
+        id = 0,
+        tier = 0,
+        quickCraftNodeDisplayOrder = 0,
+        nodeQuality = 0,
+        icon = None,
+        localizeKey = 0,
+        property = 0,
+    ):
+        self.id = id  # type: int
+        self.tier = tier  # type: int
+        self.quickCraftNodeDisplayOrder = quickCraftNodeDisplayOrder  # type: int
+        self.nodeQuality = nodeQuality  # type: int
+        self.icon = icon  # type: Optional[str]
+        self.localizeKey = localizeKey  # type: int
+        self.property = property  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        gachaCraftNodeExcel = GachaCraftNodeExcel()
+        gachaCraftNodeExcel.Init(buf, pos)
+        return cls.InitFromObj(gachaCraftNodeExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, gachaCraftNodeExcel):
+        x = GachaCraftNodeExcelT()
+        x._UnPack(gachaCraftNodeExcel)
+        return x
+
+    # GachaCraftNodeExcelT
+    def _UnPack(self, gachaCraftNodeExcel):
+        if gachaCraftNodeExcel is None:
+            return
+        self.id = gachaCraftNodeExcel.Id()
+        self.tier = gachaCraftNodeExcel.Tier()
+        self.quickCraftNodeDisplayOrder = gachaCraftNodeExcel.QuickCraftNodeDisplayOrder()
+        self.nodeQuality = gachaCraftNodeExcel.NodeQuality()
+        self.icon = gachaCraftNodeExcel.Icon()
+        self.localizeKey = gachaCraftNodeExcel.LocalizeKey()
+        self.property = gachaCraftNodeExcel.Property()
+
+    # GachaCraftNodeExcelT
+    def Pack(self, builder):
+        if self.icon is not None:
+            icon = builder.CreateString(self.icon)
+        GachaCraftNodeExcelStart(builder)
+        GachaCraftNodeExcelAddId(builder, self.id)
+        GachaCraftNodeExcelAddTier(builder, self.tier)
+        GachaCraftNodeExcelAddQuickCraftNodeDisplayOrder(builder, self.quickCraftNodeDisplayOrder)
+        GachaCraftNodeExcelAddNodeQuality(builder, self.nodeQuality)
+        if self.icon is not None:
+            GachaCraftNodeExcelAddIcon(builder, icon)
+        GachaCraftNodeExcelAddLocalizeKey(builder, self.localizeKey)
+        GachaCraftNodeExcelAddProperty(builder, self.property)
+        gachaCraftNodeExcel = GachaCraftNodeExcelEnd(builder)
+        return gachaCraftNodeExcel

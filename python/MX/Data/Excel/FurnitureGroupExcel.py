@@ -152,3 +152,93 @@ def FurnitureGroupExcelEnd(builder):
 
 def End(builder):
     return FurnitureGroupExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class FurnitureGroupExcelT(object):
+
+    # FurnitureGroupExcelT
+    def __init__(
+        self,
+        id = 0,
+        groupNameLocalize = 0,
+        localizeEtcId = 0,
+        requiredFurnitureCount = None,
+        comfortBonus = None,
+    ):
+        self.id = id  # type: int
+        self.groupNameLocalize = groupNameLocalize  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.requiredFurnitureCount = requiredFurnitureCount  # type: Optional[List[int]]
+        self.comfortBonus = comfortBonus  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        furnitureGroupExcel = FurnitureGroupExcel()
+        furnitureGroupExcel.Init(buf, pos)
+        return cls.InitFromObj(furnitureGroupExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, furnitureGroupExcel):
+        x = FurnitureGroupExcelT()
+        x._UnPack(furnitureGroupExcel)
+        return x
+
+    # FurnitureGroupExcelT
+    def _UnPack(self, furnitureGroupExcel):
+        if furnitureGroupExcel is None:
+            return
+        self.id = furnitureGroupExcel.Id()
+        self.groupNameLocalize = furnitureGroupExcel.GroupNameLocalize()
+        self.localizeEtcId = furnitureGroupExcel.LocalizeEtcId()
+        if not furnitureGroupExcel.RequiredFurnitureCountIsNone():
+            if np is None:
+                self.requiredFurnitureCount = []
+                for i in range(furnitureGroupExcel.RequiredFurnitureCountLength()):
+                    self.requiredFurnitureCount.append(furnitureGroupExcel.RequiredFurnitureCount(i))
+            else:
+                self.requiredFurnitureCount = furnitureGroupExcel.RequiredFurnitureCountAsNumpy()
+        if not furnitureGroupExcel.ComfortBonusIsNone():
+            if np is None:
+                self.comfortBonus = []
+                for i in range(furnitureGroupExcel.ComfortBonusLength()):
+                    self.comfortBonus.append(furnitureGroupExcel.ComfortBonus(i))
+            else:
+                self.comfortBonus = furnitureGroupExcel.ComfortBonusAsNumpy()
+
+    # FurnitureGroupExcelT
+    def Pack(self, builder):
+        if self.requiredFurnitureCount is not None:
+            if np is not None and type(self.requiredFurnitureCount) is np.ndarray:
+                requiredFurnitureCount = builder.CreateNumpyVector(self.requiredFurnitureCount)
+            else:
+                FurnitureGroupExcelStartRequiredFurnitureCountVector(builder, len(self.requiredFurnitureCount))
+                for i in reversed(range(len(self.requiredFurnitureCount))):
+                    builder.PrependInt32(self.requiredFurnitureCount[i])
+                requiredFurnitureCount = builder.EndVector()
+        if self.comfortBonus is not None:
+            if np is not None and type(self.comfortBonus) is np.ndarray:
+                comfortBonus = builder.CreateNumpyVector(self.comfortBonus)
+            else:
+                FurnitureGroupExcelStartComfortBonusVector(builder, len(self.comfortBonus))
+                for i in reversed(range(len(self.comfortBonus))):
+                    builder.PrependInt64(self.comfortBonus[i])
+                comfortBonus = builder.EndVector()
+        FurnitureGroupExcelStart(builder)
+        FurnitureGroupExcelAddId(builder, self.id)
+        FurnitureGroupExcelAddGroupNameLocalize(builder, self.groupNameLocalize)
+        FurnitureGroupExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        if self.requiredFurnitureCount is not None:
+            FurnitureGroupExcelAddRequiredFurnitureCount(builder, requiredFurnitureCount)
+        if self.comfortBonus is not None:
+            FurnitureGroupExcelAddComfortBonus(builder, comfortBonus)
+        furnitureGroupExcel = FurnitureGroupExcelEnd(builder)
+        return furnitureGroupExcel

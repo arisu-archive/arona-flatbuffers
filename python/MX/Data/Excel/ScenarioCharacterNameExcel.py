@@ -230,3 +230,135 @@ def ScenarioCharacterNameExcelEnd(builder):
 
 def End(builder):
     return ScenarioCharacterNameExcelEnd(builder)
+
+
+class ScenarioCharacterNameExcelT(object):
+
+    # ScenarioCharacterNameExcelT
+    def __init__(
+        self,
+        characterName = 0,
+        productionStep = 0,
+        nameKr = None,
+        nicknameKr = None,
+        nameJp = None,
+        nicknameJp = None,
+        nameTh = None,
+        nicknameTh = None,
+        nameTw = None,
+        nicknameTw = None,
+        nameEn = None,
+        nicknameEn = None,
+        shape = 0,
+        spinePrefabName = None,
+        smallPortrait = None,
+    ):
+        self.characterName = characterName  # type: int
+        self.productionStep = productionStep  # type: int
+        self.nameKr = nameKr  # type: Optional[str]
+        self.nicknameKr = nicknameKr  # type: Optional[str]
+        self.nameJp = nameJp  # type: Optional[str]
+        self.nicknameJp = nicknameJp  # type: Optional[str]
+        self.nameTh = nameTh  # type: Optional[str]
+        self.nicknameTh = nicknameTh  # type: Optional[str]
+        self.nameTw = nameTw  # type: Optional[str]
+        self.nicknameTw = nicknameTw  # type: Optional[str]
+        self.nameEn = nameEn  # type: Optional[str]
+        self.nicknameEn = nicknameEn  # type: Optional[str]
+        self.shape = shape  # type: int
+        self.spinePrefabName = spinePrefabName  # type: Optional[str]
+        self.smallPortrait = smallPortrait  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        scenarioCharacterNameExcel = ScenarioCharacterNameExcel()
+        scenarioCharacterNameExcel.Init(buf, pos)
+        return cls.InitFromObj(scenarioCharacterNameExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, scenarioCharacterNameExcel):
+        x = ScenarioCharacterNameExcelT()
+        x._UnPack(scenarioCharacterNameExcel)
+        return x
+
+    # ScenarioCharacterNameExcelT
+    def _UnPack(self, scenarioCharacterNameExcel):
+        if scenarioCharacterNameExcel is None:
+            return
+        self.characterName = scenarioCharacterNameExcel.CharacterName()
+        self.productionStep = scenarioCharacterNameExcel.ProductionStep()
+        self.nameKr = scenarioCharacterNameExcel.NameKr()
+        self.nicknameKr = scenarioCharacterNameExcel.NicknameKr()
+        self.nameJp = scenarioCharacterNameExcel.NameJp()
+        self.nicknameJp = scenarioCharacterNameExcel.NicknameJp()
+        self.nameTh = scenarioCharacterNameExcel.NameTh()
+        self.nicknameTh = scenarioCharacterNameExcel.NicknameTh()
+        self.nameTw = scenarioCharacterNameExcel.NameTw()
+        self.nicknameTw = scenarioCharacterNameExcel.NicknameTw()
+        self.nameEn = scenarioCharacterNameExcel.NameEn()
+        self.nicknameEn = scenarioCharacterNameExcel.NicknameEn()
+        self.shape = scenarioCharacterNameExcel.Shape()
+        self.spinePrefabName = scenarioCharacterNameExcel.SpinePrefabName()
+        self.smallPortrait = scenarioCharacterNameExcel.SmallPortrait()
+
+    # ScenarioCharacterNameExcelT
+    def Pack(self, builder):
+        if self.nameKr is not None:
+            nameKr = builder.CreateString(self.nameKr)
+        if self.nicknameKr is not None:
+            nicknameKr = builder.CreateString(self.nicknameKr)
+        if self.nameJp is not None:
+            nameJp = builder.CreateString(self.nameJp)
+        if self.nicknameJp is not None:
+            nicknameJp = builder.CreateString(self.nicknameJp)
+        if self.nameTh is not None:
+            nameTh = builder.CreateString(self.nameTh)
+        if self.nicknameTh is not None:
+            nicknameTh = builder.CreateString(self.nicknameTh)
+        if self.nameTw is not None:
+            nameTw = builder.CreateString(self.nameTw)
+        if self.nicknameTw is not None:
+            nicknameTw = builder.CreateString(self.nicknameTw)
+        if self.nameEn is not None:
+            nameEn = builder.CreateString(self.nameEn)
+        if self.nicknameEn is not None:
+            nicknameEn = builder.CreateString(self.nicknameEn)
+        if self.spinePrefabName is not None:
+            spinePrefabName = builder.CreateString(self.spinePrefabName)
+        if self.smallPortrait is not None:
+            smallPortrait = builder.CreateString(self.smallPortrait)
+        ScenarioCharacterNameExcelStart(builder)
+        ScenarioCharacterNameExcelAddCharacterName(builder, self.characterName)
+        ScenarioCharacterNameExcelAddProductionStep(builder, self.productionStep)
+        if self.nameKr is not None:
+            ScenarioCharacterNameExcelAddNameKr(builder, nameKr)
+        if self.nicknameKr is not None:
+            ScenarioCharacterNameExcelAddNicknameKr(builder, nicknameKr)
+        if self.nameJp is not None:
+            ScenarioCharacterNameExcelAddNameJp(builder, nameJp)
+        if self.nicknameJp is not None:
+            ScenarioCharacterNameExcelAddNicknameJp(builder, nicknameJp)
+        if self.nameTh is not None:
+            ScenarioCharacterNameExcelAddNameTh(builder, nameTh)
+        if self.nicknameTh is not None:
+            ScenarioCharacterNameExcelAddNicknameTh(builder, nicknameTh)
+        if self.nameTw is not None:
+            ScenarioCharacterNameExcelAddNameTw(builder, nameTw)
+        if self.nicknameTw is not None:
+            ScenarioCharacterNameExcelAddNicknameTw(builder, nicknameTw)
+        if self.nameEn is not None:
+            ScenarioCharacterNameExcelAddNameEn(builder, nameEn)
+        if self.nicknameEn is not None:
+            ScenarioCharacterNameExcelAddNicknameEn(builder, nicknameEn)
+        ScenarioCharacterNameExcelAddShape(builder, self.shape)
+        if self.spinePrefabName is not None:
+            ScenarioCharacterNameExcelAddSpinePrefabName(builder, spinePrefabName)
+        if self.smallPortrait is not None:
+            ScenarioCharacterNameExcelAddSmallPortrait(builder, smallPortrait)
+        scenarioCharacterNameExcel = ScenarioCharacterNameExcelEnd(builder)
+        return scenarioCharacterNameExcel

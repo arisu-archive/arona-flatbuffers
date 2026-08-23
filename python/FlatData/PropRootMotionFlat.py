@@ -72,3 +72,68 @@ def PropRootMotionFlatEnd(builder):
 
 def End(builder):
     return PropRootMotionFlatEnd(builder)
+
+import FlatData.PropMotion
+try:
+    from typing import List
+except:
+    pass
+
+class PropRootMotionFlatT(object):
+
+    # PropRootMotionFlatT
+    def __init__(
+        self,
+        rootMotions = None,
+    ):
+        self.rootMotions = rootMotions  # type: Optional[List[FlatData.PropMotion.PropMotionT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        propRootMotionFlat = PropRootMotionFlat()
+        propRootMotionFlat.Init(buf, pos)
+        return cls.InitFromObj(propRootMotionFlat)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, propRootMotionFlat):
+        x = PropRootMotionFlatT()
+        x._UnPack(propRootMotionFlat)
+        return x
+
+    # PropRootMotionFlatT
+    def _UnPack(self, propRootMotionFlat):
+        if propRootMotionFlat is None:
+            return
+        if not propRootMotionFlat.RootMotionsIsNone():
+            self.rootMotions = []
+            for i in range(propRootMotionFlat.RootMotionsLength()):
+                if propRootMotionFlat.RootMotions(i) is None:
+                    self.rootMotions.append(None)
+                else:
+                    propMotion_ = FlatData.PropMotion.PropMotionT.InitFromObj(propRootMotionFlat.RootMotions(i))
+                    self.rootMotions.append(propMotion_)
+
+    # PropRootMotionFlatT
+    def Pack(self, builder):
+        if self.rootMotions is not None:
+            rootMotionslist = []
+            for i in range(len(self.rootMotions)):
+                rootMotionslist.append(self.rootMotions[i].Pack(builder))
+            PropRootMotionFlatStartRootMotionsVector(builder, len(self.rootMotions))
+            for i in reversed(range(len(self.rootMotions))):
+                builder.PrependUOffsetTRelative(rootMotionslist[i])
+            rootMotions = builder.EndVector()
+        PropRootMotionFlatStart(builder)
+        if self.rootMotions is not None:
+            PropRootMotionFlatAddRootMotions(builder, rootMotions)
+        propRootMotionFlat = PropRootMotionFlatEnd(builder)
+        return propRootMotionFlat
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(PropRootMotionFlatT, 'PropRootMotionFlat', ())

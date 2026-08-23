@@ -72,3 +72,68 @@ def ScenarioExcelTableEnd(builder):
 
 def End(builder):
     return ScenarioExcelTableEnd(builder)
+
+import FlatData.ScenarioExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ScenarioExcelTableT(object):
+
+    # ScenarioExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ScenarioExcel.ScenarioExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        scenarioExcelTable = ScenarioExcelTable()
+        scenarioExcelTable.Init(buf, pos)
+        return cls.InitFromObj(scenarioExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, scenarioExcelTable):
+        x = ScenarioExcelTableT()
+        x._UnPack(scenarioExcelTable)
+        return x
+
+    # ScenarioExcelTableT
+    def _UnPack(self, scenarioExcelTable):
+        if scenarioExcelTable is None:
+            return
+        if not scenarioExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(scenarioExcelTable.DataListLength()):
+                if scenarioExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    scenarioExcel_ = FlatData.ScenarioExcel.ScenarioExcelT.InitFromObj(scenarioExcelTable.DataList(i))
+                    self.dataList.append(scenarioExcel_)
+
+    # ScenarioExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ScenarioExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ScenarioExcelTableStart(builder)
+        if self.dataList is not None:
+            ScenarioExcelTableAddDataList(builder, dataList)
+        scenarioExcelTable = ScenarioExcelTableEnd(builder)
+        return scenarioExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ScenarioExcelTableT, 'ScenarioExcelTable', ())

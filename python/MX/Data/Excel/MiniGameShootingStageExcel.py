@@ -204,3 +204,111 @@ def MiniGameShootingStageExcelEnd(builder):
 
 def End(builder):
     return MiniGameShootingStageExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MiniGameShootingStageExcelT(object):
+
+    # MiniGameShootingStageExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        bgmId = None,
+        costGoodsId = 0,
+        difficulty = 0,
+        designLevel = None,
+        artLevel = None,
+        startBattleDuration = 0,
+        defaultBattleDuration = 0,
+        defaultLogicEffect = None,
+        cameraSizeRate = 0.0,
+        eventContentStageRewardId = 0,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.bgmId = bgmId  # type: Optional[List[int]]
+        self.costGoodsId = costGoodsId  # type: int
+        self.difficulty = difficulty  # type: int
+        self.designLevel = designLevel  # type: Optional[str]
+        self.artLevel = artLevel  # type: Optional[str]
+        self.startBattleDuration = startBattleDuration  # type: int
+        self.defaultBattleDuration = defaultBattleDuration  # type: int
+        self.defaultLogicEffect = defaultLogicEffect  # type: Optional[str]
+        self.cameraSizeRate = cameraSizeRate  # type: float
+        self.eventContentStageRewardId = eventContentStageRewardId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameShootingStageExcel = MiniGameShootingStageExcel()
+        miniGameShootingStageExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameShootingStageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameShootingStageExcel):
+        x = MiniGameShootingStageExcelT()
+        x._UnPack(miniGameShootingStageExcel)
+        return x
+
+    # MiniGameShootingStageExcelT
+    def _UnPack(self, miniGameShootingStageExcel):
+        if miniGameShootingStageExcel is None:
+            return
+        self.uniqueId = miniGameShootingStageExcel.UniqueId()
+        if not miniGameShootingStageExcel.BgmIdIsNone():
+            if np is None:
+                self.bgmId = []
+                for i in range(miniGameShootingStageExcel.BgmIdLength()):
+                    self.bgmId.append(miniGameShootingStageExcel.BgmId(i))
+            else:
+                self.bgmId = miniGameShootingStageExcel.BgmIdAsNumpy()
+        self.costGoodsId = miniGameShootingStageExcel.CostGoodsId()
+        self.difficulty = miniGameShootingStageExcel.Difficulty()
+        self.designLevel = miniGameShootingStageExcel.DesignLevel()
+        self.artLevel = miniGameShootingStageExcel.ArtLevel()
+        self.startBattleDuration = miniGameShootingStageExcel.StartBattleDuration()
+        self.defaultBattleDuration = miniGameShootingStageExcel.DefaultBattleDuration()
+        self.defaultLogicEffect = miniGameShootingStageExcel.DefaultLogicEffect()
+        self.cameraSizeRate = miniGameShootingStageExcel.CameraSizeRate()
+        self.eventContentStageRewardId = miniGameShootingStageExcel.EventContentStageRewardId()
+
+    # MiniGameShootingStageExcelT
+    def Pack(self, builder):
+        if self.bgmId is not None:
+            if np is not None and type(self.bgmId) is np.ndarray:
+                bgmId = builder.CreateNumpyVector(self.bgmId)
+            else:
+                MiniGameShootingStageExcelStartBgmIdVector(builder, len(self.bgmId))
+                for i in reversed(range(len(self.bgmId))):
+                    builder.PrependInt64(self.bgmId[i])
+                bgmId = builder.EndVector()
+        if self.designLevel is not None:
+            designLevel = builder.CreateString(self.designLevel)
+        if self.artLevel is not None:
+            artLevel = builder.CreateString(self.artLevel)
+        if self.defaultLogicEffect is not None:
+            defaultLogicEffect = builder.CreateString(self.defaultLogicEffect)
+        MiniGameShootingStageExcelStart(builder)
+        MiniGameShootingStageExcelAddUniqueId(builder, self.uniqueId)
+        if self.bgmId is not None:
+            MiniGameShootingStageExcelAddBgmId(builder, bgmId)
+        MiniGameShootingStageExcelAddCostGoodsId(builder, self.costGoodsId)
+        MiniGameShootingStageExcelAddDifficulty(builder, self.difficulty)
+        if self.designLevel is not None:
+            MiniGameShootingStageExcelAddDesignLevel(builder, designLevel)
+        if self.artLevel is not None:
+            MiniGameShootingStageExcelAddArtLevel(builder, artLevel)
+        MiniGameShootingStageExcelAddStartBattleDuration(builder, self.startBattleDuration)
+        MiniGameShootingStageExcelAddDefaultBattleDuration(builder, self.defaultBattleDuration)
+        if self.defaultLogicEffect is not None:
+            MiniGameShootingStageExcelAddDefaultLogicEffect(builder, defaultLogicEffect)
+        MiniGameShootingStageExcelAddCameraSizeRate(builder, self.cameraSizeRate)
+        MiniGameShootingStageExcelAddEventContentStageRewardId(builder, self.eventContentStageRewardId)
+        miniGameShootingStageExcel = MiniGameShootingStageExcelEnd(builder)
+        return miniGameShootingStageExcel

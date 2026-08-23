@@ -191,8 +191,22 @@ class CurrencyExcel(object):
             return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
         return 0
 
+    # CurrencyExcel
+    def ResetType(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(46))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int32Flags, o + self._tab.Pos)
+        return 0
+
+    # CurrencyExcel
+    def ResetAmount(self):
+        o = flatbuffers.number_types.UOffsetTFlags.py_type(self._tab.Offset(48))
+        if o != 0:
+            return self._tab.Get(flatbuffers.number_types.Int64Flags, o + self._tab.Pos)
+        return 0
+
 def CurrencyExcelStart(builder):
-    builder.StartObject(21)
+    builder.StartObject(23)
 
 def Start(builder):
     CurrencyExcelStart(builder)
@@ -329,8 +343,179 @@ def CurrencyExcelAddExpiryChangeAmount(builder, expiryChangeAmount):
 def AddExpiryChangeAmount(builder, expiryChangeAmount):
     CurrencyExcelAddExpiryChangeAmount(builder, expiryChangeAmount)
 
+def CurrencyExcelAddResetType(builder, resetType):
+    builder.PrependInt32Slot(21, resetType, 0)
+
+def AddResetType(builder, resetType):
+    CurrencyExcelAddResetType(builder, resetType)
+
+def CurrencyExcelAddResetAmount(builder, resetAmount):
+    builder.PrependInt64Slot(22, resetAmount, 0)
+
+def AddResetAmount(builder, resetAmount):
+    CurrencyExcelAddResetAmount(builder, resetAmount)
+
 def CurrencyExcelEnd(builder):
     return builder.EndObject()
 
 def End(builder):
     return CurrencyExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class CurrencyExcelT(object):
+
+    # CurrencyExcelT
+    def __init__(
+        self,
+        id = 0,
+        localizeEtcId = 0,
+        currencyType = 0,
+        currencyName = None,
+        icon = None,
+        rarity = 0,
+        autoChargeMsc = 0,
+        autoChargeAmount = 0,
+        currencyOverChargeType = 0,
+        currencyAdditionalChargeType = 0,
+        chargeLimit = 0,
+        overChargeLimit = 0,
+        spriteName = None,
+        dailyRefillType = 0,
+        dailyRefillAmount = 0,
+        dailyRefillTime = None,
+        expirationDateTime = None,
+        expirationNotifyDateIn = 0,
+        expiryChangeParcelType = 0,
+        expiryChangeId = 0,
+        expiryChangeAmount = 0,
+        resetType = 0,
+        resetAmount = 0,
+    ):
+        self.id = id  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.currencyType = currencyType  # type: int
+        self.currencyName = currencyName  # type: Optional[str]
+        self.icon = icon  # type: Optional[str]
+        self.rarity = rarity  # type: int
+        self.autoChargeMsc = autoChargeMsc  # type: int
+        self.autoChargeAmount = autoChargeAmount  # type: int
+        self.currencyOverChargeType = currencyOverChargeType  # type: int
+        self.currencyAdditionalChargeType = currencyAdditionalChargeType  # type: int
+        self.chargeLimit = chargeLimit  # type: int
+        self.overChargeLimit = overChargeLimit  # type: int
+        self.spriteName = spriteName  # type: Optional[str]
+        self.dailyRefillType = dailyRefillType  # type: int
+        self.dailyRefillAmount = dailyRefillAmount  # type: int
+        self.dailyRefillTime = dailyRefillTime  # type: Optional[List[int]]
+        self.expirationDateTime = expirationDateTime  # type: Optional[str]
+        self.expirationNotifyDateIn = expirationNotifyDateIn  # type: int
+        self.expiryChangeParcelType = expiryChangeParcelType  # type: int
+        self.expiryChangeId = expiryChangeId  # type: int
+        self.expiryChangeAmount = expiryChangeAmount  # type: int
+        self.resetType = resetType  # type: int
+        self.resetAmount = resetAmount  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        currencyExcel = CurrencyExcel()
+        currencyExcel.Init(buf, pos)
+        return cls.InitFromObj(currencyExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, currencyExcel):
+        x = CurrencyExcelT()
+        x._UnPack(currencyExcel)
+        return x
+
+    # CurrencyExcelT
+    def _UnPack(self, currencyExcel):
+        if currencyExcel is None:
+            return
+        self.id = currencyExcel.Id()
+        self.localizeEtcId = currencyExcel.LocalizeEtcId()
+        self.currencyType = currencyExcel.CurrencyType()
+        self.currencyName = currencyExcel.CurrencyName()
+        self.icon = currencyExcel.Icon()
+        self.rarity = currencyExcel.Rarity()
+        self.autoChargeMsc = currencyExcel.AutoChargeMsc()
+        self.autoChargeAmount = currencyExcel.AutoChargeAmount()
+        self.currencyOverChargeType = currencyExcel.CurrencyOverChargeType()
+        self.currencyAdditionalChargeType = currencyExcel.CurrencyAdditionalChargeType()
+        self.chargeLimit = currencyExcel.ChargeLimit()
+        self.overChargeLimit = currencyExcel.OverChargeLimit()
+        self.spriteName = currencyExcel.SpriteName()
+        self.dailyRefillType = currencyExcel.DailyRefillType()
+        self.dailyRefillAmount = currencyExcel.DailyRefillAmount()
+        if not currencyExcel.DailyRefillTimeIsNone():
+            if np is None:
+                self.dailyRefillTime = []
+                for i in range(currencyExcel.DailyRefillTimeLength()):
+                    self.dailyRefillTime.append(currencyExcel.DailyRefillTime(i))
+            else:
+                self.dailyRefillTime = currencyExcel.DailyRefillTimeAsNumpy()
+        self.expirationDateTime = currencyExcel.ExpirationDateTime()
+        self.expirationNotifyDateIn = currencyExcel.ExpirationNotifyDateIn()
+        self.expiryChangeParcelType = currencyExcel.ExpiryChangeParcelType()
+        self.expiryChangeId = currencyExcel.ExpiryChangeId()
+        self.expiryChangeAmount = currencyExcel.ExpiryChangeAmount()
+        self.resetType = currencyExcel.ResetType()
+        self.resetAmount = currencyExcel.ResetAmount()
+
+    # CurrencyExcelT
+    def Pack(self, builder):
+        if self.currencyName is not None:
+            currencyName = builder.CreateString(self.currencyName)
+        if self.icon is not None:
+            icon = builder.CreateString(self.icon)
+        if self.spriteName is not None:
+            spriteName = builder.CreateString(self.spriteName)
+        if self.dailyRefillTime is not None:
+            if np is not None and type(self.dailyRefillTime) is np.ndarray:
+                dailyRefillTime = builder.CreateNumpyVector(self.dailyRefillTime)
+            else:
+                CurrencyExcelStartDailyRefillTimeVector(builder, len(self.dailyRefillTime))
+                for i in reversed(range(len(self.dailyRefillTime))):
+                    builder.PrependInt64(self.dailyRefillTime[i])
+                dailyRefillTime = builder.EndVector()
+        if self.expirationDateTime is not None:
+            expirationDateTime = builder.CreateString(self.expirationDateTime)
+        CurrencyExcelStart(builder)
+        CurrencyExcelAddId(builder, self.id)
+        CurrencyExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        CurrencyExcelAddCurrencyType(builder, self.currencyType)
+        if self.currencyName is not None:
+            CurrencyExcelAddCurrencyName(builder, currencyName)
+        if self.icon is not None:
+            CurrencyExcelAddIcon(builder, icon)
+        CurrencyExcelAddRarity(builder, self.rarity)
+        CurrencyExcelAddAutoChargeMsc(builder, self.autoChargeMsc)
+        CurrencyExcelAddAutoChargeAmount(builder, self.autoChargeAmount)
+        CurrencyExcelAddCurrencyOverChargeType(builder, self.currencyOverChargeType)
+        CurrencyExcelAddCurrencyAdditionalChargeType(builder, self.currencyAdditionalChargeType)
+        CurrencyExcelAddChargeLimit(builder, self.chargeLimit)
+        CurrencyExcelAddOverChargeLimit(builder, self.overChargeLimit)
+        if self.spriteName is not None:
+            CurrencyExcelAddSpriteName(builder, spriteName)
+        CurrencyExcelAddDailyRefillType(builder, self.dailyRefillType)
+        CurrencyExcelAddDailyRefillAmount(builder, self.dailyRefillAmount)
+        if self.dailyRefillTime is not None:
+            CurrencyExcelAddDailyRefillTime(builder, dailyRefillTime)
+        if self.expirationDateTime is not None:
+            CurrencyExcelAddExpirationDateTime(builder, expirationDateTime)
+        CurrencyExcelAddExpirationNotifyDateIn(builder, self.expirationNotifyDateIn)
+        CurrencyExcelAddExpiryChangeParcelType(builder, self.expiryChangeParcelType)
+        CurrencyExcelAddExpiryChangeId(builder, self.expiryChangeId)
+        CurrencyExcelAddExpiryChangeAmount(builder, self.expiryChangeAmount)
+        CurrencyExcelAddResetType(builder, self.resetType)
+        CurrencyExcelAddResetAmount(builder, self.resetAmount)
+        currencyExcel = CurrencyExcelEnd(builder)
+        return currencyExcel

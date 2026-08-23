@@ -139,3 +139,77 @@ def MiniGameShootingGeasExcelEnd(builder):
 
 def End(builder):
     return MiniGameShootingGeasExcelEnd(builder)
+
+
+class MiniGameShootingGeasExcelT(object):
+
+    # MiniGameShootingGeasExcelT
+    def __init__(
+        self,
+        uniqueId = 0,
+        geasType = 0,
+        icon = None,
+        probability = 0,
+        maxOverlapCount = 0,
+        geasData = None,
+        needGeasId = 0,
+        hideInPausePopup = False,
+    ):
+        self.uniqueId = uniqueId  # type: int
+        self.geasType = geasType  # type: int
+        self.icon = icon  # type: Optional[str]
+        self.probability = probability  # type: int
+        self.maxOverlapCount = maxOverlapCount  # type: int
+        self.geasData = geasData  # type: Optional[str]
+        self.needGeasId = needGeasId  # type: int
+        self.hideInPausePopup = hideInPausePopup  # type: bool
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameShootingGeasExcel = MiniGameShootingGeasExcel()
+        miniGameShootingGeasExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameShootingGeasExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameShootingGeasExcel):
+        x = MiniGameShootingGeasExcelT()
+        x._UnPack(miniGameShootingGeasExcel)
+        return x
+
+    # MiniGameShootingGeasExcelT
+    def _UnPack(self, miniGameShootingGeasExcel):
+        if miniGameShootingGeasExcel is None:
+            return
+        self.uniqueId = miniGameShootingGeasExcel.UniqueId()
+        self.geasType = miniGameShootingGeasExcel.GeasType()
+        self.icon = miniGameShootingGeasExcel.Icon()
+        self.probability = miniGameShootingGeasExcel.Probability()
+        self.maxOverlapCount = miniGameShootingGeasExcel.MaxOverlapCount()
+        self.geasData = miniGameShootingGeasExcel.GeasData()
+        self.needGeasId = miniGameShootingGeasExcel.NeedGeasId()
+        self.hideInPausePopup = miniGameShootingGeasExcel.HideInPausePopup()
+
+    # MiniGameShootingGeasExcelT
+    def Pack(self, builder):
+        if self.icon is not None:
+            icon = builder.CreateString(self.icon)
+        if self.geasData is not None:
+            geasData = builder.CreateString(self.geasData)
+        MiniGameShootingGeasExcelStart(builder)
+        MiniGameShootingGeasExcelAddUniqueId(builder, self.uniqueId)
+        MiniGameShootingGeasExcelAddGeasType(builder, self.geasType)
+        if self.icon is not None:
+            MiniGameShootingGeasExcelAddIcon(builder, icon)
+        MiniGameShootingGeasExcelAddProbability(builder, self.probability)
+        MiniGameShootingGeasExcelAddMaxOverlapCount(builder, self.maxOverlapCount)
+        if self.geasData is not None:
+            MiniGameShootingGeasExcelAddGeasData(builder, geasData)
+        MiniGameShootingGeasExcelAddNeedGeasId(builder, self.needGeasId)
+        MiniGameShootingGeasExcelAddHideInPausePopup(builder, self.hideInPausePopup)
+        miniGameShootingGeasExcel = MiniGameShootingGeasExcelEnd(builder)
+        return miniGameShootingGeasExcel

@@ -347,3 +347,173 @@ def WorldRaidBossGroupExcelEnd(builder):
 
 def End(builder):
     return WorldRaidBossGroupExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class WorldRaidBossGroupExcelT(object):
+
+    # WorldRaidBossGroupExcelT
+    def __init__(
+        self,
+        id = 0,
+        worldRaidBossGroupId = 0,
+        worldBossName = None,
+        worldBossPopupPortrait = None,
+        worldBossPopupBg = None,
+        worldBossParcelPortrait = None,
+        worldBossListParcel = None,
+        worldBossHp = 0,
+        worldBossHpTw = 0,
+        worldBossHpAsia = 0,
+        worldBossHpNa = 0,
+        worldBossHpGlobal = 0,
+        uiHideBeforeSpawn = False,
+        hideAnotherBossKilled = False,
+        worldBossClearRewardGroupId = 0,
+        anotherBossKilled = None,
+        echelonConstraintGroupId = 0,
+        exclusiveOperatorBossSpawn = None,
+        exclusiveOperatorBossKill = None,
+        exclusiveOperatorScenarioBattle = None,
+        exclusiveOperatorBossDamaged = None,
+        bossGroupOpenCondition = 0,
+    ):
+        self.id = id  # type: int
+        self.worldRaidBossGroupId = worldRaidBossGroupId  # type: int
+        self.worldBossName = worldBossName  # type: Optional[str]
+        self.worldBossPopupPortrait = worldBossPopupPortrait  # type: Optional[str]
+        self.worldBossPopupBg = worldBossPopupBg  # type: Optional[str]
+        self.worldBossParcelPortrait = worldBossParcelPortrait  # type: Optional[str]
+        self.worldBossListParcel = worldBossListParcel  # type: Optional[str]
+        self.worldBossHp = worldBossHp  # type: int
+        self.worldBossHpTw = worldBossHpTw  # type: int
+        self.worldBossHpAsia = worldBossHpAsia  # type: int
+        self.worldBossHpNa = worldBossHpNa  # type: int
+        self.worldBossHpGlobal = worldBossHpGlobal  # type: int
+        self.uiHideBeforeSpawn = uiHideBeforeSpawn  # type: bool
+        self.hideAnotherBossKilled = hideAnotherBossKilled  # type: bool
+        self.worldBossClearRewardGroupId = worldBossClearRewardGroupId  # type: int
+        self.anotherBossKilled = anotherBossKilled  # type: Optional[List[int]]
+        self.echelonConstraintGroupId = echelonConstraintGroupId  # type: int
+        self.exclusiveOperatorBossSpawn = exclusiveOperatorBossSpawn  # type: Optional[str]
+        self.exclusiveOperatorBossKill = exclusiveOperatorBossKill  # type: Optional[str]
+        self.exclusiveOperatorScenarioBattle = exclusiveOperatorScenarioBattle  # type: Optional[str]
+        self.exclusiveOperatorBossDamaged = exclusiveOperatorBossDamaged  # type: Optional[str]
+        self.bossGroupOpenCondition = bossGroupOpenCondition  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        worldRaidBossGroupExcel = WorldRaidBossGroupExcel()
+        worldRaidBossGroupExcel.Init(buf, pos)
+        return cls.InitFromObj(worldRaidBossGroupExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, worldRaidBossGroupExcel):
+        x = WorldRaidBossGroupExcelT()
+        x._UnPack(worldRaidBossGroupExcel)
+        return x
+
+    # WorldRaidBossGroupExcelT
+    def _UnPack(self, worldRaidBossGroupExcel):
+        if worldRaidBossGroupExcel is None:
+            return
+        self.id = worldRaidBossGroupExcel.Id()
+        self.worldRaidBossGroupId = worldRaidBossGroupExcel.WorldRaidBossGroupId()
+        self.worldBossName = worldRaidBossGroupExcel.WorldBossName()
+        self.worldBossPopupPortrait = worldRaidBossGroupExcel.WorldBossPopupPortrait()
+        self.worldBossPopupBg = worldRaidBossGroupExcel.WorldBossPopupBg()
+        self.worldBossParcelPortrait = worldRaidBossGroupExcel.WorldBossParcelPortrait()
+        self.worldBossListParcel = worldRaidBossGroupExcel.WorldBossListParcel()
+        self.worldBossHp = worldRaidBossGroupExcel.WorldBossHp()
+        self.worldBossHpTw = worldRaidBossGroupExcel.WorldBossHpTw()
+        self.worldBossHpAsia = worldRaidBossGroupExcel.WorldBossHpAsia()
+        self.worldBossHpNa = worldRaidBossGroupExcel.WorldBossHpNa()
+        self.worldBossHpGlobal = worldRaidBossGroupExcel.WorldBossHpGlobal()
+        self.uiHideBeforeSpawn = worldRaidBossGroupExcel.UiHideBeforeSpawn()
+        self.hideAnotherBossKilled = worldRaidBossGroupExcel.HideAnotherBossKilled()
+        self.worldBossClearRewardGroupId = worldRaidBossGroupExcel.WorldBossClearRewardGroupId()
+        if not worldRaidBossGroupExcel.AnotherBossKilledIsNone():
+            if np is None:
+                self.anotherBossKilled = []
+                for i in range(worldRaidBossGroupExcel.AnotherBossKilledLength()):
+                    self.anotherBossKilled.append(worldRaidBossGroupExcel.AnotherBossKilled(i))
+            else:
+                self.anotherBossKilled = worldRaidBossGroupExcel.AnotherBossKilledAsNumpy()
+        self.echelonConstraintGroupId = worldRaidBossGroupExcel.EchelonConstraintGroupId()
+        self.exclusiveOperatorBossSpawn = worldRaidBossGroupExcel.ExclusiveOperatorBossSpawn()
+        self.exclusiveOperatorBossKill = worldRaidBossGroupExcel.ExclusiveOperatorBossKill()
+        self.exclusiveOperatorScenarioBattle = worldRaidBossGroupExcel.ExclusiveOperatorScenarioBattle()
+        self.exclusiveOperatorBossDamaged = worldRaidBossGroupExcel.ExclusiveOperatorBossDamaged()
+        self.bossGroupOpenCondition = worldRaidBossGroupExcel.BossGroupOpenCondition()
+
+    # WorldRaidBossGroupExcelT
+    def Pack(self, builder):
+        if self.worldBossName is not None:
+            worldBossName = builder.CreateString(self.worldBossName)
+        if self.worldBossPopupPortrait is not None:
+            worldBossPopupPortrait = builder.CreateString(self.worldBossPopupPortrait)
+        if self.worldBossPopupBg is not None:
+            worldBossPopupBg = builder.CreateString(self.worldBossPopupBg)
+        if self.worldBossParcelPortrait is not None:
+            worldBossParcelPortrait = builder.CreateString(self.worldBossParcelPortrait)
+        if self.worldBossListParcel is not None:
+            worldBossListParcel = builder.CreateString(self.worldBossListParcel)
+        if self.anotherBossKilled is not None:
+            if np is not None and type(self.anotherBossKilled) is np.ndarray:
+                anotherBossKilled = builder.CreateNumpyVector(self.anotherBossKilled)
+            else:
+                WorldRaidBossGroupExcelStartAnotherBossKilledVector(builder, len(self.anotherBossKilled))
+                for i in reversed(range(len(self.anotherBossKilled))):
+                    builder.PrependInt64(self.anotherBossKilled[i])
+                anotherBossKilled = builder.EndVector()
+        if self.exclusiveOperatorBossSpawn is not None:
+            exclusiveOperatorBossSpawn = builder.CreateString(self.exclusiveOperatorBossSpawn)
+        if self.exclusiveOperatorBossKill is not None:
+            exclusiveOperatorBossKill = builder.CreateString(self.exclusiveOperatorBossKill)
+        if self.exclusiveOperatorScenarioBattle is not None:
+            exclusiveOperatorScenarioBattle = builder.CreateString(self.exclusiveOperatorScenarioBattle)
+        if self.exclusiveOperatorBossDamaged is not None:
+            exclusiveOperatorBossDamaged = builder.CreateString(self.exclusiveOperatorBossDamaged)
+        WorldRaidBossGroupExcelStart(builder)
+        WorldRaidBossGroupExcelAddId(builder, self.id)
+        WorldRaidBossGroupExcelAddWorldRaidBossGroupId(builder, self.worldRaidBossGroupId)
+        if self.worldBossName is not None:
+            WorldRaidBossGroupExcelAddWorldBossName(builder, worldBossName)
+        if self.worldBossPopupPortrait is not None:
+            WorldRaidBossGroupExcelAddWorldBossPopupPortrait(builder, worldBossPopupPortrait)
+        if self.worldBossPopupBg is not None:
+            WorldRaidBossGroupExcelAddWorldBossPopupBg(builder, worldBossPopupBg)
+        if self.worldBossParcelPortrait is not None:
+            WorldRaidBossGroupExcelAddWorldBossParcelPortrait(builder, worldBossParcelPortrait)
+        if self.worldBossListParcel is not None:
+            WorldRaidBossGroupExcelAddWorldBossListParcel(builder, worldBossListParcel)
+        WorldRaidBossGroupExcelAddWorldBossHp(builder, self.worldBossHp)
+        WorldRaidBossGroupExcelAddWorldBossHpTw(builder, self.worldBossHpTw)
+        WorldRaidBossGroupExcelAddWorldBossHpAsia(builder, self.worldBossHpAsia)
+        WorldRaidBossGroupExcelAddWorldBossHpNa(builder, self.worldBossHpNa)
+        WorldRaidBossGroupExcelAddWorldBossHpGlobal(builder, self.worldBossHpGlobal)
+        WorldRaidBossGroupExcelAddUiHideBeforeSpawn(builder, self.uiHideBeforeSpawn)
+        WorldRaidBossGroupExcelAddHideAnotherBossKilled(builder, self.hideAnotherBossKilled)
+        WorldRaidBossGroupExcelAddWorldBossClearRewardGroupId(builder, self.worldBossClearRewardGroupId)
+        if self.anotherBossKilled is not None:
+            WorldRaidBossGroupExcelAddAnotherBossKilled(builder, anotherBossKilled)
+        WorldRaidBossGroupExcelAddEchelonConstraintGroupId(builder, self.echelonConstraintGroupId)
+        if self.exclusiveOperatorBossSpawn is not None:
+            WorldRaidBossGroupExcelAddExclusiveOperatorBossSpawn(builder, exclusiveOperatorBossSpawn)
+        if self.exclusiveOperatorBossKill is not None:
+            WorldRaidBossGroupExcelAddExclusiveOperatorBossKill(builder, exclusiveOperatorBossKill)
+        if self.exclusiveOperatorScenarioBattle is not None:
+            WorldRaidBossGroupExcelAddExclusiveOperatorScenarioBattle(builder, exclusiveOperatorScenarioBattle)
+        if self.exclusiveOperatorBossDamaged is not None:
+            WorldRaidBossGroupExcelAddExclusiveOperatorBossDamaged(builder, exclusiveOperatorBossDamaged)
+        WorldRaidBossGroupExcelAddBossGroupOpenCondition(builder, self.bossGroupOpenCondition)
+        worldRaidBossGroupExcel = WorldRaidBossGroupExcelEnd(builder)
+        return worldRaidBossGroupExcel

@@ -307,3 +307,153 @@ def ConquestErosionExcelEnd(builder):
 
 def End(builder):
     return ConquestErosionExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class ConquestErosionExcelT(object):
+
+    # ConquestErosionExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        id = 0,
+        erosionType = 0,
+        phase = 0,
+        phaseAlarm = False,
+        stepIndex = 0,
+        phaseStartConditionType = None,
+        phaseStartConditionParameter = None,
+        phaseBeforeExposeConditionType = None,
+        phaseBeforeExposeConditionParameter = None,
+        erosionBattleConditionParcelType = 0,
+        erosionBattleConditionParcelUniqueId = 0,
+        erosionBattleConditionParcelAmount = 0,
+        conquestRewardId = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.id = id  # type: int
+        self.erosionType = erosionType  # type: int
+        self.phase = phase  # type: int
+        self.phaseAlarm = phaseAlarm  # type: bool
+        self.stepIndex = stepIndex  # type: int
+        self.phaseStartConditionType = phaseStartConditionType  # type: Optional[List[int]]
+        self.phaseStartConditionParameter = phaseStartConditionParameter  # type: Optional[List[Optional[str]]]
+        self.phaseBeforeExposeConditionType = phaseBeforeExposeConditionType  # type: Optional[List[int]]
+        self.phaseBeforeExposeConditionParameter = phaseBeforeExposeConditionParameter  # type: Optional[List[Optional[str]]]
+        self.erosionBattleConditionParcelType = erosionBattleConditionParcelType  # type: int
+        self.erosionBattleConditionParcelUniqueId = erosionBattleConditionParcelUniqueId  # type: int
+        self.erosionBattleConditionParcelAmount = erosionBattleConditionParcelAmount  # type: int
+        self.conquestRewardId = conquestRewardId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        conquestErosionExcel = ConquestErosionExcel()
+        conquestErosionExcel.Init(buf, pos)
+        return cls.InitFromObj(conquestErosionExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, conquestErosionExcel):
+        x = ConquestErosionExcelT()
+        x._UnPack(conquestErosionExcel)
+        return x
+
+    # ConquestErosionExcelT
+    def _UnPack(self, conquestErosionExcel):
+        if conquestErosionExcel is None:
+            return
+        self.eventContentId = conquestErosionExcel.EventContentId()
+        self.id = conquestErosionExcel.Id()
+        self.erosionType = conquestErosionExcel.ErosionType()
+        self.phase = conquestErosionExcel.Phase()
+        self.phaseAlarm = conquestErosionExcel.PhaseAlarm()
+        self.stepIndex = conquestErosionExcel.StepIndex()
+        if not conquestErosionExcel.PhaseStartConditionTypeIsNone():
+            if np is None:
+                self.phaseStartConditionType = []
+                for i in range(conquestErosionExcel.PhaseStartConditionTypeLength()):
+                    self.phaseStartConditionType.append(conquestErosionExcel.PhaseStartConditionType(i))
+            else:
+                self.phaseStartConditionType = conquestErosionExcel.PhaseStartConditionTypeAsNumpy()
+        if not conquestErosionExcel.PhaseStartConditionParameterIsNone():
+            self.phaseStartConditionParameter = []
+            for i in range(conquestErosionExcel.PhaseStartConditionParameterLength()):
+                self.phaseStartConditionParameter.append(conquestErosionExcel.PhaseStartConditionParameter(i))
+        if not conquestErosionExcel.PhaseBeforeExposeConditionTypeIsNone():
+            if np is None:
+                self.phaseBeforeExposeConditionType = []
+                for i in range(conquestErosionExcel.PhaseBeforeExposeConditionTypeLength()):
+                    self.phaseBeforeExposeConditionType.append(conquestErosionExcel.PhaseBeforeExposeConditionType(i))
+            else:
+                self.phaseBeforeExposeConditionType = conquestErosionExcel.PhaseBeforeExposeConditionTypeAsNumpy()
+        if not conquestErosionExcel.PhaseBeforeExposeConditionParameterIsNone():
+            self.phaseBeforeExposeConditionParameter = []
+            for i in range(conquestErosionExcel.PhaseBeforeExposeConditionParameterLength()):
+                self.phaseBeforeExposeConditionParameter.append(conquestErosionExcel.PhaseBeforeExposeConditionParameter(i))
+        self.erosionBattleConditionParcelType = conquestErosionExcel.ErosionBattleConditionParcelType()
+        self.erosionBattleConditionParcelUniqueId = conquestErosionExcel.ErosionBattleConditionParcelUniqueId()
+        self.erosionBattleConditionParcelAmount = conquestErosionExcel.ErosionBattleConditionParcelAmount()
+        self.conquestRewardId = conquestErosionExcel.ConquestRewardId()
+
+    # ConquestErosionExcelT
+    def Pack(self, builder):
+        if self.phaseStartConditionType is not None:
+            if np is not None and type(self.phaseStartConditionType) is np.ndarray:
+                phaseStartConditionType = builder.CreateNumpyVector(self.phaseStartConditionType)
+            else:
+                ConquestErosionExcelStartPhaseStartConditionTypeVector(builder, len(self.phaseStartConditionType))
+                for i in reversed(range(len(self.phaseStartConditionType))):
+                    builder.PrependInt32(self.phaseStartConditionType[i])
+                phaseStartConditionType = builder.EndVector()
+        if self.phaseStartConditionParameter is not None:
+            phaseStartConditionParameterlist = []
+            for i in range(len(self.phaseStartConditionParameter)):
+                phaseStartConditionParameterlist.append(builder.CreateString(self.phaseStartConditionParameter[i]))
+            ConquestErosionExcelStartPhaseStartConditionParameterVector(builder, len(self.phaseStartConditionParameter))
+            for i in reversed(range(len(self.phaseStartConditionParameter))):
+                builder.PrependUOffsetTRelative(phaseStartConditionParameterlist[i])
+            phaseStartConditionParameter = builder.EndVector()
+        if self.phaseBeforeExposeConditionType is not None:
+            if np is not None and type(self.phaseBeforeExposeConditionType) is np.ndarray:
+                phaseBeforeExposeConditionType = builder.CreateNumpyVector(self.phaseBeforeExposeConditionType)
+            else:
+                ConquestErosionExcelStartPhaseBeforeExposeConditionTypeVector(builder, len(self.phaseBeforeExposeConditionType))
+                for i in reversed(range(len(self.phaseBeforeExposeConditionType))):
+                    builder.PrependInt32(self.phaseBeforeExposeConditionType[i])
+                phaseBeforeExposeConditionType = builder.EndVector()
+        if self.phaseBeforeExposeConditionParameter is not None:
+            phaseBeforeExposeConditionParameterlist = []
+            for i in range(len(self.phaseBeforeExposeConditionParameter)):
+                phaseBeforeExposeConditionParameterlist.append(builder.CreateString(self.phaseBeforeExposeConditionParameter[i]))
+            ConquestErosionExcelStartPhaseBeforeExposeConditionParameterVector(builder, len(self.phaseBeforeExposeConditionParameter))
+            for i in reversed(range(len(self.phaseBeforeExposeConditionParameter))):
+                builder.PrependUOffsetTRelative(phaseBeforeExposeConditionParameterlist[i])
+            phaseBeforeExposeConditionParameter = builder.EndVector()
+        ConquestErosionExcelStart(builder)
+        ConquestErosionExcelAddEventContentId(builder, self.eventContentId)
+        ConquestErosionExcelAddId(builder, self.id)
+        ConquestErosionExcelAddErosionType(builder, self.erosionType)
+        ConquestErosionExcelAddPhase(builder, self.phase)
+        ConquestErosionExcelAddPhaseAlarm(builder, self.phaseAlarm)
+        ConquestErosionExcelAddStepIndex(builder, self.stepIndex)
+        if self.phaseStartConditionType is not None:
+            ConquestErosionExcelAddPhaseStartConditionType(builder, phaseStartConditionType)
+        if self.phaseStartConditionParameter is not None:
+            ConquestErosionExcelAddPhaseStartConditionParameter(builder, phaseStartConditionParameter)
+        if self.phaseBeforeExposeConditionType is not None:
+            ConquestErosionExcelAddPhaseBeforeExposeConditionType(builder, phaseBeforeExposeConditionType)
+        if self.phaseBeforeExposeConditionParameter is not None:
+            ConquestErosionExcelAddPhaseBeforeExposeConditionParameter(builder, phaseBeforeExposeConditionParameter)
+        ConquestErosionExcelAddErosionBattleConditionParcelType(builder, self.erosionBattleConditionParcelType)
+        ConquestErosionExcelAddErosionBattleConditionParcelUniqueId(builder, self.erosionBattleConditionParcelUniqueId)
+        ConquestErosionExcelAddErosionBattleConditionParcelAmount(builder, self.erosionBattleConditionParcelAmount)
+        ConquestErosionExcelAddConquestRewardId(builder, self.conquestRewardId)
+        conquestErosionExcel = ConquestErosionExcelEnd(builder)
+        return conquestErosionExcel

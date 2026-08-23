@@ -204,3 +204,91 @@ def MiniGameDreamInfoExcelEnd(builder):
 
 def End(builder):
     return MiniGameDreamInfoExcelEnd(builder)
+
+
+class MiniGameDreamInfoExcelT(object):
+
+    # MiniGameDreamInfoExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        dreamMakerMultiplierCondition = 0,
+        dreamMakerMultiplierConditionValue = 0,
+        dreamMakerMultiplierMax = 0,
+        dreamMakerDays = 0,
+        dreamMakerActionPoint = 0,
+        dreamMakerParcelType = 0,
+        dreamMakerParcelId = 0,
+        dreamMakerDailyPointParcelType = 0,
+        dreamMakerDailyPointId = 0,
+        dreamMakerParameterTransfer = 0,
+        scheduleCostGoodsId = 0,
+        lobbyBgmChangeScenarioId = 0,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.dreamMakerMultiplierCondition = dreamMakerMultiplierCondition  # type: int
+        self.dreamMakerMultiplierConditionValue = dreamMakerMultiplierConditionValue  # type: int
+        self.dreamMakerMultiplierMax = dreamMakerMultiplierMax  # type: int
+        self.dreamMakerDays = dreamMakerDays  # type: int
+        self.dreamMakerActionPoint = dreamMakerActionPoint  # type: int
+        self.dreamMakerParcelType = dreamMakerParcelType  # type: int
+        self.dreamMakerParcelId = dreamMakerParcelId  # type: int
+        self.dreamMakerDailyPointParcelType = dreamMakerDailyPointParcelType  # type: int
+        self.dreamMakerDailyPointId = dreamMakerDailyPointId  # type: int
+        self.dreamMakerParameterTransfer = dreamMakerParameterTransfer  # type: int
+        self.scheduleCostGoodsId = scheduleCostGoodsId  # type: int
+        self.lobbyBgmChangeScenarioId = lobbyBgmChangeScenarioId  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDreamInfoExcel = MiniGameDreamInfoExcel()
+        miniGameDreamInfoExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDreamInfoExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDreamInfoExcel):
+        x = MiniGameDreamInfoExcelT()
+        x._UnPack(miniGameDreamInfoExcel)
+        return x
+
+    # MiniGameDreamInfoExcelT
+    def _UnPack(self, miniGameDreamInfoExcel):
+        if miniGameDreamInfoExcel is None:
+            return
+        self.eventContentId = miniGameDreamInfoExcel.EventContentId()
+        self.dreamMakerMultiplierCondition = miniGameDreamInfoExcel.DreamMakerMultiplierCondition()
+        self.dreamMakerMultiplierConditionValue = miniGameDreamInfoExcel.DreamMakerMultiplierConditionValue()
+        self.dreamMakerMultiplierMax = miniGameDreamInfoExcel.DreamMakerMultiplierMax()
+        self.dreamMakerDays = miniGameDreamInfoExcel.DreamMakerDays()
+        self.dreamMakerActionPoint = miniGameDreamInfoExcel.DreamMakerActionPoint()
+        self.dreamMakerParcelType = miniGameDreamInfoExcel.DreamMakerParcelType()
+        self.dreamMakerParcelId = miniGameDreamInfoExcel.DreamMakerParcelId()
+        self.dreamMakerDailyPointParcelType = miniGameDreamInfoExcel.DreamMakerDailyPointParcelType()
+        self.dreamMakerDailyPointId = miniGameDreamInfoExcel.DreamMakerDailyPointId()
+        self.dreamMakerParameterTransfer = miniGameDreamInfoExcel.DreamMakerParameterTransfer()
+        self.scheduleCostGoodsId = miniGameDreamInfoExcel.ScheduleCostGoodsId()
+        self.lobbyBgmChangeScenarioId = miniGameDreamInfoExcel.LobbyBgmChangeScenarioId()
+
+    # MiniGameDreamInfoExcelT
+    def Pack(self, builder):
+        MiniGameDreamInfoExcelStart(builder)
+        MiniGameDreamInfoExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameDreamInfoExcelAddDreamMakerMultiplierCondition(builder, self.dreamMakerMultiplierCondition)
+        MiniGameDreamInfoExcelAddDreamMakerMultiplierConditionValue(builder, self.dreamMakerMultiplierConditionValue)
+        MiniGameDreamInfoExcelAddDreamMakerMultiplierMax(builder, self.dreamMakerMultiplierMax)
+        MiniGameDreamInfoExcelAddDreamMakerDays(builder, self.dreamMakerDays)
+        MiniGameDreamInfoExcelAddDreamMakerActionPoint(builder, self.dreamMakerActionPoint)
+        MiniGameDreamInfoExcelAddDreamMakerParcelType(builder, self.dreamMakerParcelType)
+        MiniGameDreamInfoExcelAddDreamMakerParcelId(builder, self.dreamMakerParcelId)
+        MiniGameDreamInfoExcelAddDreamMakerDailyPointParcelType(builder, self.dreamMakerDailyPointParcelType)
+        MiniGameDreamInfoExcelAddDreamMakerDailyPointId(builder, self.dreamMakerDailyPointId)
+        MiniGameDreamInfoExcelAddDreamMakerParameterTransfer(builder, self.dreamMakerParameterTransfer)
+        MiniGameDreamInfoExcelAddScheduleCostGoodsId(builder, self.scheduleCostGoodsId)
+        MiniGameDreamInfoExcelAddLobbyBgmChangeScenarioId(builder, self.lobbyBgmChangeScenarioId)
+        miniGameDreamInfoExcel = MiniGameDreamInfoExcelEnd(builder)
+        return miniGameDreamInfoExcel

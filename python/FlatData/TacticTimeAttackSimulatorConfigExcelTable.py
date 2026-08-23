@@ -72,3 +72,68 @@ def TacticTimeAttackSimulatorConfigExcelTableEnd(builder):
 
 def End(builder):
     return TacticTimeAttackSimulatorConfigExcelTableEnd(builder)
+
+import FlatData.TacticTimeAttackSimulatorConfigExcel
+try:
+    from typing import List
+except:
+    pass
+
+class TacticTimeAttackSimulatorConfigExcelTableT(object):
+
+    # TacticTimeAttackSimulatorConfigExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.TacticTimeAttackSimulatorConfigExcel.TacticTimeAttackSimulatorConfigExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        tacticTimeAttackSimulatorConfigExcelTable = TacticTimeAttackSimulatorConfigExcelTable()
+        tacticTimeAttackSimulatorConfigExcelTable.Init(buf, pos)
+        return cls.InitFromObj(tacticTimeAttackSimulatorConfigExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, tacticTimeAttackSimulatorConfigExcelTable):
+        x = TacticTimeAttackSimulatorConfigExcelTableT()
+        x._UnPack(tacticTimeAttackSimulatorConfigExcelTable)
+        return x
+
+    # TacticTimeAttackSimulatorConfigExcelTableT
+    def _UnPack(self, tacticTimeAttackSimulatorConfigExcelTable):
+        if tacticTimeAttackSimulatorConfigExcelTable is None:
+            return
+        if not tacticTimeAttackSimulatorConfigExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(tacticTimeAttackSimulatorConfigExcelTable.DataListLength()):
+                if tacticTimeAttackSimulatorConfigExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    tacticTimeAttackSimulatorConfigExcel_ = FlatData.TacticTimeAttackSimulatorConfigExcel.TacticTimeAttackSimulatorConfigExcelT.InitFromObj(tacticTimeAttackSimulatorConfigExcelTable.DataList(i))
+                    self.dataList.append(tacticTimeAttackSimulatorConfigExcel_)
+
+    # TacticTimeAttackSimulatorConfigExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            TacticTimeAttackSimulatorConfigExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        TacticTimeAttackSimulatorConfigExcelTableStart(builder)
+        if self.dataList is not None:
+            TacticTimeAttackSimulatorConfigExcelTableAddDataList(builder, dataList)
+        tacticTimeAttackSimulatorConfigExcelTable = TacticTimeAttackSimulatorConfigExcelTableEnd(builder)
+        return tacticTimeAttackSimulatorConfigExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(TacticTimeAttackSimulatorConfigExcelTableT, 'TacticTimeAttackSimulatorConfigExcelTable', ())

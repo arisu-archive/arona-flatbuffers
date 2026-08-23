@@ -72,3 +72,68 @@ def BossPhaseExcelTableEnd(builder):
 
 def End(builder):
     return BossPhaseExcelTableEnd(builder)
+
+import FlatData.BossPhaseExcel
+try:
+    from typing import List
+except:
+    pass
+
+class BossPhaseExcelTableT(object):
+
+    # BossPhaseExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.BossPhaseExcel.BossPhaseExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        bossPhaseExcelTable = BossPhaseExcelTable()
+        bossPhaseExcelTable.Init(buf, pos)
+        return cls.InitFromObj(bossPhaseExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, bossPhaseExcelTable):
+        x = BossPhaseExcelTableT()
+        x._UnPack(bossPhaseExcelTable)
+        return x
+
+    # BossPhaseExcelTableT
+    def _UnPack(self, bossPhaseExcelTable):
+        if bossPhaseExcelTable is None:
+            return
+        if not bossPhaseExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(bossPhaseExcelTable.DataListLength()):
+                if bossPhaseExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    bossPhaseExcel_ = FlatData.BossPhaseExcel.BossPhaseExcelT.InitFromObj(bossPhaseExcelTable.DataList(i))
+                    self.dataList.append(bossPhaseExcel_)
+
+    # BossPhaseExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            BossPhaseExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        BossPhaseExcelTableStart(builder)
+        if self.dataList is not None:
+            BossPhaseExcelTableAddDataList(builder, dataList)
+        bossPhaseExcelTable = BossPhaseExcelTableEnd(builder)
+        return bossPhaseExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(BossPhaseExcelTableT, 'BossPhaseExcelTable', ())

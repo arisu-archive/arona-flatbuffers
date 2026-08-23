@@ -126,3 +126,70 @@ def GroundModuleRewardExcelEnd(builder):
 
 def End(builder):
     return GroundModuleRewardExcelEnd(builder)
+
+
+class GroundModuleRewardExcelT(object):
+
+    # GroundModuleRewardExcelT
+    def __init__(
+        self,
+        groupId = 0,
+        rewardParcelType = 0,
+        rewardParcelId = 0,
+        rewardParcelAmount = 0,
+        rewardParcelProbability = 0,
+        isDisplayed = False,
+        dropItemModelPrefabPath = None,
+    ):
+        self.groupId = groupId  # type: int
+        self.rewardParcelType = rewardParcelType  # type: int
+        self.rewardParcelId = rewardParcelId  # type: int
+        self.rewardParcelAmount = rewardParcelAmount  # type: int
+        self.rewardParcelProbability = rewardParcelProbability  # type: int
+        self.isDisplayed = isDisplayed  # type: bool
+        self.dropItemModelPrefabPath = dropItemModelPrefabPath  # type: Optional[str]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        groundModuleRewardExcel = GroundModuleRewardExcel()
+        groundModuleRewardExcel.Init(buf, pos)
+        return cls.InitFromObj(groundModuleRewardExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, groundModuleRewardExcel):
+        x = GroundModuleRewardExcelT()
+        x._UnPack(groundModuleRewardExcel)
+        return x
+
+    # GroundModuleRewardExcelT
+    def _UnPack(self, groundModuleRewardExcel):
+        if groundModuleRewardExcel is None:
+            return
+        self.groupId = groundModuleRewardExcel.GroupId()
+        self.rewardParcelType = groundModuleRewardExcel.RewardParcelType()
+        self.rewardParcelId = groundModuleRewardExcel.RewardParcelId()
+        self.rewardParcelAmount = groundModuleRewardExcel.RewardParcelAmount()
+        self.rewardParcelProbability = groundModuleRewardExcel.RewardParcelProbability()
+        self.isDisplayed = groundModuleRewardExcel.IsDisplayed()
+        self.dropItemModelPrefabPath = groundModuleRewardExcel.DropItemModelPrefabPath()
+
+    # GroundModuleRewardExcelT
+    def Pack(self, builder):
+        if self.dropItemModelPrefabPath is not None:
+            dropItemModelPrefabPath = builder.CreateString(self.dropItemModelPrefabPath)
+        GroundModuleRewardExcelStart(builder)
+        GroundModuleRewardExcelAddGroupId(builder, self.groupId)
+        GroundModuleRewardExcelAddRewardParcelType(builder, self.rewardParcelType)
+        GroundModuleRewardExcelAddRewardParcelId(builder, self.rewardParcelId)
+        GroundModuleRewardExcelAddRewardParcelAmount(builder, self.rewardParcelAmount)
+        GroundModuleRewardExcelAddRewardParcelProbability(builder, self.rewardParcelProbability)
+        GroundModuleRewardExcelAddIsDisplayed(builder, self.isDisplayed)
+        if self.dropItemModelPrefabPath is not None:
+            GroundModuleRewardExcelAddDropItemModelPrefabPath(builder, dropItemModelPrefabPath)
+        groundModuleRewardExcel = GroundModuleRewardExcelEnd(builder)
+        return groundModuleRewardExcel

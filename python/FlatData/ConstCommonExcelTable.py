@@ -72,3 +72,68 @@ def ConstCommonExcelTableEnd(builder):
 
 def End(builder):
     return ConstCommonExcelTableEnd(builder)
+
+import FlatData.ConstCommonExcel
+try:
+    from typing import List
+except:
+    pass
+
+class ConstCommonExcelTableT(object):
+
+    # ConstCommonExcelTableT
+    def __init__(
+        self,
+        dataList = None,
+    ):
+        self.dataList = dataList  # type: Optional[List[FlatData.ConstCommonExcel.ConstCommonExcelT]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        constCommonExcelTable = ConstCommonExcelTable()
+        constCommonExcelTable.Init(buf, pos)
+        return cls.InitFromObj(constCommonExcelTable)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, constCommonExcelTable):
+        x = ConstCommonExcelTableT()
+        x._UnPack(constCommonExcelTable)
+        return x
+
+    # ConstCommonExcelTableT
+    def _UnPack(self, constCommonExcelTable):
+        if constCommonExcelTable is None:
+            return
+        if not constCommonExcelTable.DataListIsNone():
+            self.dataList = []
+            for i in range(constCommonExcelTable.DataListLength()):
+                if constCommonExcelTable.DataList(i) is None:
+                    self.dataList.append(None)
+                else:
+                    constCommonExcel_ = FlatData.ConstCommonExcel.ConstCommonExcelT.InitFromObj(constCommonExcelTable.DataList(i))
+                    self.dataList.append(constCommonExcel_)
+
+    # ConstCommonExcelTableT
+    def Pack(self, builder):
+        if self.dataList is not None:
+            dataListlist = []
+            for i in range(len(self.dataList)):
+                dataListlist.append(self.dataList[i].Pack(builder))
+            ConstCommonExcelTableStartDataListVector(builder, len(self.dataList))
+            for i in reversed(range(len(self.dataList))):
+                builder.PrependUOffsetTRelative(dataListlist[i])
+            dataList = builder.EndVector()
+        ConstCommonExcelTableStart(builder)
+        if self.dataList is not None:
+            ConstCommonExcelTableAddDataList(builder, dataList)
+        constCommonExcelTable = ConstCommonExcelTableEnd(builder)
+        return constCommonExcelTable
+
+# arona-flatbuffer: object-api conversion
+from FlatData._conversion import install_object_api as _install_object_api
+_install_object_api(ConstCommonExcelTableT, 'ConstCommonExcelTable', ())

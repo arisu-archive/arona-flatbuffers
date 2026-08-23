@@ -152,3 +152,78 @@ def MiniGameDreamParameterExcelEnd(builder):
 
 def End(builder):
     return MiniGameDreamParameterExcelEnd(builder)
+
+
+class MiniGameDreamParameterExcelT(object):
+
+    # MiniGameDreamParameterExcelT
+    def __init__(
+        self,
+        id = 0,
+        eventContentId = 0,
+        parameterType = 0,
+        localizeEtcId = 0,
+        iconPath = None,
+        parameterBase = 0,
+        parameterBaseMax = 0,
+        parameterMin = 0,
+        parameterMax = 0,
+    ):
+        self.id = id  # type: int
+        self.eventContentId = eventContentId  # type: int
+        self.parameterType = parameterType  # type: int
+        self.localizeEtcId = localizeEtcId  # type: int
+        self.iconPath = iconPath  # type: Optional[str]
+        self.parameterBase = parameterBase  # type: int
+        self.parameterBaseMax = parameterBaseMax  # type: int
+        self.parameterMin = parameterMin  # type: int
+        self.parameterMax = parameterMax  # type: int
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDreamParameterExcel = MiniGameDreamParameterExcel()
+        miniGameDreamParameterExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDreamParameterExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDreamParameterExcel):
+        x = MiniGameDreamParameterExcelT()
+        x._UnPack(miniGameDreamParameterExcel)
+        return x
+
+    # MiniGameDreamParameterExcelT
+    def _UnPack(self, miniGameDreamParameterExcel):
+        if miniGameDreamParameterExcel is None:
+            return
+        self.id = miniGameDreamParameterExcel.Id()
+        self.eventContentId = miniGameDreamParameterExcel.EventContentId()
+        self.parameterType = miniGameDreamParameterExcel.ParameterType()
+        self.localizeEtcId = miniGameDreamParameterExcel.LocalizeEtcId()
+        self.iconPath = miniGameDreamParameterExcel.IconPath()
+        self.parameterBase = miniGameDreamParameterExcel.ParameterBase()
+        self.parameterBaseMax = miniGameDreamParameterExcel.ParameterBaseMax()
+        self.parameterMin = miniGameDreamParameterExcel.ParameterMin()
+        self.parameterMax = miniGameDreamParameterExcel.ParameterMax()
+
+    # MiniGameDreamParameterExcelT
+    def Pack(self, builder):
+        if self.iconPath is not None:
+            iconPath = builder.CreateString(self.iconPath)
+        MiniGameDreamParameterExcelStart(builder)
+        MiniGameDreamParameterExcelAddId(builder, self.id)
+        MiniGameDreamParameterExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameDreamParameterExcelAddParameterType(builder, self.parameterType)
+        MiniGameDreamParameterExcelAddLocalizeEtcId(builder, self.localizeEtcId)
+        if self.iconPath is not None:
+            MiniGameDreamParameterExcelAddIconPath(builder, iconPath)
+        MiniGameDreamParameterExcelAddParameterBase(builder, self.parameterBase)
+        MiniGameDreamParameterExcelAddParameterBaseMax(builder, self.parameterBaseMax)
+        MiniGameDreamParameterExcelAddParameterMin(builder, self.parameterMin)
+        MiniGameDreamParameterExcelAddParameterMax(builder, self.parameterMax)
+        miniGameDreamParameterExcel = MiniGameDreamParameterExcelEnd(builder)
+        return miniGameDreamParameterExcel

@@ -178,3 +178,101 @@ def MiniGameDreamEndingExcelEnd(builder):
 
 def End(builder):
     return MiniGameDreamEndingExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MiniGameDreamEndingExcelT(object):
+
+    # MiniGameDreamEndingExcelT
+    def __init__(
+        self,
+        eventContentId = 0,
+        endingId = 0,
+        dreamMakerEndingType = 0,
+        order = 0,
+        scenarioGroupId = 0,
+        endingCondition = None,
+        endingConditionValue = None,
+    ):
+        self.eventContentId = eventContentId  # type: int
+        self.endingId = endingId  # type: int
+        self.dreamMakerEndingType = dreamMakerEndingType  # type: int
+        self.order = order  # type: int
+        self.scenarioGroupId = scenarioGroupId  # type: int
+        self.endingCondition = endingCondition  # type: Optional[List[int]]
+        self.endingConditionValue = endingConditionValue  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameDreamEndingExcel = MiniGameDreamEndingExcel()
+        miniGameDreamEndingExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameDreamEndingExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameDreamEndingExcel):
+        x = MiniGameDreamEndingExcelT()
+        x._UnPack(miniGameDreamEndingExcel)
+        return x
+
+    # MiniGameDreamEndingExcelT
+    def _UnPack(self, miniGameDreamEndingExcel):
+        if miniGameDreamEndingExcel is None:
+            return
+        self.eventContentId = miniGameDreamEndingExcel.EventContentId()
+        self.endingId = miniGameDreamEndingExcel.EndingId()
+        self.dreamMakerEndingType = miniGameDreamEndingExcel.DreamMakerEndingType()
+        self.order = miniGameDreamEndingExcel.Order()
+        self.scenarioGroupId = miniGameDreamEndingExcel.ScenarioGroupId()
+        if not miniGameDreamEndingExcel.EndingConditionIsNone():
+            if np is None:
+                self.endingCondition = []
+                for i in range(miniGameDreamEndingExcel.EndingConditionLength()):
+                    self.endingCondition.append(miniGameDreamEndingExcel.EndingCondition(i))
+            else:
+                self.endingCondition = miniGameDreamEndingExcel.EndingConditionAsNumpy()
+        if not miniGameDreamEndingExcel.EndingConditionValueIsNone():
+            if np is None:
+                self.endingConditionValue = []
+                for i in range(miniGameDreamEndingExcel.EndingConditionValueLength()):
+                    self.endingConditionValue.append(miniGameDreamEndingExcel.EndingConditionValue(i))
+            else:
+                self.endingConditionValue = miniGameDreamEndingExcel.EndingConditionValueAsNumpy()
+
+    # MiniGameDreamEndingExcelT
+    def Pack(self, builder):
+        if self.endingCondition is not None:
+            if np is not None and type(self.endingCondition) is np.ndarray:
+                endingCondition = builder.CreateNumpyVector(self.endingCondition)
+            else:
+                MiniGameDreamEndingExcelStartEndingConditionVector(builder, len(self.endingCondition))
+                for i in reversed(range(len(self.endingCondition))):
+                    builder.PrependInt32(self.endingCondition[i])
+                endingCondition = builder.EndVector()
+        if self.endingConditionValue is not None:
+            if np is not None and type(self.endingConditionValue) is np.ndarray:
+                endingConditionValue = builder.CreateNumpyVector(self.endingConditionValue)
+            else:
+                MiniGameDreamEndingExcelStartEndingConditionValueVector(builder, len(self.endingConditionValue))
+                for i in reversed(range(len(self.endingConditionValue))):
+                    builder.PrependInt64(self.endingConditionValue[i])
+                endingConditionValue = builder.EndVector()
+        MiniGameDreamEndingExcelStart(builder)
+        MiniGameDreamEndingExcelAddEventContentId(builder, self.eventContentId)
+        MiniGameDreamEndingExcelAddEndingId(builder, self.endingId)
+        MiniGameDreamEndingExcelAddDreamMakerEndingType(builder, self.dreamMakerEndingType)
+        MiniGameDreamEndingExcelAddOrder(builder, self.order)
+        MiniGameDreamEndingExcelAddScenarioGroupId(builder, self.scenarioGroupId)
+        if self.endingCondition is not None:
+            MiniGameDreamEndingExcelAddEndingCondition(builder, endingCondition)
+        if self.endingConditionValue is not None:
+            MiniGameDreamEndingExcelAddEndingConditionValue(builder, endingConditionValue)
+        miniGameDreamEndingExcel = MiniGameDreamEndingExcelEnd(builder)
+        return miniGameDreamEndingExcel

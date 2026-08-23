@@ -223,3 +223,120 @@ def MiniGameAudioAnimatorExcelEnd(builder):
 
 def End(builder):
     return MiniGameAudioAnimatorExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class MiniGameAudioAnimatorExcelT(object):
+
+    # MiniGameAudioAnimatorExcelT
+    def __init__(
+        self,
+        controllerNameHash = 0,
+        voiceNamePrefix = None,
+        stateNameHash = 0,
+        stateName = None,
+        ignoreInterruptDelay = False,
+        ignoreInterruptPlay = False,
+        volume = 0.0,
+        delay = 0.0,
+        audioPriority = 0,
+        audioClipPath = None,
+        voiceHash = None,
+    ):
+        self.controllerNameHash = controllerNameHash  # type: int
+        self.voiceNamePrefix = voiceNamePrefix  # type: Optional[str]
+        self.stateNameHash = stateNameHash  # type: int
+        self.stateName = stateName  # type: Optional[str]
+        self.ignoreInterruptDelay = ignoreInterruptDelay  # type: bool
+        self.ignoreInterruptPlay = ignoreInterruptPlay  # type: bool
+        self.volume = volume  # type: float
+        self.delay = delay  # type: float
+        self.audioPriority = audioPriority  # type: int
+        self.audioClipPath = audioClipPath  # type: Optional[List[Optional[str]]]
+        self.voiceHash = voiceHash  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        miniGameAudioAnimatorExcel = MiniGameAudioAnimatorExcel()
+        miniGameAudioAnimatorExcel.Init(buf, pos)
+        return cls.InitFromObj(miniGameAudioAnimatorExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, miniGameAudioAnimatorExcel):
+        x = MiniGameAudioAnimatorExcelT()
+        x._UnPack(miniGameAudioAnimatorExcel)
+        return x
+
+    # MiniGameAudioAnimatorExcelT
+    def _UnPack(self, miniGameAudioAnimatorExcel):
+        if miniGameAudioAnimatorExcel is None:
+            return
+        self.controllerNameHash = miniGameAudioAnimatorExcel.ControllerNameHash()
+        self.voiceNamePrefix = miniGameAudioAnimatorExcel.VoiceNamePrefix()
+        self.stateNameHash = miniGameAudioAnimatorExcel.StateNameHash()
+        self.stateName = miniGameAudioAnimatorExcel.StateName()
+        self.ignoreInterruptDelay = miniGameAudioAnimatorExcel.IgnoreInterruptDelay()
+        self.ignoreInterruptPlay = miniGameAudioAnimatorExcel.IgnoreInterruptPlay()
+        self.volume = miniGameAudioAnimatorExcel.Volume()
+        self.delay = miniGameAudioAnimatorExcel.Delay()
+        self.audioPriority = miniGameAudioAnimatorExcel.AudioPriority()
+        if not miniGameAudioAnimatorExcel.AudioClipPathIsNone():
+            self.audioClipPath = []
+            for i in range(miniGameAudioAnimatorExcel.AudioClipPathLength()):
+                self.audioClipPath.append(miniGameAudioAnimatorExcel.AudioClipPath(i))
+        if not miniGameAudioAnimatorExcel.VoiceHashIsNone():
+            if np is None:
+                self.voiceHash = []
+                for i in range(miniGameAudioAnimatorExcel.VoiceHashLength()):
+                    self.voiceHash.append(miniGameAudioAnimatorExcel.VoiceHash(i))
+            else:
+                self.voiceHash = miniGameAudioAnimatorExcel.VoiceHashAsNumpy()
+
+    # MiniGameAudioAnimatorExcelT
+    def Pack(self, builder):
+        if self.voiceNamePrefix is not None:
+            voiceNamePrefix = builder.CreateString(self.voiceNamePrefix)
+        if self.stateName is not None:
+            stateName = builder.CreateString(self.stateName)
+        if self.audioClipPath is not None:
+            audioClipPathlist = []
+            for i in range(len(self.audioClipPath)):
+                audioClipPathlist.append(builder.CreateString(self.audioClipPath[i]))
+            MiniGameAudioAnimatorExcelStartAudioClipPathVector(builder, len(self.audioClipPath))
+            for i in reversed(range(len(self.audioClipPath))):
+                builder.PrependUOffsetTRelative(audioClipPathlist[i])
+            audioClipPath = builder.EndVector()
+        if self.voiceHash is not None:
+            if np is not None and type(self.voiceHash) is np.ndarray:
+                voiceHash = builder.CreateNumpyVector(self.voiceHash)
+            else:
+                MiniGameAudioAnimatorExcelStartVoiceHashVector(builder, len(self.voiceHash))
+                for i in reversed(range(len(self.voiceHash))):
+                    builder.PrependUint32(self.voiceHash[i])
+                voiceHash = builder.EndVector()
+        MiniGameAudioAnimatorExcelStart(builder)
+        MiniGameAudioAnimatorExcelAddControllerNameHash(builder, self.controllerNameHash)
+        if self.voiceNamePrefix is not None:
+            MiniGameAudioAnimatorExcelAddVoiceNamePrefix(builder, voiceNamePrefix)
+        MiniGameAudioAnimatorExcelAddStateNameHash(builder, self.stateNameHash)
+        if self.stateName is not None:
+            MiniGameAudioAnimatorExcelAddStateName(builder, stateName)
+        MiniGameAudioAnimatorExcelAddIgnoreInterruptDelay(builder, self.ignoreInterruptDelay)
+        MiniGameAudioAnimatorExcelAddIgnoreInterruptPlay(builder, self.ignoreInterruptPlay)
+        MiniGameAudioAnimatorExcelAddVolume(builder, self.volume)
+        MiniGameAudioAnimatorExcelAddDelay(builder, self.delay)
+        MiniGameAudioAnimatorExcelAddAudioPriority(builder, self.audioPriority)
+        if self.audioClipPath is not None:
+            MiniGameAudioAnimatorExcelAddAudioClipPath(builder, audioClipPath)
+        if self.voiceHash is not None:
+            MiniGameAudioAnimatorExcelAddVoiceHash(builder, voiceHash)
+        miniGameAudioAnimatorExcel = MiniGameAudioAnimatorExcelEnd(builder)
+        return miniGameAudioAnimatorExcel

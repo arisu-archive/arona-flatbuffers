@@ -249,3 +249,141 @@ def RaidSeasonManageExcelEnd(builder):
 
 def End(builder):
     return RaidSeasonManageExcelEnd(builder)
+
+try:
+    from typing import List
+except:
+    pass
+
+class RaidSeasonManageExcelT(object):
+
+    # RaidSeasonManageExcelT
+    def __init__(
+        self,
+        seasonId = 0,
+        seasonDisplay = 0,
+        seasonStartData = None,
+        endNoteLabelStartDate = None,
+        seasonEndData = None,
+        settlementEndDate = None,
+        openRaidBossGroup = None,
+        rankingRewardGroupId = 0,
+        maxSeasonRewardGauage = 0,
+        stackedSeasonRewardGauge = None,
+        seasonRewardId = None,
+    ):
+        self.seasonId = seasonId  # type: int
+        self.seasonDisplay = seasonDisplay  # type: int
+        self.seasonStartData = seasonStartData  # type: Optional[str]
+        self.endNoteLabelStartDate = endNoteLabelStartDate  # type: Optional[str]
+        self.seasonEndData = seasonEndData  # type: Optional[str]
+        self.settlementEndDate = settlementEndDate  # type: Optional[str]
+        self.openRaidBossGroup = openRaidBossGroup  # type: Optional[List[Optional[str]]]
+        self.rankingRewardGroupId = rankingRewardGroupId  # type: int
+        self.maxSeasonRewardGauage = maxSeasonRewardGauage  # type: int
+        self.stackedSeasonRewardGauge = stackedSeasonRewardGauge  # type: Optional[List[int]]
+        self.seasonRewardId = seasonRewardId  # type: Optional[List[int]]
+
+    @classmethod
+    def InitFromBuf(cls, buf, pos):
+        raidSeasonManageExcel = RaidSeasonManageExcel()
+        raidSeasonManageExcel.Init(buf, pos)
+        return cls.InitFromObj(raidSeasonManageExcel)
+
+    @classmethod
+    def InitFromPackedBuf(cls, buf, pos=0):
+        n = flatbuffers.encode.Get(flatbuffers.packer.uoffset, buf, pos)
+        return cls.InitFromBuf(buf, pos+n)
+
+    @classmethod
+    def InitFromObj(cls, raidSeasonManageExcel):
+        x = RaidSeasonManageExcelT()
+        x._UnPack(raidSeasonManageExcel)
+        return x
+
+    # RaidSeasonManageExcelT
+    def _UnPack(self, raidSeasonManageExcel):
+        if raidSeasonManageExcel is None:
+            return
+        self.seasonId = raidSeasonManageExcel.SeasonId()
+        self.seasonDisplay = raidSeasonManageExcel.SeasonDisplay()
+        self.seasonStartData = raidSeasonManageExcel.SeasonStartData()
+        self.endNoteLabelStartDate = raidSeasonManageExcel.EndNoteLabelStartDate()
+        self.seasonEndData = raidSeasonManageExcel.SeasonEndData()
+        self.settlementEndDate = raidSeasonManageExcel.SettlementEndDate()
+        if not raidSeasonManageExcel.OpenRaidBossGroupIsNone():
+            self.openRaidBossGroup = []
+            for i in range(raidSeasonManageExcel.OpenRaidBossGroupLength()):
+                self.openRaidBossGroup.append(raidSeasonManageExcel.OpenRaidBossGroup(i))
+        self.rankingRewardGroupId = raidSeasonManageExcel.RankingRewardGroupId()
+        self.maxSeasonRewardGauage = raidSeasonManageExcel.MaxSeasonRewardGauage()
+        if not raidSeasonManageExcel.StackedSeasonRewardGaugeIsNone():
+            if np is None:
+                self.stackedSeasonRewardGauge = []
+                for i in range(raidSeasonManageExcel.StackedSeasonRewardGaugeLength()):
+                    self.stackedSeasonRewardGauge.append(raidSeasonManageExcel.StackedSeasonRewardGauge(i))
+            else:
+                self.stackedSeasonRewardGauge = raidSeasonManageExcel.StackedSeasonRewardGaugeAsNumpy()
+        if not raidSeasonManageExcel.SeasonRewardIdIsNone():
+            if np is None:
+                self.seasonRewardId = []
+                for i in range(raidSeasonManageExcel.SeasonRewardIdLength()):
+                    self.seasonRewardId.append(raidSeasonManageExcel.SeasonRewardId(i))
+            else:
+                self.seasonRewardId = raidSeasonManageExcel.SeasonRewardIdAsNumpy()
+
+    # RaidSeasonManageExcelT
+    def Pack(self, builder):
+        if self.seasonStartData is not None:
+            seasonStartData = builder.CreateString(self.seasonStartData)
+        if self.endNoteLabelStartDate is not None:
+            endNoteLabelStartDate = builder.CreateString(self.endNoteLabelStartDate)
+        if self.seasonEndData is not None:
+            seasonEndData = builder.CreateString(self.seasonEndData)
+        if self.settlementEndDate is not None:
+            settlementEndDate = builder.CreateString(self.settlementEndDate)
+        if self.openRaidBossGroup is not None:
+            openRaidBossGrouplist = []
+            for i in range(len(self.openRaidBossGroup)):
+                openRaidBossGrouplist.append(builder.CreateString(self.openRaidBossGroup[i]))
+            RaidSeasonManageExcelStartOpenRaidBossGroupVector(builder, len(self.openRaidBossGroup))
+            for i in reversed(range(len(self.openRaidBossGroup))):
+                builder.PrependUOffsetTRelative(openRaidBossGrouplist[i])
+            openRaidBossGroup = builder.EndVector()
+        if self.stackedSeasonRewardGauge is not None:
+            if np is not None and type(self.stackedSeasonRewardGauge) is np.ndarray:
+                stackedSeasonRewardGauge = builder.CreateNumpyVector(self.stackedSeasonRewardGauge)
+            else:
+                RaidSeasonManageExcelStartStackedSeasonRewardGaugeVector(builder, len(self.stackedSeasonRewardGauge))
+                for i in reversed(range(len(self.stackedSeasonRewardGauge))):
+                    builder.PrependInt64(self.stackedSeasonRewardGauge[i])
+                stackedSeasonRewardGauge = builder.EndVector()
+        if self.seasonRewardId is not None:
+            if np is not None and type(self.seasonRewardId) is np.ndarray:
+                seasonRewardId = builder.CreateNumpyVector(self.seasonRewardId)
+            else:
+                RaidSeasonManageExcelStartSeasonRewardIdVector(builder, len(self.seasonRewardId))
+                for i in reversed(range(len(self.seasonRewardId))):
+                    builder.PrependInt64(self.seasonRewardId[i])
+                seasonRewardId = builder.EndVector()
+        RaidSeasonManageExcelStart(builder)
+        RaidSeasonManageExcelAddSeasonId(builder, self.seasonId)
+        RaidSeasonManageExcelAddSeasonDisplay(builder, self.seasonDisplay)
+        if self.seasonStartData is not None:
+            RaidSeasonManageExcelAddSeasonStartData(builder, seasonStartData)
+        if self.endNoteLabelStartDate is not None:
+            RaidSeasonManageExcelAddEndNoteLabelStartDate(builder, endNoteLabelStartDate)
+        if self.seasonEndData is not None:
+            RaidSeasonManageExcelAddSeasonEndData(builder, seasonEndData)
+        if self.settlementEndDate is not None:
+            RaidSeasonManageExcelAddSettlementEndDate(builder, settlementEndDate)
+        if self.openRaidBossGroup is not None:
+            RaidSeasonManageExcelAddOpenRaidBossGroup(builder, openRaidBossGroup)
+        RaidSeasonManageExcelAddRankingRewardGroupId(builder, self.rankingRewardGroupId)
+        RaidSeasonManageExcelAddMaxSeasonRewardGauage(builder, self.maxSeasonRewardGauage)
+        if self.stackedSeasonRewardGauge is not None:
+            RaidSeasonManageExcelAddStackedSeasonRewardGauge(builder, stackedSeasonRewardGauge)
+        if self.seasonRewardId is not None:
+            RaidSeasonManageExcelAddSeasonRewardId(builder, seasonRewardId)
+        raidSeasonManageExcel = RaidSeasonManageExcelEnd(builder)
+        return raidSeasonManageExcel

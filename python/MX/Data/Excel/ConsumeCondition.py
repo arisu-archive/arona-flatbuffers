@@ -2,4 +2,6 @@
 
 # namespace: Excel
 
-# NOTE ConsumeCondition.py does not declare any structs or enums
+class ConsumeCondition(object):
+    And = 0
+    Or = 1
