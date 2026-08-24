@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Compile FlatData schemas into Go and Python object APIs.
 for schema in .schema/flatdata/*.fbs; do
