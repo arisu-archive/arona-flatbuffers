@@ -4,9 +4,17 @@
   "bump-minor-pre-major": true,
   "include-v-in-tag": true,
   "include-component-in-tag": false,
+  "group-pull-request-title-pattern": "chore${scope}: release${component} ${version}",
   "packages": {
     ".": {
-      "package-name": "arona-flatbuffers"
+      "package-name": "arona-flatbuffers",
+      "extra-files": [
+        {
+          "type": "toml",
+          "path": "pyproject.toml",
+          "jsonpath": "$.project.version"
+        }
+      ]
     }
   }
 }
