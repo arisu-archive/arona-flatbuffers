@@ -1,7 +1,7 @@
 github.com/Masterminds/semver/v3 v3.4.0 h1:Zog+i5UMtVoCU8oKka5P7i9q9HgrJeGzI9SA1Xbatp0=
 github.com/Masterminds/semver/v3 v3.4.0/go.mod h1:4V+yj/TJE1HU9XfppCwVMZq3I84lprf4nC11bSS5beM=
-github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20260501232406-c0b3ccdb8eaa h1:g9JIeO1WB0oyfbmvADNtJgYsFqnm1HkT53qwn6/klak=
-github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20260501232406-c0b3ccdb8eaa/go.mod h1:xVV8J56yx9gEu5a4x/zDMWpYyHuaoKT1pGoVA1za5X8=
+github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20260824210021-d8b78076e87f h1:k2EoijG+Kk4IOVMDBA+pqkbecRyRjgvdH9CMCcZ1Jog=
+github.com/arisu-archive/bluearchive-fbs-utils v0.0.0-20260824210021-d8b78076e87f/go.mod h1:xVV8J56yx9gEu5a4x/zDMWpYyHuaoKT1pGoVA1za5X8=
 github.com/go-logr/logr v1.4.3 h1:CjnDlHq8ikf6E492q6eKboGOC0T8CDaOvkHCIg8idEI=
 github.com/go-logr/logr v1.4.3/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
 github.com/go-task/slim-sprig/v3 v3.0.0 h1:sUs3vkvUymDpBKi3qH1YSqBQk9+9D/8M2mN1vB6EwHI=
