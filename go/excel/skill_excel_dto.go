@@ -40,6 +40,7 @@ type SkillExcelDto struct {
 	SelectExSkillToolTipID            int64      `json:"select_ex_skill_tool_tip_id"`
 	TextureSkillCardForFormConversion string     `json:"texture_skill_card_for_form_conversion"`
 	SkillCardLabelPath                string     `json:"skill_card_label_path"`
+	SkillRemainCountOverride          string     `json:"skill_remain_count_override"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -50,6 +51,7 @@ func (t *SkillExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	iconNameOffset := b.CreateString(t.IconName)
 	textureSkillCardForFormConversionOffset := b.CreateString(t.TextureSkillCardForFormConversion)
 	skillCardLabelPathOffset := b.CreateString(t.SkillCardLabelPath)
+	skillRemainCountOverrideOffset := b.CreateString(t.SkillRemainCountOverride)
 	SkillExcelStart(b)
 	SkillExcelAddId(b, t.ID)
 	SkillExcelAddLocalizeSkillId(b, t.LocalizeSkillID)
@@ -81,6 +83,7 @@ func (t *SkillExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffset
 	SkillExcelAddSelectExSkillToolTipId(b, t.SelectExSkillToolTipID)
 	SkillExcelAddTextureSkillCardForFormConversion(b, textureSkillCardForFormConversionOffset)
 	SkillExcelAddSkillCardLabelPath(b, skillCardLabelPathOffset)
+	SkillExcelAddSkillRemainCountOverride(b, skillRemainCountOverrideOffset)
 	return SkillExcelEnd(b)
 }
 
@@ -123,6 +126,7 @@ func (t *SkillExcelDto) UnmarshalMessage(e *SkillExcel) error {
 	t.SelectExSkillToolTipID = e.SelectExSkillToolTipId()
 	t.TextureSkillCardForFormConversion = string(e.TextureSkillCardForFormConversion())
 	t.SkillCardLabelPath = string(e.SkillCardLabelPath())
+	t.SkillRemainCountOverride = string(e.SkillRemainCountOverride())
 	return nil
 }
 

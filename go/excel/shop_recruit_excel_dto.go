@@ -10,39 +10,52 @@ import (
 // ShopRecruitExcelDto represents a FlatBuffers table.
 type ShopRecruitExcelDto struct {
 	fbsutils.FlatBuffer
-	ID                          int64                  `json:"id"`
-	CategoryType                ShopCategoryType       `json:"category_type"`
-	IsLegacy                    bool                   `json:"is_legacy"`
-	OneGachaGoodsID             int64                  `json:"one_gacha_goods_id"`
-	TenGachaGoodsID             int64                  `json:"ten_gacha_goods_id"`
-	GoodsDevName                string                 `json:"goods_dev_name"`
-	DisplayTag                  GachaDisplayTag        `json:"display_tag"`
-	DisplayOrder                int64                  `json:"display_order"`
-	GachaBannerPath             string                 `json:"gacha_banner_path"`
-	VideoID                     []int64                `json:"video_id"`
-	LinkedRobbyBannerID         int64                  `json:"linked_robby_banner_id"`
-	InfoCharacterID             []int64                `json:"info_character_id"`
-	SalePeriodVisible           bool                   `json:"sale_period_visible"`
-	SalePeriodFrom              string                 `json:"sale_period_from"`
-	SalePeriodTo                string                 `json:"sale_period_to"`
-	RecruitCoinID               int64                  `json:"recruit_coin_id"`
-	RecruitSellectionShopID     int64                  `json:"recruit_sellection_shop_id"`
-	PurchaseCooltimeMin         int64                  `json:"purchase_cooltime_min"`
-	PurchaseCountLimit          int64                  `json:"purchase_count_limit"`
-	PurchaseCountResetType      PurchaseCountResetType `json:"purchase_count_reset_type"`
-	SalePeriodDayParameter      int64                  `json:"sale_period_day_parameter"`
-	IsOverrideSalePeriodTo      bool                   `json:"is_override_sale_period_to"`
-	IsNewbie                    bool                   `json:"is_newbie"`
-	IsSelectRecruit             bool                   `json:"is_select_recruit"`
-	DirectPayInvisibleTokenID   int64                  `json:"direct_pay_invisible_token_id"`
-	DirectPayProductID          string                 `json:"direct_pay_product_id"`
-	DirectPayAndroidShopCashID  int64                  `json:"direct_pay_android_shop_cash_id"`
-	DirectPayAppleShopCashID    int64                  `json:"direct_pay_apple_shop_cash_id"`
-	SelectAbleGachaGroupID      int64                  `json:"select_able_gacha_group_id"`
-	MaxSelectCharacterNum       int64                  `json:"max_select_character_num"`
-	DirectPayOneStoreShopCashID int64                  `json:"direct_pay_one_store_shop_cash_id"`
-	ProbabilityURLDev           string                 `json:"probability_url_dev"`
-	ProbabilityURLLive          string                 `json:"probability_url_live"`
+	ID                            int64                  `json:"id"`
+	CategoryType                  ShopCategoryType       `json:"category_type"`
+	IsLegacy                      bool                   `json:"is_legacy"`
+	OneGachaGoodsID               int64                  `json:"one_gacha_goods_id"`
+	TenGachaGoodsID               int64                  `json:"ten_gacha_goods_id"`
+	WishListOneGachaGoodsID       int64                  `json:"wish_list_one_gacha_goods_id"`
+	WishListTenGachaGoodsID       int64                  `json:"wish_list_ten_gacha_goods_id"`
+	GoodsDevName                  string                 `json:"goods_dev_name"`
+	DisplayTag                    GachaDisplayTag        `json:"display_tag"`
+	DisplayOrder                  int64                  `json:"display_order"`
+	GachaBannerPath               string                 `json:"gacha_banner_path"`
+	VideoID                       []int64                `json:"video_id"`
+	LinkedRobbyBannerID           int64                  `json:"linked_robby_banner_id"`
+	InfoCharacterID               []int64                `json:"info_character_id"`
+	SalePeriodVisible             bool                   `json:"sale_period_visible"`
+	SalePeriodFrom                string                 `json:"sale_period_from"`
+	SalePeriodTo                  string                 `json:"sale_period_to"`
+	RecruitCoinID                 int64                  `json:"recruit_coin_id"`
+	RecruitSellectionShopID       int64                  `json:"recruit_sellection_shop_id"`
+	RecruitStackItemID            int64                  `json:"recruit_stack_item_id"`
+	RecruitMileageGroupID         int64                  `json:"recruit_mileage_group_id"`
+	MileageCountFreeRecruit       bool                   `json:"mileage_count_free_recruit"`
+	PurchaseCooltimeMin           int64                  `json:"purchase_cooltime_min"`
+	PurchaseCountLimit            int64                  `json:"purchase_count_limit"`
+	PurchaseCountResetType        PurchaseCountResetType `json:"purchase_count_reset_type"`
+	SalePeriodDayParameter        int64                  `json:"sale_period_day_parameter"`
+	IsOverrideSalePeriodTo        bool                   `json:"is_override_sale_period_to"`
+	IsNewbie                      bool                   `json:"is_newbie"`
+	IsSelectRecruit               bool                   `json:"is_select_recruit"`
+	DirectPayInvisibleTokenID     int64                  `json:"direct_pay_invisible_token_id"`
+	DirectPayProductID            string                 `json:"direct_pay_product_id"`
+	DirectPayAndroidShopCashID    int64                  `json:"direct_pay_android_shop_cash_id"`
+	DirectPayAppleShopCashID      int64                  `json:"direct_pay_apple_shop_cash_id"`
+	SelectAbleGachaGroupID        int64                  `json:"select_able_gacha_group_id"`
+	MaxSelectCharacterNum         int64                  `json:"max_select_character_num"`
+	DirectPayOneStoreShopCashID   int64                  `json:"direct_pay_one_store_shop_cash_id"`
+	ProbabilityURLDev             string                 `json:"probability_url_dev"`
+	ProbabilityURLLive            string                 `json:"probability_url_live"`
+	RecruitStackID                int64                  `json:"recruit_stack_id"`
+	HalfStackDisplayItemID        int64                  `json:"half_stack_display_item_id"`
+	HalfStackGachaGroupID         int64                  `json:"half_stack_gacha_group_id"`
+	FullStackGachaGroupID         int64                  `json:"full_stack_gacha_group_id"`
+	WishListConfig                WishListConfig         `json:"wish_list_config"`
+	WishListHalfStackGachaGroupID int64                  `json:"wish_list_half_stack_gacha_group_id"`
+	WishListFullStackGachaGroupID int64                  `json:"wish_list_full_stack_gacha_group_id"`
+	RecruitSeason                 int64                  `json:"recruit_season"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -70,6 +83,8 @@ func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ShopRecruitExcelAddIsLegacy(b, t.IsLegacy)
 	ShopRecruitExcelAddOneGachaGoodsId(b, t.OneGachaGoodsID)
 	ShopRecruitExcelAddTenGachaGoodsId(b, t.TenGachaGoodsID)
+	ShopRecruitExcelAddWishListOneGachaGoodsId(b, t.WishListOneGachaGoodsID)
+	ShopRecruitExcelAddWishListTenGachaGoodsId(b, t.WishListTenGachaGoodsID)
 	ShopRecruitExcelAddGoodsDevName(b, goodsDevNameOffset)
 	ShopRecruitExcelAddDisplayTag(b, t.DisplayTag)
 	ShopRecruitExcelAddDisplayOrder(b, t.DisplayOrder)
@@ -82,6 +97,9 @@ func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ShopRecruitExcelAddSalePeriodTo(b, salePeriodToOffset)
 	ShopRecruitExcelAddRecruitCoinId(b, t.RecruitCoinID)
 	ShopRecruitExcelAddRecruitSellectionShopId(b, t.RecruitSellectionShopID)
+	ShopRecruitExcelAddRecruitStackItemId(b, t.RecruitStackItemID)
+	ShopRecruitExcelAddRecruitMileageGroupId(b, t.RecruitMileageGroupID)
+	ShopRecruitExcelAddMileageCountFreeRecruit(b, t.MileageCountFreeRecruit)
 	ShopRecruitExcelAddPurchaseCooltimeMin(b, t.PurchaseCooltimeMin)
 	ShopRecruitExcelAddPurchaseCountLimit(b, t.PurchaseCountLimit)
 	ShopRecruitExcelAddPurchaseCountResetType(b, t.PurchaseCountResetType)
@@ -98,6 +116,14 @@ func (t *ShopRecruitExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ShopRecruitExcelAddDirectPayOneStoreShopCashId(b, t.DirectPayOneStoreShopCashID)
 	ShopRecruitExcelAddProbabilityUrlDev(b, probabilityURLDevOffset)
 	ShopRecruitExcelAddProbabilityUrlLive(b, probabilityURLLiveOffset)
+	ShopRecruitExcelAddRecruitStackId(b, t.RecruitStackID)
+	ShopRecruitExcelAddHalfStackDisplayItemId(b, t.HalfStackDisplayItemID)
+	ShopRecruitExcelAddHalfStackGachaGroupId(b, t.HalfStackGachaGroupID)
+	ShopRecruitExcelAddFullStackGachaGroupId(b, t.FullStackGachaGroupID)
+	ShopRecruitExcelAddWishListConfig(b, t.WishListConfig)
+	ShopRecruitExcelAddWishListHalfStackGachaGroupId(b, t.WishListHalfStackGachaGroupID)
+	ShopRecruitExcelAddWishListFullStackGachaGroupId(b, t.WishListFullStackGachaGroupID)
+	ShopRecruitExcelAddRecruitSeason(b, t.RecruitSeason)
 	return ShopRecruitExcelEnd(b)
 }
 
@@ -115,6 +141,8 @@ func (t *ShopRecruitExcelDto) UnmarshalMessage(e *ShopRecruitExcel) error {
 	t.IsLegacy = e.IsLegacy()
 	t.OneGachaGoodsID = e.OneGachaGoodsId()
 	t.TenGachaGoodsID = e.TenGachaGoodsId()
+	t.WishListOneGachaGoodsID = e.WishListOneGachaGoodsId()
+	t.WishListTenGachaGoodsID = e.WishListTenGachaGoodsId()
 	t.GoodsDevName = string(e.GoodsDevName())
 	t.DisplayTag = e.DisplayTag()
 	t.DisplayOrder = e.DisplayOrder()
@@ -133,6 +161,9 @@ func (t *ShopRecruitExcelDto) UnmarshalMessage(e *ShopRecruitExcel) error {
 	t.SalePeriodTo = string(e.SalePeriodTo())
 	t.RecruitCoinID = e.RecruitCoinId()
 	t.RecruitSellectionShopID = e.RecruitSellectionShopId()
+	t.RecruitStackItemID = e.RecruitStackItemId()
+	t.RecruitMileageGroupID = e.RecruitMileageGroupId()
+	t.MileageCountFreeRecruit = e.MileageCountFreeRecruit()
 	t.PurchaseCooltimeMin = e.PurchaseCooltimeMin()
 	t.PurchaseCountLimit = e.PurchaseCountLimit()
 	t.PurchaseCountResetType = e.PurchaseCountResetType()
@@ -149,6 +180,14 @@ func (t *ShopRecruitExcelDto) UnmarshalMessage(e *ShopRecruitExcel) error {
 	t.DirectPayOneStoreShopCashID = e.DirectPayOneStoreShopCashId()
 	t.ProbabilityURLDev = string(e.ProbabilityUrlDev())
 	t.ProbabilityURLLive = string(e.ProbabilityUrlLive())
+	t.RecruitStackID = e.RecruitStackId()
+	t.HalfStackDisplayItemID = e.HalfStackDisplayItemId()
+	t.HalfStackGachaGroupID = e.HalfStackGachaGroupId()
+	t.FullStackGachaGroupID = e.FullStackGachaGroupId()
+	t.WishListConfig = e.WishListConfig()
+	t.WishListHalfStackGachaGroupID = e.WishListHalfStackGachaGroupId()
+	t.WishListFullStackGachaGroupID = e.WishListFullStackGachaGroupId()
+	t.RecruitSeason = e.RecruitSeason()
 	return nil
 }
 

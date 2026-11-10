@@ -16,6 +16,19 @@ const (
 	ProductCategoryBattlePass                ProductCategory = 6
 	ProductCategoryGooglePoint               ProductCategory = 7
 	ProductCategoryDailyRecord               ProductCategory = 8
+	ProductCategoryStreakRecord              ProductCategory = 9
+	ProductCategoryPackagePickup             ProductCategory = 10
+	ProductCategoryPackageDaily              ProductCategory = 11
+	ProductCategoryPackageWeekly             ProductCategory = 12
+	ProductCategoryPackageMonthly            ProductCategory = 13
+	ProductCategoryGemLimited                ProductCategory = 14
+	ProductCategoryTimeLimit2                ProductCategory = 15
+	ProductCategoryTimeLimit3                ProductCategory = 16
+	ProductCategoryTimeLimit4                ProductCategory = 17
+	ProductCategoryStepup1                   ProductCategory = 18
+	ProductCategoryStepup2                   ProductCategory = 19
+	ProductCategorySpecialSupport            ProductCategory = 20
+	ProductCategoryStepup3                   ProductCategory = 21
 )
 
 var EnumNamesProductCategory = map[ProductCategory]string{
@@ -28,6 +41,19 @@ var EnumNamesProductCategory = map[ProductCategory]string{
 	ProductCategoryBattlePass:                "BattlePass",
 	ProductCategoryGooglePoint:               "GooglePoint",
 	ProductCategoryDailyRecord:               "DailyRecord",
+	ProductCategoryStreakRecord:              "StreakRecord",
+	ProductCategoryPackagePickup:             "PackagePickup",
+	ProductCategoryPackageDaily:              "PackageDaily",
+	ProductCategoryPackageWeekly:             "PackageWeekly",
+	ProductCategoryPackageMonthly:            "PackageMonthly",
+	ProductCategoryGemLimited:                "GemLimited",
+	ProductCategoryTimeLimit2:                "TimeLimit2",
+	ProductCategoryTimeLimit3:                "TimeLimit3",
+	ProductCategoryTimeLimit4:                "TimeLimit4",
+	ProductCategoryStepup1:                   "Stepup1",
+	ProductCategoryStepup2:                   "Stepup2",
+	ProductCategorySpecialSupport:            "SpecialSupport",
+	ProductCategoryStepup3:                   "Stepup3",
 }
 
 var EnumValuesProductCategory = map[string]ProductCategory{
@@ -40,6 +66,19 @@ var EnumValuesProductCategory = map[string]ProductCategory{
 	"BattlePass":                ProductCategoryBattlePass,
 	"GooglePoint":               ProductCategoryGooglePoint,
 	"DailyRecord":               ProductCategoryDailyRecord,
+	"StreakRecord":              ProductCategoryStreakRecord,
+	"PackagePickup":             ProductCategoryPackagePickup,
+	"PackageDaily":              ProductCategoryPackageDaily,
+	"PackageWeekly":             ProductCategoryPackageWeekly,
+	"PackageMonthly":            ProductCategoryPackageMonthly,
+	"GemLimited":                ProductCategoryGemLimited,
+	"TimeLimit2":                ProductCategoryTimeLimit2,
+	"TimeLimit3":                ProductCategoryTimeLimit3,
+	"TimeLimit4":                ProductCategoryTimeLimit4,
+	"Stepup1":                   ProductCategoryStepup1,
+	"Stepup2":                   ProductCategoryStepup2,
+	"SpecialSupport":            ProductCategorySpecialSupport,
+	"Stepup3":                   ProductCategoryStepup3,
 }
 
 func (v ProductCategory) String() string {

@@ -16,3 +16,4 @@ class ItemCategory(object):
     BattlePass = 10
     ProductSelect = 11
     ProductDailyRecord = 12
+    ProductStreakRecord = 13

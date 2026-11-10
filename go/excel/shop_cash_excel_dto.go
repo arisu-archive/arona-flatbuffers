@@ -18,14 +18,17 @@ type ShopCashExcelDto struct {
 	InMailPurchaseLock      bool               `json:"in_mail_purchase_lock"`
 	UseMailParcel           bool               `json:"use_mail_parcel"`
 	IconPath                string             `json:"icon_path"`
+	SubIconPath             string             `json:"sub_icon_path"`
 	DisplayOrder            int64              `json:"display_order"`
 	RenewalDisplayOrder     int64              `json:"renewal_display_order"`
+	ShopCashStepupID        int64              `json:"shop_cash_stepup_id"`
 	CategoryType            ProductCategory    `json:"category_type"`
 	DisplayTag              ProductDisplayTag  `json:"display_tag"`
 	ProductSaleType         ProductSaleType    `json:"product_sale_type"`
 	SalePeriodFrom          string             `json:"sale_period_from"`
 	SalePeriodTo            string             `json:"sale_period_to"`
 	ProductSaleDay          int64              `json:"product_sale_day"`
+	ProductSaleMilliSeconds int64              `json:"product_sale_milli_seconds"`
 	PeriodTag               bool               `json:"period_tag"`
 	AccountLevelLimit       int64              `json:"account_level_limit"`
 	AccountLevelHide        bool               `json:"account_level_hide"`
@@ -35,14 +38,19 @@ type ShopCashExcelDto struct {
 	PackageClientType       PurchaseSourceType `json:"package_client_type"`
 	IsStartDash             bool               `json:"is_start_dash"`
 	ViewFlag                bool               `json:"view_flag"`
+	RecommendIconPath       string             `json:"recommend_icon_path"`
+	RecommendPrefabPath     string             `json:"recommend_prefab_path"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
 func (t *ShopCashExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	iconPathOffset := b.CreateString(t.IconPath)
+	subIconPathOffset := b.CreateString(t.SubIconPath)
 	salePeriodFromOffset := b.CreateString(t.SalePeriodFrom)
 	salePeriodToOffset := b.CreateString(t.SalePeriodTo)
 	purchaseReportEventNameOffset := b.CreateString(t.PurchaseReportEventName)
+	recommendIconPathOffset := b.CreateString(t.RecommendIconPath)
+	recommendPrefabPathOffset := b.CreateString(t.RecommendPrefabPath)
 	ShopCashExcelStart(b)
 	ShopCashExcelAddId(b, t.ID)
 	ShopCashExcelAddCashProductId(b, t.CashProductID)
@@ -52,14 +60,17 @@ func (t *ShopCashExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	ShopCashExcelAddInMailPurchaseLock(b, t.InMailPurchaseLock)
 	ShopCashExcelAddUseMailParcel(b, t.UseMailParcel)
 	ShopCashExcelAddIconPath(b, iconPathOffset)
+	ShopCashExcelAddSubIconPath(b, subIconPathOffset)
 	ShopCashExcelAddDisplayOrder(b, t.DisplayOrder)
 	ShopCashExcelAddRenewalDisplayOrder(b, t.RenewalDisplayOrder)
+	ShopCashExcelAddShopCashStepupId(b, t.ShopCashStepupID)
 	ShopCashExcelAddCategoryType(b, t.CategoryType)
 	ShopCashExcelAddDisplayTag(b, t.DisplayTag)
 	ShopCashExcelAddProductSaleType(b, t.ProductSaleType)
 	ShopCashExcelAddSalePeriodFrom(b, salePeriodFromOffset)
 	ShopCashExcelAddSalePeriodTo(b, salePeriodToOffset)
 	ShopCashExcelAddProductSaleDay(b, t.ProductSaleDay)
+	ShopCashExcelAddProductSaleMilliSeconds(b, t.ProductSaleMilliSeconds)
 	ShopCashExcelAddPeriodTag(b, t.PeriodTag)
 	ShopCashExcelAddAccountLevelLimit(b, t.AccountLevelLimit)
 	ShopCashExcelAddAccountLevelHide(b, t.AccountLevelHide)
@@ -69,6 +80,8 @@ func (t *ShopCashExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOff
 	ShopCashExcelAddPackageClientType(b, t.PackageClientType)
 	ShopCashExcelAddIsStartDash(b, t.IsStartDash)
 	ShopCashExcelAddViewFlag(b, t.ViewFlag)
+	ShopCashExcelAddRecommendIconPath(b, recommendIconPathOffset)
+	ShopCashExcelAddRecommendPrefabPath(b, recommendPrefabPathOffset)
 	return ShopCashExcelEnd(b)
 }
 
@@ -89,14 +102,17 @@ func (t *ShopCashExcelDto) UnmarshalMessage(e *ShopCashExcel) error {
 	t.InMailPurchaseLock = e.InMailPurchaseLock()
 	t.UseMailParcel = e.UseMailParcel()
 	t.IconPath = string(e.IconPath())
+	t.SubIconPath = string(e.SubIconPath())
 	t.DisplayOrder = e.DisplayOrder()
 	t.RenewalDisplayOrder = e.RenewalDisplayOrder()
+	t.ShopCashStepupID = e.ShopCashStepupId()
 	t.CategoryType = e.CategoryType()
 	t.DisplayTag = e.DisplayTag()
 	t.ProductSaleType = e.ProductSaleType()
 	t.SalePeriodFrom = string(e.SalePeriodFrom())
 	t.SalePeriodTo = string(e.SalePeriodTo())
 	t.ProductSaleDay = e.ProductSaleDay()
+	t.ProductSaleMilliSeconds = e.ProductSaleMilliSeconds()
 	t.PeriodTag = e.PeriodTag()
 	t.AccountLevelLimit = e.AccountLevelLimit()
 	t.AccountLevelHide = e.AccountLevelHide()
@@ -106,6 +122,8 @@ func (t *ShopCashExcelDto) UnmarshalMessage(e *ShopCashExcel) error {
 	t.PackageClientType = e.PackageClientType()
 	t.IsStartDash = e.IsStartDash()
 	t.ViewFlag = e.ViewFlag()
+	t.RecommendIconPath = string(e.RecommendIconPath())
+	t.RecommendPrefabPath = string(e.RecommendPrefabPath())
 	return nil
 }
 

@@ -10,28 +10,31 @@ import (
 // ObstacleStatExcelDto represents a FlatBuffers table.
 type ObstacleStatExcelDto struct {
 	fbsutils.FlatBuffer
-	StringID                  uint32  `json:"string_id"`
-	Name                      string  `json:"name"`
-	MaxHp1                    int64   `json:"max_hp1"`
-	MaxHp100                  int64   `json:"max_hp100"`
-	BlockRate                 int64   `json:"block_rate"`
-	Dodge                     int64   `json:"dodge"`
-	CanNotStandRange          int64   `json:"can_not_stand_range"`
-	HighlightFloaterHeight    float32 `json:"highlight_floater_height"`
-	EnhanceLightArmorRate     int64   `json:"enhance_light_armor_rate"`
-	EnhanceHeavyArmorRate     int64   `json:"enhance_heavy_armor_rate"`
-	EnhanceUnarmedRate        int64   `json:"enhance_unarmed_rate"`
-	EnhanceElasticArmorRate   int64   `json:"enhance_elastic_armor_rate"`
-	EnhanceCompositeArmorRate int64   `json:"enhance_composite_armor_rate"`
-	EnhanceStructureRate      int64   `json:"enhance_structure_rate"`
-	EnhanceNormalArmorRate    int64   `json:"enhance_normal_armor_rate"`
-	ReduceExDamagedRate       int64   `json:"reduce_ex_damaged_rate"`
-	ReduceBasicsDamagedRate   int64   `json:"reduce_basics_damaged_rate"`
-	ReduceWeakDamagedRate     int64   `json:"reduce_weak_damaged_rate"`
-	WeakDamagedRatio          int64   `json:"weak_damaged_ratio"`
-	EffectiveDamagedRatio     int64   `json:"effective_damaged_ratio"`
-	NormalDamagedRatio        int64   `json:"normal_damaged_ratio"`
-	ResistDamagedRatio        int64   `json:"resist_damaged_ratio"`
+	StringID                        uint32  `json:"string_id"`
+	Name                            string  `json:"name"`
+	MaxHp1                          int64   `json:"max_hp1"`
+	MaxHp100                        int64   `json:"max_hp100"`
+	BlockRate                       int64   `json:"block_rate"`
+	Dodge                           int64   `json:"dodge"`
+	CanNotStandRange                int64   `json:"can_not_stand_range"`
+	HighlightFloaterHeight          float32 `json:"highlight_floater_height"`
+	EnhanceLightArmorRate           int64   `json:"enhance_light_armor_rate"`
+	EnhanceHeavyArmorRate           int64   `json:"enhance_heavy_armor_rate"`
+	EnhanceUnarmedRate              int64   `json:"enhance_unarmed_rate"`
+	EnhanceElasticArmorRate         int64   `json:"enhance_elastic_armor_rate"`
+	EnhanceCompositeArmorRate       int64   `json:"enhance_composite_armor_rate"`
+	EnhanceStructureRate            int64   `json:"enhance_structure_rate"`
+	EnhanceNormalArmorRate          int64   `json:"enhance_normal_armor_rate"`
+	ReduceExDamagedRate             int64   `json:"reduce_ex_damaged_rate"`
+	ReduceBasicsDamagedRate         int64   `json:"reduce_basics_damaged_rate"`
+	ReduceWeakDamagedRate           int64   `json:"reduce_weak_damaged_rate"`
+	ReduceResistDamagedRate         int64   `json:"reduce_resist_damaged_rate"`
+	AddSummonedObstacleDamagedRatio int64   `json:"add_summoned_obstacle_damaged_ratio"`
+	DamagedRatioObstacle            int64   `json:"damaged_ratio_obstacle"`
+	WeakDamagedRatio                int64   `json:"weak_damaged_ratio"`
+	EffectiveDamagedRatio           int64   `json:"effective_damaged_ratio"`
+	NormalDamagedRatio              int64   `json:"normal_damaged_ratio"`
+	ResistDamagedRatio              int64   `json:"resist_damaged_ratio"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -56,6 +59,9 @@ func (t *ObstacleStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	ObstacleStatExcelAddReduceExDamagedRate(b, t.ReduceExDamagedRate)
 	ObstacleStatExcelAddReduceBasicsDamagedRate(b, t.ReduceBasicsDamagedRate)
 	ObstacleStatExcelAddReduceWeakDamagedRate(b, t.ReduceWeakDamagedRate)
+	ObstacleStatExcelAddReduceResistDamagedRate(b, t.ReduceResistDamagedRate)
+	ObstacleStatExcelAddAddSummonedObstacleDamagedRatio(b, t.AddSummonedObstacleDamagedRatio)
+	ObstacleStatExcelAddDamagedRatioObstacle(b, t.DamagedRatioObstacle)
 	ObstacleStatExcelAddWeakDamagedRatio(b, t.WeakDamagedRatio)
 	ObstacleStatExcelAddEffectiveDamagedRatio(b, t.EffectiveDamagedRatio)
 	ObstacleStatExcelAddNormalDamagedRatio(b, t.NormalDamagedRatio)
@@ -90,6 +96,9 @@ func (t *ObstacleStatExcelDto) UnmarshalMessage(e *ObstacleStatExcel) error {
 	t.ReduceExDamagedRate = e.ReduceExDamagedRate()
 	t.ReduceBasicsDamagedRate = e.ReduceBasicsDamagedRate()
 	t.ReduceWeakDamagedRate = e.ReduceWeakDamagedRate()
+	t.ReduceResistDamagedRate = e.ReduceResistDamagedRate()
+	t.AddSummonedObstacleDamagedRatio = e.AddSummonedObstacleDamagedRatio()
+	t.DamagedRatioObstacle = e.DamagedRatioObstacle()
 	t.WeakDamagedRatio = e.WeakDamagedRatio()
 	t.EffectiveDamagedRatio = e.EffectiveDamagedRatio()
 	t.NormalDamagedRatio = e.NormalDamagedRatio()

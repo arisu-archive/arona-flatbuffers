@@ -35,6 +35,7 @@ type ConstStrategyExcelDto struct {
 	MultiSweepPresetSelectStageMaxCount  int32         `json:"multi_sweep_preset_select_stage_max_count"`
 	MultiSweepPresetMaxSweepCount        int32         `json:"multi_sweep_preset_max_sweep_count"`
 	MultiSweepPresetSelectParcelMaxCount int32         `json:"multi_sweep_preset_select_parcel_max_count"`
+	TacticalRelayEchelonCount            int32         `json:"tactical_relay_echelon_count"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -73,6 +74,7 @@ func (t *ConstStrategyExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	ConstStrategyExcelAddMultiSweepPresetSelectStageMaxCount(b, fbsutils.Encode(t.MultiSweepPresetSelectStageMaxCount, t.FlatBuffer.TableKey))
 	ConstStrategyExcelAddMultiSweepPresetMaxSweepCount(b, fbsutils.Encode(t.MultiSweepPresetMaxSweepCount, t.FlatBuffer.TableKey))
 	ConstStrategyExcelAddMultiSweepPresetSelectParcelMaxCount(b, fbsutils.Encode(t.MultiSweepPresetSelectParcelMaxCount, t.FlatBuffer.TableKey))
+	ConstStrategyExcelAddTacticalRelayEchelonCount(b, fbsutils.Encode(t.TacticalRelayEchelonCount, t.FlatBuffer.TableKey))
 	return ConstStrategyExcelEnd(b)
 }
 
@@ -116,6 +118,7 @@ func (t *ConstStrategyExcelDto) UnmarshalMessage(e *ConstStrategyExcel) error {
 	t.MultiSweepPresetSelectStageMaxCount = fbsutils.Decode(e.MultiSweepPresetSelectStageMaxCount(), t.FlatBuffer.TableKey)
 	t.MultiSweepPresetMaxSweepCount = fbsutils.Decode(e.MultiSweepPresetMaxSweepCount(), t.FlatBuffer.TableKey)
 	t.MultiSweepPresetSelectParcelMaxCount = fbsutils.Decode(e.MultiSweepPresetSelectParcelMaxCount(), t.FlatBuffer.TableKey)
+	t.TacticalRelayEchelonCount = fbsutils.Decode(e.TacticalRelayEchelonCount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

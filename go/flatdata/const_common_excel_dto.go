@@ -10,215 +10,227 @@ import (
 // ConstCommonExcelDto represents a FlatBuffers table.
 type ConstCommonExcelDto struct {
 	fbsutils.FlatBuffer
-	CampaignMainStageMaxRank                   int32            `json:"campaign_main_stage_max_rank"`
-	CampaignMainStageBestRecord                int32            `json:"campaign_main_stage_best_record"`
-	HardAdventurePlayCountRecoverDailyNumber   int32            `json:"hard_adventure_play_count_recover_daily_number"`
-	HardStageCount                             int32            `json:"hard_stage_count"`
-	TacticRankClearTime                        int32            `json:"tactic_rank_clear_time"`
-	BaseTimeScale                              int64            `json:"base_time_scale"`
-	GachaPercentage                            int32            `json:"gacha_percentage"`
-	AcademyFavorZoneID                         int64            `json:"academy_favor_zone_id"`
-	CafePresetSlotCount                        int32            `json:"cafe_preset_slot_count"`
-	CafeMonologueIntervalMillisec              int64            `json:"cafe_monologue_interval_millisec"`
-	CafeMonologueDefaultDuration               int64            `json:"cafe_monologue_default_duration"`
-	CafeBubbleIdleDurationMilliSec             int64            `json:"cafe_bubble_idle_duration_milli_sec"`
-	FindGiftTimeLimit                          int32            `json:"find_gift_time_limit"`
-	CafeAutoChargePeriodInMsc                  int32            `json:"cafe_auto_charge_period_in_msc"`
-	CafeProductionDecimalPosition              int32            `json:"cafe_production_decimal_position"`
-	CafeSetGroupApplyCount                     int32            `json:"cafe_set_group_apply_count"`
-	WeekDungeonFindGiftRewardLimitCount        int32            `json:"week_dungeon_find_gift_reward_limit_count"`
-	StageFailedCurrencyRefundRate              int32            `json:"stage_failed_currency_refund_rate"`
-	EnterDeposit                               int32            `json:"enter_deposit"`
-	AccountMaxLevel                            int32            `json:"account_max_level"`
-	MainSquadExpBonus                          int32            `json:"main_squad_exp_bonus"`
-	SupportSquadExpBonus                       int32            `json:"support_squad_exp_bonus"`
-	AccountExpRatio                            int32            `json:"account_exp_ratio"`
-	MissionToastLifeTime                       int32            `json:"mission_toast_life_time"`
-	ExpItemInsertLimit                         int32            `json:"exp_item_insert_limit"`
-	ExpItemInsertAccelTime                     int32            `json:"exp_item_insert_accel_time"`
-	CharacterLvUpCoefficient                   int32            `json:"character_lv_up_coefficient"`
-	EquipmentLvUpCoefficient                   int32            `json:"equipment_lv_up_coefficient"`
-	ExpEquipInsertLimit                        int32            `json:"exp_equip_insert_limit"`
-	EquipLvUpCoefficient                       int32            `json:"equip_lv_up_coefficient"`
-	NicknameLength                             int32            `json:"nickname_length"`
-	CraftDuration                              []int32          `json:"craft_duration"`
-	CraftLimitTime                             int32            `json:"craft_limit_time"`
-	ShiftingCraftDuration                      []int32          `json:"shifting_craft_duration"`
-	ShiftingCraftTicketConsumeAmount           int32            `json:"shifting_craft_ticket_consume_amount"`
-	ShiftingCraftSlotMaxCapacity               int32            `json:"shifting_craft_slot_max_capacity"`
-	CraftTicketItemUniqueID                    int32            `json:"craft_ticket_item_unique_id"`
-	CraftTicketConsumeAmount                   int32            `json:"craft_ticket_consume_amount"`
-	AcademyEnterCostType                       ParcelType       `json:"academy_enter_cost_type"`
-	AcademyEnterCostID                         int64            `json:"academy_enter_cost_id"`
-	AcademyTicketCost                          int32            `json:"academy_ticket_cost"`
-	MassangerMessageExpireDay                  int32            `json:"massanger_message_expire_day"`
-	CraftLeafNodeGenerateLv1Count              int32            `json:"craft_leaf_node_generate_lv1_count"`
-	CraftLeafNodeGenerateLv2Count              int32            `json:"craft_leaf_node_generate_lv2_count"`
-	TutorialGachaShopID                        int32            `json:"tutorial_gacha_shop_id"`
-	BeforehandGachaShopID                      int32            `json:"beforehand_gacha_shop_id"`
-	TutorialGachaGoodsID                       int32            `json:"tutorial_gacha_goods_id"`
-	EquipmentSlotOpenLevel                     []int32          `json:"equipment_slot_open_level"`
-	JoinOrCreateClanCoolTimeFromHour           int64            `json:"join_or_create_clan_cool_time_from_hour"`
-	ClanMaxMember                              int64            `json:"clan_max_member"`
-	ClanSearchResultCount                      int64            `json:"clan_search_result_count"`
-	ClanMaxApplicant                           int64            `json:"clan_max_applicant"`
-	ClanRejoinCoolTimeFromSecond               int64            `json:"clan_rejoin_cool_time_from_second"`
-	ClanWordBalloonMaxCharacter                int32            `json:"clan_word_balloon_max_character"`
-	CallNameRenameCoolTimeFromHour             int64            `json:"call_name_rename_cool_time_from_hour"`
-	CallNameMinimumLength                      int64            `json:"call_name_minimum_length"`
-	CallNameMaximumLength                      int64            `json:"call_name_maximum_length"`
-	LobbyToScreenModeWaitTime                  int64            `json:"lobby_to_screen_mode_wait_time"`
-	ScreenshotToLobbyButtonHideDelay           int64            `json:"screenshot_to_lobby_button_hide_delay"`
-	PrologueScenarioId01                       int64            `json:"prologue_scenario_id01"`
-	PrologueScenarioId02                       int64            `json:"prologue_scenario_id02"`
-	TutorialHardStage11                        int64            `json:"tutorial_hard_stage11"`
-	TutorialSpeedButtonStage                   int64            `json:"tutorial_speed_button_stage"`
-	TutorialCharacterDefaultCount              int64            `json:"tutorial_character_default_count"`
-	TutorialShopCategoryType                   ShopCategoryType `json:"tutorial_shop_category_type"`
-	AdventureStrategyPlayTimeLimitInSeconds    int64            `json:"adventure_strategy_play_time_limit_in_seconds"`
-	WeekDungoenTacticPlayTimeLimitInSeconds    int64            `json:"week_dungoen_tactic_play_time_limit_in_seconds"`
-	RaidTacticPlayTimeLimitInSeconds           int64            `json:"raid_tactic_play_time_limit_in_seconds"`
-	RaidOpponentListAmount                     int64            `json:"raid_opponent_list_amount"`
-	CraftBaseGoldRequired                      []int64          `json:"craft_base_gold_required"`
-	PostExpiredDayAttendance                   int32            `json:"post_expired_day_attendance"`
-	PostExpiredDayInventoryOverflow            int32            `json:"post_expired_day_inventory_overflow"`
-	PostExpiredDayGameManager                  int32            `json:"post_expired_day_game_manager"`
-	UILabelCharacterWrap                       string           `json:"ui_label_character_wrap"`
-	RequestTimeOut                             float32          `json:"request_time_out"`
-	MailStorageSoftCap                         int32            `json:"mail_storage_soft_cap"`
-	MailStorageHardCap                         int32            `json:"mail_storage_hard_cap"`
-	ClearDeckStorageSize                       int32            `json:"clear_deck_storage_size"`
-	ClearDeckNoStarViewCount                   int32            `json:"clear_deck_no_star_view_count"`
-	ClearDeck1StarViewCount                    int32            `json:"clear_deck1_star_view_count"`
-	ClearDeck2StarViewCount                    int32            `json:"clear_deck2_star_view_count"`
-	ClearDeck3StarViewCount                    int32            `json:"clear_deck3_star_view_count"`
-	ExSkillLevelMax                            int32            `json:"ex_skill_level_max"`
-	PublicSkillLevelMax                        int32            `json:"public_skill_level_max"`
-	PassiveSkillLevelMax                       int32            `json:"passive_skill_level_max"`
-	ExtraPassiveSkillLevelMax                  int32            `json:"extra_passive_skill_level_max"`
-	AccountCommentMaxLength                    int32            `json:"account_comment_max_length"`
-	CafeSummonCoolTimeFromHour                 int32            `json:"cafe_summon_cool_time_from_hour"`
-	LimitedStageDailyClearCount                int64            `json:"limited_stage_daily_clear_count"`
-	LimitedStageEntryTimeLimit                 int64            `json:"limited_stage_entry_time_limit"`
-	LimitedStageEntryTimeBuffer                int64            `json:"limited_stage_entry_time_buffer"`
-	LimitedStagePointAmount                    int64            `json:"limited_stage_point_amount"`
-	LimitedStagePointPerApMin                  int64            `json:"limited_stage_point_per_ap_min"`
-	LimitedStagePointPerApMax                  int64            `json:"limited_stage_point_per_ap_max"`
-	AccountLinkReward                          int32            `json:"account_link_reward"`
-	MonthlyProductCheckDays                    int32            `json:"monthly_product_check_days"`
-	WeaponLvUpCoefficient                      int32            `json:"weapon_lv_up_coefficient"`
-	ShowRaidMyListCount                        int32            `json:"show_raid_my_list_count"`
-	RaidEnterCostType                          ParcelType       `json:"raid_enter_cost_type"`
-	RaidEnterCostID                            int64            `json:"raid_enter_cost_id"`
-	RaidTicketCost                             int64            `json:"raid_ticket_cost"`
-	TimeAttackDungeonScenarioID                string           `json:"time_attack_dungeon_scenario_id"`
-	TimeAttackDungoenPlayCountPerTicket        int32            `json:"time_attack_dungoen_play_count_per_ticket"`
-	TimeAttackDungeonEnterCostType             ParcelType       `json:"time_attack_dungeon_enter_cost_type"`
-	TimeAttackDungeonEnterCostID               int64            `json:"time_attack_dungeon_enter_cost_id"`
-	TimeAttackDungeonEnterCost                 int64            `json:"time_attack_dungeon_enter_cost"`
-	ClanLeaderTransferLastLoginLimit           int64            `json:"clan_leader_transfer_last_login_limit"`
-	MonthlyProductRepurchasePopupLimit         int32            `json:"monthly_product_repurchase_popup_limit"`
-	CommonFavorItemTags                        []Tag            `json:"common_favor_item_tags"`
-	MaxApMasterCoinPerWeek                     int64            `json:"max_ap_master_coin_per_week"`
-	CraftOpenExpTier1                          int64            `json:"craft_open_exp_tier1"`
-	CraftOpenExpTier2                          int64            `json:"craft_open_exp_tier2"`
-	CraftOpenExpTier3                          int64            `json:"craft_open_exp_tier3"`
-	CharacterEquipmentGearSlot                 int64            `json:"character_equipment_gear_slot"`
-	BirthDayDDay                               int32            `json:"birth_day_d_day"`
-	RecommendedFriendsLvDifferenceLimit        int32            `json:"recommended_friends_lv_difference_limit"`
-	DDosDetectCount                            int32            `json:"d_dos_detect_count"`
-	DDosCheckIntervalInSeconds                 int32            `json:"d_dos_check_interval_in_seconds"`
-	MaxFriendsCount                            int32            `json:"max_friends_count"`
-	MaxFriendsRequest                          int32            `json:"max_friends_request"`
-	FriendsSearchRequestCount                  int32            `json:"friends_search_request_count"`
-	FriendsMaxApplicant                        int32            `json:"friends_max_applicant"`
-	IDCardDefaultCharacterID                   int64            `json:"id_card_default_character_id"`
-	IDCardDefaultBgID                          int64            `json:"id_card_default_bg_id"`
-	WorldRaidGemEnterCost                      int64            `json:"world_raid_gem_enter_cost"`
-	WorldRaidGemEnterAmout                     int64            `json:"world_raid_gem_enter_amout"`
-	FriendIDCardCommentMaxLength               int64            `json:"friend_id_card_comment_max_length"`
-	FormationPresetNumberOfEchelonTab          int32            `json:"formation_preset_number_of_echelon_tab"`
-	FormationPresetNumberOfEchelon             int32            `json:"formation_preset_number_of_echelon"`
-	FormationPresetRecentNumberOfEchelon       int32            `json:"formation_preset_recent_number_of_echelon"`
-	FormationPresetEchelonTabTextLength        int32            `json:"formation_preset_echelon_tab_text_length"`
-	FormationPresetEchelonSlotTextLength       int32            `json:"formation_preset_echelon_slot_text_length"`
-	CharProfileRowIntervalKr                   int32            `json:"char_profile_row_interval_kr"`
-	CallnameLengthEn                           int32            `json:"callname_length_en"`
-	CallnameLengthKr                           int32            `json:"callname_length_kr"`
-	NicknameLengthKr                           int32            `json:"nickname_length_kr"`
-	ClanNameLength                             int32            `json:"clan_name_length"`
-	CafePresetEditNameLength                   int32            `json:"cafe_preset_edit_name_length"`
-	FormationPresetEchelonTabTextLengthKr      int32            `json:"formation_preset_echelon_tab_text_length_kr"`
-	FormationPresetEchelonSlotTextLengthKr     int32            `json:"formation_preset_echelon_slot_text_length_kr"`
-	CharProfileRowIntervalJp                   int32            `json:"char_profile_row_interval_jp"`
-	CharProfilePopupRowIntervalKr              int32            `json:"char_profile_popup_row_interval_kr"`
-	CharProfilePopupRowIntervalJp              int32            `json:"char_profile_popup_row_interval_jp"`
-	BeforehandGachaCount                       int32            `json:"beforehand_gacha_count"`
-	LowMemorySizeGl                            int64            `json:"low_memory_size_gl"`
-	BeforehandGachaGroupID                     int32            `json:"beforehand_gacha_group_id"`
-	RenewalDisplayOrderDay                     int32            `json:"renewal_display_order_day"`
-	EmblemDefaultID                            int64            `json:"emblem_default_id"`
-	BirthdayMailStartDate                      string           `json:"birthday_mail_start_date"`
-	BirthdayMailRemainDate                     int32            `json:"birthday_mail_remain_date"`
-	BirthdayMailParcelType                     ParcelType       `json:"birthday_mail_parcel_type"`
-	BirthdayMailParcelID                       int64            `json:"birthday_mail_parcel_id"`
-	BirthdayMailParcelAmount                   int32            `json:"birthday_mail_parcel_amount"`
-	ClearDeckAverageDeckCount                  int32            `json:"clear_deck_average_deck_count"`
-	ClearDeckWorldRaidSaveConditionCoefficient int32            `json:"clear_deck_world_raid_save_condition_coefficient"`
-	ClearDeckShowCount                         int32            `json:"clear_deck_show_count"`
-	CharacterMaxLevel                          int32            `json:"character_max_level"`
-	PotentialBonusStatMaxLevelMaxHp            int32            `json:"potential_bonus_stat_max_level_max_hp"`
-	PotentialBonusStatMaxLevelAttackPower      int32            `json:"potential_bonus_stat_max_level_attack_power"`
-	PotentialBonusStatMaxLevelHealPower        int32            `json:"potential_bonus_stat_max_level_heal_power"`
-	PotentialOpenConditionCharacterLevel       int32            `json:"potential_open_condition_character_level"`
-	AssistStrangerMinLevel                     int32            `json:"assist_stranger_min_level"`
-	ClanChattingNoticeCautionDelay             float32          `json:"clan_chatting_notice_caution_delay"`
-	CallNameWaitTimeGl                         float32          `json:"call_name_wait_time_gl"`
-	AssistStrangerMaxLevel                     int32            `json:"assist_stranger_max_level"`
-	MaxBlockedUserCount                        int32            `json:"max_blocked_user_count"`
-	CafeRandomVisitMinComfortBonus             int64            `json:"cafe_random_visit_min_comfort_bonus"`
-	CafeRandomVisitMinLastLogin                int32            `json:"cafe_random_visit_min_last_login"`
-	CafeTravelSyncIntervalByMillisec           int32            `json:"cafe_travel_sync_interval_by_millisec"`
-	RankBracketPercentage1                     int32            `json:"rank_bracket_percentage1"`
-	RankBracketPercentage2                     int32            `json:"rank_bracket_percentage2"`
-	RankBracketPercentage3                     int32            `json:"rank_bracket_percentage3"`
-	RankBracketPercentage4                     int32            `json:"rank_bracket_percentage4"`
-	RankBracketPercentage5                     int32            `json:"rank_bracket_percentage5"`
-	RankBracketPercentage6                     int32            `json:"rank_bracket_percentage6"`
-	RankBracketPercentage7                     int32            `json:"rank_bracket_percentage7"`
-	ExpiryBattlePassItemReceiveDay             int32            `json:"expiry_battle_pass_item_receive_day"`
-	BattlePassFlavorTextIdleDurationMilliSec   int64            `json:"battle_pass_flavor_text_idle_duration_milli_sec"`
-	BattlePassEndImminentDay                   int32            `json:"battle_pass_end_imminent_day"`
-	BattlePassExpIconPath                      string           `json:"battle_pass_exp_icon_path"`
-	CafeCameraDragThreshold                    float32          `json:"cafe_camera_drag_threshold"`
-	CafeSummonTicketBuyLimitForValidate        int32            `json:"cafe_summon_ticket_buy_limit_for_validate"`
-	BattlePassNotifyDateGl                     int32            `json:"battle_pass_notify_date_gl"`
-	PurchaseMailExpiredDayGl                   int32            `json:"purchase_mail_expired_day_gl"`
-	ReviewEventDateGl                          string           `json:"review_event_date_gl"`
-	ReviewEventStageIdgl                       int64            `json:"review_event_stage_idgl"`
-	ReviewEventCharIdgl                        int64            `json:"review_event_char_idgl"`
-	AutoCraftPresetCountLimit                  int32            `json:"auto_craft_preset_count_limit"`
-	AutoCraftNodeSelectCount                   int32            `json:"auto_craft_node_select_count"`
-	CraftPresetNameMaxLength                   int32            `json:"craft_preset_name_max_length"`
-	SelectionWaitTime                          int64            `json:"selection_wait_time"`
-	RewardWaitTime                             int64            `json:"reward_wait_time"`
-	EpisodeContinueWaitTime                    int64            `json:"episode_continue_wait_time"`
-	ScenarioAutoDelayMillisecLong              float32          `json:"scenario_auto_delay_millisec_long"`
-	ScenarioAutoDelayMillisec                  float32          `json:"scenario_auto_delay_millisec"`
-	ScenarioAutoDelayMillisecShort             float32          `json:"scenario_auto_delay_millisec_short"`
-	ScenarioAutoDelayMillisecVeryShort         float32          `json:"scenario_auto_delay_millisec_very_short"`
-	PcBuildEnterInformation                    int32            `json:"pc_build_enter_information"`
-	ComebackUserStandardDay                    int32            `json:"comeback_user_standard_day"`
-	ComebackUserLogSaveDay                     int32            `json:"comeback_user_log_save_day"`
-	ComeBackActivateCooldown                   int32            `json:"come_back_activate_cooldown"`
-	CafeCopyPresetSlotCount                    int32            `json:"cafe_copy_preset_slot_count"`
-	ExpiryProductDailyRecordItemReceiveDay     int32            `json:"expiry_product_daily_record_item_receive_day"`
-	NewbieUserStandardDay                      int32            `json:"newbie_user_standard_day"`
-	NewbieStateHoldDay                         int32            `json:"newbie_state_hold_day"`
-	QrIconURLDev                               string           `json:"qr_icon_url_dev"`
-	QrIconURLLive                              string           `json:"qr_icon_url_live"`
-	ProbablityInfoBtnLinkKr                    string           `json:"probablity_info_btn_link_kr"`
-	ClearDeckEchelonShowMaxCount               int32            `json:"clear_deck_echelon_show_max_count"`
+	CampaignMainStageMaxRank                    int32            `json:"campaign_main_stage_max_rank"`
+	CampaignMainStageBestRecord                 int32            `json:"campaign_main_stage_best_record"`
+	HardAdventurePlayCountRecoverDailyNumber    int32            `json:"hard_adventure_play_count_recover_daily_number"`
+	HardStageCount                              int32            `json:"hard_stage_count"`
+	TacticRankClearTime                         int32            `json:"tactic_rank_clear_time"`
+	BaseTimeScale                               int64            `json:"base_time_scale"`
+	GachaPercentage                             int32            `json:"gacha_percentage"`
+	AcademyFavorZoneID                          int64            `json:"academy_favor_zone_id"`
+	CafePresetSlotCount                         int32            `json:"cafe_preset_slot_count"`
+	CafeMonologueIntervalMillisec               int64            `json:"cafe_monologue_interval_millisec"`
+	CafeMonologueDefaultDuration                int64            `json:"cafe_monologue_default_duration"`
+	CafeBubbleIdleDurationMilliSec              int64            `json:"cafe_bubble_idle_duration_milli_sec"`
+	FindGiftTimeLimit                           int32            `json:"find_gift_time_limit"`
+	CafeAutoChargePeriodInMsc                   int32            `json:"cafe_auto_charge_period_in_msc"`
+	CafeProductionDecimalPosition               int32            `json:"cafe_production_decimal_position"`
+	CafeSetGroupApplyCount                      int32            `json:"cafe_set_group_apply_count"`
+	WeekDungeonFindGiftRewardLimitCount         int32            `json:"week_dungeon_find_gift_reward_limit_count"`
+	StageFailedCurrencyRefundRate               int32            `json:"stage_failed_currency_refund_rate"`
+	EnterDeposit                                int32            `json:"enter_deposit"`
+	AccountMaxLevel                             int32            `json:"account_max_level"`
+	MainSquadExpBonus                           int32            `json:"main_squad_exp_bonus"`
+	SupportSquadExpBonus                        int32            `json:"support_squad_exp_bonus"`
+	AccountExpRatio                             int32            `json:"account_exp_ratio"`
+	MissionToastLifeTime                        int32            `json:"mission_toast_life_time"`
+	ExpItemInsertLimit                          int32            `json:"exp_item_insert_limit"`
+	ExpItemInsertAccelTime                      int32            `json:"exp_item_insert_accel_time"`
+	CharacterLvUpCoefficient                    int32            `json:"character_lv_up_coefficient"`
+	EquipmentLvUpCoefficient                    int32            `json:"equipment_lv_up_coefficient"`
+	ExpEquipInsertLimit                         int32            `json:"exp_equip_insert_limit"`
+	EquipLvUpCoefficient                        int32            `json:"equip_lv_up_coefficient"`
+	NicknameLength                              int32            `json:"nickname_length"`
+	CraftDuration                               []int32          `json:"craft_duration"`
+	CraftLimitTime                              int32            `json:"craft_limit_time"`
+	ShiftingCraftDuration                       []int32          `json:"shifting_craft_duration"`
+	ShiftingCraftTicketConsumeAmount            int32            `json:"shifting_craft_ticket_consume_amount"`
+	ShiftingCraftSlotMaxCapacity                int32            `json:"shifting_craft_slot_max_capacity"`
+	CraftTicketItemUniqueID                     int32            `json:"craft_ticket_item_unique_id"`
+	CraftTicketConsumeAmount                    int32            `json:"craft_ticket_consume_amount"`
+	AcademyEnterCostType                        ParcelType       `json:"academy_enter_cost_type"`
+	AcademyEnterCostID                          int64            `json:"academy_enter_cost_id"`
+	AcademyTicketCost                           int32            `json:"academy_ticket_cost"`
+	MassangerMessageExpireDay                   int32            `json:"massanger_message_expire_day"`
+	CraftLeafNodeGenerateLv1Count               int32            `json:"craft_leaf_node_generate_lv1_count"`
+	CraftLeafNodeGenerateLv2Count               int32            `json:"craft_leaf_node_generate_lv2_count"`
+	TutorialGachaShopID                         int32            `json:"tutorial_gacha_shop_id"`
+	BeforehandGachaShopID                       int32            `json:"beforehand_gacha_shop_id"`
+	TutorialGachaGoodsID                        int32            `json:"tutorial_gacha_goods_id"`
+	EquipmentSlotOpenLevel                      []int32          `json:"equipment_slot_open_level"`
+	JoinOrCreateClanCoolTimeFromHour            int64            `json:"join_or_create_clan_cool_time_from_hour"`
+	ClanMaxMember                               int64            `json:"clan_max_member"`
+	ClanSearchResultCount                       int64            `json:"clan_search_result_count"`
+	ClanMaxApplicant                            int64            `json:"clan_max_applicant"`
+	ClanKickHistoryMax                          int32            `json:"clan_kick_history_max"`
+	ClanRejoinCoolTimeFromSecond                int64            `json:"clan_rejoin_cool_time_from_second"`
+	ClanWordBalloonMaxCharacter                 int32            `json:"clan_word_balloon_max_character"`
+	CallNameRenameCoolTimeFromHour              int64            `json:"call_name_rename_cool_time_from_hour"`
+	CallNameMinimumLength                       int64            `json:"call_name_minimum_length"`
+	CallNameMaximumLength                       int64            `json:"call_name_maximum_length"`
+	LobbyToScreenModeWaitTime                   int64            `json:"lobby_to_screen_mode_wait_time"`
+	ScreenshotToLobbyButtonHideDelay            int64            `json:"screenshot_to_lobby_button_hide_delay"`
+	PrologueScenarioId01                        int64            `json:"prologue_scenario_id01"`
+	PrologueScenarioId02                        int64            `json:"prologue_scenario_id02"`
+	TutorialHardStage11                         int64            `json:"tutorial_hard_stage11"`
+	TutorialSpeedButtonStage                    int64            `json:"tutorial_speed_button_stage"`
+	TutorialCharacterDefaultCount               int64            `json:"tutorial_character_default_count"`
+	TutorialShopCategoryType                    ShopCategoryType `json:"tutorial_shop_category_type"`
+	AdventureStrategyPlayTimeLimitInSeconds     int64            `json:"adventure_strategy_play_time_limit_in_seconds"`
+	WeekDungoenTacticPlayTimeLimitInSeconds     int64            `json:"week_dungoen_tactic_play_time_limit_in_seconds"`
+	RaidTacticPlayTimeLimitInSeconds            int64            `json:"raid_tactic_play_time_limit_in_seconds"`
+	RaidOpponentListAmount                      int64            `json:"raid_opponent_list_amount"`
+	CraftBaseGoldRequired                       []int64          `json:"craft_base_gold_required"`
+	PostExpiredDayAttendance                    int32            `json:"post_expired_day_attendance"`
+	PostExpiredDayInventoryOverflow             int32            `json:"post_expired_day_inventory_overflow"`
+	PostExpiredDayGameManager                   int32            `json:"post_expired_day_game_manager"`
+	UILabelCharacterWrap                        string           `json:"ui_label_character_wrap"`
+	MailStorageSoftCap                          int32            `json:"mail_storage_soft_cap"`
+	MailStorageHardCap                          int32            `json:"mail_storage_hard_cap"`
+	ClearDeckStorageSize                        int32            `json:"clear_deck_storage_size"`
+	ClearDeckNoStarViewCount                    int32            `json:"clear_deck_no_star_view_count"`
+	ClearDeck1StarViewCount                     int32            `json:"clear_deck1_star_view_count"`
+	ClearDeck2StarViewCount                     int32            `json:"clear_deck2_star_view_count"`
+	ClearDeck3StarViewCount                     int32            `json:"clear_deck3_star_view_count"`
+	ExSkillLevelMax                             int32            `json:"ex_skill_level_max"`
+	PublicSkillLevelMax                         int32            `json:"public_skill_level_max"`
+	PassiveSkillLevelMax                        int32            `json:"passive_skill_level_max"`
+	ExtraPassiveSkillLevelMax                   int32            `json:"extra_passive_skill_level_max"`
+	AccountCommentMaxLength                     int32            `json:"account_comment_max_length"`
+	CafeSummonCoolTimeFromHour                  int32            `json:"cafe_summon_cool_time_from_hour"`
+	LimitedStageDailyClearCount                 int64            `json:"limited_stage_daily_clear_count"`
+	LimitedStageEntryTimeLimit                  int64            `json:"limited_stage_entry_time_limit"`
+	LimitedStageEntryTimeBuffer                 int64            `json:"limited_stage_entry_time_buffer"`
+	LimitedStagePointAmount                     int64            `json:"limited_stage_point_amount"`
+	LimitedStagePointPerApMin                   int64            `json:"limited_stage_point_per_ap_min"`
+	LimitedStagePointPerApMax                   int64            `json:"limited_stage_point_per_ap_max"`
+	AccountLinkReward                           int32            `json:"account_link_reward"`
+	MonthlyProductCheckDays                     int32            `json:"monthly_product_check_days"`
+	WeaponLvUpCoefficient                       int32            `json:"weapon_lv_up_coefficient"`
+	ShowRaidMyListCount                         int32            `json:"show_raid_my_list_count"`
+	RaidEnterCostType                           ParcelType       `json:"raid_enter_cost_type"`
+	RaidEnterCostID                             int64            `json:"raid_enter_cost_id"`
+	RaidTicketCost                              int64            `json:"raid_ticket_cost"`
+	TimeAttackDungeonScenarioID                 string           `json:"time_attack_dungeon_scenario_id"`
+	TimeAttackDungoenPlayCountPerTicket         int32            `json:"time_attack_dungoen_play_count_per_ticket"`
+	TimeAttackDungeonEnterCostType              ParcelType       `json:"time_attack_dungeon_enter_cost_type"`
+	TimeAttackDungeonEnterCostID                int64            `json:"time_attack_dungeon_enter_cost_id"`
+	TimeAttackDungeonEnterCost                  int64            `json:"time_attack_dungeon_enter_cost"`
+	ClanLeaderTransferLastLoginLimit            int64            `json:"clan_leader_transfer_last_login_limit"`
+	MonthlyProductRepurchasePopupLimit          int32            `json:"monthly_product_repurchase_popup_limit"`
+	CommonFavorItemTags                         []Tag            `json:"common_favor_item_tags"`
+	MaxApMasterCoinPerWeek                      int64            `json:"max_ap_master_coin_per_week"`
+	PlusMaxApMasterCoinPerWeekProductMonthlyId1 []int64          `json:"plus_max_ap_master_coin_per_week_product_monthly_id1"`
+	PlusMaxApMasterCoinPerWeek1                 int64            `json:"plus_max_ap_master_coin_per_week1"`
+	PlusMaxApMasterCoinPerWeekProductMonthlyId2 []int64          `json:"plus_max_ap_master_coin_per_week_product_monthly_id2"`
+	PlusMaxApMasterCoinPerWeek2                 int64            `json:"plus_max_ap_master_coin_per_week2"`
+	CraftOpenExpTier1                           int64            `json:"craft_open_exp_tier1"`
+	CraftOpenExpTier2                           int64            `json:"craft_open_exp_tier2"`
+	CraftOpenExpTier3                           int64            `json:"craft_open_exp_tier3"`
+	CharacterEquipmentGearSlot                  int64            `json:"character_equipment_gear_slot"`
+	BirthDayDDay                                int32            `json:"birth_day_d_day"`
+	RecommendedFriendsLvDifferenceLimit         int32            `json:"recommended_friends_lv_difference_limit"`
+	DDosDetectCount                             int32            `json:"d_dos_detect_count"`
+	DDosCheckIntervalInSeconds                  int32            `json:"d_dos_check_interval_in_seconds"`
+	MaxFriendsCount                             int32            `json:"max_friends_count"`
+	MaxFriendsRequest                           int32            `json:"max_friends_request"`
+	FriendsSearchRequestCount                   int32            `json:"friends_search_request_count"`
+	FriendsMaxApplicant                         int32            `json:"friends_max_applicant"`
+	IDCardDefaultCharacterID                    int64            `json:"id_card_default_character_id"`
+	IDCardDefaultBgID                           int64            `json:"id_card_default_bg_id"`
+	WorldRaidGemEnterCost                       int64            `json:"world_raid_gem_enter_cost"`
+	WorldRaidGemEnterAmout                      int64            `json:"world_raid_gem_enter_amout"`
+	FriendIDCardCommentMaxLength                int64            `json:"friend_id_card_comment_max_length"`
+	FormationPresetNumberOfEchelonTab           int32            `json:"formation_preset_number_of_echelon_tab"`
+	FormationPresetNumberOfEchelon              int32            `json:"formation_preset_number_of_echelon"`
+	FormationPresetRecentNumberOfEchelon        int32            `json:"formation_preset_recent_number_of_echelon"`
+	FormationPresetEchelonTabTextLength         int32            `json:"formation_preset_echelon_tab_text_length"`
+	FormationPresetEchelonSlotTextLength        int32            `json:"formation_preset_echelon_slot_text_length"`
+	CharProfileRowIntervalKr                    int32            `json:"char_profile_row_interval_kr"`
+	CallnameLengthEn                            int32            `json:"callname_length_en"`
+	CallnameLengthKr                            int32            `json:"callname_length_kr"`
+	NicknameLengthKr                            int32            `json:"nickname_length_kr"`
+	ClanNameLength                              int32            `json:"clan_name_length"`
+	CafePresetEditNameLength                    int32            `json:"cafe_preset_edit_name_length"`
+	FormationPresetEchelonTabTextLengthKr       int32            `json:"formation_preset_echelon_tab_text_length_kr"`
+	FormationPresetEchelonSlotTextLengthKr      int32            `json:"formation_preset_echelon_slot_text_length_kr"`
+	CharProfileRowIntervalJp                    int32            `json:"char_profile_row_interval_jp"`
+	CharProfilePopupRowIntervalKr               int32            `json:"char_profile_popup_row_interval_kr"`
+	CharProfilePopupRowIntervalJp               int32            `json:"char_profile_popup_row_interval_jp"`
+	BeforehandGachaCount                        int32            `json:"beforehand_gacha_count"`
+	LowMemorySizeGl                             int64            `json:"low_memory_size_gl"`
+	BeforehandGachaGroupID                      int32            `json:"beforehand_gacha_group_id"`
+	RenewalDisplayOrderDay                      int32            `json:"renewal_display_order_day"`
+	EmblemDefaultID                             int64            `json:"emblem_default_id"`
+	StudentFrameDefaultID                       int64            `json:"student_frame_default_id"`
+	BirthdayMailStartDate                       string           `json:"birthday_mail_start_date"`
+	BirthdayMailRemainDate                      int32            `json:"birthday_mail_remain_date"`
+	BirthdayMailParcelType                      ParcelType       `json:"birthday_mail_parcel_type"`
+	BirthdayMailParcelID                        int64            `json:"birthday_mail_parcel_id"`
+	BirthdayMailParcelAmount                    int32            `json:"birthday_mail_parcel_amount"`
+	ClearDeckAverageDeckCount                   int32            `json:"clear_deck_average_deck_count"`
+	ClearDeckWorldRaidSaveConditionCoefficient  int32            `json:"clear_deck_world_raid_save_condition_coefficient"`
+	ClearDeckShowCount                          int32            `json:"clear_deck_show_count"`
+	CharacterMaxLevel                           int32            `json:"character_max_level"`
+	PotentialBonusStatMaxLevelMaxHp             int32            `json:"potential_bonus_stat_max_level_max_hp"`
+	PotentialBonusStatMaxLevelAttackPower       int32            `json:"potential_bonus_stat_max_level_attack_power"`
+	PotentialBonusStatMaxLevelHealPower         int32            `json:"potential_bonus_stat_max_level_heal_power"`
+	PotentialOpenConditionCharacterLevel        int32            `json:"potential_open_condition_character_level"`
+	AssistStrangerMinLevel                      int32            `json:"assist_stranger_min_level"`
+	ClanChattingNoticeCautionDelay              float32          `json:"clan_chatting_notice_caution_delay"`
+	CallNameWaitTimeGl                          float32          `json:"call_name_wait_time_gl"`
+	AssistStrangerMaxLevel                      int32            `json:"assist_stranger_max_level"`
+	MaxBlockedUserCount                         int32            `json:"max_blocked_user_count"`
+	CafeRandomVisitMinComfortBonus              int64            `json:"cafe_random_visit_min_comfort_bonus"`
+	CafeRandomVisitMinLastLogin                 int32            `json:"cafe_random_visit_min_last_login"`
+	CafeTravelSyncIntervalByMillisec            int32            `json:"cafe_travel_sync_interval_by_millisec"`
+	RankBracketPercentage1                      int32            `json:"rank_bracket_percentage1"`
+	RankBracketPercentage2                      int32            `json:"rank_bracket_percentage2"`
+	RankBracketPercentage3                      int32            `json:"rank_bracket_percentage3"`
+	RankBracketPercentage4                      int32            `json:"rank_bracket_percentage4"`
+	RankBracketPercentage5                      int32            `json:"rank_bracket_percentage5"`
+	RankBracketPercentage6                      int32            `json:"rank_bracket_percentage6"`
+	RankBracketPercentage7                      int32            `json:"rank_bracket_percentage7"`
+	ExpiryBattlePassItemReceiveDay              int32            `json:"expiry_battle_pass_item_receive_day"`
+	BattlePassFlavorTextIdleDurationMilliSec    int64            `json:"battle_pass_flavor_text_idle_duration_milli_sec"`
+	BattlePassEndImminentDay                    int32            `json:"battle_pass_end_imminent_day"`
+	BattlePassExpIconPath                       string           `json:"battle_pass_exp_icon_path"`
+	CafeCameraDragThreshold                     float32          `json:"cafe_camera_drag_threshold"`
+	CafeSummonTicketBuyLimitForValidate         int32            `json:"cafe_summon_ticket_buy_limit_for_validate"`
+	BattlePassNotifyDateGl                      int32            `json:"battle_pass_notify_date_gl"`
+	PurchaseMailExpiredDayGl                    int32            `json:"purchase_mail_expired_day_gl"`
+	ReviewEventDateGl                           string           `json:"review_event_date_gl"`
+	ReviewEventStageIdgl                        int64            `json:"review_event_stage_idgl"`
+	ReviewEventCharIdgl                         int64            `json:"review_event_char_idgl"`
+	AutoCraftPresetCountLimit                   int32            `json:"auto_craft_preset_count_limit"`
+	AutoCraftNodeSelectCount                    int32            `json:"auto_craft_node_select_count"`
+	CraftPresetNameMaxLength                    int32            `json:"craft_preset_name_max_length"`
+	SelectionWaitTime                           int64            `json:"selection_wait_time"`
+	RewardWaitTime                              int64            `json:"reward_wait_time"`
+	EpisodeContinueWaitTime                     int64            `json:"episode_continue_wait_time"`
+	ScenarioAutoDelayMillisecLong               float32          `json:"scenario_auto_delay_millisec_long"`
+	ScenarioAutoDelayMillisec                   float32          `json:"scenario_auto_delay_millisec"`
+	ScenarioAutoDelayMillisecShort              float32          `json:"scenario_auto_delay_millisec_short"`
+	ScenarioAutoDelayMillisecVeryShort          float32          `json:"scenario_auto_delay_millisec_very_short"`
+	PcBuildEnterInformation                     int32            `json:"pc_build_enter_information"`
+	ComebackUserStandardDay                     int32            `json:"comeback_user_standard_day"`
+	ComebackUserLogSaveDay                      int32            `json:"comeback_user_log_save_day"`
+	ComeBackActivateCooldown                    int32            `json:"come_back_activate_cooldown"`
+	CafeCopyPresetSlotCount                     int32            `json:"cafe_copy_preset_slot_count"`
+	ExpiryProductDailyRecordItemReceiveDay      int32            `json:"expiry_product_daily_record_item_receive_day"`
+	NewbieUserStandardDay                       int32            `json:"newbie_user_standard_day"`
+	NewbieStateHoldDay                          int32            `json:"newbie_state_hold_day"`
+	QrIconURLDev                                string           `json:"qr_icon_url_dev"`
+	QrIconURLLive                               string           `json:"qr_icon_url_live"`
+	ProbablityInfoBtnLinkKr                     string           `json:"probablity_info_btn_link_kr"`
+	ClearDeckEchelonShowMaxCount                int32            `json:"clear_deck_echelon_show_max_count"`
+	ExpiryStreakRecordItemReceiveDay            int32            `json:"expiry_streak_record_item_receive_day"`
+	ExpirySeasonRecordItemReceiveDay            int32            `json:"expiry_season_record_item_receive_day"`
+	EngraveContentsIsOpen                       bool             `json:"engrave_contents_is_open"`
+	TacticalRelayContentsIsOpen                 bool             `json:"tactical_relay_contents_is_open"`
+	ExSkillLevelMaxByEngrave                    int32            `json:"ex_skill_level_max_by_engrave"`
+	ExSkillUpgradeLevelMax                      int32            `json:"ex_skill_upgrade_level_max"`
+	RaidResetCount                              int32            `json:"raid_reset_count"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -253,6 +265,16 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 		b.PrependInt32(fbsutils.Encode(int32(t.CommonFavorItemTags[i]), t.FlatBuffer.TableKey))
 	}
 	commonFavorItemTagsOffset := b.EndVector(len(t.CommonFavorItemTags))
+	ConstCommonExcelStartPlusMaxApMasterCoinPerWeekProductMonthlyId1Vector(b, len(t.PlusMaxApMasterCoinPerWeekProductMonthlyId1))
+	for i := len(t.PlusMaxApMasterCoinPerWeekProductMonthlyId1) - 1; i >= 0; i-- {
+		b.PrependInt64(fbsutils.Encode(t.PlusMaxApMasterCoinPerWeekProductMonthlyId1[i], t.FlatBuffer.TableKey))
+	}
+	plusMaxApMasterCoinPerWeekProductMonthlyId1Offset := b.EndVector(len(t.PlusMaxApMasterCoinPerWeekProductMonthlyId1))
+	ConstCommonExcelStartPlusMaxApMasterCoinPerWeekProductMonthlyId2Vector(b, len(t.PlusMaxApMasterCoinPerWeekProductMonthlyId2))
+	for i := len(t.PlusMaxApMasterCoinPerWeekProductMonthlyId2) - 1; i >= 0; i-- {
+		b.PrependInt64(fbsutils.Encode(t.PlusMaxApMasterCoinPerWeekProductMonthlyId2[i], t.FlatBuffer.TableKey))
+	}
+	plusMaxApMasterCoinPerWeekProductMonthlyId2Offset := b.EndVector(len(t.PlusMaxApMasterCoinPerWeekProductMonthlyId2))
 	birthdayMailStartDateOffset := b.CreateString(fbsutils.Encode(t.BirthdayMailStartDate, t.FlatBuffer.TableKey))
 	battlePassExpIconPathOffset := b.CreateString(fbsutils.Encode(t.BattlePassExpIconPath, t.FlatBuffer.TableKey))
 	reviewEventDateGlOffset := b.CreateString(fbsutils.Encode(t.ReviewEventDateGl, t.FlatBuffer.TableKey))
@@ -312,6 +334,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddClanMaxMember(b, fbsutils.Encode(t.ClanMaxMember, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClanSearchResultCount(b, fbsutils.Encode(t.ClanSearchResultCount, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClanMaxApplicant(b, fbsutils.Encode(t.ClanMaxApplicant, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddClanKickHistoryMax(b, fbsutils.Encode(t.ClanKickHistoryMax, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClanRejoinCoolTimeFromSecond(b, fbsutils.Encode(t.ClanRejoinCoolTimeFromSecond, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClanWordBalloonMaxCharacter(b, fbsutils.Encode(t.ClanWordBalloonMaxCharacter, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCallNameRenameCoolTimeFromHour(b, fbsutils.Encode(t.CallNameRenameCoolTimeFromHour, t.FlatBuffer.TableKey))
@@ -334,7 +357,6 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddPostExpiredDayInventoryOverflow(b, fbsutils.Encode(t.PostExpiredDayInventoryOverflow, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddPostExpiredDayGameManager(b, fbsutils.Encode(t.PostExpiredDayGameManager, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddUiLabelCharacterWrap(b, uILabelCharacterWrapOffset)
-	ConstCommonExcelAddRequestTimeOut(b, fbsutils.Encode(t.RequestTimeOut, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddMailStorageSoftCap(b, fbsutils.Encode(t.MailStorageSoftCap, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddMailStorageHardCap(b, fbsutils.Encode(t.MailStorageHardCap, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddClearDeckStorageSize(b, fbsutils.Encode(t.ClearDeckStorageSize, t.FlatBuffer.TableKey))
@@ -370,6 +392,10 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddMonthlyProductRepurchasePopupLimit(b, fbsutils.Encode(t.MonthlyProductRepurchasePopupLimit, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCommonFavorItemTags(b, commonFavorItemTagsOffset)
 	ConstCommonExcelAddMaxApMasterCoinPerWeek(b, fbsutils.Encode(t.MaxApMasterCoinPerWeek, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPlusMaxApMasterCoinPerWeekProductMonthlyId1(b, plusMaxApMasterCoinPerWeekProductMonthlyId1Offset)
+	ConstCommonExcelAddPlusMaxApMasterCoinPerWeek1(b, fbsutils.Encode(t.PlusMaxApMasterCoinPerWeek1, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddPlusMaxApMasterCoinPerWeekProductMonthlyId2(b, plusMaxApMasterCoinPerWeekProductMonthlyId2Offset)
+	ConstCommonExcelAddPlusMaxApMasterCoinPerWeek2(b, fbsutils.Encode(t.PlusMaxApMasterCoinPerWeek2, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCraftOpenExpTier1(b, fbsutils.Encode(t.CraftOpenExpTier1, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCraftOpenExpTier2(b, fbsutils.Encode(t.CraftOpenExpTier2, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddCraftOpenExpTier3(b, fbsutils.Encode(t.CraftOpenExpTier3, t.FlatBuffer.TableKey))
@@ -408,6 +434,7 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddBeforehandGachaGroupId(b, fbsutils.Encode(t.BeforehandGachaGroupID, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddRenewalDisplayOrderDay(b, fbsutils.Encode(t.RenewalDisplayOrderDay, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddEmblemDefaultId(b, fbsutils.Encode(t.EmblemDefaultID, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddStudentFrameDefaultId(b, fbsutils.Encode(t.StudentFrameDefaultID, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddBirthdayMailStartDate(b, birthdayMailStartDateOffset)
 	ConstCommonExcelAddBirthdayMailRemainDate(b, fbsutils.Encode(t.BirthdayMailRemainDate, t.FlatBuffer.TableKey))
 	ConstCommonExcelAddBirthdayMailParcelType(b, ParcelType(fbsutils.Encode(int32(t.BirthdayMailParcelType), t.FlatBuffer.TableKey)))
@@ -469,6 +496,13 @@ func (t *ConstCommonExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCommonExcelAddQrIconUrlLive(b, qrIconURLLiveOffset)
 	ConstCommonExcelAddProbablityInfoBtnLinkKr(b, probablityInfoBtnLinkKrOffset)
 	ConstCommonExcelAddClearDeckEchelonShowMaxCount(b, fbsutils.Encode(t.ClearDeckEchelonShowMaxCount, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddExpiryStreakRecordItemReceiveDay(b, fbsutils.Encode(t.ExpiryStreakRecordItemReceiveDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddExpirySeasonRecordItemReceiveDay(b, fbsutils.Encode(t.ExpirySeasonRecordItemReceiveDay, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddEngraveContentsIsOpen(b, t.EngraveContentsIsOpen)
+	ConstCommonExcelAddTacticalRelayContentsIsOpen(b, t.TacticalRelayContentsIsOpen)
+	ConstCommonExcelAddExSkillLevelMaxByEngrave(b, fbsutils.Encode(t.ExSkillLevelMaxByEngrave, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddExSkillUpgradeLevelMax(b, fbsutils.Encode(t.ExSkillUpgradeLevelMax, t.FlatBuffer.TableKey))
+	ConstCommonExcelAddRaidResetCount(b, fbsutils.Encode(t.RaidResetCount, t.FlatBuffer.TableKey))
 	return ConstCommonExcelEnd(b)
 }
 
@@ -545,6 +579,7 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.ClanMaxMember = fbsutils.Decode(e.ClanMaxMember(), t.FlatBuffer.TableKey)
 	t.ClanSearchResultCount = fbsutils.Decode(e.ClanSearchResultCount(), t.FlatBuffer.TableKey)
 	t.ClanMaxApplicant = fbsutils.Decode(e.ClanMaxApplicant(), t.FlatBuffer.TableKey)
+	t.ClanKickHistoryMax = fbsutils.Decode(e.ClanKickHistoryMax(), t.FlatBuffer.TableKey)
 	t.ClanRejoinCoolTimeFromSecond = fbsutils.Decode(e.ClanRejoinCoolTimeFromSecond(), t.FlatBuffer.TableKey)
 	t.ClanWordBalloonMaxCharacter = fbsutils.Decode(e.ClanWordBalloonMaxCharacter(), t.FlatBuffer.TableKey)
 	t.CallNameRenameCoolTimeFromHour = fbsutils.Decode(e.CallNameRenameCoolTimeFromHour(), t.FlatBuffer.TableKey)
@@ -570,7 +605,6 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.PostExpiredDayInventoryOverflow = fbsutils.Decode(e.PostExpiredDayInventoryOverflow(), t.FlatBuffer.TableKey)
 	t.PostExpiredDayGameManager = fbsutils.Decode(e.PostExpiredDayGameManager(), t.FlatBuffer.TableKey)
 	t.UILabelCharacterWrap = fbsutils.Decode(string(e.UiLabelCharacterWrap()), t.FlatBuffer.TableKey)
-	t.RequestTimeOut = fbsutils.Decode(e.RequestTimeOut(), t.FlatBuffer.TableKey)
 	t.MailStorageSoftCap = fbsutils.Decode(e.MailStorageSoftCap(), t.FlatBuffer.TableKey)
 	t.MailStorageHardCap = fbsutils.Decode(e.MailStorageHardCap(), t.FlatBuffer.TableKey)
 	t.ClearDeckStorageSize = fbsutils.Decode(e.ClearDeckStorageSize(), t.FlatBuffer.TableKey)
@@ -609,6 +643,16 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 		t.CommonFavorItemTags[i] = Tag(fbsutils.Decode(int32(e.CommonFavorItemTags(i)), t.FlatBuffer.TableKey))
 	}
 	t.MaxApMasterCoinPerWeek = fbsutils.Decode(e.MaxApMasterCoinPerWeek(), t.FlatBuffer.TableKey)
+	t.PlusMaxApMasterCoinPerWeekProductMonthlyId1 = make([]int64, e.PlusMaxApMasterCoinPerWeekProductMonthlyId1Length())
+	for i := 0; i < e.PlusMaxApMasterCoinPerWeekProductMonthlyId1Length(); i++ {
+		t.PlusMaxApMasterCoinPerWeekProductMonthlyId1[i] = fbsutils.Decode(e.PlusMaxApMasterCoinPerWeekProductMonthlyId1(i), t.FlatBuffer.TableKey)
+	}
+	t.PlusMaxApMasterCoinPerWeek1 = fbsutils.Decode(e.PlusMaxApMasterCoinPerWeek1(), t.FlatBuffer.TableKey)
+	t.PlusMaxApMasterCoinPerWeekProductMonthlyId2 = make([]int64, e.PlusMaxApMasterCoinPerWeekProductMonthlyId2Length())
+	for i := 0; i < e.PlusMaxApMasterCoinPerWeekProductMonthlyId2Length(); i++ {
+		t.PlusMaxApMasterCoinPerWeekProductMonthlyId2[i] = fbsutils.Decode(e.PlusMaxApMasterCoinPerWeekProductMonthlyId2(i), t.FlatBuffer.TableKey)
+	}
+	t.PlusMaxApMasterCoinPerWeek2 = fbsutils.Decode(e.PlusMaxApMasterCoinPerWeek2(), t.FlatBuffer.TableKey)
 	t.CraftOpenExpTier1 = fbsutils.Decode(e.CraftOpenExpTier1(), t.FlatBuffer.TableKey)
 	t.CraftOpenExpTier2 = fbsutils.Decode(e.CraftOpenExpTier2(), t.FlatBuffer.TableKey)
 	t.CraftOpenExpTier3 = fbsutils.Decode(e.CraftOpenExpTier3(), t.FlatBuffer.TableKey)
@@ -647,6 +691,7 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.BeforehandGachaGroupID = fbsutils.Decode(e.BeforehandGachaGroupId(), t.FlatBuffer.TableKey)
 	t.RenewalDisplayOrderDay = fbsutils.Decode(e.RenewalDisplayOrderDay(), t.FlatBuffer.TableKey)
 	t.EmblemDefaultID = fbsutils.Decode(e.EmblemDefaultId(), t.FlatBuffer.TableKey)
+	t.StudentFrameDefaultID = fbsutils.Decode(e.StudentFrameDefaultId(), t.FlatBuffer.TableKey)
 	t.BirthdayMailStartDate = fbsutils.Decode(string(e.BirthdayMailStartDate()), t.FlatBuffer.TableKey)
 	t.BirthdayMailRemainDate = fbsutils.Decode(e.BirthdayMailRemainDate(), t.FlatBuffer.TableKey)
 	t.BirthdayMailParcelType = ParcelType(fbsutils.Decode(int32(e.BirthdayMailParcelType()), t.FlatBuffer.TableKey))
@@ -708,6 +753,13 @@ func (t *ConstCommonExcelDto) UnmarshalMessage(e *ConstCommonExcel) error {
 	t.QrIconURLLive = fbsutils.Decode(string(e.QrIconUrlLive()), t.FlatBuffer.TableKey)
 	t.ProbablityInfoBtnLinkKr = fbsutils.Decode(string(e.ProbablityInfoBtnLinkKr()), t.FlatBuffer.TableKey)
 	t.ClearDeckEchelonShowMaxCount = fbsutils.Decode(e.ClearDeckEchelonShowMaxCount(), t.FlatBuffer.TableKey)
+	t.ExpiryStreakRecordItemReceiveDay = fbsutils.Decode(e.ExpiryStreakRecordItemReceiveDay(), t.FlatBuffer.TableKey)
+	t.ExpirySeasonRecordItemReceiveDay = fbsutils.Decode(e.ExpirySeasonRecordItemReceiveDay(), t.FlatBuffer.TableKey)
+	t.EngraveContentsIsOpen = e.EngraveContentsIsOpen()
+	t.TacticalRelayContentsIsOpen = e.TacticalRelayContentsIsOpen()
+	t.ExSkillLevelMaxByEngrave = fbsutils.Decode(e.ExSkillLevelMaxByEngrave(), t.FlatBuffer.TableKey)
+	t.ExSkillUpgradeLevelMax = fbsutils.Decode(e.ExSkillUpgradeLevelMax(), t.FlatBuffer.TableKey)
+	t.RaidResetCount = fbsutils.Decode(e.RaidResetCount(), t.FlatBuffer.TableKey)
 	return nil
 }
 

@@ -15,14 +15,17 @@ table ShopCashExcel {
     in_mail_purchase_lock: bool;
     use_mail_parcel: bool;
     icon_path: string;
+    sub_icon_path: string;
     display_order: long;
     renewal_display_order: long;
+    shop_cash_stepup_id: long;
     category_type: ProductCategory;
     display_tag: ProductDisplayTag;
     product_sale_type: ProductSaleType;
     sale_period_from: string;
     sale_period_to: string;
     product_sale_day: long;
+    product_sale_milli_seconds: long;
     period_tag: bool;
     account_level_limit: long;
     account_level_hide: bool;
@@ -32,6 +35,8 @@ table ShopCashExcel {
     package_client_type: PurchaseSourceType;
     is_start_dash: bool;
     view_flag: bool;
+    recommend_icon_path: string;
+    recommend_prefab_path: string;
 }
 
 root_type ShopCashExcel;

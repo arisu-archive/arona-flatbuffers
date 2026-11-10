@@ -35,3 +35,5 @@ class ParcelType(object):
     ProductSelect = 29
     SNSPost = 30
     ProductDailyRecord = 31
+    StudentFrame = 32
+    ProductStreakRecord = 33

@@ -7,48 +7,54 @@ import "strconv"
 type GachaDisplayTag int32
 
 const (
-	GachaDisplayTagNone              GachaDisplayTag = 0
-	GachaDisplayTagLimited           GachaDisplayTag = 1
-	GachaDisplayTagTwoStar           GachaDisplayTag = 2
-	GachaDisplayTagThreeStar         GachaDisplayTag = 3
-	GachaDisplayTagFree              GachaDisplayTag = 4
-	GachaDisplayTagNew               GachaDisplayTag = 5
-	GachaDisplayTagFes               GachaDisplayTag = 6
-	GachaDisplayTagSelectRecruit     GachaDisplayTag = 7
-	GachaDisplayTagLimitedThreeStar  GachaDisplayTag = 8
-	GachaDisplayTagRevival           GachaDisplayTag = 9
-	GachaDisplayTagSelectLimited     GachaDisplayTag = 10
-	GachaDisplayTagNewbieDateLimited GachaDisplayTag = 11
+	GachaDisplayTagNone                    GachaDisplayTag = 0
+	GachaDisplayTagLimited                 GachaDisplayTag = 1
+	GachaDisplayTagTwoStar                 GachaDisplayTag = 2
+	GachaDisplayTagThreeStar               GachaDisplayTag = 3
+	GachaDisplayTagFree                    GachaDisplayTag = 4
+	GachaDisplayTagNew                     GachaDisplayTag = 5
+	GachaDisplayTagFes                     GachaDisplayTag = 6
+	GachaDisplayTagSelectRecruit           GachaDisplayTag = 7
+	GachaDisplayTagLimitedThreeStar        GachaDisplayTag = 8
+	GachaDisplayTagRevival                 GachaDisplayTag = 9
+	GachaDisplayTagSelectLimited           GachaDisplayTag = 10
+	GachaDisplayTagNewbieDateLimited       GachaDisplayTag = 11
+	GachaDisplayTagUnowned                 GachaDisplayTag = 12
+	GachaDisplayTagSelectRecruitNotForSale GachaDisplayTag = 13
 )
 
 var EnumNamesGachaDisplayTag = map[GachaDisplayTag]string{
-	GachaDisplayTagNone:              "None",
-	GachaDisplayTagLimited:           "Limited",
-	GachaDisplayTagTwoStar:           "TwoStar",
-	GachaDisplayTagThreeStar:         "ThreeStar",
-	GachaDisplayTagFree:              "Free",
-	GachaDisplayTagNew:               "New",
-	GachaDisplayTagFes:               "Fes",
-	GachaDisplayTagSelectRecruit:     "SelectRecruit",
-	GachaDisplayTagLimitedThreeStar:  "LimitedThreeStar",
-	GachaDisplayTagRevival:           "Revival",
-	GachaDisplayTagSelectLimited:     "SelectLimited",
-	GachaDisplayTagNewbieDateLimited: "NewbieDateLimited",
+	GachaDisplayTagNone:                    "None",
+	GachaDisplayTagLimited:                 "Limited",
+	GachaDisplayTagTwoStar:                 "TwoStar",
+	GachaDisplayTagThreeStar:               "ThreeStar",
+	GachaDisplayTagFree:                    "Free",
+	GachaDisplayTagNew:                     "New",
+	GachaDisplayTagFes:                     "Fes",
+	GachaDisplayTagSelectRecruit:           "SelectRecruit",
+	GachaDisplayTagLimitedThreeStar:        "LimitedThreeStar",
+	GachaDisplayTagRevival:                 "Revival",
+	GachaDisplayTagSelectLimited:           "SelectLimited",
+	GachaDisplayTagNewbieDateLimited:       "NewbieDateLimited",
+	GachaDisplayTagUnowned:                 "Unowned",
+	GachaDisplayTagSelectRecruitNotForSale: "SelectRecruitNotForSale",
 }
 
 var EnumValuesGachaDisplayTag = map[string]GachaDisplayTag{
-	"None":              GachaDisplayTagNone,
-	"Limited":           GachaDisplayTagLimited,
-	"TwoStar":           GachaDisplayTagTwoStar,
-	"ThreeStar":         GachaDisplayTagThreeStar,
-	"Free":              GachaDisplayTagFree,
-	"New":               GachaDisplayTagNew,
-	"Fes":               GachaDisplayTagFes,
-	"SelectRecruit":     GachaDisplayTagSelectRecruit,
-	"LimitedThreeStar":  GachaDisplayTagLimitedThreeStar,
-	"Revival":           GachaDisplayTagRevival,
-	"SelectLimited":     GachaDisplayTagSelectLimited,
-	"NewbieDateLimited": GachaDisplayTagNewbieDateLimited,
+	"None":                    GachaDisplayTagNone,
+	"Limited":                 GachaDisplayTagLimited,
+	"TwoStar":                 GachaDisplayTagTwoStar,
+	"ThreeStar":               GachaDisplayTagThreeStar,
+	"Free":                    GachaDisplayTagFree,
+	"New":                     GachaDisplayTagNew,
+	"Fes":                     GachaDisplayTagFes,
+	"SelectRecruit":           GachaDisplayTagSelectRecruit,
+	"LimitedThreeStar":        GachaDisplayTagLimitedThreeStar,
+	"Revival":                 GachaDisplayTagRevival,
+	"SelectLimited":           GachaDisplayTagSelectLimited,
+	"NewbieDateLimited":       GachaDisplayTagNewbieDateLimited,
+	"Unowned":                 GachaDisplayTagUnowned,
+	"SelectRecruitNotForSale": GachaDisplayTagSelectRecruitNotForSale,
 }
 
 func (v GachaDisplayTag) String() string {

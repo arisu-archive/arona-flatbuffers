@@ -15,3 +15,4 @@ class DisplayGroupType(object):
     MinigameShooting = 9
     MinigameRoad = 10
     MinigameCCG = 11
+    MinigameJanken = 12

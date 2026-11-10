@@ -1,0 +1,9 @@
+include "AppIconExcel.fbs";
+
+namespace FlatData;
+
+table AppIconExcelTable {
+    data_list: [AppIconExcel];
+}
+
+root_type AppIconExcelTable;

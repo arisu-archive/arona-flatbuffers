@@ -18,6 +18,7 @@ type ConstCombatExcelDto struct {
 	ShowBufficonExtraPassiveSkill                   bool    `json:"show_bufficon_extra_passive_skill"`
 	ShowBufficonLeaderSkill                         bool    `json:"show_bufficon_leader_skill"`
 	ShowBufficonGroundPassiveSkill                  bool    `json:"show_bufficon_ground_passive_skill"`
+	ShowBufficonApcSynergyPassiveSkill              bool    `json:"show_bufficon_apc_synergy_passive_skill"`
 	SuppliesConditionStringID                       string  `json:"supplies_condition_string_id"`
 	PublicSpeechBubbleOffsetX                       float32 `json:"public_speech_bubble_offset_x"`
 	PublicSpeechBubbleOffsetY                       float32 `json:"public_speech_bubble_offset_y"`
@@ -35,6 +36,7 @@ type ConstCombatExcelDto struct {
 	EnemyRegenCost                                  int64   `json:"enemy_regen_cost"`
 	ChampionRegenCost                               int64   `json:"champion_regen_cost"`
 	PlayerRegenCostDelay                            int64   `json:"player_regen_cost_delay"`
+	PlayerAutoUseStartDelay                         int64   `json:"player_auto_use_start_delay"`
 	CrowdControlFactor                              int64   `json:"crowd_control_factor"`
 	RaidOpenScenarioID                              string  `json:"raid_open_scenario_id"`
 	EliminateRaidOpenScenarioID                     string  `json:"eliminate_raid_open_scenario_id"`
@@ -115,6 +117,7 @@ type ConstCombatExcelDto struct {
 	MoveCorrectionSkipRatio                         int32   `json:"move_correction_skip_ratio"`
 	ObstacleColliderHeightJumpable                  float32 `json:"obstacle_collider_height_jumpable"`
 	ObstacleColliderHeightNotJumpable               float32 `json:"obstacle_collider_height_not_jumpable"`
+	CheckCheaterMaxUseCostTacticalRelay             int32   `json:"check_cheater_max_use_cost_tactical_relay"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -140,6 +143,7 @@ func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCombatExcelAddShowBufficonExtraPassiveSkill(b, t.ShowBufficonExtraPassiveSkill)
 	ConstCombatExcelAddShowBufficonLeaderSkill(b, t.ShowBufficonLeaderSkill)
 	ConstCombatExcelAddShowBufficonGroundPassiveSkill(b, t.ShowBufficonGroundPassiveSkill)
+	ConstCombatExcelAddShowBufficonApcSynergyPassiveSkill(b, t.ShowBufficonApcSynergyPassiveSkill)
 	ConstCombatExcelAddSuppliesConditionStringId(b, suppliesConditionStringIDOffset)
 	ConstCombatExcelAddPublicSpeechBubbleOffsetX(b, fbsutils.Encode(t.PublicSpeechBubbleOffsetX, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddPublicSpeechBubbleOffsetY(b, fbsutils.Encode(t.PublicSpeechBubbleOffsetY, t.FlatBuffer.TableKey))
@@ -157,6 +161,7 @@ func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCombatExcelAddEnemyRegenCost(b, fbsutils.Encode(t.EnemyRegenCost, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddChampionRegenCost(b, fbsutils.Encode(t.ChampionRegenCost, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddPlayerRegenCostDelay(b, fbsutils.Encode(t.PlayerRegenCostDelay, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddPlayerAutoUseStartDelay(b, fbsutils.Encode(t.PlayerAutoUseStartDelay, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddCrowdControlFactor(b, fbsutils.Encode(t.CrowdControlFactor, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddRaidOpenScenarioId(b, raidOpenScenarioIDOffset)
 	ConstCombatExcelAddEliminateRaidOpenScenarioId(b, eliminateRaidOpenScenarioIDOffset)
@@ -237,6 +242,7 @@ func (t *ConstCombatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.U
 	ConstCombatExcelAddMoveCorrectionSkipRatio(b, fbsutils.Encode(t.MoveCorrectionSkipRatio, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddObstacleColliderHeightJumpable(b, fbsutils.Encode(t.ObstacleColliderHeightJumpable, t.FlatBuffer.TableKey))
 	ConstCombatExcelAddObstacleColliderHeightNotJumpable(b, fbsutils.Encode(t.ObstacleColliderHeightNotJumpable, t.FlatBuffer.TableKey))
+	ConstCombatExcelAddCheckCheaterMaxUseCostTacticalRelay(b, fbsutils.Encode(t.CheckCheaterMaxUseCostTacticalRelay, t.FlatBuffer.TableKey))
 	return ConstCombatExcelEnd(b)
 }
 
@@ -260,6 +266,7 @@ func (t *ConstCombatExcelDto) UnmarshalMessage(e *ConstCombatExcel) error {
 	t.ShowBufficonExtraPassiveSkill = e.ShowBufficonExtraPassiveSkill()
 	t.ShowBufficonLeaderSkill = e.ShowBufficonLeaderSkill()
 	t.ShowBufficonGroundPassiveSkill = e.ShowBufficonGroundPassiveSkill()
+	t.ShowBufficonApcSynergyPassiveSkill = e.ShowBufficonApcSynergyPassiveSkill()
 	t.SuppliesConditionStringID = fbsutils.Decode(string(e.SuppliesConditionStringId()), t.FlatBuffer.TableKey)
 	t.PublicSpeechBubbleOffsetX = fbsutils.Decode(e.PublicSpeechBubbleOffsetX(), t.FlatBuffer.TableKey)
 	t.PublicSpeechBubbleOffsetY = fbsutils.Decode(e.PublicSpeechBubbleOffsetY(), t.FlatBuffer.TableKey)
@@ -277,6 +284,7 @@ func (t *ConstCombatExcelDto) UnmarshalMessage(e *ConstCombatExcel) error {
 	t.EnemyRegenCost = fbsutils.Decode(e.EnemyRegenCost(), t.FlatBuffer.TableKey)
 	t.ChampionRegenCost = fbsutils.Decode(e.ChampionRegenCost(), t.FlatBuffer.TableKey)
 	t.PlayerRegenCostDelay = fbsutils.Decode(e.PlayerRegenCostDelay(), t.FlatBuffer.TableKey)
+	t.PlayerAutoUseStartDelay = fbsutils.Decode(e.PlayerAutoUseStartDelay(), t.FlatBuffer.TableKey)
 	t.CrowdControlFactor = fbsutils.Decode(e.CrowdControlFactor(), t.FlatBuffer.TableKey)
 	t.RaidOpenScenarioID = fbsutils.Decode(string(e.RaidOpenScenarioId()), t.FlatBuffer.TableKey)
 	t.EliminateRaidOpenScenarioID = fbsutils.Decode(string(e.EliminateRaidOpenScenarioId()), t.FlatBuffer.TableKey)
@@ -357,6 +365,7 @@ func (t *ConstCombatExcelDto) UnmarshalMessage(e *ConstCombatExcel) error {
 	t.MoveCorrectionSkipRatio = fbsutils.Decode(e.MoveCorrectionSkipRatio(), t.FlatBuffer.TableKey)
 	t.ObstacleColliderHeightJumpable = fbsutils.Decode(e.ObstacleColliderHeightJumpable(), t.FlatBuffer.TableKey)
 	t.ObstacleColliderHeightNotJumpable = fbsutils.Decode(e.ObstacleColliderHeightNotJumpable(), t.FlatBuffer.TableKey)
+	t.CheckCheaterMaxUseCostTacticalRelay = fbsutils.Decode(e.CheckCheaterMaxUseCostTacticalRelay(), t.FlatBuffer.TableKey)
 	return nil
 }
 

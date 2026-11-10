@@ -13,15 +13,21 @@ type ShopCashScenarioResourceInfoExcelDto struct {
 	ScenarioResrouceInfoID int64  `json:"scenario_resrouce_info_id"`
 	ShopCashID             int64  `json:"shop_cash_id"`
 	IconPath               string `json:"icon_path"`
+	RecommendIconPath      string `json:"recommend_icon_path"`
+	RecommendPrefabPath    string `json:"recommend_prefab_path"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
 func (t *ShopCashScenarioResourceInfoExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
 	iconPathOffset := b.CreateString(t.IconPath)
+	recommendIconPathOffset := b.CreateString(t.RecommendIconPath)
+	recommendPrefabPathOffset := b.CreateString(t.RecommendPrefabPath)
 	ShopCashScenarioResourceInfoExcelStart(b)
 	ShopCashScenarioResourceInfoExcelAddScenarioResrouceInfoId(b, t.ScenarioResrouceInfoID)
 	ShopCashScenarioResourceInfoExcelAddShopCashId(b, t.ShopCashID)
 	ShopCashScenarioResourceInfoExcelAddIconPath(b, iconPathOffset)
+	ShopCashScenarioResourceInfoExcelAddRecommendIconPath(b, recommendIconPathOffset)
+	ShopCashScenarioResourceInfoExcelAddRecommendPrefabPath(b, recommendPrefabPathOffset)
 	return ShopCashScenarioResourceInfoExcelEnd(b)
 }
 
@@ -37,6 +43,8 @@ func (t *ShopCashScenarioResourceInfoExcelDto) UnmarshalMessage(e *ShopCashScena
 	t.ScenarioResrouceInfoID = e.ScenarioResrouceInfoId()
 	t.ShopCashID = e.ShopCashId()
 	t.IconPath = string(e.IconPath())
+	t.RecommendIconPath = string(e.RecommendIconPath())
+	t.RecommendPrefabPath = string(e.RecommendPrefabPath())
 	return nil
 }
 
