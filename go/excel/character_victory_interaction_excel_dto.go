@@ -11,6 +11,7 @@ import (
 type CharacterVictoryInteractionExcelDto struct {
 	fbsutils.FlatBuffer
 	InteractionID               int64      `json:"interaction_id"`
+	OverrideIfEchelonExtension  bool       `json:"override_if_echelon_extension"`
 	CostumeId01                 int64      `json:"costume_id01"`
 	PositionIndex01             int32      `json:"position_index01"`
 	VictoryStartAnimationPath01 string     `json:"victory_start_animation_path01"`
@@ -59,6 +60,7 @@ func (t *CharacterVictoryInteractionExcelDto) MarshalModel(b *flatbuffers.Builde
 	victoryEndAnimationPath06Offset := b.CreateString(t.VictoryEndAnimationPath06)
 	CharacterVictoryInteractionExcelStart(b)
 	CharacterVictoryInteractionExcelAddInteractionId(b, t.InteractionID)
+	CharacterVictoryInteractionExcelAddOverrideIfEchelonExtension(b, t.OverrideIfEchelonExtension)
 	CharacterVictoryInteractionExcelAddCostumeId01(b, t.CostumeId01)
 	CharacterVictoryInteractionExcelAddPositionIndex01(b, t.PositionIndex01)
 	CharacterVictoryInteractionExcelAddVictoryStartAnimationPath01(b, victoryStartAnimationPath01Offset)
@@ -102,6 +104,7 @@ func (t *CharacterVictoryInteractionExcelDto) Marshal() ([]byte, error) {
 // UnmarshalMessage unmarshals the struct from a FlatBuffers table.
 func (t *CharacterVictoryInteractionExcelDto) UnmarshalMessage(e *CharacterVictoryInteractionExcel) error {
 	t.InteractionID = e.InteractionId()
+	t.OverrideIfEchelonExtension = e.OverrideIfEchelonExtension()
 	t.CostumeId01 = e.CostumeId01()
 	t.PositionIndex01 = e.PositionIndex01()
 	t.VictoryStartAnimationPath01 = string(e.VictoryStartAnimationPath01())

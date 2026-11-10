@@ -16,10 +16,16 @@ type PickupFirstGetBonusExcelDto struct {
 	RewardParcelType        ParcelType `json:"reward_parcel_type"`
 	RewardParcelID          int64      `json:"reward_parcel_id"`
 	RewardParcelAmount      int64      `json:"reward_parcel_amount"`
+	ShopCashIds             []int64    `json:"shop_cash_ids"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
 func (t *PickupFirstGetBonusExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	PickupFirstGetBonusExcelStartShopCashIdsVector(b, len(t.ShopCashIds))
+	for i := len(t.ShopCashIds) - 1; i >= 0; i-- {
+		b.PrependInt64(t.ShopCashIds[i])
+	}
+	shopCashIdsOffset := b.EndVector(len(t.ShopCashIds))
 	PickupFirstGetBonusExcelStart(b)
 	PickupFirstGetBonusExcelAddShopRecruitId(b, t.ShopRecruitID)
 	PickupFirstGetBonusExcelAddRecruitSellectionShopId(b, t.RecruitSellectionShopID)
@@ -27,6 +33,7 @@ func (t *PickupFirstGetBonusExcelDto) MarshalModel(b *flatbuffers.Builder) flatb
 	PickupFirstGetBonusExcelAddRewardParcelType(b, t.RewardParcelType)
 	PickupFirstGetBonusExcelAddRewardParcelId(b, t.RewardParcelID)
 	PickupFirstGetBonusExcelAddRewardParcelAmount(b, t.RewardParcelAmount)
+	PickupFirstGetBonusExcelAddShopCashIds(b, shopCashIdsOffset)
 	return PickupFirstGetBonusExcelEnd(b)
 }
 
@@ -45,6 +52,10 @@ func (t *PickupFirstGetBonusExcelDto) UnmarshalMessage(e *PickupFirstGetBonusExc
 	t.RewardParcelType = e.RewardParcelType()
 	t.RewardParcelID = e.RewardParcelId()
 	t.RewardParcelAmount = e.RewardParcelAmount()
+	t.ShopCashIds = make([]int64, e.ShopCashIdsLength())
+	for i := 0; i < e.ShopCashIdsLength(); i++ {
+		t.ShopCashIds[i] = e.ShopCashIds(i)
+	}
 	return nil
 }
 

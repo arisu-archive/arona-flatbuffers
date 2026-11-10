@@ -1,6 +1,7 @@
 include "GachaDisplayTag.fbs";
 include "PurchaseCountResetType.fbs";
 include "ShopCategoryType.fbs";
+include "WishListConfig.fbs";
 
 namespace MX.Data.Excel;
 
@@ -10,6 +11,8 @@ table ShopRecruitExcel {
     is_legacy: bool;
     one_gacha_goods_id: long;
     ten_gacha_goods_id: long;
+    wish_list_one_gacha_goods_id: long;
+    wish_list_ten_gacha_goods_id: long;
     goods_dev_name: string;
     display_tag: GachaDisplayTag;
     display_order: long;
@@ -22,6 +25,9 @@ table ShopRecruitExcel {
     sale_period_to: string;
     recruit_coin_id: long;
     recruit_sellection_shop_id: long;
+    recruit_stack_item_id: long;
+    recruit_mileage_group_id: long;
+    mileage_count_free_recruit: bool;
     purchase_cooltime_min: long;
     purchase_count_limit: long;
     purchase_count_reset_type: PurchaseCountResetType;
@@ -38,6 +44,14 @@ table ShopRecruitExcel {
     direct_pay_one_store_shop_cash_id: long;
     probability_url_dev: string;
     probability_url_live: string;
+    recruit_stack_id: long;
+    half_stack_display_item_id: long;
+    half_stack_gacha_group_id: long;
+    full_stack_gacha_group_id: long;
+    wish_list_config: WishListConfig;
+    wish_list_half_stack_gacha_group_id: long;
+    wish_list_full_stack_gacha_group_id: long;
+    recruit_season: long;
 }
 
 root_type ShopRecruitExcel;

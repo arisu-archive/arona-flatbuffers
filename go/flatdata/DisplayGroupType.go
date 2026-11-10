@@ -19,6 +19,7 @@ const (
 	DisplayGroupTypeMinigameShooting   DisplayGroupType = 9
 	DisplayGroupTypeMinigameRoad       DisplayGroupType = 10
 	DisplayGroupTypeMinigameCCG        DisplayGroupType = 11
+	DisplayGroupTypeMinigameJanken     DisplayGroupType = 12
 )
 
 var EnumNamesDisplayGroupType = map[DisplayGroupType]string{
@@ -34,6 +35,7 @@ var EnumNamesDisplayGroupType = map[DisplayGroupType]string{
 	DisplayGroupTypeMinigameShooting:   "MinigameShooting",
 	DisplayGroupTypeMinigameRoad:       "MinigameRoad",
 	DisplayGroupTypeMinigameCCG:        "MinigameCCG",
+	DisplayGroupTypeMinigameJanken:     "MinigameJanken",
 }
 
 var EnumValuesDisplayGroupType = map[string]DisplayGroupType{
@@ -49,6 +51,7 @@ var EnumValuesDisplayGroupType = map[string]DisplayGroupType{
 	"MinigameShooting":   DisplayGroupTypeMinigameShooting,
 	"MinigameRoad":       DisplayGroupTypeMinigameRoad,
 	"MinigameCCG":        DisplayGroupTypeMinigameCCG,
+	"MinigameJanken":     DisplayGroupTypeMinigameJanken,
 }
 
 func (v DisplayGroupType) String() string {

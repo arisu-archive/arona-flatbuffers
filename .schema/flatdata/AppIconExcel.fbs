@@ -1,0 +1,8 @@
+namespace FlatData;
+
+table AppIconExcel {
+    app_icon_id: int;
+    start_date: string;
+    end_date: string;
+    app_icon_name: string;
+}

@@ -65,6 +65,8 @@ const (
 	ClubNicomediasTroop            Club = 55
 	ClubPublishingDepartment       Club = 56
 	ClubFoxSquad                   Club = 57
+	ClubDivingClub                 Club = 58
+	ClubClass183                   Club = 59
 )
 
 var EnumNamesClub = map[Club]string{
@@ -126,6 +128,8 @@ var EnumNamesClub = map[Club]string{
 	ClubNicomediasTroop:            "NicomediasTroop",
 	ClubPublishingDepartment:       "PublishingDepartment",
 	ClubFoxSquad:                   "FoxSquad",
+	ClubDivingClub:                 "DivingClub",
+	ClubClass183:                   "Class183",
 }
 
 var EnumValuesClub = map[string]Club{
@@ -187,6 +191,8 @@ var EnumValuesClub = map[string]Club{
 	"NicomediasTroop":            ClubNicomediasTroop,
 	"PublishingDepartment":       ClubPublishingDepartment,
 	"FoxSquad":                   ClubFoxSquad,
+	"DivingClub":                 ClubDivingClub,
+	"Class183":                   ClubClass183,
 }
 
 func (v Club) String() string {

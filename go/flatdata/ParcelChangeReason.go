@@ -172,7 +172,7 @@ const (
 	ParcelChangeReasonCraft_RewardAll                      ParcelChangeReason = 162
 	ParcelChangeReasonShiftingCraft_CompleteProcessAll     ParcelChangeReason = 163
 	ParcelChangeReasonShiftingCraft_RewardAll              ParcelChangeReason = 164
-	ParcelChangeReasonDailyRecord_Reward                   ParcelChangeReason = 165
+	ParcelChangeReasonDailyRecord_Reward_GB                ParcelChangeReason = 165
 	ParcelChangeReasonTemp_2                               ParcelChangeReason = 166
 	ParcelChangeReasonTemp_3                               ParcelChangeReason = 167
 	ParcelChangeReasonTemp_4                               ParcelChangeReason = 168
@@ -212,6 +212,34 @@ const (
 	ParcelChangeReasonWelcomeCampaign_EnterReward          ParcelChangeReason = 202
 	ParcelChangeReasonWelcomeCampaign_AttendanceReward     ParcelChangeReason = 203
 	ParcelChangeReasonWelcomeCampaign_MissionClear         ParcelChangeReason = 204
+	ParcelChangeReasonTacticalRelay_EnterBattle            ParcelChangeReason = 205
+	ParcelChangeReasonTacticalRelay_StageResult            ParcelChangeReason = 206
+	ParcelChangeReasonTacticalRelay_Sweep                  ParcelChangeReason = 207
+	ParcelChangeReasonTacticalRelay_GiveUp                 ParcelChangeReason = 208
+	ParcelChangeReasonMiniGame_JankenEquipLevelUp          ParcelChangeReason = 209
+	ParcelChangeReasonMiniGame_JankenEndBattle             ParcelChangeReason = 210
+	ParcelChangeReasonMiniGame_JankenScoreReward           ParcelChangeReason = 211
+	ParcelChangeReasonCharacter_AllocateEngraveNode        ParcelChangeReason = 212
+	ParcelChangeReasonSeasonRecord_BuyDay                  ParcelChangeReason = 213
+	ParcelChangeReasonSeasonRecord_Reward                  ParcelChangeReason = 214
+	ParcelChangeReasonStreakRecord_Reward                  ParcelChangeReason = 215
+	ParcelChangeReasonStreakRecord_RestoreDay              ParcelChangeReason = 216
+	ParcelChangeReasonStudentFrame_Acquire                 ParcelChangeReason = 217
+	ParcelChangeReasonShop_GachaWishListBuy                ParcelChangeReason = 218
+	ParcelChangeReasonEnterCostRefund                      ParcelChangeReason = 219
+	ParcelChangeReasonAttendance_Reward                    ParcelChangeReason = 220
+	ParcelChangeReasonDailyRecord_Reward                   ParcelChangeReason = 221
+	ParcelChangeReasonMiniGame_RoadPuzzleTile              ParcelChangeReason = 222
+	ParcelChangeReasonMiniGame_RoadPuzzleClearStage        ParcelChangeReason = 223
+	ParcelChangeReasonMiniGame_CCGSweep                    ParcelChangeReason = 224
+	ParcelChangeReasonConquest_Discard                     ParcelChangeReason = 225
+	ParcelChangeReasonCharacter_AdaptationComplete         ParcelChangeReason = 226
+	ParcelChangeReasonWeekDungeon_EnterChaserD             ParcelChangeReason = 227
+	ParcelChangeReasonWeekDungeon_EnterChaserE             ParcelChangeReason = 228
+	ParcelChangeReasonWeekDungeon_ChaserDResult            ParcelChangeReason = 229
+	ParcelChangeReasonWeekDungeon_ChaserEResult            ParcelChangeReason = 230
+	ParcelChangeReasonClueSearch_Investigate               ParcelChangeReason = 231
+	ParcelChangeReasonClueSearch_Reveal                    ParcelChangeReason = 232
 )
 
 var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
@@ -380,7 +408,7 @@ var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
 	ParcelChangeReasonCraft_RewardAll:                      "Craft_RewardAll",
 	ParcelChangeReasonShiftingCraft_CompleteProcessAll:     "ShiftingCraft_CompleteProcessAll",
 	ParcelChangeReasonShiftingCraft_RewardAll:              "ShiftingCraft_RewardAll",
-	ParcelChangeReasonDailyRecord_Reward:                   "DailyRecord_Reward",
+	ParcelChangeReasonDailyRecord_Reward_GB:                "DailyRecord_Reward_GB",
 	ParcelChangeReasonTemp_2:                               "Temp_2",
 	ParcelChangeReasonTemp_3:                               "Temp_3",
 	ParcelChangeReasonTemp_4:                               "Temp_4",
@@ -420,6 +448,34 @@ var EnumNamesParcelChangeReason = map[ParcelChangeReason]string{
 	ParcelChangeReasonWelcomeCampaign_EnterReward:          "WelcomeCampaign_EnterReward",
 	ParcelChangeReasonWelcomeCampaign_AttendanceReward:     "WelcomeCampaign_AttendanceReward",
 	ParcelChangeReasonWelcomeCampaign_MissionClear:         "WelcomeCampaign_MissionClear",
+	ParcelChangeReasonTacticalRelay_EnterBattle:            "TacticalRelay_EnterBattle",
+	ParcelChangeReasonTacticalRelay_StageResult:            "TacticalRelay_StageResult",
+	ParcelChangeReasonTacticalRelay_Sweep:                  "TacticalRelay_Sweep",
+	ParcelChangeReasonTacticalRelay_GiveUp:                 "TacticalRelay_GiveUp",
+	ParcelChangeReasonMiniGame_JankenEquipLevelUp:          "MiniGame_JankenEquipLevelUp",
+	ParcelChangeReasonMiniGame_JankenEndBattle:             "MiniGame_JankenEndBattle",
+	ParcelChangeReasonMiniGame_JankenScoreReward:           "MiniGame_JankenScoreReward",
+	ParcelChangeReasonCharacter_AllocateEngraveNode:        "Character_AllocateEngraveNode",
+	ParcelChangeReasonSeasonRecord_BuyDay:                  "SeasonRecord_BuyDay",
+	ParcelChangeReasonSeasonRecord_Reward:                  "SeasonRecord_Reward",
+	ParcelChangeReasonStreakRecord_Reward:                  "StreakRecord_Reward",
+	ParcelChangeReasonStreakRecord_RestoreDay:              "StreakRecord_RestoreDay",
+	ParcelChangeReasonStudentFrame_Acquire:                 "StudentFrame_Acquire",
+	ParcelChangeReasonShop_GachaWishListBuy:                "Shop_GachaWishListBuy",
+	ParcelChangeReasonEnterCostRefund:                      "EnterCostRefund",
+	ParcelChangeReasonAttendance_Reward:                    "Attendance_Reward",
+	ParcelChangeReasonDailyRecord_Reward:                   "DailyRecord_Reward",
+	ParcelChangeReasonMiniGame_RoadPuzzleTile:              "MiniGame_RoadPuzzleTile",
+	ParcelChangeReasonMiniGame_RoadPuzzleClearStage:        "MiniGame_RoadPuzzleClearStage",
+	ParcelChangeReasonMiniGame_CCGSweep:                    "MiniGame_CCGSweep",
+	ParcelChangeReasonConquest_Discard:                     "Conquest_Discard",
+	ParcelChangeReasonCharacter_AdaptationComplete:         "Character_AdaptationComplete",
+	ParcelChangeReasonWeekDungeon_EnterChaserD:             "WeekDungeon_EnterChaserD",
+	ParcelChangeReasonWeekDungeon_EnterChaserE:             "WeekDungeon_EnterChaserE",
+	ParcelChangeReasonWeekDungeon_ChaserDResult:            "WeekDungeon_ChaserDResult",
+	ParcelChangeReasonWeekDungeon_ChaserEResult:            "WeekDungeon_ChaserEResult",
+	ParcelChangeReasonClueSearch_Investigate:               "ClueSearch_Investigate",
+	ParcelChangeReasonClueSearch_Reveal:                    "ClueSearch_Reveal",
 }
 
 var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
@@ -588,7 +644,7 @@ var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
 	"Craft_RewardAll":                      ParcelChangeReasonCraft_RewardAll,
 	"ShiftingCraft_CompleteProcessAll":     ParcelChangeReasonShiftingCraft_CompleteProcessAll,
 	"ShiftingCraft_RewardAll":              ParcelChangeReasonShiftingCraft_RewardAll,
-	"DailyRecord_Reward":                   ParcelChangeReasonDailyRecord_Reward,
+	"DailyRecord_Reward_GB":                ParcelChangeReasonDailyRecord_Reward_GB,
 	"Temp_2":                               ParcelChangeReasonTemp_2,
 	"Temp_3":                               ParcelChangeReasonTemp_3,
 	"Temp_4":                               ParcelChangeReasonTemp_4,
@@ -628,6 +684,34 @@ var EnumValuesParcelChangeReason = map[string]ParcelChangeReason{
 	"WelcomeCampaign_EnterReward":          ParcelChangeReasonWelcomeCampaign_EnterReward,
 	"WelcomeCampaign_AttendanceReward":     ParcelChangeReasonWelcomeCampaign_AttendanceReward,
 	"WelcomeCampaign_MissionClear":         ParcelChangeReasonWelcomeCampaign_MissionClear,
+	"TacticalRelay_EnterBattle":            ParcelChangeReasonTacticalRelay_EnterBattle,
+	"TacticalRelay_StageResult":            ParcelChangeReasonTacticalRelay_StageResult,
+	"TacticalRelay_Sweep":                  ParcelChangeReasonTacticalRelay_Sweep,
+	"TacticalRelay_GiveUp":                 ParcelChangeReasonTacticalRelay_GiveUp,
+	"MiniGame_JankenEquipLevelUp":          ParcelChangeReasonMiniGame_JankenEquipLevelUp,
+	"MiniGame_JankenEndBattle":             ParcelChangeReasonMiniGame_JankenEndBattle,
+	"MiniGame_JankenScoreReward":           ParcelChangeReasonMiniGame_JankenScoreReward,
+	"Character_AllocateEngraveNode":        ParcelChangeReasonCharacter_AllocateEngraveNode,
+	"SeasonRecord_BuyDay":                  ParcelChangeReasonSeasonRecord_BuyDay,
+	"SeasonRecord_Reward":                  ParcelChangeReasonSeasonRecord_Reward,
+	"StreakRecord_Reward":                  ParcelChangeReasonStreakRecord_Reward,
+	"StreakRecord_RestoreDay":              ParcelChangeReasonStreakRecord_RestoreDay,
+	"StudentFrame_Acquire":                 ParcelChangeReasonStudentFrame_Acquire,
+	"Shop_GachaWishListBuy":                ParcelChangeReasonShop_GachaWishListBuy,
+	"EnterCostRefund":                      ParcelChangeReasonEnterCostRefund,
+	"Attendance_Reward":                    ParcelChangeReasonAttendance_Reward,
+	"DailyRecord_Reward":                   ParcelChangeReasonDailyRecord_Reward,
+	"MiniGame_RoadPuzzleTile":              ParcelChangeReasonMiniGame_RoadPuzzleTile,
+	"MiniGame_RoadPuzzleClearStage":        ParcelChangeReasonMiniGame_RoadPuzzleClearStage,
+	"MiniGame_CCGSweep":                    ParcelChangeReasonMiniGame_CCGSweep,
+	"Conquest_Discard":                     ParcelChangeReasonConquest_Discard,
+	"Character_AdaptationComplete":         ParcelChangeReasonCharacter_AdaptationComplete,
+	"WeekDungeon_EnterChaserD":             ParcelChangeReasonWeekDungeon_EnterChaserD,
+	"WeekDungeon_EnterChaserE":             ParcelChangeReasonWeekDungeon_EnterChaserE,
+	"WeekDungeon_ChaserDResult":            ParcelChangeReasonWeekDungeon_ChaserDResult,
+	"WeekDungeon_ChaserEResult":            ParcelChangeReasonWeekDungeon_ChaserEResult,
+	"ClueSearch_Investigate":               ParcelChangeReasonClueSearch_Investigate,
+	"ClueSearch_Reveal":                    ParcelChangeReasonClueSearch_Reveal,
 }
 
 func (v ParcelChangeReason) String() string {

@@ -137,8 +137,20 @@ func (rcv *ConstCombatExcel) MutateShowBufficonGroundPassiveSkill(n bool) bool {
 	return rcv._tab.MutateBoolSlot(18, n)
 }
 
-func (rcv *ConstCombatExcel) SuppliesConditionStringId() []byte {
+func (rcv *ConstCombatExcel) ShowBufficonApcSynergyPassiveSkill() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(20))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ConstCombatExcel) MutateShowBufficonApcSynergyPassiveSkill(n bool) bool {
+	return rcv._tab.MutateBoolSlot(20, n)
+}
+
+func (rcv *ConstCombatExcel) SuppliesConditionStringId() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -146,18 +158,6 @@ func (rcv *ConstCombatExcel) SuppliesConditionStringId() []byte {
 }
 
 func (rcv *ConstCombatExcel) PublicSpeechBubbleOffsetX() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(22))
-	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
-	}
-	return 0.0
-}
-
-func (rcv *ConstCombatExcel) MutatePublicSpeechBubbleOffsetX(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(22, n)
-}
-
-func (rcv *ConstCombatExcel) PublicSpeechBubbleOffsetY() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(24))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -165,11 +165,11 @@ func (rcv *ConstCombatExcel) PublicSpeechBubbleOffsetY() float32 {
 	return 0.0
 }
 
-func (rcv *ConstCombatExcel) MutatePublicSpeechBubbleOffsetY(n float32) bool {
+func (rcv *ConstCombatExcel) MutatePublicSpeechBubbleOffsetX(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(24, n)
 }
 
-func (rcv *ConstCombatExcel) PublicSpeechBubbleOffsetZ() float32 {
+func (rcv *ConstCombatExcel) PublicSpeechBubbleOffsetY() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(26))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
@@ -177,12 +177,24 @@ func (rcv *ConstCombatExcel) PublicSpeechBubbleOffsetZ() float32 {
 	return 0.0
 }
 
-func (rcv *ConstCombatExcel) MutatePublicSpeechBubbleOffsetZ(n float32) bool {
+func (rcv *ConstCombatExcel) MutatePublicSpeechBubbleOffsetY(n float32) bool {
 	return rcv._tab.MutateFloat32Slot(26, n)
 }
 
-func (rcv *ConstCombatExcel) ShowRaidListCount() int32 {
+func (rcv *ConstCombatExcel) PublicSpeechBubbleOffsetZ() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(28))
+	if o != 0 {
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+	}
+	return 0.0
+}
+
+func (rcv *ConstCombatExcel) MutatePublicSpeechBubbleOffsetZ(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(28, n)
+}
+
+func (rcv *ConstCombatExcel) ShowRaidListCount() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -190,22 +202,10 @@ func (rcv *ConstCombatExcel) ShowRaidListCount() int32 {
 }
 
 func (rcv *ConstCombatExcel) MutateShowRaidListCount(n int32) bool {
-	return rcv._tab.MutateInt32Slot(28, n)
+	return rcv._tab.MutateInt32Slot(30, n)
 }
 
 func (rcv *ConstCombatExcel) MaxRaidTicketCount() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(30))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCombatExcel) MutateMaxRaidTicketCount(n int64) bool {
-	return rcv._tab.MutateInt64Slot(30, n)
-}
-
-func (rcv *ConstCombatExcel) MaxRaidBossSkillSlot() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(32))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -213,19 +213,23 @@ func (rcv *ConstCombatExcel) MaxRaidBossSkillSlot() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateMaxRaidBossSkillSlot(n int64) bool {
+func (rcv *ConstCombatExcel) MutateMaxRaidTicketCount(n int64) bool {
 	return rcv._tab.MutateInt64Slot(32, n)
 }
 
-func (rcv *ConstCombatExcel) EngageTimelinePath() []byte {
+func (rcv *ConstCombatExcel) MaxRaidBossSkillSlot() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(34))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *ConstCombatExcel) EngageWithSupporterTimelinePath() []byte {
+func (rcv *ConstCombatExcel) MutateMaxRaidBossSkillSlot(n int64) bool {
+	return rcv._tab.MutateInt64Slot(34, n)
+}
+
+func (rcv *ConstCombatExcel) EngageTimelinePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(36))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -233,7 +237,7 @@ func (rcv *ConstCombatExcel) EngageWithSupporterTimelinePath() []byte {
 	return nil
 }
 
-func (rcv *ConstCombatExcel) VictoryTimelinePath() []byte {
+func (rcv *ConstCombatExcel) EngageWithSupporterTimelinePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(38))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -241,8 +245,16 @@ func (rcv *ConstCombatExcel) VictoryTimelinePath() []byte {
 	return nil
 }
 
-func (rcv *ConstCombatExcel) TimeLimitAlarm() int64 {
+func (rcv *ConstCombatExcel) VictoryTimelinePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(40))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConstCombatExcel) TimeLimitAlarm() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -250,22 +262,10 @@ func (rcv *ConstCombatExcel) TimeLimitAlarm() int64 {
 }
 
 func (rcv *ConstCombatExcel) MutateTimeLimitAlarm(n int64) bool {
-	return rcv._tab.MutateInt64Slot(40, n)
+	return rcv._tab.MutateInt64Slot(42, n)
 }
 
 func (rcv *ConstCombatExcel) EchelonMaxCommonCost() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(42))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCombatExcel) MutateEchelonMaxCommonCost(n int32) bool {
-	return rcv._tab.MutateInt32Slot(42, n)
-}
-
-func (rcv *ConstCombatExcel) EchelonInitCommonCost() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(44))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -273,23 +273,23 @@ func (rcv *ConstCombatExcel) EchelonInitCommonCost() int32 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateEchelonInitCommonCost(n int32) bool {
+func (rcv *ConstCombatExcel) MutateEchelonMaxCommonCost(n int32) bool {
 	return rcv._tab.MutateInt32Slot(44, n)
 }
 
-func (rcv *ConstCombatExcel) SkillSlotCoolTime() int64 {
+func (rcv *ConstCombatExcel) EchelonInitCommonCost() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(46))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateSkillSlotCoolTime(n int64) bool {
-	return rcv._tab.MutateInt64Slot(46, n)
+func (rcv *ConstCombatExcel) MutateEchelonInitCommonCost(n int32) bool {
+	return rcv._tab.MutateInt32Slot(46, n)
 }
 
-func (rcv *ConstCombatExcel) EnemyRegenCost() int64 {
+func (rcv *ConstCombatExcel) SkillSlotCoolTime() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(48))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -297,11 +297,11 @@ func (rcv *ConstCombatExcel) EnemyRegenCost() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateEnemyRegenCost(n int64) bool {
+func (rcv *ConstCombatExcel) MutateSkillSlotCoolTime(n int64) bool {
 	return rcv._tab.MutateInt64Slot(48, n)
 }
 
-func (rcv *ConstCombatExcel) ChampionRegenCost() int64 {
+func (rcv *ConstCombatExcel) EnemyRegenCost() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(50))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -309,11 +309,11 @@ func (rcv *ConstCombatExcel) ChampionRegenCost() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateChampionRegenCost(n int64) bool {
+func (rcv *ConstCombatExcel) MutateEnemyRegenCost(n int64) bool {
 	return rcv._tab.MutateInt64Slot(50, n)
 }
 
-func (rcv *ConstCombatExcel) PlayerRegenCostDelay() int64 {
+func (rcv *ConstCombatExcel) ChampionRegenCost() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(52))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -321,11 +321,11 @@ func (rcv *ConstCombatExcel) PlayerRegenCostDelay() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutatePlayerRegenCostDelay(n int64) bool {
+func (rcv *ConstCombatExcel) MutateChampionRegenCost(n int64) bool {
 	return rcv._tab.MutateInt64Slot(52, n)
 }
 
-func (rcv *ConstCombatExcel) CrowdControlFactor() int64 {
+func (rcv *ConstCombatExcel) PlayerRegenCostDelay() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(54))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -333,12 +333,36 @@ func (rcv *ConstCombatExcel) CrowdControlFactor() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateCrowdControlFactor(n int64) bool {
+func (rcv *ConstCombatExcel) MutatePlayerRegenCostDelay(n int64) bool {
 	return rcv._tab.MutateInt64Slot(54, n)
 }
 
-func (rcv *ConstCombatExcel) RaidOpenScenarioId() []byte {
+func (rcv *ConstCombatExcel) PlayerAutoUseStartDelay() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(56))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutatePlayerAutoUseStartDelay(n int64) bool {
+	return rcv._tab.MutateInt64Slot(56, n)
+}
+
+func (rcv *ConstCombatExcel) CrowdControlFactor() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateCrowdControlFactor(n int64) bool {
+	return rcv._tab.MutateInt64Slot(58, n)
+}
+
+func (rcv *ConstCombatExcel) RaidOpenScenarioId() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -346,7 +370,7 @@ func (rcv *ConstCombatExcel) RaidOpenScenarioId() []byte {
 }
 
 func (rcv *ConstCombatExcel) EliminateRaidOpenScenarioId() []byte {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(58))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
 	}
@@ -354,30 +378,6 @@ func (rcv *ConstCombatExcel) EliminateRaidOpenScenarioId() []byte {
 }
 
 func (rcv *ConstCombatExcel) DefenceConstA() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(60))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCombatExcel) MutateDefenceConstA(n int64) bool {
-	return rcv._tab.MutateInt64Slot(60, n)
-}
-
-func (rcv *ConstCombatExcel) DefenceConstB() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(62))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCombatExcel) MutateDefenceConstB(n int64) bool {
-	return rcv._tab.MutateInt64Slot(62, n)
-}
-
-func (rcv *ConstCombatExcel) DefenceConstC() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(64))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -385,11 +385,11 @@ func (rcv *ConstCombatExcel) DefenceConstC() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateDefenceConstC(n int64) bool {
+func (rcv *ConstCombatExcel) MutateDefenceConstA(n int64) bool {
 	return rcv._tab.MutateInt64Slot(64, n)
 }
 
-func (rcv *ConstCombatExcel) DefenceConstD() int64 {
+func (rcv *ConstCombatExcel) DefenceConstB() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(66))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -397,11 +397,11 @@ func (rcv *ConstCombatExcel) DefenceConstD() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateDefenceConstD(n int64) bool {
+func (rcv *ConstCombatExcel) MutateDefenceConstB(n int64) bool {
 	return rcv._tab.MutateInt64Slot(66, n)
 }
 
-func (rcv *ConstCombatExcel) AccuracyConstA() int64 {
+func (rcv *ConstCombatExcel) DefenceConstC() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(68))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -409,11 +409,11 @@ func (rcv *ConstCombatExcel) AccuracyConstA() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateAccuracyConstA(n int64) bool {
+func (rcv *ConstCombatExcel) MutateDefenceConstC(n int64) bool {
 	return rcv._tab.MutateInt64Slot(68, n)
 }
 
-func (rcv *ConstCombatExcel) AccuracyConstB() int64 {
+func (rcv *ConstCombatExcel) DefenceConstD() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(70))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -421,11 +421,11 @@ func (rcv *ConstCombatExcel) AccuracyConstB() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateAccuracyConstB(n int64) bool {
+func (rcv *ConstCombatExcel) MutateDefenceConstD(n int64) bool {
 	return rcv._tab.MutateInt64Slot(70, n)
 }
 
-func (rcv *ConstCombatExcel) AccuracyConstC() int64 {
+func (rcv *ConstCombatExcel) AccuracyConstA() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(72))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -433,11 +433,11 @@ func (rcv *ConstCombatExcel) AccuracyConstC() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateAccuracyConstC(n int64) bool {
+func (rcv *ConstCombatExcel) MutateAccuracyConstA(n int64) bool {
 	return rcv._tab.MutateInt64Slot(72, n)
 }
 
-func (rcv *ConstCombatExcel) AccuracyConstD() int64 {
+func (rcv *ConstCombatExcel) AccuracyConstB() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(74))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -445,11 +445,11 @@ func (rcv *ConstCombatExcel) AccuracyConstD() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateAccuracyConstD(n int64) bool {
+func (rcv *ConstCombatExcel) MutateAccuracyConstB(n int64) bool {
 	return rcv._tab.MutateInt64Slot(74, n)
 }
 
-func (rcv *ConstCombatExcel) CriticalConstA() int64 {
+func (rcv *ConstCombatExcel) AccuracyConstC() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(76))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -457,11 +457,11 @@ func (rcv *ConstCombatExcel) CriticalConstA() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateCriticalConstA(n int64) bool {
+func (rcv *ConstCombatExcel) MutateAccuracyConstC(n int64) bool {
 	return rcv._tab.MutateInt64Slot(76, n)
 }
 
-func (rcv *ConstCombatExcel) CriticalConstB() int64 {
+func (rcv *ConstCombatExcel) AccuracyConstD() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(78))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -469,11 +469,11 @@ func (rcv *ConstCombatExcel) CriticalConstB() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateCriticalConstB(n int64) bool {
+func (rcv *ConstCombatExcel) MutateAccuracyConstD(n int64) bool {
 	return rcv._tab.MutateInt64Slot(78, n)
 }
 
-func (rcv *ConstCombatExcel) CriticalConstC() int64 {
+func (rcv *ConstCombatExcel) CriticalConstA() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(80))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -481,11 +481,11 @@ func (rcv *ConstCombatExcel) CriticalConstC() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateCriticalConstC(n int64) bool {
+func (rcv *ConstCombatExcel) MutateCriticalConstA(n int64) bool {
 	return rcv._tab.MutateInt64Slot(80, n)
 }
 
-func (rcv *ConstCombatExcel) CriticalConstD() int64 {
+func (rcv *ConstCombatExcel) CriticalConstB() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(82))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -493,12 +493,36 @@ func (rcv *ConstCombatExcel) CriticalConstD() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateCriticalConstD(n int64) bool {
+func (rcv *ConstCombatExcel) MutateCriticalConstB(n int64) bool {
 	return rcv._tab.MutateInt64Slot(82, n)
 }
 
-func (rcv *ConstCombatExcel) MaxGroupBuffLevel() int32 {
+func (rcv *ConstCombatExcel) CriticalConstC() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(84))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateCriticalConstC(n int64) bool {
+	return rcv._tab.MutateInt64Slot(84, n)
+}
+
+func (rcv *ConstCombatExcel) CriticalConstD() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(86))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateCriticalConstD(n int64) bool {
+	return rcv._tab.MutateInt64Slot(86, n)
+}
+
+func (rcv *ConstCombatExcel) MaxGroupBuffLevel() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(88))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -506,11 +530,11 @@ func (rcv *ConstCombatExcel) MaxGroupBuffLevel() int32 {
 }
 
 func (rcv *ConstCombatExcel) MutateMaxGroupBuffLevel(n int32) bool {
-	return rcv._tab.MutateInt32Slot(84, n)
+	return rcv._tab.MutateInt32Slot(88, n)
 }
 
 func (rcv *ConstCombatExcel) EmojiDefaultTime() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(86))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(90))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -518,34 +542,10 @@ func (rcv *ConstCombatExcel) EmojiDefaultTime() int32 {
 }
 
 func (rcv *ConstCombatExcel) MutateEmojiDefaultTime(n int32) bool {
-	return rcv._tab.MutateInt32Slot(86, n)
+	return rcv._tab.MutateInt32Slot(90, n)
 }
 
 func (rcv *ConstCombatExcel) TimeLineActionRotateSpeed() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(88))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCombatExcel) MutateTimeLineActionRotateSpeed(n int64) bool {
-	return rcv._tab.MutateInt64Slot(88, n)
-}
-
-func (rcv *ConstCombatExcel) BodyRotateSpeed() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(90))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCombatExcel) MutateBodyRotateSpeed(n int64) bool {
-	return rcv._tab.MutateInt64Slot(90, n)
-}
-
-func (rcv *ConstCombatExcel) NormalTimeScale() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(92))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -553,11 +553,11 @@ func (rcv *ConstCombatExcel) NormalTimeScale() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateNormalTimeScale(n int64) bool {
+func (rcv *ConstCombatExcel) MutateTimeLineActionRotateSpeed(n int64) bool {
 	return rcv._tab.MutateInt64Slot(92, n)
 }
 
-func (rcv *ConstCombatExcel) FastTimeScale() int64 {
+func (rcv *ConstCombatExcel) BodyRotateSpeed() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(94))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -565,11 +565,11 @@ func (rcv *ConstCombatExcel) FastTimeScale() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateFastTimeScale(n int64) bool {
+func (rcv *ConstCombatExcel) MutateBodyRotateSpeed(n int64) bool {
 	return rcv._tab.MutateInt64Slot(94, n)
 }
 
-func (rcv *ConstCombatExcel) BulletTimeScale() int64 {
+func (rcv *ConstCombatExcel) NormalTimeScale() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(96))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -577,11 +577,11 @@ func (rcv *ConstCombatExcel) BulletTimeScale() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateBulletTimeScale(n int64) bool {
+func (rcv *ConstCombatExcel) MutateNormalTimeScale(n int64) bool {
 	return rcv._tab.MutateInt64Slot(96, n)
 }
 
-func (rcv *ConstCombatExcel) UiDisplayDelayAfterSkillCutIn() int64 {
+func (rcv *ConstCombatExcel) FastTimeScale() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(98))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -589,23 +589,23 @@ func (rcv *ConstCombatExcel) UiDisplayDelayAfterSkillCutIn() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateUiDisplayDelayAfterSkillCutIn(n int64) bool {
+func (rcv *ConstCombatExcel) MutateFastTimeScale(n int64) bool {
 	return rcv._tab.MutateInt64Slot(98, n)
 }
 
-func (rcv *ConstCombatExcel) UseInitialRangeForCoverMove() bool {
+func (rcv *ConstCombatExcel) BulletTimeScale() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(100))
 	if o != 0 {
-		return rcv._tab.GetBool(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return false
+	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateUseInitialRangeForCoverMove(n bool) bool {
-	return rcv._tab.MutateBoolSlot(100, n)
+func (rcv *ConstCombatExcel) MutateBulletTimeScale(n int64) bool {
+	return rcv._tab.MutateInt64Slot(100, n)
 }
 
-func (rcv *ConstCombatExcel) SlowTimeScale() int64 {
+func (rcv *ConstCombatExcel) UiDisplayDelayAfterSkillCutIn() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(102))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -613,12 +613,36 @@ func (rcv *ConstCombatExcel) SlowTimeScale() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateSlowTimeScale(n int64) bool {
+func (rcv *ConstCombatExcel) MutateUiDisplayDelayAfterSkillCutIn(n int64) bool {
 	return rcv._tab.MutateInt64Slot(102, n)
 }
 
-func (rcv *ConstCombatExcel) AimIkMinDegree() float32 {
+func (rcv *ConstCombatExcel) UseInitialRangeForCoverMove() bool {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(104))
+	if o != 0 {
+		return rcv._tab.GetBool(o + rcv._tab.Pos)
+	}
+	return false
+}
+
+func (rcv *ConstCombatExcel) MutateUseInitialRangeForCoverMove(n bool) bool {
+	return rcv._tab.MutateBoolSlot(104, n)
+}
+
+func (rcv *ConstCombatExcel) SlowTimeScale() int64 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(106))
+	if o != 0 {
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateSlowTimeScale(n int64) bool {
+	return rcv._tab.MutateInt64Slot(106, n)
+}
+
+func (rcv *ConstCombatExcel) AimIkMinDegree() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(108))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -626,11 +650,11 @@ func (rcv *ConstCombatExcel) AimIkMinDegree() float32 {
 }
 
 func (rcv *ConstCombatExcel) MutateAimIkMinDegree(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(104, n)
+	return rcv._tab.MutateFloat32Slot(108, n)
 }
 
 func (rcv *ConstCombatExcel) AimIkMaxDegree() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(106))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(110))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -638,34 +662,10 @@ func (rcv *ConstCombatExcel) AimIkMaxDegree() float32 {
 }
 
 func (rcv *ConstCombatExcel) MutateAimIkMaxDegree(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(106, n)
+	return rcv._tab.MutateFloat32Slot(110, n)
 }
 
 func (rcv *ConstCombatExcel) MinimumClearTime() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(108))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCombatExcel) MutateMinimumClearTime(n int32) bool {
-	return rcv._tab.MutateInt32Slot(108, n)
-}
-
-func (rcv *ConstCombatExcel) MinimumClearLevelGap() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(110))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCombatExcel) MutateMinimumClearLevelGap(n int32) bool {
-	return rcv._tab.MutateInt32Slot(110, n)
-}
-
-func (rcv *ConstCombatExcel) CheckCheaterMaxUseCostNonArena() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(112))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -673,11 +673,11 @@ func (rcv *ConstCombatExcel) CheckCheaterMaxUseCostNonArena() int32 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateCheckCheaterMaxUseCostNonArena(n int32) bool {
+func (rcv *ConstCombatExcel) MutateMinimumClearTime(n int32) bool {
 	return rcv._tab.MutateInt32Slot(112, n)
 }
 
-func (rcv *ConstCombatExcel) CheckCheaterMaxUseCostArena() int32 {
+func (rcv *ConstCombatExcel) MinimumClearLevelGap() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(114))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -685,35 +685,35 @@ func (rcv *ConstCombatExcel) CheckCheaterMaxUseCostArena() int32 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateCheckCheaterMaxUseCostArena(n int32) bool {
+func (rcv *ConstCombatExcel) MutateMinimumClearLevelGap(n int32) bool {
 	return rcv._tab.MutateInt32Slot(114, n)
 }
 
-func (rcv *ConstCombatExcel) AllowedMaxTimeScale() int64 {
+func (rcv *ConstCombatExcel) CheckCheaterMaxUseCostNonArena() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(116))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateAllowedMaxTimeScale(n int64) bool {
-	return rcv._tab.MutateInt64Slot(116, n)
+func (rcv *ConstCombatExcel) MutateCheckCheaterMaxUseCostNonArena(n int32) bool {
+	return rcv._tab.MutateInt32Slot(116, n)
 }
 
-func (rcv *ConstCombatExcel) RandomAnimationOutput() int64 {
+func (rcv *ConstCombatExcel) CheckCheaterMaxUseCostArena() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(118))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateRandomAnimationOutput(n int64) bool {
-	return rcv._tab.MutateInt64Slot(118, n)
+func (rcv *ConstCombatExcel) MutateCheckCheaterMaxUseCostArena(n int32) bool {
+	return rcv._tab.MutateInt32Slot(118, n)
 }
 
-func (rcv *ConstCombatExcel) SummonedTeleportDistance() int64 {
+func (rcv *ConstCombatExcel) AllowedMaxTimeScale() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(120))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -721,23 +721,23 @@ func (rcv *ConstCombatExcel) SummonedTeleportDistance() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateSummonedTeleportDistance(n int64) bool {
+func (rcv *ConstCombatExcel) MutateAllowedMaxTimeScale(n int64) bool {
 	return rcv._tab.MutateInt64Slot(120, n)
 }
 
-func (rcv *ConstCombatExcel) ArenaMinimumClearTime() int32 {
+func (rcv *ConstCombatExcel) RandomAnimationOutput() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(122))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateArenaMinimumClearTime(n int32) bool {
-	return rcv._tab.MutateInt32Slot(122, n)
+func (rcv *ConstCombatExcel) MutateRandomAnimationOutput(n int64) bool {
+	return rcv._tab.MutateInt64Slot(122, n)
 }
 
-func (rcv *ConstCombatExcel) Worldbossbattlelittle() int64 {
+func (rcv *ConstCombatExcel) SummonedTeleportDistance() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(124))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -745,23 +745,23 @@ func (rcv *ConstCombatExcel) Worldbossbattlelittle() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlelittle(n int64) bool {
+func (rcv *ConstCombatExcel) MutateSummonedTeleportDistance(n int64) bool {
 	return rcv._tab.MutateInt64Slot(124, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattlelittleTw() int64 {
+func (rcv *ConstCombatExcel) ArenaMinimumClearTime() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(126))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlelittleTw(n int64) bool {
-	return rcv._tab.MutateInt64Slot(126, n)
+func (rcv *ConstCombatExcel) MutateArenaMinimumClearTime(n int32) bool {
+	return rcv._tab.MutateInt32Slot(126, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattlelittleAsia() int64 {
+func (rcv *ConstCombatExcel) Worldbossbattlelittle() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(128))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -769,11 +769,11 @@ func (rcv *ConstCombatExcel) WorldbossbattlelittleAsia() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlelittleAsia(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlelittle(n int64) bool {
 	return rcv._tab.MutateInt64Slot(128, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattlelittleNa() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattlelittleTw() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(130))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -781,11 +781,11 @@ func (rcv *ConstCombatExcel) WorldbossbattlelittleNa() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlelittleNa(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlelittleTw(n int64) bool {
 	return rcv._tab.MutateInt64Slot(130, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattlelittleGlobal() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattlelittleAsia() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(132))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -793,11 +793,11 @@ func (rcv *ConstCombatExcel) WorldbossbattlelittleGlobal() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlelittleGlobal(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlelittleAsia(n int64) bool {
 	return rcv._tab.MutateInt64Slot(132, n)
 }
 
-func (rcv *ConstCombatExcel) Worldbossbattlemiddle() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattlelittleNa() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(134))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -805,11 +805,11 @@ func (rcv *ConstCombatExcel) Worldbossbattlemiddle() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlemiddle(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlelittleNa(n int64) bool {
 	return rcv._tab.MutateInt64Slot(134, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattlemiddleTw() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattlelittleGlobal() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(136))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -817,11 +817,11 @@ func (rcv *ConstCombatExcel) WorldbossbattlemiddleTw() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlemiddleTw(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlelittleGlobal(n int64) bool {
 	return rcv._tab.MutateInt64Slot(136, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattlemiddleAsia() int64 {
+func (rcv *ConstCombatExcel) Worldbossbattlemiddle() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(138))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -829,11 +829,11 @@ func (rcv *ConstCombatExcel) WorldbossbattlemiddleAsia() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlemiddleAsia(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlemiddle(n int64) bool {
 	return rcv._tab.MutateInt64Slot(138, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattlemiddleNa() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattlemiddleTw() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(140))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -841,11 +841,11 @@ func (rcv *ConstCombatExcel) WorldbossbattlemiddleNa() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlemiddleNa(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlemiddleTw(n int64) bool {
 	return rcv._tab.MutateInt64Slot(140, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattlemiddleGlobal() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattlemiddleAsia() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(142))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -853,11 +853,11 @@ func (rcv *ConstCombatExcel) WorldbossbattlemiddleGlobal() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlemiddleGlobal(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlemiddleAsia(n int64) bool {
 	return rcv._tab.MutateInt64Slot(142, n)
 }
 
-func (rcv *ConstCombatExcel) Worldbossbattlehigh() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattlemiddleNa() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(144))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -865,11 +865,11 @@ func (rcv *ConstCombatExcel) Worldbossbattlehigh() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlehigh(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlemiddleNa(n int64) bool {
 	return rcv._tab.MutateInt64Slot(144, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattlehighTw() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattlemiddleGlobal() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(146))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -877,11 +877,11 @@ func (rcv *ConstCombatExcel) WorldbossbattlehighTw() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlehighTw(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlemiddleGlobal(n int64) bool {
 	return rcv._tab.MutateInt64Slot(146, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattlehighAsia() int64 {
+func (rcv *ConstCombatExcel) Worldbossbattlehigh() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(148))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -889,11 +889,11 @@ func (rcv *ConstCombatExcel) WorldbossbattlehighAsia() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlehighAsia(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlehigh(n int64) bool {
 	return rcv._tab.MutateInt64Slot(148, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattlehighNa() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattlehighTw() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(150))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -901,11 +901,11 @@ func (rcv *ConstCombatExcel) WorldbossbattlehighNa() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlehighNa(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlehighTw(n int64) bool {
 	return rcv._tab.MutateInt64Slot(150, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattlehighGlobal() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattlehighAsia() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(152))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -913,11 +913,11 @@ func (rcv *ConstCombatExcel) WorldbossbattlehighGlobal() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattlehighGlobal(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlehighAsia(n int64) bool {
 	return rcv._tab.MutateInt64Slot(152, n)
 }
 
-func (rcv *ConstCombatExcel) Worldbossbattleveryhigh() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattlehighNa() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(154))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -925,11 +925,11 @@ func (rcv *ConstCombatExcel) Worldbossbattleveryhigh() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattleveryhigh(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlehighNa(n int64) bool {
 	return rcv._tab.MutateInt64Slot(154, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattleveryhighTw() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattlehighGlobal() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(156))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -937,11 +937,11 @@ func (rcv *ConstCombatExcel) WorldbossbattleveryhighTw() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattleveryhighTw(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattlehighGlobal(n int64) bool {
 	return rcv._tab.MutateInt64Slot(156, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattleveryhighAsia() int64 {
+func (rcv *ConstCombatExcel) Worldbossbattleveryhigh() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(158))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -949,11 +949,11 @@ func (rcv *ConstCombatExcel) WorldbossbattleveryhighAsia() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattleveryhighAsia(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattleveryhigh(n int64) bool {
 	return rcv._tab.MutateInt64Slot(158, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattleveryhighNa() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattleveryhighTw() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(160))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -961,11 +961,11 @@ func (rcv *ConstCombatExcel) WorldbossbattleveryhighNa() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattleveryhighNa(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattleveryhighTw(n int64) bool {
 	return rcv._tab.MutateInt64Slot(160, n)
 }
 
-func (rcv *ConstCombatExcel) WorldbossbattleveryhighGlobal() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattleveryhighAsia() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(162))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -973,11 +973,11 @@ func (rcv *ConstCombatExcel) WorldbossbattleveryhighGlobal() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldbossbattleveryhighGlobal(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattleveryhighAsia(n int64) bool {
 	return rcv._tab.MutateInt64Slot(162, n)
 }
 
-func (rcv *ConstCombatExcel) WorldRaidAutoSyncTermSecond() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattleveryhighNa() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(164))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -985,11 +985,11 @@ func (rcv *ConstCombatExcel) WorldRaidAutoSyncTermSecond() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldRaidAutoSyncTermSecond(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattleveryhighNa(n int64) bool {
 	return rcv._tab.MutateInt64Slot(164, n)
 }
 
-func (rcv *ConstCombatExcel) WorldRaidBossHpDecreaseTerm() int64 {
+func (rcv *ConstCombatExcel) WorldbossbattleveryhighGlobal() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(166))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -997,11 +997,11 @@ func (rcv *ConstCombatExcel) WorldRaidBossHpDecreaseTerm() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldRaidBossHpDecreaseTerm(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldbossbattleveryhighGlobal(n int64) bool {
 	return rcv._tab.MutateInt64Slot(166, n)
 }
 
-func (rcv *ConstCombatExcel) WorldRaidBossParcelReactionDelay() int64 {
+func (rcv *ConstCombatExcel) WorldRaidAutoSyncTermSecond() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(168))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -1009,11 +1009,11 @@ func (rcv *ConstCombatExcel) WorldRaidBossParcelReactionDelay() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateWorldRaidBossParcelReactionDelay(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldRaidAutoSyncTermSecond(n int64) bool {
 	return rcv._tab.MutateInt64Slot(168, n)
 }
 
-func (rcv *ConstCombatExcel) RaidRankingJumpMinimumWaitingTime() int64 {
+func (rcv *ConstCombatExcel) WorldRaidBossHpDecreaseTerm() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(170))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -1021,23 +1021,23 @@ func (rcv *ConstCombatExcel) RaidRankingJumpMinimumWaitingTime() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateRaidRankingJumpMinimumWaitingTime(n int64) bool {
+func (rcv *ConstCombatExcel) MutateWorldRaidBossHpDecreaseTerm(n int64) bool {
 	return rcv._tab.MutateInt64Slot(170, n)
 }
 
-func (rcv *ConstCombatExcel) EffectTeleportDistance() float32 {
+func (rcv *ConstCombatExcel) WorldRaidBossParcelReactionDelay() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(172))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return 0.0
+	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateEffectTeleportDistance(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(172, n)
+func (rcv *ConstCombatExcel) MutateWorldRaidBossParcelReactionDelay(n int64) bool {
+	return rcv._tab.MutateInt64Slot(172, n)
 }
 
-func (rcv *ConstCombatExcel) AuraExitThresholdMargin() int64 {
+func (rcv *ConstCombatExcel) RaidRankingJumpMinimumWaitingTime() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(174))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -1045,23 +1045,23 @@ func (rcv *ConstCombatExcel) AuraExitThresholdMargin() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateAuraExitThresholdMargin(n int64) bool {
+func (rcv *ConstCombatExcel) MutateRaidRankingJumpMinimumWaitingTime(n int64) bool {
 	return rcv._tab.MutateInt64Slot(174, n)
 }
 
-func (rcv *ConstCombatExcel) TsaInteractionDamageFactor() int64 {
+func (rcv *ConstCombatExcel) EffectTeleportDistance() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(176))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return 0
+	return 0.0
 }
 
-func (rcv *ConstCombatExcel) MutateTsaInteractionDamageFactor(n int64) bool {
-	return rcv._tab.MutateInt64Slot(176, n)
+func (rcv *ConstCombatExcel) MutateEffectTeleportDistance(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(176, n)
 }
 
-func (rcv *ConstCombatExcel) VictoryInteractionRate() int64 {
+func (rcv *ConstCombatExcel) AuraExitThresholdMargin() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(178))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -1069,27 +1069,35 @@ func (rcv *ConstCombatExcel) VictoryInteractionRate() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateVictoryInteractionRate(n int64) bool {
+func (rcv *ConstCombatExcel) MutateAuraExitThresholdMargin(n int64) bool {
 	return rcv._tab.MutateInt64Slot(178, n)
 }
 
-func (rcv *ConstCombatExcel) EchelonExtensionEngageTimelinePath() []byte {
+func (rcv *ConstCombatExcel) TsaInteractionDamageFactor() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(180))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *ConstCombatExcel) EchelonExtensionEngageWithSupporterTimelinePath() []byte {
+func (rcv *ConstCombatExcel) MutateTsaInteractionDamageFactor(n int64) bool {
+	return rcv._tab.MutateInt64Slot(180, n)
+}
+
+func (rcv *ConstCombatExcel) VictoryInteractionRate() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(182))
 	if o != 0 {
-		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return nil
+	return 0
 }
 
-func (rcv *ConstCombatExcel) EchelonExtensionVictoryTimelinePath() []byte {
+func (rcv *ConstCombatExcel) MutateVictoryInteractionRate(n int64) bool {
+	return rcv._tab.MutateInt64Slot(182, n)
+}
+
+func (rcv *ConstCombatExcel) EchelonExtensionEngageTimelinePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(184))
 	if o != 0 {
 		return rcv._tab.ByteVector(o + rcv._tab.Pos)
@@ -1097,8 +1105,24 @@ func (rcv *ConstCombatExcel) EchelonExtensionVictoryTimelinePath() []byte {
 	return nil
 }
 
-func (rcv *ConstCombatExcel) EchelonExtensionEchelonMaxCommonCost() int32 {
+func (rcv *ConstCombatExcel) EchelonExtensionEngageWithSupporterTimelinePath() []byte {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(186))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConstCombatExcel) EchelonExtensionVictoryTimelinePath() []byte {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(188))
+	if o != 0 {
+		return rcv._tab.ByteVector(o + rcv._tab.Pos)
+	}
+	return nil
+}
+
+func (rcv *ConstCombatExcel) EchelonExtensionEchelonMaxCommonCost() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(190))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
@@ -1106,11 +1130,11 @@ func (rcv *ConstCombatExcel) EchelonExtensionEchelonMaxCommonCost() int32 {
 }
 
 func (rcv *ConstCombatExcel) MutateEchelonExtensionEchelonMaxCommonCost(n int32) bool {
-	return rcv._tab.MutateInt32Slot(186, n)
+	return rcv._tab.MutateInt32Slot(190, n)
 }
 
 func (rcv *ConstCombatExcel) EchelonMaxOverloadCost() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(188))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(192))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
@@ -1118,34 +1142,10 @@ func (rcv *ConstCombatExcel) EchelonMaxOverloadCost() int64 {
 }
 
 func (rcv *ConstCombatExcel) MutateEchelonMaxOverloadCost(n int64) bool {
-	return rcv._tab.MutateInt64Slot(188, n)
+	return rcv._tab.MutateInt64Slot(192, n)
 }
 
 func (rcv *ConstCombatExcel) EchelonExtensionMaxOverloadCost() int64 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(190))
-	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCombatExcel) MutateEchelonExtensionMaxOverloadCost(n int64) bool {
-	return rcv._tab.MutateInt64Slot(190, n)
-}
-
-func (rcv *ConstCombatExcel) EchelonExtensionEchelonInitCommonCost() int32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(192))
-	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
-	}
-	return 0
-}
-
-func (rcv *ConstCombatExcel) MutateEchelonExtensionEchelonInitCommonCost(n int32) bool {
-	return rcv._tab.MutateInt32Slot(192, n)
-}
-
-func (rcv *ConstCombatExcel) EchelonExtensionCostRegenRatio() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(194))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -1153,23 +1153,23 @@ func (rcv *ConstCombatExcel) EchelonExtensionCostRegenRatio() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateEchelonExtensionCostRegenRatio(n int64) bool {
+func (rcv *ConstCombatExcel) MutateEchelonExtensionMaxOverloadCost(n int64) bool {
 	return rcv._tab.MutateInt64Slot(194, n)
 }
 
-func (rcv *ConstCombatExcel) EchelonOverloadCostRegenRatio() int64 {
+func (rcv *ConstCombatExcel) EchelonExtensionEchelonInitCommonCost() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(196))
 	if o != 0 {
-		return rcv._tab.GetInt64(o + rcv._tab.Pos)
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateEchelonOverloadCostRegenRatio(n int64) bool {
-	return rcv._tab.MutateInt64Slot(196, n)
+func (rcv *ConstCombatExcel) MutateEchelonExtensionEchelonInitCommonCost(n int32) bool {
+	return rcv._tab.MutateInt32Slot(196, n)
 }
 
-func (rcv *ConstCombatExcel) EchelonExtensionOverloadCostRegenRatio() int64 {
+func (rcv *ConstCombatExcel) EchelonExtensionCostRegenRatio() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(198))
 	if o != 0 {
 		return rcv._tab.GetInt64(o + rcv._tab.Pos)
@@ -1177,35 +1177,35 @@ func (rcv *ConstCombatExcel) EchelonExtensionOverloadCostRegenRatio() int64 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateEchelonExtensionOverloadCostRegenRatio(n int64) bool {
+func (rcv *ConstCombatExcel) MutateEchelonExtensionCostRegenRatio(n int64) bool {
 	return rcv._tab.MutateInt64Slot(198, n)
 }
 
-func (rcv *ConstCombatExcel) CheckCheaterMaxUseCostMultiFloorRaid() int32 {
+func (rcv *ConstCombatExcel) EchelonOverloadCostRegenRatio() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(200))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateCheckCheaterMaxUseCostMultiFloorRaid(n int32) bool {
-	return rcv._tab.MutateInt32Slot(200, n)
+func (rcv *ConstCombatExcel) MutateEchelonOverloadCostRegenRatio(n int64) bool {
+	return rcv._tab.MutateInt64Slot(200, n)
 }
 
-func (rcv *ConstCombatExcel) ExcessiveTouchCheckTime() float32 {
+func (rcv *ConstCombatExcel) EchelonExtensionOverloadCostRegenRatio() int64 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(202))
 	if o != 0 {
-		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
+		return rcv._tab.GetInt64(o + rcv._tab.Pos)
 	}
-	return 0.0
+	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateExcessiveTouchCheckTime(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(202, n)
+func (rcv *ConstCombatExcel) MutateEchelonExtensionOverloadCostRegenRatio(n int64) bool {
+	return rcv._tab.MutateInt64Slot(202, n)
 }
 
-func (rcv *ConstCombatExcel) ExcessiveTouchCheckCount() int32 {
+func (rcv *ConstCombatExcel) CheckCheaterMaxUseCostMultiFloorRaid() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(204))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1213,23 +1213,23 @@ func (rcv *ConstCombatExcel) ExcessiveTouchCheckCount() int32 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateExcessiveTouchCheckCount(n int32) bool {
+func (rcv *ConstCombatExcel) MutateCheckCheaterMaxUseCostMultiFloorRaid(n int32) bool {
 	return rcv._tab.MutateInt32Slot(204, n)
 }
 
-func (rcv *ConstCombatExcel) CampaignAlertPopupLevelGap() int32 {
+func (rcv *ConstCombatExcel) ExcessiveTouchCheckTime() float32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(206))
 	if o != 0 {
-		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
-	return 0
+	return 0.0
 }
 
-func (rcv *ConstCombatExcel) MutateCampaignAlertPopupLevelGap(n int32) bool {
-	return rcv._tab.MutateInt32Slot(206, n)
+func (rcv *ConstCombatExcel) MutateExcessiveTouchCheckTime(n float32) bool {
+	return rcv._tab.MutateFloat32Slot(206, n)
 }
 
-func (rcv *ConstCombatExcel) MoveCorrectionSkipRatio() int32 {
+func (rcv *ConstCombatExcel) ExcessiveTouchCheckCount() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(208))
 	if o != 0 {
 		return rcv._tab.GetInt32(o + rcv._tab.Pos)
@@ -1237,12 +1237,36 @@ func (rcv *ConstCombatExcel) MoveCorrectionSkipRatio() int32 {
 	return 0
 }
 
-func (rcv *ConstCombatExcel) MutateMoveCorrectionSkipRatio(n int32) bool {
+func (rcv *ConstCombatExcel) MutateExcessiveTouchCheckCount(n int32) bool {
 	return rcv._tab.MutateInt32Slot(208, n)
 }
 
-func (rcv *ConstCombatExcel) ObstacleColliderHeightJumpable() float32 {
+func (rcv *ConstCombatExcel) CampaignAlertPopupLevelGap() int32 {
 	o := flatbuffers.UOffsetT(rcv._tab.Offset(210))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateCampaignAlertPopupLevelGap(n int32) bool {
+	return rcv._tab.MutateInt32Slot(210, n)
+}
+
+func (rcv *ConstCombatExcel) MoveCorrectionSkipRatio() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(212))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateMoveCorrectionSkipRatio(n int32) bool {
+	return rcv._tab.MutateInt32Slot(212, n)
+}
+
+func (rcv *ConstCombatExcel) ObstacleColliderHeightJumpable() float32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(214))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -1250,11 +1274,11 @@ func (rcv *ConstCombatExcel) ObstacleColliderHeightJumpable() float32 {
 }
 
 func (rcv *ConstCombatExcel) MutateObstacleColliderHeightJumpable(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(210, n)
+	return rcv._tab.MutateFloat32Slot(214, n)
 }
 
 func (rcv *ConstCombatExcel) ObstacleColliderHeightNotJumpable() float32 {
-	o := flatbuffers.UOffsetT(rcv._tab.Offset(212))
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(216))
 	if o != 0 {
 		return rcv._tab.GetFloat32(o + rcv._tab.Pos)
 	}
@@ -1262,11 +1286,23 @@ func (rcv *ConstCombatExcel) ObstacleColliderHeightNotJumpable() float32 {
 }
 
 func (rcv *ConstCombatExcel) MutateObstacleColliderHeightNotJumpable(n float32) bool {
-	return rcv._tab.MutateFloat32Slot(212, n)
+	return rcv._tab.MutateFloat32Slot(216, n)
+}
+
+func (rcv *ConstCombatExcel) CheckCheaterMaxUseCostTacticalRelay() int32 {
+	o := flatbuffers.UOffsetT(rcv._tab.Offset(218))
+	if o != 0 {
+		return rcv._tab.GetInt32(o + rcv._tab.Pos)
+	}
+	return 0
+}
+
+func (rcv *ConstCombatExcel) MutateCheckCheaterMaxUseCostTacticalRelay(n int32) bool {
+	return rcv._tab.MutateInt32Slot(218, n)
 }
 
 func ConstCombatExcelStart(builder *flatbuffers.Builder) {
-	builder.StartObject(105)
+	builder.StartObject(108)
 }
 func ConstCombatExcelAddSkillHandCount(builder *flatbuffers.Builder, skillHandCount int32) {
 	builder.PrependInt32Slot(0, skillHandCount, 0)
@@ -1292,296 +1328,305 @@ func ConstCombatExcelAddShowBufficonLeaderSkill(builder *flatbuffers.Builder, sh
 func ConstCombatExcelAddShowBufficonGroundPassiveSkill(builder *flatbuffers.Builder, showBufficonGroundPassiveSkill bool) {
 	builder.PrependBoolSlot(7, showBufficonGroundPassiveSkill, false)
 }
+func ConstCombatExcelAddShowBufficonApcSynergyPassiveSkill(builder *flatbuffers.Builder, showBufficonApcSynergyPassiveSkill bool) {
+	builder.PrependBoolSlot(8, showBufficonApcSynergyPassiveSkill, false)
+}
 func ConstCombatExcelAddSuppliesConditionStringId(builder *flatbuffers.Builder, suppliesConditionStringId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(8, flatbuffers.UOffsetT(suppliesConditionStringId), 0)
+	builder.PrependUOffsetTSlot(9, flatbuffers.UOffsetT(suppliesConditionStringId), 0)
 }
 func ConstCombatExcelAddPublicSpeechBubbleOffsetX(builder *flatbuffers.Builder, publicSpeechBubbleOffsetX float32) {
-	builder.PrependFloat32Slot(9, publicSpeechBubbleOffsetX, 0.0)
+	builder.PrependFloat32Slot(10, publicSpeechBubbleOffsetX, 0.0)
 }
 func ConstCombatExcelAddPublicSpeechBubbleOffsetY(builder *flatbuffers.Builder, publicSpeechBubbleOffsetY float32) {
-	builder.PrependFloat32Slot(10, publicSpeechBubbleOffsetY, 0.0)
+	builder.PrependFloat32Slot(11, publicSpeechBubbleOffsetY, 0.0)
 }
 func ConstCombatExcelAddPublicSpeechBubbleOffsetZ(builder *flatbuffers.Builder, publicSpeechBubbleOffsetZ float32) {
-	builder.PrependFloat32Slot(11, publicSpeechBubbleOffsetZ, 0.0)
+	builder.PrependFloat32Slot(12, publicSpeechBubbleOffsetZ, 0.0)
 }
 func ConstCombatExcelAddShowRaidListCount(builder *flatbuffers.Builder, showRaidListCount int32) {
-	builder.PrependInt32Slot(12, showRaidListCount, 0)
+	builder.PrependInt32Slot(13, showRaidListCount, 0)
 }
 func ConstCombatExcelAddMaxRaidTicketCount(builder *flatbuffers.Builder, maxRaidTicketCount int64) {
-	builder.PrependInt64Slot(13, maxRaidTicketCount, 0)
+	builder.PrependInt64Slot(14, maxRaidTicketCount, 0)
 }
 func ConstCombatExcelAddMaxRaidBossSkillSlot(builder *flatbuffers.Builder, maxRaidBossSkillSlot int64) {
-	builder.PrependInt64Slot(14, maxRaidBossSkillSlot, 0)
+	builder.PrependInt64Slot(15, maxRaidBossSkillSlot, 0)
 }
 func ConstCombatExcelAddEngageTimelinePath(builder *flatbuffers.Builder, engageTimelinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(15, flatbuffers.UOffsetT(engageTimelinePath), 0)
+	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(engageTimelinePath), 0)
 }
 func ConstCombatExcelAddEngageWithSupporterTimelinePath(builder *flatbuffers.Builder, engageWithSupporterTimelinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(16, flatbuffers.UOffsetT(engageWithSupporterTimelinePath), 0)
+	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(engageWithSupporterTimelinePath), 0)
 }
 func ConstCombatExcelAddVictoryTimelinePath(builder *flatbuffers.Builder, victoryTimelinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(17, flatbuffers.UOffsetT(victoryTimelinePath), 0)
+	builder.PrependUOffsetTSlot(18, flatbuffers.UOffsetT(victoryTimelinePath), 0)
 }
 func ConstCombatExcelAddTimeLimitAlarm(builder *flatbuffers.Builder, timeLimitAlarm int64) {
-	builder.PrependInt64Slot(18, timeLimitAlarm, 0)
+	builder.PrependInt64Slot(19, timeLimitAlarm, 0)
 }
 func ConstCombatExcelAddEchelonMaxCommonCost(builder *flatbuffers.Builder, echelonMaxCommonCost int32) {
-	builder.PrependInt32Slot(19, echelonMaxCommonCost, 0)
+	builder.PrependInt32Slot(20, echelonMaxCommonCost, 0)
 }
 func ConstCombatExcelAddEchelonInitCommonCost(builder *flatbuffers.Builder, echelonInitCommonCost int32) {
-	builder.PrependInt32Slot(20, echelonInitCommonCost, 0)
+	builder.PrependInt32Slot(21, echelonInitCommonCost, 0)
 }
 func ConstCombatExcelAddSkillSlotCoolTime(builder *flatbuffers.Builder, skillSlotCoolTime int64) {
-	builder.PrependInt64Slot(21, skillSlotCoolTime, 0)
+	builder.PrependInt64Slot(22, skillSlotCoolTime, 0)
 }
 func ConstCombatExcelAddEnemyRegenCost(builder *flatbuffers.Builder, enemyRegenCost int64) {
-	builder.PrependInt64Slot(22, enemyRegenCost, 0)
+	builder.PrependInt64Slot(23, enemyRegenCost, 0)
 }
 func ConstCombatExcelAddChampionRegenCost(builder *flatbuffers.Builder, championRegenCost int64) {
-	builder.PrependInt64Slot(23, championRegenCost, 0)
+	builder.PrependInt64Slot(24, championRegenCost, 0)
 }
 func ConstCombatExcelAddPlayerRegenCostDelay(builder *flatbuffers.Builder, playerRegenCostDelay int64) {
-	builder.PrependInt64Slot(24, playerRegenCostDelay, 0)
+	builder.PrependInt64Slot(25, playerRegenCostDelay, 0)
+}
+func ConstCombatExcelAddPlayerAutoUseStartDelay(builder *flatbuffers.Builder, playerAutoUseStartDelay int64) {
+	builder.PrependInt64Slot(26, playerAutoUseStartDelay, 0)
 }
 func ConstCombatExcelAddCrowdControlFactor(builder *flatbuffers.Builder, crowdControlFactor int64) {
-	builder.PrependInt64Slot(25, crowdControlFactor, 0)
+	builder.PrependInt64Slot(27, crowdControlFactor, 0)
 }
 func ConstCombatExcelAddRaidOpenScenarioId(builder *flatbuffers.Builder, raidOpenScenarioId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(26, flatbuffers.UOffsetT(raidOpenScenarioId), 0)
+	builder.PrependUOffsetTSlot(28, flatbuffers.UOffsetT(raidOpenScenarioId), 0)
 }
 func ConstCombatExcelAddEliminateRaidOpenScenarioId(builder *flatbuffers.Builder, eliminateRaidOpenScenarioId flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(27, flatbuffers.UOffsetT(eliminateRaidOpenScenarioId), 0)
+	builder.PrependUOffsetTSlot(29, flatbuffers.UOffsetT(eliminateRaidOpenScenarioId), 0)
 }
 func ConstCombatExcelAddDefenceConstA(builder *flatbuffers.Builder, defenceConstA int64) {
-	builder.PrependInt64Slot(28, defenceConstA, 0)
+	builder.PrependInt64Slot(30, defenceConstA, 0)
 }
 func ConstCombatExcelAddDefenceConstB(builder *flatbuffers.Builder, defenceConstB int64) {
-	builder.PrependInt64Slot(29, defenceConstB, 0)
+	builder.PrependInt64Slot(31, defenceConstB, 0)
 }
 func ConstCombatExcelAddDefenceConstC(builder *flatbuffers.Builder, defenceConstC int64) {
-	builder.PrependInt64Slot(30, defenceConstC, 0)
+	builder.PrependInt64Slot(32, defenceConstC, 0)
 }
 func ConstCombatExcelAddDefenceConstD(builder *flatbuffers.Builder, defenceConstD int64) {
-	builder.PrependInt64Slot(31, defenceConstD, 0)
+	builder.PrependInt64Slot(33, defenceConstD, 0)
 }
 func ConstCombatExcelAddAccuracyConstA(builder *flatbuffers.Builder, accuracyConstA int64) {
-	builder.PrependInt64Slot(32, accuracyConstA, 0)
+	builder.PrependInt64Slot(34, accuracyConstA, 0)
 }
 func ConstCombatExcelAddAccuracyConstB(builder *flatbuffers.Builder, accuracyConstB int64) {
-	builder.PrependInt64Slot(33, accuracyConstB, 0)
+	builder.PrependInt64Slot(35, accuracyConstB, 0)
 }
 func ConstCombatExcelAddAccuracyConstC(builder *flatbuffers.Builder, accuracyConstC int64) {
-	builder.PrependInt64Slot(34, accuracyConstC, 0)
+	builder.PrependInt64Slot(36, accuracyConstC, 0)
 }
 func ConstCombatExcelAddAccuracyConstD(builder *flatbuffers.Builder, accuracyConstD int64) {
-	builder.PrependInt64Slot(35, accuracyConstD, 0)
+	builder.PrependInt64Slot(37, accuracyConstD, 0)
 }
 func ConstCombatExcelAddCriticalConstA(builder *flatbuffers.Builder, criticalConstA int64) {
-	builder.PrependInt64Slot(36, criticalConstA, 0)
+	builder.PrependInt64Slot(38, criticalConstA, 0)
 }
 func ConstCombatExcelAddCriticalConstB(builder *flatbuffers.Builder, criticalConstB int64) {
-	builder.PrependInt64Slot(37, criticalConstB, 0)
+	builder.PrependInt64Slot(39, criticalConstB, 0)
 }
 func ConstCombatExcelAddCriticalConstC(builder *flatbuffers.Builder, criticalConstC int64) {
-	builder.PrependInt64Slot(38, criticalConstC, 0)
+	builder.PrependInt64Slot(40, criticalConstC, 0)
 }
 func ConstCombatExcelAddCriticalConstD(builder *flatbuffers.Builder, criticalConstD int64) {
-	builder.PrependInt64Slot(39, criticalConstD, 0)
+	builder.PrependInt64Slot(41, criticalConstD, 0)
 }
 func ConstCombatExcelAddMaxGroupBuffLevel(builder *flatbuffers.Builder, maxGroupBuffLevel int32) {
-	builder.PrependInt32Slot(40, maxGroupBuffLevel, 0)
+	builder.PrependInt32Slot(42, maxGroupBuffLevel, 0)
 }
 func ConstCombatExcelAddEmojiDefaultTime(builder *flatbuffers.Builder, emojiDefaultTime int32) {
-	builder.PrependInt32Slot(41, emojiDefaultTime, 0)
+	builder.PrependInt32Slot(43, emojiDefaultTime, 0)
 }
 func ConstCombatExcelAddTimeLineActionRotateSpeed(builder *flatbuffers.Builder, timeLineActionRotateSpeed int64) {
-	builder.PrependInt64Slot(42, timeLineActionRotateSpeed, 0)
+	builder.PrependInt64Slot(44, timeLineActionRotateSpeed, 0)
 }
 func ConstCombatExcelAddBodyRotateSpeed(builder *flatbuffers.Builder, bodyRotateSpeed int64) {
-	builder.PrependInt64Slot(43, bodyRotateSpeed, 0)
+	builder.PrependInt64Slot(45, bodyRotateSpeed, 0)
 }
 func ConstCombatExcelAddNormalTimeScale(builder *flatbuffers.Builder, normalTimeScale int64) {
-	builder.PrependInt64Slot(44, normalTimeScale, 0)
+	builder.PrependInt64Slot(46, normalTimeScale, 0)
 }
 func ConstCombatExcelAddFastTimeScale(builder *flatbuffers.Builder, fastTimeScale int64) {
-	builder.PrependInt64Slot(45, fastTimeScale, 0)
+	builder.PrependInt64Slot(47, fastTimeScale, 0)
 }
 func ConstCombatExcelAddBulletTimeScale(builder *flatbuffers.Builder, bulletTimeScale int64) {
-	builder.PrependInt64Slot(46, bulletTimeScale, 0)
+	builder.PrependInt64Slot(48, bulletTimeScale, 0)
 }
 func ConstCombatExcelAddUiDisplayDelayAfterSkillCutIn(builder *flatbuffers.Builder, uiDisplayDelayAfterSkillCutIn int64) {
-	builder.PrependInt64Slot(47, uiDisplayDelayAfterSkillCutIn, 0)
+	builder.PrependInt64Slot(49, uiDisplayDelayAfterSkillCutIn, 0)
 }
 func ConstCombatExcelAddUseInitialRangeForCoverMove(builder *flatbuffers.Builder, useInitialRangeForCoverMove bool) {
-	builder.PrependBoolSlot(48, useInitialRangeForCoverMove, false)
+	builder.PrependBoolSlot(50, useInitialRangeForCoverMove, false)
 }
 func ConstCombatExcelAddSlowTimeScale(builder *flatbuffers.Builder, slowTimeScale int64) {
-	builder.PrependInt64Slot(49, slowTimeScale, 0)
+	builder.PrependInt64Slot(51, slowTimeScale, 0)
 }
 func ConstCombatExcelAddAimIkMinDegree(builder *flatbuffers.Builder, aimIkMinDegree float32) {
-	builder.PrependFloat32Slot(50, aimIkMinDegree, 0.0)
+	builder.PrependFloat32Slot(52, aimIkMinDegree, 0.0)
 }
 func ConstCombatExcelAddAimIkMaxDegree(builder *flatbuffers.Builder, aimIkMaxDegree float32) {
-	builder.PrependFloat32Slot(51, aimIkMaxDegree, 0.0)
+	builder.PrependFloat32Slot(53, aimIkMaxDegree, 0.0)
 }
 func ConstCombatExcelAddMinimumClearTime(builder *flatbuffers.Builder, minimumClearTime int32) {
-	builder.PrependInt32Slot(52, minimumClearTime, 0)
+	builder.PrependInt32Slot(54, minimumClearTime, 0)
 }
 func ConstCombatExcelAddMinimumClearLevelGap(builder *flatbuffers.Builder, minimumClearLevelGap int32) {
-	builder.PrependInt32Slot(53, minimumClearLevelGap, 0)
+	builder.PrependInt32Slot(55, minimumClearLevelGap, 0)
 }
 func ConstCombatExcelAddCheckCheaterMaxUseCostNonArena(builder *flatbuffers.Builder, checkCheaterMaxUseCostNonArena int32) {
-	builder.PrependInt32Slot(54, checkCheaterMaxUseCostNonArena, 0)
+	builder.PrependInt32Slot(56, checkCheaterMaxUseCostNonArena, 0)
 }
 func ConstCombatExcelAddCheckCheaterMaxUseCostArena(builder *flatbuffers.Builder, checkCheaterMaxUseCostArena int32) {
-	builder.PrependInt32Slot(55, checkCheaterMaxUseCostArena, 0)
+	builder.PrependInt32Slot(57, checkCheaterMaxUseCostArena, 0)
 }
 func ConstCombatExcelAddAllowedMaxTimeScale(builder *flatbuffers.Builder, allowedMaxTimeScale int64) {
-	builder.PrependInt64Slot(56, allowedMaxTimeScale, 0)
+	builder.PrependInt64Slot(58, allowedMaxTimeScale, 0)
 }
 func ConstCombatExcelAddRandomAnimationOutput(builder *flatbuffers.Builder, randomAnimationOutput int64) {
-	builder.PrependInt64Slot(57, randomAnimationOutput, 0)
+	builder.PrependInt64Slot(59, randomAnimationOutput, 0)
 }
 func ConstCombatExcelAddSummonedTeleportDistance(builder *flatbuffers.Builder, summonedTeleportDistance int64) {
-	builder.PrependInt64Slot(58, summonedTeleportDistance, 0)
+	builder.PrependInt64Slot(60, summonedTeleportDistance, 0)
 }
 func ConstCombatExcelAddArenaMinimumClearTime(builder *flatbuffers.Builder, arenaMinimumClearTime int32) {
-	builder.PrependInt32Slot(59, arenaMinimumClearTime, 0)
+	builder.PrependInt32Slot(61, arenaMinimumClearTime, 0)
 }
 func ConstCombatExcelAddWorldbossbattlelittle(builder *flatbuffers.Builder, worldbossbattlelittle int64) {
-	builder.PrependInt64Slot(60, worldbossbattlelittle, 0)
+	builder.PrependInt64Slot(62, worldbossbattlelittle, 0)
 }
 func ConstCombatExcelAddWorldbossbattlelittleTw(builder *flatbuffers.Builder, worldbossbattlelittleTw int64) {
-	builder.PrependInt64Slot(61, worldbossbattlelittleTw, 0)
+	builder.PrependInt64Slot(63, worldbossbattlelittleTw, 0)
 }
 func ConstCombatExcelAddWorldbossbattlelittleAsia(builder *flatbuffers.Builder, worldbossbattlelittleAsia int64) {
-	builder.PrependInt64Slot(62, worldbossbattlelittleAsia, 0)
+	builder.PrependInt64Slot(64, worldbossbattlelittleAsia, 0)
 }
 func ConstCombatExcelAddWorldbossbattlelittleNa(builder *flatbuffers.Builder, worldbossbattlelittleNa int64) {
-	builder.PrependInt64Slot(63, worldbossbattlelittleNa, 0)
+	builder.PrependInt64Slot(65, worldbossbattlelittleNa, 0)
 }
 func ConstCombatExcelAddWorldbossbattlelittleGlobal(builder *flatbuffers.Builder, worldbossbattlelittleGlobal int64) {
-	builder.PrependInt64Slot(64, worldbossbattlelittleGlobal, 0)
+	builder.PrependInt64Slot(66, worldbossbattlelittleGlobal, 0)
 }
 func ConstCombatExcelAddWorldbossbattlemiddle(builder *flatbuffers.Builder, worldbossbattlemiddle int64) {
-	builder.PrependInt64Slot(65, worldbossbattlemiddle, 0)
+	builder.PrependInt64Slot(67, worldbossbattlemiddle, 0)
 }
 func ConstCombatExcelAddWorldbossbattlemiddleTw(builder *flatbuffers.Builder, worldbossbattlemiddleTw int64) {
-	builder.PrependInt64Slot(66, worldbossbattlemiddleTw, 0)
+	builder.PrependInt64Slot(68, worldbossbattlemiddleTw, 0)
 }
 func ConstCombatExcelAddWorldbossbattlemiddleAsia(builder *flatbuffers.Builder, worldbossbattlemiddleAsia int64) {
-	builder.PrependInt64Slot(67, worldbossbattlemiddleAsia, 0)
+	builder.PrependInt64Slot(69, worldbossbattlemiddleAsia, 0)
 }
 func ConstCombatExcelAddWorldbossbattlemiddleNa(builder *flatbuffers.Builder, worldbossbattlemiddleNa int64) {
-	builder.PrependInt64Slot(68, worldbossbattlemiddleNa, 0)
+	builder.PrependInt64Slot(70, worldbossbattlemiddleNa, 0)
 }
 func ConstCombatExcelAddWorldbossbattlemiddleGlobal(builder *flatbuffers.Builder, worldbossbattlemiddleGlobal int64) {
-	builder.PrependInt64Slot(69, worldbossbattlemiddleGlobal, 0)
+	builder.PrependInt64Slot(71, worldbossbattlemiddleGlobal, 0)
 }
 func ConstCombatExcelAddWorldbossbattlehigh(builder *flatbuffers.Builder, worldbossbattlehigh int64) {
-	builder.PrependInt64Slot(70, worldbossbattlehigh, 0)
+	builder.PrependInt64Slot(72, worldbossbattlehigh, 0)
 }
 func ConstCombatExcelAddWorldbossbattlehighTw(builder *flatbuffers.Builder, worldbossbattlehighTw int64) {
-	builder.PrependInt64Slot(71, worldbossbattlehighTw, 0)
+	builder.PrependInt64Slot(73, worldbossbattlehighTw, 0)
 }
 func ConstCombatExcelAddWorldbossbattlehighAsia(builder *flatbuffers.Builder, worldbossbattlehighAsia int64) {
-	builder.PrependInt64Slot(72, worldbossbattlehighAsia, 0)
+	builder.PrependInt64Slot(74, worldbossbattlehighAsia, 0)
 }
 func ConstCombatExcelAddWorldbossbattlehighNa(builder *flatbuffers.Builder, worldbossbattlehighNa int64) {
-	builder.PrependInt64Slot(73, worldbossbattlehighNa, 0)
+	builder.PrependInt64Slot(75, worldbossbattlehighNa, 0)
 }
 func ConstCombatExcelAddWorldbossbattlehighGlobal(builder *flatbuffers.Builder, worldbossbattlehighGlobal int64) {
-	builder.PrependInt64Slot(74, worldbossbattlehighGlobal, 0)
+	builder.PrependInt64Slot(76, worldbossbattlehighGlobal, 0)
 }
 func ConstCombatExcelAddWorldbossbattleveryhigh(builder *flatbuffers.Builder, worldbossbattleveryhigh int64) {
-	builder.PrependInt64Slot(75, worldbossbattleveryhigh, 0)
+	builder.PrependInt64Slot(77, worldbossbattleveryhigh, 0)
 }
 func ConstCombatExcelAddWorldbossbattleveryhighTw(builder *flatbuffers.Builder, worldbossbattleveryhighTw int64) {
-	builder.PrependInt64Slot(76, worldbossbattleveryhighTw, 0)
+	builder.PrependInt64Slot(78, worldbossbattleveryhighTw, 0)
 }
 func ConstCombatExcelAddWorldbossbattleveryhighAsia(builder *flatbuffers.Builder, worldbossbattleveryhighAsia int64) {
-	builder.PrependInt64Slot(77, worldbossbattleveryhighAsia, 0)
+	builder.PrependInt64Slot(79, worldbossbattleveryhighAsia, 0)
 }
 func ConstCombatExcelAddWorldbossbattleveryhighNa(builder *flatbuffers.Builder, worldbossbattleveryhighNa int64) {
-	builder.PrependInt64Slot(78, worldbossbattleveryhighNa, 0)
+	builder.PrependInt64Slot(80, worldbossbattleveryhighNa, 0)
 }
 func ConstCombatExcelAddWorldbossbattleveryhighGlobal(builder *flatbuffers.Builder, worldbossbattleveryhighGlobal int64) {
-	builder.PrependInt64Slot(79, worldbossbattleveryhighGlobal, 0)
+	builder.PrependInt64Slot(81, worldbossbattleveryhighGlobal, 0)
 }
 func ConstCombatExcelAddWorldRaidAutoSyncTermSecond(builder *flatbuffers.Builder, worldRaidAutoSyncTermSecond int64) {
-	builder.PrependInt64Slot(80, worldRaidAutoSyncTermSecond, 0)
+	builder.PrependInt64Slot(82, worldRaidAutoSyncTermSecond, 0)
 }
 func ConstCombatExcelAddWorldRaidBossHpDecreaseTerm(builder *flatbuffers.Builder, worldRaidBossHpDecreaseTerm int64) {
-	builder.PrependInt64Slot(81, worldRaidBossHpDecreaseTerm, 0)
+	builder.PrependInt64Slot(83, worldRaidBossHpDecreaseTerm, 0)
 }
 func ConstCombatExcelAddWorldRaidBossParcelReactionDelay(builder *flatbuffers.Builder, worldRaidBossParcelReactionDelay int64) {
-	builder.PrependInt64Slot(82, worldRaidBossParcelReactionDelay, 0)
+	builder.PrependInt64Slot(84, worldRaidBossParcelReactionDelay, 0)
 }
 func ConstCombatExcelAddRaidRankingJumpMinimumWaitingTime(builder *flatbuffers.Builder, raidRankingJumpMinimumWaitingTime int64) {
-	builder.PrependInt64Slot(83, raidRankingJumpMinimumWaitingTime, 0)
+	builder.PrependInt64Slot(85, raidRankingJumpMinimumWaitingTime, 0)
 }
 func ConstCombatExcelAddEffectTeleportDistance(builder *flatbuffers.Builder, effectTeleportDistance float32) {
-	builder.PrependFloat32Slot(84, effectTeleportDistance, 0.0)
+	builder.PrependFloat32Slot(86, effectTeleportDistance, 0.0)
 }
 func ConstCombatExcelAddAuraExitThresholdMargin(builder *flatbuffers.Builder, auraExitThresholdMargin int64) {
-	builder.PrependInt64Slot(85, auraExitThresholdMargin, 0)
+	builder.PrependInt64Slot(87, auraExitThresholdMargin, 0)
 }
 func ConstCombatExcelAddTsaInteractionDamageFactor(builder *flatbuffers.Builder, tsaInteractionDamageFactor int64) {
-	builder.PrependInt64Slot(86, tsaInteractionDamageFactor, 0)
+	builder.PrependInt64Slot(88, tsaInteractionDamageFactor, 0)
 }
 func ConstCombatExcelAddVictoryInteractionRate(builder *flatbuffers.Builder, victoryInteractionRate int64) {
-	builder.PrependInt64Slot(87, victoryInteractionRate, 0)
+	builder.PrependInt64Slot(89, victoryInteractionRate, 0)
 }
 func ConstCombatExcelAddEchelonExtensionEngageTimelinePath(builder *flatbuffers.Builder, echelonExtensionEngageTimelinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(88, flatbuffers.UOffsetT(echelonExtensionEngageTimelinePath), 0)
+	builder.PrependUOffsetTSlot(90, flatbuffers.UOffsetT(echelonExtensionEngageTimelinePath), 0)
 }
 func ConstCombatExcelAddEchelonExtensionEngageWithSupporterTimelinePath(builder *flatbuffers.Builder, echelonExtensionEngageWithSupporterTimelinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(89, flatbuffers.UOffsetT(echelonExtensionEngageWithSupporterTimelinePath), 0)
+	builder.PrependUOffsetTSlot(91, flatbuffers.UOffsetT(echelonExtensionEngageWithSupporterTimelinePath), 0)
 }
 func ConstCombatExcelAddEchelonExtensionVictoryTimelinePath(builder *flatbuffers.Builder, echelonExtensionVictoryTimelinePath flatbuffers.UOffsetT) {
-	builder.PrependUOffsetTSlot(90, flatbuffers.UOffsetT(echelonExtensionVictoryTimelinePath), 0)
+	builder.PrependUOffsetTSlot(92, flatbuffers.UOffsetT(echelonExtensionVictoryTimelinePath), 0)
 }
 func ConstCombatExcelAddEchelonExtensionEchelonMaxCommonCost(builder *flatbuffers.Builder, echelonExtensionEchelonMaxCommonCost int32) {
-	builder.PrependInt32Slot(91, echelonExtensionEchelonMaxCommonCost, 0)
+	builder.PrependInt32Slot(93, echelonExtensionEchelonMaxCommonCost, 0)
 }
 func ConstCombatExcelAddEchelonMaxOverloadCost(builder *flatbuffers.Builder, echelonMaxOverloadCost int64) {
-	builder.PrependInt64Slot(92, echelonMaxOverloadCost, 0)
+	builder.PrependInt64Slot(94, echelonMaxOverloadCost, 0)
 }
 func ConstCombatExcelAddEchelonExtensionMaxOverloadCost(builder *flatbuffers.Builder, echelonExtensionMaxOverloadCost int64) {
-	builder.PrependInt64Slot(93, echelonExtensionMaxOverloadCost, 0)
+	builder.PrependInt64Slot(95, echelonExtensionMaxOverloadCost, 0)
 }
 func ConstCombatExcelAddEchelonExtensionEchelonInitCommonCost(builder *flatbuffers.Builder, echelonExtensionEchelonInitCommonCost int32) {
-	builder.PrependInt32Slot(94, echelonExtensionEchelonInitCommonCost, 0)
+	builder.PrependInt32Slot(96, echelonExtensionEchelonInitCommonCost, 0)
 }
 func ConstCombatExcelAddEchelonExtensionCostRegenRatio(builder *flatbuffers.Builder, echelonExtensionCostRegenRatio int64) {
-	builder.PrependInt64Slot(95, echelonExtensionCostRegenRatio, 0)
+	builder.PrependInt64Slot(97, echelonExtensionCostRegenRatio, 0)
 }
 func ConstCombatExcelAddEchelonOverloadCostRegenRatio(builder *flatbuffers.Builder, echelonOverloadCostRegenRatio int64) {
-	builder.PrependInt64Slot(96, echelonOverloadCostRegenRatio, 0)
+	builder.PrependInt64Slot(98, echelonOverloadCostRegenRatio, 0)
 }
 func ConstCombatExcelAddEchelonExtensionOverloadCostRegenRatio(builder *flatbuffers.Builder, echelonExtensionOverloadCostRegenRatio int64) {
-	builder.PrependInt64Slot(97, echelonExtensionOverloadCostRegenRatio, 0)
+	builder.PrependInt64Slot(99, echelonExtensionOverloadCostRegenRatio, 0)
 }
 func ConstCombatExcelAddCheckCheaterMaxUseCostMultiFloorRaid(builder *flatbuffers.Builder, checkCheaterMaxUseCostMultiFloorRaid int32) {
-	builder.PrependInt32Slot(98, checkCheaterMaxUseCostMultiFloorRaid, 0)
+	builder.PrependInt32Slot(100, checkCheaterMaxUseCostMultiFloorRaid, 0)
 }
 func ConstCombatExcelAddExcessiveTouchCheckTime(builder *flatbuffers.Builder, excessiveTouchCheckTime float32) {
-	builder.PrependFloat32Slot(99, excessiveTouchCheckTime, 0.0)
+	builder.PrependFloat32Slot(101, excessiveTouchCheckTime, 0.0)
 }
 func ConstCombatExcelAddExcessiveTouchCheckCount(builder *flatbuffers.Builder, excessiveTouchCheckCount int32) {
-	builder.PrependInt32Slot(100, excessiveTouchCheckCount, 0)
+	builder.PrependInt32Slot(102, excessiveTouchCheckCount, 0)
 }
 func ConstCombatExcelAddCampaignAlertPopupLevelGap(builder *flatbuffers.Builder, campaignAlertPopupLevelGap int32) {
-	builder.PrependInt32Slot(101, campaignAlertPopupLevelGap, 0)
+	builder.PrependInt32Slot(103, campaignAlertPopupLevelGap, 0)
 }
 func ConstCombatExcelAddMoveCorrectionSkipRatio(builder *flatbuffers.Builder, moveCorrectionSkipRatio int32) {
-	builder.PrependInt32Slot(102, moveCorrectionSkipRatio, 0)
+	builder.PrependInt32Slot(104, moveCorrectionSkipRatio, 0)
 }
 func ConstCombatExcelAddObstacleColliderHeightJumpable(builder *flatbuffers.Builder, obstacleColliderHeightJumpable float32) {
-	builder.PrependFloat32Slot(103, obstacleColliderHeightJumpable, 0.0)
+	builder.PrependFloat32Slot(105, obstacleColliderHeightJumpable, 0.0)
 }
 func ConstCombatExcelAddObstacleColliderHeightNotJumpable(builder *flatbuffers.Builder, obstacleColliderHeightNotJumpable float32) {
-	builder.PrependFloat32Slot(104, obstacleColliderHeightNotJumpable, 0.0)
+	builder.PrependFloat32Slot(106, obstacleColliderHeightNotJumpable, 0.0)
+}
+func ConstCombatExcelAddCheckCheaterMaxUseCostTacticalRelay(builder *flatbuffers.Builder, checkCheaterMaxUseCostTacticalRelay int32) {
+	builder.PrependInt32Slot(107, checkCheaterMaxUseCostTacticalRelay, 0)
 }
 func ConstCombatExcelEnd(builder *flatbuffers.Builder) flatbuffers.UOffsetT {
 	return builder.EndObject()

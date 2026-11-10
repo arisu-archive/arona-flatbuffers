@@ -43,6 +43,10 @@ const (
 	MailTypePaymentCenterBattlePass      MailType = 33
 	MailTypePaymentCenterDailyRecord     MailType = 34
 	MailTypeExpiryProductDailyRecordItem MailType = 35
+	MailTypeExpiryStreakRecordItem       MailType = 36
+	MailTypeExpirySeasonRecordItem       MailType = 37
+	MailTypePaymentCenterStreakRecord    MailType = 38
+	MailTypeExpiryGlobalAttendanceItem   MailType = 39
 )
 
 var EnumNamesMailType = map[MailType]string{
@@ -82,6 +86,10 @@ var EnumNamesMailType = map[MailType]string{
 	MailTypePaymentCenterBattlePass:      "PaymentCenterBattlePass",
 	MailTypePaymentCenterDailyRecord:     "PaymentCenterDailyRecord",
 	MailTypeExpiryProductDailyRecordItem: "ExpiryProductDailyRecordItem",
+	MailTypeExpiryStreakRecordItem:       "ExpiryStreakRecordItem",
+	MailTypeExpirySeasonRecordItem:       "ExpirySeasonRecordItem",
+	MailTypePaymentCenterStreakRecord:    "PaymentCenterStreakRecord",
+	MailTypeExpiryGlobalAttendanceItem:   "ExpiryGlobalAttendanceItem",
 }
 
 var EnumValuesMailType = map[string]MailType{
@@ -121,6 +129,10 @@ var EnumValuesMailType = map[string]MailType{
 	"PaymentCenterBattlePass":      MailTypePaymentCenterBattlePass,
 	"PaymentCenterDailyRecord":     MailTypePaymentCenterDailyRecord,
 	"ExpiryProductDailyRecordItem": MailTypeExpiryProductDailyRecordItem,
+	"ExpiryStreakRecordItem":       MailTypeExpiryStreakRecordItem,
+	"ExpirySeasonRecordItem":       MailTypeExpirySeasonRecordItem,
+	"PaymentCenterStreakRecord":    MailTypePaymentCenterStreakRecord,
+	"ExpiryGlobalAttendanceItem":   MailTypeExpiryGlobalAttendanceItem,
 }
 
 func (v MailType) String() string {

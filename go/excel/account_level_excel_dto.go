@@ -10,17 +10,37 @@ import (
 // AccountLevelExcelDto represents a FlatBuffers table.
 type AccountLevelExcelDto struct {
 	fbsutils.FlatBuffer
-	ID              int64 `json:"id"`
-	Level           int64 `json:"level"`
-	Exp             int64 `json:"exp"`
-	NewbieExpRatio  int32 `json:"newbie_exp_ratio"`
-	CloseInterval   int32 `json:"close_interval"`
-	ApAutoChargeMax int64 `json:"ap_auto_charge_max"`
-	NeedReportEvent bool  `json:"need_report_event"`
+	ID                       int64   `json:"id"`
+	Level                    int64   `json:"level"`
+	Exp                      int64   `json:"exp"`
+	NewbieExpRatio           int32   `json:"newbie_exp_ratio"`
+	CloseInterval            int32   `json:"close_interval"`
+	ApAutoChargeMax          int64   `json:"ap_auto_charge_max"`
+	NeedReportEvent          bool    `json:"need_report_event"`
+	PlusExpProductMonthlyId1 []int64 `json:"plus_exp_product_monthly_id1"`
+	PlusExpRatio1            int64   `json:"plus_exp_ratio1"`
+	PlusExpIconName1         string  `json:"plus_exp_icon_name1"`
+	PlusExpProductMonthlyId2 []int64 `json:"plus_exp_product_monthly_id2"`
+	PlusExpRatio2            int64   `json:"plus_exp_ratio2"`
+	PlusExpIconName2         string  `json:"plus_exp_icon_name2"`
+	PlusExpIconName3         string  `json:"plus_exp_icon_name3"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
 func (t *AccountLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.UOffsetT {
+	AccountLevelExcelStartPlusExpProductMonthlyId1Vector(b, len(t.PlusExpProductMonthlyId1))
+	for i := len(t.PlusExpProductMonthlyId1) - 1; i >= 0; i-- {
+		b.PrependInt64(t.PlusExpProductMonthlyId1[i])
+	}
+	plusExpProductMonthlyId1Offset := b.EndVector(len(t.PlusExpProductMonthlyId1))
+	plusExpIconName1Offset := b.CreateString(t.PlusExpIconName1)
+	AccountLevelExcelStartPlusExpProductMonthlyId2Vector(b, len(t.PlusExpProductMonthlyId2))
+	for i := len(t.PlusExpProductMonthlyId2) - 1; i >= 0; i-- {
+		b.PrependInt64(t.PlusExpProductMonthlyId2[i])
+	}
+	plusExpProductMonthlyId2Offset := b.EndVector(len(t.PlusExpProductMonthlyId2))
+	plusExpIconName2Offset := b.CreateString(t.PlusExpIconName2)
+	plusExpIconName3Offset := b.CreateString(t.PlusExpIconName3)
 	AccountLevelExcelStart(b)
 	AccountLevelExcelAddId(b, t.ID)
 	AccountLevelExcelAddLevel(b, t.Level)
@@ -29,6 +49,13 @@ func (t *AccountLevelExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers.
 	AccountLevelExcelAddCloseInterval(b, t.CloseInterval)
 	AccountLevelExcelAddApAutoChargeMax(b, t.ApAutoChargeMax)
 	AccountLevelExcelAddNeedReportEvent(b, t.NeedReportEvent)
+	AccountLevelExcelAddPlusExpProductMonthlyId1(b, plusExpProductMonthlyId1Offset)
+	AccountLevelExcelAddPlusExpRatio1(b, t.PlusExpRatio1)
+	AccountLevelExcelAddPlusExpIconName1(b, plusExpIconName1Offset)
+	AccountLevelExcelAddPlusExpProductMonthlyId2(b, plusExpProductMonthlyId2Offset)
+	AccountLevelExcelAddPlusExpRatio2(b, t.PlusExpRatio2)
+	AccountLevelExcelAddPlusExpIconName2(b, plusExpIconName2Offset)
+	AccountLevelExcelAddPlusExpIconName3(b, plusExpIconName3Offset)
 	return AccountLevelExcelEnd(b)
 }
 
@@ -48,6 +75,19 @@ func (t *AccountLevelExcelDto) UnmarshalMessage(e *AccountLevelExcel) error {
 	t.CloseInterval = e.CloseInterval()
 	t.ApAutoChargeMax = e.ApAutoChargeMax()
 	t.NeedReportEvent = e.NeedReportEvent()
+	t.PlusExpProductMonthlyId1 = make([]int64, e.PlusExpProductMonthlyId1Length())
+	for i := 0; i < e.PlusExpProductMonthlyId1Length(); i++ {
+		t.PlusExpProductMonthlyId1[i] = e.PlusExpProductMonthlyId1(i)
+	}
+	t.PlusExpRatio1 = e.PlusExpRatio1()
+	t.PlusExpIconName1 = string(e.PlusExpIconName1())
+	t.PlusExpProductMonthlyId2 = make([]int64, e.PlusExpProductMonthlyId2Length())
+	for i := 0; i < e.PlusExpProductMonthlyId2Length(); i++ {
+		t.PlusExpProductMonthlyId2[i] = e.PlusExpProductMonthlyId2(i)
+	}
+	t.PlusExpRatio2 = e.PlusExpRatio2()
+	t.PlusExpIconName2 = string(e.PlusExpIconName2())
+	t.PlusExpIconName3 = string(e.PlusExpIconName3())
 	return nil
 }
 

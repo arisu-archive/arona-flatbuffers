@@ -10,95 +10,103 @@ import (
 // CharacterStatExcelDto represents a FlatBuffers table.
 type CharacterStatExcelDto struct {
 	fbsutils.FlatBuffer
-	CharacterID                 int64                 `json:"character_id"`
-	StabilityRate               int64                 `json:"stability_rate"`
-	StabilityPoint              int64                 `json:"stability_point"`
-	AttackPower1                int64                 `json:"attack_power1"`
-	AttackPower100              int64                 `json:"attack_power100"`
-	MaxHp1                      int64                 `json:"max_hp1"`
-	MaxHp100                    int64                 `json:"max_hp100"`
-	DefensePower1               int64                 `json:"defense_power1"`
-	DefensePower100             int64                 `json:"defense_power100"`
-	HealPower1                  int64                 `json:"heal_power1"`
-	HealPower100                int64                 `json:"heal_power100"`
-	DodgePoint                  int64                 `json:"dodge_point"`
-	AccuracyPoint               int64                 `json:"accuracy_point"`
-	CriticalPoint               int64                 `json:"critical_point"`
-	CriticalResistPoint         int64                 `json:"critical_resist_point"`
-	CriticalDamageRate          int64                 `json:"critical_damage_rate"`
-	CriticalDamageResistRate    int64                 `json:"critical_damage_resist_rate"`
-	BlockRate                   int64                 `json:"block_rate"`
-	HealEffectivenessRate       int64                 `json:"heal_effectiveness_rate"`
-	OppressionPower             int64                 `json:"oppression_power"`
-	OppressionResist            int64                 `json:"oppression_resist"`
-	DefensePenetration1         int64                 `json:"defense_penetration1"`
-	DefensePenetration100       int64                 `json:"defense_penetration100"`
-	DefensePenetrationResist1   int64                 `json:"defense_penetration_resist1"`
-	DefensePenetrationResist100 int64                 `json:"defense_penetration_resist100"`
-	EnhanceExplosionRate        int64                 `json:"enhance_explosion_rate"`
-	EnhancePierceRate           int64                 `json:"enhance_pierce_rate"`
-	EnhanceMysticRate           int64                 `json:"enhance_mystic_rate"`
-	EnhanceSonicRate            int64                 `json:"enhance_sonic_rate"`
-	EnhanceChemicalRate         int64                 `json:"enhance_chemical_rate"`
-	EnhanceSiegeRate            int64                 `json:"enhance_siege_rate"`
-	EnhanceNormalRate           int64                 `json:"enhance_normal_rate"`
-	EnhanceLightArmorRate       int64                 `json:"enhance_light_armor_rate"`
-	EnhanceHeavyArmorRate       int64                 `json:"enhance_heavy_armor_rate"`
-	EnhanceUnarmedRate          int64                 `json:"enhance_unarmed_rate"`
-	EnhanceElasticArmorRate     int64                 `json:"enhance_elastic_armor_rate"`
-	EnhanceCompositeArmorRate   int64                 `json:"enhance_composite_armor_rate"`
-	EnhanceStructureRate        int64                 `json:"enhance_structure_rate"`
-	EnhanceNormalArmorRate      int64                 `json:"enhance_normal_armor_rate"`
-	ExtendBuffDuration          int64                 `json:"extend_buff_duration"`
-	ExtendDebuffDuration        int64                 `json:"extend_debuff_duration"`
-	ExtendCrowdControlDuration  int64                 `json:"extend_crowd_control_duration"`
-	AmmoCount                   int64                 `json:"ammo_count"`
-	AmmoCost                    int64                 `json:"ammo_cost"`
-	IgnoreDelayCount            int64                 `json:"ignore_delay_count"`
-	NormalAttackSpeed           int64                 `json:"normal_attack_speed"`
-	Range                       int64                 `json:"range"`
-	InitialRangeRate            int64                 `json:"initial_range_rate"`
-	MoveSpeed                   int64                 `json:"move_speed"`
-	SightPoint                  int64                 `json:"sight_point"`
-	ActiveGauge                 int64                 `json:"active_gauge"`
-	GroggyGauge                 int32                 `json:"groggy_gauge"`
-	GroggyTime                  int32                 `json:"groggy_time"`
-	StrategyMobility            int64                 `json:"strategy_mobility"`
-	ActionCount                 int64                 `json:"action_count"`
-	StrategySightRange          int64                 `json:"strategy_sight_range"`
-	DamageRatio                 int64                 `json:"damage_ratio"`
-	DamagedRatio                int64                 `json:"damaged_ratio"`
-	DamageRatio2Increase        int64                 `json:"damage_ratio2_increase"`
-	DamageRatio2Decrease        int64                 `json:"damage_ratio2_decrease"`
-	DamagedRatio2Increase       int64                 `json:"damaged_ratio2_increase"`
-	DamagedRatio2Decrease       int64                 `json:"damaged_ratio2_decrease"`
-	ExDamagedRatioIncrease      int64                 `json:"ex_damaged_ratio_increase"`
-	ExDamagedRatioDecrease      int64                 `json:"ex_damaged_ratio_decrease"`
-	EnhanceExDamageRate         int64                 `json:"enhance_ex_damage_rate"`
-	ReduceExDamagedRate         int64                 `json:"reduce_ex_damaged_rate"`
-	EnhanceBasicsDamageRate     int64                 `json:"enhance_basics_damage_rate"`
-	ReduceBasicsDamagedRate     int64                 `json:"reduce_basics_damaged_rate"`
-	EnhanceWeakDamageRate       int64                 `json:"enhance_weak_damage_rate"`
-	ReduceWeakDamagedRate       int64                 `json:"reduce_weak_damaged_rate"`
-	WeakDamagedRatio            int64                 `json:"weak_damaged_ratio"`
-	EffectiveDamagedRatio       int64                 `json:"effective_damaged_ratio"`
-	NormalDamagedRatio          int64                 `json:"normal_damaged_ratio"`
-	ResistDamagedRatio          int64                 `json:"resist_damaged_ratio"`
-	HealRate                    int64                 `json:"heal_rate"`
-	HealLightArmorRate          int64                 `json:"heal_light_armor_rate"`
-	HealHeavyArmorRate          int64                 `json:"heal_heavy_armor_rate"`
-	HealUnarmedRate             int64                 `json:"heal_unarmed_rate"`
-	HealElasticArmorRate        int64                 `json:"heal_elastic_armor_rate"`
-	HealNormalArmorRate         int64                 `json:"heal_normal_armor_rate"`
-	HealedExplosionRate         int64                 `json:"healed_explosion_rate"`
-	HealedPierceRate            int64                 `json:"healed_pierce_rate"`
-	HealedMysticRate            int64                 `json:"healed_mystic_rate"`
-	HealedSonicRate             int64                 `json:"healed_sonic_rate"`
-	HealedNormalRate            int64                 `json:"healed_normal_rate"`
-	StreetBattleAdaptation      TerrainAdaptationStat `json:"street_battle_adaptation"`
-	OutdoorBattleAdaptation     TerrainAdaptationStat `json:"outdoor_battle_adaptation"`
-	IndoorBattleAdaptation      TerrainAdaptationStat `json:"indoor_battle_adaptation"`
-	RegenCost                   int64                 `json:"regen_cost"`
+	CharacterID                     int64                 `json:"character_id"`
+	StabilityRate                   int64                 `json:"stability_rate"`
+	StabilityPoint                  int64                 `json:"stability_point"`
+	AttackPower1                    int64                 `json:"attack_power1"`
+	AttackPower100                  int64                 `json:"attack_power100"`
+	MaxHp1                          int64                 `json:"max_hp1"`
+	MaxHp100                        int64                 `json:"max_hp100"`
+	DefensePower1                   int64                 `json:"defense_power1"`
+	DefensePower100                 int64                 `json:"defense_power100"`
+	HealPower1                      int64                 `json:"heal_power1"`
+	HealPower100                    int64                 `json:"heal_power100"`
+	DodgePoint                      int64                 `json:"dodge_point"`
+	AccuracyPoint                   int64                 `json:"accuracy_point"`
+	CriticalPoint                   int64                 `json:"critical_point"`
+	CriticalResistPoint             int64                 `json:"critical_resist_point"`
+	CriticalDamageRate              int64                 `json:"critical_damage_rate"`
+	CriticalDamageResistRate        int64                 `json:"critical_damage_resist_rate"`
+	BlockRate                       int64                 `json:"block_rate"`
+	HealEffectivenessRate           int64                 `json:"heal_effectiveness_rate"`
+	OppressionPower                 int64                 `json:"oppression_power"`
+	OppressionResist                int64                 `json:"oppression_resist"`
+	DefensePenetration1             int64                 `json:"defense_penetration1"`
+	DefensePenetration100           int64                 `json:"defense_penetration100"`
+	DefensePenetrationResist1       int64                 `json:"defense_penetration_resist1"`
+	DefensePenetrationResist100     int64                 `json:"defense_penetration_resist100"`
+	EnhanceExplosionRate            int64                 `json:"enhance_explosion_rate"`
+	EnhancePierceRate               int64                 `json:"enhance_pierce_rate"`
+	EnhanceMysticRate               int64                 `json:"enhance_mystic_rate"`
+	EnhanceSonicRate                int64                 `json:"enhance_sonic_rate"`
+	EnhanceChemicalRate             int64                 `json:"enhance_chemical_rate"`
+	EnhanceSiegeRate                int64                 `json:"enhance_siege_rate"`
+	EnhanceNormalRate               int64                 `json:"enhance_normal_rate"`
+	EnhanceLightArmorRate           int64                 `json:"enhance_light_armor_rate"`
+	EnhanceHeavyArmorRate           int64                 `json:"enhance_heavy_armor_rate"`
+	EnhanceUnarmedRate              int64                 `json:"enhance_unarmed_rate"`
+	EnhanceElasticArmorRate         int64                 `json:"enhance_elastic_armor_rate"`
+	EnhanceCompositeArmorRate       int64                 `json:"enhance_composite_armor_rate"`
+	EnhanceStructureRate            int64                 `json:"enhance_structure_rate"`
+	EnhanceNormalArmorRate          int64                 `json:"enhance_normal_armor_rate"`
+	ExtendBuffDuration              int64                 `json:"extend_buff_duration"`
+	ExtendDebuffDuration            int64                 `json:"extend_debuff_duration"`
+	ExtendCrowdControlDuration      int64                 `json:"extend_crowd_control_duration"`
+	AmmoCount                       int64                 `json:"ammo_count"`
+	AmmoCost                        int64                 `json:"ammo_cost"`
+	IgnoreDelayCount                int64                 `json:"ignore_delay_count"`
+	NormalAttackSpeed               int64                 `json:"normal_attack_speed"`
+	Range                           int64                 `json:"range"`
+	InitialRangeRate                int64                 `json:"initial_range_rate"`
+	MoveSpeed                       int64                 `json:"move_speed"`
+	SightPoint                      int64                 `json:"sight_point"`
+	ActiveGauge                     int64                 `json:"active_gauge"`
+	GroggyGauge                     int32                 `json:"groggy_gauge"`
+	GroggyTime                      int32                 `json:"groggy_time"`
+	StrategyMobility                int64                 `json:"strategy_mobility"`
+	ActionCount                     int64                 `json:"action_count"`
+	StrategySightRange              int64                 `json:"strategy_sight_range"`
+	DamageRatio                     int64                 `json:"damage_ratio"`
+	DamagedRatio                    int64                 `json:"damaged_ratio"`
+	DamageRatio2Increase            int64                 `json:"damage_ratio2_increase"`
+	DamageRatio2Decrease            int64                 `json:"damage_ratio2_decrease"`
+	DamagedRatio2Increase           int64                 `json:"damaged_ratio2_increase"`
+	DamagedRatio2Decrease           int64                 `json:"damaged_ratio2_decrease"`
+	ExDamagedRatioIncrease          int64                 `json:"ex_damaged_ratio_increase"`
+	ExDamagedRatioDecrease          int64                 `json:"ex_damaged_ratio_decrease"`
+	EnhanceExDamageRate             int64                 `json:"enhance_ex_damage_rate"`
+	ReduceExDamagedRate             int64                 `json:"reduce_ex_damaged_rate"`
+	EnhanceBasicsDamageRate         int64                 `json:"enhance_basics_damage_rate"`
+	ReduceBasicsDamagedRate         int64                 `json:"reduce_basics_damaged_rate"`
+	EnhanceWeakDamageRate           int64                 `json:"enhance_weak_damage_rate"`
+	ReduceWeakDamagedRate           int64                 `json:"reduce_weak_damaged_rate"`
+	EnhanceResistDamageRate         int64                 `json:"enhance_resist_damage_rate"`
+	ReduceResistDamagedRate         int64                 `json:"reduce_resist_damaged_rate"`
+	WeakDamagedRatio                int64                 `json:"weak_damaged_ratio"`
+	EffectiveDamagedRatio           int64                 `json:"effective_damaged_ratio"`
+	NormalDamagedRatio              int64                 `json:"normal_damaged_ratio"`
+	ResistDamagedRatio              int64                 `json:"resist_damaged_ratio"`
+	AddDamageRatioSynergyBulletType int64                 `json:"add_damage_ratio_synergy_bullet_type"`
+	AddSummonedObstacleDamagedRatio int64                 `json:"add_summoned_obstacle_damaged_ratio"`
+	DamagedRatioObstacle            int64                 `json:"damaged_ratio_obstacle"`
+	HealRate                        int64                 `json:"heal_rate"`
+	HealLightArmorRate              int64                 `json:"heal_light_armor_rate"`
+	HealHeavyArmorRate              int64                 `json:"heal_heavy_armor_rate"`
+	HealUnarmedRate                 int64                 `json:"heal_unarmed_rate"`
+	HealElasticArmorRate            int64                 `json:"heal_elastic_armor_rate"`
+	HealNormalArmorRate             int64                 `json:"heal_normal_armor_rate"`
+	HealedExplosionRate             int64                 `json:"healed_explosion_rate"`
+	HealedPierceRate                int64                 `json:"healed_pierce_rate"`
+	HealedMysticRate                int64                 `json:"healed_mystic_rate"`
+	HealedSonicRate                 int64                 `json:"healed_sonic_rate"`
+	HealedNormalRate                int64                 `json:"healed_normal_rate"`
+	AddStreetTerrainFactor          int64                 `json:"add_street_terrain_factor"`
+	AddOutdoorTerrainFactor         int64                 `json:"add_outdoor_terrain_factor"`
+	AddIndoorTerrainFactor          int64                 `json:"add_indoor_terrain_factor"`
+	StreetBattleAdaptation          TerrainAdaptationStat `json:"street_battle_adaptation"`
+	OutdoorBattleAdaptation         TerrainAdaptationStat `json:"outdoor_battle_adaptation"`
+	IndoorBattleAdaptation          TerrainAdaptationStat `json:"indoor_battle_adaptation"`
+	RegenCost                       int64                 `json:"regen_cost"`
 }
 
 // MarshalModel marshals the struct into a FlatBuffers offset.
@@ -174,10 +182,15 @@ func (t *CharacterStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	CharacterStatExcelAddReduceBasicsDamagedRate(b, t.ReduceBasicsDamagedRate)
 	CharacterStatExcelAddEnhanceWeakDamageRate(b, t.EnhanceWeakDamageRate)
 	CharacterStatExcelAddReduceWeakDamagedRate(b, t.ReduceWeakDamagedRate)
+	CharacterStatExcelAddEnhanceResistDamageRate(b, t.EnhanceResistDamageRate)
+	CharacterStatExcelAddReduceResistDamagedRate(b, t.ReduceResistDamagedRate)
 	CharacterStatExcelAddWeakDamagedRatio(b, t.WeakDamagedRatio)
 	CharacterStatExcelAddEffectiveDamagedRatio(b, t.EffectiveDamagedRatio)
 	CharacterStatExcelAddNormalDamagedRatio(b, t.NormalDamagedRatio)
 	CharacterStatExcelAddResistDamagedRatio(b, t.ResistDamagedRatio)
+	CharacterStatExcelAddAddDamageRatioSynergyBulletType(b, t.AddDamageRatioSynergyBulletType)
+	CharacterStatExcelAddAddSummonedObstacleDamagedRatio(b, t.AddSummonedObstacleDamagedRatio)
+	CharacterStatExcelAddDamagedRatioObstacle(b, t.DamagedRatioObstacle)
 	CharacterStatExcelAddHealRate(b, t.HealRate)
 	CharacterStatExcelAddHealLightArmorRate(b, t.HealLightArmorRate)
 	CharacterStatExcelAddHealHeavyArmorRate(b, t.HealHeavyArmorRate)
@@ -189,6 +202,9 @@ func (t *CharacterStatExcelDto) MarshalModel(b *flatbuffers.Builder) flatbuffers
 	CharacterStatExcelAddHealedMysticRate(b, t.HealedMysticRate)
 	CharacterStatExcelAddHealedSonicRate(b, t.HealedSonicRate)
 	CharacterStatExcelAddHealedNormalRate(b, t.HealedNormalRate)
+	CharacterStatExcelAddAddStreetTerrainFactor(b, t.AddStreetTerrainFactor)
+	CharacterStatExcelAddAddOutdoorTerrainFactor(b, t.AddOutdoorTerrainFactor)
+	CharacterStatExcelAddAddIndoorTerrainFactor(b, t.AddIndoorTerrainFactor)
 	CharacterStatExcelAddStreetBattleAdaptation(b, t.StreetBattleAdaptation)
 	CharacterStatExcelAddOutdoorBattleAdaptation(b, t.OutdoorBattleAdaptation)
 	CharacterStatExcelAddIndoorBattleAdaptation(b, t.IndoorBattleAdaptation)
@@ -275,10 +291,15 @@ func (t *CharacterStatExcelDto) UnmarshalMessage(e *CharacterStatExcel) error {
 	t.ReduceBasicsDamagedRate = e.ReduceBasicsDamagedRate()
 	t.EnhanceWeakDamageRate = e.EnhanceWeakDamageRate()
 	t.ReduceWeakDamagedRate = e.ReduceWeakDamagedRate()
+	t.EnhanceResistDamageRate = e.EnhanceResistDamageRate()
+	t.ReduceResistDamagedRate = e.ReduceResistDamagedRate()
 	t.WeakDamagedRatio = e.WeakDamagedRatio()
 	t.EffectiveDamagedRatio = e.EffectiveDamagedRatio()
 	t.NormalDamagedRatio = e.NormalDamagedRatio()
 	t.ResistDamagedRatio = e.ResistDamagedRatio()
+	t.AddDamageRatioSynergyBulletType = e.AddDamageRatioSynergyBulletType()
+	t.AddSummonedObstacleDamagedRatio = e.AddSummonedObstacleDamagedRatio()
+	t.DamagedRatioObstacle = e.DamagedRatioObstacle()
 	t.HealRate = e.HealRate()
 	t.HealLightArmorRate = e.HealLightArmorRate()
 	t.HealHeavyArmorRate = e.HealHeavyArmorRate()
@@ -290,6 +311,9 @@ func (t *CharacterStatExcelDto) UnmarshalMessage(e *CharacterStatExcel) error {
 	t.HealedMysticRate = e.HealedMysticRate()
 	t.HealedSonicRate = e.HealedSonicRate()
 	t.HealedNormalRate = e.HealedNormalRate()
+	t.AddStreetTerrainFactor = e.AddStreetTerrainFactor()
+	t.AddOutdoorTerrainFactor = e.AddOutdoorTerrainFactor()
+	t.AddIndoorTerrainFactor = e.AddIndoorTerrainFactor()
 	t.StreetBattleAdaptation = e.StreetBattleAdaptation()
 	t.OutdoorBattleAdaptation = e.OutdoorBattleAdaptation()
 	t.IndoorBattleAdaptation = e.IndoorBattleAdaptation()

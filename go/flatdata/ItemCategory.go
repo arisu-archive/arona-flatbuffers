@@ -7,51 +7,54 @@ import "strconv"
 type ItemCategory int32
 
 const (
-	ItemCategoryCoin               ItemCategory = 0
-	ItemCategoryCharacterExpGrowth ItemCategory = 1
-	ItemCategorySecretStone        ItemCategory = 2
-	ItemCategoryMaterial           ItemCategory = 3
-	ItemCategoryConsumable         ItemCategory = 4
-	ItemCategoryCollectible        ItemCategory = 5
-	ItemCategoryFavor              ItemCategory = 6
-	ItemCategoryRecruitCoin        ItemCategory = 7
-	ItemCategoryMonthlyBonus       ItemCategory = 8
-	ItemCategoryInvisibleToken     ItemCategory = 9
-	ItemCategoryBattlePass         ItemCategory = 10
-	ItemCategoryProductSelect      ItemCategory = 11
-	ItemCategoryProductDailyRecord ItemCategory = 12
+	ItemCategoryCoin                ItemCategory = 0
+	ItemCategoryCharacterExpGrowth  ItemCategory = 1
+	ItemCategorySecretStone         ItemCategory = 2
+	ItemCategoryMaterial            ItemCategory = 3
+	ItemCategoryConsumable          ItemCategory = 4
+	ItemCategoryCollectible         ItemCategory = 5
+	ItemCategoryFavor               ItemCategory = 6
+	ItemCategoryRecruitCoin         ItemCategory = 7
+	ItemCategoryMonthlyBonus        ItemCategory = 8
+	ItemCategoryInvisibleToken      ItemCategory = 9
+	ItemCategoryBattlePass          ItemCategory = 10
+	ItemCategoryProductSelect       ItemCategory = 11
+	ItemCategoryProductDailyRecord  ItemCategory = 12
+	ItemCategoryProductStreakRecord ItemCategory = 13
 )
 
 var EnumNamesItemCategory = map[ItemCategory]string{
-	ItemCategoryCoin:               "Coin",
-	ItemCategoryCharacterExpGrowth: "CharacterExpGrowth",
-	ItemCategorySecretStone:        "SecretStone",
-	ItemCategoryMaterial:           "Material",
-	ItemCategoryConsumable:         "Consumable",
-	ItemCategoryCollectible:        "Collectible",
-	ItemCategoryFavor:              "Favor",
-	ItemCategoryRecruitCoin:        "RecruitCoin",
-	ItemCategoryMonthlyBonus:       "MonthlyBonus",
-	ItemCategoryInvisibleToken:     "InvisibleToken",
-	ItemCategoryBattlePass:         "BattlePass",
-	ItemCategoryProductSelect:      "ProductSelect",
-	ItemCategoryProductDailyRecord: "ProductDailyRecord",
+	ItemCategoryCoin:                "Coin",
+	ItemCategoryCharacterExpGrowth:  "CharacterExpGrowth",
+	ItemCategorySecretStone:         "SecretStone",
+	ItemCategoryMaterial:            "Material",
+	ItemCategoryConsumable:          "Consumable",
+	ItemCategoryCollectible:         "Collectible",
+	ItemCategoryFavor:               "Favor",
+	ItemCategoryRecruitCoin:         "RecruitCoin",
+	ItemCategoryMonthlyBonus:        "MonthlyBonus",
+	ItemCategoryInvisibleToken:      "InvisibleToken",
+	ItemCategoryBattlePass:          "BattlePass",
+	ItemCategoryProductSelect:       "ProductSelect",
+	ItemCategoryProductDailyRecord:  "ProductDailyRecord",
+	ItemCategoryProductStreakRecord: "ProductStreakRecord",
 }
 
 var EnumValuesItemCategory = map[string]ItemCategory{
-	"Coin":               ItemCategoryCoin,
-	"CharacterExpGrowth": ItemCategoryCharacterExpGrowth,
-	"SecretStone":        ItemCategorySecretStone,
-	"Material":           ItemCategoryMaterial,
-	"Consumable":         ItemCategoryConsumable,
-	"Collectible":        ItemCategoryCollectible,
-	"Favor":              ItemCategoryFavor,
-	"RecruitCoin":        ItemCategoryRecruitCoin,
-	"MonthlyBonus":       ItemCategoryMonthlyBonus,
-	"InvisibleToken":     ItemCategoryInvisibleToken,
-	"BattlePass":         ItemCategoryBattlePass,
-	"ProductSelect":      ItemCategoryProductSelect,
-	"ProductDailyRecord": ItemCategoryProductDailyRecord,
+	"Coin":                ItemCategoryCoin,
+	"CharacterExpGrowth":  ItemCategoryCharacterExpGrowth,
+	"SecretStone":         ItemCategorySecretStone,
+	"Material":            ItemCategoryMaterial,
+	"Consumable":          ItemCategoryConsumable,
+	"Collectible":         ItemCategoryCollectible,
+	"Favor":               ItemCategoryFavor,
+	"RecruitCoin":         ItemCategoryRecruitCoin,
+	"MonthlyBonus":        ItemCategoryMonthlyBonus,
+	"InvisibleToken":      ItemCategoryInvisibleToken,
+	"BattlePass":          ItemCategoryBattlePass,
+	"ProductSelect":       ItemCategoryProductSelect,
+	"ProductDailyRecord":  ItemCategoryProductDailyRecord,
+	"ProductStreakRecord": ItemCategoryProductStreakRecord,
 }
 
 func (v ItemCategory) String() string {
