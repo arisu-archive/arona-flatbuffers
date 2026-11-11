@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.0](https://github.com/arisu-archive/arona-flatbuffers/compare/v0.12.0...v0.13.0) (2026-11-10)
+
+
+### Features
+
+* **apk:** generate schema for 1.96.474931 ([#91](https://github.com/arisu-archive/arona-flatbuffers/issues/91)) ([0705a38](https://github.com/arisu-archive/arona-flatbuffers/commit/0705a3860ca40183d9d95222980eb316432f6120))
+
 ## [0.12.0](https://github.com/arisu-archive/arona-flatbuffers/compare/v0.11.0...v0.12.0) (2026-08-24)
 
 
